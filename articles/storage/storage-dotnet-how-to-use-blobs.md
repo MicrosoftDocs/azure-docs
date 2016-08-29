@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Get started with Azure Blob storage using .NET | Microsoft Azure"
-	description="Store file data in the cloud with Azure Blob storage (object storage). Get started with simple Blob storage operations, including creating a container and uploading, downloading, listing, and deleting blob content."
+	pageTitle="Get started with Azure Blob storage (object storage) using .NET | Microsoft Azure"
+	description="Store unstructured data in the cloud with Azure Blob storage (object storage)."
 	services="storage"
 	documentationCenter=".net"
 	authors="tamram"
@@ -13,21 +13,23 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/25/2016"
+	ms.date="07/22/2016"
 	ms.author="tamram"/>
 
 
 # Get started with Azure Blob storage using .NET
 
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## Overview
 
-Azure Blob storage is a service that stores file data in the cloud. Blob storage can store any type of text or binary data, such as a document, media file, or application installer. Blob storage is also referred to as object storage.
+Azure Blob storage is a service that stores unstructured data in the cloud as objects/blobs. Blob storage can store any type of text or binary data, such as a document, media file, or application installer. Blob storage is also referred to as object storage.
 
 ### About this tutorial
 
-This tutorial shows how to write .NET code for some common scenarios using Azure Blob storage. Scenarios covered include uploading, listing, downloading, and deleting blobs. 
+This tutorial shows how to write .NET code for some common scenarios using Azure Blob storage. Scenarios covered include uploading, listing, downloading, and deleting blobs.
 
 **Estimated time to complete:** 45 minutes
 
@@ -36,41 +38,41 @@ This tutorial shows how to write .NET code for some common scenarios using Azure
 - [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
 - [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 - [Azure Configuration Manager for .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
-- An [Azure storage account](storage-create-storage-account.md#create-a-storage-account).
+- An [Azure storage account](storage-create-storage-account.md#create-a-storage-account)
 
 
 [AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
+
+### More samples
+
+For additional examples using Blob storage, see [Getting Started with Azure Blob Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/). You can download the sample application and run it, or browse the code on GitHub. 
+
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-[AZURE.INCLUDE [storage-configure-connection-string-include](../../includes/storage-configure-connection-string-include.md)]
+[AZURE.INCLUDE [storage-development-environment-include](../../includes/storage-development-environment-include.md)]
 
-## Programmatically access Blob storage
+### Add namespace declarations
 
-[AZURE.INCLUDE [storage-dotnet-obtain-assembly](../../includes/storage-dotnet-obtain-assembly.md)]
+Add the following `using` statements to the top of the `program.cs` file:
 
-### Namespace declarations
+	using Microsoft.Azure; // Namespace for CloudConfigurationManager
+	using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
+    using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types
 
-Add the following namespace declarations to the top of any C\# file
-in which you wish to programmatically access Azure Storage:
+### Parse the connection string
 
-    using Microsoft.WindowsAzure;
-    using Microsoft.WindowsAzure.Storage;
-    using Microsoft.WindowsAzure.Storage.Auth;
-    using Microsoft.WindowsAzure.Storage.Blob;
+[AZURE.INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
-Make sure you reference the `Microsoft.WindowsAzure.Storage.dll` assembly.
+### Create the Blob service client
 
-[AZURE.INCLUDE [storage-dotnet-retrieve-conn-string](../../includes/storage-dotnet-retrieve-conn-string.md)]
-
-A **CloudBlobClient** type allows you to retrieve objects that represent
-containers and blobs stored within the Blob Storage Service. The
-following code creates a **CloudBlobClient** object using the storage
-account object we retrieved above:
+The **CloudBlobClient** class enables you to retrieve containers and blobs stored in Blob storage. Here's one way to create the service client:
 
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+Now you are ready to write code that reads data from and writes data to Blob storage.
 
 ## Create a container
 
@@ -91,18 +93,12 @@ This example shows how to create a container if it does not already exist:
     // Create the container if it doesn't already exist.
     container.CreateIfNotExists();
 
-By default, the new container is private and you must specify your
-storage access key to download blobs from this
-container. If you want to make the files within the container available
-to everyone, you can set the container to be public using the following
-code:
+By default, the new container is private, meaning that you must specify your storage access key to download blobs from this container. If you want to make the files within the container available to everyone, you can set the container to be public using the following code:
 
     container.SetPermissions(
-        new BlobContainerPermissions { PublicAccess =
- 	    BlobContainerPublicAccessType.Blob });
+        new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
 
-Anyone on the Internet can see blobs in a public container, but you can
-modify or delete them only if you have the appropriate access key.
+Anyone on the Internet can see blobs in a public container, but you can modify or delete them only if you have the appropriate account access key or a shared access signature.
 
 ## Upload a blob into a container
 
@@ -374,24 +370,48 @@ The example below creates a new append blob and appends some data to it, simulat
 
 See [Understanding Block Blobs, Page Blobs, and Append Blobs](https://msdn.microsoft.com/library/azure/ee691964.aspx) for more information about the differences between the three types of blobs.
 
+## Managing security for blobs
+
+By default, Azure Storage keeps your data secure by limiting access to the account owner, who is in possession of the account access keys. When you need to share blob data in your storage account, it is important to do so without compromising the security of your account access keys. Additionally, you can encrypt blob data to ensure that it is secure going over the wire and in Azure Storage.
+
+[AZURE.INCLUDE [storage-account-key-note-include](../../includes/storage-account-key-note-include.md)]
+
+### Controlling access to blob data
+
+By default, the blob data in your storage account is accessible only to storage account owner. Authenticating requests against Blob storage requires the account access key by default. However, you may wish to make certain blob data available to other users. You have two options:
+
+- **Anonymous access:** You can make a container or its blobs publicly available for anonymous access. See [Manage anonymous read access to containers and blobs](storage-manage-access-to-resources.md) for more information.
+- **Shared access signatures:** You can provide clients with a shared access signature (SAS), which provides delegated access to a resource in your storage account, with permissions that you specify and over an interval that you specify. See [Shared Access Signatures: Understanding the SAS Model](storage-dotnet-shared-access-signature-part-1.md) for more information.
+
+### Encrypting blob data
+
+Azure Storage supports encrypting blob data both at the client and on the server:
+
+- **Client-side encryption:** The Storage Client Library for .NET supports encrypting data within client applications before uploading to Azure Storage, and decrypting data while downloading to the client. The library also supports integration with Azure Key Vault for storage account key management. See [Client-Side Encryption with .NET for Microsoft Azure Storage](storage-client-side-encryption.md) for more information. Also see [Tutorial: Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md).
+- **Server-side encryption**: Azure Storage now supports server-side encryption. See [Azure Storage Service Encryption for Data at Rest (Preview)](storage-service-encryption.md). 
+
 ## Next steps
 
 Now that you've learned the basics of Blob storage, follow these links
 to learn more.
 
-### Blob storage reference documentation
+### Microsoft Azure Storage Explorer
+- [Microsoft Azure Storage Explorer (MASE)](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, OS X, and Linux.
+
+### Blob storage samples
+
+- [Getting Started with Azure Blob Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)
+
+### Blob storage reference
 
 - [Storage Client Library for .NET reference](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 - [REST API reference](http://msdn.microsoft.com/library/azure/dd179355)
 
-### Additional feature guides
+### Conceptual guides
 
-- [Get started with Table storage for .NET](storage-dotnet-how-to-use-tables.md)
-- [Get started with Queue storage for .NET](storage-dotnet-how-to-use-queues.md)
+- [Transfer data with the AzCopy command-line utility](storage-use-azcopy.md)
 - [Get started with File storage for .NET](storage-dotnet-how-to-use-files.md)
-- [Transfer data with the AzCopy command-line utility](storage-use-azcopy)
 - [How to use Azure blob storage with the WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
-- [Using SQL Database from .NET (C#)](../sql-database/sql-database-dotnet-how-to-use.md)
 
   [Blob5]: ./media/storage-dotnet-how-to-use-blobs/blob5.png
   [Blob6]: ./media/storage-dotnet-how-to-use-blobs/blob6.png

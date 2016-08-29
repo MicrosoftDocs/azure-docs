@@ -5,7 +5,7 @@
 	documentationCenter=".net" 
 	authors="sethmanheim" 
 	manager="timlt" 
-	editor="tysonn"/>
+	editor=""/>
 
 <tags 
 	ms.service="service-bus" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016" 
 	ms.author="sethm"/>
 
 # How to use AMQP 1.0 with the Service Bus .NET API
@@ -26,7 +26,7 @@ This article explains how to use the Service Bus brokered messaging features (qu
 
 ## Get started with Service Bus
 
-This article assumes that you already have a Service Bus namespace containing a queue named "queue1." If you do not, then you can create the namespace and queue using the [Azure classic portal](http://manage.windowsazure.com). For more information about how to create Service Bus namespaces and queues, see [How to use Service Bus queues](service-bus-dotnet-how-to-use-queues.md).
+This article assumes that you already have a Service Bus namespace containing a queue named "queue1." If you do not, then you can create the namespace and queue using the [Azure portal][]. For more information about how to create Service Bus namespaces and queues, see [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md).
 
 ## Download the Service Bus SDK
 
@@ -40,7 +40,7 @@ In the current release, there are a few API features that are not supported when
 
 ### Configure via App.config
 
-It is a recommended practice for applications to use the App.config configuration file to store settings. For Service Bus applications, you can use App.config to store the Service Bus **ConnectionString**. This sample application also uses App.config to store the name of the Service Bus messaging entity that it uses.
+It is a recommended practice that applications use the App.config configuration file to store settings. For Service Bus applications, you can use App.config to store the Service Bus **ConnectionString**. This sample application also uses App.config to store the name of the Service Bus messaging entity that it uses.
 
 A sample App.config file is shown here:
 
@@ -63,7 +63,7 @@ The value of the **Microsoft.ServiceBus.ConnectionString** setting is the Servic
 Endpoint=sb://[namespace].servicebus.windows.net;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp
 ```
 
-Where `[namespace]` and `[SAS key]` are obtained from the [Azure classic portal][]. For more information, see [How to use Service Bus queues][].
+Where `[namespace]` and `[SAS key]` are obtained from the [Azure portal][]. For more information, see [How to use Service Bus queues][].
 
 When using AMQP, the connection string is appended with `;TransportType=Amqp`, which tells the client library to make its connection to Service Bus using AMQP 1.0.
 
@@ -295,22 +295,14 @@ exit
 
 The following features of the .NET Service Bus API are not currently supported when using AMQP:
 
-* Transactions
-* Send via transfer destination
-* Receive by message sequence number
-* Message and session browse
-* Session state
-* Batch-based APIs
-* Scaled-out receive
-* Runtime manipulation of subscription rules
-* Session lock renewal
-* Some minor differences in behavior
+ * Transactions
+ * Send via transfer destination
 
-For more information, see the [Service Bus AMQP overview](service-bus-amqp-dotnet.md). This topic includes a detailed list of unsupported APIs.
+For more information, see [Unsupported features, restrictions, and behavioral differences](service-bus-amqp-dotnet.md#unsupported-features-restrictions-and-behavioral-differences).
 
 ## Summary
 
-This topic showed how to access the Service Bus brokered messaging features (queues and publish/subscribe topics) from .NET using AMQP 1.0 and the Service Bus .NET API.
+This article showed how to access the Service Bus brokered messaging features (queues and publish/subscribe topics) from .NET using AMQP 1.0 and the Service Bus .NET API.
 
 You can also use Service Bus AMQP 1.0 from other languages including Java, C, Python, and PHP. Components built using these languages can exchange messages reliably and at full fidelity using AMQP 1.0 in Service Bus. For more information, see the [Service Bus AMQP overview](service-bus-amqp-dotnet.md).
 
@@ -320,6 +312,6 @@ Now that you've read an overview of Service Bus and AMQP with .NET, see the foll
 
 * [AMQP 1.0 support in Azure Service Bus](service-bus-amqp-overview.md)
 * [How to use the Java Message Service (JMS) API with Service Bus & AMQP 1.0](service-bus-java-how-to-use-jms-api-amqp.md)
-* [How to use Service Bus queues](service-bus-dotnet-how-to-use-queues.md)
+* [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
  
-[Azure classic portal]: http://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com

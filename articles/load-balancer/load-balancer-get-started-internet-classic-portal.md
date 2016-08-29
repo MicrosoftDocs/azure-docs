@@ -4,7 +4,7 @@
    description="Learn how to create an Internet facing load balancer in classic deployment model using the Azure classic portal"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor=""
    tags="azure-service-management"
@@ -15,8 +15,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/07/2015"
-   ms.author="joaoma" />
+   ms.date="03/17/2016"
+   ms.author="sewhee" />
 
 # Get started creating an Internet facing load balancer (classic) in the Azure classic portal
 
@@ -63,7 +63,7 @@ For the additional virtual machines in the load-balanced set, repeat steps 8-10.
 
 ## Next steps
 
-[Get started configuring an internal load balancer](load-balancer-internal-getstarted.md)
+[Get started configuring an internal load balancer](load-balancer-get-started-ilb-arm-ps.md)
 
 [Configure a load balancer distribution mode](load-balancer-distribution-mode.md)
 

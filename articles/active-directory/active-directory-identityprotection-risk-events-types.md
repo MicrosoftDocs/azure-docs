@@ -5,7 +5,7 @@
 	keywords="azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="08/02/2016"
 	ms.author="markvi"/>
 
 #Types of risk events detected by Azure Active Directory Identity Protection 
@@ -26,6 +26,7 @@ In Azure Active Directory Identity Protection, risk events are events that:
 - indicate that an identity may have been compromised. 
 
 This topic gives you a detailed overview of the available types of risk events.
+
 
 ## Leaked credentials
 

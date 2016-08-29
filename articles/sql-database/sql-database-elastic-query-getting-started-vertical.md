@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Getting started with cross-database queries (vertical partitioning) | Microsoft Azure"	
+	pageTitle="Get started with cross-database queries (vertical partitioning) | Microsoft Azure"	
 	description="how to use elastic database query with vertically partitioned databases"
 	services="sql-database"
 	documentationCenter=""  
-	manager="jeffreyg"
-	authors="sidneyh"/>
+	manager="jhubbard"
+	authors="torsteng"/>
 
 <tags
 	ms.service="sql-database"
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="05/23/2016"
 	ms.author="torsteng" />
 
-# Getting started with cross-database queries (vertical partitioning) 
+# Get started with cross-database queries (vertical partitioning) (preview)
 
 Elastic database query (preview) for Azure SQL Database allows you to run T-SQL queries that span multiple databases using a single connection point. This topic applies to [vertically partitioned databases](sql-database-elastic-query-vertical-partitioning.md).  
 
@@ -39,7 +39,7 @@ Execute the following queries on the **Orders** database to create the **OrderIn
 	INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (321, 1) 
 	INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (564, 8) 
 
-Now, execute following query on the Customers database to create the CustomerInformation table and input the sample data. 
+Now, execute following query on the **Customers** database to create the **CustomerInformation** table and input the sample data. 
 
 	CREATE TABLE [dbo].[CustomerInformation]( 
 		[CustomerID] [int] NOT NULL, 
@@ -54,9 +54,6 @@ Now, execute following query on the Customers database to create the CustomerInf
 ## Create database objects
 ### Database scoped master key and credentials
 
-
-These are used to connect to the shard map manager and the shards: 
-
 1. Open SQL Server Management Studio or SQL Server Data Tools in Visual Studio.
 2. Connect to the Orders database and execute the following T-SQL commands:
 
@@ -66,6 +63,7 @@ These are used to connect to the shard map manager and the shards:
 		SECRET = '<password>';  
 
 	The "username" and "password" should be the username and password used to login into the Customers database.
+	Authentication using Azure Active Directory with elastic queries is not currently supported.
 
 ### External data sources
 To create an external data source, execute the following command on the Orders database: 

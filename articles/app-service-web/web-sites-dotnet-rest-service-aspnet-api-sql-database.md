@@ -50,8 +50,6 @@ You'll build a simple contact list web application that is built on ASP.NET MVC 
 
 1. In the **New ASP.NET Project** dialog box, select the **MVC** template, check **Web API** and then click **Change Authentication**.
 
-	![New ASP.NET Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.png)
-
 1. In the **Change Authentication** dialog box, click **No Authentication**, and then click **OK**.
 
 	![No Authentication](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/GS13noauth.png)
@@ -60,7 +58,6 @@ You'll build a simple contact list web application that is built on ASP.NET MVC 
 
 1. In the **New ASP.NET Project** dialog box, make sure the **Host in the Cloud** is checked and click **OK**.
 
-	![New ASP.NET Project dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rt3.png)
 
 If you have not previously signed in to Azure, you will be prompted to sign in.
 
@@ -211,7 +208,6 @@ The ASP.NET MVC the scaffolding feature can automatically generate code that per
 
 6. Set the controller name to **HomeController**. Select **Contact** as your model class. Click the **New data context** button and accept the default "ContactManager.Models.ContactManagerContext" for the **New data context type**. Click **Add**.
 
-	![Add Controller dialog box](./media/web-sites-dotnet-rest-service-aspnet-api-sql-database/rr9.png)
 
 	A dialog box will prompt you: "A file with the name HomeController already exits. Do you want to replace it?". Click **Yes**. We are overwriting the Home Controller that was created with the new project. We will use the new Home Controller for our contact list.
 

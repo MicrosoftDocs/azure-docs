@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="How to install Apache Qpid Proton-C on a Linux VM | Microsoft Azure"
-   description="How to create a CentOS Linux VM using Azure Virtual Machines and how to build and install the Apache Qpid Proton-C library."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="How to install Apache Qpid Proton-C on a Linux VM | Microsoft Azure"
+    description="How to create a CentOS Linux VM using Azure Virtual Machines and how to build and install the Apache Qpid Proton-C library."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/06/2016"
+    ms.author="sethm" />
 
 # Install Apache Qpid Proton-C on an Azure Linux VM
 
@@ -60,23 +60,25 @@ For the Python and PHP apps, this example uses the Proton client libraries from 
 1.  Download the Proton library:
 
 	```
-	[azureuser@this-user ~]$ wget http://www.bizdirusa.com/mirrors/apache/qpid/proton/0.4/qpid-proton-0.4.tar.gz 
-		--2013-05-23 21:27:55-- http://www.bizdirusa.com/mirrors/apache/qpid/proton/0.4/qpid-proton-0.4.tar.gz 
-		Resolving www.bizdirusa.com... 205.186.175.195 
-		Connecting to www.bizdirusa.com|205.186.175.195|:80... connected. 
-		HTTP request sent, awaiting response... 200 OK 
-		Length: 456693 (446K) [application/x-gzip] 
-		Saving to: âqpid-proton-0.4.tar.gzâ
-
-		100%[======================================\>] 456,693 --.-K/s in 0.06s
-
-		2015-05-23 21:27:55 (6.84 MB/s) - qpid-proton-0.4.tar.gz
+	[azureuser@this-user ~]$ wget http://apache.panu.it/qpid/proton/0.9/qpid-proton-0.9.tar.gz
+	--2016-04-17 14:45:03--  http://apache.panu.it/qpid/proton/0.9/qpid-proton-0.9.tar.gz
+	Resolving apache.panu.it (apache.panu.it)... 81.208.22.71
+	Connecting to apache.panu.it (apache.panu.it)|81.208.22.71|:80... connected.
+	HTTP request sent, awaiting response... 200 OK
+	Length: 868226 (848K) [application/x-gzip]
+	Saving to: ‘qpid-proton-0.9.tar.gz’
+	
+	qpid-proton-0.9.tar.gz                               
+	
+	100%[====================================================================================================================>] 847.88K   102KB/s    in 8.4s    
+	
+	2016-04-17 14:45:12 (101 KB/s) - ‘qpid-proton-0.9.tar.gz’ saved [868226/868226]
 	```
 
 1.  Extract the Proton code from the distribution archive:
 
 	```
-	tar xvfz qpid-proton-0.4.tar.gz
+	tar xvfz qpid-proton-0.9.tar.gz
 	```
 
 1.  Build and install the code using the following steps, taken from the Readme file:

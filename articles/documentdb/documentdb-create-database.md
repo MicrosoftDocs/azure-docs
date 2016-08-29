@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="How to create a database in DocumentDB | Microsoft Azure" 
-	description="Learn how to create a database using the online service portal for Azure DocumentDB, a NoSQL document database for JSON. Get a free account today." 
+	description="Learn how to create a database using the online service portal for Azure DocumentDB, your blazing fast, global-scale NoSQL database." 
 	keywords="how to create a database" 
 	services="documentdb" 
 	authors="mimig1" 
@@ -13,29 +13,30 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="02/19/2016" 
+	ms.topic="article" 
+	ms.date="08/25/2016" 
 	ms.author="mimig"/>
 
 # How to create a database for DocumentDB using the Azure portal
 
 To use Microsoft Azure DocumentDB, you must have a [DocumentDB account](documentdb-create-account.md), a database, a collection, and documents.  This topic describes how to create a database for DocumentDB in the Microsoft Azure portal. For information on how to create a database using one of the SDKs, see [Other ways to create a DocumentDB database](#other-ways-to-create-a-documentdb-database).
 
-![Screen shot showing how to create a database, highlighting DocumentDB Accounts on the Browse blade, and a DocumentDB account on the DocumentDB Accounts blade](./media/documentdb-create-database/docdb-database-creation-1-2.png)
+1.  In the [Azure Portal](https://portal.azure.com/), in the Jumpbar, click **DocumentDB (NoSQL)**. If **DocumentDB (NoSQL)** is not visible, click **More Services** and then click **DocumentDB (NoSQL)**.
 
-1.  In the [Azure Portal](https://portal.azure.com/), in the Jumpbar, click **DocumentDB Accounts**. If **DocumentDB Accounts** is not visible, click **Browse** and then click **DocumentDB Accounts**.
 
-2.  In the **DocumentDB Accounts** blade, select the account in which to add a DocumentDB NoSQL database. If you don't have any accounts listed, you'll need to [create a DocumentDB account](documentdb-create-account.md).
+    ![Screen shot showing how to create a database, highlighting DocumentDB Accounts on the Browse blade, and a DocumentDB account on the DocumentDB Accounts blade](./media/documentdb-create-database/docdb-database-creation-1-2.png)
 
-    ![Screen shot showing how to create a database, highlighting the Add Database button, the ID box, and the OK button](./media/documentdb-create-database/docdb-database-creation-3-5.png)
+2.  In the **DocumentDB (NoSQL)** blade, select the account in which to add a DocumentDB NoSQL database. If you don't have any accounts listed, you'll need to [create a DocumentDB account](documentdb-create-account.md).
 
 3. In the **DocumentDB account** blade, click **Add Database**.
 
-4. In the **Add Database** blade, enter the ID for your new database. When the name is validated, a green check mark appears in the **ID** box.
+    ![Screen shot showing how to create a database, highlighting the Add Database button, the ID box, and the OK button](./media/documentdb-create-database/docdb-database-creation-3-5.png)
 
-5. Click **OK** at the bottom of the screen to create the new database. 
+4. In the **Add Database** blade, enter the ID for your new database. When the name is validated, a green check mark appears in the **ID** box. Then click **OK**.
 
-6. The new database now appears in the **Databases** lens on the **DocumentDB Account** blade.
+    ![Screen shot showing how to create a database, highlighting the Add Database button, the ID box, and the OK button](./media/documentdb-create-database/docdb-database-creation-4.png)
+
+5. The new database now appears in the **Databases** lens on the **DocumentDB Account** blade.
  
 	![Screen shot of the new database in the DocumentDB Account blade](./media/documentdb-create-database/docdb-database-creation-6.png)
 

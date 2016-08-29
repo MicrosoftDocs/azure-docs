@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Replace an EBOD controller on your StorSimple device
@@ -30,7 +30,7 @@ Consider the following information before you begin:
 
 - The EBOD controller is hot-swappable and can be removed or replaced. Do not remove a failed module until you have a replacement. When you initiate the replacement process, you must finish it within 10 minutes.
 
->[AZURE.IMPORTANT] Before removing and replacing an EBOD controller, review the safety information in [StorSimple hardware component replacement](storsimple-hardware-component-replacement.md).
+>[AZURE.IMPORTANT] Before attempting to remove or replace any StorSimple component, make sure that you review the [safety icon conventions](storsimple-safety.md#safety-icon-conventions) and other [safety precautions](storsimple-safety.md).
 
 ## Remove an EBOD controller
 
@@ -48,7 +48,7 @@ Before replacing the failed EBOD controller module in your StorSimple device, ma
 
 5. Make a note of the exact SAS port of the EBOD controller module that was connected to the controller. You will be required to restore the system to this configuration after you replace the EBOD module. 
 
-    >[AZURE.NOTE] Typically, this will be Port A, which is labeled as **Host in** in in the following diagram.
+    >[AZURE.NOTE] Typically, this will be Port A, which is labeled as **Host in** in the following diagram.
 
     ![Backplane of EBOD controller](./media/storsimple-ebod-controller-replacement/IC741049.png)
 
@@ -77,19 +77,19 @@ The following procedure and table explain how to install an EBOD controller modu
 
     ![Installing EBOD controller](./media/storsimple-ebod-controller-replacement/IC741050.png)
 
-    **Figure 2** Installing the EBOD controller module
+    **Figure 2**  Installing the EBOD controller module
 
 3. Close the latch. You should hear a click as the latch engages.
 
     ![Releasing EBOD latch](./media/storsimple-ebod-controller-replacement/IC741047.png)
 
-    **Figure 3** Closing the EBOD module latch
+    **Figure 3**  Closing the EBOD module latch
 
 4. Reconnect the cables. Use the exact configuration that was present before the replacement. See the following diagram and table for details about how to connect the cables.
 
     ![Cable your 4U device for power](./media/storsimple-ebod-controller-replacement/IC770723.png)
 
-    **Figure 4**  Reconnecting cables
+    **Figure 4**. Reconnecting cables
 
     |Label|Description|
     |:----|:----------|
@@ -101,7 +101,7 @@ The following procedure and table explain how to install an EBOD controller modu
     |6|EBOD controller 0|
     |7|EBOD controller 1|
     |8|EBOD enclosure|
-    |9|PDUs|
+    |9|Power Distribution Units|
 
 ## Next steps
 

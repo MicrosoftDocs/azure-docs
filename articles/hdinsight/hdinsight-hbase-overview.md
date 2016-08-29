@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/14/2016"
+	ms.date="06/28/2016"
 	ms.author="jgao"/>
 
 

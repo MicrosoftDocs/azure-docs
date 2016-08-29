@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/29/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
  
 # Guide to converting Web and Worker Roles to Service Fabric stateless services
 
-This article describes how to migrate your Cloud Serices Web and Worker Roles to Service Fabric stateless services. This is the simplest migration path from Cloud Services to Service Fabric for applications whose overall architecture is going to stay roughly the same.
+This article describes how to migrate your Cloud Services Web and Worker Roles to Service Fabric stateless services. This is the simplest migration path from Cloud Services to Service Fabric for applications whose overall architecture is going to stay roughly the same.
 
 ## Cloud Service project to Service Fabric application project
  
@@ -138,7 +138,7 @@ Configuration settings in Cloud Services are set for a VM role and apply to all 
  - **Config:** all configuration files and settings for a service.
  - **Data:** static data files associated with the service.
 
-Each of these packages can be independently versioned and upgraded. Similar to Cloud Services, a config package can be accessed programmatically through an API and events are available to notify the service of a config package change. A Settings.xml file can be used for key-value configuration and programmatic access similar to . However, unlike Cloud Services, a Service Fabric config package can contain any configuration files in any format, whether it's XML, JSON, YAML, or a custom binary format. 
+Each of these packages can be independently versioned and upgraded. Similar to Cloud Services, a config package can be accessed programmatically through an API and events are available to notify the service of a config package change. A Settings.xml file can be used for key-value configuration and programmatic access similar to the app settings section of an App.config file. However, unlike Cloud Services, a Service Fabric config package can contain any configuration files in any format, whether it's XML, JSON, YAML, or a custom binary format. 
 
 
 ### Accessing configuration
@@ -152,7 +152,7 @@ string value = RoleEnvironment.GetConfigurationSettingValue("Key");
 
 ```
 
-#### ServiceFabic
+#### Service Fabric
 
 Each service has its own individual configuration package. There is no built-in mechanism for global configuration settings accessible by all applications in a cluster. When using Service Fabric's special Settings.xml configuration file within a configuration package, values in Settings.xml can be overwritten at the application level, making application-level configuration settings possible.
 
@@ -160,7 +160,7 @@ Configuration settings are accesses within each service instance through the ser
 
 ```C#
 
-ConfigurationPackage configPackage = this.ServiceInitializationParameters.CodePackageActivationContext.GetConfigurationPackageObject("Config");
+ConfigurationPackage configPackage = this.Context.CodePackageActivationContext.GetConfigurationPackageObject("Config");
 
 // Access Settings.xml
 KeyedCollection<string, ConfigurationProperty> parameters = configPackage.Settings.Sections["MyConfigSection"].Parameters;
@@ -196,7 +196,7 @@ foreach (var settingChange in settingChanges)
 
 ```
 
-#### ServiceFabic
+#### Service Fabric
 
 Each of the three package types in a service - Code, Config, and Data - have events that notify a service instance when a package is updated, added, or removed. A service can contain multiple packages of each type. For example, a service may have multiple config packages, each individually versioned and upgradeable. 
 
@@ -204,7 +204,7 @@ These events are available to consume changes in service packages without restar
  
 ```C#
 
-this.ServiceInitializationParameters.CodePackageActivationContext.ConfigurationPackageModifiedEvent +=
+this.Context.CodePackageActivationContext.ConfigurationPackageModifiedEvent +=
                     this.CodePackageActivationContext_ConfigurationPackageModifiedEvent;
 
 private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(object sender, PackageModifiedEventArgs<ConfigurationPackage> e)
@@ -217,7 +217,7 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 
 ## Startup tasks
 
-Startup tasks are actions that are taken before an application starts. A startup task is typically used to run setup scripts using elevated privileges. Both Cloud Services and Service Fabric support start-up tasks. The main difference is that In Cloud Services, a startup task is tied to a VM because it is part of a role instance, whereas in Service Fabric a startup task is tied to a service, which is not tied to any particular VM.
+Startup tasks are actions that are taken before an application starts. A startup task is typically used to run setup scripts using elevated privileges. Both Cloud Services and Service Fabric support start-up tasks. The main difference is that in Cloud Services, a startup task is tied to a VM because it is part of a role instance, whereas in Service Fabric a startup task is tied to a service, which is not tied to any particular VM.
 
  | Cloud Services | Service Fabric
 --- | --- | ---
@@ -226,7 +226,7 @@ Privileges | "limited" or "elevated" | any user or machine account
 Sequencing | "simple", "background", "foreground" | startup task execution must succeed before service is started.
 
 ### Cloud Services
-In Cloud Services a startup entry point is configured per role in ServiceDefintion.csdef. 
+In Cloud Services a startup entry point is configured per role in ServiceDefinition.csdef. 
 
 ```xml
 
@@ -265,9 +265,9 @@ In Service Fabric a startup entry point is configured per service in ServiceMani
 
 Both Cloud Services and Service Fabric are integrated with Visual Studio with project templates and support for debugging, configuring, and deploying both locally and to Azure. Both Cloud Services and Service Fabric also provide a local development runtime environment. The difference is that while the Cloud Service development runtime emulates the Azure environment on which it runs, Service Fabric does not use an emulator - it uses the complete Service Fabric runtime. The Service Fabric environment you run on your local development machine is the same environment that runs in production.
 
-##Next Steps
+##Next steps
 
-Read more about Service Fabric Reliable Services and the fundemental differences between Cloud Services and Service Fabric application architecture to understand how to take advantage of the full set of Service Fabric features.
+Read more about Service Fabric Reliable Services and the fundamental differences between Cloud Services and Service Fabric application architecture to understand how to take advantage of the full set of Service Fabric features.
 
  - [Getting started with Service Fabric Reliable Services](./service-fabric-reliable-services-quick-start.md)
 

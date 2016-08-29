@@ -3,7 +3,7 @@
    description="This article will help you add, remove, enable and disable endpoints from Azure Traffic Manager."
    services="traffic-manager"
    documentationCenter=""
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -12,8 +12,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/03/2016"
-   ms.author="joaoma" />
+   ms.date="03/17/2016"
+   ms.author="sewhee" />
 
 # Add, disable, enable or delete endpoints
 

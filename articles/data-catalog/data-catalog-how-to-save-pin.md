@@ -1,5 +1,5 @@
 <properties
-   pageTitle="How to save searches and pin data assets"
+   pageTitle="How to save searches and pin data assets | Microsoft Azure"
    description="How-to article highlighting capabilities in Azure Data Catalog for saving data sources and data assets for later reuse."
    services="data-catalog"
    documentationCenter=""
@@ -10,10 +10,10 @@
 <tags
    ms.service="data-catalog"
    ms.devlang="NA"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/26/2016"
+   ms.date="07/12/2016"
    ms.author="maroche"/>
 
 # How to save searches and pin data assets

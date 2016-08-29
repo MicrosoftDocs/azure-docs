@@ -12,12 +12,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="02/11/2016" 
+    ms.date="08/15/2016" 
     ms.author="elizapo" />
 
 
 
 # How do you redirect USB devices in Azure RemoteApp?
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
 Device redirection lets users use the USB devices attached to their computer or tablet with the apps in Azure RemoteApp. For example, if you shared Skype through Azure RemoteApp, your users need to be able to use their device cameras.
 
@@ -50,11 +53,11 @@ A better way, or the second option, is to follow these steps to find the specifi
 
 For example:
 
-		Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "usbdevicestoredirect:s:<Class Guid value>"
+		Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s:<Class Guid value>"
 
 You can combine multiple device redirections in the same cmdlet. For example: to redirect local storage and a USB web camera, cmdlet looks like this:
 
-		Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "drivestoredirect:s:*`usbdevicestoredirect:s:<Class Guid value>"
+		Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "drivestoredirect:s:*`nusbdevicestoredirect:s:<Class Guid value>"
 
 When you set device redirection by class GUID all devices that match that class GUID in the specified collection are redirected. For example, if there are multiple computers on the local network that have the same USB web cameras, you can run a single cmdlet to redirect all of the web cameras.
 
@@ -73,7 +76,7 @@ The hardest part of this method is finding the USB device instance ID. You'll ne
 
 Now, use the instance ID in the following cmdlet:
 
-	Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "usbdevicestoredirect:s: USB\<Device InstanceID value>"
+	Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s: USB\<Device InstanceID value>"
 
 
 

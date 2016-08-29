@@ -3,7 +3,7 @@
    description="Learn how to deploy VMs with a static public IP using the Azure CLI in Resource Manager"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/15/2015"
-   ms.author="telmos" />
+   ms.date="03/15/2016"
+   ms.author="jdial" />
 
 # Deploy a VM with a static public IP using the Azure CLI
 
@@ -106,7 +106,7 @@ Before creating a VM, you need a resource group, VNet, public IP, and NIC to be 
 		    --subnet-id $subnetId \
 		    --public-ip-name $pipName
 
->[AZURE.TIP] The first command above uses [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) and [string manipulation](http://tldp.org/LDP/abs/html/string-manipulation.html) (more specifically, substring removal). 
+	>[AZURE.TIP] The first command above uses [grep](http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_04_02.html) and [string manipulation](http://tldp.org/LDP/abs/html/string-manipulation.html) (more specifically, substring removal). 
 
 5. Create a storage account to host the VM OS drive.
 

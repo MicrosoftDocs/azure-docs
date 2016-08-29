@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/19/2016"
+	ms.date="08/03/2016"
 	ms.author="robinsh"/>
 
 # Monitor a storage account in the Azure Portal
@@ -25,6 +25,8 @@ You can monitor your storage account from the [Azure Portal](https://portal.azur
 > [AZURE.NOTE] Additional costs are associated with examining monitoring data in the [Azure Portal](https://portal.azure.com). For more information, see <a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">Storage Analytics and Billing</a>. <br />
 
 > Azure File storage currently supports Storage Analytics metrics, but does not yet support logging. You can enable metrics for Azure File storage via the [Azure Portal](https://portal.azure.com).
+
+> Storage accounts with a replication type of Zone-Redundant Storage (ZRS) do not have the metrics or logging capability enabled at this time. 
 
 > For an in-depth guide on using Storage Analytics and other tools to identify, diagnose, and troubleshoot Azure Storage-related issues, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 
@@ -55,7 +57,7 @@ You should start seeing monitoring data on the dashboard and the **Monitor** pag
 
 Until you configure monitoring for a storage account, no monitoring data is collected, and the metrics charts on the dashboard and **Monitor** page are empty.
 
-After you set the monitoring levels and retention policies, you can choose which of the available metrics to monitor in the [Azure Portal](https://portal.azure.com), and which metrics to plot on metrics charts. A default set of metrics are displayed at each monitoring level. You can use **Add Metrics** to add or remove metrics from the metrics list.
+After you set the monitoring levels and retention policies, you can choose which of the available metrics to monitor in the [Azure Portal](https://portal.azure.com), and which metrics to plot on metrics charts. A default set of metrics is displayed at each monitoring level. You can use **Add Metrics** to add or remove metrics from the metrics list.
 
 Metrics are stored in the storage account in four tables named $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue, and $MetricsCapacityBlob. For more information, see [About Storage Analytics Metrics](http://msdn.microsoft.com/library/azure/hh343258.aspx).
 

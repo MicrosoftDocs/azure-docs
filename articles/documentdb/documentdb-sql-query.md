@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="SQL syntax and SQL query for DocumentDB | Microsoft Azure" 
-	description="Learn about SQL syntax, database concepts and SQL queries for DocumentDB, a NoSQL database. SQL can used as a JSON query language in DocumentDB." 
-	keywords="sql syntax,sql query, sql queries, json query language, database concepts and sql queries"
+	description="Learn about SQL syntax, database concepts, and SQL queries for DocumentDB, a NoSQL database. SQL can used as a JSON query language in DocumentDB." 
+	keywords="sql syntax,sql query, sql queries, json query language, database concepts and sql queries, aggregate functions"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="arramac" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/14/2015" 
+	ms.date="08/22/2016" 
 	ms.author="arramac"/>
 
 # SQL query and SQL syntax in DocumentDB
@@ -609,8 +609,6 @@ This example returns all documents where the state is any of the specified value
     SELECT *
     FROM Families 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
-
-IN is equivalent to chaining multiple OR clauses, however since it can be served using a single index, DocumentDB supports a higher [limit](documentdb-limits.md) for the number of arguments specified within an IN clause.  
 
 ### Ternary (?) and Coalesce (??) operators
 The Ternary and Coalesce operators can be used to build conditional expressions, similar to popular programming languages like C# and JavaScript. 
@@ -1225,7 +1223,7 @@ Below is an example of how a UDF can be registered at the DocumentDB database, s
 	   };
 	   
 	   UserDefinedFunction createdUdf = client.CreateUserDefinedFunctionAsync(
-	       collectionSelfLink/* link of the parent collection*/, 
+	       UriFactory.CreateDocumentCollectionUri("testdb", "families"), 
 	       regexMatchUdf).Result;  
                                                                              
 The preceding example creates a UDF whose name is `REGEX_MATCH`. It accepts two JSON string values `input` and `pattern` and checks if the first matches the pattern specified in the second using JavaScript's string.match() function.
@@ -1287,7 +1285,9 @@ To expand on the power of UDFs, let's look at another example with conditional l
 	                }"
             };
 
-            UserDefinedFunction createdUdf = await client.CreateUserDefinedFunctionAsync(collection.SelfLink, seaLevelUdf);
+            UserDefinedFunction createdUdf = await client.CreateUserDefinedFunctionAsync(
+                UriFactory.CreateDocumentCollectionUri("testdb", "families"), 
+                seaLevelUdf);
 	
 	
 Below is an example that exercises the UDF.
@@ -2320,7 +2320,7 @@ The next sample shows joins, expressed through LINQ SelectMany.
 
 The .NET client automatically iterates through all the pages of query results in the foreach blocks as shown above. The query options introduced in the REST API section are also available in the .NET SDK using the `FeedOptions` and `FeedResponse` classes in the CreateDocumentQuery method. The number of pages can be controlled using the `MaxItemCount` setting. 
 
-Developers can also explicitly control paging by creating `IDocumentQueryable` using the `IQueryable` object, then by reading the` ResponseContinuationToken` values and passing them back as `RequestContinuationToken` in `FeedOptions`. `EnableScanInQuery` can be set to enable scans when the query cannot be supported by the configured indexing policy.
+You can also explicitly control paging by creating `IDocumentQueryable` using the `IQueryable` object, then by reading the` ResponseContinuationToken` values and passing them back as `RequestContinuationToken` in `FeedOptions`. `EnableScanInQuery` can be set to enable scans when the query cannot be supported by the configured indexing policy. For partitioned collections, you can use `PartitionKey` to run the query against a single partition (though DocumentDB can automatically extract this from the query text), and `EnableCrossPartitionQuery` to run queries that may need to be run against multiple partitions. 
 
 Refer to [DocumentDB .NET samples](https://github.com/Azure/azure-documentdb-net) for more samples containing queries. 
 
@@ -2360,6 +2360,18 @@ The following example show how to use the queryDocuments in the JavaScript serve
 	        });
 	}
 
+## Aggregate functions
+
+Native support for aggregate functions is in the works, but if you need count or sum functionality in the meantime, you can achieve the same result using different methods.  
+
+On read path:
+
+- You can perform aggregate functions by retrieving the data and doing a count locally. It’s advised to use a cheap query projection like `SELECT VALUE 1` rather than full document such as `SELECT * FROM c`. This helps maximize the number of documents processed in each page of results, thereby avoiding additional round-trips to the service if needed.
+- You can also use a stored procedure to minimize network latency on repeated round trips. For a sample stored procedure that calculates the count for a given filter query, see [Count.js](https://github.com/Azure/azure-documentdb-js-server/blob/master/samples/stored-procedures/Count.js). The stored procedure can enable users to combine rich business logic along with doing aggregations in an efficient way.
+
+On write path:
+
+- Another common pattern is to pre-aggregate the results in the “write” path. This is especially attractive when the volume of “read” requests is higher than that of “write” requests. Once pre-aggregated, the results are available with a single point read request.  The best way to pre-aggregate in DocumentDB is to set up a trigger that is invoked with each “write” and update a metadata document that has the latest results for the query that is being materialized. For instance, please look at the [UpdateaMetadata.js](https://github.com/Azure/azure-documentdb-js-server/blob/master/samples/triggers/UpdateMetadata.js)  sample, which updates the minSize, maxSize, and totalSize of the metadata document for the collection. The sample can be extended to update a counter, sum, etc.
 
 ##References
 1.	[Introduction to Azure DocumentDB][introduction]

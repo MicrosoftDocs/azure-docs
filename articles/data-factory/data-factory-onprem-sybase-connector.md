@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/01/2016" 
+	ms.date="07/05/2016" 
 	ms.author="spelluru"/>
 
 # Move data from Sybase using Azure Data Factory 
@@ -30,7 +30,12 @@ Data factory currently supports only moving data from Sybase to other data store
 
 For Data Management Gateway to connect to the Sybase Database, you need to install the [data provider for Sybase](http://go.microsoft.com/fwlink/?linkid=324846) on the same system as the Data Management Gateway.
 
-> [AZURE.NOTE] See [Gateway Troubleshooting](data-factory-move-data-between-onprem-and-cloud.md#gateway-troubleshooting) for tips on troubleshooting connection/gateway related issues. 
+> [AZURE.NOTE] See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) for tips on troubleshooting connection/gateway related issues. 
+
+## Copy data wizard
+The easiest way to create a pipeline that copies data from a Sybase database to any of the supported sink data stores is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
+
+The following example provides sample JSON definitions that you can use to create a pipeline by using [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data from Sybase database to Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.   
 
 ## Sample: Copy data from Sybase to Azure Blob
 This sample shows how to copy data from a Sybase database to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
@@ -136,7 +141,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	                    "value": {
 	                        "type": "DateTime",
 	                        "date": "SliceStart",
-	                        "format": "%M"
+	                        "format": "MM"
 	                    }
 	                },
 	                {
@@ -144,7 +149,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	                    "value": {
 	                        "type": "DateTime",
 	                        "date": "SliceStart",
-	                        "format": "%d"
+	                        "format": "dd"
 	                    }
 	                },
 	                {
@@ -152,7 +157,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	                    "value": {
 	                        "type": "DateTime",
 	                        "date": "SliceStart",
-	                        "format": "%H"
+	                        "format": "HH"
 	                    }
 	                }
 	            ]
@@ -228,7 +233,7 @@ username | Specify user name if you are using Basic or Windows authentication. |
 password | Specify password for the user account you specified for the username. |  No
 gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises Sybase database. | Yes 
 
-See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security) for details about setting credentials for an on-premises Sybase data source.
+See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) for details about setting credentials for an on-premises Sybase data source.
 
 ## Sybase dataset type properties
 
@@ -267,3 +272,5 @@ Sybase supports T-SQL and T-SQL types. For a mapping table from sql types to .NE
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
+## Performance and Tuning  
+See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.

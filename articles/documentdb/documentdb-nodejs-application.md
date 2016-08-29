@@ -4,7 +4,7 @@
 	keywords="Application development, database tutorial, learn node.js, node.js tutorial, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="nodejs" 
-	authors="ryancrawcour" 
+	authors="AndrewHoh" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
-	ms.date="02/03/2016" 
-	ms.author="ryancraw"/>
+	ms.date="08/25/2016" 
+	ms.author="anhoh"/>
 
 # <a name="_Toc395783175"></a>Build a Node.js web application using DocumentDB
 
@@ -126,7 +126,7 @@ That takes care of all the initial setup and configuration, now let’s get down
 		var DocDBUtils = {
 		    getOrCreateDatabase: function (client, databaseId, callback) {
 		        var querySpec = {
-		            query: 'SELECT * FROM root r WHERE r.id=@id',
+		            query: 'SELECT * FROM root r WHERE r.id= @id',
 		            parameters: [{
 		                name: '@id',
 		                value: databaseId
@@ -173,11 +173,7 @@ That takes care of all the initial setup and configuration, now let’s get down
 		                        id: collectionId
 		                    };
 							
-				 			var requestOptions = {
-								offerType: 'S1'
-							};
-							
-		                    client.createCollection(databaseLink, collectionSpec, requestOptions, function (err, created) {
+		                    client.createCollection(databaseLink, collectionSpec, function (err, created) {
 		                        callback(null, created);
 		                    });
 		
@@ -191,8 +187,9 @@ That takes care of all the initial setup and configuration, now let’s get down
 				
 		module.exports = DocDBUtils;
 
-> [AZURE.TIP] createCollection takes an optional requestOptions parameter that can be used to specify the Offer Type for the Collection. If no requestOptions.offerType value is supplied then the Collection will be created using the default Offer Type.
-> For more information on DocumentDB Offer Types please refer to [Performance levels in DocumentDB](documentdb-performance-levels.md) 
+    > [AZURE.TIP] createCollection takes an optional requestOptions parameter that can be used to specify the Offer Type for the Collection. If no requestOptions.offerType value is supplied then the Collection will be created using the default Offer Type.
+    >
+    > For more information on DocumentDB Offer Types please refer to [Performance levels in DocumentDB](documentdb-performance-levels.md) 
 		
 3. Save and close the **docdbUtils.js** file.
 
@@ -223,7 +220,6 @@ That takes care of all the initial setup and configuration, now let’s get down
 		        docdbUtils.getOrCreateDatabase(self.client, self.databaseId, function (err, db) {
 		            if (err) {
 		                callback(err);
-
 		            } else {
 		                self.database = db;
 		                docdbUtils.getOrCreateCollection(self.client, self.database._self, self.collectionId, function (err, coll) {
@@ -293,7 +289,7 @@ That takes care of all the initial setup and configuration, now let’s get down
 		        var self = this;
 		
 		        var querySpec = {
-		            query: 'SELECT * FROM root r WHERE r.id=@id',
+		            query: 'SELECT * FROM root r WHERE r.id = @id',
 		            parameters: [{
 		                name: '@id',
 		                value: itemId
@@ -561,7 +557,7 @@ and then click **Update tasks**.
 
 ## <a name="_Toc395783182"></a>Step 7: Deploy your application development project to Azure Websites
 
-1. If you haven't already, enable a git repository for your Azure Website. You can find instructions on how to do this in the [Continuous deployment using GIT in Azure App Service](../app-service-web/web-sites-publish-source-control.md) topic.
+1. If you haven't already, enable a git repository for your Azure Website. You can find instructions on how to do this in the [Local Git Deployment to Azure App Service](../app-service-web/app-service-deploy-local-git.md) topic.
 
 2. Add your Azure Website as a git remote.
 

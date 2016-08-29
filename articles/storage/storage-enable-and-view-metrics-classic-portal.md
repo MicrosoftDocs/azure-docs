@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/14/2016" 
+	ms.date="08/03/2016" 
 	ms.author="robinsh"/>
 
 # Enabling Storage metrics and viewing metrics data
@@ -47,7 +47,7 @@ The cmdlets that control Storage Metrics use the following parameters:
 
 - MetricsType possible values are Hour and Minute.
 
-- ServiceType possible value are Blob, Queue, and Table.
+- ServiceType possible values are Blob, Queue, and Table.
 
 - MetricsLevel possible values are None (equivalent to Off in the Azure Classic Portal), Service (equivalent to Minimal in the Azure Classic Portal), and ServiceAndApi (equivalent to Verbose in the Azure Classic Portal).
 
@@ -65,8 +65,9 @@ For information about how to configure the Azure PowerShell cmdlets to work with
 
 The following C# snippet shows how to enable metrics and logging for the Blob service using the storage client library for .NET:
 
-	// Parse connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
+    //Parse the connection string for the storage account.
+    const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
 
     // Create service client for credentialed access to the Blob service.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();

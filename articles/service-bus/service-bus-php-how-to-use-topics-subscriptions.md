@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016" 
 	ms.author="sethm"/>
 
 
@@ -31,7 +31,7 @@ The only requirement for creating a PHP application that accesses the Azure Blob
 
 > [AZURE.NOTE] Your PHP installation must also have the [OpenSSL extension](http://php.net/openssl) installed and enabled.
 
-This article describes how to use service features which can be called within a PHP application locally, or in code running within an Azure web role, worker role, or website.
+This article describes how to use service features that can be called within a PHP application locally, or in code running within an Azure web role, worker role, or website.
 
 ## Get the Azure client libraries
 
@@ -75,7 +75,7 @@ To create any Azure service client you must use the **ServicesBuilder** class. Y
 For the examples outlined here, the connection string is passed directly.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 	
@@ -91,7 +91,7 @@ You can perform management operations for Service Bus topics via the **ServiceBu
 The following example shows how to instantiate a **ServiceBusRestProxy** and call **ServiceBusRestProxy->createTopic** to create a topic named `mytopic` within a `MySBNamespace` namespace:
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -126,7 +126,7 @@ Topic subscriptions are also created with the **ServiceBusRestProxy->createSubsc
 The **MatchAll** filter is the default filter that is used if no filter is specified when a new subscription is created. When the **MatchAll** filter is used, all messages published to the topic are placed in the subscription's virtual queue. The following example creates a subscription named 'mysubscription' and uses the default **MatchAll** filter.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -192,7 +192,7 @@ To send a message to a Service Bus topic, your application calls the **ServiceBu
 `MySBNamespace` service namespace.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -235,7 +235,8 @@ for($i = 0; $i < 5; $i++){
 }
 ```
 
-Service Bus queues support a maximum message size of 256 KB (the header, which includes the standard and custom application properties, can have a maximum size of 64 KB). There is no limit on the number of messages held in a queue but there is a cap on the total size of the messages held by a queue. This upper limit on queue size is 5 GB. For more information about quotas, see [Azure Queues and Service Bus queues][].
+Service Bus topics support a maximum message size of 256 KB in the [Standard tier](service-bus-premium-messaging.md) and 1 MB in the [Premium tier](service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have
+a maximum size of 64 KB. There is no limit on the number of messages held in a topic but there is a cap on the total size of the messages held by a topic. This upper limit on topic size is 5 GB. For more information about quotas, see [Service Bus quotas][].
 
 ## Receive messages from a subscription
 
@@ -249,7 +250,7 @@ In **PeekLock** mode, receiving a message becomes a two stage operation, which m
 The following example shows how to receive and process a message using **PeekLock** mode (not the default mode). 
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\Common\ServicesBuilder;
 use WindowsAzure\Common\ServiceException;
@@ -302,7 +303,7 @@ To delete a topic or a subscription, use the **ServiceBusRestProxy->deleteTopic*
 The following example shows how to delete a topic named `mytopic` and its registered subscriptions.
 
 ```
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 
 use WindowsAzure\ServiceBus\ServiceBusService;
 use WindowsAzure\ServiceBus\ServiceBusSettings;
@@ -338,4 +339,4 @@ Now that you've learned the basics of Service Bus queues, see [Queues, topics, a
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [sqlfilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
 [require-once]: http://php.net/require_once
-[Azure Queues and Service Bus queues]: service-bus-azure-and-service-bus-queues-compared-contrasted.md#capacity-and-quotas
+[Service Bus quotas]: service-bus-quotas.md

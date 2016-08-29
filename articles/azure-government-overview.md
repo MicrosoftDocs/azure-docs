@@ -1,7 +1,8 @@
 <properties 
-   pageTitle="Azure Government Overview" 
+   pageTitle="Azure Government Overview | Microsoft Azure" 
    description="This article provides an overview of the Azure Government Cloud capabilities and the trustworthy design and security used to support compliance applicable to federal, state, and local government organizations and their partners. " 
-   services="Azure-Government" 
+   services="Azure-Government"
+   cloud="gov" 
    documentationCenter="" 
    authors="joharve2" 
    manager="chrisnie" 
@@ -113,6 +114,6 @@ If you are interested in learning more and about Azure Government please leverag
 [2]: ./media/azure-government-overview/azure-gov-overview.jpg
 
 <!--Link references-->
-[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines/virtual-machines-windows-tutorial.md
+[Link 1 to another azure.microsoft.com documentation topic]: virtual-machines/virtual-machines-windows-hero-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md

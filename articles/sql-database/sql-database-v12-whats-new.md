@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="What's new in SQL Database V12 | Microsoft Azure" 
-	description="Describes why business systems that are using Azure SQL Database in the cloud will benefit by upgrading to version V12 now." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jhubbard" 
+<properties
+	pageTitle="What's new in SQL Database V12 | Microsoft Azure"
+	description="Describes why business systems that are using Azure SQL Database in the cloud will benefit by upgrading to version V12 now."
+	services="sql-database"
+	documentationCenter=""
+	authors="MightyPen"
+	manager="jhubbard"
 	editor=""/>
 
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/08/2016" 
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/15/2016"
 	ms.author="genemi"/>
 
 
@@ -37,10 +37,11 @@ The latest information about resource limits for SQL Database is documented at:<
 ## Increased application compatibility with SQL Server
 
 
-A key goal for SQL Database V12 was to improve the compatibility with Microsoft SQL Server 2014, and to maintain the compatibility as new versions of SQL Server are released. Among other areas, V12 achieves parity with SQL Server in the important area of programmability. For instance:
+A key goal for SQL Database V12 was to improve the compatibility with Microsoft SQL Server 2014, and to maintain the compatibility as new versions of SQL Server are released. Among other areas, V12 achieves parity with SQL Server in the important area of programmability. For example:
 
+- [Built-in JSON support](https://msdn.microsoft.com/library/dn921897.aspx)
 
-- [Window functions](http://msdn.microsoft.com/library/bb934097.aspx), with [OVER](http://msdn.microsoft.com/library/ms189461.aspx) 
+- [Window functions](http://msdn.microsoft.com/library/ms189798.aspx), with [OVER](http://msdn.microsoft.com/library/ms189461.aspx)
 
 - [XML indexes](http://msdn.microsoft.com/library/bb934097.aspx) and [selective XML indexes](http://msdn.microsoft.com/library/jj670104.aspx)
 
@@ -52,7 +53,24 @@ A key goal for SQL Database V12 was to improve the compatibility with Microsoft 
 
 - [ALTER DATABASE SCOPED CONFIGURATION (Transact-SQL)](http://msdn.microsoft.com/library/mt629158.aspx)
 
-Please see [here](sql-database-transact-sql-information.md) for the small set of features not yet supported in SQL Database.
+See [here](sql-database-transact-sql-information.md) for the small set of features not yet supported in SQL Database.
+
+
+### Compatibility level 130
+
+
+> [AZURE.IMPORTANT] Starting in **June 2016**, *newly* created databases on Azure SQL Database V12 have their compatibility level start at 130, which matches Microsoft SQL Server 2016 GA.
+> 
+> You can use `ALTER DATABASE YourDatabase SET COMPATIBILITY_LEVEL = 120` if you prefer.
+> 
+> Databases created before June 2016 do not have their compatibility level changed by this change of default. Nor is the level of a database changed by upgrading it from V11 to V12.
+
+
+
+For an explanation of how you can compare your most important queries between the latest versus previous compatibility level, see:
+
+- [Improved Query Performance with Compatibility Level 130 in Azure SQL Database](sql-database-compatibility-level-query-performance-130.md)
+
 
 
 ## More premium performance, new performance levels
@@ -81,11 +99,10 @@ Click [here](sql-database-develop-direct-route-ports-adonet-v12.md) for details 
 ## Better support for cloud SaaS vendors
 
 
-Only in V12, we released the new Standard performance level S3 and the public preview of [elastic database pools](sql-database-elastic-pool.md).
-This is a solution specifically designed for cloud SaaS vendors.  With elastic database pools, you can:
+Only in V12, we released the new Standard performance level S3 and the public preview of [elastic database pools](sql-database-elastic-pool.md). Elastic database pools is a solution designed for cloud SaaS vendors.  With elastic database pools, you can:
 
 
-- Share DTUs amongst databases to reduce costs for large numbers of databases.
+- Share DTUs among databases to reduce costs for large numbers of databases.
 - Execute [elastic database jobs](sql-database-elastic-jobs-overview.md) to manage databases at scale.
 
 
@@ -108,14 +125,13 @@ Security is a primary concern for anyone who runs their business in the cloud. T
 ## Increased business continuity when recovery is needed
 
 
-V12 offers significantly improved recovery point objectives (RPOs) and estimated recovery times (ERTs):
+V12 offers improved recovery point objectives (RPOs) and estimated recovery times (ERTs):
 
 
 | Business continuity feature | Earlier version | V12 |
 | :-- | :-- | :-- |
 | Geo-restore | • RPO < 24 hours.<br/>• ERT <  12 hours. | • RPO < 1 hour.<br/>• ERT < 12 hours. |
-| Standard geo-replication | • RPO < 30 minutes.<br/>• ERT < 2 hours. | • RPO < 5 seconds.<br/>• ERT < 30 seconds. |
-| Active geo-replication | • RPO < 5 minutes.<br/>• ERT < 1 hour. | • RPO < 5 seconds.<br/>• ERT < 30 seconds. |
+| Active Geo-Replication | • RPO < 5 minutes.<br/>• ERT < 1 hour. | • RPO < 5 seconds.<br/>• ERT < 30 seconds. |
 
 
 See [SQL Database business continuity](sql-database-business-continuity.md) for more information.
@@ -127,7 +143,7 @@ See [SQL Database business continuity](sql-database-business-continuity.md) for 
 There are many good reasons why customers should upgrade now to Azure SQL Database V12 from V11:
 
 
-- SQL Database V12 has a long list of features beyond those of V11.
+- SQL Database V12 has a long list of features beyond the features of V11.
 - We continue to add new features to V12, but no new features will be added to V11.
 - Most new features are released on SQL Database V12 before they are being released for Microsoft SQL Server.
 

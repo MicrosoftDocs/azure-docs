@@ -13,16 +13,14 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016" 
-	ms.author="tdykstra"/>
+	ms.date="06/30/2016" 
+	ms.author="rachelap"/>
 
 # Service principal authentication for API Apps in Azure App Service
 
-[AZURE.INCLUDE [selector](../../includes/app-service-api-auth-selector.md)]
-
 ## Overview
 
-This article explains how to use App Service authentication for [internal](app-service-api-authentication.md#internal) access to API apps. An internal scenario is where you have an API app that you want to be consumable only by your own application code. The easiest way to implement this scenario in App Service is to use Azure AD to protect the called API app. You call the protected API app with a bearer token that you get from Azure AD by providing application identity (service principal) credentials.
+This article explains how to use App Service authentication for *internal* access to API apps. An internal scenario is where you have an API app that you want to be consumable only by your own application code. The recommended way to implement this scenario in App Service is to use Azure AD to protect the called API app. You call the protected API app with a bearer token that you get from Azure AD by providing application identity (service principal) credentials. For alternatives to using Azure AD, see the **Service-to-service authentication** section of the [Azure App Service authentication overview](../app-service/app-service-authentication-overview.md#service-to-service-authentication).
 
 In this article, you'll learn:
 
@@ -39,7 +37,7 @@ The article contains two sections:
 
 ## <a id="authconfig"></a> How to configure service principal authentication in Azure App Service
 
-This section provides general instructions that apply to any API app. For steps specific to the To Do List .NET sample application, go to [Continuing the .NET getting-started tutorials](#tutorialstart).
+This section provides general instructions that apply to any API app. For steps specific to the To Do List .NET sample application, go to [Continuing the .NET API Apps tutorial series](#tutorialstart).
 
 1. In the [Azure portal](https://portal.azure.com/), navigate to the **Settings** blade of the API app that you want to protect, and then find the **Features** section and click **Authentication/ Authorization**.
 
@@ -94,11 +92,11 @@ App Service also provides the `objectidentifier` claim in the X-MS-CLIENT-PRINCI
 
 If you don't validate claims in code in the protected API app, and if you use a separate Azure AD application for the protected API app, make sure that the Azure AD application's Reply URL is not the same as the API app's base URL. If the Reply URL points directly to the protected API app, a user in the same Azure AD tenant could browse to the API app, log on, and successfully call the API.
 
-## <a id="tutorialstart"></a> Continuing the .NET getting-started tutorials
+## <a id="tutorialstart"></a> Continuing the .NET API Apps tutorial series
 
-If you are following the Node.js or Java getting-started series for API apps, skip to the [Next steps](#next-steps) section. 
+If you are following the Node.js or Java tutorial series for API apps, skip to the [Next steps](#next-steps) section. 
 
-The remainder of this article continues the .NET getting-started series for API apps and assumes that you have completed the [user authentication tutorial](app-service-api-dotnet-user-principal-auth.md) and have the sample application running in Azure with user authentication enabled.
+The remainder of this article continues the .NET API Apps tutorial series and assumes that you have completed the [user authentication tutorial](app-service-api-dotnet-user-principal-auth.md) and have the sample application running in Azure with user authentication enabled.
 
 ## Set up authentication in Azure
 
@@ -252,14 +250,27 @@ Make the following changes in the ToDoListAPI project in Visual Studio.
 
 3. In the **App settings** section, add the following keys and values:
 
-	|Key|Value|Example
-	|---|---|---|
-	|ida:Authority|https://login.microsoftonline.com/{your Azure AD tenant name}|https://login.microsoftonline.com/contoso.onmicrosoft.com|
-	|ida:ClientId|Client ID of the calling application (middle tier - ToDoListAPI)|960adec2-b74a-484a-960adec2-b74a-484a|
-	|ida:ClientSecret|App key of the calling application (middle tier - ToDoListAPI)|oCgdj3EYLfnR0p6iR3UvHFAfkn+zQB+0VqZT/6=
-	|ida:Resource|Client ID of the called application (data tier - ToDoListDataAPI)|e65e8fc9-5f6b-48e8-e65e8fc9-5f6b-48e8|
+	| **Key** | ida:Authority |
+	|---|---|
+	| **Value** | https://login.microsoftonline.com/{your Azure AD tenant name} |
+	| **Example** | https://login.microsoftonline.com/contoso.onmicrosoft.com |
 
-	**Note**: Make sure you use the called application's **client ID** and not its **App ID URI** for `ida:Resource`.
+	| **Key** | ida:ClientId |
+	|---|---|
+	| **Value** | Client ID of the calling application (middle tier - ToDoListAPI) |
+	| **Example** | 960adec2-b74a-484a-960adec2-b74a-484a |
+
+	| **Key** | ida:ClientSecret |
+	|---|---|
+	| **Value** | App key of the calling application (middle tier - ToDoListAPI) |
+	| **Example** | e65e8fc9-5f6b-48e8-e65e8fc9-5f6b-48e8 |
+
+	| **Key** | ida:Resource |
+	|---|---|
+	| **Value** | Client ID of the called application (data tier - ToDoListDataAPI) |
+	| **Example** | e65e8fc9-5f6b-48e8-e65e8fc9-5f6b-48e8 |
+
+	**Note**: For `ida:Resource`, make sure you use the called application's **client ID** and not its **App ID URI**.
 
 	`ida:ClientId` and `ida:Resource` are different values for this tutorial because you're using separate Azure AD applicaations for the middle tier and data tier. If you were using a single Azure AD application for the calling API app and the protected API app, you would use the same value in both `ida:ClientId` and `ida:Resource`.
 
@@ -352,16 +363,21 @@ Make the following changes to the TodoListDataAPI project.
 
 	c. Find the objectid for the service principal of the TodoListAPI application, and save it in a location you can copy from later.
 
-7. In the Azure portal, navigate to the web app blade for the web app that you deployed the ToDoListAngular project to.
+7. In the Azure portal, navigate to the API app blade for the API app that you deployed the ToDoListDataAPI project to.
 
 9. Click **Settings > Application settings**.
 
 3. In the **App settings** section, add the following keys and values:
 
-	|Key|Value|Example
-	|---|---|---|
-	|todo:TrustedCallerServicePrincipalId|Service principal id of calling application|4f4a94a4-6f0d-4072-4f4a94a4-6f0d-4072|
-	|todo:TrustedCallerClientId|Client ID of calling application - copied from the TodoListAPI AAD application|960adec2-b74a-484a-960adec2-b74a-484a|
+	| **Key** | todo:TrustedCallerServicePrincipalId |
+	|---|---|
+	| **Value** | Service principal id of calling application |
+	| **Example** | 4f4a94a4-6f0d-4072-4f4a94a4-6f0d-4072 |
+
+	| **Key** | todo:TrustedCallerClientId |
+	|---|---|
+	| **Value** | Client ID of calling application - copied from the TodoListAPI Azure AD application |
+	| **Example** | 960adec2-b74a-484a-960adec2-b74a-484a |
 
 6. Click **Save**.
 
@@ -387,7 +403,7 @@ For information about how to  create an AngularJS single-page application with a
 
 ## Next steps
 
-This is the last article in the getting started with API Apps series. 
+This is the last tutorial in the API Apps series. 
 
 For more information about Azure Active Directory, see the following resources.
 

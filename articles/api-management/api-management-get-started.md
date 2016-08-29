@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="03/04/2016"
+	ms.date="08/24/2016"
 	ms.author="sdanie"/>
 
 # Manage your first API in Azure API Management
@@ -112,6 +112,8 @@ Perform the following steps to configure the calculator API:
 
 ![Add new API][api-management-import-new-api]
 
+>[AZURE.NOTE] **API Management** currently supports both 1.2 and 2.0 version of Swagger document for import. Make sure that, even though [Swagger 2.0 specification](http://swagger.io/specification) declares that `host`, `basePath`, and `schemes` properties are optional, your Swagger 2.0 document **MUST** contain those properties; otherwise it won't get imported. 
+
 Once the API is imported, the summary page for the API is displayed in the publisher portal.
 
 ![API summary][api-management-imported-api-summary]
@@ -184,7 +186,7 @@ The **Analytics** section has the following four tabs:
 
 ## <a name="next-steps"> </a>Next steps
 
--	Check out the other topics in the [Get started with advanced API configuration][] tutorial.
+- Learn how to [Protect your API with rate limits](api-management-howto-product-with-rules.md).
 
 [Azure Free Trial]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
 
@@ -203,7 +205,6 @@ The **Analytics** section has the following four tabs:
 [How to configure notifications and email templates in Azure API Management]: api-management-howto-configure-notifications.md
 [Responses]: api-management-howto-add-operations.md#responses
 [How create and publish a product]: api-management-howto-add-products.md
-[Get started with advanced API configuration]: api-management-get-started-advanced.md
 [API Management pricing]: http://azure.microsoft.com/pricing/details/api-management/
 
 [Azure Classic Portal]: https://manage.windowsazure.com/

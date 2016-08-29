@@ -3,7 +3,7 @@
 	description="Learn about the policies available to configure API Management." 
 	services="api-management" 
 	documentationCenter="" 
-	authors="steved0x" 
+	authors="vladvino" 
 	manager="erikre" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
-	ms.author="sdanie"/>
+	ms.date="08/29/2016" 
+	ms.author="apimpm"/>
 
 # Azure API Management Policy Reference
 
@@ -36,12 +36,14 @@ Policy expressions can be used as attribute values or text values in any of the 
 	-	[Control flow][] - Conditionally applies policy statements based on the results of the evaluation of Boolean [expressions][].
 	-	[Forward request][] - Forwards the request to the backend service.
 	-	[Log to Event Hub][] - Sends messages in the specified format to a message target defined by a [Logger](https://msdn.microsoft.com/library/azure/mt592020.aspx#Logger) entity.
+	-	[Retry](https://msdn.microsoft.com/en-us/library/dn894085.aspx#Retry) - Retries execution of the enclosed policy statements, if and until the condition is met. Execution will repeat at the specified time intervals and up to the specified retry count.
 	-	[Return response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) - Aborts pipeline execution and returns the specified response directly to the caller.
 	-	[Send one way request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) - Sends a request to the specified URL without waiting for a response.
 	-	[Send request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) - Sends a request to the specified URL.
 	-	[Set request method](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod) - Allows you to change the HTTP method for a request.
 	-	[Set status](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus) - Changes the HTTP status code to the specified value.
 	-	[Set variable][] - Persist a value in a named [context][] variable for later access.
+	-	[Trace](https://msdn.microsoft.com/en-us/library/dn894085.aspx#Trace) - Adds a string into the [API Inspector](../api-management/api-management-howto-api-inspector.md) output.
 	-	[Wait](https://msdn.microsoft.com/library/azure/dn894085.aspx#Wait) - Waits for enclosed Send request, Get value from cache, or Control flow policies to complete before proceeding.
 -	[Authentication policies][]
 	-	[Authenticate with Basic][] - Authenticate with a backend service using Basic authentication.
@@ -51,6 +53,7 @@ Policy expressions can be used as attribute values or text values in any of the 
 	-	[Store to cache][] - Caches response according to the specified cache control configuration.
 	-	[Get value from cache](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) - Retrieve a cached item by key.
 	-	[Store value in cache](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) - Store an item in the cache by key.
+	-	[Remove value from cache](https://msdn.microsoft.com/en-us/library/dn894086.aspx#RemoveCacheByKey) - Remove an item in the cache by key.
 -	[Cross domain policies][] 
 	-	[Allow cross-domain calls][] - Makes the API accessible from Adobe Flash and Microsoft Silverlight browser-based clients.
 	-	[CORS][] - Adds cross-origin resource sharing (CORS) support to an operation or an API to allow cross-domain calls from browser-based clients.
@@ -59,7 +62,7 @@ Policy expressions can be used as attribute values or text values in any of the 
 	-	[Convert JSON to XML][] - Converts request or response body from JSON to XML.
 	-	[Convert XML to JSON][] - Converts request or response body from XML to JSON.
 	-	[Find and replace string in body][] - Finds a request or response substring and replaces it with a different substring.
-	-	[Mask URLs in content][] - Re-writes (masks) links in the response body and in the location header so that they point to the equivalent link via the gateway.
+	-	[Mask URLs in content][] - Re-writes (masks) links in the response body so that they point to the equivalent link via the gateway.
 	-	[Set backend service][] - Changes the backend service for an incoming request.
 	-	[Set body][] - Sets the message body for incoming and outgoing requests.
 	-	[Set HTTP header][] - Assigns a value to an existing response and/or request header or adds a new response and/or request header.

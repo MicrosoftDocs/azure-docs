@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="02/04/2016"
+   ms.date="05/18/2016"
    ms.author="subramar"/>
 
 
@@ -25,27 +25,27 @@ Azure Service Fabric simplifies the process of upgrading cloud applications by e
 
 ## Step 1: Build and publish the Visual Objects sample
 
-You can take these steps by downloading the application from GitHub, and then adding the **webgl-utils.js** and **gl-matrix-min.js** files into the project as mentioned in the sample's readme file. Without that, the application will not work. After you add these to the project, build and publish the application by right-clicking on the application project, **VisualObjectsApplication**, and then selecting the **Publish** command in the Service Fabric menu item as follows.
+You can take these steps by downloading the [Visual Objects](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/master/Actors/VisualObjects) application from GitHub, then build and publish the application by right-clicking on the application project, **VisualObjects**, and then selecting the **Publish** command in the Service Fabric menu item as follows.
 
 ![Context menu for a Service Fabric application][image1]
 
-This will bring up another popup, and you can set the **Connection endpoint** to **Local Cluster**. The window should look like the following before you click **Publish**.
+This will bring up another popup, and you can set the **Target profile** to **PublishProfiles\Local.xml**. The window should look like the following before you click **Publish**.
 
 ![Publishing a Service Fabric application][image2]
 
-Now you can click **Publish** in the dialog box. You can use [Service Fabric Explorer to view the cluster and the application](service-fabric-visualizing-your-cluster.md). The Visual Objects application has a web service that you can go to by typing [http://localhost:8081/visualobjects](http://localhost:8081/visualobjects) in the address bar of your browser.  You should see 10 floating visual objects moving around on the screen.
+Now you can click **Publish** in the dialog box. You can use [Service Fabric Explorer to view the cluster and the application](service-fabric-visualizing-your-cluster.md). The Visual Objects application has a web service that you can go to by typing [http://localhost:8082/visualobjects/](http://localhost:8082/visualobjects/) in the address bar of your browser.  You should see 10 floating visual objects moving around on the screen.
 
 ## Step 2: Update the Visual Objects sample
 
 You might notice that with the version that was deployed in step 1, the visual objects do not rotate. Let's upgrade this application to one where the visual objects also rotate.
 
-Select the VisualObjects.ActorService project within the VisualObjects solution, and open the **StatefulVisualObjectActor.cs** file. Within that file, go to the method `MoveObject`,  comment out `this.State.Move()`, and uncomment `this.State.Move(true)`. This change will make the objects rotate after the service is upgraded.  Now you can build (not rebuild) the solution, which will build the modified projects. If you select **Rebuild all**, you will have to update the versions for all the projects.
+Select the VisualObjects.ActorService project within the VisualObjects solution, and open the **VisualObjectActor.cs** file. Within that file, go to the method `MoveObject`,  comment out `visualObject.Move(false)`, and uncomment `visualObject.Move(true)`. This change will make the objects rotate after the service is upgraded.  **Now you can build (not rebuild) the solution**, which will build the modified projects. If you select *Rebuild all*, you will have to update the versions for all the projects.
 
-We also need to version our application. To make the version changes after you right-click on the solution, you can use the Visual Studio **Edit Manifest Files** option. This will bring up the dialog box for edition versions as follows:
+We also need to version our application. To make the version changes after you right-click on the **VisualObjects** project, you can use the Visual Studio **Edit Manifest Versions** option. This will bring up the dialog box for edition versions as follows:
 
 ![Versioning dialog box][image3]
 
-Select the **Edit Manifest Versions** tab and update the versions for the modified projects and their code packages, along with the application to version 2.0.0. After the changes are made, the manifest should look like the following (bold portions show the changes):
+Update the versions for the modified projects and their code packages, along with the application to version 2.0.0. After the changes are made, the manifest should look like the following (bold portions show the changes):
 
 ![Updating versions][image4]
 

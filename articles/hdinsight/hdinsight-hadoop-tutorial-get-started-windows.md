@@ -15,19 +15,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/25/2016"
+   ms.date="03/07/2016"
    ms.author="nitinme"/>
 
 
 # Hadoop tutorial: Get started using Hadoop in HDInsight on Windows
 
 > [AZURE.SELECTOR]
-- [Windows](../hdinsight-hadoop-tutorial-get-started-windows.md)
-- [Linux](../hdinsight-hadoop-linux-tutorial-get-started.md)
+- [Linux-based](../hdinsight-hadoop-linux-tutorial-get-started.md)
+- [Windows-based](../hdinsight-hadoop-tutorial-get-started-windows.md)
 
 To help you learn Hadoop on Windows and start using HDInsight, this tutorial shows you 
 how to run a Hive query on unstructured data in a Hadoop cluster and then analyze the 
 results in Microsoft Excel.
+
+>[AZURE.NOTE] The information in this document is specific to Windows-based HDInsight clusters. For information on Linux-based clusters, see [Hadoop tutorial: Get started using Linux-based Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
 
 Assume you have a large unstructured data set and you want to run a Hive query on it 
 to extract some meaningful information. That's exactly what you are going to do in this 
@@ -67,7 +69,7 @@ about HDInsight versions and their SLAs, see
 
 **To create a Hadoop cluster**
 
-1. Sign in to the [Azure Portal](https://ms.portal.azure.com/).
+1. Sign in to the [Azure Portal](https://portal.azure.com/).
 2. Click **NEW**, Click **Data Analytics**, and then click **HDInsight**. The portal opens a **New HDInsight Cluster** blade.
 
     ![Create a new cluster in the Azure Portal](./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.CreateCluster.1.png "Create a new cluster in the Azure Portal")
@@ -107,7 +109,7 @@ Now that you have created an HDInsight cluster, the next step is to run a Hive j
 
 **To run a Hive job from the cluster dashboard**
 
-1. Sign in to the [Azure Portal](https://ms.portal.azure.com/).
+1. Sign in to the [Azure Portal](https://portal.azure.com/).
 2. Click **BROWSE ALL** and then click **HDInsight Clusters** to see a list of clusters, including the cluster you just created in the previous section.
 3. Click the name of the cluster that you want to use to run the Hive job, and then click **Dashboard** at the top of the blade.
 4. A webpage opens in a different browser tab. Enter the Hadoop user account and password. The default user name is **admin**; the password is what you entered while creating the cluster.
@@ -191,7 +193,9 @@ Sample | What does it do?
 [Website log analysis][hdinsight-weblogs-sample] | Learn how to use HDInsight to analyze website log files to get insight into the frequency of visits to the website in a day from external websites, and a summary of website errors that the users experience.
 [Twitter trend analysis](hdinsight-analyze-twitter-data.md) | Learn how to use HDInsight to analyze trends in Twitter.
 
+##Delete the cluster
 
+[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ##Next steps
 In this Hadoop tutorial, you learned how to create a Hadoop cluster on Windows in HDInsight, run a Hive query on data, and import the results into Excel, where they can be further processed and graphically displayed with business intelligence tools. To learn more, see the following tutorials:
@@ -205,7 +209,6 @@ In this Hadoop tutorial, you learned how to create a Hadoop cluster on Windows i
 - [Use Hive with HDInsight][hdinsight-use-hive]
 - [Use Pig with HDInsight][hdinsight-use-pig]
 - [Use Oozie with HDInsight][hdinsight-use-oozie]
-- [Develop C# Hadoop streaming programs for HDInsight][hdinsight-develop-streaming]
 - [Develop Java MapReduce programs for HDInsight][hdinsight-develop-mapreduce]
 
 
@@ -223,8 +226,7 @@ In this Hadoop tutorial, you learned how to create a Hadoop cluster on Windows i
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-emulator]: hdinsight-hadoop-emulator-get-started.md
-[hdinsight-develop-streaming]: hdinsight-hadoop-develop-deploy-streaming-jobs.md
-[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce.md
+[hdinsight-develop-mapreduce]: hdinsight-develop-deploy-java-mapreduce-linux.md
 [hadoop-hdinsight-intro]: hdinsight-hadoop-introduction.md
 [hdinsight-weblogs-sample]: hdinsight-hive-analyze-website-log.md
 [hdinsight-sensor-data-sample]: hdinsight-hive-analyze-sensor-data.md
@@ -232,7 +234,7 @@ In this Hadoop tutorial, you learned how to create a Hadoop cluster on Windows i
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-management-portal]: https://ms.portal.azure.com/
+[azure-management-portal]: https://portal.azure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account.md
 
 [apache-hadoop]: http://go.microsoft.com/fwlink/?LinkId=510084

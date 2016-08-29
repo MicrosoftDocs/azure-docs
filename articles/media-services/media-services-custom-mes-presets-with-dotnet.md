@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Perform advanced encoding tasks by customizing Media Encoder Standard presets" 
+	pageTitle="Advanced encoding with Media Encoder Standard" 
 	description="This topic shows how to perform advanced encoding by customizing Media Encoder Standard task presets. The topic shows how to use Media Services .NET SDK to create an encoding task and job. It also shows how to supply custom presets to the encoding job." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2016"    
+	ms.date="06/22/2016"    
 	ms.author="juliako"/>
 
 
-#Perform advanced encoding tasks by customizing Media Encoder Standard presets
+#Advanced encoding with Media Encoder Standard
 
 ##Overview
 
-This topic shows how to perform advanced encoding by customizing Media Encoder Standard task presets. The topic shows [how to use .NET to create an encoding task and a job that executes this task](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet). It also shows how to supply custom presets to the encoding task. For description of elements that are used by the presets, see [this document](https://msdn.microsoft.com/library/mt269962.aspx). 
+This topic shows how to perform advanced encoding tasks with Media Encoder Standard. The topic shows [how to use .NET to create an encoding task and a job that executes this task](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet). It also shows how to supply custom presets to the encoding task. For description of elements that are used by the presets, see [this document](https://msdn.microsoft.com/library/mt269962.aspx). 
 
 The custom presets that perform the following encoding tasks are demonstrated:
 
@@ -30,6 +30,7 @@ The custom presets that perform the following encoding tasks are demonstrated:
 - [Create an overlay](media-services-custom-mes-presets-with-dotnet.md#overlay)
 - [Insert a silent audio track when input has no audio](media-services-custom-mes-presets-with-dotnet.md#silent_audio)
 - [Disable auto de-interlacing](media-services-custom-mes-presets-with-dotnet.md#deinterlacing)
+- [Audio-only presets](media-services-custom-mes-presets-with-dotnet.md#audio_only)
 
 ##<a id="encoding_with_dotnet"></a>Encoding with Media Services .NET SDK
 
@@ -897,7 +898,55 @@ You can turn the auto de-interlacing off. This option is not recommended.
 	</Sources>
 
 
+##<a id="audio_only"></a>Audio-only presets
 
+This section demonstrates two audio-only MES presets: AAC Audio and AAC Good Quality Audio.
+
+###AAC Audio 
+
+	{
+	  "Version": 1.0,
+	  "Codecs": [
+	    {
+	      "Profile": "AACLC",
+	      "Channels": 2,
+	      "SamplingRate": 48000,
+	      "Bitrate": 128,
+	      "Type": "AACAudio"
+	    }
+	  ],
+	  "Outputs": [
+	    {
+	      "FileName": "{Basename}_AAC_{AudioBitrate}.mp4",
+	      "Format": {
+	        "Type": "MP4Format"
+	      }
+	    }
+	  ]
+	}
+
+###AAC Good Quality Audio
+
+	{
+	  "Version": 1.0,
+	  "Codecs": [
+	    {
+	      "Profile": "AACLC",
+	      "Channels": 2,
+	      "SamplingRate": 48000,
+	      "Bitrate": 192,
+	      "Type": "AACAudio"
+	    }
+	  ],
+	  "Outputs": [
+	    {
+	      "FileName": "{Basename}_AAC_{AudioBitrate}.mp4",
+	      "Format": {
+	        "Type": "MP4Format"
+	      }
+	    }
+	  ]
+	}
 
 ##Media Services learning paths
 

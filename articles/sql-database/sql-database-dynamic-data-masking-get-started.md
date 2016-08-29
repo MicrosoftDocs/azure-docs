@@ -4,7 +4,7 @@
    services="sql-database"
    documentationCenter=""
    authors="ronitr"
-   manager="jeffreyg"
+   manager="jhubbard"
    editor="v-romcal"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/01/2015"
+   ms.date="07/10/2016"
    ms.author="ronitr; ronmat; v-romcal; sstein"/>
 
 

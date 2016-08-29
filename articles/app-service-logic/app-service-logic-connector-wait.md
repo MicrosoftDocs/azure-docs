@@ -1,23 +1,24 @@
 <properties 
    pageTitle="Using the Wait Connector in Logic Apps | Microsoft Azure App Service" 
    description="How to create and configure the Wait Connector or API app and use it in a logic app in Azure App Service" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajeshramabathiran" 
    manager="erikre" 
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/10/2016"
+   ms.date="04/19/2016"
    ms.author="rajram"/>
 
 # Get started with the Wait Connector and add it to your Logic App
->[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
+
+>[AZURE.NOTE] We are ending support for this connector because its functionality is now included by default as the **delay action** when you create new Logic apps. We recommend that you upgrade all your Logic apps that are using this connector. This version of the article applies to logic apps 2014-12-01-preview schema version.
 
 Wait connector enables an app to delay its execution for a specified duration or until the occurrence of a specified time. You can add the Wait Connector to your business workflow and process data as part of this workflow within a Logic App. When used in a Logic App, it can be used to delay execution.
 
@@ -51,7 +52,7 @@ Now that the connector is created, you can add it to a business flow using a Log
 
 View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-You can also review performance statistics and control security to the connector. See [Manage  and Monitor API apps and connector](../app-service-api/app-service-api-manage-in-portal.md).
+ 
 
 <!--References -->
 [1]: ./media/app-service-logic-wait/ListOfActions.PNG

@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Replicate Hyper-V VMs in a VMM cloud to a secondary site with Azure Site Recovery using SAN | Microsoft Azure"
-	description="This articles describes how to replicate Hyper-V virtual machines between two sites with Azure Site Recovery using SAN replication."
+	description="This article describes how to replicate Hyper-V virtual machines between two sites with Azure Site Recovery using SAN replication."
 	services="site-recovery"
 	documentationCenter=""
 	authors="rayne-wiselman"
@@ -13,20 +13,24 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="07/06/2016"
 	ms.author="raynew"/>
 
 # Replicate Hyper-V VMs in a VMM cloud to a secondary site with Azure Site Recovery using SAN
 
-The Azure Site Recovery service contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Machines can be replicated to Azure, or to a secondary on-premises data center. For a quick overview read [What is Azure Site Recovery?](site-recovery-overview.md).
+In this article you'll learn how to deploy Site Recovery to orchestrate and automate SAN replication and failover for Hyper-V virtual machines located in System Center VMM clouds to a secondary VMM site.
+
+After reading this article post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr). 
+
 
 ## Overview
 
-This article describes how to deploy Site Recovery to orchestrate and automate protection for Hyper-V virtual machines located in System Center Virtual Machine Manager (VMM) private clouds. In this scenario virtual machines are replicated from a primary VMM site to a secondary VMM site using Site Recovery and SAN replication.
+Organizations need a business continuity and disaster recovery (BCDR) strategy that a determines how apps, workloads, and data stay running and available during planned and unplanned downtime, and recover to normal working conditions as soon as possible. Your BCDR strategy center's around solutions that keep business data safe and recoverable, and workloads continuously available, when disaster occurs.
 
-The article includes an overview and deployment prerequisites. It walks you through configuring and enable replication in VMM and the Site Recovery vault. You'll discover and classify SAN storage in VMM, provision LUNs, and allocate storage to Hyper-V clusters. It finishes up by testing failover to make sure everything's working as expected.
+Site Recovery is an Azure service that contributes to your BCDR strategy by orchestrating replication of on-premises physical servers and virtual machines to the cloud (Azure) or to a secondary datacenter. When outages occur in your primary location, you fail over to the secondary site to keep apps and workloads available. You fail back to your primary location when it returns to normal operations. Site Recovery can be used in a number of scenarios and can protect a number of workloads. Learn more in [What is Azure Site Recovery?](site-recovery-overview.md)
 
-Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+This article includes instructions for setting up replication of Hyper-V VMs from one VMM site to another using SAN relication. It includes an architectural overview, and deployment prerequisites and instructions. You'll discover and classify SAN storage in VMM, provision LUNs, and allocate storage to Hyper-V clusters. It finishes up by testing failover to make sure everything's working as expected.
+
 
 ## Why replicate with SAN?
 
@@ -109,6 +113,8 @@ Add an classify SANs in the VMM console:
 
 	- [How to select a method for creating logical units in VMM](https://technet.microsoft.com/library/gg610624.aspx)
 	- [How to provision storage logical units in VMM](https://technet.microsoft.com/library/gg696973.aspx)
+
+	>[AZURE.NOTE] After you've enable replication for a machine you shouldn't add VHDs for it to LUNs that aren't located in a Site Recovery replication group. If you do they won't be detected by Site Recovery.
 
 2. Then allocate storage capacity to the Hyper-V host cluster so that VMM can deploy virtual machine data to the provisioned storage:
 
@@ -263,15 +269,15 @@ After VMM servers are registered, you can configure cloud protection settings. Y
 
 1. On the Quick Start page, click **Set up protection for VMM clouds**.
 2. On the **Protected Items** tab, select the cloud that you want to configure and go to the **Configuration** tab. Note that:
-3. In <b>Target</b>, select <b>VMM</b>.
-4. In <b>Target location</b>, select the on-site VMM server that manages the cloud you want to use for recovery.
-5. In <b>Target cloud</b>, select the target cloud you want to use for failover of virtual machines in the source cloud. Note that:
+3. In **Target**, select **VMM**.
+4. In **Target location**, select the on-site VMM server that manages the cloud you want to use for recovery.
+5. In **Target cloud**, select the target cloud you want to use for failover of virtual machines in the source cloud. Note that:
 	- We recommend that you select a target cloud that meets recovery requirements for the virtual machines you'll protect.
 	- A cloud can only belong to a single cloud pair — either as a primary or a target cloud.
 6. Azure Site Recovery verifies that clouds have access to SAN replication capable storage, and that the storage arrays are peered. Participating array peers are displayed.
 7. If verification is successful, in **Replication type**, select **SAN**.
 
-<p>After you save the settings a job will be created and can be monitored on the <b>Jobs</b> tab. Cloud settings can be modified on the <b>Configure</b> tab. If you want to modify the target location or target cloud you must remove the cloud configuration, and then reconfigure the cloud.</p>
+After you save the settings a job will be created and can be monitored on the **Jobs** tab. Cloud settings can be modified on the **Configure** tab. If you want to modify the target location or target cloud you must remove the cloud configuration, and then reconfigure the cloud.
 
 ## Step 5: Enable network mapping
 
@@ -289,7 +295,7 @@ After VMM servers are registered, you can configure cloud protection settings. Y
 6.  Click the check mark to complete the mapping process. A job starts to track the mapping progress. You can view it on the **Jobs** tab.
 
 
-## Step 6: Enable replication for replication groups</h3>
+## Step 6: Enable replication for replication groups
 
 Before you can enable protection for virtual machines you’ll need to enable replication for storage replication groups.
 
@@ -309,6 +315,8 @@ With this option VMM uses intelligent placement to optimally place the virtual m
 	![Enable protection](./media/site-recovery-vmm-san/enable-protect.png)
 
 After virtual machines are enabled for protection they appear in the Azure Site Recovery console. You can view virtual machine properties, track status, and fail over replication groups that contain multiple virtual machines. Note that in SAN replication all virtual machines associated with a replication group must fail over together. This is because failover occurs at the storage layer first. It’s important to group your replication groups properly and place only associated virtual machines together.
+
+>[AZURE.NOTE] After you've enable replication for a machine you shouldn't add VHDs for it to LUNs that aren't located in a Site Recovery replication group. If you do they won't be detected by Site Recovery.
 
 You can track progress of the Enable Protection action in the **Jobs** tab, including the initial replication. After the Finalize Protection job runs the virtual machine is ready for failover.
 
@@ -332,7 +340,6 @@ Test your deployment to make sure virtual machines and data fail over as expecte
 
 
 	![Select test network](./media/site-recovery-vmm-san/test-fail1.png)
-
 
 8. The test virtual machine will be created on the same host as the host on which the replica virtual machine exists. It isn’t added to the cloud in which the replica virtual machine is located.
 9. After replication the replica virtual machine will have an IP address that isn’t the same as the IP address of the primary virtual machine. If you're issuing addresses from DHCP then will be updated automatically. If you're  not using DHCP and you want to make sure the addresses are the same you'll need to run a couple of scripts.

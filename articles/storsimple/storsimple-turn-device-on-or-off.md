@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/02/2015"
+   ms.date="08/23/2016"
    ms.author="alkohli" />
 
 # Turn your StorSimple device on or off 
 
 ## Overview
 
-Shutting down a Microsoft Azure StorSimple device is not required as a part of normal system operation. However, you may need to turn on a new device or a  device that had to be shut down. Generally, a shutdown is required in cases in which you must replace failed hardware, physically move a unit, or take a device out of service. This tutorial describes the required procedure for turning on and shutting down your StorSimple device in different scenarios.
+Shutting down a Microsoft Azure StorSimple device is not required as a part of normal system operation. However, you may need to turn on a new device or a device that had to be shut down. Generally, a shutdown is required in cases in which you must replace failed hardware, physically move a unit, or take a device out of service. This tutorial describes the required procedure for turning on and shutting down your StorSimple device in different scenarios.
 
 The following table lists various scenarios for turning on and shutting down your StorSimple device and provides links to the appropriate procedures.
 
@@ -28,12 +28,12 @@ The following table lists various scenarios for turning on and shutting down you
 |Turn on a new device|[Turn on a new device](#turn-on-a-new-device)<ul><li>[New device with primary enclosure only](#new-device-with-primary-enclosure-only)</li><li>[New device with EBOD enclosure](#new-device-with-ebod-enclosure)</li></ul>|
 |Turn on a device after shutdown|[Turn on a device after shutdown](#turn-on-a-device-after-shutdown)<ul><li>[Device with primary enclosure only](#device-with-primary-enclosure-only)</li><li>[Device with EBOD enclosure](#device-with-ebod-enclosure)</li></ul>|
 |Turn on a device after a power loss|[Turn on a device after a power loss](#turn-on-a-device-after-a-power-loss)<ul><li>[Device with primary enclosure only](#8100)</li><li>[Device with EBOD enclosure](#8600)</li></ul>|
-|Turn on a device after the primary enclosure and EBOD connection is lost|[Turn on a device after the primary and EBOD enclosure connection is lost](#turn-on-a-device-after-the-primary-and-EBOD-enclosure-connection-is-lost)|
+|Turn on a device after the primary enclosure and EBOD connection is lost|[Turn on a device after the primary and EBOD enclosure connection is lost](#turn-on-a-device-after-the-primary-and-ebod-enclosure-connection-is-lost)|
 |Shut down a running device|[Turn off a running device](#turn-off-a-running-device)<ul><li>[Device with primary enclosure only](#8100a)</li><li>[Device with EBOD enclosure](#8600a)</li></ul>|
 
 ## Turn on a new device
 
-The steps for turning on a Microsoft Azure StorSimple device for the first time differ depending on whether the device is an 8100 or an 8600 model. The 8100 has a single primary enclosure, whereas the 8600 is a dual-enclosure device with a primary enclosure and an EBOD enclosure. The detailed steps for both models are covered in the following sections.
+The steps for turning on a StorSimple device for the first time differ depending on whether the device is an 8100 or an 8600 model. The 8100 has a single primary enclosure, whereas the 8600 is a dual-enclosure device with a primary enclosure and an EBOD enclosure. The detailed steps for both models are covered in the following sections.
 
 - [New device with primary enclosure only](#new-device-with-primary-enclosure-only)
 
@@ -63,7 +63,7 @@ When setting up this device for the first time, perform the steps for SAS cablin
 
 ## Turn on a device after shutdown
 
-The steps for turning on a Microsoft Azure StorSimple device after it has been shut down are different depending on whether the device is an 8100 or an 8600 model. The 8100 has a single primary enclosure, whereas the 8600 is a dual-enclosure device with a primary enclosure and an EBOD enclosure.
+The steps for turning on a StorSimple device after it has been shut down are different depending on whether the device is an 8100 or an 8600 model. The 8100 has a single primary enclosure, whereas the 8600 is a dual-enclosure device with a primary enclosure and an EBOD enclosure.
 
 - [Device with primary enclosure only](#device-with-primary-enclosure-only)
 
@@ -107,7 +107,7 @@ After a shutdown, use the following procedure to turn on a StorSimple device wit
 
 ## Turn on a device after a power loss
 
-A power outage or interruption can shut down a Microsoft Azure StorSimple device. The power outage can happen on one of the power supplies or both power supplies. The recovery steps are different depending on whether the device is an 8100 or an 8600 model. The 8100 has a single primary enclosure, whereas the 8600 is a dual-enclosure device with a primary enclosure and an EBOD enclosure. This section describes the recovery procedure for each scenario.
+A power outage or interruption can shut down a StorSimple device. The power outage can happen on one of the power supplies or both power supplies. The recovery steps are different depending on whether the device is an 8100 or an 8600 model. The 8100 has a single primary enclosure, whereas the 8600 is a dual-enclosure device with a primary enclosure and an EBOD enclosure. This section describes the recovery procedure for each scenario.
 
 - [Device with primary enclosure only](#8100)
 
@@ -181,7 +181,7 @@ When both Serial Attached SCSI (SAS) cables are removed or the connection betwee
 
 ## Turn off a running device
 
-A running Microsoft Azure StorSimple device may need to be shut down if it is being moved, taken out of service, or has a malfunctioning component that needs to be replaced. The steps are different depending on whether the Microsoft Azure StorSimple device is an 8100 or an 8600 model. The 8100 has a single primary enclosure, whereas the 8600 is a dual-enclosure device with a primary enclosure and an EBOD enclosure. This section details the steps to shut down a running device.
+A running StorSimple device may need to be shut down if it is being moved, taken out of service, or has a malfunctioning component that needs to be replaced. The steps are different depending on whether the StorSimple device is an 8100 or an 8600 model. The 8100 has a single primary enclosure, whereas the 8600 is a dual-enclosure device with a primary enclosure and an EBOD enclosure. This section details the steps to shut down a running device.
 
 - [Device with primary enclosure](#8100a)
 
@@ -189,39 +189,13 @@ A running Microsoft Azure StorSimple device may need to be shut down if it is be
 
 ### Device with primary enclosure <a name="8100a"> 
 
-Currently there is no way to shut down a running StorSimple device from the Azure classic portal. The only way to shut it down is by using Windows PowerShell for StorSimple. To shut down the device in an orderly and controlled manner, access Windows PowerShell for StorSimple and follow the steps below.
+To shut down the device in an orderly and controlled manner, you can do it through the Azure classic portal or via the Windows PowerShell for StorSimple. 
 
 >[AZURE.IMPORTANT] Do not shut down a running device by using the power button on the back of the device.
 >
 >Before shutting down the device, make sure that all the device components are healthy. In the Azure classic portal, navigate to **Devices** > **Maintenance** > **Hardware Status**, and verify that status of all the components is green. This is true only for a healthy system. If the system is being shut down to replace a malfunctioning component, you will see a failed (red) or degraded (yellow) status for the respective component in the **Hardware Status**.
 
-You can connect to the Windows PowerShell for StorSimple through the device serial console or through Windows PowerShell remoting. After you access Windows PowerShell for StorSimple, perform the following steps to shut down a running device.
-
-#### To shut down a running device
-
-1. Connect to the serial console of the device.
-
-2. In the menu that appears, verify that the controller you are connected to is the **Standby** controller. If it is not the standby controller, disconnect from the controller, and connect to the other controller.
-
-3. In the serial console menu, choose **Option 1** to log on to the standby controller with full access.
-
-4. At the prompt, type: 
-
-    `Stop-HCSController`
-
-    This should shut down the current standby controller.
-
-    >[AZURE.IMPORTANT] Wait for the controller to shut down completely before you proceed to the next step.
-
-5. To verify that the shutdown has finished, check the back of the device. The controller fault LED should be solid red.
-
-6. Connect to the active controller through the serial console and follow the same steps to shut it down.
-
-7. After both the controllers have shut down completely, the status LEDs on both controllers should be blinking red.
-
-8. If you need to shut down the device completely at this time, flip the power switches on both Power and Cooling Modules (PCMs) to the OFF position.
-
-9. To verify that the device has completely shut down, check that all the lights at the back of the device are off.
+After you access the Windows PowerShell for StorSimple or the Azure classic portal, follow the steps in [shut down a StorSimple device](storsimple-manage-device-controller.md#shut-down-a-storsimple-device). 
 
 ### Device with EBOD enclosure <a name="8600a">
 
@@ -229,7 +203,7 @@ You can connect to the Windows PowerShell for StorSimple through the device seri
 
 #### To shut down a running device with EBOD enclosure
 
-1. Follow all the steps listed in [Device with primary enclosure only](#8100a).
+1. Follow all the steps listed in [shut down a StorSimple device](storsimple-manage-device-controller.md#shut-down-a-storsimple-device) for the primary enclosure.
 
 2. After the primary enclosure is shut down, shut down the EBOD by flipping off both Power and Cooling Module (PCM) switches.
 

@@ -38,11 +38,11 @@ The previous example showed a standard sign-in, which requires the client to con
     	private boolean loadUserTokenCache(MobileServiceClient client)
 	    {
 	        SharedPreferences prefs = getSharedPreferences(SHAREDPREFFILE, Context.MODE_PRIVATE);
-    	    String userId = prefs.getString(USERIDPREF, "undefined"); 
-	        if (userId == "undefined")
+    	    String userId = prefs.getString(USERIDPREF, null); 
+	        if (userId == null)
 	            return false;
-    	    String token = prefs.getString(TOKENPREF, "undefined"); 
-    	    if (token == "undefined")
+    	    String token = prefs.getString(TOKENPREF, null); 
+    	    if (token == null)
     	        return false;
         	    
     	    MobileServiceUser user = new MobileServiceUser(userId);

@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/24/2016"
+	ms.date="07/21/2016"
 	ms.author="tamram"/>
 
 # Introduction to Microsoft Azure Storage
 
 ## Overview
 
-Azure Storage is the cloud storage solution for modern applications that rely on durability, availability, and scalability to meet the needs of their customers. By reading this article, developers, IT Pros, and business decision makers can learn about about:
+Azure Storage is the cloud storage solution for modern applications that rely on durability, availability, and scalability to meet the needs of their customers. By reading this article, developers, IT Pros, and business decision makers can learn about:
 
 - What Azure Storage is, and how you can take advantage of it in your cloud, mobile, server, and desktop applications
 - What kinds of data you can store with the Azure Storage services: blob (object) data, NoSQL table data, queue messages, and file shares.
 - How access to your data in Azure Storage is managed
-- How your Azure Storage data is protected via redundancy and replication
+- How your Azure Storage data is made durable via redundancy and replication
 - Where to go next to build your first Azure Storage application
 
 To get up and running with Azure Storage quickly, see [Get started with Azure Storage in five minutes](storage-getting-started-guide.md).
@@ -44,47 +44,30 @@ Azure Storage uses an auto-partitioning system that automatically load-balances 
 
 Azure Storage is accessible from anywhere in the world, from any type of application, whether it’s running in the cloud, on the desktop, on an on-premises server, or on a mobile or tablet device. You can use Azure Storage in mobile scenarios where the application stores a subset of data on the device and synchronizes it with a full set of data stored in the cloud.
 
-Azure Storage supports clients using a diverse set of operating systems (including Windows and Linux) and a variety of programming languages (including .NET, Java, and C++) for convenient development. Azure Storage also exposes data resources via simple REST APIs, which are available to any client capable of sending and receiving data via HTTP/HTTPS.
+Azure Storage supports clients using a diverse set of operating systems (including Windows and Linux) and a variety of programming languages (including .NET, Java, Node.js, Python, Ruby, PHP and C++ and mobile programming languages) for convenient development. Azure Storage also exposes data resources via simple REST APIs, which are available to any client capable of sending and receiving data via HTTP/HTTPS.
 
 Azure Premium Storage delivers high-performance, low-latency disk support for I/O intensive workloads running on Azure Virtual Machines. With Azure Premium Storage, you can attach multiple persistent data disks to a virtual machine and configure them to meet your performance requirements. Each data disk is backed by an SSD disk in Azure Premium Storage for maximum I/O performance. See [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage.md) for more details.
 
 ## Introducing the Azure Storage Services
 
-An Azure storage account is a secure account that gives you access to services in Azure Storage. Your storage account provides the unique namespace for your storage resources. There are two types of storage accounts:
+Azure storage provides the following four services: Blob storage, Table storage, Queue storage, and File storage.
 
-- A standard storage account includes Blob, Table, Queue, and File storage.
-- A premium storage account currently supports Azure Virtual Machine disks only.
+- Blob Storage stores unstructured object data. A blob can be any type of text or binary data, such as a document, media file, or application installer. Blob storage is also referred to as Object storage.
+- Table Storage stores structured datasets. Table storage is a NoSQL key-attribute data store, which allows for rapid development and fast access to large quantities of data.
+- Queue Storage provides reliable messaging for workflow processing and for communication between components of cloud services.
+- File Storage offers shared storage for legacy applications using the standard SMB protocol. Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premises applications can access file data in a share via the File service REST API.
 
-Before you can create a storage account, you must have an Azure subscription, which is a plan that gives you access to a variety of Azure services. You can create up to 100 uniquely named storage accounts with a single subscription. See [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) for details about storage account limits. See [Azure Storage Pricing ](https://azure.microsoft.com/pricing/details/storage/) for information on volume pricing.
-
-You can get started with Azure with a [free account](https://azure.microsoft.com/pricing/free-trial/). Once you decide to purchase a subscription plan, you can choose from a variety of [purchase options](https://azure.microsoft.com/pricing/purchase-options/). If you’re an [MSDN subscriber](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), you get free monthly credits that you can use with Azure services, including Azure Storage.
-
-### Standard Storage Accounts
-
-A standard storage account gives you access to the Azure storage data services: Blob storage, Table storage, Queue storage, and File storage:
-
-- **Blob Storage** stores file data. A blob can be any type of text or binary data, such as a document, media file, or application installer. Blob storage is also referred to as Object storage.
-- **Table Storage** stores structured datasets. Table storage is a NoSQL key-attribute data store, which allows for rapid development and fast access to large quantities of data.
-- **Queue Storage** provides reliable messaging for workflow processing and for communication between components of cloud services.
-- **File Storage** offers shared storage for legacy applications using the standard SMB protocol. Azure virtual machines and cloud services can share file data across application components via mounted shares, and on-premises applications can access file data in a share via the File service REST API.
-
-Each standard storage account can contain up to 500 TB of combined blob, queue, table, and file data. See the [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) for details about standard storage account capacity.
-
-The image below shows the relationships between the Azure storage resources in a standard storage account:
+An Azure storage account is a secure account that gives you access to services in Azure Storage. Your storage account provides the unique namespace for your storage resources. The image below shows the relationships between the Azure storage resources in a storage account:
 
 ![Azure Storage Resources](./media/storage-introduction/storage-concepts.png)
 
-To learn how to create a standard storage account, see [Create a storage account](storage-create-storage-account.md#create-a-storage-account) for more details.
-
-### Premium Storage Accounts
-
-Azure Premium Storage currently supports Azure Virtual Machine disks only. For an in-depth overview of Azure Premium Storage, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage.md).
+[AZURE.INCLUDE [storage-account-types-include](../../includes/storage-account-types-include.md)]
 
 [AZURE.INCLUDE [storage-versions-include](../../includes/storage-versions-include.md)]
 
 ## Blob Storage
 
-For users with large amounts of unstructured data to store in the cloud, Blob storage offers a cost-effective and scalable solution. You can use Blob storage to store content such as:
+For users with large amounts of unstructured object data to store in the cloud, Blob storage offers a cost-effective and scalable solution. You can use Blob storage to store content such as:
 
 - Documents
 - Social data such as photos, videos, music, and blogs
@@ -95,11 +78,13 @@ For users with large amounts of unstructured data to store in the cloud, Blob st
 
 Every blob is organized into a container. Containers also provide a useful way to assign security policies to groups of objects. A storage account can contain any number of containers, and a container can contain any number of blobs, up to the 500 TB capacity limit of the storage account.  
 
-Blob storage offers three types of blobs, block blobs, append blobs, and page blobs (disks). Block blobs are optimized for streaming and storing cloud objects, and are a good choice for storing documents, media files, backups etc. Append blobs are similar to block blobs, but are optimized for append operations. An append blob can be updated only by adding a new block to the end. Append blobs are a good choice for scenarios such as logging, where new data needs to be written only to the end of the blob.
+Blob storage offers three types of blobs, block blobs, append blobs, and page blobs (disks).
 
-Page blobs are optimized for representing IaaS disks and supporting random writes, and may be up to 1 TB in size. An Azure virtual machine network attached IaaS disk is a VHD stored as a page blob.
+- Block blobs are optimized for streaming and storing cloud objects, and are a good choice for storing documents, media files, backups etc.
+- Append blobs are similar to block blobs, but are optimized for append operations. An append blob can be updated only by adding a new block to the end. Append blobs are a good choice for scenarios such as logging, where new data needs to be written only to the end of the blob.
+- Page blobs are optimized for representing IaaS disks and supporting random writes, and may be up to 1 TB in size. An Azure virtual machine network attached IaaS disk is a VHD stored as a page blob.
 
-For very large datasets where network constraints make uploading or downloading data to Blob storage over the wire unrealistic, you can ship a hard drive to Microsoft to import or export data directly from the data center. See [Use the Microsoft Azure Import/Export Service to Transfer Data to Blob Storage](storage-import-export-service.md). 
+For very large datasets where network constraints make uploading or downloading data to Blob storage over the wire unrealistic, you can ship a hard drive to Microsoft to import or export data directly from the data center. See [Use the Microsoft Azure Import/Export Service to Transfer Data to Blob Storage](storage-import-export-service.md).
 
 ## Table storage
 
@@ -147,7 +132,39 @@ See [Shared Access Signatures: Understanding the SAS Model](storage-dotnet-share
 
 ## Replication for Durability and High Availability
 
-[AZURE.INCLUDE [storage-replication-options-include](../../includes/storage-replication-options-include.md)]
+The data in your Microsoft Azure storage account is always replicated to ensure durability and high availability, meeting the [SLA for Storage](https://azure.microsoft.com/support/legal/sla/storage/) even in the face of transient hardware failures. 
+
+See [Azure Regions](https://azure.microsoft.com/regions/#services) for more information about what services are available in each region.
+
+When you create a storage account, you must select one of the following replication options:  
+
+- **Locally redundant storage (LRS).** Locally redundant storage maintains three copies of your data. LRS is replicated three times within a single facility in a single region. LRS protects your data from normal hardware failures, but not from the failure of a single facility.  
+  
+	LRS is offered at a discount. For maximum durability, we recommend that you use geo-redundant storage, described below.
+
+
+- **Zone-redundant storage (ZRS).** Zone-redundant storage maintains three copies of your data. ZRS is replicated three times across two to three facilities, either within a single region or across two regions, providing higher durability than LRS. ZRS ensures that your data is durable within a single region.  
+
+	ZRS provides a higher level of durability than LRS; however, for maximum durability, we recommend that you use geo-redundant storage, described below.  
+
+	> [AZURE.NOTE] ZRS is currently available only for block blobs, and is only supported for versions 2014-02-14 and later.
+	> 
+	> Once you have created your storage account and selected ZRS, you cannot convert it to use to any other type of replication, or vice versa. 
+
+- **Geo-redundant storage (GRS)**. GRS maintains six copies of your data. With GRS, your data is replicated three times within the primary region, and is also replicated three times in a secondary region hundreds of miles away from the primary region, providing the highest level of durability. In the event of a failure at the primary region, Azure Storage will failover to the secondary region. GRS ensures that your data is durable in two separate regions.
+
+	For information about primary and secondary pairings by region, see [Azure Regions](https://azure.microsoft.com/regions/).
+
+- **Read access geo-redundant storage (RA-GRS)**. Read access geo-redundant storage is enabled for your storage account by default when you create it. Read access geo-redundant storage replicates your data to a secondary geographic location, and also provides read access to your data in the secondary location. Read-access geo-redundant storage allows you to access your data from either the primary or the secondary location, in the event that one location becomes unavailable.
+
+	> [AZURE.IMPORTANT] You can change how your data is replicated after your storage account has been created, unless you specified ZRS when you created the account. However, note that you may incur an additional one-time data transfer cost if you switch from LRS to GRS or RA-GRS.
+ 
+See [Azure Storage replication](storage-redundancy.md) for additional details about storage replication options.
+
+For pricing information for storage account replication, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/).
+
+For architectural details about durability with Azure Storage, see [SOSP Paper - Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
+
 
 ## Transferring Data to and from Azure Storage
 
@@ -159,11 +176,7 @@ The Azure Import/Export service provides a way to import blob data into or expor
 
 ## Pricing
 
-Customers are charged for Azure Storage based on four factors: the storage capacity used, the replication option selected, the number of requests made against the service, and data egress.
-
-Storage capacity refers to how much of your storage account allotment you are using to store data. The cost of simply storing your data is determined by how much data you are storing, and how it is replicated. Every read and write operation against Azure Storage also makes a request against the service. Data egress refers to data transferred out of a Microsoft Azure region. When the data in your storage account is accessed by an application that is not running in the same region, whether that application is a cloud service or some other type of application, then you are charged for data egress. (For Microsoft Azure services, you can take steps to group your data and services in the same data centers to reduce or eliminate process and data egress charges.)
-
-The [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) page provides detailed pricing information for storage capacity, replication, and transactions. The [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/) provides detailed pricing information for data egress. You can use the [Azure Storage Pricing Calculator](https://azure.microsoft.com/pricing/calculator/?scenario=data-management) to help estimate your costs.
+[AZURE.INCLUDE [storage-account-billing-include](../../includes/storage-account-billing-include.md)]
 
 ## Storage APIs, Libraries, and Tools
 
@@ -188,14 +201,16 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 - [Storage Resource Provider Cmdlets for PowerShell 1.0](https://msdn.microsoft.com/library/azure/mt607151.aspx)
 - [Storage Service Management REST API (Classic)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
 
-### Azure Storage Data Movement Services 
+### Azure Storage Data Movement Services
 
 - [Storage Import/Export Service REST API](https://msdn.microsoft.com/library/azure/dn529096.aspx)
 - [Storage Data Movement Client Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/)
 
 ### Tools and Utilities
 
-- [Azure SDKs and Tools](https://azure.microsoft.com/downloads/)
+- [Azure Storage Explorer](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
+- [Azure Storage Client Tools](storage-explorers.md)
+- [Azure SDKs and Tools](https://azure.microsoft.com/tools/)
 - [Azure Storage Emulator](http://www.microsoft.com/download/details.aspx?id=43709)
 - [Azure PowerShell](../powershell-install-configure.md)
 - [AzCopy Command-Line Utility](http://aka.ms/downloadazcopy)
@@ -208,9 +223,10 @@ To learn more about Azure Storage, explore these resources:
 
 - [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
 
-### For PowerShell Users
+### For Administrators
 
 - [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md)
+- [Using Azure CLI with Azure Storage](storage-azure-cli.md)
 
 ### For .NET Developers
 
@@ -224,7 +240,7 @@ To learn more about Azure Storage, explore these resources:
 - [How to use Blob storage from Java](storage-java-how-to-use-blob-storage.md)
 - [How to use Table storage from Java](storage-java-how-to-use-table-storage.md)
 - [How to use Queue storage from Java](storage-java-how-to-use-queue-storage.md)
-- [How to use File storage from Java](storage-java-how-to-use-file-storage.md) 
+- [How to use File storage from Java](storage-java-how-to-use-file-storage.md)
 
 ### For Node.js Developers
 

@@ -3,7 +3,7 @@
 	description="Azure Machine Learning Recommendations - Quick Start Guide" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="luisca" 
+	authors="LuisCabrer" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,10 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/09/2016" 
+	ms.date="08/17/2016" 
 	ms.author="luisca"/>
 
 # Quick start guide for the Machine Learning Recommendations API
+
+> This is documentation for the old recommendations API in the data-market, which will be deprecated by 12/31/2016. You should    
+> now move to use the [Recommendations API Cognitive Service](https://www.microsoft.com/cognitive-services/en-us/recommendations-api).  
+
+
 
 This document describes how to onboard your service or application to use Microsoft Azure Machine Learning Recommendations. You can find more details on the Recommendations API in the [gallery](http://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
 
@@ -298,6 +303,7 @@ This section shows how to send events in real time to Azure Machine Learning Rec
 		</Event>
 
 - Example for event 'Purchase':
+
 		<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 		<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
 		<SessionId>11112222</SessionId>

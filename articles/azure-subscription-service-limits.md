@@ -5,34 +5,38 @@
 	documentationCenter=""
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar"/>
+	editor=""
+	tags="billing"
+	/>
 
 <tags
-	ms.service="multiple"
-	ms.workload="multiple"
+	ms.service="billing"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/12/2016"
-	ms.author="jroth"/>
+	ms.date="08/29/2016"
+	ms.author="btardif"/>
 
 # Azure subscription and service limits, quotas, and constraints
 
 ## Overview
 
-This document specifies some of the most common Microsoft Azure limits. Note that this does not currently cover all Azure services. Over time, these limits will be expanded and updated to cover more of the platform.
+This document specifies some of the most common Microsoft Azure limits. This does not currently cover all Azure services. Over time, these limits will be expanded and updated to cover more of the platform.
+
+Please visit [Azure Pricing Overview](https://azure.microsoft.com/pricing/) to learn more about Azure pricing. There, you can estimate your costs using the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) or by visiting the pricing details page for a service (for example, [Windows VMs](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)).
 
 > [AZURE.NOTE] If you want to raise the limit above the **Default Limit**, you can [open an online customer support request at no charge](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). The limits cannot be raised above the **Maximum Limit** value in the tables below. If there is no **Maximum Limit** column, then the specified resource does not have adjustable limits.
 
 ## Limits and the Azure Resource Manager
 
-It is now possible to combine multiple Azure resources in to a single Azure Resource Group. When using Resource Groups, limits that once were global become managed at a regional level with the Azure Resource Manager. For more information about Azure Resource Groups, see [Using resource groups to manage your Azure resources](azure-portal/resource-group-portal.md).
+It is now possible to combine multiple Azure resources in to a single Azure Resource Group. When using Resource Groups, limits that once were global become managed at a regional level with the Azure Resource Manager. For more information about Azure Resource Groups, see [Azure Resource Manager overview](resource-group-overview.md).
 
 In the limits below, a new table has been added to reflect any differences in limits when using the Azure Resource Manager. For example, there is a **Subscription Limits** table and a **Subscription Limits - Azure Resource Manager** table. When a limit applies to both scenarios, it is only shown in the first table. Unless otherwise indicated, limits are global across all regions.
 
 > [AZURE.NOTE] It is important to emphasize that quotas for resources in Azure Resource Groups are per-region accessible by your subscription, and are not per-subscription, as the service management quotas are. Let's use core quotas as an example. If you need to request a quota increase with support for cores, you need to decide how many cores you want to use in which regions, and then make a specific request for Azure Resource Group core quotas for the amounts and regions that you want. Therefore, if you need to use 30 cores in West Europe to run your application there; you should specifically request 30 cores in West Europe. But you will not have a core quota increase in any other region -- only West Europe will have the 30-core quota.
 <!-- -->
-As a result, you may find it useful to consider deciding what your Azure Resource Group quotas need to be for your workload in any one region, and request that amount in each region into which you are considering deployment. See [troubleshooting deployment issues](resource-group-deploy-debug.md##authentication-subscription-role-and-quota-issues) for more help discovering your current quotas for specific regions.
+As a result, you may find it useful to consider deciding what your Azure Resource Group quotas need to be for your workload in any one region, and request that amount in each region into which you are considering deployment. See [troubleshooting deployment issues](./resource-manager-common-deployment-errors.md) for more help discovering your current quotas for specific regions.
 
 
 ## Service-specific limits
@@ -41,6 +45,7 @@ As a result, you may find it useful to consider deciding what your Azure Resourc
 - [API Management](#api-management-limits)
 - [App Service](#app-service-limits)
 - [Application Insights](#application-insights-limits)
+- [Automation](#automation-limits)
 - [Azure Redis Cache](#azure-redis-cache-limits)
 - [Azure RemoteApp](#azure-remoteapp-limits)
 - [Backup](#backup-limits)
@@ -52,6 +57,7 @@ As a result, you may find it useful to consider deciding what your Azure Resourc
 - [Data Lake Analytics](#data-lake-analytics-limits)
 - [DNS](#dns-limits)
 - [DocumentDB](#documentdb-limits)
+- [Event Hubs](#event-hubs-limits)
 - [IoT Hub](#iot-hub-limits)
 - [Key Vault](#key-vault-limits)
 - [Media Services](#media-services-limits)
@@ -73,6 +79,7 @@ As a result, you may find it useful to consider deciding what your Azure Resourc
 - [Subscription](#subscription-limits)
 - [Traffic Manager](#traffic-manager-limits)
 - [Virtual Machines](#virtual-machines-limits)
+- [Virtual Machine Scale Sets](#virtual-machine-scale-sets-limits)
 
 
 ### Subscription limits
@@ -90,7 +97,6 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 
 [AZURE.INCLUDE [azure-resource-groups-limits](../includes/azure-resource-groups-limits.md)]
 
-
 ### Virtual Machines limits
 #### Virtual Machine limits
 [AZURE.INCLUDE [azure-virtual-machines-limits](../includes/azure-virtual-machines-limits.md)]
@@ -102,6 +108,9 @@ The following limits apply when using the Azure Resource Manager and Azure Resou
 
 [AZURE.INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
 
+### Virtual Machine Scale Sets limits
+
+[AZURE.INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]
 
 ### Networking limits
 
@@ -130,7 +139,7 @@ For additional details on storage account limits, see [Azure Storage Scalability
 
 [AZURE.INCLUDE [azure-storage-limits-vm-disks](../includes/azure-storage-limits-vm-disks.md)]
 
-See [Virtual machine sizes](../articles/virtual-machines/virtual-machines-size-specs.md) for additional details.
+See [Virtual machine sizes](../articles/virtual-machines/virtual-machines-linux-sizes.md) for additional details.
 
 **Standard storage accounts**
 
@@ -173,6 +182,7 @@ The following table shows the limits for Azure Biztalk Services.
 
 [AZURE.INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
 
+Quotas listed with an asterisk (*) [can be adjusted by contacting Azure support](./documentdb/documentdb-increase-limits.md).
 
 ### Mobile Engagement limits
 
@@ -183,13 +193,19 @@ The following table shows the limits for Azure Biztalk Services.
 
 Pricing tiers determine the capacity and limits of your search service. Tiers include:
 
-- **Free** multi-tenant service, shared with other Azure subscribers, intended for evaluation and small development projects.
-- **Basic (Preview)** provides dedicated computing resources for production workloads at a smaller scale. This tier is currently in Preview and offered at a reduced rate.
-- **Standard (S1 and S2)** is for production workloads. A larger capacity version (**S2**) is available upon request (send email to azuresearch_contact@microsoft.com).
+- *Free* multi-tenant service, shared with other Azure subscribers, intended for evaluation and small development projects.
+- *Basic* provides dedicated computing resources for production workloads at a smaller scale, with up to three replicas for highly available query workloads.
+- *Standard (S1, S2, S3, S3 High Density)* is for larger production workloads. Multiple levels exist within the standard tier so that you can choose a resource configuration for specific scenarios.
 
-[AZURE.INCLUDE [azure-search-limits-all](../includes/azure-search-limits-all.md)]
+**Limits per subscription**
 
-To learn more about other limits, such as document size, keys, requests, and responses, see [Service limits in Azure Search](search/search-limits-quotas-capacity.md).
+[AZURE.INCLUDE [azure-search-limits-per-subscription](../includes/azure-search-limits-per-subscription.md)]
+
+**Limits per search service**
+
+[AZURE.INCLUDE [azure-search-limits-per-service](../includes/azure-search-limits-per-service.md)]
+
+For more granular information about other limits, including document size, queries per second, keys, requests, and responses, see [Service limits in Azure Search](search/search-limits-quotas-capacity.md).
 
 ### Media Services limits
 
@@ -207,6 +223,9 @@ To learn more about other limits, such as document size, keys, requests, and res
 
 [AZURE.INCLUDE [notification-hub-limits](../includes/notification-hub-limits.md)]
 
+### Event Hubs limits
+
+[AZURE.INCLUDE [azure-servicebus-limits](../includes/event-hubs-limits.md)]
 
 ### Service Bus limits
 
@@ -224,7 +243,6 @@ To learn more about other limits, such as document size, keys, requests, and res
 [AZURE.INCLUDE [azure-data-lake-analytics-limits](../includes/azure-data-lake-analytics-limits.md)]
 
 ### Stream Analytics limits
-
 [AZURE.INCLUDE [stream-analytics-limits-table](../includes/stream-analytics-limits-table.md)]
 
 ### Active Directory limits
@@ -272,6 +290,9 @@ To learn more about other limits, such as document size, keys, requests, and res
 ### Multi-Factor Authentication
 [AZURE.INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
 
+### Automation limits
+[AZURE.INCLUDE [automation-limits](../includes/azure-automation-service-limits.md)]
+
 ### SQL Database limits
 
 For SQL Database limits, see [SQL Database Resource Limits](sql-database/sql-database-resource-limits.md).
@@ -280,6 +301,6 @@ For SQL Database limits, see [SQL Database Resource Limits](sql-database/sql-dat
 
 [Understanding Azure Limits and Increases](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 
-[Virtual Machine and Cloud Service Sizes for Azure](virtual-machines/virtual-machines-size-specs.md)
+[Virtual Machine and Cloud Service Sizes for Azure](virtual-machines/virtual-machines-linux-sizes.md)
 
 [Sizes for Cloud Services](cloud-services/cloud-services-sizes-specs.md)

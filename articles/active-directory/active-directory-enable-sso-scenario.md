@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="markusvi"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
    <tags
@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="02/16/2016"
+      ms.date="07/20/2016"
       ms.author="markvi"/>
 
 # Managing Applications with Azure Active Directory
@@ -24,7 +24,7 @@ Beyond the actual workflow or content, businesses have two basic requirements fo
 
 2. To enable security and governance, the organization needs control and oversight on who can and actually is accessing each application
 
-In the word of cloud applications this can best be achieved using identity to control “*WHO is allowed to do WHAT*”.
+In the world of cloud applications this can best be achieved using identity to control “*WHO is allowed to do WHAT*”.
 
 In computing terminology:
 

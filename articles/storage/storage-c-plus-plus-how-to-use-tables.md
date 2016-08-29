@@ -1,6 +1,6 @@
 <properties
     pageTitle="How to use Table storage (C++) | Microsoft Azure"
-    description="Learn how to use the Table storage service in Azure. Samples are written in C++."
+	description="Store structured data in the cloud using Azure Table storage, a NoSQL data store."
     services="storage"
     documentationCenter=".net"
     authors="tamram"
@@ -13,12 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="02/17/2016"
+	ms.date="07/26/2016"
     ms.author="dineshm"/>
 
 # How to use Table storage from C++
 
 [AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-tables.md)]
 
 ## Overview  
 This guide will show you how to perform common scenarios by using the Azure Table storage service. The samples are written in C++ and use the [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). The scenarios covered include **creating and deleting a table** and **working with table entities**.

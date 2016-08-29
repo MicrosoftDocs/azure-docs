@@ -1,18 +1,18 @@
-<properties 
- pageTitle="How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler" 
- description="" 
- services="scheduler" 
- documentationCenter=".NET" 
- authors="krisragh" 
- manager="dwrede" 
+<properties
+ pageTitle="How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler"
+ description="How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler"
+ services="scheduler"
+ documentationCenter=".NET"
+ authors="krisragh"
+ manager="dwrede"
  editor=""/>
-<tags 
- ms.service="scheduler" 
- ms.workload="infrastructure-services" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="12/04/2015" 
+<tags
+ ms.service="scheduler"
+ ms.workload="infrastructure-services"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.date="08/18/2016"
  ms.author="krisragh"/>
 
 # How to Build Complex Schedules and Advanced Recurrence with Azure Scheduler  
@@ -31,7 +31,7 @@ With this flexibility, Azure Scheduler lets you support a wide variety of busine
 -	Image processing – e.g. every weekday, during off-peak hours, use cloud computing to compress images uploaded that day
 
 
-In this article, we walk through example jobs that you can create with Azure Scheduler. We provide the JSON data that describes each schedule. If you use the [Scheduler REST API](https://msdn.microsoft.com/library/azure/dn528946.aspx), you can use this same JSON for [creating an Azure Scheduler job](https://msdn.microsoft.com/library/azure/dn528937.aspx).
+In this article, we walk through example jobs that you can create with Azure Scheduler. We provide the JSON data that describes each schedule. If you use the [Scheduler REST API](https://msdn.microsoft.com/library/mt629143.aspx), you can use this same JSON for [creating an Azure Scheduler job](https://msdn.microsoft.com/library/mt629145.aspx).
 
 ## Supported Scenarios
 
@@ -39,7 +39,7 @@ The many examples in this topic illustrate the breadth of scenarios that Azure S
 
 -	Run once at a particular date and time
 -	Run and recur a number of explicit times
--	Run immediately and recur 
+-	Run immediately and recur
 -	Run and recur every *n* minutes, hours, days, weeks, or months, starting at a particular time
 -	Run and recur at weekly or monthly frequency but only on specific days, specific days of week, or  specific days of month
 -	Run and recur at multiple times in a period – e.g., last Friday and Monday of every month, or at 5:15am and 5:15pm every day
@@ -52,7 +52,7 @@ Date-Time references in Azure Scheduler jobs follow the [ISO-8601 specification]
 
 ## How To: Use JSON and REST API for Creating Schedules
 
-To create a simple schedule using the JSON examples in this article and the Azure Scheduler REST API, [first create a cloud service](https://msdn.microsoft.com/library/azure/dn528943.aspx), [then create a job collection](https://msdn.microsoft.com/library/azure/dn528940.aspx), and [finally create a job](https://msdn.microsoft.com/library/azure/dn528937.aspx). When you create a job, you can specify scheduling and recurrence using JSON like the one excerpted below:
+To create a simple schedule using the [Azure Scheduler REST API](https://msdn.microsoft.com/library/mt629143), first [register your subscription with a resource provider](https://msdn.microsoft.com/library/azure/dn790548.aspx) (the provider name for Scheduler is _Microsoft.Scheduler_), then [create a job collection](https://msdn.microsoft.com/library/mt629159.aspx), and finally [create a job](https://msdn.microsoft.com/library/mt629145.aspx). When you create a job, you can specify scheduling and recurrence using JSON like the one excerpted below:
 
 	{
 	    "startTime": "2012-08-04T00:00Z", // optional
@@ -71,10 +71,10 @@ To create a simple schedule using the JSON examples in this article and the Azur
 	    },
 	    …
 	}
-	
+
 ## Overview: Job Schema Basics
 
-The following table provides a high-level overview of the major elements related to recurrence and scheduling in a job: 
+The following table provides a high-level overview of the major elements related to recurrence and scheduling in a job:
 
 |**JSON name**|**Description**|
 |:--|:--|
@@ -112,7 +112,7 @@ The following table captures how _startTime_ controls how a job is run.
 
 Let's see an example of what happens where _startTime_ is in the past, with _recurrence_ but no _schedule_.  Assume that the current time is 2015-04-08 13:00, _startTime_ is 2015-04-07 14:00, and _recurrence_ is every 2 days (defined with _frequency_: day and _interval_: 2.) Note that the _startTime_ is in the past, and occurs before the current time
 
-Under these conditions, the _first execution_ will be 2015-04-09 at 14:00\. The Scheduler engine calculates execution occurrences from the start time.  Any instances in the past are discarded. The engine uses the next instance that occurs in the future.  So in this case, _startTime_ is 2015-04-07 at 2:00pm, so the next instance is 2 days from that time, which is 2015-04-09 at 2:00pm. 
+Under these conditions, the _first execution_ will be 2015-04-09 at 14:00\. The Scheduler engine calculates execution occurrences from the start time.  Any instances in the past are discarded. The engine uses the next instance that occurs in the future.  So in this case, _startTime_ is 2015-04-07 at 2:00pm, so the next instance is 2 days from that time, which is 2015-04-09 at 2:00pm.
 
 Note that the first execution would be the same even if the startTime 2015-04-05 14:00 or 2015-04-01 14:00\. After the first execution, subsequent executions are calculated using the scheduled – so they'd be at 2015-04-11 at 2:00pm, then 2015-04-13 at 2:00pm, then 2015-04-15 at 2:00pm, etc.
 
@@ -145,42 +145,42 @@ The schedules below all assume that the _interval_ is set to 1\. Also, one must 
 |**Example**|**Description**|
 |:---|:---|
 |<code>{"hours":[5]}</code>|Run at 5AM Every Day. Azure Scheduler matches up each value in "hours" with each value in "minutes", one by one, to create a list of all the times at which the job is to be run.|
-|<code>{"minutes":[15],"hours":[5]}</code>|Run at 5:15AM Every Day|
-|<code>{"minutes":[15],"hours":[5,17]}</code>|Run at 5:15 AM and 5:15 PM Every Day|
-|<code>{"minutes":[15,45],"hours":[5,17]}</code>|Run at 5:15AM, 5:45AM, 5:15PM, and 5:45PM Every Day|
+|<code>{"minutes":[15], "hours":[5]}</code>|Run at 5:15AM Every Day|
+|<code>{"minutes":[15], "hours":[5,17]}</code>|Run at 5:15 AM and 5:15 PM Every Day|
+|<code>{"minutes":[15,45], "hours":[5,17]}</code>|Run at 5:15AM, 5:45AM, 5:15PM, and 5:45PM Every Day|
 |<code>{"minutes":[0,15,30,45]}</code>|Run Every 15 Minutes|
-|<code>{hours":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]}</code>|Run Every Hour. This job runs every hour. The minute is controlled by the _startTime_, if one is specified, or if none is specified, by the creation time. For example, if the start time or creation time (whichever applies) is 12:25 PM, the job will be run at 00:25, 01:25, 02:25, …, 23:25. The schedule is equivalent to having a job with _frequency_ of "hour", an _interval_ of 1, and no _schedule_. The difference is that this schedule could be used with different _frequency_ and _interval_ to create other jobs too. For example, if the _frequency_ were "month", the schedule would run only once a month instead of every day if _frequency_ were "day"|
+|<code>{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}</code>|Run Every Hour. This job runs every hour. The minute is controlled by the _startTime_, if one is specified, or if none is specified, by the creation time. For example, if the start time or creation time (whichever applies) is 12:25 PM, the job will be run at 00:25, 01:25, 02:25, …, 23:25. The schedule is equivalent to having a job with _frequency_ of "hour", an _interval_ of 1, and no _schedule_. The difference is that this schedule could be used with different _frequency_ and _interval_ to create other jobs too. For example, if the _frequency_ were "month", the schedule would run only once a month instead of every day if _frequency_ were "day"|
 |<code>{minutes:[0]}</code>|Run Every Hour on the Hour. This job also runs every hour, but on the hour (e.g. 12AM, 1AM, 2AM, etc.) This is equivalent to a job with frequency of "hour", a startTime with zero minutes, and no schedule if the frequency were "day", but if the frequency were "week" or "month," the schedule would execute only one day a week or one day a month, respectively.|
 |<code>{"minutes":[15]}</code>|Run at 15 Minutes Past Hour Every Hour. Runs every hour, starting at 00:15AM, 1:15AM, 2:15AM, etc. and ending at 10:15PM and 11:15PM.|
-|<code>{"hours":[17],"weekDays":["saturday"]}</code>|Run at 5PM on Saturdays Every Week|
-|<code>{hours":[17],"weekDays":["monday","wednesday","friday"]}</code>|Run at 5PM on Monday, Wednesday, and Friday Every Week|
-|<code>{"minutes":[15,45],"hours":[17],"weekDays":["monday","wednesday","friday"]}</code>|Run at 5:15PM and 5:45PM on Monday, Wednesday, and Friday Every Week|
-|<code>{"hours":[5,17],"weekDays":["monday","wednesday","friday"]}</code>|Run at 5AM and 5PM on Monday, Wednesday, and Friday Every Week|
-|<code>{"minutes":[15,45],"hours":[5,17],"weekDays":["monday","wednesday","friday"]}</code>|Run at 5:15AM, 5:45AM, 5:15PM, and 5:45PM on Monday, Wednesday, and Friday Every Week|
-|<code>{"minutes":[0,15,30,45], "weekDays":["monday","tuesday","wednesday","thursday","friday"]}</code>|Run Every 15 Minutes on Weekdays|
-|<code>{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday","tuesday","wednesday","thursday","friday"]}</code>|Run Every 15 Minutes on Weekdays between 9AM and 4:45PM|
+|<code>{"hours":[17], "weekDays":["saturday"]}</code>|Run at 5PM on Saturdays Every Week|
+|<code>{hours":[17], "weekDays":["monday", "wednesday", "friday"]}</code>|Run at 5PM on Monday, Wednesday, and Friday Every Week|
+|<code>{"minutes":[15,45], "hours":[17], "weekDays":["monday", "wednesday", "friday"]}</code>|Run at 5:15PM and 5:45PM on Monday, Wednesday, and Friday Every Week|
+|<code>{"hours":[5,17], "weekDays":["monday", "wednesday", "friday"]}</code>|Run at 5AM and 5PM on Monday, Wednesday, and Friday Every Week|
+|<code>{"minutes":[15,45], "hours":[5,17], "weekDays":["monday", "wednesday", "friday"]}</code>|Run at 5:15AM, 5:45AM, 5:15PM, and 5:45PM on Monday, Wednesday, and Friday Every Week|
+|<code>{"minutes":[0,15,30,45], "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}</code>|Run Every 15 Minutes on Weekdays|
+|<code>{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}</code>|Run Every 15 Minutes on Weekdays between 9AM and 4:45PM|
 |<code>{"weekDays":["sunday"]}</code>|Run on Sundays at Start Time|
 |<code>{"weekDays":["tuesday", "thursday"]}</code>|Run on Tuesdays and Thursdays at Start Time|
-|<code>{"minutes":[0],"hours":[6],"monthDays":[28]}</code>|Run at 6AM on the 28th Day of Every Month (assuming frequency of month)|
-|<code>{"minutes":[0],"hours":[6],"monthDays":[-1]}</code>|Run at 6AM on the Last Day of the Month. If you'd like to run a job on the last day of a month, use -1 instead of day 28, 29, 30, or 31.|
-|<code>{"minutes":[0],"hours":[6],"monthDays":[1,-1]}</code>|Run at 6AM on the First and Last Day of Every Month|
+|<code>{"minutes":[0], "hours":[6], "monthDays":[28]}</code>|Run at 6AM on the 28th Day of Every Month (assuming frequency of month)|
+|<code>{"minutes":[0], "hours":[6], "monthDays":[-1]}</code>|Run at 6AM on the Last Day of the Month. If you'd like to run a job on the last day of a month, use -1 instead of day 28, 29, 30, or 31.|
+|<code>{"minutes":[0], "hours":[6], "monthDays":[1,-1]}</code>|Run at 6AM on the First and Last Day of Every Month|
 |<code>{monthDays":[1,-1]}</code>|Run on the First and Last Day of Every Month at Start Time|
 |<code>{monthDays":[1,14]}</code>|Run on the First and Fourteenth Day of Every Month at Start Time|
 |<code>{monthDays":[2]}</code>|Run on the Second Day of the Month at Start Time|
-|<code>{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday","occurrence":1}]}</code>|Run on First Friday of Every Month at 5AM|
-|<code>{"monthlyOccurrences":[{"day":"friday","occurrence":1}]}</code>|: Run on First Friday of Every Month at Start Time|
-|<code>{"monthlyOccurrences":[{"day":"friday","occurrence":-3}]}</code>|Run on Third Friday from End of Month, Every Month, at Start Time|
-|<code>{"minutes":[15],"hours":[5],"monthlyOccurrences":[{"day":"friday","occurrence":1},{"day":"friday","occurrence":-1}]}</code>|Run on First and Last Friday of Every Month at 5:15AM|
-|<code>{"monthlyOccurrences":[{"day":"friday","occurrence":1},{"day":"friday","occurrence":-1}]}</code>|Run on First and Last Friday of Every Month at Start Time|
-|<code>{"monthlyOccurrences":[{"day":"friday","occurrence":5}]}</code>|Run on Fifth Friday of Every Month at Start Time. If there is no fifth Friday in a month, this does not run, since it's scheduled to run on only fifth Fridays. You may consider using -1 instead of 5 for the occurrence if you want to run the job on the last occurring Friday of the month.|
-|<code>{"minutes":[0,15,30,45],"monthlyOccurrences":[{"day":"friday","occurrence":-1}]}</code>|Run Every 15 Minutes on Last Friday of the Month|
-|<code>{"minutes":[15,45],"hours":[5,17],"monthlyOccurrences":[{"day":"wednesday","occurrence":3}]}</code>|Run at 5:15AM, 5:45AM, 5:15PM, and 5:45PM on the 3rd Wednesday of Every Month|
+|<code>{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1}]}</code>|Run on First Friday of Every Month at 5AM|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":1}]}</code>|: Run on First Friday of Every Month at Start Time|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":-3}]}</code>|Run on Third Friday from End of Month, Every Month, at Start Time|
+|<code>{"minutes":[15], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}</code>|Run on First and Last Friday of Every Month at 5:15AM|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}</code>|Run on First and Last Friday of Every Month at Start Time|
+|<code>{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}</code>|Run on Fifth Friday of Every Month at Start Time. If there is no fifth Friday in a month, this does not run, since it's scheduled to run on only fifth Fridays. You may consider using -1 instead of 5 for the occurrence if you want to run the job on the last occurring Friday of the month.|
+|<code>{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}</code>|Run Every 15 Minutes on Last Friday of the Month|
+|<code>{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}</code>|Run at 5:15AM, 5:45AM, 5:15PM, and 5:45PM on the 3rd Wednesday of Every Month|
 
 ## See Also
- 
+
 
  [What is Scheduler?](scheduler-intro.md)
- 
+
  [Azure Scheduler concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
 
  [Get started using Scheduler in the Azure portal](scheduler-get-started-portal.md)
@@ -196,5 +196,3 @@ The schedules below all assume that the _interval_ is set to 1\. Also, one must 
  [Azure Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
 
  [Azure Scheduler outbound authentication](scheduler-outbound-authentication.md)
- 
-  

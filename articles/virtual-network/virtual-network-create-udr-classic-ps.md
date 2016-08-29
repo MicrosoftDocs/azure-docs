@@ -3,7 +3,7 @@
    description="Learn how to control routing in VNets using PowerShell in the classic deployment model"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-service-management"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 #Control routing and use virtual appliances (classic) using PowerShell
 
@@ -88,8 +88,8 @@ To create the route table and route needed for the back end subnet based on the 
 5. Run the **`Set-AzureSubnetRouteTable`** cmdlet to associate the route table created above with the **BackEnd** subnet.
 
 		Set-AzureSubnetRouteTable -VirtualNetworkName TestVNet `
-			-SubnetName FrontEnd `
-			-RouteTableName UDR-FrontEnd
+			-SubnetName BackEnd `
+			-RouteTableName UDR-BackEnd
 
 ## Enable IP forwarding on the FW1 VM
 To enable IP forwarding in the FW1 VM, follow the steps below.

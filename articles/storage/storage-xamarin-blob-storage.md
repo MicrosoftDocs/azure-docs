@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/21/2016"
+	ms.date="07/26/2016"
 	ms.author="micurd"/>
 
 # How to use Blob Storage from Xamarin (Preview)
 
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## Overview
 
@@ -55,8 +57,7 @@ For more information about shared access signatures, see [Shared Access Signatur
 
 For this tutorial, we'll be creating our Xamarin application in Visual Studio. Follow these steps to create the application:
 
-1. Download and install [Visual Studio](https://www.visualstudio.com/).
-2. Download and install [Xamarin](http://xamarin.com/platform).
+1. Run the [Visual Studio 2015 installer](https://www.visualstudio.com/), selecting a **Custom** install and checking checking the box under **Cross-Platform Mobile Development > C#/.NET (Xamarin)**. If you already have Visual Studio installed, download and install [Xamarin](http://xamarin.com/platform) directly. For complete instructions for Visual Studio and Xamarin, see [Setup and Install](https://msdn.microsoft.com/library/mt613162.aspx) on MSDN.
 3. Open Visual Studio, and select **File > New > Project > Android > Blank App(Android)**.
 4. Right-click your project in the Solution Explorer pane and select **Manage NuGet Packages**. Then search for **Azure Storage** and install **Azure Storage 4.4.0-preview**.
 

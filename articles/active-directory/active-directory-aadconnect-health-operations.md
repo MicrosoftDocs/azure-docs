@@ -3,7 +3,7 @@
 	description="This article describes additional operations that can be performed once you have deployed Azure AD Connect Health."
 	services="active-directory"
 	documentationCenter=""
-	authors="billmath"
+	authors="karavar"
 	manager="stevenpo"
 	editor="curtand"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/17/2016"
-	ms.author="billmath"/>
+	ms.date="07/14/2016"
+	ms.author="vakarand"/>
 
 # Azure AD Connect Health Operations
 
@@ -22,6 +22,9 @@ The following topic describes the various operations that can be performed using
 
 ## Enable Email Notifications
 You can configure the Azure AD Connect Health Service to send email notifications when alerts are generated indicating your identity  infrastructure is not healthy. This will occur when an alert is generated, as well as when it is marked as resolved. Follow the instructions below to configure email notifications.
+
+![Azure AD Connect Health Email Notification Discover](./media/active-directory-aadconnect-health/email_noti_discover.png)
+
 >[AZURE.NOTE] Email notifications are disabled by default.
 
 
@@ -49,11 +52,20 @@ When deleting a server, be aware of the following:
 
 #### To delete a server from Azure AD Connect Health Service
 
+Azure AD Connect Health for AD FS & Azure AD Connect (Sync):
+
 1. Open the Server Blade from the Server List Blade by selecting the server name to be removed.
 2. On the Server Blade, click on the "Delete" button from the action bar.
 3. Confirm the action to delete the server by typing the server name in the confirmation box.
 4. Click on the "Delete" button.
 
+Azure AD Connect Health for AD DS:
+
+1. Open the Domain Controllers dashboard. 
+2. Select the domain controller to be removed.
+3. Click on the "Delete Selected" button from the action bar. 
+4. Confirm the action to delete the server.
+5. Click on the "Delete" button.
 
 ### Delete a service instance from Azure AD Connect Health Service
 
@@ -90,7 +102,7 @@ Azure AD Connect Health supports the following built-in roles.
 |Contributor|  Contributors can ***view all information*** (e.g. view alerts) from the portal and ***change settings*** (e.g. email notifications) within Azure AD Connect Health.|
 |Reader| Readers can ***view all information*** (e.g. view alerts) from the portal within Azure AD Connect Health.|
 
-All other roles (such as ‘User Access Administrators’ or ‘DevTest Lab Users’), even if available in the portal experience, have no impact to access within Azure AD Connect Health.
+All other roles (such as ‘User Access Administrators’ or ‘DevTest Labs Users’), even if available in the portal experience, have no impact to access within Azure AD Connect Health.
 
 #### Access Scope
 
@@ -144,6 +156,6 @@ You can remove a user or a group added to Azure AD Connect Health Role Based Acc
 * [Azure AD Connect Health Agent Installation](active-directory-aadconnect-health-agent-install.md)
 * [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md)
 * [Using Azure AD Connect Health for sync](active-directory-aadconnect-health-sync.md)
+* [Using Azure AD Connect Health with AD DS](active-directory-aadconnect-health-adds.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health Version History](active-directory-aadconnect-health-version-history.md)
-

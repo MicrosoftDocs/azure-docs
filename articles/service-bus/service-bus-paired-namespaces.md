@@ -1,21 +1,21 @@
 <properties 
-   pageTitle="Service Bus paired namespaces | Microsoft Azure"
-   description="Paired namespace implementation details and cost"
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="Service Bus paired namespaces | Microsoft Azure"
+    description="Paired namespace implementation details and cost"
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="06/27/2016"
+    ms.author="sethm" />
 
-# Paired Namespace implementation details and cost implications
+# Paired namespace implementation details and cost implications
 
 The [PairNamespaceAsync][] method, using a [SendAvailabilityPairedNamespaceOptions][] instance, performs visible tasks on your behalf. Because there are cost considerations when using the feature, it is useful to understand those tasks so that you expect the behavior when it happens. The API engages the following automatic behavior on your behalf:
 
@@ -107,7 +107,7 @@ Within an application that hosts the syphon, once the primary or secondary [Mess
 
 ## Next steps
 
-See [Asynchronous messaging patterns and high availability] for a detailed discussion of Service Bus asynchronous messaging. 
+See [Asynchronous messaging patterns and high availability][] for a detailed discussion of Service Bus asynchronous messaging. 
 
   [PairNamespaceAsync]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.pairnamespaceasync.aspx
   [SendAvailabilityPairedNamespaceOptions]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions.aspx

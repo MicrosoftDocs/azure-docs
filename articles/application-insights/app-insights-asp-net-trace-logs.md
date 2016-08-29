@@ -12,12 +12,15 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/22/2016" 
+	ms.date="07/21/2016" 
 	ms.author="awills"/>
  
 # Explore .NET trace logs in Application Insights  
 
 If you use NLog, log4Net or System.Diagnostics.Trace for diagnostic tracing in your ASP.NET application, you can have your logs sent to [Visual Studio Application Insights][start], where you can explore and search them. Your logs will be merged with the other telemetry coming from your application, so that you can identify the traces associated with servicing each user request, and correlate them with other events and exception reports.
+
+
+
 
 > [AZURE.NOTE] Do you need the log capture module? It's a useful adapter for 3rd-party loggers, but if you aren't already using NLog, log4Net or System.Diagnostics.Trace, consider just calling [Application Insights TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace) directly.
 
@@ -26,7 +29,23 @@ If you use NLog, log4Net or System.Diagnostics.Trace for diagnostic tracing in y
 
 Install your chosen logging framework in your project. This should result in an entry in app.config or web.config.
 
-> You need to add an entry to web.config if you're using System.Diagnostics.Trace.
+If you're using System.Diagnostics.Trace, you need to add an entry to web.config:
+
+```XML
+
+    <configuration>
+     <system.diagnostics>
+       <trace autoflush="false" indentsize="4">
+         <listeners>
+           <add name="myListener" 
+             type="System.Diagnostics.TextWriterTraceListener" 
+             initializeData="TextWriterOutput.log" />
+           <remove name="Default" />
+         </listeners>
+       </trace>
+     </system.diagnostics>
+   </configuration>
+```
 
 ## Configure Application Insights to collect logs
 
@@ -76,6 +95,15 @@ For example:
 
 An advantage of TrackTrace is that you can put relatively long data in the message. For example, you could encode POST data there. 
 
+In addition, you can add a severity level to your message. And, like other telemetry, you can add property values that you can use to help filter or search for different sets of traces. For example:
+
+
+    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+    telemetry.TrackTrace("Slow database response",
+                   SeverityLevel.Warning,
+                   new Dictionary<string,string> { {"database", db.ID} });
+
+This would enable you, in [Search][diagnostic], to easily filter out all the messages of a particular severity level relating to a particular database.
 
 ## Explore your logs
 
@@ -85,7 +113,7 @@ In your app's overview blade in [the Application Insights portal][portal], choos
 
 ![In Application Insights, choose Search](./media/app-insights-asp-net-trace-logs/020-diagnostic-search.png)
 
-![Diagnostic Search](./media/app-insights-asp-net-trace-logs/10-diagnostics.png)
+![Search](./media/app-insights-asp-net-trace-logs/10-diagnostics.png)
 
 You can, for example:
 
@@ -100,7 +128,7 @@ You can, for example:
 
 [Diagnose failures and exceptions in ASP.NET][exceptions]
 
-[Learn more about Diagnostic Search][diagnostic].
+[Learn more about Search][diagnostic].
 
 
 
@@ -153,8 +181,8 @@ If your application sends a lot of data and you are using the Application Insigh
 
 [availability]: app-insights-monitor-web-app-availability.md
 [diagnostic]: app-insights-diagnostic-search.md
-[exceptions]: app-insights-web-failures-exceptions.md
-[portal]: http://portal.azure.com/
+[exceptions]: app-insights-asp-net-exceptions.md
+[portal]: https://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 

@@ -3,7 +3,7 @@
    description="Learn about virtual networks (VNets) in Azure."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -12,12 +12,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
-   ms.author="telmos" />
+   ms.date="03/15/2016"
+   ms.author="jdial" />
 
 # Virtual Network Overview
 
-An Azure virtual network (VNet) is a representation of your own network in the cloud.  It is a logical isolation of the Azure cloud dedicated to your subscription. You can fully control the IP address blocks, DNS settings, security policies, and route tables within this network. You can also further segment your VNet into subnets and launch Azure IaaS virtual machines (VMs) and/or [Cloud services (PaaS role instances)](../cloud-services/cloud-services-choose-me.md). Additonally you can connect the virtual network to your on-premises network using one of the [connectivity options](../vpn-gateway/vpn-gateway-cross-premises-options.md) available in Azure. In essence, you can expand your network to Azure, with complete control on IP address blocks with the benefit of enterprise scale Azure provides.
+An Azure virtual network (VNet) is a representation of your own network in the cloud.  It is a logical isolation of the Azure cloud dedicated to your subscription. You can fully control the IP address blocks, DNS settings, security policies, and route tables within this network. You can also further segment your VNet into subnets and launch Azure IaaS virtual machines (VMs) and/or [Cloud services (PaaS role instances)](../cloud-services/cloud-services-choose-me.md). Additionally, you can connect the virtual network to your on-premises network using one of the [connectivity options](../vpn-gateway/vpn-gateway-cross-premises-options.md) available in Azure. In essence, you can expand your network to Azure, with complete control on IP address blocks with the benefit of enterprise scale Azure provides.
 
 To better understand VNets, take a look at the figure below, which shows a simplified on-premises network.
 
@@ -91,9 +91,6 @@ There is no extra cost for using Virtual Networks in Azure. The compute instance
 ## Next steps
 
 - [Create a VNet](virtual-networks-create-vnet-arm-pportal.md) and subnets.
-- [Create a VM in a VNet](../virtual-machines/virtual-machines-windows-tutorial.md).
+- [Create a VM in a VNet](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
 - Learn about [NSGs](virtual-networks-nsg.md).
-- Learn about [load balancers](../load-balancer/load-balancer-overview.md).
-- [Reserve an internal IP address](virtual-networks-reserved-private-ip.md)
-- [Reserve a public IP address](virtual-networks-reserved-public-ip.md).
 - Learn about [user defined routes and IP forwarding](virtual-networks-udr-overview.md).

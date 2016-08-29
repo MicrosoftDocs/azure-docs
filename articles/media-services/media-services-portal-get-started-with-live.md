@@ -3,17 +3,17 @@
 	description="This tutorial walks you through the steps of implementing a basic Media Services live streaming application where a channel receives a multi-bitrate live stream from an on-premises live encoder."
 	services="media-services"
 	documentationCenter=""
-	authors="Juliako,cenkdin" 
-	manager="dwrede" 
+	authors="Juliako,cenkdin"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
-	ms.topic="article" 
-	ms.date="01/31/2016"  
+<tags
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="ne"
+	ms.topic="article"
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 
@@ -22,7 +22,7 @@
 [AZURE.INCLUDE [media-services-selector-manage-channels](../../includes/media-services-selector-manage-channels.md)]
 
 
-This tutorial walks you through the steps of implementing a basic Media Services live streaming application where a channel receives a multi-bitrate live stream from an on-premises live encoder. For a more detailed overview of working with channels and related components, see [Working with channels that receive multi-bitrate live stream from on-premises encoders](media-services-manage-channels-overview.md).
+This tutorial walks you through the steps of implementing a basic Media Services live streaming application where a channel receives a multi-bitrate live stream from an on-premises live encoder. For a more detailed overview of working with channels and related components, see [Working with channels that receive multi-bitrate live stream from on-premises encoders](media-services-live-streaming-with-onprem-encoders.md).
 
 In this tutorial, the Azure Classic Portal is used to accomplish the following tasks:
 
@@ -37,7 +37,7 @@ In this tutorial, the Azure Classic Portal is used to accomplish the following t
 ## Prerequisites
 The following are required to complete the tutorial.
 
-- To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](/pricing/free-trial/?WT.mc_id=A261C142F). 
+- To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](/pricing/free-trial/?WT.mc_id=A261C142F).
 - A Media Services account. To create a Media Services account, see [Create Account](media-services-create-account.md).
 - A webcam and an encoder that can send a multi-bitrate live stream.
 
@@ -88,7 +88,7 @@ Once the channel is created, you can get ingest URLs that you will provide to th
 
 ![ingesturls](./media/media-services-portal-get-started-with-live/media-services-ingest-urls.png)
 
-For more information about Ingest URLs, see [Using on-premises encoders to send multi-bitrate live stream to a channel](media-services-channels-overview.md).
+For more information about Ingest URLs, see [Using on-premises encoders to send multi-bitrate live stream to a channel](media-services-live-streaming-with-onprem-encoders.md).
 
 ## Configure a live encoder and ingest live stream
 

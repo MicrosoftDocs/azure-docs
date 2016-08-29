@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="08/24/2016" 
 	ms.author="sdanie"/>
 
 # How to secure back-end services using client certificate authentication in Azure API Management
@@ -24,7 +24,7 @@ For information about managing certificates using the API Management REST API, s
 
 ## <a name="prerequisites"> </a>Prerequisites
 
-This guide shows you how to configure your API Management service instance to use client certificate authentication to access the back-end service for an API. Before following the steps in this topic, you should have your back-end service configured for client certificate authentication, and have access to the certificate and the password for the certificate for uploading in the API Management publisher portal.
+This guide shows you how to configure your API Management service instance to use client certificate authentication to access the back-end service for an API. Before following the steps in this topic, you should have your back-end service configured for client certificate authentication ([to configure certificate authentication in Azure WebSites refer to this article][]), and have access to the certificate and the password for the certificate for uploading in the API Management publisher portal.
 
 ## <a name="step1"> </a>Upload a client certificate
 
@@ -122,13 +122,13 @@ For more information on other ways to secure your backend service, such as HTTP 
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Get started with Azure API Management]: api-management-get-started.md
-[Get started with advanced API configuration]: api-management-get-started-advanced.md
 [API Management policy reference]: api-management-policy-reference.md
 [Caching policies]: api-management-policy-reference.md#caching-policies
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
 [Azure API Management REST API Certificate entity]: http://msdn.microsoft.com/library/azure/dn783483.aspx
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
+[to configure certificate authentication in Azure WebSites refer to this article]: https://azure.microsoft.com/en-us/documentation/articles/app-service-web-configure-tls-mutual-auth/
 
 [Prerequisites]: #prerequisites
 [Upload a client certificate]: #step1
@@ -136,7 +136,6 @@ For more information on other ways to secure your backend service, such as HTTP 
 [Configure an API to use a client certificate for gateway authentication]: #step2
 [Test the configuration by calling an operation in the Developer Portal]: #step3
 [Next steps]: #next-steps
-
 
 
  

@@ -3,7 +3,7 @@
    description="Azure virtual network (VNet) FAQ"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
-   ms.author="telmos" />
+   ms.date="03/15/2016"
+   ms.author="jdial" />
 
 # Virtual Network FAQ
 
@@ -21,4 +21,4 @@
 
 ## Virtual Network Cross-premises Connectivity (VPNs)
 
-For the latest FAQ on virtual network VPNs, see the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md).
+For the latest FAQ on virtual network VPNs, see the [VPN Gateway FAQ](../vpn-gateway/vpn-gateway-vpn-faq.md).

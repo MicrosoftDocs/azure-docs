@@ -3,7 +3,7 @@
     description="Learn how to use Salesforce with Azure Active Directory to enable single sign-on, automated provisioning, and more!"
     services="active-directory"
     documentationCenter=""
-    authors="liviodlc"
+    authors="asmalser-msft"
     manager="stevenpo"
     editor=""/>
 
@@ -13,8 +13,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/09/2016"
-    ms.author="liviodlc"/>
+    ms.date="05/16/2016"
+    ms.author="asmalser-msft"/>
 
 #Tutorial: How to integrate Salesforce with Azure Active Directory
 
@@ -22,7 +22,7 @@ This tutorial will show you how to connect your Salesforce environment to your A
 
 ##Prerequisites
 
-1. To access Azure Active Directory through the [Azure Management Portal](https://manage.windowsazure.com), you must first have a valid Azure subscription.
+1. To access Azure Active Directory through the [Azure classic portal](https://manage.windowsazure.com), you must first have a valid Azure subscription.
 
 2. You must have a valid tenant in [Salesforce.com](https://www.salesforce.com/).
 
@@ -46,7 +46,7 @@ You may follow this tutorial using the videos below.
 
 ##Step 1: Add Salesforce to your directory
 
-1. In the [Azure Management Portal](https://manage.windowsazure.com), on the left navigation pane, click **Active Directory**.
+1. In the [Azure classic portal](https://manage.windowsazure.com), on the left navigation pane, click **Active Directory**.
 
 	![Select Active Directory from the left navigation pane.][0]
 
@@ -84,7 +84,7 @@ You may follow this tutorial using the videos below.
 
 	![Select Azure AD Single Sign-On][7]
 
-	> [AZURE.NOTE] To learn more about about the different single sign-on options, [click here](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)
+	> [AZURE.NOTE] To learn more about about the different single sign-on options, [click here](../active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)
 
 4. On the **Configure App Settings** page, fill out the **Sign On URL** by typing in your Salesforce domain URL using the following format:
  - Enterprise account: `https://<domain>.my.salesforce.com`

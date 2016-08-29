@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to use Azure Media Services with Java" 
+	pageTitle="Get started with delivering content on demand using Java | Microsoft Azure" 
 	description="Describes how to use Azure Media Services to perform common tasks including encoding, encrypting, and streaming resources." 
 	services="media-services" 
 	documentationCenter="java" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
- 	ms.date="02/03/2016"  
+	ms.date="08/17/2016"   
 	ms.author="robmcm"/>
 
-#How to use Media Services with Java
+# Get started with delivering content on demand using Java
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
@@ -35,11 +35,11 @@ This section contains general prerequisites for Media Services development using
 
 ##How to: Use Media Services with Java
 
-The following code shows how to create an asset, upload a media file to the asset, run a job with a task to transform the asset, and create a locator in order to stream your video.
+The following code shows how to create an asset, upload a media file to the asset, run a job with a task to transform the asset, and create a locator to stream your video.
 
-You'll need to set up a media services account before using this code. For information about setting up an account, see [How to Create a Media Services Account](media-services-create-account.md).
+You need to set up a Media Services account before using this code. For information about setting up an account, see [How to Create a Media Services Account](media-services-create-account.md).
 
-Substitute your values for the `clientId` and `clientSecret` variables. The code also relies on a locally stored file. You'll need to provide your own file to use.
+Substitute your values for the 'clientId' and 'clientSecret' variables. The code also relies on a locally stored file. You'll need to provide your own file to use.
 	
 	import java.io.*;
 	import java.security.NoSuchAlgorithmException;
@@ -78,7 +78,8 @@ Substitute your values for the `clientId` and `clientSecret` variables. The code
 		private static String clientId = "account name";
 		private static String clientSecret = "account key";
 		private static String scope = "urn:WindowsAzureMediaServices";
-		
+		private static MediaContract mediaService;
+		    
 		// Encoder configuration
 		private static String preferedEncoder = "Media Encoder Standard";
 		private static String encodingPreset = "H264 Multiple Bitrate 720p";
@@ -141,7 +142,7 @@ Substitute your values for the `clientId` and `clientSecret` variables. The code
 			// Create the Blob Writer using the Locator
 			uploader = mediaService.createBlobWriter(uploadLocator);
 			
-			File file = new File("BigBuckBunny.mp4");//(ConnectToAMSView.class.getClassLoader().getResource("").getPath() + fileName);
+			File file = new File("BigBuckBunny.mp4"); 
 			
 			// The local file that will be uploaded to your Media Services account
 			InputStream input = new FileInputStream(file);

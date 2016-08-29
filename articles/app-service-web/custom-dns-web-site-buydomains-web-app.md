@@ -1,4 +1,3 @@
-
 <properties
 	pageTitle="How to buy a custom domain name in Azure App Service Web Apps"
 	description="Learn how to buy a custom domain name with a web app in Azure App Service."
@@ -14,21 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/22/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 # Buy and Configure a custom domain name in Azure App Service
 
-> [AZURE.SELECTOR]
-- [Buy Domain for Web Apps](custom-dns-web-site-buydomains-web-app.md)
-- [Web Apps with External Domains](web-sites-custom-domain-name.md)
-- [Web Apps with Traffic Manager](web-sites-traffic-manager-custom-domain-name.md)
-- [GoDaddy](web-sites-godaddy-custom-domain-name.md)
-
-
-
-
-[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
+[AZURE.INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
 When you create a web app, Azure assigns it to a subdomain of azurewebsites.net. For example, if your web app is named **contoso**, the URL is **contoso.azurewebsites.net**. Azure also assigns a virtual IP address.
 
@@ -39,8 +29,6 @@ For a production web app, you probably want users to see a custom domain name. T
 
 ## Overview
 
-> [AZURE.NOTE] Please do not attempt to purchase a domain using a subscription that does not have an Active Credit Card associated with it. This could result in your subscription being disabled. 
-
 If you don't have a domain name for your web app, you can easily buy one on [Azure Portal](https://portal.azure.com/). During the purchase process you can choose to have WWW and root domain's DNS records be mapped to your web app automatically. You also can manage your domain right inside Azure Portal.
 
 
@@ -48,11 +36,11 @@ Use the following steps to buy domain names and assign to your web app.
 
 1. In your browser, open the [Azure Portal](https://portal.azure.com/).
 
-2. In the **Web Apps** tab, click the name of your web app, select **Settings**, and then select **Custom domains and SSL**
+2. In the **Web Apps** tab, click the name of your web app, select **Settings**, and then select **Custom domains**
 
 	![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
-3. In the **Custom domains and SSL** blade, click **Buy domains**.
+3. In the **Custom domains** blade, click **Buy domains**.
 
 	![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-1.png)
 
@@ -64,7 +52,7 @@ Use the following steps to buy domain names and assign to your web app.
 
   ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-3.png)
 
-> [AZURE.NOTE] It is very important that you fill out all required fields with as much accuracy as possible, especially the email address. In case of purchasing the domain without "Privacy protection", you might be asked to verify your email before the domain becomes active. In some cases, incorrect data for contact information will result in failure to purchase domains. 
+    > [AZURE.NOTE] It is very important that you fill out all required fields with as much accuracy as possible, especially the email address. In case of purchasing the domain without "Privacy protection", you might be asked to verify your email before the domain becomes active. In some cases, incorrect data for contact information will result in failure to purchase domains. 
 
 6. Now you can choose to,
 
@@ -76,10 +64,9 @@ Use the following steps to buy domain names and assign to your web app.
 
   ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.5.png)
   
-> [AZURE.NOTE] Option C configures DNS bindings and Hostname bindings automatically for you.  This way, your Web App can be accessed using custom domain as soon as the purchase is complete (baring DNS propagation delays in few cases). In case, your Web App is behind Azure Traffic Manager, you will not see an option to assign root domain, as A-Records do not work with the Traffic Manager. 
->
->You can always assign the domains/sub-domains purchased through one Web App to another Web App and vice-versa. See step 8 for more details. 
-
+    > [AZURE.NOTE] Option C configures DNS bindings and Hostname bindings automatically for you.  This way, your Web App can be accessed using custom domain as soon as the purchase is complete (baring DNS propagation delays in few cases). In case, your Web App is behind Azure Traffic Manager, you will not see an option to assign root domain, as A-Records do not work with the Traffic Manager. 
+    >
+    >You can always assign the domains/sub-domains purchased through one Web App to another Web App and vice-versa. See step 8 for more details. 
 	
 7. Click the **Select** on **Buy Domains** blade, then you will see the purchase information on **Purchase confirmation** blade. If you accept the legal terms and click **Buy**, your order will be submitted and you can monitor the purchasing process on **Notification**. Domain purchase can take few minutes to complete. 
 
@@ -91,7 +78,7 @@ Use the following steps to buy domain names and assign to your web app.
 
 	![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-6.png)
 
-> [AZURE.NOTE] You can "Cancel purchase" within 5 days for full refund. After 5 days you will not be able to "Cancel purchase", instead you will see an option to "Delete" the domain. Deleting the domain will result in releasing it from your subscription without refund and will become available domain. 
+    > [AZURE.NOTE] You can "Cancel purchase" within 5 days for full refund. After 5 days you will not be able to "Cancel purchase", instead you will see an option to "Delete" the domain. Deleting the domain will result in releasing it from your subscription without refund and will become available domain. 
 
 Once configuration has completed, the custom domain name will be listed in the **Hostname bindings** section of your web app.
 

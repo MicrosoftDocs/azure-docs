@@ -13,42 +13,54 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/14/2016" 
+	ms.date="07/12/2016" 
 	ms.author="ccompy"/>
 
 # How to Create an App Service Environment #
 
 App Service Environments (ASE) are a Premium service option of Azure App Service that delivers an enhanced configuration capability that is not available in the multi-tenant stamps.  The ASE feature essentially deploys the Azure App Service into a customer’s virtual network.  To gain a greater understanding of the capabilities offered by App Service Environments read the [What is an App Service Environment][WhatisASE] documentation.
 
+
 ### Overview ###
+
+An ASE consists of Front End and Worker compute resources.  The Front Ends act as the HTTP/HTTPS endpoints and send traffic to the Workers which are the roles that host your apps.   
 
 ASE creation requires customers to provide the following pieces of information:
 
 - name of the ASE
 - subscription to be used for the ASE  
 - resource group
-- Azure Virtual Network(VNET) selection along with a subnet
+- Azure Virtual Network(VNet) with 8 or more addresses and a subnet to be used by the ASE
+- VIP Type, External or Internal 
 - ASE resource pool definition
 
+
 There are some important details to each of those items.
-- The name of the ASE will be used in the subdomain for any apps made in that ASE
+
+- The name of the ASE will be used in the subdomain for any apps made in that ASE, if configured with an external VIP
+- An ASE with an External hosts internet accessible apps.  An ASE with an Internal VIP uses an Internal Load Balancer(ILB) 
 - All apps made in an ASE will be in the same subscription as the ASE itself
 - If you do not have access to the subscription used to make the ASE you cannot use the ASE to create apps
-- VNETs used to host an ASE must be Regional classic "v1" VNETs 
-- The subnet used to host the ASE must not contain any other compute resources
+- VNets used to host an ASE must be Regional VNets.  You can use either Classic or Resource Manager VNets 
+- **The subnet used to host the ASE must not contain any other compute resources**
 - Only one ASE can exist in a subnet
+- ASEs can now be deployed into virtual networks that use *either* public address ranges, *or*
+RFC1918 address spaces (i.e. private addresses).  In order to use a virtual network with a public address range, you will need to create the VNet and subnet ahead of time, and then select the subnet in the ASE creation UX.
 
-Each ASE deployment is a Hosted Service that Azure manages and maintains.  The compute resources hosting the ASE system roles are not accessible to the customer though the customer does manage the quantity of instances and their sizes.  
+
+Each ASE deployment is a Hosted Service that Azure manages and maintains.  The compute resources hosting the ASE system roles are not accessible to the customer though the customer does manage the quantity of instances and their sizes. 
 
 There are two ways to access the ASE creation UI.  It can be found by searching in the Azure Marketplace for ***App Service Environment*** or by going through New -> Web + Mobile.  
 
-If you want the VNET to have a separate resource group from the ASE then you need to first create the VNET separately and then select it during ASE creation.  Also, if you want to create a subnet in an existing VNET during ASE creation, the ASE has to then be in the same resource group as the VNET.
+If you want the VNet to have a separate resource group from the ASE then you need to first create the VNet separately and then select it during ASE creation.  Also, if you want to create a subnet in an existing VNet during ASE creation, the ASE has to then be in the same resource group as the VNet.
+
 
 ### Quick create ###
 The creation experience for an ASE does have a set of defaults to enable a quick creation experience.  You can quickly create an ASE by simply entering a name for the deployment.  This will in turn create an ASE in the region closest to you with a:
 
-- VNET with 512 addresses 
+- VNet with 512 addresses using an RFC1918 private address space
 - subnet with 256 addresses
+- External VIP
 - Front End pool with 2 P2 compute resources
 - Worker pool with 2 P1 compute resources
 - single IP address to be used for IP SSL
@@ -57,33 +69,46 @@ Front End pools require P2 or larger.  Be careful when selecting the subscriptio
 
 ![][1]
 
-The name that is specified for the ASE will be used for the apps created in the ASE.  If name of the ASE is appsvcenvdemo then the domain name would be .*appsvcenvdemo.p.azurewebsites.net*.  If you thus created an app named *mytestapp* then it would be addressable at *mytestapp.appsvcenvdemo.p.azurewebsites.net*.  You cannot use white space in the name of your ASE.  If you use upper case characters in the name, the domain name will be the total lowercase version of that name.  
+The name that is specified for the ASE will be used for the apps created in the ASE.  If name of the ASE is appsvcenvdemo then the subdomain name would be .*appsvcenvdemo.p.azurewebsites.net*.  If you thus created an app named *mytestapp* then it would be addressable at *mytestapp.appsvcenvdemo.p.azurewebsites.net*.  You cannot use white space in the name of your ASE.  If you use upper case characters in the name, the domain name will be the total lowercase version of that name.  If you use an ILB then your ASE name is not used in your subdomain but is instead explicitly stated during ASE creation.    
 
 Having the defaults is very useful for a certain number of situations but often you will need to adjust something.  The next few sections walk through each of the ASE related configuration sections.
 
+
 ### Virtual Network ###
-While there is a quick create capability that will automatically create a new VNET, the feature also supports selection of an existing VNET and manual creation of a VNET.  You can select an existing VNET (only classic "v1" virtual networks are supported at this time) if it is large enough to support an App Service Environment deployment.  The VNET must have at least 8 addresses or more.  
+The ASE creation process supports selection of an existing Classic or Resource Manager VNet as well as creation of a new Classic VNet.    
+
+When you go to select an existing VNet you will see your Classic and Resource Manager VNets listed together.  The Classic VNets have the word Classic next to the location.  If it doesn't say that, then it's a Resource Manager VNet.  
+
+![][2]
+
+
+If going through the VNet creation UI you are required to provide:
+
+- VNet Name
+- VNet address range in CIDR notation
+- Location
+
+The location of the VNet is the location of the ASE.  Remember that this creates a Classic VNet, not a Resource Manager VNet.  
+
+ASEs can be deployed into virtual networks that use *either* public address ranges, *or* RFC1918 address spaces (i.e. private addresses).  In order to use a virtual network with a public address range, you will need to create the subnet ahead of time, and then select the subnet in the ASE creation UX. 
 
 If you do select a pre-existing VNET you will also have to specify a subnet to use or create a new one.  The subnet needs to have 8 addresses or more and cannot have any other resources already in it.  ASE creation will fail if you try to use a subnet that already has VMs allocated into it.  
 
-If going through the VNET creation UI you are required to provide:
+After your have your VNet specified or selected you need to create or select a subnet as appropriate.  The details you are required to provide here are the:
 
-- VNET Name
-- VNET address range in CIDR notation
-- Location
-
-The location of the VNET is the location of the ASE because the ASE is deployed into that VNET.
-
-After your have your VNET specified or selected you need to create or select a subnet as appropriate.  The details you are required to provide here are the:
 - Subnet Name
 - Subnet range in CIDR notation
 
 If you are unfamiliar with CIDR(Classless Inter-Domain Routing) notation it takes the form of an IP Address that is forward slash separated from the CIDR value.  It looks like this *10.0.0.0/22*.  The CIDR value denotes the number of lead bits that are masked against the IP address shown.  An easier way to express the concept here is that CIDR values provide an IP range.  In this example, 10.0.0.0/22 means a range of 1024 addresses or from 10.0.0.0 to 10.0.3.255.  A /23 means 512 addresses and so on.  
 
-Just a reminder that if you want to create a subnet in an existing VNET, the ASE will be in the same resource group as the VNET.  To keep your ASE in a separate resource group from your VNET simply make both your VNET and your subnet separately and in advance of creating your ASE.
+Just a reminder that if you want to create a subnet in an existing VNet, the ASE will be in the same resource group as the VNet.  To keep your ASE in a separate resource group from your VNet simply make both your VNet and your subnet separately and in advance of creating your ASE.
 
-![][2]
 
+#### External or Internal VIP ####
+
+By default the VNet configuration is set with an External VIP Type and 1 IP address.  If you wish to use an ILB instead of an external VIP then go into VNet Configuration and change the VIP Type to Internal.  An External VIP is used by default.  When you change the VIP Type to Internal you will need to specify your subdomain for the ASE.  There are a few tradeoffs when using an ILB as the VIP for an ASE.  To learn more about them read [Using an Internal Load Balancer with an App Service Environment][ILBASE].
+
+![][4]
 
 ### Compute Resource Pools ###
 
@@ -142,6 +167,7 @@ There are additional dependencies that are not available for customization such 
 
 
 ## Getting started
+All articles and How-To's for App Service Environments are available in the [README for Application Service Environments](../app-service/app-service-app-service-environments-readme.md).
 
 To get started with App Service Environments, see [Introduction to App Service Environments][WhatisASE]
 
@@ -156,6 +182,7 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [1]: ./media/app-service-web-how-to-create-an-app-service-environment/asecreate-basecreateblade.png
 [2]: ./media/app-service-web-how-to-create-an-app-service-environment/asecreate-vnetcreation.png
 [3]: ./media/app-service-web-how-to-create-an-app-service-environment/asecreate-resources.png
+[4]: ./media/app-service-web-how-to-create-an-app-service-environment/asecreate-externalvip.png
 
 <!--Links-->
 [WhatisASE]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
@@ -163,3 +190,4 @@ For more information about the Azure App Service platform, see [Azure App Servic
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/ 
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/ 
 [ASEAutoscale]: http://azure.microsoft.com/documentation/articles/app-service-environment-auto-scale/
+[ILBASE]: http://azure.microsoft.com/documentation/articles/app-service-environment-with-internal-load-balancer/

@@ -1,4 +1,6 @@
-Use the procedure that matches your backend project type&mdash;either [.NET backend](#dotnet) or [Node.js backend](#nodejs).
+In this section, you update code in your existing Mobile Apps backend project to send a push notification every time a new item is added. Because the clients are registered for push notifications using a template registration, a single push notification message can be sent to all of the client platforms. Each client template registration contains a *messageParam* parameter". When the notification is sent, *messageParam* contains a string that is the text of the item being inserted. For more information on using templates with Notification Hubs, see [Templates](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
+
+Choose the procedure below that matches your backend project type&mdash;either [.NET backend](#dotnet) or [Node.js backend](#nodejs).
 
 ### <a name="dotnet"></a>.NET backend project
 1. In Visual Studio, right-click the server project and click **Manage NuGet Packages**, search for `Microsoft.Azure.NotificationHubs`, then click **Install**. This installs the Notification Hubs library for sending notifications from your backend.
@@ -46,17 +48,15 @@ Use the procedure that matches your backend project type&mdash;either [.NET back
                 .Error(ex.Message, null, "Push.SendAsync Error");
         }
 
-    This code tells the notification hub to send a a template notification to all template registrations that contain "messageParam". The string will be inserted in the place of messageParam across each PNS that has a registration using "messageParam". This allows you to send the notification to APNS, GCM, WNS, or any other PNS.
-
-	For more information on templates with Notification Hubs, see [Templates](notification-hubs-templates.md).
+	This sends a template notification that contains the item.Text when a new item is inserted.
 
 4. Republish the server project. 
 
 ### <a name="nodejs"></a>Node.js backend project
 
-1. If you haven't already done so, [download the quickstart project](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) or else use the [online editor in the Azure portal](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
+1. If you haven't already done so, [download the quickstart backend project](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) or else use the [online editor in the Azure portal](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
 
-2. Replace the existing code in the todoitem.js file with the following:
+2. Replace the existing code in todoitem.js with the following:
 
 		var azureMobileApps = require('azure-mobile-apps'),
 	    promises = require('azure-mobile-apps/src/utilities/promises'),
@@ -70,7 +70,7 @@ Use the procedure that matches your backend project type&mdash;either [.NET back
 	    logger.info('Running TodoItem.insert');
 	    
 	    // Define the template payload.
-	    var payload = '{"messageParam": context.item.text}'; 
+	    var payload = '{"messageParam": "' + context.item.text + '" }';  
 	    
 	    // Execute the insert.  The insert returns the results as a Promise,
 	    // Do the push as a post-execute action within the promise flow.
@@ -97,6 +97,6 @@ Use the procedure that matches your backend project type&mdash;either [.NET back
 
 		module.exports = table;  
 
-	This sends a template notification that contains the item.text when a new todo item is inserted.
+	This sends a template notification that contains the item.text when a new item is inserted.
 
 2. When editing the file on your local computer, republish the server project.

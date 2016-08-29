@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="06/28/2016"
 	ms.author="mahender"/>
 
 # Add authentication to your Xamarin.iOS app
@@ -108,4 +108,3 @@ In this section, you will modify the app to display a login screen before displa
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Create a Xamarin.iOS app]: app-service-mobile-xamarin-ios-get-started.md
-

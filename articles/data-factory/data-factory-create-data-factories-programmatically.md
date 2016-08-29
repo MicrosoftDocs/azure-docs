@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="07/28/2016" 
 	ms.author="spelluru"/>
 
 # Create, monitor, and manage Azure data factories using Data Factory .NET SDK
@@ -24,7 +24,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 
 ## Prerequisites
 
-- Visual Studio 2012 or 2013
+- Visual Studio 2012 or 2013 or 2015
 - Download and install [Azure .NET SDK][azure-developer-center]
 - Download and install NuGet packages for Azure Data Factory. Instructions are in the walkthrough.
 
@@ -43,19 +43,23 @@ You can create, monitor, and manage Azure data factories programmatically using 
 3.	In the <b>Package Manager Console</b>, execute the following commands one-by-one.</b>. 
 
 		Install-Package Microsoft.Azure.Management.DataFactories
-		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
+		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
 6. Add the following **appSetttings** section to the **App.config** file. These are used by the helper method: **GetAuthorizationHeader**. 
 
-	Replace values for **SubscriptionId** and **ActiveDirectoryTenantId** with your Azure subscription and tenant IDs. You can get these values by running **Get-AzureAccount** from Azure PowerShell (you may need to login first by using Add-AzureAccount).
+	Replace values for **AdfClientId**, **RedirectUri**, **SubscriptionId** and **ActiveDirectoryTenantId** with your own values. 
+
+	You can get subscription ID and tenant ID values by running **Get-AzureAccount -Format-List** from Azure PowerShell (you may need to login first by using Add-AzureAccount) after you login using Login-AzureRmAccount. 
+
+	You can get the CLIENT ID and redirect URI for your AD application from the Azure portal.      
  
 		<appSettings>
-		    <!--CSM Prod related values-->
 		    <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
 		    <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
 		    <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
-		    <add key="AdfClientId" value="1950a258-227b-4e31-a9cf-717495945fc2" />
-		    <add key="RedirectUri" value="urn:ietf:wg:oauth:2.0:oob" />
-		    <!--Make sure to write your own tenenat id and subscription ID here-->
+
+		    <!-- Replace the following values with your own -->
+		    <add key="AdfClientId" value="Your AD application ID" />
+		    <add key="RedirectUri" value="Your AD application's redirect URI" />
 		    <add key="SubscriptionId" value="your subscription ID" />
     		<add key="ActiveDirectoryTenantId" value="your tenant ID" />
 		</appSettings>
@@ -263,7 +267,7 @@ The Copy Activity performs the data movement in Azure Data Factory and the activ
 
 	
 
-12. Add the following helper method used by the **Main** method to the **Program** class. This method pops a dialog box that that lets you provide **user name** and **password** that you use to login to Azure Classic Portal. 
+12. Add the following helper method used by the **Main** method to the **Program** class. This method pops a dialog box that that lets you provide **user name** and **password** that you use to login to Azure Portal. 
  
 		public static string GetAuthorizationHeader()
         {
@@ -380,13 +384,55 @@ The Copy Activity performs the data movement in Azure Data Factory and the activ
 18. Verify that an output file is created in the **apifactoryoutput** folder in the **adftutorial** container.
 
 
+## Login without popup dialog box 
+The above sample code launches a dialog box for you to enter Azure credentials. If you need to sign-in programmatically without using a dialog-box, see [Authenticating a service principal with Azure Resource Manager](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell). 
 
-> [AZURE.NOTE] The above sample code launches a dialog box for you to enter Azure credentials. If you need to sign-in programmatically without using a dialog-box, see [Authenticating a service principal with Azure Resource Manager](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell). 
+### Example
 
+Create GetAuthorizationHeaderNoPopup method as shown below:  
+
+    public static string GetAuthorizationHeaderNoPopup()
+    {
+        var authority = new Uri(new Uri("https://login.windows.net"), ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
+        var context = new AuthenticationContext(authority.AbsoluteUri);
+        var credential = new ClientCredential(ConfigurationManager.AppSettings["AdfClientId"], ConfigurationManager.AppSettings["AdfClientSecret"]);
+        AuthenticationResult result = context.AcquireTokenAsync(ConfigurationManager.AppSettings["WindowsManagementUri"], credential).Result;
+        if (result != null)
+            return result.AccessToken;
+
+        throw new InvalidOperationException("Failed to acquire token");
+    }
+
+Replace **GetAuthorizationHeader** call with a call to **GetAuthorizationHeaderNoPopup** in the **Main** function:  
+
+        TokenCloudCredentials aadTokenCredentials =
+            new TokenCloudCredentials(
+            ConfigurationManager.AppSettings["SubscriptionId"],
+            GetAuthorizationHeaderNoPopup());
+
+Here is how you can create the Active Directory application, service principal, and then assign it to the Data Factory Contributor role: 
+
+1. Create the AD application. 
+
+		$azureAdApplication = New-AzureRmADApplication -DisplayName "MyADAppForADF" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.myadappforadf.org/example" -Password "Pass@word1"
+
+2. Create the AD service principal. 
+
+		New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+
+3. Add service principal to the Data Factory Contributor role. 
+
+		New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+
+4. Get the application ID.
+
+		$azureAdApplication
+
+
+Note down the application ID and the password (client secret) and use it in the code above. 
 
 [data-factory-introduction]: data-factory-introduction.md
-[adf-getstarted]: data-factory-get-started.md
-[adf-tutorial]: data-factory-tutorial.md
+[adf-getstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
  

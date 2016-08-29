@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/03/2016" 
+	ms.date="07/07/2016" 
 	ms.author="arramac"/>
 
 # Sorting DocumentDB data using Order By
@@ -33,9 +33,9 @@ For a complete reference on SQL querying, see the [DocumentDB Query tutorial](do
 Like in ANSI-SQL, you can now include an optional Order By clause in SQL statements when querying DocumentDB. The clause can include an optional ASC/DESC argument to specify the order in which results must be retrieved. 
 
 ### Ordering using SQL
-For example here's a query to retrieve books in descending order of their titles. 
+For example here's a query to retrieve the top 10 books in descending order of their titles. 
 
-    SELECT * 
+    SELECT TOP 10 * 
     FROM Books 
     ORDER BY Books.Title DESC
 
@@ -44,33 +44,17 @@ You can order using any nested property within documents like Books.ShippingDeta
 
     SELECT * 
     FROM Books 
-	WHERE Books.SalePrice > 4000
+    WHERE Books.SalePrice > 4000
     ORDER BY Books.ShippingDetails.Weight
 
 ### Ordering using the LINQ Provider for .NET
 Using the .NET SDK version 1.2.0 and higher, you can also use the OrderBy() or OrderByDescending() clause within LINQ queries like in this example:
 
-    foreach (Book book in client.CreateDocumentQuery<Book>(booksCollection.SelfLink)
-        .OrderBy(b => b.PublishTimestamp)) 
+    foreach (Book book in client.CreateDocumentQuery<Book>(UriFactory.CreateDocumentCollectionUri("db", "books"))
+        .OrderBy(b => b.PublishTimestamp)
+        .Take(100))
     {
         // Iterate through books
-    }
-
-### Ordering with paging using the .NET SDK
-Using the native paging support within the DocumentDB SDKs, you can retrieve results one page at a time like in the following .NET code snippet. Here we fetch results up to 10 at a time using the FeedOptions.MaxItemCount and the IDocumentQuery interface.
-
-    var booksQuery = client.CreateDocumentQuery<Book>(
-        booksCollection.SelfLink,
-        "SELECT * FROM Books ORDER BY Books.PublishTimestamp DESC"
-        new FeedOptions { MaxItemCount = 10 })
-      .AsDocumentQuery();
-            
-    while (booksQuery.HasMoreResults) 
-    {
-        foreach(Book book in await booksQuery.ExecuteNextAsync<Book>())
-        {
-            // Iterate through books
-        }
     }
 
 DocumentDB supports ordering with a single numeric, string or Boolean property per query, with additional query types coming soon. Please see [What's coming next](#Whats_coming_next) for more details.
@@ -86,21 +70,17 @@ Recall that DocumentDB supports two kinds of indexes (Hash and Range), which can
 For more details see [DocumentDB indexing policies](documentdb-indexing-policies.md).
 
 ### Indexing for Order By against all properties
-Here's how you can create a collection with "All Range" indexing for Order By against any/all numeric or string properties that appear within JSON documents within it. Here, "/*" represents all JSON properties/paths within the collection, and -1 represents the maximum precision.
+Here's how you can create a collection with "All Range" indexing for Order By against any/all numeric or string properties that appear within JSON documents within it. Here we override the default index type for string values to Range, and at the maximum precision (-1).
                    
-    booksCollection.IndexingPolicy.IncludedPaths.Add(
-        new IncludedPath { 
-            Path = "/*", 
-            Indexes = new Collection<Index> { 
-                new RangeIndex(DataType.String) { Precision = -1 }, 
-                new RangeIndex(DataType.Number) { Precision = -1 }
-            }
-        });
-
-    await client.CreateDocumentCollectionAsync(databaseLink, 
-        booksCollection);  
+    DocumentCollection books = new DocumentCollection();
+    books.Id = "books";
+    books.IndexingPolicy = new IndexingPolicy(new RangeIndex(DataType.String) { Precision = -1 });
+    
+    await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), books);  
 
 >[AZURE.NOTE] Note that Order By only will return results of the data types (String and Number) that are indexed with a RangeIndex. For example, if you have the default indexing policy which only has RangeIndex on numbers, an Order By against a path with string values will return no documents.
+>
+> If you have defined a partition key for your collections, note that Order By is supported only within queries that filter against a single partition key.
 
 ### Indexing for Order By for a single property
 Here's how you can create a collection with indexing for Order By against just the Title property, which is a string. There are two paths, one for the Title property ("/Title/?") with Range indexing, and the other for every other property with the default indexing scheme, which is Hash for strings and Range for numbers.                    
@@ -112,27 +92,13 @@ Here's how you can create a collection with indexing for Order By against just t
                 new RangeIndex(DataType.String) { Precision = -1 } } 
             });
     
-    // Use defaults which are:
-    // (a) for strings, use Hash with precision 3 (just equality queries)
-    // (b) for numbers, use Range with max precision (for equality, range and order by queries)
-    booksCollection.IndexingPolicy.IncludedPaths.Add(
-        new IncludedPath { 
-            Path = "/*",
-            Indexes = new Collection<Index> { 
-                new HashIndex(DataType.String) { Precision = 3 }, 
-                new RangeIndex(DataType.Number) { Precision = -1 }
-            }            
-        });
+    await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), booksCollection);  
+
 
 ## Samples
 Take a look at this [Github samples project](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/Queries) that demonstrates how to use Order By, including creating indexing policies and paging using Order By. The samples are open source and we encourage you to submit pull requests with contributions that could benefit other DocumentDB developers. Please refer to the [Contribution guidelines](https://github.com/Azure/azure-documentdb-net/blob/master/Contributing.md) for guidance on how to contribute.  
 
 ## FAQ
-
-**Which platforms/versions of the SDK support ordering?**
-
-In order to create collections with the indexing policy required for Order By, you must download the latest drop of the SDK (1.2.0 for .NET and 1.1.0 for Node.js, JavaScript, Python and Java). The .NET SDK 1.2.0 is also required to use OrderBy() and OrderByDescending() within LINQ expressions. 
-
 
 **What is the expected Request Unit (RU) consumption of Order By queries?**
 

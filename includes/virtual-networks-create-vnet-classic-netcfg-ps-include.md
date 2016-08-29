@@ -4,7 +4,7 @@ Azure uses an xml file to define all VNets available to a subscription. You can 
 
 To create a VNet using a netcfg file using PowerShell, follow the steps below.
 
-1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
+1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](../articles/powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
 2. From the Azure PowerShell console, use the **Get-AzureVnetConfig** cmdlet to download the network configuration file by running the command below. 
 
 		Get-AzureVNetConfig -ExportToFile c:\NetworkConfig.xml

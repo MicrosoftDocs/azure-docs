@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Service Bus and Java with AMQP 1.0 | Microsoft Azure"
-   description="Using Service Bus from Java with AMQP."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="Service Bus and Java with AMQP 1.0 | Microsoft Azure"
+    description="Using Service Bus from Java with AMQP"
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="05/06/2016"
+    ms.author="sethm" />
 
 # Use Service Bus from Java with AMQP 1.0
 
@@ -82,9 +82,9 @@ Where `[namespace]`, `[username]`, and `[password]` have the following meanings:
 
 | Name          | Meaning                                                                        |   |   |   |   |
 |---------------|--------------------------------------------------------------------------------|---|---|---|---|
-| `[namespace]` | The Service Bus namespace obtained from the [Azure classic portal][].                      |   |   |   |   |
-| `[username]`  | The Service Bus issuer name obtained from the [Azure classic portal][].                    |   |   |   |   |
-| `[password]`  | URL-encoded form of the Service Bus issuer key obtained from the [Azure classic portal][]. |   |   |   |   |
+| `[namespace]` | The Service Bus namespace obtained from the [Azure portal][].                      |   |   |   |   |
+| `[username]`  | The Service Bus issuer name obtained from the [Azure portal][].                    |   |   |   |   |
+| `[password]`  | URL-encoded form of the Service Bus issuer key obtained from the [Azure portal][]. |   |   |   |   |
 
 > [AZURE.NOTE] You must URL-encode the password manually. A useful URL encoding utility is available at [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
 
@@ -444,4 +444,4 @@ Ready to learn more? Visit the following links:
 [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
 [Service Bus AMQP overview]: service-bus-amqp-overview.md
-[Azure classic portal]: http://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com

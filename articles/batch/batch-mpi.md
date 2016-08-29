@@ -13,12 +13,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="02/19/2016"
+	ms.date="08/29/2016"
 	ms.author="marsma" />
 
 # Use multi-instance tasks to run Message Passing Interface (MPI) applications in Azure Batch
 
-With multi-instance tasks, you can run an Azure Batch task on multiple compute nodes simultaneously to enable high performance computing scenarios like Message Passing Interface (MPI) applications. In this article, you will learn how to execute multi-instance tasks using the [Batch .NET][api_net] library.
+Multi-instance tasks allow you to run an Azure Batch task on multiple compute nodes simultaneously. These tasks enable high performance computing scenarios like Message Passing Interface (MPI) applications in Batch. In this article, you learn how to execute multi-instance tasks using the [Batch .NET][api_net] library.
 
 ## Multi-instance task overview
 
@@ -29,23 +29,23 @@ In Batch, each task is normally executed on a single compute node--you submit mu
 When you submit a task with multi-instance settings to a job, Batch performs several steps unique to multi-instance tasks:
 
 1. The Batch service automatically splits the task into one **primary** and many **subtasks**. Batch then schedules the primary and subtasks for execution on the pool's compute nodes.
-2. These tasks, both the primary and the subtasks, download any **common resource files** that you specify in the multi-instance settings.
-3. After the common resource files have been downloaded, the **coordination command** that you specify in the multi-instance settings is executed by the primary and subtasks. This coordination command is typically used to start a background service (such as [Microsoft MPI][msmpi_msdn]'s `smpd.exe`) and may also verify that the nodes are ready to process inter-node messages.
-4. When the coordination command has been completed successfully by the primary and all subtasks, the multi-instance task's **command line** (the "application command") is executed *only* by the **primary task**. For example, in an [MS-MPI][msmpi_msdn]-based solution, this is where you execute your MPI-enabled application using `mpiexec.exe`.
+2. These tasks, both the primary and the subtasks, download any **common resource files** you specify in the multi-instance settings.
+3. After the common resource files have been downloaded, the primary and subtasks execute the **coordination command** you specify in the multi-instance settings. This coordination command is typically used to start a background service (such as [Microsoft MPI][msmpi_msdn]'s `smpd.exe`) and may also verify that the nodes are ready to process inter-node messages.
+4. When the coordination command has been completed successfully by the primary and all subtasks, *only* the **primary task** executes the multi-instance task's **command line** (the "application command"). For example, in an [MS-MPI][msmpi_msdn]-based solution, this is where you execute your MPI-enabled application using `mpiexec.exe`.
 
 > [AZURE.NOTE] Though it is functionally distinct, the "multi-instance task" is not a unique task type like the [StartTask][net_starttask] or [JobPreparationTask][net_jobprep]. The multi-instance task is simply a standard Batch task ([CloudTask][net_task] in Batch .NET) whose multi-instance settings have been configured. In this article, we refer to this as the **multi-instance task**.
 
 ## Requirements for multi-instance tasks
 
-Multi-instance tasks require a pool with **inter-node communication enabled**, and with **concurrent task execution disabled**. If you try to run a multi-instance task in a pool with internode communication disabled, or with a *maxTasksPerNode* value greater than 1, the task will never be scheduled--it will remain indefinitely in the "active" state. This code snippet shows the creation of such a pool using the Batch .NET library.
+Multi-instance tasks require a pool with **inter-node communication enabled**, and with **concurrent task execution disabled**. If you try to run a multi-instance task in a pool with internode communication disabled, or with a *maxTasksPerNode* value greater than 1, the task is never scheduled--it remains indefinitely in the "active" state. This code snippet shows the creation of such a pool using the Batch .NET library.
 
-```
+```csharp
 CloudPool myCloudPool =
 	myBatchClient.PoolOperations.CreatePool(
 		poolId: "MultiInstanceSamplePool",
-		osFamily: "4",
+		targetDedicated: 3
 		virtualMachineSize: "small",
-		targetDedicated: 3);
+		cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "4"));
 
 // Multi-instance tasks require inter-node communication, and those nodes
 // must run only one task at a time.
@@ -53,15 +53,15 @@ myCloudPool.InterComputeNodeCommunicationEnabled = true;
 myCloudPool.MaxTasksPerComputeNode = 1;
 ```
 
-Additionally, multi-instance tasks will execute *only* on nodes in **pools created after 14-Dec-2015**.
+Additionally, multi-instance tasks can execute *only* on nodes in **pools created after 14-Dec-2015**.
 
-> [AZURE.TIP] When you use size [A8 or A9 compute nodes](./../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md) in your Batch pool, your MPI application can take advantage of Azure's high-performance, low-latency remote direct memory access (RDMA) network. You can see the full list of compute node sizes available for Batch pools in [Sizes for Cloud Services](./../cloud-services/cloud-services-sizes-specs.md).
+> [AZURE.TIP] When you use size [A8 or A9 compute nodes](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) in your Batch pool, your MPI application can take advantage of Azure's high-performance, low-latency remote direct memory access (RDMA) network. You can see the full list of compute node sizes available for Batch pools in [Sizes for Cloud Services](./../cloud-services/cloud-services-sizes-specs.md).
 
 ### Use a StartTask for MPI application installation
 
-To run MPI applications with a multi-instance task, you first need to get your MPI software onto the compute nodes in the pool. This is a great time to use a [StartTask][net_starttask], which executes whenever a node joins a pool, or is restarted. This code snippet creates a StartTask that specifies the MS-MPI setup package as a [resource file][net_resourcefile], and the command line that will be executed after the resource file is downloaded to the node.
+To run MPI applications with a multi-instance task, you first need to get your MPI software onto the compute nodes in the pool. This is a great time to use a [StartTask][net_starttask], which executes whenever a node joins a pool, or is restarted. This code snippet creates a StartTask that specifies the MS-MPI setup package as a [resource file][net_resourcefile], and the command line that is executed after the resource file is downloaded to the node.
 
-```
+```csharp
 // Create a StartTask for the pool which we use for installing MS-MPI on
 // the nodes as they join the pool (or when they are restarted).
 StartTask startTask = new StartTask
@@ -82,9 +82,9 @@ await myCloudPool.CommitAsync();
 
 ## Create a multi-instance task with Batch .NET
 
-Now that we've covered the pool requirements and MPI package installation, let's create the multi-instance task. In this snippet, we create a standard [CloudTask][net_task], then configure its [MultiInstanceSettings][net_multiinstance_prop] property. As mentioned above, the multi-instance task is not a distinct task type, but a standard Batch task configured with multi-instance settings.
+Now that we've covered the pool requirements and MPI package installation, let's create the multi-instance task. In this snippet, we create a standard [CloudTask][net_task], then configure its [MultiInstanceSettings][net_multiinstance_prop] property. As mentioned earlier, the multi-instance task is not a distinct task type, but a standard Batch task configured with multi-instance settings.
 
-```
+```csharp
 // Create the multi-instance task. Its command line is the "application command"
 // and will be executed *only* by the primary, and only after the primary and
 // subtasks execute the CoordinationCommandLine.
@@ -109,18 +109,18 @@ await myBatchClient.JobOperations.AddTaskAsync("mybatchjob", myMultiInstanceTask
 
 ## Primary task and subtasks
 
-When you create the multi-instance settings for a task, you specify the number of number of compute nodes that are to execute the task. When you submit the task to a job, the Batch service creates one **primary** task and enough **subtasks** that together match the number of nodes you specified.
+When you create the multi-instance settings for a task, you specify the number of compute nodes that are to execute the task. When you submit the task to a job, the Batch service creates one **primary** task and enough **subtasks** that together match the number of nodes you specified.
 
 These tasks are assigned an integer id in the range of 0 to *numberOfInstances - 1*. The task with id 0 is the primary task, and all other ids are subtasks. For example, if you create the following multi-instance settings for a task, the primary task would have an id of 0, and the subtasks would have ids 1 through 9.
 
-```
+```csharp
 int numberOfNodes = 10;
 myMultiInstanceTask.MultiInstanceSettings = new MultiInstanceSettings(numberOfNodes);
 ```
 
-## Coordination and application commands
+## Coordination command
 
-The **coordination command** is executed by both the primary and subtasks. Once the primary task and all subtasks have finished executing the coordination command, the multi-instance task's command line is executed by the primary task *only*. We will call this command line the **application command** to distinguish it from the coordination command.
+The **coordination command** is executed by both the primary and subtasks.
 
 The invocation of the coordination command is blocking--Batch does not execute the application command until the coordination command has returned successfully for all subtasks. The coordination command should therefore start any required background services, verify that they are ready for use, and then exit. For example, this coordination command for a solution using MS-MPI version 7 starts the SMPD service on the node, then exits:
 
@@ -130,11 +130,39 @@ cmd /c start cmd /c ""%MSMPI_BIN%\smpd.exe"" -d
 
 Note the use of `start` in this coordination command. This is required because the `smpd.exe` application does not return immediately after execution. Without the use of the [start][cmd_start] command, this coordination command would not return, and would therefore block the application command from running.
 
-The **application command**, the command line specified for the multi-instance task, is executed *only* by the primary task. For MS-MPI applications, this will be the execution of your MPI-enabled application using `mpiexec.exe`. For example, here is an application command for a solution using MS-MPI version 7:
+## Application command
+
+Once the primary task and all subtasks have finished executing the coordination command, the multi-instance task's command line is executed by the primary task *only*. We call this the **application command** to distinguish it from the coordination command.
+
+For MS-MPI applications, use the application command to execute your MPI-enabled application with `mpiexec.exe`. For example, here is an application command for a solution using MS-MPI version 7:
 
 ```
 cmd /c ""%MSMPI_BIN%\mpiexec.exe"" -c 1 -wdir %AZ_BATCH_TASK_SHARED_DIR% MyMPIApplication.exe
 ```
+
+>[AZURE.NOTE] Because MS-MPI's `mpiexec.exe` uses the `CCP_NODES` variable by default (see [Environment variables](#environment-variables)) the example application command line above excludes it.
+
+## Environment variables
+
+These environment variables are available on the compute node to applications and scripts executed by the primary task's application command:
+
+* `CCP_NODES`
+
+  * **Availability**: CloudServiceConfiguration and VirtualMachineConfiguration pools
+  * **Format**: `numNodes<space>nodeIP<space>numCores<space>`
+  * **Example**: `2 10.0.0.4 1 10.0.0.5 1`
+
+* `AZ_BATCH_NODE_LIST`
+
+  * **Availability**: CloudServiceConfiguration and VirtualMachineConfiguration pools
+  * **Format**: `nodeIP;nodeIP`
+  * **Example**: `10.0.0.4;10.0.0.5`
+
+* `AZ_BATCH_HOST_LIST`
+
+  * **Availability**: VirtualMachineConfiguration pools
+  * **Format**: `nodeIP,nodeIP`
+  * **Example**: `10.0.0.4,10.0.0.5`
 
 ## Resource files
 
@@ -144,7 +172,7 @@ You can specify one or more **common resource files** in the multi-instance sett
 
 Resource files that you specify for the multi-instance task itself are downloaded to the task's working directory, `AZ_BATCH_TASK_WORKING_DIR`, by the primary task *only*--the subtasks do not download the resource files specified for the multi-instance task.
 
-The contents of the `AZ_BATCH_TASK_SHARED_DIR` are accessible by the primary and all subtasks that execute on a node. An example task shared directory is `tasks/mybatchjob/job-1/mymultiinstancetask/`. The primary and each subtask also have a working directory that is accessible by that task only, and is accessed by using the environment variable `AZ_BATCH_TASK_WORKING_DIR`.
+The contents of the `AZ_BATCH_TASK_SHARED_DIR` are accessible by the primary and all subtasks that execute on a node. An example task shared directory is `tasks/mybatchjob/job-1/mymultiinstancetask/`. The primary and each subtask also has a working directory that is accessible by that task only, and is accessed by using the environment variable `AZ_BATCH_TASK_WORKING_DIR`.
 
 Note that in the code samples in this article, we do not specify resource files for the multi-instance task itself, only for the pool's StartTask and the [CommonResourceFiles][net_multiinsance_commonresfiles] of the multi-instance settings.
 
@@ -158,9 +186,9 @@ If any of the subtasks fail, exiting with a non-zero return code, for example, t
 
 When you delete a multi-instance task, the primary and all subtasks are also deleted by the Batch service. All subtask directories and their files are deleted from the compute nodes, just as for a standard task.
 
-[TaskConstraints][net_taskconstraints] for a multi-instance task, such as the [MaxTaskRetryCount][net_taskconstraint_maxretry], [MaxWallClockTime][net_taskconstraint_maxwallclock], and [RetentionTime][net_taskconstraint_retention] properties, are honored as they are for a standard task, and apply to the primary and all subtasks. However, if you change the [RetentionTime][net_taskconstraint_retention] property after adding the multi-instance task to the job, this change is applied only to the primary task. All of the subtasks will continue to use the original [RetentionTime][net_taskconstraint_retention].
+[TaskConstraints][net_taskconstraints] for a multi-instance task, such as the [MaxTaskRetryCount][net_taskconstraint_maxretry], [MaxWallClockTime][net_taskconstraint_maxwallclock], and [RetentionTime][net_taskconstraint_retention] properties, are honored as they are for a standard task, and apply to the primary and all subtasks. However, if you change the [RetentionTime][net_taskconstraint_retention] property after adding the multi-instance task to the job, this change is applied only to the primary task. All of the subtasks continue to use the original [RetentionTime][net_taskconstraint_retention].
 
-A compute node's recent task list will reflect the id of a subtask if the recent task was part of a multi-instance task.
+A compute node's recent task list reflects the id of a subtask if the recent task was part of a multi-instance task.
 
 ## Obtain information about subtasks
 
@@ -170,7 +198,7 @@ To obtain information on subtasks by using the Batch .NET library, call the [Clo
 
 The following code snippet shows how to obtain subtask information, as well as request file contents from the nodes on which they executed.
 
-```
+```csharp
 // Obtain the job and the multi-instance task from the Batch service
 CloudJob boundJob = batchClient.JobOperations.GetJob("mybatchjob");
 CloudTask myMultiInstanceTask = boundJob.GetTask("mymultiinstancetask");

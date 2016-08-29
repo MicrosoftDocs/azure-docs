@@ -13,21 +13,65 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="08/26/2016" 
 	ms.author="spelluru"/>
 
 # Release notes for Data Management Gateway
+One of the challenges for modern data integration is to seamlessly move data to and from on-premises to cloud. Data Factory makes this integration seamless with Data Management Gateway, which is an agent that you can install on-premises to enable hybrid data movement.
 
-One of the challenges for modern data integration is to seamlessly move data to and from on-premises to cloud. Data factory makes this integration seamless with Data Management Gateway, which is an agent that you can install on-premises to enable hybrid data movement.
+See the following articles for detailed information about Data Management Gateway and how to use it: 
 
-Please refer to [Move data between on-premises and cloud using Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md) for more information.
+- [Data Management Gateway](data-factory-data-management-gateway.md)
+- [Move data between on-premises and cloud using Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md) 
 
-## Current version (1.10.5892.1)
+## Current version (2.2.6072.1)
 
-•	Performance improvements
-•	Bug fixes
+- Supports setting HTTP proxy for the gateway using the Gateway Configuration Manager. If configured, Azure Blob, Azure Table, Azure Data Lake, and Document DB are accessed through HTTP proxy.
+- Supports header handling for TextFormat when copying data from/to Azure Blob, Azure Data Lake Store, on-premises File System, and on-premises HDFS.
+- Supports copying data from Append Blob and Page Blob along with the already supported Block Blob.
+- Introduces a new gateway status **Online (Limited)**, which indicates that the main functionality of the gateway works except the interactive operation support for Copy Wizard.
+- Enhances the robustness of gateway registration using registration key.
 
 ## Earlier versions
+
+## 2.1.6040.1
+
+- DB2 driver is included in the gateway installation package now. You do not need to install it separately. 
+- DB2 driver now supports z/OS and DB2 for i (AS/400) along with the platforms already supported (Linux, Unix, and Windows). 
+- Supports using DocumentDB as a source or destination for on-premises data stores
+- Supports copying data from/to cold/hot blob storage along with the already supported general-purpose storage account. 
+- Allows you to connect to on-premises SQL Server via gateway with remote login privileges.  
+
+## 2.0.6013.1
+
+- You can select the language/culture to be used by a gateway during manual installation.
+- When gateway does not work as expected, you can choose to send gateway logs of last seven days to Microsoft to facilitate troubleshooting of the issue. If gateway is not connected to the cloud service, you can choose to save and archive gateway logs.  
+- User interface improvements for gateway configuration manager:
+	- Make gateway status more visible on the Home tab.
+	- Reorganized and simplified controls.
+- You can copy data from a storage using the [code-free copy preview tool](data-factory-copy-data-wizard-tutorial.md). See [Staged Copy](data-factory-copy-activity-performance.md#staged-copy) for details about this feature in general. 
+- You can use Data Management Gateway to ingress data directly from an on-premises SQL Server database into Azure Machine Learning.
+- Performance improvements
+	- Improve performance on viewing Schema/Preview against SQL Server in code-free copy preview tool.
+
+
+
+## 1.12.5953.1
+- Bug fixes
+
+## 1.11.5918.1
+
+- Maximum size of the gateway event log has been increased from 1 MB to 40 MB.
+- A warning dialog is displayed in case a restart is needed during gateway auto-update. You can choose to restart right then or later. 
+- In case auto-update fails, gateway installer retries auto-updating three times at maximum.
+- Performance improvements
+	- Improve performance for loading large tables from on-premises server in code-free copy scenario.
+- Bug fixes
+
+## 1.10.5892.1
+
+- Performance improvements
+- Bug fixes
 
 ## 1.9.5865.2
 
@@ -35,7 +79,8 @@ Please refer to [Move data between on-premises and cloud using Azure Data Factor
 - New tray icon with gateway status indicators
 - Ability to “Update now” from the client
 - Ability to set update schedule time
-- PowerShell script for toggling auto-update on/off 
+- PowerShell script for toggling auto-update on/off
+- Support for JSON format  
 - Performance improvements
 - Bug fixes
 
@@ -57,7 +102,7 @@ Please refer to [Move data between on-premises and cloud using Azure Data Factor
 
 ### 1.6.5735.1
 
-- Support On-Prem HDFS Source/Sink
+- Support on-premises HDFS Source/Sink
 - Performance improvements
 - Bug fixes
 
@@ -72,7 +117,7 @@ Please refer to [Move data between on-premises and cloud using Azure Data Factor
 - Support table columns for tabular data sources for Azure Data Factory
 - Support SQL DW for Azure Data Factory
 - Support Reclusive in BlobSource and FileSource for Azure Data Factory
-- Support CopyBehavior – MergeFiles, PreserveHierarchy and FlattenHierarchy in BlobSink and FileSink with Binary Copy for Azure Data Factory
+- Support CopyBehavior – MergeFiles, PreserveHierarchy, and FlattenHierarchy in BlobSink and FileSink with Binary Copy for Azure Data Factory
 - Support Copy Activity reporting progress for Azure Data Factory
 - Support Data Source Connectivity Validation for Azure Data Factory
 - Bug fixes
@@ -100,7 +145,7 @@ Please refer to [Move data between on-premises and cloud using Azure Data Factor
 
 ### 1.5.5612.1
 
-- Support 5 relational databases for Azure Data Factory (MySQL, PostgreSQL, DB2, Teradata, and Sybase)
+- Support five relational databases for Azure Data Factory (MySQL, PostgreSQL, DB2, Teradata, and Sybase)
 - Compression support (Gzip and Deflate)
 - Performance improvements
 - Bug fixes
@@ -129,8 +174,3 @@ Please refer to [Move data between on-premises and cloud using Azure Data Factor
 ### 1.0.5144.2
 
 - No changes that affect Azure Data Factory scenarios. 
-
-## Questions/answers
-
-### Why is the Data Source Manager trying to connect to a gateway?
-This is a security design where you can only configure on-premises data sources for cloud access within your corporate network, and your credentials will not flow outside of your corporate firewall. Ensure your computer can reach the machine where the gateway is installed.

@@ -3,7 +3,7 @@
    description="Learn how to create a virtual network using the Azure portal in ARM | Resource Manager."
    services="virtual-network"
    documentationCenter=""
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"/>
@@ -14,8 +14,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/04/2016"
-   ms.author="telmos"/>
+   ms.date="03/15/2016"
+   ms.author="jdial"/>
 
 # Create a virtual network using the Azure portal
 

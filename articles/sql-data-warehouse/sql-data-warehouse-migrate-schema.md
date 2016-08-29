@@ -13,132 +13,38 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="08/25/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Migrate your schema to SQL Data Warehouse#
 
-The following summaries will help you understand the differences between SQL Server and SQL Data Warehouse to help you migrate your database.
+The following summaries help you understand the differences between SQL Server and SQL Data Warehouse to help you migrate your database.
 
-### Table features
-SQL Data Warehouse does not use or support these features:
+## Table Migration
 
-- Primary keys
-- Foreign keys
-- Check constraints
-- Unique constraints
-- Unique indexes
-- Computed columns
-- Sparse columns
-- User defined types
-- Indexed views
-- Identities
-- Sequences
-- Triggers
-- Synonyms
+When migrating your tables, you'll want to become familiar with the table features of SQL Data Warehouse tables.  The [table overview][] is a great place to start.  This article introduces you to the most important considerations when creating a table such as table statistics, distribution, partitioning, and indexing.  It also covers some [unsupported table features][] and workarounds.
 
-### Data type differences
-SQL Data Warehouse supports the common business data types:
-
-- bigint
-- binary
-- bit
-- char
-- date
-- datetime
-- datetime2
-- datetimeoffset
-- decimal
-- float
-- int
-- money
-- nchar
-- nvarchar
-- real
-- smalldatetime
-- smallint
-- smallmoney
-- time
-- tinyint
-- varbinary
-- varchar
-
-You can use this query to identify columns in your data warehouse that contain incompatible types:
-
-```
-SELECT  t.[name]
-,       c.[name]
-,       c.[system_type_id]
-,       c.[user_type_id]
-,       y.[is_user_defined]
-,       y.[name]
-FROM sys.tables  t
-JOIN sys.columns c on t.[object_id]    = c.[object_id]
-JOIN sys.types   y on c.[user_type_id] = y.[user_type_id]
-WHERE y.[name] IN
-                (   'geography'
-                ,   'geometry'
-                ,   'hierarchyid'
-                ,   'image'
-                ,   'ntext'
-                ,   'numeric'
-                ,   'sql_variant'
-                ,   'sysname'
-                ,   'text'
-                ,   'timestamp'
-                ,   'uniqueidentifier'
-                ,   'xml'
-                )
-
-OR  (   y.[name] IN (  'nvarchar','varchar','varbinary')
-    AND c.[max_length] = -1
-    )
-OR  y.[is_user_defined] = 1
-;
-
-```
-
-The query includes any user defined data types which are also not supported.
-
-If you have unsupported types in your database do not worry. Some alternatives you can use instead are proposed below.
-
-Instead of:
-
-- **geometry**, use a varbinary type
-- **geography**, use a varbinary type
-- **hierarchyid**, this CLR type is not supported
-- **image**, **text**, **ntext**, use varchar/nvarchar (smaller the better)
-- **nvarchar(max)**, use nvarchar(4000) or smaller for better performance
-- **numeric**, use decimal
-- **sql_variant**, split column into several strongly typed columns
-- **sysname**, use nvarchar(128)
-- **table**, convert to temporary tables
-- **timestamp**, re-work code to use datetime2 and `CURRENT_TIMESTAMP` function. Note you cannot have current_timestamp as a default constraint and the value will not automatically update. If you need to migrate rowversion values from a timestamp typed column then use binary(8) or varbinary(8) for NOT NULL or NULL row version values.
-- **varchar(max)**, use varchar(8000) or smaller for better performance
-- **uniqueidentifier**, use varbinary(16) or varchar(36) depending on the input format (binary or character) of your values. If the input format is character-based an optimization is possible. By converting from character to binary format, you can reduce the column storage by over 50%. In very large tables this optimization can be beneficial.
-- **user defined types**, convert back to their native types where possible
-- **xml**, use a varchar(8000) or smaller for better performance. Split across columns if needed
-
-Partial support:
-
-- Default constraints support literals and constants only. Non-deterministic expressions or functions, such as `GETDATE()` or `CURRENT_TIMESTAMP`, are not supported.
-
-> [AZURE.NOTE] Define your tables so that the maximum possible row size, including the full length of variable length columns, does not exceed 32,767 bytes. While you can define a row with variable length data that can exceed this figure, you will not be be able to insert data into the table. Also, try to limit the size of your variable length columns for even better throughput for running queries.
+SQL Data Warehouse supports the common business data types.  See the [data types][] article for a list of supported and [unsupported data types][].  The [data types][] article also contains a query to identify [unsupported data types][].  When converting your data types, be sure to look at the [data type best practices][].
 
 ## Next steps
-Once you have successfully migrated your database schema to SQLDW you can proceed to one of the following articles:
+Once you have successfully migrated your database schema to SQL Data Warehouse, proceed to one of the following articles:
 
 - [Migrate your data][]
 - [Migrate your code][]
 
-For more development tips, see the [development overview][].
+For more about SQL Data Warehouse best practices, see the [best practices][] article.
 
 <!--Image references-->
 
 <!--Article references-->
-[Migrate your code]: sql-data-warehouse-migrate-code.md
-[Migrate your data]: sql-data-warehouse-migrate-data.md
-[development overview]: sql-data-warehouse-overview-develop.md
+[Migrate your code]: ./sql-data-warehouse-migrate-code.md
+[Migrate your data]: ./sql-data-warehouse-migrate-data.md
+[best practices]: ./sql-data-warehouse-best-practices.md
+[table overview]: ./sql-data-warehouse-tables-overview.md
+[unsupported table features]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
+[data types]: ./sql-data-warehouse-tables-data-types.md
+[unsupported data types]: ./sql-data-warehouse-tables-data-types.md#unsupported-data-types
+[data type best practices]: ./sql-data-warehouse-tables-data-types.md#data-type-best-practices
 
 <!--MSDN references-->
 

@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="12/07/2015" 
+ms.date="06/22/2016" 
 ms.author="adegeo"/>
 
 # Common Cloud Service startup tasks
@@ -28,22 +28,7 @@ Many of the tasks here use the
 
 ## Define environment variables before a role starts
 
-You can define environment variables for an entire role by adding the [Runtime] element to the definition of the role in the service definition file.
-
-```xml
-<ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
-    <WebRole name="WebRole1">
-        ...
-        <Runtime>
-            <Environment>
-                <Variable name="MyEnvironmentVariable" value="MyVariableValue" />
-            </Environment>
-        </Runtime>
-    </WebRole>
-</ServiceDefinition>
-```
-
-If you need environment variables defined for a specific task, that isn't shared by other tasks, you can use the [Environment] element inside of the [Task] element.
+If you need environment variables defined for a specific task, use the [Environment] element inside of the [Task] element.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -60,7 +45,7 @@ If you need environment variables defined for a specific task, that isn't shared
 </ServiceDefinition>
 ```
 
-Variables can also use a [valid Azure XPath value](https://msdn.microsoft.com/library/azure/hh404006.aspx) to reference something about the deployment. Instead of using the `value` attribute, define a [RoleInstanceValue] child element.
+Variables can also use a [valid Azure XPath value](cloud-services-role-config-xpath.md) to reference something about the deployment. Instead of using the `value` attribute, define a [RoleInstanceValue] child element.
 
 ```xml
 <Variable name="PathToStartupStorage">
@@ -190,6 +175,10 @@ Add the following startup task to the [ServiceDefinition.csdef] file.
 
 Add this command to the **startup.cmd** file:
 
+    @echo off
+    @echo Installing "IPv4 Address and Domain Restrictions" feature 
+    powershell -ExecutionPolicy Unrestricted -command "Install-WindowsFeature Web-IP-Security"
+    @echo Unlocking configuration for "IPv4 Address and Domain Restrictions" feature 
     %windir%\system32\inetsrv\AppCmd.exe unlock config -section:system.webServer/security/ipSecurity
 
 This causes the **startup.cmd** batch file to be run every time the web role is initialized, ensuring that the required **ipSecurity** section is unlocked.
@@ -390,7 +379,6 @@ The simplest way to detect that a task has already run is to create a file in th
 
     REM   Exit normally.
     EXIT /B 0
-
 
 ## Task best practices
 Here are some best practices you should follow when configuring task for your web or worker role.

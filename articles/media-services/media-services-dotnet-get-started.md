@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Get started with delivering content on demand using .NET SDK"
+	pageTitle="Get started with delivering content on demand using .NET | Azure"
 	description="This tutorial walks you through the steps of implementing an on demand content delivery application with Azure Media Services using .NET."
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/03/2016" 
+ 	ms.date="08/17/2016"
 	ms.author="juliako"/>
 
 

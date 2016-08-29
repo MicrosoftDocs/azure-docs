@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="02/08/2016" 
+	ms.date="05/10/2016" 
 	ms.author="sethm"/>
 
 # Build reliable and elastic cloud apps with messaging 
@@ -29,7 +29,7 @@ Dynamic demand is a reality for today's applications. From seasonal and variable
  
 ## Build
 
-- [How to use Service Bus queues](service-bus-dotnet-how-to-use-queues.md) 
+- [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md) 
 - [Deadlettering in Service Bus Brokered Messaging (October 21 2011 blog post)](http://geekswithblogs.net/asmith/articles/147398.aspx) 
 - [Best practices for insulating Service Bus applications against Service Bus outages and disasters](service-bus-outages-disasters.md)
 - [Brokered Messaging: Request Response sample](https://code.msdn.microsoft.com/Brokered-Messaging-Request-0ce8fcaf) 
@@ -38,7 +38,8 @@ Dynamic demand is a reality for today's applications. From seasonal and variable
 ## Popular
 
 - [Azure Queues and Azure Service Bus queues - compared and contrasted](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-- [Service Bus REST API Reference](http://msdn.microsoft.com/library/azure/hh780717.aspx)
+- [Service Bus REST API reference](http://msdn.microsoft.com/library/azure/hh780717.aspx)
+- [Service Bus RP REST API reference](https://msdn.microsoft.com/library/azure/mt639375.aspx)
 
 ## Related services
 

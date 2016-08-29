@@ -1,25 +1,25 @@
 <properties 
-   pageTitle="Write applications that use Service Bus queues | Microsoft Azure"
-   description="How to write a simple queue-based application that uses Service Bus."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Write applications that use Service Bus queues | Microsoft Azure"
+    description="How to write a simple queue-based application that uses Service Bus."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="06/21/2016"
+    ms.author="sethm" />
 
 # Create applications that use Service Bus queues
 
 This topic describes Service Bus queues and shows how to write a simple queue-based application that uses Service Bus.
 
-Consider a scenario from the world of retail in which sales data from individual Point of Sale (POS) terminals must be routed to an inventory management system which uses that data to determine when stock has to be replenished. This solution uses Service Bus messaging for the communication between the terminals and the inventory management system, as illustrated in the following figure:
+Consider a scenario from the world of retail in which sales data from individual Point-of-Sale (POS) terminals must be routed to an inventory management system that uses the data to determine when stock has to be replenished. This solution uses Service Bus messaging for the communication between the terminals and the inventory management system, as illustrated in the following figure:
 
 ![Service-Bus-Queues-Img1](./media/service-bus-create-queues/IC657161.gif)
 
@@ -31,7 +31,7 @@ Before we look at the code that is required to set up this application, consider
 
 ### Temporal decoupling
 
-With the asynchronous messaging pattern, producers and consumers do not have to be online at the same time. The messaging infrastructure reliably stores messages until the consuming party is ready to receive them. This allows the components of the distributed application to be disconnected, either voluntarily; for example, for maintenance, or due to a component crash, without affecting the whole system. Furthermore, the consuming application may only have to be online during certain times of the day. For example, in this retail scenario, the inventory management system may only have to come online after the end of the business day.
+With the asynchronous messaging pattern, producers and consumers do not have to be online at the same time. The messaging infrastructure reliably stores messages until the consuming party is ready to receive them. This means the components of the distributed application can be disconnected, either voluntarily; for example, for maintenance, or due to a component crash, without affecting the whole system. Furthermore, the consuming application may only have to be online during certain times of the day. For example, in this retail scenario, the inventory management system may only have to come online after the end of the business day.
 
 ### Load leveling
 
@@ -53,17 +53,17 @@ Using message queuing to intermediate between message producers and consumers pr
 
 The following section shows how to use Service Bus to build this application.
 
-### Sign up for a Service Bus account and subscription
+### Sign up for an Azure account
 
-You’ll need an Azure account in order to start working with Service Bus. If you do not already have one, you can sign up for a free trial [here](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
+You’ll need an Azure account in order to start working with Service Bus. If you do not already have one, you can sign up for a free account [here](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
 
 ### Create a service namespace
 
-Once you have a subscription, you can create a new namespace. You’ll have to give your new namespace a unique name across all Service Bus accounts. Each namespace acts as a container for a set of Service Bus entities. For more information, see [How To: Create or Modify a Service Bus Service Namespace](https://msdn.microsoft.com/library/azure/hh690931.aspx).
+Once you have a subscription, you can [create a new namespace](service-bus-create-namespace-portal.md). Each namespace acts as a scoping container for a set of Service Bus entities. Give your new namespace a unique name across all Service Bus accounts. 
 
 ### Install the NuGet package
 
-To use the Service Bus service namespace, an application must reference the Service Bus assembly, specifically Microsoft.ServiceBus.dll. You can find this assembly as part of the Microsoft Azure SDK, and the download is available at the [Azure SDK download page](https://azure.microsoft.com/downloads/). However, the Service Bus NuGet package is the easiest way to get the Service Bus API and to configure your application with all of the Service Bus dependencies. For details about using NuGet and the Service Bus package, see [Using the NuGet Service Bus Package](https://msdn.microsoft.com/library/dn741354.aspx).
+To use the Service Bus namespace, an application must reference the Service Bus assembly, specifically Microsoft.ServiceBus.dll. You can find this assembly as part of the Microsoft Azure SDK, and the download is available at the [Azure SDK download page](https://azure.microsoft.com/downloads/). However, the [Service Bus NuGet package](https://www.nuget.org/packages/WindowsAzure.ServiceBus) is the easiest way to get the Service Bus API and to configure your application with all of the Service Bus dependencies.
 
 ### Create the queue
 
@@ -108,14 +108,14 @@ sender.Send(bm);
 
 ### Receiving messages from the queue
 
-The easiest way to receive messages from the queue is to use a [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx) object which you can create directly from the [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) using [CreateMessageReceiver](https://msdn.microsoft.com/library/azure/hh322642.aspx). Message receivers can work in two different modes: **ReceiveAndDelete** and **PeekLock**. The [ReceiveMode](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx) is set when the message receiver is created, as a parameter to the [CreateMessageReceiver](https://msdn.microsoft.com/library/azure/hh322642.aspx) call.
+To receive messages from the queue, you can use a [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx) object which you create directly from the [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) using [CreateMessageReceiver](https://msdn.microsoft.com/library/azure/hh322642.aspx). Message receivers can work in two different modes: **ReceiveAndDelete** and **PeekLock**. The [ReceiveMode](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx) is set when the message receiver is created, as a parameter to the [CreateMessageReceiver](https://msdn.microsoft.com/library/azure/hh322642.aspx) call.
 
 
 When using the **ReceiveAndDelete** mode, the receive is a single-shot operation; that is, when Service Bus receives the request, it marks the message as being consumed and returns it to the application. **ReceiveAndDelete** mode is the simplest model and works best for scenarios in which the application can tolerate not processing a message if a failure were to occur. To understand this, consider a scenario in which the consumer issues the receive request and then crashes before processing it. Since Service Bus marked the message as being consumed, when the application restarts and starts consuming messages again, it will have missed the message that was consumed before the crash.
 
 In **PeekLock** mode, the receive becomes a two-stage operation, which makes it possible to support applications that cannot tolerate missing messages. When Service Bus receives the request, it finds the next message to be consumed, locks it to prevent other consumers receiving it, and then returns it to the application. After the application finishes processing the message (or stores it reliably for future processing), it completes the second stage of the receive process by calling [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) on the received message. When Service Bus sees the [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) call, it marks the message as being consumed.
 
-Two other outcomes are possible. First, if the application is unable to process the message for some reason, it can call [Abandon](https://msdn.microsoft.com/library/azure/hh181837.aspx) on the received message (instead of [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)). This causes Service Bus to unlock the message and make it available to be received again, either by the same consumer or by another completing consumer. Second, there is a time-out associated with the lock and if the application cannot process the message before the lock time-out expires (for example, if the application crashes), then Service Bus will unlock the message and make it available to be received again.
+Two other outcomes are possible. First, if the application is unable to process the message for some reason, it can call [Abandon](https://msdn.microsoft.com/library/azure/hh181837.aspx) on the received message (instead of [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)). This causes Service Bus to unlock the message and make it available to be received again, either by the same consumer or by another completing consumer. Second, there is a time-out associated with the lock and if the application cannot process the message before the lock time-out expires (for example, if the application crashes), then Service Bus will unlock the message and make it available to be received again (essentially performing an [Abandon](https://msdn.microsoft.com/library/azure/hh181837.aspx) operation by default).
 
 Note that if the application crashes after it processes the message but before the [Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx) request was issued, the message will be redelivered to the application when it restarts. This is often termed *At Least Once * processing. This means that each message will be processed at least once but in certain situations the same message may be redelivered. If the scenario cannot tolerate duplicate processing, then additional logic is required in the application to detect duplicates. This can be achieved based on the [MessageId](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx) property of the message. The value of this property remains constant across delivery attempts. This is termed *Exactly Once* processing.
 
@@ -158,4 +158,4 @@ catch (Exception e)
 
 ## Next steps
 
-Now that you've learned the basics of queues, see [Create applications that use Service Bus topics and subscriptions](service-bus-create-topics-subscriptions.md) to continue this discussion using the publish/subscribe capabilities of Service Bus brokered messaging.
+Now that you've learned the basics of queues, see [Create applications that use Service Bus topics and subscriptions](service-bus-create-topics-subscriptions.md) to continue this discussion using the publish/subscribe capabilities of Service Bus topics and subscriptions.

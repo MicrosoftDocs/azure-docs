@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="markusvi"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="01/14/2016"
+    ms.date="08/23/2016"
     ms.author="markusvi"/>
 
 
@@ -39,8 +39,7 @@ If you are an Office365, Azure or Dynamics CRM Online customer, you might not re
 
 
 
-<center>![Azure AD Connect Stack](./media/active-directory-whatis/Azure_Active_Directory.png)
-</center>
+![Azure AD Connect Stack](./media/active-directory-whatis/Azure_Active_Directory.png)
 
 
 ## How reliable is Azure AD?
@@ -73,7 +72,7 @@ Your organization can use Azure AD to improve employee productivity, streamline 
  - [Try it out!](https://azure.microsoft.com/trial/get-started-active-directory/) - you can sign up for a free 30 trial today and deploy your first cloud solution in under 5 minutes using this link
  - Read our “Getting started with Azure AD” for tips and tricks on getting an Azure AD tenant up and running fast
 -	If you are a developer:
- - Check out our [Developers Guide](active-directory-developers-guide.md) to Azure Active Directory 
+ - Check out our [Developers Guide](active-directory-developers-guide.md) to Azure Active Directory
  - [Start a trial](https://azure.microsoft.com/trial/get-started-active-directory/) – sign up for a free 30 day trial today and get started integrating your app with Azure AD
 
 
@@ -85,13 +84,13 @@ We have a ton of great resources online to help you learn all about Azure AD. He
 
 - [Enabling your directory for hybrid management with Azure AD Connect](active-directory-aadconnect.md)
 
-- [Additional security for an ever connected world](multi-factor-authentication.md)
+- [Additional security for an ever connected world](../multi-factor-authentication/multi-factor-authentication.md)
 
 - [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](active-directory-saas-app-provisioning.md)
 
 - [Getting started with Azure AD Reporting](active-directory-reporting-getting-started.md)
 
-- [Manage your passwords from anywhere](articles/active-directory-passwords.md)
+- [Manage your passwords from anywhere](active-directory-passwords.md)
 
 - [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 

@@ -3,7 +3,7 @@
    description="Recommended naming conventions for Azure resources. How to name virtual machines, storage accounts, networks, virtual networks, subnets and other Azure entities"
    services=""
    documentationCenter="na"
-   authors="masimms"
+   authors="bennage"
    manager="marksou"
    editor=""
    tags=""/>
@@ -14,48 +14,47 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/01/2016"
-   ms.author="masimms"/>
+   ms.date="08/27/2016"
+   ms.author="christb"/>
    
 # Recommended naming conventions for Azure resources
 
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
+
 The choice of a name for any resource in Microsoft Azure is important because:
 
-- It is difficult to change a name at a later time.
+- It is difficult to change a name later.
 - Names must meet the requirements of their specific resource type.
 
-Likewise, consistent naming conventions make resources easiler to locate. They also assist in understanding the role of
+Consistent naming conventions make resources easier to locate. They can also indicate the role of
 a resource in a solution.
 
-This article provides a summary of the naming rules and restrictions for Azure resources,
-as well as providing a baseline set of recommendations for naming conventions.  You can use these recommendations 
+This article is a summary of the naming rules and restrictions for Azure resources
+and a baseline set of recommendations for naming conventions.  You can use these recommendations 
 as a starting point for your own conventions specific to your needs.  
 
-The key to success with naming conventions is establishing and following them across your applications and organizations, 
-adapting them as you deploy more applications and services across the Azure platform. 
+The key to success with naming conventions is establishing and following them across your applications and organizations. 
 
 ## Naming Subscriptions
 
 When naming Azure subscriptions, verbose names make understanding the context
-and purpose of each subscription clear.  When working in an environment which
-can contain a number of subscriptions, following a shared naming convention can greatly improve clarity.
+and purpose of each subscription clear.  When working in an environment with many subscriptions, following a shared naming convention can improve clarity.
 
 A recommended pattern for naming subscriptions is:
 
 `<Company> <Department (optional)> <Product Line (optional)> <Environment>`
 
-- Company, in most cases, would be the same for each subscription. However, some companies may have
+- Company would usually be the same for each subscription. However, some companies may have
 child companies within the organizational structure. These companies may be managed by a central IT
-group, in which case, they could be differentiated by having both the parent company name (*Contoso*)
+group. In these cases, they could be differentiated by having both the parent company name (*Contoso*)
 and child company name (*North Wind*).
 
 - Department is a name within the organization where a group of individuals work. This item within
-the namespace as optional. This is because some companies may not need to drill into such detail due
-to their size.  
+the namespace as optional.
 
 - Product line is a specific name for a product or function that is performed from within the department.
-While typically optional for internal-facing services and applications, it is highly recommended to use
-for public-facing services that will require easy separation and identification (such as for clear 
+This is generally optional for internal-facing services and applications. However, it is highly recommended to use
+for public-facing services that require easy separation and identification (such as for clear 
 separation of billing records).
 
 - Environment is the name that describes the deployment lifecycle of the applications or services,
@@ -68,14 +67,14 @@ such as Dev, QA, or Prod.
 | Contoso | IT | InternalApps | Production | Contoso IT InternalApps Production |
 | Contoso | IT | InternalApps | Dev | Contoso IT InternalApps Dev |
 
-<!-- TODO; include more information about organizing subscriptions for application deployment, pods, etc -->
+<!-- TODO; include more information about organizing subscriptions for application deployment, pods, etc. -->
 
 ## Use Affixes to Avoid Ambiguity
 
 When naming resources in Azure, it is recommended to use common prefixes or suffixes to identify the type and
-context of the resource.  While all of the information about type, metadata, context, is available programatically,
-leveraging common affixes simplifies visual identification.  When incorporating affixes into your naming convention,
-it is important to clearly specify whether the affix will be at the beginning of the name 
+context of the resource.  While all the information about type, metadata, context, is available programmatically,
+applying common affixes simplifies visual identification.  When incorporating affixes into your naming convention,
+it is important to clearly specify whether the affix is at the beginning of the name 
 (prefix) or at the end (suffix).  
 
 For instance, here are two possible names for a service hosting a calculation engine:
@@ -88,14 +87,14 @@ shows some examples typically used.
 
 | Aspect | Example | Notes |
 | ------ | ------- | ----- |
-| Environment | dev, prod, qa | Identifies the environment for the resource |
+| Environment | dev, prod, QA | Identifies the environment for the resource |
 | Location | uw (US West), ue (US East) | Identifies the region into which the resource is deployed |
-| Instance | 01, 02 | For resources that have more than one named instance (web servers, etc). |
-| Product or Service | service | Identifies the product, application or service that the resource supports |
+| Instance | 01, 02 | For resources that have more than one named instance (web servers, etc.). |
+| Product or Service | service | Identifies the product, application, or service that the resource supports |
 | Role | sql, web, messaging | Identifies the role of the associated resource |
 
-When developing a specific naming convention for your company or project(s), it is importantly to
-choose a common set of affixes as well as their position (suffix or prefix).
+When developing a specific naming convention for your company or projects, it is importantly to
+choose a common set of affixes and their position (suffix or prefix).
 
 ## Naming Rules and Restrictions
 
@@ -104,8 +103,7 @@ or pattern must adhere to the requisite naming rules and scope.  For example, wh
 name (and is thus required to be unique across all of Azure), the name of a VNET is scoped to the Resource Group that
 it is created within.
 
-In general, avoid having any special characters (`-` or `_`) as the first or last character in any name, as these will
-fail most validation rules.
+In general, avoid having any special characters (`-` or `_`) as the first or last character in any name. These characters will cause most validation rules to fail.
 
 | Category | Service or Entity | Scope | Length | Casing | Valid Characters | Suggested Pattern | Example |
 | ------------- | ----------------- | ----- | ------ | ------ | ---------------- | ----------------- | ------- |
@@ -120,27 +118,25 @@ fail most validation rules.
 | Storage | Queue name | Storage account | 3-63 | Lower case | Alphanumeric and dash | `<service short name>-<context>-<num>` | `awesomeservice-messages-001` |
 | Storage | Table name | Storage account | 3-63 |Case insensitive | Alphanumeric | `<service short name>-<context>` | `awesomeservice-logs` |
 | Storage | File name | Storage account | 3-63 | Lower case | Alphanumeric | `<variable based on blob usage>` | `<variable based on blob usage>` |
-| Networking | Virtual Network (VNet) | Resource Group | 2-80 | Case-insensitive | Alphanumeric, dash, underscore and period | `<service short name>-[section]-vnet` | `profx-vnet` |
+| Networking | Virtual Network (VNet) | Resource Group | 2-80 | Case-insensitive | Alphanumeric, dash, underscore, and period | `<service short name>-[section]-vnet` | `profx-vnet` |
 | Networking | Subnet | Parent VNet | 2-80 | Case-insensitive | Alphanumeric, underscore, dash, and period | `<role>-subnet` | `gateway-subnet` |
-| Networking | Network Interface | Resource Group | 1-80 | Case-insensitive | Alphanumeric, dash, underscore and period | `<vmname>-<num>nic` | `profx-sql1-1nic` |
-| Networking | Network Security Group | Resource Group | 1-80 | Case-insensitive | Alphanumeric, dash, underscore and period | `<service short name>-<context>-nsg` | `profx-app-nsg` |
-| Networking | Network Security Group Rule | Resource Group | 1-80 | Case-insensitive | Alphanumeric, dash, underscore and period | `<descriptive context>` | `sql-allow` |
-| Networking | Public IP Address | Resource Group | 1-80 | Case-insensitive | Alphanumeric, dash, underscore and period | `<vm or service name>-pip` | `profx-sql1-pip` |
-| Networking | Load Balancer | Resource Group | 1-80 | Case-insensitive | Alphanumeric, dash, underscore and period | `<service or role>-lb` | `profx-lb` |
-| Networking | Load Balanced Rules Config | Load Balancer | 1-80 | Case-insensitive | Alphanumeric, dash, underscore and period | `descriptive context` | `http` |
+| Networking | Network Interface | Resource Group | 1-80 | Case-insensitive | Alphanumeric, dash, underscore, and period | `<vmname>-<num>nic` | `profx-sql1-1nic` |
+| Networking | Network Security Group | Resource Group | 1-80 | Case-insensitive | Alphanumeric, dash, underscore, and period | `<service short name>-<context>-nsg` | `profx-app-nsg` |
+| Networking | Network Security Group Rule | Resource Group | 1-80 | Case-insensitive | Alphanumeric, dash, underscore, and period | `<descriptive context>` | `sql-allow` |
+| Networking | Public IP Address | Resource Group | 1-80 | Case-insensitive | Alphanumeric, dash, underscore, and period | `<vm or service name>-pip` | `profx-sql1-pip` |
+| Networking | Load Balancer | Resource Group | 1-80 | Case-insensitive | Alphanumeric, dash, underscore, and period | `<service or role>-lb` | `profx-lb` |
+| Networking | Load Balanced Rules Config | Load Balancer | 1-80 | Case-insensitive | Alphanumeric, dash, underscore, and period | `descriptive context` | `http` |
 
 <!-- TODO fill in the rest of these resources
-| Networking | Azure Application Gateway | Resource Group | 1-80 | Case-insensitive | Alphanumeric, dash, underscore and period | `<service or role>-aag` | `profx-aag`
-| Networking | Azure Application Gateway Connection | Azure Application Gateway | 1-80 | Case-insensitive | Alphanumeric, dash, underscore and period | `` | TODO
-| Networking | Traffic Manager Profile | Resource Group | 1-80 | Case-insensitive | Alphanumeric, dash, underscore and period | TODO | TODO
+| Networking | Azure Application Gateway | Resource Group | 1-80 | Case-insensitive | Alphanumeric, dash, underscore, and period | `<service or role>-aag` | `profx-aag`
+| Networking | Azure Application Gateway Connection | Azure Application Gateway | 1-80 | Case-insensitive | Alphanumeric, dash, underscore, and period | `` | TODO
+| Networking | Traffic Manager Profile | Resource Group | 1-80 | Case-insensitive | Alphanumeric, dash, underscore, and period | TODO | TODO
 -->
 
 ## Organizing Resources with Tags
 
-The Azure Resource Manager supports tagging entities with arbitary
-text strings to identify context and streamline automation.  For example, a tag such as `"sqlVersion: "sql2014ee"` could identify 
-any VMs in a deployment running SQL Server 2014 Enterprise Edition for the purposes of running an automated script
-against them.  Tags should be used to augment and enhance context along side of the naming conventions chosen.
+The Azure Resource Manager supports tagging entities with arbitrary
+text strings to identify context and streamline automation.  For example, the tag `"sqlVersion: "sql2014ee"` could identify VMs in a deployment running SQL Server 2014 Enterprise Edition for running an automated script against them.  Tags should be used to augment and enhance context along side of the naming conventions chosen.
 
 > [AZURE.TIP] One other advantage of tags is that tags span resource groups, allowing you to link and correlate entities across
 > disparate deployments.
@@ -148,13 +144,13 @@ against them.  Tags should be used to augment and enhance context along side of 
 Each resource or resource group can have a maximum of **15** tags. The tag name is limited to 512 characters, and the tag 
 value is limited to 256 characters.
 
-For more information on resource tagging, please refer to [Using tags to organize your Azure resources](../resource-group-using-tags.md).
+For more information on resource tagging, refer to [Using tags to organize your Azure resources](../resource-group-using-tags.md).
 
 Some of the common tagging use cases are:
 
 - **Billing**; Grouping resources and associating them with billing or charge back codes.
 - **Service Context Identification**; Identify groups of resources across Resource Groups for common operations and grouping
-- **Access Control and Security Context**; Administrative role identification based on portfolio, system, service, app, instance, etc… 
+- **Access Control and Security Context**; Administrative role identification based on portfolio, system, service, app, instance, etc.
 
 > [AZURE.TIP] Tag early - tag often.  Better to have a baseline tagging scheme in place and adjust over time rather than having
 > to retrofit after the fact.  
@@ -173,19 +169,18 @@ An example of some common tagging approaches:
  
 ## Tips and Tricks
 
-Depending on the type of application, certain types of resources may require additional care on naming and 
-conventions.  Additional details and context around these are listed below.
+Some types of resources may require additional care on naming and conventions.
 
 ### Virtual Machines
 
-Especially in larger topologies, carefully naming virtual machines will greatly streamline identifying the
-role and purpose of each machine, as well as enabling more predictable scripting.
+Especially in larger topologies, carefully naming virtual machines streamlines identifying the
+role and purpose of each machine, and enabling more predictable scripting.
 
-> [AZURE.WARNING] Note that every virtual machine in Azure has both an Azure resource name, and an operating
+> [AZURE.WARNING] Every virtual machine in Azure has both an Azure resource name, and an operating
 > system host name.  
-> If the resource name and host name are different, managing these VMs may be challenging
-> (for example, if the virtual machine is created from a .vhd that already contains a 
-> configured operating system with a hostname), and should be avoided.
+> If the resource name and host name are different, managing the VMs may be challenging and should be avoided.
+> For example, if a virtual machine is created from a .vhd that already contains a 
+> configured operating system with a hostname.
 
 - [Naming conventions for Windows Server VMs](https://support.microsoft.com/en-us/kb/188997)
 
@@ -196,10 +191,10 @@ role and purpose of each machine, as well as enabling more predictable scripting
 There are two primary use cases for storage accounts - backing disks for VMs, and storing 
 data in blobs, queues and tables.  Storage accounts used for VM disks should follow the naming
 convention of associating them with the parent VM name (and with the potential need for multiple 
-storage accounts for high-end VM SKUs, also leverage a number suffix).
+storage accounts for high-end VM SKUs, also apply a number suffix).
 
-> [AZURE.TIP] Storage accounts - whether for data or disks - should follow a naming onvention that 
-> allows for multiple storage acccounts to be leveraged (i.e. always using a numeric suffix).
+> [AZURE.TIP] Storage accounts - whether for data or disks - should follow a naming convention that 
+> allows for multiple storage accounts to be leveraged (i.e. always using a numeric suffix).
 
 It possible to configure a custom domain name for accessing blob data in your Azure Storage account.
 The default endpoint for the Blob service is `https://mystorage.blob.core.windows.net`.
@@ -209,7 +204,7 @@ you can also access blob data in your storage account by using that domain. For 
 domain name, `http://mystorage.blob.core.windows.net/mycontainer/myblob` could be accessed as
 `http://www.contoso.com/mycontainer/myblob`.
 
-For more information about configuring this feature, please refer to [Configure a custom domain name for your Blob storage endpoint](../storage/storage-custom-domain-name.md).
+For more information about configuring this feature, refer to [Configure a custom domain name for your Blob storage endpoint](../storage/storage-custom-domain-name.md).
 
 For more information on naming blobs, containers and tables:
 
@@ -224,14 +219,14 @@ slash (\) in a blob name. The client APIs may allow it, but then fail to hash pr
 signatures will not match.
 
 It is not possible to modify the name of a storage account or container after it has been created.
-You must delete it and create a new one if you want to use a new name.
+If you want to use a new name, you must delete it and create a new one.
 
 > [AZURE.TIP] We recommend that you establish a naming convention for all storage accounts and types
 before embarking on the development of a new service or application.
 
-## Example - Deploying an N-tier service
+## Example - Deploying an n-tier service
 
-In this example, we'll define an N-tier service configuration, consisting of front-end
+In this example, we define an n-tier service configuration, consisting of front-end
 IIS servers (hosted in Windows Server VMs), with SQL Server (hosted in two Windows Server VMs), 
 an ElasticSearch cluster (hosted in 6 Linux VMs) and the associated storage accounts,
 virtual networks, resource group and load balancer.
@@ -241,7 +236,7 @@ We'll start by defining the contextual conventions for this application:
 | Entity | Convention | Description  |
 | ------ | ---------- | ------------ |  
 | Service Name | `profx` | The short name of the application or service being deployed |
-| Environment | `prod` | This is for the production deployment (as opposed to qa, test, etc) |
+| Environment | `prod` | This is for the production deployment (as opposed to QA, test, etc.) |
 
 From that baseline we can then map out the conventions for each of the resource types:
 
@@ -255,7 +250,7 @@ From that baseline we can then map out the conventions for each of the resource 
 | Virtual Machine | `servicename-role[number]` | `profx-sql0` |
 | Storage Account | `<vmnamenodashes>st<num>` | `profxsql0st0` |
 
-As seen in the diagram below:
+As seen in the diagram following:
 
 ![application topology diagram](media/guidance-naming-conventions/guidance-naming-convention-example.png "Sample Application Topology")
 

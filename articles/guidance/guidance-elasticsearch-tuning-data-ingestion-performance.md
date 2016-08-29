@@ -3,8 +3,8 @@
    description="How to maximize data ingestion performance with Elasticsearch on Azure."
    services=""
    documentationCenter="na"
-   authors="mabsimms"
-   manager="marksou"
+   authors="dragon119"
+   manager="bennage"
    editor=""
    tags=""/>
 
@@ -14,10 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/18/2016"
-   ms.author="masimms"/>
+   ms.date="07/21/2016"
+   ms.author="masashin"/>
 
 # Tuning data ingestion performance for Elasticsearch on Azure
+
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
 This article is [part of a series](guidance-elasticsearch.md). 
 
@@ -144,13 +146,11 @@ for each VM and configure Elasticsearch to stripe data across these disks as des
 
     You should select a hardware configuration that helps to minimize the number of disk I/O
 read operations by ensuring that sufficient memory is available to cache frequently accessed data. This
-is described in [Memory Requirements](guidance-elasticsearch-running-on-azure.md#memory-requirements) section of the document Implementing
-Elasticsearch on Azure.
+is described in [Memory Requirements](guidance-elasticsearch-running-on-azure.md#memory-requirements) section of the document Running Elasticsearch on Azure.
 
 - **What type of workload will each node need to support?** Elasticsearch benefits from having memory
 available in which to cache data (in the form of the file system cache) and for the JVM heap as described
-in the [Memory Requirements](guidance-elasticsearch-running-on-azure.md#memory-requirements) section of the document Implementing Elasticsearch on
-Azure. 
+in the [Memory Requirements](guidance-elasticsearch-running-on-azure.md#memory-requirements) section of the document Running Elasticsearch on Azure. 
 
     The amount of memory, number of CPU cores, and quantity of available disks are set by the
 SKU of the virtual machine. For more information, see the [Virtual Machines Pricing](http://azure.microsoft.com/pricing/details/virtual-machines/) page on the Azure website.
@@ -164,7 +164,7 @@ Start with a configuration that will meet your current requirements (perform ben
 described later in this document). You can scale a cluster later by adding more VMs running Elasticsearch
 nodes.
 
-The page [Sizes for Virtual Machines](virtual-machines-size-specs/) on the Azure web site documents the
+The page [Sizes for Virtual Machines](../virtual-machines/virtual-machines-linux-sizes.md) on the Azure web site documents the
 various options and SKUs available for VMs.
 
 You should match the size and resources of a VM to the role that nodes running on the VM will perform.
@@ -251,8 +251,8 @@ of activity then I/O requests may be throttled. To help prevent this, tune your 
 document size in Elasticsearch against the volume of requests likely to be received by each disk.
 
 Disks based on standard storage support a maximum request rate of 500 IOPS whereas disks based on premium
-storage can operate at up to 5,000 IOPS. Premium storage disks are only available for the DS and GS
-series of VMs. Maximum disk IOPS rates for [Azure VMs are documented online](virtual-machines-size-specs/).
+storage can operate at up to 5,000 IOPS, depending on data disks sizes. Premium storage disks are only available for the DS and GS
+series of VMs. Maximum disk IOPS rates for [Azure VMs are documented online](../virtual-machines/virtual-machines-linux-sizes.md). Consider that performance on premium storage will be determined also by the VM size together with disk size allocation. Premium storage performance is documented (storage-premium-storage/)
 
 **Persistent Data Disks**
 
@@ -263,7 +263,7 @@ DS series or better. DS machines cost the same as the equivalent D-series VMs, b
 for using premium storage.
 
 In cases where the maximum transfer rate per disk is insufficient to support the expected workload,
-consider either creating multiple data disks and allow Elasticsearch to [stripe data across these disks](guidance-elasticsearch-running-on-azure.md#disk-and-file-system-requirements), or implement system level [RAID 0 striping using virtual disks](virtual-machines-linux-configure-raid/).
+consider either creating multiple data disks and allow Elasticsearch to [stripe data across these disks](guidance-elasticsearch-running-on-azure.md#disk-and-file-system-requirements), or implement system level [RAID 0 striping using virtual disks](../virtual-machines/virtual-machines-linux-configure-raid.md).
 
 > [AZURE.NOTE] Experience within Microsoft has shown that using RAID 0 is particularly beneficial for
 > smoothing out the I/O effects of *spiky* workloads that generate frequent bursts of activity.

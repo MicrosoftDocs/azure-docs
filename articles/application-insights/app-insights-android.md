@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="mobile-android"
     ms.devlang="na"
     ms.topic="get-started-article"
-	ms.date="02/04/2016"
+	ms.date="08/26/2016"
     ms.author="awills"/>
 
 # Analytics for Android apps
@@ -29,5 +29,16 @@ Go to:
 * Join [Hockeyapp Preseason](http://hockeyapp.net/preseason/) to get early releases.
 
 If your app has a server side, use [Application Insights](app-insights-overview.md) to monitor the web server side of your app on [ASP.NET](app-insights-asp-net.md) or [J2EE](app-insights-java-get-started.md). 
- 
+
+
+## Analytics, export and API access to HockeyApp data 
+
+[Set up a HockeyApp bridge](app-insights-hockeyapp-bridge-app.md) in Application Insights. This enables you to:
+
+* Use the powerful [Analytics](app-insights-analytics.md) query language over your telemetry. 
+* [Export telemetry](app-insights-export-telemetry.md) to Azure blob storage.
+
+## Next steps
+
+* [Get started with HockeyApp for Android](http://support.hockeyapp.net/kb/client-integration-android/hockeyapp-for-android-sdk)
 

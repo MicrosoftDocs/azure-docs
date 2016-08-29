@@ -2,17 +2,17 @@
     pageTitle="Tutorial: Azure Active Directory integration with TimeOffManager | Microsoft Azure" 
     description="Learn how to use TimeOffManager with Azure Active Directory to enable single sign-on, automated provisioning, and more!" 
     services="active-directory" 
-    authors="markusvi"  
+    authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="01/12/2016" 
-    ms.author="markvi" />
+    ms.date="07/19/2016" 
+    ms.author="jeedes" />
 
 #Tutorial: Azure Active Directory integration with TimeOffManager
   
@@ -39,7 +39,7 @@ The objective of this section is to outline how to enable the application integr
 
 ###To enable the application integration for TimeOffManager, perform the following steps:
 
-1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-timeoffmanager-tutorial/IC700993.png "Active Directory")
 
@@ -73,7 +73,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **TimeOffManager** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure classic portal, on the **TimeOffManager** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-timeoffmanager-tutorial/IC795912.png "Configure Single Sign-On")
 
@@ -103,19 +103,26 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
     ![Single Sign-On Settings](./media/active-directory-saas-timeoffmanager-tutorial/IC795918.png "Single Sign-On Settings")
 
-    1.  Create a **Base-64 encoded** file from your downloaded certificate.  
+    a.  Create a **Base-64 encoded** file from your downloaded certificate.  
 
         >[AZURE.TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o)
 
-    2.  Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste the entire Certificate into **X.509 Certificate** textbox.
-    3.  In the Azure portal, on the **Configure single sign-on at TimeOffManager** dialog page, copy the **Issuer URL** value, and then paste it into the **Idp Issuer** textbox.
-    4.  In the Azure portal, on the **Configure single sign-on at TimeOffManager** dialog page, copy the **Remote Login URL** value, and then paste it into the **IdP Endpoint URL** textbox.
-    5.  As **Enforce SAML**, select **No**.
-    6.  As **Auto-Create Users**, select **Yes**.
-    7.  In the Azure portal, on the **Configure single sign-on at TimeOffManager** dialog page, copy the **Remote Logout URL** value, and then paste it into the **Logout URL** textbox.
-    8.  Click **Save Changes**.
+    b.  Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste the entire Certificate into **X.509 Certificate** textbox.
+    
+    c.  In the Azure classic portal, on the **Configure single sign-on at TimeOffManager** dialog page, copy the **Issuer URL** value, and then paste it into the **Idp Issuer** textbox.
+    
+    d.  In the Azure classic portal, on the **Configure single sign-on at TimeOffManager** dialog page, copy the **Remote Login URL** value, and then paste it into the **IdP Endpoint URL** textbox.
+    
+    e.  As **Enforce SAML**, select **No**.
+    
 
-8.  In the Azure portal, on the **Configure single sign-on at TimeOffManager** dialog page, select the single sign-on configuration confirmation, and then click **Complete**.
+    f.  As **Auto-Create Users**, select **Yes**.
+    
+    g.  In the Azure classic portal, on the **Configure single sign-on at TimeOffManager** dialog page, copy the **Remote Logout URL** value, and then paste it into the **Logout URL** textbox.
+    
+    h.  Click **Save Changes**.
+
+8.  In the Azure classic portal, on the **Configure single sign-on at TimeOffManager** dialog page, select the single sign-on configuration confirmation, and then click **Complete**.
 
     ![Configure Single Sign-On](./media/active-directory-saas-timeoffmanager-tutorial/IC795919.png "Configure Single Sign-On")
 
@@ -125,17 +132,21 @@ If you are not familiar with this procedure, see [How to convert a binary certif
 
 10. To add the required attribute mappings, perform the following steps:
 
-    ![saml token attributes](./media/active-directory-saas-timeoffmanager-tutorial/IC795921.png "saml token attributes")
+    ![saml token attributes](./media/active-directory-saas-timeoffmanager-tutorial/123.png "saml token attributes")
 
     |Attribute Name|Attribute Value|
 	|---|---|
+    |Email|User.mail|
     |Firstname|User.givenname|
 	|Lastname|User.surname|
 
-    1.  For each data row in the table above, click **add user attribute**.
-    2.  In the **Attribute Name** textbox, type the attribute name shown for that row.
-    3.  In the **Attribute Value** textbox, select the attribute value shown for that row.
-    4.  Click **Complete**.
+    a.  For each data row in the table above, click **add user attribute**.
+
+    b.  In the **Attribute Name** textbox, type the attribute name shown for that row.
+
+    c.  In the **Attribute Value** textbox, select the attribute value shown for that row.
+
+    d.  Click **Complete**.
 
 11. Click **Apply Changes**.
 
@@ -153,7 +164,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 ###To assign users to TimeOffManager, perform the following steps:
 
-1.  In the Azure AD portal, create a test account.
+1.  In the Azure classic portal, create a test account.
 
 2.  On the **TimeOffManager** application integration page, click **Assign users**.
 

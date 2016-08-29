@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Application Insights API for custom events and metrics" 
+	pageTitle="Application Insights API for custom events and metrics | Microsoft Azure" 
 	description="Insert a few lines of code in your device or desktop app, web page or service, to track usage and diagnose issues." 
 	services="application-insights"
     documentationCenter="" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="07/21/2016" 
 	ms.author="awills"/>
 
 # Application Insights API for custom events and metrics 
@@ -240,7 +240,7 @@ You can also call it yourself if you want to simulate requests in a context wher
     // ... process the request ...
 
     stopwatch.Stop();
-    telemetryClient.TrackRequest(requestName, DateTime.Now,
+    telemetry.TrackRequest(requestName, DateTime.Now,
        stopwatch.Elapsed, 
        "200", true);  // Response code, success
 
@@ -300,7 +300,22 @@ Use this to help diagnose problems by sending a 'breadcrumb trail' to Applicatio
 
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
 
-The size limit on `message` is much higher than limit on  properties. You can search on message content, but (unlike property values) you can't filter on it.
+
+You can search on message content, but (unlike property values) you can't filter on it.
+
+The size limit on `message` is much higher than limit on properties.
+An advantage of TrackTrace is that you can put relatively long data in the message. For example, you could encode POST data there.  
+
+
+In addition, you can add a severity level to your message. And, like other telemetry, you can add property values that you can use to help filter or search for different sets of traces. For example:
+
+
+    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+    telemetry.TrackTrace("Slow database response",
+                   SeverityLevel.Warning,
+                   new Dictionary<string,string> { {"database", db.ID} });
+
+This would enable you, in [Search][diagnostic], to easily filter out all the messages of a particular severity level relating to a particular database.
 
 ## Track Dependency
 
@@ -339,7 +354,7 @@ Normally the SDK sends data at times chosen to minimize impact on the user. Howe
     // Allow some time for flushing before shutdown.
     System.Threading.Thread.Sleep(1000);
 
-Note that the function is asynchronous for in-memory channels, but synchronous if you choose to use the [persistent channel](app-insights-windows-desktop.md#persistence-channel).
+Note that the function is asynchronous for in-memory channels, but synchronous if you choose to use the [persistent channel](app-insights-windows-services.md#persistence-channel).
 
 
 ## Authenticated users
@@ -366,7 +381,9 @@ In an ASP.NET web MVC application, for example:
         @if (Request.IsAuthenticated)
         {
             <script>
-                appInsights.setAuthenticatedUserContext("@User.Identity.Name".replace(/[,;=| ]+/g, "_"));
+                appInsights.setAuthenticatedUserContext("@User.Identity.Name
+                   .Replace("\\", "\\\\")"
+                   .replace(/[,;=| ]+/g, "_"));
             </script>
         }
 
@@ -503,7 +520,35 @@ If it's more convenient, you can collect the parameters of an event in a separat
 
 > [AZURE.WARNING] Don't reuse the same telemetry item instance (`event` in this example) to call Track*() multiple times. This may cause telemetry to be sent with incorrect configuration.
 
-#### <a name="timed"></a> Timing events
+## Operation context
+
+When your web app receives an HTTP request, the Application Insights request tracking module assigns an ID to the request, and sets the same value as the current Operation ID. The operation ID is cleared when the response to the request is sent. Any tracking calls made during the operation are assigned the same operation ID (provided they use the default TelemetryContext). This allows you to correlate the events related to a particular request when you inspect them in the portal.
+
+![Related items](./media/app-insights-api-custom-events-metrics/21.png)
+
+If you are monitoring events not associated with an HTTP request, or if you aren't using the request tracking module - for example, if you are monitoring a backend process - then you can set your own operation context using this pattern:
+
+    // Establish an operation context and associated telemetry item:
+    using (var operation = telemetry.StartOperation<RequestTelemetry>("operationName"))
+    {
+        // Telemetry sent in here will use the same operation ID.
+        ...
+        telemetry.TrackEvent(...); // or other Track* calls
+        ...
+        // Set properties of containing telemetry item - for example:
+        operation.Telemetry.ResponseCode = "200";
+        
+        // Optional: explicitly send telemetry item:
+        telemetry.StopOperation(operation);
+
+    } // When operation is disposed, telemetry item is sent.
+
+As well as setting an operation context, `StartOperation` creates a telemetry item of the type you specify, and sends it when you dispose the operation, or if you explicitly call `StopOperation`. If you use `RequestTelemetry` as the telemetry type, then its Duration is set to the timed interval between start and stop.
+
+Operation contexts can't be nested. If there is already an operation context, then its ID is associated with all the contained items, including the item created with StartOperation.
+
+
+## <a name="timed"></a> Timing events
 
 Sometimes you'd like to chart how long it takes to perform some action. For example, you might like to know how long users take to consider choices in a game. This is a useful example of uses of the measurement parameter.
 
@@ -567,16 +612,16 @@ Individual telemetry calls can override the default values in their property dic
 
 **For JavaScript web clients**, [use JavaScript telemetry initializers](#js-initializer).
 
-**To add properties to all telemetry** including the data from standard collection modules, [create a telemetry initializer](app-insights-api-filtering-sampling.md#add-properties).
+**To add properties to all telemetry** including the data from standard collection modules, [implement `ITelemetryInitializer`](app-insights-api-filtering-sampling.md#add-properties).
 
 
 ## Sampling, filtering and processing telemetry 
 
 You can write code to process your telemetry before it is sent from the SDK. The processing includes data sent from the standard telemetry modules such as HTTP request collection and dependency collection.
 
-* [Add properties](app-insights-api-filtering-sampling.md#add-properties) to telemetry - for example, version numbers, or values calculated from other properties.
-* [Sampling](app-insights-api-filtering-sampling.md#sampling) reduces the volume of data sent from your app to the portal, without affecting the displayed metrics, and without affecting your ability to diagnose problems by navigating between related items such as exceptions, requests and page views.
-* [Filtering](app-insights-api-filtering-sampling.md#filtering) also reduces volume. You control what is sent or discarded, but you have to take account of the effect on your metrics. Depending on how you discard items, you might lose the ability to navigate between related items.
+* [Add properties](app-insights-api-filtering-sampling.md#add-properties) to telemetry by implementing `ITelemetryInitializer` - for example, to add version numbers, or values calculated from other properties. 
+* [Filtering](app-insights-api-filtering-sampling.md#filtering) can modify or discard telemetry before it is sent from the SDK by implementing `ITelemetryProcesor`. You control what is sent or discarded, but you have to take account of the effect on your metrics. Depending on how you discard items, you might lose the ability to navigate between related items.
+* [Sampling](app-insights-api-filtering-sampling.md#sampling) is a packaged solution to reduce the volume of data sent from your app to the portal. It does so without affecting the displayed metrics, and without affecting your ability to diagnose problems by navigating between related items such as exceptions, requests and page views.
 
 [Learn more](app-insights-api-filtering-sampling.md)
 
@@ -615,7 +660,7 @@ During debugging, it's useful to have your telemetry expedited through the pipel
 *C#*
     
     var telemetry = new TelemetryClient();
-    telemetry.Context.InstrumentationKey = "---my key---";
+    telemetry.InstrumentationKey = "---my key---";
     // ...
 
 
@@ -660,7 +705,7 @@ In web pages, you might want to set it from the web server's state, rather than 
 
 TelemetryClient has a Context property, which contains a number of values that are sent along with all telemetry data. They are normally set by the standard telemetry modules, but you can also set them yourself. For example:
 
-    telemetryClient.Context.Operation.Name = "MyOperationName";
+    telemetry.Context.Operation.Name = "MyOperationName";
 
 If you set any of these values yourself, consider removing the relevant line from [ApplicationInsights.config][config], so that your values and the standard values don't get confused.
 
@@ -676,24 +721,14 @@ If you set any of these values yourself, consider removing the relevant line fro
 * **Session** Identifies the user's session. The Id is set to a generated value, which is changed when the user has not been active for a while.
 * **User** User information. 
 
-
-
 ## Limits
 
-There are some limits on the number of metrics and events per application (that is, per instrumentation key).
 
-1. A maximum rate per second which applies separately to each instrumentation key. Above the limit, some data will be dropped.
- * Up to 500 data points per second for TrackTrace calls and captured log data. (100 per second for the free pricing tier.)
- * Up to 50 data points per second for exceptions, captured either by our modules or by TrackException calls. 
- * Up to 500 data points per second for all other data, including both the standard telemetry sent by the SDK modules, and custom events, metrics and other telemetry sent by your code. (100 per second for the free pricing tier.)
-1. Monthly total volume of data, depending on your [pricing tier](app-insights-pricing.md).
-1.	Maximum of 200 unique metric names and 200 unique property names for your application. Metrics include data send via TrackMetric as well as measurements on other  data types such as Events.  Metrics and property names are global per instrumentation key, not scoped to data type.
-2.	Properties can be used for filtering and group-by only while they have less than 100 unique values for each property. After the unique values exceed 100, the property can still be used for search but no longer for filters.
-3.	Standard properties such as Request Name and Page URL are limited to 1000 unique values per week. After 1000 unique values, additional values are marked as "Other values". The original value can still be used for full text search and filtering.
+[AZURE.INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
 
 *How can I avoid hitting the data rate limit?*
 
-* Install the latest SDK to use [sampling](app-insights-sampling.md).
+* Use [sampling](app-insights-sampling.md).
 
 *How long is data kept?*
 

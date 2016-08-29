@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/23/2016"
+   ms.date="06/23/2016"
    ms.author="tomfitz"/>
 
 # Key vault template schema
@@ -58,51 +58,51 @@ To create a key vault, add the following schema to the resources section of your
 
 The following tables describe the values you need to set in the schema.
 
-| Name | Type | Required | Permitted values | Description |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| type | enum | Yes | **Microsoft.KeyVault/vaults** | The resource type to create. |
-| apiVersion | enum | Yes | **2015-06-01** <br /> **2014-12-19-preview** | The API version to use for creating the resource. | 
-| name | string | Yes |   | The name of the key vault to create. The name must be unique across all of Azure. Consider using the [uniqueString](resource-group-template-functions.md#uniquestring) function with your naming convention as shown in the example below. |
-| location | string | Yes | To determine valid regions, see [supported regions](resource-manager-supported-services.md#supported-regions).  | The region to host the key vault. |
-| properties | object | Yes | ([shown below](#properties)) | An object that specifies the type of key vault to create. |
-| resources | array | No | [Key vault secrets](resource-manager-template-keyvault-secret.md)  | Child resources for the key vault. |
+| Name | Value |
+| ---- | ---- | 
+| type | Enum<br />Required<br />**Microsoft.KeyVault/vaults**<br /><br />The resource type to create. |
+| apiVersion | Enum<br />Required<br />**2015-06-01** or **2014-12-19-preview**<br /><br />The API version to use for creating the resource. | 
+| name | String<br />Required<br />A name that is unique across Azure.<br /><br />The name of the key vault to create. Consider using the [uniqueString](resource-group-template-functions.md#uniquestring) function with your naming convention to create a unique name, as shown in the example below. |
+| location | String<br />Required<br />A valid region for key vaults. To determine valid regions, see [supported regions](resource-manager-supported-services.md#supported-regions).<br /><br />The region to host the key vault. |
+| properties | Object<br />Required<br />[properties object](#properties)<br /><br />An object that specifies the type of key vault to create. |
+| resources | Array<br />Optional<br />Permitted values: [Key vault secret resources](resource-manager-template-keyvault-secret.md)<br /><br />Child resources for the key vault. |
 
 <a id="properties" />
 ### properties object
 
-| Name | Type | Required | Permitted values | Description |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| enabledForDeployment | boolean | No | **true** or **false** | Specifies if the vault is enabled for Virtual Machine or Service Fabric deployment. |
-| enabledForTemplateDeployment | boolean | No | **true** or **false** | Specifies if the vault is enabled for use in Resource Manager template deployments. For more information, see [Pass secure values during deployment](resource-manager-keyvault-parameter.md) |
-| enabledForVolumeEncryption | boolean | No | **true** or **false** | Specifies if the vault is enabled for volume encryption. |
-| tenantId | string | Yes | Globally-unique identifier | The tenant identifier for the subscription. You can retrieve it with the **Get-AzureRMSubscription** PowerShell cmdlet. |
-| accessPolicies | array | Yes | ([shown below](#accesspolicies)) | An array of up to 16 objects that specify the permissions for the user or service principal. |
-| sku | object | Yes | ([shown below](#sku)) | The SKU for the key vault. |
+| Name | Value |
+| ---- | ---- | 
+| enabledForDeployment | Boolean<br />Optional<br />**true** or **false**<br /><br />Specifies if the vault is enabled for Virtual Machine or Service Fabric deployment. |
+| enabledForTemplateDeployment | Boolean<br />Optional<br />**true** or **false**<br /><br />Specifies if the vault is enabled for use in Resource Manager template deployments. For more information, see [Pass secure values during deployment](resource-manager-keyvault-parameter.md) |
+| enabledForVolumeEncryption | Boolean<br />Optional<br />**true** or **false**<br /><br />Specifies if the vault is enabled for volume encryption. |
+| tenantId | String<br />Required<br />**Globally-unique identifier**<br /><br />The tenant identifier for the subscription. You can retrieve it with the [Get-AzureRmSubscription](https://msdn.microsoft.com/library/azure/mt619284.aspx) PowerShell cmdlet or the **azure account show** Azure CLI command. |
+| accessPolicies | Array<br />Required<br />[accessPolicies object](#accesspolicies)<br /><br />An array of up to 16 objects that specify the permissions for the user or service principal. |
+| sku | Object<br />Required<br />[sku object](#sku)<br /><br />The SKU for the key vault. |
 
 <a id="accesspolicies" />
 ### properties.accessPolicies object
 
-| Name | Type | Required | Permitted values | Description |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| tenantId | string | Yes | Globally-unique identifier | The tenant identifier of the Azure Active Directory tenant containing the **objectId** in this access policy |
-| objectId | string | Yes | Globally-unique identifier | The object identifier of the AAD user or service principal that will have access to the vault. You can retrieve the value from either the **Get-AzureRMADUser** or the **Get-AzureRMADServicePrincipal** cmdlets. |
-| permissions | object | Yes | ([shown below](#permissions)) | The permissions granted on this vault to the Active Directory object. |
+| Name | Value |
+| ---- | ---- | 
+| tenantId | String<br />Required<br />**Globally-unique identifier**<br /><br />The tenant identifier of the Azure Active Directory tenant containing the **objectId** in this access policy |
+| objectId | String<br />Required<br />**Globally-unique identifier**<br /><br />The object identifier of the Azure Active Directory user or service principal that will have access to the vault. You can retrieve the value from either the [Get-AzureRmADUser](https://msdn.microsoft.com/library/azure/mt679001.aspx) or the [Get-AzureRmADServicePrincipal](https://msdn.microsoft.com/library/azure/mt678992.aspx) PowerShell cmdlets, or the **azure ad user** or **azure ad sp** Azure CLI commands. |
+| permissions | Object<br />Required<br />[permissions object](#permissions)<br /><br />The permissions granted on this vault to the Active Directory object. |
 
 <a id="permissions" />
 ### properties.accessPolicies.permissions object
 
-| Name | Type | Required | Permitted values | Description |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| keys | array | Yes | A comma-separated list of the following values:<br />**all**<br />**backup**<br />**create**<br />**decrypt**<br />**delete**<br />**encrypt**<br />**get**<br />**import**<br />**list**<br />**restore**<br />**sign**<br />**unwrapkey**<br/>**update**<br />**verify**<br />**wrapkey** | The permissions granted on keys in this vault to this Active Directory object. This value must be specified as an array of permitted values. |
-| secrets | array | Yes | A comma-separated list of the following values:<br />**all**<br />**delete**<br />**get**<br />**list**<br />**set** | The permissions granted on secrets in this vault to this Active Directory object. This value must be specified as an array of permitted values. |
+| Name | Value |
+| ---- | ---- | 
+| keys | Array<br />Required<br />**all**, **backup**, **create**, **decrypt**, **delete**, **encrypt**, **get**, **import**, **list**, **restore**, **sign**, **unwrapkey**, **update**, **verify**, **wrapkey**<br /><br />The permissions granted on keys in this vault to this Active Directory object. This value must be specified as an array of one or more permitted values. |
+| secrets | Array<br />Required<br />**all**, **delete**, **get**, **list**, **set**<br /><br />The permissions granted on secrets in this vault to this Active Directory object. This value must be specified as an array of one or more permitted values. |
 
 <a id="sku" />
 ### properties.sku object
 
-| Name | Type | Required | Permitted values | Description |
-| ---- | ---- | -------- | ---------------- | ----------- |
-| name | enum | Yes | **standard**<br />**premium** | The service tier of KeyVault to use.  Standard supports secrets and software-protected keys.  Premium adds support for HSM-protected keys. |
-| family | enum | Yes | **A** | The sku family to use. 
+| Name | Value |
+| ---- | ---- | 
+| name | Enum<br />Required<br />**standard**, or **premium** <br /><br />The service tier of KeyVault to use.  Standard supports secrets and software-protected keys.  Premium adds support for HSM-protected keys. |
+| family | Enum<br />Required<br />**A** <br /><br />The sku family to use. |
  
 	
 ## Examples
@@ -122,13 +122,13 @@ The following example deploys a key vault and secret.
             "tenantId": {
                 "type": "string",
                 "metadata": {
-                   "description": "Tenant Id for the subscription and use assigned access to the vault. Available from the Get-AzureRMSubscription PowerShell cmdlet"
+                   "description": "Tenant ID for the subscription and use assigned access to the vault. Available from the Get-AzureRmSubscription PowerShell cmdlet"
                 }
             },
             "objectId": {
                 "type": "string",
                 "metadata": {
-                    "description": "Object Id of the AAD user or service principal that will have access to the vault. Available from the Get-AzureRMADUser or the Get-AzureRMADServicePrincipal cmdlets"
+                    "description": "Object ID of the AAD user or service principal that will have access to the vault. Available from the Get-AzureRmADUser or the Get-AzureRmADServicePrincipal cmdlets"
                 }
             },
             "keysPermissions": {
@@ -237,7 +237,7 @@ The following example deploys a key vault and secret.
 
 The following quickstart template deploys a key vault.
 
-- [Create Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
+- [Create Key Vault](https://azure.microsoft.com/documentation/templates/101-key-vault-create/)
 
 
 ## Next steps

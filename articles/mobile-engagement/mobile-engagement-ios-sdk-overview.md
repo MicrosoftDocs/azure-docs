@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Azure Mobile Engagement iOS SDK Overview"
+	pageTitle="Azure Mobile Engagement iOS SDK Overview | Microsoft Azure"
 	description="Latest updates and procedures for iOS SDK for Azure Mobile Engagement"
 	services="mobile-engagement"
 	documentationCenter="mobile"
 	authors="piyushjo"
-	manager="dwrede"
+	manager="erikre"
 	editor="" />
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/29/2016"
-	ms.author="MehrdadMzfr" />
+	ms.date="06/30/2016"
+	ms.author="piyushjo" />
 
 #iOS SDK for Azure Mobile Engagement
 
@@ -32,9 +32,9 @@ Click to see the [SDK Content](mobile-engagement-ios-sdk-content.md)
 
 ##Release notes
 
-###3.2.1 (12/11/2015)
+###3.2.4 (06/30/2016)
 
--   Fixed the delay when a new app instance is triggered by a notification with deep links 
+-   Fixed aggregation between technical logs and other logs.
 
 For earlier version please see the [complete release notes](mobile-engagement-ios-release-notes.md)
 

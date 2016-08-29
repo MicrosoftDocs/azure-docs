@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/09/2016" 
+	ms.date="06/21/2016" 
 	ms.author="stefsch"/>	
 
 # Geo Distributed Scale with App Service Environments
@@ -107,6 +107,8 @@ The console picture below shows a DNS lookup for the sample app's custom domain 
 ![DNS Lookup][DNSLookup] 
 
 ## Additional Links and Information ##
+All articles and How-To's for App Service Environments are available in the [README for Application Service Environments](../app-service/app-service-app-service-environments-readme.md).
+
 Documentation on the preview Powershell [Azure Resource Manager (ARM) Traffic Manager support][ARMTrafficManager].  
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]

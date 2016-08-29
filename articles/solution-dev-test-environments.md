@@ -42,11 +42,12 @@ Once you have a high level design for your application, you can define:
 An Azure Resource Manager template defines all of the Azure resources that your application utilizes. Several templates already exist that you can deploy directly in the Azure portal, or download, modify, and save in a source control system with your application code.  Complete the steps below to download an existing template.
 
 1. Browse existing templates in the [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/) GitHub repository. In the list you'll see a "[201-web-app-sql-database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database)" folder. Since many custom applications include a web application and SQL database, this template is used as an example in the remainder of this article to help you understand how to use templates. It's beyond the scope of this article to fully explain everything this template creates and configures, but if you plan to use it to create actual environments in your organization, you'll want to fully understand it by reading the [Provision a web app with a SQL Database](app-service-web/app-service-web-arm-with-sql-database-provision.md) article.
-2. Click on the [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json) file in the 201-web-app-sql-database folder to view its contents. This is the Azure Resource Manager template file. 
-3. In the view mode, click the "[Raw](https://github.com/Azure/azure-quickstart-templates/raw/master/201-web-app-sql-database/azuredeploy.json)" button. 
+Note: this article was written for the December 2015 version of the [201-web-app-sql-database](https://github.com/Azure/azure-quickstart-templates/tree/3f24f7b7e1e377538d1d548eaa6eab2851a21810/201-web-app-sql-database) template. The links below that point to template and parameter files are to that version of the template.
+2. Click on the [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/tree/3f24f7b7e1e377538d1d548eaa6eab2851a21810/201-web-app-sql-database/azuredeploy.json) file in the 201-web-app-sql-database folder to view its contents. This is the Azure Resource Manager template file. 
+3. In the view mode, click the "[Raw](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/3f24f7b7e1e377538d1d548eaa6eab2851a21810/201-web-app-sql-database/azuredeploy.json)" button. 
 4. With your mouse, select the contents of this file and save them to your computer as a file named "TestApp1-Template.json." 
 5. Examine the template contents and notice the following:
- - **Resources** section:  This section defines the types of Azure resources created by this template. Among other resource types, this template creates [Azure Web App](app-service-web/app-service-web-overview.md) and [Azure SQL Database](sql-database/sql-database-technical-overview.md) resources. If you prefer to run and manage web and SQL servers in virtual machines, you can use the "[iis-2vm-sql-1vm](https://github.com/Azure/azure-quickstart-templates/tree/master/iis-2vm-sql-1vm)" or "[lamp-app](https://github.com/Azure/azure-quickstart-templates/tree/master/lamp-app)" templates, but the instructions in this article are based on the [201-web-app-sql-database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database) template.
+ - **Resources** section:  This section defines the types of Azure resources created by this template. Among other resource types, this template creates [Azure Web App](app-service-web/app-service-web-overview.md) and [Azure SQL Database](sql-database/sql-database-technical-overview.md) resources. If you prefer to run and manage web and SQL servers in virtual machines, you can use the "[iis-2vm-sql-1vm](https://github.com/Azure/azure-quickstart-templates/tree/master/iis-2vm-sql-1vm)" or "[lamp-app](https://github.com/Azure/azure-quickstart-templates/tree/master/lamp-app)" templates, but the instructions in this article are based on the [201-web-app-sql-database](https://github.com/Azure/azure-quickstart-templates/tree/3f24f7b7e1e377538d1d548eaa6eab2851a21810/201-web-app-sql-database) template.
  - **Parameters** section: This section defines the parameters that each resource can be configured with. Some of the parameters specified in the template have "defaultValue" properties, while others do not. When deploying Azure resources with a template, you must provide values for all parameters that do not have defaultValue properties specified in the template.  If you do not provide values for parameters with defaultValue properties, then the value specified for the defaultValue parameter in the template is used.
 
 A template defines which Azure resources are created and the parameters each resource can be configured with. You can learn more about templates and how to design your own by reading the [Best practices for designing Azure Resource Manager templates](best-practices-resource-manager-design-templates.md) article.
@@ -55,8 +56,8 @@ A template defines which Azure resources are created and the parameters each res
 
 Though you'll probably want the *same* Azure resources created in each environment, you'll likely want the configuration of the resources to be *different* in each environment.  This is where parameter files come in. Create parameter files that contain unique values in each environment by completing the steps below.   
 
-1. View the contents of the [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.parameters.json) file in the 201-web-app-sql-database folder. This is the parameter file for the template file you saved in the previous section. 
-2. In the view mode, click the "[Raw](https://github.com/Azure/azure-quickstart-templates/raw/master/201-web-app-sql-database/azuredeploy.parameters.json)" button. 
+1. View the contents of the [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/tree/3f24f7b7e1e377538d1d548eaa6eab2851a21810/201-web-app-sql-database/azuredeploy.parameters.json) file in the 201-web-app-sql-database folder. This is the parameter file for the template file you saved in the previous section. 
+2. In the view mode, click the "[Raw](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/3f24f7b7e1e377538d1d548eaa6eab2851a21810/201-web-app-sql-database/azuredeploy.parameters.json)" button. 
 3. With your mouse, select the contents of this file and save them to three separate files on your computer with the following names:
  - TestApp1-Parameters-Development.json
  - TestApp1-Parameters-Test.json
@@ -133,7 +134,7 @@ The table below lists the default values for these parameters specified in the t
 | **requestedServiceObjectiveName** | S0 | S1 |
 
 ## Create environments
-All Azure resources must be created within an [Azure Resource Group](azure-portal/resource-group-portal#create-resource-group-and-resources.md). Resource groups enable you to group Azure resources so they can be managed collectively.  [Permissions](./active-directory/role-based-access-built-in-roles.md) can be assigned to resource groups such that specific people within your organization can create, modify, delete, or view them and the resources within them.  Alerts and billing information for resources in the Resource Group can be viewed in the [Azure Portal](https://portal.azure.com). Resource groups are created in an Azure [region](https://azure.microsoft.com/regions/).  In this article, all resources are created in the Central US region. When you start creating actual environments, you'll choose the region that best meets your requirements. 
+All Azure resources must be created within an [Azure Resource Group](resource-group-overview.md). Resource groups enable you to group Azure resources so they can be managed collectively.  [Permissions](./active-directory/role-based-access-built-in-roles.md) can be assigned to resource groups such that specific people within your organization can create, modify, delete, or view them and the resources within them.  Alerts and billing information for resources in the Resource Group can be viewed in the [Azure Portal](https://portal.azure.com). Resource groups are created in an Azure [region](https://azure.microsoft.com/regions/).  In this article, all resources are created in the Central US region. When you start creating actual environments, you'll choose the region that best meets your requirements. 
 
 Create resource groups for each environment using any of the methods below.  All methods will achieve the same outcome.
 
@@ -238,7 +239,7 @@ After seeing a "Waiting for deployment to complete" message for a few minutes, t
 	data:    requestedServiceObjectiveName  String        S0
 	info:    group deployment create command OKx
 
-If the command does not succeed, resolve any error messages and try it again.  Common problems are using parameter values that do not adhere to Azure resource naming constraints. Other troubleshooting tips can be found in the [Troubleshooting resource group deployments in Azure](virtual-machines/resource-group-deploy-debug.md) article.
+If the command does not succeed, resolve any error messages and try it again.  Common problems are using parameter values that do not adhere to Azure resource naming constraints. Other troubleshooting tips can be found in the [Troubleshooting resource group deployments in Azure](./resource-manager-troubleshoot-deployments-cli.md) article.
 
 From the CLI command line, type the command below to deploy resources to the resource group you created for the Test environment, replacing [path] with the path to the files you saved in previous steps.
 
@@ -282,7 +283,7 @@ After seeing a blinking cursor for a few minutes, the command will return the fo
 	                    
 	Outputs           :
 
-  If the command does not succeed, resolve any error messages and try it again.  Common problems are using parameter values that do not adhere to Azure resource naming constraints. Other troubleshooting tips can be found in the [Troubleshooting resource group deployments in Azure](virtual-machines/resource-group-deploy-debug.md) article.
+  If the command does not succeed, resolve any error messages and try it again.  Common problems are using parameter values that do not adhere to Azure resource naming constraints. Other troubleshooting tips can be found in the [Troubleshooting resource group deployments in Azure](./resource-manager-troubleshoot-deployments-powershell.md) article.
 
   From a PowerShell command prompt, type the command below to deploy resources to the resource group you created for the Test environment, replacing [path] with the path to the files you saved in previous steps.
 
@@ -364,6 +365,6 @@ Now that you've experienced how easy it is to create, maintain, and delete devel
 
 ## Next steps
 
-- [Delegate administrative control](role-based-access-control-configure.md) to different resources in each environment by assigning Microsoft Azure AD groups or users to specific roles that have the ability to perform a subset of operations on Azure resources.
+- [Delegate administrative control](./active-directory/role-based-access-control-configure.md) to different resources in each environment by assigning Microsoft Azure AD groups or users to specific roles that have the ability to perform a subset of operations on Azure resources.
 - [Assign tags](resource-group-using-tags.md) to the resource groups for each environment and/or the individual resources. You might add an "Environment" tag to your resource groups and set its value to correspond to your environment names. Tags can be particularly helpful when you need to organize resources for billing or management.
 - Monitor alerts and billing for resource group resources in the [Azure portal](https://portal.azure.com).

@@ -1,166 +1,124 @@
-<properties 
-	pageTitle="Audit operations with Resource Manager | Microsoft Azure" 
-	description="Use the audit log in Resource Manager to review user actions and errors. Shows PowerShell, Azure CLI, and REST." 
-	services="azure-resource-manager" 
-	documentationCenter="" 
-	authors="tfitzmac" 
-	manager="wpickett" 
-	editor=""/>
+<properties
+	pageTitle="Audit operations with Resource Manager | Microsoft Azure"
+	description="Use the activity log in Resource Manager to review user actions and errors. Shows Azure Portal PowerShell, Azure CLI, and REST."
+	services="azure-resource-manager"
+	documentationCenter=""
+	authors="tfitzmac"
+	manager="timlt"
+	editor="tysonn"/>
 
-<tags 
-	ms.service="azure-resource-manager" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/02/2015" 
+<tags
+	ms.service="azure-resource-manager"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/22/2016"
 	ms.author="tomfitz"/>
 
 # Audit operations with Resource Manager
 
-When you encounter a problem during deployment or during the lifetime of your solution, you need to discover what went wrong. Resource Manager provides two ways for you to find out what happened and why it happened. 
-You can use deployment commands to retrieve information about particular deployments and operations. Or, you can use the audit logs to retrieve information about deployments and other actions 
-taken during the lifetime of the solution. This topic focuses on audit logs. 
+Through activity logs, you can determine:
 
-The audit log contains all actions performed on your resources. So, if a user in your organization modifies a resource, you will be able to identify the action, time, and user.
+- what operations were taken on the resources in your subscription
+- who initiated the operation (although operations initiated by a backend service do not return a user as the caller)
+- when the operation occurred
+- the status of the operation
+- the values of other properties that might help you research the operation
 
-There are two important limitations to keep in mind when working with audit logs:
+[AZURE.INCLUDE [resource-manager-audit-limitations](../includes/resource-manager-audit-limitations.md)]
 
-1. Audit logs are only retained for 90 days.
-2. You can only query for a range of 15 days or less.
+This topic focuses on auditing operations. To learn about using the activity logs to troubleshoot a deployment, see [Troubleshooting resource group deployments in Azure](resource-manager-troubleshoot-deployments-portal.md).
 
-You can retrieve information from the audit logs through Azure PowerShell, Azure CLI, REST API, or the Azure portal.
+You can retrieve information from the activity logs through the portal, PowerShell, Azure CLI, Insights REST API, or [Insights .NET Library](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
-## PowerShell
+## Portal to view activity logs
 
-[AZURE.INCLUDE [powershell-preview-inline-include](../includes/powershell-preview-inline-include.md)]
+1. To view the activity logs through the portal, select **More Services** and **Activity Logs**.
 
-To retrieve log entries, run the **Get-AzureRmLog** command  (or **Get-AzureResourceGroupLog** for PowerShell versions earlier than 1.0). You provide additional parameters to filter the list of entries . 
+    ![select activity logs](./media/resource-group-audit/select-audit-logs.png)
 
-The following example shows how to use the audit log to research actions taken during the lifecycle of the solution. You can see when the action occurred and who requested it. The start and end dates are specified in a date format.
+2. In the **Activity Log** blade, you see a summary of recent operations for all the resource groups in your subscription. It includes a listing of recent operations.
 
-    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00
+    ![show actions](./media/resource-group-audit/audit-summary.png)
 
-Or, you can use date functions to specify the date range, such as the last 15 days.
+3. To restrict the number of operations displayed, select different conditions. For example, the following image shows the **Timespan** and **Event initiated by** fields changed to view the actions taken by a particular user or application for the past month.
 
-    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-15)
+    ![set filter options](./media/resource-group-audit/set-filter.png)
 
-Depending on the start time you specify, the previous commands can return a long list actions for that resource group. You can filter the results for what you are looking for by providing search criteria. For example, if you
-are trying to research how a web app was stopped you could run the following command and see that a stop action was performed by someone@example.com.
+4. Select **Apply** to view the results of your query.
 
-    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-15) | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
+5. If you need to run the query again later, select **Save** and give the query a name.
 
-    Authorization     :
-                        Scope     : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
-                        Action    : Microsoft.Web/sites/stop/action
-                        Role      : Subscription Admin
-                        Condition :
-    Caller            : someone@example.com
-    CorrelationId     : 84beae59-92aa-4662-a6fc-b6fecc0ff8da
-    EventSource       : Administrative
-    EventTimestamp    : 8/28/2015 4:08:18 PM
-    OperationName     : Microsoft.Web/sites/stop/action
-    ResourceGroupName : ExampleGroup
-    ResourceId        : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
-    Status            : Succeeded
-    SubscriptionId    : xxxxx
-    SubStatus         : OK
+    ![save query](./media/resource-group-audit/save-query.png)
 
-In the next example, we'll just look for failed actions after the specified start time. We'll also include the **DetailedOutput** parameter to see the error messages.
+6. To automatically filter for a particular resource or resource group, select **Activity log** from that resource blade. Notice that the activity log is automatically filtered by the selected resource.
 
-    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-15) -Status Failed –DetailedOutput
-    
-If this command returns too many entries and properties, you can focus your auditing efforts by retrieving the **properties** property.
+    ![filter by resource](./media/resource-group-audit/filtered-by-resource.png)
 
-    PS C:\> (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties
+## PowerShell to view activity logs
 
-    Content
-    -------
-    {}
-    {[statusCode, Conflict], [statusMessage, {"Code":"Conflict","Message":"Website with given name mysite already exists...
-    {[statusCode, Conflict], [serviceRequestId, ], [statusMessage, {"Code":"Conflict","Message":"Website with given name...
+1. To retrieve log entries, run the **Get-AzureRmLog** command. You provide additional parameters to filter the list of entries. If you do not specify a start and end time, entries for the last hour are returned. For example, to retrieve the operations for a resource group during the past hour run:
 
-And, you can further refine the results by looking at the status message.
+        Get-AzureRmLog -ResourceGroup ExampleGroup
 
-    PS C:\> (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json
+    The following example shows how to use the audit log to research operations taken during a specified time. The start and end dates are specified in a date format.
 
-    Code       : Conflict
-    Message    : Website with given name mysite already exists.
-    Target     :
-    Details    : {@{Message=Website with given name mysite already exists.}, @{Code=Conflict}, @{ErrorEntity=}}
-    Innererror :
+        Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00
 
+    Or, you can use date functions to specify the date range, such as the last 14 days.
 
-## Azure CLI
+        Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
 
-To retrieve log entries, you run the **azure group log show** command.
+2. Depending on the start time you specify, the previous commands can return a long list of operations for the resource group. You can filter the results for what you are looking for by providing search criteria. For example, if you
+are trying to research how a web app was stopped, you could run the following command.  
 
-    azure group log show ExampleGroup
+        Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
+        
+    Which for this example shows that a stop action was performed by someone@contoso.com. 
+        
+        Authorization     :
+        Scope     : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
+        Action    : Microsoft.Web/sites/stop/action
+        Role      : Subscription Admin
+        Condition :
+        Caller            : someone@contoso.com
+        CorrelationId     : 84beae59-92aa-4662-a6fc-b6fecc0ff8da
+        EventSource       : Administrative
+        EventTimestamp    : 8/28/2015 4:08:18 PM
+        OperationName     : Microsoft.Web/sites/stop/action
+        ResourceGroupName : ExampleGroup
+        ResourceId        : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
+        Status            : Succeeded
+        SubscriptionId    : xxxxx
+        SubStatus         : OK
 
-You can filter results with a JSON utility such as [jq](http://stedolan.github.io/jq/download/). The following example shows how to look for operations that involved updating a web configuration file.
+3. You can look up the actions taken by a particular user, even for a resource group that no longer exists.
 
-    azure group log show ExampleGroup --json | jq ".[] | select(.operationName.localizedValue == \"Update web sites config\")"
+        Get-AzureRmLog -ResourceGroup deletedgroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
 
-You can add the **–-last-deployment** parameter to limit the returned entries to only operations from the last deployment.
+## Azure CLI to view activity logs
 
-    azure group log show ExampleGroup --last-deployment
+1. To retrieve log entries, you run the **azure group log show** command.
 
-If the list of operations from the last deployment is too long, you can filter the results for just operations that failed.
+        azure group log show ExampleGroup
 
-    azure group log show tfCopyGroup --last-deployment --json | jq ".[] | select(.status.value == \"Failed\")"
+2. You can filter results with a JSON utility such as [jq](http://stedolan.github.io/jq/download/). The following example shows how to look for operations that updated a web configuration file.
 
-                                   /Microsoft.Web/Sites/ExampleSite
-    data:    SubscriptionId:       <guid>
-    data:    EventTimestamp (UTC): Thu Aug 27 2015 13:03:27 GMT-0700 (Pacific Daylight Time)
-    data:    OperationName:        Update website
-    data:    OperationId:          cb772193-b52c-4134-9013-673afe6a5604
-    data:    Status:               Failed
-    data:    SubStatus:            Conflict (HTTP Status Code: 409)
-    data:    Caller:               someone@example.com
-    data:    CorrelationId:        a8c7a2b4-5678-4b1b-a50a-c17230427b1e
-    data:    Description:
-    data:    HttpRequest:          clientRequestId: <guid>
-                                   clientIpAddress: 000.000.000.000
-                                   method:          PUT
+        azure group log show ExampleGroup --json | jq ".[] | select(.operationName.localizedValue == \"Update web sites config\")"
 
-    data:    Level:                Error
-    data:    ResourceGroup:        ExampleGroup
-    data:    ResourceProvider:     Azure Web Sites
-    data:    EventSource:          Administrative
-    data:    Properties:           statusCode:       Conflict
-                                   serviceRequestId:
-                                   statusMessage:    {"Code":"Conflict","Message":"Website with given name
-                                   ExampleSite already exists.","Target":null,"
-                                   Details
-                                   ":[{"Message":"Website with given name ExampleSite already exists."},
-                                   {"Code":"Conflict"},
-                                   {"ErrorEntity":{"Code":"Conflict","Message":"Website with given
-                                   name ExampleSite already exists.","ExtendedCode
-                                   ":"
-                                   54001","MessageTemplate":"Website with given name {0} already exists.",
-                                   "Parameters":["ExampleSite"],"
-                                   InnerErrors":null}}],"Innererror":null}
+3. You can look up the actions for a particular user.
 
+        azure group log show ExampleGroup --json | jq ".[] | select(.caller==\"someone@contoso.com\")"
 
+## REST API to view audit logs
 
-## REST API
-
-The REST operations for working with the audit log are part of the [Insights REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx). To retrieve audit log events, see [List the management events in a subscription](https://msdn.microsoft.com/library/azure/dn931934.aspx).
-
-## Portal
-
-You can also view logged operations through the portal. Simply select the audit logs blade.
-
-![select audit logs](./media/resource-group-audit/select-audit.png) 
-
-And, view the list of latest operations.
-
-![show actions](./media/resource-group-audit/show-actions.png)
-
-You can select any operation for more details about it.
+The REST operations for working with the activity log are part of the [Insights REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx). To retrieve activity log events, see [List the management events in a subscription](https://msdn.microsoft.com/library/azure/dn931934.aspx).
 
 ## Next steps
 
+- Azure Activity logs can be used with Power BI to gain greater insights about the actions in your subscription. See [View and analyze Azure Activity Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 - To learn about setting security policies, see [Azure Role-based Access Control](./active-directory/role-based-access-control-configure.md).
-- To learn about granting access to a service principal, see [Authenticating a service principal with Azure Resource Manager](resource-group-authenticate-service-principal.md).
-- To learn how to actions on a resource for all users, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
+- To learn about the commands for troubleshooting deployments, see [Troubleshooting resource group deployments in Azure](resource-manager-troubleshoot-deployments-portal.md).
+- To learn how to prevent deletions on a resource for all users, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
+

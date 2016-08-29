@@ -3,7 +3,7 @@
    description="Learn how to control routing in VNets using the Azure CLI in the classic deployment model"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-service-management"
@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
-   ms.author="telmos" />
+   ms.date="03/15/2016"
+   ms.author="jdial" />
 
 #Control routing and use virtual appliances (classic) using the Azure CLI
 

@@ -1,6 +1,6 @@
 ﻿<properties
-   pageTitle="Azure Data Catalog terminology"
-   description="An introduction to concepts and terms used in Azure Data Catalog documentation."
+   pageTitle="Azure Data Catalog terminology | Microsoft Azure"
+   description="This article provides an introduction to concepts and terms used in Azure Data Catalog documentation."
    services="data-catalog"
    documentationCenter=""
    authors="steelanddata"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="02/08/2016"
+   ms.date="05/06/2016"
    ms.author="maroche"/>
 
 # Azure Data Catalog terminology
@@ -51,7 +51,7 @@ A data asset's descriptive metadata can include information on how to request ac
 - The URL of an identity and access management tool (such as Microsoft Identity Manager) that can be used to gain access to the data source.
 - A free-text entry that describes how users can gain access to the data source.
 
-## Previews
+## Preview
 
 A preview in Azure Data Catalog is a snapshot of up to 20 records that can be extracted from the data source during registration, and stored in the catalog with the data asset metadata. The preview can help users who discover a data asset better understand its function and purpose. In other words, seeing sample data can be more valuable than seeing just the column names and data types.
 Previews are only supported for tables and views, and must be explicitly selected by the user during registration.
@@ -74,7 +74,7 @@ An expert is a user who has been identified as having an informed “expert” p
 
 ## Owner
 
-An owner is a user who has additional privileges for managing a data asset in Azure Data Catalog. Users can take ownership of registered data assets, and owners can add other users as co-owners.
+An owner is a user who has additional privileges for managing a data asset in Azure Data Catalog. Users can take ownership of registered data assets, and owners can add other users as co-owners. For more information see  [How to manage data assets](data-catalog-how-to-manage.md)  
 > [AZURE.NOTE] Ownership and management are available only in the Standard Edition of Azure Data Catalog.
 
 ## Registration

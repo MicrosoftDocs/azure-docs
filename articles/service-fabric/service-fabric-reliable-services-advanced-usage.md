@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Advanced usage of the Reliable Services programming model | Microsoft Azure"
-   description="Learn about advanced usage of Service Fabric's Reliable Service programming model for added flexibility in your services."
+   pageTitle="Advanced usage of Reliable Services | Microsoft Azure"
+   description="Learn about advanced usage of Service Fabric's Reliable Services for added flexibility in your services."
    services="Service-Fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor="masnider"/>
 
@@ -13,17 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="01/28/2016"
-   ms.author="jesseb"/>
+   ms.date="07/06/2016"
+   ms.author="vturecek"/>
 
 # Advanced usage of the Reliable Services programming model
-Azure Service Fabric simplifies writing and managing reliable stateless and stateful services. This guide will talk about advanced usages of the Reliable Services programming model to gain more control and flexibility over your services. Prior to reading this guide, familiarize yourself with [the Reliable Services programming model](service-fabric-reliable-services-introduction.md).
+Azure Service Fabric simplifies writing and managing reliable stateless and stateful services. This guide will talk about advanced usages of Reliable Services to gain more control and flexibility over your services. Prior to reading this guide, familiarize yourself with [the Reliable Services programming model](service-fabric-reliable-services-introduction.md).
 
-## Base classes for stateless services
-The StatelessService base class provides RunAsync() and CreateServiceInstanceListeners(), which is sufficient for the majority of stateless services. The StatelessServiceBase class underlies StatelessService and exposes additional service lifecycle events. You can derive from StatelessServiceBase if you need additional control or flexibility. See the developer reference documentation on [StatelessService](https://msdn.microsoft.com/library/microsoft.servicefabric.services.runtime.statelessservice.aspx) and [StatelessServiceBase](https://msdn.microsoft.com/library/microsoft.servicefabric.services.runtime.statelessservicebase.aspx) for more information.
+Both stateful and stateless services have two primary entry points for user code:
 
-- `void OnInitialize(StatelessServiceInitializiationParameters)`
-    OnInitialize is the first method called by Service Fabric. Service initialization information is provided, such as the service name, partition ID, instance ID, and code package information. No complex processing should be done here. Lengthy initialization should be done in OnOpenAsync.
+ - `RunAsync` is a general-purpose entry point for your service code.
+ - `CreateServiceReplicaListeners` and `CreateServiceInstanceListeners` is for opening communication listeners for client requests.
+ 
+For most services, these two entry points are sufficient. In rare cases when more control over a service's lifecycle is required, additional lifecycle events are available.
+
+## Stateless service instance lifecycle
+
+A stateless service's lifecycle is very simple. A stateless service can only be opened, closed, or aborted. `RunAsync` in a stateless service is executed when a service instance is opened, and cancelled when a service instance is closed or aborted. 
+
+Although `RunAsync` should be sufficient in almost all cases, the open, close, and abort events in a stateless service are also available:
 
 - `Task OnOpenAsync(IStatelessServicePartition, CancellationToken)`
     OnOpenAsync is called when the stateless service instance is about to be used. Extended service initialization tasks can be started at this time.
@@ -34,21 +41,24 @@ The StatelessService base class provides RunAsync() and CreateServiceInstanceLis
 - `void OnAbort()`
     OnAbort is called when the stateless service instance is being forcefully shut down. This is generally called when a permanent fault is detected on the node, or when Service Fabric cannot reliably manage the service instance's lifecycle due to internal failures.
 
-## Base classes for stateful services
-The StatefulService base class should be sufficient for most stateful services. Similar to stateless services, the StatefulServiceBase class underlies StatefulService and exposes additional service lifecycle events. Additionally, you can use it to provide a custom reliable state provider and optionally support communication listeners on secondaries. You can derive from StatefulServiceBase if you need additional control or flexibility. See the developer reference documentation on [StatefulService](https://msdn.microsoft.com/library/microsoft.servicefabric.services.runtime.statefulservice.aspx) and [StatefulServiceBase](https://msdn.microsoft.com/library/microsoft.servicefabric.services.runtime.statefulservicebase.aspx) for more information.
+## Stateful service replica lifecycle
+
+A stateful service replica's lifecycle is much more complex than a stateless service instance. In addition to open, close, and abort events, a stateful service replica undergoes role changes during its lifetime. When a stateful service replica changes role, the `OnChangeRoleAsync` event is triggered:
 
 - `Task OnChangeRoleAsync(ReplicaRole, CancellationToken)`
-    OnChangeRoleAsync is called when the stateful service is changing roles, for example to primary or secondary. Primary replicas are given write status (are allowed to create and write to the reliable collections). Secondary replicas are given read status (can only read from existing reliable collections). You can start or update the background tasks in response to role changes, such as performing read-only validation, report generation, or data mining on a secondary.
+    OnChangeRoleAsync is called when the stateful service replica is changing role, for example to primary or secondary. Primary replicas are given write status (are allowed to create and write to Reliable Collections). Secondary replicas are given read status (can only read from existing Reliable Collections). Most work in a stateful service is performed at the primary replica. Secondary replicas can perform read-only validation, report generation, data mining, or other read-only jobs.
 
-- `IStateProviderReplica CreateStateProviderReplica()`
-    A stateful service is expected to have a reliable state provider. StatefulService uses the ReliableStateManager class, which provides the reliable collections (e.g. dictionaries and queues). You can override this method to configure the ReliableStateManager class by passing a ReliableStateManagerConfiguration to its constructor. You can then provide custom state serializers, specify what happens when data may have been lost, and configure the replicator/state providers.
+In a stateful service, only the primary replica has write access to state and thus is generally when the service is performing actual work. The `RunAsync` method in a stateful service is executed only when the stateful service replica is primary. The `RunAsync` method is cancelled when a primary replica's role changes away from primary, as well as during the close and abort events. 
 
-StatefulServiceBase also provides the same four lifecycle events as StatelessServiceBase, with the same semantics and use cases:
+Using the `OnChangeRoleAsync` event allows you to perform work depending on replica role as well as in response to role change.
 
-- `void OnInitialize(StatefulServiceInitializiationParameters)`
+A stateful service also provides the same four lifecycle events as a stateless service, with the same semantics and use cases:
+
 - `Task OnOpenAsync(IStatefulServicePartition, CancellationToken)`
 - `Task OnCloseAsync(CancellationToken)`
 - `void OnAbort()`
+
+
 
 ## Next steps
 For more advanced topics related to Service Fabric, see the following articles:

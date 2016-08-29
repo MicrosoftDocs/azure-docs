@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="01/16/2016"
+   ms.date="06/13/2016"
    ms.author="cherylmc"/>
 
 # ExpressRoute circuits and routing domains
@@ -61,6 +61,8 @@ See the [FAQ page](expressroute-faqs.md) for more information on services suppor
  
 ### Microsoft peering
 
+[AZURE.INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
+
 Connectivity to all other Microsoft online services (such as Office 365 services) will be through the Microsoft peering. We enable bi-directional connectivity between your WAN and Microsoft cloud services through the Microsoft peering routing domain. You must connect to Microsoft cloud services only over public IP addresses that are owned by you or your connectivity provider and you must adhere to all the defined rules. See the [ExpressRoute prerequisites](expressroute-prerequisites.md) page for more information.
 
 See the [FAQ page](expressroute-faqs.md) for more information on services supported, costs, and configuration details. See the [ExpressRoute Locations](expressroute-locations.md) page for information on the list of connectivity providers offering Microsoft peering support.
@@ -73,8 +75,8 @@ The table below compares the three routing domains.
 |---|---|---|---|
 |**Max. # prefixes supported per peering**|4000 by default, 10,000 with ExpressRoute Premium|200|200|
 |**IP address ranges supported**|Any valid IPv4 address within your WAN.|Public IPv4 addresses owned by you or your connectivity provider.|Public IPv4 addresses owned by you or your connectivity provider.|
-|**AS Number requirements**|Private and public AS numbers. Customer must own public AS number. | Private and public AS numbers. Customer must own public AS number.| Public AS numbers only. AS number must be validated against routing registries to validate ownership.|
-|**Routing Interface IP addresses**|RFC1918 and public IP addresses|Public IP addresses registered to customers in routing registries.| Public IP addresses registered to customers in routing registries.|
+|**AS Number requirements**|Private and public AS numbers. You must own the public AS number if you choose to use one. | Private and public AS numbers. However, you must prove ownership of public IP addresses.| Private and public AS numbers. However, you must prove ownership of public IP addresses.|
+|**Routing Interface IP addresses**|RFC1918 and public IP addresses|Public IP addresses registered to you in routing registries.| Public IP addresses registered to you in routing registries.|
 |**MD5 Hash support**| Yes|Yes|Yes|
 
 You can choose to enable one or more of the routing domains as part of their ExpressRoute circuit. You can choose to have all the routing domains put on the same VPN if you want to combine them into a single routing domain. You can also put them on different routing domains, similar to the diagram. The recommended configuration is that private peering is connected directly to the core network, and the public and Microsoft peering links are connected to your DMZ.

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/15/2016"
+	ms.date="07/05/2016"
 	ms.author="adegeo"/>
 
 
@@ -58,14 +58,25 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
 1.  In your development environment, open the service definition file
     (CSDEF), add a **Certificates** section within the **WebRole**
     section, and include the following information about the
-    certificate:
+    certificate (and intermediate certificates):
 
         <WebRole name="CertificateTesting" vmsize="Small">
         ...
             <Certificates>
                 <Certificate name="SampleCertificate" 
 							 storeLocation="LocalMachine" 
-                    		 storeName="CA"
+                    		 storeName="My"
+                             permissionLevel="limitedOrElevated" />
+                <!-- IMPORTANT! Unless your certificate is either
+                self-signed or signed directly by the CA root, you
+                must include all the intermediate certificates
+                here. You must list them here, even if they are
+                not bound to any endpoints. Failing to list any of
+                the intermediate certificates may cause hard-to-reproduce
+                interoperability problems on some clients.-->
+                <Certificate name="CAForSampleCertificate"
+                             storeLocation="LocalMachine"
+                             storeName="CA"
                              permissionLevel="limitedOrElevated" />
             </Certificates>
         ...
@@ -122,6 +133,9 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
                 <Certificate name="SampleCertificate" 
                     thumbprint="9427befa18ec6865a9ebdc79d4c38de50e6316ff" 
                     thumbprintAlgorithm="sha1" />
+                <Certificate name="CAForSampleCertificate"
+                    thumbprint="79d4c38de50e6316ff9427befa18ec6865a9ebdc" 
+                    thumbprintAlgorithm="sha1" />
             </Certificates>
         ...
         </Role>
@@ -138,14 +152,9 @@ certificate information you just inserted.
 
 Connect to the portal and...
 
-1. Select your cloud service by either:
-    - In the Portal, select your **Cloud Service**. (Which will be in the **Browse All/Recent area**.)
+1. Select your cloud service in the Portal, select your **Cloud Service**. (Which will be in the **All resources** section.) 
     
-        ![Publish your cloud service](media/cloud-services-configure-ssl-certificate-portal/browse.png)
-    
-        **OR**
-        
-    - Under **Browse All** select **Cloud Services** under **Filter By** and select the cloud service instance you want. 
+    ![Publish your cloud service](media/cloud-services-configure-ssl-certificate-portal/browse.png)
 
 3. Open the **settings** for the cloud service.
 

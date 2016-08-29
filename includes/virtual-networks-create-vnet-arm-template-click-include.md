@@ -12,7 +12,7 @@ You can reuse pre-defined ARM templates upload to a github repository maintained
 
 	![ARM template parameters](./media/virtual-networks-create-vnet-arm-template-click-include/figure2.png)
 
-4. Click **Resource group** and select a resource group to add the VNet to, or click **Create new** to add the VNet to a new resource group. To learn more about resource groups, see [](). The figure below shows the resource group settings for a new resource group called **TestRG**.
+4. Click **Resource group** and select a resource group to add the VNet to, or click **Create new** to add the VNet to a new resource group. The figure below shows the resource group settings for a new resource group called **TestRG**.
 
 	![Resource group](./media/virtual-networks-create-vnet-arm-template-click-include/figure3.png)
 

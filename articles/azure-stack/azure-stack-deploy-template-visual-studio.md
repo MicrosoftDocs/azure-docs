@@ -3,8 +3,8 @@
 	description="Learn how to deploy templates with Visual Studio in Azure Stack."
 	services="azure-stack"
 	documentationCenter=""
-	authors="ErikjeMS"
-	manager="v-kiwhit"
+	authors="heathl17"
+	manager="byronr"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/29/2016"
-	ms.author="erikje"/>
+	ms.date="08/15/2016"
+	ms.author="helaw"/>
 
 # Deploy templates in Azure Stack using Visual Studio
 

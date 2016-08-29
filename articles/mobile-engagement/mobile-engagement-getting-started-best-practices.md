@@ -4,17 +4,17 @@
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
 	ms.service="mobile-engagement"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.workload="mobile" 
-	ms.date="12/11/2015"
-	ms.author="wesmc"/>
+	ms.date="07/07/2016"
+	ms.author="wesmc;ricksal"/>
 
 # Azure Mobile Engagement - Getting Started Guide with Best practices
 
@@ -356,7 +356,7 @@ Thoroughly test all the types of notification behavior you have embedded in your
 
 #### Setup
 
-Setting up Azure Mobile Engagement is very simple. All the documentation related to the user interface is available on the Azure Mobile Engagement website, [How to navigate the user interface](mobile-engagement-user-interface-navigation.md).
+Setting up Azure Mobile Engagement is very simple. All the documentation related to the user interface is available on the Azure Mobile Engagement website, [How to navigate the user interface](mobile-engagement-user-interface.md).
 
 It is recommended that you start by setting up the right roles and role memberships for the users of your project. This helps you manage proper access to the platform for all users. Your roles may include:
 
@@ -394,7 +394,7 @@ After you have developed some experience you might consider adding the following
 
 ## Next Steps
 
-- [Create an Azure Mobile Engagement account](mobile-engagement-create-account.md).
+- [Create an Azure Mobile Engagement account](mobile-engagement-create.md).
 - Visit [Define your Mobile Engagement strategy](mobile-engagement-define-your-mobile-engagement-strategy.md) to learn more about defining your Mobile Engagement strategy.
 
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="03/05/2016"
+	ms.date="07/21/2016"
 	ms.author="ricksal"/>
 
 # Get started with Mobile Services for Android  (JavaScript backend)
@@ -35,7 +35,7 @@ A screenshot from the completed app is below:
 
 ## Prerequisites
 
-Completing this tutorial requires the [Android Developer Tools](https://developer.android.com/sdk/index.html)), which includes the Android Studio integrated development environment, and the latest Android platform. Android 4.2 or a later version is required.
+Completing this tutorial requires the [Android Developer Tools](https://developer.android.com/sdk/index.html), which includes the Android Studio integrated development environment, and the latest Android platform. Android 4.2 or a later version is required.
 
 The downloaded quickstart project contains the Azure Mobile Services SDK for Android.
 

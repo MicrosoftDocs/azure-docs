@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/26/2016"
+	ms.date="07/06/2016"
 	ms.author="maheshu"/>
 
 # Azure Active Directory Domain Services preview: FAQs
@@ -36,18 +36,21 @@ The service itself does not directly support this scenario. Azure AD Domain Serv
 PowerShell/automated deployment of Azure AD Domain Services is not available currently.
 
 #### Is Azure AD Domain Services available in the new Azure portal?
-No. Azure AD Domain Services can be configured only in the older Azure management portal (i.e. https://manage.windowsazure.com). We expect to extend support for the new Microsoft Azure management portal (i.e. https://portal.azure.com) in the future.
+No. Azure AD Domain Services can be configured only in the [Azure classic portal](https://manage.windowsazure.com). We expect to extend support for the [Azure portal](https://portal.azure.com) in the future.
 
 #### Can I add domain controllers to an Azure AD Domain Services managed domain?
 No. The domain provided by Azure AD Domain Services is a managed domain. You do not need to provision, configure or otherwise manage domain controllers for this domain - these management activities are provided as a service by Microsoft. Therefore, you will not be able to add additional domain controllers (neither read-write nor read-only) for the managed domain.
 
 ### Administration and Operations
 
+#### Can I connect to the domain controller for my managed domain using Remote Desktop?
+No. Because this is a managed domain, you can't connect to domain controllers for the domain via Remote Desktop. Members of the 'AAD DC Administrators' group can administer the managed domain using AD administration tools such as the Active Directory Administration Center (ADAC) or AD PowerShell. These tools are installed using the 'Remote Server Administration Tools' feature on a Windows server joined to the managed domain.
+
 #### I’ve enabled Azure AD Domain Services. What user account do I use to domain join machines to this domain?
-Any of the user accounts you’ve added to the administrative group (i.e. ‘AAD DC Administrators’) would be able to domain join machines. Additionally, users in this group are granted remote desktop access to machines that have been joined to the domain.
+Any of the user accounts you’ve added to the administrative group (for example, ‘AAD DC Administrators’) would be able to domain join machines. Additionally, users in this group are granted remote desktop access to machines that have been joined to the domain.
 
 #### Can I wield domain administrator privileges for the domain provided by Azure AD Domain Services?
-No. Since this is a managed service, you will not be provided administrative privileges on the domain. This means that both ‘Domain Administrator’ as well as ‘Enterprise Administrator’ privileges will not be available within the domain. Existing domain administrator or enterprise administrator groups within your Azure AD directory will also not be granted domain/enterprise administrator privileges on the domain.
+No. Because this is a managed service, you aren't granted administrative privileges on the domain. This means that both ‘Domain Administrator’ as well as ‘Enterprise Administrator’ privileges are not available within the domain. Existing domain administrator or enterprise administrator groups within your Azure AD directory are also not granted domain/enterprise administrator privileges on the domain.
 
 #### Can I modify group memberships using LDAP or other AD administrative tools on domains provided by Azure AD Domain Services?
 No. Group memberships cannot be modified on domains serviced by Azure AD Domain Services. The same applies for user attributes. You may however change group memberships or user attributes either in Azure AD or on your on-premises domain. Such changes will be automatically synchronized to Azure AD Domain Services.
@@ -56,7 +59,7 @@ No. Group memberships cannot be modified on domains serviced by Azure AD Domain 
 No. The schema is administered by Microsoft for the managed domain. Schema extensions are not supported by Azure AD Domain Services.
 
 #### Can I modify DNS records provided by Azure AD Domain Services?
-Yes. Users that are part of the administrative group (i.e. 'AAD DC Administrators') have DNS Admin permissions to modify the DNS records. 
+Yes. Users that belong to the 'AAD DC Administrators' group are granted 'DNS Administrator' privileges, in order to modify DNS records in the managed domain. These users can use the DNS Manager console on a machine running Windows Server joined to the managed domain, in order to manage DNS. In order to use the DNS Manager console, install 'DNS Server Tools', which is part of the 'Remote Server Administration Tools' optional feature on the server. More information on [utilities for administering, monitoring and troubleshooting DNS](https://technet.microsoft.com/library/cc753579.aspx) is available on TechNet.
 
 ### Billing and availability
 
@@ -67,7 +70,7 @@ The service is available at a special reduced price for the duration of the publ
 This service is included in the free trial for Azure. You can sign up for a [free one-month trial of Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 #### Can I get Azure AD Domain Services as part of Enterprise Mobility Suite (EMS)?
-No, Azure AD Domain Services is a pay-as-you-go Azure service and is not part of EMS. Azure AD Domain Services are available for all SKUs of Azure AD (i.e. Free, Basic and Premium) and are billed on an hourly basis depending on usage.
+No, Azure AD Domain Services is a pay-as-you-go Azure service and is not part of EMS. Azure AD Domain Services are available for all SKUs of Azure AD (Free, Basic, and Premium) and are billed on an hourly basis depending on usage.
 
 #### What Azure regions is the service available in?
 Refer to our [regions page](active-directory-ds-regions.md) to see a list of the Azure regions where Azure AD Domain Services are available.

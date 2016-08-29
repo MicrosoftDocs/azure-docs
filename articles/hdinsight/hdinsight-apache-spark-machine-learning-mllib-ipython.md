@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2016" 
+	ms.date="07/25/2016" 
 	ms.author="nitinme"/>
 
 
-# Machine learning: Predictive analysis on food inspection data using MLlib with Spark on HDInsight (Linux)
+# Machine learning: Predictive analysis on food inspection data using MLlib with Apache Spark cluster on HDInsight Linux
 
 > [AZURE.TIP] This tutorial is also available as a Jupyter notebook on a Spark (Linux) cluster that you create in HDInsight. The notebook experience lets you run the Python snippets from the notebook itself. To perform the tutorial from within a notebook, create a Spark cluster, launch a Jupyter notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), and then run the notebook **Spark Machine Learning - Predictive analysis on food inspection data using MLLib.ipynb** under the **Python** folder.
 
@@ -49,13 +49,13 @@ In summary, the process of logistic regression produces a *logistic function* th
 
 ## What are we trying to accomplish in this article?
 
-You will use Spark to perform some predictive analysis on food inspection data (**Food_Inspections1.csv**) that was acquired through the [City of Chicago data portal](https://data.cityofchicago.org/). This dataset contains information about food inspections that were conducted in Chicago, including information about each food establishment that was inspected, the violations that were found (if any), and the results of the inspection. 
+You will use Spark to perform some predictive analysis on food inspection data (**Food_Inspections1.csv**) that was acquired through the [City of Chicago data portal](https://data.cityofchicago.org/). This dataset contains information about food inspections that were conducted in Chicago, including information about each food establishment that was inspected, the violations that were found (if any), and the results of the inspection. The CSV data file is already available in the storage account associated with the cluster at **/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv**.
 
 In the steps below, you develop a model to see what it takes to pass or fail a food inspection. 
 
 ## Start building a machine learning application using Spark MLlib
 
-1. From the [Azure Preview Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
+1. From the [Azure Portal](https://portal.azure.com/), from the startboard, click the tile for your Spark cluster (if you pinned it to the startboard). You can also navigate to your cluster under **Browse All** > **HDInsight Clusters**.   
 
 2. From the Spark cluster blade, click **Quick Links**, and then from the **Cluster Dashboard** blade, click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
 
@@ -71,7 +71,7 @@ In the steps below, you develop a model to see what it takes to pass or fail a f
 
 	![Provide a name for the notebook](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
 
-3. Because you created a notebook using the PySpark kernel, you do not need to create any contexts explicitly. The Spark, SQL, and Hive contexts will be automatically created for you when you run the first code cell. You can start building your machine learning application by importing the types required for this scenario. To do so, place the cursor in the cell and press **SHIFT + ENTER**.
+3. Because you created a notebook using the PySpark kernel, you do not need to create any contexts explicitly. The Spark and Hive contexts will be automatically created for you when you run the first code cell. You can start building your machine learning application by importing the types required for this scenario. To do so, place the cursor in the cell and press **SHIFT + ENTER**.
 
 
 		from pyspark.ml import Pipeline
@@ -83,7 +83,7 @@ In the steps below, you develop a model to see what it takes to pass or fail a f
 
 ## Construct an input dataframe
 
-We already have a SQLContext that we can use to perform transformations on structured data. The first task is to load the sample data ((**Food_Inspections1.csv**)) into a Spark SQL *dataframe*. The snippets below assume that the data is already uploaded to the default storage container associated with the Spark cluster. 
+We can use `sqlContext` to perform transformations on structured data. The first task is to load the sample data ((**Food_Inspections1.csv**)) into a Spark SQL *dataframe*. 
 
 1. Because the raw data is in a CSV format, we need to use the Spark context to pull every line of the file into memory as unstructured text; then, you use Python's CSV library to parse each line individually. 
 
@@ -96,7 +96,7 @@ We already have a SQLContext that we can use to perform transformations on struc
 		    sio.close()
 		    return value
 		
-		inspections = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
+		inspections = sc.textFile('wasbs:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
 		                .map(csvParse)
 
 
@@ -170,7 +170,7 @@ We already have a SQLContext that we can use to perform transformations on struc
 1. Let's start to get a sense of what our dataset contains. For example, what are the different values in the **results** column?
 
 
-	df.select('results').distinct().show()
+		df.select('results').distinct().show()
 
 	
 	You should see an output like the following:
@@ -283,7 +283,7 @@ We can use the model we created earlier to *predict* what the results of new ins
 1. The snippet below creates a new dataframe, **predictionsDf** that contains the prediction generated by the model. The snippet also creates a temporary table **Predictions** based on the dataframe.
 
 
-		testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
+		testData = sc.textFile('wasbs:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
 	             .map(csvParse) \
 	             .map(lambda l: (int(l[0]), l[1], l[12], l[13]))
 		testDf = sqlContext.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
@@ -339,39 +339,32 @@ We can use the model we created earlier to *predict* what the results of new ins
 
 ## Create a visual representation of the prediction
 
-We can construct a final visualization to help us reason about the results of this test. 
+We can now construct a final visualization to help us reason about the results of this test. 
 
-1. We start by extracting the different predictions and results from the **Predictions** temporary table created earlier.
+1. We start by extracting the different predictions and results from the **Predictions** temporary table created earlier. The following queries separate the output as *true_positive*, *false_positive*, *true_negative*, and *false_negative*. In the queries below, we turn off visualization by using `-q` and also save the output (by using `-o`) as dataframes that can be then used with the `%%local` magic. 
 
-		%%sql -o predictionstable
-		SELECT prediction, results FROM Predictions
+		%%sql -q -o true_positive
+		SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND results = 'Fail'
 
-2. In the above snippet **predictionstable** is the local dataframe on the Jupyter server that persists the output of the SQL query. You can now use the `%%local` magic to run the subsequent code snippets against the locally persisted dataframe.
+		%%sql -q -o false_positive
+		SELECT count(*) AS cnt FROM Predictions WHERE prediction = 0 AND (results = 'Pass' OR results = 'Pass w/ Conditions')
 
-		%%local
-		failSuccess = predictionstable[(predictionstable.prediction == 0) & (predictionstable.results == 'Fail')]['prediction'].count()
-		failFailure = predictionstable[(predictionstable.prediction == 0) & (predictionstable.results <> 'Fail')]['prediction'].count()
-		passSuccess = predictionstable[(predictionstable.prediction == 1) & (predictionstable.results <> 'Fail')]['prediction'].count()
-		passFailure = predictionstable[(predictionstable.prediction == 1) & (predictionstable.results == 'Fail')]['prediction'].count()
-		failSuccess,failFailure,passSuccess,passFailure
+		%%sql -q -o true_negative
+		SELECT count(*) AS cnt FROM Predictions WHERE prediction = 1 AND results = 'Fail'
 
-	The output looks like the following:
-	
-		# -----------------
-		# THIS IS AN OUTPUT
-		# -----------------
-	
-		(276, 46, 1917, 261)
+		%%sql -q -o false_negative
+		SELECT count(*) AS cnt FROM Predictions WHERE prediction = 1 AND (results = 'Pass' OR results = 'Pass w/ Conditions') 
 
-3. Finally, use the following snippet to generate the plot.
+2. Finally, use the following snippet to generate the plot using **Matplotlib**.
 
 		%%local
 		%matplotlib inline
 		import matplotlib.pyplot as plt
 		
 		labels = ['True positive', 'False positive', 'True negative', 'False negative']
-		sizes = [failSuccess, failFailure, passSuccess, passFailure]
-		plt.pie(sizes, labels=labels, autopct='%1.1f%%')
+		sizes = [true_positive['cnt'], false_positive['cnt'], false_negative['cnt'], true_negative['cnt']]
+		colors = ['turquoise', 'seagreen', 'mediumslateblue', 'palegreen', 'coral']
+		plt.pie(sizes, labels=labels, autopct='%1.1f%%', colors=colors)
 		plt.axis('equal')
 	
 	You should see the following output.
@@ -411,10 +404,18 @@ After you have finished running the application, you should shutdown the noteboo
 
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applicatons](hdinsight-apache-spark-intellij-tool-plugin.md)
 
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+
 * [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 
 * [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 
+* [Use external packages with Jupyter notebooks](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
+
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
+
 ### Manage resources
 
 * [Manage resources for the Apache Spark cluster in Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
+
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight](hdinsight-apache-spark-job-debugging.md)

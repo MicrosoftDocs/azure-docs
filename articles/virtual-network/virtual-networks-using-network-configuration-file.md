@@ -3,7 +3,7 @@
 	description="Instructions to export and import a network configuration file to the Azure Management Portal in order to create or modify virtual networks. " 
 	services="virtual-network" 
 	documentationCenter="" 
-	authors="telmosampaio" 
+	authors="jimdial" 
 	manager="carmonm" 
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services" 
-	ms.date="12/07/2015"
-	ms.author="telmos"/>
+	ms.date="03/15/2016"
+	ms.author="jdial"/>
 
 # Configure a virtual network using a network configuration file
 

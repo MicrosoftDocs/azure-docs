@@ -3,7 +3,7 @@
    description="Understanding static private IPs (DIPs) and how to manage them in classic mode using the CLI"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-service-management"
@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="12/11/2015"
-   ms.author="telmos" />
+   ms.date="03/15/2016"
+   ms.author="jdial" />
 
 # How to set a static private IP address (classic) in Azure CLI
 
@@ -30,7 +30,7 @@ The sample Azure CLI commands below expect a simple environment already created.
 ## How to specify a static private IP address when creating a VM
 To create a new VM named *DNS01* in a new cloud service named *TestService* based on the scenario above, follow these steps:
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](../xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
 1. Run the **azure service create** command to create the cloud service.
 
 		azure service create TestService --location uscentral
@@ -111,6 +111,6 @@ Expected output:
 
 ## Next steps
 
-- Learn about [reserved public IP](../virtual-networks-reserved-public-ip) addresses.
-- Learn about [instance-level public IP (ILPIP)](../virtual-networks-instance-level-public-ip) addresses.
+- Learn about [reserved public IP](virtual-networks-reserved-public-ip.md) addresses.
+- Learn about [instance-level public IP (ILPIP)](virtual-networks-instance-level-public-ip.md) addresses.
 - Consult the [Reserved IP REST APIs](https://msdn.microsoft.com/library/azure/dn722420.aspx).

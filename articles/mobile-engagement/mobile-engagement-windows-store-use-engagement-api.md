@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="08/19/2016" 
 	ms.author="piyushjo" />
 
 #How to Use the Engagement API on Windows Universal
 
-This document is an add-on to the document [How to Integrate Engagement on Windows Universal](../mobile-engagement-windows-store-integrate-engagement/): it provides in depth details about how to use the Engagement API to report your application statistics.
+This document is an add-on to the document [How to Integrate Engagement on Windows Universal](mobile-engagement-windows-store-integrate-engagement.md): it provides in depth details about how to use the Engagement API to report your application statistics.
 
 Keep in mind that if you only want Engagement to report your application's sessions, activities, crashes and technical information, then the simplest way is to make all your `Page` sub-classes inherit from the `EngagementPage` class.
 
@@ -30,13 +30,13 @@ Even if the agent module has not been initialized, each call to the API is defer
 
 ##Engagement concepts
 
-The following parts refine the common [Mobile Engagement Concepts](../mobile-engagement-concepts/) for the Windows Universal platform.
+The following parts refine the common [Mobile Engagement Concepts](mobile-engagement-concepts.md) for the Windows Universal platform.
 
 ### `Session` and `Activity`
 
 An *activity* is usually associated with one page of the application, that is to say the *activity* starts when the page is displayed and stops when the page is closed: this is the case when the Engagement SDK is integrated by using the `EngagementPage` class.
 
-But *activities* can also be controlled manually by using the Engagement API. This allows to split a given page in several sub parts to get more details about the usage of this page (for example to known how often and how long dialogs are used inside this page).
+But *activities* can also be controlled manually by using the Engagement API. This allows you to split a given page in several sub parts to get more details about the usage of this page (for example to know how often and how long dialogs are used inside this page).
 
 ##Reporting Activities
 
@@ -48,7 +48,7 @@ But *activities* can also be controlled manually by using the Engagement API. Th
 
 You need to call `StartActivity()` each time the user activity changes. The first call to this function starts a new user session.
 
-> [AZURE.IMPORTANT] The SDK automatically call the EndActivity method when the application is closed. Thus, it is HIGHLY recommended to call the StartActivity method whenever the activity of the user change, and to NEVER call the EndActivity method, since calling this method forces the current session to be ended.
+> [AZURE.IMPORTANT] The SDK automatically calls the EndActivity method when the application is closed. Thus, it is HIGHLY recommended to call the StartActivity method whenever the activity of the user changes, and to NEVER call the EndActivity method, since calling this method forces the current session to be ended.
 
 #### Example
 
@@ -160,7 +160,7 @@ Job events are usually used to report the actions performed by a user during a J
 
 ##Reporting Errors
 
-There is three types of errors :
+There are three types of errors :
 
 -   Standalone errors
 -   Session errors
@@ -329,7 +329,7 @@ Extras are limited to **1024** characters per call.
 
 You can manually report tracking information (or any other application specific information) using the SendAppInfo() function.
 
-Note that these information can be sent incrementally: only the latest value for a given key will be kept for a given device. Like event extras, use a Dictionary\<object, object\> to attach informations.
+Note that this data can be sent incrementally: only the latest value for a given key will be kept for a given device. Like event extras, use a Dictionary\<object, object\> to attach data.
 
 ### Example
 
@@ -353,9 +353,18 @@ It means that keys must start with at least one letter, followed by letters, dig
 
 #### Size
 
-Application information are limited to **1024** characters per call.
+Application information is limited to **1024** characters per call.
 
 In the previous example, the JSON sent to the server is 44 characters long:
 
 			{"birthdate":"1983-12-07","gender":"female"}
+
+##Logging
+###Enable Logging
+
+The SDK can be configured to produce test logs in the IDE console.
+These logs are not activated by default. To customize this, update the property `EngagementAgent.Instance.TestLogEnabled` to one of the value available from the `EngagementTestLogLevel` enumeration, for instance:
+
+			EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
+			EngagementAgent.Instance.Init();
  

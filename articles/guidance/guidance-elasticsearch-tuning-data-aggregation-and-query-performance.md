@@ -3,8 +3,8 @@
    description="A summary of considerations when optimizing query and search performance for Elasticsearch."
    services=""
    documentationCenter="na"
-   authors="mabsimms"
-   manager="marksou"
+   authors="dragon119"
+   manager="bennage"
    editor=""
    tags=""/>
 
@@ -14,11 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/29/2016"
-   ms.author="masimms"/>
+   ms.date="07/21/2016"
+   ms.author="masashin"/>
    
 # Tuning data aggregation and query performance with Elasticsearch on Azure
 
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
 This article is [part of a series](guidance-elasticsearch.md). 
 
@@ -105,9 +106,9 @@ Elasticsearch uses mappings to determine how to interpret the data that occurs i
 
 - Mappings generated dynamically can cause errors depending on how fields are interpreted when documents are added to an index. For example, document 1 could contain a field A that holds a number and causes Elasticsearch to add a mapping that specifies that this field is a *long*. If a subsequent document is added in which field A contains non-numeric data, then it will fail. In this case, field A should probably have been interpreted as a string when the first document was added. Specifying this mapping when the index is created can help to prevent such problems.
 
-- Design your documents to avoid generating excessively large mappings as this can add significant overhead when performing searches, consume lots of memory, and also cause queries to fail to find data. Adopt a consistent naming convention for fields in documents that share the same type. For example, don't use field names such as "first\_name", "FirstName", and "forename" in different documents; use the same field name in each document. Additionally, do not attempt to use values as keys (this is a common approach in Column-Family databases, but can cause inefficiencies and failures with Elasticsearch.) For more information, see [Mapping Explosion](https://www.elastic.co/blog/found-crash-elasticsearch#mapping-explosion).
+- Design your documents to avoid generating excessively large mappings as this can add significant overhead when performing searches, consume lots of memory, and also cause queries to fail to find data. Adopt a consistent naming convention for fields in documents that share the same type. For example, don't use field names such as "first_name", "FirstName", and "forename" in different documents; use the same field name in each document. Additionally, do not attempt to use values as keys (this is a common approach in Column-Family databases, but can cause inefficiencies and failures with Elasticsearch.) For more information, see [Mapping Explosion](https://www.elastic.co/blog/found-crash-elasticsearch#mapping-explosion).
 
-- Use *not\_analyzed* to avoid tokenization where appropriate. For example, if a document contains a string field named *data* that holds the value "ABC-DEF" then you might attempt to perform a search for all documents that match this value as follows:
+- Use *not_analyzed* to avoid tokenization where appropriate. For example, if a document contains a string field named *data* that holds the value "ABC-DEF" then you might attempt to perform a search for all documents that match this value as follows:
 
   ```http
   GET /myindex/mydata/_search
@@ -124,7 +125,7 @@ Elasticsearch uses mappings to determine how to interpret the data that occurs i
   }
   ```
 
-    However, this search will fail to return the expected results due to the way in which the string ABC-DEF is tokenized when it is indexed; it will be effectively split into two tokens, ABC and DEF, by the hyphen. This feature is designed to support full text searching, but if you want the string to be interpreted as a single atomic item you should disable tokenization when the document is added to the index. You can use a mapping such as this:
+ However, this search will fail to return the expected results due to the way in which the string ABC-DEF is tokenized when it is indexed; it will be effectively split into two tokens, ABC and DEF, by the hyphen. This feature is designed to support full text searching, but if you want the string to be interpreted as a single atomic item you should disable tokenization when the document is added to the index. You can use a mapping such as this:
 
   ```http
   PUT /myindex
@@ -151,7 +152,7 @@ Many queries and aggregations require that data is sorted as part of the search 
 
 As an alternative approach, Elasticsearch also supports *doc values*. A doc value is similar to an item of in-memory fielddata except that it is stored on disk and created when data is stored in an index (fielddata is constructed dynamically when a query is performed.) Doc values do not consume heap space, and so are useful for queries that sort or aggregate data across fields that can contain a very large number of unique values. Additionally, the reduced pressure on the heap can help to offset the performance differences between retrieving data from disk and reading from memory; garbage collection is likely to occur less often, and other concurrent operations that utilize memory are less likely to be effected.
 
-You enable or disable doc values on a per-property basis in an index using the *doc\_values* attribute, as shown by the following example:
+You enable or disable doc values on a per-property basis in an index using the *doc_values* attribute, as shown by the following example:
 
 ```http
 PUT /myindex
@@ -178,7 +179,7 @@ A common strategy to boost the performance of queries is to create many replicas
 
 ### Using the Shard Request Cache
 
-Elasticsearch can cache the local data requested by queries on each shard in memory. This enables searches that retrieve the same data to run more quickly; data can be read from memory rather than disk storage. Caching data in this way can therefore improve the performance of some search operations, at the cost of reducing the memory available to other tasks being performed concurrently. There is also the risk that data served from the cache is outdated. The data in the cache is only invalidated when the shard is refreshed and the data has changed; the frequency of refreshes is governed by the value of the *refresh\_interval* setting of the index.
+Elasticsearch can cache the local data requested by queries on each shard in memory. This enables searches that retrieve the same data to run more quickly; data can be read from memory rather than disk storage. Caching data in this way can therefore improve the performance of some search operations, at the cost of reducing the memory available to other tasks being performed concurrently. There is also the risk that data served from the cache is outdated. The data in the cache is only invalidated when the shard is refreshed and the data has changed; the frequency of refreshes is governed by the value of the *refresh_interval* setting of the index.
 
 The request caching for an index is disabled by default, but you can enable it as follows:
 
@@ -209,9 +210,9 @@ The following points summarize tips for maximizing the performance of Elasticsea
 
 - Use *bool* filters for performing static comparisons, and only use *and*, *or*, and *not* filters for dynamically calculated filters, such as those that involve scripting or the *geo-\** filters.
 
-- If a query combines *bool* filters with *and*, *or*, or *not* with *geo-\** filters, place the *and*/*or*/*not geo-\** filters last so that they operate on the smallest data set possible.
+- If a query combines *bool* filters with *and*, *or*, or *not* with *geo-** filters, place the *and*/*or*/*not geo-** filters last so that they operate on the smallest data set possible.
 
-    Similarly, use a *post\_filter* to run expensive filter operations. These filters will be performed last.
+    Similarly, use a *post_filter* to run expensive filter operations. These filters will be performed last.
 
 - Use aggregations rather than facets. Avoid calculating aggregates that are analyzed or that have many possible values.
 
@@ -298,7 +299,7 @@ The tests were designed to understand the effects of the following variables:
 
 - **Number of index replicas**. Tests were performed using indexes configured with 1 and 2 replicas.
 
-- **Doc values**. Initially the tests were performed with the index setting *doc\_values* set to *true* (the default value). Selected tests were repeated with *doc\_values* set to *false*.
+- **Doc values**. Initially the tests were performed with the index setting *doc_values* set to *true* (the default value). Selected tests were repeated with *doc_values* set to *false*.
 
 - **Caching**. Tests were conducted with the shard request cache enabled on the index.
 

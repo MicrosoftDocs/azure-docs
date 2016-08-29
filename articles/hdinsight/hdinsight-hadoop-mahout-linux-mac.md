@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/28/2016"
+	ms.date="06/14/2016"
 	ms.author="larryfr"/>
 
 #Generate movie recommendations by using Apache Mahout with Linux-based Hadoop in HDInsight
@@ -51,48 +51,26 @@ The following is an extremely simple example that uses movies:
 
 * __Similarity recommendation__: Because Joe liked the first three movies, Mahout looks at movies that others with similar preferences liked, but Joe has not watched (liked/rated). In this case, Mahout recommends _The Phantom Menace_, _Attack of the Clones_, and _Revenge of the Sith_.
 
-##Load the data
+###Understanding the data
 
-Conveniently, [GroupLens Research][movielens] provides rating data for movies in a format that is compatible with Mahout. Use the following steps to download the data, then load it into the default storage for the cluster:
+Conveniently, [GroupLens Research][movielens] provides rating data for movies in a format that is compatible with Mahout. This data is available on your cluster's default storage at `/HdiSamples/HdiSamples/MahoutMovieData`.
 
-1. Use SSH to connect to the Linux-based HDInsight cluster. The address to use when connecting is `CLUSTERNAME-ssh.azurehdinsight.net` and the port is `22`.
+There are two files, `moviedb.txt` (information about the movies,) and `user-ratings.txt`. The user-ratings.txt file is used during analysis, while moviedb.txt is used to provide user-friendly text infromation when displaying the results of the analysis.
 
-	For more information on using SSH to connect to HDInsight, see the following documents:
-
-    * **Linux, Unix or OS X clients**: See [Connect to a Linux-based HDInsight cluster from Linux, OS X or Unix](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster)
-
-    * **Windows clients**: See [Connect to a Linux-based HDInsight cluster from Windows](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster)
-
-2. Download the MovieLens 100k archive, which contains 100,000 ratings from 1000 users for 1700 movies.
-
-        curl -O http://files.grouplens.org/datasets/movielens/ml-100k.zip
-
-3. Extract the archive using the following command:
-
-        unzip ml-100k.zip
-
-    This will extract the contents to a new folder named **ml-100k**.
-
-4. Use the following commands to copy the data to HDInsight storage:
-
-        cd ml-100k
-        hdfs dfs -put u.data /example/data
+The data contained in user-ratings.txt has a structure of `userID`, `movieID`, `userRating`, and `timestamp`, which tells us how highly each user rated a movie. Here is an example of the data:
 
 
-    The data contained in this file has a structure of `userID`, `movieID`, `userRating`, and `timestamp`, which tells us how highly each user rated a movie. Here is an example of the data:
+    196	242	3	881250949
+    186	302	3	891717742
+    22	377	1	878887116
+    244	51	2	880606923
+    166	346	1	886397596
 
-
-		196	242	3	881250949
-		186	302	3	891717742
-		22	377	1	878887116
-		244	51	2	880606923
-		166	346	1	886397596
-
-##Run the job
+##Run the analysis
 
 Use the following command to run the recommendation job:
 
-	mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /example/data/u.data -o /example/data/mahoutout --tempDir /temp/mahouttemp
+    mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/MahoutMovieData/user-ratings.txt -o /example/data/mahoutout --tempDir /temp/mahouttemp
 
 > [AZURE.NOTE] The job may take several minutes to complete, and may run multiple MapReduce jobs.
 
@@ -111,11 +89,12 @@ Use the following command to run the recommendation job:
 
 	The first column is the `userID`. The values contained in '[' and ']' are `movieId`:`recommendationScore`.
 
-2. Some of the other data contained in the **ml-100k** directory can be used to make the data more user friendly. First, download the data using the following command:
+2. You can use the output, along with the moviedb.txt, to display more user friendly information. First, we need to copy the files locally using the following commands:
 
 		hdfs dfs -get /example/data/mahoutout/part-r-00000 recommendations.txt
+        hdfs dfs -get /HdiSamples/HdiSamples/MahoutMovieData/* .
 
-	This will copy the output data to a file named **recommendations.txt** in the current directory.
+	This will copy the output data to a file named **recommendations.txt** in the current directory, along with the movie data files.
 
 3. Use the following command to create a new Python script that will look up movie names for the data in the recommendations output:
 
@@ -124,15 +103,15 @@ Use the following command to run the recommendation job:
 	When the editor opens, use the following as the contents of the file:
 
         #!/usr/bin/env python
-        
+
         import sys
-        
+
         if len(sys.argv) != 5:
                 print "Arguments: userId userDataFilename movieFilename recommendationFilename"
                 sys.exit(1)
-        
+
         userId, userDataFilename, movieFilename, recommendationFilename = sys.argv[1:]
-        
+
         print "Reading Movies Descriptions"
         movieFile = open(movieFilename)
         movieById = {}
@@ -140,7 +119,7 @@ Use the following command to run the recommendation job:
                 tokens = line.split("|")
                 movieById[tokens[0]] = tokens[1:]
         movieFile.close()
-        
+
         print "Reading Rated Movies"
         userDataFile = open(userDataFilename)
         ratedMovieIds = []
@@ -149,7 +128,7 @@ Use the following command to run the recommendation job:
                 if tokens[0] == userId:
                         ratedMovieIds.append((tokens[1],tokens[2]))
         userDataFile.close()
-        
+
         print "Reading Recommendations"
         recommendationFile = open(recommendationFilename)
         recommendations = []
@@ -160,13 +139,13 @@ Use the following command to run the recommendation job:
                         recommendations = [ movieIdAndScore.split(":") for movieIdAndScore in movieIdAndScores ]
                         break
         recommendationFile.close()
-        
+
         print "Rated Movies"
         print "------------------------"
         for movieId, rating in ratedMovieIds:
                 print "%s, rating=%s" % (movieById[movieId][0], rating)
         print "------------------------"
-        
+
         print "Recommended Movies"
         print "------------------------"
         for movieId, score in recommendations:
@@ -179,14 +158,14 @@ Use the following command to run the recommendation job:
 
 		chmod +x show_recommendations.py
 
-4. Run the Python script. The following assumes you are in the ml-100k directory, where the `u.data` and `u.item` files are located:
+4. Run the Python script. The following assumes you are in the directory where all the files were downloaded:
 
-		./show_recommendations.py 4 u.data u.item recommendations.txt
+		./show_recommendations.py 4 user-ratings.txt moviedb.txt recommendations.txt
 
 	This will look at the recommendations generated for user ID 4.
 
-	* The **u.data** file is used to retrieve movies that the user has rated
-	* The **u.item** file is used to retrieve the names of the movies
+	* The **user-ratings.txt** file is used to retrieve movies that the user has rated
+	* The **moviedb.txt** file is used to retrieve the names of the movies
 	* The **recommendations.txt** is used to retrieve the movie recommendations for this user
 
 	The output from this command will be similar to the following:
@@ -245,7 +224,7 @@ Mahout jobs do not remove temporary data that is created while processing the jo
 >
 > ```hdfs dfs -rm -f -r /example/data/mahoutout```
 
-##Next steps
+## Next steps
 
 Now that you have learned how to use Mahout, discover other ways of working with data on HDInsight:
 

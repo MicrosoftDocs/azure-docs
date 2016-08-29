@@ -3,8 +3,8 @@
 	description="Learn how to use the Azure Stack portal to deploy templates."
 	services="azure-stack"
 	documentationCenter=""
-	authors="ErikjeMS"
-	manager="v-kiwhit"
+	authors="heathl17"
+	manager="byronr"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/29/2016"
-	ms.author="erikje"/>
+	ms.date="08/15/2016"
+	ms.author="helaw"/>
 
 # Deploy templates using the Azure Stack portal
 

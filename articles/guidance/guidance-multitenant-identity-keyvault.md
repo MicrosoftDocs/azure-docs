@@ -19,6 +19,8 @@
 
 # Using Azure Key Vault to protect application secrets
 
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
+
 This article is [part of a series]. There is also a complete [sample application] that accompanies this series.
 
 ## Overview
@@ -52,7 +54,7 @@ Each of these overrides the previous one, so any settings stored in Key Vault ta
 
 > [AZURE.NOTE] By default, the Key Vault configuration provider is disabled. It's not needed for running the application locally. You would enable it in a production deployment.
 
-> [AZURE.NOTE] The Key Vault provider is currently not supported for .NET Core, because it requires the [Microsoft.Azure.KeyVault][Microsoft.Azure.KeyVault] package.
+> The Key Vault provider is currently not supported for .NET Core, because it requires the [Microsoft.Azure.KeyVault][Microsoft.Azure.KeyVault] package.
 
 At startup, the application reads settings from every registered configuration provider, and uses them to populate a strongly typed options object. (For more information, see [Using Options and configuration objects][options].)
 
@@ -372,7 +374,7 @@ Replace the entries in [square brackets] with the correct values.
 - `Asymmetric:CertificateThumbprint`: The certificate thumbprint that you got previously, when you created the client certificate.
 - `KeyVault:Name`: The name of your key vault.
 
-> [AZURE.NOTE] `Asymmetric:ValidationRequired` is false because the certificate that you created previously was not signed by a root CA authority. In production, use a certificate that is signed by a CA authority and set `ValidationRequired` to true.
+> [AZURE.NOTE] `Asymmetric:ValidationRequired` is false because the certificate that you created previously was not signed by a root certificate authority (CA). In production, use a certificate that is signed by a root CA and set `ValidationRequired` to true.
 
 Save the updated secrets.json file.
 

@@ -1,11 +1,11 @@
 <properties
 	pageTitle="Scenarios for the Advanced Analytics Process and Technology in Azure Machine Learning | Microsoft Azure"
-	description="Select the appropriate scenarios for the advanced predictive analytics process in Azure Machine Learning."
+	description="Select the appropriate scenarios for doing advanced predictive analytics with the Team Data Science Process."
 	services="machine-learning"
 	documentationCenter=""
-	authors="msolhab"
+	authors="bradsev"
 	manager="paulettm"
-	editor="" />
+	editor="cgronlun" />
 
 <tags
 	ms.service="machine-learning"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/08/2016"
-	ms.author="msolhab;bradsev" />
+	ms.date="06/14/2016" 
+	ms.author="bradsev" />
 
 
 # Scenarios for advanced analytics in Azure Machine Learning
 
-This article outlines the variety of sample data sources and target scenarios that can be handled by the Cortana Analytics Process (CAP). It illustrates options available in the processing sequences that depend on the data characteristics, source locations, and target repositories in Azure.
+This article outlines the variety of sample data sources and target scenarios that can be handled by the Team Data Science Process (TDSP). The TDSP provides a systematic approach for teams to collaborate on building intelligent applications. The scenarios presented here illustrate options available in the data processing workflow that depend on the data characteristics, source locations, and target repositories in Azure.
 
 The **decision tree** for selecting the sample scenarios that is appropriate for your data and objective is presented in the last section.
 
@@ -30,8 +30,8 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 
 >[AZURE.NOTE] **For all of the following scenarios, you need to:**
 
-*   [Create a storage account](storage-whatis-account.md)
-*   [Create an Azure ML workspace](machine-learning/machine-learning-create-workspace.md)
+*   [Create a storage account](../storage/storage-create-storage-account.md)
+*   [Create an Azure ML workspace](machine-learning-create-workspace.md)
 
 
 ## <a name="smalllocal"></a>Scenario \#1: Small to medium tabular dataset in a local files
@@ -65,7 +65,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 
 6.  Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-7.  Read the data from Azure blobs using the [Reader][reader] module.
+7.  Read the data from Azure blobs using the [Import Data][import-data] module.
 
 8. Build an Azure Machine Learning experiment flow starting with ingested dataset(s).
 
@@ -91,7 +91,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 
 8. Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-9. Read the data from Azure blobs using the [Reader][reader] module.
+9. Read the data from Azure blobs using the [Import Data][import-data] module.
 
 10. Build Azure ML experiment flow starting with ingested dataset(s).
 
@@ -134,7 +134,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 
 9. Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-10. Read the data directly from the SQL Server using the [Reader][reader] module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the [Reader][reader] query.
+10. Read the data directly from the SQL Server using the [Import Data][import-data] module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the [Import Data][import-data] query.
 
 11. Build Azure ML experiment flow starting with ingested dataset(s).
 
@@ -172,7 +172,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 
     f.  If table joins are required, create indexes to expedite joins.
 
- > [AZURE.NOTE] For faster loading of large data sizes, it is recommended to create partitioned tables and to bulk import the data in parallel. For more information, see [Parallel Data Import to SQL Partitioned Tables](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+ > [AZURE.NOTE] For faster loading of large data sizes, it is recommended to create partitioned tables and to bulk import the data in parallel. For more information, see [Parallel Data Import to SQL Partitioned Tables](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 5.  Explore data, create features as needed. Note that the features do not need to be materialized in the database tables. Only note the necessary query to create them.
 
@@ -180,7 +180,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 
 7.  Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-8. Read the data directly from the SQL Server using the [Reader][reader] module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the [Reader][reader] query.
+8. Read the data directly from the SQL Server using the [Import Data][import-data] module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the [Import Data][import-data] query.
 
 9. Simple Azure ML experiment flow starting with uploaded dataset
 
@@ -216,7 +216,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 
 	f.  If table joins are required, create indexes to expedite joins.
 
-> [AZURE.NOTE] For faster loading of large data sizes, create partitioned tables and to bulk import the data in parallel. For more information, see [Parallel Data Import to SQL Partitioned Tables](machine-learning/machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
+> [AZURE.NOTE] For faster loading of large data sizes, create partitioned tables and to bulk import the data in parallel. For more information, see [Parallel Data Import to SQL Partitioned Tables](machine-learning-data-science-parallel-load-sql-partitioned-tables.md).
 
 5.  Explore data, create features as needed. Note that the features do not need to be materialized in the database tables. Only note the necessary query to create them.
 
@@ -224,7 +224,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 
 7.  Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-8. Read the data directly from the SQL Server using the [Reader][reader] module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the [Reader][reader] query.
+8. Read the data directly from the SQL Server using the [Import Data][import-data] module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the [Import Data][import-data] query.
 
 9. Simple Azure ML experiment flow starting with uploaded dataset.
 
@@ -289,7 +289,7 @@ To replicate the entire SQL Server database in your SQL Server VM, you should co
 
 8.  Sign in to the [Azure Machine Learning Studio](https://studio.azureml.net/).
 
-9. Read the data directly from the `Hive Queries` using the [Reader][reader] module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the [Reader][reader] query.
+9. Read the data directly from the `Hive Queries` using the [Import Data][import-data] module. Paste the necessary query which extracts fields, creates features, and samples data if needed directly in the [Import Data][import-data] query.
 
 10. Simple Azure ML experiment flow starting with uploaded dataset.
 
@@ -305,8 +305,8 @@ The following diagram summarizes the scenarios described above and the Advanced 
 For end-to-end Azure Machine Learning walkthroughs that employ the Advanced Analytics Process and Technology using public datasets, see:
 
 
-* [Cortana Analytics Process in action: using SQL Server](machine-learning/machine-learning-data-science-process-sql-walkthrough.md).
-* [Cortana Analytics Process in action: using HDInsight Hadoop clusters](machine-learning/machine-learning-data-science-process-hive-walkthrough.md).
+* [Team Data Science Process in action: using SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
+* [Team Data Science Process in action: using HDInsight Hadoop clusters](machine-learning-data-science-process-hive-walkthrough.md).
 
 
 [1]: ./media/machine-learning-data-science-plan-sample-scenarios/dsp-plan-small-in-aml.png
@@ -321,4 +321,4 @@ For end-to-end Azure Machine Learning walkthroughs that employ the Advanced Anal
 
 
 <!-- Module References -->
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/

@@ -4,8 +4,8 @@
    services="sql-database"
    documentationCenter=""
    authors="ronitr"
-   manager="jeffreyg"
-   editor="jeffreyg"/>
+   manager="jhubbard"
+   editor=""/>
 
 <tags
    ms.service="sql-database"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="12/01/2015"
+   ms.date="07/10/2016"
    ms.author="ronitr; ronmat; v-romcal; sstein"/>
 
 # Get started with SQL Database Dynamic Data Masking (Azure Classic Portal)
@@ -87,6 +87,10 @@ Dynamic data masking can be configured by the Azure Database admin, server admin
 
 9. Click **SAVE** to save the new or updated masking policy.
 
+
+## Set up dynamic data masking for your database using Transact-SQL statements
+
+See [Dynamic Data Masking](https://msdn.microsoft.com/library/mt130841.aspx).
 
 ## Set up dynamic data masking for your database using Powershell cmdlets
 

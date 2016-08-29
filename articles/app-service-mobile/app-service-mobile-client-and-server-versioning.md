@@ -4,7 +4,7 @@
   services="app-service\mobile"
   documentationCenter=""
   authors="lindydonna"
-  manager="dwrede"
+  manager="erikre"
   editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="mobile-multiple"
   ms.devlang="dotnet"
   ms.topic="article"
-  ms.date="02/04/2016"
+  ms.date="08/22/2016"
   ms.author="donnam"/>
 
 # Client and server versioning in Mobile Apps and Mobile Services
@@ -42,13 +42,13 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 ## Opting out of version checking
 
-You can opt out of version checking by setting a value of **true** for the app setting **MS_SkipVersionCheck**. Specify this either in your web.config or in the Application Settings section of the Azure Portal.
+You can opt out of version checking by setting a value of **true** for the app setting **MS_SkipVersionCheck**. Specify this either in your web.config or in the Application Settings section of the Azure portal.
 
-> [AZURE.NOTE] There are a number of behavior changes between Mobile Services and Mobile Apps, particularly in the areas of offline sync, authentication, and push notifications. You should only opt out of version checking after complete testing to enure that these behavioral changes do not break your app's functionality.
+> [AZURE.NOTE] There are a number of behavior changes between Mobile Services and Mobile Apps, particularly in the areas of offline sync, authentication, and push notifications. You should only opt out of version checking after complete testing to ensure that these behavioral changes do not break your app's functionality.
 
 ## Summary of compatibility for all versions
 
-The chart below shows the compatibility between all client and server types. A backend is classfied as either Mobile **Services** or Mobile **Apps** based on the server SDK that it uses.
+The chart below shows the compatibility between all client and server types. A backend is classified as either Mobile **Services** or Mobile **Apps** based on the server SDK that it uses.
 
 |                           | **Mobile Services** Node.js or .NET | **Mobile Apps** Node.js or .NET |
 | ----------                | -----------------------             |   ----------------              |
@@ -115,7 +115,7 @@ Version checking is included in following server SDK versions:
 | Server platform  | SDK                                                                                                        | Accepted version header |
 | ---------------- | ------------------------------------------------------------                                                   | ----------------------- |
 | .NET             | [Microsoft.Azure.Mobile.Server](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) | 2.0.0 |
-| Node.js          | [azure-mobile-apps Version 1.0-beta1 (or later)](https://www.npmjs.com/package/azure-mobile-apps)                         | 2.0.0 |
+| Node.js          | [azure-mobile-apps)](https://www.npmjs.com/package/azure-mobile-apps)                         | 2.0.0 |
 
 ### Behavior of Mobile Apps backends
 
