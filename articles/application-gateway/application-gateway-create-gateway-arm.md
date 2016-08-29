@@ -26,7 +26,7 @@ Azure Application Gateway is a layer-7 load balancer. It provides failover, perf
 - [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 - [Azure Classic PowerShell](application-gateway-create-gateway.md)
 - [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
-
+- [Azure CLI](application-gateway-create-gateway-cli.md)
 
 <BR>
 
@@ -50,7 +50,7 @@ This article walks you through the steps to create, configure, start, and delete
 - **Back-end server pool:** The list of IP addresses of the back-end servers. The IP addresses listed should either belong to the virtual network subnet or should be a public IP/VIP.
 - **Back-end server pool settings:** Every pool has settings like port, protocol, and cookie-based affinity. These settings are tied to a pool and are applied to all servers within the pool.
 - **Front-end port:** This port is the public port that is opened on the application gateway. Traffic hits this port, and then gets redirected to one of the back-end servers.
-- **Listener:** The listener has a front-end port, a protocol (Http or Https, these are case-sensitive), and the SSL certificate name (if configuring SSL offload).
+- **Listener:** The listener has a front-end port, a protocol (Http or Https, these values are case-sensitive), and the SSL certificate name (if configuring SSL offload).
 - **Rule:** The rule binds the listener, the back-end server pool and defines which back-end server pool the traffic should be directed to when it hits a particular listener. 
 
 
@@ -62,13 +62,7 @@ The difference between using Azure Classic and Azure Resource Manager is the ord
 With Resource Manager, all items that make an application gateway are configured individually and then put together to create the application gateway resource.
 
 
-Here are the steps that are needed to create an application gateway:
-
-1. Create a resource group for Resource Manager.
-2. Create a virtual network, subnet, and public IP for the application gateway.
-3. Create an application gateway configuration object.
-4. Create an application gateway resource.
-
+The follower are the steps that are needed to create an application gateway.
 
 ## Create a resource group for Resource Manager
 
@@ -94,7 +88,7 @@ Create a new resource group (skip this step if you're using an existing resource
 
     New-AzureRmResourceGroup -Name appgw-rg -location "West US"
 
-Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. Make sure that all commands to create an application gateway uses the same resource group.
+Azure Resource Manager requires that all resource groups specify a location. This location is used as the default location for resources in that resource group. Make sure that all commands to create an application gateway uses the same resource group.
 
 In the example above, we created a resource group called "appgw-RG" and location "West US".
 
@@ -139,7 +133,7 @@ You need to set up all configuration items before creating the application gatew
 
 ### Step 1
 
-Create an application gateway IP configuration named "gatewayIP01". When Application Gateway starts, it picks up an IP address from the subnet configured and route network traffic to the IP addresses in the back-end IP pool. Keep in mind that each instance takes one IP address.
+Create an application gateway IP configuration named "gatewayIP01". When Application Gateway starts, it picks up an IP address from the subnet configured and routes network traffic to the IP addresses in the back-end IP pool. Keep in mind that each instance takes one IP address.
 
 
 	$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
@@ -147,7 +141,7 @@ Create an application gateway IP configuration named "gatewayIP01". When Applica
 
 ### Step 2
 
-Configure the back-end IP address pool named "pool01" with IP addresses "134.170.185.46, 134.170.188.221,134.170.185.50". Those are the IP addresses that receive the network traffic that comes from the front-end IP endpoint. You replace the IP addresses above to add your own application IP address endpoints.
+Configure the back-end IP address pool named "pool01" with IP addresses "134.170.185.46, 134.170.188.221,134.170.185.50". These IP addresses are the IP addresses that receive the network traffic that comes from the front-end IP endpoint. You replace the preceding IP addresses to add your own application IP address endpoints.
 
 	$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
@@ -195,7 +189,7 @@ Configure the instance size of the application gateway.
 
 ## Create an application gateway by using New-AzureRmApplicationGateway
 
-Create an application gateway with all configuration items from the steps above. In this example, the application gateway is called "appgwtest".
+Create an application gateway with all configuration items from the preceding steps. In this example, the application gateway is called "appgwtest".
 
 	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 
@@ -227,10 +221,6 @@ Retrieve DNS and VIP details of the application gateway from the public IP resou
 ## Delete an application gateway
 
 To delete an application gateway, follow these steps:
-
-1. Use the **Stop-AzureRmApplicationGateway** cmdlet to stop the gateway.
-2. Use the **Remove-AzureRmApplicationGateway** cmdlet to remove the gateway.
-3. Verify that the gateway has been removed by using the **Get-AzureRmApplicationGateway** cmdlet.
 
 ### Step 1
 
