@@ -21,8 +21,8 @@
 This topic provides an overview of running FreeBSD virtual machine in Azure. 
 
 #Overview
-FreeBSD for Microsoft Azure is provided by Microsoft Corporation. FreeBSD is an advanced computer operating system used to power modern servers, desktops and embedded platforms.
-As of today, FreeBSD 10.3 image is available in Azure. The image is based on FreeBSD 10.3 release. And Azure VM Guest Agent [2.1.4](https://github.com/Azure/WALinuxAgent/releases/tag/v2.1.4) is installed. The Agent is responsible for communication between the FreeBSD VM and the Azure Fabric for operations such as provisioning the VM on first use (user name, password, hostname, etc) as well as enabling functionality for selective VM Extensions.
+FreeBSD for Microsoft Azure is provided by Microsoft Corporation. FreeBSD is an advanced computer operating system used to power modern servers, desktops, and embedded platforms.
+As of today, FreeBSD 10.3 image is available in Azure. The image is based on FreeBSD 10.3 release. And Azure VM Guest Agent [2.1.4](https://github.com/Azure/WALinuxAgent/releases/tag/v2.1.4) is installed. The Agent is responsible for communication between the FreeBSD VM and the Azure Fabric for operations such as provisioning the VM on first use (user name, password, hostname, etc.) and enabling functionality for selective VM Extensions.
 As for future versions of FreeBSD, the strategy is to stay current and make available the latest releases shortly after they are released by the FreeBSD Release Engineering team. The upcoming release is [FreeBSD 11](https://www.freebsd.org/releases/11.0R/schedule.html). 
 
 #Deploy
@@ -46,22 +46,22 @@ VMAccess Extension can:
 • [CustomSript](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript)
 
 CustomScript Extension can:
-- If provided, download the customized scripts from Azure Storage or external public storage (e.g. Github)
+- If provided, download the customized scripts from Azure Storage or external public storage (for example, Github)
 - Run the entrypoint script
 - Support inline command
 - Convert Windows style newline in Shell and Python scripts automatically
 - Remove BOM in Shell and Python scripts automatically
 - Protect sensitive data in commandToExecute
 
-#Authentication: Usernames, Paaswords and SSH Keys
-When creating a Linux virtual machine using the Azure classic portal, you are asked to provide a username, password or an SSH public key. 
-The choice of a username for deploying a Linux virtual machine on Azure is subject to the following constraint: names of system accounts (UID <100) already present in the virtual machine are not allowed, 'root' for example.
+#Authentication: Usernames, Passwords, and SSH Keys
+When creating a FreeBSD virtual machine using the Azure classic portal, you are asked to provide a username, password or an SSH public key. 
+The choice of a username for deploying a FreeBSD virtual machine on Azure is subject to the following constraint: names of system accounts (UID <100) already present in the virtual machine are not allowed, 'root' for example.
 So far only RSA SSH Key is supported. Multiline SSH key must begin with ---- BEGIN SSH2 PUBLIC KEY
 ---- and end with ---- END SSH2 PUBLIC KEY ----. 
 
 #Obtaining Superuser Privileges
 The user account that is specified during virtual machine instance deployment on Azure is a privileged account. The package of “sudo” was installed in published FreeBSD image. 
-Once logged in using this user account, you will be able to run commands as root using the command syntax.
+Once logged in using this user account, you are able to run commands as root using the command syntax.
   
     # sudo <COMMAND>
 
