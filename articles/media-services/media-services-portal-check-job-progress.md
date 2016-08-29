@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="How to Check Job Progress using the Azure Classic Portal" 
-	description="Learn how to track job progress using the Azure Classic Portal." 
+	pageTitle="Monitor encoding job progress with the Azure portal" 
+	description="This tutorial walks you through the steps of monitoring your job progress using the Azure portal." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,25 +13,33 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="08/29/2016"  
 	ms.author="juliako"/>
 
-#How to: Check Job Progress
+#Monitor encoding job progress with the Azure portal
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-check-job-progress.md)
 - [.NET](media-services-check-job-progress.md)
 - [REST](media-services-rest-check-job-progress.md)
 
-##Use Portal to check the job status
+## Overview
 
-1. In the [Azure Classic Portal](http://go.microsoft.com/fwlink/?LinkID=256666&clcid=0x409), click **Media Services** and then click on the Media Services account name.
-2. Select the **JOBS** page. 
+> [AZURE.NOTE] To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
 
-	On the page you can see the status of  all your jobs. You can aslo filter by status, time, or job id.
+When you run jobs, you often require a way to track job progress. 
 
-	![CheckStatus][checkstatus]
+To monitor the progress of the encoding job, click on **Settings** (at the top of the page) and then select **Jobs**.
 
+![Jobs](./media/media-services-portal-vod-get-started/media-services-jobs.png)
+
+You can click on the job to see more details.
+
+![Jobs](./media/media-services-portal-vod-get-started/media-services-job-progress2.png)
+
+##Next Steps
+
+After your encoding job is one, you can publish and play your assets, as described [here](media-services-portal-publish.md).
 
 ##Media Services learning paths
 
@@ -40,12 +48,3 @@
 ##Provide feedback
 
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-##Next Step
-
-Publish your content. For more information, see [How to: Encode an Asset](media-services-manage-content.md#publish). 
-
-
-[checkstatus]: ./media/media-services-portal-check-job-progress/media-services-monitor-job-progress.png
- 
