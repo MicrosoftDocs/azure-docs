@@ -40,7 +40,6 @@ You can use this service in scenarios such as:
 - Backup: Take backups of your on-premises data to store in Azure blob storage.
 - Data recovery: Recover large amount of data stored in blob storage and have it delivered to your on-premises location.
 
-
 ## Pre-requisites
 
 In this section, we have listed the pre-requisites required to use this service. Please review them carefully before shipping your drives.
@@ -404,9 +403,13 @@ Please go through the FAQ section below as it covers the most common questions c
 
 ## Frequently Asked Questions ##
 
+
 **How long will it take to copy my data after my drive(s) reaches the data center?**
 
 The time to copy varies depending on different factors like job type, type and size of data being copied, size of disks provided, and existing workload. It can vary from a couple of days to a couple of weeks, depending on these factors. Therefore, it is difficult to provide a general estimate. The service tries to optimize your job by copying multiple drives in parallel when possible. If you have a time critical import/export job, reach out to us for an estimate.
+
+**When should I use Azure Import/Export Service?**
+One should consider using Azure Import Export if uploading or downloading over network takes roughly as estimate more than 7 days. You can calculate how long it will take by using any online calculator or by downloading the one located in our Azure Import Export REST API Sample in Azure samples repository at [Data Transfer Speed Calculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html). This is not an exact calculation but only a rough indication.
 
 **Can I use the Azure Import/Export service with a Resource Manager storage account?**
 
@@ -504,3 +507,5 @@ Please refer to [Offline Backup workflow in Azure Backup](../backup/backup-azure
 - [Setting up the Azure Import/Export client tool](https://msdn.microsoft.com/library/dn529112.aspx)
 
 - [Transfer data with the AzCopy command-line utility](storage-use-azcopy.md)
+
+- [Azure Import Export REST API Sample](https://azure.microsoft.com/en-us/documentation/samples/storage-dotnet-import-export-job-management/) 
