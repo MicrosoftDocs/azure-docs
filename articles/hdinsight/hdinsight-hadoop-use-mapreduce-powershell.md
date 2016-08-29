@@ -17,7 +17,7 @@
    ms.date="08/29/2016"
    ms.author="larryfr"/>
 
-#Run MapReduce jobs with Hadoop on HDInsight using PowerShell
+# Run MapReduce jobs with Hadoop on HDInsight using PowerShell
 
 [AZURE.INCLUDE [mapreduce-selector](../../includes/hdinsight-selector-use-mapreduce.md)]
 
