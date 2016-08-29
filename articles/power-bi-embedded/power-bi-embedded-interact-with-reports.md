@@ -38,6 +38,7 @@ With the JavaScript API you can manage reports, navigate to pages in a report, f
 
 ### Manage Reports
 The Javascript API enables you to manage behavior at the report and page level:
+
 - Embed a specific Power BI Report securely in your application - try the [embed demo application](http://azure-samples.github.io/powerbi-angular-client/#/scenario1)
   - Set access token
 - Configure the report
@@ -79,6 +80,7 @@ const basicFilter: pbi.models.IBasicFilter = {
 
 #### Advanced Filters
 Advanced filters use the logical operator AND or OR, and accept one or two conditions, each with their own operator and value. Supported conditions are:
+
 - None
 - LessThan
 - LessThanOrEqual
