@@ -89,7 +89,7 @@ are installed on your machine.
 
     ![Create the Azure resource for your first web app in Azure](./media/app-service-web-get-started/4-create-site.png)
 
-    >[AZURE.NOTE] If you've never set up deployment credentials for your Azure subscription, you'll be prompted to create them. App Services uses these credentials, not your
+    >[AZURE.NOTE] If you've never set up deployment credentials for your Azure subscription, you'll be prompted to create them. App Service uses these credentials, not your
     Azure account credentials, only for Git deployments and FTP logins.
 
     Your app is created in Azure now. Also, your current directory is Git-initialized and connected to the new App Service app as a Git remote.
@@ -104,7 +104,7 @@ are installed on your machine.
     If you used one of the language frameworks, you'll see different output. This is because `git push` not only puts code in Azure, but also triggers deployment tasks
     in the deployment engine. If you have any package.json
     (Node.js) or requirements.txt (Python) files in your project (repository) root, or if you have a packages.config file in your ASP.NET project, the deployment
-    scripts restores the required packages for you. You can also [enable the Composer extension](web-sites-php-mysql-deploy-use-git.md#composer) to automatically process composer.json files
+    script restores the required packages for you. You can also [enable the Composer extension](web-sites-php-mysql-deploy-use-git.md#composer) to automatically process composer.json files
     in your PHP app.
 
 Congratulations, you have deployed your app to Azure App Service.
