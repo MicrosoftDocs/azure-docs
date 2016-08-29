@@ -34,14 +34,14 @@ Makecert is one way of creating a self-signed certificate. The following steps w
 
 2. After installation, you can find the makecert.exe utility under this path: C:\Program Files (x86)\Windows Kits\10\bin\<arch>. 
 		
-	Example: C:\Program Files (x86)\Windows Kits\10\bin\x64
+	Example: `C:\Program Files (x86)\Windows Kits\10\bin\x64`
 
 3. Next, create and install a certificate in the Personal certificate store on your computer. The following example creates a corresponding *.cer* file that you upload to Azure when configuring P2S. Run the following command, as administrator. Replace  *ARMP2SRootCert* and *ARMP2SRootCert.cer* with the name that you want to use for the certificate.<br><br>The certificate will be located in your Certificates - Current User\Personal\Certificates.
 
     	makecert -sky exchange -r -n "CN=ARMP2SRootCert" -pe -a sha1 -len 2048 -ss My "ARMP2SRootCert.cer"
 
 
-###  <a name="certpublickey"></a>To obtain the public key
+###  <a name="rootpublickey"></a>To obtain the public key
 
 As part of the VPN Gateway configuration for Point-to-Site connections, the public key for the root certificate is uploaded to Azure.
 
@@ -60,7 +60,7 @@ As part of the VPN Gateway configuration for Point-to-Site connections, the publ
 
 You may want to export the self-signed certificate and store it safely. If need be, you can later install it on another computer and generate more client certificates, or export another .cer file. Any computer with a client certificate installed and that is also configured with the proper VPN client settings can connect to your virtual network via P2S. For that reason, you want to make sure that client certificates are generated and installed only when needed and that the self-signed certificate is stored safely.
 
-To export the self-signed certificate as a .pfx, use the preceding steps [to obtain the public key](#certpublickey), and select "Yes, export the private key". This results in a .pfx file.
+To export the self-signed certificate as a .pfx, select the root certificate and use the same steps as described in [Export a client certificate](#clientkey) to export.
 
 ## Create and install client certificates
 
@@ -83,7 +83,7 @@ The following steps walk you through one way to generate a client certificate fr
 
 4. All certificates are stored in your 'Certificates - Current User\Personal\Certificates' store on your computer. You can generate as many client certificates as needed based on this procedure.
 
-### Part 2 - Export a client certificate
+### <a name="clientkey"></a>Part 2 - Export a client certificate
 
 1. To export a client certificate, open **certmgr.msc**. Right-click the client certificate that you want to export, click **all tasks**, and then click **export**. This opens the **Certificate Export Wizard**.
 
