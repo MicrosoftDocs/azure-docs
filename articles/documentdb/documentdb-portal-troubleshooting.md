@@ -35,11 +35,16 @@ This article describes how to resolve DocumentDB issues in the Azure portal.
 ## Add Collection button is disabled
 
 **Symptom**: On the Database blade, the **Add Collection** button is disabled.
-**Solution**: In the Azure portal, in the Jumpbar, click **Browse**, click **Subscriptions**, click the subscription associated with the DocumentDB database, and then in the **Subscription** blade, click **Manage**. 
-![DocumentDB offers multiple, well defined (relaxed) consistency models to choose from](./media/documentdb-portal-troubleshooting/documentdb-manage-subscription.png)
-In the new browser window, you'll see that you have no credits remaining. Click the **Remove spending limit** button to remove the spending for only the current billing period or indefinitely. Then complete the wizard to add or confirm your credit card information. 
-![DocumentDB offers multiple, well defined (relaxed) consistency models to choose from](./media/documentdb-portal-troubleshooting/documentdb-remove-spending-limit.png)
 **Explanation**: If your Azure subscription is associated with benefit credits, such as free credits offered from an MSDN subscription, and you have used all of your credits for the month, you are unable to create any additional collections in DocumentDB.
+**Solution**: Remove the spending limit from your account.
+
+1. In the Azure portal, in the Jumpbar, click **Subscriptions**, click the subscription associated with the DocumentDB database, and then in the **Subscription** blade, click **Manage**. 
+    ![DocumentDB offers multiple, well defined (relaxed) consistency models to choose from](./media/documentdb-portal-troubleshooting/documentdb-change-billing.png)
+
+2. In the new browser window, you'll see that you have no credits remaining. Click the **Remove spending limit** button to remove the spending for only the current billing period or indefinitely. Then complete the wizard to add or confirm your credit card information. 
+    ![DocumentDB offers multiple, well defined (relaxed) consistency models to choose from](./media/documentdb-portal-troubleshooting/documentdb-remove-spending-limit.png)
+
+
  
 ## Query Explorer completes with errors
 
