@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="08/26/2016"
+	ms.date="08/29/2016"
 	ms.author="cynthn"/>
 
 # Create your first Windows virtual machine in the Azure portal
@@ -37,7 +37,7 @@ We use a Windows Server 2012 R2 Datacenter image as an example, but that's just 
 	![Screenshot that shows the Azure VM images available in the portal](./media/virtual-machines-windows-hero-tutorial/marketplace-new.png)
 
 
-3. On the **Windows Server 2012 R2 Datacenter** page, under **Select a deployment model**, verify that **Resource Manager** is selected. Click **Create**.
+3. On the **Windows Server 2012 R2 Datacenter** blade, under **Select a deployment model**, verify that **Resource Manager** is selected. Click **Create**.
 
 	![Screenshot that shows the deployment model to select for the VM](./media/virtual-machines-windows-hero-tutorial/deployment-model.png)
 
@@ -56,7 +56,7 @@ After you select the image, you can use Azure's default settings for most of the
 
 4. When you are done, click **OK** to continue to the next section. 
 
-	![Screenshot that shows the settings on the Basics blade for configuring an Azure VM](./media/virtual-machines-windows-hero-tutorial/basics-blade.png)
+	![Screenshot that shows the settings on the **Basics** blade for configuring an Azure VM](./media/virtual-machines-windows-hero-tutorial/basics-blade.png)
 
 	
 5. Choose a VM [size](virtual-machines-windows-sizes.md) and then click **Select** to continue. 
@@ -108,26 +108,24 @@ Now that you are logged in to the VM, we will install a server role so that you 
 1. Open **Server Manager** if it isn't already open. Click the **Start** menu and then click **Server Manager**.
 2. In **Server Manager**, select **Local Server** from the left pane. 
 3. In the menu, select **Manage** > **Add Roles and Features**.
+4. In the Add Roles and Features Wizard, on the **Installation Type** page, choose **Role-based or feature-based installation** and then click **Next**.
 
 	![Screenshot showing the Add Roles and Features Wizard tab for Installation Type.](./media/virtual-machines-windows-hero-tutorial/role-wizard.png)
 
-4. In the Add Roles and Features Wizard, on the **Installation Type** page, choose **Role-based or feature-based installation** and then click **Next**.
 5. Select the VM from the server pool and click **Next**.
+6. On the **Server Roles** page select **Web Server (IIS)**.
 
 	![Screenshot showing the Add Roles and Features Wizard tab for Server Roles.](./media/virtual-machines-windows-hero-tutorial/add-iis.png)
 
-6. On the **Server Roles** page select **Web Server (IIS)**.
+7. In the pop-up about adding features needed for IIS, make sure that **Include management tools** is selected and then click **Add Features**. When the pop-up closes, click **Next** in the wizard.
 
 	![Screenshot showing pop-up to confirm adding the IIS role.](./media/virtual-machines-windows-hero-tutorial/confirm-add-feature.png)
 
-7. In the pop-up about adding features needed for IIS, make sure that **Include management tools** is selected and then click **Add Features**. When the pop-up closes, click **Next** in the wizard.
 8. On the features page, click **Next**.
 9. On the **Web Server Role (IIS)** page, click **Next**. 
 10. On the **Role Services** page, click **Next**. 
 11. On the **Confirmation** page, click **Install**. 
 12. When the installation is complete, click **Close** on the wizard.
-
-If you want, you can open the IIS default web page in Notepad (by default, the path will be C:\inetpub\wwwroot\iisstart.htm) and make some basic changes so that you know that you are reaching the correct server. 
 
 
 
@@ -137,32 +135,40 @@ In order for your VM to accept inbound traffic over port 80, you need to add an 
 
 1. Open the [Azure portal](https://portal.azure.com).
 2. Under **Virtual machines** select the VM that you created.
+3. Under the virtual machines settings, select **Network interfaces** and then select the existing network interface.
 
 	![Screenshot showing the virtual machine setting for the network interfaces.](./media/virtual-machines-windows-hero-tutorial/network-interface.png)
 
-3. Under the virtual machines settings, select **Network interfaces** and then select the existing network interface.
+4. In **Essentials** for the network interface, click on the **Network security group**.
 
 	![Screenshot showing the Essentials section for the network interface.](./media/virtual-machines-windows-hero-tutorial/select-nsg.png)
 
-4. In **Essentials** for the network interface, click on the **Network security group**.
+5. In Essentials for the NSG, you should have one existing default inbound rule for **default-allow-rdp** whick allows you to log in to the VM. You need to add another inbound rule to allow IIS traffic. Click **Inbound security rule**.
 
 	![Screenshot showing the Essentials section for the NSG.](./media/virtual-machines-windows-hero-tutorial/inbound.png)
 
-5. In Essentials for the NSG, you should have one existing default inbound rule for **default-allow-rdp** whick allows you to log in to the VM. You need to add another inbound rule to allow IIS traffic. Click **Inbound security rule**.
+6. In **Inbound security rules**, click **Add**.
 
 	![Screenshot showing the button to add a security rule.](./media/virtual-machines-windows-hero-tutorial/add-rule.png)
 
-6. In **Inbound security rules**, click **Add**.
+7. In **Inbound security rules**, click **Add**. Type **80** in the port range and make sure **Allow** is selected. When you are done, click **OK**.
 
 	![Screenshot showing the button to add a security rule.](./media/virtual-machines-windows-hero-tutorial/port-80.png)
-
-7. In **Inbound security rules**, click **Add**. Type **80** in the port range and make sure **Allow** is selected. When you are done, click **OK**.
+ 
+For more information about NSGs, inbound and outbound rules, see [Allow external access to your VM using the Azure Portal](virtual-machines-windows-nsg-quickstart-portal.md)
  
 ## Connect to the deafult IIS website
 
-1. 
+1. In the Azure portal, click **Virtual machines** and then select your VM.
+2. In the **Essentials** blade, copy your **Public IP address**.
 
-2. Open a browser and type
+	![Screenshot showing where to find the public IP address of your VM.](./media/virtual-machines-windows-hero-tutorial/ipaddress.png)
+
+2. Open a browser and in the address bar, type in your public IP address like this: http://<publicIPaddress> and click **Enter** to go to that address.
+3. You browser should land on the default IIS web page and should look something like this:
+
+	![Screenshot showing what the default IIS page looks like in a browser.](./media/virtual-machines-windows-hero-tutorial/iis-default.png)
+
 
 ## Stop the VM
 
