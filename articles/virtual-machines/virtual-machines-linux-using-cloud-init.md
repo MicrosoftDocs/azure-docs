@@ -101,7 +101,7 @@ To inject scripts at any time after boot:
 Microsoft is working with our partners to get cloud-init included and working in the images that they provide to Azure.
 
 
-## Detailed Walkthrough
+## Detailed walkthrough
 
 ### Adding a cloud-init script to the VM creation with the Azure CLI
 
