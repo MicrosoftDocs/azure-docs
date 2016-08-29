@@ -31,7 +31,7 @@ This article catalogs the tools that have been provided by the community to assi
 
 ## ASM2ARM
 
-This is a PowerShell script module for migrating your **single** Virtual Machine (VM) from Azure Service Management (ASM) stack to Azure Resource Manager (ARM) stack. 
+This is a PowerShell script module for migrating your **single** Virtual Machine (VM) from Azure Service Management stack to Azure Resource Manager stack. 
 
 [Link to the tool documentation](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/asm2arm)
 
