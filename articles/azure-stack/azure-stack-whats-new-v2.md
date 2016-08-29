@@ -55,7 +55,7 @@ Delegated Providers enable downstream resellers to offer your Azure Stack servic
 
 This release enables you to provide the most efficient allocation of resources, with on-demand reclamation of unused tenant capacity now available.
 
-New monitoring capabilities available via the portal and APIs allow you to proactively see and manage alerts on your envrionment.  
+New monitoring capabilities available via the portal and APIs allow you to proactively see and manage alerts on your environment.  
 
 System Health Tests functionally test your fabric to ensure services are working as expected.  
 
