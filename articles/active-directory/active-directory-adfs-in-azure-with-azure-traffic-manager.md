@@ -93,11 +93,12 @@ A very basic test for the routing would be to try ping the federation service DN
 ![Routing test](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/pingtest.png)
 
 ###AD FS sign-in test
-The easiest way to test AD FS is by using the IdpInitiatedSignon.aspx page. In order to be able to do that, it is required to enable the IdpInitiatedSignOn on the AD FS properties. Follow the steps below to verify your AD FS setup 
-1.	Run the below cmdlet on the AD FS server, using PowerShell, to set it to enabled. 
+The easiest way to test AD FS is by using the IdpInitiatedSignon.aspx page. In order to be able to do that, it is required to enable the IdpInitiatedSignOn on the AD FS properties. Follow the steps below to verify your AD FS setup
+ 
+1. Run the below cmdlet on the AD FS server, using PowerShell, to set it to enabled. 
 Set-AdfsProperties -EnableIdPInitiatedSignonPage $true
-2.	From any external machine access https://<yourfederationservicedns>/adfs/ls/IdpInitiatedSignon.aspx
-3.	You should see the AD FS page like below:
+2. From any external machine access https://<yourfederationservicedns>/adfs/ls/IdpInitiatedSignon.aspx
+3. You should see the AD FS page like below:
 
 ![ADFS test - authentication challenge](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/adfstest1.png)
 
