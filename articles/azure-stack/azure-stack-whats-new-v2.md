@@ -23,7 +23,7 @@
   
 Keep your secrets safe with [Key Vault](azure-stack-intro-key-vault.md), which provides secure management of your key and password assets with built-in auditing and monitoring.
 
-Build your apps on the latest application platform with an updated App Service Resource Provider (RP) and administration capabilities for new PaaS services:
+Build your apps on the latest application platform with an updated App Service Resource Provider (RP) and administration capabilities:
    - New RP features enable scale-up and scale-out, source control integration, and deployment slots empowering you to develop on the cloud in your datacenter.
    - API App Service allows you to bring your existing APIs and apply enterprise security, access control, and scale.
    - Mobile Apps service provides API and table storage services - allowing you to build the cross-platform mobile apps.
