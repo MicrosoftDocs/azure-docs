@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Overview of autoscale in Microsoft Azure Compute | Microsoft Azure"
-	description="Overview of about autoscaling in Microsoft Azure"
+	description="Overview of autoscaling in Microsoft Azure. Applies to Virtual Machines, Cloud Services and Web Apps."
 	authors="rboucher"
 	manager=""
 	editor=""
@@ -22,9 +22,9 @@ This article describes what Microsoft Azure autoscaling is, its benefits, and st
 
 Azure Insights autoscaling applies only to 
 
-* [Cloud Services]()
-* [Virtual Machine Scale Sets]()
-* [AppService Web Apps]() 
+* [Cloud Services](https://azure.microsoft.com/services/cloud-services/)
+* [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/)
+* [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) 
  
 Azure has two autoscaling methods. The older technology works with availability sets while the newer with Virtual Machine Scale Sets (VMSS).   
 
@@ -54,7 +54,7 @@ The full list of configurable values is available in the [Autoscale REST API](ht
 ## Conceptual Diagram  
 Figure 2 shows a conceptual overview of autoscaling followed by an explanation of the parts of diagram. 
 
-![Add alert](./media/monitoring-autoscale-overview/AutoscaleOverview2.png)
+![Add alert](./media/monitoring-autoscale-overview/AutoscaleOverview3.png)
 
 **Figure 2: Autoscaling process overview** 
 
@@ -64,7 +64,7 @@ VM Scale Sets uses telemetry data from Azure diagnostics agents whereas telemetr
 
  
 ## Time
-Schedule-based rules are triggered using the regional time of the virtual machine where the rules are running. 
+Schedule-based rules are based on UTC. You have to set your time zone properly when setting up your rules.  
 
 ## Autoscale Rules
 The diagram shows only one autoscale rule, but you can have many of them. You can create complex overlapping rules as needed for your situation.  Rule types include  
