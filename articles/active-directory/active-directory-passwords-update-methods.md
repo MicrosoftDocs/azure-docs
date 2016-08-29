@@ -36,12 +36,12 @@ Follow the steps below to change your work or school account password in Office 
 
 You can read more about this on the [Office 365 documentation center](https://support.office.com/article/Change-my-password-in-Office-365-for-business-d1efbaee-63a7-4c08-ab1d-71bf932bbb5d).
 
-## How to change your password from the access panel
+## How to change your password from the Access Panel
 Follow the steps below to change your work or school account password from the [Access Panel](https://myapps.microsoft.com).  If you have forgotten your password and want to reset it, follow the steps [here](#how-to-reset-your-password).
 
  1. Sign into https://myapps.microsoft.com with your work or school account.
  2. Click on the **profile** tab.
- 3. Click on the **change my password** tile on the right hand side of the screen.
+ 3. Click on the **change my password** tile on the right-hand side of the screen.
  4. Type your old password, and then type a new password and confirm it.
  5. Click **Submit**.
 
@@ -50,7 +50,7 @@ Follow the steps below to change your work or school account password from the [
 ## How to reset your password
 
 
-Follow the steps below to reset your work or school account password from any work or school account sign in screen.
+Follow the steps below to reset your work or school account password from any work or school account sign-in screen.
 
 >[AZURE.IMPORTANT] This feature is only available to you if your admin has turned it on. If it's not turned on, you'll see a message indicating your account is not enabled for this feature.  You can use the "contact your administrator" link in this case to get in touch with your admin to unlock your account.
 >
@@ -67,15 +67,15 @@ Follow the steps below to reset your work or school account password from any wo
 
  3. Click the "next" button.
  4. Choose an option to reset your password.  Depending on how your admin has configured the system, you might see one or more of the following choices:
-     * **Email my alternate email** - sends an email with a 6 digit code to either your **alternate email** or **authentication email** (you choose).
-	 * **Text my mobile phone** - texts your phone with a 6 digit code to either your **mobile phone** or **authentication email** (you choose).
+     * **Email my alternate email** - sends an email with a 6-digit code to either your **alternate email** or **authentication email** (you choose).
+	 * **Text my mobile phone** - texts your phone with a 6-digit code to either your **mobile phone** or **authentication email** (you choose).
 	 * **Call my mobile phone** - calls your **mobile phone** or **authentication phone** (you choose) - press the *#* key to verify the call.
 	 * **Call my office phone** - calls your **office phone** - press the *#* key to verify the call.
 	 * **Answer my security questions** - displays your pre-registered security questions for you to answer.
 
     ![][003]
 
- 5. We'll use the "text my mobile phone" option as an example.  If you are using a phone based option, you'll need to verify your phone number before we'll send a text.  Enter your full phone number and then click **Next** to verify it's correct and send a text.
+ 5. We'll use the "text my mobile phone" option as an example.  If you are using a phone-based option, you'll need to verify your phone number before we'll send a text.  Enter your full phone number and then click **Next** to verify it's correct and send a text.
 
     ![][004]
 
@@ -100,14 +100,14 @@ Follow the steps below to reset your work or school account password from any wo
 Run into a problem resetting your password?  Read about [common problems and their solutions](#common-problems-and-their-solutions).
 
 ## How to unlock your account
-Follow the steps below to unlock your local account from any work or school account sign in screen.  **Note: You will only be able to unlock your account if it has been locked on-premises.**
+Follow the steps below to unlock your local account from any work or school account sign-in screen.  **Note: You will only be able to unlock your account if it has been locked on-premises.**
 
 >[AZURE.IMPORTANT] This feature is only available to you if your admin has turned it on.  If it's not turned on, you'll see a message indicating your account is not enabled for this feature.  You can use the "contact your administrator" link in this case to get in touch with your admin to unlock your account.
 >
 > If your admin has enabled you for this feature, you'll first need to sign up before you can use it.  You can do that here: http://aka.ms/ssprsetup.
 
 
- 1. On the any work or school account sign in page, click on one of the "can't access your account?" or "forgot your password?" links, or navigate to https://passwordreset.microsoftonline.com directly.
+ 1. On the any work or school account sign-in page, click on one of the "can't access your account?" or "forgot your password?" links, or navigate to https://passwordreset.microsoftonline.com directly.
 
     ![][001]
 
@@ -117,15 +117,15 @@ Follow the steps below to unlock your local account from any work or school acco
 
  3. Click the "next" button.
  4. Choose an option to unlock your account.  Depending on how your admin has configured the system, you might see one or more of the following choices:
-     * **Email my alternate email** - sends an email with a 6 digit code to either your **alternate email** or **authentication email** (you choose).
-	 * **Text my mobile phone** - texts your phone with a 6 digit code to either your **mobile phone** or **authentication email** (you choose).
+     * **Email my alternate email** - sends an email with a 6-digit code to either your **alternate email** or **authentication email** (you choose).
+	 * **Text my mobile phone** - texts your phone with a 6-digit code to either your **mobile phone** or **authentication email** (you choose).
 	 * **Call my mobile phone** - calls your **mobile phone** or **authentication phone** (you choose) - press the *#* key to verify the call.
 	 * **Call my office phone** - calls your **office phone** - press the *#* key to verify the call.
 	 * **Answer my security questions** - displays your pre-registered security questions for you to answer.
 
     ![][003]
 
- 5. We'll use the "text my mobile phone" option as an example.  If you are using a phone based option, you'll need to verify your phone number before we'll send a text.  Enter your full phone number and then click **Next** to verify it's correct and send a text.
+ 5. We'll use the "text my mobile phone" option as an example.  If you are using a phone-based option, you'll need to verify your phone number before we'll send a text.  Enter your full phone number and then click **Next** to verify it's correct and send a text.
 
     ![][004]
 
@@ -208,7 +208,7 @@ Here are some common error cases and their solutions:
 Below are links to all of the Azure AD Password Reset documentation pages:
 
 * [**How it works**](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
-* [**Getting started**](active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
+* [**Getting started**](active-directory-passwords-getting-started.md) - learn how to allow your users to reset and change their cloud or on-premises passwords
 * [**Customize**](active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs
 * [**Best practices**](active-directory-passwords-best-practices.md) - learn how to quickly deploy and effectively manage passwords in your organization
 * [**Get insights**](active-directory-passwords-get-insights.md) - learn about our integrated reporting capabilities
