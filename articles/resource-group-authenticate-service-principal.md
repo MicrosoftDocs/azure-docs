@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="08/23/2016"
+   ms.date="08/29/2016"
    ms.author="tomfitz"/>
 
 # Use Azure PowerShell to create a service principal to access resources
@@ -23,7 +23,7 @@
 - [Azure CLI](resource-group-authenticate-service-principal-cli.md)
 - [Portal](resource-group-create-service-principal-portal.md)
 
-When you have an application or script that needs to access resources, you most likely do not want to run this process under a user's credentials. That user may have different permissions that you would like to assign to the process, and the user's job responsibilities could change. Instead, you can create an identity for the application that includes authentication credentials and role assignments. Your application logs in as this identity every time it runs. This topic shows you how to use [Azure PowerShell](powershell-install-configure.md) to set up everything you need for an application to run under its own credentials and identity.
+When you have an application or script that needs to access resources, you most likely do not want to run this process under a user's credentials. That user may have different permissions that you would like to assign to the process, and the user's job responsibilities could change. Instead, you create an identity for the application that includes authentication credentials and role assignments. Every time the app runs, it authenticates itself with these credentials. This topic shows you how to use [Azure PowerShell](powershell-install-configure.md) to set up everything you need for an application to run under its own credentials and identity.
 
 With PowerShell, you have 2 options for authenticating your AD application:
 
@@ -34,9 +34,9 @@ This topic shows how to use both options in PowerShell. If you intend to log in 
 
 ## Active Directory concepts
 
-In this article, you will create two objects - the Active Directory (AD) application and the service principal. You may be wondering why you need both objects. The AD application is the global representation of your application. It contains the credentials (an application id and either a password or certificate). The service principal is the local representation of your application in an Active Directory. It contains the role assignment. This topic focuses on a single-tenant application where the application is intended to run within only one organization. You typically use single-tenant applications for line-of-business applications that run within your organization. In a single-tenant application, you have one AD app and one service principal.
+In this article, you will create two objects - the Active Directory (AD) application and the service principal. The AD application is the global representation of your application. It contains the credentials (an application id and either a password or certificate). The service principal is the local representation of your application in an Active Directory. It contains the role assignment. This topic focuses on a single-tenant application where the application is intended to run within only one organization. You typically use single-tenant applications for line-of-business applications that run within your organization. In a single-tenant application, you have one AD app and one service principal.
 
-You can also create multi-tenant applications when your application needs to run in many organizations. You typically use multi-tenant applications for software-as-a-service (SaaS) applications. For multi-tenant applications, you have one AD app and multiple service principals (one in each Active Directory that grants access to the app). To set up a multi-tenant application, see [Developer's guide to authorization with the Azure Resource Manager API](resource-manager-api-authentication.md).
+You may be wondering - why do I need both objects? This approach makes more sense when you consider multi-tenant applications. You typically use multi-tenant applications for software-as-a-service (SaaS) applications, where your application runs in many different subscriptions. For multi-tenant applications, you have one AD app and multiple service principals (one in each Active Directory that grants access to the app). To set up a multi-tenant application, see [Developer's guide to authorization with the Azure Resource Manager API](resource-manager-api-authentication.md).
 
 ## Required permissions
 
@@ -50,13 +50,25 @@ Now, proceed to a section below for either [password](#create-service-principal-
 
 ## Create service principal with password
 
-In this section, you will perform the steps to create the AD application and service principal with a password.
+In this section, you will perform the steps to:
+
+- create the AD application with a password
+- create the service principal
+- assign the Reader role to the service principal
+
+To quickly perform these actions, use the following example. 
+
+     $app = New-AzureRmADApplication -DisplayName "{app-name}" -HomePage "https://{your-domain}/{app-name}" -IdentifierUris "https://{your-domain}/{app-name}" -Password "{your-password}"
+     New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
+     New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.ApplicationId.Guid
+
+If you need more explanation of how to perform these actions, see the following steps.
 
 1. Sign in to your account.
 
         Add-AzureRmAccount
 
-1. Create a new Active Directory application by providing a display name for your application, the URI to a page that describes your application (the link is not verified), the URIs that identify your application, and the password for your application identity.
+1. Create a new Active Directory application by providing a display name for your application, the URI to a page that describes your application, the URIs that identify your application, and the password for your application identity.
 
         $azureAdApplication = New-AzureRmADApplication -DisplayName "exampleapp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.contoso.org/example" -Password "<Your_Password>"
 
