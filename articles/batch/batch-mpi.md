@@ -151,7 +151,6 @@ These environment variables are available on the compute node to applications an
   * **Availability**: CloudServiceConfiguration and VirtualMachineConfiguration pools
   * **Format**: `numNodes<space>nodeIP<space>numCores<space>`
   * **Example**: `2 10.0.0.4 1 10.0.0.5 1`
-  * **Notes**: `mpiexec.exe` references the `CCP_NODES` variable by default.
 
 * `AZ_BATCH_NODE_LIST`
 
@@ -164,7 +163,6 @@ These environment variables are available on the compute node to applications an
   * **Availability**: VirtualMachineConfiguration pools
   * **Format**: `nodeIP,nodeIP`
   * **Example**: `10.0.0.4,10.0.0.5`
-  * **Notes**: Appropriate for passing to the `--host` option of `mpirun`, for example.
 
 ## Resource files
 
