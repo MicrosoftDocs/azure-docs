@@ -17,7 +17,7 @@
 
 #  Exploring HockeyApp data in Application Insights
 
-[HockeyApp](https://azure.microsoft.com/services/hockeyapp/) is the recommended platform for monitoring live desktop and mobile apps. From HockeyApp, you can send custom telemetry to monitor usage (in addition to getting crash data). This stream of custom telemetry can be queried using the powerful [Analytics](app-insights-analytics.md) feature of [Visual Studio Application Insights](app-insights-overview.md). In addition, you can [export the custom telemetry](app-insights-export-telemetry.md). To enable these features, you set up a bridge that relays the HockeyApp data to Application Insights.
+[HockeyApp](https://azure.microsoft.com/services/hockeyapp/) is the recommended platform for monitoring live desktop and mobile apps. From HockeyApp, you can send custom and trace telemetry to monitor usage and assist in diagnosis (in addition to getting crash data). This stream of telemetry can be queried using the powerful [Analytics](app-insights-analytics.md) feature of [Visual Studio Application Insights](app-insights-overview.md). In addition, you can [export the custom and trace telemetry](app-insights-export-telemetry.md). To enable these features, you set up a bridge that relays the HockeyApp data to Application Insights.
 
 
 ## The HockeyApp Bridge app
@@ -46,7 +46,7 @@ Note that the data takes a while to start flowing.
 
 ![Application Insights resource waiting for data](./media/app-insights-hockeyapp-bridge-app/04.png)
 
-That’s it! Any data collected in your HockeyApp-instrumented app from this point forward is now also available to you in the Analytics, Continuous Export, and API features of Application Insights.
+That’s it! Any data collected in your HockeyApp-instrumented app from this point forward is now also available to you in the Analytics and Continuous Export features of Application Insights.
 
 Let’s briefly review each of these features now available to you.
 

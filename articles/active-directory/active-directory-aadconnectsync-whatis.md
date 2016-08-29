@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/22/2016"
+	ms.date="08/29/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -37,7 +37,8 @@ Topic | What it covers and when to read
 [Understanding the default configuration](active-directory-aadconnectsync-understanding-default-configuration.md)| Describes the out-of-box rules and the default configuration. Also describes how the rules work together for the out-of-box scenarios to work.
 [Understanding Users and Contacts](active-directory-aadconnectsync-understanding-users-and-contacts.md) | Continues on the previous topic and describes how the configuration for users and contacts works together, in particular in a multi-forest environment.
 [How to make a change to the default configuration](active-directory-aadconnectsync-change-the-configuration.md) | Walks you through how to make a common configuration change to attribute flows.
-[Understanding Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) | Goes into depth how the configuration model works and the syntax for the expression language.
+[Understanding Declarative Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md)| Describes the configuration model called declarative provisioning.
+[Understanding Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) | Describes the syntax for the expression language used in declarative provisioning.
 [Best practices for changing the default configuration](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) | Support limitations and for making changes to the out-of-box configuration.
 [Configure Filtering](active-directory-aadconnectsync-configure-filtering.md) | Describes the different options for how to limit which objects are being synchronized to Azure AD and step-by-step how to configure these options.
 **Features and scenarios** |
