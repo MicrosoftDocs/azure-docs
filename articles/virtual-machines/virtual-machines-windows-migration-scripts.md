@@ -22,9 +22,8 @@
 This article catalogs the tools that have been provided by the community to assist with migration of IaaS resources from Azure Service Management to the Azure Resource Manager stack.
 
 >[AZURE.NOTE]These tools are not officially supported by Microsoft Support. Therefore they are open sourced on Github and we're happy to accept PRs for fixes or additional scenarios. To report an issue, use the Github issues feature.
-<br>
-
->[AZURE.IMPORTANT] Migrating with these tools will cause downtime for your classic Virtual Machine. If you're looking for platform supported migration, visit 
+>
+> Migrating with these tools will cause downtime for your classic Virtual Machine. If you're looking for platform supported migration, visit 
 >
 >- [Platform supported migration of IaaS resources from Classic to Azure Resource Manager stack](./virtual-machines-windows-migration-classic-resource-manager.md)
 >- [Technical Deep Dive on Platform supported migration from Classic to Azure Resource Manager](./virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
