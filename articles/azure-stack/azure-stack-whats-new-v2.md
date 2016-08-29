@@ -23,7 +23,7 @@
   
 Keep your secrets safe with [Key Vault](azure-stack-intro-key-vault.md), which provides secure management of your key and password assets with built-in auditing and monitoring.
 
-Build your apps on the latest application platform with an updated App Service Resource Provider:
+Build your apps on the latest platform with an updated App Service Resource Provider:
    - Now you can enable scale-up and scale-out, source control integration, and deployment slots.
    - API App Service allows you to bring your existing APIs and apply enterprise security, access control, and scale.
    - Mobile Apps service provides API and table storage services - allowing you to build the cross-platform mobile apps.
@@ -31,7 +31,7 @@ Build your apps on the latest application platform with an updated App Service R
 
 ### IaaS
 Get connected with new network features:   
-   - [iDNS](azure-stack-what-is-idns.md) provides internal network name registration and DNS resolution without additional DNS infrastructure required.
+   - [iDNS](azure-stack-what-is-idns.md) provides internal network name registration and DNS resolution without additional DNS infrastructure.
    - [Virtual Network Gateways](azure-stack-virtual-network-gateways.md) provide new VPN connectivity options to other resources, including Azure and other physical locations.
    - User Defined Routes allow you to route network traffic through firewall, security, or other appliances and services.
    - Now you can create network resources from the marketplace.   
@@ -47,7 +47,7 @@ You can now deallocate and capture virtual machines, redeploy virtual machine ex
 
 ## Cloud Administrator
 
-Billing and consumption APIs expose data on how your services are consumed.  These new metrics and APIs allow for integration either with a customer billing system, or chargeback/showback systems for enterprise IT.  Additionally, you can capture plan and offers in Resource Manager templates.
+Billing and consumption APIs expose data on how your services are consumed.  These new metrics and APIs allow for integration either with a customer billing system, or chargeback/showback systems for enterprise IT.  Additionally, you can capture plans and offers in Resource Manager templates.
  
 Introducing Azure Stack Regions, a new logical unit of scale and management within Azure Stack. In this release, you can view resource consumption of fabric controller resources like network, storage, and compute by region.
 
@@ -57,7 +57,7 @@ This release enables you to provide the most efficient allocation of resources, 
 
 New monitoring capabilities available via the portal and APIs allow you to proactively see and manage alerts on your environment.  
 
-System Health Tests functionally test your fabric to ensure services are working as expected.  
+System Health Tests automatically tests your fabric to ensure services are working as expected.  
 
 ## Next steps
 - [Understand Azure Stack POC Architecture](azure-stack-architecture.md)      
