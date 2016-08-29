@@ -27,11 +27,15 @@ Learn how to create Linux-based [Hadoop](http://hadoop.apache.org/) clusters in 
 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-### Prerequisites
+## Prerequisites
 
 Before you begin this tutorial, you must have:
 
 - **Azure subscription**: To create a free one-month trial account, browse to [azure.microsoft.com/free](https://azure.microsoft.com/free).
+
+### Access control requirements
+
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
 
 ## Create cluster
 

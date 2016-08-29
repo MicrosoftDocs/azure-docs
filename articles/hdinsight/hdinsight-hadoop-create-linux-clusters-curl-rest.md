@@ -48,6 +48,10 @@ The Azure REST API allows you to perform management operations on services hoste
     >
     > Once the alias has been removed, you should be able to use the version of cURL that you have installed on your system.
 
+### Access control requirements
+
+[AZURE.INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
+
 ##Create a template
 
 Azure Resource Management templates are JSON documents that describe a __resource group__ and all resources in it (such as HDInsight.) This template based approach allows you to define all the resources that you need for HDInsight in one template, and to manage changes to the group as a whole through __deployments__ that apply changes to the group.
