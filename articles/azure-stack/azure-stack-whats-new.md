@@ -36,7 +36,7 @@ Get connected with new network features:
    - User Defined Routes allow you to route network traffic through firewall, security, or other appliances and services.
    - Now you can create network resources from the marketplace.   
 
-New storage capabilities storage and control access: 
+New capabilities for storage and control access: 
    - [Azure Queues](https://msdn.microsoft.com/library/dd179353.aspx) enable reliable and persistent service messaging
    - [Storage analytics](https://msdn.microsoft.com/en-us/library/azure/hh343270.aspx) capture storage performance data. You can use this data to trace requests, analyze usage trends, and diagnose issues with your storage account.
    - Storage service validation with common tools and SDKs, such as Azure CLI, PowerShell, .NET, Python, and Java SDK 
