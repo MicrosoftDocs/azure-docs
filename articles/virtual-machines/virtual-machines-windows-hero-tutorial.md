@@ -113,7 +113,7 @@ Now that you are logged in to the VM, we will install a server role so that you 
 	![Screenshot showing the Add Roles and Features Wizard tab for Installation Type.](./media/virtual-machines-windows-hero-tutorial/role-wizard.png)
 
 5. Select the VM from the server pool and click **Next**.
-6. On the **Server Roles** page select **Web Server (IIS)**.
+6. On the **Server Roles** page, select **Web Server (IIS)**.
 
 	![Screenshot showing the Add Roles and Features Wizard tab for Server Roles.](./media/virtual-machines-windows-hero-tutorial/add-iis.png)
 
@@ -143,7 +143,7 @@ In order for your VM to accept inbound traffic over port 80, you need to add an 
 
 	![Screenshot showing the Essentials section for the network interface.](./media/virtual-machines-windows-hero-tutorial/select-nsg.png)
 
-5. In Essentials for the NSG, you should have one existing default inbound rule for **default-allow-rdp** whick allows you to log in to the VM. You need to add another inbound rule to allow IIS traffic. Click **Inbound security rule**.
+5. In the **Essentials** blade for the NSG, you should have one existing default inbound rule for **default-allow-rdp** which allows you to log in to the VM. You will add another inbound rule to allow IIS traffic. Click **Inbound security rule**.
 
 	![Screenshot showing the Essentials section for the NSG.](./media/virtual-machines-windows-hero-tutorial/inbound.png)
 
@@ -155,9 +155,9 @@ In order for your VM to accept inbound traffic over port 80, you need to add an 
 
 	![Screenshot showing the button to add a security rule.](./media/virtual-machines-windows-hero-tutorial/port-80.png)
  
-For more information about NSGs, inbound and outbound rules, see [Allow external access to your VM using the Azure Portal](virtual-machines-windows-nsg-quickstart-portal.md)
+For more information about NSGs, inbound and outbound rules, see [Allow external access to your VM using the Azure portal](virtual-machines-windows-nsg-quickstart-portal.md)
  
-## Connect to the deafult IIS website
+## Connect to the default IIS website
 
 1. In the Azure portal, click **Virtual machines** and then select your VM.
 2. In the **Essentials** blade, copy your **Public IP address**.
@@ -165,7 +165,7 @@ For more information about NSGs, inbound and outbound rules, see [Allow external
 	![Screenshot showing where to find the public IP address of your VM.](./media/virtual-machines-windows-hero-tutorial/ipaddress.png)
 
 2. Open a browser and in the address bar, type in your public IP address like this: http://<publicIPaddress> and click **Enter** to go to that address.
-3. You browser should land on the default IIS web page and should look something like this:
+3. You browser should land on the default IIS web page and the page will look something like this:
 
 	![Screenshot showing what the default IIS page looks like in a browser.](./media/virtual-machines-windows-hero-tutorial/iis-default.png)
 
