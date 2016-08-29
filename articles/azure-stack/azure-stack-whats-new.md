@@ -43,7 +43,7 @@ New capabilities for storage and control access:
    - [Storage Account Shared Access Signature](https://msdn.microsoft.com/en-us/library/azure/mt584140.aspx) enable granular delegation of access to your storage services without having to share your full account key.  
    - Storage services now use [Group Managed Service Accounts](https://technet.microsoft.com/en-us/library/hh831477(v=ws.11).aspx#BKMK_group_managed_sa) for strong security with low management overhead
 
-You can now deallocate and capture virtual machines, redeploy virtual machine extensions, and resize virtual machine disks.  Additionally, you can now export Resource Manager templates from portal, allowing you to save time and ensure resource consistency.
+You can now deallocate and capture virtual machines, redeploy virtual machine extensions, and resize virtual machine disks.  Additionally, you can now export Resource Manager templates from portal, allowing you to save time and ensure deployment consistency.
 
 ## Cloud Administrator
 
