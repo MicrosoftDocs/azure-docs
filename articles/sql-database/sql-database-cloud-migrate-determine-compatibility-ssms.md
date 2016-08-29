@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sqldb-migrate"
-   ms.date="06/07/2016"
+   ms.date="08/29/2016"
    ms.author="carlrab"/>
 
 # Use SQL Server Management Studio to Determine SQL Database compatibility before migration to Azure SQL Database
