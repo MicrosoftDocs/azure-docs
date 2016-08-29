@@ -44,7 +44,7 @@ Welcome to the NoSQL tutorial for the Azure DocumentDB .NET SDK! After getting t
     
     ![Screen shot of the console output](./media/documentdb-get-started-quickstart/nosql-tutorial-documentdb-console-output.png)
 
-## Tutorial
+## <a id="tutorial"></a>Tutorial
 
 This tutorial walks you through the creation of a DocumentDB database, a DocumentDB collection, and JSON documents. You'll then query the collection, and clean up and delete the database. This tutorial builds the same project as the QuickStart project, but you'll build it incrementally and will receive explanation about the code you're adding to the project.
 
