@@ -741,6 +741,68 @@ You can use Fabric for iOS to sign users into your application using Twitter. Th
 		}
 	}
 
+## <a name="google-sdk"></a>How to: Authenticate users with the Google Sign-In SDK for iOS
+
+You can use the Google Sign-In SDK for iOS to sign users into your application using a Google account. This is often preferable to using the `loginAsync()` methods, as it provides a more native UX feel and allows for additional customization.
+
+1. Configure your mobile app backend for Google sign-in by following the [How to configure App Service for Google login](app-service-mobile-how-to-configure-google-authentication.md) tutorial.
+
+2. Install the Google SDK for iOS by following the [Google Sign-In for iOS - Start integrating](https://developers.google.com/identity/sign-in/ios/start-integrating) documentation. You may skip the "Authenticate with a Backend Server" section, as App Service will handle this for you.
+
+3. In addition to the code follow, add the following to your delegate's `signIn:didSignInForUser:withError:` method, according to the language you are using.
+
+**Objective-C**:
+
+	    NSDictionary *payload = @{
+	                              @"id_token":user.authentication.idToken,
+	                              @"authorization_code":user.serverAuthCode
+	                              };
+	    
+	    [client loginWithProvider:@"google" token:payload completion:^(MSUser *user, NSError *error) {
+	        // ...
+	    }];
+
+**Swift**:
+
+		let payload: [String: String] = ["id_token": user.authentication.idToken, "authorization_code": user.serverAuthCode]
+		client.loginWithProvider("google", token: payload) { (user, error) in
+			// ...
+		}
+
+4. Make sure you also add the following to `application:didFinishLaunchingWithOptions:` in your app delegate, replacing "SERVER_CLIENT_ID" with the same ID that you used to configure App Service in step 1.
+
+**Objective-C**:
+
+ 		[GIDSignIn sharedInstance].serverClientID = @"SERVER_CLIENT_ID";
+ 
+ 
+ **Swift**:
+ 
+		GIDSignIn.sharedInstance().serverClientID = "SERVER_CLIENT_ID"
+
+ 
+ 5. Add the below code to your application in a UIViewController that implements the `GIDSignInUIDelegate` protocol, according to the language you are using. Note that the user is signed out before being signed in again, and although they won't need to enter their credentials a second time, they will see a consent dialog. This is required to obtain a new server auth code, which is needed in a previous step. Only call this method when the session token has expired.
+ 
+ **Objective-C**:
+
+		#import <Google/SignIn.h>
+		// ...
+		- (void)authenticate
+		{
+			    [GIDSignIn sharedInstance].uiDelegate = self;
+				[[GIDSignIn sharedInstance] signOut];
+			    [[GIDSignIn sharedInstance] signIn];
+ 		}
+ 
+ **Swift**:
+ 	
+		// ...
+		func authenticate() {
+			GIDSignIn.sharedInstance().uiDelegate = self
+			GIDSignIn.sharedInstance().signOut()
+			GIDSignIn.sharedInstance().signIn()
+		}
+ 		
 <!-- Anchors. -->
 
 [What is Mobile Services]: #what-is

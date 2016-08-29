@@ -140,10 +140,16 @@ Use the following resources if you want to use the client-directed flow for Azur
 - [Use the Active Directory Authentication Library for Windows and Xamarin][ADAL-dotnet]
 
 Use the following resources if you want to use the client-directed flow for Facebook:
+
 - [Use the Facebook SDK for iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#facebook-sdk)
 
 Use the following resources if you want to use the client-directed flow for Twitter:
+
 - [Use Twitter Fabric for iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#twitter-fabric)
+
+Use the following resources if you want to use the client-directed flow for Google:
+
+- [Use the Google Sign-In SDK for iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#google-sdk)
 
 ### API applications
 The following tutorials show how to protect your API apps:
