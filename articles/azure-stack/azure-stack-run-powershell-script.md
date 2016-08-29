@@ -110,58 +110,25 @@ If your environment DOES NOT have DHCP enabled, you will need to include the fol
 
 ### DeployAzureStack.ps1 optional parameters
 
-**AADCredential** (PSCredential) - Sets the Azure Active Directory user name and password. If this parameter is not provided, the script prompts for the user name and password.
-
-**AADTenant** (string) - Sets the tenant directory. Use this parameter to specify a specific directory when the AAD account has permissions to manage multiple directories. If this parameter is not provided, the script prompts for the directory.
-
-**AdminPassword** (SecureString) - Sets the default admin password. If this parameter is not provided, the script prompts for the password.
-
-**Force** (Switch) - Sets the cmdlet to run without confirmations.
-
-**NATVMStaticGateway** (String) - Sets the default gateway used in the static IP address for the NATVM. Only use this parameter if the DHCP can’t assign a valid IP address to access the Internet. If this parameter is used, then you must also use the NATVMStaticIP parameter.
-For example, `.\DeployAzureStack.ps1 –Verbose -NATVMStaticIP 10.10.10.10/24 – NATVMStaticGateway 10.10.10.1`
-
-**NATVMStaticIP** (string) - Sets an additional static IP address for the NATVM. Only use this parameter if the DHCP can’t assign a valid IP address to access the Internet.
-For example, `.\DeployAzureStack.ps1 –Verbose -NATVMStaticIP 10.10.10.10/24`
-
-**NoAutoReboot** (Switch) - Sets the script to run without automatic reboots.
-
-**ProxyServer** (String) - Sets the proxy information. Only use this parameter if your environment must use a proxy to access the Internet. Proxy servers that require credentials are not supported.
-For example, `.\DeployAzureStack.ps1 -Verbose -ProxyServer 172.11.1.1:8080`
-
-**PublicVLan** (String) - Sets the VLAN ID. Only use this parameter if the host and NATVM must configure VLAN ID to access the physical network (and Internet).
-For example, `.\DeployAzureStack.ps1 –Verbose –PublicVLan 305`
-
-**TIPServiceAdminCredential** (PSCredential) - Sets the credentials of an existing service administrator Azure Active Directory account. This account is used by TiP (Test in Production). If this parameter is not provided, an account is automatically created.
-
-**TIPTenantAdminCredential** (PSCredential) - Sets the credentials of an existing tenant administrator Azure Active Directory account. This account is used by TiP (Test in Production). If this parameter is not provided, an account is automatically created.
-
-**UseAADChina**(Boolean) - Set this Boolean parameter to $true if you want to deploy the Microsoft Azure Stack POC with Azure China (Mooncake).
-
-## Turn off automated TiP tests (optional)
-
-Microsoft Azure Stack Technical Preview 1 includes a set of validation tests used during the deployment process and on a recurring daily schedule. They simulate actions taken by an Azure Stack tenant, and Test-in-POC (TiP) user accounts are created in your Azure Active Directory in order to run the tests. After a successful deployment, you can turn off these TiP tests. 
-
-**To turn off TiP automated tests**
-
-  - On the ClientVM, run the following cmdlet:
-
-  `Disable-ScheduledTask -TaskName AzureStackSystemvalidationTask`
-
-**To view the test results**
-
-  - On the ClientVM, run the following cmdlet:
-
-  `Get-AzureStackTiPTestsResult`
-
-
+| Parameter | Required/Optional | Description |
+| --------- | ----------------- | ----------- |
+| AADAdminCredential | Optional | Sets the Azure Active Directory user name and password. These Azure credentials can be either an Org ID or a Microsoft Account. To use Microsoft Account credentials, do not include this parameter in the cmdlet, thus prompting the Azure Authentication popup during deployment (this will create the authentication and refresh tokens used during deployment). |
+| AADDirectoryTenantName | Optional | Sets the tenant directory. Use this parameter to specify a specific directory where the AAD account has permissions to manage multiple directories. Full Name of an AAD Directory Tenant in the format of <directoryName>.onmicrosoft.com. |
+| AdminPassword | Required | Sets the local administrator account and all other user accounts on all the virtual machines that will be created as part of POC deployment. This must match the current local administrator password on the host. |
+| AzureEnvironment | Optional | Select the Azure Environment with which you want to register this Azure Stack deployment. Options include *Public Azure*, *Azure - China*, *Azure - US Government*. |
+| EnvironmentDNS | Optional | A DNS server is created as part of the Azure Stack deployment. To allow computers inside of the solution to resolve names outside of the stamp, provide your existing infrastructure DNS server. The in-stamp DNS server will forward unknown name resolution requests to this server. |
+| NatIPv4Address | Required for DHCP NAT support | Sets a static IP address for the NAT VM. Only use this parameter if the DHCP can’t assign a valid IP address to access the Internet. |
+| NatIPv4DefaultGateway | Required for DHCP NAT support | Sets the default gateway used with the static IP address for the NAT VM. Only use this parameter if the DHCP can’t assign a valid IP address to access the Internet.  |
+| NatIPv4Subnet | Required for DHCP NAT support | IP Subnet prefix used for DHCP over NAT support. Only use this parameter if the DHCP can’t assign a valid IP address to access the Internet.  |
+| NatSubnetPrefix | Required for DHCP NAT support | IP Subnet prefix to be used for DHCP over NAT support. Only use this parameter if the DHCP can’t assign a valid IP address to access the Internet. |
+| PublicVLan | Optional | Sets the VLAN ID. Only use this parameter if the host and NATVM must configure VLAN ID to access the physical network (and Internet).
+For example, `.\InstallAzureStackPOC.ps1 –Verbose –PublicVLan 305` |
+| Rerun | Optional | Use this flag to re-run deployment.  All previous input will be used. Re-entering data previously provided is not supported because several unique values are generated and used for deployment. |
+| TimeServer | Optional | Use this parameter if you need to specify a specific time server. |
 
 ## Turn off telemetry for Microsoft Azure Stack POC (optional)
 
-
 Before deploying Microsoft Azure Stack POC, you can turn off telemetry for Microsoft Azure Stack on the machine from which the deployment is performed. To turn off this feature on a single machine, please refer to: [http://windows.microsoft.com/en-us/windows-10/feedback-diagnostics-privacy-faq](http://windows.microsoft.com/en-us/windows-10/feedback-diagnostics-privacy-faq), and change the **Diagnostic and usage data** setting to **Basic**.
-
-
 
 After deploying Microsoft Azure Stack POC, you can turn off telemetry on all the virtual machines that joined the Azure Stack domain. To create a group policy and manage your telemetry settings on those virtual machines, please refer to: [https://technet.microsoft.com/library/mt577208(v=vs.85).aspx\#BKMK\_UTC](https://technet.microsoft.com/library/mt577208%28v=vs.85%29.aspx#BKMK_UTC), and select **0** or **1** for the **Allow Telemetry** group policy. There are two virtual machines (bgpvm and natvm) not joining the Azure Stack domain. To change the Feedback and Diagnostics settings on these virtual machines separately, please refer to:  [http://windows.microsoft.com/en-us/windows-10/feedback-diagnostics-privacy-faq](http://windows.microsoft.com/en-us/windows-10/feedback-diagnostics-privacy-faq).
 
