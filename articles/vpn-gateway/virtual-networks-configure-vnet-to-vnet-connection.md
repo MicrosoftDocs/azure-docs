@@ -212,7 +212,12 @@ When all the previous steps have been completed, set the IPsec/IKE pre-shared ke
 
 		Add-AzureAccount
 
-2. Create the connections. In the examples, notice that the shared key is exactly the same. The shared key must always match.
+2. Select the subscription that your VNets reside in.
+
+		Get-AzureSubscription | Sort SubscriptionName | Select SubscriptionName
+		Select-AzureSubscription -SubscriptionName "<Subscription Name>"
+
+3. Create the connections. In the examples, notice that the shared key is exactly the same. The shared key must always match.
 
 
 	VNet1 to VNet2 connection
@@ -223,7 +228,7 @@ When all the previous steps have been completed, set the IPsec/IKE pre-shared ke
 
 		Set-AzureVNetGatewayKey -VNetName VNet2 -LocalNetworkSiteName VNet1Local -SharedKey A1b2C3D4
 
-3. Wait for the connections to initialize. Once the gateway has initialized, the gateway looks like the following graphic.
+4. Wait for the connections to initialize. Once the gateway has initialized, the gateway looks like the following graphic.
 
 	![Gateway Status - Connected](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736059.jpg)  
 

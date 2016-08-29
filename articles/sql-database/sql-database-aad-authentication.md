@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/17/2016"
+   ms.date="08/24/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication
@@ -85,7 +85,8 @@ Microsoft accounts (for example outlook.com, hotmail.com, live.com) or other gue
 - Only an Azure Active Directory administrator for SQL Server can initially connect to the Azure SQL Server or Azure SQL Data Warehouse using an Azure Active Directory account. The Active Directory administrator can configure subsequent Azure Active Directory database users.
 - We recommend setting the connection timeout to 30 seconds.
 - SQL Server 2016 Management Studio and SQL Server Data Tools for Visual Studio 2015 (version 14.0.60311.1April 2016 or later) support Azure Active Directory authentication. (Azure Active Directory authentication is supported by the **.NET Framework Data Provider for SqlServer**; at least version .NET Framework 4.6). Therefore the newest versions of these tools and data-tier applications (DAC and .bacpac) can use Azure Active Directory authentication.
-- [ODBC version 13.1](https://www.microsoft.com/download/details.aspx?id=53339) supports Azure Active Directory authentication however `sqlcmd.exe` and `bcp.exe` cannot connect using Azure Active Directory authentication because they use an older ODBC provider.
+- [ODBC version 13.1](https://www.microsoft.com/download/details.aspx?id=53339) supports Azure Active Directory authentication however `bcp.exe` cannot connect using Azure Active Directory authentication because it uses an older ODBC provider.
+- `sqlcmd` supports Azure Active Directory authentication beginning with version 13.1 available from the [Download Center](http://go.microsoft.com/fwlink/?LinkID=825643).  
 - SQL Server Data Tools for Visual Studio 2015 requires at least the April 2016 version of the Data Tools (version 14.0.60311.1). Currently Azure Active Directory users are not shown in SSDT Object Explorer. As a workaround, view the users in [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).
 - [Microsoft JDBC Driver 6.0 for SQL Server](https://www.microsoft.com/en-us/download/details.aspx?id=11774) supports Azure Active Directory authentication. Also, see [Setting the Connection Properties](https://msdn.microsoft.com/library/ms378988.aspx).
 - PolyBase cannot authenticate by using Azure Active Directory authentication.
@@ -353,6 +354,14 @@ conn.Open();
 ```
 
 For more information, see [SQL Server Security Blog](https://blogs.msdn.microsoft.com/sqlsecurity/2016/02/09/token-based-authentication-support-for-azure-sql-db-using-azure-ad-auth/).
+
+### Connecting with sqlcmd  
+The following statements, connect using version 13.1 of sqlcmd, which is available from the [Download Center](http://go.microsoft.com/fwlink/?LinkID=825643).
+
+```
+sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net  -G  
+sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyAADPassword -G -l 30
+```
 
 ## See also
 

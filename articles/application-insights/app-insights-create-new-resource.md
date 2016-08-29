@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Create a new Application Insights resource" 
+	pageTitle="Create a new Application Insights resource | Microsoft Azure" 
 	description="Set up Application Insights monitoring for a new live application. Web-based approach." 
 	services="application-insights" 
     documentationCenter=""
@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="08/26/2016" 
 	ms.author="awills"/>
 
-# Create a new Application Insights resource
+# Create an Application Insights resource
 
 Visual Studio Application Insights displays data about your application in a Microsoft Azure *resource*. Creating a new resource is therefore part of [setting up Application Insights to monitor a new application][start]. In many cases, this can be done automatically by the IDE, and that's the recommended way where it's available. But in some cases, you create a resource manually.
 
@@ -40,7 +40,7 @@ In the [portal.azure.com](https://portal.azure.com), add an Application Insights
 ![Click New, Application Insights](./media/app-insights-create-new-resource/01-new.png)
 
 
-* **Application type** affects what you see on the overview blade and the properties available in [metric explorer][metrics]. If you don't see your type of app, choose one of the web types for web pages, and one of the phone types for other devices.
+* **Application type** affects what you see on the overview blade and the properties available in [metric explorer][metrics]. If you don't see your type of app, choose ASP.NET.
 * **Resource group** is a convenience for managing properties like access control. If you have already created other Azure resources, you can choose to put this new resource in the same group.
 * **Subscription** is your payment account in Azure.
 * **Location** is where we keep your data. Currently it can't be changed.
@@ -78,7 +78,12 @@ Click Refresh after a few seconds if you're expecting more data.
 
 You can write a [PowerShell script](app-insights-powershell-script-create-resource.md) to create a resource automatically.
 
+## Next steps
 
+* [Create a dashboard](app-insights-dashboards.md)
+* [Diagnostic Search](app-insights-diagnostic-search.md)
+* [Explore metrics](app-insights-metrics-explorer.md)
+* [Write Analytics queries](app-insights-analytics.md)
 
 
 <!--Link references-->

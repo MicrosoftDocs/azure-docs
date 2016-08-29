@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/01/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # Define lab policies
@@ -132,6 +132,8 @@ The auto-start policy allows you to specify when the VMs in the current lab shou
 1. Select **Save**.
 
 1. Once enabled, this policy is not automatically applied to any VMs in the current lab. To apply this setting to a specific VM, open the VM's blade and change its **Auto Start** setting 
+
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## Next steps
 

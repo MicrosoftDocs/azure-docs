@@ -76,7 +76,7 @@ If the destination didn’t apply to any of the Null prefixes or the VNETLocal p
 
 If there are two identical prefixes in the route table, the following is the order of preference based on the routes “source” attribute:
 
-1.	<blank> = A User Defined Route manually added to the table
+1.	"VirtualAppliance" = A User Defined Route manually added to the table
 2.	“VPNGateway” = A Dynamic Route (BGP when used with hybrid networks), added by a dynamic network protocol, these routes may change over time as the dynamic protocol automatically reflects changes in peered network
 3.	“Default” = The System Routes, the local VNet and the static entries as shown in the route table above.
 
