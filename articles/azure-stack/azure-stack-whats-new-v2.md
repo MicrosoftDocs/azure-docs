@@ -24,9 +24,9 @@
 Keep your secrets safe with [Key Vault](azure-stack-intro-key-vault.md), which provides secure management of your key and password assets with built-in auditing and monitoring.
 
 Build your apps on the latest application platform with an updated App Service Resource Provider (RP) and administration capabilities for new PaaS services:
-   - New RP features enable scale-up and scale-out, source control integration, and deployment slots empowering you to develop for the cloud in your datacenter.
+   - New RP features enable scale-up and scale-out, source control integration, and deployment slots empowering you to develop on the cloud in your datacenter.
    - API App Service allows you to bring your existing APIs and apply enterprise security, access control, and scale.
-   - Mobile Apps service provides API and table storage services for cross-platform mobile apps.
+   - Mobile Apps service provides API and table storage services - allowing you to build the cross-platform mobile apps.
    - Web App updates enable new features such as WebJobs and PHP 7 support.
 
 ### IaaS
@@ -34,7 +34,7 @@ Get connected with new network features, enabling connection to other resources 
    - [iDNS](azure-stack-what-is-idns.md) provides internal network name registration and DNS resolution without additional DNS infrastructure required.
    - [Virtual Network Gateways](azure-stack-virtual-network-gateways.md) provide new VPN connectivity options to other resources, including Azure and other physical locations.
    - User Defined Routes allow you to route network traffic through firewall, security, or other appliances and services.
-   - Create network resources from the marketplace   
+   - Now you can create network resources from the marketplace.   
 
 Storage is a key capability of IaaS resources, and storage on Azure Stack continues to evolve. 
    - [Azure Queues](https://msdn.microsoft.com/library/dd179353.aspx) enable reliable, persistent messaging within and between services.  
@@ -51,7 +51,7 @@ Billing and consumption APIs enable integration with your billing and other trac
 
 You can now capture plan and offer details in Resource Manager templates for redeployment, enabling consistent tenant onboarding.
  
-This release introduces Azure Stack regions in preview.  Azure Stack Regions allow organizations to logically define resources by location, and view consumption details by location.  In this release, you can view resource consumption of network, storage, and compute by region.
+Introducing Azure Stack Regions - regions are the logical scaling and management element of Azure Stack. In this release, you can view resource consumption of network, storage, and compute by region.
 
 Delegated Providers enable downstream resellers to offer your Azure Stack services to their tenants.
 
