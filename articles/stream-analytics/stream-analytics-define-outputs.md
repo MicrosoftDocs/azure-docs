@@ -19,13 +19,23 @@
 
 # Target Stream Analytics data transformation outputs to analysis tools and data storage options
 
-When authoring a Stream Analytics job, consider how the data transformation output will be consumed. How will you view the results of the Stream Analytics job? What tools you use to show data analysis results? Is a data storage option a requirement?
+When authoring a Stream Analytics job, consider how the resulting data will be consumed. How will you view the results of the Stream Analytics job and where will you store it?
 
 In order to enable a variety of application patterns, Azure Stream Analytics has different options for storing output and viewing analysis results. This makes it easy to view job output and gives you flexibility in the consumption and storage of the job output for data warehousing and other purposes. Any output configured in the job must exist before the job is started and events start flowing. For example, if you use Blob storage as an output, the job will not create a storage account automatically. It needs to be created by the user before the ASA job is started.
 
 ## Azure Data Lake Store
 
 Stream Analytics supports [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). This storage enables you to store data of any size, type and ingestion speed for operational and exploratory analytics. At this time, creation and configuration of Data Lake Store outputs is supported only in the Azure Classic Portal. Further, Stream Analytics needs to be authorized to access the Data Lake Store. Details on authorization and how to sign up for the Data Lake Store Preview (if needed) are discussed in the [Data Lake output article](stream-analytics-data-lake-output.md).
+
+### Authorize an Azure Data Lake Store
+
+When Data Lake Storage is selected as an output in the Azure Management portal, you will be prompted to authorize a connection to an existing Data Lake Store.  
+
+    ![Authorize Data Lake Store](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
+
+Then fill out the properties for the Data Lake Store output as seen below:
+
+    ![Authorize Data Lake Store](./media/stream-analytics-define-outputs/07-stream-analytics-define-outputs.png)  
 
 The table below lists the property names and their description needed for creating a Data Lake Store output.
 
@@ -40,8 +50,8 @@ The table below lists the property names and their description needed for creati
 <td>This is a friendly name used in queries to direct the query output to this Data Lake Store.</td>
 </tr>
 <tr>
-<td>Data Lake Store Account</td>
-<td>The name of the storage account where you are sending your output. You will be presented with a drop down list of Data Lake Store accounts to which the user logged in to the portal has access to.</td>
+<td>Account Name</td>
+<td>The name of the Data Lake Storage account where you are sending your output. You will be presented with a drop down list of Data Lake Store accounts to which the user logged in to the portal has access to.</td>
 </tr>
 <tr>
 <td>Path Prefix Pattern [<I>optional</I>]</td>
@@ -73,6 +83,13 @@ The table below lists the property names and their description needed for creati
 </tr>
 </tbody>
 </table>
+
+### Renew Power BI Authorization
+
+You will need to re-authenticate your Data Lake Store account if its password has changed since your job was created or last authenticated.
+
+    ![Authorize Data Lake Store](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
+
 
 ## SQL Database
 
