@@ -60,7 +60,7 @@ As part of the VPN Gateway configuration for Point-to-Site connections, the publ
 
 You may want to export the self-signed certificate and store it safely. If need be, you can later install it on another computer and generate more client certificates, or export another .cer file. Any computer with a client certificate installed and that is also configured with the proper VPN client settings can connect to your virtual network via P2S. For that reason, you want to make sure that client certificates are generated and installed only when needed and that the self-signed certificate is stored safely.
 
-To export the self-signed certificate as a .pfx, use the preceding steps [to obtain the public key](#certpublickey), and select "Yes, export the private key". This will result in a .pfx file.
+To export the self-signed certificate as a .pfx, use the preceding steps [to obtain the public key](#certpublickey), and select "Yes, export the private key". This results in a .pfx file.
 
 ## Create and install client certificates
 
