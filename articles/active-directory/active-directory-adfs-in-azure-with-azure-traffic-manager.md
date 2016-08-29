@@ -108,5 +108,5 @@ and on successful sign-in, it will provide you with a success message as shown b
 ##References
 * [Microsoft Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)
 * [Traffic Manager traffic routing methods](../traffic-manager/traffic-manager-routing-methods.md) 
-* [Manage an Azure Traffic Manager profile](../traffic-manager/traffic-manager-profiles.md)
+* [Manage an Azure Traffic Manager profile](../traffic-manager/traffic-manager-manage-profiles.md)
 * [Add, disable, enable or delete endpoints](../traffic-manager/traffic-manager-endpoints.md) 
