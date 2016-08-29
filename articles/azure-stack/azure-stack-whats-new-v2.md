@@ -51,7 +51,7 @@ Billing and consumption APIs enable integration with your billing and other trac
 
 You can now capture plan and offer details in Resource Manager templates for redeployment, enabling consistent tenant onboarding.
  
-This release introduces Azure Stack regions in preview.  Azure Stack Regions allow organizations to logically define resources by location, and view consumption details by location.  In this release you can view resource consumption of network, storage, and compute by region.
+This release introduces Azure Stack regions in preview.  Azure Stack Regions allow organizations to logically define resources by location, and view consumption details by location.  In this release, you can view resource consumption of network, storage, and compute by region.
 
 Delegated Providers enable downstream resellers to offer your Azure Stack services to their tenants.
 
