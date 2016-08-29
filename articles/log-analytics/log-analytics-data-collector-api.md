@@ -1,6 +1,6 @@
 <properties
-	pageTitle="OMS HTTP Data Collector API | Microsoft Azure"
-	description="The OMS HTTP Data Collector API allows you to add post JSON data to the OMS repository from any client able to call the REST API.  This article desribes the use of the API and provides examples of publishing data using different languages."
+	pageTitle="Log Analytics HTTP Data Collector API | Microsoft Azure"
+	description="The Log Analytics HTTP Data Collector API allows you to add post JSON data to the Log Analytics repository from any client able to call the REST API.  This article desribes the use of the API and provides examples of publishing data using different languages."
 	services="log-analytics"
 	documentationCenter=""
 	authors="bwren"
@@ -17,26 +17,26 @@
 	ms.author="bwren"/>
 
 
-# OMS HTTP Data Collector API
+# Log Analytics HTTP Data Collector API
 
-The OMS HTTP Data Collector API, allows you to add post JSON data to the OMS repository from any client able to call the REST API.  This allows you to send data from third party applications or from scripts such as a runbook in Azure Automation.  
+The Log Analytics HTTP Data Collector API, allows you to add post JSON data to the Log Analytics repository from any client able to call the REST API.  This allows you to send data from third party applications or from scripts such as a runbook in Azure Automation.  
 
 ## Creating a request
 
-The following tables list the required attributes of each request to the OMS HTTP Data Collector API.  Each attribute is described in further detail in the sections that follow.
+The following tables list the required attributes of each request to the Log Analytics HTTP Data Collector API.  Each attribute is described in further detail in the sections that follow.
 
 ### Request URI
 
 | Attribute | Property |
 |:--|:--|
 | Method | Post |
-| URI | https://<CustomerID>.ods.opinsights.azure.com/<Resource>?api-version=2016-04-01 |
+| URI | https://<WorkspaceID>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
 | Content type | application/json |
 
 ### Request URI Parameters
 | Parameter | Description |
 |:--|:--|
-| CustomerID  | Unique identifier for the Operational Insights workspace |
+| CustomerID  | Unique identifier for the OMS workspace |
 | Resource    | API resource name. /api/logs |
 | API Version | Version of the API to be used with this request. Currently 2016-04-01 |
 
@@ -51,7 +51,7 @@ The following tables list the required attributes of each request to the OMS HTT
 
 ## Authorization
 
-Any request to the OMS HTTP Data Collector API must include an Authorization header. To authenticate a request, you must sign the request with either the primary or secondary key for the workspace that is making the request and pass that signature as part of the request.   
+Any request to the Log Analytics HTTP Data Collector API must include an Authorization header. To authenticate a request, you must sign the request with either the primary or secondary key for the workspace that is making the request and pass that signature as part of the request.   
 
 The format for the Authorization header is as follows:
 
@@ -117,7 +117,7 @@ You can batch together multiple records in a single request using the following 
 
 ## Record Type and properties
 
-You define a custom record type when you submit data through the OMS HTTP Data Collector API.  You cannot currently write data to existing record types created by other data types and solutions.  Log Analytics will read the incoming data and create properties matching the data types of the values that you provide.
+You define a custom record type when you submit data through the Log Analytics HTTP Data Collector API.  You cannot currently write data to existing record types created by other data types and solutions.  Log Analytics will read the incoming data and create properties matching the data types of the values that you provide.
 
 Each request to the Log Analytics API must include a **Log-Type** header with the name for the record type.  The suffix **_CL** will automatically be appended to this name you provide to distinguish it as a custom log.  For example, if you provide the name **MyNewRecordType**, Log Analytics will create a record with the type **MyNewRecordType_CL**.  This is to ensure that there are no conflicts between user created type names and those shipped in existing or future Microsoft solutions.
   
@@ -170,7 +170,6 @@ The following table lists the complete set of status codes that may be returned 
 | 400 | Bad request | MissingApiVersion | The API version wasn’t specified. |
 | 400 | Bad request | MissingContentType | The content type wasn’t specified. |
 | 400 | Bad request | MissingLogType | The required value log type wasn’t specified. |
-| 400 | Bad request | UnsupportedContentEncoding | Message wasn’t encoded. |
 | 400 | Bad request | UnsupportedContentType | Content type was not set to application/json. |
 | 403 | Forbidden | InvalidAuthorization | The service failed to authenticate the request. Verify that the workspace ID and connection key used are valid. | 
 | 500 | Internal Server Error | UnspecifiedError | The service encountered an internal error. Please retry the request. |
@@ -178,12 +177,12 @@ The following table lists the complete set of status codes that may be returned 
 
 ## Querying data
 
-To query data submitted by the OMS HTTP Data Collector API, search for records with **Type** equal to the **LogType** value you specified with **_CL** appeneded.  For example, if you used **MyCustomLog**, then you could return all records with **Type=MyCustomLog_CL**.
+To query data submitted by the Log Analytics HTTP Data Collector API, search for records with **Type** equal to the **LogType** value you specified with **_CL** appeneded.  For example, if you used **MyCustomLog**, then you could return all records with **Type=MyCustomLog_CL**.
 
 
 ## Sample requests
 
-The following sections provide samples of submitting data to the OMS HTTP Data Collector API using different languages.
+The following sections provide samples of submitting data to the Log Analytics HTTP Data Collector API using different languages.
 
 For each sample, you must perform the following steps the set the variables for the authorization header.
 
@@ -292,13 +291,13 @@ namespace OIAPIExample
 //Example JSON object with key value pairs
         static string json = @"[{""DemoField1"":""DemoValue1"",""DemoField2"":""DemoValue2""},{""DemoField1"":""DemoValue3"",""DemoField2"":""DemoValue4""}]";
 
-//#Update customerId to your Operational Insights workspace ID
+//#Update customerId to your OMS workspace ID
         static string customerId = "xxxxxxxx-xxx-xxx-xxx-xxxxxxxxxxxx";
 
 //For shared key use either primary or secondary Connected Sources client authentication key   
         static string sharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
         
-//LogName is name of the event type that is being submitted to Operational Insights
+//LogName is name of the event type that is being submitted to Log Analytics
         static string LogName = "DemoExample";
 
 //Optional field used to specify time stamp fromt he data. If time field not specified, assumes message ingestion time
@@ -356,7 +355,7 @@ import hashlib
 import hmac
 import base64
 
-#Update customer Id to your Operational Insights workspace ID
+#Update customer Id to your OMS workspace ID
 customer_id = 'xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 
 #For shared key use either the primary or secondary Connected Sources client authentication key   
