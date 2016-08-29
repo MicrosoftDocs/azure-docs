@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Connect sync: Generic SQL Connector | Microsoft Azure"
+   pageTitle="Generic SQL Connector | Microsoft Azure"
    description="This article describes how to configure Microsoft's Generic SQL Connector."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="05/24/2016"
+   ms.date="08/29/2016"
    ms.author="andkjell"/>
 
 # Generic SQL Connector technical reference

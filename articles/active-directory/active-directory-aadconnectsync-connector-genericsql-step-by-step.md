@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure AD Connect sync: Generic SQL Connector step-by step | Microsoft Azure"
+   pageTitle="Generic SQL Connector step-by step | Microsoft Azure"
    description="This article is walking you through a simple HR system step-by-step using the Generic SQL Connector."
    services="active-directory"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="05/24/2016"
+   ms.date="08/29/2016"
    ms.author="andkjell"/>
 
 # Generic SQL Connector step-by-step
