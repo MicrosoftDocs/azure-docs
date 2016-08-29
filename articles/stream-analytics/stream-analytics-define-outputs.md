@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Data transformation outputs: Options for storage, analysis | Microsoft Azure"
-	description="Learn about targeting Stream Analytics data transformation outputs to data storage options. Also, use Power BI for analysis results."
+	pageTitle="Stream Analytics outputs: Options for storage, analysis | Microsoft Azure"
+	description="Learn about targeting Stream Analytics data outputs options including Power BI for analysis results."
 	keywords="data transformation, analysis results, data storage options"
 	services="stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage"
 	documentationCenter="" 
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="07/27/2016"
+	ms.date="08/29/2016"
 	ms.author="jeffstok"/>
 
 # Target Stream Analytics data transformation outputs to analysis tools and data storage options
@@ -190,9 +190,9 @@ Once you have the Power BI account authenticated, you can configure the properti
 | Property Name | Description |
 |---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Output Alias | This is a friendly name used in queries to direct the query output to this PowerBI output. |
+| Group Workspace | To enable sharing data with other Power BI users you can select groups inside your Power BI account or choose “My Workspace” if you do not want to write to a group.  Updating an existing group requires renewing the Power BI authentication. | 
 | Dataset Name | Provide a dataset name that it is desired for the Power BI output to use |
 | Table Name | Provide a table name under the dataset of the Power BI output. Currently, Power BI output from Stream Analytics jobs can only have one table in a dataset |
-| Group Name | To enabling sharing data with other Power BI users, write data to groups.  You can select groups inside your Power BI account or choose “My Workspace” if you do not want to write to a group.  Updating an existing group requires renewing the Power BI authentication. |
 
 For a walk-through of configuring a Power BI output and dashboard, please see the [Azure Stream Analytics & Power BI](stream-analytics-power-bi-dashboard.md) article.
 
