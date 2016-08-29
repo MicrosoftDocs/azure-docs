@@ -30,8 +30,8 @@ It will also show you how to set breakpoints for debugging.
 The following tools need to be installed.
 
 - [Visual Studio 2015 Update 2](https://go.microsoft.com/fwlink/?LinkId=691978)
-- [Microsoft ASP .NET Core RC 2](http://go.microsoft.com/fwlink/?LinkId=798481)
-- [Visual Studio 2015 Tools for Docker](https://aka.ms/DockerToolsForVS)
+- Install [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129)
+- [Microsoft ASP.NET Core 1.0 SDK](https://go.microsoft.com/fwlink/?LinkID=809122)
 
 To run Docker containers locally, you'll need a local docker client.
 You can use the released [Docker Toolbox](https://www.docker.com/products/overview#/docker_toolbox) which requires Hyper-V to be disabled,
