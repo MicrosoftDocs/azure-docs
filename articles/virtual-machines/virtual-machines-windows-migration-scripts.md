@@ -19,7 +19,7 @@
 
 # Community tools for Azure Service Managerment to Azure Resource Manager migration
 
-This article catalogues the tools that have been provided by the community to assist with migration of IaaS resources from Azure Service Management to the Azure Resource Manager stack.
+This article catalogs the tools that have been provided by the community to assist with migration of IaaS resources from Azure Service Management to the Azure Resource Manager stack.
 
 >[AZURE.NOTE]These tools are not officially supported by Microsoft Support. Therefore they are open sourced on Github and we're happy to accept PRs for fixes or additional scenarios. To report an issue please use the Github issues feature.
 
