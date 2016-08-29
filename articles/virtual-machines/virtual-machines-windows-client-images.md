@@ -28,7 +28,7 @@ For your convenience, we have made certain Windows 10 images available from the 
 
 
 ## Eligible offers
-The following table details the particular offer IDs that are eligible to deploy Windows 10 through the Azure Gallery. The Windows 10 image is only visible to the following offers. All other Visual Studio subscriptions require you to [adequately prepare and create](virtual-machines-windows-prepare-for-upload-vhd-image.md) a Windows 10 image and [then upload to Azure](virtual-machines-windows-upload-image.md).
+The following table details the offer IDs that are eligible to deploy Windows 10 through the Azure Gallery. The Windows 10 images are only visible to the following offers. All other Visual Studio subscriptions require you to [adequately prepare and create](virtual-machines-windows-prepare-for-upload-vhd-image.md) a Windows 10 image and [then upload to Azure](virtual-machines-windows-upload-image.md).
 
 | Offer Name | Offer Number | Available client images |
 |:-----------|:------------:|:-----------------------:|
