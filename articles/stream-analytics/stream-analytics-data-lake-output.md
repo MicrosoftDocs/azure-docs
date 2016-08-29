@@ -23,8 +23,6 @@
 
 Stream Analytics jobs support several output methods, one being an [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/). Azure Data Lake Store is an enterprise-wide hyper-scale repository for big data analytic workloads. Data Lake Store enables you to store data of any size, type and ingestion speed for operational and exploratory analytics. This article covers authorization, configuration and authorization renewal of an Azure Data Lake Store in the Stream Analytics Azure Classic Portal.
 
-> [AZURE.NOTE] At this time, creation and configuration of Data Lake Store outputs is supported **only** in the Azure Classic Portal.
-
 ## Authorize a Data Lake Store account
 
 1.  When Data Lake Store is selected as an output in the Azure Management portal, you will be prompted to authorize the usage of your existing Data Lake Store or to request access to the Data Lake Store Preview via the Azure Classic Portal.
