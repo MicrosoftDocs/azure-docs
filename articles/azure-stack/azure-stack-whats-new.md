@@ -57,7 +57,7 @@ This release enables you to provide the most efficient allocation of resources, 
 
 New monitoring capabilities available via the portal and APIs allow you to proactively see and manage alerts on your environment.  
 
-System Health Tests automatically tests your fabric to ensure services are working as expected.  
+System Health Tests automatically test your fabric to ensure services are working as expected.  
 
 ## Next steps
 - [Understand Azure Stack POC Architecture](azure-stack-architecture.md)      
