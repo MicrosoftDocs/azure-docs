@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="04/25/2016"
+	ms.date="08/29/2016"
 	ms.author="mahender"/>
 
 # Authentication and authorization in Azure App Service
