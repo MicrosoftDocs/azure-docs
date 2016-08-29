@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/22/2016"
+	ms.date="08/26/2016"
 	ms.author="andkjell"/>
 
 
@@ -41,7 +41,7 @@ At the bottom, you have buttons for acting on a selected sync rule. **Edit** and
 The most common change is changes to the attribute flows. The data in your source directory might not be how you want it in Azure AD. In the example in this section, you want to make sure the given name of a user is always in **Proper case**.
 
 ### Disable the scheduler
-The [scheduler](active-directory-aadconnectsync-feature-scheduler.md) runs every 30 minutes by default. You want to make sure it is not starting while you are making changes and troubleshoot your new rules. To temporarily disable the scheduler, start PowerShell and run `Set-ADSyncScheduler -SyncCycleEnabled $false`
+The [scheduler](active-directory-aadconnectsync-feature-scheduler.md) runs every 30 minutes by default. You want to make sure it is not starting while you are making changes and troubleshoot your new rules. To temporarily disable the scheduler, start PowerShell, and run `Set-ADSyncScheduler -SyncCycleEnabled $false`
 
 ![Disable the scheduler](./media/active-directory-aadconnectsync-change-the-configuration/schedulerdisable.png)  
 
@@ -117,8 +117,26 @@ To create a rule with other attribute flows, do the following:
 This is the result for the same object with this custom rule:  
 ![Attribute flow 4](./media/active-directory-aadconnectsync-change-the-configuration/attributeflowjp4.png)
 
+### Length of attributes
+String attributes are by default set to be indexable and the maximum length is 448 characters. If you are working with string attributes that might contain more, then make sure to include the following in the attribute flow:  
+`attributeName` <- `Left([attributeName],448)`
+
+### Changing the userPrincipalSuffix
+The userPrincipalName attribute in Active Directory is not always known by the users and might not be suitable as the sign-in ID. The Azure AD Connect sync installation wizard allows picking a different attribute, for example mail. But in some cases the attribute must be calculated. For example, the company Contoso has two Azure AD directories, one for production and one for testing. They want the users in their test tenant to use another suffix in the sign-in ID.  
+`userPrincipalName` <- `Word([userPrincipalName],1,"@") & "@contosotest.com"`
+
+In this expression, take everything left of the first @-sign (Word) and concatenate with a fixed string.
+
+### Convert a multi-value to a single-value
+Some attributes in Active Directory are multi-valued in the schema even though they look single valued in Active Directory Users and Computers. An example is the description attribute.  
+`description` <- `IIF(IsNullOrEmpty([description]),NULL,Left(Trim(Item([description],1)),448))`
+
+In this expression in case the attribute has a value, we take the first item (Item) in the attribute, remove leading and trailing spaces (Trim), and then keep the first 448 characters (Left) in the string.
+
 ### Do not flow an attribute
-There are two ways to not flow an attribute. The first is available in the installation wizard and allows you to [remove selected attributes](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering). This option works if you have never synchronized the attribute before. However if you have started to synchronize this attribute and later remove it with this feature, then the sync engine stops managing the attribute and the existing values are left in Azure AD.
+For background on the scenario for this section, see [Control the attribute flow process](active-directory-aadconnectsync-understanding-declarative-provisioning.md#control-the-attribute-flow-process).
+
+There are two ways to not flow an attribute. The first is available in the installation wizard and allows you to [remove selected attributes](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering). This option works if you have never synchronized the attribute before. However, if you have started to synchronize this attribute and later remove it with this feature, then the sync engine stops managing the attribute and the existing values are left in Azure AD.
 
 If you want to remove the value of an attribute and make sure it does not flow in the future, you need create a custom rule instead.
 
@@ -134,6 +152,11 @@ At Fabrikam, we have realized that some of the attributes we synchronize to the 
 ![Staged delete](./media/active-directory-aadconnectsync-change-the-configuration/deletetobeexported.png)
 
 ## Next steps
+
+Learn more about [Declarative Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md) and the options available in the sync rules.
+
+Learn more about [Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) used for the attribute flows.
+
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).

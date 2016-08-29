@@ -81,7 +81,7 @@ Due to the high latency of wide area networks, continuous copy uses an asynchron
 
 ## Programmatically managing Active Geo-Replication
 
-As discussed above, in addiition to the Azure portal, Active Geo-Replication can be managed programmically using Azure PowerShell and the REST API. The tables below describe the set of commands available.
+As discussed above, in addition to the Azure portal, Active Geo-Replication can be managed programmatically using Azure PowerShell and the REST API. The tables below describe the set of commands available.
 
 - **Azure Resource Manager API and role-based security**: Active Geo-Replication includes a set of [Azure Resource Manager (ARM) APIs]( https://msdn.microsoft.com/library/azure/mt163571.aspx) for management, including [ARM-based PowerShell cmdlets](sql-database-geo-replication-powershell.md). These APIs require the use of resource groups and support role based security (RBAC). For more information on how to implement access roles see [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md).
 

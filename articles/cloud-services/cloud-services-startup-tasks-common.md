@@ -175,6 +175,10 @@ Add the following startup task to the [ServiceDefinition.csdef] file.
 
 Add this command to the **startup.cmd** file:
 
+    @echo off
+    @echo Installing "IPv4 Address and Domain Restrictions" feature 
+    powershell -ExecutionPolicy Unrestricted -command "Install-WindowsFeature Web-IP-Security"
+    @echo Unlocking configuration for "IPv4 Address and Domain Restrictions" feature 
     %windir%\system32\inetsrv\AppCmd.exe unlock config -section:system.webServer/security/ipSecurity
 
 This causes the **startup.cmd** batch file to be run every time the web role is initialized, ensuring that the required **ipSecurity** section is unlocked.
