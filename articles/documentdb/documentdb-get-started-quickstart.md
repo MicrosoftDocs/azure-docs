@@ -25,8 +25,8 @@
 
 Welcome to the NoSQL tutorial for the Azure DocumentDB .NET SDK! After getting the QuickStart project or completing the tutorial, you'll have a console application that creates and queries DocumentDB resources.
 
-- **[Quickstart](#quickstart)**: Download the sample project, add your connection information, and have a DocumentDB app running in less than 5 minutes.
-- **[Tutorial](#tutorial)**: Build the QuickStart app from scratch in 30-50 minutes.
+- **[QuickStart](#quickstart)**: Download the sample project, add your connection information, and have a DocumentDB app running in less than 5 minutes.
+- **[Tutorial](#tutorial)**: Build the QuickStart app from scratch in 30 minutes.
 
 ## Prerequisites
 
