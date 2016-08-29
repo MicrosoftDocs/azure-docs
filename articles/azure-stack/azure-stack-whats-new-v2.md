@@ -24,7 +24,7 @@
 Keep your secrets safe with [Key Vault](azure-stack-intro-key-vault.md), which provides secure management of your key and password assets with built-in auditing and monitoring.
 
 Build your apps on the latest application platform with an updated App Service Resource Provider (RP) and new administration capabilities:
-   - New RP features enable scale-up and scale-out, source control integration, and deployment slots empowering you to develop on the cloud in your datacenter.
+   - New RP features enable scale-up and scale-out, source control integration, and deployment slots.
    - API App Service allows you to bring your existing APIs and apply enterprise security, access control, and scale.
    - Mobile Apps service provides API and table storage services - allowing you to build the cross-platform mobile apps.
    - Web App updates enable new features such as WebJobs and PHP 7 support.
@@ -37,8 +37,8 @@ Get connected with new network features, enabling connection to other resources 
    - Now you can create network resources from the marketplace.   
 
 Storage is a key capability of IaaS resources, and storage on Azure Stack continues to evolve. 
-   - [Azure Queues](https://msdn.microsoft.com/library/dd179353.aspx) enable reliable, persistent messaging within and between services.  
-   - [Storage analytics](https://msdn.microsoft.com/en-us/library/azure/hh343270.aspx) performs logging and provides metrics data for a storage account. You can use this data to trace requests, analyze usage trends, and diagnose issues with your storage account.
+   - [Azure Queues](https://msdn.microsoft.com/library/dd179353.aspx) enable reliable and persistent service messaging. 
+   - [Storage analytics](https://msdn.microsoft.com/en-us/library/azure/hh343270.aspx) captures storage performance data and metrics. You can use this data to trace requests, analyze usage trends, and diagnose issues with your storage account.
    - Storage service validation with common tools and SDKs, such as Azure CLI, PowerShell, .NET, Python, and Java SDK 
    - [Storage Account Shared Access Signature](https://msdn.microsoft.com/en-us/library/azure/mt584140.aspx) enable granular delegation of access to your storage services without having to share your full account key.  
    - Storage services now use [Group Managed Service Accounts](https://technet.microsoft.com/en-us/library/hh831477(v=ws.11).aspx#BKMK_group_managed_sa) for strong security with low management overhead
@@ -47,9 +47,9 @@ You can now deallocate and capture virtual machines, redeploy virtual machine ex
 
 ## Cloud Administrator
 
-Billing and consumption APIs enable integration with your billing and other tracking systems.  These new metrics and APIs allow for integration either with a customer billing system, or chargeback/showback systems for enterprise IT.   
+Billing and consumption APIs expose data on how your services are consumed.  These new metrics and APIs allow for integration either with a customer billing system, or chargeback/showback systems for enterprise IT.   
 
-You can now capture plan and offer details in Resource Manager templates for redeployment, enabling consistent tenant onboarding.
+You can now capture plan and offer details in Resource Manager templates for redeployment.
  
 Introducing Azure Stack Regions - regions are the logical scaling and management element of Azure Stack. In this release, you can view resource consumption of network, storage, and compute by region.
 
