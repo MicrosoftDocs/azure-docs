@@ -134,23 +134,37 @@ Note the use of `start` in this coordination command. This is required because t
 
 Once the primary task and all subtasks have finished executing the coordination command, the multi-instance task's command line is executed by the primary task *only*. We call this the **application command** to distinguish it from the coordination command.
 
-For MS-MPI applications, use the application command to execute your MPI-enabled application using `mpiexec.exe`. For example, here is an application command for a solution using MS-MPI version 7:
+For MS-MPI applications, use the application command to execute your MPI-enabled application with `mpiexec.exe`. For example, here is an application command for a solution using MS-MPI version 7:
 
 ```
 cmd /c ""%MSMPI_BIN%\mpiexec.exe"" -c 1 -wdir %AZ_BATCH_TASK_SHARED_DIR% MyMPIApplication.exe
 ```
 
-### Environment variables CCP_NODES and AZ_BATCH_HOST_LIST
+>[AZURE.NOTE]: Because MS-MPI's `mpiexec.exe` uses the `CCP_NODES` variable by default (see [Environment variables](#environment-variables)) the example application command line above excludes it.
 
-These two environment variables are available to applications and scripts executed by the primary task's application command:
+### Environment variables
+
+These environment variables are available on the compute node to applications and scripts executed by the primary task's application command:
 
 * `CCP_NODES`
 
-  On Windows compute nodes, this environment variable lists available compute nodes and the number of cores per node that are allocated to the task. Nodes and cores are listed in the format `numNodes<space>nodeName<space>numCores<space>`. Because MS-MPI's `mpiexec.exe` uses this variable by default, the example application command line above doesn't include it.
+  * **Availability**: CloudServiceConfiguration and VirtualMachineConfiguration pools
+  * **Format**: `numNodes<space>nodeIP<space>numCores<space>`
+  * **Example**: `2 10.0.0.4 1 10.0.0.5 1`
+  * **Notes**: `mpiexec.exe` references the `CCP_NODES` variable by default.
+
+* `AZ_BATCH_NODE_LIST`
+
+  * **Availability**: CloudServiceConfiguration and VirtualMachineConfiguration pools
+  * **Format**: `nodeIP;nodeIP`
+  * **Example**: `10.0.0.4;10.0.0.5`
 
 * `AZ_BATCH_HOST_LIST`
 
-  On Linux compute nodes, this environment variable contains a comma-delimited list of available compute nodes. You can pass this variable to the `--host` option of `mpirun`, for example.
+  * **Availability**: VirtualMachineConfiguration pools
+  * **Format**: `nodeIP,nodeIP`
+  * **Example**: `10.0.0.4,10.0.0.5`
+  * **Notes**: Appropriate for passing to the `--host` option of `mpirun`, for example.
 
 ## Resource files
 
