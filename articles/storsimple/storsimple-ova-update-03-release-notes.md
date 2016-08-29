@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2016"
+   ms.date="08/29/2016"
    ms.author="alkohli" />
 
 # StorSimple Virtual Array Update 0.3 release notes
@@ -23,14 +23,14 @@ The following release notes identify the critical open issues and the resolved i
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your StorSimple Virtual Array, carefully review the information contained in the release notes.
 
-Update 0.3 corresponds to the software version **10.0.10286.0**.
+Update 0.3 corresponds to the software version **10.0.10287.0**.
 
 > [AZURE.NOTE] Updates are disruptive and restart your device. If I/O are in progress, the device incurs downtime.
 
 
 ## What's new in the Update 0.3
 
-Update 0.3 is primarily a bug-fix build. In this version, several bugs resulting in backup failures in the previous versions have been addressed.
+Update 0.3 is primarily a bug-fix build. In this version, several bugs resulting in backup failures in the previous version have been addressed.
 
 ## Issues fixed in the Update 0.3
 
@@ -38,8 +38,8 @@ The following table provides a summary of issues fixed in this release.
 
 | No.  | Feature                              | Issue                                                                                                                                                                                                                                                                                                                           |
 |------|--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1    | Backups                                |A problem was seen in the earlier release where the backups would fail to complete. The root cause was identified and fixed in this release. This issue was fixed in this release.                                                                                                                                                                                    |
-| 2    | iSCI                         | An issue was seen in the earlier release where the volumes would disappear when copying data to a volume on the StorSimple Virtual Array. This issue was addressed in this release.                                                              |
+| 1    | Backups                                |A problem was seen in the earlier release where the backups would fail to complete. The root cause was identified and fixed in this release.                                                                                                                                                                                  |
+| 2    | iSCI                         | An issue was seen in the earlier release where the volumes would disappear when copying data to a volume on the StorSimple Virtual Array. This issue was fixed in this release.                                                              |
 
 
 ## Known issues in the Update 0.3
