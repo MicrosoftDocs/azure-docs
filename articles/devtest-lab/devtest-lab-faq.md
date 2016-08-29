@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2016"
+	ms.date="08/29/2016"
 	ms.author="tarcher"/>
 
 # DevTest Labs FAQ
@@ -171,7 +171,7 @@ Artifacts are customizable elements that can used to deploy your latest bits or 
 We have a [Github repository of lab Azure Resource Manager templates](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates). Each of these templates has a link that you can click to deploy the DevTest Labs lab under your own Azure subscription. 
  
 ### Why are all of my VMs created in different resource groups with arbitrary names? Can I rename or modify these resource groups? 
-Resource groups are created this way in order for DevTest Labs to manage the user permissions and access to virtual machines. We are working on improving this experience to allow more flexibility, but you can rename these resource groups as needed. It is advised that you do not move VMs into different resource groups to avoid unintentionally modifying permissions. 
+Resource groups are created this way in order for DevTest Labs to manage the user permissions and access to virtual machines. While you can move the VM to another resource group with your desired name, this is not recommended. We are working on improving this experience to allow more flexibility.   
  
 ### How many labs can I create under the same subscription? 
 There is no specific limit on the number of labs that can be created per subscription, but the resources used are limited per subscription. You can read about the [limits and quotas imposed on Azure subscriptions](../azure-subscription-service-limits.md) and [how to increase these limits](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests). 
