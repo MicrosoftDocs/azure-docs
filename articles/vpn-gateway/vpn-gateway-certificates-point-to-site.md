@@ -41,7 +41,9 @@ Makecert is one way of creating a self-signed certificate. The following steps w
     	makecert -sky exchange -r -n "CN=ARMP2SRootCert" -pe -a sha1 -len 2048 -ss My "ARMP2SRootCert.cer"
 
 
-### To obtain the public key
+###  <a name="certpublickey"></a>To obtain the public key
+
+As part of the VPN Gateway configuration for Point-to-Site connections, the public key for the root certificate is uploaded to Azure.
 
 1. To obtain a .cer file from the certificate, open **certmgr.msc**. Right-click the self-signed root certificate, click **all tasks**, and then click **export**. This opens the **Certificate Export Wizard**.
 
@@ -56,9 +58,9 @@ Makecert is one way of creating a self-signed certificate. The following steps w
  
 ### Export the self-signed certificate (optional)
 
-You may want to export the self-signed certificate and store it safely. If need be, you can later install it on another computer and generate more client certificates or export another .cer file. Any computer with a client certificate installed and that is also configured with the proper VPN client settings can connect to your virtual network via P2S. For that reason, you want to make sure that client certificates are generated and installed only when needed and that the self-signed certificate is stored safely.
+You may want to export the self-signed certificate and store it safely. If need be, you can later install it on another computer and generate more client certificates, or export another .cer file. Any computer with a client certificate installed and that is also configured with the proper VPN client settings can connect to your virtual network via P2S. For that reason, you want to make sure that client certificates are generated and installed only when needed and that the self-signed certificate is stored safely.
 
-To export the self-signed certificate as a .pfx, use the preceeding steps, selecting "Yes, export the private key".
+To export the self-signed certificate as a .pfx, use the preceding steps [to obtain the public key](#certpublickey), and select "Yes, export the private key". This will result in a .pfx file.
 
 ## Create and install client certificates
 
