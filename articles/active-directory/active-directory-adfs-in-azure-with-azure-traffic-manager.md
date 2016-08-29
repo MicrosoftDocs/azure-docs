@@ -69,28 +69,29 @@ Follow the steps below to create a traffic manager profile. For more information
     * Priority 
     * Performance
     * Weighted
+    
    Choose the routing method best suited for your deployment needs. The AD FS functionality is not impacted by the routing option selected. See [Traffic Manager traffic routing methods](../traffic-manager/traffic-manager-routing-methods.md) for more information. In the sample screenshot above you can see the **Performance** method selected.
    
 3.	**Configure endpoints: ** In the traffic manager page, click on endpoints and select Add. This will open an Add endpoint page similar to the screenshot below
  
     ![Configure endpoints](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/eastfsendpoint.png)
  
-For the different inputs, follow the guideline below:
+    For the different inputs, follow the guideline below:
 
-**Type:** Select Azure endpoint as we will be pointing to an Azure public IP address.
+    **Type:** Select Azure endpoint as we will be pointing to an Azure public IP address.
 
-**Name:** Create a name that you want to associate with the endpoint. This is not the DNS name and has no bearing on DNS records.
+    **Name:** Create a name that you want to associate with the endpoint. This is not the DNS name and has no bearing on DNS records.
 
-**Target resource type:** Select Public IP address as the value to this property. 
+    **Target resource type:** Select Public IP address as the value to this property. 
 
-**Target resource:** This will give you an option to choose from the different DNS labels you have available under your subscription. Choose the DNS label for to.
+    **Target resource:** This will give you an option to choose from the different DNS labels you have available under your subscription. Choose the DNS label for to.
 
-Add endpoint for each geographical region you want the Azure Traffic Manager to route traffic to.
-For more information and detailed steps on how to add / configure endpoints in traffic manager, refer to [Add, disable, enable or delete endpoints](../traffic-manager/traffic-manager-endpoints.md)
+    Add endpoint for each geographical region you want the Azure Traffic Manager to route traffic to.
+    For more information and detailed steps on how to add / configure endpoints in traffic manager, refer to [Add, disable, enable or delete endpoints](../traffic-manager/traffic-manager-endpoints.md)
     
 4. **Configure probe: ** In the traffic manager page, click on Configuration. In the configuration page, you need to change the monitor settings to probe at HTTP port 80 and relative path /adfs/probe
 
-![Configure probe](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/mystsconfig.png) 
+    ![Configure probe](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/mystsconfig.png) 
 
     >[AZURE.NOTE] **Ensure that the status of the endpoints is ONLINE once the configuration is complete**. If all endpoints are in ‘degraded’ state, Azure Traffic Manager will do a best attempt to route the traffic assuming that the diagnostics is incorrect and all endpoints are reachable.
 
