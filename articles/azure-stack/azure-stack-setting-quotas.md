@@ -46,7 +46,7 @@ plans can use all resources available in each plan.
 3.  Select the first service for which you want to create a quota. For an IaaS quota, you need to follow these steps for each of Compute, Network, and Storage.
 In this example, we first create a quota for the Compute Service, so select the **Microsoft.Compute.Admin** namespace from the **Namespace** list. 
 
-    > ![](/articles/azure-stack/media/azure-stack-setting-quota/NewComputeQuota.PNG)
+    > ![Creating a new Compute quota](/articles/azure-stack/media/azure-stack-setting-quota/NewComputeQuota.PNG)
 
 4.  Choose the location where the quota is defined (for example, 'local').
 
@@ -59,7 +59,7 @@ In this example, we first create a quota for the Compute Service, so select the 
     or click the **Ok** button at the bottom of the blade to accept
     the defaults.
 
-    > ![](/articles/azure-stack/media/azure-stack-setting-quota/SetQuotasBladeCompute.PNG)
+    > ![Setting a Compute quota](/articles/azure-stack/media/azure-stack-setting-quota/SetQuotasBladeCompute.PNG)
 
 7.  Once you have configured the values and clicked **Ok**, the **Quota
     Settings** item now appears as **Configured**. Click **Ok** to
@@ -71,7 +71,7 @@ In this example, we first create a quota for the Compute Service, so select the 
 8.   Once the Quota set has been successfully created, you receive a second notification. The Compute service quota is now ready to be associated with a
     Plan. Repeat these steps with the Network and Storage services and you are ready to create an IaaS plan!
 
-    >   ![](/articles/azure-stack/media/azure-stack-setting-quota/QuotaSuccess.png)
+    >   ![Notification upon quota creation success](/articles/azure-stack/media/azure-stack-setting-quota/QuotaSuccess.png)
 
 ##Compute Quota Types
 
@@ -81,7 +81,7 @@ In this example, we first create a quota for the Compute Service, so select the 
 |Max Number of Virtual Machine Cores              |100|The maximum number of cores that a subscription can create in this location (for example, an A3 VM has 4 cores).|
 |Max Amount of Virtual Machine Memory (GB)         |150|The maximum amount of RAM that can be provisioned in megabytes (for example, an A1 VM consumes 1.75 GB in RAM)|
 
-Note: Compute quotas are not enforced in this technical preview.
+> [AZURE.NOTE] Compute quotas are not enforced in this technical preview.
 
 ##Storage Quota Types
 
