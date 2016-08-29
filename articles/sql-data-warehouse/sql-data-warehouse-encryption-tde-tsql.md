@@ -54,7 +54,7 @@ To disable TDE for a SQL Data Warehouse, follow the steps below:
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 ```
 
-[AZURE.NOTE]  A paused SQL Data Warehouse must be resumed before making changes to the TDE settings.
+NOTE: A paused SQL Data Warehouse must be resumed before making changes to the TDE settings.
 
 ##Verifying Encryption
 
