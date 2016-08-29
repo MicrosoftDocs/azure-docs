@@ -92,9 +92,9 @@ If you requested the service provider to deprovision the ExpressRoute circuit, y
 	Status                           : Enabled
 
 
-You can choose to re-enable it if needed, or run PowerShell cmdlets to delete the circuit. **Important:** Microsoft will continue to bill the circuit until you run the PowerShell cmdlet to delete the circuit.
+You can choose to re-enable it if needed, or run PowerShell cmdlets to delete the circuit.  
 
->[AZURE.NOTE] If you run the PowerShell cmdlet to delete the circuit when the ServiceProviderProvisioningState is Provisioning or Provisioned the operation will fail. Please work with your connectivity provider to deprovision the ExpressRoute circuit first and then delete the circuit. 
+>[AZURE.IMPORTANT] If you run the PowerShell cmdlet to delete the circuit when the ServiceProviderProvisioningState is Provisioning or Provisioned the operation will fail. Please work with your connectivity provider to deprovision the ExpressRoute circuit first and then delete the circuit. Microsoft will continue to bill the circuit until you run the PowerShell cmdlet to delete the circuit.
 
 
 ## Routing session configuration state
