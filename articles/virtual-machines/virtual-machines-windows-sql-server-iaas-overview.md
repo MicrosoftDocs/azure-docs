@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Get started with SQL Server on Azure Virtual Machines | Microsoft Azure"
-	description="Move your on-premises SQL Server database workloads to the Cloud with Azure Virtual Machines. Get started quickly with preconfigured SQL VM images."
+	pageTitle="Overview of SQL Server on Azure Virtual Machines | Microsoft Azure"
+	description="Learn about how to run full SQL Server editions on Azure Virtual machines. Get direct links to all SQL Server VM images and related content."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="rothja"
@@ -14,13 +14,16 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="07/22/2016"
+	ms.date="08/29/2016"
 	ms.author="jroth"/>
 
-# Get started with SQL Server on Azure Virtual Machines
+# Overview of SQL Server on Azure Virtual Machines
 
-This topic describes your options for running SQL Server on Azure virtual machines, and it provides guidance and resources to get you started.
+This topic describes your options for running SQL Server on Azure virtual machines, along with [links to portal images](#option-1-deploy-a-sql-vm-per-minute-licensing) and an overview of [common tasks](#manage-your-sql-vm).
 
+>[AZURE.NOTE] If you're already familiar with SQL Server and just want to see how to deploy a SQL Server VM, see [Provision a SQL Server virtual machine in the Azure Portal](virtual-machines-windows-portal-sql-server-provision.md).
+
+## Overview
 You might be a database administrator looking to move your on-premises SQL Server workloads to the Cloud. Or you might be a developer considering the relational database capabilities of SQL Server for your Azure application. What is the advantage to running SQL Server workloads in Azure virtual machines? The following overview video discusses the benefits and provides a technical overview.
 
 > [AZURE.VIDEO data-driven-sql-server-2016-azure-vm-is-the-best-platform-for-sql-server-2016]
