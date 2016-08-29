@@ -70,7 +70,7 @@ Each configuration requires a specific connection type. The available Resource M
 - ExpressRoute
 - VPNClient
 
-In the following PowerShell example, we create a S2S connection that requires the connection type "IPsec".
+In the following PowerShell example, we create a S2S connection that requires the connection type 'IPsec'.
 
 	New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
 	-Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `

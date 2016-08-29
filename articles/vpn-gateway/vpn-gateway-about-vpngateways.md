@@ -130,12 +130,6 @@ See the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md) for more information about VPN
 
 Connect your on-premises location to a VNet. See [Create a Site-to-Site Connection](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
-For information regarding gateway requirements, see [Gateway requirements](vpn-gateway-about-vpn-gateway-settings.md#requirements).
-
-For estimated aggregate throughput, see [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md#aggthroughput).
-
-For pricing, see  
-
 
 
 
