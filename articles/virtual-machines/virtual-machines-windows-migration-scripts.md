@@ -23,6 +23,7 @@ This article catalogs the tools that have been provided by the community to assi
 
 >[AZURE.NOTE]These tools are not officially supported by Microsoft Support. Therefore they are open sourced on Github and we're happy to accept PRs for fixes or additional scenarios. To report an issue, use the Github issues feature.
 <br>
+
 >[AZURE.IMPORTANT] Migrating with these tools will cause downtime for your classic Virtual Machine. If you're looking for platform supported migration, visit 
 >
 >- [Platform supported migration of IaaS resources from Classic to Azure Resource Manager stack](./virtual-machines-windows-migration-classic-resource-manager.md)
