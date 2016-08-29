@@ -78,8 +78,11 @@ Follow the steps below to create a traffic manager profile. For more information
 For the different inputs, follow the guideline below:
 
 **Type:** Select Azure endpoint as we will be pointing to an Azure public IP address.
+
 **Name:** Create a name that you want to associate with the endpoint. This is not the DNS name and has no bearing on DNS records.
+
 **Target resource type:** Select Public IP address as the value to this property. 
+
 **Target resource:** This will give you an option to choose from the different DNS labels you have available under your subscription. Choose the DNS label for to.
 
 Add endpoint for each geographical region you want the Azure Traffic Manager to route traffic to.
