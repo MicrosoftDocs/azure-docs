@@ -3,7 +3,7 @@
    description="Power BI Embedded, interact with reports using the JavaScript API"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="jocaplan"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,91 +14,110 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="08/26/2016"
-   ms.author="owend"/>
+   ms.author="jocaplan"/>
 
 # Interact with reports using the JavaScript API
 
-The Power BI JavaScript API allows for easy embedding of Power BI reports into applications that you are building. With the API, your application can programmatically interact with the different elements of the reports like pages and filters. These interactions will make the reports a more integrated part of the application.
+The Power BI JavaScript API enables you to easily embed Power BI reports into your applications. With the API, your applications can programmatically interact with different report elements like pages and filters. This interactivity makes Power BI reports a more integrated part of your application.
 
-Embedding a Power BI report in your application is done with an iframe which is hosted as part of the app. The iframe acts as a boundary between your application and the Power BI report. Without the JavaScript API the report cannot interact with your application and your application can&#39;t interact with the report. While the iframe can make the embedding process a lot easier, this lack of interaction between your application and the Power BI report can sometimes make it feel like that report is not really part of your application. To really make the report feel like it is just another part of your app you may want to communicate back and forth with it.
+You embed a Power BI report in your application by using an iframe that is hosted as part of the application. The iframe acts as a boundary between your application and the report, as you can see in the following image. 
 
-[IMAGE 1 image]
+![Power BI embedded iframe without Javascript API](media\powerbi-embedded-interact-with-reports\powerbi-embedded-interact-report-1.png)
 
-The latest enhancements to the Power BI JavaScript API will allow you to write code that can securely pass through the iframe boundary so that your application can programmatically perform an action in a report and listen for events from actions that users make from within the reports themselves.
+The iframe makes the embedding process a lot easier, but without the JavaScript API the report and your application can't interact with each other. This lack of interaction can make it feel like the report is not really part of the application. The report and application really need to communicate back and forth, as in the following image.
 
-[IMAGE 2 image]
+![Power BI embedded iframe with Javascript API](media\powerbi-embedded-interact-with-reports\powerbi-embedded-interact-report-2.png)
 
-## What can be done with the Power BI JavaScript API?
+The Power BI JavaScript API enables you to write code that can securely pass through the iframe boundary. This enables your application to programmatically perform an action in a report, and to listen for events from actions that users make within the report.
 
-[IMAGE 3 diagram]
+## What can you do with the Power BI JavaScript API?
+With the JavaScript API you can manage reports, navigate to pages in a report, filter a report, and handle embedding events. The following diagram shows the structure of the API.
 
-### Reports
+![Power BI JavaScript API diagram](media\powerbi-embedded-interact-with-reports\powerbi-embedded-interact-report-3.png)
 
-- Embed a specific Power BI Report securely in your application (example: [http://azure-samples.github.io/powerbi-angular-client/#/scenario1](http://azure-samples.github.io/powerbi-angular-client/#/scenario1))
+
+### Manage Reports
+The Javascript API enables you to manage behavior at the report and page level:
+- Embed a specific Power BI Report securely in your application - try the [embed demo application](http://azure-samples.github.io/powerbi-angular-client/#/scenario1)
   - Set access token
 - Configure the report
-  - Enable/Disable functionality (example: [http://azure-samples.github.io/powerbi-angular-client/#/scenario6](http://azure-samples.github.io/powerbi-angular-client/#/scenario6))
+  - Enable/Disable functionality - try the [update settings demo application](http://azure-samples.github.io/powerbi-angular-client/#/scenario6)
     - Filter Pane
     - Page Navigation tabs
-  - Set defaults (example: [http://azure-samples.github.io/powerbi-angular-client/#/scenario5](http://azure-samples.github.io/powerbi-angular-client/#/scenario5))
+  - Set defaults - try the [set defaults demo](http://azure-samples.github.io/powerbi-angular-client/#/scenario5)
     - Page
     - Filters
 - Enter/Exit full screen mode
 
-To learn more about embedding a report, please visit: [https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embedding-Basics](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embedding-Basics).
+[Learn more about embedding a report](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embedding-Basics)
 
-### Page Navigation
 
-- Discover all pages in a report
-- Set the current page (example: [http://azure-samples.github.io/powerbi-angular-client/#/scenario3](http://azure-samples.github.io/powerbi-angular-client/#/scenario3))
+### Navigate to Pages in a Report
+The JavaScript API enbales you to discover all pages in a report and to set the current page. Try the [navigation demo application](http://azure-samples.github.io/powerbi-angular-client/#/scenario3).
 
-To learn more about page navigation, please visit: [https://github.com/Microsoft/PowerBI-JavaScript/wiki/Page-Navigation](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Page-Navigation).
+[Learn more about page navigation](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Page-Navigation)
 
-### Filters
+### Filter a Report
+The JavaScript API provides basic and advanced filtering capabilities for embedded reports and report pages. Try the [filtering demo application](http://azure-samples.github.io/powerbi-angular-client/#/scenario4), and review some introductory code here.  
 
-The JavaScript API allows for advanced filtering capabilities on embedded reports. A filtering example can be found here: [http://azure-samples.github.io/powerbi-angular-client/#/scenario4](http://azure-samples.github.io/powerbi-angular-client/#/scenario4).
 
-- Filtering supported on:
-  - Reports
-  - Pages
-- Supported filter types
-  - Basic
-    - A basic filter is placed on a column or hierarchy level and contains a list of values to include or exclude:
+#### Basic Filters
+A basic filter is placed on a column or hierarchy level and contains a list of values to include or exclude.
 
-[IMAGE 4 code]
+```
+const basicFilter: pbi.models.IBasicFilter = {
+  $schema: "http://powerbi.com/product/schema#basic",
+  target: {
+    table: "Store",
+    column: "Count"
+  },
+  operator: "In",
+  values: [1,2,3,4]
+}
+```
 
--
-  - Advanced
 
-Advanced filters have a logical operator and accept 1 or 2 conditions which have their own operator and value.
+#### Advanced Filters
+Advanced filters use the logical operator AND or OR, and accept one or two conditions, each with their own operator and value. Supported conditions are:
+- None
+- LessThan
+- LessThanOrEqual
+- GreaterThan
+- GreaterThanOrEqual
+- Contains
+- DoesNotContain
+- StartsWith
+- DoesNotStartWith
+- Is
+- IsNot
+- IsBlank
+- IsNotBlank
 
--
-  -
-    - Logical Operators
-      - And
-      - Or
-    - Conditions
-      - None
-      - LessThan
-      - LessThanOrEqual
-      - GreaterThan
-      - GreaterThanOrEqual
-      - Contains
-      - DoesNotContain
-      - StartsWith
-      - DoesNotStartWith
-      - Is
-      - IsNot
-      - IsBlank
-      - IsNotBlank
+```
+const advancedFilter: pbi.models.IAdvancedFilter = {
+  $schema: "http://powerbi.com/product/schema#advanced",
+  target: {
+    table: "Store",
+    column: "Name"
+  },
+  logicalOperator: "Or",
+  conditions: [
+    {
+      operator: "Contains",
+      value: "Wash"
+    },
+    {
+      operator: "Contains",
+      value: "Park"
+    }
+  ]
+}
+```
+[Learn more about filtering](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Filters)
 
-[IMAGE 5 code]
 
-For more information on filtering please see: [https://github.com/Microsoft/PowerBI-JavaScript/wiki/Filters](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Filters)
-
-### Events
-
-In addition to sending information into the iframe your app can also receive information on events coming from the iframe. The following are a list of supported events:
+### Handling Events
+In addition to sending information into the iframe, your application can also receive information on the following events coming from the iframe:
 
 - Embed
   - loaded
@@ -107,16 +126,16 @@ In addition to sending information into the iframe your app can also receive inf
   - pageChanged
   - dataSelected (coming soon)
 
-To learn more about handling events, please see: [https://github.com/Microsoft/PowerBI-JavaScript/wiki/Handling-Events](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Handling-Events).
+[Learn more about handling events](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Handling-Events)
+
 
 ## Next Steps
+For more information about the Power BI JavaScript API, check out the following links:
 
-To get more information on the Power BI JavaScript API, please review the following links:
-
-- JavaScript API Wiki: [https://github.com/Microsoft/PowerBI-JavaScript/wiki](https://github.com/Microsoft/PowerBI-JavaScript/wiki)
-- Object model reference: [https://microsoft.github.io/powerbi-models/modules/\_models\_.html](https://microsoft.github.io/powerbi-models/modules/_models_.html)
+- [JavaScript API Wiki](https://github.com/Microsoft/PowerBI-JavaScript/wiki)
+- [Object model reference](https://microsoft.github.io/powerbi-models/modules/_models_.html)
 - Samples
-  - Asp.Net MVC: [https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/tree/master/EmbedSample](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/tree/master/EmbedSample)
-  - Angular: [http://azure-samples.github.io/powerbi-angular-client](http://azure-samples.github.io/powerbi-angular-client)
-  - Ember: [https://github.com/Microsoft/powerbi-ember](https://github.com/Microsoft/powerbi-ember)
-- Live demo: [https://microsoft.github.io/PowerBI-JavaScript/demo/](https://microsoft.github.io/PowerBI-JavaScript/demo/)
+  - [ASP.NET MVC](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/tree/master/EmbedSample)
+  - [Angular](http://azure-samples.github.io/powerbi-angular-client)
+  - [Ember](https://github.com/Microsoft/powerbi-ember)
+- [Live demo](https://microsoft.github.io/PowerBI-JavaScript/demo/)
