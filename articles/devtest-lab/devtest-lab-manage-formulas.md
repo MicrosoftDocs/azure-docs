@@ -69,7 +69,7 @@ The following steps guide you through the process of creating a formula from a c
 	- **Virtual network** - Specify the desired virtual network.
 	- **Subnet** - Specify the desired subnet.
 	- **Public IP address** - If the lab policy is set to allow public IP addresses for the selected subnet, specify whether you want the IP address to be public by selecting either **Yes** or **No**. Otherwise, this option is disabled and selected as **No**.
-	- **Artifacts** - Select and configure the artifacts that you want to add to the base image. Note that artifact parameters that are secure strings will not display as any secure string values are not saved with the formula. 
+	- **Artifacts** - Select and configure the artifacts that you want to add to the base image. Secure string values are not saved with the formula. Therefore, artifact parameters that are secure strings are not displayed. 
 
     	![Create formula](./media/devtest-lab-manage-formulas/create-formula.png)
 
@@ -78,7 +78,7 @@ The following steps guide you through the process of creating a formula from a c
 ### Create a formula from a VM
 The following steps guide you through the process of creating a formula based on an existing VM. 
 
-> [AZURE.NOTE] In order to create a formula from a VM, the VM must have been created after March 30, 2016. 
+> [AZURE.NOTE] To create a formula from a VM, the VM must have been created after March 30, 2016. 
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
@@ -86,7 +86,7 @@ The following steps guide you through the process of creating a formula based on
 
 1. From the list of labs, select the desired lab.  
 
-1. On the lab's **Overview** blade, select the VM from which you wish to create the new formula.
+1. On the lab's **Overview** blade, select the VM from which you wish to create the formula.
 
 	![Labs VMs](./media/devtest-lab-manage-formulas/my-vms.png)
 
