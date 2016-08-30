@@ -21,7 +21,7 @@
 
 VPN Gateway is a collection of resources that are used to send network traffic between virtual networks and on-premises locations. Gateways are used for Site-to-Site, Point-to-Site, and ExpressRoute connections. VPN Gateway is also used to send traffic between multiple virtual networks within Azure (VNet-to-VNet). 
 
-To create a connection, you add a virtual network gateway to a VNet and configure additional VPN Gateway resources and their settings. Each virtual network can have only one virtual network gateway per gateway type. For example, you can have one virtual network gateway that uses -GatewayType Vpn, and one that uses -GatewayType ExpressRoute. The collection of resources is called "VPN Gateway" regardless of whether a VPN is required for your connection.
+To create a connection, you add a virtual network gateway to a VNet and configure additional VPN Gateway resources and their settings. Each virtual network can have only one virtual network gateway per gateway type. For example, you can have one virtual network gateway that uses -GatewayType Vpn, and one that uses -GatewayType ExpressRoute.
 
 For information regarding gateway requirements, see [Gateway Requirements](vpn-gateway-about-vpn-gateway-settings.md#requirements). For estimated aggregate throughput, see [About VPN Gateway Settings](vpn-gateway-about-vpn-gateway-settings.md#aggthroughput). For pricing, see [VPN Gateway Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway). For subscriptions and service limits, see [Networking Limits](../articles/azure-subscription-service-limits.md#networking-limits).
 
