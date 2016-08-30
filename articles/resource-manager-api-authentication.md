@@ -37,7 +37,7 @@ The web app:
 1. Signs-in an Azure user.
 2. Asks user to grant the app access to Resource Manager.
 3. Gets user + app access token for the Azure subscription.
-4. Uses token (from step 3) to assign the app's service principal to role in the subscription, which gives the app long-term accesss to the subscription.
+4. Uses token (from step 3) to assign the app's service principal to role in the subscription, which gives the app long-term access to the subscription.
 5. Gets app-only access token.
 6. Uses token (from step 5) to manage resources in the subscription through Resource Manager.
 
@@ -128,19 +128,7 @@ Azure AD authenticates the user, and, if necessary, asks the user to grant permi
 
 If you not only wish to access Azure Resource Manager on behalf of the user, but also allow the user to sign in to your application using their Azure AD account, issue an Open ID Connect Authorize Request. With Open ID Connect, your application also receives an id_token from Azure AD that your app can use to sign in the user.
 
-The OAuth2.0 Authorize request query string parameters are:
-
-| QS Parameter | Value
-|----|----
-| client_id | Client ID of your application
-| response_mode | **form_post** or **query**
-| response_type | **code+id_token**
-| redirect_uri | URL encoded Reply URL of your application. For instance: http://www.vipswapper.com/cloudsense/Account/SignIn |
-| resource | URL encoded identifier of Azure Service Management APIs: https://management.core.windows.net/ |
-| scope | openid+profile
-| nonce | Piece of data to tie the authorize request to the returned id_token to ensure that the authorize response is solicited and isn't replayed.
-| domain_hint | live.com <br />**Note**: only use the domain_hint parameter if the user manages their Azure Subscription using a Microsoft Account.
-| state | Optionally, specify any state data that you wish Azure AD to return back with the response.
+The query string parameters that are available for this request are described in the [Send the sign-in request](./active-directory/active-directory-protocols-openid-connect-code.md#send-the-sign-in-request) topic.
 
 An example Open ID Connect request is:
 
@@ -253,14 +241,7 @@ To authenticate your app and get a token to Azure AD Graph API, issue a Client C
 
 The [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) method of the ASP.net MVC sample application gets an app-only access token for Graph API using the Active Directory Authentication Library for .NET.
 
-The client credential grant token request data:
-
-| Element | Value
-|----|----
-| grant_type | **client_credentials**
-| client_id | Client ID of your application
-| resource | URL encoded identifier of the resource for which the access token is being requested. In this case, the identifier of the Azure AD Graph API: **https://graph.windows.net/**
-| client_secret or client_assertion_type + client_assertion | If your application uses password credential, use client_secret. If your application uses certificate credential, use client_assertion.
+The query string parameters that are available for this request are described in the [Use the authorization code to request an access token](./active-directory/active-directory-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token) topic.
 
 An example request for client credential grant token: 
 
