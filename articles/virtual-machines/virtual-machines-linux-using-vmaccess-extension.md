@@ -15,7 +15,7 @@
     ms.tgt_pltfrm="vm-linux"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/24/2016"
+    ms.date="08/30/2016"
     ms.author="v-livech"
 />
 
