@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="08/16/2016" 
+    ms.date="08/30/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Azure Active Directory integration with MCM
