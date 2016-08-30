@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/29/2016"
+   ms.date="08/30/2016"
    ms.author="alkohli" />
 
 # Install Updates on your StorSimple Virtual Array
@@ -79,9 +79,9 @@ Prior to the update or hotfix installation, make sure that you have the update o
 
     ![update device](./media/storsimple-ova-install-update-01/update6m.png)
 
-4. After the restart is complete, you will be taken to the sign in page. You can then verify the software version. Go to **Maintenance** > **Software Update**. The displayed software version should be **10.0.10280.0** for Update 0.2, or **10.0.10279.0** for Update 0.1.
+4. After the restart is complete, you will be taken to the sign in page. You can then verify the software version. Go to **Maintenance** > **Software Update**. The displayed software version should be **10.0.10287.0** for Update 0.3.
 
-	> [AZURE.NOTE] We report the software versions in a slightly different way in the local web UI and the Azure classic portal. For example, the local web UI reports **10.0.0.0.10279** and the Azure classic portal reports **10.0.10279.0** for the same version. 
+	> [AZURE.NOTE] We report the software versions in a slightly different way in the local web UI and the Azure classic portal. For example, the local web UI reports **10.0.0.0.10287** and the Azure classic portal reports **10.0.10287.0** for the same version. 
 
 	![update device](./media/storsimple-ova-install-update-01/update9m.png)
 
@@ -90,25 +90,9 @@ Prior to the update or hotfix installation, make sure that you have the update o
 
 If running Update 0.2, we recommend that you install updates through the Azure classic portal. The portal procedure requires the user to scan, download, and then install the updates. Perform the following steps to install the update or hotfix.
 
-#### To install updates via the Azure classic portal
+[AZURE.INCLUDE [storsimple-ova-install-update-via-portal](../../includes/storsimple-ova-install-update-via-portal.md)]
 
-1. On the **Devices** page, select the device on which you want to install updates.
-
-2. Navigate to **Devices > Maintenance > Software Updates**.
-
-3. You will see a message if the software updates are available. To check for updates, you can also click **Scan Updates** at the bottom of the page.
-
-4. From the bottom of the page, click **Download Updates**. A dialog notifies the user that the update is disruptive. Given the StorSimple Virtual Array is a single node device, the device will restart after it is updated. This will disrupt any IO in progress. Click the check icon to launch a job to download the available updates. 
-
-5. You will be notified after the updates are downloaded.
-
-6. From the bottom of the page, click **Install Updates** to begin updating the device. The dialog will be presented to you again. Click the check icon to start a job to install the updates. 
-
-7. You will be notified after the job is created. 
-
-8. Click **View Job** link to go to the Jobs page and monitor the install status. You can click **Details** at any time to get detailed information about the update job. 
-
-9. After the installation is complete (as indicated by job status at 100 %), go to **Devices > Maintenance > Software Updates**. The displayed software version should be 10.0.10287.0.
+After the installation is complete (as indicated by job status at 100 %), go to **Devices > Maintenance > Software Updates**. The displayed software version should be 10.0.10287.0.
 
 
 ## Next steps
