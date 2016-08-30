@@ -27,18 +27,17 @@ CodeLens provides quick, useful information in the context of your code, like th
 
 CodeLens indicators are shown above class, method, and other declarations in C# and Visual Basic code. If Application Insights data is available for a method, you'll see indicators for requests and exceptions like "100 requests, 1% failed" or "10 exceptions." Click a CodeLens indicator for more details.
 
-> [AZURE.TIP] Application Insights request and exception information may take a few extra seconds to load after other CodeLens indicators appear.
-
+> [AZURE.TIP] Application Insights request and exception indicators may take a few extra seconds to load after other CodeLens indicators appear.
 
 ## Exceptions in CodeLens
 
 ![TBD](./media/app-insights-visual-studio-codelens/codelens-exceptions.png)
 
-TBD
+The exception CodeLens indicator shows the number of exceptions that have occurred in the past 24 hours from the 15 most frequently occuring exceptions during that period.
 
-> [AZURE.TIP] If you see "0 exceptions" in CodeLens...
+> [AZURE.TIP] If you see "0 exceptions" in CodeLens but you know there should be exceptions, check to make sure the right Application Insights resource is selected in CodeLens. To select another resource, right-click on your project in the Solution Explorer and choose **Application Insights > Choose Telemetry Source**.
 
-> [AZURE.TIP] If you see "? exceptions" in CodeLens...
+> [AZURE.TIP] If you see "? exceptions" in CodeLens, you need to associate your Azure account with Visual Studio or your Azure account credential may have expired. In either case, click on "? exceptions" and choose **Add an account...** to enter your credentials.
 
 ## Requests in CodeLens
 
