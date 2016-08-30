@@ -49,7 +49,7 @@ After you select the image, you can use Azure's default settings for most of the
 
 2. Enter a **User name**, and a strong **Password** that will be used to create a local account on the VM. The local account is used to log on to and manage the VM. 
 
-	The password must be between 12-123 characters long and have at least one lower case character, one upper case character, one number, and one special character. 
+	The password must be between 8-123 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. See more about [username and password requirements](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
 
 
 3. Select an existing [Resource group](../resource-group-overview.md#resource-groups) or type the name for a new one. Type an Azure datacenter **Location** such as **West US**. 
@@ -165,7 +165,7 @@ For more information about NSGs, inbound and outbound rules, see [Allow external
 	![Screenshot showing where to find the public IP address of your VM.](./media/virtual-machines-windows-hero-tutorial/ipaddress.png)
 
 2. Open a browser and in the address bar, type in your public IP address like this: http://<publicIPaddress> and click **Enter** to go to that address.
-3. You browser should land on the default IIS web page and the page will look something like this:
+3. Your browser should land on the default IIS web page and the page will look something like this:
 
 	![Screenshot showing what the default IIS page looks like in a browser.](./media/virtual-machines-windows-hero-tutorial/iis-default.png)
 
