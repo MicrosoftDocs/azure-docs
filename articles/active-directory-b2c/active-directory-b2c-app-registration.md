@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/22/2016"
+	ms.date="08/30/2016"
 	ms.author="swkrish"/>
 
 
@@ -44,6 +44,8 @@ You can also access the blade by clicking **Browse** and then **Azure AD B2C** i
 7. Click the application that you just created and copy down the globally unique **Application Client ID** that you'll use later in your code.
 
 > [AZURE.NOTE] An **Application Secret** is an important security credential, and should be secured appropriately.
+
+> [AZURE.IMPORTANT] Applications created in the B2C features blade have to managed in the same location. If you edit B2C applications using PowerShell or another portal, they become unsupported and will likely not work with Azure AD B2C.
 
 ## Build a Quick Start Application
 
