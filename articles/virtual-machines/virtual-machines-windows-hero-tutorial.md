@@ -49,7 +49,7 @@ After you select the image, you can use Azure's default settings for most of the
 
 2. Enter a **User name**, and a strong **Password** that will be used to create a local account on the VM. The local account is used to log on to and manage the VM. 
 
-	The password must be between 12-123 characters long and have at least one lower case character, one upper case character, one number, and one special character. 
+	The password must be between 8-123 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. See more about [username and password requirements](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
 
 
 3. Select an existing [Resource group](../resource-group-overview.md#resource-groups) or type the name for a new one. Type an Azure datacenter **Location** such as **West US**. 
