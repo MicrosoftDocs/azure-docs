@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="08/29/2016"
+   ms.date="08/30/2016"
    ms.author="andkjell"/>
 
 # Generic LDAP Connector technical reference
@@ -100,7 +100,7 @@ The Connector relies upon various techniques to detect and identify the LDAP ser
 To perform import and export operations on the objects in the connected directory, the connector account must have sufficient permissions. The connector needs write permissions to be able to export, and read permissions to be able to import. Permission configuration is performed within the management experiences of the target directory itself.
 
 ### Ports and protocols
-The connector uses the port number specified in the configuration, which would by default be 389 for LDAP and 636 for LDAPS.
+The connector uses the port number specified in the configuration, which by default is 389 for LDAP and 636 for LDAPS.
 
 For LDAPS, you must use SSL 3.0 or TLS. SSL 2.0 is not supported and cannot be activated.
 
@@ -128,7 +128,7 @@ If both options are enabled in the connector configuration, pagedResultsControl 
 
 ShowDeletedControl is only used with the USNChanged delta import method to be able to see deleted objects.
 
-The connector tries to detect if the options are present on the server. If the options cannot be detected, a warning is present on the Global page in the connector properties. Not all LDAP servers present all controls/features they support and even if this warning is present, the connector might work without issues.
+The connector tries to detect the options present on the server. If the options cannot be detected, a warning is present on the Global page in the connector properties. Not all LDAP servers present all controls/features they support and even if this warning is present, the connector might work without issues.
 
 ### Delta import
 Delta import is only available when a support directory has been detected. The following methods are currently used:
@@ -158,7 +158,7 @@ On the Connectivity page, you must specify the Host, Port, and Binding informati
 - For other bindings, enter information either in username / password or select a certificate.
 - If you are using Kerberos to authenticate, then also provide the Realm/Domain of the user.
 
-The **attribute aliases** text box is used for attributes defined in the schema with RFC4522 syntax. These cannot be detected during schema detection and the Connector needs help to identify those attributes. For example the following is needed to be entered in the attribute aliases box to correctly identify the userCertificate attribute as a binary attribute:
+The **attribute aliases** text box is used for attributes defined in the schema with RFC4522 syntax. These attributes cannot be detected during schema detection and the Connector needs help to identify those attributes. For example the following is needed to be entered in the attribute aliases box to correctly identify the userCertificate attribute as a binary attribute:
 
 `userCertificate;binary`
 
@@ -175,12 +175,12 @@ On the Global Parameters page, you configure the DN to the delta change log and 
 
 ![Connectivity](./media/active-directory-aadconnectsync-connector-genericldap/globalparameters.png)
 
-The top section shows information provided by the server itself, such as the name of the server. The Connector also verifies that the mandatory controls are present in the Root DSE. If these controls are not listed, a warning is presented. Some LDAP directories does not list all features in the Root DSE and it is possible that the Connector works without issues even if a warning is present.
+The top section shows information provided by the server itself, such as the name of the server. The Connector also verifies that the mandatory controls are present in the Root DSE. If these controls are not listed, a warning is presented. Some LDAP directories do not list all features in the Root DSE and it is possible that the Connector works without issues even if a warning is present.
 
 The **supported controls** checkboxes control the behavior for certain operations:
 
 - With tree delete selected, a hierarchy is deleted with one LDAP call. With tree delete unselected, the connector does a recursive delete if needed.
-- With paged results selected, the Connector does a paged imports with the size specified on the run steps.
+- With paged results selected, the Connector does a paged import with the size specified on the run steps.
 - The VLVControl and SortControl is an alternative to the pagedResultsControl to read data from the LDAP directory.
 - If all three options (pagedResultsControl, VLVControl, and SortControl) are unselected then the Connector imports all object in one operation, which might fail if it is a large directory.
 - ShowDeletedControl is only used when the Delta import method is USNChanged.
@@ -213,7 +213,7 @@ This page is used to map the DN component, for example OU, to the object type th
 
 ![Provisioning Hierarchy](./media/active-directory-aadconnectsync-connector-genericldap/provisioninghierarchy.png)
 
-By configuring provisioning hierarchy, you can configure the Connector to automatically create a structure when needed. For example, if there is a namespace dc=contoso,dc=com and a new object cn=Joe, ou=Seattle, c=US, dc=contoso, dc=com is provisioned, then the Connector can create a new object of type country for US and an organizationalUnit for Seattle if those are not already present in the directory.
+By configuring provisioning hierarchy, you can configure the Connector to automatically create a structure when needed. For example, if there is a namespace dc=contoso,dc=com and a new object cn=Joe, ou=Seattle, c=US, dc=contoso, dc=com is provisioned, then the Connector can create an object of type country for US and an organizationalUnit for Seattle if those are not already present in the directory.
 
 ### Configure Partitions and Hierarchies
 On the partitions and hierarchies page, select all namespaces with objects you plan to import and export.
@@ -253,7 +253,7 @@ The delta watermark in Open LDAP is UTC date/time. For this reason, the clocks b
 
 For Novell eDirectory, the delta import is not detecting any object deletes. For this reason, it is necessary to run a full import periodically to find all deleted objects.
 
-For directories with a delta change log that is based on date / time, it is highly recommended to run a full import at periodic times. This process allows the sync engine to find and dissimilarities between the LDAP server and what is currently in the connector space.
+For directories with a delta change log that is based on date/time, it is highly recommended to run a full import at periodic times. This process allows the sync engine to find and dissimilarities between the LDAP server and what is currently in the connector space.
 
 ## Troubleshooting
 

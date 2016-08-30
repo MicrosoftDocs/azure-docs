@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="08/29/2016"
+   ms.date="08/30/2016"
    ms.author="andkjell"/>
 
 # Lotus Domino Connector technical reference
@@ -99,7 +99,7 @@ Lotus Notes must be installed on the server **before** the Connector is installe
 When you install, make sure you do a **Single User Install**. The default **Multi-User Install** does not work.  
 ![Notes1](./media/active-directory-aadconnectsync-connector-domino/notes1.png)
 
-On the features page, install only the required Lotus Notes features and **Client Single Logon**. Single Logon is required for the connector to be able to logon to the Domino server.  
+On the features page, install only the required Lotus Notes features and **Client Single Logon**. Single Logon is required for the connector to be able to log on to the Domino server.  
 ![Notes2](./media/active-directory-aadconnectsync-connector-domino/notes2.png)
 
 **Note:** Start Lotus Notes once with a user that is located on the same server as the account you use as the connector’s service account. Also make sure to close the Lotus Notes client on the server. It cannot be running at the same time the Connector tries to connect to the Domino server.
@@ -131,7 +131,7 @@ For **Delta Import** you have these options:
 
 In **Schema Options** you have the following options:
 
-- **Default Schema**. The default option and the Connector detects the schema from the Domino server.
+- **Default Schema**. The Connector detects the schema from the Domino server. This is the default option.
 - **DSML-Schema**. Only used if the Domino server does not expose the schema. Then you can create a DSML file with the schema and import it instead. For more information on DSML, see [OASIS](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=dsml).
 
 When you click Next, the UserID and password configuration parameters are verified.
@@ -150,7 +150,7 @@ The **Perform Full Import By** has these options:
 - Search
 - View (Recommended)
 
-**Search** is using indexing in Domino but it is common that the indexes are not updated in real-time and the data returned from the server is not always correct. For a system with many changes, this option usually doesn't work well and provides false deletes in some situations. However, **search** is faster than **view**.
+**Search** is using indexing in Domino but it is common that the indexes are not updated in real time and the data returned from the server is not always correct. For a system with many changes, this option usually doesn't work well and provides false deletes in some situations. However, **search** is faster than **view**.
 
 **View** is the recommended option since it provides the correct state of data. It is slightly slower than search.
 
@@ -161,7 +161,7 @@ The **Enable creation of \_Contact object** has these options:
 - Non-Reference Values
 - Reference and Non-Reference Values
 
-In Domino, reference attributes can contain many different formats to reference other objects. To be able to represent different variations, the Connector implements \_Contact objects, also known as **Virtual Contacts** (VC). These objects are created so they can join to existing MV objects or projected as new objects. In this way attribute references can be preserved.
+In Domino, reference attributes can contain many different formats to reference other objects. To be able to represent different variations, the Connector implements \_Contact objects, also known as **Virtual Contacts** (VC). These objects are created so they can join to existing MV objects or projected as new objects. In this way, attribute references can be preserved.
 
 By enabling this setting and if the content of a reference attribute is not a DN format, a \_Contact object is created. For example, a member attribute of a group can contain SMTP addresses. It is also possible to have shortName and other attributes present in reference attributes. For this scenario, select **Non-Reference Values**. This configuration is the most common setting for Domino implementations.
 
@@ -179,7 +179,7 @@ These objects have VC=\_Contact added to their DN.
 In a large Domino implementation, it is possible that multiple objects have the same DN due to replication issues. In these cases, the connector would see two objects with different UniversalIDs but same DN. This conflict would cause a transient object being created in the connector space. The Connector can ignore the objects that have been selected in Domino as replication victims. The recommendation is to keep this checkbox selected.
 
 #### Export settings
-If the option **Use AdminP for updating references** is unselected, then export of reference attributes, such as member, is a direct call and does not use the AdminP process. This option should only be used if AdminP has not been configured to maintain referential integrity.
+If the option **Use AdminP for updating references** is unselected, then export of reference attributes, such as member, is a direct call and does not use the AdminP process. Only use this option when AdminP has not been configured to maintain referential integrity.
 
 #### Routing Information
 In Domino, it is possible that a reference attribute has routing information embedded as a suffix to the DN. For example, the member attribute in a group could contain **CN=example/organization@ABC**. The suffix @ABC is the routing information. The routing information is used by Domino to send emails to the correct Domino system, which could be a system in a different organization. In the Routing Information field, you can specify the routing suffixes used within the organization in scope of the Connector. If one of these values is found as a suffix in a reference attribute, the routing information is removed from the reference. If the routing suffix on a reference value cannot be matched to one of those values specified, a \_Contact object is created. These \_Contact objects are created with **RO=@<RoutingSuffix>** inserted into the DN. For these \_Contact objects the following attributes are also added to allow joining to a real object if necessary: \_routingName, \_contactName, \_displayName, and UniversalID.
@@ -238,7 +238,7 @@ Example: The Assistant attribute of a person object has the following values:
 
 The most recent update to this attribute is **David Alexander**. Because the Import operation option is set to Multivalued to Single Value, connector only imports **David Alexander** into the connector space.
 
-The logic to convert multi-valued attributes into single-valued attributes does not apply to member attribute of a group object and to the fullname attribute of a person object.
+The logic to convert multi-valued attributes into single-valued attributes does not apply to the group member attribute and to the person fullname attribute.
 
 It also possible to configure import and export transformation rules for multivalued attributes per attribute, as an exception to the global rule. To configure this option, enter [objecttype].[attributename] in the **import exclusion attribute list** and **export exclusion attribute list** text boxes. For example, if you enter Person.Assistant and the global flag is set to import all values, only the first value is imported for the assistant.
 
@@ -270,7 +270,7 @@ The person object represents users in Organization and Organization Units. In ad
 
 - The address book (names.nsf) must have been defined and it should be the primary address book.
 - You must have the O/OU certifier Id and the password to register a particular user in the Organization / Organization Unit.
-- You must define a specific set of Lotus Notes properties for a person object. These properties are used for provisioning the person object. For more details, see the section called [Lotus Notes Properties](#lotus-notes-properties) later in this document.
+- You must set a specific set of Lotus Notes properties for a person object. These properties are used for provisioning the person object. For more details, see the section called [Lotus Notes Properties](#lotus-notes-properties) later in this document.
 - The initial HTTP password for a person is an attribute and set during provisioning.
 - The person object must be one of the following three supported types:
     1. Normal User that has a mail file and a user id file
@@ -312,7 +312,7 @@ For more details on setting up of Resource Reservation database, see [Setting up
 The Create, Update, and Delete operations are performed by the Lotus Domino connector in the Resource Reservation database. Resources are created as documents in Names.nsf (that is, the primary address book). For more details about editing and deleting Resources, see [Editing and deleting Resource documents](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=/com.ibm.help.domino.admin85.doc/H_EDITING_AND_DELETING_RESOURCE_DOCUMENTS.html).
 
 **Import and Export operation for Resources**  
-The Resources can be imported to and exported from the synchronization service just like any other object type. Select the object type as Resource during configuration. For successful export operation, you should have details for Resource type, Conference Database, and Site name.
+The Resources can be imported to and exported from the synchronization service, like any other object type. Select the object type as Resource during configuration. For successful export operation, you should have details for Resource type, Conference Database, and Site name.
 
 ### Mail-In Databases
 A Mail-In Database is a database that is designed to receive mails. It is a Lotus Domino mailbox that is not associated with any specific Lotus Domino user account (that is, it does not have its own ID file and password). A mail-in database has a unique UserID ("short name") associated with it and its own e-mail address.
@@ -428,16 +428,16 @@ There are several ways in Domino to extend the schema so it appears as a custom 
 **Approach 1: Extend Lotus Domino schema**
 
 1. Create a copy of Domino Directory Template {PUBNAMES.NTF} by following [these steps](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_CREATING_A_COPY_OF_THE_DEFAULT_PUBIC_ADDRESS_BOOK_TEMPLATE.html) (you should not customize the default IBM Lotus Domino directory Template):
-2. Open the Copy of Domino directory template {CONTOSO.NTF} template that was created in Domino Designer and follow the below steps:
-    - Click on Shared Elements and expand Subforms
-    - Double-click on ${ObjectName}InheritableSchema subform (where {ObjectName} is the name of the default structural object class, for example: Person).
-    - Name the attribute you want to add into schema {MyPersonAtrribute} and corresponding to that, create a field by select the **Create** Menu and then select **Field** from menu.
-    - In the added field, set its properties by selecting its Type, Style, size, font and other related parameters on field Properties window.
+2. Open the Copy of Domino directory template {CONTOSO.NTF} template that was created in Domino Designer and follow these steps:
+    - Click Shared Elements and expand Subforms
+    - Double-click ${ObjectName}InheritableSchema subform (where {ObjectName} is the name of the default structural object class, for example: Person).
+    - Name the attribute you want to add into schema {MyPersonAtrribute} and corresponding to that attribute. Create a field by select the **Create** Menu and then select **Field** from menu.
+    - In the added field, set its properties by selecting its Type, Style, size, font, and other related parameters on field Properties window.
     - Keep the attribute Default value same as the name given for that attribute (For example, if attribute name is MyPersonAttribute, keep the default value with the same name).
     - Save the ${ObjectName}InheritableSchema subform with updated values.
 3. Replace the Domino Directory Template {PUBNAMES.NTF} with the new customized template {CONTOSO.NTF} by following [these steps](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_RULES_FOR_CUSTOMIZING_THE_PUBLIC_ADDRESS_BOOK.html).
 4. Close Domino Admin and open Domino Console to restart the LDAP service and to Reload the LDAP Schema:
-    - In Domino Console insert the command under **Domino Command** text filed to restart the LDAP service - [Restart Task LDAP]( http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_STARTING_AND_STOPPING_THE_LDAP_SERVER_OVER.html).
+    - In Domino Console, insert the command under **Domino Command** text filed to restart the LDAP service - [Restart Task LDAP]( http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_STARTING_AND_STOPPING_THE_LDAP_SERVER_OVER.html).
     - To reload LDAP schema use Tell LDAP command - Tell LDAP ReloadSchema
 5. Open Domino Admin and select People & Groups tab to see added attribute is reflected in domino Add Person.
 6. Open Schema.nsf from **Files** tab and see added attribute is reflected into dominoPerson LDAP object class.
@@ -456,20 +456,20 @@ There are several ways in Domino to extend the schema so it appears as a custom 
     - Leave the other properties the same, and close the Subform Properties box.
     - Save and close the new subform.
 6. Do the following to add a field to define the auxiliary object class:
-    - Open the subform you just created.
+    - Open the subform you created.
     - Choose Create - Field.
     - Next to Name on the Basics tab of the Field dialog box, specify any name, for example: {MyPersonTestAttribute}.
-    - In the added field, set its properties by selecting its Type, Style, size, font and related properties.
+    - In the added field, set its properties by selecting its Type, Style, size, font, and related properties.
     - Keep the attribute Default value same as the name given for that attribute (For example, if attribute name is MyPersonTestAttribute, keep the default value with the same name).
     - Save the subform with updated values and do the following:
         - In the left pane, select Shared Code and then Subforms
         - Select the new subform, and choose Design - Design Properties.
         - Click the third tab from the left, and select **Propagate this prohibition of design change**.
 7. Open ${ObjectName}ExtensibleSchema subform, (where {ObjectName} is the name of the default structural object class, for example – Person).
-8. Insert Resource and select the Subform (which you just created, for example – TestSubform) and save the ${ObjectName}ExtensibleSchema subform.
+8. Insert Resource and select the Subform (that you created, for example – TestSubform) and save the ${ObjectName}ExtensibleSchema subform.
 9. Replace the Domino Directory Template {PUBNAMES.NTF} with the new customized template {CONTOSO.NTF} by following [these steps](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_ABOUT_RULES_FOR_CUSTOMIZING_THE_PUBLIC_ADDRESS_BOOK.html).
 10. Close Domino Admin and open Domino Console to restart the LDAP service and to Reload the LDAP Schema:
-    - In Domino Console insert the command under **Domino Command** text filed to restart the LDAP service - [Restart Task LDAP](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_STARTING_AND_STOPPING_THE_LDAP_SERVER_OVER.html).
+    - In Domino Console, insert the command under **Domino Command** text filed to restart the LDAP service - [Restart Task LDAP](http://publib.boulder.ibm.com/infocenter/domhelp/v8r0/index.jsp?topic=%2Fcom.ibm.help.domino.admin85.doc%2FH_STARTING_AND_STOPPING_THE_LDAP_SERVER_OVER.html).
     - To reload LDAP schema use Tell LDAP command **Tell LDAP ReloadSchema**.
 11. Open Domino Admin and select People & Groups tab to see added attribute is reflected in domino Add Person (under Others tab).
 12. Open Schema.nsf from **Files** tab and see added attribute is reflected under TestSubform LDAP Auxiliary object class.
@@ -477,8 +477,8 @@ There are several ways in Domino to extend the schema so it appears as a custom 
 **Approach 3: Add the custom attribute to the ExtensibleObject class**
 
 1. Open {Schema.nsf} file placed on the root directory
-2. Select LDAP Object Classes from the left menu under **All Schema Documents** and click on **Add Object class** button:
-3. Provide LDAP Name in the form of {zzzExtensibleSchema} (where zzz is the name of the default structural object class, for example Person) with reference to the object for which you want to extend the schema. For example, to extend the schema for Person object class, provide LDAP name {PersonExtensibleSchema}.
+2. Select LDAP Object Classes from the left menu under **All Schema Documents** and click **Add Object class** button:
+3. Provide LDAP Name in the form of {zzzExtensibleSchema} (where zzz is the name of the default structural object class, for example Person). For example, to extend the schema for Person object class, provide LDAP name {PersonExtensibleSchema}.
 4. Provide Superior Object class name, for which you want to extend the schema. For example, to extend the schema for Person object class, provide Superior Object class name {dominoPerson}:
 5. Provide a valid OID corresponding to the object class.
 6. Select Extended/custom attributes under Mandatory or Optional Attribute Types fields as per the requirement:

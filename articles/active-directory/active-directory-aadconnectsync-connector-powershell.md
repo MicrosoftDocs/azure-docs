@@ -104,7 +104,7 @@ Name | Data Type | Description
 ConfigParameters | [KeyedCollection][keyk] [string, [ConfigParameter][cp]] | Table of configuration parameters for the Connector.
 Credential | [PSCredential][pscred] | Contains any credentials entered by the administrator on the Connectivity tab.
 
-The script must return a single [Schema][schema] object to the pipeline. The Schema object is comprised of [SchemaType][schemaT] objects that represent object types (for example: users, groups, etc.). The SchemaType object holds a collection of [SchemaAttribute][schemaA] objects that represent the attributes (for example: given name, surname, postal address, etc.) of the type.
+The script must return a single [Schema][schema] object to the pipeline. The Schema object is composed of [SchemaType][schemaT] objects that represent object types (for example: users and groups). The SchemaType object holds a collection of [SchemaAttribute][schemaA] objects that represent the attributes (for example: given name, surname, and postal address) of the type.
 
 **Additional Parameters**  
 In addition to the standard configuration settings, you can define additional custom configuration settings that are specific to the instance of the Connector. These parameters can be specified at the connector, partition, or run step levels and accessed from the relevant Windows PowerShell script. Custom configuration settings can be stored in the Synchronization Service database in plain text format or they may be encrypted. The Synchronization Service automatically encrypts and decrypts secure configuration settings when required.
@@ -114,14 +114,14 @@ To specify custom configuration settings, separate the name of each parameter wi
 To access custom configuration settings from a script, you must suffix the name with an underscore ( \_ ) and the scope of the parameter (Global, Partition, or RunStep). For example, to access the Global FileName parameter, use this code snippet: `$ConfigurationParameters["FileName_Global"].Value`
 
 ### Capabilities
-The capabilities tab of the Management Agent Designer defines the behavior and functionality of the connector. The selections made on this tab cannot be modified when the connector has been created. The table below lists each of the capability settings.
+The capabilities tab of the Management Agent Designer defines the behavior and functionality of the connector. The selections made on this tab cannot be modified when the connector has been created. This table lists the capability settings.
 
 ![Capabilities](./media/active-directory-aadconnectsync-connector-powershell/capabilities.png)
 
 Capability | Description |
 --- | --- |
 [Distinguished Name Style][dnstyle] | Indicates if the connector supports distinguished names and if so, what style.
-[Export Type][exportT] | Determines the type of objects that are presented to the Export script. <li>AttributeReplace – includes the full set of values for a multi-valued attribute when the attribute changes.</li><li>AttributeUpdate – includes only the deltas to a multi-valued attribute when the attribute changes.</li><li>MultivaluedReferenceAttributeUpdate - includes a full set of values for non-reference multi-valued attributes and only deltas for multi-valued reference attributes.</li><li>ObjectReplace – includes all of the attributes for an object when any attribute changes</li>
+[Export Type][exportT] | Determines the type of objects that are presented to the Export script. <li>AttributeReplace – includes the full set of values for a multi-valued attribute when the attribute changes.</li><li>AttributeUpdate – includes only the deltas to a multi-valued attribute when the attribute changes.</li><li>MultivaluedReferenceAttributeUpdate - includes a full set of values for non-reference multi-valued attributes and only deltas for multi-valued reference attributes.</li><li>ObjectReplace – includes all attributes for an object when any attribute changes</li>
 [Data Normalization][DataNorm] | Instructs the Synchronization Service to normalize anchor attributes before they are provided to scripts.
 [Object Confirmation][oconf] | Configures the pending import behavior in the Synchronization Service. <li>Normal – default behavior that expects all exported changes to be confirmed via import</li><li>NoDeleteConfirmation – when an object is deleted, there is no pending import generated.</li><li>NoAddAndDeleteConfirmation – when an object is created or deleted, there is no pending import generated.</li>
 Use DN as Anchor | If the Distinguished Name Style is set to LDAP, the anchor attribute for the connector space is also the distinguished name.
@@ -139,7 +139,7 @@ Enable Password Operations | When checked, password synchronization scripts are 
 Enable Export Password in First Pass | When checked, passwords set during provisioning are exported when the object is created.
 
 ### Global Parameters
-The Global Parameters tab in the Management Agent Designer enables you to configure each Windows PowerShell script that is run by the connector and global values for custom configuration settings defined on the Connectivity tab.
+The Global Parameters tab in the Management Agent Designer enables you to configure the Windows PowerShell scripts that are run by the connector. You can also configure global values for custom configuration settings defined on the Connectivity tab.
 
 **Partition Discovery**  
 A partition is a separate namespace within one shared schema. For example, in Active Directory every domain is a partition within one forest. A partition is the logical grouping for import and export operations. Import and Export have partition as a context and all operations happens in this context. Partitions are supposed to represent a hierarchy in LDAP. The distinguished name of a partition is used in import to verify that all returned objects are within the scope of a partition. The partition distinguished name is also used during provisioning from the metaverse to the connector space to determine the partition an object should be associated with during export.
@@ -184,7 +184,7 @@ Types | [Schema][schema] | Schema for the connector space that is imported.
 The script must return a single [OpenImportConnectionResults][oicres] object to the pipeline, for example: `Write-Output (New-Object Microsoft.MetadirectoryServices.OpenImportConnectionResults)`
 
 **Import Data**  
-The import data script is called by the connector until the script indicates that there is no more data to import and the synchronization service does not need to request any full object imports during a delta import. The Windows PowerShell connector has a page size of 9,999 objects. If your script returns more than 9,999 objects for import, you must support paging. The connector exposes a custom data property that you can use to a store a watermark so that each time the import data script is called, your script resumes importing objects where it left off.
+The import data script is called by the connector until the script indicates that there is no more data to import. The Windows PowerShell connector has a page size of 9,999 objects. If your script returns more than 9,999 objects for import, you must support paging. The connector exposes a custom data property that you can use to a store a watermark so that each time the import data script is called, your script resumes importing objects where it left off.
 
 The import data script receives the following parameters from the connector:
 
@@ -196,10 +196,10 @@ GetImportEntriesRunStep | [ImportRunStep][irs] | Holds the watermark (CustomData
 OpenImportConnectionRunStep | [OpenImportConnectionRunStep][oicrs] | Informs the script about the type of import run (delta or full), partition, hierarchy, watermark, and expected page size.
 Types | [Schema][schema] | Schema for the connector space that is imported.
 
-The import data script must write a List[[CSEntryChange][csec]] object to the pipeline. This collection is comprised of CSEntryChange attributes that represent each object being imported. During a Full Import run, this collection should have a full set of CSEntryChange objects that have all attributes for every object. During a Delta Import, the CSEntryChange object should either contain the attribute level deltas for each object to import, or a complete representation of the objects that have changed (Replace mode).
+The import data script must write a List[[CSEntryChange][csec]] object to the pipeline. This collection is composed of CSEntryChange attributes that represent each object being imported. During a Full Import run, this collection should have a full set of CSEntryChange objects that have all attributes for every object. During a Delta Import, the CSEntryChange object should either contain the attribute level deltas for each object to import, or a complete representation of the objects that have changed (Replace mode).
 
 **End Import**  
-At the conclusion of the import run, the End Import script is run. This script should perform any cleanup tasks necessary (for example,  close connections to systems, respond to failures, etc.).
+At the conclusion of the import run, the End Import script is run. This script should perform any cleanup tasks necessary (for example, close connections to systems and respond to failures).
 
 The end import script receives the following parameters from the connector:
 
@@ -230,7 +230,7 @@ Types | [Schema][schema] | Schema for the connector space that is exported.
 The script should not return any output to the pipeline.
 
 **Export Data**  
-The Synchronization Service calls the Export Data script as many times as is necessary to process all of the pending exports. Depending on whether or not the connector space has more pending exports than the connector’s page size, the presence of reference attributes, or passwords, the export data script may be called multiple times and possibly multiple times for the same object.
+The Synchronization Service calls the Export Data script as many times as is necessary to process all pending exports. If the connector space has more pending exports than the connector’s page size, the export data script may be called multiple times and possibly multiple times for the same object.
 
 The export data script receives the following parameters from the connector:
 
@@ -242,12 +242,10 @@ CSEntries | IList[CSEntryChange][csec] | List of all the connector space objects
 OpenExportConnectionRunStep | [OpenExportConnectionRunStep][oecrs] | Informs the script about the type of export run (delta or full), partition, hierarchy, and expected page size.
 Types | [Schema][schema] | Schema for the connector space that is exported.
 
-The export data script must return a [PutExportEntriesResults][peeres] object to the pipeline. This object does not need to include result information for each exported connector unless an error or a change to the anchor attribute occurs.
-
-The sample code below demonstrates how to return a PutExportEntriesResults object to the pipeline: `Write-Output (New-Object Microsoft.MetadirectoryServices.PutExportEntriesResults)`
+The export data script must return a [PutExportEntriesResults][peeres] object to the pipeline. This object does not need to include result information for each exported connector unless an error or a change to the anchor attribute occurs. For example, to return a PutExportEntriesResults object to the pipeline: `Write-Output (New-Object Microsoft.MetadirectoryServices.PutExportEntriesResults)`
 
 **End Export**  
-At the conclusion of the export run, the End Export script to run. This script should perform any cleanup tasks necessary (for example, close connections to systems, respond to failures, etc.).
+At the conclusion of the export run, the End Export script to run. This script should perform any cleanup tasks necessary (for example, close connections to systems and respond to failures).
 
 The end export script receives the following parameters from the connector:
 

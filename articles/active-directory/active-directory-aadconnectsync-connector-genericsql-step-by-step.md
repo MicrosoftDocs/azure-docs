@@ -20,7 +20,7 @@
 This topic is a step-by-step guide. It creates a simple sample HR database and use it for importing some users and their group membership.
 
 ## Prepare the sample database
-On a server running SQL Server, run the SQL script found in [Appendix A](#appendix-a). This script creates a sample database with the name GSQLDEMO. The object model for the created database looks like this:  
+On a server running SQL Server, run the SQL script found in [Appendix A](#appendix-a). This script creates a sample database with the name GSQLDEMO. The object model for the created database looks like this picture:  
 ![Object Model](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\objectmodel.png)
 
 Also create a user you want to use to connect to the database. In this walkthrough, the user is called FABRIKAM\SQLUser and located in the domain.
@@ -69,7 +69,7 @@ We now have the file we need and can start creating the Connector.
 ![Connector5](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector5.png)
 6. Not all attribute types can be detected in a SQL database. The reference attribute type in particular cannot. For the group object type, we need to change the OwnerID and MemberID to reference.  
 ![Connector6](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector6.png)
-7. The attributes we selected as reference attributes in the previous step require the object type these values are a reference to. In our case, this is the User object type.  
+7. The attributes we selected as reference attributes in the previous step require the object type these values are a reference to. In our case, the User object type.  
 ![Connector7](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector7.png)
 8. On the Global Parameters page, select **Watermark** as the delta strategy. Also type in the date/time format **yyyy-MM-dd HH:mm:ss**.
 ![Connector8](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector8.png)

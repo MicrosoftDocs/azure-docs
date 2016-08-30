@@ -54,7 +54,7 @@ To create or perform any of the supported tasks in Generic SQL connector, you mu
 - db_datawriter
 
 ### Ports and protocols
-For the ports required for the ODBC driver to work, please consult the database vendor's documentation.
+For the ports required for the ODBC driver to work, consult the database vendor's documentation.
 
 ## Create a new Connector
 To Create a Generic SQL connector, in **Synchronization Service** select **Management Agent** and **Create**. Select the **Generic SQL (Microsoft)** Connector.
@@ -81,12 +81,12 @@ The database should support one of these authentication methods:
 
 **DN is Anchor**: If you select this option, the DN is also used as the anchor attribute. It can be used for a simple implementation but also has the following limitation:
 
--	Connector supports only 1 object type. Therefore any reference attributes can only reference the same object type.
+-	Connector supports only one object type. Therefore any reference attributes can only reference the same object type.
 
 **Export Type: Object Replace**: During export, when only some attributes have changed, the entire object with all attributes is exported and replaces the existing object.
 
 ### Schema 1 (Detect object types)
-On this page you are going to configure how the Connector is going to find the different object types in the database.
+On this page, you are going to configure how the Connector is going to find the different object types in the database.
 
 Every object type is presented as a partition and configured further on **Configure Partitions and Hierarchies**.
 
@@ -96,19 +96,19 @@ Every object type is presented as a partition and configured further on **Config
 
 - **Fixed Value**: You provide the list of object types with a comma-separated list. For example: `User,Group,Department`.  
 ![schema1b](./media/active-directory-aadconnectsync-connector-genericsql/schema1b.png)
-- **Table/View/Stored Procedure**: Provide the name of the table/view/stored procedure and then the column name which provides the list of object types. If you use a stored procedure then also provide parameters for it in the format **[Name]:[Direction]:[Value]**. Provide each parameter on a separate line (use Ctrl+Enter to get a new line).  
+- **Table/View/Stored Procedure**: Provide the name of the table/view/stored procedure and then the column name that provides the list of object types. If you use a stored procedure, then also provide parameters for it in the format **[Name]:[Direction]:[Value]**. Provide each parameter on a separate line (use Ctrl+Enter to get a new line).  
 ![schema1c](./media/active-directory-aadconnectsync-connector-genericsql/schema1c.png)
 - **SQL Query**: This option allows you to provide a SQL query that returns a single column with object types, for example `SELECT [Column Name] FROM TABLENAME`. The returned column must be of type string (varchar).
 
 ### Schema 2 (Detect attribute types)
-On this page you are going to configure how the attribute names and types are going to be detected. The configuration options are listed for every object type detected on the previous page.
+On this page, you are going to configure how the attribute names and types are going to be detected. The configuration options are listed for every object type detected on the previous page.
 
 ![schema2a](./media/active-directory-aadconnectsync-connector-genericsql/schema2a.png)
 
 **Attribute Type detection method**: The Connector supports these attribute type detection methods with every detected object type in Schema 1 screen.
 
-- **Table/View/Stored Procedure**: Provide the name of the table/view/stored procedure that should be used to find the attribute names. If you use a stored procedure then also provide parameters for it in the format **[Name]:[Direction]:[Value]**. Provide each parameter on a separate line (use Ctrl+Enter to get a new line). To detect the attribute names in a multi-valued attribute, provide a comma-separated list of Tables or Views. Multivalued scenarios are not supported if parent and child table have same column names.
-- **SQL query**: This option allow you to provide a SQL query that returns a single column with attribute names, for example `SELECT [Column Name] FROM TABLENAME`. The returned column must be of type string (varchar).
+- **Table/View/Stored Procedure**: Provide the name of the table/view/stored procedure that should be used to find the attribute names. If you use a stored procedure, then also provide parameters for it in the format **[Name]:[Direction]:[Value]**. Provide each parameter on a separate line (use Ctrl+Enter to get a new line). To detect the attribute names in a multi-valued attribute, provide a comma-separated list of Tables or Views. Multivalued scenarios are not supported when parent and child table have same column names.
+- **SQL query**: This option allows you to provide a SQL query that returns a single column with attribute names, for example `SELECT [Column Name] FROM TABLENAME`. The returned column must be of type string (varchar).
 
 ### Schema 3 (Define anchor and DN)
 This page allows you to configure anchor and DN attribute for each detected object type. You can select multiple attribute to make the anchor unique.
@@ -121,11 +121,11 @@ This page allows you to configure anchor and DN attribute for each detected obje
 ![schema3b](./media/active-directory-aadconnectsync-connector-genericsql/schema3b.png)
 
 ### Schema 4 (Define attribute type, reference, and direction)
-This page allows you to configure the attribute type, such as integer, reference, string, binary, or Boolean and direction for each attribute. All attributes from page **schema 2** are listed including multi-valued attributes.
+This page allows you to configure the attribute type, such as integer, binary, or Boolean, and direction for each attribute. All attributes from page **schema 2** are listed including multi-valued attributes.
 
 ![schema4a](./media/active-directory-aadconnectsync-connector-genericsql/schema4a.png)
 
-- **DataType**: Used to map the attribute type to those known by the sync engine. The default is to use the same type as detected in the SQL schema, but DateTime and Reference are not easily detectable. For those you need to specify **DateTime** or **Reference**.
+- **DataType**: Used to map the attribute type to those types known by the sync engine. The default is to use the same type as detected in the SQL schema, but DateTime and Reference are not easily detectable. For those, you need to specify **DateTime** or **Reference**.
 - **Direction**: You can set the attribute direction to Import, Export, or ImportExport. ImportExport is default.
 ![schema4b](./media/active-directory-aadconnectsync-connector-genericsql/schema4b.png)
 
@@ -136,11 +136,11 @@ Notes:
 - **VARRYS** are not supported in the connector.
 
 ### Schema 5 (Define partition for reference attributes)
-On this page you configure for all reference attributes which partition (object type), an attribute is referring to.
+On this page, you configure for all reference attributes which partition (object type) an attribute is referring to.
 
 ![schema5](./media/active-directory-aadconnectsync-connector-genericsql/schema5.png)
 
-If you use **DN is anchor** then you must use the same object type as the one you are referring from. You cannot reference another object type.
+If you use **DN is anchor**, then you must use the same object type as the one you are referring from. You cannot reference another object type.
 
 ### Global Parameters
 The Global Parameters page is used to configure Delta Import, Date/Time format, and Password method.
@@ -150,18 +150,18 @@ The Global Parameters page is used to configure Delta Import, Date/Time format, 
 The Generic SQL Connector supports the following methods for Delta Import:
 
 - **Trigger**: See [Generating Delta Views Using Triggers](https://technet.microsoft.com/library/cc708665.aspx).
-- **Watermark**: This is a generic approach and can be used with any database. The watermark query is pre-populated based on the database vendor. A watermark column must be present on every table/view used. This must track inserts and updates to the tables as well as its dependent (multi-valued or child) tables. The clocks between Synchronization Service and the database server must be synchronized. If not, some entries in the delta import might be omitted.  
+- **Watermark**: A generic approach that can be used with any database. The watermark query is pre-populated based on the database vendor. A watermark column must be present on every table/view used. This column must track inserts and updates to the tables as and its dependent (multi-valued or child) tables. The clocks between Synchronization Service and the database server must be synchronized. If not, some entries in the delta import might be omitted.  
 Limitation:
-    - Watermark strategy does not supports deleted objects.
+    - Watermark strategy does not support deleted objects.
 - **Snapshot**: (Works only with Microsoft SQL Server) [Generating Delta Views Using Snapshots](https://technet.microsoft.com/library/cc720640.aspx)
 - **Change Tracking**: (Works only with Microsoft SQL Server) [About Change Tracking](https://msdn.microsoft.com/library/bb933875.aspx)  
 Limitations:
     - Anchor & DN attribute must be part of primary key for the selected object in the table.
     - SQL query is unsupported during Import and Export with Change Tracking.
 
-**Additional Parameters**: Specify the Database Server Time Zone indicating where your Database server is located. This value is used to support the various format of date & time attributes.
+**Additional Parameters**: Specify the Database Server Time Zone indicating where your Database server is located. This value is used to support the various formats of date & time attributes.
 
-The Connector always store date and date-time in UTC format. To be able to correctly convert the date and times, the time zone of the database server and the format used must be specified. The format should be expressed in .Net format.
+The Connector always stores date and date-time in UTC format. To be able to correctly convert the date and times, the time zone of the database server and the format used must be specified. The format should be expressed in .Net format.
 
 During export every date time attribute must be provided to the Connector in UTC time format.
 
@@ -207,9 +207,9 @@ Generic SQL Connector support Full and Delta Import using these methods:
 ![runstep1](./media/active-directory-aadconnectsync-connector-genericsql/runstep1.png)
 
 **Table/View**  
-To import multi-valued attributes for an object, you have to provide the comma separated table/view name in **Name of Multi-Valued table/views** and respective join conditions in the **Join condition** with the parent table.
+To import multi-valued attributes for an object, you have to provide the comma-separated table/view name in **Name of Multi-Valued table/views** and respective join conditions in the **Join condition** with the parent table.
 
-Example: You want to import the Employee object and all its multi-valued attributes. There are two tables named Employee (main table) and Department (multi-valued) table.
+Example: You want to import the Employee object and all its multi-valued attributes. There are two tables, named Employee (main table) and Department (multi-valued).
 Do the following:
 
 - Type **Employee** in **Table/View/SP**.
@@ -220,9 +220,9 @@ Do the following:
 **Stored procedures**  
 ![runstep3](./media/active-directory-aadconnectsync-connector-genericsql/runstep3.png)
 
-- If you have a lot of data, it is recommended to implement pagination with your Stored Procedures.
+- If you have much data, it is recommended to implement pagination with your Stored Procedures.
 - For your Stored Procedure to support pagination, you need to provide Start Index and End Index. See: [Efficiently Paging Through Large Amounts of Data](https://msdn.microsoft.com/library/bb445504.aspx).
-- @StartIndex and @EndIndex is replaced at execution time with respective page size value configured on **Configure Step** page. For example, if connector retrieve first page and the page size is set 500, in such situation @StartIndex would be 1 and @EndIndex 500. These values increases when connector retrieves subsequent pages and change the @StartIndex & @EndIndex value.
+- @StartIndex and @EndIndex are replaced at execution time with respective page size value configured on **Configure Step** page. For example, when the connector retrieves first page and the page size is set 500, in such situation @StartIndex would be 1 and @EndIndex 500. These values increase when connector retrieves subsequent pages and change the @StartIndex & @EndIndex value.
 - To execute parameterized Stored Procedure, provide the parameters in `[Name]:[Direction]:[Value]` format. Enter each parameter on a separate line (Use Ctrl + Enter to get a new line).
 - Generic SQL connector also supports Import operation from Linked Servers in Microsoft SQL Server. If information should be retrieved from a Table in Linked server, then Table should be provided in the format: `[ServerName].[Database].[Schema].[TableName]`
 - Generic SQL Connector supports only those objects that have similar structure (both alias name and data type) between run steps information and schema detection. If the selected object from schema and provided information at run step is different, then SQL Connector is unable to support this type of scenarios.
