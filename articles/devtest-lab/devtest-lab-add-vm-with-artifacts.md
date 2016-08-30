@@ -38,7 +38,7 @@ This article shows you how to create a VM in your lab with artifacts.
 
 1. Select **More Services**, and then select **DevTest Labs** from the list.
 
-1. From the list of labs, select the lab in which you want to create the new VM.  
+1. From the list of labs, select the lab in which you want to create the VM.  
 
 1. On the lab's **Overview** blade, select **+ Virtual Machine**.  
     ![Add VM button](./media/devtest-lab-add-vm-with-artifacts/devtestlab-home-blade-add-vm.png)
@@ -51,7 +51,7 @@ This article shows you how to create a VM in your lab with artifacts.
 
 1. Enter a **User Name** that will be granted administrator privileges on the virtual machine.  
 
-1. If you have and want to use a password stored in your *secret store*, select **Use secrets from my secret store**, and specify a key value that corresponds to your secret (password). Otherwise, simply enter a password in the text field labelled **Type a value**.
+1. If you have and want to use a password stored in your *secret store*, select **Use secrets from my secret store**, and specify a key value that corresponds to your secret (password). Otherwise, simply enter a password in the text field labeled **Type a value**.
  
 1. Select **Virtual machine size** and select one of the predefined items that specify the processor cores, RAM size, and the hard drive size of the VM to create.
 
@@ -59,10 +59,10 @@ This article shows you how to create a VM in your lab with artifacts.
 
 1. Select **Subnet** and select subnet.
 
-1. If the lab policy is set to allow public IP addresses for the selected subnet, specify whether or not you want the IP address to be public by 
+1. If the lab policy is set to allow public IP addresses for the selected subnet, specify whether you want the IP address to be public by 
 selecting either **Yes** or **No**. Otherwise, this option is disabled and selected as **No**. 
 
-1. Select **Artifacts** and, from the list of artifacts, select and configure the artifacts that you want to add to the base image. 
+1. Select **Artifacts** and - from the list of artifacts - select and configure the artifacts that you want to add to the base image. 
 **Note:** If you're new to DevTest Labs or configuring artifacts, skip to the [Add an existing artifact to a VM](#add-an-existing-artifact-to-a-vm) section, 
 and then return here when finished.
 
@@ -132,7 +132,7 @@ Once saved, you can use the Azure Resource Manager template to [deploy new VMs w
 
 1. On the **Virtual machine** blade, select **View ARM Template**.
 
-1. On the **View Azure Resource Manager Template blade**, select all of the template text.
+1. On the **View Azure Resource Manager Template blade**, select the template text.
 
 1. Copy the selected text to the clipboard.
 
