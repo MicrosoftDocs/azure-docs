@@ -17,6 +17,7 @@
 	ms.author="helaw"/>
 
 # What's new in Azure Stack Technical Preview 2
+In this article, we'll cover the new features of Technical Preview 2. This release includes a number of new features for both Cloud Tenants and Cloud Administrators.  Cloud tenants will see new security, networking, storage, and application platform capabilities.  Cloud Administrators have access to billing and usage information, monitoring and health data, and the ability to preview Azure Stack regions.
 
 ## Cloud Tenant
 ### Services
@@ -49,7 +50,7 @@ You can now deallocate and capture virtual machines, redeploy virtual machine ex
 
 Billing and consumption APIs expose data on how your services are consumed.  These new metrics and APIs allow for integration either with a customer billing system, or chargeback/showback systems for enterprise IT.  Additionally, you can capture plans and offers in Resource Manager templates.
  
-Introducing Azure Stack Regions, a new logical unit of scale and management within Azure Stack. In this release, you can view resource consumption of fabric controller resources like network, storage, and compute by region.
+Azure Stack Regions are new to this release, and represent a logical unit of scale and management within Azure Stack. In this release, you can view resource consumption of fabric controller resources like network, storage, and compute by region.
 
 Delegated Providers enable downstream resellers to offer your Azure Stack services to their tenants.
 
