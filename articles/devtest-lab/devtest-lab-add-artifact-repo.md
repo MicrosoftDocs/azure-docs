@@ -31,12 +31,11 @@ The following screen shot shows an example of how a repository containing artifa
 
 ## Get the repository information and credentials
 
-To add an artifact repository to your lab, you must first get certain information from your repository 
-depending on whether the repository is hosted on GitHub or Visual Studio Team Services.
+To add an artifact repository to your lab, you must first get certain information from your repository. The following sections guide you through getting this information for artifact repositories hosted on GitHub and Visual Studio Team Services.
 
 ### Get the GitHub repository clone URL and personal access token
 
-To add a GitHub artifacts repository to your lab, you first get the HTTPS clone URL and Personal Access Token from the artifacts repository, then you enter that information in your lab
+To get the GitHub repository clone URL and personal access token, follow these steps:
 
 1. Browse to the home page of the GitHub repository that contains the artifact definitions.
 
@@ -52,7 +51,7 @@ To add a GitHub artifacts repository to your lab, you first get the HTTPS clone 
 
 1. On the **New personal access token** page, enter a **Token description**, accept the default items in the **Select scopes**, and then choose **Generate Token**.
 
-1. Save the generated token as you'll need it later.
+1. Save the generated token as you need it later.
 
 1. You can close GitHub now.   
 
@@ -60,7 +59,7 @@ To add a GitHub artifacts repository to your lab, you first get the HTTPS clone 
 
 ### Get the Visual Studio Team Services repository clone URL and personal access token
 
-To add a Visual Studio Git artifact repository to your lab, you first get the HTTPS clone url and Personal Access Token from the artifacts repository, then you enter that information in your lab.
+To get the Visual Studio Team Services repository clone URL and personal access token, follow these steps:
 
 1. Open the home page of your team collection (for example, `https://contoso-web-team.visualstudio.com`), and then select the artifact project.
 
@@ -68,11 +67,11 @@ To add a Visual Studio Git artifact repository to your lab, you first get the HT
 
 1. To view the clone URL, on the project **Code** page, select **Clone**.
 
-1. Save the URL as you'll need it later in this tutorial.
+1. Save the URL as you need it later in this tutorial.
 
 1. To create a Personal Access Token, select **My profile** from the user account drop-down menu.
 
-1. On the profile information page select the **Security**.
+1. On the profile information page, select **Security**.
 
 1. On the **Security** tab, select **Add**.
 
@@ -84,7 +83,7 @@ To add a Visual Studio Git artifact repository to your lab, you first get the HT
     - Choose the **All scopes** option.
     - Choose **Create Token**.
 
-1. When finished, the new token will appear in the **Personal Access Tokens** list. Select **Copy Token**, and then save the token value for later use.
+1. When finished, the new token appears in the **Personal Access Tokens** list. Select **Copy Token**, and then save the token value for later use.
 
 1. Continue to the [Connect your lab to the artifact repository](#connect-your-lab-to-the-artifact-repository) section.
 
