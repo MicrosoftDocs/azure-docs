@@ -94,7 +94,7 @@ The v2.0 endpoint currently supports sign-in for any app registered in the new A
 No other services are supported at this time.  More Microsoft Online services will be added in the future, as well as support for your own custom built Web APIs and services.
 
 ## Restrictions on libraries & SDKs
-To help you try things out, we have provided an experimental version of the Active Directory Authentcation Library that is compatible with the v2.0 endpoint.  However, this version of ADAL is in a preview state - it is not supported and it will change dramatically over the next few months.  There are code samples using ADAL for .NET, iOS, Android, and Javascript available in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section if you'd like to quickly get an app running with the v2.0 endpoint.
+To help you try things out, we have provided an experimental version of the Active Directory Authentication Library that is compatible with the v2.0 endpoint.  However, this version of ADAL is in a preview state - it is not supported and it will change dramatically over the next few months.  There are code samples using ADAL for .NET, iOS, Android, and Javascript available in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section if you'd like to quickly get an app running with the v2.0 endpoint.
 
 If you want to use the v2.0 endpoint in a production application, you have the following options:
 
