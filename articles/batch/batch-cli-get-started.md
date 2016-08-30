@@ -70,7 +70,7 @@ First, show your storage account's details:
 
 Then use the **Url** value for the `--autostorage-account-id` option. The Url value starts with "/subscriptions/" and contains your subscription ID and resource path to the account:
 
-```azure batch account create --location "West US"  --resource-group "resgroup001" --autostorage-account-id "/subscriptions/8ffffff8-4444-4444-bfbf-8ffffff84444/resourceGroups/resgroup001/providers/Microsoft.Storage/storageAccounts/storageaccount001" "batchaccount001"```
+    azure batch account create --location "West US"  --resource-group "resgroup001" --autostorage-account-id "/subscriptions/8ffffff8-4444-4444-bfbf-8ffffff84444/resourceGroups/resgroup001/providers/Microsoft.Storage/storageAccounts/storageaccount001" "batchaccount001"
 
 ## Delete a Batch account
 
@@ -130,13 +130,13 @@ The remainder of the examples in the article assume that you've set the `AZURE_B
 
 * Examples:
 
-  CloudServiceConfiguration (PaaS, Windows only)
+  Cloud Services Configuration (PaaS, Windows only)
 
   ```azure batch pool create --id "pool1" --target-dedicated 1 --vm-size "small" --os-family "4"```
 
-  VirtualMachineConfiguration (IaaS, Linux and Windows)
+  Virtual Machine Configuration (IaaS, Linux and Windows)
 
-  ```azure batch pool create --id "pool2" --target-dedicated 1 --vm-size "STANDARD_A1" --image-publisher "Canonical" --image-offer "UbuntuServer" --image-sku "14.04.2-LTS" --node-agent-id "batch.node.ubuntu 14.04"```
+    azure batch pool create --id "pool2" --target-dedicated 1 --vm-size "STANDARD_A1" --image-publisher "Canonical" --image-offer "UbuntuServer" --image-sku "14.04.2-LTS" --node-agent-id "batch.node.ubuntu 14.04"
 
 Creates a pool of compute nodes in the Batch service.
 
