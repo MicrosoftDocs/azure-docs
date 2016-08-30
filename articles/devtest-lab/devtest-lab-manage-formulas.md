@@ -23,7 +23,7 @@ A formula in Azure DevTest Labs is a list of default property values used to cre
 In this article, you'll learn how to perform the following tasks:
 
 - [Create a formula](#create-a-formula)
-- [Use a formula to provision a VM](#use-a-formula-to-create-a-new-vm)
+- [Use a formula to provision a VM](#use-a-formula-to-provision-a-vm)
 - [Modify a formula](#modify-a-formula)
 - [Delete a formula](#delete-a-formula)
 
