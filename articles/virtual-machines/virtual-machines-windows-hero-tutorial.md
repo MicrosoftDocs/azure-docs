@@ -165,7 +165,7 @@ For more information about NSGs, inbound and outbound rules, see [Allow external
 	![Screenshot showing where to find the public IP address of your VM.](./media/virtual-machines-windows-hero-tutorial/ipaddress.png)
 
 2. Open a browser and in the address bar, type in your public IP address like this: http://<publicIPaddress> and click **Enter** to go to that address.
-3. You browser should land on the default IIS web page and the page will look something like this:
+3. Your browser should land on the default IIS web page and the page will look something like this:
 
 	![Screenshot showing what the default IIS page looks like in a browser.](./media/virtual-machines-windows-hero-tutorial/iis-default.png)
 
