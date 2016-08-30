@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2016"
+	ms.date="08/30/2016"
 	ms.author="cjiang"/>
 
 # If your credit or debit card is declined at sign up
