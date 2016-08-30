@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to Deliver Streaming Content from Media Services" 
+	pageTitle="Publish Azure Media Services content using .NET" 
 	description="Learn how to create a locator that is used to build a streaming URL. Code samples are written in C# and use the Media Services SDK for .NET." 
 	authors="juliako" 
 	manager="erikre" 
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="08/30/2016"
 	ms.author="juliako"/>
 
 
-#How to: Deliver streaming content
+# Publish Azure Media Services content using .NET
  
 > [AZURE.SELECTOR]
 - [REST](media-services-rest-deliver-streaming-content.md)
 - [.NET](media-services-deliver-streaming-content.md)
-- [Portal](media-services-manage-content.md#publish)
+- [Portal](media-services-portal-publish)
 
 ##Overview
 
