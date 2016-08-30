@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="MikeWasson"
-   manager="roshar"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -137,6 +137,7 @@ The script references the following parameter files to build the VMs and the sur
 
 - **[virtualNetwork.parameters.json][vnet-parameters-windows]**. This file defines the VNet settings, such as the name, address space, subnets, and the addresses of any DNS servers required. Note that subnet addresses must be contained within the address space of the VNet.
 
+    <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-multi-vm/parameters/windows/virtualNetwork.parameters.json#L4-L21 -->
 	```json
     "parameters": {
       "virtualNetworkSettings": {
@@ -160,6 +161,7 @@ The script references the following parameter files to build the VMs and the sur
 
 - **[networkSecurityGroup.parameters.json][nsg-parameters-windows]**. This file contains the definitions of NSGs and NSG rules. The `name` parameter in the `virtualNetworkSettings` block specifies the VNet to which the NSG is attached. The `subnets` parameter in the `networkSecurityGroupSettings` block identifies any subnets which apply the NSG rules in the VNet. These should be items defined in the **virtualNetwork.parameters.json** file.
 
+    <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-multi-vm/parameters/windows/networkSecurityGroups.parameters.json#L4-L47 -->
 	```json
 	"parameters": {
       "virtualNetworkSettings": {
@@ -198,6 +200,7 @@ The script references the following parameter files to build the VMs and the sur
 
 	Note that the default security rule shown in the example enables a user to connect to a Windows VM through a remote desktop (RDP) connection. The `securityRules` array for the Linux version of this file opens port 22 to enable SSH connections:
 
+    <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-multi-vm/parameters/linux/networkSecurityGroups.parameters.json#L20-L31 -->
 	```json
 	"securityRules": [
       {
@@ -218,6 +221,7 @@ The script references the following parameter files to build the VMs and the sur
 
 - **[loadBalancerParameters.json][loadbalancer-parameters-windows]**. This file defines the settings for the VMs, including the [size of each VM][VM-sizes], the security credentials for the admin user, the disks to be created, the storage accounts to hold these disks. This file also contains the definition of an availability set for the VMs, and the load balancer configuration for distributing traffic across the VMs in this set.
 
+    <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-multi-vm/parameters/windows/loadBalancer.parameters.json#L4-L127 -->
 	```json
     "parameters": {
       "virtualMachinesSettings": {
@@ -344,6 +348,7 @@ The script references the following parameter files to build the VMs and the sur
 
 	The default configuration for building Linux VMs references Ubuntu Linux 14.04. The `imageReference` section looks like this:
 
+    <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-multi-vm/parameters/linux/loadBalancer.parameters.json#L26-L31 -->
 	```json
     "imageReference": {
       "publisher": "Canonical",
@@ -405,11 +410,13 @@ To run the script that deploys the solution:
 
 5. Edit the Deploy-ReferenceArchitecture.ps1 or deploy-reference-architecture.sh file in the Scripts folder, and change the following line to specify the resource group that should be created or used to hold the VM and resources created by the script:
 
+    <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-multi-vm/Deploy-ReferenceArchitecture.ps1#L38 -->
 	```powershell
 	# PowerShell
 	$resourceGroupName = "ra-multi-vm-rg"
 	```
 
+    <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-multi-vm/deploy-reference-architecture.sh#L3 -->
 	```bash
 	# bash
 	RESOURCE_GROUP_NAME="ra-multi-vm-rg"
