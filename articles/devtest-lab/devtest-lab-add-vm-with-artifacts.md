@@ -51,7 +51,7 @@ This article shows you how to create a VM in your lab with artifacts.
 
 1. Enter a **User Name** that will be granted administrator privileges on the virtual machine.  
 
-1. If you have and want to use a password stored in your *secret store*, select **Use secrets from my secret store**, and specify a key value that corresponds to your secret (password). Otherwise, simply enter a password in the text field labeled **Type a value**.
+1. If you want to use a password stored in your *secret store*, select **Use secrets from my secret store**, and specify a key value that corresponds to your secret (password). Otherwise, simply enter a password in the text field labeled **Type a value**.
  
 1. Select **Virtual machine size** and select one of the predefined items that specify the processor cores, RAM size, and the hard drive size of the VM to create.
 
@@ -104,9 +104,7 @@ The following steps illustrate how to change the order in which the artifacts ar
 
     ![Number of artifacts added to VM](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
 
-1. Drag and drop the artifacts in the list to reflect the desired order. **Note:** If you have
-having trouble dragging the artifact, make sure that you are dragging from the left side of the 
-artifact. 
+1. To specify the order in which the artifacts are run, drag and drop the artifacts into the desired order. **Note:** If you have having trouble dragging the artifact, make sure that you are dragging from the left side of the artifact. 
 
 1. Select **OK** when done.  
 
