@@ -42,13 +42,9 @@ The Javascript API enables you to manage behavior at the report and page level:
 - Embed a specific Power BI Report securely in your application - try the [embed demo application](http://azure-samples.github.io/powerbi-angular-client/#/scenario1)
   - Set access token
 - Configure the report
-  - Enable/Disable functionality - try the [update settings demo application](http://azure-samples.github.io/powerbi-angular-client/#/scenario6)
-    - Filter Pane
-    - Page Navigation tabs
-  - Set defaults - try the [set defaults demo](http://azure-samples.github.io/powerbi-angular-client/#/scenario5)
-    - Page
-    - Filters
-- Enter/Exit full screen mode
+  - Enable and disable the filter pane and page navigation pane - try the [update settings demo application](http://azure-samples.github.io/powerbi-angular-client/#/scenario6)
+  - Set defaults for pages and filters - try the [set defaults demo](http://azure-samples.github.io/powerbi-angular-client/#/scenario5)
+- Enter and exit full screen mode
 
 [Learn more about embedding a report](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embedding-Basics)
 
