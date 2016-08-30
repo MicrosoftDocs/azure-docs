@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/18/2016" 
+	ms.date="08/30/2016" 
 	ms.author="awills"/>
 
 # Application Insights for ASP.NET Core
 
-Visual Studio Application Insights lets you monitor your web application for availability, performance and usage. With the feedback you get about the performance and effectiveness of your app in the wild, you can make informed choices about the direction of the design in each development lifecycle.
+[Visual Studio Application Insights](app-insights-overview.md) lets you monitor your web application for availability, performance and usage. With the feedback you get about the performance and effectiveness of your app in the wild, you can make informed choices about the direction of the design in each development lifecycle.
 
 ![Example](./media/app-insights-asp-net-five/sample.png)
 
@@ -26,7 +26,7 @@ You'll need a subscription with [Microsoft Azure](http://azure.com). Sign in wit
 
 ## Getting started
 
-If you created your project in Visual Studio 2015, you should already have Application Insights. Otherwise, please follow the [Getting Started guide](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started).
+Please follow the [Getting Started guide](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Getting-Started).
 
 ## Using Application Insights
 

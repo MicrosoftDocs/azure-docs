@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="07/19/2016"
+    ms.date="08/29/2016"
     ms.author="sstein"/>
 
 # Initiate a planned or unplanned failover for Azure SQL Database with PowerShell
@@ -81,6 +81,7 @@ The following command switches the roles of the database named "mydb” to prima
 
 ## Next steps   
 
+- After failover, ensure the authentication requirements for your server and database are configured on the new primary. For details, see [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md).
 - To learn recovering after a disaster using Active Geo-Replication, including pre and post recovery steps and performing a disaster recovery drill, see [Disaster Recovery Drills](sql-database-disaster-recovery.md)
 - For a Sasha Nosov blog post about Active Geo-Replication, see [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
 - For information about designing cloud applications to use Active Geo-Replication, see [Designing cloud applications for business continuity using Geo-Replication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)

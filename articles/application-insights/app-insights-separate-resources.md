@@ -91,7 +91,7 @@ The iKey is also used in your app's web pages, in the [script that you got from 
     // Modify this part:
     }({instrumentationKey:  
       // Generate from server property:
-      @Microsoft.ApplicationInsights.Extensibility.
+      "@Microsoft.ApplicationInsights.Extensibility.
          TelemetryConfiguration.Active.InstrumentationKey"
     }) // ...
 
