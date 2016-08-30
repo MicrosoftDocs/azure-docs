@@ -218,7 +218,7 @@ For information and considerations about using these sizes, see [About the A8, A
 ## GS-series*
 
 
-| Size         | CPU cores | Memory (GiB) | Local SSD disk size (GiB) | Max data disks | Max cached disk throughput (IOPS &vert; MB/sec) | Max uncached disk throughput (IOPS &vert; MB/sec) | Max NICs & Network bandwidth |
+| Size         | CPU cores | Memory (GiB) | Local SSD disk size (GiB) | Max data disks | Max cached disk throughput - IOPS &vert; MB/sec (cache size) | Max uncached disk throughput (IOPS &vert; MB/sec) | Max NICs & Network bandwidth |
 |--------------|-----------|--------------|---------------------------|--------------------------------|----------------|--------------------------------------------|----------------------------------------------|-----------------------|
 | Standard_GS1 | 2         | 28      | 56       | 4   | 10,000 &vert; 100 (264 GiB)       | 5,000 &vert; 125     | 1 high                  |
 | Standard_GS2 | 4         | 56      | 528      | 8   | 20,000 &vert; 200 (528 GiB)       | 10,000 &vert; 250    | 2 High                  |
