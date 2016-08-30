@@ -81,16 +81,16 @@ The following tables show the sizes and the capacities they provide.
 
 ## A-series
 
-| Size        | CPU cores | Memory (GiB) | Max NICs | Local disk size (GiB) | Max data disks | Max data disk IOPS | Max network bandwidth |
-|-------------|-----------|--------------|----------|-----------------------|----------------|--------------------|-----------------------|
-| Standard_A0 | 1         | 0.768        | 1        | 20                    | 1              | 1x500              | low                   |
-| Standard_A1 | 1         | 1.75         | 1        | 70                    | 2              | 2x500              | moderate              |
-| Standard_A2 | 2         | 3.5 GB       | 1        | 135                   | 4              | 4x500              | moderate              |
-| Standard_A3 | 4         | 7            | 2        | 285                   | 8              | 8x500              | high                  |
-| Standard_A4 | 8         | 14           | 4        | 605                   | 16             | 16x500             | high                  |
-| Standard_A5 | 2         | 14           | 1        | 135                   | 4              | 4X500              | moderate              |
-| Standard_A6 | 4         | 28           | 2        | 285                   | 8              | 8x500              | high                  |
-| Standard_A7 | 8         | 56           | 4        | 605                   | 16             | 16x500             | high                  |
+| Size        | CPU cores | Memory (GiB) | Local disk size (GiB) | Max data disks | Max data disk IOPS | Max NICs & Network bandwidth |
+|-------------|-----------|--------------|-----------------------|----------------|--------------------|-----------------------|
+| Standard_A0 | 1         | 0.768        | 20                    | 1              | 1x500              | 1 low                   |
+| Standard_A1 | 1         | 1.75         | 70                    | 2              | 2x500              | 1 moderate              |
+| Standard_A2 | 2         | 3.5 GB       | 135                   | 4              | 4x500              | 1 moderate              |
+| Standard_A3 | 4         | 7            | 285                   | 8              | 8x500              | 2 high                  |
+| Standard_A4 | 8         | 14           | 605                   | 16             | 16x500             | 4 high                  |
+| Standard_A5 | 2         | 14           | 135                   | 4              | 4X500              | 1 moderate              |
+| Standard_A6 | 4         | 28           | 285                   | 8              | 8x500              | 2 high                  |
+| Standard_A7 | 8         | 56           | 605                   | 16             | 16x500             | 4 high                  |
 
 <br>
 ## A-series - compute-intensive instances
@@ -98,58 +98,58 @@ The following tables show the sizes and the capacities they provide.
 For information and considerations about using these sizes, see [About the A8, A9, A10, and A11 compute intensive instances](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
 
-| Size         | CPU cores | Memory (GiB) | Max NICs | Local disk size (GiB) | Max data disks | Max data disk IOPS | Max network bandwidth |
-|--------------|-----------|--------------|----------|-----------------------|----------------|--------------------|-----------------------|
-| Standard_A8  | 8         | 56           | 2        | 382                   | 16             | 16x500             | high                  |
-| Standard_A9  | 16        | 112          | 4        | 382                   | 16             | 16x500             | very high             |
-| Standard_A10 | 8         | 56           | 2        | 382                   | 16             | 16x500             | high                  |
-| Standard_A11 | 16        | 112          | 4        | 382                   | 16             | 16x500             | very high             |
+| Size         | CPU cores | Memory (GiB) | Local disk size (GiB) | Max data disks | Max data disk IOPS | Max NICs & Network bandwidth |
+|--------------|-----------|--------------|-----------------------|----------------|--------------------|-----------------------|
+| Standard_A8  | 8         | 56           | 382                   | 16             | 16x500             | 2 high                  |
+| Standard_A9  | 16        | 112          | 382                   | 16             | 16x500             | 4 very high             |
+| Standard_A10 | 8         | 56           | 382                   | 16             | 16x500             | 2 high                  |
+| Standard_A11 | 16        | 112          | 382                   | 16             | 16x500             | 4 very high             |
 
 <br>
 ## D-series
 
 
-| Size         | CPU cores | Memory (GiB) | Max NICs | Local SSD size (GiB) | Max data disks | Max data disk IOPS | Max network bandwidth |
-|--------------|-----------|--------------|----------|----------------------|----------------|--------------------|-----------------------|
-| Standard_D1  | 1         | 3.5          | 1        | 50                   | 2              | 2x500              | moderate              |
-| Standard_D2  | 2         | 7            | 2        | 100                  | 4              | 4x500              | high                  |
-| Standard_D3  | 4         | 14           | 4        | 200                  | 8              | 8x500              | high                  |
-| Standard_D4  | 8         | 28           | 8        | 400                  | 16             | 16x500             | high                  |
-| Standard_D11 | 2         | 14           | 2        | 100                  | 4              | 4x500              | high                  |
-| Standard_D12 | 4         | 28           | 4        | 200                  | 8              | 8x500              | high                  |
-| Standard_D13 | 8         | 56           | 8        | 400                  | 16             | 16x500             | high                  |
-| Standard_D14 | 16        | 112          | 8        | 800                  | 32             | 32x500             | very high             |
+| Size         | CPU cores | Memory (GiB) | Local SSD size (GiB) | Max data disks | Max data disk IOPS | Max NICs & Network bandwidth |
+|--------------|-----------|--------------|----------------------|----------------|--------------------|-----------------------|
+| Standard_D1  | 1         | 3.5          | 50                   | 2              | 2x500              | 1 moderate              |
+| Standard_D2  | 2         | 7            | 100                  | 4              | 4x500              | 2 high                  |
+| Standard_D3  | 4         | 14           | 200                  | 8              | 8x500              | 4 high                  |
+| Standard_D4  | 8         | 28           | 400                  | 16             | 16x500             | 8 high                  |
+| Standard_D11 | 2         | 14           | 100                  | 4              | 4x500              | 2 high                  |
+| Standard_D12 | 4         | 28           | 200                  | 8              | 8x500              | 4 high                  |
+| Standard_D13 | 8         | 56           | 400                  | 16             | 16x500             | 8 high                  |
+| Standard_D14 | 16        | 112          | 800                  | 32             | 32x500             | 8 very high             |
 
 <br>
 ## Dv2-series
 
-| Size            | CPU cores | Memory (GiB) | Max NICs | Local SSD size (GiB) | Max data disks | Max data disk IOPS | Max network bandwidth |
-|-----------------|-----------|--------------|----------|----------------------|----------------|--------------------|-----------------------|
-| Standard_D1_v2  | 1         | 3.5          | 1        | 50                   | 2              | 2x500              | moderate              |
-| Standard_D2_v2  | 2         | 7            | 2        | 100                  | 4              | 4x500              | high                  |
-| Standard_D3_v2  | 4         | 14           | 4        | 200                  | 8              | 8x500              | high                  |
-| Standard_D4_v2  | 8         | 28           | 8        | 400                  | 16             | 16x500             | high                  |
-| Standard_D5_v2  | 16        | 56           | 8        | 800                  | 32             | 32x500             | extremely high        |
-| Standard_D11_v2 | 2         | 14           | 2        | 100                  | 4              | 4x500              | high                  |
-| Standard_D12_v2 | 4         | 28           | 4        | 200                  | 8              | 8x500              | high                  |
-| Standard_D13_v2 | 8         | 56           | 8        | 400                  | 16             | 16x500             | high                  |
-| Standard_D14_v2 | 16        | 112          | 8        | 800                  | 32             | 32x500             | extremely high        |
-| Standard_D15_v2 | 20        | 140          | 8        | 1,000                | 40             | 40x500             | extremely high        |
+| Size            | CPU cores | Memory (GiB) | Local SSD size (GiB) | Max data disks | Max data disk IOPS | Max NICs & Network bandwidth |
+|-----------------|-----------|--------------|----------------------|----------------|--------------------|-----------------------|
+| Standard_D1_v2  | 1         | 3.5          | 50                   | 2              | 2x500              | 1 moderate              |
+| Standard_D2_v2  | 2         | 7            | 100                  | 4              | 4x500              | 2 high                  |
+| Standard_D3_v2  | 4         | 14           | 200                  | 8              | 8x500              | 4 high                  |
+| Standard_D4_v2  | 8         | 28           | 400                  | 16             | 16x500             | 8 high                  |
+| Standard_D5_v2  | 16        | 56           | 800                  | 32             | 32x500             | 8 extremely high        |
+| Standard_D11_v2 | 2         | 14           | 100                  | 4              | 4x500              | 2 high                  |
+| Standard_D12_v2 | 4         | 28           | 200                  | 8              | 8x500              | 4 high                  |
+| Standard_D13_v2 | 8         | 56           | 400                  | 16             | 16x500             | 8 high                  |
+| Standard_D14_v2 | 16        | 112          | 800                  | 32             | 32x500             | 8 extremely high        |
+| Standard_D15_v2 | 20        | 140          | 1,000                | 40             | 40x500             | 8 extremely high        |
 
 <br>
 ## DS-series*
 
 
-| Size          | CPU cores | Memory (GiB) | Max NICs | Local SSD size (GiB) | Local SSD cache for disk (GiB) | Max data disks | Max cached disk throughput (IOPS &vert; MB/sec) | Max uncached disk throughput (IOPS &vert; MB/sec) | Max network bandwidth |
-|---------------|-----------|--------------|----------|----------------------|--------------------------------|----------------|--------------------------------------------|----------------------------------------------|-----------------------|
-| Standard_DS1  | 1         | 3.5          | 1        | 7                    | 43                             | 2              | 4,000 / 32                                 | 3,200 / 32                                   | moderate              |
-| Standard_DS2  | 2         | 7            | 2        | 14                   | 86                             | 4              | 8,000 / 64                                 | 6,400 / 64                                   | high                  |
-| Standard_DS3  | 4         | 14           | 4        | 28                   | 172                            | 8              | 16,000 / 128                               | 12,800 / 128                                 | high                  |
-| Standard_DS4  | 8         | 28           | 8        | 56                   | 344                            | 16             | 32,000 / 256                               | 25,600 / 256                                 | high                  |
-| Standard_DS11 | 2         | 14           | 2        | 28                   | 72                             | 4              | 8,000 / 64                                 | 6,400 / 64                                   | high                  |
-| Standard_DS12 | 4         | 28           | 4        | 56                   | 144                            | 8              | 16,000 / 128                               | 12,800 / 128                                 | high                  |
-| Standard_DS13 | 8         | 56           | 8        | 112                  | 288                            | 16             | 32,000 / 256                               | 25,600 / 256                                 | high                  |
-| Standard_DS14 | 16        | 112          | 8        | 224                  | 576                            | 32             | 64,000 / 512                               | 51,200 / 512                                 | very high  
+| Size          | CPU cores | Memory (GiB) | Local SSD size (GiB) | Local SSD cache for disk (GiB) | Max data disks | Max cached disk throughput (IOPS &vert; MB/sec) | Max uncached disk throughput (IOPS &vert; MB/sec) | Max NICs & Network bandwidth |
+|---------------|-----------|--------------|-----------------------|--------------------------------|----------------|--------------------------------------------|----------------------------------------------|-----------------------|
+| Standard_DS1  | 1         | 3.5          | 7                    | 43                             | 2              | 4,000 / 32                                 | 3,200 / 32                                   | 1 moderate              |
+| Standard_DS2  | 2         | 7            | 14                   | 86                             | 4              | 8,000 / 64                                 | 6,400 / 64                                   | 2 high                  |
+| Standard_DS3  | 4         | 14           | 28                   | 172                            | 8              | 16,000 / 128                               | 12,800 / 128                                 | 4 high                  |
+| Standard_DS4  | 8         | 28           | 56                   | 344                            | 16             | 32,000 / 256                               | 25,600 / 256                                 | 8 high                  |
+| Standard_DS11 | 2         | 14           | 28                   | 72                             | 4              | 8,000 / 64                                 | 6,400 / 64                                   | 2 high                  |
+| Standard_DS12 | 4         | 28           | 56                   | 144                            | 8              | 16,000 / 128                               | 12,800 / 128                                 | 4 high                  |
+| Standard_DS13 | 8         | 56           | 112                  | 288                            | 16             | 32,000 / 256                               | 25,600 / 256                                 | 8 high                  |
+| Standard_DS14 | 16        | 112          | 224                  | 576                            | 32             | 64,000 / 512                               | 51,200 / 512                                 | 8 very high  
            |
 *The maximum disk throughput (IOPS or MB/sec) possible with a DS series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
 
@@ -158,7 +158,7 @@ For information and considerations about using these sizes, see [About the A8, A
 ## DSv2-series*
 
 
-| Size             | CPU cores | Memory (GiB) | Local SSD disk size (GiB) | Max data disks | Max cached disk throughput (IOPS &vert; MB/Sec) | Max uncached disk throughput (IOPS &vert;MB/Sec | Network bandwidth & Mac NICs |
+| Size             | CPU cores | Memory (GiB) | Local SSD disk size (GiB) | Max data disks | Max cached disk throughput (IOPS &vert; MB/Sec) | Max uncached disk throughput (IOPS &vert;MB/Sec | Max NICs & Network bandwidth |
 |------------------|-----------|--------------|---------------------------|----------------|-------------------------------------------------|-------------------------------------------------|------------------------------|
 | Standard_DS1_v2  | 1         | 3.5          | 7                         | 2              | 4,000 &vert; 32 (43 GiB)                        | 3,200 &vert; 48                                 | 4 moderate                   |
 | Standard_DS2_v2  | 2         | 7            | 14                        | 4              | 8,000 &vert; 64 (86 GiB)                        | 6,400 &vert; 96                                 | 2 high                       |
@@ -179,24 +179,24 @@ For information and considerations about using these sizes, see [About the A8, A
 ## F-series
 
 
-| Size         | CPU cores | Memory (GiB) | Max NICs | Local SSD size (GiB) | Max data disks | Max disk IOPS | Max network bandwidth |
-|--------------|-----------|--------------|----------|----------------------|----------------|--------------------|-----------------------|
-| Standard_F1  | 1         | 2            | 1        | 16                   | 2              | 2x500              | moderate              |
-| Standard_F2  | 2         | 4            | 2        | 32                   | 4              | 4x500              | high                  |
-| Standard_F4  | 4         | 8            | 4        | 64                   | 8              | 8x500              | high                  |
-| Standard_F8  | 8         | 16           | 8        | 128                  | 16             | 16x500             | high                  |
-| Standard_F16 | 16        | 32           | 8        | 256                  | 32             | 32x500             | extremely high        |
+| Size         | CPU cores | Memory (GiB) | Local SSD size (GiB) | Max data disks | Max disk IOPS | Max NICs & Network bandwidth |
+|--------------|-----------|--------------|----------------------|----------------|--------------------|-----------------------|
+| Standard_F1  | 1         | 2            | 16                   | 2              | 2x500              | 1 moderate              |
+| Standard_F2  | 2         | 4            | 32                   | 4              | 4x500              | 2 high                  |
+| Standard_F4  | 4         | 8            | 64                   | 8              | 8x500              | 4 high                  |
+| Standard_F8  | 8         | 16           | 128                  | 16             | 16x500             | 8 high                  |
+| Standard_F16 | 16        | 32           | 256                  | 32             | 32x500             | 8 extremely high        |
 
 <br>
 ## Fs-series*
 
-| Size          | CPU cores | Memory (GiB) | Max NICs | Local SSD disk size (GiB) | Local SSD cache for disk (GiB) | Max data disks | Max uncached disk throughput (IOPS &vert; MB/sec) | Max cached disk throughput (IOPS &vert; MB/sec) | Max network bandwidth |
-|---------------|-----------|--------------|----------|---------------------------|-------------------------------------|----------------|---------------------------------------------------|-------------------------------------------------|-----------------------|
-| Standard_F1s  | 1         | 2            | 1        | 4                         | 12                                  | 2              | 3,200 / 48                                          | 4,000 / 32                                        | moderate              |
-| Standard_F2s  | 2         | 4            | 2        | 8                         | 24                                  | 4              | 6,400 / 96                                          | 8,000 / 64                                        | high                  |
-| Standard_F4s  | 4         | 8            | 4        | 16                        | 48                                  | 8              | 12,800 / 192                                        | 16,000 / 128                                      | high                  |
-| Standard_F8s  | 8         | 16           | 8        | 32                        | 96                                  | 16             | 25,600 / 384                                        | 32,000 / 256                                      | high                  |
-| Standard_F16s | 16        | 32           | 8        | 64                        | 192                                 | 32             | 51,200 / 768                                        | 64,000 / 512                                      | extremely high        |
+| Size          | CPU cores | Memory (GiB) | Local SSD disk size (GiB) | Local SSD cache for disk (GiB) | Max data disks | Max uncached disk throughput (IOPS &vert; MB/sec) | Max cached disk throughput (IOPS &vert; MB/sec) | Max network bandwidth |
+|---------------|-----------|--------------|---------------------------|-------------------------------------|----------------|---------------------------------------------------|-------------------------------------------------|-----------------------|
+| Standard_F1s  | 1         | 2            | 12                                  | 2              | 3,200 / 48                                          | 4,000 / 32                                        | 1 moderate              |
+| Standard_F2s  | 2         | 4            | 8                         | 24                                  | 4              | 6,400 / 96                                          | 8,000 / 64                                        | 2 high                  |
+| Standard_F4s  | 4         | 8            | 16                        | 48                                  | 8              | 12,800 / 192                                        | 16,000 / 128                                      | 4 high                  |
+| Standard_F8s  | 8         | 16           | 32                        | 96                                  | 16             | 25,600 / 384                                        | 32,000 / 256                                      | 8 high                  |
+| Standard_F16s | 16        | 32           | 64                        | 192                                 | 32             | 51,200 / 768                                        | 64,000 / 512                                      | 8 extremely high        |
 
 
 *The maximum disk throughput (IOPS or MB/sec) possible with a Fs series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
@@ -207,13 +207,13 @@ For information and considerations about using these sizes, see [About the A8, A
 <br>
 ## G-series
 
-| Size        | CPU cores | Memory (GiB) | Max NICs | Local SSD size (GiB) | Max data disks | Max disk IOPS | Max network bandwidth |
-|-------------|-----------|--------------|----------|----------------------|----------------|--------------------|-----------------------|
-| Standard_G1 | 2         | 28           | 1        | 384                  | 4              | 4 x 500            | high                  |
-| Standard_G2 | 4         | 56           | 2        | 768                  | 8              | 8 x 500            | high                  |
-| Standard_G3 | 8         | 112          | 4        | 1,536                | 16             | 16 x 500           | very high             |
-| Standard_G4 | 16        | 224          | 8        | 3,072                | 32             | 32 x 500           | extremely high        |
-| Standard_G5 | 32        | 448          | 8        | 6,144                | 64             | 64 x 500           | extremely high        |
+| Size        | CPU cores | Memory (GiB) | Local SSD size (GiB) | Max data disks | Max disk IOPS | Max NICs & Network bandwidth |
+|-------------|-----------|--------------|----------------------|----------------|--------------------|-----------------------|
+| Standard_G1 | 2         | 28           | 384                  | 4              | 4 x 500            | 1 high                  |
+| Standard_G2 | 4         | 56           | 768                  | 8              | 8 x 500            | 2 high                  |
+| Standard_G3 | 8         | 112          | 1,536                | 16             | 16 x 500           | 4 very high             |
+| Standard_G4 | 16        | 224          | 3,072                | 32             | 32 x 500           | 8 extremely high        |
+| Standard_G5 | 32        | 448          | 6,144                | 64             | 64 x 500           | 8 extremely high        |
 
 
 
@@ -221,13 +221,13 @@ For information and considerations about using these sizes, see [About the A8, A
 ## GS-series*
 
 
-| Size         | CPU cores | Memory (GiB) | Max NICs | Local SSD disk size (GiB) | Local SSD cache for disk (GiB) | Max data disks | Max cached disk throughput (IOPS &vert; MB/sec) | Max uncached disk throughput (IOPS &vert; MB/sec) | Max network bandwidth |
+| Size         | CPU cores | Memory (GiB) | Local SSD disk size (GiB) | Local SSD cache for disk (GiB) | Max data disks | Max cached disk throughput (IOPS &vert; MB/sec) | Max uncached disk throughput (IOPS &vert; MB/sec) | Max NICs & Network bandwidth |
 |--------------|-----------|--------------|----------|---------------------------|--------------------------------|----------------|--------------------------------------------|----------------------------------------------|-----------------------|
-| Standard_GS1 | 2         | 28           | 1        | 56                        | 264                            | 4              | 10,000 / 100                               | 5,000 / 125                                  | high                  |
-| Standard_GS2 | 4         | 56           | 2        | 112                       | 528                            | 8              | 20,000 / 200                               | 10,000 / 250                                 | High                  |
-| Standard_GS3 | 8         | 112          | 4        | 224                       | 1,056                          | 16             | 40,000 / 400                               | 20,000 / 500                                 | very high             |
-| Standard_GS4 | 16        | 224          | 8        | 448                       | 2,112                          | 32             | 80,000 / 800                               | 40,000 / 1,000                               | extremely high        |
-| Standard_GS5 | 32        | 448          | 8        | 896                       | 4,224                          | 64             | 160,000 / 1,600                            | 80,000 / 2,000                               | extremely high        |
+| Standard_GS1 | 2         | 28           | 56                        | 264                            | 4              | 10,000 / 100                               | 5,000 / 125                                  | 1 high                  |
+| Standard_GS2 | 4         | 56           | 112                       | 528                            | 8              | 20,000 / 200                               | 10,000 / 250                                 | 2 High                  |
+| Standard_GS3 | 8         | 112          | 224                       | 1,056                          | 16             | 40,000 / 400                               | 20,000 / 500                                 | 4 very high             |
+| Standard_GS4 | 16        | 224          | 448                       | 2,112                          | 32             | 80,000 / 800                               | 40,000 / 1,000                               | 8 extremely high        |
+| Standard_GS5 | 32        | 448          | 896                       | 4,224                          | 64             | 160,000 / 1,600                            | 80,000 / 2,000                                | 8 extremely high        |
 
 *The maximum disk throughput (IOPS or MB/sec) possible with a GS series VM may be limited by the number, size and striping of the attached disk(s). 
 
