@@ -43,14 +43,14 @@ After the template has been deployed, you should be able to see the new workspac
 
 <insert screenshot>
 
-
 ##Deploy a new Service Fabric Cluster connected to a Log Analytics workspace with the VM Extension installed.
 This template does the following:
 
 1. Deploys an Azure Service Fabric cluster already connected to a Log Analytics workspace. Again, you can create a new workspace or use an exsiting one.
 2. It also adds the diagnostic storage accounts to the Log Analytics workspace.
 3. Enables the Service Fabric solution in the Log Analytics workspace.
-4. Installs the MMA agent extension in each VM scale set in your Service Fabric cluster. With the MMA agent installed, you're able to view performance metrics
+4. Installs the MMA agent extension in each VM scale set in your Service Fabric cluster. With the MMA agent installed, you're able to view performance metrics CONTINUE
+<insert screenshots>
 
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-vmss-oms%2F%2Fazuredeploy.json) 
 
@@ -62,7 +62,8 @@ After the template has been deployed, you should see the new workspace and clust
 This template simply adds your existing storage accounts to a new or existing Log Analytics workspace.
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Foms-storageaccount%2F%2Fazuredeploy.json) 
 
-
+After this template has been deployed, you will be able to see the storage account connected to your Log Analytics workspace.
+<insert screenshots here>
 
 
 ## Next steps
