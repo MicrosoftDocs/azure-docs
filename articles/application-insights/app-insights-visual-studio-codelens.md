@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="CodeLens in Visual Studio | Microsoft Azure" 
+	pageTitle="Application Insights telemetry in Visual Studio CodeLens | Microsoft Azure" 
 	description="Quickly access your Application Insights request and exception telemetry with CodeLens in Visual Studio." 
 	services="application-insights" 
     documentationCenter=".net"
@@ -15,17 +15,18 @@
 	ms.date="08/30/2016" 
 	ms.author="daviste"/>
 	
-# CodeLens in Visual Studio
+# Application Insights telemetry in Visual Studio CodeLens
 
-CodeLens provides quick, useful information in the context of your code, like the number of places a function is referenced or the last person who edited a function. With Application Insights, exception and request information from your app is available right from CodeLens.
+Methods in the code of your web app can be annotated with telemetry about run-time exceptions and request response times. If you install [Visual Studio Application Insights](app-insights-overview.md) in your application, the telemetry appears in Visual Studio [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx) - the notes at the top of each function where you're used to seeing useful information such as the number of places the function is referenced or the last person who edited it.
 
 ![CodeLens](./media/app-insights-visual-studio-codelens/codelens-overview.png)
 
-> [AZURE.NOTE] Application Insights in CodeLens is available in Visual Studio 2015 Update 3 and later, or with the [Developer Analytics Tools extension](https://visualstudiogallery.msdn.microsoft.com/82367b81-3f97-4de1-bbf1-eaf52ddc635a) version TBD and later. CodeLens is only available in the Enterprise and Professional editions of Visual Studio. CodeLens is not available in Visual Studio Community.
+> [AZURE.NOTE] Application Insights in CodeLens is available in Visual Studio 2015 Update 3 and later, or with the latest version of [Developer Analytics Tools extension](https://visualstudiogallery.msdn.microsoft.com/82367b81-3f97-4de1-bbf1-eaf52ddc635a). CodeLens is available in the Enterprise and Professional editions of Visual Studio.
 
-## Using CodeLens
+## Where to find Application Insights data
 
-CodeLens indicators are shown above class, method, and other declarations in C# and Visual Basic code. If Application Insights data is available for a method, you'll see indicators for requests and exceptions like "100 requests, 1% failed" or "10 exceptions." Click a CodeLens indicator for more details.
+Look for Application Insights telemetry in the CodeLens indicators of the public request methods of your web application. 
+CodeLens indicators are shown above method and other declarations in C# and Visual Basic code. If Application Insights data is available for a method, you'll see indicators for requests and exceptions such as "100 requests, 1% failed" or "10 exceptions." Click a CodeLens indicator for more details. 
 
 > [AZURE.TIP] Application Insights request and exception indicators may take a few extra seconds to load after other CodeLens indicators appear.
 
@@ -33,9 +34,10 @@ CodeLens indicators are shown above class, method, and other declarations in C# 
 
 ![TBD](./media/app-insights-visual-studio-codelens/codelens-exceptions.png)
 
-The exception CodeLens indicator shows the number of exceptions that have occurred in the past 24 hours from the 15 most frequently occuring exceptions during that period.
+The exception CodeLens indicator shows the number of exceptions that have occurred in the past 24 hours from the 15 most frequently occuring exceptions during that period, while processing the request served by the method.
 
 Click the exceptions CodeLens indicator to see more details:
+
 * The percentage change in number of exceptions from the most recent 24 hours relative to the prior 24 hours
 * Choose **Go to code** to navigate to the source code for the function throwing the exception
 * Choose **Search** to query all instances of this exception that have occurred in the past 24 hours
@@ -51,9 +53,10 @@ Click the exceptions CodeLens indicator to see more details:
 
 ![TBD](./media/app-insights-visual-studio-codelens/codelens-requests.png)
 
-The request CodeLens indicator shows the number of requests that been made to a method in the past 24 hours, plus the percentage of those requests which failed.
+The request CodeLens indicator shows the number of HTTP requests that been serviced by a method in the past 24 hours, plus the percentage of those requests that failed.
 
 Click the requests CodeLens indicator to see more details:
+
 * The absolute and percentage changes in number of requests, failed requests, and average response times over the past 24 hours compared to the prior 24 hours
 * The reliability of the method, calculated as the percentage of requests that did not fail in the past 24 hours
 * Choose **Search** for requests or failed requests to query all of the (failed) requests that occurred in the past 24 hours
