@@ -45,7 +45,7 @@ Data scientists use various tools to complete these tasks. It can be quite time 
 
 The Linux Data Science Virtual Machine can ease this burden substantially. Use it to jump-start your analytics project. It enables you to work on tasks in various languages, including R, Python, SQL, Java, and C++. Eclipse provides an IDE to develop and test your code that is easy to use. The Azure SDK included in the VM allows you to build your applications by using various services on Linux for the Microsoft cloud platform. In addition, you have access to other languages like Ruby, Perl, PHP, and node.js that are also pre-installed.
 
-There are no software charges for this data science VM image. You pay only the Azure hardware usage fees that are assessed based on the size of the virtual machine that you provision with the VM image. More details on the compute fees can be found [here](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linuxdsvm/).
+There are no software charges for this data science VM image. You pay only the Azure hardware usage fees that are assessed based on the size of the virtual machine that you provision with the VM image. More details on the compute fees can be found on the [Azure Marketplace partner program site](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linuxdsvm/).
 
 
 ## Prerequisites
@@ -105,7 +105,7 @@ After the VM is created, you can sign in to it by using SSH. Use the account cre
 
 The Linux VM is already provisioned with X2Go server and ready to accept client connections. To connect to the Linux VM graphical desktop, do the following on your client:
 
-1. Download and install the X2Go client for your client platform from [here](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
+1. Download and install the X2Go client for your client platform from [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 2. Run the X2Go client, and select **New Session**. It opens a configuration window with multiple tabs. Enter the following configuration parameters:
     * **Session tab**:
         - **Host**: The host name or IP address of your Linux Data Science VM.
@@ -308,7 +308,7 @@ To run the xgboost command line, here are the commands to execute in the shell:
 	xgboost mushroom.conf
 
 
-A .model file is written to the directory specified. Information about this demo example can be found [here](https://github.com/dmlc/xgboost/tree/master/demo/binary_classification).
+A .model file is written to the directory specified. Information about this demo example can be found [on GitHub](https://github.com/dmlc/xgboost/tree/master/demo/binary_classification).
 
 For more information about xgboost, see the [xgboost documentation page](https://xgboost.readthedocs.org/en/latest/), and its [Github repository](https://github.com/dmlc/xgboost).
 
