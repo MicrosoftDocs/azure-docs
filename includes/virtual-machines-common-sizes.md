@@ -146,6 +146,22 @@ For information and considerations about using these sizes, see [About the A8, A
 | Standard_DS13 | 8         | 56           | 8        | 112                       | 288                                | 16             | 25,600  / 256                                       | 32,000 / 256                                      | high                  |
 | Standard_DS14 | 16        | 112          | 8        | 224                       | 576                                | 32             | 51,200 / 512                                        | 64,000 / 512                                      | very high             |
 
+
+
+
+<br>
+
+
+| Size          | CPU cores | Memory (GiB) | Max NICs | Local SSD size (GiB) | Local SSD cache for disk (GiB) | Max data disks | Max cached disk throughput (IOPS & MB/Sec) | Max uncached disk throughput (IOPS & MB/Sec) | Max network bandwidth |
+|---------------|-----------|--------------|----------|----------------------|--------------------------------|----------------|--------------------------------------------|----------------------------------------------|-----------------------|
+| Standard_DS1  | 1         | 3.5          | 1        | 7                    | 43                             | 2              | 4,000 / 32                                 | 3,200 / 32                                   | moderate              |
+| Standard_DS2  | 2         | 7            | 2        | 14                   | 86                             | 4              | 8,000 / 64                                 | 6,400 / 64                                   | high                  |
+| Standard_DS3  | 4         | 14           | 4        | 28                   | 172                            | 8              | 16,000 / 128                               | 12,800 / 128                                 | high                  |
+| Standard_DS4  | 8         | 28           | 8        | 56                   | 344                            | 16             | 32,000 / 256                               | 25,600 / 256                                 | high                  |
+| Standard_DS11 | 2         | 14           | 2        | 28                   | 72                             | 4              | 8,000 / 64                                 | 6,400 / 64                                   | high                  |
+| Standard_DS12 | 4         | 28           | 4        | 56                   | 144                            | 8              | 16,000 / 128                               | 12,800 / 128                                 | high                  |
+| Standard_DS13 | 8         | 56           | 8        | 112                  | 288                            | 16             | 32,000 / 256                               | 25,600 / 256                                 | high                  |
+| Standard_DS14 | 16        | 112          | 8        | 224                  | 576                            | 32             | 64,000 / 512                               | 51,200 / 512                                 | very high             |
 *The maximum input/output operations per second (IOPS) and throughput (bandwidth) possible with a DS series VM is affected by the size of the disk. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
 
 
