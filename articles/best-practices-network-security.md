@@ -319,12 +319,9 @@ Once the routing tables are created, they are bound to their subnets. The front-
 		 {10.0.0.0/16}     VirtualAppliance 10.0.0.4            Active    
          {0.0.0.0/0}       VirtualAppliance 10.0.0.4            Active
 
->[AZURE.NOTE] There are certain restrictions when using UDR with ExpressRoute due to the complexity of dynamic routing used in the Azure virtual gateway:
+>[AZURE.NOTE] UDR can now be applied to the gateway subnet on which the ExpressRoute circuit is connected.
 >
->- UDR should not be applied to the gateway subnet on which the ExpressRoute linked Azure virtual gateway is connected.
-> - The ExpressRoute linked Azure virtual gateway cannot be the NextHop device for other UDR bound subnets.
->
->Examples of how to enable your perimeter network with ExpressRoute or site-to-site networking are shown in examples 3 and 4.
+> Examples of how to enable your perimeter network with ExpressRoute or site-to-site networking are shown in examples 3 and 4.
 
 
 #### IP Forwarding description
