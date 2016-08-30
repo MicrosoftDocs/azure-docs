@@ -50,11 +50,11 @@ When in doubt, use the `-h` command line option to get help on any Azure CLI com
 
 * Example:
 
-  ```azure batch account create --location "East US"  --resource-group "resgroup001" "batchaccount001"```
+  ```azure batch account create --location "West US"  --resource-group "resgroup001" "batchaccount001"```
 
-Creates a new Batch account with the specified parameters. You must specify at least a location, resource group, and account name. If you don't already have a resource group, create one by running the `azure group create` command, specifying one of the Azure regions (such as "East US") for the `--location` option. For example:
+Creates a new Batch account with the specified parameters. You must specify at least a location, resource group, and account name. If you don't already have a resource group, create one by running the `azure group create` command, specifying one of the Azure regions (such as "West US") for the `--location` option. For example:
 
-`azure group create --name "resgroup001" --location "East US"`
+`azure group create --name "resgroup001" --location "West US"`
 
 > [AZURE.NOTE] The Batch account name must be unique to the Azure region for the resource group, contain between 3 and 24 characters, and use lowercase letters and numbers only. You cannot use special characters like `-` or `_` in Batch account names.
 
@@ -70,7 +70,7 @@ First, show your storage account's details:
 
 Then use the **Url** value for the `--autostorage-account-id` option. The Url value starts with "/subscriptions/" and contains your subscription ID and resource path to the account:
 
-```azure batch account create --location "East US"  --resource-group "resgroup001" --autostorage-account-id "/subscriptions/8ffffff8-4444-4444-bfbf-8ffffff84444/resourceGroups/resgroup001/providers/Microsoft.Storage/storageAccounts/storageaccount001" "batchaccount001"```
+```azure batch account create --location "West US"  --resource-group "resgroup001" --autostorage-account-id "/subscriptions/8ffffff8-4444-4444-bfbf-8ffffff84444/resourceGroups/resgroup001/providers/Microsoft.Storage/storageAccounts/storageaccount001" "batchaccount001"```
 
 ## Delete a Batch account
 
@@ -112,26 +112,35 @@ Lists the account keys for the given Batch account.
 
 ## Create and modify Batch resources
 
-You can create, read, update, and delete (CRUD) Batch resources like pools, compute nodes, jobs, and tasks by using the Azure CLI. These operations require your Batch account name, access key, and endpoint (specified as the `-a`, `-k`, `-u` options). You can supply these options on the command line with each command, or you can set the `AZURE_BATCH_ACCOUNT`, `AZURE_BATCH_ACCESS_KEY`, and `AZURE_BATCH_ENDPOINT` environment variables.
+You can create, read, update, and delete (CRUD) Batch resources like pools, compute nodes, jobs, and tasks by using the Azure CLI. These operations require your Batch account name, access key, and endpoint (specified as the `-a`, `-k`, and `-u` options, repectively).
 
-To obtain the values for the variables, you can [list the access keys](#list-access-keys) for your Batch account as described earlier, then display the account endpoint by using the `azure batch account show` command:
+### Credential environment variables
 
-`azure batch account show --resource-group "resgroup001" "batchaccount001"`
+You can set the `AZURE_BATCH_ACCOUNT`, `AZURE_BATCH_ACCESS_KEY`, and `AZURE_BATCH_ENDPOINT` environment variables instead of specifying the `-a`, `-k`, and `-u` options on the command line with each command.
 
+The remainder of the examples in the article assume that you've set the `AZURE_BATCH_ACCOUNT`, `AZURE_BATCH_ACCESS_KEY`, and `AZURE_BATCH_ENDPOINT` environment variables appropriate for your account, and the `-a`, `-k`, and `-u` options are ommitted.
 
+>[AZURE.TIP] List your keys with `azure batch account keys list`, and find your endpoint with `azure batch account show`.
 
 ## Create a pool
 
-When creating or updating a Batch pool, you select a cloud service configuration or a virtual machine configuration for the operating system on the compute nodes (see [Batch feature overview](batch-api-basics.md#pool)). Your choice determines whether your compute nodes are imaged with one of the [Azure Guest OS releases](../cloud-services/cloud-services-guestos-update-matrix.md#releases) or with one of the supported Linux or Windows VM images in the Azure Marketplace.
+* Usage:
 
-When you run **New-AzureBatchPool**, pass the operating system settings in a PSCloudServiceConfiguration or PSVirtualMachineConfiguration object. For example, the following cmdlet creates a new Batch pool with size Small compute nodes in the cloud service configuration, imaged with the latest operating system version of family 3 (Windows Server 2012). Here, the **CloudServiceConfiguration** parameter specifies the *$configuration* variable as the PSCloudServiceConfiguration object. The **BatchContext** parameter specifies a previously defined variable *$context* as the BatchAccountContext object.
+  `batch pool create [options] [json-file]`
 
-```
-$configuration = New-Object -TypeName Microsoft.Azure.Commands.Batch.Models.PSCloudServiceConfiguration" -ArgumentList @(3,*")
-New-AzureBatchPool -Id "AutoScalePool" -VirtualMachineSize "Small" CloudServiceConfiguration $configuration -AutoScaleFormula '$TargetDedicated=4;' BatchContext $context
-```
+* Examples:
 
-The target number of compute nodes in the new pool is determined by an autoscaling formula. In this case, the formula is simply **$TargetDedicated=4**, indicating the number of compute nodes in the pool is 4 at most.
+  CloudServiceConfiguration (PaaS, Windows only)
+
+  ```azure batch pool create --id "pool1" --target-dedicated 1 --vm-size "small" --os-family "4"```
+
+  VirtualMachineConfiguration (IaaS, Linux and Windows)
+
+  ```azure batch pool create --id "pool2" --target-dedicated 1 --vm-size "STANDARD_A1" --image-publisher "Canonical" --image-offer "UbuntuServer" --image-sku "14.04.2-LTS" --node-agent-id "batch.node.ubuntu 14.04"```
+
+Creates a pool of compute nodes in the Batch service.
+
+When creating or updating a Batch pool, you select a Cloud Services Configuration or a Virtual Machine configuration for the operating system on the compute nodes (see [Batch feature overview](batch-api-basics.md#pool)). Your choice determines whether your compute nodes are imaged with one of the [Azure Guest OS releases](../cloud-services/cloud-services-guestos-update-matrix.md#releases) or with one of the supported Linux or Windows VM images in the Azure Marketplace.
 
 ## Query for pools, jobs, tasks, and other details
 
