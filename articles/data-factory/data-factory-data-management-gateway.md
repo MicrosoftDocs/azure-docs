@@ -42,7 +42,7 @@ Following is a representation of high-level data flow and summary of steps for c
 1.	A data developer creates a gateway for a data factory by using either the [Azure portal](https://portal.azure.com) or [PowerShell cmdlet](https://msdn.microsoft.com/library/dn820234.aspx).
 2.	A data developer creates a linked service for an on-premises data store by specifying the gateway. As part of setting up the linked service, the data developer uses the Setting Credentials application to specify authentication types and credentials. The Setting Credentials application communicates with the data store to test the connection and the gateway before saving credentials.
 3. Data Management Gateway encrypts the credentials with the certificate associated with the gateway (supplied by the data developer) before saving the credentials in the cloud.
-4. Data Factory service communicates with the gateway for scheduling and management of jobs via a control channel that uses a shared Azure service bus queue. When a copy activity job needs to be initiated, Data Factory queues the request along with credential information. Data Management Gateway starts the job after polling the queue.
+4. The Data Factory service communicates with the gateway for scheduling and management of jobs via a control channel that uses a shared Azure Service Bus queue. When a copy activity job needs to be initiated, Data Factory queues the request along with credential information. Data Management Gateway starts the job after polling the queue.
 5.	The gateway decrypts the credentials with the same certificate. It then connects to the on-premises data store with the proper authentication type and credentials.
 6.	The gateway copies data from the on-premises store to cloud storage, or from cloud storage to an on-premises data store, depending on how Copy Activity is configured in the data pipeline. For this step, the gateway directly communicates with cloud-based storage service (for example, Azure Blob storage or Azure SQL Database) over a secure (HTTPS) channel.
 
@@ -78,7 +78,7 @@ Data Management Gateway can be installed in the following ways:
 2.	Back up the certificate associated with the gateway.
 
 ### Install Data Management Gateway from Download Center
-1. Navigate to [Microsoft Data Management Gateway download page](https://www.microsoft.com/download/details.aspx?id=39717).
+1. Navigate to the [Microsoft Data Management Gateway download page](https://www.microsoft.com/download/details.aspx?id=39717).
 2. Click **Download**, select the appropriate version (**32-bit** or **64-bit**), and click **Next**.
 3. Run the **MSI** directly or save it to your hard drive and run it locally.
 4. On the **Welcome** page, select a **language** and click **Next**.
@@ -141,7 +141,7 @@ At the Windows firewall level, these outbound ports are normally enabled. If the
 
 Make sure the firewall rules are enabled on the corporate firewall, the Windows firewall on the gateway machine, and the data store itself. This enables the gateway to connect to both source and sink successfully. You must enable rules for each data store that is involved in the copy operation.
 
-To copy from an on-premises data store to an Azure SQL Database sink or an Azure SQL Data Warehouse sink, you need to allow outbound TCP communication on port 1433 for both the Windows firewall and the cooperate firewall. You must also configure the firewall settings of the Azure SQL Server to add the IP address of the gateway machine to the list of allowed IP addresses.
+To copy from an on-premises data store to an Azure SQL Database sink or an Azure SQL Data Warehouse sink, you need to allow outbound TCP communication on port 1433 for both the Windows firewall and the cooperate firewall. You must also configure the firewall settings of the Azure SQL server to add the IP address of the gateway machine to the list of allowed IP addresses.
 
 
 ### Proxy server settings
@@ -174,7 +174,7 @@ In addition to the points described previously, you also need to make sure Micro
 The following errors are generally caused by improper configuration of the firewall or proxy server, which blocks Data Management Gateway from connecting to Azure Data Factory to authenticate itself. Refer to the previous section to ensure that your firewall and proxy server are properly configured.
 
 -	When you try to register the gateway, you receive the following error: "Failed to register the gateway key. Before trying to register the gateway key again, confirm that the Data Management Gateway is in a connected state and the Data Management Gateway Host Service is started."
--	When you open Configuration Manager, you see the status as **Disconnected** or **Connecting**. When you view Windows event logs, under **Event Viewer > Application and Services Logs > Data Management Gateway**, you see error messages such as “Unable to connect to the remote server,” or, “A component of Data Management Gateway has become unresponsive and restarts automatically. Component name: Gateway.”
+-	When you open Configuration Manager, you see the status as **Disconnected** or **Connecting**. When you view Windows event logs, under **Event Viewer > Application and Services Logs > Data Management Gateway**, you see error messages such as “Unable to connect to the remote server” or “A component of Data Management Gateway has become unresponsive and restarts automatically. Component name: Gateway.”
 
 ### Open port 8050 for credential encryption
 The Setting Credentials application uses the inbound port 8050 to relay the credentials to the gateway when you [set up an on-premises linked service in the Azure portal](#encrypt-credentials)details later in this article). During gateway setup, Data Management Gateway installation opens it on the gateway machine.
@@ -196,7 +196,7 @@ The **Home** tab of Data Management Gateway Configuration Manager displays the u
 
 You can install the update right away or wait for the gateway to be automatically updated at the scheduled time. The following screenshot shows you the notification message shown in Data Management Gateway Configuration Manager, along with the **Update** button that you click to install it immediately.
 
-![Update in Data Management Gateway configuration Manager](./media/data-factory-data-management-gateway/gateway-auto-update-config-manager.png)
+![Update in Data Management Gateway Configuration Manager](./media/data-factory-data-management-gateway/gateway-auto-update-config-manager.png)
 
 The notification message in the notification area looks like the following:
 
@@ -271,7 +271,7 @@ If you have gateway issues and need to contact Microsoft Support, you may be ask
 3. Click **view logs** to review logs in the event viewer (optional).
 ![Data Management Gateway--send logs](media/data-factory-data-management-gateway/data-management-gateway-send-logs-dialog.png)
 4. Click **privacy** to review the Microsoft Online Services privacy statement (optional).
-3. When you are satisfied with what you are about to upload, click **Send Logs** to send logs from the last seven days to Microsoft for troubleshooting. You should see the status of the Send logs operation as shown in the following example.
+3. When you are satisfied with what you are about to upload, click **Send Logs** to send logs from the last seven days to Microsoft for troubleshooting. You should see the status of the operation, as shown in the following example.
 
 	![Data Management Gateway--send logs status](media/data-factory-data-management-gateway/data-management-gateway-send-logs-status.png)
 4. When the operation is complete, you will see the following dialog box.
@@ -285,7 +285,7 @@ If you have gateway issues and need to contact Microsoft Support, you may be ask
 There are some scenarios in which you have gateway issues and you cannot share gateway logs directly:
 
 - You manually install and register the gateway.
-- You try to register the gateway with a regenerated key on configuration manager.
+- You try to register the gateway with a regenerated key on Configuration Manager.
 - You try to send logs, but gateway host service cannot be connected.
 
 In such cases, you can save gateway logs as .zip files and share them with Microsoft support, as shown in the following example.  
@@ -336,8 +336,8 @@ To encrypt credentials in Data Factory Editor, do the following:
 1. Open a web browser on the gateway machine, go to the [Azure portal](http://portal.azure.com), search for your data factory if needed, open Data Factory on the Data Factory blade, and click **Author & Deploy** to open Data Factory Editor.   
 1. Click an existing linked service in the tree view to see its JSON definition or to create a linked service that requires Data Management Gateway (for example: SQL Server or Oracle).
 2. In the JSON editor, enter the name of the gateway for the **gatewayName** property.
-3. Enter the server name for the **Data Source** property in the *connectionString*.
-4. Enter the database name for the **Initial Catalog** property in the *connectionString*.    
+3. Enter the server name for the **Data Source** property in *connectionString*.
+4. Enter the database name for the **Initial Catalog** property in *connectionString*.    
 5. Click **Encrypt** to open the **Credential Manager** application. You should see the **Setting Credentials** dialog box.
 	![Setting credentials dialog](./media/data-factory-data-management-gateway/setting-credentials-dialog.png)
 6. In the **Setting Credentials** dialog box, do the following:  
@@ -345,7 +345,7 @@ To encrypt credentials in Data Factory Editor, do the following:
 	2.	In the **USERNAME** box, enter the name of the user who has access to the database.
 	3.	In the **PASSWORD** box, enter the password for the user.  
 	4.	Click **OK** to encrypt credentials and close the dialog box.
-5.	You should see a **encryptedCredential** property in the *connectionString*.		
+5.	You should see a **encryptedCredential** property in *connectionString*.		
 
 			{
 	    		"name": "SqlServerLinkedService",
@@ -363,7 +363,7 @@ If you access the Azure portal from a machine that is different from the gateway
 
 When you use **Setting Credentials** opened from the Azure portal to set credentials for an on-premises data source, the Azure portal encrypts the credentials with the certificate you specified on the **Certificate** tab of Data Management Gateway Configuration Manager on the gateway machine.
 
-If you are looking for an API-based approach for encrypting the credentials, you can use the [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell cmdlet to encrypt them. The cmdlet uses the same certificate that the gateway is configured to use to encrypt the credentials. You add encrypted credentials to the same **EncryptedCredential** element of the *connectionString* in the JSON file that you use with the [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) cmdlet or in the JSON snippet in Data Factory Editor in the Azure portal.
+If you are looking for an API-based approach for encrypting the credentials, you can use the [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell cmdlet to encrypt them. The cmdlet uses the same certificate that the gateway is configured to use to encrypt the credentials. You add encrypted credentials to the same **EncryptedCredential** element of *connectionString* in the JSON file that you use with the [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) cmdlet or in the JSON snippet in Data Factory Editor in the Azure portal.
 
 	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
 
@@ -377,6 +377,7 @@ This section describes how to create and register a gateway by using Azure Power
 2. Sign in to your Azure account by running the following command and entering your Azure credentials.
 
 	Login-AzureRmAccount
+	
 2. Use the New-AzureRmDataFactoryGateway cmdlet to create a logical gateway as follows.
 
 		$MyDMG = New-AzureRmDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
