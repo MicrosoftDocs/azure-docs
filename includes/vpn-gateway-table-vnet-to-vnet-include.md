@@ -7,6 +7,8 @@
 (+) denotes this deployment method is available only for VNets in the same subscription.<br>
 (*) denotes partial support.
 
+### VNet peering
+
 VNet peering, which is currently in Preview, is available for certain deployment models and configurations. See the [VNet peering](../articles/virtual-network/virtual-network-peering-overview.md) article for more information.
 
 
