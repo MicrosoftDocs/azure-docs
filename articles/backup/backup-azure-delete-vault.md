@@ -26,19 +26,19 @@ Deleting a Recovery Services vault can seem difficult. The Azure Backup service 
 |Resource Manager|Azure|Recovery Services vault|
 
 
-> [AZURE.NOTE] Backup vaults cannot protect Resource Manager-deployed solutions. However, you can use a Recovery Services vault to protect classically-deployed servers and VMs.  
+> [AZURE.NOTE] Backup vaults cannot protect Resource Manager-deployed solutions. However, you can use a Recovery Services vault to protect classically deployed servers and VMs.  
 
-In this article, we'll use the term, vault, to refer to the generic form of the Backup vault or Recovery Services vault. We'll provide the formal name, Backup vault or Recovery Services vault, when it is necessary to create a distinction between the types of vault.
+In this article, we use the term, vault, to refer to the generic form of the Backup vault or Recovery Services vault. We provide the formal name, Backup vault, or Recovery Services vault, when it is necessary to create a distinction between the types of vault.
 
 
 
 ## Deleting a Recovery Services vault
 
-Deleting a Recovery Services vault is a one-step process - *provided the vault doesn't contain any resources*. Before you can delete a Recovery Services vault, you must remove or delete all resources in the vault. If you attempt to delete a vault that contains resources, you'll get an error like the one below.
+Deleting a Recovery Services vault is a one-step process - *provided the vault doesn't contain any resources*. Before you can delete a Recovery Services vault, you must remove or delete all resources in the vault. If you attempt to delete a vault that contains resources, you get an error like the following image.
 
 ![Vault deletion error](./media/backup-azure-delete-vault/vault-deletion-error.png) <br/>
 
-Until you have cleared the resources from the vault, clicking **Retry** will produce the same error. If you're stuck on this error message, click **Cancel** and follow the steps below to delete the resources in a Recovery Services vault.
+Until you have cleared the resources from the vault, clicking **Retry** produces the same error. If you're stuck on this error message, click **Cancel** and follow the steps below to delete the resources in a Recovery Services vault.
 
 ### Removing the items in a Recovery Services vault
 
@@ -46,7 +46,7 @@ If you already have the Recovery Services vault open, skip to the second step.
 
 1.  Open the Azure portal, and from the Dashboard open the vault you want to delete.
 
-    If you don't have the Recovery Services vault pinned to the Dashboard, on the Hub menu, click **More Services** and in the list of resources, type **Recovery Services**. As you begin typing, the list will filter based on your input. Click **Recovery Services vaults**.
+    If you don't have the Recovery Services vault pinned to the Dashboard, on the Hub menu, click **More Services** and in the list of resources, type **Recovery Services**. As you begin typing, the list filters based on your input. Click **Recovery Services vaults**.
 
     ![Create Recovery Services Vault step 1](./media/backup-azure-delete-vault/open-recovery-services-vault.png) <br/>
 
@@ -68,24 +68,24 @@ If you already have the Recovery Services vault open, skip to the second step.
 
     a. On the **Backup Items** blade, right-click the item, and from the context menu, select **Stop backup**.
 
-        ![stop the backup job](./media/backup-azure-delete-vault/stop-the-backup-process.png)
+    ![stop the backup job](./media/backup-azure-delete-vault/stop-the-backup-process.png)
 
-        The Stop Backup blade opens.
+    The Stop Backup blade opens.
 
     b. On the **Stop Backup** blade, from the **Choose an option** menu, select **Delete Backup Data** > type the name of the item > and click **Stop backup**.
 
-        Type the name of the item to verify you want to delete it. The **Stop Backup** button will not activate until you verify the item to stop. If you do not see the dialog box to type the name of the backup item, you have chosen the **Retain Backup Data** option.
+      Type the name of the item to verify you want to delete it. The **Stop Backup** button will not activate until you verify the item to stop. If you do not see the dialog box to type the name of the backup item, you have chosen the **Retain Backup Data** option.
 
-        ![delete backup data](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
+    ![delete backup data](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
-        Optionally, you can provide a reason why you are deleting the data, and add comments. After you click **Stop Backup**, allow the delete job to complete before attempting to delete the vault. To verify that the job has completed, check the Azure Messages ![delete backup data](./media/backup-azure-delete-vault/messages.png). <br/>
-        Once the job is complete, you'll receive a message stating the backup process was stopped and the backup data was deleted for that item.
+      Optionally, you can provide a reason why you are deleting the data, and add comments. After you click **Stop Backup**, allow the delete job to complete before attempting to delete the vault. To verify that the job has completed, check the Azure Messages ![delete backup data](./media/backup-azure-delete-vault/messages.png). <br/>
+      Once the job is complete, you'll receive a message stating the backup process was stopped and the backup data was deleted for that item.
 
     c. After deleting an item in the list, on the **Backup Items** menu, click **Refresh** to see the remaining items in the vault.
 
-        ![delete backup data](./media/backup-azure-delete-vault/empty-items-list.png)
+      ![delete backup data](./media/backup-azure-delete-vault/empty-items-list.png)
 
-        When there are no items in the list, scroll to the **Essentials** pane in the Backup vault blade. There shouldn't be any **Backup items**, **Backup management servers**, or **Replicated items** listed. If items still appear in the vault, return to step three above and choose a different item type list.  
+      When there are no items in the list, scroll to the **Essentials** pane in the Backup vault blade. There shouldn't be any **Backup items**, **Backup management servers**, or **Replicated items** listed. If items still appear in the vault, return to step three above and choose a different item type list.  
 
 5. When there are no more items in the vault toolbar, click **Delete**.
 
@@ -114,7 +114,7 @@ If you stopped the backup process but accidentally *retained* the data, you must
 
 ## Delete a Backup vault
 
-The following instructions are for deleting a Backup vault in the classic portal. The premise for deleting a Backup vault is the same as deleting a Recovery Services vault: you must delete the items and the data from the Backup vault before you can delete it.
+The following instructions are for deleting a Backup vault in the classic portal. A Backup vault and Recovery Services vault are the same: before you can delete the vault, delete the items and the retained data.
 
 1. Open the Classic portal.
 
