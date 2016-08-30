@@ -376,7 +376,7 @@ This section describes how to create and register a gateway by using Azure Power
 1. Open **Azure PowerShell** in administrator mode.
 2. Sign in to your Azure account by running the following command and entering your Azure credentials.
 
-	Login-AzureRmAccount
+		Login-AzureRmAccount
 	
 2. Use the New-AzureRmDataFactoryGateway cmdlet to create a logical gateway as follows.
 
