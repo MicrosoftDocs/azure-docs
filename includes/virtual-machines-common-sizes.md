@@ -140,7 +140,7 @@ For information and considerations about using these sizes, see [About the A8, A
 ## DS-series*
 
 
-| Size          | CPU cores | Memory (GiB) | Local SSD size (GiB) | Max data disks | Max cached disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / Max cached disk throughput | Max NICs & Network bandwidth |
+| Size          | CPU cores | Memory (GiB) | Local SSD size (GiB) | Max data disks | Max cached disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth |
 |---------------|-----------|--------------|--------------------------------|----------------|--------------------------------------------|----------------------------------------------|-----------------------|
 | Standard_DS1  | 1   | 3.5          | 7       | 2     | 4,000 / 32 (42)               | 3,200 / 32    | 1 / moderate              |
 | Standard_DS2  | 2   | 7            | 14      | 4     | 8,000 / 64 (86)               | 6,400 / 64    | 2 / high                  |
