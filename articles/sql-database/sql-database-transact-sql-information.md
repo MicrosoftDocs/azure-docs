@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="06/13/2016"
+   ms.date="08/30/2016"
    ms.author="rick.byham@microsoft.com"/>
 
 # Azure SQL Database Transact-SQL differences
@@ -39,7 +39,7 @@ This topic discusses the features that are available with SQL Database when upgr
 SQL Database V12 supports some but not all of the arguments that exist in the corresponding SQL Server 2016 Transact-SQL statements. For example, the CREATE PROCEDURE statement is available however all of the options of CREATE PROCEDURE are not available. Refer to the linked syntax topics for details about the supported areas of each statement.
 
 - Databases: [CREATE](https://msdn.microsoft.com/library/dn268335.aspx )/[ALTER](https://msdn.microsoft.com/library/ms174269.aspx)
-- DMV's are generally available for features that are available
+- DMV's are generally available for features that are available.
 - Functions: [CREATE](https://msdn.microsoft.com/library/ms186755.aspx)/[ALTER FUNCTION](https://msdn.microsoft.com/library/ms186967.aspx)
 - [KILL](https://msdn.microsoft.com/library/ms173730.aspx) 
 - Logins: [CREATE](https://msdn.microsoft.com/library/ms189751.aspx)/[ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx)
@@ -52,7 +52,7 @@ SQL Database V12 supports some but not all of the arguments that exist in the co
 ## Features not supported in SQL Database
 
 - Collation of system objects
-- Connection related: Endpoint statements, ORIGINAL_DB_NAME. Windows authentication is not available for logins or contained database users.
+- Connection related: Endpoint statements, ORIGINAL_DB_NAME. SQL Database does not support Windows authentication, but does support the similar Azure Active Directory authentication. Some authentication types require the latest version of SSMS. For more information, see [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](sql-database-aad-authentication.md).
 - Cross database queries using three or four part names. (Read-only cross-database queries are supported by using [elastic database query](sql-database-elastic-query-overview.md).)
 - Cross database ownership chaining, TRUSTWORTHY setting
 - Data Collector
@@ -77,20 +77,20 @@ SQL Database V12 supports some but not all of the arguments that exist in the co
 - .NET Framework [CLR integration with SQL Server](http://msdn.microsoft.com/library/ms254963.aspx)
 - Resource governor
 - Semantic search
-- Server credentials
+- Server credentials. Use database scoped credentials instead.
 - Sever-level items: Server roles, IS_SRVROLEMEMBER, sys.login_token. Server level permissions are not available though some are replaced by database-level permissions. Some server-level DMV's are not available though some are replaced by database-level DMV's.
 - Serverless express: localdb, user instances
 - Service broker
 - SET REMOTE_PROC_TRANSACTIONS
 - SHUTDOWN
 - sp_addmessage
-- sp_configure options and RECONFIGURE
+- sp_configure options and RECONFIGURE. Some options are available using [ALTER DATABASE SCOPED CONFIGURATION](https://msdn.microsoft.com/library/mt629158.aspx).
 - sp_helpuser
 - sp_migrate_user_to_contained
-- SQL Server audit (use SQL Database auditing instead)
+- SQL Server audit. Use SQL Database auditing instead.
 - SQL Server Profiler
 - SQL Server trace
-- Trace flags
+- Trace flags. Some trace flag items have been moved to compatibility modes.
 - Transact-SQL debugging
 - Triggers: Server-scoped or logon triggers
 - USE statement: To change the database context to a different database you must make a new connection to the new database.
@@ -102,9 +102,7 @@ For more information about Transact-SQL grammar, usage, and examples, see [Trans
 
 ### About the "Applies to" tags
 
-The Transact-SQL reference includes topics related to SQL Server versions 2008 to the present. Under the topic title there is usually an "Applies to" line which lists SQL Server versions, and perhaps other product names too. Often the same "Applies to" tags also lists Azure SQL Database. If an "Applies to" does not list Azure SQL Database, the topic content does not apply to Azure SQL Database. Sometimes you might see an "Applies to" line which lists multiple products, each with a small icon to indicate whether topic applies to each product.
-
- For example, availability groups were introduced in SQL Server 2012. The **CREATE AVAILABILTY GROUP** topic indicates it applies to **SQL Server (SQL Server 2012 through current version)** because it does not apply to SQL Server 2008, SQL Server 2008 R2, or to Azure SQL Database.
+The Transact-SQL reference includes topics related to SQL Server versions 2008 to the present. Below the topic title there is a icon bar, listing the four SQL Server platforms, and indicating applicability. For example, availability groups were introduced in SQL Server 2012. The [CREATE AVAILABILTY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) topic indicates that the statement applies to **SQL Server (starting with 2012). The statement does not apply to SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse, or Parallel Data Warehouse.
 
 In some cases, the general subject of a topic can be used in a product, but there are minor differences between products. The differences are indicated at midpoints in the topic as appropriate.
 
