@@ -19,9 +19,9 @@
 # About VPN Gateway
 
 
-VPN Gateway is a collection of resources that are used to send network traffic between virtual networks and on-premises locations. VPN Gateway is used for Site-to-Site, Point-to-Site, and ExpressRoute connections. VPN Gateway is also used to send traffic between multiple virtual networks within Azure (VNet-to-VNet). 
+VPN Gateway is a collection of resources that are used to send network traffic between virtual networks and on-premises locations. Gateways are used for Site-to-Site, Point-to-Site, and ExpressRoute connections. VPN Gateway is also used to send traffic between multiple virtual networks within Azure (VNet-to-VNet). 
 
-Each virtual network can have only one virtual network gateway. To create a connection, you add virtual network gateway to a VNet and configure additional VPN Gateway resources and their settings. In some cases, the connection you create is a VPN connection. In other cases, your configuration does not require a VPN. The collection of resources is called "VPN Gateway" regardless of whether a VPN is required for your connection. 
+Each virtual network can have only one gateway per gateway type. For example, you can have only one virtual network gateway that uses `-GatewayType Vpn`, and one that uses `-GatewayType ExpressRoute`. To create a connection, you add virtual network gateway to a VNet and configure additional VPN Gateway resources and their settings. In some cases, the connection you create is a VPN connection. In other cases, your configuration does not require a VPN. The collection of resources is called "VPN Gateway" regardless of whether a VPN is required for your connection. 
 
 For information regarding gateway requirements, see [Gateway Requirements](vpn-gateway-about-vpn-gateway-settings.md#requirements). For estimated aggregate throughput, see [About VPN Gateway Settings](vpn-gateway-about-vpn-gateway-settings.md#aggthroughput). For pricing, see [VPN Gateway Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway). For subscriptions and service limits, see [Networking Limits](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -114,7 +114,7 @@ For more information about ExpressRoute, see the [ExpressRoute technical overvie
 
 ## Site-to-Site and ExpressRoute coexisting connections
 
-ExpressRoute is a direct, dedicated connection from your WAN (not over the public Internet) to Microsoft Services, including Azure. Site-to-Site VPN traffic travels encrypted over the public Internet. Being able to configure Site-to-Site VPN and ExpressRoute connections for the same virtual network has several advantages. You can configure a Site-to-Site VPN as a secure failover path for ExpressRoute, or use Site-to-Site VPNs to connect to sites that are not part of your network, but that are connected through ExpressRoute. 
+ExpressRoute is a direct, dedicated connection from your WAN (not over the public Internet) to Microsoft Services, including Azure. Site-to-Site VPN traffic travels encrypted over the public Internet. Being able to configure Site-to-Site VPN and ExpressRoute connections for the same virtual network has several advantages. You can configure a Site-to-Site VPN as a secure failover path for ExpressRoute, or use Site-to-Site VPNs to connect to sites that are not part of your network, but that are connected through ExpressRoute. This configuration requires two gateways for the same virtual network, one using -GatewayType Vpn, and the other using -GatewayType ExpressRoute.
 
 
 ![Coexist connection](./media/vpn-gateway-about-vpngateways/demoer.png "expressroute-site2site")
