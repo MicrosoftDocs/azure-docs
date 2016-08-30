@@ -73,7 +73,7 @@ This tutorial uses Script Action from the Azure Portal to customize your HDInsig
 
 2. Click **+ New** on the top of the left navigation, search for **HDInsight** in the top search bar on the New blade.
 
-3. " **HDInsight** published by **Microsoft** " will appear at the top of the Results. Click on it and then click **Create**.
+3. **HDInsight** published by **Microsoft** will appear at the top of the Results. Click on it and then click **Create**.
 
 4. On the New HDInsight Cluster create blade, enter your **Cluster Name** and select the **Subscription** you want to provision this resource under.
 
