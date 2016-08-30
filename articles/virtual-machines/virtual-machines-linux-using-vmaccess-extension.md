@@ -94,13 +94,13 @@ azure vm reset-access -g exampleResourceGroup -n exampleVMName -r
 
 ### VMAccess defined:
 
-The disk on your Linux VM is showing errors. You somehow reset the root password for your Linux VM or accidentally deleted your SSH private key. If that happened back in the datacenter days you would need to drive there and then open the KVM to get at the server console. Think of the Azure VMAccess extension as that KVM switch that allows you to access the console to reset access to Linux or perform disk level maintenance.
+The disk on your Linux VM is showing errors. You somehow reset the root password for your Linux VM or accidentally deleted your SSH private key. If that happened back in the days of the datacenter, you would need to drive there and then open the KVM to get at the server console. Think of the Azure VMAccess extension as that KVM switch that allows you to access the console to reset access to Linux or perform disk level maintenance.
 
 For the detailed walkthrough, we are going to use the long form of VMAccess, which uses raw JSON files.  These VMAccess JSON files can also be called from Azure templates.
 
 ### Using VMAccess to check or repair the disk of a Linux VM
 
-Using VMAccess you can do a fsck run on the disk under your Linux VM.  You can do a disk check and then a disk repair if you find any errors.
+Using VMAccess you can do a fsck run on the disk under your Linux VM.  You can also do a disk check and a disk repair using a VMAccess.
 
 To check, and then repair the disk use this VMAccess script:
 
