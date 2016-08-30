@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="06/27/2016"
+   ms.date="08/30/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect sync: Understanding the architecture
