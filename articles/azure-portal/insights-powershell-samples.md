@@ -25,7 +25,7 @@ If you haven't already, set up PowerShell to run on your computer. For more info
 
 ## Examples in this article
 
-The examples in the article illustrate how you can use Azure Insights cmdlets. You can also review the entire list of Azure Insights (monitoring) PowerShell cmdlets at [Azure Insights Cmdlets](https://msdn.microsoft.com/library/azure/mt282452&#40;v=azure.200&#40.aspx).
+The examples in the article illustrate how you can use Azure Insights cmdlets. You can also review the entire list of Azure Insights (monitoring) PowerShell cmdlets at [Azure Insights Cmdlets](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41.aspx).
 
 
 ## Sign in and use subscriptions
