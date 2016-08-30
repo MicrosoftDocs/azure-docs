@@ -49,7 +49,7 @@ The following table shows the gateway types and the estimated aggregate throughp
 
 ## <a name="gwtype"></a>Gateway types
 
-The gateway type specifies how the gateway connects and is a required configuration setting for the Resource Manager deployment model. Don't confuse gateway type with VPN type, which specifies the type of routing for your VPN. The available values for `-GatewayType` are: 
+The gateway type specifies how the gateway connects and is a required configuration setting for the Resource Manager deployment model. Each virtual network can only have one virtual network gateway of each type. Don't confuse gateway type with VPN type, which specifies the type of routing for your VPN. The available values for `-GatewayType` are: 
 
 - Vpn
 - ExpressRoute
