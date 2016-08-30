@@ -35,6 +35,14 @@ CodeLens indicators are shown above class, method, and other declarations in C# 
 
 The exception CodeLens indicator shows the number of exceptions that have occurred in the past 24 hours from the 15 most frequently occuring exceptions during that period.
 
+Click the CodeLens indicator for exceptions to see more details:
+* The percentage change in number of exceptions from the most recent 24 hours relative to the prior 24 hours
+* Choose **Go to code** to navigate to the source code for the function throwing the exception
+* Choose **Search** to query all instances of this exception that have occurred in the past 24 hours
+* Choose **Trend** to view a trend visualization for occurrences of this exception in the past 24 hours
+* Choose **View all exceptions in this app** to query all exceptions that have occurred in the past 24 hours
+* Choose **Explore exception trends** to view a trend visualization for all exceptions that have occurred in the past 24 hours. 
+
 > [AZURE.TIP] If you see "0 exceptions" in CodeLens but you know there should be exceptions, check to make sure the right Application Insights resource is selected in CodeLens. To select another resource, right-click on your project in the Solution Explorer and choose **Application Insights > Choose Telemetry Source**.
 
 > [AZURE.TIP] If you see "? exceptions" in CodeLens, you need to associate your Azure account with Visual Studio or your Azure account credential may have expired. In either case, click on "? exceptions" and choose **Add an account...** to enter your credentials.
