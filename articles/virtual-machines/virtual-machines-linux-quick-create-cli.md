@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create a Linux VM on Azure using the CLI | Microsoft Azure"
-   description="Create a Linux VM on Azure using the CLI."
+   pageTitle="Create a Linux VM on Azure by using the CLI | Microsoft Azure"
+   description="Create a Linux VM on Azure by using the CLI."
    services="virtual-machines-linux"
    documentationCenter=""
    authors="vlivech"
@@ -17,44 +17,40 @@
    ms.author="v-livech"/>
 
 
-# Create a Linux VM on Azure using the CLI
+# Create a Linux VM on Azure by using the CLI
 
-> [AZURE.NOTE] If you have a few moments, help us to improve the Azure Linux VM documentation by taking this [quick survey](https://aka.ms/linuxdocsurvey) of your experiences. Every answer helps us help you get your work done.
+> [AZURE.NOTE] If you have a few moments, help us to improve the Azure Linux virtual machine (VM) documentation by taking a [quick survey](https://aka.ms/linuxdocsurvey) of your experiences. Every answer helps us help you get your work done.
 
-This article shows how to quickly deploy a Linux Virtual Machine on Azure using the Azure CLI's `azure vm quick-create` command. The `quick-create` command deploys a VM with a basic infrastructure surrounding it that you can use to prototype or test a concept rapidly.  The article requires an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)), and [the Azure CLI](../xplat-cli-install.md) logged in (`azure login`) and in Resource Manager mode (`azure config mode arm`).  You can also quickly deploy a Linux VM using the [Azure portal](virtual-machines-linux-quick-create-portal.md).
+This article shows how to quickly deploy a Linux virtual machine on Azure by using the `azure vm quick-create` command in the Azure command-line interface (CLI). The `quick-create` command deploys a VM, with a basic infrastructure surrounding it, that you can use to prototype or test a concept rapidly.  The article requires an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)), and [the Azure CLI](../xplat-cli-install.md) logged in (`azure login`) and in Azure Resource Manager mode (`azure config mode arm`).  You can also quickly deploy a Linux VM by using the [Azure portal](virtual-machines-linux-quick-create-portal.md).
 
-## Quick Command Summary
+## Command summary
 
-One command to deploy a CoreOS VM and attach your SSH key:
+You can use one command to deploy a CoreOS VM and attach your Secure Shell (SSH) key:
 
 ```bash
 azure vm quick-create -M ~/.ssh/azure_id_rsa.pub -Q CoreOS
 ```
 
-## Deploy the Linux VM
+We are now going to walk through the command and explain each step by using Red Hat Enterprise Linux 7.2.  
 
-We are now going to walk through the command and explain each step using RedHat Enterprise Linux 7.2.  
+## ImageURN alias
 
-## Use an ImageURN alias
-
-The Azure CLI `quick-create` command has aliases mapped to the most common OS distributions. The following table lists the distribution aliases (as of Azure CLI version 0.10).  All deployments using `quick-create` default to SSD storage backed VMs, offering a high performance experience.
+The Azure CLI `quick-create` command has aliases mapped to the most common OS distributions. The following table lists the distribution aliases (as of Azure CLI version 0.10).  All deployments that use `quick-create` default to VMs that are backed by solid-state drive (SSD) storage. SSD-backed VMs offer a high-performance experience.
 
 | Alias     | Publisher | Offer        | SKU         | Version |
 |:----------|:----------|:-------------|:------------|:--------|
-| CentOS    | OpenLogic | Centos       | 7.2         | latest  |
+| CentOS    | OpenLogic | CentOS       | 7.2         | latest  |
 | CoreOS    | CoreOS    | CoreOS       | Stable      | latest  |
 | Debian    | credativ  | Debian       | 8           | latest  |
 | openSUSE  | SUSE      | openSUSE     | 13.2        | latest  |
-| RHEL      | Redhat    | RHEL         | 7.2         | latest  |
-| UbuntuLTS | Canonical | UbuntuServer | 14.04.4-LTS | latest  |
+| RHEL      | Red Hat    | RHEL         | 7.2         | latest  |
+| UbuntuLTS | Canonical | Ubuntu Server | 14.04.4-LTS | latest  |
 
 
 
-For the **ImageURN** option (`-Q`), we are using `RHEL` to deploy a RedHat Enterprise Linux 7.2 VM. These `quick-create` aliases represent a tiny portion of the available OS on Azure.  Find more images in the marketplace by [searching for an image](virtual-machines-linux-cli-ps-findimage.md), or you can [upload your own custom image](virtual-machines-linux-create-upload-generic.md).
+For the **ImageURN** option (`-Q`), we are using `RHEL` to deploy a Red Hat Enterprise Linux 7.2 VM. These `quick-create` aliases represent a tiny portion of the available OS on Azure.  Find more images in the Azure Marketplace by [searching for an image](virtual-machines-linux-cli-ps-findimage.md), or [upload your own custom image](virtual-machines-linux-create-upload-generic.md).
 
-In the following command walk-through, replace the prompts with values from your own environment.
-
-Follow the prompts and enter your own names
+In the following commands, replace the prompts with values from your own environment.
 
 ```bash
 azure vm quick-create -M ~/.ssh/id_rsa.pub -Q RHEL
@@ -146,7 +142,7 @@ data:      Diagnostics Instance View:
 info:    vm quick-create command OK
 ```
 
-SSH into your VM on port 22 and the public IP address listed in the output. (You can also use the FQDN listed.)
+Log in to your VM by using SSH on port 22 and the public IP address listed in the output. You can also use the fully qualified domain name (FQDN) that's listed.
 
 ```bash
 ssh ops@rhel-westu-1630678171-pip.westus.cloudapp.azure.com
@@ -162,10 +158,10 @@ Warning: Permanently added 'rhel-westu-1630678171-pip.westus.cloudapp.azure.com,
 .  ..  .bash_logout  .bash_profile  .bashrc  .cache  .config  .ssh
 ```
 
-## Next Steps
+## Next steps
 
-The `azure vm quick-create` is the way to quickly deploy a VM so you can log in to a bash shell and get working. Using `vm quick-create` does not give you the additional benefits of a complex environment.  To deploy a Linux VM customized for your infrastructure, you can follow any of these articles.
+The `azure vm quick-create` command is the way to quickly deploy a VM so you can log in to a bash shell and get working. Using `vm quick-create` does not give you the additional benefits of a complex environment.  To deploy a Linux VM that's customized for your infrastructure, you can follow any of these articles:
 
 - [Use an Azure Resource Manager template to create a specific deployment](virtual-machines-linux-cli-deploy-templates.md)
-- [Create your own custom environment for a Linux VM using Azure CLI commands directly](virtual-machines-linux-create-cli-complete.md).
-- [Create an SSH Secured Linux VM on Azure using Templates](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
+- [Create your own custom environment for a Linux VM using Azure CLI commands directly](virtual-machines-linux-create-cli-complete.md)
+- [Create an SSH Secured Linux VM on Azure using templates](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
