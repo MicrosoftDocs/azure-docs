@@ -18,7 +18,7 @@
 
 # Add a Git artifact repository to a lab in Azure DevTest Labs
 
-> [AZURE.NOTE] View this article's accompanying video: [How to add your private artifacts repository to a lab in DevTest Labs](/documentation/videos/how-to-add-your-private-artifacts-repository-in-a-devtest-lab) 
+> [AZURE.VIDEO devtest-lab-add-artifact-repo]
 
 In Azure DevTest Labs, artifacts are *actions* - such as installing software or running scripts and commands - when a VM is created. By default, a lab includes artifacts from the official Azure DevTest Labs artifact repository. You can add a Git artifact repository to your lab to include the artifacts that your team creates. The repository can be hosted on [GitHub](https://github.com) or on [Visual Studio Team Services (VSTS)](https://visualstudio.com).
 
