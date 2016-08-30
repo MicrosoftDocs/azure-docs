@@ -20,7 +20,7 @@
 # Upload files into a Media Services account using REST
 
  > [AZURE.SELECTOR]
- - [.NET](media-services-dotnet-upload-file.md)
+ - [.NET](media-services-dotnet-upload-files.md)
  - [REST](media-services-rest-upload-files.md)
  - [Portal](media-services-portal-upload-files.md)
 
