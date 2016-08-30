@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="08/24/2016" 
+    ms.date="08/16/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Azure Active Directory integration with MCM
@@ -114,7 +114,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
     ![Configure App URL](./media/active-directory-saas-mcm-tutorial/tutorial_mcm_04.png "Configure App URL")
 
-    a. In the **Sign On URL** textbox, type: `https://myaba.co.uk/client-access/sainsburys/saml.php`.
+    a. In the **Sign On URL** textbox, type: `https://myaba.co.uk/client-access/<company name>/saml.php`.
 	
 	b. click **Next**
 
