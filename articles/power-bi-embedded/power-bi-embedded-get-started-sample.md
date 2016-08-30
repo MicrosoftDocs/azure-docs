@@ -36,7 +36,7 @@ Let's walk through setting up your Visual Studio development environment to acce
 
 1. Download and unzip the [Power BI Embedded - Integrate a report into a web app](http://go.microsoft.com/fwlink/?LinkId=761493) sample on GitHub.
 
-2. Open **PowerBI-embedded.sln** in Visual Studio.
+2. Open **PowerBI-embedded.sln** in Visual Studio. You may need to execute the **Update-Package** command in the NuGET Package Manager Console in order to update the packages used in this solution.
 
 3. Build the solution.
 
