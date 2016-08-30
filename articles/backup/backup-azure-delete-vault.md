@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="08/25/2016"
+   ms.date="08/29/2016"
    ms.author="markgal;trinadhk"/>
 
 # Delete an Azure Backup vault
@@ -66,13 +66,13 @@ If you already have the Recovery Services vault open, skip to the second step.
 
 4. Before you can delete an item from the vault, you must stop the item's backup job and delete the recovery point data. For each item in the vault, follow these steps:
 
-    1. On the **Backup Items** blade, right-click the item, and from the context menu, select **Stop backup**.
+    a. On the **Backup Items** blade, right-click the item, and from the context menu, select **Stop backup**.
 
         ![stop the backup job](./media/backup-azure-delete-vault/stop-the-backup-process.png)
 
         The Stop Backup blade opens.
 
-    2. On the **Stop Backup** blade, from the **Choose an option** menu, select **Delete Backup Data** > type the name of the item > and click **Stop backup**.
+    b. On the **Stop Backup** blade, from the **Choose an option** menu, select **Delete Backup Data** > type the name of the item > and click **Stop backup**.
 
         Type the name of the item to verify you want to delete it. The **Stop Backup** button will not activate until you verify the item to stop. If you do not see the dialog box to type the name of the backup item, you have chosen the **Retain Backup Data** option.
 
@@ -81,11 +81,11 @@ If you already have the Recovery Services vault open, skip to the second step.
         Optionally, you can provide a reason why you are deleting the data, and add comments. After you click **Stop Backup**, allow the delete job to complete before attempting to delete the vault. To verify that the job has completed, check the Azure Messages ![delete backup data](./media/backup-azure-delete-vault/messages.png). <br/>
         Once the job is complete, you'll receive a message stating the backup process was stopped and the backup data was deleted for that item.
 
-    3. After deleting an item in the list, on the **Backup Items** menu, click **Refresh** to see the remaining items in the vault.
+    c. After deleting an item in the list, on the **Backup Items** menu, click **Refresh** to see the remaining items in the vault.
 
-    ![delete backup data](./media/backup-azure-delete-vault/empty-items-list.png)
+        ![delete backup data](./media/backup-azure-delete-vault/empty-items-list.png)
 
-    When there are no items in the list, scroll to the **Essentials** pane in the Backup vault blade. There shouldn't be any **Backup items**, **Backup management servers**, or **Replicated items** listed. If items still appear in the vault, return to step 3 and choose a different item type list.  
+        When there are no items in the list, scroll to the **Essentials** pane in the Backup vault blade. There shouldn't be any **Backup items**, **Backup management servers**, or **Replicated items** listed. If items still appear in the vault, return to step three above and choose a different item type list.  
 
 5. When there are no more items in the vault toolbar, click **Delete**.
 
@@ -96,9 +96,9 @@ If you already have the Recovery Services vault open, skip to the second step.
     The vault is deleted and the portal returns to the **New** service menu.
 
 
-### What if I stopped the backup process but retained the data?
+## What if I stopped the backup process but retained the data?
 
-If you accidentally stopped the backup process but *retained* the data, you must delete the backup data before you can delete the vault. To delete the backup data:
+If you stopped the backup process but accidentally *retained* the data, you must delete the backup data before you can delete the vault. To delete the backup data:
 
 1. On the **Backup Items** blade, right-click the item, and on the context menu click **Delete backup data**.
 
@@ -109,6 +109,8 @@ If you accidentally stopped the backup process but *retained* the data, you must
 2. On the **Delete Backup Data** blade, type the name of the item, and click **Delete**.
 
     ![delete backup data](./media/backup-azure-delete-vault/delete-retained-vault.png)
+
+    Once you have deleted the data, go to step 4c, above, and continue with the process.
 
 ## Delete a Backup vault
 
