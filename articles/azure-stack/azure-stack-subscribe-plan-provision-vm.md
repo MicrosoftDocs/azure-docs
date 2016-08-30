@@ -40,4 +40,4 @@ After you subscribe to an offer, wait until the subscription state is InSync. Th
 
 ## Next steps
 
-[Storage accounts](azure-stack-provision-storage-account.md)
+[Provision a virtual machine](azure-stack-provision-vm.md)
