@@ -37,7 +37,7 @@ You can click the job to see more details.
 
 ![Jobs](./media/media-services-portal-vod-get-started/media-services-job-progress2.png)
 
-##Next Steps
+##Next steps
 
 After your encoding job is one, you can publish and play your assets, as described [here](media-services-portal-publish.md).
 

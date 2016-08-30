@@ -53,7 +53,7 @@ The following considerations apply:
 - Currently, going from any positive value of streaming units back to none, can disable on-demand streaming for up to an hour.
 - The highest number of units specified for the 24-hour period is used in calculating the cost. For information about pricing details, see [Media Services Pricing Details](http://go.microsoft.com/fwlink/?LinkId=275107).
 
-##Next Steps
+##Next steps
 
 Review Media Services learning paths.
 

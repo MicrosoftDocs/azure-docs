@@ -86,7 +86,7 @@ You need the account name and the primary key information to programmatically ac
 	
 	![Media Services Keys](./media/media-services-portal-vod-get-started/media-services-keys.png)
 
-## Next Steps
+## Next steps
 
 You can now upload files into your AMS account. For more information, see [Upload files](media-services-portal-upload-files.md).
 

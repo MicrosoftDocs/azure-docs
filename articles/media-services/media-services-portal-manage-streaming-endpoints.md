@@ -112,7 +112,7 @@ Once it is enabled, the **Access Control** configuration gets disabled.
 For more information see, [Announcing Azure Media Services integration with Azure CDN (Content Delivery Network)](http://azure.microsoft.com/blog/2015/03/17/announcing-azure-media-services-integration-with-azure-cdn-content-delivery-network/).
 
 
-##Next Steps
+##Next steps
 
 Review Media Services learning paths.
 

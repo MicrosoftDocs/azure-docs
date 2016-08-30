@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Scaling Media Processing Overview | Microsoft Azure"
-	description="Scaling Media Processing with Azure Media Services Overview."
+	pageTitle="Scaling Media Processing overview | Microsoft Azure"
+	description="This topic is an overview of scaling Media Processing with Azure Media Services."
 	services="media-services"
 	documentationCenter=""
 	authors="juliako"
@@ -17,7 +17,7 @@
 	ms.author="juliako"/>
 
 
-# Scaling Media Processing Overview
+# Scaling Media Processing overview
 
 This page gives an overview of how and why to scale media processing. 
 
@@ -38,7 +38,7 @@ Benchmark|[Input file: 5 minutes long 640x360p at 29.97 frames/second](https://w
 
 ##Considerations
 
->[AZURE.IMPORTANT] The following considerations apply:
+>[AZURE.IMPORTANT] Review considerations described in this section.  
 
 - Reserved Units work for parallelizing all media processing, including indexing jobs using Azure Media Indexer.  However, unlike encoding, indexing jobs do not get processed faster with faster reserved units.
 

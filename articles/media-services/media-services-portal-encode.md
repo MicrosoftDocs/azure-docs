@@ -47,7 +47,7 @@ This section describes the steps you can take to encode your content with Media 
 5. Press **Create**.
 
 
-##Next Steps
+##Next step
 
 You can monitor encoding job progress with the Azure portal, as described in [this](media-services-portal-check-job-progress.md) article.  
 

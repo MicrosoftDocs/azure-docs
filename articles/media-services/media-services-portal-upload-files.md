@@ -40,7 +40,7 @@ In Media Services, you upload your digital files into an asset. The Asset  can c
 Once the upload completes, you will see the new asset listed in the **Assets** window. 
 
 
-## Next Steps
+## Next steps
 
 You can now encode your uploaded assets. For more information, see [Encode assets](media-services-portal-encode.md).
 

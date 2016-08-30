@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-publish.md)
-- [.NET](media-services-deliver-streaming-content/.md)
+- [.NET](media-services-deliver-streaming-content.md)
 - [REST](media-services-rest-deliver-streaming-content.md)
 
 ## Overview
@@ -85,7 +85,7 @@ Some considerations apply:
 - The streaming endpoint from which you are streaming must be running.  
 - To stream from a streaming endpoint, you should add at least one streaming unit. For more information, see [this](media-services-portal-scale-streaming-endpoints.md) topic.   
 
-##Next Steps
+##Next steps
 
 Review Media Services learning paths.
 
