@@ -23,7 +23,7 @@ In Azure DevTest Labs, custom images enable you to create VMs quickly without wa
 In this article, you'll learn how to:
 
 - [Create a custom image from a VHD file](#create-a-custom-image-from-a-vhd-file) so that you can subsequently create a VM from that custom image. 
-- [Create a custom image from a VM](#create-a-custom-image-from-a-vm) for subsequent rapid VM creation.
+- [Create a custom image from a VM](#create-a-custom-image-from-a-vm) for subsequent rapid VM cloning.
 
 ## Create a custom image from a VHD file
 
