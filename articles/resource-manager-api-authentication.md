@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/29/2016"
+   ms.date="08/30/2016"
    ms.author="dugill;tomfitz" />
 
 # How to use Azure Active Directory and Resource Manager to manage a customer’s resources
@@ -35,10 +35,11 @@ All the code for this topic is running as a web app that you can try at [http://
 The web app:
 
 1. Signs-in an Azure user.
-2. Asks user to grant access to app.
+2. Asks user to grant the app access to Resource Manager.
 3. Gets user + app access token for the Azure subscription.
-4. Assigns service principal to role in the subscription.
+4. Uses token (from step 3) to assign the app's service principal to role in the subscription, which gives the app long-term accesss to the subscription.
 5. Gets app-only access token.
+6. Uses token (from step 5) to manage resources in the subscription through Resource Manager.
 
 Here's the end-to-end flow of the web application.
 
@@ -95,7 +96,7 @@ For information about creating an AD app with a certificate, see [Use Azure Powe
 
 ## Get tenant id from subscription id
 
-Most likely, your users know their subscription ids, but they might not know their tenant ids for Active Directory. To get the user's tenant id, ask the user for the subscription id. Provide that subscription id when sending a request about the subscription:
+To request a token that can be used to call Resource Manager, your application needs to know the tenant ID of the Azure AD tenant that hosts the Azure subscription. Most likely, your users know their subscription ids, but they might not know their tenant ids for Active Directory. To get the user's tenant id, ask the user for the subscription id. Provide that subscription id when sending a request about the subscription:
 
     https://management.azure.com/subscriptions/{subscription-id}?api-version=2015-01-01
 
