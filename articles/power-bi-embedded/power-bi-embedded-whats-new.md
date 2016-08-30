@@ -20,6 +20,13 @@
 
 Updates to **Power BI Embedded** are released on a regular basis. However, not every release includes new user-facing features; some releases are focused on back-end service capabilities. We’ll highlight new user-facing capabilities here. Be sure to check back often.
 
+## August 31st, 2016
+
+Included in this release:
+
+- All new JavaScript SDK that supports [advanced filtering and page navigation](power-bi-embedded-interact-with-reports.md).
+- Power BI Embedded is now supported in the Canada Central datacenter. Check [datacenter status(https://azure.microsoft.com/en-us/status/)].  
+
 ## July 11th, 2016
 
 Included in this release:

@@ -133,7 +133,6 @@ For more information about the Power BI JavaScript API, check out the following 
 - [JavaScript API Wiki](https://github.com/Microsoft/PowerBI-JavaScript/wiki)
 - [Object model reference](https://microsoft.github.io/powerbi-models/modules/_models_.html)
 - Samples
-  - [ASP.NET MVC](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/tree/master/EmbedSample)
   - [Angular](http://azure-samples.github.io/powerbi-angular-client)
   - [Ember](https://github.com/Microsoft/powerbi-ember)
 - [Live demo](https://microsoft.github.io/PowerBI-JavaScript/demo/)
