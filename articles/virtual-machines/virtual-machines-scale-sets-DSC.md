@@ -95,5 +95,5 @@ A VMSS node has a "properties" section with the "VirtualMachineProfile", "extens
 
 ### Behavior for VMSS
 
-The behavior for VMSS is identical to the behavior for a single VM. When a new VM is created, it is automatically provisioned with the DSC extension. If a newer version of the WMF is required by the extension, the VM will reboot before coming online. Once it is online, it will download the DSC configuration .zip and provision it on the VM. More details can be found in [the Azure DSC Extension Overview](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-dsc-overview/).
+The behavior for VMSS is identical to the behavior for a single VM. When a new VM is created, it is automatically provisioned with the DSC extension. If a newer version of the WMF is required by the extension, the VM reboots before coming online. Once it is online, it downloads the DSC configuration .zip and provision it on the VM. More details can be found in [the Azure DSC Extension Overview](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-dsc-overview/).
 
