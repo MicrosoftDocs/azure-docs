@@ -38,7 +38,7 @@ If your credit card or debit card was declined when you try to sign up for Azure
 
 Follow the steps below to make sure your credit or debit card information is valid:
 
-- The credit or debit card you’re using should be listed in the drop-down list for the country you choose. If it’s not listed, then it is not an available option for your country. See [supported countries and currencies](/articles/billing-countries-and-currencies.md).
+- The credit or debit card you’re using should be listed in the drop-down list for the country you choose. If it’s not listed, then it is not an available option for your country. See [supported countries and currencies](billing-countries-and-currencies.md).
 
 - The name you enter must exactly match the name printed on the credit/debit card, without any additional symbols/characters.
 
@@ -64,6 +64,6 @@ To start the process of setting up an invoice, see [Azure Billing - How to invoi
 
 ### Do you need to update your credit or debit card information?
 
-If your credit or debit card information is out of date, you can [update your payment information](articles/billing-how-to-change-credit-card.md).
+If your credit or debit card information is out of date, you can [update your payment information](billing-how-to-change-credit-card.md).
 
 > [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
