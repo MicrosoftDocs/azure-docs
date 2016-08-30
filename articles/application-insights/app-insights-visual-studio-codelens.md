@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/26/2016" 
+	ms.date="08/30/2016" 
 	ms.author="daviste"/>
 	
 # CodeLens in Visual Studio
@@ -35,7 +35,7 @@ CodeLens indicators are shown above class, method, and other declarations in C# 
 
 The exception CodeLens indicator shows the number of exceptions that have occurred in the past 24 hours from the 15 most frequently occuring exceptions during that period.
 
-Click the CodeLens indicator for exceptions to see more details:
+Click the exceptions CodeLens indicator to see more details:
 * The percentage change in number of exceptions from the most recent 24 hours relative to the prior 24 hours
 * Choose **Go to code** to navigate to the source code for the function throwing the exception
 * Choose **Search** to query all instances of this exception that have occurred in the past 24 hours
@@ -51,7 +51,14 @@ Click the CodeLens indicator for exceptions to see more details:
 
 ![TBD](./media/app-insights-visual-studio-codelens/codelens-requests.png)
 
-TBD  
+The request CodeLens indicator shows the number of requests that been made to a method in the past 24 hours, plus the percentage of those requests which failed.
+
+Click the requests CodeLens indicator to see more details:
+* The absolute and percentage changes in number of requests, failed requests, and average response times over the past 24 hours compared to the prior 24 hours
+* The reliability of the method, calculated as the percentage of requests that did not fail in the past 24 hours
+* Choose **Search** for requests or failed requests to query all of the (failed) requests that occurred in the past 24 hours
+* Choose **Trend** to view a trend visualization for requests, failed requests, or average response times in the past 24 hours.
+* Choose the name of the Application Insights resource in the upper left corner of the CodeLens details view to change which resource is the source for CodeLens data.
 
 ## <a name="next"></a>Next steps
 
