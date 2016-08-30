@@ -24,7 +24,7 @@ The Linux Data Science Virtual Machine is an Azure virtual machine that comes wi
 - Anaconda Python distribution (versions 2.7 and 3.5), including popular data analysis libraries
 - Jupyter Notebook (R, Python)
 - Azure Storage Explorer
-- Azure Command-Line for managing Azure resources
+- Azure command-line interface (CLI) for managing Azure resources
 - PostgresSQL Database
 - Machine learning tools
     - [Computational Network Toolkit (CNTK)](https://github.com/Microsoft/CNTK): A deep learning software toolkit from Microsoft Research.
@@ -37,15 +37,15 @@ The Linux Data Science Virtual Machine is an Azure virtual machine that comes wi
 
 Doing data science involves iterating on a sequence of tasks:
 
-1. Finding, loading, and pre-processing data.
-2. Building and testing models.
-3. Deploying the models for consumption in intelligent applications.
+1. Finding, loading, and pre-processing data
+2. Building and testing models
+3. Deploying the models for consumption in intelligent applications
 
 Data scientists use various tools to complete these tasks. It can be quite time consuming to find the appropriate versions of the software, and then to download, compile, and install these versions.
 
 The Linux Data Science Virtual Machine can ease this burden substantially. Use it to jump-start your analytics project. It enables you to work on tasks in various languages, including R, Python, SQL, Java, and C++. Eclipse provides an IDE to develop and test your code that is easy to use. The Azure SDK included in the VM allows you to build your applications by using various services on Linux for the Microsoft cloud platform. In addition, you have access to other languages like Ruby, Perl, PHP, and node.js that are also pre-installed.
 
-There are no software charges for this data science VM image. You only pay the Azure hardware usage fees that are assessed based on the size of the virtual machine that you provision with the VM image. More details on the compute fees can be found [here](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linuxdsvm/).
+There are no software charges for this data science VM image. You pay only the Azure hardware usage fees that are assessed based on the size of the virtual machine that you provision with the VM image. More details on the compute fees can be found [here](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linuxdsvm/).
 
 
 ## Prerequisites
@@ -77,7 +77,7 @@ Here are the steps to create an instance of the Linux Data Science Virtual Machi
 
    - Select one of the server types that meets your functional requirement and cost constraints. Select **View All** to see more choices of VM sizes.
 
-  **c. Settings**
+  **c. Settings**:
 
    - **Disk Type**: Choose **Premium** if you prefer a solid state drive (SSD). Otherwise, choose **Standard**.
    - **Storage Account**: You can create a new Azure storage account in your subscription, or use an existing one in the same location that was chosen on the **Basics** step of the wizard.
@@ -96,14 +96,14 @@ The provisioning should take about 10-20 minutes. The status of the provisioning
 
 ## How to access the Linux Data Science Virtual Machine
 
-Once the VM is created, you can sign in to it by using SSH. Use the account credentials that you created in the **Basics** section of step 3 for the text shell interface. On Windows, you can download an SSH client tool like [Putty](http://www.putty.org). If you prefer a graphical desktop (X Windows System), you can use X11 forwarding on Putty or install the X2Go client.
+After the VM is created, you can sign in to it by using SSH. Use the account credentials that you created in the **Basics** section of step 3 for the text shell interface. On Windows, you can download an SSH client tool like [Putty](http://www.putty.org). If you prefer a graphical desktop (X Windows System), you can use X11 forwarding on Putty or install the X2Go client.
 
 >[AZURE.NOTE] The X2Go client performed significantly better than X11 forwarding in testing. We recommend using the X2Go client for a graphical desktop interface.
 
 
 ## Installing and configuring X2Go client
 
-The Linux VM is already provisioned with X2Go server and ready to accept client connections. To connect to the Linux VM graphical desktop, do the following on your client.
+The Linux VM is already provisioned with X2Go server and ready to accept client connections. To connect to the Linux VM graphical desktop, do the following on your client:
 
 1. Download and install the X2Go client for your client platform from [here](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 2. Run the X2Go client, and select **New Session**. It opens a configuration window with multiple tabs. Enter the following configuration parameters:
@@ -115,17 +115,17 @@ The Linux VM is already provisioned with X2Go server and ready to accept client 
     * **Media tab**: You can turn off sound support and client printing if you don't need to use them.
     * **Shared folders**: If you want directories from your client machines mounted on the Linux VM, add the client machine directories that you want to share with the VM on this tab.
 
-Once you sign in to the VM using either the SSH client or XFCE graphical desktop through the X2Go client, you are ready to start using the tools that are installed and configured on the VM. On XFCE, you can see applications menu shortcuts and desktop icons for many of the tools.
+After you sign in to the VM by using either the SSH client or XFCE graphical desktop through the X2Go client, you are ready to start using the tools that are installed and configured on the VM. On XFCE, you can see applications menu shortcuts and desktop icons for many of the tools.
 
 
 ## Tools installed on the Linux Data Science Virtual Machine
 
 ### Microsoft R Open
-R is one of the most popular languages for data analysis and machine learning. If you wish to use R for your analytics, the VM has Microsoft R Open (MRO) with the Math Kernel Library (MKL). The MKL optimizes math operations common in analytical algorithms. MRO is 100 percent compatible with CRAN-R, and any of the R libraries published in CRAN can be installed on the MRO. You can edit your R programs in one of the default editors, like vi, Emacs, or gedit. You can also download and use other IDEs, such as [RStudio](http://www.rstudio.com). For your convenience, a simple script (installRStudio.sh) is provided in the **/dsvm/tools** directory that installs RStudio. If you are using the Emacs editor, note that the Emacs package ESS (Emacs Speaks Statistics), which simplifies working with R files within the Emacs editor, has been pre-installed.
+R is one of the most popular languages for data analysis and machine learning. If you want to use R for your analytics, the VM has Microsoft R Open (MRO) with the Math Kernel Library (MKL). The MKL optimizes math operations common in analytical algorithms. MRO is 100 percent compatible with CRAN-R, and any of the R libraries published in CRAN can be installed on the MRO. You can edit your R programs in one of the default editors, like vi, Emacs, or gedit. You can also download and use other IDEs, such as [RStudio](http://www.rstudio.com). For your convenience, a simple script (installRStudio.sh) is provided in the **/dsvm/tools** directory that installs RStudio. If you are using the Emacs editor, note that the Emacs package ESS (Emacs Speaks Statistics), which simplifies working with R files within the Emacs editor, has been pre-installed.
 
-To launch R, you just type ***R*** in the shell. This takes you to an interactive environment. To develop your R program, you typically use an editor like Emacs or vi or gedit, and then run the scripts within R. If you install RStudio, you have a full graphical IDE environment to develop your R program.
+To launch R, you just type **R** in the shell. This takes you to an interactive environment. To develop your R program, you typically use an editor like Emacs or vi or gedit, and then run the scripts within R. If you install RStudio, you have a full graphical IDE environment to develop your R program.
 
-There is also an R script for you to install the [Top 20 R packages](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) if you want. This script can be run once you are in the R interactive interface, which can be entered (as mentioned) by typing *R* in the shell.  
+There is also an R script for you to install the [Top 20 R packages](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) if you want. This script can be run after you are in the R interactive interface, which can be entered (as mentioned) by typing **R** in the shell.  
 
 ### Python
 For development using Python, Anaconda Python distribution 2.7 and 3.5 has been installed. This distribution contains the base Python along with about 300 of the most popular math, engineering, and data analytics packages. You can use the default text editors. In addition, you can use Spyder, a Python IDE that is bundled with Anaconda Python distributions. Spyder needs a graphical desktop or X11 forwarding. A shortcut to Spyder is provided in the graphical desktop.
@@ -145,7 +145,7 @@ To activate Python 3.5, run the following from the shell:
 
 Python 3.5 is installed at */anaconda/envs/py35/bin*
 
-To invoke a Python interactive session, just type ***python*** in the shell. If you are on a graphical interface or have X11 forwarding set up, you can type ***spyder*** to launch the Python IDE.
+To invoke a Python interactive session, just type **python** in the shell. If you are on a graphical interface or have X11 forwarding set up, you can type **spyder** to launch the Python IDE.
 
 ### Jupyter notebook
 
@@ -159,14 +159,14 @@ You can access the Jupyter notebook server from any host. Just type *https://\<V
 
 >[AZURE.NOTE] Port 8000 is opened in the firewall by default when the VM is provisioned.
 
-We have packaged a few sample notebooks - one in Python and one in R. You can see the link to the samples on the notebook home page after you authenticate to the Jupyter notebook by using your local Linux user name and password. You can create a new notebook by selecting **New**, and then the appropriate language kernel. If you don't see the **New** button, click the **Jupyter** icon on the top left to go to the home page of the notebook server.
+We have packaged sample notebooks--one in Python and one in R. You can see the link to the samples on the notebook home page after you authenticate to the Jupyter notebook by using your local Linux user name and password. You can create a new notebook by selecting **New**, and then the appropriate language kernel. If you don't see the **New** button, click the **Jupyter** icon on the top left to go to the home page of the notebook server.
 
 
-### IDEs and Editors
+### IDEs and editors
 
 You have a choice of several code editors. This includes vi/VIM, Emacs, gEdit and Eclipse. gEdit and Eclipse are graphical editors, and need you to be signed in to a graphical desktop to use them. These editors have desktop and application menu shortcuts to launch them.
 
-**VIM** and **Emacs** are text-based editors. On Emacs, we have installed an add-on package called Emacs Speaks Statistics (ESS) that makes working with R easier within the Emacs editor. More information can be found at: [ESS](http://ess.r-project.org/).
+**VIM** and **Emacs** are text-based editors. On Emacs, we have installed an add-on package called Emacs Speaks Statistics (ESS) that makes working with R easier within the Emacs editor. More information can be found at [ESS](http://ess.r-project.org/).
 
 **Eclipse** is an open source, extensible IDE that supports multiple languages. The Java developers edition is the instance installed on the VM. There are plugins available for several popular languages that can be installed to extend the Eclipse environment. We also have a plugin installed in Eclipse called **Azure Toolkit for Eclipse**. It allows you to create, develop, test, and deploy Azure applications using the Eclipse development environment that supports languages like Java. There is also an **Azure SDK for Java** that allows access to different Azure services from within a Java environment. More information on Azure toolkit for Eclipse can be found at [Azure Toolkit for Eclipse](../azure-toolkit-for-eclipse.md).
 
@@ -175,9 +175,9 @@ You have a choice of several code editors. This includes vi/VIM, Emacs, gEdit an
 ### Databases
 
 #### Postgres
-The open source database **Postgres** is available on the VM, with the services running and initdb already completed. You still need to create databases and users. For more information, see the [Postgres documentation ](https://www.postgresql.org/docs/).  
+The open source database **Postgres** is available on the VM, with the services running and initdb already completed. You still need to create databases and users. For more information, see the [Postgres documentation](https://www.postgresql.org/docs/).  
 
-####  Graphical SQL Client
+####  Graphical SQL client
 **SQuirrel SQL**, a graphical SQL client, has been provided to connect to different databases (such as Microsoft SQL Server, Postgres, and MySQL) and to run SQL queries. You can run this from a graphical desktop session (using the X2Go client, for example). To invoke SQuirrel SQL, you can either launch it from the icon on the desktop or run the following command on the shell.
 
 	/usr/local/squirrel-sql-3.7/squirrel-sql.sh
@@ -192,11 +192,11 @@ For more information, see [SQuirrel SQL](http://squirrel-sql.sourceforge.net/ind
 
 The ODBC driver package for SQL Server also comes with two command-line tools:
 
-**bcp** - The bcp utility bulk copies data between an instance of Microsoft SQL Server and a data file in a user-specified format. The bcp utility can be used to import large numbers of new rows into SQL Server tables, or to export data out of tables into data files. To import data into a table, you must either use a format file created for that table, or understand the structure of the table and the types of data that are valid for its columns.
+**bcp**: The bcp utility bulk copies data between an instance of Microsoft SQL Server and a data file in a user-specified format. The bcp utility can be used to import large numbers of new rows into SQL Server tables, or to export data out of tables into data files. To import data into a table, you must either use a format file created for that table, or understand the structure of the table and the types of data that are valid for its columns.
 
 For more information, see [Connecting with bcp](https://msdn.microsoft.com/library/hh568446.aspx).
 
-**sqlcmd** - You can enter Transact-SQL statements with the sqlcmd utility, as well as system procedures, and script files at the command prompt. This utility uses ODBC to execute Transact-SQL batches.
+**sqlcmd**: You can enter Transact-SQL statements with the sqlcmd utility, as well as system procedures, and script files at the command prompt. This utility uses ODBC to execute Transact-SQL batches.
 
 For more information, see [Connecting with sqlcmd](https://msdn.microsoft.com/library/hh568447.aspx).
 
@@ -219,41 +219,41 @@ To access **Postgres**:
 ### Azure tools
 The following Azure tools are installed on the VM:
 
-- **Azure Command-Line Interface**: Azure Command-Line Interface (CLI) allows you to create and manage Azure resources through shell commands. To invoke the Azure tools, just type ***azure help***. For more information, see the [Azure CLI documentation page](../virtual-machines-command-line-tools.md).
-- **Microsoft Azure Storage Explorer**: The Microsoft Azure Storage Explorer is a graphical tool that is used to browse through the objects that you have stored in your Azure Storage Account, and to upload and download data to and from Azure blobs. You can access the Storage Explorer from the desktop shortcut icon. You can invoke it from a shell prompt by typing ***StorageExplorer***. You need to be signed in from an X2Go client, or have X11 forwarding set up.
+- **Azure command-line interface**: The Azure CLI allows you to create and manage Azure resources through shell commands. To invoke the Azure tools, just type **azure help**. For more information, see the [Azure CLI documentation page](../virtual-machines-command-line-tools.md).
+- **Microsoft Azure Storage Explorer**: The Microsoft Azure Storage Explorer is a graphical tool that is used to browse through the objects that you have stored in your Azure Storage Account, and to upload and download data to and from Azure blobs. You can access the Storage Explorer from the desktop shortcut icon. You can invoke it from a shell prompt by typing **StorageExplorer**. You need to be signed in from an X2Go client, or have X11 forwarding set up.
 - **Azure Libraries**: The following are some of the pre-installed libraries.
 
- - **Python**: The Azure related libraries in Python that are installed are **azure**, **azureml**, **pydocumentdb**, and **pyodbc**. With the first three libraries, you can access Azure storage services, Azure Machine Learning, and Azure DocumentDB (a NoSQL database on Azure). The fourth library, pyodbc (along with the Microsoft ODBC driver for SQL Server), enables access to SQL Server, Azure SQL Database, and Azure SQL Datawarehouse from Python by using an ODBC interface. Enter *pip list* to see all the listed libraries. Be sure to run this command in both the Python 2.7 and 3.5 environments.
- - **R**: The Azure related libraries in R that are installed are ***AzureML*** and ***RODBC***.
- - **Java**: The list of Azure Java libraries can be found in the directory ***/dsvm/sdk/AzureSDKJava*** on the VM. The key libraries are Azure storage and management APIs, DocumentDB, and JDBC drivers for SQL Server.  
+ - **Python**: The Azure-related libraries in Python that are installed are **azure**, **azureml**, **pydocumentdb**, and **pyodbc**. With the first three libraries, you can access Azure storage services, Azure Machine Learning, and Azure DocumentDB (a NoSQL database on Azure). The fourth library, pyodbc (along with the Microsoft ODBC driver for SQL Server), enables access to SQL Server, Azure SQL Database, and Azure SQL Data Warehouse from Python by using an ODBC interface. Enter **pip list** to see all the listed libraries. Be sure to run this command in both the Python 2.7 and 3.5 environments.
+ - **R**: The Azure-related libraries in R that are installed are **AzureML** and **RODBC**.
+ - **Java**: The list of Azure Java libraries can be found in the directory **/dsvm/sdk/AzureSDKJava** on the VM. The key libraries are Azure storage and management APIs, DocumentDB, and JDBC drivers for SQL Server.  
 
 You can access the [Azure portal](https://portal.azure.com) from the pre-installed Firefox browser. On the Azure portal, you can create, manage, and monitor Azure resources.
 
 ### Azure Machine Learning
 
-Azure Machine Learning (Azure ML) is a fully managed cloud service that enables you to build, deploy, and share predictive analytics solutions. You build your experiments and models from the Azure Machine Learning Studio. It can be accessed from a web browser on the data science virtual machine by visiting [Microsoft Azure Machine Learning](https://studio.azureml.net).
+Azure Machine Learning is a fully managed cloud service that enables you to build, deploy, and share predictive analytics solutions. You build your experiments and models from Azure Machine Learning Studio. It can be accessed from a web browser on the data science virtual machine by visiting [Microsoft Azure Machine Learning](https://studio.azureml.net).
 
-Once you sign in to the Azure Machine Learning Studio, you have access to an experimentation canvas where you can build a logical flow for the machine learning algorithms. You also have access to a Jupyter notebook hosted on Azure ML and can work seamlessly with the experiments in the Studio. Operationalize the ML models that you have built by wrapping them in a web service interface. This enables clients written in any language to invoke predictions from the ML models. For more information, see the [Machine Learning documentation](https://azure.microsoft.com/documentation/services/machine-learning/).
+After you sign in to Azure Machine Learning Studio, you have access to an experimentation canvas where you can build a logical flow for the machine learning algorithms. You also have access to a Jupyter notebook hosted on Azure Machine Learning and can work seamlessly with the experiments in Machine Learning Studio. Operationalize the machine learning models that you have built by wrapping them in a web service interface. This enables clients written in any language to invoke predictions from the machine learning models. For more information, see the [Machine Learning documentation](https://azure.microsoft.com/documentation/services/machine-learning/).
 
-You can also build your models in R or Python on the VM, and then deploy it in production on Azure ML. We have installed libraries in R (***AzureML***) and Python (***azureml***) to enable this functionality.
+You can also build your models in R or Python on the VM, and then deploy it in production on Azure Machine Learning. We have installed libraries in R (**AzureML**) and Python (**azureml**) to enable this functionality.
 
-For information on how to deploy models in R and Python into Azure ML, see [Ten things you can do on the Data science Virtual Machine](machine-learning-data-science-vm-do-ten-things.md) (in particular, the section *Build models using R or Python and Operationalize them using Azure Machine Learning*).
+For information on how to deploy models in R and Python into Azure Machine Learning, see [Ten things you can do on the Data science Virtual Machine](machine-learning-data-science-vm-do-ten-things.md) (in particular, the section "Build models using R or Python and Operationalize them using Azure Machine Learning").
 
->[AZURE.NOTE] These instructions were written for the Windows version of the Data Science VM. But the information provided there on deploying models to Azure ML is applicable to the Linux VM.
+>[AZURE.NOTE] These instructions were written for the Windows version of the Data Science VM. But the information provided there on deploying models to Azure Machine Learning is applicable to the Linux VM.
 
-### Machine Learning Tools
+### Machine learning tools
 
-The VM comes with a few ML tools and algorithms that have been pre-compiled and pre-installed locally. These include:
+The VM comes with a few machine learning tools and algorithms that have been pre-compiled and pre-installed locally. These include:
 
-* **CNTK** (Computational Network Toolkit from Microsoft Research) - A deep learning toolkit.
-* **Vowpal Wabbit** - A fast online learning algorithm.
-* **xgboost** - A tool that provides optimized, boosted tree algorithms.
-* **Python** - Anaconda Python comes bundled with ML algorithms with libraries like Scikit-learn. You can install other libraries running pip install.
-* **R** - A rich library of ML functions is available for R. Some of the libraries that are pre-installed are lm, glm, randomForest, rpart. Other libraries can be installed by running:
+* **CNTK** (Computational Network Toolkit from Microsoft Research): A deep learning toolkit.
+* **Vowpal Wabbit**: A fast online learning algorithm.
+* **xgboost**: A tool that provides optimized, boosted tree algorithms.
+* **Python**: Anaconda Python comes bundled with machine learning algorithms with libraries like Scikit-learn. You can install other libraries running pip install.
+* **R**: A rich library of machine learning functions is available for R. Some of the libraries that are pre-installed are lm, glm, randomForest, rpart. Other libraries can be installed by running:
 
 		install.packages(<lib name>)
 
-Here is some additional information about the first three ML tools in the list.
+Here is some additional information about the first three machine learning tools in the list.
 
 #### CNTK
 This is an open source, deep learning toolkit. It is a command-line tool (cntk), and is already in the PATH.
@@ -270,7 +270,7 @@ The model output is in *~/cntkdemo/Output/Models*.
 For more information, see the CNTK section of [GitHub](https://github.com/Microsoft/CNTK), and the [CNTK wiki](https://github.com/Microsoft/CNTK/wiki).
 
 
-#### Vowpal Wabbit (VW):
+#### Vowpal Wabbit
 
 Vowpal Wabbit is a machine learning system that uses techniques such as online, hashing, allreduce, reductions, learning2search, active, and interactive learning.
 
@@ -285,9 +285,9 @@ There are other, larger demos in that directory. For more information on VW, see
 #### xgboost
 This is a library that is designed and optimized for boosted (tree) algorithms. The objective of this library is to push the computation limits of machines to the extremes needed to provide large-scale tree boosting that is scalable, portable, and accurate.
 
-It is provided as a command-line as well as an R library.
+It is provided as a command line as well as an R library.
 
-To use this library in R, you can start an interactive R session (just by typing *R* in the shell), and load the library.
+To use this library in R, you can start an interactive R session (just by typing **R** in the shell), and load the library.
 
 Here is a simple example you can run in R prompt:
 
@@ -301,7 +301,7 @@ Here is a simple example you can run in R prompt:
                     eta = 1, nthread = 2, nround = 2, objective = "binary:logistic")
 	pred <- predict(bst, test$data)
 
-To run the xgboost command-line, here are the commands to execute in the shell:
+To run the xgboost command line, here are the commands to execute in the shell:
 
 	cp -r /dsvm/tools/xgboost/demo/binary_classification/ xgboostdemo
 	cd xgboostdemo
@@ -321,6 +321,7 @@ To run Rattle, you need to be in a graphical desktop sign-in session. On the ter
 	rattle()
 
 Now a graphical interface opens up with a set of tabs. Here are the quick start steps in Rattle needed to use a sample weather data set and build a model. In some of the steps below, you are prompted to automatically install and load some required R packages that are not already on the system.
+
 >[AZURE.NOTE] If you don't have access to install the package in the system directory (the default), you may see a prompt on your R console window to install packages to your personal library. Answer *y* if you see these prompts.
 
 1. Click **Execute**.
@@ -338,8 +339,8 @@ Now a graphical interface opens up with a set of tabs. Here are the quick start 
 You can exit Rattle and R. Now you can modify the generated R script, or use it as it is to run it anytime to repeat everything that was done within the Rattle UI. Especially for beginners in R, this is an easy way to quickly do analysis and machine learning in a simple graphical interface, while automatically generating code in R to modify and/or learn.
 
 
-## Next Steps
-Here's how you can continue your learning and exploration.
+## Next steps
+Here's how you can continue your learning and exploration:
 
 * Explore the various data science tools on the data science VM by trying out the tools described in this article. You can also run *dsvm-more-info* on the shell within the virtual machine for a basic introduction and pointers to more information about the tools installed on the VM.  
 * Learn how to build end-to-end analytical solutions systematically by using the [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
