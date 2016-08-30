@@ -32,14 +32,14 @@ Also, features that are deprecated in SQL Server are generally not supported in 
 
 ## Upgrading to SQL Database V12
 
-This topic discusses the features that are available with SQL Database when upgraded to the free SQL Database V12. For more information about V12, see [SQL Database V12 What's New](sql-database-v12-whats-new.md). SQL Database V12 adds performance and manageability improvements, as well as support for additional features. The added features are listed below, separated into the features that are fully supported, and the features that are partially supported. 
+This topic discusses the features that are available with SQL Database when upgraded to the free SQL Database V12. For more information about V12, see [SQL Database V12 What's New](sql-database-v12-whats-new.md). SQL Database V12 adds performance and manageability improvements, as well as support for additional features. The following sections, list features that are partially supported, and complete unsupported. 
 
 ## Features partially supported in SQL Database V12
 
-SQL Database V12 supports some but not all of the arguments that exist in the corresponding SQL Server 2016 Transact-SQL statements. For example, the CREATE PROCEDURE statement is available however all of the options of CREATE PROCEDURE are not available. Refer to the linked syntax topics for details about the supported areas of each statement.
+SQL Database V12 supports some but not all the arguments that exist in the corresponding SQL Server 2016 Transact-SQL statements. For example, the CREATE PROCEDURE statement is available however all the options of CREATE PROCEDURE are not available. Refer to the linked syntax topics for details about the supported areas of each statement.
 
 - Databases: [CREATE](https://msdn.microsoft.com/library/dn268335.aspx )/[ALTER](https://msdn.microsoft.com/library/ms174269.aspx)
-- DMV's are generally available for features that are available.
+- DMVs are generally available for features that are available.
 - Functions: [CREATE](https://msdn.microsoft.com/library/ms186755.aspx)/[ALTER FUNCTION](https://msdn.microsoft.com/library/ms186967.aspx)
 - [KILL](https://msdn.microsoft.com/library/ms173730.aspx) 
 - Logins: [CREATE](https://msdn.microsoft.com/library/ms189751.aspx)/[ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx)
@@ -62,23 +62,23 @@ SQL Database V12 supports some but not all of the arguments that exist in the co
 - EXECUTE AS logins
 - Encryption: extensible key management
 - Eventing: events, event notifications, query notifications
-- Features related to database file placement, size, and database files which are automatically managed by Microsoft Azure.
-- Features that relate to high availability which is managed through your Microsoft Azure account: backup, restore, AlwaysOn, database mirroring, log shipping, recovery modes. For more information, see Azure SQL Database Backup and Restore.
+- Features related to database file placement, size, and database files that are automatically managed by Microsoft Azure.
+- Features that relate to high availability, which is managed through your Microsoft Azure account: backup, restore, AlwaysOn, database mirroring, log shipping, recovery modes. For more information, see Azure SQL Database Backup and Restore.
 - Features that rely upon the log reader running on SQL Database: Push Replication, Change Data Capture.
 - Features that rely upon the SQL Server Agent or the MSDB database: jobs, alerts, operators, Policy-Based Management, database mail, central management servers.
 - FILESTREAM
 - Functions: fn_get_sql, fn_virtualfilestats, fn_virtualservernodes
 - Global temporary tables
-- Hardware related server settings: memory, worker threads, CPU affinity, trace flags, etc. Use service levels instead.
+- Hardware-related server settings: memory, worker threads, CPU affinity, trace flags, etc. Use service levels instead.
 - HAS_DBACCESS
 - KILL STATS JOB
-- Linked servers, OPENQUERY, OPENROWSET, OPENDATASOURCE, BULK INSERT, 3 and 4 part names
+- Linked servers, OPENQUERY, OPENROWSET, OPENDATASOURCE, BULK INSERT, and four-part names
 - Master/target servers
 - .NET Framework [CLR integration with SQL Server](http://msdn.microsoft.com/library/ms254963.aspx)
 - Resource governor
 - Semantic search
 - Server credentials. Use database scoped credentials instead.
-- Sever-level items: Server roles, IS_SRVROLEMEMBER, sys.login_token. Server level permissions are not available though some are replaced by database-level permissions. Some server-level DMV's are not available though some are replaced by database-level DMV's.
+- Sever-level items: Server roles, IS_SRVROLEMEMBER, sys.login_token. Server level permissions are not available though some are replaced by database-level permissions. Some server-level DMVs are not available though some are replaced by database-level DMVs.
 - Serverless express: localdb, user instances
 - Service broker
 - SET REMOTE_PROC_TRANSACTIONS
@@ -93,7 +93,7 @@ SQL Database V12 supports some but not all of the arguments that exist in the co
 - Trace flags. Some trace flag items have been moved to compatibility modes.
 - Transact-SQL debugging
 - Triggers: Server-scoped or logon triggers
-- USE statement: To change the database context to a different database you must make a new connection to the new database.
+- USE statement: To change the database context to a different database, you must make a new connection to the new database.
 
 
 ## Full Transact-SQL reference
@@ -102,7 +102,7 @@ For more information about Transact-SQL grammar, usage, and examples, see [Trans
 
 ### About the "Applies to" tags
 
-The Transact-SQL reference includes topics related to SQL Server versions 2008 to the present. Below the topic title there is a icon bar, listing the four SQL Server platforms, and indicating applicability. For example, availability groups were introduced in SQL Server 2012. The [CREATE AVAILABILTY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) topic indicates that the statement applies to **SQL Server (starting with 2012). The statement does not apply to SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse, or Parallel Data Warehouse.
+The Transact-SQL reference includes topics related to SQL Server versions 2008 to the present. Below the topic title there is an icon bar, listing the four SQL Server platforms, and indicating applicability. For example, availability groups were introduced in SQL Server 2012. The [CREATE AVAILABILTY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) topic indicates that the statement applies to **SQL Server (starting with 2012). The statement does not apply to SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse, or Parallel Data Warehouse.
 
 In some cases, the general subject of a topic can be used in a product, but there are minor differences between products. The differences are indicated at midpoints in the topic as appropriate.
 
