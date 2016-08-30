@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/19/2016"
+   ms.date="08/29/2016"
    ms.author="ganesr"/>
 
 
@@ -389,15 +389,15 @@ You can change the SKU of an ExpressRoute circuit by using the following PowerSh
 Review the instructions in [Move ExpressRoute circuits from the classic to the Resource Manager deployment model](expressroute-howto-move-arm.md).  
 
 
-## Deleting and deprovisioning an ExpressRoute circuit
+## Deprovisioning and deleting an ExpressRoute circuit
 
 Note the following:
 
 - You must unlink all virtual networks from the ExpressRoute circuit. If this operation fails, check to see if any virtual networks are linked to the circuit.
 
-- If the ExpressRoute circuit service provider provisioning state is enabled, the status moves to *Disabling* from an enabled state. You must work with your service provider to deprovision the circuit on their side. We will continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and notifies us.
+- If the ExpressRoute circuit service provider provisioning state is **Provisioning** or **Provisioned** you must work with your service provider to deprovision the circuit on their side. We will continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and notifies us.
 
-- If the service provider has deprovisioned the circuit (the service provider provisioning state is set to *Not provisioned*) before you run the previous cmdlet, we will deprovision the circuit and stop billing you.
+- If the service provider has deprovisioned the circuit (the service provider provisioning state is set to **Not provisioned**) you can then delete the circuit. This will stop billing for the circuit
 
 You can delete your ExpressRoute circuit by running the following command:
 
