@@ -58,7 +58,7 @@ The Azure Free Trial offer is limited to one free trial activation per user. If 
 
 You can also pay for your Azure subscription via invoicing payment methods such as checks, overnight checks, and wire transfers.
 
-To use the invoice payment option, you must represent a business. This option is not available for individual subscribers. Once your business is set up to pay using the invoice option, you cannot change to a different payment option at a later time.
+To use the invoice payment option, you must represent a business. This option is not available for individual subscribers. Once your business is set up to pay using the invoice option, you cannot change to a different payment option later.
 
 To start the process of setting up an invoice, see [Azure Billing - How to invoice](https://azure.microsoft.com/pricing/invoicing/) for details.
 
