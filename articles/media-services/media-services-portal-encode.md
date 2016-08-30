@@ -28,9 +28,9 @@ Media Services also provides dynamic packaging which allows you to deliver your 
 To take advantage of dynamic packaging, you need to do the following:
 
 - Encode your source file into a set of multi-bitrate MP4 files (the encoding steps are demonstrated later in this section).
-- Get at least one streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see [configuring streaming endpoints](media-services-portal-vod-get-started.md#configure-streaming-endpoints). 
+- Get at least one streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see [configuring streaming endpoints](media-services-portal-vod-get-started.md#configure-streaming-endpoints.md). 
 
-To scale media processing, see [this](media-services-portal-scale-media-processing) topic.
+To scale media processing, see [this](media-services-portal-scale-media-processing.md) topic.
 
 ## Encode with the Azure portal
 

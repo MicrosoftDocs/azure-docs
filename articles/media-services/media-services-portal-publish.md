@@ -49,7 +49,7 @@ A SAS URL has the following format.
 
 	{blob container name}/{asset name}/{file name}/{SAS signature}
 
-For more information, see [Delivering content overview](media-services-deliver-content-overview).
+For more information, see [Delivering content overview](media-services-deliver-content-overview.md).
 
 >[AZURE.NOTE] If you used the portal to create locators before March 2015, locators with a two year expiration date were created.  
 
