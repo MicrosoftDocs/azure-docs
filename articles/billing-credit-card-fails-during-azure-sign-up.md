@@ -24,17 +24,17 @@ If your credit card or debit card was declined when you try to sign up for Azure
 
 - You’re using a virtual or prepaid card. Virtual or prepaid credit or debit cards are not accepted as valid payment options. 
 
-- [The accepted credit card and debit card providers vary based on your country](#is-your-credit-or-debit-card-information-correct-and-complete). In the drop-down list for choosing a credit card, you will only see the options that are valid in the country that you selected.
+- [The accepted credit card and debit card providers vary based on your country](#credit-or-debit-card-details). In the drop-down list for choosing a credit card, you will only see the options that are valid in the country that you selected.
 
-- [Your credit or debit card information is inaccurate or incomplete](#is-your-credit-or-debit-card-information-correct-and-complete). You must update your billing info to proceed.
+- [Your credit or debit card information is inaccurate or incomplete](#credit-or-debit-card-details). You must update your payment info to proceed.
 
-- [You're trying to activate a second free trial](#are-you-trying-to-activate-an-azure-free-trial); the Azure Free Trial offer is limited to one per user.
+- [You're trying to activate a second free trial](#azure-free-trial); the Azure Free Trial offer is limited to one per user.
 
 - If you are indeed using a valid credit card or debit card, make sure that the card is active and your bank is not blocking online transactions due to its security policies. Contact your bank to resolve this issue.
 
 > [AZURE.NOTE] If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
-## Is your credit or debit card information correct and complete?
+## Credit or debit card details
 
 Follow the steps below to make sure your credit or debit card information is valid:
 
@@ -48,13 +48,13 @@ Follow the steps below to make sure your credit or debit card information is val
 
 After you update your payment information, you can try signing up again.
 
-## Are you trying to activate an Azure Free Trial?
+## Azure Free Trial
 
 The Azure Free Trial offer is limited to one free trial activation per user. If you have already activated a free trial earlier with this credit card or had an Azure subscription in the past that was linked to this credit card, the system will not allow you to activate a free trial now. Instead, use one of the other available Azure plans listed on the [Microsoft Azure Offer Details](https://azure.microsoft.com/support/legal/offer-details/) page.
 
-## See more
+## Next steps
 
-### Do you want another option to pay besides a credit or debit card?
+### Set up invoicing
 
 You can also pay for your Azure subscription via invoicing payment methods such as checks, overnight checks, and wire transfers.
 
@@ -62,7 +62,7 @@ To use the invoice payment option, you must represent a business. This option is
 
 To start the process of setting up an invoice, see [Azure Billing - How to invoice](https://azure.microsoft.com/pricing/invoicing/) for details.
 
-### Do you need to update your credit or debit card information?
+### Update your credit or debit card information
 
 If your credit or debit card information is out of date, you can [update your payment information](billing-how-to-change-credit-card.md).
 
