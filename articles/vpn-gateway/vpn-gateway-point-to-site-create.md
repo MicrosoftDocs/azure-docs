@@ -38,7 +38,7 @@ Point-to-Site connections do not require a VPN device or a public-facing IP addr
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
-![Point-to-Site-diagram](./media/vpn-gateway-point-to-site-create/point2site.png "point-to-site")
+![Point-to-Site-diagram](./media/vpn-gateway-point-to-site-create/p2sclassic.png "point-to-site")
 
 ## About creating a Point-to-Site connection
  
