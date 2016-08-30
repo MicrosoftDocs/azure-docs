@@ -152,5 +152,3 @@ The following instructions are for deleting a Backup vault in the classic portal
     ![delete backup data](./media/backup-azure-delete-vault/classic-portal-delete-vault-confirmation-1.png)
 
     The vault is deleted, and you return to the classic portal dashboard.
-
-### Next steps
