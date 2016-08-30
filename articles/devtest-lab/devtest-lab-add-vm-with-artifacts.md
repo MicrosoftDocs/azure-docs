@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2016"
+	ms.date="08/30/2016"
 	ms.author="tarcher"/>
 
 # Add a VM with artifacts to a lab
@@ -36,26 +36,24 @@ This article shows you how to create a VM in your lab with artifacts.
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Select **Browse**, and then select **DevTest Labs** from the list.
+1. Select **More Services**, and then select **DevTest Labs** from the list.
 
 1. From the list of labs, select the lab in which you want to create the new VM.  
 
-1. On the lab's blade, select **+ Lab VM** as shown in the following figure.  
-    ![Add Lab VM button](./media/devtest-lab-add-vm-with-artifacts/devtestlab-home-blade-add-vm.png)
+1. On the lab's **Overview** blade, select **+ Virtual Machine**.  
+    ![Add VM button](./media/devtest-lab-add-vm-with-artifacts/devtestlab-home-blade-add-vm.png)
 
 1. On the **Choose a base** blade, select a base for the VM.
 
-1. On the **Lab VM** blade, enter a name for the new virtual machine in the **Lab VM Name** text box.
+1. On the **Virtual machine** blade, enter a name for the new virtual machine in the **Virtual machine name** text box.
 
 	![Lab VM blade](./media/devtest-lab-add-vm-with-artifacts/devtestlab-lab-vm-blade.png)
 
 1. Enter a **User Name** that will be granted administrator privileges on the virtual machine.  
 
-1. If the OS type of the selected base is Linux, specify an authentication type of either *Password* or *SSH Public Key*.
-
-1. Depending on the authentication type specified, enter either a password or SSH public key.
-
-1. Select **VM Size** and select one of the predefined items that specify the processor cores, RAM size, and the hard drive size of the VM to create.
+1. If you have and want to use a password stored in your *secret store*, select **Use secrets from my secret store**, and specify a key value that corresponds to your secret (password). Otherwise, simply enter a password in the text field labelled **Type a value**.
+ 
+1. Select **Virtual machine size** and select one of the predefined items that specify the processor cores, RAM size, and the hard drive size of the VM to create.
 
 1. Select **Virtual network** and select the desired virtual network.
 
@@ -82,9 +80,9 @@ While creating a VM, you can add existing artifacts. Each lab includes artifacts
 well as artifacts that you've created and added to your own Artifact Repository.
 To discover how to create artifacts, see the article, [Learn how to author your own artifacts for use with DevTest Labs](devtest-lab-artifact-author.md).
 
-1. On the **Lab VM** blade, select **Artifacts**. 
+1. On the **Virtual machine** blade, select **Artifacts**. 
 
-1. On the **Add Artifacts** blade, select the desired artifact.  
+1. On the **Add artifacts** blade, select the desired artifact.  
 
 ![Add Artifacts blade](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifact-blade.png)
 
@@ -132,7 +130,7 @@ An Azure Resource Manager template provides a declarative way to define a repeat
 The following steps explain how to save the Azure Resource Manager template for the VM being created.
 Once saved, you can use the Azure Resource Manager template to [deploy new VMs with Azure PowerShell](../resource-group-overview.md#template-deployment).
 
-1. On the **Lab VM** blade, select **View ARM Template**.
+1. On the **Virtual machine** blade, select **View ARM Template**.
 
 1. On the **View Azure Resource Manager Template blade**, select all of the template text.
 
