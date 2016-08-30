@@ -33,7 +33,7 @@ Now that you've [created an offer](azure-stack-create-offer.md), test that your 
     ![](media/azure-stack-subscribe-plan-provision-vm/image03.png)
 
 
-After you subscribe to an offer, wait until the subscription state is InSync. Then refresh the portal to see which services are part of the new subscription.
+After you subscribe to an offer, refresh the portal to see which services are part of the new subscription.
 
 
 
