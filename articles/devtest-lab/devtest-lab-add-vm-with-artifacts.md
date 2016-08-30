@@ -20,8 +20,6 @@
 
 > [AZURE.VIDEO how-to-create-vms-with-artifacts-in-a-devtest-lab]
 
-## Overview
-
 You create a VM in a lab from a *base* that is either a [custom image](./devtest-lab-create-template.md), [formula](./devtest-lab-manage-formulas.md), or [Marketplace image](./devtest-lab-configure-marketplace-images.md).
 
 DevTest Labs *artifacts* let you specify *actions* that are performed when the VM is created. 
