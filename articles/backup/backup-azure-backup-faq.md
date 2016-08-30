@@ -14,7 +14,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="08/21/2016"
+	 ms.date="08/29/2016"
 	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # Azure Backup service- FAQ
@@ -195,14 +195,13 @@ Typical long-term retention point products store backup data as full points. The
 No. We have eliminated limits on recovery points. You can create as many recovery points as you desire.
 
 ## Why is the amount of data transferred in backup not equal to the amount of data I backed up?<br/>
- All the data that is backed up is compressed and encrypted before being transferred. Once the compression and encryption is applied, the data in the backup vault is 30-40% smaller.
+ All the data that is backed up from Azure Backup Agent or SCDPM or Azure Backup Server, is compressed and encrypted before being transferred. Once the compression and encryption is applied, the data in the backup vault is 30-40% smaller.
 
 ## Is there a way to adjust the amount of bandwidth used by the Backup service?<br/>
  Yes, use the **Change Properties** option in the Backup Agent to adjust bandwidth. Adjust the amount of bandwidth and the times when you use that bandwidth. See [Network Throttling](../backup-configure-vault.md#enable-network-throttling), for more information.
 
 ## My internet bandwidth is limited for the amount of data I need to back up. Is there a way I can move data to a certain location with a large network pipe and push that data into Azure? <br/>
 You can back up data into Azure via the standard online backup process, or you can use the Azure Import/Export service to transfer data to blob storage in Azure. There are no additional ways of getting backup date into Azure storage. For information on how to use the Azure Import/Export service with Azure Backup, please see the [Offline Backup workflow](backup-azure-backup-import-export.md) article.
-
 
 ## How many recoveries can I perform on the data that is backed up to Azure?<br/>
 There is no limit on the number of recoveries from Azure Backup.
@@ -214,17 +213,13 @@ There is no limit on the number of recoveries from Azure Backup.
 Yes. Data is encrypted on the on-premises server/client/SCDPM machine using AES256 and the data is sent over a secure HTTPS link.
 
 ## Is the backup data on Azure encrypted as well?<br/>
- Yes. The data sent to Azure remains encrypted (at rest). Microsoft does not decrypt the backup data at any point.
+ Yes. The data sent to Azure remains encrypted (at rest). Microsoft does not decrypt the backup data at any point. For Azure VM backup, Azure Backup relies on encryption of the virtual machine i.e. if your VM is encrypted using Azure Disk Encryption or some other encryption technology, Azure Backup uses that encryption to secure your data. 
 
 ## What is the minimum length of encryption key used to encrypt backup data? <br/>
  The encryption key should be at least 16 characters.
 
 ## What happens if I misplace the encryption key? Can I recover the data (or) can Microsoft recover the data? <br/>
 The key used to encrypt the backup data is present only on the customer premises. Microsoft does not maintain a copy in Azure and does not have any access to the key. If the customer misplaces the key, Microsoft cannot recover the backup data.
-
-## Is backup data for Azure VMs encrypted? <br/>
-Azure Backup relies on encryption settings of the Azure VM for backup encryption. If your VM is encrypted using Azure Disk Encryption, Azure Backup uses that encryption to secure your data. 
-
 
 ## How do I change the cache location specified for the Azure Backup agent?<br/>
  Go sequentially through the bullet list below to change the cache location.
@@ -248,7 +243,7 @@ Azure Backup relies on encryption settings of the Azure VM for backup encryption
   Once the backup creation is successfully completed in the new cache location, you can remove the original cache folder.
 
 ## Where can I put the cache-folder for the Azure Backup Agent to work as expected?<br/>
- The following locations for the cache-folder are not recommended:
+The following locations for the cache-folder are not recommended:
 
 - Network share or Removable Media: The cache-folder must be local to the server that needs backing up using online backup. Network locations or removable media like USB drives are not supported.
 - Offline Volumes: The cache-folder must be online for expected backup using Azure Backup Agent.
