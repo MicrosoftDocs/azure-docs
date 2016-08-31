@@ -28,7 +28,7 @@
 
 This article provides directions for creating an Azure SQL database by importing a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file with PowerShell.
 
-The database is created from a BACPAC file (.bacpac) imported from an Azure Storage blob container. If you don't have a BACPAC file in Azure Storage, see [Archive an Azure SQL database to a BACPAC file by using PowerShell](sql-database-export-powershell.md). If you already have a BACPAC file that is not in Azure Storage, [use AzCopy to easily upload it to your Azure Storage account](../storage/storage-use-azcopy/#blob-upload).
+The database is created from a BACPAC file (.bacpac) imported from an Azure Storage blob container. If you don't have a BACPAC file in Azure Storage, see [Archive an Azure SQL database to a BACPAC file by using PowerShell](sql-database-export-powershell.md). If you already have a BACPAC file that is not in Azure Storage, [use AzCopy to easily upload it to your Azure Storage account](../storage/storage-use-azcopy.md#blob-upload).
 
 > [AZURE.NOTE] Azure SQL Database automatically creates and maintains backups for every user database that you can restore. For details, see [SQL Database automated backups](sql-database-automated-backups.md).
 
