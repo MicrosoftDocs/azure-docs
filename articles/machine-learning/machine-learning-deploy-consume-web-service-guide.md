@@ -31,27 +31,25 @@ Machine Learning Studio and the Microsoft Azure Machine Learning Web Services po
 The following links provide general Information about how to deploy a new Web service:
 
 * For an overview about how to deploy a new Web service that's based on Azure Resource Manager, see [Deploy a new Web service](machine-learning-webservice-deploy-a-web-service.md).
-* For a walkthrough about how to deploy a Web service, see [Deploy an Azure Machine Learning Web service](machine-learning-publish-a-machine-learning-web-service.md).
+* For a walkthrough about how to deploy a Web service, see [Deploy an Azure Machine Learning Web Service](machine-learning-publish-a-machine-learning-web-service.md).
+* For a full walkthrough about how to create and deploy a Web service, see [Walkthrough Step 1: Create a Machine Learning workspace](machine-learning-walkthrough-1-create-ml-workspace.md).
+* For specific examples that deploy a Web service, see:
 
-For a full walkthrough about how to create and deploy a Web service, see [Walkthrough Step 1: Create a Machine Learning workspace](machine-learning-walkthrough-1-create-ml-workspace.md).
-
-For specific examples that deploy a Web service, see:
-
-* [Walkthrough Step 5: Deploy the Azure Machine Learning Web service](machine-learning-walkthrough-5-publish-web-service.md)
-* [How to deploy a Web Service to multiple regions](machine-learning-how-to-deploy-to-multiple-regions.md)
+	* [Walkthrough Step 5: Deploy the Azure Machine Learning Web service](machine-learning-walkthrough-5-publish-web-service.md)
+	* [How to deploy a Web Service to multiple regions](machine-learning-how-to-deploy-to-multiple-regions.md)
 
 ### With Web services resource provider APIs (Azure Resource Manager APIs)
 
-The Azure Machine Learning resource provider for Web services enables deployment and management of Web services by using REST API calls. See the following articles and sample code for additional details.
+The Azure Machine Learning resource provider for Web services enables deployment and management of Web services by using REST API calls. See the following article for additional details.
 
-* [Machine Learning Web service (REST)](https://msdn.microsoft.com/library/azure/mt767538.aspx) reference on MSDN.
+* [Machine Learning Web service (REST)](https://msdn.microsoft.com/library/azure/mt767538.aspx) reference on MSDN
 
 
 ### With PowerShell cmdlets
 
-Azure Machine Learning resource PProvider for Web services enables deployment and management of Web services by using PowerShell cmdlets.
+Azure Machine Learning resource Provider for Web services enables deployment and management of Web services by using PowerShell cmdlets.
 
-To use the cmdlets, you must first sign in to your Azure account from within the PowerShell environment by using the [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet. If you are unfamiliar with how to call PowerShell commands that are based on Resource Manager, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md#login-to-your-azure-account).
+To use the cmdlets, you must first sign in to your Azure account from within the PowerShell environment using the [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet. If you are unfamiliar with how to call PowerShell commands that are based on Resource Manager, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md#login-to-your-azure-account).
 
 To export your predictive experiment, use this [sample code](https://github.com/ritwik20/AzureML-WebServices). After you create the exe from the code, you can type:
 
@@ -60,9 +58,11 @@ To export your predictive experiment, use this [sample code](https://github.com/
 Running the application creates a Web service JSON template. To use the template to deploy a Web service, you must add the following information:
 
 * Storage account name and key
-	* You can get the storage account name and key from either the [Azure portal](https://portal.azure.com/) or the [Azure classic portal](http://manage.windowsazure.com/).
+
+	You can get the storage account name and key from either the [Azure portal](https://portal.azure.com/) or the [Azure classic portal](http://manage.windowsazure.com/).
 * Commitment plan ID
-	* You can get the plan ID from the [Azure Machine Learning Web Services](https://services.azureml.net) portal by signing in and clicking a plan name.
+
+	You can get the plan ID from the [Azure Machine Learning Web Services](https://services.azureml.net) portal by signing in and clicking a plan name.
 
 Add them to the JSON template as children of the *Properties* node at the same level as the *MachineLearningWorkspace* node.
 
@@ -79,7 +79,7 @@ Here's an example:
 See the following articles and sample code for additional details.
 
 * [Azure Machine Learning cmdlets]( https://msdn.microsoft.com/library/azure/mt767952.aspx) reference on MSDN
-* Sample [walkthrough](https://github.com/raymondlaghaeian/azureml-webservices-arm-powershell/blob/master/sample-commands.txt) on GitHub.
+* Sample [walkthrough](https://github.com/raymondlaghaeian/azureml-webservices-arm-powershell/blob/master/sample-commands.txt) on GitHub
 
 ## Consume the Web services
 
@@ -101,6 +101,6 @@ You can download an Excel template that consumes the Web service:
 
 ### From a REST-based client
 
-Azure Machine Learning Web Services are RESTful APIs. You can consume these APIs from various platforms such as .NET, Python, R, Java, etc. The **Consume** page for your Web service on the [Microsoft Azure Machine Learning Web Services portal](https://services.azureml.net) has sample code that can help you get started.
+Azure Machine Learning Web Services are RESTful APIs. You can consume these APIs from various platforms, such as .NET, Python, R, Java, etc. The **Consume** page for your Web service on the [Microsoft Azure Machine Learning Web Services portal](https://services.azureml.net) has sample code that can help you get started. For more information, see the following article:
 
 * [How to consume an Azure Machine Learning Web service that has been deployed from a Machine Learning experiment](machine-learning-consume-web-services.md)
