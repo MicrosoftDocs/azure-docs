@@ -14,7 +14,7 @@
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="na"
-   ms.date="08/26/2016"
+   ms.date="08/31/2016"
    ms.author="hermannd"/>
 
 # Quickstart Guide for manual installation of single-instance SAP HANA on Azure VMs
@@ -35,7 +35,7 @@ Due to the restriction to non-production systems this guide will not cover topic
 backup, DR, high performance or special security considerations.
 
 The sample setup was done using two virtual machines to accomplish a distributed SAP NetWeaver
-installation using the Azure Resource Manager model ( ARM ) as SAP-Linux-Azure is only supported 
+installation via the Azure Resource Manager model ( ARM ) as SAP-Linux-Azure is only supported 
 on ARM and not the classic model. Links to further information about ARM can be found in the
 general information section at the end of this article.
 
@@ -63,10 +63,10 @@ the end of this article.
 
 The guide describes two different ways to manually install SAP HANA on Azure VMs :
 
-* install SAP HANA via SAP Software Provisioning Manager ( SWPM ) as part of a distributed installation in the "database instance" step
-* install SAP HANA using the HANA Life Cycle Manager tool hdblcm
+* install SAP HANA via SAP Software Provisioning Manager ( SWPM ) as part of a distributed NetWeaver installation in the "database instance" step
+* install SAP HANA using the HANA Life Cycle Manager tool hdblcm and then install NetWeaver afterwards
 
-Before starting an installation the next section about setting up the Azure test VMs should be read 
+Before starting an installation the section after the checklists below about setting up the Azure test VMs should be read 
 to avoid several basic mistakes which will happen when using only a default Azure VM configuration.
 
 
@@ -74,23 +74,23 @@ to avoid several basic mistakes which will happen when using only a default Azur
 
 This is a simple checklist of the key items related to a manual single-instance SAP HANA installation 
 for demo or prototyping pursposes via SAP SWPM doing a distributed SAP NW 7.5 install. The individual 
-items are explained and partly shown in form of screenshots in more detail throughout the article :
+items are explained and shown in form of screenshots in more detail throughout the article :
 
-* create an Azure virtual network which will include the two ARM test VMs later on
+* create an Azure virtual network which will include the two ARM test VMs 
 * deploy two Azure VMs with OS SLES 12 SP1 via Azure Resource Manager model ( ARM )
 * attach two standard storage disks to the app server VM ( e.g. 75GB and 500GB )
 * attach four disks to the HANA DB server VM - 2 standard storage disks like for the app server VM + 
   2 premium storage disks ( e.g. 2x512GB )
 * depending on size and/or throughput requirements attach multiple disks and create striped
-  volumes either using lvm or mdadm
-* create XFS file systems on the attached disks 
+  volumes either using lvm or mdadm on OS level inside the VM
+* create XFS file systems on the attached disks / logical volumes
 * mount the new XFS file systems on OS level. Use one filesystem to keep all the SAP software and the
   other one e.g. for the sapmnt directory and maybe backups. On the SAP HANA DB server mount the XFS 
   file systems on the premium storage disks as /hana and /usr/sap
   This is all necessary to avoid that the root filesystem which isn't too big on Linux Azure VMs fills up
 * enter the local ip addresses of the test VMs in /etc/hosts
 * enter the nofail parameter in /etc/fstab
-* set kernel parameters according to the HANA-SLES-12 SAP note
+* set kernel parameters according to the HANA-SLES-12 SAP note ( see details further down in the kernel paramters section )
 * add swap space
 * if wanted - install a graphical desktop on the test VMs. Otherwise use a remote sapinst install
 * download the SAP software from the SAP service marketplace
@@ -106,23 +106,23 @@ items are explained and partly shown in form of screenshots in more detail throu
 
 This is a simple checklist of the key items related to a manual single-instance SAP HANA installation 
 for demo or prototyping pursposes via SAP SWPM doing a distributed SAP NW 7.5 install. The individual 
-items are explained and partly shown in form of screenshots in more detail throughout the article :
+items are explained and shown in form of screenshots in more detail throughout the article :
 
-* create an Azure virtual network which will include the two ARM test VMs later on
+* create an Azure virtual network which will include the two ARM test VMs 
 * deploy two Azure VMs with OS SLES 12 SP1 via Azure Resource Manager model ( ARM )
 * attach two standard storage disks to the app server VM ( e.g. 75GB and 500GB )
 * attach four disks to the HANA DB server VM - 2 standard storage like for the app server VM + 
   2 premium storage disks ( e.g. 2x512GB )
 * depending on size and/or throughput requirements attach multiple disks and create striped
-  volumes either using lvm or mdadm
-* create XFS file systems on the attached disks 
+  volumes either using lvm or mdadm on OS level inside the VM
+* create XFS file systems on the attached disks / logical volumes
 * mount the new XFS file systems on OS level. Use one filesystem to keep all the SAP software and the
   other one e.g. for the sapmnt directory and maybe backups. On the SAP HANA DB server mount the XFS 
   file systems on the premium storage disks as /hana and /usr/sap
   This is all necessary to avoid that the root filesystem which isn't too big on Linux Azure VMs fills up
 * enter the local ip addresses of the test VMs in /etc/hosts
 * enter the nofail parameter in /etc/fstab
-* set kernel parameters according to the HANA-SLES-12 SAP note
+* set kernel parameters according to the HANA-SLES-12 SAP note ( see details further down in the kernel paramters section )
 * add swap space
 * if wanted - install a graphical desktop on the test VMs. Otherwise use a remote sapinst install
 * download the SAP software from the SAP service marketplace
@@ -163,7 +163,7 @@ disks instead of one and later on create a stripe set across those disks on OS l
 aspects why one would create a stripe set across multiple Azure disks :
 
 * increase throughput
-* need a single filesystem > 1TB as the current Azure disk size limit is 1TB
+* need a single filesystem > 1TB as the current Azure disk size limit is 1TB ( as of July 2016 )
 
 
 More information regarding the two main tools to configure striping can be found here :
@@ -206,7 +206,7 @@ One additional topic reagrding page-cache related to running SAP HANA on SLES ca
 There is also a SAP Note regarding the page-cache limit [SAP Note 1557506](https://service.sap.com/sap/support/notes/1557506)
 
 SLES 12 has a new tool which replaces the old sapconf utility. It's "tuned-adm" and there is a special
-SAP HANA profile to be used. One can find more details about this tool following the two links below.
+SAP HANA profile available. One can find more details about this tool following the two links below.
 
 SLES documentation about tuned-adm profile sap-hana can be found [here](https://www.suse.com/documentation/sles-for-sap-12/book_s4s/data/sec_s4s_configure_sapconf.html)
 
@@ -374,7 +374,7 @@ database as a single instance.
 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image012.jpg)
 
-For the sample test environment just an ABAP app server was installed. The option "Distributed System"
+For the sample test environment just one ABAP app server was installed. The option "Distributed System"
 was used to install the ASCS instance and the Primary App server instance in one Azure VM and SAP HANA
 as the database system in an another Azure VM.
 
@@ -522,7 +522,7 @@ One can check the HANA \<HANA SID\>adm ( azdadm in this sample ) user details in
 ![](./media/virtual-machines-linux-sap-hana-get-started/image034.jpg)
 
 After installing SAP HANA using hdblcm it can be seen in SAP HANA Studio. The SAPABAP1 schema which
-includes e.g. all the SAP NetWeaver tables isn"t available yet.
+includes e.g. all the SAP NetWeaver tables isn't available yet.
 
 
 
