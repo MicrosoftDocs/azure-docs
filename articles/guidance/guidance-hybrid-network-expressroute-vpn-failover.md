@@ -76,18 +76,18 @@ The following diagram highlights the important components in this architecture:
 
 - If the VNet already includes a subnet named **GatewaySubnet**, ensure that it has a /27 or larger address space. If the existing subnet is too small, then remove it as follows and create a new one as shown in the next bullet:
 
-	```powershell
-	$vnet = Get-AzureRmVirtualNetworkGateway -Name <yourvnetname> -ResourceGroupName <yourresourcegroup>
-	Remove-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet
-	```
+    ```powershell
+    $vnet = Get-AzureRmVirtualNetworkGateway -Name <yourvnetname> -ResourceGroupName <yourresourcegroup>
+    Remove-AzureRmVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet
+    ```
 
 - If the VNet does not contain a subnet named **GatewaySubnet**, then create a new one as follows:
 
-	```powershell
-	$vnet = Get-AzureRmVirtualNetworkGateway -Name <yourvnetname> -ResourceGroupName <yourresourcegroup>
-	Add-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet -AddressPrefix "10.200.255.224/27"
-	$vnet = Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
-	```
+    ```powershell
+    $vnet = Get-AzureRmVirtualNetworkGateway -Name <yourvnetname> -ResourceGroupName <yourresourcegroup>
+    Add-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet -AddressPrefix "10.200.255.224/27"
+    $vnet = Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
+    ```
 
 ### VPN and ExpressRoute gateways
 
@@ -95,9 +95,9 @@ The following diagram highlights the important components in this architecture:
 
 - If you already have a VPN virtual network gateway in your Azure VNet, remove it, as shown below.
 
-	```powershell
-	Remove-AzureRmVirtualNetworkGateway -Name <yourgatewayname> -ResourceGroupName <yourresourcegroup>
-	```
+    ```powershell
+    Remove-AzureRmVirtualNetworkGateway -Name <yourgatewayname> -ResourceGroupName <yourresourcegroup>
+    ```
 
 - Follow the instructions in [Implementing a hybrid network architecture with Azure ExpressRoute][implementing-expressroute] to establish your ExpressRoute connection.
 
@@ -105,21 +105,21 @@ The following diagram highlights the important components in this architecture:
 
 - After you have established the virtual network gateway connections, test the environment as following:
 
-	1. Make sure you can connect from your on-premises network to your Azure VNet.
+    1. Make sure you can connect from your on-premises network to your Azure VNet.
 
-	2. Temporarily remove the ExpressRoute virtual network gateway connection.
+    2. Temporarily remove the ExpressRoute virtual network gateway connection.
 
-		```powershell
-		Remove-AzureRmVirtualNetworkGatewayConnection -ResourceGroupName <yourresourcegroup> -Name <yourERconnection>
-		```
+        ```powershell
+        Remove-AzureRmVirtualNetworkGatewayConnection -ResourceGroupName <yourresourcegroup> -Name <yourERconnection>
+        ```
 
-	3. Verify that the you can still connect from your on-premises network to your Azure VNet using the VPN virtual network gateway connection.
+    3. Verify that the you can still connect from your on-premises network to your Azure VNet using the VPN virtual network gateway connection.
 
-	4. Reestablish the ExpressRoute connection.
+    4. Reestablish the ExpressRoute connection.
 
-		```powershell
-		New-AzureRmVirtualNetworkGatewayConnection -ResourceGroupName <yourresourcegroup> -Name <yourERconnection> -ConnectionType ExpressRoute -VirtualNetworkGateway1 <gateway1> -VirtualNetworkGateway2 <gateway2> -LocalNetworkGateway2 <localgw1> -SharedKey <sharedKey>
-		```
+        ```powershell
+        New-AzureRmVirtualNetworkGatewayConnection -ResourceGroupName <yourresourcegroup> -Name <yourERconnection> -ConnectionType ExpressRoute -VirtualNetworkGateway1 <gateway1> -VirtualNetworkGateway2 <gateway2> -LocalNetworkGateway2 <localgw1> -SharedKey <sharedKey>
+        ```
 
 ## Considerations
 
@@ -145,7 +145,8 @@ The script references the parameters in the following files:
 
 - **[virtualNetwork.parameters.json][vnet-parameters]**. This file defines the VNet settings, such as the name, address space, subnets, and the addresses of any DNS servers required:
 
-	```json
+    <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-hybrid-network-vpn-er/parameters/virtualNetwork.parameters.json#L4-L24 -->
+    ```json
     "parameters": {
       "virtualNetworkSettings": {
         "value": {
@@ -167,59 +168,60 @@ The script references the parameters in the following files:
         }
       }
     }
-	```
+    ```
 
-	You can specify the name of the VNet (*RA-hybrid-vpn-er-vnet* shown in the example above) and the address space (*10.20.0.0/16*).
+    You can specify the name of the VNet (*RA-hybrid-vpn-er-vnet* shown in the example above) and the address space (*10.20.0.0/16*).
 
-	The `subnets` array indicates the subnets to add to the VNet. You must always create at least one subnet named *GatewaySubnet* with an address space of at least /27. You can create additional subnets as required by your application. Do not create any application objects in the GatewaySubnet.
+    The `subnets` array indicates the subnets to add to the VNet. You must always create at least one subnet named *GatewaySubnet* with an address space of at least /27. You can create additional subnets as required by your application. Do not create any application objects in the GatewaySubnet.
 
-	You can also use the `dnsServers` array to specify the addresses of DNS servers required by your application.
+    You can also use the `dnsServers` array to specify the addresses of DNS servers required by your application.
 
 - **[virtualNetworkGateway-vpn.parameters.json][virtualNetworkGateway-vpn-parameters]**. This file contains the parameters used to create the network gateway for the VPN connection:
 
-	```json
+    <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-hybrid-network-vpn-er/parameters/virtualNetworkGateway-vpn.parameters.json#L4-L33 -->
+    ```json
     "parameters": {
-      "virtualNetworkSettings": {
-        "value": {
-          "name": "ra-hybrid-vpn-er-vnet"
+        "virtualNetworkSettings": {
+            "value": {
+            "name": "ra-hybrid-vpn-er-vnet"
+            }
+        },
+        "virtualNetworkGatewaySettings": {
+            "value": {
+            "name": "ra-hybrid-vpn-vgw",
+            "gatewayType": "Vpn",
+            "vpnType": "RouteBased",
+            "sku": "Standard"
+            }
+        },
+        "connectionSettings": {
+            "value": {
+            "name": "ra-hybrid-vpn-cn",
+            "connectionType": "IPsec",
+            "sharedKey": "123secret",
+            "virtualNetworkGateway1": {
+                "name": "ra-hybrid-vpn-vgw"
+            },
+            "localNetworkGateway": {
+                "name": "ra-hybrid-vpn-lgw",
+                "ipAddress": "40.50.60.70",
+                "addressPrefixes": [ "192.168.0.0/16" ]
+            }
+            }
         }
-      },
-      "virtualNetworkGatewaySettings": {
-        "value": {
-          "name": "ra-hybrid-vpn-vgw",
-          "gatewayType": "Vpn",
-          "vpnType": "RouteBased",
-          "sku": "Standard"
-        }
-      },
-      "connectionSettings": {
-        "value": {
-          "name": "ra-hybrid-vpn-cn",
-          "connectionType": "IPsec",
-          "sharedKey": "123secret",
-          "virtualNetworkGateway1": {
-            "name": "ra-hybrid-vpn-vgw"
-          },
-          "localNetworkGateway": {
-            "name": "ra-hybrid-vpn-lgw",
-            "ipAddress": "40.50.60.70",
-            "addressPrefixes": [ "192.168.0.0/16" ]
-          }
-        }
-      }
     }
-	```
-	Do not change the `gatewayType` parameter; leave it set to *Vpn*. The `vpnType` parameter can be *RouteBased* or *PolicyBased*. You can set the `sku` parameter to *Standard* or *HighPerformance*. 
+    ```
+    Do not change the `gatewayType` parameter; leave it set to *Vpn*. The `vpnType` parameter can be *RouteBased* or *PolicyBased*. You can set the `sku` parameter to *Standard* or *HighPerformance*. 
 
-	The `connectionSettings` section defines the configuration for the local network gateway and the connection to the on-premises network.
+    The `connectionSettings` section defines the configuration for the local network gateway and the connection to the on-premises network.
 
-	The `connectionType` and `sharedKey` settings specify the connection protocol and key to use to connect to the on-premises network (you should have already configured the on-premises VPN appliance).
+    The `connectionType` and `sharedKey` settings specify the connection protocol and key to use to connect to the on-premises network (you should have already configured the on-premises VPN appliance).
 
-	The `localNetworkGateway` object specifies the public IP address of the on-premises VPN appliance (*40.50.60.70* in this example), and an array of internal address spaces for the on-premises side of the network.
+    The `localNetworkGateway` object specifies the public IP address of the on-premises VPN appliance (*40.50.60.70* in this example), and an array of internal address spaces for the on-premises side of the network.
 
 - **[virtualNetworkGateway-expressRoute.parameters.json][virtualNetworkGateway-expressRoute-parameters]**. This file contains the parameters used to create the network gateway for ExpressRoute:
-
-	```json
+    <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-hybrid-network-vpn-er/parameters/virtualNetworkGateway-expressRoute.parameters.json#L4-L30 -->
+    ```json
     "parameters": {
       "virtualNetworkSettings": {
         "value": {
@@ -247,20 +249,20 @@ The script references the parameters in the following files:
         }
       }
     }
-	```
+    ```
 
-	This time, ensure that the `gatewayType` parameter is set to *ExpressRoute*. The `vpnType` parameter can be *RouteBased* or *PolicyBased*. You can set the `sku` parameter to *Standard* or *HighPerformance*.
+    This time, ensure that the `gatewayType` parameter is set to *ExpressRoute*. The `vpnType` parameter can be *RouteBased* or *PolicyBased*. You can set the `sku` parameter to *Standard* or *HighPerformance*.
 
-	The `connectionSettings` section defines the configuration for the local network gateway and the connection to the on-premises network:
+    The `connectionSettings` section defines the configuration for the local network gateway and the connection to the on-premises network:
 
-	- The `connectionType` should be *ExpressRoute*.
+    - The `connectionType` should be *ExpressRoute*.
 
-	- The `expressRouteCircuit` object specifies the name of the ExpressRoute circuit to use to create the connection. This should be the name of a circuit defined in the [expressRouteCircuit.parameters.json][er-circuit-parameters] file described below.
+    - The `expressRouteCircuit` object specifies the name of the ExpressRoute circuit to use to create the connection. This should be the name of a circuit defined in the [expressRouteCircuit.parameters.json][er-circuit-parameters] file described below.
 
 - **[expressRouteCircuit.parameters.json][er-circuit-parameters]**. This file contains the details of the ExpressRoute circuit. Set the parameters in this file to the values appropriate to your provider:
-
-	```json
-	"parameters": {
+    <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-hybrid-network-vpn-er/parameters/expressRouteCircuit.parameters.json#L4-L21 -->
+    ```json
+    "parameters": {
       ...,
       "expressRouteCircuitSettings": {
       "value": {
@@ -273,7 +275,7 @@ The script references the parameters in the following files:
         "allowClassicOperations": false
       }
     }
-	```
+    ```
 
 ## Solution Deployment
 
@@ -299,57 +301,59 @@ To run the script that deploys the solution:
 
 4. Edit the Deploy-ReferenceArchitecture.ps1 or deploy-reference-architecture.sh file in the Scripts folder, and change the following line to specify the resource group that should be created or used to hold the VM and resources created by the script:
 
-	```powershell
-	# PowerShell
-	$resourceGroupName = "ra-hybrid-vpn-er-rg"
-	```
+    <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-hybrid-network-vpn-er/Deploy-ReferenceArchitecture.ps1#L43 -->
+    ```powershell
+    # PowerShell
+    $resourceGroupName = "ra-hybrid-vpn-er-rg"
+    ```
 
-	```bash
-	# bash
-	RESOURCE_GROUP_NAME="ra-hybrid-vpn-er-rg"
-	```
+    <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-hybrid-network-vpn-er/deploy-reference-architecture.sh#L3 -->
+    ```bash
+    # bash
+    RESOURCE_GROUP_NAME="ra-hybrid-vpn-er-rg"
+    ```
 
 5. Edit each of the JSON files in the Parameters folder to set the parameters for the virtual network, VPN gateway, ExpressRoute circuit, and connection, as described in the Solution Components section above
 
 6. If you are using PowerShell and don't have an existing ExpressRoute circuit, open an Azure PowerShell window, move to the Scripts folder, and run the following command:
 
-	```powershell
-	.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> Circuit
-	```
+    ```powershell
+    .\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> Circuit
+    ```
 
-	Replace `<subscription id>` with your Azure subscription ID.
+    Replace `<subscription id>` with your Azure subscription ID.
 
-	For `<location>`, specify an Azure region, such as `eastus` or `westus`.
+    For `<location>`, specify an Azure region, such as `eastus` or `westus`.
 
 7. If you are using bash, open a bash shell command prompt, move to the Scripts folder, and run the following command:
 
-	```bash
-	azure login
-	```
+    ```bash
+    azure login
+    ```
 
-	Follow the instructions to log in to your Azure account. When you have connected, run the following command:
+    Follow the instructions to log in to your Azure account. When you have connected, run the following command:
 
-	```bash
-	./deploy-reference-architecture.sh -s <subscription id> -l <location> -m circuit
-	```
+    ```bash
+    ./deploy-reference-architecture.sh -s <subscription id> -l <location> -m circuit
+    ```
 
-	Replace `<subscription id>` with your Azure subscription ID.
+    Replace `<subscription id>` with your Azure subscription ID.
 
-	For `<location>`, specify an Azure region, such as `eastus` or `westus`.
+    For `<location>`, specify an Azure region, such as `eastus` or `westus`.
 
 8. When the script has completed, contact your service provider with the ServiceKey of the circuit and wait for the circuit to be provisioned.
 
 9. After the circuit has been provisioned, run the script again as follows to create a VNet and virtual network gateway connections to the VNet:
 
-	```powershell
-	.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> Network
-	```
+    ```powershell
+    .\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> Network
+    ```
 
-	```bash
-	./deploy-reference-architecture.sh -s <subscription id> -l <location> -m network
-	```
+    ```bash
+    ./deploy-reference-architecture.sh -s <subscription id> -l <location> -m network
+    ```
 
-	Specify the same values for `<subscription id>` and `<location>` as before.
+    Specify the same values for `<subscription id>` and `<location>` as before.
 
 10. Use the Azure portal to verify that the VNet, VPN connection, and ExpressRoute connection have been created successfully.
 
@@ -369,12 +373,12 @@ To run the script that deploys the solution:
 [guidance-expressroute]: ./guidance-hybrid-network-expressroute.md
 [guidance-vpn]: ./guidance-hybrid-network-vpn.md
 [best-practices-security]: ../best-practices-network-security.md
-[solution-script]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-hybrid-network-vpn-er/Deploy-ReferenceArchitecture.ps1
-[solution-script-bash]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-hybrid-network-vpn-er/deploy-reference-architecture.sh
-[vnet-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-hybrid-network-vpn-er/parameters/virtualNetwork.parameters.json
-[virtualNetworkGateway-vpn-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-hybrid-network-vpn-er/parameters/virtualNetworkGateway-vpn.parameters.json
-[virtualNetworkGateway-expressRoute-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-hybrid-network-vpn-er/parameters/virtualNetworkGateway-expressRoute.parameters.json
-[er-circuit-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-hybrid-network-vpn-er/parameters/expressRouteCircuit.parameters.json
+[solution-script]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-vpn-er/Deploy-ReferenceArchitecture.ps1
+[solution-script-bash]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-vpn-er/deploy-reference-architecture.sh
+[vnet-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-vpn-er/parameters/virtualNetwork.parameters.json
+[virtualNetworkGateway-vpn-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-vpn-er/parameters/virtualNetworkGateway-vpn.parameters.json
+[virtualNetworkGateway-expressRoute-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-vpn-er/parameters/virtualNetworkGateway-expressRoute.parameters.json
+[er-circuit-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-vpn-er/parameters/expressRouteCircuit.parameters.json
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [naming conventions]: ./guidance-naming-conventions.md
 [azure-cli]: https://azure.microsoft.com/documentation/articles/xplat-cli-install/
