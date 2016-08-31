@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Overview of autoscale in Microsoft Azure Compute | Microsoft Azure"
+	pageTitle="Overview of autoscale in Microsoft Azure Virtual Machines, Cloud Services and Web Apps | Microsoft Azure"
 	description="Overview of autoscaling in Microsoft Azure. Applies to Virtual Machines, Cloud Services and Web Apps."
 	authors="rboucher"
 	manager=""
@@ -16,19 +16,18 @@
 	ms.date="08/30/2016"
 	ms.author="robb"/>
 
-# Overview of autoscale in Microsoft Azure Compute
+# Overview of autoscale in Microsoft Azure Virtual Machines, Cloud Services and Web Apps
 
 This article describes what Microsoft Azure autoscaling is, its benefits, and starts you on the path to using it. 
 
 Azure Insights autoscaling applies only to 
 
-* [Cloud Services](https://azure.microsoft.com/services/cloud-services/)
 * [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/)
+* [Cloud Services](https://azure.microsoft.com/services/cloud-services/)
 * [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) 
- 
-Azure has two autoscaling methods. The older technology works with availability sets while the newer with Virtual Machine Scale Sets (VMSS).   
-
->[AZURE.NOTE] An older version of autoscaling applies to Virtual Machines (Availability sets). This feature has limited support and we recommend migrating to VM Scale Sets for faster and more reliable autoscaling support.
+  
+   
+>[AZURE.NOTE] Azure has two autoscaling methods. An older version of autoscaling applies to Virtual Machines (availability sets). This feature has limited support and we recommend migrating to VM Scale Sets for faster and more reliable autoscaling support. A link on how to use the older technology is included in this article.  
 
 
 ## What is autoscaling 
@@ -39,7 +38,8 @@ Autoscaling allows you to have the right amount of resources running to handle t
 
 **Figure 1: Autoscaling concept explained**
 
-Autoscaling only scales "out" and "in", that is, it refers to an increase or decrease in the number of VM instances.  Scale "in/out" is more flexible in a cloud situation, giving you access to potentially hundreds of VMs. The other type of scaling goes "up and down". That refers to keeping the same number of VMs, but making the VM more or less powerful (more or less memory, CPU speed, disk space, etc).  Scale up/down has several limitations. It's dependent on the availability of larger hardware, which can vary by region and quickly hits and upper limit. It also usually requires a VM stop and start.   
+Autoscaling only scales horizontally. It refers to increase ("out") or decrease ("in") in the number of VM instances.  Horizontal scaling is more flexible in a cloud situation, giving you access to potentially hundreds of VMs. The other type, vertical scaling keeps the same number of VMs, but makes the VM more ("up") or less ("down") powerful. Power is measured in memory, CPU speed, disk space, etc.  Vertical scaling has more limitations. It's dependent on the availability of larger hardware, which can vary by region and quickly hits and upper limit. Vertical scaling also usually requires a VM stop and start. For more information, see [Vertically scale Azure virtual machine with Azure Automation](../virtual-machines/virtual-machines-linux-vertical-scaling-automation.md) 
+
 
 Autoscaling requires you to create rules about when to scale resources out or in. Criteria you can set to control scale actions include 
 
@@ -88,7 +88,7 @@ Autoscaling rules have the following structure in an Azure Resource Manager temp
 
 ![Azure Resource Manager Autoscale Rule Structure](./media/monitoring-autoscale-overview/AzureResourceManagerRuleStructure2.png)
 
-You can list multiple profiles.  Each profile can have multiple rules. Notification methods and locations (for example, a webhook and the URI or emails and the email addresses) are included after your profiles.  
+You can list multiple profiles.  Each profile can have multiple rules. Notification methods and locations  are included after your profiles. Notification examples include a webhook with the URI, or emails with the email addresses.
 
 For code examples, see
 
@@ -120,7 +120,7 @@ Use one of the Autoscale Walkthroughs listed previously or refer to these other 
 - [Best practices for Azure Insights autoscaling](insights-autoscale-best-practices.md)
 - [Use autoscale actions to send email and webhook alert notifications](insights-autoscale-to-webhook-email.md)
 - [Autoscaling REST API](https://msdn.microsoft.com/library/dn931953.aspx) - See the entire API and meanings for each of the fields and values
-* >>>> ADD Link to VM Scale Sets up and down.
+- [Troubleshooting Virtual Machine Scale Sets Autoscaling](../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md) 
 
 
 
