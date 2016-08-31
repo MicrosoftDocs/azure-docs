@@ -47,7 +47,7 @@ The following code example uses Media Services .NET SDK to perform the following
 	    string configuration = File.ReadAllText(fileName);  
 - Add an encoding task to the job. 
 - Specify the input asset to be encoded.
-- Create an output asset that will contain the encoded asset.
+- Create an output asset that contains the encoded asset.
 - Add an event handler to check the job progress.
 - Submit the job.
 	
@@ -240,7 +240,7 @@ The following code example uses Media Services .NET SDK to perform the following
 
 ##Support for relative sizes
 
-When generating thumbnails off of it, you do not need to always specify output width and height in pixels. You can specify them in percentages, in the range [1%, …, 100%].
+When generating thumbnails of it, you do not need to always specify output width and height in pixels. You can specify them in percentages, in the range [1%, …, 100%].
 
 ###JSON preset 
 	
@@ -256,7 +256,7 @@ When generating thumbnails off of it, you do not need to always specify output w
 
 This section shows how to customize a preset that generates thumbnails. The preset defined below contains information on how you want to encode your file as well as information needed to generate thumbnails. You can take any of the MES presets documented [here](https://msdn.microsoft.com/library/mt269960.aspx) and add code that generates thumbnails.  
 
->[AZURE.NOTE]The **SceneChangeDetection** setting in the following preset can only be set to true if you are encoding to a single  bitrate video. If you are encoding to a multi-bitrate video and set **SceneChangeDetection** to true, the encoder will return an error.  
+>[AZURE.NOTE]The **SceneChangeDetection** setting in the following preset can only be set to true if you are encoding to a single  bitrate video. If you are encoding to a multi-bitrate video and set **SceneChangeDetection** to true, the encoder returns an error.  
 
 
 For information about schema, see [this](https://msdn.microsoft.com/library/mt269962.aspx) topic.
@@ -445,11 +445,11 @@ Make sure to review the [Considerations](media-services-custom-mes-presets-with-
 The following considerations apply:
 
 - The use of explicit timestamps for Start/Step/Range assumes that the input source is at least 1 minute long.
-- Jpg/Png/BmpImage elements have Start, Step and Range string attributes – these can be interpreted as:
+- Jpg/Png/BmpImage elements have Start, Step, and Range string attributes – these can be interpreted as:
 
-	- Frame Number if they are non-negative integers, eg. "Start": "120",
-	- Relative to source duration if expressed as %-suffixed, eg. "Start": "15%", OR
-	- Timestamp if expressed as HH:MM:SS… format. Eg. "Start" : "00:01:00"
+	- Frame Number if they are non-negative integers, for example "Start": "120",
+	- Relative to source duration if expressed as %-suffixed, for example "Start": "15%", OR
+	- Timestamp if expressed as HH:MM:SS… format, for example "Start" : "00:01:00"
 
 	You can mix and match notations as you please.
 	
@@ -457,13 +457,13 @@ The following considerations apply:
 	NOTE: (Step and Range are ignored when Start is set to {Best})
 	
 	- Defaults: Start:{Best}
-- Output format needs to be explicitly provided for each Image format: Jpg/Png/BmpFormat. When present, MES will match JpgVideo to JpgFormat and so on. OutputFormat introduces a new image-codec specific Macro: {Index}, which needs to be present (once and only once) for image output formats.
+- Output format needs to be explicitly provided for each Image format: Jpg/Png/BmpFormat. When present, MES matches JpgVideo to JpgFormat and so on. OutputFormat introduces a new image-codec specific Macro: {Index}, which needs to be present (once and only once) for image output formats.
 
 ##<a id="trim_video"></a>Trim a video (clipping)
 
-This section talks about modifying the encoder presets to clip or trim the input video where the input is a so-called mezzanine file or on-demand file. The encoder can also be used to clip or trim an asset which is captured or archived from a live stream – the details for this are available in [this blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
+This section talks about modifying the encoder presets to clip or trim the input video where the input is a so-called mezzanine file or on-demand file. The encoder can also be used to clip or trim an asset, which is captured or archived from a live stream – the details for this are available in [this blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
-To trim your videos, you can take any of the MES presets documented [here](https://msdn.microsoft.com/library/mt269960.aspx) and modify the **Sources** element (as shown below). The value of StartTime needs to match the absolute timestamps of the input video. For example, if the first frame of the input video has a timestamp of 12:00:10.000, then StartTime should be at least 12:00:10.000 and greater. In the example below, we assume that the input video has a starting timestamp of zero. Note that **Sources** should be placed at the beginning of the preset. 
+To trim your videos, you can take any of the MES presets documented [here](https://msdn.microsoft.com/library/mt269960.aspx) and modify the **Sources** element (as shown below). The value of StartTime needs to match the absolute timestamps of the input video. For example, if the first frame of the input video has a timestamp of 12:00:10.000, then StartTime should be at least 12:00:10.000 and greater. In the example below, we assume that the input video has a starting timestamp of zero. **Sources** should be placed at the beginning of the preset. 
  
 ###<a id="json"></a>JSON preset
 	
@@ -862,7 +862,7 @@ The .NET example above defines two functions: **UploadMediaFilesFromFolder** and
 
 ##<a id="silent_audio"></a>Insert a silent audio track when input has no audio
 
-By default, if you send an input to the encoder that contains only video, and no audio, then the output asset will contain files that contain only video data. Some players may not be able to handle such output streams. You can use this setting to force the encoder to add a silent audio track to the output in that scenario.
+By default, if you send an input to the encoder that contains only video, and no audio, then the output asset contains files that contain only video data. Some players may not be able to handle such output streams. You can use this setting to force the encoder to add a silent audio track to the output in that scenario.
 
 To force the encoder to produce an asset that contains a silent audio track when input has no audio, specify the "InsertSilenceIfNoAudio" value.
 
@@ -969,7 +969,7 @@ This section demonstrates two audio-only MES presets: AAC Audio and AAC Good Qua
 
 ##<a id="concatenate"></a>Concatenate two or more video files
 
-The following example illustrates how you can generate a preset to concatenate two or more video files. The most common scenario is when you want to add a header or a trailer to the main video. The intended use is when the video files being edited together share the same properties (video resolution, frame rate, audio track count, etc.). You should take care not to mix videos of different frame rates, or with different number of audio tracks.
+The following example illustrates how you can generate a preset to concatenate two or more video files. The most common scenario is when you want to add a header or a trailer to the main video. The intended use is when the video files being edited together share  properties (video resolution, frame rate, audio track count, etc.). You should take care not to mix videos of different frame rates, or with different number of audio tracks.
 
 ###Requirements and considerations
 
@@ -977,7 +977,7 @@ The following example illustrates how you can generate a preset to concatenate t
 - Input videos should all have the same frame rate.
 - You must upload your videos into separate assets and set the videos as the primary file in each asset.
 - You need to know the duration of your videos.
-- The preset examples below assumes that all the input videos start with a timestamp of zero. You will need to modify the StartTime values if the videos have different starting timestamp, as is typically the case with live archives.
+- The preset examples below assumes that all the input videos start with a timestamp of zero. You need to modify the StartTime values if the videos have different starting timestamp, as is typically the case with live archives.
 - The JSON preset makes explicit references to the AssetID values of the input assets.
 - The sample code assumes that the JSON preset has been saved to a local file, such as "C:\supportFiles\preset.json". It also assumes that two assets have been created by uploading two video files, and that you know the resultant AssetID values.
 - The code snippet and JSON preset shows an example of concatenating two video files. You can extend it to more than two videos by:
@@ -1082,7 +1082,7 @@ See the [Crop videos with Media Encoder Standard](media-services-crop-video.md) 
 
 ##<a id="no_video"></a>Insert a video track when input has no video
 
-By default, if you send an input to the encoder that contains only audio, and no video, then the output asset will contain files that contain only audio data. Some players, including Azure Media Player (see [this](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/8082468-audio-only-scenarios)) may not be able to handle such streams. You can use this setting to force the encoder to add a monochrome video track to the output in that scenario. 
+By default, if you send an input to the encoder that contains only audio, and no video, then the output asset contains files that contain only audio data. Some players, including Azure Media Player (see [this](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/8082468-audio-only-scenarios)) may not be able to handle such streams. You can use this setting to force the encoder to add a monochrome video track to the output in that scenario. 
 
 >[AZURE.NOTE]Forcing the encoder to insert an output video track increases the size of the output Asset, and thereby the cost incurred for the encoding Task. You should run tests to verify that this resultant increase has only a modest impact on your monthly charges.
 
@@ -1111,7 +1111,7 @@ You can take any of the MES presets documented [here](https://msdn.microsoft.com
 
 ### Inserting video at all output bitrates
 
-Suppose you are using a multiple bitrate encoding preset such as ["H264 Multiple Bitrate 720p](https://msdn.microsoft.com/library/mt269960.aspx) to encode your entire input catalog for streaming, which contains a mix of video files and audio-only files. In this scenario, when the input has no video, you may want to force the encoder to insert a monochrome video track at all the output bitrates. This will ensure that your output Assets are all homogenous with respect to number of video tracks and audio tracks. To achieve this, you need to specify the "InsertBlackIfNoVideo" flag.
+Suppose you are using a multiple bitrate encoding preset such as ["H264 Multiple Bitrate 720p](https://msdn.microsoft.com/library/mt269960.aspx) to encode your entire input catalog for streaming, which contains a mix of video files and audio-only files. In this scenario, when the input has no video, you may want to force the encoder to insert a monochrome video track at all the output bitrates. This ensures that your output Assets are all homogenous with respect to number of video tracks and audio tracks. To achieve this, you need to specify the "InsertBlackIfNoVideo" flag.
 
 You can take any of the MES presets documented [here](https://msdn.microsoft.com/library/mt269960.aspx), and make the following modification:
 
