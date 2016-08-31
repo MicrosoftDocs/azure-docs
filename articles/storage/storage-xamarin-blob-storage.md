@@ -19,8 +19,6 @@
 # How to use Blob Storage from Xamarin
 
 [AZURE.INCLUDE [storage-selector-blob-include](../../includes/storage-selector-blob-include.md)]
-<br/>
-[AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## Overview
 
@@ -39,8 +37,11 @@ Follow these steps to create your application:
 1. If you haven't already, download and install [Xamarin for Visual Studio](https://www.xamarin.com/download).
 2. Open Visual Studio, and create a Blank App (Native Shared): **File > New > Project > Cross-Platform > Blank App(Native Shared)**.
 3. Right-click your solution in the Solution Explorer pane and select **Manage NuGet Packages for Solution**. Search for **WindowsAzure.Storage** and install the latest stable version to all projects in your solution.
+4. Build and run your project.
 
 You should now have an application that allows you to click a button which increments a counter.
+
+> [AZURE.NOTE] The Azure Storage Client Library for Xamarin also works for Xamarin.Forms applications.
 
 ## Create container and upload blob
 
@@ -48,7 +49,7 @@ Next, you'll add some code to the shared class `MyClass.cs` that creates a conta
 
 	using Microsoft.WindowsAzure.Storage;
 	using Microsoft.WindowsAzure.Storage.Blob;
-	using System;
+	using System.Threading.Tasks;
 
 	namespace XamarinApp
 	{
@@ -58,7 +59,7 @@ Next, you'll add some code to the shared class `MyClass.cs` that creates a conta
 			{
 			}
 
-		    public static void createContainerAndUpload()
+		    public static async Task createContainerAndUpload()
 		    {
 		        // Retrieve storage account from connection string.
 		        CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=your_account_name_here;AccountKey=your_account_key_here");
@@ -70,13 +71,13 @@ Next, you'll add some code to the shared class `MyClass.cs` that creates a conta
 		        CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
 				// Create the container if it doesn't already exist.
-            	container.CreateIfNotExistsAsync();
+            	await container.CreateIfNotExistsAsync();
 
 		        // Retrieve reference to a blob named "myblob".
 		        CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob");
 
 		        // Create the "myblob" blob with the text "Hello, world!"
-		        blockBlob.UploadTextAsync("Hello, world!").GetAwaiter().GetResult();
+		        await blockBlob.UploadTextAsync("Hello, world!");
 		    }
 		}
 	}
@@ -96,7 +97,7 @@ Make sure to replace "your_account_name_here" and "your_account_key_here" with y
 		{
 			int count = 1;
 
-			protected override void OnCreate (Bundle bundle)
+			protected override async void OnCreate (Bundle bundle)
 			{
 				base.OnCreate (bundle);
 
@@ -111,7 +112,7 @@ Make sure to replace "your_account_name_here" and "your_account_key_here" with y
 					button.Text = string.Format ("{0} clicks!", count++);
 				};
 
-	      	  MyClass.createContainerAndUpload();
+	      	  await MyClass.createContainerAndUpload();
 			}
 		}
 	}
@@ -131,7 +132,7 @@ Make sure to replace "your_account_name_here" and "your_account_key_here" with y
 			{
 			}
 
-			public override void ViewDidLoad ()
+			public override async void ViewDidLoad ()
 			{
 				base.ViewDidLoad ();
 				// Perform any additional setup after loading the view, typically from a nib.
@@ -141,7 +142,7 @@ Make sure to replace "your_account_name_here" and "your_account_key_here" with y
 					Button.SetTitle (title, UIControlState.Normal);
 				};
 
-	            MyClass.createContainerAndUpload();
+	            await MyClass.createContainerAndUpload();
 	    	}
 
 			public override void DidReceiveMemoryWarning ()
@@ -180,7 +181,7 @@ Make sure to replace "your_account_name_here" and "your_account_key_here" with y
 	        /// </summary>
 	        /// <param name="e">Event data that describes how this page was reached.
 	        /// This parameter is typically used to configure the page.</param>
-	        protected override void OnNavigatedTo(NavigationEventArgs e)
+	        protected override async void OnNavigatedTo(NavigationEventArgs e)
 	        {
 	            // TODO: Prepare page for display here.
 
@@ -194,7 +195,7 @@ Make sure to replace "your_account_name_here" and "your_account_key_here" with y
 	                Button.Content = title;
 	            };
 
-	            MyClass.createContainerAndUpload();
+	            await MyClass.createContainerAndUpload();
 	        }
 	    }
 	}
@@ -213,3 +214,5 @@ In this getting started, you learned how to create a cross-platform application 
 - [Get started with Azure Table Storage using .NET](storage-dotnet-how-to-use-tables.md)
 - [Get started with Azure Queue Storage using .NET](storage-dotnet-how-to-use-queues.md)
 - [Get started with Azure File Storage on Windows](storage-dotnet-how-to-use-files.md)
+
+[AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
