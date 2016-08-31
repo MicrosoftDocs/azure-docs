@@ -25,10 +25,10 @@ FreeBSD for Microsoft Azure is provided by Microsoft Corporation. FreeBSD is an 
 As of today, FreeBSD 10.3 image is available in Azure. The image is based on FreeBSD 10.3 release. And Azure VM Guest Agent [2.1.4](https://github.com/Azure/WALinuxAgent/releases/tag/v2.1.4) is installed. The Agent is responsible for communication between the FreeBSD VM and the Azure Fabric for operations such as provisioning the VM on first use (user name, password, hostname, etc.) and enabling functionality for selective VM Extensions.
 As for future versions of FreeBSD, the strategy is to stay current and make available the latest releases shortly after they are released by the FreeBSD Release Engineering team. The upcoming release is [FreeBSD 11](https://www.freebsd.org/releases/11.0R/schedule.html). 
 
-##Deploy
+##How to deploy a FreeBSD Virtual Machine
 Deploying a FreeBSD virtual machine is a straightforward process using an image from the [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/).
 
-##VM Extension
+##VM Extension for FreeBSD
 Supported VM extensions in FreeBSD VM are as followings.
 
 • [VMAccess](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)
@@ -59,7 +59,7 @@ The choice of a username for deploying a FreeBSD virtual machine on Azure is sub
 So far only RSA SSH Key is supported. Multiline SSH key must begin with ---- BEGIN SSH2 PUBLIC KEY
 ---- and end with ---- END SSH2 PUBLIC KEY ----. 
 
-##Obtaining Superuser Privileges
+##How to Obtain Superuser Privileges
 The user account that is specified during virtual machine instance deployment on Azure is a privileged account. The package of “sudo” was installed in published FreeBSD image. 
 Once logged in using this user account, you are able to run commands as root using the command syntax.
   
