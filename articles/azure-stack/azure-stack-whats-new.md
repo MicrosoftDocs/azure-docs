@@ -17,7 +17,7 @@
 	ms.author="helaw"/>
 
 # What's new in Azure Stack Technical Preview 2
-In this article, we'll cover the new features of Technical Preview 2. This release includes a number of new features for both Cloud Tenants and Cloud Administrators.  Cloud tenants will see new security, networking, storage, and application platform capabilities.  Cloud Administrators have access to billing and usage information, monitoring and health data, and the ability to preview Azure Stack regions.
+In this article, we cover the new features of Technical Preview 2. This release includess new features for both Cloud Tenants and Cloud Administrators.  Cloud tenants see new security, networking, storage, and application platform capabilities.  Cloud Administrators have access to billing and usage information, monitoring and health data, and the ability to preview Azure Stack regions.
 
 ## Cloud Tenant
 ### Services
