@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2016"
+	ms.date="08/30/2016"
 	ms.author="anhoh"/>
 
 # Write, edit, and run SQL queries for DocumentDB using Query Explorer 
@@ -23,11 +23,9 @@ This article provides an overview of the [Microsoft Azure DocumentDB](https://az
 
 1. In the Azure portal, in the Jumpbar, click **DocumentDB (NoSQL)**. If **DocumentDB (NoSQL)** is not visible, click **More Services** and then click **DocumentDB (NoSQL)**.
 
-2. At the top of the **DocumentDB account** blade, click **Query Explorer**. 
+2. In the resource menu, click **Query Explorer**. 
 
 	![Screenshot of the Azure portal with Query Explorer highlighted](./media/documentdb-query-collections-query-explorer/queryexplorercommand.png)
-
-    >[AZURE.NOTE] Query Explorer also appears on the database and collection blades.
 
 3. In the **Query Explorer** blade, select the **Databases** and **Collections** to query from the drop down lists, and type the query to run. 
 

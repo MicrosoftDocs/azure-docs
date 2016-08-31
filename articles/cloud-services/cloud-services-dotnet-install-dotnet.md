@@ -141,7 +141,7 @@ Startup tasks allow you to perform operations before a role starts. Installing t
 	
 	:restart
 	echo Restarting to complete .NET (%netfx%) installation >> %startuptasklog%
-	goto end
+	EXIT /B %ERRORLEVEL%
 	
 	:installed
 	echo .NET (%netfx%) is installed >> %startuptasklog%
