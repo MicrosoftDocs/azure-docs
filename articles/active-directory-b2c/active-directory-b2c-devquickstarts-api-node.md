@@ -20,11 +20,11 @@
 
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
 
-With Azure Active Directory (Azure AD) B2C, you can secure a web API by using OAuth 2.0 access tokens. These tokens allow your client apps that use Azure AD B2C to authenticate to the API. This article shows you how to create a .NET Model-View-Controller (MVC) "to-do list" API that allows users to CRUD tasks. The web API is secured using Azure AD B2C and only allows authenticated users to manage their to-do list.
+With Azure Active Directory (Azure AD) B2C, you can secure a web API by using OAuth 2.0 access tokens. These tokens allow your client apps that use Azure AD B2C to authenticate to the API. This article shows you how to create a "to-do list" API that allows users to add and list tasks. The web API is secured using Azure AD B2C and only allows authenticated users to manage their to-do list.
 
 > [AZURE.NOTE]	This sample was written to be connected to by using our [iOS B2C sample application](active-directory-b2c-devquickstarts-ios.md). Do this walk-through first, and then follow along with that sample.
 
-**Passport** is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively installed in any Express-based or Restify web application. A comprehensive set of strategies supports authentication by using a user name and password, Facebook, Twitter, and more. We have developed a strategy for Azure Active Directory (Azure AD). You will install this module and then add the Azure AD `passport-azure-ad` plug-in.
+**Passport** is authentication middleware for Node.js. Flexible and modular, Passport can be unobtrusively installed in any Express-based or Restify web application. A comprehensive set of strategies supports authentication by using a user name and password, Facebook, Twitter, and more. We have developed a strategy for Azure Active Directory (Azure AD). You will install this module and then add the Azure AD `passport-azure-ad` plug-in.
 
 To do this, you’ll need to:
 
@@ -35,7 +35,7 @@ To do this, you’ll need to:
 
 ## Get an Azure AD B2C directory
 
-Before you can use Azure AD B2C, you must create a directory, or tenant.  A directory is a container for all of your users, apps, groups, and more.  If you don't have one already, [create a B2C directory](active-directory-b2c-get-started.md) before you continue.
+Before you can use Azure AD B2C, you must create a directory, or tenant.  A directory is a container for all users, apps, groups, and more.  If you don't have one already, [create a B2C directory](active-directory-b2c-get-started.md) before you continue.
 
 ## Create an application
 
@@ -43,8 +43,8 @@ Next, you need to create an app in your B2C directory that gives Azure AD some i
 
 - Include a **web app/web api** in the application
 - Enter `http://localhost/TodoListService` as a **Reply URL**. It is the default URL for this code sample.
-- Create an **Application secret** for your application and copy it. You will need it later. You will need it shortly. Note that this value needs to be [XML escaped](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) before you use it.
-- Copy the **Application ID** that is assigned to your app. You will also need this later.
+- Create an **Application secret** for your application and copy it. You need it later. Note that this value needs to be [XML escaped](https://www.w3.org/TR/2006/REC-xml11-20060816/#dt-escape) before you use it.
+- Copy the **Application ID** that is assigned to your app. You need this later.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
@@ -61,11 +61,11 @@ In Azure AD B2C, every user experience is defined by a [policy](active-directory
 
 After you have created your three policies, you're ready to build your app.
 
-Note that this article does not cover how to use the policies that you just created. To learn about how policies work in Azure AD B2C, start with the [.NET web app getting started tutorial](active-directory-b2c-devquickstarts-web-dotnet.md).
+To learn about how policies work in Azure AD B2C, start with the [.NET web app getting started tutorial](active-directory-b2c-devquickstarts-web-dotnet.md).
 
 ## Download the code
 
-The code for this tutorial [is maintained on GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS). To build the sample as you go, you can [download a skeleton project as a .zip file](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/skeleton.zip). You can also clone the skeleton:
+The code for this tutorial [is maintained on GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS). To build the sample as you go, you can [download a skeleton project as a .zip file](https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS/archive/skeleton.zip). You can also clone the skeleton:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS.git
@@ -155,11 +155,9 @@ The output of the command should appear similar to this:
 
 ## Install Passport in your web API
 
-[Passport](http://passportjs.org/) is authentication middleware for Node.js. Extremely flexible and modular, Passport can be unobtrusively installed in any Express-based or Restify web application. A comprehensive set of strategies supports authentication by using a user name and password, Facebook, Twitter, and more. We have developed a strategy for Azure AD. You will install this module and then add the Azure AD strategy plug-in.
-
 From the command line, change your directory to `azuread`, if it's not already there.
 
-Enter the following command to install Passport:
+Install Passport using the following command:
 
 `npm install passport`
 
@@ -177,7 +175,7 @@ Next, add the OAuth strategy by using `passport-azuread`, a suite of strategies 
 
 From the command line, change your directory to `azuread`, if it's not already there.
 
-Enter the following command to install the Passport `passport-azure-ad` module:
+Install the Passport `passport-azure-ad` module using the following command:
 
 `npm install passport-azure-ad`
 
@@ -200,7 +198,7 @@ passport-azure-ad@1.0.0 node_modules/passport-azure-ad
 
 ## Add MongoDB modules to your web API
 
-You will use MongoDB as your data store. For that reason, you need to install both Mongoose, a widely used plug-in for managing models and schemas, and the database driver for MongoDB, also called MongoDB.
+This sample uses MongoDB as your data store. For that reason, you need to install both Mongoose, a widely used plug-in for managing models and schemas, and the database driver for MongoDB, also called MongoDB.
 
 * `npm install mongoose`
 
@@ -212,7 +210,7 @@ From the command line, change your directory to `azuread`, if it's not already t
 
 `cd azuread`
 
-Enter the following commands to install the modules in your `node_modules` directory:
+Install the modules in your `node_modules` directory:
 
 * `npm install assert-plus`
 * `npm install ejs`
@@ -358,7 +356,7 @@ This schema model is very simple. You can expand it as required.
 
 `date`: The date that the task is due. This is a **datetime**.
 
-`completed`: Whether the task is complete or not. This is a **Boolean**.
+`completed`: If the task is complete. This is a **Boolean**.
 
 ### Create the schema in the code
 
@@ -695,7 +693,7 @@ From the command line, change your directory to `azuread`, if it's not already t
 
 
 > [AZURE.TIP]
-When you write APIs, you should always link the data to something unique from the token that the user can’t spoof. When the server stores ToDo items, it does so based on the **oid** of the user in the token (called through token.oid) which goes in in the “owner” field. This ensures that only the user can access his ToDo items, and that no one else can access the ToDo items that have been entered. There is no exposure in the API of “owner,” so an external user can request others’ ToDo items even if they are authenticated.
+When you write APIs, you should always link the data to something unique from the token that the user can’t spoof. When the server stores ToDo items, it does so based on the **oid** of the user in the token (called through token.oid) which goes in the “owner” field. This ensures that only the user can access his ToDo items, and that no one else can access the ToDo items that have been entered. There is no exposure in the API of “owner,” so an external user can request others’ ToDo items even if they are authenticated.
 
 Next, use the bearer strategy that comes with `passport-azure-ad`. (We'll just look at the code for now.) Put this after what you pated above:
 
@@ -745,7 +743,7 @@ The code above takes any user who happens to authenticate to your server. This i
 
 ## Run your server application again verify that it rejects you
 
-You can use `curl` again to see if you now have OAuth2 protection against your endpoints. Do this before you run any of your our client SDKs against this endpoint. The headers that are returned should be enough to tell you that you are on the right path.
+You can use `curl` again to see if you now have OAuth2 protection against your endpoints. Do this before you run any of your client SDKs against this endpoint. The headers that are returned should be enough to tell you that you are on the right path.
 
 Make sure that your MongoDB instance is running:
 
