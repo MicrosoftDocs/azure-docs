@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/22/2016"
+   ms.date="08/30/2016"
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Secure a database in SQL Data Warehouse
@@ -41,18 +41,18 @@ Connections to your SQL Data Warehouse can be encrypted by setting the encryptio
 
 ## Authentication
 
-Authentication refers to how you prove your identity when connecting to the database. SQL Data Warehouse currently supports SQL Server Authentication with a username and password as well as a preview of Azure Active Directory. 
+Authentication refers to how you prove your identity when connecting to the database. SQL Data Warehouse currently supports SQL Server Authentication with a username and password as well as a Azure Active Directory. 
 
 When you created the logical server for your database, you specified a "server admin" login with a username and password. Using these credentials, you can authenticate to any database on that server as the database owner, or "dbo" through SQL Server Authentication.
 
 However, as a best practice, your organization’s users should use a different account to authenticate. This way you can limit the permissions granted to the application and reduce the risks of malicious activity in case your application code is vulnerable to a SQL injection attack. 
 
-To create a SQL Server Authenticated user, connect to the **master** database on your server with your server admin login and create a new server login.
+To create a SQL Server Authenticated user, connect to the **master** database on your server with your server admin login and create a new server login.  Additionally, it is a good idea to create a user in the master database for Azure SQL Data Warehouse users. Creating a user in master allows a user to login using tools like SSMS without specifying a database name.  It also allows them to use the object explorer to view all databases on a SQL server.
 
 ```sql
 -- Connect to master database and create a login
-CREATE LOGIN ApplicationLogin WITH PASSWORD = 'strong_password';
-
+CREATE LOGIN ApplicationLogin WITH PASSWORD = 'Str0ng_password';
+CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 ```
 
 Then, connect to your **SQL Data Warehouse database** with your server admin login and create a database user based on the server login you just created.
@@ -60,10 +60,9 @@ Then, connect to your **SQL Data Warehouse database** with your server admin log
 ```sql
 -- Connect to SQL DW database and create a database user
 CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
-
 ```
 
-For more information on authenticating to a SQL Database, see [Managing databases and logins in Azure SQL Database][].  For more details on using the Azure AD preview for SQL Data Warehouse, see [Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication][].
+If a user will be doing additional operations such as creating logins or creating new databases, they will also need to be assigned to the `Loginmanager` and `dbmanager` roles in the master database. For more information on these additonal roles and authenticating to a SQL Database, see [Managing databases and logins in Azure SQL Database][].  For more details on Azure AD for SQL Data Warehouse, see [Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication][].
 
 
 ## Authorization
@@ -91,9 +90,7 @@ Azure SQL Data Warehouse can help protect your data by encrypting your data when
 
 
 ```sql
-
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
-
 ```
 
 You can also enable Transparent Data Encryption from database settings in the [Azure portal][]. For more information, see [Get started with Transparent Data Encryption (TDE)][].
@@ -103,6 +100,7 @@ You can also enable Transparent Data Encryption from database settings in the [A
 Auditing and tracking database events can help you maintain regulatory compliance and identify suspicious activity. SQL Data Warehouse Auditing allows you to record events in your database to an audit log in your Azure Storage account. SQL Data Warehouse Auditing also integrates with Microsoft Power BI to facilitate drill-down reports and analyses. For more information, see [Get started with SQL Database Auditing][].
 
 ## Next steps
+
 For details and examples on connecting to your SQL Data Warehouse with different protocols, see [Connect to SQL Data Warehouse][].
 
 <!--Image references-->
