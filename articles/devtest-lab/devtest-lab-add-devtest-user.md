@@ -40,7 +40,7 @@ The following table illustrates the actions that can be performed by users in ea
 
 ## Add an owner to a lab
 
-Because of the way permissions are propagated from parent scope to child scope in Azure, owner of an Azure subscription that contains labs will automatically be owner of those labs, as well as of all the VMs and other resources that get created by the lab's users as well as by the DevTest Labs service. 
+Azure permissions are propagated from parent scope to child scope in Azure. Therefore, owners of an Azure subscription that contains labs will automatically be owner of those labs. They will also own the VMs and other resources created by the lab's users as well as by the DevTest Labs service. 
 
 You can add additional owners to a lab via the lab's blade in the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040). However, their scope of administration will be more narrow than that of the subscription owners. This is because they would not have full access to some of the resources that are created in the subscription by the DevTest Labs service. 
 
