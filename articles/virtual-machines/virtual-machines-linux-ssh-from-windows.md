@@ -14,7 +14,7 @@ description="Learn how to generate and use SSH keys on a Windows computer to con
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2016" 
+	ms.date="08/29/2016" 
 	ms.author="rasquill"/>
 
 #How to Use SSH with Windows on Azure
