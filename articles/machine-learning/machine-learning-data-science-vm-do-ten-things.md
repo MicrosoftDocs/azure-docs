@@ -21,13 +21,13 @@
 The Microsoft Data Science Virtual Machine (DSVM) is a powerful data science development environment that enables you to perform various data exploration and modeling tasks. The environment comes already built and bundled with several popular data analytics tools that make it easy to get started quickly with your analysis for On-premises, Cloud or hybrid deployments. The DSVM works closely with many Azure services and is able to read and process data that is already stored on Azure, in Azure SQL Data Warehouse, Azure Data Lake, Azure Storage, or in DocumentDB. It can also leverage other analytics tools such as Azure Machine Learning and Azure Data Factory.
 
 
-In this article we walk you through how to use your DSVM to perform various data science tasks and interact with other Azure services. Here is some  of the things you can do on the DSVM:
+In this article we walk you through how to use your DSVM to perform various data science tasks and interact with other Azure services. Here are some of the things you can do on the DSVM:
 
 1. Explore data and develop models locally on the DSVM using Microsoft R Server, Python
 2. Use a Jupyter notebook to experiment with your data on a browser using Python 2, Python 3, Microsoft R an enterprise ready version of R designed for scalability and performance
 3. Operationalize models built using R and Python on Azure Machine Learning so client applications can access your models using a simple web services interface
-4. Administer your Azure resources using  Azure Portal or Powershell
-5. Extend your storage space and share large scale datasets / code across your whole team by creating an Azure File Storage as a mountable drive on your DSVM
+4. Administer your Azure resources using  Azure portal or Powershell
+5. Extend your storage space and share large-scale datasets / code across your whole team by creating an Azure File Storage as a mountable drive on your DSVM
 6. Share code with your team using Github and access your repository using the pre-installed Git clients - Git Bash, Git GUI.
 7. Access various Azure data and analytics services like Azure blob storage, Azure Data Lake, Azure HDInsight (Hadoop), Azure DocumentDB, Azure SQL Data Warehouse & databases
 8. Build reports and dashboard using the Power BI Desktop pre-installed on the DSVM and deploy them on the cloud
@@ -40,9 +40,9 @@ In this article we walk you through how to use your DSVM to perform various data
 
 **Prerequisites**
 
-- You will need an Azure subscription. You can sign-up for a free trial [here](https://azure.microsoft.com/free/).
+- You will need an Azure subscription. You can sign up for a free trial [here](https://azure.microsoft.com/free/).
 
-- Instructions for provisioning a Data Science Virtual Machine on the Azure Portal are available at [Creating a virtual machine](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
+- Instructions for provisioning a Data Science Virtual Machine on the Azure portal are available at [Creating a virtual machine](https://portal.azure.com/#create/microsoft-ads.standard-data-science-vmstandard-data-science-vm).
 
 ## 1. Explore data and develop models using Microsoft R Server or Python
 
@@ -62,7 +62,7 @@ Here is what the custom environment setup looks like in Visual Studio.
 
 See the [PTVS documentation](https://github.com/Microsoft/PTVS/wiki/Selecting-and-Installing-Python-Interpreters#hey-i-already-have-an-interpreter-on-my-machine-but-ptvs-doesnt-seem-to-know-about-it) for additional details on how to create Python Environments.
 
-Now you are set up to create a new Python project. Navigate to **File** -> **New** -> **Project** -> **Python** and select the type of Python application you are building. You can set the Python environment for the current project to the desired version (Anaconda 2.7 or 3.5): right click the **Python environment**, select **Add/Remove Python Environments**, and then select the desired environment to associate with the project. You can find more information about working with PTVS on the product [documentation](https://github.com/Microsoft/PTVS/wiki) page.
+Now you are set up to create a new Python project. Navigate to **File** -> **New** -> **Project** -> **Python** and select the type of Python application you are building. You can set the Python environment for the current project to the desired version (Anaconda 2.7 or 3.5): right-click the **Python environment**, select **Add/Remove Python Environments**, and then select the desired environment to associate with the project. You can find more information about working with PTVS on the product [documentation](https://github.com/Microsoft/PTVS/wiki) page.
 
 ## 2. Using a Jupyter Notebook to explore and model your data with Python or R
 
@@ -141,7 +141,7 @@ You can deploy R models built on the Data Science Virtual Machine or elsewhere o
 - write a wrapper for the model's predict function.
 - call ```publishWebService``` in the Azure Machine Learning library to pass in the function wrapper.  
 
-Here is the procedure and code snippets that can be used to setup, build, publish, and consume a model as a web service in Azure Machine Learning.
+Here is the procedure and code snippets that can be used to set up, build, publish, and consume a model as a web service in Azure Machine Learning.
 
 #### Setup
 
@@ -196,12 +196,12 @@ The following code is used to consume the model published as an Azure Machine Le
 More information about the Azure Machine Learning R library can be found [here](https://cran.r-project.org/web/packages/AzureML/AzureML.pdf).
 
 
-## 4. Administer your Azure resources using Azure Portal or Powershell
+## 4. Administer your Azure resources using Azure portal or Powershell
 
 The DSVM not only allows you to build your analytics solution locally on the virtual machine, but also allows you to access services on Microsoft's Azure cloud. Azure provides several compute, storage, data analytics services and other services that you can administer and access from your DSVM.
 
 To administer your Azure subscription and cloud resources you can use your browser and point to the
-[Azure Portal](https://portal.azure.com). You can also use Azure Powershell to administer your Azure subscription and resources via a script.
+[Azure portal](https://portal.azure.com). You can also use Azure Powershell to administer your Azure subscription and resources via a script.
 You can run Azure Powershell from a shortcut on the desktop or from the start menu titled "Microsoft Azure Powershell". Refer to
 [Microsoft Azure Powershell documentation](../powershell-azure-resource-manager.md) for more information on how you can administer your Azure subscription and resources using Windows Powershell scripts.
 
@@ -214,7 +214,7 @@ Data scientists can share large datasets, code or other resources within the tea
 >[AZURE.NOTE] The maximum space of the Azure File Service share is 5TB and individual file size limit is 1TB.   
 
 
-You can use Azure Powershell to create an Azure File Service share. Here is the script to run under Azure PowerShell to create a Azure File service share.
+You can use Azure Powershell to create an Azure File Service share. Here is the script to run under Azure PowerShell to create an Azure File service share.
 
 	# Authenticate to Azure.
 	Login-AzureRmAccount
@@ -269,11 +269,11 @@ You can find more information on using Git to work with your Github repository f
 
 ### Azure Blob
 
-Azure blob is a reliable, economical cloud storage for data big and small. Let us look at how you can move data to Azure Blob and access data stored in a Azure Blob.
+Azure blob is a reliable, economical cloud storage for data big and small. Let us look at how you can move data to Azure Blob and access data stored in an Azure Blob.
 
 **Prerequisite**
 
-- **Create your Azure Blob storage account from [Azure Portal](https://portal.azure.com).**
+- **Create your Azure Blob storage account from [Azure portal](https://portal.azure.com).**
 
 ![Create_Azure_Blob](./media/machine-learning-data-science-vm-do-ten-things/Create_Azure_Blob.PNG)
 
@@ -291,7 +291,7 @@ To move data between your local files and blob storage, you can use AzCopy in co
 
 	AzCopy /Source:C:\myfolder /Dest:https://<mystorageaccount>.blob.core.windows.net/<mycontainer> /DestKey:<storage account key> /Pattern:abc.txt
 
-Replace **C:\myfolder** to the path where your file is stored, **mystorageaccount** to your blob storage account name, **mycontainer** to the container name, **storage account key** to your blob storage access key. You can find your storage account credentials in [Azure Portal](https://portal.azure.com).
+Replace **C:\myfolder** to the path where your file is stored, **mystorageaccount** to your blob storage account name, **mycontainer** to the container name, **storage account key** to your blob storage access key. You can find your storage account credentials in [Azure portal](https://portal.azure.com).
 
 ![StorageAccountCredential_v2](./media/machine-learning-data-science-vm-do-ten-things/StorageAccountCredential_v2.png)
 
@@ -316,8 +316,8 @@ Once you run your AzCopy command to copy to an Azure blob you see your file show
 
 You can also upload data from the local file in your VM using Azure Storage Explorer:
 
-
-![](./media/machine-learning-data-science-vm-do-ten-things/AzureStorageExplorer_upload_v2.png)
+- To upload data to a container, select the target container and click the **Upload** button.![](./media/machine-learning-data-science-vm-do-ten-things/storage-accounts.png)
+- Click on the **...** to the right of the **Files** box, select one or multiple files to upload from the file system and click **Upload** to begin uploading the files.![](./media/machine-learning-data-science-vm-do-ten-things/upload-files-to-blob.png)
 
 
 **Read data from Azure Blob: AML reader module**
@@ -379,16 +379,16 @@ The data is read in as a data frame:
 
 ### Azure Data Lake
 
-Azure Data Lake Storage is a hyper-scale repository for big data analytics workloads and compatible with Hadoop Distributed File System (HDFS), It works with both the Hadoop ecosystem and the Azure Data Lake Analytics. We show how you can move data into the Azure Data Lake Store and run analytics using Azure Data Lake Analytics.
+Azure Data Lake Storage is a hyper-scale repository for big data analytics workloads and compatible with Hadoop Distributed File System (HDFS). It works with both the Hadoop ecosystem and the Azure Data Lake Analytics. We show how you can move data into the Azure Data Lake Store and run analytics using Azure Data Lake Analytics.
 
 **Prerequisite**
 
-- Create your Azure Data Lake Analytics in [Azure Portal](https://portal.azure.com).
+- Create your Azure Data Lake Analytics in [Azure portal](https://portal.azure.com).
 
 ![Azure_Data_Lake_Create_v2](./media/machine-learning-data-science-vm-do-ten-things/Azure_Data_Lake_Create_v2.png)
 
 
-- The  **Azure Data Lake Tools** in **Visual Studio** found at this  [link](https://www.microsoft.com/download/details.aspx?id=49504) is already installed on the Visual Studio Community Edition which is on the virtual machione. After starting Visual Studio and logging in your Azure subscription, you will see your Azure Data Analytics account and storage in the left panel of Visual Studio.
+- The  **Azure Data Lake Tools** in **Visual Studio** found at this  [link](https://www.microsoft.com/download/details.aspx?id=49504) is already installed on the Visual Studio Community Edition which is on the virtual machine. After starting Visual Studio and logging in your Azure subscription, you will see your Azure Data Analytics account and storage in the left panel of Visual Studio.
 
 ![Azure_Data_Lake_PlugIn_v2](./media/machine-learning-data-science-vm-do-ten-things/Azure_Data_Lake_PlugIn_v2.PNG)
 
@@ -403,7 +403,7 @@ You can also build a data pipeline to productionize your data movement to or fro
 
 **Read data from Azure Blob to Data Lake: U-SQL**
 
-If your data resides in Azure Blob storage, you can directly read data from Azure storage blob in U-SQL query. Before composing your U-SQL query, make sure your blob storage account is linked to your Azure Data Lake. Go to **Azure Portal**, find your Azure Data Lake Analytics dashboard, click **Add Data Source**, select storage type to **Azure Storage** and plug in your Azure Storage Account Name and Key. Then you will be able to reference the data stored in the storage account.
+If your data resides in Azure Blob storage, you can directly read data from Azure storage blob in U-SQL query. Before composing your U-SQL query, make sure your blob storage account is linked to your Azure Data Lake. Go to **Azure portal**, find your Azure Data Lake Analytics dashboard, click **Add Data Source**, select storage type to **Azure Storage** and plug in your Azure Storage Account Name and Key. Then you will be able to reference the data stored in the storage account.
 
 ![](./media/machine-learning-data-science-vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
@@ -463,7 +463,7 @@ After your query is submitted to the server, a diagram showing the status of you
 
 After the dataset is ingested into Azure Data Lake, you can use [U-SQL language](../data-lake-analytics/data-lake-analytics-u-sql-get-started.md) to query and explore the data. U-SQL language is similar to T-SQL, but combines some features from C# so that users can write customized modules, User Defined Functions, and etc. You can use the scripts in the previous step.
 
-After the query is submitted to server, tripdata_summary.CSV can be found shortly in **Azure Data Lake Explorer**, you may preview the data by right click the file.
+After the query is submitted to server, tripdata_summary.CSV can be found shortly in **Azure Data Lake Explorer**, you may preview the data by right-click the file.
 
 ![](./media/machine-learning-data-science-vm-do-ten-things/USQL_create_summary.png)
 
@@ -478,11 +478,11 @@ Azure HDInsight is a managed Apache Hadoop, Spark, HBase, and Storm service on t
 
 **Prerequisite**
 
-- Create your Azure Blob storage account from [Azure Portal](https://portal.azure.com). This storage account is used to store data for HDInsight clusters.
+- Create your Azure Blob storage account from [Azure portal](https://portal.azure.com). This storage account is used to store data for HDInsight clusters.
 
 ![](./media/machine-learning-data-science-vm-do-ten-things/Create_Azure_Blob.PNG)
 
-- Customize Azure HDInsight Hadoop Clusters from [Azure Portal](machine-learning-data-science-customize-hadoop-cluster.md)
+- Customize Azure HDInsight Hadoop Clusters from [Azure portal](machine-learning-data-science-customize-hadoop-cluster.md)
 
   - You must link the storage account created with your HDInsight cluster when it is created. This storage account is used for accessing data that can be processed within the cluster.
 
@@ -600,8 +600,6 @@ Azure HDInsight is a managed Apache Hadoop, Spark, HBase, and Storm service on t
 	- Log into the head node of Hadoop cluster and prepare for exploratory data analysis
 
 After the data is loaded to HDI cluster, you can check your data in Azure Storage Explorer. And you have a database nyctaxidb created in HDI cluster.
-
-![](./media/machine-learning-data-science-vm-do-ten-things/Upload_Data_to_HDI_cluster_Azure_Explorer.PNG)
 
 
 **Data exploration: Hive Queries in Python**
@@ -865,7 +863,7 @@ Let us visualize the Volcano JSON file we saw in the DocumentDB example above in
 3. Convert the list to a table so PowerBI can work with the same
 4. Expand the columns by clicking on the expand icon (the one with the "left arrow and a right arrow" icon on the right of the column)
 5. Notice that location is a "Record" field. Expand the record and select only the coordinates. Coordinate is a list column
-6. Add a new column to convert the list coordinate column into a comma separate LatLong column contatenating the two elements in the coordinate list field using the formula ```Text.From([coordinates]{1})&","&Text.From([coordinates]{0})```.
+6. Add a new column to convert the list coordinate column into a comma separate LatLong column concatenating the two elements in the coordinate list field using the formula ```Text.From([coordinates]{1})&","&Text.From([coordinates]{0})```.
 7. Finally convert the ```Elevation``` column to Decimal and select the **Close** and **Apply**.
 
 Instead of steps above, you can paste the following code that scripts out the steps above in the Advanced Editor in PowerBI that allows you to write the data transformations in a query language.
@@ -893,13 +891,13 @@ You can start building reports and visualizations using the data model. You can 
 
 ## 9. Dynamically scale your DSVM to meet your project needs
 
-You can scale up and down the DSVM to meet your project needs. If you don't need to use the VM in the evening or weekends, you can just shutdown the VM from the [Azure Portal](https://portal.azure.com).
+You can scale up and down the DSVM to meet your project needs. If you don't need to use the VM in the evening or weekends, you can just shut down the VM from the [Azure portal](https://portal.azure.com).
 
 >[AZURE.NOTE]  You will incur compute charges if you use just the Operating system shutdown button on the VM.  
 
 If you need to handle some large scale analysis and need more CPU and/or memory and/or disk capacity you can find a large choice of VM sizes in terms of CPU cores, memory capacity and disk types (including Solid state drives) that meet your compute and budgetary needs. The full list of VMs along with their hourly compute pricing is available on the [Azure Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/) page.
 
-Similarly, if your needs for VM processing capacity reduces (for example: you moved a major workload to a Hadoop or a Spark cluster), you can scale down the cluster from the [Azure Portal](https://portal.azure.com) and going to the settings of your VM instance. Here is a screenshot.
+Similarly, if your need for VM processing capacity reduces (for example: you moved a major workload to a Hadoop or a Spark cluster), you can scale down the cluster from the [Azure portal](https://portal.azure.com) and going to the settings of your VM instance. Here is a screenshot.
 
 
 ![](./media/machine-learning-data-science-vm-do-ten-things/VMScaling.PNG)
@@ -909,7 +907,7 @@ Similarly, if your needs for VM processing capacity reduces (for example: you mo
 
 We have packaged several tools that we believe will be able to address many of the common data analytics needs and that should save you time by avoiding having to install and configure your environments one by one and save you money by paying only for resources that you use.
 
-You can leverage other Azure data and analytics services profiled in this article to enhance your analytics environment. We understand that in some cases your needs may require additional tools, including some proprietary third party tools. You have full administrative access on the virtual machine to install new tools you need. You can also install additional packages in Python and R that are not pre-installed. For Python  you can use either ```conda``` or ```pip```. For R you can use the ```install.packages()``` in the R console or use the IDE and choose "**Packages** -> **Install Packages...**".
+You can leverage other Azure data and analytics services profiled in this article to enhance your analytics environment. We understand that in some cases your needs may require additional tools, including some proprietary third party tools. You have full administrative access on the virtual machine to install new tools you need. You can also install additional packages in Python and R that are not pre-installed. For Python you can use either ```conda``` or ```pip```. For R you can use the ```install.packages()``` in the R console or use the IDE and choose "**Packages** -> **Install Packages...**".
 
 ## Summary
 These are just some of the things you can do on the Microsoft Data Science Virtual Machine. There are many more things you can do to make it an effective analytics environment.
