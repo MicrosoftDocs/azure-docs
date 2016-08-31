@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/06/2016"
+   ms.date="09/01/2016"
    ms.author="mbaldwin"/>
 
 
@@ -84,6 +84,7 @@ These articles provide a foundation reference for REST and authentication librar
 
 ###  Support
 - [Tagged questions](http://stackoverflow.com/questions/tagged/azure-active-directory): Find Azure Active Directory solutions on Stack Overflow by searching for the tags [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) and [adal](http://stackoverflow.com/questions/tagged/adal).
+- See the [Azure AD developer glossary](active-directory-dev-glossary.md) for definitions of some of the commonly used terms related to application development and integration.
 
 ### Code
 
