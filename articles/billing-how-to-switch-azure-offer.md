@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Switch your Azure subscription to another offer | Microsoft Azure"
-	description="Learn about how to change your Azure subscription and switch it to a different Azure offer using the subscription management portal"
+	description="Learn about how to change your Azure subscription and switch to a different offer using the subscription management portal"
 	services=""
 	documentationCenter=""
 	authors="genlin"
@@ -17,14 +17,17 @@
 	ms.date="08/17/2016"
 	ms.author="genli"/>
 
-# Switch your Azure subscription to another offer
+# Switch your Azure subscription to another 
 
-You can switch your existing subscription to a more favorable offer without any service downtime. You might consider switching your offer for one of these reasons:
+## What you need to know
 
--	If you find that you have a high Azure spend, you might be eligible for a discount by switching to the monetary commitment offer. Click [here](billing-usage-rate-card-overview.md) to see more information about how to gain insights into your Microsoft Azure resource consumption.
--	If you would like to avail of membership benefits such as MSDN or BizSpark, after you’ve already signed up for a Pay-As-You-Go subscription.
+You [may be eligible](#to-do) to switch your subscription to a more favorable offer without any service downtime. Below are the paths we currently support in the [Account Center](https://account.windowsazure.com/Subscriptions).
 
-> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) to get your issue resolved quickly.
+-	[Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) to the [12-Month Prepay Offer](https://azure.microsoft.com/offers/ms-azr-0026p/)
+
+-	[Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) to any of the [Monthly Azure Credit offers for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)
+
+
 
 ## Guide to switching your subscription to another offer
 
@@ -71,13 +74,4 @@ On the day you switch, an invoice will be generated for all outstanding charges.
 
 This mechanism can be used to switch from - and to - only web direct offers. In order to move your existing subscription into EA, have your enrollment admin add your account into the EA. You will then receive an invitation email. When you follow the instructions to accept the invitation, your subscriptions will automatically be moved under the Enterprise Agreement. There is no option to move an existing web direct subscription into CSP today.
 
-## Available offers you can switch to
-
-Below are the paths we currently support in the [Account Center](https://account.windowsazure.com/Subscriptions). This article will be updated as we add more options.
-
--	[Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) to the [12-Month Prepay Offer](https://azure.microsoft.com/offers/ms-azr-0026p/)
--	[Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) to any of the [Monthly Azure Credit offers for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)
-
-For other offer changes, [contact Support](http://go.microsoft.com/fwlink/?LinkID=619338).
-
-> [AZURE.NOTE] If you still have further questions, please [contact support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) to get your issue resolved quickly.
+> [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
