@@ -631,14 +631,14 @@ The following example trims the white-space characters from the user-provided pa
 
 **uniqueString (baseString, ...)**
 
-Creates a determenistic hash string based on the values provided as parameters. 
+Creates a deterministic hash string based on the values provided as parameters. 
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
 | baseString      |   Yes    | The string used in the hash function to create a unique string.
 | additional parameters as needed    | No       | You can add as many strings as needed to create the value that specifies the level of uniqueness.
 
-This function is helpful when you need to create a limitedly unique name for a resource. You provide parameter values that limit the scope of uniqueness for the result. You can specify whether the name is unique down to subscription, resource group, or deployment. 
+This function is helpful when you need to create a unique name for a resource. You provide parameter values that limit the scope of uniqueness for the result. You can specify whether the name is unique down to subscription, resource group, or deployment. 
 
 The returned value is not a random string, but rather the result of a hash function. The returned value is 13 characters long. It is not globally unique. You may want to combine the value with a prefix from your naming convention to create a name that is meaningful. The following example shows the format of the returned value. Of course, the actual value will vary by the provided parameters.
 
@@ -646,15 +646,15 @@ The returned value is not a random string, but rather the result of a hash funct
 
 The following examples show how to use uniqueString to create a unique value for commonly used levels.
 
-Unique down to subscription
+Unique scoped to subscription
 
     "[uniqueString(subscription().subscriptionId)]"
 
-Unique down to resource group
+Unique scoped to resource group
 
     "[uniqueString(resourceGroup().id)]"
 
-Unique down to deployment for a resource group
+Unique scoped to deployment for a resource group
 
     "[uniqueString(resourceGroup().id, deployment().name)]"
     
