@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Create a line-of-business .NET app in Azure " 
+	pageTitle="Create a line-of-business Azure app with Azure Active Directory authentication | Microsoft Azure" 
 	description="Learn how to create an ASP.NET MVC line-of-business app in Azure App Service that authenticates with Azure Active Directory" 
 	services="app-service\web, active-directory" 
 	documentationCenter=".net" 
@@ -16,7 +16,7 @@
 	ms.date="08/31/2016" 
 	ms.author="cephalin"/>
 
-# Create a line-of-business .NET app in Azure #
+# Create a line-of-business Azure app with Azure Active Directory authentication #
 
 This article shows you how to create a .NET line-of-business app in 
 [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) using the 
@@ -416,7 +416,7 @@ If your line-of-business app needs access to on-premises data, see
 ## Further resources
 
 - [Authentication and authorization in Azure App Service](../app-service/app-service-authentication-overview.md)
-- [Use Active Directory for authentication in Azure App Service](web-sites-authentication-authorization.md)
+- [Authenticate with on-premises Active Directory in your Azure app](web-sites-authentication-authorization.md)
 - [Create a line-of-business app in Azure with AD FS authentication](web-sites-dotnet-lob-application-adfs.md)
 - [App Service Auth and the Azure AD Graph API](https://cgillum.tech/2016/03/25/app-service-auth-aad-graph-api/)
 - [Microsoft Azure Active Directory Samples and Documentation](https://github.com/AzureADSamples)
