@@ -30,24 +30,23 @@ You grant access to a lab through three roles:
 
 The following table illustrates the actions that can be performed by users in each of these roles:
 
-| Actions users in this role can perform | User                           | Contributor                    | Owner | 
-|----------------------------------------|--------------------------------|--------------------------------|-------|
-| **Lab tasks**                          |                                |                                |       | 
-| Add users to a lab                     | No                             | No                             | Yes   |
-| Update cost settings                   | No                             | Yes                            | Yes   |
-| **VM base tasks**                      |                                |                                |       | 
-| Add and remove custom images           | No                             | Yes                            | Yes   |
-| Add, update, and delete formulas       | Yes                            | Yes                            | Yes   |
-| Whitelist Azure Marketplace images     | No                             | Yes                            | Yes   |
-| **VM tasks**                           |                                |                                |       | 
-| Create VMs                             | Yes                            | Yes                            | Yes   |   
-| Start, stop, and delete VMs            | Only VMs created by the user   | Only VMs created by the user   | Yes   |
-| Update VM policies                     | No                             | Yes                            | Yes   |
-| Add/remove data disks to/from VMs      | Only VMs created by the user   | Yes                            | Yes   |
-| **Artifact tasks**                     |                                |                                |       | 
-| Add and remove artifact repositories   | No                             | Yes                            | Yes   |
-| Apply artifacts                        | Yes                            | Yes                            | Yes   |
-
+| Actions users in this role can perform | User                         | Owner | Contributor |
+|----------------------------------------|------------------------------|-------|-------------|
+| **Lab tasks**                          |                              |       |             |
+| Add users to a lab                     | No                           | Yes   | No          |
+| Update cost settings                   | No                           | Yes   | Yes         |
+| **VM base tasks**                      |                              |       |             |
+| Add and remove custom images           | No                           | Yes   | Yes         |
+| Add, update, and delete formulas       | Yes                          | Yes   | Yes         |
+| Whitelist Azure Marketplace images     | No                           | Yes   | Yes         |
+| **VM tasks**                           |                              |       |             |
+| Create VMs                             | Yes                          | Yes   | Yes         |
+| Start, stop, and delete VMs            | Only VMs created by the user | Yes   | Yes         |
+| Update VM policies                     | No                           | Yes   | Yes         |
+| Add/remove data disks to/from VMs      | Only VMs created by the user | Yes   | Yes         |
+| **Artifact tasks**                     |                              |       |             |
+| Add and remove artifact repositories   | No                           | Yes   | Yes         |
+| Apply artifacts                        | Yes                          | Yes   | Yes         |
 
 > [AZURE.NOTE] When a user creates a VM, that user is automatically assigned to the **Owner** role of the created VM.]
 
