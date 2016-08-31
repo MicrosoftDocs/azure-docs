@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/25/2016"
+	ms.date="08/30/2016"
 	ms.author="awills"/>
 
 
@@ -212,7 +212,7 @@ server.on("listening", () => {
 });
 ```
 
-# Next steps
+## Next steps
 
 * [Monitor your telemetry in the portal](app-insights-dashboards.md)
 * [Write Analytics queries over your telemetry(app-insights-analytics-tour.md)
