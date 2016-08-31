@@ -24,17 +24,17 @@ Azure DevTest Labs access is controlled by Azure Role-Based Access Control (RBAC
 
 You grant access to your lab through three roles:
 
-- DevTest Labs Owner
+- Owner
 - DevTest Labs User
-- DevTest Labs Contributor
+- Contributor
 
 The following table illustrates the actions that can be performed by users in each of these roles:
 
-| Actions users in this role can perform | Owner | User                           | Contributor                    |   |
-|----------------------------------------|-------|--------------------------------|--------------------------------|---|
-| Create VMs                             | Yes   | Yes                            | Yes                            |   |
-| Start, stop and delete VMs             | Yes   | Only VMs created by the user   | Only VMs created by the user   |   |
-| Create, modify, and delete formulas    | Yes   | Yes                            | Yes                            |   |
+| Actions users in this role can perform | Owner | User                           | Contributor                    |
+|----------------------------------------|-------|--------------------------------|--------------------------------|
+| Create VMs                             | Yes   | Yes                            | Yes                            |
+| Start, stop and delete VMs             | Yes   | Only VMs created by the user   | Only VMs created by the user   |
+| Create, modify, and delete formulas    | Yes   | Yes                            | Yes                            |
 
 > [AZURE.NOTE] When a user creates a VM, that user is automatically assigned to the **Owner** role of the created VM, which allows that person to perform all the actions that are offered in the lab.]
 
