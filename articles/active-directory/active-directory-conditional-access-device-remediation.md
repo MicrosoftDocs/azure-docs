@@ -47,7 +47,7 @@ If your device is not registered with Azure Active Directory (Azure AD) and the 
 
 
 
-If your device is domain-joined to your organization’s Active Directory, you can try the following:
+If your device is domain-joined to Active Directory in your organization, you can try the following:
 
 1.	Make sure that you have signed in to Windows by using your work account (Active Directory account).
 2.	Connect to your corporate network via VPN or DirectAccess.
