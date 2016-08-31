@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Create a .NET MVC web app in Azure App Service with AD FS authentication" 
-	description="Learn how to create an ASP.NET MVC line-of-business application in Azure App Service Web Apps that authenticates with on-premise STS. This tutorial targets AD FS as the on-premise STS." 
+	pageTitle="Create a line-of-business Azure app with AD FS authentication | Microsoft Azure" 
+	description="Learn how to create a line-of-business app in Azure App Service that authenticates with on-premise STS. This tutorial targets AD FS as the on-premise STS." 
 	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="cephalin" 
@@ -13,14 +13,19 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="02/26/2016" 
+	ms.date="08/31/2016" 
 	ms.author="cephalin"/>
 
-# Create a .NET MVC web app in Azure App Service with AD FS authentication
+# Create a line-of-business Azure app with AD FS authentication
 
-In this article, you will learn how to create an ASP.NET MVC line-of-business application in [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) using an on-premises [Active Directory Federation Services](http://technet.microsoft.com/library/hh831502.aspx) as the identity provider. This scenario can work when you want to create line-of-business applications in Azure App Service Web Apps but your organization requires all data to be stored on-site.
+In this article, you will learn how to create an ASP.NET MVC line-of-business application in 
+[Azure App Service](../app-service/app-service-value-prop-what-is.md) using an on-premises 
+[Active Directory Federation Services](http://technet.microsoft.com/library/hh831502.aspx) 
+as the identity provider. This scenario can work when you want to create line-of-business applications in Azure 
+App Service but your organization requires directory data to be stored on-site.
 
->[AZURE.NOTE] For an overview of the different enterprise authentication and authorization options for Azure App Service Web Apps, see [Use Active Directory for authentication in Azure App Service](web-sites-authentication-authorization.md).
+>[AZURE.NOTE] For an overview of the different enterprise authentication and authorization options for Azure App 
+Service, see [Authenticate with on-premises Active Directory in your Azure app](web-sites-authentication-authorization.md).
 
 <a name="bkmk_build"></a>
 ## What you will build ##
@@ -32,18 +37,17 @@ You will build a basic ASP.NET application in Azure App Service Web Apps with th
 - Static configuration for both debugging in Visual Studio and publishing to App Service Web Apps (configure once, debug and publish anytime)  
 
 <a name="bkmk_need"></a>
-## What you will need ##
+## What you need ##
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
->[AZURE.NOTE] If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
-
 You need the following to complete this tutorial:
 
-- An on-premises AD FS deployment (for an end-to-end walkthrough of the test lab that I use, see [Test Lab: Standalone STS with AD FS in Azure VM (for test only)](https://blogs.msdn.microsoft.com/cephalin/2014/12/21/test-lab-standalone-sts-with-ad-fs-in-azure-vm-for-test-only/))
+- An on-premises AD FS deployment (for an end-to-end walkthrough of the test lab used in this tutorial, see 
+[Test Lab: Standalone STS with AD FS in Azure VM (for test only)](https://blogs.msdn.microsoft.com/cephalin/2014/12/21/test-lab-standalone-sts-with-ad-fs-in-azure-vm-for-test-only/))
 - Permissions to create relying party trusts in AD FS Management
-- Visual Studio 2013
-- [Azure SDK 2.5.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) or later
+- Visual Studio 2013 Update 4 or later
+- [Azure SDK 2.8.1](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) or later
 
 <a name="bkmk_sample"></a>
 ## Use sample application for line-of-business template ##
@@ -344,14 +348,10 @@ Azure App Service Web Apps supports accessing on-premise databases with two appr
 ## Further resources
 
 - [Protect the Application with SSL and the Authorize Attribute](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md#protect-the-application-with-ssl-and-the-authorize-attribute)
-- [Use Active Directory for authentication in Azure App Service](web-sites-authentication-authorization.md)
-- [Create a .NET MVC web app in Azure App Service with Azure Active Directory authentication](web-sites-dotnet-lob-application-azure-ad.md)
+- [Authenticate with on-premises Active Directory in your Azure app](web-sites-authentication-authorization.md)
+- [Create a line-of-business Azure app with Azure Active Directory authentication](web-sites-dotnet-lob-application-azure-ad.md)
 - [Use the On-Premises Organizational Authentication Option (ADFS) With ASP.NET in Visual Studio 2013](http://www.cloudidentity.com/blog/2014/02/12/use-the-on-premises-organizational-authentication-option-adfs-with-asp-net-in-visual-studio-2013/)
-- [Vittorio Bertocci's blog](http://blogs.msdn.com/b/vbertocci/)
 - [Migrate a VS2013 Web Project From WIF to Katana](http://www.cloudidentity.com/blog/2014/09/15/MIGRATE-A-VS2013-WEB-PROJECT-FROM-WIF-TO-KATANA/)
 - [Active Directory Federation Services Overview](http://technet.microsoft.com/library/hh831502.aspx)
 - [WS-Federation 1.1 specification](http://download.boulder.ibm.com/ibmdl/pub/software/dw/specs/ws-fed/WS-Federation-V1-1B.pdf?S_TACT=105AGX04&S_CMP=LP)
 
-[AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
- 
- 
