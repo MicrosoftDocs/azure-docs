@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="08/30/2016"
+   ms.date="08/31/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect sync: Understanding the architecture
@@ -129,7 +129,7 @@ A single connector space object can be linked to only one metaverse object. Howe
 
 The linked relationship between the staging object and a metaverse object is persistent and can be removed only by rules that you specify.
 
-A disjoined object is a staging object that is not linked to any metaverse object. The attribute values of a disjoined object are not processed any further within the metaverse. This means that the attribute values of the corresponding object in the connected data source are not updated by sync engine.
+A disjoined object is a staging object that is not linked to any metaverse object. The attribute values of a disjoined object are not processed any further within the metaverse. The attribute values of the corresponding object in the connected data source are not updated by sync engine.
 
 By using disjoined objects, you can store identity information in sync engine and process it later. Keeping a staging object as a disjoined object in the connector space has many advantages. Because the system has already staged the required information about this object, it is not necessary to create a representation of this object again during the next import from the connected data source. This way, sync engine always has a complete snapshot of the connected data source, even if there is no current connection to the connected data source. Disjoined objects can be converted into joined objects, and vice versa, depending on the rules that you specify.
 
@@ -155,7 +155,7 @@ The following illustration shows where each of the processes occurs as identity 
 ### Import process
 During the import process, sync engine evaluates updates to identity information. Sync engine compares the identity information received from the connected data source with the identity information about a staging object and determines whether the staging object requires updates. If it is necessary to update the staging object with new data, the staging object is flagged as pending import.
 
-By staging objects in the connector space prior to synchronization, sync engine can process only the identity information that has changed. This process provides the following benefits:
+By staging objects in the connector space before synchronization, sync engine can process only the identity information that has changed. This process provides the following benefits:
 
 - **Efficient synchronization**. The amount of data processed during synchronization is minimized.
 - **Efficient resynchronization**. You can change how sync engine processes identity information without reconnecting the sync engine to the data source.
@@ -176,7 +176,7 @@ Staging objects with updated data are marked as pending import. Different types 
 - **Add**. The staging object is a new import object in the connector space. Sync engine flags this type as pending import for additional processing in the metaverse.
 - **Update**. Sync engine finds a corresponding staging object in the connector space and flags this type as pending import so that updates to the attributes can be processed in the metaverse. Updates include object renaming.
 - **Delete**. Sync engine finds a corresponding staging object in the connector space and flags this type as pending import so that the joined object can be deleted.
-- **Delete/Add**. Sync engine finds a corresponding staging object in the connector space, but the object types do not match. In this case, a delete-add modification is staged. A delete-add modification indicates to the synch engine that a complete resynchronization of this object must occur because different sets of rules applies to this object when the object type changes.
+- **Delete/Add**. Sync engine finds a corresponding staging object in the connector space, but the object types do not match. In this case, a delete-add modification is staged. A delete-add modification indicates to the sync engine that a complete resynchronization of this object must occur because different sets of rules apply to this object when the object type changes.
 
 By setting the pending import status of a staging object, it is possible to reduce significantly the amount of data processed during synchronization because doing so allows the system to process only those objects that have updated data.
 
@@ -202,7 +202,7 @@ Inbound synchronization includes the following processes:
 
 Provision is the only process that creates objects in the metaverse. Provision affects only import objects that are disjoined objects. During provision, sync engine creates a metaverse object that corresponds to the object type of the import object and establishes a link between both objects, thus creating a joined object.
 
-The join process also establishes a link between import objects and a metaverse object. The difference between join and provision is that the join process requires that the import object be linked to an existing metaverse object, where the provision process creates a new metaverse object.
+The join process also establishes a link between import objects and a metaverse object. The difference between join and provision is that the join process requires that the import object are linked to an existing metaverse object, where the provision process creates a new metaverse object.
 
 Sync engine tries to join an import object to a metaverse object by using criteria that is specified in the Synchronization Rule configuration.
 
@@ -212,7 +212,7 @@ Import attribute flow occurs on all import objects that carry new data and are l
 
 **Outbound synchronization**
 
-Outbound synchronization updates export objects when a metaverse object changes but is not deleted. The objective of outbound synchronization is to evaluate whether changes to metaverse objects require updates to staging objects in the connector spaces. In some cases, the changes can require that staging objects in all connector spaces be updated. Staging objects that are changed are flagged as pending export, making them export objects. These export objects are later pushed out to the connected data source during the export process.
+Outbound synchronization updates export objects when a metaverse object change but is not deleted. The objective of outbound synchronization is to evaluate whether changes to metaverse objects require updates to staging objects in the connector spaces. In some cases, the changes can require that staging objects in all connector spaces be updated. Staging objects that are changed are flagged as pending export, making them export objects. These export objects are later pushed out to the connected data source during the export process.
 
 Outbound synchronization has three processes:
 
