@@ -91,7 +91,7 @@ The Microsoft Azure Stack deployment must be connected to Azure. Therefore, you 
     | **Azure Active Directory account**  | **Supported?** |
     |---|---| 
     | Organization ID with valid Public Azure Subscription  | Yes |
-    | Microsoft Account with valid Public Azure Subscription  | Yes |
+    | Microsoft Account with valid Public Azure Subscription  | No |
     | Organization ID with valid China Azure Subscription  | Yes |
     | Organization ID with valid US Government Azure Subscription  | Yes |
 
