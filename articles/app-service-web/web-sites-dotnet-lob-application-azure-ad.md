@@ -44,8 +44,6 @@ If you need role-based access control (RBAC) for your line-of-business app in Az
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
-[AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
-
 You need the following to complete this tutorial:
 
 - An Azure Active Directory tenant with users in various groups
@@ -175,7 +173,7 @@ Azure account.
 Next, you will do something useful with directory data.
 
 <a name="bkmk_crud"></a>
-## Add line-of-business functionality to the sample application
+## Add line-of-business functionality to your app
 
 Now, you create a simple CRUD work items tracker.  
 
@@ -227,11 +225,13 @@ point to **Add**, and select **New scaffolded item**).
 	behavior described by [Brock Allen](https://twitter.com/BrockLAllen) at 
 	[MVC 4, AntiForgeryToken and Claims](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/) your HTTP POST may fail 
 	anti-forgery token validation because:
-	> + Azure Active Directory does not send the http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, 
+
+	> - Azure Active Directory does not send the http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, 
 	which is required by default by the anti-forgery token.
-	> + If Azure Active Directory is directory synced with AD FS, the AD FS trust by default does not send the 
+	> - If Azure Active Directory is directory synced with AD FS, the AD FS trust by default does not send the 
 	http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider claim either, although you can manually 
 	configure AD FS to send this claim.
+
 	> You will take care of this issue in the next step.
 
 12.  In ~\Global.asax, add the following line of code in the `Application_Start()` method. `Ctrl`+`.` on each naming resolution error to fix it.
