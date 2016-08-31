@@ -18,7 +18,6 @@
 
 # Manage Azure DevTest Labs custom images to create VMs
 
-## Overview
 After you have [created a lab](devtest-lab-create-lab.md), you can [add virtual machines (VMs) to that lab](devtest-lab-add-vm-with-artifacts.md).
 When you create a VM, you specify a *base*, which can be either a *custom image* or a *Marketplace image*. 
 In this article, you'll learn how to [create a custom image from a VHD](#create-a-custom-image-from-a-vhd) so that you can subsequently create a VM from that custom image. In addition, you can also [create a custom image
@@ -103,6 +102,8 @@ If you have a VM that is already configured, you can create a custom image from 
 1. Select whether sysprep was run on the VM. If the sysprep was not run on the VM, specify whether or not you want sysprep run when a VM is created from this custom image.
 
 1. Select **OK** when finished to create the custom image.
+
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## Related blog posts
 

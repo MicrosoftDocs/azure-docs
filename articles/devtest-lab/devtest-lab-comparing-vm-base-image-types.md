@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # Comparing custom images and formulas in DevTest Labs
@@ -49,6 +49,8 @@ Formulas provide a dynamic way to create VMs from the desired configuration/sett
 
 **Cons**
 - Creating a VM from a formula can take more time than creating a VM from a custom image.
+
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## Related blog posts
 

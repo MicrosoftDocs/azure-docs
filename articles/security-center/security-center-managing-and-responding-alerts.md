@@ -13,11 +13,14 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/07/2016"
+   ms.date="08/26/2016"
    ms.author="yurid"/>
 
 # Managing and responding to security alerts in Azure Security Center
 This document helps you use Azure Security Center to manage and respond to security alerts.
+
+> [AZURE.NOTE] To enable advanced detections, upgrade to Azure Security Center Standard. A free 90-day trial is available. To upgrade, select Pricing Tier in the [Security Policy](security-center-policies.md). See the [pricing page](https://azure.microsoft.com/pricing/details/security-center/) to learn more.
+
 
 ## What are security alerts?
 Security Center automatically collects, analyzes, and integrates log data from your Azure resources, the network, and connected partner solutions, like firewall and endpoint protection solutions, to detect real threats and reduce false positives. A list of prioritized security alerts is shown in Security Center along with the information you need to quickly investigate the problem and recommendations for how to remediate an attack. Azure Security Center also aggregates alerts that align to kill chain patterns into [Incidents](security-center-incident.md). 

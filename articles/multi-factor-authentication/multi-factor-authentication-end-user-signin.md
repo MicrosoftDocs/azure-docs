@@ -62,10 +62,11 @@ The following information will describe the experience of using multi-factor aut
 ![Microsoft sends notification](./media/multi-factor-authentication-end-user-signin-app-notify/notify.png)
 
 
-- Answer the phone and hit the verify key.
+- Answer the phone and hit the verify key.  If your company requires a PIN you will be asked for it here.
 
 ![Verify](./media/multi-factor-authentication-end-user-signin-app-notify/phone.png)
 
+![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan3.png)
 
 - You should now be signed in.
 
@@ -84,6 +85,8 @@ The following information will describe the experience of using multi-factor aut
 - Open the Microsoft Authenticator app on your phone and enter the code in the box where you are signing in.
 
 ![Get code](./media/multi-factor-authentication-end-user-signin-app-verify/phone.png)
+
+
 
 - You should now be signed in.
 

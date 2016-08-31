@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2016" 
+	ms.date="08/26/2016" 
 	ms.author="awills"/>
 
 # Monitoring usage and performance in Windows Desktop apps
@@ -21,15 +21,15 @@
 
 [Visual Studio Application Insights](app-insights-get-started.md) and [HockeyApp](https://hockeyapp.net) let you monitor your deployed application for usage and performance.
 
-> [AZURE.IMPORTANT] We recommend [HockeyApp](https://hockeyapp.net) to distribute and monitor desktop and device apps. With HockeyApp, you can manage distribution, live testing, and user feedback, as well as monitor usage and crash reports. 
+> [AZURE.IMPORTANT] We recommend [HockeyApp](https://hockeyapp.net) to distribute and monitor desktop and device apps. With HockeyApp, you can manage distribution, live testing, and user feedback, as well as monitor usage and crash reports. You can also [export and query your telemetry with Analytics](app-insights-hockeyapp-bridge-app.md).
 
 > Although telemetry can be sent to Application Insights from a desktop application, this is chiefly useful for debugging and experimental purposes.
 
 
 ## To send telemetry to Application Insights from a Windows application
 
-1. In the [Azure portal](https://portal.azure.com), create a new Application Insights resource. For application type, choose ASP.NET app.
-2. Take a copy of the Instrumentation Key. Find the key in the Essentials drop-down of the new resource you just created. Close the Application Map or scroll left to the overview blade for the resource.
+1. In the [Azure portal](https://portal.azure.com), [create an Application Insights resource](app-insights-create-new-resource.md). For application type, choose ASP.NET app.
+2. Take a copy of the Instrumentation Key. Find the key in the Essentials drop-down of the new resource you just created. 
 3. In Visual Studio, edit the NuGet packages of your app project, and add Microsoft.ApplicationInsights.WindowsServer. (Or choose Microsoft.ApplicationInsights if you just want the bare API, without the standard telemetry collection modules.)
 4. Set the instrumentation key either in your code:
 
@@ -81,5 +81,10 @@
 
 ```
 
+## Next steps
 
+* [Create a dashboard](app-insights-dashboards.md)
+* [Diagnostic Search](app-insights-diagnostic-search.md)
+* [Explore metrics](app-insights-metrics-explorer.md)
+* [Write Analytics queries](app-insights-analytics.md)
  
