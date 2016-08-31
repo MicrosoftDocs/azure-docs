@@ -64,32 +64,32 @@ Here are the steps to create an instance of the Linux Data Science Virtual Machi
 2.	 Click **Create** (at the bottom) to bring up the wizard.![configure-data-science-vm](./media/machine-learning-data-science-linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
 3.	 The following sections provide the inputs for each of the steps in the wizard (enumerated on the right of the preceding figure) used to create the Microsoft Data Science Virtual Machine. Here are the inputs needed to configure each of these steps:
 
-	a. **Basics**:
+  a. **Basics**:
 
-	- **Name**: Name of your data science server you are creating.
-  	- **User Name**: First account sign-in ID.
-	- **Password**: First account password (you can use SSH public key instead of password).
-	- **Subscription**: If you have more than one subscription, select the one on which the machine is to be created and billed. You must have resource creation privileges for this subscription.
-  	- **Resource Group**: You can create a new one or use an existing group.
-	- **Location**: Select the data center that is most appropriate. Usually it is the data center that has most of your data, or is closest to your physical location for fastest network access.
+  - **Name**: Name of your data science server you are creating.
+  - **User Name**: First account sign-in ID.
+  - **Password**: First account password (you can use SSH public key instead of password).
+  - **Subscription**: If you have more than one subscription, select the one on which the machine is to be created and billed. You must have resource creation privileges for this subscription.
+  - **Resource Group**: You can create a new one or use an existing group.
+  - **Location**: Select the data center that is most appropriate. Usually it is the data center that has most of your data, or is closest to your physical location for fastest network access.
 
-	b. **Size**:
+  b. **Size**:
 
-	- Select one of the server types that meets your functional requirement and cost constraints. Select **View All** to see more choices of VM sizes.
+  - Select one of the server types that meets your functional requirement and cost constraints. Select **View All** to see more choices of VM sizes.
 
-	c. **Settings**:
+  c. **Settings**:
 
-	- **Disk Type**: Choose **Premium** if you prefer a solid state drive (SSD). Otherwise, choose **Standard**.
-	- **Storage Account**: You can create a new Azure storage account in your subscription, or use an existing one in the same location that was chosen on the **Basics** step of the wizard.
-	- **Other parameters**: In most cases, you just use the default values. To consider non-default values, hover over the informational link for help on the specific fields.
+  - **Disk Type**: Choose **Premium** if you prefer a solid state drive (SSD). Otherwise, choose **Standard**.
+  - **Storage Account**: You can create a new Azure storage account in your subscription, or use an existing one in the same location that was chosen on the **Basics** step of the wizard.
+  - **Other parameters**: In most cases, you just use the default values. To consider non-default values, hover over the informational link for help on the specific fields.
 
-	d. **Summary**:
+  d. **Summary**:
 
-	- Verify that all information you entered is correct.
+  - Verify that all information you entered is correct.
 
-	e. **Buy**:
+  e. **Buy**:
 
-	- To start the provisioning, click **Buy**. A link is provided to the terms of the transaction. The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step.
+  - To start the provisioning, click **Buy**. A link is provided to the terms of the transaction. The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step.
 
 The provisioning should take about 10-20 minutes. The status of the provisioning is displayed on the Azure portal.
 
