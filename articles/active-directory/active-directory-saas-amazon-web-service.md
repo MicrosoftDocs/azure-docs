@@ -249,7 +249,10 @@ The following screenshot shows an example for this.
 
      a. In the **Attribute Name** textbox, type **https://aws.amazon.com/SAML/Attributes/RoleSessionName**.
 
-     b. In the **Attribute Value** textbox, type **userprincipalname**.
+     b. In the **Attribute Value** textbox, type or select **user.userprincipalname** from the drop down list.
+     
+	![Configure Single Sign-On][35]
+	
 
      c. Click **Complete** to close the **Add User Attribute** dialog.
 
@@ -422,7 +425,7 @@ When you click the Amazon Web Service (AWS) tile in the Access Panel, you should
 [32]: ./media/active-directory-saas-amazon-web-service/ic7950251.png
 [33]: ./media/active-directory-saas-amazon-web-service/ic7950252.png
 [34]: ./media/active-directory-saas-amazon-web-service/ic7950253.png
-
+[35]: ./media/active-directory-saas-amazon-web-service/user_attributes_01.png
 
 
 

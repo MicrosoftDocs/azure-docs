@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/22/2016" 
+	ms.date="08/30/2016" 
 	ms.author="billmath"/>
 
 # Configuring Azure Multi-Factor Authentication
@@ -57,7 +57,7 @@ Fraud alert can be configured and setup so that your users can report fraudulent
 >Microsoft’s default voice greetings instruct users to press 0# to submit a fraud alert. If you use a code other than 0, you will need to record and upload your own custom voice greetings with appropriate instructions.
 
 
-<center>![Cloud](./media/multi-factor-authentication-whats-next/fraud.png)</center>
+![Cloud](./media/multi-factor-authentication-whats-next/fraud.png)
 
 ### To report fraud alert
 Fraud alert can be reported two ways.  Either through the mobile app or through the phone.  
@@ -71,7 +71,10 @@ Fraud alert can be reported two ways.  Either through the mobile app or through 
 3. Click report fraud.
 4. On the app, click Close.
 
-<center>![Cloud](./media/multi-factor-authentication-whats-next/report1.png)</center>
+![Cloud](./media/multi-factor-authentication-whats-next/report1.png)
+
+
+![Cloud](./media/multi-factor-authentication-whats-next/fraud2.png)
 
 ### To report fraud alert with the phone
 

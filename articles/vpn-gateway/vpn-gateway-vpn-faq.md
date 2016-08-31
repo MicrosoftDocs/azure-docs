@@ -42,7 +42,7 @@ The following cross-premises connections are supported:
 
 - [ExpressRoute](../expressroute/expressroute-introduction.md) – ExpressRoute is a direct connection to Azure from your WAN, not over the public Internet. See the [ExpressRoute Technical Overview](../expressroute/expressroute-introduction.md) and the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md) for more information.
 
-For more information about connections, see [VPN Gateway connection diagrams](vpn-gateway-topology.md).
+For more information about connections, see [About VPN Gateway](vpn-gateway-about-vpngateways.md).
 
 ### What is the difference between a Site-to-Site connection and Point-to-Site?
 
@@ -137,7 +137,7 @@ Yes, it is possible. But the virtual networks cannot have overlapping IP prefixe
 It's difficult to maintain the exact throughput of the VPN tunnels. IPsec and SSTP are crypto-heavy VPN protocols. Throughput is also limited by the latency and bandwidth between your premises and the Internet.
 
 ## Gateways
-changes
+
 ### What is a policy-based (static-routing) gateway?
 
 Policy-based gateways implement policy-based VPNs. Policy-based VPNs encrypt and direct packets through IPsec tunnels based on the combinations of address prefixes between your on-premises network and the Azure VNet. The policy (or Traffic Selector) is usually defined as an access list in the VPN configuration.
@@ -195,7 +195,7 @@ A VPN gateway is fundamentally a multi-homed device with one NIC tapping into th
 
 ### More information about gateway types, requirements, and throughput
 
-For more information, see [About VPN Gateways](vpn-gateway-about-vpngateways.md).
+For more information, see [About VPN Gateway Settings](vpn-gateway-about-vpn gateway-settings.md).
 
 ## Multi-Site and VNet-to-VNet connectivity
 
@@ -237,7 +237,10 @@ No, all VPN tunnels, including Point-to-Site VPNs, share the same Azure VPN gate
 
 ### Can I use Azure VPN gateway to transit traffic between my on-premises sites or to another virtual network?
 
-Transit traffic via Azure VPN gateway is possible, but rely on statically defined address spaces in the netcfg configuration file. BGP is not yet supported with Azure Virtual Networks and VPN gateways. Without BGP, manually defining transit address spaces is very error prone, and not recommended.
+**Classic deployment model**<br>
+Transit traffic via Azure VPN gateway is possible using the classic deployment model, but relies on statically defined address spaces in the network configuration file. BGP is not yet supported with Azure Virtual Networks and VPN gateways using the classic deployment model. Without BGP, manually defining transit address spaces is very error prone, and not recommended.<br>
+**Resource Manager deployment model**<br>
+If you are using the Resource Manager deployment model, see the [BGP](#bgp) section for more information.
 
 ### Does Azure generate the same IPsec/IKE pre-shared key for all my VPN connections for the same virtual network?
 
@@ -252,7 +255,7 @@ For traffic between different Azure virtual networks, Azure charges only for tra
 
 Yes, this is supported. For more information, see [Configure ExpressRoute and Site-to-Site VPN connections that coexist](../expressroute/expressroute-howto-coexist-classic.md).
 
-## BGP
+## <a name="bgp"></a>BGP
 
 [AZURE.INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)] 
 
@@ -274,9 +277,4 @@ No. Only the traffic that has a destination IP that is contained in the virtual 
 ## Virtual Network FAQ
 
 You view additional virtual network information in the [Virtual Network FAQ](../virtual-network/virtual-networks-faq.md).
-
-## Next steps
-
-You can view more information about VPN Gateways on the [VPN Gateway documentation page](https://azure.microsoft.com/documentation/services/vpn-gateway/).
-
  

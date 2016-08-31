@@ -26,7 +26,7 @@ To upload a Windows VM from on-premises to Azure, you must correctly prepare the
 
 Make sure that the Windows VHD is working correctly on the local server. Resolve any errors within the VM itself before trying to convert or upload to Azure.
 
-If you need to convert your virtual disk to the required format for Azure, use one of the methods noted in the following sections.
+If you need to convert your virtual disk to the required format for Azure, use one of the methods noted in the following sections. Back up the VM before running any virtual disk conversion process or Sysprep.
 
 ### Convert using Hyper-V Manager
 - Open Hyper-V Manager and select your local computer on the left. In the menu above it, click **Action** > **Edit Disk**.
@@ -66,7 +66,7 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
 3. Configure the disk SAN policy to [Onlineall](https://technet.microsoft.com/library/gg252636.aspx):
 
 	```
-	dispart san policy=onlineall
+	diskpart san policy=onlineall
 	```
 
 4. Use Coordinated Universal Time (UTC) time for Windows and set the startup type of the Windows Time (w32time) service to **Automatically**:
@@ -287,6 +287,7 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
 
 	- [Create a VM image from an existing Azure VM using the Resource Manager deployment model](virtual-machines-windows-capture-image.md)
 	- [Create a VM image from an existing Azure VM using the Classic deployment modem](virtual-machines-windows-classic-capture-image.md)
+	- [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 
 ## Suggested extra configurations

@@ -67,7 +67,7 @@ Some of the following resources--accounts, compute nodes, pools, jobs, and tasks
 
 ## Account
 
-A Batch account is a uniquely identified entity within the Batch service. All processing is associated with a Batch account. When you perform operations with the Batch service, you need both the account name and one of its account keys. You can [create and manage an Azure Batch account in the Azure portal](batch-account-create-portal.md).
+A Batch account is a uniquely identified entity within the Batch service. All processing is associated with a Batch account. When you perform operations with the Batch service, you need both the account name and one of its account keys. You can [create an Azure Batch account using the Azure portal](batch-account-create-portal.md).
 
 ## Compute node
 
