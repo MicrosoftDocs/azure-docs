@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/30/2016"
+	ms.date="08/31/2016"
 	ms.author="bradsev" />
 
 # Move Data to and from Azure Blob Storage using Azure Storage Explorer
