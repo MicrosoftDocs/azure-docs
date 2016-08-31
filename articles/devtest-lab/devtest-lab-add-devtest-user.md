@@ -16,7 +16,7 @@
 	ms.date="08/30/2016"
 	ms.author="tarcher"/>
 
-# Add owners and users to a lab
+# Add owners and users to a lab in Azure DevTest Labs
 
 > [AZURE.VIDEO how-to-set-security-in-your-devtest-lab]
 
