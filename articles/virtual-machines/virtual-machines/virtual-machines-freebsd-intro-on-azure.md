@@ -32,7 +32,7 @@ Deploying a FreeBSD virtual machine is a straightforward process using an image 
 Supported VM extensions in FreeBSD VM are as followings.
 
 • [VMAccess](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)
-    
+
 VMAccess Extension can:
 - Reset the password of the original sudo user 
 - Create a new sudo user with the password specified
@@ -42,7 +42,7 @@ VMAccess Extension can:
 - Remove the existing user
 - Check disks
 - Repair added disk
-    
+
 • [CustomSript](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript)
 
 CustomScript Extension can:
@@ -67,4 +67,6 @@ Once logged in using this user account, you are able to run commands as root usi
 
 You can optionally obtain a root shell using sudo -s.
 
-
+##Next Steps
+- Go to [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/) to create a FreeBSD VM. 
+- If you want to bring your own FreeBSD to Azure, refer to [Create and upload a FreeBSD VHD to Azure] (https://azure.microsoft.com/documentation/articles/virtual-machines-linux-classic-freebsd-create-upload-vhd/).
