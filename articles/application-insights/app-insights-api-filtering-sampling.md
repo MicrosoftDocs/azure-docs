@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Sampling, filtering and preprocessing in the Application Insights SDK" 
-	description="Write plug-ins for the SDK to filter, sample or add properties to the data before the telemetry is sent to the Application Insights portal." 
+	pageTitle="Filtering and preprocessing in the Application Insights SDK | Microsoft Azure" 
+	description="Write Telemetry Processors and Telemetry Initializers for the SDK to filter or add properties to the data before the telemetry is sent to the Application Insights portal." 
 	services="application-insights"
     documentationCenter="" 
 	authors="beckylino" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/19/2016" 
+	ms.date="08/30/2016" 
 	ms.author="borooji"/>
 
 # Sampling, filtering and preprocessing telemetry in the Application Insights SDK
@@ -23,58 +23,15 @@ You can write and configure plug-ins for the Application Insights SDK to customi
 
 Currently these features are available for the ASP.NET SDK.
 
-* [Sampling](#sampling) reduces the volume of telemetry without affecting your statistics. It keeps together related data points so that you can navigate between them when diagnosing a problem. In the portal, the total counts are multiplied to compensate for the sampling.
-* [Filtering](#filtering) lets you select or modify telemetry in the SDK before it is sent to the server. For example, you could reduce the volume of telemetry by excluding requests from robots. This is a more basic approach to reducing traffic than sampling. It allows you more control over what is transmitted, but you have to be aware that it will affect your statistics - for example, if you filter out all successful requests.
-* [Add properties](#add-properties) to any telemetry sent from your app, including telemetry from the standard modules. For example, you could add calculated values; or version numbers by which to filter the data in the portal.
+* [Filtering with Telemetry Processors](#filtering) lets you select or modify telemetry in the SDK before it is sent to the server. For example, you could reduce the volume of telemetry by excluding requests from robots. This is a more basic approach to reducing traffic than sampling. It allows you more control over what is transmitted, but you have to be aware that it will affect your statistics - for example, if you filter out all successful requests.
+* [Telemetry Initializers add properties](#add-properties) to any telemetry sent from your app, including telemetry from the standard modules. For example, you could add calculated values; or version numbers by which to filter the data in the portal.
 * [The SDK API](app-insights-api-custom-events-metrics.md) is used to send custom events and metrics.
+* [Sampling](app-insights-sampling.md) reduces the volume of telemetry without affecting your statistics. It keeps together related data points so that you can navigate between them when diagnosing a problem. In the portal, the total counts are multiplied to compensate for the sampling.
 
 Before you start:
 
 * Install the [Application Insights SDK for ASP.NET v2](app-insights-asp-net.md) in your app. 
 
-
-## Sampling
-
-[Sampling](app-insights-sampling.md) is the recommended way to reduce traffic while preserving accurate statistics. The filter selects items that are related so that you can navigate between items in diagnosis. Event counts are adjusted in metric explorer to compensate for the filtered items.
-
-* Adaptive sampling is recommended. It automatically adjusts the sampling percentage to achieve a specific volume of requests. Currently available for ASP.NET server-side telemetry only. 
-* [Fixed-rate sampling](app-insights-sampling.md) is also available. You specify the sampling percentage. Available for ASP.NET web app code and JavaScript web pages. The client and server will synchronize their sampling so that, in Search, you can navigate between related page views and requests.
-* Ingestion sampling operates as the telemetry is received at the Application Insights portal, and so it can be used no matter what SDK you're using. It doesn't reduce telemetry traffic on the network, but it reduces the volume processed and stored in Application Insights. Only the retained telemetry counts in your monthly quota. 
-
-### To enable ingestion sampling
-
-From the Settings bar, open the Quotas and Pricing blade. Click Sampling and select a sampling ratio.
-
-Ingestion doesn't operate if the SDK is performing fixed or adaptive sampling. While the sampling rate at the SDK is less than 100%, the ingestion sampling setting is ignored.
-
-### To enable adaptive sampling
-
-**Update your project's NuGet** packages to the latest *pre-release* version of Application Insights: Right-click the project in Solution Explorer, choose Manage NuGet Packages, check **Include prerelease** and search for Microsoft.ApplicationInsights.Web. 
-
-In [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md), you can adjust the maximum rate of telemetry that the adaptive algorithm aims for:
-
-    <MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>
-
-### Client side sampling
-
-To get fixed-rate sampling on the data from web pages, put an extra line in the [Application Insights snippet](app-insights-javascript.md) that you inserted (typically in a master page such as _Layout.cshtml):
-
-*JavaScript*
-
-```JavaScript
-
-	}({ 
-
-	samplingPercentage: 10.0, 
-
-	instrumentationKey:...
-	}); 
-```
-
-* Set a percentage (10 in this example) that is equal to 100/N where N is an integer - for example 50 (=100/2), 33.33 (=100/3), 25 (=100/4), or 10 (=100/10). 
-* If you also enable [fixed-rate sampling](app-insights-sampling.md) on the server side, the client and server will synchronize their sampling so that, in Search, you can navigate between related page views and requests.
-
-[Learn more about sampling](app-insights-sampling.md).
 
 <a name="filtering"></a>
 ## Filtering: ITelemetryProcessor
@@ -380,6 +337,112 @@ What's the difference between telemetry processors and telemetry initializers?
 * TelemetryProcessors allow you to completely replace or discard a telemetry item.
 * TelemetryProcessors don't process performance counter telemetry.
 
+
+
+## Persistence Channel 
+
+If your app runs where the internet connection is not always available or slow, consider using the persistence channel instead of the default in-memory channel. 
+
+The default in-memory channel loses any telemetry that has not been sent by the time the app closes. Although you can use `Flush()` to attempt to send any data remaining in the buffer, it will still lose data if there is a no internet connection, or if the app shuts down before transmission is complete.
+
+By contrast, the persistence channel buffers telemetry in a file, before sending it to the portal. `Flush()` ensures that data is stored in the file. If any data is not sent by the time the app closes, it will remain in the file. When the app restarts, the data will be sent then, if there is an internet connection. Data will accumulate in the file for as long as is necessary until a connection is available. 
+
+### To use the persistence channel
+
+1. Import the NuGet package [Microsoft.ApplicationInsights.PersistenceChannel](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PersistenceChannel/1.2.3).
+2. Include this code in your app, in a suitable initialization location:
+ 
+    ```C# 
+
+      using Microsoft.ApplicationInsights.Channel;
+      using Microsoft.ApplicationInsights.Extensibility;
+      ...
+
+      // Set up 
+      TelemetryConfiguration.Active.InstrumentationKey = "YOUR INSTRUMENTATION KEY";
+ 
+      TelemetryConfiguration.Active.TelemetryChannel = new PersistenceChannel();
+    
+    ``` 
+3. Use `telemetryClient.Flush()` before your app closes, to make sure data is either sent to the portal or saved to the file.
+
+    Note that Flush() is synchronous for the persistence channel, but asynchronous for other channels.
+
+ 
+The persistence channel is optimized for devices scenarios, where the number of events produced by application is relatively small and the connection is often unreliable. This channel will write events to the disk into reliable storage first and then attempt to send it. 
+
+#### Example
+
+Let’s say you want to monitor unhandled exceptions. You subscribe to the `UnhandledException` event. In the callback, you include a call to Flush to make sure that  the telemetry will be persisted.
+ 
+```C# 
+
+AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException; 
+ 
+... 
+ 
+private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e) 
+{ 
+    ExceptionTelemetry excTelemetry = new ExceptionTelemetry((Exception)e.ExceptionObject); 
+    excTelemetry.SeverityLevel = SeverityLevel.Critical; 
+    excTelemetry.HandledAt = ExceptionHandledAt.Unhandled; 
+ 
+    telemetryClient.TrackException(excTelemetry); 
+ 
+    telemetryClient.Flush(); 
+} 
+
+``` 
+
+When the app shuts down, you'll see a file in `%LocalAppData%\Microsoft\ApplicationInsights\`, which contains the compressed events. 
+ 
+Next time you start this application, the channel will pick up this file and deliver telemetry to the Application Insights if it can.
+
+#### Test example
+
+```C#
+
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.Channel;
+using Microsoft.ApplicationInsights.Extensibility;
+
+namespace ConsoleApplication1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Send data from the last time the app ran
+            System.Threading.Thread.Sleep(5 * 1000);
+
+            // Set up persistence channel
+
+            TelemetryConfiguration.Active.InstrumentationKey = "YOUR KEY";
+            TelemetryConfiguration.Active.TelemetryChannel = new PersistenceChannel();
+
+            // Send some data
+
+            var telemetry = new TelemetryClient();
+
+            for (var i = 0; i < 100; i++)
+            {
+                var e1 = new Microsoft.ApplicationInsights.DataContracts.EventTelemetry("persistenceTest");
+                e1.Properties["i"] = "" + i;
+                telemetry.TrackEvent(e1);
+            }
+
+            // Make sure it's persisted before we close
+            telemetry.Flush();
+        }
+    }
+}
+
+```
+
+
+The code of the persistence channel is on [github](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/v1.2.3/src/TelemetryChannels/PersistenceChannel). 
+
+
 ## Reference docs
 
 * [API Overview](app-insights-api-custom-events-metrics.md)
@@ -397,11 +460,9 @@ What's the difference between telemetry processors and telemetry initializers?
 ## <a name="next"></a>Next steps
 
 
-[Search events and logs][diagnostic]
-
-[Samples and walkthroughs](app-insights-code-samples.md)
-
-[Troubleshooting][qna]
+* [Search events and logs][diagnostic]
+* [Sampling](app-insights-sampling.md)
+* [Troubleshooting][qna]
 
 
 <!--Link references-->
