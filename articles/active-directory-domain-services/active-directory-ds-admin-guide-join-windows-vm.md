@@ -28,7 +28,7 @@ This article shows you how to join a virtual machine running Windows Server 2012
 
 
 ## Step 1: Create the Windows Server virtual machine
-Follow the instructions outlined in the [Create a virtual machine running Windows in the Azure classic portal](../virtual-machines/virtual-machines-windows-classic-tutorial.md) tutorial. It is very important to ensure that this newly created virtual machine is joined to the same virtual network in which you enabled Azure AD Domain Services. The 'Quick Create' option does not enable you to join the virtual machine to a virtual network. Therefore, you need to use the 'From Gallery' option to create the virtual machine.
+Follow the instructions outlined in the [Create a virtual machine running Windows in the Azure classic portal](../virtual-machines/virtual-machines-windows-classic-tutorial.md) tutorial. It is important to ensure that this newly created virtual machine is joined to the same virtual network in which you enabled Azure AD Domain Services. The 'Quick Create' option does not enable you to join the virtual machine to a virtual network. Therefore, you need to use the 'From Gallery' option to create the virtual machine.
 
 Perform the following steps to create a Windows virtual machine joined to the virtual network in which you've enabled Azure AD Domain Services.
 
@@ -63,7 +63,7 @@ Perform the following steps to create a Windows virtual machine joined to the vi
 ## Step 2: Connect to the Windows Server virtual machine using the local administrator account
 Now, we connect to the newly created Windows Server virtual machine, to join it to the domain. Use the local administrator credentials you specified when creating the virtual machine, to connect to it.
 
-Perform the following steps in order to connect to the virtual machine.
+Perform the following steps to connect to the virtual machine.
 
 1. Navigate to **Virtual Machines** node in the classic portal. Select the virtual machine you created in Step 1 and click **Connect** on the command bar at the bottom of the window.
 
@@ -77,7 +77,7 @@ At this point, you should be logged in to the newly created Windows virtual mach
 
 
 ## Step 3: Join the Windows Server virtual machine to the AAD-DS managed domain
-Perform the following steps in order to join the Windows Server virtual machine to the AAD-DS managed domain.
+Perform the following steps to join the Windows Server virtual machine to the AAD-DS managed domain.
 
 1. Connect to the Windows Server as shown in Step 2. From the Start screen, open **Server Manager**.
 
@@ -95,7 +95,7 @@ Perform the following steps in order to join the Windows Server virtual machine 
 
 5. You are prompted to enter your credentials to join the domain. Ensure that you **specify the credentials for a user belonging to the AAD DC Administrators** group. Only members of this group have privileges to join machines to the managed domain.
 
-    ![Specify credentials to join the domain](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-credentials.png)
+    ![Specify credentials for domain join](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-credentials.png)
 
 6. You can specify credentials in either of the following ways:
 
@@ -103,7 +103,7 @@ Perform the following steps in order to join the Windows Server virtual machine 
 
     - SAMAccountName format: You can specify the account name in the SAMAccountName format. In this example, the user 'bob' would need to enter 'CONTOSO100\bob'. Note - if multiple users have the same UPN prefix (for example, 'bob') in your Azure AD tenant, they encounter issues logging in to the domain using the SAMAccountName format. In these cases, the UPN format can be used reliably to log in to the domain.
 
-7. After domain join is successful, you see the following message welcoming you to the domain. You need to restart the virtual machine in order for the domain join operation to complete.
+7. After domain join is successful, you see the following message welcoming you to the domain. Restart the virtual machine for the domain join operation to complete.
 
     ![Welcome to the domain](./media/active-directory-domain-services-admin-guide/join-domain-done.png)
 
@@ -116,7 +116,7 @@ If the virtual machine is unable to find the domain, refer to the following trou
 
 - If the virtual machine is connected to another virtual network, ensure that this virtual network is connected to the virtual network in which you've enabled Domain Services.
 
-- Try to ping the domain using the domain name of the managed domain (eg. 'ping contoso100.com'). If you're unable to do so, try to ping the IP addresses for the domain displayed on the page where you enabled Azure AD Domain Services (for example, 'ping 10.0.0.4'). If you're able to ping the IP address but not the domain, DNS may be incorrectly configured. You may not have configured the IP addresses of the domain as DNS servers for the virtual network.
+- Try to ping the domain using the domain name of the managed domain (for example, 'ping contoso100.com'). If you're unable to do so, try to ping the IP addresses for the domain displayed on the page where you enabled Azure AD Domain Services (for example, 'ping 10.0.0.4'). If you're able to ping the IP address but not the domain, DNS may be incorrectly configured. You may not have configured the IP addresses of the domain as DNS servers for the virtual network.
 
 - Try flushing the DNS resolver cache on the virtual machine ('ipconfig /flushdns').
 
