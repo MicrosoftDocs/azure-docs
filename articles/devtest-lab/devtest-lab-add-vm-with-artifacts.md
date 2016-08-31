@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Add a VM with artifacts to a lab | Microsoft Azure"
-	description="Learn how to add a VM with artifacts in DevTest Labs"
+	pageTitle="Add a VM with artifacts to a lab in Azure DevTest Labs | Microsoft Azure"
+	description="Learn how to add a VM with artifacts in Azure DevTest Labs"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -16,7 +16,7 @@
 	ms.date="08/30/2016"
 	ms.author="tarcher"/>
 
-# Add a VM with artifacts to a lab
+# Add a VM with artifacts to a lab in Azure DevTest Labs
 
 > [AZURE.VIDEO how-to-create-vms-with-artifacts-in-a-devtest-lab]
 
