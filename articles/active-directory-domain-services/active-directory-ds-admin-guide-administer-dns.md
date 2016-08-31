@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="08/31/2016"
 	ms.author="maheshu"/>
 
 # Administer DNS on an Azure AD Domain Services managed domain
@@ -52,7 +52,7 @@ Perform the following steps in order to install the DNS Administration tools on 
 
 2. The classic portal will prompt you to open or save a .rdp file, which is used to connect to the virtual machine. Click on the .rdp file when it has finished downloading.
 
-3. At the login prompt, use the credentials of a user belonging to the 'AAD DC Administrators' group. For example 'bob@domainservicespreview.onmicrosoft.com' in our case.
+3. At the login prompt, use the credentials of a user belonging to the 'AAD DC Administrators' group. For example, we use 'bob@domainservicespreview.onmicrosoft.com' in our case.
 
 4. From the Start screen, open **Server Manager**. Click on **Add Roles and Features** in the central pane of the Server Manager window.
 
@@ -112,8 +112,8 @@ For more information about managing DNS see the [DNS tools article on Technet](h
 
 - [Azure AD Domain Services - Getting Started guide](./active-directory-ds-getting-started.md)
 
-- [Administer an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-domain.md)
-
 - [Join a Windows Server virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
+
+- [Administer an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-domain.md)
 
 - [DNS administration tools](https://technet.microsoft.com/library/cc753579.aspx)

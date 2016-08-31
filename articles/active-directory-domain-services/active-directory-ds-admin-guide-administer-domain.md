@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="08/31/2016"
 	ms.author="maheshu"/>
 
 # Administer an Azure Active Directory Domain Services managed domain
@@ -68,7 +68,7 @@ Azure AD Domain Services managed domains can be managed using familiar Active Di
 The first step is to set up a Windows Server virtual machine that is joined to the managed domain. For instructions to do this, refer to the article titled [join a Windows Server virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md).
 
 ### Remotely administer the managed domain from a client computer (eg. Windows 10)
-Note that the instructions in this article use a Windows Server virtual machine in order to administer the AAD-DS managed domain. However, you can also chose to use a Windows client (eg. Windows 10) virtual machine to do so.
+Note that the instructions in this article use a Windows Server virtual machine in order to administer the AAD-DS managed domain. However, you can also choose to use a Windows client (eg. Windows 10) virtual machine to do so.
 
 You can [install Remote Server Administration Tools (RSAT)](http://social.technet.microsoft.com/wiki/contents/articles/2202.remote-server-administration-tools-rsat-for-windows-client-and-windows-server-dsforum2wiki.aspx) on a Windows client virtual machine by following the instructions on TechNet.
 
@@ -82,7 +82,7 @@ Perform the following steps in order to install the Active Directory Administrat
 
 2. The classic portal will prompt you to open or save a .rdp file, which is used to connect to the virtual machine. Click on the .rdp file when it has finished downloading.
 
-3. At the login prompt, use the credentials of a user belonging to the 'AAD DC Administrators' group. For example 'bob@domainservicespreview.onmicrosoft.com' in our case.
+3. At the login prompt, use the credentials of a user belonging to the 'AAD DC Administrators' group. For example, we use 'bob@domainservicespreview.onmicrosoft.com' in our case.
 
 4. From the Start screen, open **Server Manager**. Click on **Add Roles and Features** in the central pane of the Server Manager window.
 

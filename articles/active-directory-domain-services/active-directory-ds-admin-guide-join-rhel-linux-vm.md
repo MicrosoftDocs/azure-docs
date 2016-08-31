@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="08/31/2016"
 	ms.author="maheshu"/>
 
 # Join a Red Hat Enterprise Linux 7 virtual machine to a managed domain
@@ -38,7 +38,7 @@ Perform the following steps in order to provision a RHEL 7 virtual machine using
 
     ![View image details](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-create-clicked.png)
 
-5. In the **Create VM** pane, enter the **Host Name** for the new virtual machine. Also specify a local administrator user name in the **User name** field and a **Password**. You may also chose to use an SSH key for authenticating the local administrator user. Also select a **Pricing Tier** for the virtual machine.
+5. In the **Create VM** pane, enter the **Host Name** for the new virtual machine. Also specify a local administrator user name in the **User name** field and a **Password**. You may also choose to use an SSH key to authenticate the local administrator user. Also select a **Pricing Tier** for the virtual machine.
 
     ![Create VM - basic details](./media/active-directory-domain-services-admin-guide/rhel-join-azure-portal-create-vm-basic-details.png)
 
@@ -173,7 +173,13 @@ A sample output of these commands is shown below.
 Refer to the [Troubleshooting domain join](active-directory-ds-admin-guide-join-windows-vm.md#troubleshooting-domain-join) article.
 
 
-## More information
-- [How to Log on to a Virtual Machine Running Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md).
+## Related Content
+- [Azure AD Domain Services - Getting Started guide](./active-directory-ds-getting-started.md)
+
+- [Join a Windows Server virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
+
+- [How to log on to a virtual machine running Linux](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md).
+
 - [Installing Kerberos](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
+
 - [Red Hat Enterprise Linux 7 - Windows Integration Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html)

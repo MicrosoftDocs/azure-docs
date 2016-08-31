@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="08/31/2016"
 	ms.author="maheshu"/>
 
 # Join a Windows Server virtual machine to a managed domain
@@ -71,7 +71,7 @@ Perform the following steps in order to connect to the virtual machine.
 
 2. The classic portal will prompt you to open or save a .rdp file, which is used to connect to the virtual machine. Click on the .rdp file when it has finished downloading.
 
-3. At the login prompt, enter your **local administrator credentials** which you specified while creating the virtual machine. For example 'localhost\mahesh' in the above example.
+3. At the login prompt, enter your **local administrator credentials** which you specified while creating the virtual machine. For example, we've used 'localhost\mahesh' in the above example.
 
 At this point, you should be logged in to the newly created Windows virtual machine using local Administrator credentials. The next step is to join the virtual machine to the domain.
 
@@ -133,3 +133,10 @@ Refer to the following steps if you're having trouble with credentials and are u
 - Ensure that you use the UPN of the user as configured in Azure AD (eg. 'bob@domainservicespreview.onmicrosoft.com') in order to sign in.
 
 - Ensure that you have waited long enough for password synchronization to complete as specified in the Getting Started guide.
+
+
+## Related Content
+
+- [Azure AD Domain Services - Getting Started guide](./active-directory-ds-getting-started.md)
+
+- [Administer an Azure AD Domain Services managed domain](./active-directory-ds-admin-guide-administer-domain.md)
