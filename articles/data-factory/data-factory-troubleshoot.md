@@ -17,15 +17,15 @@
 	ms.author="spelluru"/>
 
 # Troubleshoot Data Factory issues
-This article provides troubleshooting tips for issues when using Azure Data Factory. This does not all the possible issues when using the service, but it covers some issues and general troubleshooting tips.   
+This article provides troubleshooting tips for issues when using Azure Data Factory. This article does not list all the possible issues when using the service, but it covers some issues and general troubleshooting tips.   
 
 ## Troubleshooting tips
 
 ### Error: The subscription is not registered to use namespace 'Microsoft.DataFactory'
-If you receive this error, the Azure Data Factory resource provider has not been registered on your machine. Please do the following: 
+If you receive this error, the Azure Data Factory resource provider has not been registered on your machine. Do the following: 
 
 1. Launch Azure PowerShell. 
-2. Login to your Azure account using the following command.
+2. Log in to your Azure account using the following command.
 		Login-AzureRmAccount 
 3. Run the following command to register the Azure Data Factory provider.
 		Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
@@ -35,18 +35,18 @@ You are probably not using the right Azure account or subscription with the Azur
 
 1. Login-AzureRmAccount - Use the right user ID and password
 2. Get-AzureRmSubscription - View all the subscriptions for the account. 
-3. Select-AzureRmSubscription <subscription name> - Select the right subscription. Use the same one you use to create a data factory on the Azure Portal.
+3. Select-AzureRmSubscription &lt;subscription name&gt; - Select the right subscription. Use the same one you use to create a data factory on the Azure portal.
 
-### Problem: Fail to launch Data Management Gateway Express Setup from Azure Portal
+### Problem: Fail to launch Data Management Gateway Express Setup from Azure portal
 The Express setup for the Data Management Gateway requires Internet Explorer or a Microsoft ClickOnce compatible web browser. If the Express Setup fails to start, do one of the following: 
 
-- Please use Internet Explorer or a Microsoft ClickOnce compatible web browser.
+- Use Internet Explorer or a Microsoft ClickOnce compatible web browser.
 
 	If you are using Chrome, go to the [Chrome web store](https://chrome.google.com/webstore/), search with "ClickOnce" keyword, choose one of the ClickOnce extensions, and install it. 
 	
-	You need to do the same for Firefox (install add-in). Click Open Menu button on the toolbar (three horizontal lines in the top-right corner), click Add-ons, search with "ClickOnce" keyword, choose one of the ClickOnce extensions, and install it. 
+	Do the same for Firefox (install add-in). Click Open Menu button on the toolbar (three horizontal lines in the top-right corner), click Add-ons, search with "ClickOnce" keyword, choose one of the ClickOnce extensions, and install it. 
 
-- Use the **Manual Setup** link shown on the same blade in the portal to download installation file and run it manually. After the installation is successful, you will see the Data Management Gateway Configuration dialog box. Copy the **key** from the portal screen and use it in the configuration manager to manually register the gateway with the service.  
+- Use the **Manual Setup** link shown on the same blade in the portal. You use this approach to download installation file and run it manually. After the installation is successful, you see the Data Management Gateway Configuration dialog box. Copy the **key** from the portal screen and use it in the configuration manager to manually register the gateway with the service.  
 
 ### Problem: Fail to connect to on-premises SQL Server 
 Launch **Data Management Gateway Configuration Manager** on the gateway machine and use the **Troubleshooting** tab to test the connection to SQL Server from the gateway machine. See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) for tips on troubleshooting connection/gateway related issues.   
@@ -54,9 +54,9 @@ Launch **Data Management Gateway Configuration Manager** on the gateway machine 
 
 ### Problem: Input slices are in Waiting state for ever
 
-The slices could be in **Waiting** state due to a number of reasons and one of the common reasons is that the **external** property is not set to **true**. Any dataset that is produced outside the scope of Azure Data Factory should be marked with **external** property . This indicates that the data is external and not backed by any pipelines within the data factory. The data slices are marked as **Ready** once the data is available in the respective store. 
+The slices could be in **Waiting** state due to various reasons. One of the common reasons is that the **external** property is not set to **true**. Any dataset that is produced outside the scope of Azure Data Factory should be marked with **external** property. This property indicates that the data is external and not backed by any pipelines within the data factory. The data slices are marked as **Ready** once the data is available in the respective store. 
 
-See the following example for the usage of the **external** property. You can optionally specify **externalData*** when you set external to true.. 
+See the following example for the usage of the **external** property. You can optionally specify **externalData*** when you set external to true.
 
 See [Datasets](data-factory-create-datasets.md) article for more details about this property.
 	
@@ -94,14 +94,14 @@ When using a linked service of type HDInsightOnDemand, you need to specify a lin
 
 		Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'StorageAccountNotColocated'.
 
-This error usually indicates that the location of the storage account specified in the linkedServiceName is not in the same data center location where the HDInsight provisioning is happening. For example, if your Azure Data Factory location is West US, and the on-demand HDInsight provisioning happens in West US, but the Azure blob storage account location  is set to East US, the on-demand provisioning will fail.
+This error usually indicates that the location of the storage account specified in the linkedServiceName is not in the same data center location where the HDInsight provisioning is happening. For example, if your Azure Data Factory is in West US, on-demand HDInsight cluster is provisioned in West US, and the Azure blob storage account is in East US, the on-demand provisioning fails.
 
-Additionally, there is a second JSON property additionalLinkedServiceNames where additional storage accounts may be specified in on-demand HDInsight. Those additional linked storage accounts should be in the same location as the HDInsight cluster, or it will fail with the same error.
+Additionally, there is a second JSON property additionalLinkedServiceNames where additional storage accounts may be specified in on-demand HDInsight. Those additional linked storage accounts should be in the same location as the HDInsight cluster, or it fails with the same error.
 
 ### Problem: Custom .NET activity fails
 See [Debug a pipeline with custom activity](data-factory-use-custom-activities.md#debug-the-pipeline) for detailed steps. 
 
-## Use Azure Portal to troubleshoot 
+## Use Azure portal to troubleshoot 
 
 ### Using portal blades
 See [Monitor pipeline](data-factory-build-your-first-pipeline-using-editor.md#monitor-pipeline) for steps. 
