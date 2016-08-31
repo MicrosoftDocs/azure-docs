@@ -58,7 +58,7 @@ You can add additional owners to a lab via the lab's blade in the [Azure portal]
 However, the added owner's scope of administration is more narrow than the subscription owner's scope. 
 For example, the added owners do not have full access to some of the resources that are created in the subscription by the DevTest Labs service. 
 
-To add an owner to an Azure subscription where you have labs already created or will be creating labs, follow these steps:
+To add an owner to an Azure subscription, follow these steps:
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
@@ -86,7 +86,7 @@ To add an owner to an Azure subscription where you have labs already created or 
 
 1. Select **OK** to close the **Add access** blade.
 
-1. When you return to the **Users** blade, you'll see that the user has been added as an owner. This user is now an owner of any labs created under this subscription, and thus be able to perform owner tasks. 
+1. When you return to the **Users** blade, the user has been added as an owner. This user is now an owner of any labs created under this subscription, and thus be able to perform owner tasks. 
 
 ## Add a DevTest Labs user to a lab
 
