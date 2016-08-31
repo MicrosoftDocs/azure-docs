@@ -36,8 +36,6 @@ If your credit card or debit card was declined when you try to sign up for Azure
 
 - Your card might be inactive or blocked. If you are indeed using a valid credit card or debit card, make sure that the card is active and your bank is not blocking online transactions due to its security policies. Contact your bank to resolve this issue.
 
-> [AZURE.NOTE] 
-
 ## Credit or debit card details
 
 Follow the steps below to make sure your credit or debit card information is valid:
