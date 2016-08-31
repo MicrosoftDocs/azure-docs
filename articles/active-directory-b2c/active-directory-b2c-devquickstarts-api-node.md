@@ -75,7 +75,7 @@ The completed app is also [available as a .zip file](https://github.com/AzureADQ
 
 ## Download Node.js for your platform
 
-To successfully use this sample, you must have a working installation of Node.js.
+To successfully use this sample, you must have a working installation of Node.js. 
 
 Install Node.js from [nodejs.org](http://nodejs.org).
 
@@ -203,7 +203,6 @@ passport-azure-ad@1.0.0 node_modules/passport-azure-ad
 You will use MongoDB as your data store. For that reason, you need to install both Mongoose, a widely used plug-in for managing models and schemas, and the database driver for MongoDB, also called MongoDB.
 
 * `npm install mongoose`
-* `npm install mongodb`
 
 ## Install additional modules
 
@@ -215,25 +214,11 @@ From the command line, change your directory to `azuread`, if it's not already t
 
 Enter the following commands to install the modules in your `node_modules` directory:
 
-* `npm install crypto`
 * `npm install assert-plus`
-* `npm install posix-getopt`
-* `npm install util`
-* `npm install path`
-* `npm install connect`
-* `npm install xml-crypto`
-* `npm install xml2js`
-* `npm install xmldom`
-* `npm install async`
-* `npm install request`
-* `npm install underscore`
-* `npm install grunt-contrib-jshint@0.1.1`
-* `npm install grunt-contrib-nodeunit@0.1.2`
-* `npm install grunt-contrib-watch@0.2.0`
-* `npm install grunt@0.4.1`
-* `npm install xtend@2.0.3`
+* `npm install ejs`
+* `npm install ejs-locals`
+* `npm install express`
 * `npm install bunyan`
-* `npm update`
 
 
 ## Create a server.js file with your dependencies
@@ -278,11 +263,13 @@ Create a `config.js` file in an editor. Add the following information:
 ```Javascript
 // Don't commit this file to your public repos. This config is for first-run
 exports.creds = {
+clientID: <your client ID for this Web API you created in the portal>
 mongoose_auth_local: 'mongodb://localhost/tasklist', // Your mongo auth uri goes here
-audience: '<your audience URI>',
-identityMetadata: 'https://login.microsoftonline.com/common/.well-known/openid-configuration', // For using Microsoft you should never need to change this.
-tenantName:'<tenant name>',
-policyName:'b2c_1_<sign in policy name>',
+audience: '<your audience URI>', // the Client ID of the application that is calling your API, usually a web API or native client
+identityMetadata: 'https://login.microsoftonline.com/<tenant name>/.well-known/openid-configuration', // Make sure you add the B2C tenant name in the <tenant name> area
+tenantName:'<tenant name>', 
+policyName:'b2c_1_<sign in policy name>' // This is the policy you'll want to validate against in B2C. Usually this is your Sign-in policy (as users sign in to this API)
+passReqToCallback: false // This is a node.js construct that lets you pass the req all the way back to any upstream caller. We turn this off as there is no upstream caller.
 };
 
 ```
@@ -291,9 +278,11 @@ policyName:'b2c_1_<sign in policy name>',
 
 ### Required values
 
+`clientID`: The client ID of your Web API application.
+
 `IdentityMetadata`: This is where `passport-azure-ad` will look for your configuration data for the identity provider. It will also look here for the keys to validate the JSON web tokens. You probably don't want to change this if you use Azure AD.
 
-`audience`: The uniform resource identifier (URI) from the portal that identifies your service. Our sample uses  `http://localhost/TodoListService`.
+`audience`: The uniform resource identifier (URI) from the portal that identifies your calling application. 
 
 `tenantName`: Your tenant name (for example, **contoso.onmicrosoft.com**).
 
@@ -318,21 +307,34 @@ Add a new section to `server.js` that includes the following code:
 
 ```Javascript
 // We pass these options in to the ODICBearerStrategy.
+
 var options = {
-// The URL of the metadata document for your app. We will put the keys for token validation from the URL found in the jwks_uri tag of the in the metadata.
+    // The URL of the metadata document for your app. We will put the keys for token validation from the URL found in the jwks_uri tag of the in the metadata.
     identityMetadata: config.creds.identityMetadata,
     clientID: config.creds.clientID,
     tenantName: config.creds.tenantName,
     policyName: config.creds.policyName,
     validateIssuer: config.creds.validateIssuer,
-    audience: config.creds.audience
+    audience: config.creds.audience,
+    passReqToCallback: config.creds.passReqToCallback
+
 };
-// array to hold logged-in users and the current logged-in user (owner)
+```
+
+Next, let's add some placeholders for the users we will receive from our calling applications.
+
+```Javascript
+// array to hold logged in users and the current logged in user (owner)
 var users = [];
 var owner = null;
+```
+
+Let's go ahead and create our logger too.
+
+```Javascript
 // Our logger
 var log = bunyan.createLogger({
-name: 'Microsoft Azure Active Directory Sample'
+    name: 'Windows Azure Active Directory Sample'
 });
 ```
 
@@ -350,9 +352,9 @@ After you tell the server which MongoDB database to use, you need to write some 
 
 This schema model is very simple. You can expand it as required.
 
-`name`: Who is assigned to the task. This is a **string**.
+`owner`: Who is assigned to the task. This is a **string**. We will use the unique identifier of your users for this. This ensures users don't see each other's tasks.
 
-`task`: The task itself. This is a **string**.
+`Text`: The task itself. This is a **string**.
 
 `date`: The date that the task is due. This is a **datetime**.
 
@@ -368,28 +370,23 @@ Open the `server.js` file in an editor. Add the following information below the 
 
 ```Javascript
 // MongoDB setup
-// Set up some configuration
-var serverPort = process.env.PORT || 8080;
+// Setup some configuration
+var serverPort = process.env.PORT || 3000; // Note we are hosting our API on port 3000
 var serverURI = (process.env.PORT) ? config.creds.mongoose_auth_mongohq : config.creds.mongoose_auth_local;
+
 // Connect to MongoDB
 global.db = mongoose.connect(serverURI);
 var Schema = mongoose.Schema;
 log.info('MongoDB Schema loaded');
-```
-This will connect to the MongoDB server and hand back a schema object.
 
-### Use the schema to create the model in the code
-
-Below the code you wrote above, add the following code:
-
-```Javascript
 // Here we create a schema to store our tasks and users. Pretty simple schema for now.
 var TaskSchema = new Schema({
-owner: String,
-task: String,
-completed: Boolean,
-date: Date
+    owner: String,
+    Text: String,
+    completed: Boolean,
+    date: Date
 });
+
 // Use the schema to register a model
 mongoose.model('Task', TaskSchema);
 var Task = mongoose.model('Task');
@@ -421,7 +418,7 @@ This is the pattern at its most basic level. Restify and Express can provide muc
 
 #### Add default routes to your server
 
-You will now add the basic CRUD routes of **create**, **retrieve**, **update**, and **delete**.
+You will now add the basic CRUD routes of **create** and **list** for our REST API. Other routes can be found in the `complete` branch of the sample.
 
 From the command line, change your directory to `azuread`, if it's not already there:
 
@@ -431,103 +428,90 @@ Open the `server.js` file in an editor. Add the following information below the 
 
 ```Javascript
 /**
-*
-* APIs for our REST task server
-*/
+ *
+ * APIs for our REST Task server
+ */
+
 // Create a task
+
 function createTask(req, res, next) {
-// Restify currently has a bug that doesn't allow you to set default headers
-// The headers comply with CORS and allow us to mongodbServer our response to any origin
-res.header("Access-Control-Allow-Origin", "*");
-res.header("Access-Control-Allow-Headers", "X-Requested-With");
-// Create a new task model, fill it up and save it to Mongodb
-var _task = new Task();
-if (!req.params.task) {
-req.log.warn({
-params: p
-}, 'createTodo: missing task');
-next(new MissingTaskError());
-return;
-}
-_task.owner = owner;
-_task.task = req.params.task;
-_task.date = new Date();
-_task.save(function(err) {
-if (err) {
-req.log.warn(err, 'createTask: unable to save');
-next(err);
-} else {
-res.send(201, _task);
-}
-});
-return next();
-}
-// Delete a task by name
-function removeTask(req, res, next) {
-Task.remove({
-task: req.params.task,
-owner: owner
-}, function(err) {
-if (err) {
-req.log.warn(err,
-'removeTask: unable to delete %s',
-req.params.task);
-next(err);
-} else {
-log.info('Deleted task:', req.params.task);
-res.send(204);
-next();
-}
-});
-}
-// Delete all tasks
-function removeAll(req, res, next) {
-Task.remove();
-res.send(204);
-return next();
-}
-// Get a specific task based on name
-function getTask(req, res, next) {
-log.info('getTask was called for: ', owner);
-Task.find({
-owner: owner
-}, function(err, data) {
-if (err) {
-req.log.warn(err, 'get: unable to read %s', owner);
-next(err);
-return;
-}
-res.json(data);
-});
-return next();
-}
-/// Simple returns the list of TODOs that were loaded.
-function listTasks(req, res, next) {
-// Restify currently has a bug that doesn't allow you to set default headers
-// The headers comply with CORS and allow us to mongodbServer our response to any origin
-res.header("Access-Control-Allow-Origin", "*");
-res.header("Access-Control-Allow-Headers", "X-Requested-With");
-log.info("listTasks was called for: ", owner);
-Task.find({
-owner: owner
-}).limit(20).sort('date').exec(function(err, data) {
-if (err)
-return next(err);
-if (data.length > 0) {
-log.info(data);
-}
-if (!data.length) {
-log.warn(err, "There is no tasks in the database. Add one!");
-}
-if (!owner) {
-log.warn(err, "You did not pass an owner when listing tasks.");
-} else {
-res.json(data);
-}
-});
-return next();
+
+    // Resitify currently has a bug which doesn't allow you to set default headers
+    // This headers comply with CORS and allow us to mongodbServer our response to any origin
+
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+
+    // Create a new task model, fill it up and save it to Mongodb
+    var _task = new Task();
+
+    if (!req.params.Text) {
+        req.log.warn({
+            params: req.params
+        }, 'createTodo: missing task');
+        next(new MissingTaskError());
+        return;
+    }
+
+    _task.owner = owner;
+    _task.Text = req.params.Text;
+    _task.date = new Date();
+
+    _task.save(function(err) {
+        if (err) {
+            req.log.warn(err, 'createTask: unable to save');
+            next(err);
+        } else {
+            res.send(201, _task);
+
+        }
+    });
+
+    return next();
+
 }
 ```
+
+```Javascript
+/// Simple returns the list of TODOs that were loaded.
+
+function listTasks(req, res, next) {
+    // Resitify currently has a bug which doesn't allow you to set default headers
+    // This headers comply with CORS and allow us to mongodbServer our response to any origin
+
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+
+    log.info("listTasks was called for: ", owner);
+
+    Task.find({
+        owner: owner
+    }).limit(20).sort('date').exec(function(err, data) {
+
+        if (err)
+            return next(err);
+
+        if (data.length > 0) {
+            log.info(data);
+        }
+
+        if (!data.length) {
+            log.warn(err, "There is no tasks in the database. Add one!");
+        }
+
+        if (!owner) {
+            log.warn(err, "You did not pass an owner when listing tasks.");
+        } else {
+
+            res.json(data);
+
+        }
+    });
+
+    return next();
+}
+```
+
 
 #### Add error handling for the routes
 
@@ -579,148 +563,125 @@ You have now defined your database and put your routes in place. The last thing 
 Restify and Express provide deep customization for a REST API server, but you will use the most basic setup here.
 
 ```Javascript
-/**
-* Our server
-*/
+
+**
+ * Our Server
+ */
+
+
 var server = restify.createServer({
-name: "Microsoft Azure Active Directory TODO Server",
-version: "2.0.1"
+    name: "Windows Azure Active Directroy TODO Server",
+    version: "2.0.1"
 });
-// Ensure that we don't drop data on uploads
+
+// Ensure we don't drop data on uploads
 server.pre(restify.pre.pause());
+
 // Clean up sloppy paths like //todo//////1//
 server.pre(restify.pre.sanitizePath());
-// Handle annoying user agents (curl)
+
+// Handles annoying user agents (curl)
 server.pre(restify.pre.userAgentConnection());
+
 // Set a per request bunyan logger (with requestid filled in)
 server.use(restify.requestLogger());
-// Allow five requests/second by IP, and burst to 10
+
+// Allow 5 requests/second by IP, and burst to 10
 server.use(restify.throttle({
-burst: 10,
-rate: 5,
-ip: true,
+    burst: 10,
+    rate: 5,
+    ip: true,
 }));
+
 // Use the common stuff you probably want
 server.use(restify.acceptParser(server.acceptable));
 server.use(restify.dateParser());
 server.use(restify.queryParser());
 server.use(restify.gzipResponse());
 server.use(restify.bodyParser({
-mapParams: true
-}));
+    mapParams: true
+})); // Allows for JSON mapping to REST
+server.use(restify.authorizationParser()); // Looks for authorization headers
+
+// Let's start using Passport.js
+
+server.use(passport.initialize()); // Starts passport
+server.use(passport.session()); // Provides session support
+
+
 ```
 ## Add the routes to the server (without authentication)
 
 ```Javascript
-/// Now the real handlers. Here we just CRUD
-/**
-/*
-/* Each of these handlers is protected by our OIDCBearerStrategy by invoking 'oidc-bearer'
-/* in the passport.authenticate() method. We set 'session: false' as REST is stateless and
-/* we don't need to maintain session state. You can experiment with removing API protection
-/* by removing the passport.authenticate() method like this:
-/*
-/* server.get('/tasks', listTasks);
-/*
-**/
-server.get('/tasks', listTasks);
-server.get('/tasks', listTasks);
-server.get('/tasks/:owner', getTask);
-server.head('/tasks/:owner', getTask);
-server.post('/tasks/:owner/:task', createTask);
-server.post('/tasks', createTask);
-server.del('/tasks/:owner/:task', removeTask);
-server.del('/tasks/:owner', removeTask);
-server.del('/tasks', removeTask);
-server.del('/tasks', removeAll, function respond(req, res, next) {
-res.send(204);
-next();
+server.get('/api/tasks', passport.authenticate('oauth-bearer', {
+    session: false
+}), listTasks);
+server.get('/api/tasks', passport.authenticate('oauth-bearer', {
+    session: false
+}), listTasks);
+server.get('/api/tasks/:owner', passport.authenticate('oauth-bearer', {
+    session: false
+}), getTask);
+server.head('/api/tasks/:owner', passport.authenticate('oauth-bearer', {
+    session: false
+}), getTask);
+server.post('/api/tasks/:owner/:task', passport.authenticate('oauth-bearer', {
+    session: false
+}), createTask);
+server.post('/api/tasks', passport.authenticate('oauth-bearer', {
+    session: false
+}), createTask);
+server.del('/api/tasks/:owner/:task', passport.authenticate('oauth-bearer', {
+    session: false
+}), removeTask);
+server.del('/api/tasks/:owner', passport.authenticate('oauth-bearer', {
+    session: false
+}), removeTask);
+server.del('/api/tasks', passport.authenticate('oauth-bearer', {
+    session: false
+}), removeTask);
+server.del('/api/tasks', passport.authenticate('oauth-bearer', {
+    session: false
+}), removeAll, function respond(req, res, next) {
+    res.send(204);
+    next();
 });
+
+
 // Register a default '/' handler
+
 server.get('/', function root(req, res, next) {
-var routes = [
-'GET /',
-'POST /tasks/:owner/:task',
-'POST /tasks (for JSON body)',
-'GET /tasks',
-'PUT /tasks/:owner',
-'GET /tasks/:owner',
-'DELETE /tasks/:owner/:task'
-];
-res.send(200, routes);
-next();
+    var routes = [
+        'GET     /',
+        'POST    /api/tasks/:owner/:task',
+        'POST    /api/tasks (for JSON body)',
+        'GET     /api/tasks',
+        'PUT     /api/tasks/:owner',
+        'GET     /api/tasks/:owner',
+        'DELETE  /api/tasks/:owner/:task'
+    ];
+    res.send(200, routes);
+    next();
 });
+```
+
+```Javascript
+
 server.listen(serverPort, function() {
-var consoleMessage = '\n Microsoft Azure Active Directory Tutorial';
-consoleMessage += '\n +++++++++++++++++++++++++++++++++++++++++++++++++++++';
-consoleMessage += '\n %s server is listening at %s';
-consoleMessage += '\n Open your browser to %s/tasks\n';
-consoleMessage += '+++++++++++++++++++++++++++++++++++++++++++++++++++++ \n';
-consoleMessage += '\n !!! why not try a $curl -isS %s | json to get some ideas? \n';
-consoleMessage += '+++++++++++++++++++++++++++++++++++++++++++++++++++++ \n\n';
+
+    var consoleMessage = '\n Windows Azure Active Directory Tutorial';
+    consoleMessage += '\n +++++++++++++++++++++++++++++++++++++++++++++++++++++';
+    consoleMessage += '\n %s server is listening at %s';
+    consoleMessage += '\n Open your browser to %s/api/tasks\n';
+    consoleMessage += '+++++++++++++++++++++++++++++++++++++++++++++++++++++ \n';
+    consoleMessage += '\n !!! why not try a $curl -isS %s | json to get some ideas? \n';
+    consoleMessage += '+++++++++++++++++++++++++++++++++++++++++++++++++++++ \n\n';
+
+    //log.info(consoleMessage, server.name, server.url, server.url, server.url);
+
 });
-```
-## Run the server before you add OAuth support
 
-You should test your server before you add authentication.
-
-The easiest way to do this is by using `curl` in a command line. But before you do that, you need a simple utility that allows you to parse output as JSON. First, install the JSON tool.
-
-`$npm install -g jsontool`
-
-This installs the JSON tool globally. After you install the JSON tool, test the server:
-
-Make sure that your MongoDB instance is running.
-
-`$sudo mongodb`
-
-Change to the `azuread` directory and use `curl`.
-
-`$ cd azuread`
-`$ node server.js`
-
-`$ curl -isS http://127.0.0.1:8080 | json`
-
-```Shell
-HTTP/1.1 200 OK
-Connection: close
-Content-Type: application/json
-Content-Length: 171
-Date: Tue, 14 Jul 2015 05:43:38 GMT
-[
-"GET /",
-"POST /tasks/:owner/:task",
-"POST /tasks (for JSON body)",
-"GET /tasks",
-"PUT /tasks/:owner",
-"GET /tasks/:owner",
-"DELETE /tasks/:owner/:task"
-]
-```
-
-Add a task:
-
-`$ curl -isS -X POST http://127.0.0.1:8080/tasks/brandon/Hello`
-
-The response should be:
-
-```Shell
-HTTP/1.1 201 Created
-Connection: close
-Access-Control-Allow-Origin: *
-Access-Control-Allow-Headers: X-Requested-With
-Content-Type: application/x-www-form-urlencoded
-Content-Length: 5
-Date: Tue, 04 Feb 2014 01:02:26 GMT
-Hello
-```
-You can list tasks for the user "Brandon" this way:
-
-`$ curl -isS http://127.0.0.1:8080/tasks/brandon/`
-
-If this works out, you are ready to add OAuth to the REST API server.
-
-You have a REST API server with MongoDB.
+``` 
 
 ## Add authentication to your REST API server
 
@@ -732,62 +693,46 @@ From the command line, change your directory to `azuread`, if it's not already t
 
 ### Use the OIDCBearerStrategy that is included with passport-azure-ad
 
-So far, you have built a typical REST ToDo server without any kind of authorization. Now you can start to put together the authorization.
-
-First, you need to indicate that you want to use Passport. Add this directly below your other server configuration:
-
-```Javascript
-// Let's start using Passport.js
-
-server.use(passport.initialize()); // Starts Passport
-server.use(passport.session()); // Provides session support
-```
 
 > [AZURE.TIP]
-When you write APIs, you should always link the data to something unique from the token that the user can’t spoof. When the server stores ToDo items, it does so based on the **Object ID** of the user in the token (called through token.oid) which goes in in the “owner” field. This ensures that only the user can access his ToDo items, and that no one else can access the ToDo items that have been entered. There is no exposure in the API of “owner,” so an external user can request others’ ToDo items even if they are authenticated.
+When you write APIs, you should always link the data to something unique from the token that the user can’t spoof. When the server stores ToDo items, it does so based on the **oid** of the user in the token (called through token.oid) which goes in in the “owner” field. This ensures that only the user can access his ToDo items, and that no one else can access the ToDo items that have been entered. There is no exposure in the API of “owner,” so an external user can request others’ ToDo items even if they are authenticated.
 
 Next, use the bearer strategy that comes with `passport-azure-ad`. (We'll just look at the code for now.) Put this after what you pated above:
 
 ```Javascript
-/**
-/*
-/* Calling the OIDCBearerStrategy and managing users
-/*
-/* Passport pattern provides the need to manage users and info tokens
-/* with a FindorCreate() method that must be provided by the implementer.
-/* Here we just autoregister any user and implement a FindById().
-/* You'll want to do something smarter.
-**/
 var findById = function(id, fn) {
-for (var i = 0, len = users.length; i < len; i++) {
-var user = users[i];
-if (user.sub === id) {
-log.info('Found user: ', user);
-return fn(null, user);
-}
-}
-return fn(null, null);
+    for (var i = 0, len = users.length; i < len; i++) {
+        var user = users[i];
+        if (user.oid === id) {
+            log.info('Found user: ', user);
+            return fn(null, user);
+        }
+    }
+    return fn(null, null);
 };
+
+
 var oidcStrategy = new OIDCBearerStrategy(options,
-function(token, done) {
-log.info('verifying the user');
-log.info(token, 'was the token retrieved');
-findById(token.sub, function(err, user) {
-if (err) {
-return done(err);
-}
-if (!user) {
-// "Auto-registration"
-log.info('User was added automatically as they were new. Their sub is: ', token.sub);
-users.push(token);
-owner = token.sub;
-return done(null, token);
-}
-owner = token.sub;
-return done(null, user, token);
-});
-}
+    function(token, done) {
+        log.info('verifying the user');
+        log.info(token, 'was the token retreived');
+        findById(token.sub, function(err, user) {
+            if (err) {
+                return done(err);
+            }
+            if (!user) {
+                // "Auto-registration"
+                log.info('User was added automatically as they were new. Their sub is: ', token.oid);
+                users.push(token);
+                owner = token.oid;
+                return done(null, token);
+            }
+            owner = token.sub;
+            return done(null, user, token);
+        });
+    }
 );
+
 passport.use(oidcStrategy);
 ```
 
@@ -796,49 +741,9 @@ Passport uses a pattern for all of its strategies (including Twitter and Faceboo
 > [AZURE.IMPORTANT]
 The code above takes any user who happens to authenticate to your server. This is known as autoregistration. In production servers, you wouldn’t want to let in any users without first having them go through a registration process you have decided on. This is usually the pattern you see in consumer apps that allow you to register by using Facebook but then ask you to fill out additional information. If this wasn’t a command-line program, we could have extracted the email from the token object that is returned and then asked users to fill out additional information. Because this is a test server, we simply add them to the in-memory database.
 
-### Protect endpoints
 
-You protect endpoints when you specify the `passport.authenticate()` call by using the protocol you want to use.
 
-You can edit the route in your server code to do something more interesting:
-
-```Javascript
-server.get('/tasks', passport.authenticate('oauth-bearer', {
-session: false
-}), listTasks);
-server.get('/tasks', passport.authenticate('oauth-bearer', {
-session: false
-}), listTasks);
-server.get('/tasks/:owner', passport.authenticate('oauth-bearer', {
-session: false
-}), getTask);
-server.head('/tasks/:owner', passport.authenticate('oauth-bearer', {
-session: false
-}), getTask);
-server.post('/tasks/:owner/:task', passport.authenticate('oauth-bearer', {
-session: false
-}), createTask);
-server.post('/tasks', passport.authenticate('oauth-bearer', {
-session: false
-}), createTask);
-server.del('/tasks/:owner/:task', passport.authenticate('oauth-bearer', {
-session: false
-}), removeTask);
-server.del('/tasks/:owner', passport.authenticate('oauth-bearer', {
-session: false
-}), removeTask);
-server.del('/tasks', passport.authenticate('oauth-bearer', {
-session: false
-}), removeTask);
-server.del('/tasks', passport.authenticate('oauth-bearer', {
-session: false
-}), removeAll, function respond(req, res, next) {
-res.send(204);
-next();
-});
-```
-
-## Run your server application again to verify that it rejects you
+## Run your server application again verify that it rejects you
 
 You can use `curl` again to see if you now have OAuth2 protection against your endpoints. Do this before you run any of your our client SDKs against this endpoint. The headers that are returned should be enough to tell you that you are on the right path.
 
@@ -853,7 +758,7 @@ Change to the directory and use `curl`:
 
 Try a basic POST:
 
-`$ curl -isS -X POST http://127.0.0.1:8080/tasks/brandon/Hello`
+`$ curl -isS -X POST http://127.0.0.1:3000/api/tasks/brandon/Hello`
 
 ```Shell
 HTTP/1.1 401 Unauthorized
@@ -871,10 +776,6 @@ A 401 error is the response you want. It indicates that the Passport layer is tr
 You have gone as far as you can with this server without using an OAuth2-compatible client. For that, you will need an additional walk-through.
 
 If you are looking just for information on how to implement a REST API by using Restify and OAuth2, you now have sufficient code so that you can continue to develop your service and build on this example.
-
-For reference, the completed sample (without your configuration values) [is provided as a .zip file](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs/archive/complete.zip). You can also clone it from GitHub:
-
-```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git```
 
 
 ## Next steps
