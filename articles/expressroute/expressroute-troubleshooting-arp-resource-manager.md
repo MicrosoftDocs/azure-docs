@@ -51,7 +51,7 @@ The following section provides information on how you can view the ARP tables se
 Ensure that you have the following before you progress further
 
  - A Valid ExpressRoute circuit configured with at least one peering. The circuit must be fully configured by the connectivity provider. You (or your connectivity provider) must have configured at least one of the peerings (Azure private, Azure public and Microsoft) on this circuit.
- - IP address ranges used for configuring the peerings (Azure private, Azure public and Microsoft). Review the ip address assignment examples in the [ExpressRoute routing requirements page](expressroute-routing.md) to get an understanding of how ip addresses are mapped to interfaces on your aise and on the ExpressRoute side. You can get information on the peering configuration by reviewing the [ExpressRoute peering configuration page](expressroute-howto-routing-arm.md).
+ - IP address ranges used for configuring the peerings (Azure private, Azure public and Microsoft). Review the ip address assignment examples in the [ExpressRoute routing requirements page](expressroute-routing.md) to get an understanding of how ip addresses are mapped to interfaces on your side and on the ExpressRoute side. You can get information on the peering configuration by reviewing the [ExpressRoute peering configuration page](expressroute-howto-routing-arm.md).
  - Information from your networking team / connectivity provider on the MAC addresses of interfaces used with these IP addresses.
  - You must have the latest PowerShell module for Azure (version 1.50 or newer).
 
@@ -141,7 +141,7 @@ The ARP table of a peering can be used to determine validate layer 2 configurati
 
 ### ARP table when on-premises / connectivity provider side has problems
 
- - Only one entry will appear int he ARP table. This will show the mapping between the MAC address and IP address used in the Microsoft side. 
+ - Only one entry will appear in the ARP table. This will show the mapping between the MAC address and IP address used in the Microsoft side. 
 
 		Age InterfaceProperty IpAddress  MacAddress    
 		--- ----------------- ---------  ----------    
