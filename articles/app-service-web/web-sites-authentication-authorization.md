@@ -25,7 +25,7 @@ but there are ways to authenticate on-premises AD users securely.
 ## Authenticate through Azure Active Directory
 An Azure Active Directory tenant can be directory-synced with an on-premises AD. This approach enables AD users to
 access your App from the internet and authenticate using their on-premises credentials. Furthermore, Azure App 
-Service provides a [turn-key solution for this method](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md). 
+Service provides a [turn-key solution for this method](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md). 
 With a few clicks of a button, you can enable authentication with a directory-synced tenant for your Azure app. This
 approach has the following advantages:
 
