@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/29/2016"
+	ms.date="08/31/2016"
 	ms.author="micurd"/>
 
 # How to use Blob Storage from Xamarin
@@ -69,8 +69,8 @@ Next, you'll add some code to the shared class `MyClass.cs` that creates a conta
 		        // Retrieve reference to a previously created container.
 		        CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-						// Create the container if it doesn't already exist.
-            container.CreateIfNotExistsAsync();
+				// Create the container if it doesn't already exist.
+            	container.CreateIfNotExistsAsync();
 
 		        // Retrieve reference to a blob named "myblob".
 		        CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob");
@@ -111,7 +111,7 @@ Make sure to replace "your_account_name_here" and "your_account_key_here" with y
 					button.Text = string.Format ("{0} clicks!", count++);
 				};
 
-	            MyClass.createContainerAndUpload();
+	      	  MyClass.createContainerAndUpload();
 			}
 		}
 	}
@@ -142,7 +142,7 @@ Make sure to replace "your_account_name_here" and "your_account_key_here" with y
 				};
 
 	            MyClass.createContainerAndUpload();
-	        }
+	    	}
 
 			public override void DidReceiveMemoryWarning ()
 			{
