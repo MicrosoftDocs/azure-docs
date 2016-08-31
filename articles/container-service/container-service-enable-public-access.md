@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Enable Public Access to Azure Container Service| Microsoft Azure"
+   pageTitle="Enable Public Access to an ACS app | Microsoft Azure"
    description="How to enable public access to an Azure Container Service."
    services="container-service"
    documentationCenter=""
@@ -18,16 +18,16 @@
    ms.date="08/26/2016"
    ms.author="adegeo"/>
 
-# Public access to an Azure Container Service
+# Enable public access to an Azure Container Service application
 
-By default, DC/OS deploys services of a container service in a private agent pool. If you [deploy services to a public](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) agent pool, you must open access to it to make it publically available. For example, if you deployed the Marathon Load Balancer service to the public agent pool, it would be available on port 9090. You may want to open a different port.
+Any DC/OS container in the ACS [public agent pool](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) is automatically exposed to the internet. By default, ports **80**, **443**, **8080** are opened, and any (public) container listening on those ports will be accessible. This article shows you how to open more ports for your applications in Azure Container Service.
 
 ## Open a port (portal) 
 
 First, we need to open the port we want.
 
 1. Log in to the portal.
-2. Find the resource group that you deployed the container service to.
+2. Find the resource group that you deployed the Azure Container Service to.
 3. Select the agent load balancer (which is named similar to **XXXX-agent-lb-XXXX**).
 
     ![Azure container service load balancer](media/container-service-dcos-agents/agent-load-balancer.png)
@@ -47,7 +47,7 @@ First, we need to open the port we want.
 Next, we need to add a security rule that routes traffic from our opened port through the firewall.
 
 1. Log in to the portal.
-2. Find the resource group that you deployed the container service to.
+2. Find the resource group that you deployed the Azure Container Service to.
 3. Select the **public** agent network security group (which is named similar to **XXXX-agent-public-nsg-XXXX**).
 
     ![Azure container service network security group](media/container-service-dcos-agents/agent-nsg.png)
