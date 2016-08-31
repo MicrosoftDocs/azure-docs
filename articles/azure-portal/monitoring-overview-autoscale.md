@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Overview of autoscale in Microsoft Azure Virtual Machines, Cloud Services and Web Apps | Microsoft Azure"
+	pageTitle="Overview of autoscale in Microsoft Azure Virtual Machines, Cloud Services, and Web Apps | Microsoft Azure"
 	description="Overview of autoscaling in Microsoft Azure. Applies to Virtual Machines, Cloud Services and Web Apps."
 	authors="rboucher"
 	manager=""
@@ -16,7 +16,7 @@
 	ms.date="08/30/2016"
 	ms.author="robb"/>
 
-# Overview of autoscale in Microsoft Azure Virtual Machines, Cloud Services and Web Apps
+# Overview of autoscale in Microsoft Azure Virtual Machines, Cloud Services, and Web Apps
 
 This article describes what Microsoft Azure autoscaling is, its benefits, and starts you on the path to using it. 
 
@@ -88,7 +88,7 @@ Autoscaling rules have the following structure in an Azure Resource Manager temp
 
 ![Azure Resource Manager Autoscale Rule Structure](./media/monitoring-autoscale-overview/AzureResourceManagerRuleStructure2.png)
 
-You can list multiple profiles.  Each profile can have multiple rules. Notification methods and locations  are included after your profiles. Notification examples include a webhook with the URI, or emails with the email addresses.
+You can list multiple profiles. Each profile can have multiple rules. Notification methods and locations are included after your profiles. Notification examples include a webhook with the URI, or emails with the email addresses.
 
 For code examples, see
 
@@ -114,7 +114,7 @@ You can set up autoscale rules via
 
 ## Next steps
 
-Use one of the Autoscale Walkthroughs listed previously or refer to these other resources to learn more about autoscaling.  
+To learn more about autoscaling, use the Autoscale Walkthroughs listed previously or refer to the following resources: 
 
 - [Azure Insights autoscaling common metrics](insights-autoscale-common-metrics.md)
 - [Best practices for Azure Insights autoscaling](insights-autoscale-best-practices.md)
