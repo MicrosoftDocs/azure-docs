@@ -452,7 +452,7 @@ Properties available in the typeProperties section of the activity on the other 
 > 
 > **skipHeaderLineCount** - Indicates how many lines need be skipped. It is applicable only when input dataset is using TextFormat. 
 > 
-> Datasets now support a property called **skipLineCount**. See [Specifying TextFormat](#specifying-textformat) section for details. We recommend using the skipLineCount property on the dataset rather than using this property. This property on BlobSource is kept for backward compatibility. 
+> Datasets now supports two properties: **firstRowAsHeader** and **skipLineCount**. See [Specifying TextFormat](#specifying-textformat) section for details. We recommend using the skipLineCount property on the dataset rather than using this property. This property on BlobSource is kept for backward compatibility. 
 
 **BlobSink** supports the following properties **typeProperties** section:
 
