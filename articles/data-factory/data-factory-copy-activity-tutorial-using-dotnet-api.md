@@ -106,7 +106,7 @@ You should have following four values from these steps:
 		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
 6. Add the following **appSetttings** section to the **App.config** file. These settings are used by the helper method: **GetAuthorizationHeader**. 
 
-	Replace values for **&lt;Application ID&gt;**, **&lt;Password&gt;**, **&lt;Subscription ID&gt;**, and **&lt;tenant ID**&gt; with your own values. 
+	Replace values for **&lt;Application ID&gt;**, **&lt;Password&gt;**, **&lt;Subscription ID&gt;**, and **&lt;tenant ID&gt;** with your own values. 
 
 		<appSettings>
 		    <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
