@@ -20,7 +20,7 @@
 # Troubleshoot Azure sign-up issues
 This article will help you troubleshoot common causes of issues that can occur when you sign up for Azure.
 
-> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) to get your issue resolved quickly.
+> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
 ## I am getting an error when entering my information to sign up.
 Is the account profile information correct?
@@ -84,4 +84,4 @@ Have you already used an Azure subscription in the past? The Azure Terms of Use 
 Suggestions:
 - If you already activated an Azure subscription in the past and free trial activation fails, please consider purchasing a Pay-As-You-Go subscription. You may also be eligible for a benefit offer. Learn more at the [Microsoft Azure offer details page](https://azure.microsoft.com/support/legal/offer-details/) instead of Azure Free Trial plan. Please note that benefit plans require specific prerequisites.
 
-> [AZURE.NOTE] If you still have further questions, please [contact support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) to get your issue resolved quickly.
+> [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
