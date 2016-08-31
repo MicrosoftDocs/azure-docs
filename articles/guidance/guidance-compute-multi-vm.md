@@ -506,14 +506,14 @@ To run the script that deploys the solution:
 [vm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_0/
 [ARM-Templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
 [VM-sizes]: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/
-[solution-script]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-compute-multi-vm/Deploy-ReferenceArchitecture.ps1
-[solution-script-bash]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-compute-multi-vm/deploy-reference-architecture.sh
-[vnet-parameters-windows]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-compute-multi-vm/parameters/windows/virtualNetwork.parameters.json
-[nsg-parameters-windows]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-compute-multi-vm/parameters/windows/networkSecurityGroups.parameters.json
-[loadbalancer-parameters-windows]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-compute-multi-vm/parameters/windows/loadBalancer.parameters.json
-[vnet-parameters-linux]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-compute-multi-vm/parameters/linux/virtualNetwork.parameters.json
-[nsg-parameters-linux]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-compute-multi-vm/parameters/linux/networkSecurityGroups.parameters.json
-[loadbalancer-parameters-linux]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-compute-multi-vm/parameters/linux/loadBalancer.parameters.json
+[solution-script]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-multi-vm/Deploy-ReferenceArchitecture.ps1
+[solution-script-bash]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-multi-vm/deploy-reference-architecture.sh
+[vnet-parameters-windows]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-multi-vm/parameters/windows/virtualNetwork.parameters.json
+[nsg-parameters-windows]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-multi-vm/parameters/windows/networkSecurityGroups.parameters.json
+[loadbalancer-parameters-windows]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-multi-vm/parameters/windows/loadBalancer.parameters.json
+[vnet-parameters-linux]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-multi-vm/parameters/linux/virtualNetwork.parameters.json
+[nsg-parameters-linux]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-multi-vm/parameters/linux/networkSecurityGroups.parameters.json
+[loadbalancer-parameters-linux]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-multi-vm/parameters/linux/loadBalancer.parameters.json
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [azure-cli]: https://azure.microsoft.com/documentation/articles/xplat-cli-install/
 [0]: ./media/blueprints/compute-multi-vm.png "Architecture of a multi-VM solution on Azure comprising an availability set with two VMs and a load balancer"
