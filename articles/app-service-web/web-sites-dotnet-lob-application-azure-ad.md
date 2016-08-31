@@ -18,15 +18,15 @@
 
 # Create a line-of-business .NET app in Azure #
 
-In this article, you will learn how to create a .NET line-of-business app in 
+This article shows you how to create a .NET line-of-business app in 
 [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) using the 
-[Authentication / Authorization](../app-service/app-service-authentication-overview.md) feature. You will also learn how 
+[Authentication / Authorization](../app-service/app-service-authentication-overview.md) feature. It also shows how 
 to use the [Azure Active Directory Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 
 to query directory data in the application.
 
 The Azure Active Directory tenant that you use can be an Azure-only directory, or it can be 
 [synced with your on-premise Active Directory](active-directory-aadconnect) to create a single sign-on experience for 
-workers that are on-premises and remote. In this tutorial, you will just use your default directory in Azure.
+workers that are on-premises and remote. This article uses the default directory for your Azure account.
 
 <a name="bkmk_build"></a>
 ## What you will build ##
@@ -40,7 +40,7 @@ work items with the following features:
 If you need role-based access control (RBAC) for your line-of-business app in Azure, see [Next Step](#next).
 
 <a name="bkmk_need"></a>
-## What you will need ##
+## What you need ##
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
@@ -64,7 +64,7 @@ You need the following to complete this tutorial:
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/1-create-mvc-no-authentication.png)
 
-4. In the **Create App Service** dialog, click **Add an account** (and then **Add an account** in the dropdown) to log into your Azure account.
+4. In the **Create App Service** dialog, click **Add an account** (and then **Add an account** in the dropdown) to log in to your Azure account.
 
 5. Once logged in configure your web app. Create a new resource group and a new App Service plan by clicking the respective **New** button. Click 
 **Explore additional services** to continue.
@@ -75,11 +75,11 @@ You need the following to complete this tutorial:
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/3-add-sql-database.png)
 
-7. In **Configure SQL Database**, click **New** to create a new SQL Server instance.
+7. In **Configure SQL Database**, click **New** to create a SQL Server instance.
 
 8. In **Configure SQL Server**, configure your SQL Server instance. Then, click **OK**, **OK**, and **Create** to kick off the app creation in Azure.
 
-9. In the **Azure App Service Activity** you can see when the app creation is finished. Click **Publish &lt;*appname*> to this Web App now**, then click **Publish**. 
+9. In **Azure App Service Activity** you can see when the app creation is finished. Click **Publish &lt;*appname*> to this Web App now**, then click **Publish**. 
 
 	Once Visual Studio finishes, it opens the publish app in the browser. 
 
@@ -102,8 +102,8 @@ You need the following to complete this tutorial:
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/7-authentication-save.png)
 
-    Once the authentication settings are saved successfully, try navigating to your app again in the browser. Your default settings will enforce authentication
-	on the whole app. If you weren't already logged in, you will be redirected to a login screen. Once logged in, you'll see your app secured by HTTPS. Next,
+    Once the authentication settings are saved successfully, try navigating to your app again in the browser. Your default settings enforces authentication
+	on the whole app. If you aren't already logged in, you are redirected to a login screen. Once logged in, you see your app secured by HTTPS. Next,
 	you need to enable access to directory data. 
 
 5. Navigate to the [classic portal](https://manage.windowsazure.com).
@@ -112,7 +112,7 @@ You need the following to complete this tutorial:
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/8-find-aad-application.png)
 
-	This is the Azure Active Directory application that App Service created to enable the Authorization / Authentication feature.
+	This is the Azure Active Directory application that App Service created for you to enable the Authorization / Authentication feature.
 
 7. Click **Users** and **Groups** to make sure that you have some users and groups in the directory. If not, create a few test users and groups.
 
@@ -165,7 +165,7 @@ Azure account.
 	}
 	</pre>
 
-15. Publish your changes. To do this, right-click your project and click **Publish**. Click **Publish** again in the dialog.
+15. Publish your changes by right-clicking your project and clicking **Publish**. Click **Publish** again in the dialog.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/15-publish-token-code.png)
 
@@ -177,9 +177,9 @@ Next, you will do something useful with directory data.
 <a name="bkmk_crud"></a>
 ## Add line-of-business functionality to the sample application
 
-Now, you will create a simple CRUD work items tracker.  
+Now, you create a simple CRUD work items tracker.  
 
-5.	In the ~\Models folder, create a new class file called WorkItem.cs, and replace `public class WorkItem {...}` with the code below:
+5.	In the ~\Models folder, create a class file called WorkItem.cs, and replace `public class WorkItem {...}` with the following code:
 
 		using System.ComponentModel.DataAnnotations;
 
@@ -203,12 +203,12 @@ Now, you will create a simple CRUD work items tracker.
 
 7.	Build the project to make your new model accessible to the scaffolding logic in Visual Studio.
 
-8.	Add a new scaffolded item `WorkItemsController` to the Controllers folder. To do this, right-click the **Controllers** folder, 
-point to **Add**, and select **New scaffolded item**. 
+8.	Add a new scaffolded item `WorkItemsController` to the ~\Controllers folder (right-click **Controllers**, 
+point to **Add**, and select **New scaffolded item**). 
 
 9.	Select **MVC 5 Controller with views, using Entity Framework** and click **Add**.
 
-10.	Select the model that you just created, then click **+** and then **Add** to add a data context, and then click **Add**.
+10.	Select the model that you created, then click **+** and then **Add** to add a data context, and then click **Add**.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/16-add-scaffolded-controller.png)
 
@@ -232,7 +232,7 @@ point to **Add**, and select **New scaffolded item**.
 	> + If Azure Active Directory is directory synced with AD FS, the AD FS trust by default does not send the 
 	http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider claim either, although you can manually 
 	configure AD FS to send this claim.
-	> You will take care of this in the next step.
+	> You will take care of this issue in the next step.
 
 12.  In ~\Global.asax, add the following line of code in the `Application_Start()` method. `Ctrl`+`.` on each naming resolution error to fix it.
 
@@ -241,7 +241,8 @@ point to **Add**, and select **New scaffolded item**.
 	`ClaimTypes.NameIdentifies` specifies the claim `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`, which Azure 
 	Active Directory does supply.  
 
-14.	In ~\Views\WorkItems\Create.cshtml (an automatically scaffolded item), find the `Html.BeginForm` helper method and modify it as follows:  
+14.	In ~\Views\WorkItems\Create.cshtml (an automatically scaffolded item), find the `Html.BeginForm` helper method and make the following
+highlighted changes:  
 	<pre class="prettyprint">
 	@model WebApplication1.Models.WorkItem
 
@@ -350,7 +351,7 @@ UI to your project. Right-click your project in and click **Manage NuGet Package
 
 19. In the right pane, click **Install**, then click **OK** to proceed.
 
-19. Open ~\App_Start\BundleConfig.cs and make the highlighted changes below:  
+19. Open ~\App_Start\BundleConfig.cs and make the following highlighted changes:  
 	<pre class="prettyprint">
 	public static void RegisterBundles(BundleCollection bundles)
 	{
@@ -378,7 +379,7 @@ UI to your project. Right-click your project in and click **Manage NuGet Package
 	}
 	</pre>
 
-	There are more performant ways to manage JavaScript and CSS files in your app, but for simplicity we're just going to piggyback on the 
+	There are more performant ways to manage JavaScript and CSS files in your app. However, for simplicity you're just going to piggyback on the 
 	bundles that are loaded with every view.
 
 20. Now, publish your changes. Right-click your project and click **Publish**.
