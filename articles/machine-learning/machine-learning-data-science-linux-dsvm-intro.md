@@ -53,7 +53,7 @@ There are no software charges for this data science VM image. You pay only the A
 Before you can create a Linux Data Science Virtual Machine, you must have the following:
 
 - **An Azure subscription**: To obtain one, see [Get Azure free trial](https://azure.microsoft.com/free/).
-- **An Azure storage account**: To create one, see [Create an Azure storage account](storage-create-storage-account.md#create-a-storage-account) Alternatively, the storage account can be created as part of the process of creating the VM, if you do not want to use an existing account.
+- **An Azure storage account**: To create one, see [Create an Azure storage account](storage-create-storage-account.md#create-a-storage-account). Alternatively, the storage account can be created as part of the process of creating the VM, if you do not want to use an existing account.
 
 
 ## Create your Linux Data Science Virtual Machine
@@ -64,32 +64,32 @@ Here are the steps to create an instance of the Linux Data Science Virtual Machi
 2.	 Click **Create** (at the bottom) to bring up the wizard.![configure-data-science-vm](./media/machine-learning-data-science-linux-dsvm-intro/configure-linux-data-science-virtual-machine.png)
 3.	 The following sections provide the inputs for each of the steps in the wizard (enumerated on the right of the preceding figure) used to create the Microsoft Data Science Virtual Machine. Here are the inputs needed to configure each of these steps:
 
-  **a. Basics**:
+	**a. Basics**:
 
-  - **Name**: Name of your data science server you are creating.
-  - **User Name**: First account sign-in ID.
-  - **Password**: First account password (you can use SSH public key instead of password).
-  - **Subscription**: If you have more than one subscription, select the one on which the machine is to be created and billed. You must have resource creation privileges for this subscription.
-  - **Resource Group**: You can create a new one or use an existing group.
-  - **Location**: Select the data center that is most appropriate. Usually it is the data center that has most of your data, or is closest to your physical location for fastest network access.
+		- **Name**: Name of your data science server you are creating.
+  		- **User Name**: First account sign-in ID.
+		- **Password**: First account password (you can use SSH public key instead of password).
+		- **Subscription**: If you have more than one subscription, select the one on which the machine is to be created and billed. You must have resource creation privileges for this subscription.
+  		- **Resource Group**: You can create a new one or use an existing group.
+		- **Location**: Select the data center that is most appropriate. Usually it is the data center that has most of your data, or is closest to your physical location for fastest network access.
 
-  **b. Size**:
+	**b. Size**:
 
-  - Select one of the server types that meets your functional requirement and cost constraints. Select **View All** to see more choices of VM sizes.
+		- Select one of the server types that meets your functional requirement and cost constraints. Select **View All** to see more choices of VM sizes.
 
-  **c. Settings**:
+	**c. Settings**:
 
-  - **Disk Type**: Choose **Premium** if you prefer a solid state drive (SSD). Otherwise, choose **Standard**.
-  - **Storage Account**: You can create a new Azure storage account in your subscription, or use an existing one in the same location that was chosen on the **Basics** step of the wizard.
-  - **Other parameters**: In most cases, you just use the default values. To consider non-default values, hover over the informational link for help on the specific fields.
+		- **Disk Type**: Choose **Premium** if you prefer a solid state drive (SSD). Otherwise, choose **Standard**.
+		- **Storage Account**: You can create a new Azure storage account in your subscription, or use an existing one in the same location that was chosen on the **Basics** step of the wizard.
+		- **Other parameters**: In most cases, you just use the default values. To consider non-default values, hover over the informational link for help on the specific fields.
 
-  **d. Summary**:
+	**d. Summary**:
 
-  - Verify that all information you entered is correct.
+		- Verify that all information you entered is correct.
 
-  **e. Buy**:
+	**e. Buy**:
 
-  - To start the provisioning, click **Buy**. A link is provided to the terms of the transaction. The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step.
+		- To start the provisioning, click **Buy**. A link is provided to the terms of the transaction. The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step.
 
 
 The provisioning should take about 10-20 minutes. The status of the provisioning is displayed on the Azure portal.
@@ -143,7 +143,7 @@ To activate Python 3.5, run the following from the shell:
 	source /anaconda/bin/activate py35
 
 
-Python 3.5 is installed at */anaconda/envs/py35/bin*
+Python 3.5 is installed at */anaconda/envs/py35/bin*.
 
 To invoke a Python interactive session, just type **python** in the shell. If you are on a graphical interface or have X11 forwarding set up, you can type **spyder** to launch the Python IDE.
 
@@ -220,7 +220,7 @@ To access **Postgres**:
 The following Azure tools are installed on the VM:
 
 - **Azure command-line interface**: The Azure CLI allows you to create and manage Azure resources through shell commands. To invoke the Azure tools, just type **azure help**. For more information, see the [Azure CLI documentation page](../virtual-machines-command-line-tools.md).
-- **Microsoft Azure Storage Explorer**: The Microsoft Azure Storage Explorer is a graphical tool that is used to browse through the objects that you have stored in your Azure Storage Account, and to upload and download data to and from Azure blobs. You can access the Storage Explorer from the desktop shortcut icon. You can invoke it from a shell prompt by typing **StorageExplorer**. You need to be signed in from an X2Go client, or have X11 forwarding set up.
+- **Microsoft Azure Storage Explorer**: Microsoft Azure Storage Explorer is a graphical tool that is used to browse through the objects that you have stored in your Azure storage account, and to upload and download data to and from Azure blobs. You can access Storage Explorer from the desktop shortcut icon. You can invoke it from a shell prompt by typing **StorageExplorer**. You need to be signed in from an X2Go client, or have X11 forwarding set up.
 - **Azure Libraries**: The following are some of the pre-installed libraries.
 
  - **Python**: The Azure-related libraries in Python that are installed are **azure**, **azureml**, **pydocumentdb**, and **pyodbc**. With the first three libraries, you can access Azure storage services, Azure Machine Learning, and Azure DocumentDB (a NoSQL database on Azure). The fourth library, pyodbc (along with the Microsoft ODBC driver for SQL Server), enables access to SQL Server, Azure SQL Database, and Azure SQL Data Warehouse from Python by using an ODBC interface. Enter **pip list** to see all the listed libraries. Be sure to run this command in both the Python 2.7 and 3.5 environments.
@@ -258,7 +258,7 @@ Here is some additional information about the first three machine learning tools
 #### CNTK
 This is an open source, deep learning toolkit. It is a command-line tool (cntk), and is already in the PATH.
 
-To run a basic sample, execute the following commands in shell:
+To run a basic sample, execute the following commands in the shell:
 
 	# Copy samples to your home directory and execute cntk
 	cp -r /dsvm/tools/CNTK-2016-02-08-Linux-64bit-CPU-Only/Examples/Other/Simple2d cntkdemo
