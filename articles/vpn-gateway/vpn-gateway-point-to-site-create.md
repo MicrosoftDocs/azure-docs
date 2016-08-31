@@ -14,20 +14,21 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/16/2016"
+   ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
-# Configure a Point-to-Site VPN connection to a VNet using the classic portal
+# Configure a Point-to-Site connection to a VNet using the classic portal
 
 > [AZURE.SELECTOR]
 - [PowerShell - Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
 - [Portal - Classic](vpn-gateway-point-to-site-create.md)
 
-A Point-to-Site (P2S) configuration allows you to create a secure connection from an individual client computer to a virtual network. A P2S connection is useful when you want to connect to your VNet from a remote location, such as from home or a conference, or when you only have a few clients that need to connect to a virtual network. 
+A Point-to-Site (P2S) configuration allows you to create a secure connection from an individual client computer to a virtual network. A P2S connection is useful when you want to connect to your VNet from a remote location, such as from home or a conference, or when you only have a few clients that need to connect to a virtual network.
+
+This article walks you through creating a VNet with a Point-to-Site connection in the **classic deployment model** using the classic portal. Currently, you cannot create this configuration end-to-end in the Azure portal for the classic deployment model.
 
 Point-to-Site connections do not require a VPN device or a public-facing IP address to work. A VPN connection is established by starting the connection from the client computer. For more information about Point-to-Site connections, see the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#point-to-site-connections) and [Planning and Design](vpn-gateway-plan-design.md).
 
-This article applies to Point-to-Site connections to a virtual network that were created using the classic deployment model. The steps in this article use the classic portal. Currently, you cannot create this configuration using the Azure portal.
 
 **Deployment models and tools for Point-to-Site connections**
 
@@ -37,7 +38,7 @@ This article applies to Point-to-Site connections to a virtual network that were
 
 [AZURE.INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
-![Point-to-Site-diagram](./media/vpn-gateway-point-to-site-create/point2site.png "point-to-site")
+![Point-to-Site-diagram](./media/vpn-gateway-point-to-site-create/p2sclassic.png "point-to-site")
 
 ## About creating a Point-to-Site connection
  
@@ -135,13 +136,13 @@ To connect to the virtual network, you also need to configure a VPN client. The 
 
 ### Part 1: Create the VPN client configuration package
 
-1. In the Azure classic portal, on the **Dashboard** page for your virtual network, navigate to the quick glance menu in the right corner. For the list of client operating systems that are supported, see the [Point-to-Site connections](vpn-gateway-vpn-faq.md#point-to-site-connections) section of the VPN Gateway FAQ.<br><br>Select the download package that corresponds to the client operating system on which it will be installed:
+1. In the Azure classic portal, on the **Dashboard** page for your virtual network, navigate to the quick glance menu in the right corner. For the list of client operating systems that are supported, see the [Point-to-Site connections](vpn-gateway-vpn-faq.md#point-to-site-connections) section of the VPN Gateway FAQ. The VPN client package contains configuration information to configure the VPN client software built into Windows. The package does not install additional software. The settings are specific to the virtual network that you want to connect to.<br><br>Select the download package that corresponds to the client operating system on which it will be installed:
  - For 32-bit clients, select **Download the 32-bit Client VPN Package**.
  - For 64-bit clients, select **Download the 64-bit Client VPN Package**.
 
 2. It takes a few minutes to create your client package. Once the package has been completed, you can download the file. The *.exe* file that you download can be safely stored on your local computer.
 
-3. After you generate and download the VPN client package from the Azure classic portal, you can install the client package on the client computer from which you want to connect to your virtual network. If you plan to install the VPN client package to multiple client computers, make sure that they each also have a client certificate installed. The VPN client package contains configuration information to configure the VPN client software built into Windows. The package does not install additional software.
+3. After you generate and download the VPN client package from the Azure classic portal, you can install the client package on the client computer from which you want to connect to your virtual network. If you plan to install the VPN client package to multiple client computers, make sure that they each also have a client certificate installed.
 
 ### Part 2: Install the VPN configuration package on the client and start the connection
 
