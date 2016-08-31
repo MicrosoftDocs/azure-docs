@@ -111,7 +111,7 @@ The schema for Diagnostic Logs varies depending on the resource and log category
 |    Azure Batch                |    No schema available.                                                                                         |
 |    Azure Automation           |    No schema available.                                                                                         |
 
-# Supported log categories per resource type
+## Supported log categories per resource type
 
 |Resource Type|Category|Category Display Name|
 |---|---|---|
