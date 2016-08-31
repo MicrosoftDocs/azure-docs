@@ -34,6 +34,7 @@ Supported VM extensions in FreeBSD VM are as followings.
 • [VMAccess](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)
 
 VMAccess Extension can:
+
 - Reset the password of the original sudo user 
 - Create a new sudo user with the password specified
 - Set the public host key with the key given
@@ -46,6 +47,7 @@ VMAccess Extension can:
 • [CustomSript](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript)
 
 CustomScript Extension can:
+
 - If provided, download the customized scripts from Azure Storage or external public storage (for example, Github)
 - Run the entry point script
 - Support inline command
