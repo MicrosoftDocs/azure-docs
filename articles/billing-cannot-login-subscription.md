@@ -20,7 +20,7 @@
 
 # I am unable to log in to manage my Azure subscription
 
-> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) to get your issue resolved quickly.
+> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
 This article will help you troubleshoot some common causes of login issues.
 
@@ -54,4 +54,4 @@ Now that it is possible to log into Azure with an organizational account, here a
 
 Try deleting cache/cookies, using IE InPrivate Browsing mode and also using a different browser.
 
-> [AZURE.NOTE] If you still have further questions, please [contact support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) to get your issue resolved quickly.
+> [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
