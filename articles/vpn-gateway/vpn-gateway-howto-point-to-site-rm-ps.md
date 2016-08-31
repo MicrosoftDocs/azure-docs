@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/26/2016"
+   ms.date="08/31/2016"
    ms.author="cherylmc" />
 
 # Configure a Point-to-Site connection to a VNet using PowerShell
@@ -24,7 +24,7 @@
 
 A Point-to-Site (P2S) configuration allows you to create a secure connection from an individual client computer to a virtual network. A P2S connection is useful when you want to connect to your VNet from a remote location, such as from home or a conference, or when you only have a few clients that need to connect to a virtual network. 
 
-This article walks you through creating a VNet with a Point-to-Site connection in the Resource Manager deployment model. The steps require PowerShell. Currently, you cannot create this solution end-to-end in the Azure portal.
+This article walks you through creating a VNet with a Point-to-Site connection in the **Resource Manager deployment model**. The steps require PowerShell. Currently, you cannot create this solution end-to-end in the Azure portal.
 
 Point-to-Site connections do not require a VPN device or a public-facing IP address to work. A VPN connection is established by starting the connection from the client computer. For more information about Point-to-Site connections, see the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#point-to-site-connections) and [Planning and Design](vpn-gateway-plan-design.md).
 

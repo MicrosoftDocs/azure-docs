@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/24/2016"
+   ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
 # Configure a VNet-to-VNet connection for Resource Manager using PowerShell
