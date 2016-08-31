@@ -15,7 +15,7 @@
 	ms.date="08/30/2016" 
 	ms.author="borooji"/>
 
-# Sampling, filtering and preprocessing telemetry in the Application Insights SDK
+# Filtering and preprocessing telemetry in the Application Insights SDK
 
 *Application Insights is in preview.*
 
@@ -23,10 +23,11 @@ You can write and configure plug-ins for the Application Insights SDK to customi
 
 Currently these features are available for the ASP.NET SDK.
 
-* [Filtering with Telemetry Processors](#filtering) lets you select or modify telemetry in the SDK before it is sent to the server. For example, you could reduce the volume of telemetry by excluding requests from robots. This is a more basic approach to reducing traffic than sampling. It allows you more control over what is transmitted, but you have to be aware that it will affect your statistics - for example, if you filter out all successful requests.
+* [Sampling](app-insights-sampling.md) reduces the volume of telemetry without affecting your statistics. It keeps together related data points so that you can navigate between them when diagnosing a problem. In the portal, the total counts are multiplied to compensate for the sampling.
+* [Filtering with Telemetry Processors](#filtering) lets you select or modify telemetry in the SDK before it is sent to the server. For example, you could reduce the volume of telemetry by excluding requests from robots. But filtering is a more basic approach to reducing traffic than sampling. It allows you more control over what is transmitted, but you have to be aware that it affects your statistics - for example, if you filter out all successful requests.
 * [Telemetry Initializers add properties](#add-properties) to any telemetry sent from your app, including telemetry from the standard modules. For example, you could add calculated values; or version numbers by which to filter the data in the portal.
 * [The SDK API](app-insights-api-custom-events-metrics.md) is used to send custom events and metrics.
-* [Sampling](app-insights-sampling.md) reduces the volume of telemetry without affecting your statistics. It keeps together related data points so that you can navigate between them when diagnosing a problem. In the portal, the total counts are multiplied to compensate for the sampling.
+
 
 Before you start:
 
@@ -42,13 +43,13 @@ To filter telemetry, you write a telemetry processor and register it with the SD
 
 > [AZURE.WARNING] Filtering the telemetry sent from the SDK using processors can skew the statistics that you see in the portal, and make it difficult to follow related items.
 > 
-> Instead, consider using [sampling](#sampling).
+> Instead, consider using [sampling](app-insights-sampling.md).
 
 ### Create a telemetry processor
 
 1. Verify that the Application Insights SDK in your project is  version 2.0.0 or later. Right-click your project in Visual Studio Solution Explorer and choose Manage NuGet Packages. In NuGet package manager, check Microsoft.ApplicationInsights.Web.
 
-1. To create a filter, implement ITelemetryProcessor. This is another extensibility point like telemetry module, telemetry initializer and telemetry channel. 
+1. To create a filter, implement ITelemetryProcessor. This is another extensibility point like telemetry module, telemetry initializer, and telemetry channel. 
 
     Notice that Telemetry Processors construct a chain of processing. When you instantiate a telemetry processor, you pass a link to the next processor in the chain. When a telemetry data point is passed to the Process method, it does its work and then calls the next Telemetry Processor in the chain.
 
@@ -110,7 +111,7 @@ To filter telemetry, you write a telemetry processor and register it with the SD
 
 ```
 
-(Notice that this is the same section where you initialize a sampling filter.)
+(This is the same section where you initialize a sampling filter.)
 
 You can pass string values from the .config file by providing public named properties in your class. 
 
@@ -343,9 +344,9 @@ What's the difference between telemetry processors and telemetry initializers?
 
 If your app runs where the internet connection is not always available or slow, consider using the persistence channel instead of the default in-memory channel. 
 
-The default in-memory channel loses any telemetry that has not been sent by the time the app closes. Although you can use `Flush()` to attempt to send any data remaining in the buffer, it will still lose data if there is a no internet connection, or if the app shuts down before transmission is complete.
+The default in-memory channel loses any telemetry that has not been sent by the time the app closes. Although you can use `Flush()` to attempt to send any data remaining in the buffer, it still loses data if there is no internet connection, or if the app shuts down before transmission is complete.
 
-By contrast, the persistence channel buffers telemetry in a file, before sending it to the portal. `Flush()` ensures that data is stored in the file. If any data is not sent by the time the app closes, it will remain in the file. When the app restarts, the data will be sent then, if there is an internet connection. Data will accumulate in the file for as long as is necessary until a connection is available. 
+By contrast, the persistence channel buffers telemetry in a file, before sending it to the portal. `Flush()` ensures that data is stored in the file. If any data is not sent by the time the app closes, it remains in the file. When the app restarts, the data will be sent then, if there is an internet connection. Data accumulates in the file for as long as is necessary until a connection is available. 
 
 ### To use the persistence channel
 
@@ -373,7 +374,7 @@ The persistence channel is optimized for devices scenarios, where the number of 
 
 #### Example
 
-Let’s say you want to monitor unhandled exceptions. You subscribe to the `UnhandledException` event. In the callback, you include a call to Flush to make sure that  the telemetry will be persisted.
+Let’s say you want to monitor unhandled exceptions. You subscribe to the `UnhandledException` event. In the callback, you include a call to Flush to make sure that  the telemetry is persisted.
  
 ```C# 
 
