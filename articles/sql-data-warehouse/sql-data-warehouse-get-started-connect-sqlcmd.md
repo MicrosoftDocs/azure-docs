@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/22/2016"
+   ms.date="08/30/2016"
    ms.author="mausher;barbkess;sonyama"/>
 
 # Query Azure SQL Data Warehouse (sqlcmd)
@@ -24,17 +24,11 @@
 - [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 - [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 
-This walkthrough uses the sqlcmd Command-line Utility to query an Azure SQL Data Warehouse .  
-
-## Prerequisites
-
-To step through this tutorial, you need:
-
--  [sqlcmd.exe][]. To download, see [Microsoft Command Line Utilities 11 for SQL Server][] which may also require [Microsoft ODBC Driver 11 for SQL Server Windows][].
+This walkthrough uses the [sqlcmd][] command-line utility to query an Azure SQL Data Warehouse .  
 
 ## 1. Connect
 
-To get started with sqlcmd, open the command prompt and enter **sqlcmd** followed by the connection string for your SQL Data Warehouse database. The connection string will need following required parameters:
+To get started with [sqlcmd][], open the command prompt and enter **sqlcmd** followed by the connection string for your SQL Data Warehouse database. The connection string requires the following parameters:
 
 + **Server (-S):** Server in the form `<`Server Name`>`.database.windows.net
 + **Database (-d):** Database name.
@@ -73,16 +67,14 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 
 ## Next steps
 
-See [sqlcmd documentation][sqlcmd.exe] for more about details about the options available in sqlcmd.
+See [sqlcmd documentation][sqlcmd] for more about details about the options available in sqlcmd.
 
 <!--Image references-->
 
 <!--Article references-->
 
 <!--MSDN references--> 
-[sqlcmd.exe]: https://msdn.microsoft.com/library/ms162773.aspx
-[Microsoft ODBC Driver 11 for SQL Server Windows]: https://www.microsoft.com/download/details.aspx?id=36434
-[Microsoft Command Line Utilities 11 for SQL Server]: http://go.microsoft.com/fwlink/?LinkId=321501
+[sqlcmd]: https://msdn.microsoft.com/library/ms162773.aspx
 [Azure portal]: https://portal.azure.com
 
 <!--Other Web references-->
