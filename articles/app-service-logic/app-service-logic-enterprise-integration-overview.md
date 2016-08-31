@@ -36,7 +36,7 @@ Architecturally, the Enterprise Integration Pack is based on **integration accou
 You can build and manage B2B apps using the Enterprise Integration Pack via the Logic apps designer on the **Azure portal**.  
 
 Here is an overview of the steps you need to take before you can create apps in the Azure portal:
-![overviewimage](./media/app-service-logic-enterprise-integration-overview/overview-0.png)  
+![overview image](./media/app-service-logic-enterprise-integration-overview/overview-0.png)  
 
 ## What are some common scenarios?
 

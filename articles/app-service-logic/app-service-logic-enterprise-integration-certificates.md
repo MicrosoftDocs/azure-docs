@@ -38,7 +38,7 @@ To use a **public certificate** in your Logic apps with B2B capabilities, you fi
 
 After you upload a certificate, it will be available for you to secure your B2B messages when you define their properties in [agreements](./app-service-logic-enterprise-integration-agreements.md).  
 
-Here are the detailed steps to upload your public certificates in to your integration account after you log into the Azure portal:   
+Here are the detailed steps to upload your public certificates into your integration account after you log in to the Azure portal:   
 1. Select **Browse**  
 ![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)    
 2. Enter **integration** in the filter search box and select **Integration Accounts** from the results list     
