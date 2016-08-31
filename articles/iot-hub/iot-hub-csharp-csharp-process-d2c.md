@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Process IoT Hub device-to-cloud messages | Microsoft Azure"
+	pageTitle="Process IoT Hub device-to-cloud messages (.Net) | Microsoft Azure"
 	description="Follow this tutorial to learn useful patterns to process IoT Hub device-to-cloud messages."
 	services="iot-hub"
 	documentationCenter=".net"
@@ -16,7 +16,7 @@
      ms.date="07/19/2016"
      ms.author="dobett"/>
 
-# Tutorial: How to process IoT Hub device-to-cloud messages
+# Tutorial: How to process IoT Hub device-to-cloud messages using .Net
 
 ## Introduction
 
