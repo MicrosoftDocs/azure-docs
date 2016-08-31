@@ -94,7 +94,7 @@ When using a linked service of type HDInsightOnDemand, you need to specify a lin
 
 		Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'StorageAccountNotColocated'.
 
-This error usually indicates that the location of the storage account specified in the linkedServiceName is not in the same data center location where the HDInsight provisioning is happening. For example, if your Azure Data Factory is in West US, on-demand HDInsight cluster is provisioned in West US, and the Azure blob storage account is in East US, the on-demand provisioning fails.
+This error usually indicates that the location of the storage account specified in the linkedServiceName is not in the same data center location where the HDInsight provisioning is happening. For example, if your data factory is in West US and the Azure blob storage account is in East US, the  the on-demand provisioning fails in West US. .
 
 Additionally, there is a second JSON property additionalLinkedServiceNames where additional storage accounts may be specified in on-demand HDInsight. Those additional linked storage accounts should be in the same location as the HDInsight cluster, or it fails with the same error.
 

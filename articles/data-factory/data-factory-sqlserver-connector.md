@@ -26,7 +26,7 @@ The concepts and steps needed for connecting with SQL Server hosted on-premises 
 
 See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway. Setting up a gateway instance is a pre-requisite for connecting with SQL Server.
 
-While you can install the gateway on the same on-premises machine or cloud VM instance as the SQL Server for better performance, we recommended that you install them on separate machines. Having the gateway and SQL Server on separate machines reduces resource contention.
+While you can install gateway on the same on-premises machine or cloud VM instance as the SQL Server for better performance, we recommended that you install them on separate machines. Having the gateway and SQL Server on separate machines reduces resource contention.
 
 
 ## Copy data wizard
@@ -463,7 +463,7 @@ Properties available in the typeProperties section of the activity on the other 
 
 ### SqlSource
 
-When source in a copy activity is of type **SqlSource** the following properties are available in **typeProperties** section:
+When source in a copy activity is of type **SqlSource**, the following properties are available in **typeProperties** section:
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
@@ -488,8 +488,8 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
 | -------- | ----------- | -------------- | -------- |
 | writeBatchTimeout | Wait time for the batch insert operation to complete before it times out. | timespan<br/><br/> Example: “00:30:00” (30 minutes). | No |
 | writeBatchSize | Inserts data into the SQL table when the buffer size reaches writeBatchSize. | Integer (number of rows) | No (default: 10000)
-| sqlWriterCleanupScript | Specify query for Copy Activity to execute such that data of a specific slice is be cleaned up. See repeatability section for more details. | A query statement.  | No |
-| sliceIdentifierColumnName | Specify column name for Copy Activity to fill with auto generated slice identifier, which is be used to clean up data of a specific slice when rerun. See repeatability section for more details. | Column name of a column with data type of binary(32). | No |
+| sqlWriterCleanupScript | Specify query for Copy Activity to execute such that data of a specific slice is cleaned up. See repeatability section for more details. | A query statement.  | No |
+| sliceIdentifierColumnName | Specify column name for Copy Activity to fill with auto generated slice identifier, which is used to clean up data of a specific slice when rerun. See repeatability section for more details. | Column name of a column with data type of binary(32). | No |
 | sqlWriterStoredProcedureName | Name of the stored procedure that upserts (updates/inserts) data into the target table. | Name of the stored procedure. | No |
 | storedProcedureParameters | Parameters for the stored procedure. | Name/value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No |
 | sqlWriterTableType | Specify table type name to be used in the stored procedure. Copy activity makes the data being moved available in a temp table with this table type. Stored procedure code can then merge the data being copied with existing data. | A table type name. | No |
@@ -509,7 +509,7 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
 3. In the same window, double-click **TCP/IP** to launch **TCP/IP Properties** window.
 4. Switch to the **IP Addresses** tab. Scroll down to see **IPAll** section. Note down the **TCP Port **(default is **1433**).
 5. Create a **rule for the Windows Firewall** on the machine to allow incoming traffic through this port.  
-6. **Verify connection**: To connect to the SQL Server using fully qualified name, use SQL Server Management Studio from a different machine . For example: "<machine>.<domain>.corp.<company>.com,1433."
+6. **Verify connection**: To connect to the SQL Server using fully qualified name, use SQL Server Management Studio from a different machine. For example: "<machine>.<domain>.corp.<company>.com,1433."
 
 	> [AZURE.IMPORTANT]
 	> See [Ports and Security Considerations](data-factory-move-data-between-onprem-and-cloud.md#port-and-security-considerations) for detailed information.
@@ -517,7 +517,7 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
 	> See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) for tips on troubleshooting connection/gateway related issues. 
 
 ## Identity columns in the target database
-This section provides an example for copying data from a source table with no identity column to a destination table with an identity column.
+This section provides an example that copies data from a source table with no identity column to a destination table with an identity column.
 
 **Source table:**
 
@@ -602,7 +602,7 @@ As mentioned in the [data movement activities](data-factory-data-movement-activi
 1. Convert from native source types to .NET type
 2. Convert from .NET type to native sink type
 
-When moving data to & from Azure SQL, SQL server, Sybase the following mappings are be used from SQL type to .NET type and vice versa.
+When moving data to & from Azure SQL, SQL server, Sybase the following mappings are used from SQL type to .NET type and vice versa.
 
 The mapping is same as the SQL Server Data Type Mapping for ADO.NET.
 

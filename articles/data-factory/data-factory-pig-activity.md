@@ -98,10 +98,10 @@ To execute this Pig script in a Data Factory pipeline, do the following:
 1. Create a linked service to register [your own HDInsight compute cluster](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) or configure [on-demand HDInsight compute cluster](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Let’s call this linked service **HDInsightLinkedService**.
 2.	Create a [linked service](data-factory-azure-blob-connector.md) to configure the connection to Azure Blob storage hosting the data. Let’s call this linked service **StorageLinkedService**.
 3.	Create [datasets](data-factory-create-datasets.md) pointing to the input and the output data. Let’s call the input dataset **PigSampleIn** and the output dataset **PigSampleOut**.
-4.	Copy the Pig query in a file the Azure Blob Storage configured in step #2. If the Azure storage that hosts the data is different from the one thta that hosts the query file, create a separate Azure Storage linked service and refer to it in the activity configuration. Use **scriptPath **to specify the path to pig script file and **scriptLinkedService**. 
+4.	Copy the Pig query in a file the Azure Blob Storage configured in step #2. If the Azure storage that hosts the data is different from the one that hosts the query file, create a separate Azure Storage linked service. Refer to the linked service in the activity configuration. Use **scriptPath **to specify the path to pig script file and **scriptLinkedService**. 
 	
 	> [AZURE.NOTE] You can also provide the Pig script inline in the activity definition by using the **script** property. However, we do not recommend this approach as all special characters in the script needs to be escaped and may cause debugging issues. The best practice is to follow step #4.
-5. Create the pipeline with the HDInsightPig activity to process the data.
+5. Create the pipeline with the HDInsightPig activity. This activity processes the input data by running Pig script on HDInsight cluster.
 
 		{
 		  "name": "PigActivitySamplePipeline",
@@ -138,7 +138,7 @@ To execute this Pig script in a Data Factory pipeline, do the following:
 
 ## Specifying parameters for a Pig script 
 
-Consider the example where the game logs are ingested daily into Azure Blob Storage and stored in a folder partitioned with date and time. You want to parameterize the Pig script and pass the input folder location dynamically during runtime and also produce the output partitioned with date and time.
+Consider the following example: game logs are ingested daily into Azure Blob Storage and stored in a folder partitioned based on date and time. You want to parameterize the Pig script and pass the input folder location dynamically during runtime and also produce the output partitioned with date and time.
  
 To use parameterized Pig script, do the following:
 
