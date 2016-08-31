@@ -23,7 +23,7 @@
 **Single database**
 
 > [AZURE.SELECTOR]
-- [Azure Portal](sql-database-import.md)
+- [Azure portal](sql-database-import.md)
 - [PowerShell](sql-database-import-powershell.md)
 - [SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
 - [SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
