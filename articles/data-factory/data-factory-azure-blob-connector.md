@@ -464,9 +464,9 @@ The following table provides guidance on using the new dataset properties in pla
 
 | Copy Activity property | Dataset property |
 | :---------------------- | :---------------- | 
-| skipHeaderLineCount<br/> (on BlobSource) | skipLineCount and firstRowAsHeader. Lines are skipped first and then the first row is read as a header. |
-| treatEmptyAsNull<br/> (on BlobSource) | treatEmptyAsNull on input dataset |
-| blobWriterAddHeader<br/> (on BlobSink)| firstRowAsHeader on output dataset | 
+| skipHeaderLineCount on BlobSource | skipLineCount and firstRowAsHeader. Lines are skipped first and then the first row is read as a header. |
+| treatEmptyAsNull on BlobSource | treatEmptyAsNull on input dataset |
+| blobWriterAddHeader on BlobSink | firstRowAsHeader on output dataset | 
 
 See [Specifying TextFormat](#specifying-textformat) section for detailed information on these properties.    
 
