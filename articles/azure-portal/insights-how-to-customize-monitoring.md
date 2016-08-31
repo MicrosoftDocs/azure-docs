@@ -72,9 +72,7 @@ Like with metrics, you can use the [REST API](https://msdn.microsoft.com/library
 ## Supported metrics per resource type
 
 > [AZURE.NOTE] This list is a point-in-time view of the metrics available from resources in Azure. For the most up-to-date list, use the Get Metric Definitions [REST API](https://msdn.microsoft.com/library/azure/dn931939.aspx), [PowerShell cmdlet](insights-powershell-samples.md#get-a-list-of-available-metrics-for-alerts), or Cross Platform CLI.
-
-
-> [AZURE.WARNING] Not all metrics in this list support alerts today.
+> Not all metrics in this list support alerts today.
 
 |Resource Type|Metric|Metric Display Name|Unit|Aggregation Type|Description|
 |---|---|---|---|---|---|
