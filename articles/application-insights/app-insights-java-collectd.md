@@ -12,16 +12,16 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/02/2016" 
+	ms.date="08/24/2016" 
 	ms.author="awills"/>
  
 # collectd: Unix performance metrics in Application Insights
 
 *Application Insights is in Preview.*
 
-To explore Unix system performance metrics in [Application Insights](app-insights-overview.md), install [collectd](http://collectd.org/), together with its Application Insights plug-in. This open-source solution gathers a variety of system and network statistics.
+To explore Unix system performance metrics in [Application Insights](app-insights-overview.md), install [collectd](http://collectd.org/), together with its Application Insights plug-in. This open-source solution gathers various system and network statistics.
 
-Typically you'll use collectd if you have already [instrumented your Java web service with Application Insights][java], so that you have more data to help you to enhance your app's performance or diagnose problems. 
+Typically you'll use collectd if you have already [instrumented your Java web service with Application Insights][java]. It gives you more data to help you to enhance your app's performance or diagnose problems. 
 
 ![Sample charts](./media/app-insights-java-collectd/sample.png)
 
@@ -31,21 +31,21 @@ In the [Microsoft Azure portal](https://portal.azure.com), open the [Application
 
 Take a copy of the instrumentation key, which identifies the resource.
 
-![Browse all, open your resource, and then in the Esssentials drop-down, select and copy the Instrumentation Key](./media/app-insights-java-collectd/02-props.png)
+![Browse all, open your resource, and then in the Essentials drop-down, select, and copy the Instrumentation Key](./media/app-insights-java-collectd/02-props.png)
 
 
 
 ## Install collectd and the plug-in
 
-On your Unix server machine(s):
+On your Unix server machines:
 
 1. Install [collectd](http://collectd.org/) version 5.4.0 or later.
-2. Download the [Application Insights collectd writer plugin](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html). Note the version number.
+2. Download the [Application Insights collectd writer plugin](https://aka.ms/aijavasdk). Note the version number.
 3. Copy the plugin JAR into `/usr/share/collectd/java`.
 3. Edit `/etc/collectd/collectd.conf`:
  * Ensure that [the Java plugin](https://collectd.org/wiki/index.php/Plugin:Java) is enabled.
  * Update the JVMArg for the java.class.path to include the following JAR. Update the version number to match the one you downloaded:
-  * `/usr/share/collectd/java/applicationinsights-collectd-0.9.4.jar`
+  * `/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar`
  * Add this snippet, using the Instrumentation Key from your resource:
 
 ```
@@ -71,7 +71,7 @@ Here's part of a sample configuration file:
     # Configure Java Plugin
     <Plugin "java">
       JVMArg "-verbose:jni"
-      JVMArg "-Djava.class.path=/usr/share/collectd/java/applicationinsights-collectd-0.9.4.jar:/usr/share/collectd/java/collectd-api.jar"
+      JVMArg "-Djava.class.path=/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar:/usr/share/collectd/java/collectd-api.jar"
 
       # Enabling Application Insights plugin
       LoadPlugin "com.microsoft.applicationinsights.collectd.ApplicationInsightsWriter"
@@ -86,7 +86,7 @@ Here's part of a sample configuration file:
     </Plugin>
 .   ...
 
-Configure other [collectd plugins](https://collectd.org/wiki/index.php/Table_of_Plugins), which can collect a variety of data from different sources.
+Configure other [collectd plugins](https://collectd.org/wiki/index.php/Table_of_Plugins), which can collect various data from different sources.
 
 Restart collectd according to its [manual](https://collectd.org/wiki/index.php/First_steps).
 
@@ -101,7 +101,7 @@ By default, the metrics are aggregated across all host machines from which the m
 
 ## To exclude upload of specific statistics
 
-By default, the Application Insights plugin will send all the data collected by all the enabled collectd 'read' plugins. 
+By default, the Application Insights plugin sends all the data collected by all the enabled collectd 'read' plugins. 
 
 To exclude data from specific plugins or data sources:
 
@@ -121,6 +121,7 @@ Separate directives with a newline.
 *I don't see data in the portal*
 
 * Open [Search][diagnostic] to see if the raw events have arrived. Sometimes they take longer to appear in metrics explorer.
+* You might need to [set firewall exceptions for outgoing data](app-insights-ip-addresses.md)
 * Enable tracing in the Application Insights plugin. Add this line within `<Plugin ApplicationInsightsWriter>`:
  *  `SDKLogger true`
 * Open a terminal and start collectd in verbose mode, to see any issues it is reporting:

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/09/2016"
+   ms.date="08/23/2016"
    ms.author="curtand"/>
 
 # Azure Active Directory B2B collaboration

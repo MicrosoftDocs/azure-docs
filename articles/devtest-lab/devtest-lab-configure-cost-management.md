@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/02/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # Monthly estimated cost trend
@@ -64,6 +64,8 @@ to calculate the lab cost, and the Azure billing APIs do not support CSP or Drea
 - Your taxes
 - Your discounts
 - Your billing currency. Currently, the lab cost is displayed only in USD currency.
+
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## Related blog posts
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # Configure Azure Marketplace image settings in a lab
@@ -56,6 +56,8 @@ You can also select the Azure Marketplace images you want to allow for VM creati
 Select nothing from the list if you don't want to allow any Azure Marketplace images to be used in the lab.
 
 	![You can specify which Azure Marketplace images can be used as base images for VMs](./media/devtest-lab-configure-marketplace-images/select-marketplace-images.png)
+
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## Next steps
 

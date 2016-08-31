@@ -1,6 +1,6 @@
 <properties
-	pageTitle=" Get started with delivering content on demand using the Azure Portal | Microsoft Azure"
-	description="This tutorial walks you through the steps of implementing a basic Video-on-Demand (VoD) content delivery service with Azure Media Services (AMS) application using the Azure Portal."
+	pageTitle=" Get started with delivering content on demand using the Azure portal | Microsoft Azure"
+	description="This tutorial walks you through the steps of implementing a basic Video-on-Demand (VoD) content delivery service with Azure Media Services (AMS) application using the Azure portal."
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako"
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/22/2016"
+	ms.date="08/30/2016"
 	ms.author="juliako"/>
 
 
-# Get started with delivering content on demand using the Azure Portal
+# Get started with delivering content on demand using the Azure portal
 
-This tutorial walks you through the steps of implementing a basic Video-on-Demand (VoD) content delivery service with Azure Media Services (AMS) application using the Azure Portal.
+[AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-Azure Media Services in the Azure portal is currently in preview. 
+This tutorial walks you through the steps of implementing a basic Video-on-Demand (VoD) content delivery service with Azure Media Services (AMS) application using the Azure portal.
 
 > [AZURE.NOTE] To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
 
@@ -37,9 +37,9 @@ This tutorial includes the following tasks:
 
 ## Create an Azure Media Services account
 
-The steps in this section show how to create a new AMS account.
+The steps in this section show how to create an AMS account.
 
-1. Log in at the [Azure Portal](https://portal.azure.com/).
+1. Log in at the [Azure portal](https://portal.azure.com/).
 2. Click **+New** > **Media + CDN** > **Media Services**.
 
 	![Media Services Create](./media/media-services-portal-vod-get-started/media-services-new1.png)
@@ -51,10 +51,10 @@ The steps in this section show how to create a new AMS account.
 	1. In **Account Name**, enter the name of the new AMS account. A Media Services account name is all lowercase numbers or letters with no spaces, and is 3 to 24 characters in length.
 	2. In Subscription, select among the different Azure subscriptions that you have access to.
 	
-	2. In **Resource Group**, select the new or existing resource.  A resource group is a collection of resources that share the same lifecycle, permissions, and policies. Learn more [here](resource-group-overview.md#resource-groups).
-	3. In **Location**,  select the geographic region that will be used to store the media and metadata records for your Media Services account. This  region will be used to process and stream your media. Only the available Media Services regions appear in the drop-down list box. 
+	2. In **Resource Group**, select the new or existing resource.  A resource group is a collection of resources that share lifecycle, permissions, and policies. Learn more [here](resource-group-overview.md#resource-groups).
+	3. In **Location**,  select the geographic region is used to store the media and metadata records for your Media Services account. This  region is used to process and stream your media. Only the available Media Services regions appear in the drop-down list box. 
 	
-	3. In **Storage Account**, select a storage account to provide blob storage of the media content from your Media Services account. You can select an existing storage account in the same geographic region as your Media Services account, or you can create a new storage account. A new storage account is created in the same region. The rules for storage account names are the same as for Media Services accounts.
+	3. In **Storage Account**, select a storage account to provide blob storage of the media content from your Media Services account. You can select an existing storage account in the same geographic region as your Media Services account, or you can create a storage account. A new storage account is created in the same region. The rules for storage account names are the same as for Media Services accounts.
 
 		Learn more about storage [here](storage-introduction.md).
 
@@ -72,36 +72,36 @@ The steps in this section show how to create a new AMS account.
 
 You need the account name and the primary key information to programmatically access the Media Services account.
 
-1. In the Azure Portal, select your account. 
+1. In the Azure portal, select your account. 
 
 	The **Settings** window appears on the right. 
 
 2. In the **Settings** window, select **Keys**. 
 
 	The **Manage keys** windows shows the account name and the primary and secondary keys is displayed. 
-3. Press on the copy button to copy the values.
+3. Press the copy button to copy the values.
 	
 	![Media Services Keys](./media/media-services-portal-vod-get-started/media-services-keys.png)
 
 ## Configure streaming endpoints
 
-When working with Azure Media Services one of the most common scenarios is delivering video via adaptive bitrate streaming to your clients. With adaptive bitrate streaming, the client can switch to a higher or lower bitrate stream as the video is displayed based on the current network bandwidth, CPU utilization, and other factors. Media Services supports the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only).
+When working with Azure Media Services one of the most common scenarios is delivering video via adaptive bitrate streaming to your clients. Media Services supports the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only).
 
-Media Services provides dynamic packaging which allows you to deliver your adaptive bitrate MP4  encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) just-in-time, without you having to store pre-packaged versions of each of these streaming formats.
+Media Services provides dynamic packaging, which allows you to deliver your adaptive bitrate MP4  encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) just-in-time, without you having to store pre-packaged versions of each of these streaming formats.
 
 To take advantage of dynamic packaging, you need to do the following:
 
 - Encode your mezzanine (source) file into a set of adaptive bitrate MP4 files (the encoding steps are demonstrated later in this tutorial).  
 - Create at least one streaming unit for the *streaming endpoint* from which you plan to delivery your content. The steps below show how to change the number of streaming units.
 
-With dynamic packaging you only need to store and pay for the files in single storage format and Media Services will build and serve the appropriate response based on requests from a client.
+With dynamic packaging, you only need to store and pay for the files in single storage format and Media Services builds and serves the appropriate response based on requests from a client.
 
 To create and change the number of streaming reserved units, do the following:
 
 
-1. In the **Settings** window  click **Streaming endpoints**. 
+1. In the **Settings** window, click **Streaming endpoints**. 
 
-2. Click on the default streaming endpoint. 
+2. Click the default streaming endpoint. 
 
 	The **DEFAULT STREAMING ENDPOINT DETAILS** window appears.
 
@@ -115,7 +115,7 @@ To create and change the number of streaming reserved units, do the following:
 
 ## Upload files
 
-In order to stream videos using Azure Media Services, you will need to upload the source videos, encode them into multiple bitrates, and publish the result. The first step is covered in this section. 
+To stream videos using Azure Media Services, you need to upload the source videos, encode them into multiple bitrates, and publish the result. The first step is covered in this section. 
 
 1. In the **Setting** window, click **Assets**.
 
@@ -131,14 +131,13 @@ In order to stream videos using Azure Media Services, you will need to upload th
 
 	The upload starts and you can see the progress under the file name.  
 
-Once the upload completes, you will see the new asset listed in the **Assets** window. 
-
+Once the upload completes, you see the new asset listed in the **Assets** window. 
 
 ## Encode assets
 
 When working with Azure Media Services one of the most common scenarios is delivering adaptive bitrate streaming to your clients. Media Services supports the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH, and HDS (for Adobe PrimeTime/Access licensees only). To prepare your videos for adaptive bitrate streaming, you need to encode your source video into multi-bitrate files. You should use the **Media Encoder Standard** encoder to encode your videos.  
 
-Media Services also provides dynamic packaging which allows you to deliver your multi-bitrate MP4s in the following streaming formats: MPEG DASH, HLS, Smooth Streaming, or HDS, without you having to re-package into these streaming formats. With dynamic packaging you only need to store and pay for the files in single storage format and Media Services will build and serve the appropriate response based on requests from a client.
+Media Services also provides dynamic packaging, which allows you to deliver your multi-bitrate MP4s in the following streaming formats: MPEG DASH, HLS, Smooth Streaming, or HDS, without you having to repackage into these streaming formats. With dynamic packaging, you only need to store and pay for the files in single storage format and Media Services builds and serves the appropriate response based on requests from a client.
 
 To take advantage of dynamic packaging, you need to do the following:
 
@@ -161,7 +160,7 @@ This section describes the steps you can take to encode your content with Media 
 
 ### Monitor encoding job progress
 
-To monitor the progress of the encoding job, click on **Settings** (at the top of the page) and then select **Jobs**.
+To monitor the progress of the encoding job, click **Settings** (at the top of the page) and then select **Jobs**.
 
 ![Jobs](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
@@ -190,9 +189,9 @@ A SAS URL has the following format.
 
 	{blob container name}/{asset name}/{file name}/{SAS signature}
 
->[AZURE.NOTE] If you used the portal to create locators before March 2015, locators with a two year expiration date were created.  
+>[AZURE.NOTE] If you used the portal to create locators before March 2015, locators with a two-year expiration date were created.  
 
-To update an expiration date on a locator, use [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator ) or [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) APIs. Note that when you update the expiration date of a SAS locator, the URL changes.
+To update an expiration date on a locator, use [REST](http://msdn.microsoft.com/library/azure/hh974308.aspx#update_a_locator ) or [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) APIs. When you update the expiration date of a SAS locator, the URL changes.
 
 ### To use the portal to publish an asset
 
@@ -206,11 +205,11 @@ To use the portal to publish an asset, do the following:
 
 	![Publish](./media/media-services-portal-vod-get-started/media-services-publish1.png)
 
-The URL will be added to the list of **Published URLs**.
+The URL is added to the list of **Published URLs**.
 
 ## Play content from the portal
 
-The Azure Portal provides a content player that you can use to test your video.
+The Azure portal provides a content player that you can use to test your video.
 
 Click the desired video and then click the **Play** button.
 
@@ -219,9 +218,11 @@ Click the desired video and then click the **Play** button.
 Some considerations apply:
 
 - Make sure the video has been published.
-- This *Media player** plays from the default streaming endpoint. If you want to play from a non-default streaming endpoint, click to copy the URL and use another player. For example, [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+- This **Media player** plays from the default streaming endpoint. If you want to play from a non-default streaming endpoint, click to copy the URL and use another player. For example, [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
-##Next Steps:Media Services learning paths
+##Next steps
+
+Review Media Services learning paths.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

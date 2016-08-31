@@ -1,6 +1,6 @@
 <properties
-	pageTitle="How to: Change or Reset your Azure AD Password | Microsoft Azure"
-	description="Learn how to register for password reset, how to change your password, and how to reset your own password in case you ever forget it."
+	pageTitle="How to update your own password using Azure Active Directory| Microsoft Azure"
+	description="Learn that ways you can register for password reset, how to change your password, and how to reset your own password in case you ever forget it."
 	services="active-directory"
 	documentationCenter=""
 	authors="asteen"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2016"
+	ms.date="08/30/2016"
 	ms.author="asteen"/>
 
 # How to update your own password
-If you are unsure how to manage your Work or School account password, you've come to the right place!  Read below to learn how to perform common steps, like changing a password, resetting a password, or registering for password reset.
+If you are unsure how to manage your work or school account password, you've come to the right place!  Read below to learn how to perform common steps, like changing a password, resetting a password, or registering for password reset.
 
-* [**Don’t lose access to your account!**](#how-to-register-for-password-reset)
+* [**Don’t lose access to your account!**](#dont-lose-access-to-your-account)
 * [**How to change your password from Office 365**](#how-to-change-your-password-from-o365)
 * [**How to change your password from the access panel**](#how-to-change-your-password-from-the-access-panel)
 * [**How to reset your password**](#how-to-reset-your-password)
@@ -31,9 +31,9 @@ If you are unsure how to manage your Work or School account password, you've com
 > [AZURE.IMPORTANT]
 > **Why am I seeing this?** If you followed a link to get here, you're probably seeing this because your administrator requires you to register for password reset to gain access to your app. You might be asked for phone or email information, or to set up security questions.  Don’t worry – we won’t use this information to spam you, just to keep your account more secure. The steps presented here should help you to reach your goal.
 
-The fastest way to register for password reset is to go to http://aka.ms/ssprsetup.  
+The fastest way to register for password reset is to go to [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup).  
 
- 1. Navigate to http://aka.ms/ssprsetup.
+ 1. Navigate to [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup).
  2. Enter your username and password.
  3. Choose an option to register for by clicking **set it up now**.  In this case, I'll demonstrate registering my **authentication phone**.
 
@@ -49,7 +49,7 @@ The fastest way to register for password reset is to go to http://aka.ms/ssprset
     ![][014]
 
  6. Once the code arrives, enter it into the input box, and then click "verify."
- 7. When you see **thanks**, that's it! Now you can use what you registered for to reset your password at any time by going to https://passwordreset.microsoftonline.com.
+ 7. When you see **thanks**, that's it! Now you can use what you registered for to reset your password at any time by going to [https://passwordreset.microsoftonline.com](https://passwordreset.microsoftonline.com).
 
     ![][015]
 
@@ -86,7 +86,7 @@ Follow the steps below to reset your work or school account password from any wo
 > If your admin has enabled you for this feature, you'll first need to sign up before you can use it. You can do that here: http://aka.ms/ssprsetup.
 
 
- 1. On the any work or school account sign in page, click on one of the "can't access your account?" or "forgot your password?" links, or navigate to https://passwordreset.microsoftonline.com directly.
+ 1. On the any work or school account sign-in page, click on one of the "can't access your account?" or "forgot your password?" links, or navigate to https://passwordreset.microsoftonline.com directly.
 
     ![][001]
 
