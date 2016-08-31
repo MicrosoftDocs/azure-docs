@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/30/2016"
+   ms.date="08/31/2016"
    ms.author="dugill;tomfitz" />
 
 # How to use Azure Active Directory and Resource Manager to manage a customer’s resources
@@ -35,9 +35,9 @@ All the code for this topic is running as a web app that you can try at [http://
 The web app:
 
 1. Signs-in an Azure user.
-2. Asks user to grant the app access to Resource Manager.
-3. Gets user + app access token for the Azure subscription.
-4. Uses token (from step 3) to assign the app's service principal to role in the subscription, which gives the app long-term access to the subscription.
+2. Asks user to grant the web app access to Resource Manager.
+3. Gets user + app access token for accessing Resource Manager.
+4. Uses token (from step 3) to call Resource Manager and assign the app's service principal to a role in the subscription, which gives the app long-term access to the subscription.
 5. Gets app-only access token.
 6. Uses token (from step 5) to manage resources in the subscription through Resource Manager.
 
@@ -241,7 +241,7 @@ To authenticate your app and get a token to Azure AD Graph API, issue a Client C
 
 The [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) method of the ASP.net MVC sample application gets an app-only access token for Graph API using the Active Directory Authentication Library for .NET.
 
-The query string parameters that are available for this request are described in the [Use the authorization code to request an access token](./active-directory/active-directory-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token) topic.
+The query string parameters that are available for this request are described in the [Request an Access Token](./active-directory/active-directory-protocols-oauth-service-to-service.md#request-an-access-token) topic.
 
 An example request for client credential grant token: 
 
