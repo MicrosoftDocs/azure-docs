@@ -20,7 +20,7 @@
 
 # Containers (Preview) solution Log Analytics
 
-This article describes how to set-up and use the Containers solution in Log Analytics, which helps you view and manage your Docker container hosts in a single location. Docker is a software virtualization system used to create containers that automate software deployment to their IT infrastructure.
+This article describes how to set up and use the Containers solution in Log Analytics, which helps you view and manage your Docker container hosts in a single location. Docker is a software virtualization system used to create containers that automate software deployment to their IT infrastructure.
 
 With the solution, you can see which containers are running on your container hosts and what images are running in the containers. You can view detailed audit information showing commands used with containers. And, you can troubleshoot containers by viewing and searching centralized logs without having to remotely view Docker hosts. You can find containers that may be noisy and consuming excess resources on a host. And, you can view centralized CPU, memory, storage, and network usage and performance information for containers.
 
@@ -43,7 +43,7 @@ You need the following settings configured on your container hosts before you ca
 
 ## Configure settings for the Linux container host
 
-After you've installed Docker, use the following settings for your container host to configure the agent for use with Docker. CoreOS doesn't support this method configuration.
+After you've installed Docker, use the following settings for your container host to configure the agent for use with Docker. CoreOS doesn't support this configuration method.
 
 ### To configure settings for the container host - systemd (SUSE, openSUSE, CentOS 7.x, RHEL 7.x, and Ubuntu 15.x and higher)
 
@@ -131,7 +131,7 @@ The following table show examples of data types collected by the Containers solu
 | --- | --- |
 | Performance for hosts and containers | Computer, ObjectName, CounterName &#40;%Processor Time, Disk Reads MB, Disk Writes MB, Memory Usage MB, Network Receive Bytes, Network Send Bytes, Processor Usage sec, Network&#41;, CounterValue,TimeGenerated, CounterPath, SourceSystem |
 | Container inventory | TimeGenerated, Computer, container name, ContainerHostname, Image, ImageTag, ContinerState, ExitCode, EnvironmentVar, Command, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
-| Container image inventory | TimeGenrated, Computer, Image, ImageTag, ImageSize, VirtualSize, Running, Paused, Stopped, Failed, SourceSystem, ImageID, TotalContainer |
+| Container image inventory | TimeGenerated, Computer, Image, ImageTag, ImageSize, VirtualSize, Running, Paused, Stopped, Failed, SourceSystem, ImageID, TotalContainer |
 | Container log | TimeGenerated, Computer, image ID, container name, LogEntrySource, LogEntry, SourceSystem, ContainerID |
 | Container service log | TimeGenerated, Computer, TimeOfCommand, Image, Command, SourceSystem, ContainerID |
 
@@ -141,7 +141,7 @@ After you have the solution enabled in the OMS portal, you'll see the **Containe
 
 ![Containers tile](./media/log-analytics-containers/containers-title.png)
 
-The tile shows hosts that are overwhelmed with CPU or Memory usage (&gt;90%), as well as an overview of how many containers you have in the environment and whether they're failed, are running, or are stopped.
+The tile shows hosts that are overwhelmed with CPU or Memory usage (&gt;90%), as well as an overview of how many containers you have in the environment and whether they're failed, running, or stopped.
 
 ### Using the Containers dashboard
 
