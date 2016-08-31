@@ -5,7 +5,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="08/31/2016"
 	ms.author="andkjell"/>
 
 
@@ -77,8 +77,11 @@ This option allows you to change from password sync to federation or the other w
 
 For more information on this option, see [user sign-in](active-directory-aadconnect-user-signin.md#changing-user-sign-in-method).
 
-
 ## Next steps
-Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
-Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+- Learn more about the configuration model used by Azure AD Connect sync in [Understanding Declarative Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
+
+**Overview topics**
+
+- [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
+- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
