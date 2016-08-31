@@ -34,9 +34,9 @@ CodeLens indicators are shown above method and other declarations in C# and Visu
 
 ![TBD](./media/app-insights-visual-studio-codelens/codelens-exceptions.png)
 
-The exception CodeLens indicator shows the number of exceptions that have occurred in the past 24 hours from the 15 most frequently occuring exceptions in your application during that period, while processing the request served by the method.
+The exception CodeLens indicator shows the number of exceptions that have occurred in the past 24 hours from the 15 most frequently occurring exceptions in your application during that period, while processing the request served by the method.
 
-Click the exceptions CodeLens indicator to see more details:
+To see more details, click the exceptions CodeLens indicator:
 
 * The percentage change in number of exceptions from the most recent 24 hours relative to the prior 24 hours
 * Choose **Go to code** to navigate to the source code for the function throwing the exception
@@ -45,9 +45,9 @@ Click the exceptions CodeLens indicator to see more details:
 * Choose **View all exceptions in this app** to query all exceptions that have occurred in the past 24 hours
 * Choose **Explore exception trends** to view a trend visualization for all exceptions that have occurred in the past 24 hours. 
 
-> [AZURE.TIP] If you see "0 exceptions" in CodeLens but you know there should be exceptions, check to make sure the right Application Insights resource is selected in CodeLens. To select another resource, right-click on your project in the Solution Explorer and choose **Application Insights > Choose Telemetry Source**. CodeLens is only shown for the 15 most frequently occuring exceptions in your application in the past 24 hours, so if an exception is the 16th most frequently or less, you'll see "0 exceptions." Exceptions from ASP.NET views may not appear on the controller methods that generated those views.
+> [AZURE.TIP] If you see "0 exceptions" in CodeLens but you know there should be exceptions, check to make sure the right Application Insights resource is selected in CodeLens. To select another resource, right-click on your project in the Solution Explorer and choose **Application Insights > Choose Telemetry Source**. CodeLens is only shown for the 15 most frequently occurring exceptions in your application in the past 24 hours, so if an exception is the 16th most frequently or less, you'll see "0 exceptions." Exceptions from ASP.NET views may not appear on the controller methods that generated those views.
 
-> [AZURE.TIP] If you see "? exceptions" in CodeLens, you need to associate your Azure account with Visual Studio or your Azure account credential may have expired. In either case, click on "? exceptions" and choose **Add an account...** to enter your credentials.
+> [AZURE.TIP] If you see "? exceptions" in CodeLens, you need to associate your Azure account with Visual Studio or your Azure account credential may have expired. In either case, click "? exceptions" and choose **Add an account...** to enter your credentials.
 
 ## Requests in CodeLens
 
@@ -55,11 +55,11 @@ Click the exceptions CodeLens indicator to see more details:
 
 The request CodeLens indicator shows the number of HTTP requests that been serviced by a method in the past 24 hours, plus the percentage of those requests that failed.
 
-Click the requests CodeLens indicator to see more details:
+To see more details, click the requests CodeLens indicator:
 
 * The absolute and percentage changes in number of requests, failed requests, and average response times over the past 24 hours compared to the prior 24 hours
 * The reliability of the method, calculated as the percentage of requests that did not fail in the past 24 hours
-* Choose **Search** for requests or failed requests to query all of the (failed) requests that occurred in the past 24 hours
+* Choose **Search** for requests or failed requests to query all the (failed) requests that occurred in the past 24 hours
 * Choose **Trend** to view a trend visualization for requests, failed requests, or average response times in the past 24 hours.
 * Choose the name of the Application Insights resource in the upper left corner of the CodeLens details view to change which resource is the source for CodeLens data.
 
