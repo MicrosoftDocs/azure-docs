@@ -18,7 +18,7 @@
 
 # High-density hosting on Azure App Service#
 
-When you use Azure App Service, your application will be considered separately from its allocated capacity.
+When using App Service, your application will be decoupled from the capacity allocated to it by 2 concepts:
 
 - **The Application:** Represents the app and its runtime configuration. For example, it includes the version of .NET that the runtime should load, the app settings, etc.
 
