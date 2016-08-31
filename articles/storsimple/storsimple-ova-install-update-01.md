@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/30/2016"
+   ms.date="08/31/2016"
    ms.author="alkohli" />
 
 # Install Updates on your StorSimple Virtual Array
@@ -25,7 +25,7 @@ Keep in mind that installing an update or hotfix restarts your device. Given tha
 
 Before you apply an update, we recommend that you take the volumes or shares offline on the host first and then the device. This will minimize any possibility of data corruption.
 
-> [AZURE.IMPORTANT] If you are running Update 0.1 or GA software versions, you must use the local web UI to install update 0.3. If you are running Update 0.2, we recommend that you install the updates via the Azure classic portal.
+> [AZURE.IMPORTANT] If you are running Update 0.1 or GA software versions, you must use the hotfix method via the local web UI to install update 0.3. If you are running Update 0.2, we recommend that you install the updates via the Azure classic portal.
 
 ## Use the local web UI 
  
@@ -46,7 +46,7 @@ Perform the following steps to download the software update from the Microsoft U
    
 	![Install catalog](./media/storsimple-ova-install-update-01/install-catalog.png)
 
-3. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix you want to download. Enter **3160441** for Update 0.2, or **3160441** for Update 0.1, and then click **Search**.
+3. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix you want to download. Enter **3182061** for Update 0.3, and then click **Search**.
 
     The hotfix listing appears, for example, **StorSimple Virtual Array Update 0.3**.
 
@@ -69,7 +69,7 @@ Prior to the update or hotfix installation, make sure that you have the update o
 
 2. In **Update file path**, enter the file name for the update or the hotfix. You can also browse to the update or hotfix installation file if placed on a network share. Click **Apply**.
 
-	![update device](./media/storsimple-ova-install-update-01/update1m.png)
+	![update device](./media/storsimple-ova-install-update-01/update2m.png)
 
 3.  A warning will show up. Given this is a single node device, after the update is applied, the device will restart and there will be downtime. Click the check icon.
 
@@ -77,13 +77,13 @@ Prior to the update or hotfix installation, make sure that you have the update o
 
 4. The update will start. After the device is successfully updated, it will restart. The local UI will not be accessible in this duration.
 
-    ![update device](./media/storsimple-ova-install-update-01/update6m.png)
+    ![update device](./media/storsimple-ova-install-update-01/update5m.png)
 
 4. After the restart is complete, you will be taken to the sign in page. You can then verify the software version. Go to **Maintenance** > **Software Update**. The displayed software version should be **10.0.10287.0** for Update 0.3.
 
 	> [AZURE.NOTE] We report the software versions in a slightly different way in the local web UI and the Azure classic portal. For example, the local web UI reports **10.0.0.0.10287** and the Azure classic portal reports **10.0.10287.0** for the same version. 
 
-	![update device](./media/storsimple-ova-install-update-01/update9m.png)
+	![update device](./media/storsimple-ova-install-update-01/update6m.png)
 
 
 ## Use the Azure classic portal
@@ -94,6 +94,7 @@ If running Update 0.2, we recommend that you install updates through the Azure c
 
 After the installation is complete (as indicated by job status at 100 %), go to **Devices > Maintenance > Software Updates**. The displayed software version should be 10.0.10287.0.
 
+![update device](./media/storsimple-ova-install-update-01/aupdate12m.png)
 
 ## Next steps
 

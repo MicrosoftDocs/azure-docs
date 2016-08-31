@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 08/30/16-->
+<!--author=alkohli last changed: 08/31/16-->
 
 #### To install updates via the Azure classic portal
 
@@ -16,13 +16,13 @@
 
     ![update device via portal](./media/storsimple-ova-install-update-via-portal/aupdate3m.png)
 
-5. You will be notified after the updates are downloaded.
+5. You will be notified when the updates are downloaded. 
 
-    ![update device via portal](./media/storsimple-ova-install-update-via-portal/aupdate4m.png)
+    ![update device via portal](./media/storsimple-ova-install-update-via-portal/aupdate6m.png)
 
 6. From the bottom of the page, click **Install Updates** to begin updating the device. The dialog will be presented to you again. Click the check icon to start a job to install the updates. 
 
-    ![update device via portal](./media/storsimple-ova-install-update-via-portal/aupdate6m.png)
+    ![update device via portal](./media/storsimple-ova-install-update-via-portal/aupdate7m.png)
 
 7. You will be notified after the job is created. 
 
