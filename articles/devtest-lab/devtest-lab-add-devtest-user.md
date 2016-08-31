@@ -23,6 +23,7 @@
 Azure DevTest Labs access is controlled by Azure Role-Based Access Control (RBAC). Search for [Role-Based-Access-Control (RBAC)](https://azure.microsoft.com/search/?q=role%20based%20access%20control) in the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) to learn more.
 
 You grant access to your lab through three roles:
+
 - DevTest Labs Owner
 - DevTest Labs User
 - DevTest Labs Contributor
@@ -35,10 +36,9 @@ The following table illustrates the actions that can be performed by users in ea
 | Start, stop and delete VMs             | Yes   | Only VMs created by the user   | Only VMs created by the user   |   |
 | Create, modify, and delete formulas    | Yes   | Yes                            | Yes                            |   |
 
-> [AZURE.NOTE 
-> When a user creates a VM, that user is automatically assigned to the **Owner** role of the created VM, which allows that person to perform all the actions that are offered in the lab.
+> [AZURE.NOTE] When a user creates a VM, that user is automatically assigned to the **Owner** role of the created VM, which allows that person to perform all the actions that are offered in the lab.]
 
-## Add an owner to your lab
+## Add an owner to a lab
 
 Because of the way permissions are propagated from parent scope to child scope in Azure, owner(s) of an Azure subscription that contains labs will automatically be owner(s) of those labs, as well as of all the VMs and other resources that get created by the lab's users as well as by the DevTest Lab service. While you can add additional owners to a lab via the lab's blade in the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), their scope of administration will be more narrow than that of the subscription owners, because they would not have full access to some of the resources that are created in the subscription by the DevTest Labs service. 
 
