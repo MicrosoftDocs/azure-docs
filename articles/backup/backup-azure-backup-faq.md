@@ -54,7 +54,7 @@ You can download the latest agent for backing up Windows Server, System Center D
 ## Which version of SCDPM server is supported? <br/>
 We recommend that you install the [latest](http://aka.ms/azurebackup_agent) Azure Backup agent on the latest update rollup of SCDPM (UR11 as of August 2016)
 
-## When configuring the Azure Backup agent, I am prompted to enter the **vault credentials**. Do vault credentials expire?
+## When configuring the Azure Backup agent, I am prompted to enter the vault credentials. Do vault credentials expire?
 Yes, the vault credentials expire after 48 hours. If the file expires, log in to the Azure portal and download the vault credentials files from your vault. 
 
 ## Is there any limit on the number of vaults that can be created in each Azure subscription? <br/>
