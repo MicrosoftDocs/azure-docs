@@ -447,7 +447,6 @@ Properties available in the typeProperties section of the activity on the other 
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
-| blobWriterAddHeader | Specifies whether to add a header of column definitions. <br/><br/>Datasets now support a property called **firstRowAsHeader**. See [Specifying TextFormat](#specifying-textformat) section for details. We recommend using the firstRowAsHeader property on the dataset rather than this property. This property on BlobSink is kept for backward compatibility.| TRUE<br/>FALSE (default) | No |
 | copyBehavior | Defines the copy behavior when the source is BlobSource or FileSystem. | **PreserveHierarchy:** preserves the file hierarchy in the target folder. The relative path of source file to source folder is identical to the relative path of target file to target folder.<br/><br/>**FlattenHierarchy:** all files from the source folder are in the first level of target folder. The target files have auto generated name. <br/><br/>**MergeFiles: (default)** merges all files from the source folder to one file. If the File/Blob Name is specified, the merged file name would be the specified name; otherwise, would be auto-generated file name. | No |
 
 **BlobSource** also supports these two properties that will be deprecated soon. 
@@ -459,11 +458,9 @@ Similarly, **BlobSink** supports the following property that will be deprecated 
 
 - **blobWriterAddHeader**: Specifies whether to add a header of column definitions while writing to an output dataset. 
 
-Datasets now support the following properties that implement the same functionality.
+Datasets now support the following properties that implement the same functionality: **treatEmptyAsNull**, **skipLineCount**, **firstRowAsHeader**.
 
-- treatEmptyAsNull
-- skipLineCount
-- firstRowAsHeader
+The following table provides guidance on using the new dataset properties in place of blob source/sink properties that will be deprecated soon. 
 
 | Copy Activity property | Dataset property |
 | :---------------------- | :---------------- | 
@@ -471,9 +468,7 @@ Datasets now support the following properties that implement the same functional
 | treatEmptyAsNull<br/> (on BlobSource) | treatEmptyAsNull on input dataset |
 | blobWriterAddHeader<br/> (on BlobSink)| firstRowAsHeader on output dataset | 
 
-
-
-See [Specifying TextFormat](#specifying-textformat) section for details.   
+See [Specifying TextFormat](#specifying-textformat) section for detailed information on these properties.    
 
 ### recursive and copyBehavior examples
 This section describes the resulting behavior of the Copy operation for different combinations of recursive and copyBehavior values. 
