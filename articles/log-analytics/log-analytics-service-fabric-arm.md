@@ -50,8 +50,7 @@ This template does the following:
 2. It also adds the diagnostic storage accounts to the Log Analytics workspace.
 3. Enables the Service Fabric solution in the Log Analytics workspace.
 4. Installs the MMA agent extension in each VM scale set in your Service Fabric cluster. With the MMA agent installed, you're able to view the VM's performance metrics. Be sure to add performance counters in Settings > Data > Windows Performance Counters in order to view these metrics. 
-<insert screenshot on perf metrics added>
-<insert screenshots perf metrics>
+
 
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-vmss-oms%2F%2Fazuredeploy.json) 
 
@@ -59,6 +58,11 @@ After the template has been deployed, you should see the new workspace and clust
 
 <insert screenshots here>
 
+You are also able to view the following key metrics in your Log Analytics workspace, by using the following queries in Search:
+
+
+<insert screenshot on perf metrics added>
+<insert screenshots perf metrics>
 ##Adding an existing storage account to Log Analytics
 This template simply adds your existing storage accounts to a new or existing Log Analytics workspace.
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Foms-storageaccount%2F%2Fazuredeploy.json) 
