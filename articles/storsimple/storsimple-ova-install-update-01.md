@@ -61,11 +61,15 @@ Perform the following steps to download the software update from the Microsoft U
 
 ### Install the update or the hotfix
 
-Prior to the update or hotfix installation, make sure that you have the update or the hotfix downloaded either locally on your host or accessible via a network share. Perform the following steps to install the update or hotfix.
+Prior to the update or hotfix installation, make sure that you have the update or the hotfix downloaded either locally on your host or accessible via a network share. 
+
+Use this method to install updates on a device running GA or Update 0.1 software versions. Perform the following steps to install the update or hotfix.
 
 #### To install the update or the hotfix
 
 1. In the local web UI, go to **Maintenance** > **Software Update**.
+
+    ![update device](./media/storsimple-ova-install-update-01/update1m.png)
 
 2. In **Update file path**, enter the file name for the update or the hotfix. You can also browse to the update or hotfix installation file if placed on a network share. Click **Apply**.
 
@@ -73,7 +77,7 @@ Prior to the update or hotfix installation, make sure that you have the update o
 
 3.  A warning will show up. Given this is a single node device, after the update is applied, the device will restart and there will be downtime. Click the check icon.
 
-	![update device](./media/storsimple-ova-install-update-01/update4m.png)
+	![update device](./media/storsimple-ova-install-update-01/update3m.png)
 
 4. The update will start. After the device is successfully updated, it will restart. The local UI will not be accessible in this duration.
 
