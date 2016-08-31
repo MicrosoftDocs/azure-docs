@@ -24,9 +24,9 @@ If you’re new to Microsoft Azure Stack, these terms and feature descriptions m
 
 There are two varieties of users for Microsoft Azure Stack, the service administrator and the tenant (customer).
 
-| ![](media/azure-stack-key-features/image1.png) | A **service administrator** can configure and manage resource providers, tenant offers, plans, services, quotas, and pricing.                                                                                           |
+| ![](media/azure-stack-key-features/image1.png) | An **administrator** can configure and manage resource providers, tenant offers, plans, services, quotas, and pricing.                                                                                           |
 |---|---|
-| ![](media/azure-stack-key-features/image2.png) | A **tenant** purchases (or acquires) services that the service administrator offers. Tenants can provision, monitor, and manage services that they have subscribed to, such as Web Apps, Storage, and Virtual Machines. |
+| ![](media/azure-stack-key-features/image2.png) | A **tenant** purchases (or acquires) services that the administrator offers. Tenants can provision, monitor, and manage services that they have subscribed to, such as Web Apps, Storage, and Virtual Machines. |
 
 ## Portal
 
@@ -34,7 +34,7 @@ The primary method of interacting with Microsoft Azure Stack is the portal.
 
 ![](media/azure-stack-key-features/image3.png)
 
-The Microsoft Azure Stack portal, which is consistent with the Azure portal, is a web page that provides a self-service experience for both service administrators and tenants with role-based access control (RBAC) to resources and cloud capacity, enabling quick application and service development and deployment.
+The Microsoft Azure Stack portal, which is consistent with the Azure portal, is a web page that provides a self-service experience for both administrators and tenants with role-based access control (RBAC) to resources and cloud capacity, enabling quick application and service development and deployment.
 
 ## Services, plans, offers, and subscriptions
 
@@ -54,9 +54,9 @@ Plans are groupings of one or more services. As a provider, you create plans to 
 
 Each service added to a plan can be configured with quota settings to help you manage your cloud capacity. Quotas can include restrictions such as VM, RAM, and CPU limits and are applied per user subscription. Quotas can be differentiated by location. For example, a plan containing compute services from Region A could have a quota of two virtual machines, 4GB RAM, and 10 CPU cores.
 
-When composing an offer, the service administrator can include **base plans**. These base plans are included by default when a tenant subscribes to that offer. As soon as a user subscribes (and the subscription is created), the user has access to all the resource providers specified in those base plans (with the corresponding quotas).
+When composing an offer, the sadministrator can include **base plans**. These base plans are included by default when a tenant subscribes to that offer. As soon as a user subscribes (and the subscription is created), the user has access to all the resource providers specified in those base plans (with the corresponding quotas).
 
-The service administrator can also include **add-on plans** in an offer. Add-on plans are not included by default in the subscription. Add-on plans are additional plans (quotas) available in an offer that a subscription owner can add to their subscription.
+The administrator can also include **add-on plans** in an offer. Add-on plans are not included by default in the subscription. Add-on plans are additional plans (quotas) available in an offer that a subscription owner can add to their subscription.
 
 ### Offers
 
@@ -118,7 +118,7 @@ The Network Resource Provider (NRP) delivers a series of Software Defined Networ
 
 ### Storage RP
 
-The Storage RP delivers three Azure-consistent storage services: blob, table, and account management. It also offers a storage cloud administration service to facilitate service provider administration of Azure-consistent Storage services. Azure Storage provides the flexibility to store and retrieve large amounts of unstructured data, such as documents and media files with Azure Blobs, and structured NoSQL based data with Azure Tables. For more information on Azure Storage, see [Introduction to Microsoft Azure Storage](../storage/storage-introduction.md) on Azure.com or [download the Azure Stack Azure-consistent Storage Validation Guide](http://aka.ms/azurestacktp1doc).
+The Storage RP delivers four Azure-consistent storage services: queue, blob, table, and account management. It also offers a storage cloud administration service to facilitate service provider administration of Azure-consistent Storage services. Azure Storage provides the flexibility to store and retrieve large amounts of unstructured data, such as documents and media files with Azure Blobs, and structured NoSQL based data with Azure Tables. For more information on Azure Storage, see [Introduction to Microsoft Azure Storage](../storage/storage-introduction.md) on Azure.com or [download the Azure Stack Azure-consistent Storage Validation Guide](http://aka.ms/azurestacktp1doc).
 
 #### Blob storage
 
