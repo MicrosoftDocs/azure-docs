@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Interact with reports using the JavaScript API"
+   pageTitle="Interact with reports using the JavaScript API | Microsoft Azure"
    description="Power BI Embedded, interact with reports using the JavaScript API"
    services="power-bi-embedded"
    documentationCenter=""
@@ -16,7 +16,7 @@
    ms.date="08/26/2016"
    ms.author="jocaplan"/>
 
-# Interact with reports using the JavaScript API
+# Interact with Power BI reports using the JavaScript API
 
 The Power BI JavaScript API enables you to easily embed Power BI reports into your applications. With the API, your applications can programmatically interact with different report elements like pages and filters. This interactivity makes Power BI reports a more integrated part of your application.
 
@@ -36,7 +36,7 @@ With the JavaScript API you can manage reports, navigate to pages in a report, f
 ![Power BI JavaScript API diagram](media\powerbi-embedded-interact-with-reports\powerbi-embedded-interact-report-3.png)
 
 
-### Manage Reports
+### Manage reports
 The Javascript API enables you to manage behavior at the report and page level:
 
 - Embed a specific Power BI Report securely in your application - try the [embed demo application](http://azure-samples.github.io/powerbi-angular-client/#/scenario1)
@@ -49,16 +49,16 @@ The Javascript API enables you to manage behavior at the report and page level:
 [Learn more about embedding a report](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embedding-Basics)
 
 
-### Navigate to Pages in a Report
+### Navigate to pages in a report
 The JavaScript API enbales you to discover all pages in a report and to set the current page. Try the [navigation demo application](http://azure-samples.github.io/powerbi-angular-client/#/scenario3).
 
 [Learn more about page navigation](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Page-Navigation)
 
-### Filter a Report
+### Filter a report
 The JavaScript API provides basic and advanced filtering capabilities for embedded reports and report pages. Try the [filtering demo application](http://azure-samples.github.io/powerbi-angular-client/#/scenario4), and review some introductory code here.  
 
 
-#### Basic Filters
+#### Basic filters
 A basic filter is placed on a column or hierarchy level and contains a list of values to include or exclude.
 
 ```
@@ -74,7 +74,7 @@ const basicFilter: pbi.models.IBasicFilter = {
 ```
 
 
-#### Advanced Filters
+#### Advanced filters
 Advanced filters use the logical operator AND or OR, and accept one or two conditions, each with their own operator and value. Supported conditions are:
 
 - None
@@ -114,7 +114,7 @@ const advancedFilter: pbi.models.IAdvancedFilter = {
 [Learn more about filtering](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Filters)
 
 
-### Handling Events
+### Handling events
 In addition to sending information into the iframe, your application can also receive information on the following events coming from the iframe:
 
 - Embed
@@ -127,7 +127,7 @@ In addition to sending information into the iframe, your application can also re
 [Learn more about handling events](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Handling-Events)
 
 
-## Next Steps
+## Next steps
 For more information about the Power BI JavaScript API, check out the following links:
 
 - [JavaScript API Wiki](https://github.com/Microsoft/PowerBI-JavaScript/wiki)
