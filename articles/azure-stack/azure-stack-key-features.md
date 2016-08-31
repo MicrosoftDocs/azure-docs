@@ -3,7 +3,7 @@
 	description="Learn about the key features and concepts in Azure Stack."
 	services="azure-stack"
 	documentationCenter=""
-	authors="ErikjeMS"
+	authors="Heathl17"
 	manager="byronr"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/25/2016"
-	ms.author="erikje"/>
+	ms.date="09/26/2016"
+	ms.author="helaw"/>
 
 # Key features and concepts in Azure Stack
 
@@ -22,11 +22,11 @@ If you’re new to Microsoft Azure Stack, these terms and feature descriptions m
 
 ## Personas
 
-There are two varieties of users for Microsoft Azure Stack, the service administrator and the tenant (customer).
+There are two varieties of users for Microsoft Azure Stack, the administrator and the tenant (customer).
 
 | ![](media/azure-stack-key-features/image1.png) | An **administrator** can configure and manage resource providers, tenant offers, plans, services, quotas, and pricing.                                                                                           |
 |---|---|
-| ![](media/azure-stack-key-features/image2.png) | A **tenant** purchases (or acquires) services that the administrator offers. Tenants can provision, monitor, and manage services that they have subscribed to, such as Web Apps, Storage, and Virtual Machines. |
+| ![](media/azure-stack-key-features/image2.png) | A **tenant** purchases (or acquires) services that the service administrator offers. Tenants can provision, monitor, and manage services that they have subscribed to, such as Web Apps, Storage, and Virtual Machines. |
 
 ## Portal
 
@@ -36,13 +36,16 @@ The primary method of interacting with Microsoft Azure Stack is the portal.
 
 The Microsoft Azure Stack portal, which is consistent with the Azure portal, is a web page that provides a self-service experience for both administrators and tenants with role-based access control (RBAC) to resources and cloud capacity, enabling quick application and service development and deployment.
 
-## Services, plans, offers, and subscriptions
+## Regions, services, plans, offers, and subscriptions
 
-In Azure Stack, services are delivered to tenants using subscriptions, offers, and plans. Tenants can subscribe to multiple offers. Offers can have one or more plans, and plans can have one or more services.
+In Azure Stack, services are delivered to tenants using regions, subscriptions, offers, and plans. Tenants can subscribe to multiple offers. Offers can have one or more plans, and plans can have one or more services.
 
 ![](media/azure-stack-key-features/image4.png)
 
 Example hierarchy of a tenant’s subscriptions to offers, each with varying plans and services.
+
+## Regions
+Azure Stack regions are the basic element of scale and management.  An organization may have multiple regions with resources available in each region.  Regions may also have different service offerings available.
 
 ### Services
 
