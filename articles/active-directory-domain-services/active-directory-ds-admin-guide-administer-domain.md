@@ -51,7 +51,7 @@ Members of the 'AAD DC Administrators' group are granted privileges on the manag
 
 
 ## Administrative privileges you do not have on a managed domain
-The domain is managed by Microsoft, including activities such as patching, monitoring, performing backups etc. Therefore, the domain is locked down and you do not have privileges to perform certain administrative tasks on the domain. Some examples of tasks you cannot perform are below.
+The domain is managed by Microsoft, including activities such as patching, monitoring and, performing backups. Therefore, the domain is locked down and you do not have privileges to perform certain administrative tasks on the domain. Some examples of tasks you cannot perform are below.
 
 - You are not granted Domain Administrator or Enterprise Administrator privileges for the managed domain.
 
@@ -67,8 +67,8 @@ Azure AD Domain Services managed domains can be managed using familiar Active Di
 
 The first step is to set up a Windows Server virtual machine that is joined to the managed domain. For instructions to do this, refer to the article titled [join a Windows Server virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md).
 
-### Remotely administer the managed domain from a client computer (eg. Windows 10)
-Note that the instructions in this article use a Windows Server virtual machine to administer the AAD-DS managed domain. However, you can also choose to use a Windows client (for example, Windows 10) virtual machine to do so.
+### Remotely administer the managed domain from a client computer (for example, Windows 10)
+The instructions in this article use a Windows Server virtual machine to administer the AAD-DS managed domain. However, you can also choose to use a Windows client (for example, Windows 10) virtual machine to do so.
 
 You can [install Remote Server Administration Tools (RSAT)](http://social.technet.microsoft.com/wiki/contents/articles/2202.remote-server-administration-tools-rsat-for-windows-client-and-windows-server-dsforum2wiki.aspx) on a Windows client virtual machine by following the instructions on TechNet.
 
@@ -76,11 +76,11 @@ You can [install Remote Server Administration Tools (RSAT)](http://social.techne
 ## Task 2 - Install Active Directory administration tools on the virtual machine
 Perform the following steps to install the Active Directory Administration tools on the domain joined virtual machine. For more [details on installing and using Remote Server Administration Tools](https://technet.microsoft.com/library/hh831501.aspx), refer to TechNet.
 
-1. Navigate to **Virtual Machines** node in the Azure classic portal. Select the virtual machine you just created and click **Connect** on the command bar at the bottom of the window.
+1. Navigate to **Virtual Machines** node in the Azure classic portal. Select the virtual machine you created in Task 1 and click **Connect** on the command bar at the bottom of the window.
 
     ![Connect to Windows virtual machine](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
 
-2. The classic portal will prompt you to open or save a .rdp file, which is used to connect to the virtual machine. Click the .rdp file when it has finished downloading.
+2. The classic portal prompts you to open or save a file with a '.rdp' extension, which is used to connect to the virtual machine. Click to open the file when it has finished downloading.
 
 3. At the login prompt, use the credentials of a user belonging to the 'AAD DC Administrators' group. For example, we use 'bob@domainservicespreview.onmicrosoft.com' in our case.
 
@@ -100,9 +100,9 @@ Perform the following steps to install the Active Directory Administration tools
 
 	![Server Selection page](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-server.png)
 
-8. On the **Server Roles** page, click **Next**. We will skip this page since we are not installing any roles on the server.
+8. On the **Server Roles** page, click **Next**. We skip this page since we are not installing any roles on the server.
 
-9. On the **Features** page, click to expand the **Remote Server Administration Tools** node and then click to expand the **Role Administration Tools** node. Select **AD DS and AD LDS Tools** feature from the list of role administration tools as shown below.
+9. On the **Features** page, click to expand the **Remote Server Administration Tools** node and then click to expand the **Role Administration Tools** node. Select **AD DS and AD LDS Tools** feature from the list of role administration tools.
 
 	![Features page](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-ad-tools.png)
 
@@ -124,11 +124,11 @@ Now that the AD Administrative Tools are installed on the domain joined virtual 
 
 	![Active Directory Administrative Center](./media/active-directory-domain-services-admin-guide/adac-overview.png)
 
-3. Click the domain name in the left pane (eg. 'contoso100.com') to explore the domain. Notice two containers called 'AADDC Computers' and 'AADDC Users' respectively.
+3. To explore the domain, click the domain name in the left pane (for example, 'contoso100.com'). Notice two containers called 'AADDC Computers' and 'AADDC Users' respectively.
 
     ![ADAC - view domain](./media/active-directory-domain-services-admin-guide/adac-domain-view.png)
 
-4. Click the container called **AADDC Users** to see all users and groups belonging to the managed domain. You should see user accounts and groups from your Azure AD tenant show up in this container. Notice in this example, a user account for the user 'bob' and a group called 'AAD DC Administrators' are available in this container.
+4. Click the container called **AADDC Users** to see all users and groups belonging to the managed domain. You should see user accounts and groups from your Azure AD tenant show up in this container. Notice in this example, a user account for the user called 'bob' and a group called 'AAD DC Administrators' are available in this container.
 
     ![ADAC - domain users](./media/active-directory-domain-services-admin-guide/adac-aaddc-users.png)
 
