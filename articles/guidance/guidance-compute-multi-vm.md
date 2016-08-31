@@ -163,33 +163,44 @@ The script references the following parameter files to build the VMs and the sur
 
     <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-multi-vm/parameters/windows/networkSecurityGroups.parameters.json#L4-L47 -->
 	```json
-	"parameters": {
+    "parameters": {
       "virtualNetworkSettings": {
         "value": {
-          "name": "ra-vnet",
+          "name": "ra-multi-vm-vnet",
           "resourceGroup": "ra-multi-vm-rg"
         }
       },
       "networkSecurityGroupsSettings": {
         "value": [
           {
-            "name": "ra-nsg",
+            "name": "ra-multi-vm-nsg",
             "subnets": [
-              "ra-subnet"
+              "ra-multi-vm-sn"
             ],
             "networkInterfaces": [
             ],
             "securityRules": [
               {
-                "name": "RDPAllow",
+                "name": "default-allow-rdp",
                 "direction": "Inbound",
-                "priority": 1000,
+                "priority": 100,
                 "sourceAddressPrefix": "*",
                 "destinationAddressPrefix": "*",
                 "sourcePortRange": "*",
                 "destinationPortRange": "3389",
                 "access": "Allow",
                 "protocol": "Tcp"
+              },
+              {
+                "name": "default-allow-http",
+                "protocol": "Tcp",
+                "sourcePortRange": "*",
+                "destinationPortRange": "80",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 110,
+                "direction": "Inbound"
               }
             ]
           }
@@ -206,15 +217,14 @@ The script references the following parameter files to build the VMs and the sur
       {
         "name": "default-allow-ssh",
         "direction": "Inbound",
-        "priority": 1000,
+        "priority": 100,
         "sourceAddressPrefix": "*",
         "destinationAddressPrefix": "*",
         "sourcePortRange": "*",
         "destinationPortRange": "22",
         "access": "Allow",
         "protocol": "Tcp"
-      }
-    ]
+      },
 	```
 
 	You can open additional ports (or deny access through specific ports) by adding further items to the `securityRules` array. For example, if you wish to enable outside access to the HTTP service, you should add a rule that opens TCP port 80.
@@ -226,7 +236,7 @@ The script references the following parameter files to build the VMs and the sur
     "parameters": {
       "virtualMachinesSettings": {
         "value": {
-          "namePrefix": "ra-multi-vm",
+          "namePrefix": "ra-multi",
           "computerNamePrefix": "cn",
           "size": "Standard_DS1_v2",
           "osType": "windows",
@@ -262,7 +272,20 @@ The script references the following parameter files to build the VMs and the sur
           "osDisk": {
             "caching": "ReadWrite"
           },
-          "extensions": [ ],
+          "extensions": [
+            {
+              "name": "iis-config-ext",
+              "settingsConfigMapperUri": "https://raw.githubusercontent.com/mspnp/template-building-blocks/master/templates/resources/Microsoft.Compute/virtualMachines/extensions/vm-extension-passthrough-settings-mapper.json",
+              "publisher": "Microsoft.Powershell",
+              "type": "DSC",
+              "typeHandlerVersion": "2.20",
+              "autoUpgradeMinorVersion": true,
+              "settingsConfig": {
+                "modulesUrl": "https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-compute-multi-vm/extensions/windows/iisaspnet.ps1.zip",
+                "configurationFunction": "iisaspnet.ps1\\iisaspnet"
+              }
+            }
+          ],
           "availabilitySet": {
             "useExistingAvailabilitySet": "No",
             "name": "ra-multi-vm-as"
@@ -330,10 +353,10 @@ The script references the following parameter files to build the VMs and the sur
         "value": {
           "storageAccountsCount": 1,
           "vmCount": 2,
-          "vmStartIndex": 0
+          "vmStartIndex": 1
         }
       }
-    }
+  }
 	```
 
 	Note that the physical VM names and the logical computer names of the VMs are generated, based on the values specified for the `namePrefix` and `computerNamePrefix` parameters. For example, using the default values for these parameters (shown above), the physical names of the VMs that appear in the Azure portal will be ra-multi-vm0 and ra-multi-vm1. The computer names of the VMs that appear on the virtual network will be cn0 and cn1.
@@ -350,12 +373,12 @@ The script references the following parameter files to build the VMs and the sur
 
     <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-multi-vm/parameters/linux/loadBalancer.parameters.json#L26-L31 -->
 	```json
-    "imageReference": {
+  "imageReference": {
       "publisher": "Canonical",
       "offer": "UbuntuServer",
       "sku": "14.04.5-LTS",
       "version": "latest"
-    },
+  },
 	```
 
 	Note that in this case the `osType` parameter must be set to `linux`. If you want to base your VMs on a different build of Linux from a different vendor, you can use the `azure vm image list` command to view the available images.
@@ -412,13 +435,11 @@ To run the script that deploys the solution:
 
     <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-multi-vm/Deploy-ReferenceArchitecture.ps1#L38 -->
 	```powershell
-	# PowerShell
 	$resourceGroupName = "ra-multi-vm-rg"
 	```
 
     <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-multi-vm/deploy-reference-architecture.sh#L3 -->
 	```bash
-	# bash
 	RESOURCE_GROUP_NAME="ra-multi-vm-rg"
 	```
 
