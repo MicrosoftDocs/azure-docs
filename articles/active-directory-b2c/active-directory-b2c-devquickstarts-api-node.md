@@ -24,9 +24,9 @@ With Azure Active Directory (Azure AD) B2C, you can secure a web API by using OA
 
 > [AZURE.NOTE]	This sample was written to be connected to by using our [iOS B2C sample application](active-directory-b2c-devquickstarts-ios.md). Do the current walk-through first, and then follow along with that sample.
 
-**Passport** is authentication middleware for Node.js. Flexible and modular, Passport can be unobtrusively installed in any Express-based or Restify web application. A comprehensive set of strategies supports authentication by using a user name and password, Facebook, Twitter, and more. We have developed a strategy for Azure Active Directory (Azure AD). You will install this module and then add the Azure AD `passport-azure-ad` plug-in.
+**Passport** is authentication middleware for Node.js. Flexible and modular, Passport can be unobtrusively installed in any Express-based or Restify web application. A comprehensive set of strategies supports authentication by using a user name and password, Facebook, Twitter, and more. We have developed a strategy for Azure Active Directory (Azure AD). You install this module and then add the Azure AD `passport-azure-ad` plug-in.
 
-To do this sample, you’ll need to:
+To do this sample, you need to:
 
 1. Register an application with Azure AD.
 2. Set up your application to use Passport's `azure-ad-passport` plug-in.
@@ -39,7 +39,7 @@ Before you can use Azure AD B2C, you must create a directory, or tenant.  A dire
 
 ## Create an application
 
-Next, you need to create an app in your B2C directory that gives Azure AD some information that it needs to securely communicate with your app. In this case, both the client app and web API will be represented by a single **Application ID**, because they comprise one logical app. To create an app, follow [these instructions](active-directory-b2c-app-registration.md). Be sure to:
+Next, you need to create an app in your B2C directory that gives Azure AD some information that it needs to securely communicate with your app. In this case, both the client app and web API are represented by a single **Application ID**, because they comprise one logical app. To create an app, follow [these instructions](active-directory-b2c-app-registration.md). Be sure to:
 
 - Include a **web app/web api** in the application
 - Enter `http://localhost/TodoListService` as a **Reply URL**. It is the default URL for this code sample.
@@ -55,7 +55,7 @@ In Azure AD B2C, every user experience is defined by a [policy](active-directory
 
 - Choose the **Display name** and other sign-up attributes in your sign-up policy.
 - Choose the **Display name** and **Object ID** application claims in every policy.  You can choose other claims as well.
-- Copy down the **Name** of each policy after you create it. It should have the prefix `b2c_1_`.  You'll need those policy names later.
+- Copy down the **Name** of each policy after you create it. It should have the prefix `b2c_1_`.  You need those policy names later.
 
 [AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
@@ -75,21 +75,21 @@ The completed app is also [available as a .zip file](https://github.com/AzureADQ
 
 ## Download Node.js for your platform
 
-To successfully use this sample, you must have a working installation of Node.js. 
+To successfully use this sample, you need a working installation of Node.js. 
 
 Install Node.js from [nodejs.org](http://nodejs.org).
 
 ## Install MongoDB for your platform
 
-To successfully use this sample, you must also have a working installation of MongoDB. You will use MongoDB to make your REST API persistent across server instances.
+To successfully use this sample, you need a working installation of MongoDB. We use MongoDB to make your REST API persistent across server instances.
 
 Install MongoDB from [mongodb.org](http://www.mongodb.org).
 
-> [AZURE.NOTE] This walk-through assumes that you will use the default installation and server endpoints for MongoDB, which at the time of this writing is `mongodb://localhost`.
+> [AZURE.NOTE] This walk-through assumes that you use the default installation and server endpoints for MongoDB, which at the time of this writing is `mongodb://localhost`.
 
 ## Install the Restify modules in your web API
 
-You will use Restify to build your REST API. Restify is a minimal and flexible Node.js application framework derived from Express. It has a robust set of features for building REST APIs on top of Connect.
+We use Restify to build your REST API. Restify is a minimal and flexible Node.js application framework derived from Express. It has a robust set of features for building REST APIs on top of Connect.
 
 ### Install Restify
 
@@ -171,7 +171,7 @@ The output of the command should be similar to this text:
 
 Next, add the OAuth strategy by using `passport-azuread`, a suite of strategies that connect Azure AD with Passport. Use this strategy for bearer tokens in the REST API sample.
 
-> [AZURE.NOTE] Although OAuth2 provides a framework in which any known token type can be issued, only certain token types have gained widespread use. The tokens for protecting endpoints are bearer tokens. These type of tokens are the most widely issued in OAuth2. Many implementations assume that bearer tokens are the only type of token issued.
+> [AZURE.NOTE] Although OAuth2 provides a framework in which any known token type can be issued, only certain token types have gained widespread use. The tokens for protecting endpoints are bearer tokens. These types of tokens are the most widely issued in OAuth2. Many implementations assume that bearer tokens are the only type of token issued.
 
 From the command line, change your directory to `azuread`, if it's not already there.
 
@@ -198,7 +198,7 @@ passport-azure-ad@1.0.0 node_modules/passport-azure-ad
 
 ## Add MongoDB modules to your web API
 
-This sample uses MongoDB as your data store. For that we will install Mongoose, a widely used plug-in for managing models and schemas.
+This sample uses MongoDB as your data store. For that install Mongoose, a widely used plug-in for managing models and schemas.
 
 * `npm install mongoose`
 
@@ -250,7 +250,7 @@ Save the file. You return to it later.
 
 ## Create a config.js file to store your Azure AD settings
 
-This code file passes the configuration parameters from your Azure AD Portal to the `Passport.js` file. You created these configuration values when you added the web API to the portal in the first part of the walk-through. We will explain what to put in the values of these parameters after you copy the code.
+This code file passes the configuration parameters from your Azure AD Portal to the `Passport.js` file. You created these configuration values when you added the web API to the portal in the first part of the walk-through. We explain what to put in the values of these parameters after you copy the code.
 
 From the command line, change your directory to `azuread`, if it's not already there:
 
@@ -284,7 +284,7 @@ passReqToCallback: false // This is a node.js construct that lets you pass the r
 
 `tenantName`: Your tenant name (for example, **contoso.onmicrosoft.com**).
 
-`policyName`: The policy that you want to validate the tokens coming in to your server. This poilicy should be the same policy that you use on the client application for sign-in.
+`policyName`: The policy that you want to validate the tokens coming in to your server. This policy should be the same policy that you use on the client application for sign-in.
 
 > [AZURE.NOTE] For our B2C preview, use the same policies across both client and server setup. If you have already completed a walk-through and created these policies, you don't need to do so again. Because you completed the walk-through, you shouldn't need to set up new policies for client walk-throughs on the site.
 
@@ -307,7 +307,7 @@ Add a new section to `server.js` that includes the following code:
 // We pass these options in to the ODICBearerStrategy.
 
 var options = {
-    // The URL of the metadata document for your app. We will put the keys for token validation from the URL found in the jwks_uri tag of the in the metadata.
+    // The URL of the metadata document for your app. We put the keys for token validation from the URL found in the jwks_uri tag of the in the metadata.
     identityMetadata: config.creds.identityMetadata,
     clientID: config.creds.clientID,
     tenantName: config.creds.tenantName,
@@ -319,7 +319,7 @@ var options = {
 };
 ```
 
-Next, let's add some placeholders for the users we will receive from our calling applications.
+Next, let's add some placeholders for the users we receive from our calling applications.
 
 ```Javascript
 // array to hold logged in users and the current logged in user (owner)
@@ -338,7 +338,7 @@ var log = bunyan.createLogger({
 
 ## Add the MongoDB model and schema information by using Mongoose
 
-The earlier preparation will pay off as you bring these three files together in a REST API service.
+The earlier preparation pays off as you bring these three files together in a REST API service.
 
 For this walk-through, use MongoDB to store your tasks, as discussed earlier.
 
@@ -393,7 +393,7 @@ You first create the schema, and then you create a model object that you use to 
 
 ## Add routes for your REST API task server
 
-Now that you have a database model to work with, add the routes you will use for your REST API server.
+Now that you have a database model to work with, add the routes you use for your REST API server.
 
 ### About routes in Restify
 
@@ -422,7 +422,7 @@ From the command line, change your directory to `azuread`, if it's not already t
 
 `cd azuread`
 
-Open the `server.js` file in an editor. Below the database entries you made above add the following information :
+Open the `server.js` file in an editor. Below the database entries you made above add the following information:
 
 ```Javascript
 /**
@@ -773,7 +773,7 @@ A 401 error is the response you want. It indicates that the Passport layer is tr
 
 ## You now have a REST API service that uses OAuth2
 
-You have implemented a REST API by using Restify and OAuth! You now have sufficient code so that you can continue to develop your service and build on this example. You have gone as far as you can with this server without using an OAuth2-compatible client. For that next step, you will need an additional walk-through like our [Connect to a web API by using iOS with B2C](active-directory-b2c-devquickstarts-ios.md) walkthrough.
+You have implemented a REST API by using Restify and OAuth! You now have sufficient code so that you can continue to develop your service and build on this example. You have gone as far as you can with this server without using an OAuth2-compatible client. For that next step use an additional walk-through like our [Connect to a web API by using iOS with B2C](active-directory-b2c-devquickstarts-ios.md) walkthrough.
 
 
 ## Next steps
