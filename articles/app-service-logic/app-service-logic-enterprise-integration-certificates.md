@@ -21,7 +21,7 @@
 ## Overview
 Enterprise integration uses certificates to secure B2B communications. You can use two types of certificates in your enterprise integration apps:
 - Public certificates, which must be purchased from a certification authority (CA)
-- Private certificates, which you can issue yourself; These are sometimes referred to as self-signed certificates.
+- Private certificates, which you can issue yourself. These are sometimes referred to as self-signed certificates.
 
 ## What are certificates?
 Certificates are digital documents that are used to verify the identity of the participants in electronic communications and to secure the electronic communications as well. 
@@ -38,12 +38,12 @@ To use a **public certificate** in your Logic apps with B2B capabilities, you fi
 
 After you upload a certificate, it will be available for you to secure your B2B messages when you define their properties in [agreements](./app-service-logic-enterprise-integration-agreements.md).  
 
-Here are the detailed steps to upload your public certificates into your integration account after you log into the Azure portal:   
+Here are the detailed steps to upload your public certificates in to your integration account after you log into the Azure portal:   
 1. Select **Browse**  
 ![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)    
 2. Enter **integration** in the filter search box and select **Integration Accounts** from the results list     
  ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)  
-3. Select the **integration account** to which you will add the certificate  
+3. Select the **integration account** to which you add the certificate  
 ![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)  
 4.  Select the **Certificates** tile  
 ![](./media/app-service-logic-enterprise-integration-certificates/certificate-1.png)  
@@ -62,10 +62,10 @@ You can upload private certificates into your integration account as well. To do
 	>[AZURE.TIP] It is mandatory to authorize Logic Apps to perform operations on Key Vault by granting access to the Logic Apps service principal        
 	>Set-AzureRmKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list
 
-2. Create a private certificate Upload the private certificate into the your integration account  
+2. Create a private certificate Upload the private certificate into the integration account  
 After you have done the steps above, you can use the private certificate to create agreements.
 
-Here are the detailed steps to upload your private certificates into your integration account after you log into the Azure portal:   
+Here are the detailed steps to upload your private certificates into your integration account after you log in to the Azure portal:   
 1. Select **Browse**  
 ![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)    
 2. Enter **integration** in the filter search box and select **Integration Accounts** from the results list     

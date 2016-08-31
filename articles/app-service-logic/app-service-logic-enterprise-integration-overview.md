@@ -29,7 +29,7 @@ Architecturally, the Enterprise Integration Pack is based on **integration accou
 
 ## Why should you use enterprise integration?
 - With enterprise integration, you are able to store all your artifacts in one place, which is your integration account. 
-- You can leverage the Logic apps engine and all its connectors to build B2B workflows and integrate with 3rd party SaaS applications, on-premises apps as well as  custom applications
+- You can leverage the Logic apps engine and all its connectors to build B2B workflows and integrate with 3rd party SaaS applications, on-premises apps as well as custom applications
 - You can also leverage Azure functions
 
 ## How to get started with enterprise integration?
