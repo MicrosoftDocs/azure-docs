@@ -22,7 +22,7 @@
 
 Azure DevTest Labs access is controlled by Azure Role-Based Access Control (RBAC). Search for [Role-Based-Access-Control (RBAC)](https://azure.microsoft.com/search/?q=role%20based%20access%20control) in the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) to learn more.
 
-You grant access to your lab through three roles:
+You grant access to a lab through three roles:
 
 - Owner
 - DevTest Labs User
@@ -33,16 +33,18 @@ The following table illustrates the actions that can be performed by users in ea
 | Actions users in this role can perform | Owner | User                           | Contributor                    |
 |----------------------------------------|-------|--------------------------------|--------------------------------|
 | Create VMs                             | Yes   | Yes                            | Yes                            |
-| Start, stop and delete VMs             | Yes   | Only VMs created by the user   | Only VMs created by the user   |
+| Start, stop, and delete VMs            | Yes   | Only VMs created by the user   | Only VMs created by the user   |
 | Create, modify, and delete formulas    | Yes   | Yes                            | Yes                            |
 
-> [AZURE.NOTE] When a user creates a VM, that user is automatically assigned to the **Owner** role of the created VM, which allows that person to perform all the actions that are offered in the lab.]
+> [AZURE.NOTE] When a user creates a VM, that user is automatically assigned to the **Owner** role of the created VM.]
 
 ## Add an owner to a lab
 
-Because of the way permissions are propagated from parent scope to child scope in Azure, owner(s) of an Azure subscription that contains labs will automatically be owner(s) of those labs, as well as of all the VMs and other resources that get created by the lab's users as well as by the DevTest Lab service. While you can add additional owners to a lab via the lab's blade in the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), their scope of administration will be more narrow than that of the subscription owners, because they would not have full access to some of the resources that are created in the subscription by the DevTest Labs service. 
+Because of the way permissions are propagated from parent scope to child scope in Azure, owner of an Azure subscription that contains labs will automatically be owner of those labs, as well as of all the VMs and other resources that get created by the lab's users as well as by the DevTest Labs service. 
 
-To add an owner to an Azure subscription where you have labs already created or will be creating new labs, follow these steps:
+You can add additional owners to a lab via the lab's blade in the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040). However, their scope of administration will be more narrow than that of the subscription owners. This is because they would not have full access to some of the resources that are created in the subscription by the DevTest Labs service. 
+
+To add an owner to an Azure subscription where you have labs already created or will be creating labs, follow these steps:
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
@@ -50,7 +52,7 @@ To add an owner to an Azure subscription where you have labs already created or 
 
 	![Subscriptions link](./media/devtest-lab-add-devtest-user/subscriptions.png)
 	
-1. Select the subscription that will contain the lab(s).
+1. Select the subscription that will contain the labs.
 
 1. Select the **Access** icon. 
 
@@ -72,9 +74,9 @@ To add an owner to an Azure subscription where you have labs already created or 
 
 1. When you return to the **Users** blade, you'll see that the user has been added as an owner. This person will now be an owner of any labs created under this subscription, and thus be able to perform owner tasks. 
 
-## Add a DevTest Labs user to your lab
+## Add a DevTest Labs user to a lab
 
-To add a DevTest Labs user to your lab, follow these steps:
+To add a DevTest Labs user to a lab, follow these steps:
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
@@ -96,9 +98,9 @@ To add a DevTest Labs user to your lab, follow these steps:
 
 1. In the **Add users** blade:
 
-	1. The **Add users** blade will display a list of built-in users. If the desired user is already in the list, you can simply select the user row to select it. A checkmark will appear to the left of the user to indicate that the user has been selected. To select multiple users, hold the **&lt;Ctrl>** key while selecting each user. To deselect a user, hold the **&lt;Ctrl>** key and select the user. A counter at the bottom of the blade indicates the number of selected users.
+	1. The **Add users** blade displays a list of built-in users. If the desired user is already in the list, you can simply select the user row to select it. A checkmark will appear to the left of the user to indicate that the user has been selected. To select multiple users, hold the **&lt;Ctrl>** key while selecting each user. To deselect a user, hold the **&lt;Ctrl>** key and select the user. A counter at the bottom of the blade indicates the number of selected users.
 
-	1. If the desired user is not in the list, enter a valid Microsoft email account in the **Users** text box. If the email address is valid, the user will display below the **User** text box.    
+	1. If the desired user is not in the list, enter a valid Microsoft email account in the **Users** text box. If the email address is valid, the user displays below the **User** text box.    
 
 	1. Once you've selected the users you want to add to the lab, select **Select**.
 
