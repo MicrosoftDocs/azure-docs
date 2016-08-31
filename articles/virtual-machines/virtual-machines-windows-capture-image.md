@@ -17,7 +17,7 @@
 	ms.date="08/04/2016"
 	ms.author="cynthn"/>
 
-# How to create a VM image from an existing Azure VM
+# How to create a generalized VM image from an existing Azure VM
 
 
 This article shows you how to use Azure PowerShell create a generalized image of an existing Azure VM. You can then use the image to create another VM. This image includes the OS disk and the data disks that are attached to the virtual machine. The image doesn't include the virtual network resources, so you need to set up those resources when you create a VM using the image. This process creates a [generalized Windows image](https://technet.microsoft.com/library/hh824938.aspx).

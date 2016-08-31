@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Create a copy of your Windows VM | Microsoft Azure"
-	description="Learn how to create a copy of your Azure virtual machine running Windows, in the Resource Manager deployment model, by creating a *specialized image*."
+	description="Learn how to create a copy of your specialized Azure VM running Windows, in the Resource Manager deployment model, by creating a *specialized image*."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,10 +17,11 @@
 	ms.date="04/26/2016"
 	ms.author="cynthn"/>
 
-# Create a copy of a Windows virtual machine in the Azure Resource Manager deployment model
+# Create a copy of a specialized Windows Azure VM in the Azure Resource Manager deployment model
 
+// Not sure if specialized "image" is appropriate terminology
 
-This article shows you how to create a copy of your Azure virtual machine (VM) running Windows. Specifically, it covers how to do this in the Azure Resource Manager deployment model, by using the Azure PowerShell and the Azure portal. It shows you how to create a *specialized* image of your Azure VM, which maintains the user accounts and other state data from your original VM. A specialized image is useful for porting your Windows VM from the classic deployment model to the Resource Manager deployment model, or creating a backup copy of your Windows VM created in the Resource Manager deployment model. You can copy over the operating system and data disks this way, and then set up the network resources to create the new virtual machine.
+This article shows you how to create a copy of your Azure virtual machine (VM) running Windows. It shows you how to create a *specialized* image of your Azure VM, which maintains the user accounts and other state data from your original VM. A specialized image is useful for porting your Windows VM from the classic deployment model to the Resource Manager deployment model, or creating a backup copy of your Windows VM created in the Resource Manager deployment model. You can copy over the operating system and data disks this way, and then set up the network resources to create the new virtual machine.
 
 If you need to create mass deployments of similar Windows VMs, you should use a *generalized* image. For that, see [How to capture a Windows virtual machine](virtual-machines-windows-capture-image.md).
 
@@ -34,11 +35,10 @@ Ensure that you meet the following prerequisites before you start the steps:
 
 - You have **Azure PowerShell 1.0 (or later)** installed on your machine, and you are signed in to your Azure subscription. For more information, see [How to install and configure PowerShell](../powershell-install-configure.md).
 
+// Do we need to use AZCopy?
 - You have downloaded and installed the **AzCopy tool**. For more information about this tool, see [Transfer data with AzCopy commandline tool](../storage/storage-use-azcopy.md).
 
 - You have a **resource group**, a **storage account**, and a **blob container** created in that resource group to copy the VHDs to. For steps to use an existing storage account or create a new one, see [Create or find an Azure storage account](virtual-machines-windows-upload-image.md#createstorage).
-
-> [AZURE.NOTE] Similar steps apply for a VM created by using either of the two deployment models as the source image. Where applicable, this article notes the minor differences.
 
 
 ## Copy VHDs to your Resource Manager storage account
