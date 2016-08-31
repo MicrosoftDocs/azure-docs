@@ -24,8 +24,8 @@ This article shows you how to create a .NET line-of-business app in
 to use the [Azure Active Directory Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 
 to query directory data in the application.
 
-The Azure Active Directory tenant that you use can be an Azure-only directory, or it can be 
-[synced with your on-premise Active Directory](active-directory-aadconnect) to create a single sign-on experience for 
+The Azure Active Directory tenant that you use can be an Azure-only directory. Or, it can be 
+[synced with your on-premise Active Directory](../active-directory/active-directory-aadconnect.md) to create a single sign-on experience for 
 workers that are on-premises and remote. This article uses the default directory for your Azure account.
 
 <a name="bkmk_build"></a>
@@ -66,7 +66,7 @@ You need the following to complete this tutorial:
 
 4. In the **Create App Service** dialog, click **Add an account** (and then **Add an account** in the dropdown) to log in to your Azure account.
 
-5. Once logged in configure your web app. Create a new resource group and a new App Service plan by clicking the respective **New** button. Click 
+5. Once logged in configure your web app. Create a resource group and a new App Service plan by clicking the respective **New** button. Click 
 **Explore additional services** to continue.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/2-create-app-service.png)
@@ -79,7 +79,7 @@ You need the following to complete this tutorial:
 
 8. In **Configure SQL Server**, configure your SQL Server instance. Then, click **OK**, **OK**, and **Create** to kick off the app creation in Azure.
 
-9. In **Azure App Service Activity** you can see when the app creation is finished. Click **Publish &lt;*appname*> to this Web App now**, then click **Publish**. 
+9. In **Azure App Service Activity**, you can see when the app creation is finished. Click **Publish &lt;*appname*> to this Web App now**, then click **Publish**. 
 
 	Once Visual Studio finishes, it opens the publish app in the browser. 
 
@@ -102,7 +102,7 @@ You need the following to complete this tutorial:
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/7-authentication-save.png)
 
-    Once the authentication settings are saved successfully, try navigating to your app again in the browser. Your default settings enforces authentication
+    Once the authentication settings are saved successfully, try navigating to your app again in the browser. Your default settings enforce authentication
 	on the whole app. If you aren't already logged in, you are redirected to a login screen. Once logged in, you see your app secured by HTTPS. Next,
 	you need to enable access to directory data. 
 
@@ -169,7 +169,7 @@ Azure account.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/15-publish-token-code.png)
 
-	If your app's home page now shows an access token, then you app can access the Azure Active Directory Graph API.
+	If your app's home page now shows an access token, then your app can access the Azure Active Directory Graph API.
 	Feel free to undo the changes to ~\Controllers\HomeController.cs.
 
 Next, you will do something useful with directory data.
