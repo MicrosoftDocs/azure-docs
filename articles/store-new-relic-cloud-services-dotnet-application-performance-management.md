@@ -17,7 +17,7 @@
 	ms.author="nickfloyd@newrelic.com"/>
 
 
-## New Relic Application Performance Management on Azure
+# New Relic Application Performance Management on Azure
 
 You can add New Relic's world-class performance monitoring to your Azure hosted applications. Along with comprehensive capabilities for monitoring, troubleshooting, and tuning your Azure apps, you are also eligible for a discounted price for New Relic products by using Azure.
 
