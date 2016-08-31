@@ -36,7 +36,7 @@ The database is created from a BACPAC file imported from an Azure Storage blob c
 To import a SQL database, you need the following:
 
 - An Azure subscription. If you need an Azure subscription simply click **Free Trial** at the top of this page, and then come back to finish this article.
-- A .bacpac file of the database you want to import. The BACPAC needs to be in an [Azure Storage account (classic)](../storage/storage-create-storage-account.md) blob container.
+- A .bacpac file of the database you want to import. The BACPAC needs to be in an [Azure Storage account](../storage/storage-create-storage-account.md) blob container. If you already have a .bacpac file, [use AzCopy to easily upload it to your Azure Storage account](../storage/storage-use-azcopy/#blob-upload).
 
 
 
@@ -88,7 +88,7 @@ Running this immediately after the request usually returns **Status : Pending** 
 Running this command will prompt you for a password. Enter the admin password for your SQL server.
 
 
-    Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest .OperationStatusLink
+    Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
 
 
 
@@ -108,7 +108,7 @@ Running this command will prompt you for a password. Enter the admin password fo
 
     $importRequest = New-AzureRmSqlDatabaseImport –ResourceGroupName $ResourceGroupName –ServerName $ServerName –DatabaseName $DatabaseName –StorageKeytype $StorageKeyType –StorageKey $StorageKey -StorageUri $StorageUri –AdministratorLogin $credential.UserName –AdministratorLoginPassword $credential.Password –Edition Standard –ServiceObjectiveName S0 -DatabaseMaxSizeBytes 50000
 
-    Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest .OperationStatusLink
+    Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
 
 
 
