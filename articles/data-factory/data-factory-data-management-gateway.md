@@ -44,7 +44,7 @@ Here high-level data flow for and summary of steps for copy with data gateway:
 3. Gateway encrypts the credentials with the certificate associated with the gateway (supplied by data developer), before saving the credentials in the cloud.
 4. Data Factory service communicates with the gateway for scheduling & management of jobs via a control channel that uses a shared Azure service bus queue. When a copy activity job needs to be kicked off, Data Factory queues the request along with credential information. Gateway kicks off the job after polling the queue.
 5.	The gateway decrypts the credentials with the same certificate and then connects to the on-premises data store with proper authentication type and credentials.
-6.	The gateway copies data from the on-premises store to a cloud storage, or from a cloud storage to an on-premises data store depending on how the Copy Activity is configured in the data pipeline. For this step, the gateway directly communicates with cloud-based storage services such as Azure Blob Storage over a secure (HTTPS) channel.
+6.	The gateway copies data from an on-premises store to a cloud storage, or vice versa depending on how the Copy Activity is configured in the data pipeline. For this step, the gateway directly communicates with cloud-based storage services such as Azure Blob Storage over a secure (HTTPS) channel.
 
 ### Considerations for using gateway
 - A single instance of Data Management Gateway can be used for multiple on-premises data sources. However, **a single gateway instance is tied to only one Azure data factory** and cannot be shared with another data factory.
@@ -53,7 +53,7 @@ Here high-level data flow for and summary of steps for copy with data gateway:
 - You can have **multiple gateways on different machines connecting to the same on-premises data source**. For example, you may have two gateways serving two data factories but the same on-premises data source is registered with both the data factories.
 - If you already have a gateway installed on your computer serving a **Power BI** scenario, install a **separate gateway for Azure Data Factory** on another machine.
 - Gateway must be used even when you use **ExpressRoute**.
-- Treat your data source as an on-premises data source (that is behind a firewall) even when you use **ExpressRoute** and **use the gateway** to establish connectivity between the service and the data source.
+- Treat your data source as an on-premises data source (that is behind a firewall) even when you use **ExpressRoute**. Use the gateway to establish connectivity between the service and the data source.
 - You must **use the gateway** even if the data store is in the cloud on an **Azure IaaS VM**. 
 
 ## Installation
@@ -61,7 +61,7 @@ Here high-level data flow for and summary of steps for copy with data gateway:
 ### Prerequisites
 - The supported **Operating System** versions are Windows 7, Windows 8/8.1, Windows 10, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. Installation of the Data Management Gateway on a domain controller is currently not supported.
 - .NET Framework 4.5.1 or above is required. If you are installing gateway on a Windows 7 machine, install .NET Framework 4.5 or later. See [.NET Framework System Requirements](https://msdn.microsoft.com/library/8z6watww.aspx) for details. 
-- The recommended **configuration** for the gateway machine is at least 2 GHz, 4 cores, 8 gigabyte RAM, and 80 gigabyte disk.
+- The recommended **configuration** for the gateway machine is at least 2 GHz, 4 cores, 8-GB RAM, and 80-GB disk.
 - If the host machine hibernates, the gateway does not respond to data requests. Therefore, configure an appropriate **power plan** on the computer before installing the gateway. If the machine is configured to hibernate, the gateway installation prompts a message.
 - You must be an administrator on the machine to install and configure the Data Management Gateway successfully. You can add additional users to the **Data Management Gateway Users** local Windows group. The members of this group are able to use the Data Management Gateway Configuration Manager tool to configure the gateway. 
 
@@ -110,7 +110,7 @@ To create a gateway in the portal and get the key from the **Configure** blade, 
 3. In the **Configure** blade, click **Recreate key**. Click Yes on the warning message after reading it carefully.
 
 	![Recreate key](media/data-factory-data-management-gateway/recreate-key-button.png)
-4. Click Copy button next to the key to copy it to the clipboard.
+4. Click Copy button next to the key. The key is copied to the clipboard.
 	
 	![Copy key](media/data-factory-data-management-gateway/copy-gateway-key.png) 
 
@@ -141,7 +141,7 @@ At windows firewall level, these outbound ports are normally enabled. If not, yo
 
 #### Copy data from a source data store to a sink data store
 
-Ensure that the firewall rules are enabled properly on the corporate firewall, Windows firewall on the gateway machine, and the data store itself. Enabling these rules allow the gateway to connect to both source and sink successfully. Enable rules for each data store that is involved in the copy operation.
+Ensure that the firewall rules are enabled properly on the corporate firewall, Windows firewall on the gateway machine, and the data store itself. Enabling these rules allows the gateway to connect to both source and sink successfully. Enable rules for each data store that is involved in the copy operation.
 
 For example, to copy from **an on-premises data store to an Azure SQL Database sink or an Azure SQL Data Warehouse sink**, you need to do the following: 
 
@@ -154,7 +154,7 @@ If your corporate network environment uses a proxy server to access the internet
 
 ![Set proxy during registration](media/data-factory-data-management-gateway/SetProxyDuringRegistration.png)
 
-Gateway uses the proxy server to connect to the cloud service. You can click **Change** link launch the proxy setting dialog.
+Gateway uses the proxy server to connect to the cloud service. Click **Change** link during initial setup that launches the proxy setting dialog.
 
 ![Set proxy using config manager](media/data-factory-data-management-gateway/SetProxySettings.png)
 
@@ -189,7 +189,7 @@ If you select **Use system proxy** setting for the HTTP proxy, gateway uses the 
 				<defaultProxy useDefaultCredentials="true" />
 			</system.net>	
 
-	You can then add the proxy server details, for example, proxy address inside that parent tag, for example:
+	You can then add proxy server details as shown in the following example:
 
 			<system.net>
 			      <defaultProxy enabled="true">
@@ -203,7 +203,7 @@ If you select **Use system proxy** setting for the HTTP proxy, gateway uses the 
 
 3. Save the configuration file into the original location, then restart the Data Management Gateway Host service, which picks up the changes. To restart the service: use services applet from the control panel, or from the **Data Management Gateway Configuration Manager** > click the **Stop Service** button, then click the **Start Service**. If the service does not start, it is likely that an incorrect XML tag syntax has been added into the application configuration file that was edited. 	
 
-In addition these points, you also need to make sure Microsoft Azure is in your company’s whitelist. The list of valid Microsoft Azure IP addresses can be downloaded from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
+In addition to these points, you also need to make sure Microsoft Azure is in your company’s whitelist. The list of valid Microsoft Azure IP addresses can be downloaded from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
 
 #### Possible symptoms for firewall and proxy server-related issues
 If you encounter errors such as the following ones, it is likely because of the improper configuration of the firewall or proxy server, which blocks gateway from connecting to Data Factory to authenticate itself. Refer to previous section to ensure your firewall and proxy server are properly configured.
@@ -331,9 +331,9 @@ When you contact Microsoft Support to get help with troubleshooting gateway issu
 ### Archive gateway logs on gateway host machine
 There are some scenarios where you have gateway issues and you cannot share gateway logs directly: 
 
-- When you manually install the gateway and register the gateway;
-- When you try to register the gateway with a regenerated key on configuration manager; 
-- When you try to send logs but gateway host service cannot be connected;
+- You manually install the gateway and register the gateway;
+- You try to register the gateway with a regenerated key on configuration manager; 
+- You try to send logs and the gateway host service cannot be connected;
 
 In such cases, you can save gateway logs as a zip file and share it when contacting Microsoft support later. For example, if you receive an error while registering the gateway as shown in the following image:   
 
@@ -446,7 +446,7 @@ This section describes how to create and register a gateway using Azure PowerShe
 		Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
 
 	
-4. In Azure PowerShell, switch to the folder: **C:\Program Files\Microsoft Data Management Gateway\1.0\PowerShellScript\**. Run **RegisterGateway.ps1** associated with the local variable **$Key** as shown in the following command to register the client agent installed on your machine with the logical gateway you create earlier.
+4. In Azure PowerShell, switch to the folder: **C:\Program Files\Microsoft Data Management Gateway\1.0\PowerShellScript\**. Run **RegisterGateway.ps1** associated with the local variable **$Key** as shown in the following command. This script registers the client agent installed on your machine with the logical gateway you create earlier.
 
 		PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
 		
