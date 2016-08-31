@@ -52,9 +52,11 @@ The following table illustrates the actions that can be performed by users in ea
 
 ## Add an owner to a lab
 
-Azure permissions are propagated from parent scope to child scope in Azure. Therefore, owners of an Azure subscription that contains labs will automatically be owner of those labs. They will also own the VMs and other resources created by the lab's users, and the Azure DevTest Labs service. 
+Azure permissions are propagated from parent scope to child scope in Azure. Therefore, owners of an Azure subscription that contains labs are automatically owners of those labs. They also own the VMs and other resources created by the lab's users, and the Azure DevTest Labs service. 
 
-You can add additional owners to a lab via the lab's blade in the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040). However, their scope of administration is more narrow than that of the subscription owners. This is because they would not have full access to some of the resources that are created in the subscription by the DevTest Labs service. 
+You can add additional owners to a lab via the lab's blade in the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040). 
+However, the added owner's scope of administration is more narrow than the subscription owner's scope. 
+For example, the added owners do not have full access to some of the resources that are created in the subscription by the DevTest Labs service. 
 
 To add an owner to an Azure subscription where you have labs already created or will be creating labs, follow these steps:
 
@@ -64,7 +66,7 @@ To add an owner to an Azure subscription where you have labs already created or 
 
 	![Subscriptions link](./media/devtest-lab-add-devtest-user/subscriptions.png)
 	
-1. Select the the desired subscription.
+1. Select the desired subscription.
 
 1. Select the **Access** icon. 
 
@@ -76,7 +78,7 @@ To add an owner to an Azure subscription where you have labs already created or 
 
 1. On the **Select a role** blade, select **Owner**.
 
-1. Enter into the **User** text box the email of the user you want to add as an owner. If the user can't be found, you'll get an error message explaining the issue. If the user is found, that user will be listed under the **User** text box.
+1. Enter into the **User** text box the email of the user you want to add as an owner. If the user can't be found, you get an error message explaining the issue. If the user is found, that user is listed under the **User** text box.
 
 1. Select the located user name.
 
@@ -84,7 +86,7 @@ To add an owner to an Azure subscription where you have labs already created or 
 
 1. Select **OK** to close the **Add access** blade.
 
-1. When you return to the **Users** blade, you'll see that the user has been added as an owner. This person will now be an owner of any labs created under this subscription, and thus be able to perform owner tasks. 
+1. When you return to the **Users** blade, you'll see that the user has been added as an owner. This user is now an owner of any labs created under this subscription, and thus be able to perform owner tasks. 
 
 ## Add a DevTest Labs user to a lab
 
@@ -110,7 +112,7 @@ To add a DevTest Labs user to a lab, follow these steps:
 
 1. In the **Add users** blade:
 
-	1. The **Add users** blade displays a list of built-in users. If the desired user is already in the list, you can simply select the user row to select it. A checkmark will appear to the left of the user to indicate that the user has been selected. To select multiple users, hold the **&lt;Ctrl>** key while selecting each user. To deselect a user, hold the **&lt;Ctrl>** key and select the user. A counter at the bottom of the blade indicates the number of selected users.
+	1. The **Add users** blade displays a list of built-in users. If the desired user is already in the list, you can simply select the user row to select it. A checkmark appears to the left of the user to indicate that the user has been selected. To select multiple users, hold the **&lt;Ctrl>** key while selecting each user. To deselect a user, hold the **&lt;Ctrl>** key and select the user. A counter at the bottom of the blade indicates the number of selected users.
 
 	1. If the desired user is not in the list, enter a valid Microsoft email account in the **Users** text box. If the email address is valid, the user displays below the **User** text box.    
 
