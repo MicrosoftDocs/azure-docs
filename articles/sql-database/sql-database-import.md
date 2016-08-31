@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Import a BACPAC file to create a new Azure SQL database | Microsoft Azure"
-	description="Create a new Azure SQL database by importing an existing BACPAC file."
+	pageTitle="Import a BACPAC file to create an Azure SQL database | Microsoft Azure"
+	description="Create an Azure SQL database by importing an existing BACPAC file."
 	services="sql-database"
 	documentationCenter=""
 	authors="stevestein"
@@ -17,7 +17,7 @@
 	ms.tgt_pltfrm="NA"/>
 
 
-# Import a BACPAC file to create a new Azure SQL database
+# Import a BACPAC file to create an Azure SQL database
 
 
 **Single database**
@@ -28,7 +28,7 @@
 - [SSMS](sql-database-cloud-migrate-compatible-import-bacpac-ssms.md)
 - [SqlPackage](sql-database-cloud-migrate-compatible-import-bacpac-sqlpackage.md)
 
-This article provides directions for creating a new Azure SQL database from a BACPAC file using the [Azure portal](https://portal.azure.com).
+This article provides directions for creating an Azure SQL database from a BACPAC file using the [Azure portal](https://portal.azure.com).
 
 A BACPAC is a .bacpac file that contains a database schema and data. The database is created from a BACPAC imported from an Azure storage blob container. If you don't have a .bacpac file in Azure storage you can create one by following the steps in [Create and export a BACPAC of an Azure SQL Database](sql-database-export.md).
 
@@ -46,7 +46,7 @@ To import a SQL database from a .bacpac you need the following:
 premium storage is not supported.
 
 
-## Select the server that will contain the database
+## Select the server to host the database
 
 Open the SQL Server blade:
 
@@ -65,13 +65,13 @@ Open the SQL Server blade:
 
     ![select pricing tier][3]
 
-1.  Enter a **DATABASE NAME** for the database you will be creating from the BACPAC file.
+1.  Enter a **DATABASE NAME** for the database you are creating from the BACPAC file.
 2.  Choose the authentication type and then provide the authentication information for the server. 
 3.  Click **Create** to create the database from the BACPAC.
 
     ![create database][4]
 
-Clicking **Create** submits an import database request to the service. Depending on the size of your database the import operation may take some time to complete.
+Clicking **Create** submits an import database request to the service. Depending on the size of your database, the import operation may take some time to complete.
 
 ## Monitor the progress of the import operation
 
