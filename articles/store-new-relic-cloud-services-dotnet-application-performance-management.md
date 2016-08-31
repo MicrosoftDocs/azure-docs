@@ -28,7 +28,7 @@ With [New Relic products](https://newrelic.com/products), you can solve app erro
 New Relic tracks the load time and throughput for your web transactions, both from the server and your users' browsers. It shows how much time you spend in the database, analyzes slow queries and web requests, provides uptime monitoring and alerting, tracks application exceptions, and a whole lot more. 
 
 ## Special pricing
-New Relic Standard is free to Azure users. New Relic Pro is offered based on instance size for Azure Cloud Services. For pricing information, see the [New Relic page](https://azure.microsoft.com/en-us/marketplace/partners/newrelic/newrelic/) in the Azure Marketplace or contact New Relic (sales@newrelic.com) for enterprise-level pricing.
+New Relic Standard is free to Azure users. New Relic Pro is offered based on instance size for Azure Cloud Services. For pricing information, see the [New Relic page](https://azure.microsoft.com/marketplace/partners/newrelic/newrelic/) in the Azure Marketplace or contact New Relic (sales@newrelic.com) for enterprise-level pricing.
 
 Azure customers receive a two week trial subscription of New Relic Pro when they deploy the New Relic agent.
 
