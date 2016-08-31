@@ -21,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Backup FAQ for Classic mode](backup-azure-backup-faq.md)
-- [Backup FAQ for Resource manager mode](backup-azure-backup-ibiza-faq.md)
+- [Backup FAQ for Resource Manager mode](backup-azure-backup-ibiza-faq.md)
 
 This article is a list of commonly asked questions (and the respective answers) about the Azure Backup service. Our community replies quickly, and if a question is asked often, we add it to this article. The answers to questions typically provide reference or support information. You can ask questions about Azure Backup in the Disqus section of this article or a related article. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
@@ -44,6 +44,7 @@ Azure Backup supports the following list of operating systems for file-folder ba
 |Windows Server 2008 SP2	|64 bit|	Standard, Enterprise, Datacenter, Foundation|
 
 For Azure VM backup,
+
 - **Linux**: Azure Backup supports  [a list of distributions that are endorsed by Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md) except Core OS Linux.  Other Bring-Your-Own-Linux distributions also might work as long as the VM agent is available on the virtual machine and support for Python exists.
 - **Windows Server**:  Versions older than Windows Server 2008 R2 are not supported.
 
@@ -63,7 +64,7 @@ Yes. As of August 2016, you can create 25 vaults(each for backup vault and Recov
 Yes, you can register up to 50 machines per vault. For Azure IaaS virtual machines, limit is 200 VMs per vault. If you need to register more machines, create a new vault.
 
 ## How do I register my server to another datacenter?<br/>
-Backup data is sent to the datacenter of the vault to which it is registered. The easiest way to change the datacenter is to uninstall the agent and reinstall the agent and register to a new vault which belongs to desired datacenter.
+Backup data is sent to the datacenter of the vault to which it is registered. The easiest way to change the datacenter is to uninstall the agent and reinstall the agent and register to a new vault that belongs to desired datacenter.
 
 ## What happens if I rename a Windows server that is backing up data to Azure?<br/>
 When you rename a server, all currently configured backups are stopped.
@@ -108,7 +109,7 @@ Yes. The agent service converts the deduplicated data to normal data when it pre
 ## If I cancel a backup job once it has started, is the transferred backup data deleted? <br/>
 No. The backup vault stores the backed-up data that had been transferred up to the point of the cancellation. Azure Backup uses a checkpoint mechanism to occasionally add checkpoints to the backup data during the backup. Because there are checkpoints in the backup data, the next backup process can validate the integrity of the files. The next backup triggered would be incremental over the data that had been backed up previously. An incremental backup provides better utilization of bandwidth, so that you do not need to transfer the same data repeatedly.
 
-In case of Azure VM backup, once the job is canceled, transfered data is ignored and fresh backup transfers incremental data from previously successful backup job. 
+In case of Azure VM backup, once the job is canceled, transferred data is ignored and fresh backup transfers incremental data from previously successful backup job. 
 
 ## Why am I seeing the warning "Azure Backups have not been configured for this server" even though I had scheduled regular backups previously? <br/>
 This warning occurs when the backup schedule settings stored on the local server are not the same as the settings stored in the backup vault. When either the server or the settings have been recovered to a known good state, the backup schedules can lose synchronization. If you receive this warning, [reconfigure the backup policy](backup-azure-manage-windows-server.md) and then **Run Back Up Now** to resynchronize the local server with Azure.
@@ -129,7 +130,7 @@ Absolutely. Azure Backup provides VM-level backup for Azure VMs using the VM ext
 You can install the Azure Backup agent on the Guest Windows OS and back up files and folders to temporary storage. However, please note that backups fail once temporary storage data is wiped out. Also, if the temporary storage data has been deleted, you can only restore to non-volatile storage.
 
 ## I have installed Azure Backup agent to protect my files and folders. Can I now install SCDPM to work with Azure Backup agent to protect on-premises application/VM workloads to Azure? <br/>
-To use Azure Backup with SCDPM, it is advised to install SCDPM first and only then to install Azure Backup agent. This ensures seamless integration of the Azure Backup agent with SCDPM and allows protecting files/folders, application-workloads and VMs to Azure, directly from the management console of SCDPM. Installing SCDPM after installing Azure Backup agent for purposes mentioned above is neither advised nor supported.
+To use Azure Backup with SCDPM, it is advised to install SCDPM first and only then to install Azure Backup agent. This ensures seamless integration of the Azure Backup agent with SCDPM and allows protecting files/folders, application-workloads and VMs to Azure, directly from the management console of SCDPM. Installing SCDPM after installing Azure Backup agent for purposes mentioned above is not advised or supported.
 
 ## What is the length of file path that can be specified as part of Azure Backup policy using Azure Backup agent? <br/>  
 Azure Backup agent relies on NTFS. The [filepath length specification is limited by Windows API](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). In case of backing up files with file path length greater than the ones specified by Windows API, customers can choose to backup the parent folder or the disk drive of backup files.  
@@ -236,7 +237,7 @@ The key used to encrypt the backup data is present only on the customer premises
 | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` | ScratchLocation | *New cache folder location* |
 | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | *New cache folder location* |
 
-- Re-start the Backup engine by executing the following command in an elevated command prompt:
+- Restart the Backup engine by executing the following command in an elevated command prompt:
 
   ```PS C:\> Net start obengine```
 
@@ -257,4 +258,4 @@ The following locations for the cache-folder are not recommended:
 - Sparse
 - Reparse-Point
 
-It is recommended that neither the cache-folder nor the metadata VHD have the attributes above for expected functioning of the Azure Backup agent.
+It is recommended that neither the cache-folder nor the metadata VHD has the attributes above for expected functioning of the Azure Backup agent.
