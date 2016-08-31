@@ -38,7 +38,7 @@ Autoscaling allows you to have the right amount of resources running to handle t
 
 **Figure 1: Autoscaling concept explained**
 
-Autoscaling only scales horizontally, which is an increase ("out") or decrease ("in") in the number of VM instances.  Horizontal scaling is more flexible in a cloud situation as it allows you to run potentially thousands of VMs to handle load. The other type of scaling is vertical. Vertical scaling keeps the same number of VMs, but makes the VM more ("up") or less ("down") powerful. Power is measured in memory, CPU speed, disk space, etc.  Vertical scaling has more limitations. It's dependent on the availability of larger hardware, which can vary by region and quickly hits and upper limit. Vertical scaling also usually requires a VM stop and start. For more information, see [Vertically scale Azure virtual machine with Azure Automation](../virtual-machines/virtual-machines-linux-vertical-scaling-automation.md) 
+Autoscaling only scales horizontally, which is an increase ("out") or decrease ("in") in the number of VM instances.  Horizontal scaling is more flexible in a cloud situation as it allows you to run potentially thousands of VMs to handle load. The other type of scaling is vertical. Vertical scaling keeps the same number of VMs, but makes the VM more ("up") or less ("down") powerful. Power is measured in memory, CPU speed, disk space, etc.  Vertical scaling has more limitations. It's dependent on the availability of larger hardware, which can vary by region and quickly hits and upper limit. Vertical scaling also usually requires a VM stop and start. For more information, see [Vertically scale Azure virtual machine with Azure Automation](../virtual-machines/virtual-machines-linux-vertical-scaling-automation.md). 
 
 
 Autoscaling requires you to create rules about when to scale resources out or in. Criteria you can set to control scale actions include 
@@ -48,7 +48,7 @@ Autoscaling requires you to create rules about when to scale resources out or in
 * **Cool down time**, which is the amount of time to wait after an autoscale event before allowing another autoscale event to occur. This period of time is to protect against a state called "flapping", which occurs when VMs are rapidly added and removed over minutes of time. There is a cost start or stop a VM. Flapping doesn't save cost and the VM being started and stopped can't do any useful processing, so it's worse than just leaving the VM running.    
 
    
-The full list of configurable values is available in the [Autoscale REST API](https://msdn.microsoft.com/library/dn931928.aspx)
+The full list of configurable values is available in the [Autoscale REST API](https://msdn.microsoft.com/library/dn931928.aspx).
 
 
 ## Conceptual Diagram  
@@ -98,7 +98,7 @@ For code examples, see
 ## Methods of Access 
 You can set up autoscale rules via 
 
-- Azure Portal
+- Azure portal
 - PowerShell 
 - Common Library Interface (CLI)
 - Insights REST API
