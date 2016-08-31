@@ -568,7 +568,7 @@ Restify and Express provide deep customization for a REST API server, but we use
 
 
 var server = restify.createServer({
-    name: "Windows Azure Active Directroy TODO Server",
+    name: "Microsoft Azure Active Directroy TODO Server",
     version: "2.0.1"
 });
 
@@ -667,7 +667,7 @@ server.get('/', function root(req, res, next) {
 
 server.listen(serverPort, function() {
 
-    var consoleMessage = '\n Windows Azure Active Directory Tutorial';
+    var consoleMessage = '\n Microsoft Azure Active Directory Tutorial';
     consoleMessage += '\n +++++++++++++++++++++++++++++++++++++++++++++++++++++';
     consoleMessage += '\n %s server is listening at %s';
     consoleMessage += '\n Open your browser to %s/api/tasks\n';
