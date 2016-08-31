@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Add owners and users to a lab | Microsoft Azure"
+	pageTitle="Add owners and users to a lab in Azure DevTest Labs| Microsoft Azure"
 	description="Securely add a user who is not in your subscription to Azure DevTest Labs"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
@@ -20,20 +20,23 @@
 
 > [AZURE.VIDEO how-to-set-security-in-your-devtest-lab]
 
-## Overview
-DevTest Labs access is controlled by Azure Role-Based Access Control (RBAC). Search for [Role-Based-Access-Control (RBAC)](https://azure.microsoft.com/search/?q=role%20based%20access%20control) in the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) to learn more.
+Azure DevTest Labs access is controlled by Azure Role-Based Access Control (RBAC). Search for [Role-Based-Access-Control (RBAC)](https://azure.microsoft.com/search/?q=role%20based%20access%20control) in the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) to learn more.
 
-You grant access to your lab through two roles:
+You grant access to your lab through three roles:
+- DevTest Labs Owner
+- DevTest Labs User
+- DevTest Labs Contributor
 
-- **Owner**: Users assigned to the **Owner** role at the lab level have complete access to the lab, including management and monitoring functions. The **Owner** role assigned at the lab level does not grant users permissions to access resources in the subscription outside the lab scope. Users assigned to the **Owner** role at the Azure subscription level automatically have **Owner** rights to any resources created in that subscription, including labs and VMs.
+The following table illustrates the actions that can be performed by users in each of these roles:
 
--  **DevTest Labs User**: Users assigned to the **DevTest Labs User** role can create VMs in the specified lab as well as view all lab resources, such as VMs, policies or virtual networks. Users can be either *internal* (a member of the Azure Active Directory for the subscription), or *external* (a user who is not a member of the Azure AD, such as a member of a partner organization).
-	-  A **DevTest Labs User** role must be assigned through the **Add Users** tiles of the lab.
-	-  Users in the **DevTest Labs User** role can perform these operations only inside in the lab that they are assigned to.
-	For example, a **DevTest Labs User** cannot create a virtual machine using the Virtual Machine service of the subscription. Creating a virtual machine is only allowed from the DevTest Labs account.
-	- *External* users are users with a Microsoft Account (MSA).
- 
-Once a VM gets created, the user that created it gets automatically assigned to the **Owner** role on the created VM, which allows them to perform all the actions that are offered in the lab.
+| Actions users in this role can perform | Owner | User                           | Contributor                    |   |
+|----------------------------------------|-------|--------------------------------|--------------------------------|---|
+| Create VMs                             | Yes   | Yes                            | Yes                            |   |
+| Start, stop and delete VMs             | Yes   | Only VMs created by the user   | Only VMs created by the user   |   |
+| Create, modify, and delete formulas    | Yes   | Yes                            | Yes                            |   |
+
+> [AZURE.NOTE 
+> When a user creates a VM, that user is automatically assigned to the **Owner** role of the created VM, which allows that person to perform all the actions that are offered in the lab.
 
 ## Add an owner to your lab
 
