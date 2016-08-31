@@ -25,7 +25,7 @@
 - [Using REST API](data-factory-copy-activity-tutorial-using-rest-api.md) 
 - [Using Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
 
-In this tutorial, you use Data Factory Copy Wizard to create a pipeline with a Copy Activity in a data factory. First, you create a data factory by using the Azure portal and then use the Copy Wizard to create Data Factory linked services, datasets, and a pipeline with a Copy Activity that copies data from an Azure blob storage to an Azure SQL database.
+In this tutorial, you use Data Factory Copy Wizard to create a pipeline with a Copy Activity in a data factory. First, you create a data factory by using the Azure portal and then use the Copy Wizard to create Data Factory linked services, datasets, and a pipeline with a Copy Activity that copies data from an Azure blob storage to an Azure SQL database. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity. 
 
 > [AZURE.IMPORTANT] Please go through the [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) article and complete the prerequisite steps before performing this tutorial.
 
