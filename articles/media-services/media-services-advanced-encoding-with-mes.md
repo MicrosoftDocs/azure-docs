@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"   
+	ms.date="08/30/2016"   
 	ms.author="juliako"/>
 
 
@@ -33,7 +33,7 @@ The custom presets that perform the following encoding tasks are demonstrated:
 - [Audio-only presets](media-services-custom-mes-presets-with-dotnet.md#audio_only)
 - [Concatenate two or more video files](media-services-custom-mes-presets-with-dotnet.md#concatenate)
 - [Crop videos with Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md#crop)
-
+- [Insert a video track when input has no video](media-services-custom-mes-presets-with-dotnet.md#no_video)
 
 ##<a id="encoding_with_dotnet"></a>Encoding with Media Services .NET SDK
 
@@ -1079,6 +1079,58 @@ Update your custom preset with ids of the assets that you want to concatenate, a
 ##<a id="crop"></a>Crop videos with Media Encoder Standard
 
 See the [Crop videos with Media Encoder Standard](media-services-crop-video.md) topic.
+
+##<a id="no_video"></a>Insert a video track when input has no video
+
+By default, if you send an input to the encoder that contains only audio, and no video, then the output asset will contain files that contain only audio data. Some players, including Azure Media Player (see [this](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/8082468-audio-only-scenarios)) may not be able to handle such streams. You can use this setting to force the encoder to add a monochrome video track to the output in that scenario. 
+
+>[AZURE.NOTE]Forcing the encoder to insert an output video track increases the size of the output Asset, and thereby the cost incurred for the encoding Task. You should run tests to verify that this resultant increase has only a modest impact on your monthly charges.
+
+### Inserting video at only the lowest bitrate
+
+Suppose you are using a multiple bitrate encoding preset such as ["H264 Multiple Bitrate 720p"](https://msdn.microsoft.com/library/mt269960.aspx) to encode your entire input catalog for streaming, which contains a mix of video files and audio-only files. In this scenario, when the input has no video, you may want to force the encoder to insert a monochrome video track at just the lowest bitrate, as opposed to inserting video at every output bitrate. To achieve this, you need to specify the "InsertBlackIfNoVideoBottomLayerOnly" flag.
+
+You can take any of the MES presets documented [here](https://msdn.microsoft.com/library/mt269960.aspx), and make the following modification:
+
+#### JSON preset
+
+	{
+	      "KeyFrameInterval": "00:00:02",
+	      "StretchMode": "AutoSize",
+	      "Condition": "InsertBlackIfNoVideoBottomLayerOnly",
+	      "H264Layers": [
+	      …
+	      ]
+	}
+
+#### XML preset
+
+	<KeyFrameInterval>00:00:02</KeyFrameInterval>
+	<StretchMode>AutoSize</StretchMode>
+	<Condition>InsertBlackIfNoVideoBottomLayerOnly</Condition>
+
+### Inserting video at all output bitrates
+
+Suppose you are using a multiple bitrate encoding preset such as ["H264 Multiple Bitrate 720p](https://msdn.microsoft.com/library/mt269960.aspx) to encode your entire input catalog for streaming, which contains a mix of video files and audio-only files. In this scenario, when the input has no video, you may want to force the encoder to insert a monochrome video track at all the output bitrates. This will ensure that your output Assets are all homogenous with respect to number of video tracks and audio tracks. To achieve this, you need to specify the "InsertBlackIfNoVideo" flag.
+
+You can take any of the MES presets documented [here](https://msdn.microsoft.com/library/mt269960.aspx), and make the following modification:
+
+#### JSON preset
+
+	{
+	      "KeyFrameInterval": "00:00:02",
+	      "StretchMode": "AutoSize",
+	      "Condition": "InsertBlackIfNoVideo",
+	      "H264Layers": [
+	      …
+	      ]
+	}
+
+#### XML preset
+	
+	<KeyFrameInterval>00:00:02</KeyFrameInterval>
+	<StretchMode>AutoSize</StretchMode>
+	<Condition>InsertBlackIfNoVideo</Condition>
 
 ##Media Services learning paths
 
