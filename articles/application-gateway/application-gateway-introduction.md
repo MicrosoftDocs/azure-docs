@@ -24,12 +24,12 @@ Application load balancing enables IT administrators and developers to create ro
 Application Gateway currently supports layer-7 application delivery with the following features:
 
 - **HTTP load balancing** - The primary feature of Application gateway is to provide load balancing. Load balancing is done at Layer 7 and is used for HTTP traffic only.
-- **Cookie-based session affinity** - This is useful when you want to keep a user session on the same back-end. By using cookies the Application Gateway is able to direct subsequent traffic from a user's session to the same back-end for processing. This is important in cases where something is saved locally on the bakend server for a user sessions.
-- **[Secure Sockets Layer (SSL) offload](application-gateway-ssl-arm.md)** - This feature takes the costly task of decrypting HTTPS traffic off of your web servers. By terminating the SSL connection at the Application Gateway and forwarding the request to server un-encrypted, the web server is unburdened by the decryption.  Application Gateway re-encrypts the response before sending it back the to client. This is useful in scenarios where the back-end is located in the same secured virtual network as the Application Gateway in Azure.
-- **[URL-based content routing](application-gateway-url-route-overview.md)** - This provides the capability to use different back-end servers for different traffic. Traffic for a folder on the web server or for a CDN could be routed to a different back-end, reducing unneeded load on backends that don't server specific content.
-- **[Multi-site routing](application-gateway-multi-site-overview.md)** - Application gateway allows for you to consolidate your up to 20 websites on a single application gateway.
-- **Websocket support** - Another great feature of Application Gateway is the support for websocket support.  Websocket enables full duplex communication between server and client over long running connections. Websocket enabled applications still need an HTTP back-end in order to support the health probes of Application Gateway.
-- **End to End SSL Encryption** - This feature allows you to transmit sensitive data to the back-end while still leveraging the other added benefits of Application Gateway. The Application Gateway terminates the SSL session at the gateway, traffic is then decrypted and the appropriate rules are applied to the packet. Application Gateway then initiates a new SSL connection to the back-end.
+- **Cookie-based session affinity** - This feature is useful when you want to keep a user session on the same back-end. By using cookies, the Application Gateway is able to direct subsequent traffic from a user session to the same back-end for processing. This feature is important in cases where something is saved locally on the back-end server for a user session.
+- **[Secure Sockets Layer (SSL) offload](application-gateway-ssl-arm.md)** - This feature takes the costly task of decrypting HTTPS traffic off your web servers. By terminating the SSL connection at the Application Gateway and forwarding the request to server un-encrypted, the web server is unburdened by the decryption.  Application Gateway re-encrypts the response before sending it back the to client. This feature is useful in scenarios where the back-end is located in the same secured virtual network as the Application Gateway in Azure.
+- **[URL-based content routing](application-gateway-url-route-overview.md)** - This feature provides the capability to use different back-end servers for different traffic. Traffic for a folder on the web server or for a CDN could be routed to a different back-end, reducing unneeded load on backends that don't server specific content.
+- **[Multi-site routing](application-gateway-multi-site-overview.md)** - Application gateway allows for you to consolidate up to 20 websites on a single application gateway.
+- **Websocket support** - Another great feature of Application Gateway is the support for websocket support.  Websocket enables full duplex communication between server and client over long running connections. Websocket enabled applications still need an HTTP back-end to support the health probes of Application Gateway.
+- **End to End SSL Encryption** - This feature allows you to transmit sensitive data to the back-end while still leveraging the other added benefits of Application Gateway. The Application Gateway terminates the SSL session at the gateway. Traffic is then decrypted and the appropriate rules are applied to the packet. Application Gateway then initiates a new SSL connection to the back-end.
 
 ## HTTP layer 7 load balancing
 
@@ -68,9 +68,9 @@ Azure Application Gateway automatically monitors the health of the back-end inst
 
 ## Configuring and managing
 
-For it's endpoint application gateway can have a public IP, private IP, or both when it is configured. Application Gateway is configured inside a virtual network in it's own subnet. The subnet created or used for application gateway cannot contain any other types of resources, the only resources that are allowed in the subnet are other application gateways.
+For its endpoint application gateway can have a public IP, private IP, or both when it is configured. Application Gateway is configured inside a virtual network in its own subnet. The subnet created or used for application gateway cannot contain any other types of resources, the only resources that are allowed in the subnet are other application gateways.
 
-You can create and manage an application gateway by using REST APIs, PowerShell cmdlets, Azure CLI or [Azure Portal](https://portal.azure.com/).
+You can create and manage an application gateway by using REST APIs, PowerShell cmdlets, Azure CLI, or [Azure portal](https://portal.azure.com/).
 
 ## Next steps
 

@@ -89,7 +89,7 @@ Click **Choose a virtual network** to configure the virtual network.
 
 In the *Choose Virtual Network* blade, click **Create New**
 
-While not explained in this scenario, an existing Virtual Network could be selected at this point.  If an existing virtual network is used, it is important to know that the virtual network will need an empty subnet or a subnet of only application gateway resources in order to be used.
+While not explained in this scenario, an existing Virtual Network could be selected at this point.  If an existing virtual network is used, it is important to know that the virtual network needs an empty subnet or a subnet of only application gateway resources in order to be used.
 
 ![choose virtual network blade][4]
 
