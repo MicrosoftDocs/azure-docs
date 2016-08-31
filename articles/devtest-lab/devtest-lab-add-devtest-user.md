@@ -33,7 +33,7 @@ The following table illustrates the actions that can be performed by users in ea
 | Actions users in this role can perform | User                           | Contributor                    | Owner | 
 |----------------------------------------|--------------------------------|--------------------------------|-------|
 | **Lab tasks**                          |                                |                                |       | 
-| Add users to a lab                     | No                             | Yes                            | No    |
+| Add users to a lab                     | No                             | No                             | Yes   |
 | Update cost settings                   | No                             | Yes                            | Yes   |
 | **VM base tasks**                      |                                |                                |       | 
 | Add and remove custom images           | No                             | Yes                            | Yes   |
