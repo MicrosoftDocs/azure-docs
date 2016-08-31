@@ -159,10 +159,10 @@ Azure account.
 14. Now, to test if you have the authorization token to access the Azure Active Directory Graph API, change 
 ~\Controllers\HomeController.cs to use the following `Index()` action method:  
 	<pre class="prettyprint">
-		public ActionResult Index()
-		{
-			return <mark>Content(Request.Headers[&quot;X-MS-TOKEN-AAD-ACCESS-TOKEN&quot;]);</mark>
-		}
+	public ActionResult Index()
+	{
+		return <mark>Content(Request.Headers[&quot;X-MS-TOKEN-AAD-ACCESS-TOKEN&quot;]);</mark>
+	}
 	</pre>
 
 15. Publish your changes. To do this, right-click your project and click **Publish**. Click **Publish** again in the dialog.
@@ -212,9 +212,9 @@ point to **Add**, and select **New scaffolded item**.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/16-add-scaffolded-controller.png)
 
-9.	Open ~\Controllers\WorkItemsController.cs
+9.	Open ~\Controllers\WorkItemsController.cs.
 
-13.	In the `Create()` and `Edit(int? id)` methods, add following code to make some variables available to your JavaScript later. 
+13.	In the beginning of the `Create()` and `Edit(int? id)` methods, add following code to make some variables available to your JavaScript later. 
 `Ctrl`+`.` on each naming resolution error to fix it.
 
 		ViewData["token"] = Request.Headers["X-MS-TOKEN-AAD-ACCESS-TOKEN"];
@@ -242,7 +242,7 @@ point to **Add**, and select **New scaffolded item**.
 	Active Directory does supply.  
 
 14.	In ~\Views\WorkItems\Create.cshtml (an automatically scaffolded item), find the `Html.BeginForm` helper method and modify it as follows:  
-	<pre>
+	<pre class="prettyprint">
 	@model WebApplication1.Models.WorkItem
 
 	@{
@@ -335,13 +335,13 @@ to **Add**, and click **JavaScript file**. Type `AadPickerLibrary` for the filen
 
 16. Copy the content from 
 [here](https://raw.githubusercontent.com/cephalin/active-directory-dotnet-webapp-roleclaims/master/WebApp-RoleClaims-DotNet/Scripts/AadPickerLibrary.js) 
-into the new JavaScript file.
+into ~\Scripts\AadPickerLibrary.js.
 
 	In the script, the `AadPicker` object calls 
 	[Azure Active Directory Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) to search for users and 
 	groups that match the input.  
 
-17. AadPickerLibrary.js also uses the [jQuery UI Autocomplete widget](https://jqueryui.com/autocomplete/). So you need to add jQuery 
+17. ~\Scripts\AadPickerLibrary.js also uses the [jQuery UI Autocomplete widget](https://jqueryui.com/autocomplete/). So you need to add jQuery 
 UI to your project. Right-click your project in and click **Manage NuGet Packages**.
 
 18. In the NuGet Package Manager, click Browse, type **jquery-ui** in the search bar, and click **jQuery.UI.Combined**.
@@ -351,7 +351,7 @@ UI to your project. Right-click your project in and click **Manage NuGet Package
 19. In the right pane, click **Install**, then click **OK** to proceed.
 
 19. Open ~\App_Start\BundleConfig.cs and make the highlighted changes below:  
-	<pre>
+	<pre class="prettyprint">
 	public static void RegisterBundles(BundleCollection bundles)
 	{
 		bundles.Add(new ScriptBundle(&quot;~/bundles/jquery&quot;).Include(
@@ -391,11 +391,11 @@ for your model, and click **Publish**.
 22. In the browser, navigate to https://&lt;*appname*>.azurewebsites.net/workitems and click **Create New**.
 
 23. Click in the **AssignedToName** box. You should now see users and groups from your Azure Active Directory tenant in a dropdown. You can 
-type to filter, or use the `Up` or `Down` key or click to select the user or group. Then, click **Create**.
+type to filter, or use the `Up` or `Down` key or click to select the user or group. 
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/19-use-aadpicker.png)
 
-24. Click **Edit** to observe the same behavior.
+24. Click **Create** to save the changes. Then, click **Edit** on the created work item to observe the same behavior.
 
 Congrats, you are now running a line-of-business app in Azure with directory access! There's a lot more you can do with the Graph API. See 
 [Azure AD Graph API reference](https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog).
