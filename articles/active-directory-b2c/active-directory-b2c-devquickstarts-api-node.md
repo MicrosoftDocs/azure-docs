@@ -332,7 +332,7 @@ Let's go ahead and create our logger too.
 ```Javascript
 // Our logger
 var log = bunyan.createLogger({
-    name: 'Windows Azure Active Directory Sample'
+    name: 'Microsoft Azure Active Directory Sample'
 });
 ```
 
