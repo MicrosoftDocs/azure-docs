@@ -443,23 +443,37 @@ Properties available in the typeProperties section of the activity on the other 
 | -------- | ----------- | -------------- | -------- | 
 | recursive | Indicates whether the data is read recursively from the sub folders or only from the specified folder. | True (default value), False | No | 
 
-> [AZURE.NOTE]
-> Currently, you can also use these two properties, but they will be deprecated soon. 
-> 
-> **treatEmptyAsNull**: Specifies whether to treat null or empty string as null value. 
->  
-> Datasets now support a property called **treatEmptyAsNull**. See [Specifying TextFormat](#specifying-textformat) section for details. We recommend using the property on the dataset rather than on the activity. This property on BlobSource is kept for backward compatibility.
-> 
-> **skipHeaderLineCount** - Indicates how many lines need be skipped. It is applicable only when input dataset is using TextFormat. 
-> 
-> Datasets now supports two properties: **firstRowAsHeader** and **skipLineCount**. See [Specifying TextFormat](#specifying-textformat) section for details. We recommend using the skipLineCount property on the dataset rather than using this property. This property on BlobSource is kept for backward compatibility. 
-
 **BlobSink** supports the following properties **typeProperties** section:
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
-| blobWriterAddHeader | Specifies whether to add header of column definitions. <br/><br/>Datasets now support a property called **firstRowAsHeader**. See [Specifying TextFormat](#specifying-textformat) section for details. We recommend using the firstRowAsHeader property on the dataset rather than this property. This property on BlobSink is kept for backward compatibility.| TRUE<br/>FALSE (default) | No |
+| blobWriterAddHeader | Specifies whether to add a header of column definitions. <br/><br/>Datasets now support a property called **firstRowAsHeader**. See [Specifying TextFormat](#specifying-textformat) section for details. We recommend using the firstRowAsHeader property on the dataset rather than this property. This property on BlobSink is kept for backward compatibility.| TRUE<br/>FALSE (default) | No |
 | copyBehavior | Defines the copy behavior when the source is BlobSource or FileSystem. | **PreserveHierarchy:** preserves the file hierarchy in the target folder. The relative path of source file to source folder is identical to the relative path of target file to target folder.<br/><br/>**FlattenHierarchy:** all files from the source folder are in the first level of target folder. The target files have auto generated name. <br/><br/>**MergeFiles: (default)** merges all files from the source folder to one file. If the File/Blob Name is specified, the merged file name would be the specified name; otherwise, would be auto-generated file name. | No |
+
+**BlobSource** also supports these two properties that will be deprecated soon. 
+
+- **treatEmptyAsNull**: Specifies whether to treat null or empty string as null value.
+- **skipHeaderLineCount** - Specifies how many lines need be skipped. It is applicable only when input dataset is using TextFormat.
+
+Similarly, **BlobSink** supports the following property that will be deprecated soon.
+
+- **blobWriterAddHeader**: Specifies whether to add a header of column definitions while writing to an output dataset. 
+
+Datasets now support the following properties that implement the same functionality.
+
+- treatEmptyAsNull
+- skipLineCount
+- firstRowAsHeader
+
+| Copy Activity property | Dataset property |
+| :---------------------- | :---------------- | 
+| skipHeaderLineCount<br/> (on BlobSource) | skipLineCount and firstRowAsHeader. Lines are skipped first and then the first row is read as a header. |
+| treatEmptyAsNull<br/> (on BlobSource) | treatEmptyAsNull on input dataset |
+| blobWriterAddHeader<br/> (on BlobSink)| firstRowAsHeader on output dataset | 
+
+
+
+See [Specifying TextFormat](#specifying-textformat) section for details.   
 
 ### recursive and copyBehavior examples
 This section describes the resulting behavior of the Copy operation for different combinations of recursive and copyBehavior values. 
