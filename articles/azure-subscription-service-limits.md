@@ -63,7 +63,7 @@ As a result, you may find it useful to consider deciding what your Azure Resourc
 - [Media Services](#media-services-limits)
 - [Mobile Engagement](#mobile-engagement-limits)
 - [Mobile Services](#mobile-services-limits)
-- [Monitoring](#monitoring)
+- [Monitoring](#monitoring-limits)
 - [Multi-Factor Authentication](#multi-factor-authentication)
 - [Networking](#networking-limits)
 - [Notification Hub Service](#notification-hub-service-limits)
