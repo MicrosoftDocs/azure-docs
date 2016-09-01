@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/29/2016"
+   ms.date="09/01/2016"
    ms.author="alkohli" />
 
 # StorSimple Virtual Array Update 0.3 release notes
@@ -39,7 +39,7 @@ The following table provides a summary of issues fixed in this release.
 | No.  | Feature                              | Issue                                                                                                                                                                                                                                                                                                                           |
 |------|--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1    | Backups                                |A problem was seen in the earlier release where the backups would fail to complete. The root cause was identified and fixed in this release.                                                                                                                                                                                  |
-| 2    | iSCI                         | An issue was seen in the earlier release where the volumes would disappear when copying data to a volume on the StorSimple Virtual Array. This issue was fixed in this release.                                                              |
+| 2    | iSCSI                         | An issue was seen in the earlier release where the volumes would disappear when copying data to a volume on the StorSimple Virtual Array. This issue was fixed in this release.                                                              |
 
 
 ## Known issues in the Update 0.3
