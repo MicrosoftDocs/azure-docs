@@ -124,10 +124,12 @@ Set-AdfsProperties -EnableIdPInitiatedSignonPage $true
 
     ![ADFS test - authentication success](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/adfstest2.png)
  
-##Related Links
+##Related links
 * [Basic AD FS deployment in Azure](active-directory-aadconnect-azure-adfs.md)
 * [Microsoft Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)
-* [Traffic Manager traffic routing methods](../traffic-manager/traffic-manager-routing-methods.md) 
+* [Traffic Manager traffic routing methods](../traffic-manager/traffic-manager-routing-methods.md)
+
+##Next steps
 * [Manage an Azure Traffic Manager profile](../traffic-manager/traffic-manager-manage-profiles.md)
 * [Add, disable, enable or delete endpoints](../traffic-manager/traffic-manager-endpoints.md) 
 
