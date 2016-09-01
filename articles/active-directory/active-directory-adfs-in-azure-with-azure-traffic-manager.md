@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/29/2016"
+	ms.date="09/01/2016"
 	ms.author="anandy;billmath"/>
     
 #High availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager
@@ -70,7 +70,7 @@ Follow the steps below to create a traffic manager profile. For more information
     * Performance
     * Weighted
     
-   Choose the routing method best suited for your deployment needs. The AD FS functionality is not impacted by the routing option selected. See [Traffic Manager traffic routing methods](../traffic-manager/traffic-manager-routing-methods.md) for more information. In the sample screenshot above you can see the **Performance** method selected.
+    **Performance** is the recommended option to achieve highly responsive AD FS infrastructure. However, you can choose any routing method best suited for your deployment needs. The AD FS functionality is not impacted by the routing option selected. See [Traffic Manager traffic routing methods](../traffic-manager/traffic-manager-routing-methods.md) for more information. In the sample screenshot above you can see the **Performance** method selected.
    
 3.	**Configure endpoints:** In the traffic manager page, click on endpoints and select Add. This will open an Add endpoint page similar to the screenshot below
  
@@ -124,7 +124,8 @@ Set-AdfsProperties -EnableIdPInitiatedSignonPage $true
 
     ![ADFS test - authentication success](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/adfstest2.png)
  
-##Next steps
+##Related Links
+* [Basic AD FS deployment in Azure](active-directory-aadconnect-azure-adfs.md)
 * [Microsoft Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)
 * [Traffic Manager traffic routing methods](../traffic-manager/traffic-manager-routing-methods.md) 
 * [Manage an Azure Traffic Manager profile](../traffic-manager/traffic-manager-manage-profiles.md)
