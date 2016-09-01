@@ -18,7 +18,7 @@
 
 # Data Factory scheduling and execution
 
-This article explains the scheduling and execution aspects of the Azure Data Factory application model. This article builds on [Creating pipelines](data-factory-create-pipelines.md) and [Creating datasets](data-factory-create-datasets.md) and assumes that you understand basics of Data Factory application model concepts including activity, pipelines, linked services, and datasets.
+This article explains the scheduling and execution aspects of the Azure Data Factory application model. This article builds on [Creating pipelines](data-factory-create-pipelines.md) and [Creating datasets](data-factory-create-datasets.md). It assumes that you understand basics of Data Factory application model concepts including activity, pipelines, linked services, and datasets.
 
 ## Schedule an activity
 
@@ -33,9 +33,9 @@ With the **scheduler** section of the activity JSON, you can specify a recurring
 
 As shown in the diagram, specifying a schedule for the activity creates a series of tumbling windows. Tumbling windows are a series of fixed-size, non-overlapping, contiguous time intervals. These logical tumbling windows for the activity are called *activity windows*.
 
-For the currently executing activity window, the time interval associated with the activity window can be accessed with [WindowStart](data-factory-functions-variables.md#data-factory-system-variables) and [WindowEnd](data-factory-functions-variables.md#data-factory-system-variables) system variables in the activity JSON. You can use these variables for different purposes in your activity JSON. For example, you can use them to select data from input, and output datasets representing time series data.
+For the currently executing activity window, you can access the time interval associated with the activity window with [WindowStart](data-factory-functions-variables.md#data-factory-system-variables) and [WindowEnd](data-factory-functions-variables.md#data-factory-system-variables) system variables in the activity JSON. You can use these variables for different purposes in your activity JSON. For example, you can use them to select data from input and output datasets representing time series data.
 
-The **scheduler** property supports the same subproperties as the **availability** property in a dataset. See [Dataset availability](data-factory-create-datasets.md#Availability) for details. Examples: scheduling at a specific time offset or setting the mode to align processing at the beginning or end of the interval for the activity window.
+The **scheduler** property supports the same subproperties as the **availability** property in a dataset. See [Dataset availability](data-factory-create-datasets.md#Availability) for details. Examples: scheduling at a specific time offset, or setting the mode to align processing at the beginning or end of the interval for the activity window.
 
 Specifying scheduler properties for an activity is optional. If you do specify a property, it must match the cadence you specify in the output dataset definition. Currently, output dataset is what drives the schedule, so you must create an output dataset even if the activity does not produce any output. If the activity doesn't take any input, you can skip creating the input dataset.
 
@@ -43,7 +43,7 @@ Specifying scheduler properties for an activity is optional. If you do specify a
 
 Time series data is a continuous sequence of data points typically consisting of successive measurements made over a time interval. Common examples of time series data include sensor data and application telemetry data.
 
-With Azure Data Factory, you can process time series data in batched fashion with activity runs. Typically, there is a recurring cadence at which input data arrives and output data needs to be produced. This cadence is modeled by specifying **availability** in the dataset as follows:
+With Data Factory, you can process time series data in batched fashion with activity runs. Typically, there is a recurring cadence at which input data arrives and output data needs to be produced. This cadence is modeled by specifying **availability** in the dataset as follows:
 
     "availability": {
       "frequency": "Hour",
@@ -56,11 +56,11 @@ Each unit of data consumed and produced by an activity run is called a data slic
 
 The preceding diagram shows the hourly data slices for the input and output dataset. The diagram shows three input slices that are ready for processing. The 10-11 AM activity is in progress, producing the 10-11 AM output slice.
 
-The time interval associated with the current slice being produced can be accessed in the dataset JSON with variables [SliceStart](data-factory-functions-variables.md#data-factory-system-variables) and [SliceEnd](data-factory-functions-variables.md#data-factory-system-variables).
+You can access the time interval associated with the current slice being produced in the dataset JSON with variables [SliceStart](data-factory-functions-variables.md#data-factory-system-variables) and [SliceEnd](data-factory-functions-variables.md#data-factory-system-variables).
 
 Currently, Data Factory requires that the schedule specified in the activity exactly matches the schedule specified in **availability** of the output dataset. Therefore, **WindowStart**, **WindowEnd**, **SliceStart**, and **SliceEnd** always map to the same time period and a single output slice.
 
-For more information on different properties available for availability section, refer to [Creating datasets](data-factory-create-datasets.md).
+For more information on different properties available for the **availability section**, refer to [Creating datasets](data-factory-create-datasets.md).
 
 ## Sample--Copy Activity moving data from Azure SQL Database to Azure Blob Storage
 
@@ -87,7 +87,7 @@ Let’s put some things together and in action by creating a pipeline that copie
 	}
 
 
-The **frequency** is set to **Hour** and **interval** is set to **1** in the **availability** section.
+**Frequency** is set to **Hour** and **interval** is set to **1** in the **availability** section.
 
 **Output: Azure Blob Storage dataset**
 
@@ -145,7 +145,7 @@ The **frequency** is set to **Hour** and **interval** is set to **1** in the **a
 	}
 
 
-The **frequency** is set to **Hour** and **interval** is set to **1** in the **availability** section.
+**Frequency** is set to **Hour** and **interval** is set to **1** in the **availability** section.
 
 
 
@@ -195,7 +195,7 @@ The **frequency** is set to **Hour** and **interval** is set to **1** in the **a
 
 The sample shows the activity schedule and dataset availability sections set to hourly frequency. The sample shows how you can use **WindowStart** and **WindowEnd** to select relevant data for an activity run and copy it to a blob with the appropriate **folderPath**. The **folderPath** is parameterized to have a separate folder for every hour.
 
-When three of the slices between 8 – 11 AM execute, the data in Azure SQL Database is as follows:
+When three of the slices between 8–11 AM execute, the data in Azure SQL Database is as follows:
 
 ![Sample input](./media/data-factory-scheduling-and-execution/sample-input-data.png)
 
@@ -218,11 +218,11 @@ After the pipeline deploys, the Azure blob is populated as follows:
 
 ## Create a data slice, set the active period for a pipeline, and execute slices concurrently
 
-[Creating Pipelines](data-factory-create-pipelines.md)  introduced the concept of an active period for a pipeline specified by setting the **start** and **end** properties.
+[Creating pipelines](data-factory-create-pipelines.md) introduced the concept of an active period for a pipeline specified by setting the **start** and **end** properties.
 
 You can set the start date for the pipeline active period in the past. Data Factory automatically calculates (back fills) all data slices in the past and begins processing them.
 
-With back-filled data slices, it is possible to configure them to be run in parallel. You can do this by setting the **concurrency** property in the **policy** section of the activity JSON as shown in [Creating Pipelines](data-factory-create-pipelines.md).
+You can configure back-filled data slices to be run in parallel. You can do this by setting the **concurrency** property in the **policy** section of the activity JSON as shown in [Creating pipelines](data-factory-create-pipelines.md).
 
 ## Rerun a failed data slice and track data dependency automatically
 
@@ -239,7 +239,7 @@ The diagram shows that out of three recent slices, there was a failure producing
 
 Data Factory monitoring and management tools allow you to drill into the diagnostic logs for the failed slice to easily find the root cause for the issue and fix it. Once you have fixed the issue, you can easily start the activity run to produce the failed slice. For more details on how to rerun and understand state transitions for data slices, see [Monitoring and managing pipelines using Azure portal blades](data-factory-monitor-manage-pipelines.md) or [Monitoring and Management app](data-factory-monitor-manage-app.md) for details.
 
-Once you rerun the 9-10 AM slice for dataset2 and it is ready, Data Factory starts the run for the 9-10 AM dependent slice on the final dataset.
+Once you rerun the 9-10 AM slice for **Dataset2**, Data Factory starts the run for the 9-10 AM dependent slice on the final dataset.
 
 ![Rerun failed slice](./media/data-factory-scheduling-and-execution/rerun-failed-slice.png)
 
@@ -248,29 +248,29 @@ You can chain two activities (run one activity after another) by setting the out
 
 For example, consider the following case:
 
-1.	Pipeline P1 has Activity A1 that requires external **input** dataset **D1**, and produces **output** dataset **D2**.
-2.	Pipeline P2 has Activity A2 that requires **input** from dataset **D2**, and produces **output** dataset **D3**.
+1.	Pipeline P1 has Activity A1 that requires external input dataset D1, and produces output dataset D2.
+2.	Pipeline P2 has Activity A2 that requires input from dataset D2, and produces output dataset D3.
 
 In this scenario, activities A1 and A2 are in different pipelines. The activity A1 runs when the external data is available and the scheduled availability frequency is reached. The activity A2 runs when the scheduled slices from D2 become available and the scheduled availability frequency is reached. If there is an error in one of the slices in dataset D2, A2 does not run for that slice until it becomes available.
 
-The Diagram View would look like the following diagram:
+The Diagram view would look like the following diagram:
 
 ![Chaining activities in two pipelines](./media/data-factory-scheduling-and-execution/chaining-two-pipelines.png)
 
-As mentioned earlier, the activities can be in the same pipeline. The Diagram View with both activities in the same pipeline would look like the following diagram:
+As mentioned earlier, the activities can be in the same pipeline. The Diagram view with both activities in the same pipeline would look like the following diagram:
 
 ![Chaining activities in the same pipeline](./media/data-factory-scheduling-and-execution/chaining-one-pipeline.png)
 
 ### Copy sequentially
-It is possible to run multiple copy operations one after another in a sequential/ordered manner. Say you have two copy activities in a pipeline: CopyActivity1 and CopyActivity2 with the following input data output datasets.   
+It is possible to run multiple copy operations one after another in a sequential/ordered manner. For example, you might have two copy activities in a pipeline (CopyActivity1 and CopyActivity2) with the following input data output datasets.   
 
-CopyActivity1:
-Input: Dataset1
-Output Dataset2
+CopyActivity1
 
-CopyActivity2:
-Inputs: Dataset2
-Output: Dataset3
+Input: Dataset. Output: Dataset2
+
+CopyActivity2
+
+Inputs: Dataset2.  Output: Dataset3
 
 CopyActivity2 would run only if the CopyActivity1 has run successfully and Dataset2 is available.
 
@@ -353,17 +353,17 @@ Here is the sample pipeline JSON:
 	    }
 	}
 
-Notice that in the example, the output dataset of the first copy activity (Dataset2) is specified as input for the second activity. Therefore, the second activity runs only when output dataset from the first activity is ready.  
+Notice that in the example, the output dataset of the first copy activity (Dataset2) is specified as input for the second activity. Therefore, the second activity runs only when the output dataset from the first activity is ready.  
 
-In the example, CopyActivity2 can have a different input, say Dataset3, but you specify Dataset2 as an input to CopyActivity2 so the activity does not run until CopyActivity1 completes. For example:
+In the example, CopyActivity2 can have a different input, such as Dataset3, but you specify Dataset2 as an input to CopyActivity2, so the activity does not run until CopyActivity1 completes. For example:
 
-CopyActivity1:
-Input: Dataset1
-Output Dataset2
+CopyActivity1
 
-CopyActivity2:
-Inputs: Dataset3, Dataset2
-Output: Dataset4
+Input: Dataset1. Output Dataset2.
+
+CopyActivity2
+
+Inputs: Dataset3, Dataset2. Output: Dataset4.
 
 	{
 		"name": "ChainActivities",
@@ -455,15 +455,15 @@ Notice that in the example, two input datasets are specified for the second copy
 
 ## Model datasets with different frequencies
 
-In the samples, the frequencies for input and output datasets and activity schedule window were the same. Some scenarios require the ability to produce output at a frequency different than the frequencies of one or more inputs. Data Factory supports modeling these scenarios.
+In the samples, the frequencies for input and output datasets and the activity schedule window were the same. Some scenarios require the ability to produce output at a frequency different than the frequencies of one or more inputs. Data Factory supports modeling these scenarios.
 
 ### Sample 1: Produce a daily output report for input data that is available every hour
 
-Consider a scenario where you have input measurement data from sensors available every hour in Azure Blob Storage. You want to produce a daily aggregate report with statistics such as mean, maximum, and minimum for the day with [Data Factory hive activity](data-factory-hive-activity.md).
+Consider a scenario in which you have input measurement data from sensors available every hour in Azure Blob Storage. You want to produce a daily aggregate report with statistics such as mean, maximum, and minimum for the day with [Data Factory hive activity](data-factory-hive-activity.md).
 
 Here is how you can model this scenario with Data Factory:
 
-**Input Azure blob dataset:**
+**Input an Azure blob dataset:**
 
 The hourly input files are dropped in the folder for the given day. Availability for input is set at **Hour** (frequency: Hour, interval: 1).
 
@@ -493,7 +493,7 @@ The hourly input files are dropped in the folder for the given day. Availability
 
 **Output Azure blob dataset**
 
-One output file is created every day in the folder for the day. Availability of output is set at **Day** (frequency: Day and interval: 1).
+One output file is created every day in the day's folder. Availability of output is set at **Day** (frequency: Day and interval: 1).
 
 
 	{
@@ -519,7 +519,7 @@ One output file is created every day in the folder for the day. Availability of 
 	  }
 	}
 
-**Activity: Hive activity in a pipeline**
+**Activity: hive activity in a pipeline**
 
 The hive script receives the appropriate *DateTime* information as parameters that use the **WindowStart** variable as shown in the following snippet. The hive script uses this variable to load the data from the correct folder for the day and run the aggregation to generate the output.
 
@@ -585,7 +585,7 @@ You need a way to specify that for every activity run, the Data Factory should u
 
 **Input1: Azure blob**
 
-First input is the Azure blob being pdated **daily**.
+The first input is the Azure blob being updated daily.
 
 	{
 	  "name": "AzureBlobInputDaily",
@@ -613,7 +613,7 @@ First input is the Azure blob being pdated **daily**.
 
 **Input2: Azure blob**
 
-Input2 is the Azure blob being updated **weekly**.
+Input2 is the Azure blob being updated weekly.
 
 	{
 	  "name": "AzureBlobInputWeekly",
@@ -668,7 +668,7 @@ One output file is created every day in the folder for the day. Availability of 
 
 **Activity: hive activity in a pipeline**
 
-The hive activity takes the two inputs and produces an output slice every day. You can specify every day’s output slice to depend on last week’s input slice for weekly input as follows.
+The hive activity takes the two inputs and produces an output slice every day. You can specify every day’s output slice to depend on the previous week’s input slice for weekly input as follows.
 
 	{  
 	    "name":"SamplePipeline",
@@ -723,7 +723,7 @@ The hive activity takes the two inputs and produces an output slice every day. Y
 
 ## Data Factory functions and system variables   
 
-See [Data Factory functions and system variables](data-factory-functions-variables.md) for a list of functions and system variables supported by Azure Data Factory.
+See [Data Factory functions and system variables](data-factory-functions-variables.md) for a list of functions and system variables supported by Data Factory.
 
 ## Data dependency deep dive
 
@@ -744,7 +744,7 @@ As seen in samples, the dependency period is same as the period for the data sli
 
 For example, in the aggregation sample where output is produced daily and input data is available every hour, the data slice period is 24 hours. Data Factory finds the relevant hourly input slices for this time period and makes the output slice dependent on the input slice.
 
-You can also provide your own mapping for the dependency period as shown in the sample where one of the inputs is weekly and the output slice is produced daily.
+You can also provide your own mapping for the dependency period as shown in the sample, where one of the inputs is weekly and the output slice is produced daily.
 
 ## Data dependency and validation
 
@@ -752,13 +752,13 @@ A dataset can have a validation policy defined that specifies how the data gener
 
 In such cases, once the slice has finished execution, the output slice status is changed to **Waiting** with a substatus of **Validation**. Once the slices are validated, the slice status changes to **Ready**.
 
-If a data slice has been produced but did not pass the validation, activity runs for downstream slices depending on the slice that failed validation Azure not processed.
+If a data slice has been produced but did not pass the validation, activity runs for downstream slices depending on the slice that failed validation are not processed.
 
 [Monitor and manage pipelines](data-factory-monitor-manage-pipelines.md) covers the various states of data slices in Data Factory.
 
 ## External data
 
-A dataset can be marked as external (as shown in the following JSON snippet), implying it was not generated with Azure Data Factory. In such a case, the Dataset policy can have an additional set of parameters describing validation and retry policy for the dataset. See [Creating pipelines](data-factory-create-pipelines.md) for a description of all the properties.
+A dataset can be marked as external (as shown in the following JSON snippet), implying it was not generated with Data Factory. In such a case, the Dataset policy can have an additional set of parameters describing validation and retry policy for the dataset. See [Creating pipelines](data-factory-create-pipelines.md) for a description of all the properties.
 
 Similar to datasets that are produced by Data Factory, the data slices for external data need to be ready before dependent slices can be processed.
 
@@ -831,6 +831,6 @@ You can create and schedule a pipeline to run periodically (for example: hourly 
 Note the following:
 
 - **Start** and **end** times for the pipeline are not specified.
-- **Availability** of input and output datasets is specified (frequency and interval) even though the values are not used by Data Factory.  
+- **Availability** of input and output datasets is specified (**frequency** and **interval**) even though the values are not used by Data Factory.  
 - Diagram view does not show one-time pipelines. This behavior is by design.
 - One-time pipelines cannot be updated. You can clone a one-time pipeline, rename it, update properties, and deploy it to create another one.
