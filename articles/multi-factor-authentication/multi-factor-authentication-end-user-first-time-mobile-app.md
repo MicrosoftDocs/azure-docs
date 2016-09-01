@@ -25,19 +25,19 @@ The Microsoft Authenticator app is available for [Windows Phone](http://go.micro
 ## Use Microsoft Authenticator as your contact method
 
 
-1. On the **Additional security verification** screen, select **Mobile** app from the drop-down list.
-2. Select either **Notification** or **One-time password**, and click **Set up**.
+1. On the **Additional security verification** screen, select **Mobile app** from the drop-down list.
+2. Select either **Notification** or **One-time password**, and select **Set up**.
 
 	![Additional security verification screen](./media/multi-factor-authentication-end-user-first-time-mobile-app/mobileapp.png)
 
-3. On the phone that has the Microsoft Authenticator app installed, open the app and click **+** to add a new account.
+3. On the phone that has the Microsoft Authenticator app installed, open the app and select **+** to add an account.
 4. Specify that you want to add a work or school account. This opens the QR code scanner. If your camera is not working properly, you can select to enter your company information manually. For more information, see [Adding an account manually](#adding-an-account-manually).
 
 	![Screen for selecting an account](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan.png)
 
 	![Screen for selecting whether to scan a QR code or enter an account manually](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan4.png)
 
-5. Scan the QR code picture that came up with the screen for configuring the mobile app.  Select **Done** to close the QR code screen.  
+5. Scan the QR code picture that appeared with the screen for configuring the mobile app.  Select **Done** to close the QR code screen.  
 
 	![QR code screen](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan2.png)
 
@@ -45,7 +45,7 @@ The Microsoft Authenticator app is available for [Windows Phone](http://go.micro
 
 	![Screen for entering information manually](./media/multi-factor-authentication-end-user-first-time-mobile-app/barcode.png)
 
-6. When activation finishes on the phone, select **Contact me**.  This step sends either a notification or a verification code to your phone.  Click **Verify**.
+6. When activation finishes on the phone, select **Contact me**.  This step sends either a notification or a verification code to your phone.  Select **Verify**.
 
 	![Screen where you select Verify to sign in](./media/multi-factor-authentication-end-user-first-time-mobile-app/verify.png)
 
@@ -53,7 +53,7 @@ The Microsoft Authenticator app is available for [Windows Phone](http://go.micro
 
 	![Box for entering a PIN](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan3.png)
 
-8. After PIN entry is complete, you can select **Close**.  At this point, your verification should be successful.
+8. After PIN entry is complete, select **Close**.  At this point, your verification should be successful.
 9. We recommend that you enter your mobile phone number in case you lose access to your mobile app. Specify your country from the drop-down list, and enter your mobile phone number in the box next to the country name. Select **Next**.
 10. At this point, you have set up your contact method. Now it's time to set up app passwords for non-browser apps, such as Outlook 2010 or older. If you don't use these apps, select **Done**.  Otherwise, continue to the next step.
 
