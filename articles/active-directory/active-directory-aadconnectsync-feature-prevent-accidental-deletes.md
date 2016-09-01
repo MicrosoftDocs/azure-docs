@@ -29,7 +29,7 @@ Common scenarios when you see many deletes include:
 
 The default value of 500 objects can be changed with PowerShell using `Enable-ADSyncExportDeletionThreshold`. You should configure this value to fit the size of your organization. Since the sync scheduler runs every 30 minutes, the value is the number of deletes seen within 30 minutes.
 
-If there are too many deletes staged to be exported to Azure AD, then the export stops and you receives an email like this:
+If there are too many deletes staged to be exported to Azure AD, then the export stops and you receive an email like this:
 
 ![Prevent Accidental deletes email](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/email.png)
 
@@ -50,7 +50,7 @@ If this was unexpected, then investigate and take corrective actions. To see whi
 
 If all the deletes are desired, then do the following:
 
-1. To temporarily disable this protection and let those deletes go through, run the PowerShell cmdlet: `Disable-ADSyncExportDeletionThreshold`. Provide an Azure AD Global Administrator account and password when asked.
+1. To temporarily disable this protection and let those deletes go through, run the PowerShell cmdlet: `Disable-ADSyncExportDeletionThreshold`. Provide an Azure AD Global Administrator account and password.
 ![Credentials](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/credentials.png)
 2. With the Azure Active Directory Connector still selected, select the action **Run** and select **Export**.
 3. To re-enable the protection, run the PowerShell cmdlet: `Enable-ADSyncExportDeletionThreshold`.
