@@ -134,7 +134,7 @@ A Synchronization Rule is a configuration object with a set of attributes flowin
 
 As an example, look at the Synchronization Rule **In from AD – User AccountEnabled**. Mark this line in the SRE and select **Edit**.
 
-Since this rule is an out-of-box rule, you receive a warning when you open the rule. You should not make any [changes to out-of-box rules](active-directory-aadconnectsync-best-practices-changing-default-configuration.md), so you are asked what your intentions are. In this casem you only want to view the rule. Select **No**.
+Since this rule is an out-of-box rule, you receive a warning when you open the rule. You should not make any [changes to out-of-box rules](active-directory-aadconnectsync-best-practices-changing-default-configuration.md), so you are asked what your intentions are. In this case, you only want to view the rule. Select **No**.
 
 ![Synchronization Rules warning](./media/active-directory-aadconnectsync-understanding-default-configuration/warningeditrule.png)
 
