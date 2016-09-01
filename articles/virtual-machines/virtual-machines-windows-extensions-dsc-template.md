@@ -58,8 +58,8 @@ The snippet below goes into the Resource section of the template.
 ## Template example for Windows VMSS
 
 A VMSS node has a "properties" section with the "VirtualMachineProfile", "extensionProfile" attribute. DSC is added under "extensions". 
-```json
 
+```json
 "extensionProfile": {
             "extensions": [
                 {
@@ -86,6 +86,8 @@ A VMSS node has a "properties" section with the "VirtualMachineProfile", "extens
                     }
                 }
             ]
+```
+
 ## Detailed Settings Information
 
 This is the schema for the settings portion of the Azure DSC extension in an ARM template.
@@ -153,6 +155,7 @@ Properties under 'settings' are public properties because they are not encrypted
 Properties under 'protectedSettings' are encrypted with a certificate and are not shown in plain text in this file on the VM.
 
 If the configuration needs credentials, they can be included in protectedSettings:
+
 ```json
 "protectedSettings": {
     "configurationArguments": {
@@ -171,6 +174,7 @@ This example uses Resource Manager templates instead of cmdlets to deploy the ex
 Save the "IisInstall.ps1" configuration, place it in a .ZIP file, and upload the file in an accessible URL. This example uses Azure blob storage, but it is possible to download .ZIP files from any arbitrary location.
 
 In the Resource Manager template, the following instructs the VM to download the correct file and run the appropriate PowerShell function:
+
 ```json
 "settings": {
     "configuration": {
@@ -272,14 +276,19 @@ Solution: Remove one of the duplicate properties.
 
 ### Missing Properties
 "Configuration.function requires that configuration.url or configuration.module is specified"
+
 "Configuration.url requires that configuration.script is specified"
+
 "Configuration.script requires that configuration.url is specified"
+
 "Configuration.url requires that configuration.function is specified"
+
 "ConfigurationUrlSasToken requires that configuration.url is specified"
+
 "ConfigurationDataUrlSasToken requires that configurationData.url is specified"
 
 Problem: A defined property needs another property that is missing.
 
 Solutions: 
--	Provide the missing property.
--	Remove the property that needs the missing property.
+- Provide the missing property.
+- Remove the property that needs the missing property.
