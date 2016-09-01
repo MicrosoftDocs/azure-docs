@@ -509,7 +509,7 @@ The script references the following parameter files to build the VMs and the sur
     }
   ```
 
-  Note that the management tier security rule for the Linux implementatioun differs in that it opens port 22 to enable SSH connections rather than RDP:
+  Note that the management tier security rule for the Linux implementation differs in that it opens port 22 to enable SSH connections rather than RDP:
 
   <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-n-tier/parameters/linux/networkSecurityGroups.parameters.json#L20-L45 -->
   ```json
