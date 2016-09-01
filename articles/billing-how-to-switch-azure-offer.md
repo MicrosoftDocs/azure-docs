@@ -17,7 +17,7 @@
 	ms.date="08/17/2016"
 	ms.author="genli"/>
 
-# Switch your Azure subscription to another 
+# Switch your Azure subscription to another offer
 
 ## What you need to know
 
@@ -26,8 +26,6 @@ You [may be eligible](#to-do) to switch your subscription to a more favorable of
 -	[Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) to the [12-Month Prepay Offer](https://azure.microsoft.com/offers/ms-azr-0026p/)
 
 -	[Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) to any of the [Monthly Azure Credit offers for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)
-
-
 
 ## Guide to switching your subscription to another offer
 
