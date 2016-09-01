@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
-   manager="StevenPo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/27/2016"
+   ms.date="09/01/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect sync: Prevent accidental deletes
 This topic describes the prevent accidental deletes (preventing accidental deletions) feature in Azure AD Connect.
 
-When installing Azure AD Connect, prevent accidental deletes will be enabled by default and configured to not allow an export with more than 500 deletes. This feature is designed to protect you from accidental configuration changes and changes to your on-premises directory which would effect a large number of users and other objects.
+When installing Azure AD Connect, prevent accidental deletes is enabled by default and configured to not allow an export with more than 500 deletes. This feature is designed to protect you from accidental configuration changes and changes to your on-premises directory that would effect a large number of users and other objects.
 
-Common scenarios when you see this include:
+Common scenarios when you see many deletes include:
 
 - Changes to [filtering](active-directory-aadconnectsync-configure-filtering.md) where an entire [OU](active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering) or [domain](active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering) is unselected.
 - All objects in an OU are deleted.
@@ -44,7 +44,7 @@ If this was unexpected, then investigate and take corrective actions. To see whi
 2. Go to **Connectors**.
 3. Select the Connector with type **Azure Active Directory**.
 4. Under **Actions** to the right, select **Search Connector Space**.
-5. In the pop-up under **Scope** select **Disconnected Since** and pick a time in the past. Click on **Search**. This will provide a view of all objects about to be deleted. By clicking on each item, you can get additional information about the object. You can also click on **Column Setting** to add additional attributes to be visible in the grid.
+5. In the pop-up under **Scope**, select **Disconnected Since** and pick a time in the past. Click on **Search**. This will provide a view of all objects about to be deleted. By clicking on each item, you can get additional information about the object. You can also click **Column Setting** to add additional attributes to be visible in the grid.
 
 ![Search Connector Space](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/searchcs.png)
 
@@ -56,6 +56,8 @@ If all the deletes are desired, then do the following:
 3. To re-enable the protection run the PowerShell cmdlet: `Enable-ADSyncExportDeletionThreshold`.
 
 ## Next steps
-Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
 
-Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+**Overview topics**
+
+- [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
+- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)

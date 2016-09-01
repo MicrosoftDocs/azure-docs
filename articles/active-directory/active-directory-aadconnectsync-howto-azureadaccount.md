@@ -5,7 +5,7 @@
     keywords="AADSTS70002, AADSTS50054, How to reset the password for the Azure AD Connect sync Connector service account"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="09/01/2016"
 	ms.author="andkjell"/>
 
 # Azure AD Connect sync: How to manage the Azure AD service account
-The service account used by the Azure AD Connector is supposed to be service free. But if you need to reset its credentials, then this topic is for you. This can for example happen if a Global Administrator has by mistake reset the password on the service account using PowerShell.
+The service account used by the Azure AD Connector is supposed to be service free. If you need to reset its credentials, then this topic is for you. For example, if a Global Administrator has by mistake reset the password on the service account using PowerShell.
 
 ## Reset the credentials
 If the service account defined on the Azure AD Connector cannot contact Azure AD due to authentication problems, the password can be reset.
@@ -28,10 +28,10 @@ If the service account defined on the Azure AD Connector cannot contact Azure AD
 ![PowerShell cmdlet addadsyncaadserviceaccount](./media/active-directory-aadconnectsync-howto-azureadaccount/addadsyncaadserviceaccount.png)
 3. Provide Azure AD Global admin credentials.
 
-This cmdlet will reset the password for the service account and update it both in Azure AD and in the sync engine.
+This cmdlet resets the password for the service account and update it both in Azure AD and in the sync engine.
 
 ## Known issues these steps can solve
-This is a list of errors reported by customers that were fixed by following these steps.
+This is a list of errors reported by customers that were fixed by a credentials reset on the Azure AD service account.
 
 -----------
 Event 6900  
@@ -44,4 +44,8 @@ Error while retrieving password policy sync configuration. Microsoft.IdentityMod
 AADSTS70002: Error validating credentials. AADSTS50054: Old password is used for authentication.
 
 ## Next steps
-Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+
+**Overview topics**
+
+- [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
+- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
