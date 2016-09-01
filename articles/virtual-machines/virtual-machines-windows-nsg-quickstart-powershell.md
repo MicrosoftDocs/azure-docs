@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Allow external access to a VM using PowerShell | Microsoft Azure"
-   description="Learn how to open a port / create an endpoint that allows external access to your Windows VM using the resource manager deployment mode and Azure PowerShell"
+   pageTitle="Open ports to a VM using PowerShell | Microsoft Azure"
+   description="Learn how to open a port / create an endpoint to your Windows VM using the Azure resource manager deployment mode and Azure PowerShell"
    services="virtual-machines-windows"
    documentationCenter=""
    authors="iainfoulds"
@@ -16,7 +16,7 @@
    ms.date="08/08/2016"
    ms.author="iainfou"/>
 
-# Allow external access to your VM using PowerShell
+# Opening ports to a VM in Azure using PowerShell
 [AZURE.INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## Quick commands

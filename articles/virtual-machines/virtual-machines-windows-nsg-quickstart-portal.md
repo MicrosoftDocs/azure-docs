@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Allow external access to a VM using the portal | Microsoft Azure"
-   description="Learn how to open a port / create an endpoint that allows access to your VM using the resource manager deployment model in the Azure Portal"
+   pageTitle="Open ports to a VM using the Azure portal | Microsoft Azure"
+   description="Learn how to open a port / create an endpoint to your Windows VM using the resource manager deployment model in the Azure Portal"
    services="virtual-machines-windows"
    documentationCenter=""
    authors="iainfoulds"
@@ -16,7 +16,7 @@
    ms.date="08/08/2016"
    ms.author="iainfou"/>
 
-# Allow external access to your VM using the Azure Portal
+# Opening ports to a VM in Azure using the Azure Portal
 [AZURE.INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## Quick commands
