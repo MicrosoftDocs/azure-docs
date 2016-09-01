@@ -105,7 +105,7 @@ The following diagram builds on the topology shown in [Running multiple VMs on A
 
 - At the database tier, having multiple VMs does not automatically translate into a highly available database. For a relational database, you will typically need to use replication and failover to achieve high availability. The business tier will connect to a primary database, and if that VM goes down, the application fails over to a secondary database, either manually or automatically.
 
-> [AZURE.NOTE] For SQL Server, we recommend using [AlwaysOn Availability Groups][sql-alwayson]. For more information, see  
+> [AZURE.NOTE] For SQL Server, we recommend using [AlwaysOn Availability Groups][sql-alwayson]. 
 
 ## Security considerations
 
@@ -510,7 +510,7 @@ The script references the following parameter files to build the VMs and the sur
   ```
 
   Note that the management tier security rule for the Linux implementatioun differs in that it opens port 22 to enable SSH connections rather than RDP:
-  
+
   <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-n-tier/parameters/linux/networkSecurityGroups.parameters.json#L20-L45 -->
   ```json
   "securityRules": [
