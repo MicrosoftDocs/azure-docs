@@ -82,7 +82,7 @@ To discover how to create artifacts, see the article, [Learn how to author your 
 
 1. On the **Add artifacts** blade, select the desired artifact.  
 
-![Add Artifacts blade](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifact-blade.png)
+	![Add Artifacts blade](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifact-blade.png)
 
 1. Enter the required parameter values and any optional parameters that you need.  
 
