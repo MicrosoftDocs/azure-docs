@@ -298,6 +298,7 @@ The script references the following parameter files to build the VMs and the sur
 
   The default configuration for building Linux VMs references Ubuntu Linux 14.04. The `imageReference` section looks like this:
 
+  <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-n-tier/parameters/linux/webTier.parameters.json#L65-L70 -->
   ```json
     "imageReference": {
       "publisher": "Canonical",
@@ -343,7 +344,7 @@ The script references the following parameter files to build the VMs and the sur
 
     >[AZURE.NOTE] For security purposes, the web, business, and database tiers block RDP/SSH traffic by default, even from the management tier. You can temporarily create additional rules to open these ports to enable you to connect and install software on these tiers, but then you can disable them again afterwards. However, you should open any ports required by whatever tools you are using to monitor and manage the web, business, and database tiers from the management tier.
 
-  **IMPORTANT:** The NSG rules for the management tier are applied to the NIC for the jump box rather than the management subnet. The default name for this NIC, ra-vm9-nic1, assumes that you haven't changed the `namePrefix` value for the management tier VMs, and that you have not modified the number or starting index of the VMs in each tier (by default, the jump box will be given the suffix 9). If you have changed these parameters, then you must also modify the value of the NIC referenced by the management tier NSG rules accordingly, otherwise they may be applied to a NIC associated with a different VM.
+    >[AZURE.IMPORTANT] The NSG rules for the management tier are applied to the NIC for the jump box rather than the management subnet. The default name for this NIC, ra-vm9-nic1, assumes that you haven't changed the `namePrefix` value for the management tier VMs, and that you have not modified the number or starting index of the VMs in each tier (by default, the jump box will be given the suffix 9). If you have changed these parameters, then you must also modify the value of the NIC referenced by the management tier NSG rules accordingly, otherwise they may be applied to a NIC associated with a different VM.
 
   <!-- source:  https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-n-tier/parameters/windows/networkSecurityGroups.parameters.json#L4-L162 -->
   ```json
@@ -509,6 +510,7 @@ The script references the following parameter files to build the VMs and the sur
   ```
 
   Note that the management tier security rule for the Linux implementatioun differs in that it opens port 22 to enable SSH connections rather than RDP:
+  
   <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-n-tier/parameters/linux/networkSecurityGroups.parameters.json#L20-L45 -->
   ```json
   "securityRules": [
