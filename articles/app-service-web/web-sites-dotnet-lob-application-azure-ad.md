@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="08/31/2016" 
+	ms.date="09/01/2016" 
 	ms.author="cephalin"/>
 
 # Create a line-of-business Azure app with Azure Active Directory authentication #
@@ -159,7 +159,12 @@ Azure account.
 should see the `access_token` property in the JSON response.
 
 	The `~/.auth/me` URL path is managed by App Service Authentication / Authorization to give you all the information
-	related to your authenticated session. For more information, 
+	related to your authenticated session. For more information, see 
+	[Authentication and authorization in Azure App Service](../app-service/app-service-authentication-overview.md).
+
+	>[AZURE.NOTE] The `access_token` has an expiration period. However, App Service Authentication / Authorization provides
+	token refresh functionality with `~/.auth/refresh`. For more information on how to use it, see 
+	[App Service Token Store](https://cgillum.tech/2016/03/07/app-service-token-store/).
 
 Next, you will do something useful with directory data.
 
@@ -289,10 +294,23 @@ highlighted changes:
 	}
 	</pre>
 	
-	Notice that `token` and `tenant` are used by the `AadPicker` object to make Azure Active Directory Graph API calls. You
-	can just as well get them from the client side with `~/.auth/me` as shown previously, but that would be another server call. 
-	You'll add `AadPicker` later.
-
+	Note that `token` and `tenant` are used by the `AadPicker` object to make Azure Active Directory Graph API calls. You'll 
+	add `AadPicker` later.	 
+	
+	>[AZURE.NOTE] You can just as well get `token` and `tenant` from the client side with `~/.auth/me`, but that would be an 
+	additional call. For example:
+	>  
+    >     $.ajax({
+    >         dataType: "json",
+    >         url: "/.auth/me",
+    >         success: function (data) {
+    >             var token = data[0].access_token;
+    >             var tenant = data[0].user_claims
+    >                             .find(c => c.typ === 'http://schemas.microsoft.com/identity/claims/tenantid')
+    >                             .val;
+    >         }
+    >     });
+	
 15. Make the same changes with ~\Views\WorkItems\Edit.cshtml.
 
 15. The `AadPicker` object is defined in a script that you need to add to your project. Right-click the ~\Scripts folder, point 
