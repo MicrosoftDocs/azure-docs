@@ -383,3 +383,4 @@ To run the script that deploys the solution:
 [naming conventions]: ./guidance-naming-conventions.md
 [azure-cli]: https://azure.microsoft.com/documentation/articles/xplat-cli-install/
 [0]: ./media/guidance-hybrid-network-expressroute-vpn-failover/figure1.png "Architecture of a highly available hybrid network architecture using ExpressRoute and VPN gateway"
+[ARM-Templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
