@@ -27,7 +27,7 @@ Build your apps on the latest platform with an updated App Service Resource Prov
    - Web App updates enable new features like WebJobs and PHP 7 support.
 
 ## Key Vault 
-[Key Vault](azure-stack-intro-key-vault.md) provides secure management of your keys and passwords with auditing and monitoring.
+[Key Vault](azure-stack-intro-key-vault.md) provides secure management of your keys and passwords for cloud apps.
 
 ## Network   
    - [iDNS](azure-stack-what-is-idns.md) provides internal network name registration and DNS resolution without additional DNS infrastructure.
@@ -53,7 +53,7 @@ Build your apps on the latest platform with an updated App Service Resource Prov
  - Reclaim unused tenant resources on-demand.
 
 ## Monitoring and Health
- - Azure Stack Regions represent a logical unit of scale and management within Azure Stack. In this preview, you can view resource consumption of network, storage, and compute resources by region.
+ - Azure Stack Regions are a logical unit of scale and management within Azure Stack. In this preview, you can view resource consumption of network, storage, and compute resources by region.
  - New monitoring capabilities available in the portal and APIs allow you to proactively view and manage alerts on your environment.  
  - System Health Tests automatically test your fabric to ensure services are working as expected.  
 
