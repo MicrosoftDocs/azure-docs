@@ -124,13 +124,13 @@ You can implement NSGs in the classic or Resource Manager deployment models usin
 
 |Deployment tool|Classic|Resource Manager|
 |---|---|---|
-|Classic portal|![No][red]|![No][red]|
-|Azure portal|![Yes][green]|[![Yes][green]](virtual-networks-create-nsg-arm-pportal.md)|
+|Classic portal|![No](./media/virtual-network-nsg-overview/red.png)|![No](./media/virtual-network-nsg-overview/red.png)|
+|Azure portal|![Yes][green]]|[![Yes][green]](virtual-networks-create-nsg-arm-pportal.md)|
 |PowerShell|[![Yes][green]](virtual-networks-create-nsg-classic-ps.md)|[![Yes][green]](virtual-networks-create-nsg-arm-ps.md)|
 |Azure CLI|[![Yes][green]](virtual-networks-create-nsg-classic-cli.md)|[![Yes][green]](virtual-networks-create-nsg-arm-cli.md)|
-|ARM template|[No][red]|[![Yes][green]](virtual-networks-create-nsg-arm-template.md)|
+|ARM template|![No](./media/virtual-network-nsg-overview/red.png)|[![Yes][green]](virtual-networks-create-nsg-arm-template.md)|
 
-|**Key**|![Yes][green] Supported. Click for article.|![No][red] Not Supported.|
+|**Key**|![Yes](./media/virtual-network-nsg-overview/green.png) Supported. Click for article.|![No](./media/virtual-network-nsg-overview/red.png) Not Supported.|
 |---|---|---|
 
 ## Planning
