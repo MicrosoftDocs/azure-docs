@@ -26,7 +26,7 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bi-dir
 
 This tutorial builds on the code shown in the [Get started with IoT Hub] tutorial, and it shows two scalable patterns that you can use to process device-to-cloud messages:
 
-- The reliable storage of device-to-cloud messages in [Azure Blob storage]. A very common scenario is *cold path* analytics, in which you store telemetry data in blobs to use as input into analytics processes. These processes can be driven by tools such as [Azure Data Factory] or the [HDInsight (Hadoop)] stack.
+- The reliable storage of device-to-cloud messages in [Azure Blob storage]. A common scenario is *cold path* analytics, in which you store telemetry data in blobs to use as input into analytics processes. These processes can be driven by tools such as [Azure Data Factory] or the [HDInsight (Hadoop)] stack.
 
 - The reliable processing of *interactive* device-to-cloud messages. Device-to-cloud messages are interactive when they are immediate triggers for a set of actions in the application back end. For example, a device might send an alarm message that triggers inserting a ticket into a CRM system. By contrast, *data-point* messages simply feed into an analytics engine. For example, temperature telemetry from a device that is to be stored for later analysis is a data-point message.
 
@@ -39,13 +39,13 @@ Service Bus helps ensure reliable processing of interactive messages, as it prov
 
 > [AZURE.NOTE] An **EventProcessorHost** instance is only one way to process interactive messages. Other options include [Azure Service Fabric][lnk-service-fabric] and [Azure Stream Analytics][lnk-stream-analytics].
 
-At the end of this tutorial, you will run three Java console apps:
+At the end of this tutorial, you run three Java console apps:
 
 * **simulated-device**, a modified version of the app created in the [Get started with IoT Hub] tutorial, sends data-point device-to-cloud messages every second, and interactive device-to-cloud messages every 10 seconds. This app uses the AMQPS protocol to communicate with IoT Hub.
-* **process-d2c-messages** uses the [EventProcessorHost] class to retrieve messages from the Event Hubs-compatible endpoint. It then reliably stores data-point messages in  Azure Blob storage, and forwards interactive messages to a Service Bus queue.
+* **process-d2c-messages** uses the [EventProcessorHost] class to retrieve messages from the Event Hubs-compatible endpoint. It then reliably stores data-point messages in Azure Blob storage, and forwards interactive messages to a Service Bus queue.
 * **process-interactive-messages** de-queues the interactive messages from the Service Bus queue.
 
-> [AZURE.NOTE] IoT Hub has SDK support for many device platforms and languages, including C, Java, and JavaScript. For step-by-step instructions on how to replace the simulated device in this tutorial with a physical device, and generally how to connect devices to an IoT Hub, see the [Azure IoT Developer Center].
+> [AZURE.NOTE] IoT Hub has SDK support for many device platforms and languages, including C, Java, and JavaScript. For instructions on how to replace the simulated device in this tutorial with a physical device, and how to connect devices to an IoT Hub, see the [Azure IoT Developer Center].
 
 This tutorial is directly applicable to other ways to consume Event Hubs-compatible messages, such as [HDInsight (Hadoop)] projects. For more information, see [Azure IoT Hub developer guide - Device to cloud].
 
@@ -97,12 +97,12 @@ In this section, you modify the simulated device application you created in the 
     }
     ```
 
-    This class is very similar to the **MessageSender** class in the **simulated-device** project. The only differences are that you now set the **MessageId** system property, and a custom property called **messageType**.
-    The code assigns a universally unique identifier (UUID) to the **MessageId** property. The Service Bus can use this to de-duplicate the messages it receives. The sample uses the **messageType** property to distinguish interactive from data-point messages. The application passes this information in message properties, instead of in the message body, so that the event processor does not need to deserialize the message to perform message routing.
+    This class is similar to the **MessageSender** class in the **simulated-device** project. The only differences are that you now set the **MessageId** system property, and a custom property called **messageType**.
+    The code assigns a universally unique identifier (UUID) to the **MessageId** property. The Service Bus can use this identifier to de-duplicate the messages it receives. The sample uses the **messageType** property to distinguish interactive from data-point messages. The application passes this information in message properties, instead of in the message body, so that the event processor does not need to deserialize the message to perform message routing.
 
-    > [AZURE.NOTE] It is important to create the **MessageId** used to de-duplicate interactive messages in the device code. Intermittent network communications, or other failures, could result in multiple re-transmissions of the same message from that device. You can also use a semantic message ID, such as a hash of the relevant message data fields, in place of a UUID.
+    > [AZURE.NOTE] It is important to create the **MessageId** used to de-duplicate interactive messages in the device code. Intermittent network communications, or other failures, could result in multiple retransmissions of the same message from that device. You can also use a semantic message ID, such as a hash of the relevant message data fields, in place of a UUID.
 
-3. Modify the **main** method to send interactive messages as well as data-point messages as shown in the following code snippet:
+3. Modify the **main** method to send both interactive messages and data-point messages as shown in the following code snippet:
 
     ````
     MessageSender sender = new MessageSender();
@@ -127,29 +127,29 @@ In this section, you modify the simulated device application you created in the 
 
 In this section, you create a Java console app that processes device-to-cloud messages from IoT Hub. Iot Hub exposes an [Event Hubs]-compatible endpoint to enable an application to read device-to-cloud messages. This tutorial uses the [EventProcessorHost] class to process these messages in a console app. For more information about how to process messages from Event Hubs, see the [Get Started with Event Hubs] tutorial.
 
-When you implement reliable storage of data-point messages or forwarding of interactive messages, the main challenge is that Event Hubs event processing relies on the message consumer to provide checkpoints for its progress. Moreover, in order to achieve a high throughput, when you read from Event Hubs you should provide checkpoints in large batches. This creates the possibility of duplicate processing for a large number of messages, if there is a failure and you revert to the previous checkpoint. In this tutorial, you will see how to synchronize Azure storage writes and Service Bus de-duplication windows with **EventProcessorHost** checkpoints.
+The main challenge when you implement reliable storage of data-point messages or forwarding of interactive messages, is that event processing relies on the message consumer to provide checkpoints for its progress. Moreover, to achieve a high throughput, when you read from Event Hubs you should provide checkpoints in large batches. This approach creates the possibility of duplicate processing for a large number of messages, if there is a failure and you revert to the previous checkpoint. In this tutorial, you see how to synchronize Azure storage writes and Service Bus de-duplication windows with **EventProcessorHost** checkpoints.
 
-To write messages to Azure storage reliably, the sample uses the individual block commit feature of [block blobs][Azure Block Blobs]. The event processor accumulates messages in memory until it is time to provide a checkpoint, such as after the accumulated buffer of messages reaches the maximum block size of 4 MB, or after the Service Bus de-duplication time window elapses. Then, before the checkpoint, the code commits a new block to the blob.
+To write messages to Azure storage reliably, the sample uses the individual block commit feature of [block blobs][Azure Block Blobs]. The event processor accumulates messages in memory until it is time to provide a checkpoint. For example, after the accumulated buffer of messages reaches the maximum block size of 4 MB, or after the Service Bus de-duplication time window elapses. Then, before the checkpoint, the code commits a new block to the blob.
 
-The event processor uses Event Hubs message offsets as block IDs. This allows it to perform a de-duplication check before it commits the new block to storage, taking care of a possible crash between committing a block and the checkpoint.
+The event processor uses Event Hubs message offsets as block IDs. This mechanism enables the event processor to perform a de-duplication check before it commits the new block to storage, taking care of a possible crash between committing a block and the checkpoint.
 
 > [AZURE.NOTE] This tutorial uses a single storage account to write all the messages retrieved from IoT Hub. To decide if you need to use multiple Azure Storage accounts in your solution, see [Azure Storage scalability Guidelines].
 
-The application makes use of the Service Bus de-duplication feature to avoid duplicates when it processes interactive messages. The simulated device stamps each interactive message with a unique **MessageId**. This enables Service Bus to ensure that, in the specified de-duplication time window, no two messages with the same **MessageId** are delivered to the receivers. This de-duplication, together with the per-message completion semantics provided by Service Bus queues, makes it easy to implement the reliable processing of interactive messages.
+The application uses the Service Bus de-duplication feature to avoid duplicates when it processes interactive messages. The simulated device stamps each interactive message with a unique **MessageId**. This id Service Bus to ensure that, in the specified de-duplication time window, no two messages with the same **MessageId** are delivered to the receivers. This de-duplication, together with the per-message completion semantics provided by Service Bus queues, makes it easy to implement the reliable processing of interactive messages.
 
-To make sure that no message is resubmitted outside of the de-duplication window, the code synchronizes the **EventProcessorHost** checkpoint mechanism with the Service Bus queue de-duplication window. This is done by forcing a checkpoint at least once every time the de-duplication window elapses (in this tutorial, the window is one hour).
+To make sure that no message is resubmitted outside of the de-duplication window, the code synchronizes the **EventProcessorHost** checkpoint mechanism with the Service Bus queue de-duplication window. This synchronization is done by forcing a checkpoint at least once every time the de-duplication window elapses (in this tutorial, the window is one hour).
 
 > [AZURE.NOTE] This tutorial uses a single partitioned Service Bus queue to process all the interactive messages retrieved from IoT Hub. For more information about how to use Service Bus queues to meet the scalability requirements of your solution, see the [Azure Service Bus] documentation.
 
 ### Provision an Azure Storage account and a Service Bus queue
 
-In order to use the [EventProcessorHost] class, you must have an Azure Storage account to enable the **EventProcessorHost** to record checkpoint information. You can use an existing storage account, or follow the instructions in [About Azure Storage] to create a new one. Make a note of the storage account connection string.
+To use the [EventProcessorHost] class, you must have an Azure Storage account to enable the **EventProcessorHost** to record checkpoint information. You can use an existing storage account, or follow the instructions in [About Azure Storage] to create a new one. Make a note of the storage account connection string.
 
 > [AZURE.NOTE] When you copy and paste the storage account connection string, make sure there are no spaces included.
 
 You also need a Service Bus queue to enable reliable processing of interactive messages. You can create a queue programmatically, with a one hour de-duplication window, as explained in [How to use Service Bus Queues][Service Bus queue]. Alternatively, you can use the [Azure classic portal][lnk-classic-portal], by following these steps:
 
-1. Click **New** in the lower-left corner. Then click **App Services** > **Service Bus** > **Queue** > **Custom Create**. Enter the name **d2ctutorial**, select a  region, and use an existing namespace or create a new one. Make a note of the namespace name, you need it later in this tutorial. On the next page, select **Enable duplicate detection**, and set the **Duplicate detection history time window** to one hour. Then click the check mark in the lower-right corner to save your queue configuration.
+1. Click **New** in the lower-left corner. Then click **App Services** > **Service Bus** > **Queue** > **Custom Create**. Enter the name **d2ctutorial**, select a region, and use an existing namespace or create a new one. Make a note of the namespace name, you need it later in this tutorial. On the next page, select **Enable duplicate detection**, and set the **Duplicate detection history time window** to one hour. Then click the check mark in the lower-right corner to save your queue configuration.
 
     ![Create a queue in Azure portal][30]
 
@@ -159,11 +159,11 @@ You also need a Service Bus queue to enable reliable processing of interactive m
 
 ### Create the event processor
 
-In this section you create a Java application to process messages from the Event Hubs-compatible endpoint.
+In this section, you create a Java application to process messages from the Event Hubs-compatible endpoint.
 
 The first task is to add a Maven project called **process-d2c-messages** that receives device-to-cloud messages from the IoT Hub Event Hubs-compatible endpoint and routes those messages to other back-end services.
 
-1. In the iot-java-get-started folder you created in the [Get started with IoT Hub] tutorial, create a new Maven project called **process-d2c-messages** using the following command at your command-prompt. Note this is a single, long command:
+1. In the iot-java-get-started folder you created in the [Get started with IoT Hub] tutorial, create a Maven project called **process-d2c-messages** using the following command at your command-prompt. Note this is a single, long command:
 
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=process-d2c-messages -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -218,11 +218,13 @@ The next task is to add an **ErrorNotificationHandler** class to the project.
 
 Now you can add a class that implements the **IEventProcessor** interface. The **EventProcessorHost** class calls this class to process device-to-cloud messages received from IoT Hub. The code in this class implements the logic to store messages reliably in a blob container, and forward interactive messages to the Service Bus queue.
 
-The **onEvents** method sets the **latestEventData** variable that tracks the offset and sequence number of the latest message read by this event processor. Remember that each processor is responsible for a single partition. The **onEvents** method then receives a batch of messages from IoT Hub, and processes them as follows: it sends interactive messages to the Service Bus queue, and appends data point messages to the **toAppend** memory buffer. If the memory buffer reaches the 4 MB block limit, or the Service Bus de-duplication time windows has elapsed since the last checkpoint (one hour in this tutorial), then the method triggers a checkpoint.
+The **onEvents** method sets the **latestEventData** variable that tracks the offset and sequence number of the latest message read by this event processor. Remember that each processor is responsible for a single partition. The **onEvents** method then receives a batch of messages from IoT Hub, and processes them as follows: it sends interactive messages to the Service Bus queue, and appends data point messages to the **toAppend** memory buffer. If the memory buffer reaches the 4 MB block limit, or the de-duplication time windows elapses (one hour after the last checkpoint in this tutorial), then the method triggers a checkpoint.
 
 The **AppendAndCheckPoint** method first generates a **blockId** for the block to append to the blob. Azure storage requires all block IDs to have the same length, so the method pads the offset with leading zeros. Then, if a block with this ID is already in the blob, the method overwrites it with the current buffer content.
 
-> [AZURE.NOTE] To simplify the code, this tutorial uses a single blob file per partition to store the messages. A real solution would implement file rolling by creating additional files after a certain amount of time, or when they reach a certain size (note that an Azure block blob can contain at most 195 GB of data).
+> [AZURE.NOTE] To simplify the code, this tutorial uses a single blob file per partition to store the messages. A real solution would implement file rolling by creating additional files after a certain amount of time, or when they reach a certain size. Remember that an Azure block blob can contain at most 195 GB of data.
+
+The next task is to implement the **IEventProcessor** interface:
 
 1. Use a text editor to create a process-d2c-messages\src\main\java\com\mycompany\app\EventProcessor.java file.
 
@@ -373,7 +375,7 @@ The **AppendAndCheckPoint** method first generates a **blockId** for the block t
         context.getPartitionId());
     ```
 
-11. In the **onEvents** method, add the following code to receive messages from the IoT Hub endpoint, forward interactive messages to the Service Bus queue, and call the **AppendAndCheckPoint** method when the block is full or the timeout expires:
+11. In the **onEvents** method, add the following code to receive messages from the IoT Hub endpoint and forward interactive messages to the Service Bus queue. Then call the **AppendAndCheckPoint** method when the block is full or the timeout expires:
 
     ```
     if (messages != null) {
@@ -433,7 +435,7 @@ The final task in the **process-d2c-messages** project is to add code to the **m
     import java.util.concurrent.*;
     ```
 
-3. Add the following class-level variable to the **App** class, replacing **{yourstorageaccountconnectionstring}** with the Azure storage account connection string you made a note of previously in the [Provision an Azure Storage account and a Service Bus queue](#provision-an-azure-storage-account-and-a-service-bus-queue) section:
+3. Add the following class-level variable to the **App** class. Replace **{yourstorageaccountconnectionstring}** with the Azure storage account connection string you made a note of previously in the [Provision an Azure Storage account and a Service Bus queue](#provision-an-azure-storage-account-and-a-service-bus-queue) section:
 
     ```
     private final static String storageConnectionString = "{yourstorageaccountconnectionstring}";
@@ -448,7 +450,7 @@ The final task in the **process-d2c-messages** project is to add code to the **m
     private final static String serviceBusRootUri = ".servicebus.windows.net";
     ```
 
-5. Add the following class-level variables to the **App** class. Replace **{youreventhubcompatibleendpoint}** with the Event Hub-compatible endpoint name; this looks like **ihs....namespace** so you should remove the **sb://** prefix and the **.servicebus.windows.net/** suffix. Replace **{youreventhubcompatiblename}** with the Event Hub-compatible name. Replace **{youriothubkey}** with the **iothubowner** key. You made a note of these values in the [Create an IoT Hub][lnk-create-an-iot-hub] section in the *Get started with Azure IoT Hub for Java* tutorial:
+5. Add the following class-level variables to the **App** class. Replace **{youreventhubcompatibleendpoint}** with the Event Hub-compatible endpoint name. The endpoint name looks like **ihs....namespace** so you should remove the **sb://** prefix and the **.servicebus.windows.net/** suffix. Replace **{youreventhubcompatiblename}** with the Event Hub-compatible name. Replace **{youriothubkey}** with the **iothubowner** key. You made a note of these values in the [Create an IoT Hub][lnk-create-an-iot-hub] section in the *Get started with Azure IoT Hub for Java* tutorial:
 
     ```
     private final static String consumerGroupName = "$Default";
@@ -487,7 +489,7 @@ The final task in the **process-d2c-messages** project is to add code to the **m
     EventProcessor.serviceBusContract = ServiceBusService.create(config);
     ```
 
-9. In the **main** method, configure and create an **EventProcessorHost** instance. The **setInvokeProcessorAfterReceiveTimeout** option ensures that the **EventProcessorHost** instance invokes the **onEvents** method in the **IEventProcessor** interface even when there are no messages to process. The **onEvents** method then always invoke thes **AppendAndCheckPoint** method when the timeout expires.
+9. In the **main** method, configure and create an **EventProcessorHost** instance. The **setInvokeProcessorAfterReceiveTimeout** option ensures that the **EventProcessorHost** instance invokes the **onEvents** method in the **IEventProcessor** interface even when there are no messages to process. The **onEvents** method then always invokes the **AppendAndCheckPoint** method when the timeout expires.
 
     ```
     ConnectionStringBuilder eventHubConnectionString = new ConnectionStringBuilder(
@@ -550,7 +552,7 @@ In this section, you write a Java console app that receives the interactive mess
 
 The first task is to add a Maven project called **process-interactive-messages** that receives messages sent on the Service Bus queue from the **EventProcessor** instances.
 
-1. In the iot-java-get-started folder you created in the [Get started with IoT Hub] tutorial, create a new Maven project called **process-interactive-messages** using the following command at your command-prompt. Note this is a single, long command:
+1. In the iot-java-get-started folder you created in the [Get started with IoT Hub] tutorial, create a Maven project called **process-interactive-messages** using the following command at your command-prompt. Note this is a single, long command:
 
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=process-interactive-messages -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -664,7 +666,7 @@ The next task is to add code to retrieve messages from the Service Bus queue.
     executor.shutdownNow();
     ```
 
-7. Save an close the process-interactive-messages\src\main\java\com\mycompany\app\App.java file.
+7. Save and close the process-interactive-messages\src\main\java\com\mycompany\app\App.java file.
 
 8. To build the **process-interactive-messages** application using Maven, execute the following command at the command-prompt in the process-interactive-messages folder:
 
@@ -698,9 +700,9 @@ Now you are ready to run the three applications.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
     ```
 
-    ![Run simulated-devic][simulateddevice]
+    ![Run simulated-device][simulateddevice]
 
-> [AZURE.NOTE] In order to see updates in your blob file, you may need to reduce the **MAX_BLOCK_SIZE** constant in the **StoreEventProcessor** class to a smaller value, such as **1024**. This is because it takes some time to reach the block size limit with the data sent by the simulated device. With a smaller block size, you will not need to wait so long to see the blob being created and updated. However, using a larger block size makes the application more scalable.
+> [AZURE.NOTE] To see updates in your blob file, you may need to reduce the **MAX_BLOCK_SIZE** constant in the **StoreEventProcessor** class to a smaller value, such as **1024**. This change is useful because it takes some time to reach the block size limit with the data sent by the simulated device. With a smaller block size, you do not need to wait so long to see the blob being created and updated. However, using a larger block size makes the application more scalable.
 
 ## Next steps
 
