@@ -19,7 +19,7 @@
 # Azure AD Connect sync: Prevent accidental deletes
 This topic describes the prevent accidental deletes (preventing accidental deletions) feature in Azure AD Connect.
 
-When installing Azure AD Connect, prevent accidental deletes is enabled by default and configured to not allow an export with more than 500 deletes. This feature is designed to protect you from accidental configuration changes and changes to your on-premises directory that would effect a large number of users and other objects.
+When installing Azure AD Connect, prevent accidental deletes is enabled by default and configured to not allow an export with more than 500 deletes. This feature is designed to protect you from accidental configuration changes and changes to your on-premises directory that would affect many users and other objects.
 
 Common scenarios when you see many deletes include:
 
@@ -27,9 +27,9 @@ Common scenarios when you see many deletes include:
 - All objects in an OU are deleted.
 - An OU is renamed so all objects in it are considered to be out of scope for synchronization.
 
-The default value of 500 objects can be changed with PowerShell using `Enable-ADSyncExportDeletionThreshold`. You should configure this value to fit the size of your organization. Since the sync scheduler will run every 30 minutes, the value is the number of deletes seen within 30 minutes.
+The default value of 500 objects can be changed with PowerShell using `Enable-ADSyncExportDeletionThreshold`. You should configure this value to fit the size of your organization. Since the sync scheduler runs every 30 minutes, the value is the number of deletes seen within 30 minutes.
 
-If there are too many deletes staged to be exported to Azure AD, then the export will not continue and you will receive an email like this:
+If there are too many deletes staged to be exported to Azure AD, then the export stops and you receives an email like this:
 
 ![Prevent Accidental deletes email](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/email.png)
 
@@ -44,16 +44,16 @@ If this was unexpected, then investigate and take corrective actions. To see whi
 2. Go to **Connectors**.
 3. Select the Connector with type **Azure Active Directory**.
 4. Under **Actions** to the right, select **Search Connector Space**.
-5. In the pop-up under **Scope**, select **Disconnected Since** and pick a time in the past. Click on **Search**. This will provide a view of all objects about to be deleted. By clicking on each item, you can get additional information about the object. You can also click **Column Setting** to add additional attributes to be visible in the grid.
+5. In the pop-up under **Scope**, select **Disconnected Since** and pick a time in the past. Click **Search**. This page provides a view of all objects about to be deleted. By clicking each item, you can get additional information about the object. You can also click **Column Setting** to add additional attributes to be visible in the grid.
 
 ![Search Connector Space](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/searchcs.png)
 
 If all the deletes are desired, then do the following:
 
-1. To temporarily disable this protection and let these deletes go through, run the PowerShell cmdlet: `Disable-ADSyncExportDeletionThreshold`. When asked for credentials, provide an Azure AD Global Administrator account and password.
+1. To temporarily disable this protection and let those deletes go through, run the PowerShell cmdlet: `Disable-ADSyncExportDeletionThreshold`. Provide an Azure AD Global Administrator account and password when asked.
 ![Credentials](./media/active-directory-aadconnectsync-feature-prevent-accidental-deletes/credentials.png)
 2. With the Azure Active Directory Connector still selected, select the action **Run** and select **Export**.
-3. To re-enable the protection run the PowerShell cmdlet: `Enable-ADSyncExportDeletionThreshold`.
+3. To re-enable the protection, run the PowerShell cmdlet: `Enable-ADSyncExportDeletionThreshold`.
 
 ## Next steps
 
