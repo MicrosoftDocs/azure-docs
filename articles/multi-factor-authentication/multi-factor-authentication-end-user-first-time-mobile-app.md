@@ -18,7 +18,7 @@
 
 # Use a mobile app as your contact method with Azure Multi-Factor Authentication
 
-If you want to use the Microsoft Authenticator app as your primary contact method, you can use this article.  It will walk you through setting up Azure Multi-Factor Authentication to use your mobile app as your primary contact method.
+If you want to use the Microsoft Authenticator app as your primary contact method, you can use this article.  It walks you through setting up Azure Multi-Factor Authentication to use your mobile app as your primary contact method.
 
 The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
@@ -31,13 +31,13 @@ The Microsoft Authenticator app is available for [Windows Phone](http://go.micro
 	![Additional security verification screen](./media/multi-factor-authentication-end-user-first-time-mobile-app/mobileapp.png)
 
 3. On the phone that has the Microsoft Authenticator app installed, open the app and click **+** to add a new account.
-4. Specify that you want to add a work or school account, which will open the QR code scanner. If your camera is not working properly, you can select to enter your company information manually. For more information, see [Adding an account manually](#adding-an-account-manually).
+4. Specify that you want to add a work or school account. This opens the QR code scanner. If your camera is not working properly, you can select to enter your company information manually. For more information, see [Adding an account manually](#adding-an-account-manually).
 
 	![Screen for selecting an account](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan.png)
 
 	![Screen for selecting whether to scan a QR code or enter an account manually](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan4.png)
 
-5. Scan the QR code picture that came up with the configure mobile app screen.  Select **Done** to close the QR code screen.  
+5. Scan the QR code picture that came up with the screen for configuring the mobile app.  Select **Done** to close the QR code screen.  
 
 	![QR code screen](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan2.png)
 
@@ -45,7 +45,7 @@ The Microsoft Authenticator app is available for [Windows Phone](http://go.micro
 
 	![Screen for entering information manually](./media/multi-factor-authentication-end-user-first-time-mobile-app/barcode.png)
 
-6. When activation finishes on the phone, select **Contact me**.  This will send either a notification or a verification code to your phone.  Click **Verify**.
+6. When activation finishes on the phone, select **Contact me**.  This step sends either a notification or a verification code to your phone.  Click **Verify**.
 
 	![Screen where you select Verify to sign in](./media/multi-factor-authentication-end-user-first-time-mobile-app/verify.png)
 
@@ -57,7 +57,7 @@ The Microsoft Authenticator app is available for [Windows Phone](http://go.micro
 9. We recommend that you enter your mobile phone number in case you lose access to your mobile app. Specify your country from the drop-down list, and enter your mobile phone number in the box next to the country name. Select **Next**.
 10. At this point, you have set up your contact method. Now it's time to set up app passwords for non-browser apps, such as Outlook 2010 or older. If you don't use these apps, select **Done**.  Otherwise, continue to the next step.
 
-	![Screen for creating a new app password](./media/multi-factor-authentication-end-user-first-time-mobile-app/step4.png)
+	![Screen for creating an app password](./media/multi-factor-authentication-end-user-first-time-mobile-app/step4.png)
 
 11. If you're using non-browser apps, copy the provided app password and paste the password into your apps. For steps on individual apps such as Outlook and Lync, see How to change the password in your email to the app password and How to change the password in your application to the app password.
 12. Select **Done**.
@@ -76,4 +76,4 @@ If you want to add an account manually:
 
 	![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-app/barcode2.png)
 
-3. When the activation has finished, select **Contact me**. This will send either a notification or a verification code to your phone. Select **Verify**.
+3. When the activation has finished, select **Contact me**. This step sends either a notification or a verification code to your phone. Select **Verify**.
