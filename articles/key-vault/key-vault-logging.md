@@ -86,12 +86,10 @@ In our getting started tutorial, our key vault name was **ContosoKeyVault**, so 
 
 ## <a id="enable"></a>Enable logging ##
 
-To enable logging for Key Vault, we'll use the Set-AzureRmDiagnosticSetting cmdlet, together with the variables we created for our new storage account and our key vault. We'll also set the **-Enabled** flag to **$true**, set the category to AuditEvent (the only category for Key Vault logging), and set retention policy using **-RetentionEnabled** flag to **$true** and set **-RetentionInDays** parameter to **90** so that logs older than 90 days will be automatically deleted:
+To enable logging for Key Vault, we'll use the Set-AzureRmDiagnosticSetting cmdlet, together with the variables we created for our new storage account and our key vault. We'll also set the **-Enabled** flag to **$true** and set the category to AuditEvent (the only category for Key Vault logging), :
 
 
-	Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent -RetentionEnabled $true -RetentionInDays 90
-
->[AZURE.NOTE]  Setting retention policy is optional. If you want to prune your logs through external tools, you can leave the -RetentionEnabled and -RetentionInDays parameters out.
+	Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
 
 The output for this includes:
 
@@ -102,11 +100,15 @@ The output for this includes:
 		Enabled           : True
 		Category          : AuditEvent
 		RetentionPolicy
-		Enabled : True
-		Days    : 90
+		Enabled : False
+		Days    : 0
 
 
-This confirms that logging is now enabled for your key vault, saving information to your storage account and logs older than 90 days will be automatically deleted.
+This confirms that logging is now enabled for your key vault, saving information to your storage account.
+
+Optionally you can also set retention policy for your logs such that older logs will be automatically deleted. For example, set retention policy using **-RetentionEnabled** flag to **$true** and set **-RetentionInDays** parameter to **90** so that logs older than 90 days will be automatically deleted.
+
+	Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent -RetentionEnabled $true -RetentionInDays 90
 
 What's logged:
 
