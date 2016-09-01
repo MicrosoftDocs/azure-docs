@@ -30,7 +30,7 @@ There are three main roles that you can assign a user:
 
 The following table illustrates the actions that can be performed by users in each of these roles:
 
-| Actions users in this role can perform | DevTest Labs User            | Owner | Contributor |
+| **Actions users in this role can perform** | **DevTest Labs User**            | **Owner** | **Contributor** |
 |---|---|---|---|
 | **Lab tasks**                          |                              |       |             |
 | Add users to a lab                     | No                           | Yes   | No          |
@@ -48,7 +48,7 @@ The following table illustrates the actions that can be performed by users in ea
 | Add and remove artifact repositories   | No                           | Yes   | Yes         |
 | Apply artifacts                        | Yes                          | Yes   | Yes         |
 
-> [AZURE.NOTE] When a user creates a VM, that user is automatically assigned to the **Owner** role of the created VM.]
+> [AZURE.NOTE] When a user creates a VM, that user is automatically assigned to the **Owner** role of the created VM.
 
 ## Add an owner to a lab
 
