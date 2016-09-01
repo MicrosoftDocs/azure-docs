@@ -36,7 +36,7 @@ First, we need to open the port we want.
 
     ![Azure container service load balancer probes](media/container-service-dcos-agents/add-probe.png)
 
-5. Fill out the probe form.
+5. Fill out the probe form and click **OK**.
 
     | Field | Description |
     | ----- | ----------- |
@@ -46,13 +46,12 @@ First, we need to open the port we want.
     | Interval | The amount of time between probe attempts, in seconds. |
     | Unhealthy threshold | Number of consecutive probe attempts before considering the container unhealthy. | 
     
-    Click OK
 
 6. Back at the properties of the agent load balancer, click **Load balancing rules** and then **Add**.
 
     ![Azure container service load balancer rules](media/container-service-dcos-agents/add-balancer-rule.png)
 
-7. Fill out the load balancer form.
+7. Fill out the load balancer form and click **OK**.
 
     | Field | Description |
     | ----- | ----------- |
@@ -63,8 +62,6 @@ First, we need to open the port we want.
     | Probe | The probe used to determine if a target in the **Backend pool** is healthy. |
     | Session persistence | Determines how traffic from a client should be handled for the duration of the session.<br><br>**None**: Successive requests from the same client can be handled by any container.<br>**Client IP**: Successive requests from the same client IP are handled by the same container.<br>**Client IP and protocol**: Successive requests from the same client IP and protocol combination are handled by the same container. |
     | Idle timeout | (TCP only) In minutes, the time to keep a TCP/HTTP client open without relying on *keep-alive* messages. |
-
-    Click OK
 
 ## Add a security rule (portal)
 
@@ -80,7 +77,7 @@ Next, we need to add a security rule that routes traffic from our opened port th
 
     ![Azure container service network security group rules](media/container-service-dcos-agents/add-firewall-rule.png)
 
-5. Fill out the firewall rule to allow your public port.
+5. Fill out the firewall rule to allow your public port and click **OK**.
 
     | Field | Description |
     | ----- | ----------- |
