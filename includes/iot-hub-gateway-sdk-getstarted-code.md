@@ -67,7 +67,7 @@ The JSON settings file contains a list of modules to load. Each module must spec
 
 The JSON file also contains the links between the modules that will be passed to the broker. A link has two properties:
 - **source**: a module name from the `modules` section, or "\*".
-- **sink**: a module name from the `modules` seciond
+- **sink**: a module name from the `modules` section
 
 Each link defines a message route and direction. Messages from module `source` are to be delivered to the module `sink`. The `source` may be set to "\*", indicating that messages from any module will be received by `sink`.
 
@@ -78,12 +78,12 @@ The following sample shows the JSON settings file used to configure the Hello Wo
     "modules" :
     [ 
         {
-            "module name" : "logger_hl",
+            "module name" : "logger",
             "module path" : "./modules/logger/liblogger_hl.so",
             "args" : {"filename":"log.txt"}
         },
         {
-            "module name" : "helloworld",
+            "module name" : "hello_world",
             "module path" : "./modules/hello_world/libhello_world_hl.so",
 			"args" : null
         }
@@ -92,7 +92,7 @@ The following sample shows the JSON settings file used to configure the Hello Wo
     [
         {
             "source" : "hello_world",
-            "sink" : "logger_hl"
+            "sink" : "logger"
         }
     ]
 }

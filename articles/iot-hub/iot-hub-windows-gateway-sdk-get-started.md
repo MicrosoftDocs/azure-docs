@@ -33,7 +33,7 @@ Before you get started, you must [set up your development environment][lnk-setup
 
 1. The **build.cmd** script creates a folder called **build** in your local copy of the repository. This folder contains the two modules used in this sample.
 
-    The build script places **logger_hl.dll** in the **build\\modules\\logger\\Debug** folder and **hello_world_hl.dl** in the **build\\modules\\hello_world\\Debug** folder. Use these paths for the **module path** value as shown in the JSON settings file below.
+    The build script places **logger_hl.dll** in the **build\\modules\\logger\\Debug** folder and **hello_world_hl.dll** in the **build\\modules\\hello_world\\Debug** folder. Use these paths for the **module path** value as shown in the JSON settings file below.
 
 2. The file **hello_world_win.json** in the **samples\\hello_world\\src** folder is an example JSON settings file for Windows that you can use to run the sample. The example JSON settings shown below assumes that you cloned the Gateway SDK repository to the root of your **C:** drive. If you downloaded it to another location, you need to adjust the **module path** values in the **samples\\hello_world\\src\\hello_world_win.json** file accordingly.
 

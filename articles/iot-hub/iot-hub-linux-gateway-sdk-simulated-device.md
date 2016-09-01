@@ -13,8 +13,8 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="04/20/2016"
-     ms.author="cstreet"/>
+     ms.date="08/29/2016"
+     ms.author="andbuc"/>
 
 
 # IoT Gateway SDK (beta) – send device-to-cloud messages with a simulated device using Linux
@@ -46,6 +46,7 @@ In a text editor, open the file **samples/simulated_device_cloud_upload/src/simu
 - The **BLE1** and **BLE2** modules are the simulated devices. Note how their MAC addresses match those in the **mapping** module.
 - The **Logger** module logs your gateway activity to a file.
 - The **module path** values shown below assume that you will run the sample from the root of your local copy of the **azure-iot-gateway-sdk** repository.
+- The **links** array at the bottom of the JSON file connects the **BLE1** and **BLE2** modules to the **mapping** module, and the **mapping** module to the **IoTHub** module. It also ensures that all messages are logged by the **Logger** module.
 
 ```
 {
@@ -53,7 +54,7 @@ In a text editor, open the file **samples/simulated_device_cloud_upload/src/simu
     [ 
         {
             "module name" : "IoTHub",
-            "module path" : "./build/modules/iothubhttp/libiothubhttp_hl.so",
+            "module path" : "./build/modules/iothub/libiothub_hl.so",
             "args" : 
             {
                 "IoTHubName" : "{Your IoT hub name}",
@@ -67,12 +68,12 @@ In a text editor, open the file **samples/simulated_device_cloud_upload/src/simu
             [
                 {
                     "macAddress" : "01-01-01-01-01-01",
-                    "deviceId"   : "GW-ble1-demo",
+                    "deviceId"   : "{Device ID}",
                     "deviceKey"  : "{Device key}"
                 },
                 {
                     "macAddress" : "02-02-02-02-02-02",
-                    "deviceId"   : "GW-ble2-demo",
+                    "deviceId"   : "{Device ID}",
                     "deviceKey"  : "{Device key}"
                 }
             ]
@@ -101,6 +102,12 @@ In a text editor, open the file **samples/simulated_device_cloud_upload/src/simu
                 "filename":"./deviceCloudUploadGatewaylog.log"
             }
         }
+    ],
+    "links" : [
+        { "source" : "*", "sink" : "Logger" },
+        { "source" : "BLE1", "sink" : "mapping" },
+        { "source" : "BLE2", "sink" : "mapping" },
+        { "source" : "mapping", "sink" : "IoTHub" }
     ]
 }
 

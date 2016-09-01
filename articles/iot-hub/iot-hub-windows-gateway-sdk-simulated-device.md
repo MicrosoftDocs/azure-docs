@@ -13,8 +13,8 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="04/20/2016"
-     ms.author="cstreet"/>
+     ms.date="08/29/2016"
+     ms.author="andbuc"/>
 
 
 # IoT Gateway SDK (beta) – send device-to-cloud messages with a simulated device using Windows
@@ -44,6 +44,7 @@ In a text editor, open the file **samples\\simulated_device_cloud_upload\\src\\s
 - The **BLE1** and **BLE2** modules are the simulated devices. Note how their MAC addresses match those in the **mapping** module.
 - The **Logger** module logs your gateway activity to a file.
 - The **module path** values shown below assume that you cloned the Gateway SDK repository to the root of your **C:** drive. If you downloaded it to another location, you need to adjust the **module path** values accordingly.
+- The **links** array at the bottom of the JSON file connects the **BLE1** and **BLE2** modules to the **mapping** module, and the **mapping** module to the **IoTHub** module. It also ensures that all messages are logged by the **Logger** module.
 
 ```
 {
@@ -51,7 +52,7 @@ In a text editor, open the file **samples\\simulated_device_cloud_upload\\src\\s
     [ 
         {
             "module name" : "IoTHub",
-            "module path" : "C:\\azure-iot-gateway-sdk\\modules\\iothubhttp\\Debug\\iothubhttp_hl.dll",
+            "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\iothub\\Debug\\iothub_hl.dll",
             "args" : 
             {
                 "IoTHubName" : "{Your IoT hub name}",
@@ -60,24 +61,24 @@ In a text editor, open the file **samples\\simulated_device_cloud_upload\\src\\s
         },
         {
             "module name" : "mapping",
-            "module path" : "C:\\azure-iot-gateway-sdk\\modules\\identitymap\\Debug\\identitymap_hl.dll",
+            "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\identitymap\\Debug\\identitymap_hl.dll",
             "args" : 
             [
                 {
                     "macAddress" : "01-01-01-01-01-01",
-                    "deviceId"   : "GW-ble1-demo",
+                    "deviceId"   : "{Device ID}",
                     "deviceKey"  : "{Device key}"
                 },
                 {
                     "macAddress" : "02-02-02-02-02-02",
-                    "deviceId"   : "GW-ble2-demo",
+                    "deviceId"   : "{Device ID}",
                     "deviceKey"  : "{Device key}"
                 }
             ]
         },
         {
             "module name":"BLE1",
-            "module path" : "C:\\azure-iot-gateway-sdk\\modules\\ble_fake\\Debug\\ble_fake_hl.dll",
+            "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\simulated_device\\Debug\\simulated_device_hl.dll",
             "args":
             {
                 "macAddress" : "01-01-01-01-01-01"
@@ -85,7 +86,7 @@ In a text editor, open the file **samples\\simulated_device_cloud_upload\\src\\s
         },
         {
             "module name":"BLE2",
-            "module path" : "C:\\azure-iot-gateway-sdk\\modules\\ble_fake\\Debug\\ble_fake_hl.dll",
+            "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\simulated_device\\Debug\\simulated_device_hl.dll",
             "args":
             {
                 "macAddress" : "02-02-02-02-02-02"
@@ -93,12 +94,18 @@ In a text editor, open the file **samples\\simulated_device_cloud_upload\\src\\s
         },
         {
             "module name":"Logger",
-            "module path" : "C:\\azure-iot-gateway-sdk\\modules\\logger\\Debug\\logger_hl.dll",
+            "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\logger\\Debug\\logger_hl.dll",
             "args":
             {
                 "filename":"C:\\azure-iot-gateway-sdk\\deviceCloudUploadGatewaylog.log"
             }
         }
+    ],
+    "links" : [
+        { "source" : "*", "sink" : "Logger" },
+        { "source" : "BLE1", "sink" : "mapping" },
+        { "source" : "BLE2", "sink" : "mapping" },
+        { "source" : "mapping", "sink" : "IoTHub" }
     ]
 }
 ```
