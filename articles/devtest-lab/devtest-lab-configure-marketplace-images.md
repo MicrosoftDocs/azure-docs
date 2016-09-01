@@ -18,10 +18,10 @@
 
 # Configure Azure Marketplace image settings in Azure DevTest Labs
 
-DevTest Labs supports creating new VMs based on Azure Marketplace images depending
+DevTest Labs supports creating VMs based on Azure Marketplace images depending
 on how you have configured Azure Marketplace images to be used in your lab. This article
-will show you how to specify which, if any, Azure Marketplace images can be used when
-creating new VMs in a lab.
+shows you how to specify which, if any, Azure Marketplace images can be used when
+creating VMs in a lab.
 
 ## Select which Azure Marketplace images are allowed when creating a VM
 
@@ -40,7 +40,7 @@ creating new VMs in a lab.
 	![Configure how Azure Marketplace images are used](./media/devtest-lab-configure-marketplace-images/lab-settings-marketplace-images.png)
 
 1. Specify whether you want all the qualified Azure Marketplace images to be available for use as a base of a new VM. If you select **Yes**, 
-then all the Azure Marketplace images that meet all of the following criteria are allowed in the lab:
+then all the Azure Marketplace images that meet all the following criteria are allowed in the lab:
 
 	- The image creates a single VM, **and**
 	- The image uses Azure Resource Manager to provision VMs, **and**
@@ -50,7 +50,7 @@ then all the Azure Marketplace images that meet all of the following criteria ar
  
 	![Option to allow all Marketplace images to be used as base images for VMs](./media/devtest-lab-configure-marketplace-images/allow-all-marketplace-images.png)
  
-1. If you select **No** to the previous step, the **Allowed images/Select all** checkbox will be enabled. 
+1. If you select **No** to the previous step, the **Allowed images/Select all** checkbox is enabled. 
 You can use this option together with the search box to quickly select or deselect all the items displayed in the list.
 You can also select the Azure Marketplace images you want to allow for VM creation individually by checking each image's corresponding checkbox.
 Select nothing from the list if you don't want to allow any Azure Marketplace images to be used in the lab.
