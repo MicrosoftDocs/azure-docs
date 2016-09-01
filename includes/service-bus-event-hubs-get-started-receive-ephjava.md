@@ -26,12 +26,12 @@ The Java client library for Event Hubs is available for use in Maven projects fr
 <dependency>
 	<groupId>com.microsoft.azure</groupId>
 	<artifactId>azure-eventhubs</artifactId>
-	<version>0.7.2</version>
+	<version>{VERSION}</version>
 </dependency>
 <dependency>
 	<groupId>com.microsoft.azure</groupId>
 	<artifactId>azure-eventhubs-eph</artifactId>
-	<version>0.7.2</version>
+	<version>{VERSION}</version>
 </dependency>
 ```
  
