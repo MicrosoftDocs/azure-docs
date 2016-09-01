@@ -35,7 +35,7 @@ The following links provide general Information about how to deploy a new web se
 * For a full walkthrough about how to create and deploy a web service, see [Walkthrough Step 1: Create a Machine Learning workspace](machine-learning-walkthrough-1-create-ml-workspace.md).
 * For specific examples that deploy a web service, see:
 
-	* [Walkthrough Step 5: Deploy the Azure Machine Learning Web service](machine-learning-walkthrough-5-publish-web-service.md)
+	* [Walkthrough Step 5: Deploy the Azure Machine Learning web service](machine-learning-walkthrough-5-publish-web-service.md)
 	* [How to deploy a web service to multiple regions](machine-learning-how-to-deploy-to-multiple-regions.md)
 
 ### With web services resource provider APIs (Azure Resource Manager APIs)
