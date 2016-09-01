@@ -17,7 +17,7 @@
 	ms.date="08/24/2016"
 	ms.author="genli"/>
 
-# Switch your Azure subscription to another 
+# Switch your Azure subscription to another offer
 
 ## What you need to know
 
