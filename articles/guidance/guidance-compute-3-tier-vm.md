@@ -148,7 +148,7 @@ When you edit the templates, create objects that follow the naming conventions d
 The script references the following parameter files to build the VMs and the surrounding infrastructure. Note that there are two versions of these files; one for Windows VMs and another for Linux (RedHat). The examples shown below depict the Windows versions. The Linux files are very similar except where described:
 
 - **[virtualNetwork.parameters.json][vnet-parameters-windows]**. This file defines the VNet settings. The VNet contains separate subnets for the web, business, and database tiers, and a further subnet for hosting the VMs running management services. You can also specify the addresses of any DNS servers required. Note that subnet addresses must be contained within the address space of the VNet:
-
+  <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-n-tier/parameters/windows/virtualNetwork.parameters.json#L4-L32 -->
 	```json
     "parameters": {
       "virtualNetworkSettings": {
@@ -182,7 +182,7 @@ The script references the following parameter files to build the VMs and the sur
 	```
 
 - **[webTier.parameters.json][webtier-parameters-windows]**. This file defines the settings for the VMs in the web tier, including the [size of each VM][VM-sizes], the security credentials for the admin user, the disks to be created, the storage accounts to hold these disks. This file also contains the definition of an availability set for the VMs, and the load balancer configuration for distributing traffic across the VMs in this set.
-
+  <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-n-tier/parameters/windows/webTier.parameters.json#L4-L103 -->
 	```json
     "parameters": {
       "loadBalancerSettings": {
@@ -314,7 +314,7 @@ The script references the following parameter files to build the VMs and the sur
 	>[AZURE.NOTE] The template does not install any web servers on the VMs in this tier. You can install a web server of your choice (IIS, Apache, etc) manually.
 
 - **[businessTier.parameters.json][businesstier-parameters-windows]**. This file contains the settings for the load balancer and VMs in the business tier. The parameters are very similar to those used by the template for creating the web tier. Note that you must set the values in the `buildingBlockSettings` section at the end of the file to ensure that VM and computer names do not clash with those in the web tier. The default configuration (shown below) creates a set of 3 VMs starting with suffix 4. The default web tier configuration uses suffixes 1 through 3, but if you create more VMs in the web tier you should adjust the `vmStartIndex` in this file:
-
+  <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-n-tier/parameters/windows/businessTier.parameters.json#L96-L102 -->
 	```json
      "buildingBlockSettings": {
       "value": {
@@ -345,6 +345,7 @@ The script references the following parameter files to build the VMs and the sur
 
 	**IMPORTANT:** The NSG rules for the management tier are applied to the NIC for the jump box rather than the management subnet. The default name for this NIC, ra-vm9-nic1, assumes that you haven't changed the `namePrefix` value for the management tier VMs, and that you have not modified the number or starting index of the VMs in each tier (by default, the jump box will be given the suffix 9). If you have changed these parameters, then you must also modify the value of the NIC referenced by the management tier NSG rules accordingly, otherwise they may be applied to a NIC associated with a different VM.
 
+  <!-- source:  https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-n-tier/parameters/windows/networkSecurityGroups.parameters.json#L4-L162 -->
 	```json
     "parameters": {
       "virtualNetworkSettings": {
@@ -508,33 +509,34 @@ The script references the following parameter files to build the VMs and the sur
 	```
 
 	Note that the management tier security rule for the Linux implementatioun differs in that it opens port 22 to enable SSH connections rather than RDP:
-
+  <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-n-tier/parameters/linux/networkSecurityGroups.parameters.json#L20-L45 -->
 	```json
-    "securityRules": [
-      {
-        "name": "default-allow-ssh",
-        "direction": "Inbound",
-        "priority": 100,
-        "sourceAddressPrefix": "*",
-        "destinationAddressPrefix": "*",
-        "sourcePortRange": "*",
-        "destinationPortRange": "22",
-        "access": "Allow",
-        "protocol": "Tcp"
-      },
-      {
-        "name": "deny-other-traffic",
-        "description": "Deny all other traffic",
-        "protocol": "*",
-        "sourcePortRange": "*",
-        "destinationPortRange": "*",
-        "sourceAddressPrefix": "*",
-        "destinationAddressPrefix": "*",
-        "access": "Deny",
-        "priority": 120,
-        "direction": "Inbound"
-      }
-    ]
+  "securityRules": [
+    {
+      "name": "allow-web-traffic",
+      "description": "Allow traffic originating from web layer.",
+      "protocol": "*",
+      "sourcePortRange": "*",
+      "destinationPortRange": "80",
+      "sourceAddressPrefix": "10.0.0.0/24",
+      "destinationAddressPrefix": "*",
+      "access": "Allow",
+      "priority": 100,
+      "direction": "Inbound"
+    },
+    {
+      "name": "deny-other-traffic",
+      "description": "Deny all other traffic",
+      "protocol": "*",
+      "sourcePortRange": "*",
+      "destinationPortRange": "*",
+      "sourceAddressPrefix": "*",
+      "destinationAddressPrefix": "*",
+      "access": "Deny",
+      "priority": 120,
+      "direction": "Inbound"
+    }
+  ]
 	```
 
 	You can open additional ports (or deny access through specific ports) by adding further items to the `securityRules` array for the appropriate subnet.
@@ -673,17 +675,17 @@ To run the script that deploys the solution:
 [Zabbix]: http://www.zabbix.com/
 [Icinga]: http://www.icinga.org/
 [VM-sizes]: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/
-[solution-script]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-compute-n-tier/Deploy-ReferenceArchitecture.ps1
-[solution-script-bash]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-compute-n-tier/deploy-reference-architecture.sh
-[vnet-parameters-windows]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-compute-n-tier/parameters/windows/virtualNetwork.parameters.json
-[vnet-parameters-linux]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-compute-n-tier/parameters/linux/virtualNetwork.parameters.json
-[nsg-parameters-windows]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-compute-n-tier/parameters/windows/networkSecurityGroups.parameters.json
-[nsg-parameters-linux]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-compute-n-tier/parameters/linux/networkSecurityGroups.parameters.json
-[webtier-parameters-windows]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-compute-n-tier/parameters/windows/webTier.parameters.json
-[webtier-parameters-linux]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-compute-n-tier/parameters/linux/webTier.parameters.json
-[businesstier-parameters-windows]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-compute-n-tier/parameters/windows/businessTier.parameters.json
-[businesstier-parameters-linux]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-compute-n-tier/parameters/linux/businessTier.parameters.json
-[datatier-parameters-windows]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-compute-n-tier/parameters/windows/dataTier.parameters.json
-[datatier-parameters-linux]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-compute-n-tier/parameters/linux/dataTier.parameters.json
+[solution-script]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-n-tier/Deploy-ReferenceArchitecture.ps1
+[solution-script-bash]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-n-tier/deploy-reference-architecture.sh
+[vnet-parameters-windows]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-n-tier/parameters/windows/virtualNetwork.parameters.json
+[vnet-parameters-linux]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-n-tier/parameters/linux/virtualNetwork.parameters.json
+[nsg-parameters-windows]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-n-tier/parameters/windows/networkSecurityGroups.parameters.json
+[nsg-parameters-linux]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-n-tier/parameters/linux/networkSecurityGroups.parameters.json
+[webtier-parameters-windows]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-n-tier/parameters/windows/webTier.parameters.json
+[webtier-parameters-linux]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-n-tier/parameters/linux/webTier.parameters.json
+[businesstier-parameters-windows]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-n-tier/parameters/windows/businessTier.parameters.json
+[businesstier-parameters-linux]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-n-tier/parameters/linux/businessTier.parameters.json
+[datatier-parameters-windows]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-n-tier/parameters/windows/dataTier.parameters.json
+[datatier-parameters-linux]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-n-tier/parameters/linux/dataTier.parameters.json
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [0]: ./media/blueprints/compute-n-tier.png "N-tier architecture using Microsoft Azure"
