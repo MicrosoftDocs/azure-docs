@@ -23,7 +23,7 @@ For Windows and Linux computers, the recommended method for collecting logs and 
 The easiest way to install the Log Analytics agent on Azure virtual machines is through the Log Analytics VM Extension.  This simplifies the installation process and automatically configures the agent to send data to the Log Analytics workspace that you specify. The agent will also be upgraded automatically, ensuring that you have the latest features and fixes.
 
 For Windows virtual machines you enable the *Microsoft Monitoring Agent* virtual machine extension.
-For Linux virtual machines you enable the *Oms Agent For Linux* virtual machine extension.
+For Linux virtual machines you enable the *OMS Agent For Linux* virtual machine extension.
 
 Learn more about [Azure virtual machine extensions](../virtual-machines/virtual-machines-windows-extensions-features.md) and the [Linux agent] (../virtual-machines/virtual-machines-linux-agent-user-guide.md).
 
@@ -66,9 +66,9 @@ For classic virtual machines, use the following PowerShell example:
 ```
 Add-AzureAccount
 
-$workspaceId="enter workspace here"
-$workspaceKey="enter workspace key here"
-$hostedService="enter hosted service here"
+$workspaceId = "enter workspace ID here"
+$workspaceKey = "enter workspace key here"
+$hostedService = "enter hosted service here"
 
 $vm = Get-AzureVM –ServiceName $hostedService
 
@@ -99,14 +99,14 @@ if ($workspace.Name -ne $workspaceName)
 $workspaceId = $workspace.CustomerId
 $workspaceKey = (Get-AzureRmOperationalInsightsWorkspaceSharedKeys -ResourceGroupName $workspace.ResourceGroupName -Name $workspace.Name).PrimarySharedKey
 
-$vm = Get-AzureRMVM -ResourceGroupName $VMresourcegroup -Name $VMresourcename
+$vm = Get-AzureRmVM -ResourceGroupName $VMresourcegroup -Name $VMresourcename
 $location = $vm.Location
 
 # For Windows VM uncomment the following line
-# Set-AzureRMVMExtension -ResourceGroupName $VMresourcegroup -VMName $VMresourcename -Name 'MicrosoftMonitoringAgent' -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionType 'MicrosoftMonitoringAgent' -TypeHandlerVersion '1.0' -Location $location -SettingString "{'workspaceId':  '$workspaceId'}" -ProtectedSettingString "{'workspaceKey': '$workspaceKey' }"
+# Set-AzureRmVMExtension -ResourceGroupName $VMresourcegroup -VMName $VMresourcename -Name 'MicrosoftMonitoringAgent' -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionType 'MicrosoftMonitoringAgent' -TypeHandlerVersion '1.0' -Location $location -SettingString "{'workspaceId':  '$workspaceId'}" -ProtectedSettingString "{'workspaceKey': '$workspaceKey'}"
 
 # For Linux VM uncomment the following line
-# Set-AzureRMVMExtension -ResourceGroupName $VMresourcegroup -VMName $VMresourcename -Name 'OmsAgentForLinux' -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionType 'OmsAgentForLinux' -TypeHandlerVersion '1.0' -Location $location -SettingString "{'workspaceId':  '$workspaceId'}" -ProtectedSettingString "{'workspaceKey': '$workspaceKey' }"
+# Set-AzureRmVMExtension -ResourceGroupName $VMresourcegroup -VMName $VMresourcename -Name 'OmsAgentForLinux' -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionType 'OmsAgentForLinux' -TypeHandlerVersion '1.0' -Location $location -SettingString "{'workspaceId':  '$workspaceId'}" -ProtectedSettingString "{'workspaceKey': '$workspaceKey'}"
 
 
 ```
@@ -122,7 +122,7 @@ By including the Log Analytics agent as part of your Resource Manager template, 
 
 For more information about Resource Manager templates, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
 
-Following is an example of a Resource Manager template that's used for deploying a virtual machine that's running Windows with the MMA extension installed. This is a typical virtual machine template, with the following additions:
+Following is an example of a Resource Manager template that's used for deploying a virtual machine that's running Windows with the Microsoft Monitoring Agent extension installed. This is a typical virtual machine template, with the following additions:
 
 + workspaceId and workspaceName parameters
 + Microsoft.EnterpriseCloud.Monitoring resource extension section
@@ -155,13 +155,13 @@ Following is an example of a Resource Manager template that's used for deploying
     "workspaceId": {
       "type": "string",
       "metadata": {
-        "description": "workspace id"
+        "description": "OMS workspace ID"
       }
     },
     "workspaceName": {
       "type": "string",
       "metadata": {
-         "description": "workspaceName"
+         "description": "OMD workspace name"
       }
     },
     "windowsOSVersion": {
@@ -188,7 +188,7 @@ Following is an example of a Resource Manager template that's used for deploying
     "addressPrefix": "10.0.0.0/16",
     "subnetName": "Subnet",
     "subnetPrefix": "10.0.0.0/24",
-    "storageAccountType": "Standard_GRS",
+    "storageAccountType": "Standard_LRS",
     "publicIPAddressName": "myPublicIP",
     "publicIPAddressType": "Dynamic",
     "vmStorageAccountContainerName": "vhds",
@@ -354,7 +354,7 @@ Following is an example of a Resource Manager template that's used for deploying
 }
 ```
 
-You can deploy a template by using the following PowerShell example:
+You can deploy a template by using the following PowerShell command:
 
 ```
 New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath
@@ -362,22 +362,22 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -Templa
 
 ## Troubleshooting Windows Virtual Machines
 
-If the *MMA* VM agent extension is not installing or reporting you can perform the following steps to troubleshoot the issue.
+If the *Microsoft Monitoring Agent* VM agent extension is not installing or reporting you can perform the following steps to troubleshoot the issue.
 
 1. Check if the Azure VM agent is installed and working correctly by using the steps in [KB 2965986](https://support.microsoft.com/kb/2965986#mt1).
   + You can also review the VM agent log in `C:\WindowsAzure\logs\WaAppAgent.log`
   + If the log does not exist the VM agent is not installed. 
     - [Install the Azure VM Agent on classic VMs](../virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md)
-2. Confirm the MMA extension heartbeat task is running using the following steps:
+2. Confirm the Microsoft Monitoring Agent extension heartbeat task is running using the following steps:
   + Login to the virtual machine
   + Open task scheduler and find the `update_azureoperationalinsight_agent_heartbeat` task
   + Confirm the task is enabled and is running every 1 minute
   + Check the heatbeat logfile in `C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\heartbeat.log`
-3. Review the MMA VM extension log files in `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`
+3. Review the Microsoft Monitoring Agent VM extension log files in `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`
 3. Ensure the virtual machine can run PowerShell scripts
 4. Ensure permissions on C:\Windows\temp haven’t been changed
-5. View the status of the MMA by typing the following in a powershell window with elevated permission on the virtual machine `  (New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`
-6. Review the MMA setup log files in `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`
+5. View the status of the Microsoft Monitoring Agent by typing the following in a PowerShell window with elevated permission on the virtual machine `  (New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`
+6. Review the Microsoft Monitoring Agent setup log files in `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`
 
 For more information refer to [troubleshooting Windows extensions](../virtual-machines/virtual-machines-windows-extensions-troubleshoot.md).
 

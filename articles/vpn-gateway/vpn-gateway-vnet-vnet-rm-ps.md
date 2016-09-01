@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/24/2016"
+   ms.date="08/31/2016"
    ms.author="cherylmc"/>
 
 # Configure a VNet-to-VNet connection for Resource Manager using PowerShell
@@ -37,6 +37,11 @@ This article walks you through the steps to create a connection between VNets in
 A VNet-to-VNet connection can be configured in both deployment models and by using several different tools. See the following table for more information. We update this table as new articles, new deployment models, and additional tools become available for this configuration. When an article is available, we link directly to it from the table.
 
 [AZURE.INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)] 
+
+
+#### VNet peering
+
+You may be able to use VNet peering to create your connection, as long as your virtual network configuration meets certain requirements. VNet peering does not use a virtual network gateway. [VNet peering](../virtual-network/virtual-network-peering-overview.md) is currently in Preview.
 
 
 ## About VNet-to-VNet connections
