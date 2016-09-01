@@ -154,21 +154,12 @@ Azure account.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/14-edit-parameters.png)
 
-14. Now, to test if you have the authorization token to access the Azure Active Directory Graph API, change 
-~\Controllers\HomeController.cs to use the following `Index()` action method:  
-	<pre class="prettyprint">
-	public ActionResult Index()
-	{
-		return <mark>Content(Request.Headers[&quot;X-MS-TOKEN-AAD-ACCESS-TOKEN&quot;]);</mark>
-	}
-	</pre>
+14. Now, to test if you have the authorization token to access the Azure Active Directory Graph API, just navigate to
+**https://&lt;*appname*>.azurewebsites.net/.auth/me** in your browser. If you configured everything correctly, you
+should see the `access_token` property in the JSON response.
 
-15. Publish your changes by right-clicking your project and clicking **Publish**. Click **Publish** again in the dialog.
-
-	![](./media/web-sites-dotnet-lob-application-azure-ad/15-publish-token-code.png)
-
-	If your app's home page now shows an access token, then your app can access the Azure Active Directory Graph API.
-	Feel free to undo the changes to ~\Controllers\HomeController.cs.
+	The `~/.auth/me` URL path is managed by App Service Authentication / Authorization to give you all the information
+	related to your authenticated session. For more information, 
 
 Next, you will do something useful with directory data.
 
@@ -209,37 +200,6 @@ point to **Add**, and select **New scaffolded item**).
 10.	Select the model that you created, then click **+** and then **Add** to add a data context, and then click **Add**.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/16-add-scaffolded-controller.png)
-
-9.	Open ~\Controllers\WorkItemsController.cs.
-
-13.	In the beginning of the `Create()` and `Edit(int? id)` methods, add following code to make some variables available to your JavaScript later. 
-`Ctrl`+`.` on each naming resolution error to fix it.
-
-		ViewData["token"] = Request.Headers["X-MS-TOKEN-AAD-ACCESS-TOKEN"];
-		ViewData["tenant"] =
-			ClaimsPrincipal.Current.Claims
-			.Where(c => c.Type == "http://schemas.microsoft.com/identity/claims/tenantid")
-			.Select(c => c.Value).SingleOrDefault();
-
-	> [AZURE.NOTE] You may have noticed the <code>[ValidateAntiForgeryToken]</code> decoration on some of the actions. Due to the 
-	behavior described by [Brock Allen](https://twitter.com/BrockLAllen) at 
-	[MVC 4, AntiForgeryToken and Claims](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/) your HTTP POST may fail 
-	anti-forgery token validation because:
-
-	> - Azure Active Directory does not send the http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, 
-	which is required by default by the anti-forgery token.
-	> - If Azure Active Directory is directory synced with AD FS, the AD FS trust by default does not send the 
-	http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider claim either, although you can manually 
-	configure AD FS to send this claim.
-
-	> You will take care of this issue in the next step.
-
-12.  In ~\Global.asax, add the following line of code in the `Application_Start()` method. `Ctrl`+`.` on each naming resolution error to fix it.
-
-		AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.NameIdentifier;
-	
-	`ClaimTypes.NameIdentifies` specifies the claim `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`, which Azure 
-	Active Directory does supply.  
 
 14.	In ~\Views\WorkItems\Create.cshtml (an automatically scaffolded item), find the `Html.BeginForm` helper method and make the following
 highlighted changes:  
@@ -311,8 +271,11 @@ highlighted changes:
 			var maxResultsPerPage = 14;
 			var input = document.getElementById(&quot;AssignedToName&quot;);
 
-			var token = &quot;@ViewData[&quot;token&quot;]&quot;;
-			var tenant = &quot;@ViewData[&quot;tenant&quot;]&quot;;
+			// Access token from request header, and tenantID from claims identity
+			var token = &quot;@Request.Headers[&quot;X-MS-TOKEN-AAD-ACCESS-TOKEN&quot;]&quot;;
+			var tenant =&quot;@(System.Security.Claims.ClaimsPrincipal.Current.Claims
+							.Where(c => c.Type == &quot;http://schemas.microsoft.com/identity/claims/tenantid&quot;)
+							.Select(c => c.Value).SingleOrDefault())&quot;;
 
 			var picker = new AadPicker(maxResultsPerPage, input, token, tenant);
 
@@ -326,8 +289,9 @@ highlighted changes:
 	}
 	</pre>
 	
-	Notice that `token` and `tenant` are used by the `AadPicker` object to make Azure Active Directory Graph API calls. You'll
-	add `AadPicker` later.
+	Notice that `token` and `tenant` are used by the `AadPicker` object to make Azure Active Directory Graph API calls. You
+	can just as well get them from the client side with `~/.auth/me` as shown previously, but that would be another server call. 
+	You'll add `AadPicker` later.
 
 15. Make the same changes with ~\Views\WorkItems\Edit.cshtml.
 
@@ -381,6 +345,25 @@ UI to your project. Right-click your project in and click **Manage NuGet Package
 
 	There are more performant ways to manage JavaScript and CSS files in your app. However, for simplicity you're just going to piggyback on the 
 	bundles that are loaded with every view.
+
+12. Finally, in ~\Global.asax, add the following line of code in the `Application_Start()` method. `Ctrl`+`.` on each naming resolution error to 
+fix it.
+
+		AntiForgeryConfig.UniqueClaimTypeIdentifier = ClaimTypes.NameIdentifier;
+	
+	> [AZURE.NOTE] You need this line of code because the default MVC template uses <code>[ValidateAntiForgeryToken]</code> decoration 
+	on some of the actions. Due to the behavior described by [Brock Allen](https://twitter.com/BrockLAllen) at 
+	[MVC 4, AntiForgeryToken and Claims](http://brockallen.com/2012/07/08/mvc-4-antiforgerytoken-and-claims/) your HTTP POST may fail 
+	anti-forgery token validation because:
+
+	> - Azure Active Directory does not send the http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider, 
+	which is required by default by the anti-forgery token.
+	> - If Azure Active Directory is directory synced with AD FS, the AD FS trust by default does not send the 
+	http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider claim either, although you can manually 
+	configure AD FS to send this claim.
+
+	> `ClaimTypes.NameIdentifies` specifies the claim `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`, which Azure 
+	Active Directory does supply.  
 
 20. Now, publish your changes. Right-click your project and click **Publish**.
 
