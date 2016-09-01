@@ -153,6 +153,6 @@ An external user is someone who is not a member of your organization's Azure Act
 1. Select **OK** to close the **Add access** blade.
 
 1. When you return to the **Users** blade, the user has been added.  
- 
+  
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
