@@ -23,6 +23,9 @@
 - [.NET]( media-services-dotnet-live-encode-with-onpremises-encoders.md)
 - [REST]( https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
+This tutorial walks you through the steps of using the Azure Media Services .NET SDK to create a **Channel** that is configured for a pass-through delivery. 
+
+
 ##Prerequisites
 
 The following are required to complete the tutorial:
