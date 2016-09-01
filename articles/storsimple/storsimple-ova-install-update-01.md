@@ -43,9 +43,7 @@ Perform the following steps to download the software update from the Microsoft U
 1. Start Internet Explorer and navigate to [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
 
 2. If this is your first time using the Microsoft Update Catalog on this computer, click **Install** when prompted to install the Microsoft Update Catalog add-on.
-   
-	![Install catalog](./media/storsimple-ova-install-update-01/install-catalog.png)
-
+  
 3. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix you want to download. Enter **3182061** for Update 0.3, and then click **Search**.
 
     The hotfix listing appears, for example, **StorSimple Virtual Array Update 0.3**.
@@ -125,7 +123,7 @@ If running Update 0.2, we recommend that you install updates through the Azure c
 
 After the installation is complete (as indicated by job status at 100 %), go to **Devices > Maintenance > Software Updates**. The displayed software version should be 10.0.10287.0.
 
-![update device](./media/storsimple-ova-install-update-01/aupdate12m.png)
+![update device](./media/storsimple-ova-install-update-01/azupdate12m.png)
 
 ## Next steps
 
