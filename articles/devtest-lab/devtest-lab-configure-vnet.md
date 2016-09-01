@@ -18,11 +18,9 @@
 
 # Configure a virtual network in Azure DevTest Labs
 
-As explained in the article, [Add a VM with artifacts to a lab](devtest-lab-add-vm-with-artifacts.md), when you create a VM in a lab, 
-you can specify a configured virtual network (and subnet) for that VM. One scenario for doing this is if you want to be able to access your corpnet resources 
-from your VMs using the virtual network that has been set up with ExpressRoute or site-to-site VPN. The following sections 
-illustrate how to add your existing virtual network into the lab's Virtual Network settings so that it will be available 
-to choose when creating your VMs.
+As explained in the article, [Add a VM with artifacts to a lab](devtest-lab-add-vm-with-artifacts.md), when you create a VM in a lab, you can specify a configured virtual network. 
+One scenario for doing this is if you need to access your corpnet resources from your VMs using the virtual network that was configured with ExpressRoute or site-to-site VPN. 
+The following sections illustrate how to add your existing virtual network into a lab's Virtual Network settings so that it is available to choose when creating VMs.
 
 ## Configure a virtual network for a lab using the Azure portal
 The following steps walk you through adding an existing virtual network (and subnet) to a lab so that it can be used when creating a VM in the same lab. 
@@ -69,11 +67,11 @@ enabled.
 
 1. Select **Save**.
 
-1. Now that the virtual network is configured, it can be selected when creating a new VM. 
-This is explained in the article, [Add a VM with artifacts to a lab](devtest-lab-add-vm-with-artifacts.md). 
+1. Now that the virtual network is configured, it can be selected when creating a VM. 
+To see how to create a VM and specify a virtual network, refer to the article, [Add a VM with artifacts to a lab](devtest-lab-add-vm-with-artifacts.md). 
 
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## Next steps
 
-Once you have added the desired virtual network(s) to your lab, the next step is to [add a VM to your lab](devtest-lab-add-vm-with-artifacts.md).
+Once you have added the desired virtual network to your lab, the next step is to [add a VM to your lab](devtest-lab-add-vm-with-artifacts.md).
