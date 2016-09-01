@@ -12,18 +12,16 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
 	ms.topic="article"
-    ms.date="08/31/2016"
+    ms.date="09/01/2016"
     ms.author="andkjell"/>
 
 # Azure AD Connect sync: Understanding the default configuration
-This article explains the out-of-box configuration rules. It documents the rules and how these impact the configuration. It also walk you through the default configuration of Azure AD Connect sync. The goal is that the reader understands how the configuration model, named declarative provisioning, is working in a real-world example. This article assumes that you have already installed and configure Azure AD Connect sync using the installation wizard.
+This article explains the out-of-box configuration rules. It documents the rules and how these rules impact the configuration. It also walks you through the default configuration of Azure AD Connect sync. The goal is that the reader understands how the configuration model, named declarative provisioning, is working in a real-world example. This article assumes that you have already installed and configure Azure AD Connect sync using the installation wizard.
 
 To understand the details of the configuration model, read [Understanding Declarative Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 
 ## Out-of-box rules from on-premises to Azure AD
 The following expressions can be found in the out-of-box configuration.
-
-Rules are expressed both as rules which must be satisfied and as object which should be filtered (if rule is satisfied, do **not** synchronize).
 
 ### User out-of-box rules
 These rules also apply to the iNetOrgPerson object type.
@@ -37,14 +35,14 @@ A user object must satisfy the following to be synchronized:
 The following user objects are **not** synchronized to Azure AD:
 
 - `IsPresent([isCriticalSystemObject])`. Ensure many out-of-box objects in Active Directory, such as the built-in administrator account, are not synchronized.
-- `IsPresent([sAMAccountName]) = False`. Ensure user objects with no sAMAccountName attribute are not synchronized. This would only practically happen in a domain upgraded from NT4.
+- `IsPresent([sAMAccountName]) = False`. Ensure user objects with no sAMAccountName attribute are not synchronized. This case would only practically happen in a domain upgraded from NT4.
 - `Left([sAMAccountName], 4) = "AAD_"`, `Left([sAMAccountName], 5) = "MSOL_"`. Do not synchronize the service account used by Azure AD Connect sync and its earlier versions.
-- Do not synchronize Exchange accounts which would not work in Exchange Online.
+- Do not synchronize Exchange accounts that would not work in Exchange Online.
     - `[sAMAccountName] = "SUPPORT_388945a0"`
     - `Left([mailNickname], 14) = "SystemMailbox{"`
     - `(Left([mailNickname], 4) = "CAS_" && (InStr([mailNickname], "}") > 0))`
     - `(Left([sAMAccountName], 4) = "CAS_" && (InStr([sAMAccountName], "}")> 0))`
-- Do not synchronize objects which would not work in Exchange Online.
+- Do not synchronize objects that would not work in Exchange Online.
 `CBool(IIF(IsPresent([msExchRecipientTypeDetails]),BitAnd([msExchRecipientTypeDetails],&H21C07000) > 0,NULL))`  
 This bitmask (&H21C07000) would filter out the following objects:
     - Mail-enabled Public Folder
@@ -65,14 +63,14 @@ The following attribute rules apply:
     2. Attributes that can be found in an Exchange GAL (Global Address List) are contributed from the forest with an Exchange Mailbox.
     3. If no mailbox can be found, then these attributes can come from any forest.
     4. Exchange related attributes (technical attributes not visible in the GAL) are contributed from the forest where `mailNickname ISNOTNULL`.
-    5. If there are multiple forests which would satisfy one of these rules, then the creation order (date/time) of the Connectors (forests) is used to determine which forest contributes the attributes.
+    5. If there are multiple forests that would satisfy one of these rules, then the creation order (date/time) of the Connectors (forests) is used to determine which forest contributes the attributes.
 
 ### Contact out-of-box rules
 A contact object must satisfy the following to be synchronized:
 
 - The contact must be mail-enabled. It is verified with the following rules:
     - `IsPresent([proxyAddresses]) = True)`. The proxyAddresses attribute must be populated.
-    - A primary email address can be found in either the proxyAddresses attribute or the mail attribute. The presence of an @ is used to verify that the content is an email address. One of these two must be evaluated to True.
+    - A primary email address can be found in either the proxyAddresses attribute or the mail attribute. The presence of an @ is used to verify that the content is an email address. One of these two rules must be evaluated to True.
         - `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`. Is there an entry with "SMTP:" and if there is, can an @ be found in the string?
         - `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`. Is the mail attribute populated and if it is, can an @ be found in the string?
 
@@ -80,7 +78,7 @@ The following contact objects are **not** synchronized to Azure AD:
 
 - `IsPresent([isCriticalSystemObject])`. Ensure no contact objects marked as critical are synchronized. Shouldn't be any with a default configuration.
 - `((InStr([displayName], "(MSOL)") > 0) && (CBool([msExchHideFromAddressLists])))`.
-- `(Left([mailNickname], 4) = "CAS_" && (InStr([mailNickname], "}") > 0))`. These wouldn't work in Exchange Online.
+- `(Left([mailNickname], 4) = "CAS_" && (InStr([mailNickname], "}") > 0))`. These objects wouldn't work in Exchange Online.
 - `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Do not synchronize any replication victim objects.
 
 ### Group out-of-box rules
@@ -90,7 +88,7 @@ A group object must satisfy the following to be synchronized:
     - If it has more members before synchronization starts the first time, the group is not synchronized.
     - If the number of members grow from when it was initially created, then when it reaches 50,000 members it stops synchronizing until the membership count is lower than 50,000 again.
     - Note: The 50,000 membership count is also enforced by Azure AD. You are not able to synchronize groups with more members even if you modify or remove this rule.
-- If the group is a **Distribution Group** then it must also be mail enabled. See [Contact out-of-box rules](#contact-out-of-box-rules) for this rule is enforced.
+- If the group is a **Distribution Group**, then it must also be mail enabled. See [Contact out-of-box rules](#contact-out-of-box-rules) for this rule is enforced.
 
 The following group objects are **not** synchronized to Azure AD:
 
@@ -108,11 +106,11 @@ A computer object must satisfy the following to be synchronized:
 - `userCertificate ISNOTNULL`. Only Windows 10 computers populate this attribute. All computer objects with a value in this attribute are synchronized.
 
 ## Understanding the out-of-box rules scenario
-In this example we are using a deployment with one account forest (A), one resource forest (R), and one Azure AD directory.
+In this example, we are using a deployment with one account forest (A), one resource forest (R), and one Azure AD directory.
 
-![scenario](./media/active-directory-aadconnectsync-understanding-default-configuration/scenario.png)
+![Picture with scenario description](./media/active-directory-aadconnectsync-understanding-default-configuration/scenario.png)
 
-In this configuration it is assumed there is an enabled account in the account forest and a disabled account in the resource forest with a linked mailbox.
+In this configuration, it is assumed there is an enabled account in the account forest and a disabled account in the resource forest with a linked mailbox.
 
 Our goal with the default configuration is:
 
@@ -123,7 +121,7 @@ Our goal with the default configuration is:
 ### Synchronization Rule Editor
 The configuration can be viewed and changed with the tool Synchronization Rules Editor (SRE) and a shortcut to it can be found in the start menu.
 
-![Synchronization Rules Editor](./media/active-directory-aadconnectsync-understanding-default-configuration/sre.png)
+![Synchronization Rules Editor icon](./media/active-directory-aadconnectsync-understanding-default-configuration/sre.png)
 
 The SRE is a resource kit tool and it is installed with Azure AD Connect sync. To be able to start it, you must be a member of the ADSyncAdmins group. When it starts, you see something like this:
 
@@ -132,44 +130,44 @@ The SRE is a resource kit tool and it is installed with Azure AD Connect sync. T
 In this pane, you see all Synchronization Rules created for your configuration. Each line in the table is one Synchronization Rule. To the left under Rule Types, the two different types are listed: Inbound and Outbound. Inbound and Outbound is from the view of the metaverse. You are mainly going to focus on the inbound rules in this overview. The actual list of Synchronization Rules depends on the detected schema in AD. In the picture above, the account forest (fabrikamonline.com) does not have any services, such as Exchange and Lync, and no Synchronization Rules have been created for these services. However, in the resource forest (res.fabrikamonline.com) you find Synchronization Rules for these services. The content of the rules is different depending on the version detected. For example, in a deployment with Exchange 2013 there are more attribute flows configured than in Exchange 2010/2007.
 
 ### Synchronization Rule
-A Synchronization Rule is a configuration object with a set of attributes flowing when a condition is satisfied. It is also used to describe how an object in a connector space is related to an object in the metaverse, known as **join** or **match**. The Synchronization Rules have a precedence value indicating how they relate to each other. A Synchronization Rule with a lower numeric value has a higher precedence and in case of an attribute flow conflict, higher precedence  wins the conflict resolution.
+A Synchronization Rule is a configuration object with a set of attributes flowing when a condition is satisfied. It is also used to describe how an object in a connector space is related to an object in the metaverse, known as **join** or **match**. The Synchronization Rules have a precedence value indicating how they relate to each other. A Synchronization Rule with a lower numeric value has a higher precedence and in an attribute flow conflict, higher precedence wins the conflict resolution.
 
 As an example, look at the Synchronization Rule **In from AD – User AccountEnabled**. Mark this line in the SRE and select **Edit**.
 
-Since this is an out-of-box rule, you receive a warning when you open the rule. You should not make any [changes to out-of-box rules](active-directory-aadconnectsync-best-practices-changing-default-configuration.md), so you are asked what your intentions are. In this case you only want to view the rule. Select **No**.
+Since this rule is an out-of-box rule, you receive a warning when you open the rule. You should not make any [changes to out-of-box rules](active-directory-aadconnectsync-best-practices-changing-default-configuration.md), so you are asked what your intentions are. In this casem you only want to view the rule. Select **No**.
 
-![Synchronization Rules Inbound](./media/active-directory-aadconnectsync-understanding-default-configuration/warningeditrule.png)
+![Synchronization Rules warning](./media/active-directory-aadconnectsync-understanding-default-configuration/warningeditrule.png)
 
 A Synchronization Rule has four configuration sections: Description, Scoping filter, Join rules, and Transformations.
 
 #### Description
 The first section provides basic information such as a name and description.
 
-![Edit inbound synchronization rule ](./media/active-directory-aadconnectsync-understanding-default-configuration/syncruledescription.png)
+![Description tab in Sync rule editor ](./media/active-directory-aadconnectsync-understanding-default-configuration/syncruledescription.png)
 
-You also find information about which connected system this rule is related to, which object type in the connected system it applies to, and the metaverse object type. The metaverse object type is always person regardless if the source object type is a user, iNetOrgPerson, or contact. The metaverse object type should never change so it is created as a generic type. The Link Type can be set to Join, StickyJoin, or Provision. This setting works together with the Join Rules section and is covered later.
+You also find information about which connected system this rule is related to, which object type in the connected system it applies to, and the metaverse object type. The metaverse object type is always person regardless when the source object type is a user, iNetOrgPerson, or contact. The metaverse object type should never change so it is created as a generic type. The Link Type can be set to Join, StickyJoin, or Provision. This setting works together with the Join Rules section and is covered later.
 
 You can also see that this sync rule is used for password sync. If a user is in scope for this sync rule, the password is synchronized from on-premises to cloud (assuming you have enabled the password sync feature).
 
 #### Scoping filter
 The Scoping Filter section is used to configure when a Synchronization Rule should apply. Since the name of the Synchronization Rule you are looking at indicates it should only be applied for enabled users, the scope is configured so the AD attribute **userAccountControl** must not have the bit 2 set. When the sync engine finds a user in AD, it applies this sync rule when **userAccountControl** is set to the decimal value 512 (enabled normal user). It does not apply the rule when the user has **userAccountControl** set to 514 (disabled normal user).
 
-![Edit inbound synchronization rule ](./media/active-directory-aadconnectsync-understanding-default-configuration/syncrulescopingfilter.png)
+![Scoping tab in Sync rule editor ](./media/active-directory-aadconnectsync-understanding-default-configuration/syncrulescopingfilter.png)
 
-The scoping filter has Groups and Clauses that can be nested. All clauses inside a group must be satisfied for a Synchronization Rule to apply. When multiple groups are defined, then at least one group must be satisfied for the rule to apply. That is, a logical OR is evaluated between groups and a logical AND is evaluated inside a group. An example of this can be found in the outbound Synchronization Rule **Out to AAD – Group Join**, shown below. There are several synchronization filter groups, for example one for security groups (`securityEnabled EQUAL True`) and one for distribution groups (`securityEnabled EQUAL False`).
+The scoping filter has Groups and Clauses that can be nested. All clauses inside a group must be satisfied for a Synchronization Rule to apply. When multiple groups are defined, then at least one group must be satisfied for the rule to apply. That is, a logical OR is evaluated between groups and a logical AND is evaluated inside a group. An example of this configuration can be found in the outbound Synchronization Rule **Out to AAD – Group Join**. There are several synchronization filter groups, for example one for security groups (`securityEnabled EQUAL True`) and one for distribution groups (`securityEnabled EQUAL False`).
 
-![Edit outbound synchronization rule ](./media/active-directory-aadconnectsync-understanding-default-configuration/syncrulescopingfilterout.png)
+![Scoping tab in Sync rule editor ](./media/active-directory-aadconnectsync-understanding-default-configuration/syncrulescopingfilterout.png)
 
-This rule is used to define which Groups should be provisioned to Azure AD. Distribution Groups must be mail enabled to be synchronized with Azure AD, but for security groups this is not required.
+This rule is used to define which Groups should be provisioned to Azure AD. Distribution Groups must be mail enabled to be synchronized with Azure AD, but for security groups an email is not required.
 
 #### Join rules
 The third section is used to configure how objects in the connector space relate to objects in the metaverse. The rule you have looked at earlier does not have any configuration for Join Rules, so instead you are going to look at **In from AD – User Join**.
 
-![Edit inbound synchronization rule ](./media/active-directory-aadconnectsync-understanding-default-configuration/syncrulejoinrules.png)
+![Join rules tab in Sync rule editor ](./media/active-directory-aadconnectsync-understanding-default-configuration/syncrulejoinrules.png)
 
-The content of the join rule depends on the matching option selected in the installation wizard. For an inbound rule, the evaluation starts with an object in the source connector space and each group in the join rules is evaluated in sequence. If a source object is evaluated to match exactly one object in the metaverse using one of the join rules, the objects are joined together. If all rules have been evaluated and there is no match, then the Link Type on the description page is used. If this configuration is set to **Provision**, then a new object is created in the target, the metaverse. To provision a new object to the metaverse is also known as to **project** an object to the metaverse.
+The content of the join rule depends on the matching option selected in the installation wizard. For an inbound rule, the evaluation starts with an object in the source connector space and each group in the join rules is evaluated in sequence. If a source object is evaluated to match exactly one object in the metaverse using one of the join rules, the objects are joined. If all rules have been evaluated and there is no match, then the Link Type on the description page is used. If this configuration is set to **Provision**, then a new object is created in the target, the metaverse. To provision a new object to the metaverse is also known as to **project** an object to the metaverse.
 
-The join rules are only evaluated once. When a connector space object and a metaverse object are joined together, they remain joined as long as the scope of the Synchronization Rule is still satisfied.
+The join rules are only evaluated once. When a connector space object and a metaverse object are joined, they remain joined as long as the scope of the Synchronization Rule is still satisfied.
 
 When evaluating Synchronization Rules, only one Synchronization Rule with join rules defined must be in scope. If multiple Synchronization Rules with join rules are found for one object, an error is thrown. For this reason, the best practice is to have only one Synchronization Rule with join defined when multiple Synchronization Rules are in scope for an object. In the out-of-box configuration for Azure AD Connect sync, these rules can be found by looking at the name and find those with the word **Join** at the end of the name. A Synchronization Rule without any join rules defined applies the attribute flows when another Synchronization Rule joined the objects together or provisioned a new object in the target.
 
@@ -178,14 +176,14 @@ If you look at the picture above, you can see that the rule is trying to join **
 #### Transformations
 The transformation section defines all attribute flows that apply to the target object when the objects are joined and the scope filter is satisfied. Going back to the **In from AD – User AccountEnabled** Synchronization Rule, you find the following transformations:
 
-![Edit inbound synchronization rule ](./media/active-directory-aadconnectsync-understanding-default-configuration/syncruletransformations.png)
+![Transformations tab in Sync rule editor ](./media/active-directory-aadconnectsync-understanding-default-configuration/syncruletransformations.png)
 
-To put this in context, in an Account-Resource forest deployment, it is expected to find an enabled account in the account forest and a disabled account in the resource forest with Exchange and Lync settings. The Synchronization Rule you are looking at contains the attributes required for sign-in and these should flow from the forest where there is an enabled account. All these attribute flows are put together in one Synchronization Rule.
+To put this configuration in context, in an Account-Resource forest deployment, it is expected to find an enabled account in the account forest and a disabled account in the resource forest with Exchange and Lync settings. The Synchronization Rule you are looking at contains the attributes required for sign-in and these attributes should flow from the forest where there is an enabled account. All these attribute flows are put together in one Synchronization Rule.
 
 A transformation can have different types: Constant, Direct, and Expression.
 
-- A constant flow always flow a hardcoded value. In the case above, it always sets the value **True** in the metaverse attribute named **accountEnabled**.
-- A direct flow flows the value of the attribute in the source to the target attribute as-is.
+- A constant flow always flows a hardcoded value. In the case above, it always sets the value **True** in the metaverse attribute named **accountEnabled**.
+- A direct flow always flows the value of the attribute in the source to the target attribute as-is.
 - The third flow type is Expression and it allows for more advanced configurations.
 
 The expression language is VBA (Visual Basic for Applications), so people with experience of Microsoft Office or VBScript will recognize the format. Attributes are enclosed in square brackets, [attributeName]. Attribute names and function names are case-sensitive, but the Synchronization Rules Editor evaluates the expressions and provide a warning if the expression is not valid. All expressions are expressed on a single line with nested functions. To show the power of the configuration language, here is the flow for pwdLastSet, but with additional comments inserted:
