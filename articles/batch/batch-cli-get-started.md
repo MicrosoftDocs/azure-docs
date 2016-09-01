@@ -44,11 +44,11 @@ When in doubt, use the `-h` command line option to get help on any Azure CLI com
 
 ## Create a Batch account
 
-* Usage:
+Usage:
 
-  `azure batch account create [options] <name>`
+    azure batch account create [options] <name>
 
-* Example:
+Example:
 
 	azure batch account create --location "West US"  --resource-group "resgroup001" "batchaccount001"
 
@@ -74,11 +74,11 @@ Then use the **Url** value for the `--autostorage-account-id` option. The Url va
 
 ## Delete a Batch account
 
-* Usage:
+Usage:
 
     azure batch account delete [options] <name>
 
-* Example:
+Example:
 
 	azure batch account delete --resource-group "resgroup001" "batchaccount001"
 
@@ -88,11 +88,11 @@ Deletes the specified Batch account. When prompted, confirm you want to remove t
 
 ### List access keys
 
-* Usage:
+Usage:
 
   azure batch account keys list [options] <name>
 
-* Example:
+Example:
 
 	azure batch account keys list --resource-group "resgroup001" "batchaccount001"
 
@@ -100,11 +100,11 @@ Lists the account keys for the given Batch account.
 
 ### Generate a new access key
 
-* Usage:
+Usage:
 
   `azure batch account keys renew [options] --<primary|secondary> <name>`
 
-* Example:
+Example:
 
 	azure batch account keys renew --resource-group "resgroup001" --primary "batchaccount001"
 
@@ -132,67 +132,52 @@ To find the JSON required to create a resource, refer to the [Batch REST API ref
 
 ## Create a pool
 
-* Usage:
+Usage:
 
     batch pool create [options] [json-file]
 
-* Examples:
-
-  * Cloud Services Configuration (PaaS, Windows only)
-
-	azure batch pool create --id "pool1" --target-dedicated 1 --vm-size "small" --os-family "4"
-
-  * Virtual Machine Configuration (IaaS, Linux and Windows)
+Example (Virtual Machine Configuration):
 
     azure batch pool create --id "pool2" --target-dedicated 1 --vm-size "STANDARD_A1" --image-publisher "Canonical" --image-offer "UbuntuServer" --image-sku "14.04.2-LTS" --node-agent-id "batch.node.ubuntu 14.04"
 
-Creates a pool of compute nodes in the Batch service. As mentioned in the [Batch feature overview](batch-api-basics.md#pool), you have two options when you select an operating system for the nodes in your pool: **Virtual Machine Configuration** and **Cloud Services Configuration**. The `--os-family` and `--image-*` options are mutually exclusive. If you specify an OS family, you create a Cloud Services Configuration pool, and the `--image-*` options are valid only for Virtual Machine Configuration pools. You cannot specify both `--os-family` and `--image-*` options.
+Example (Cloud Services Configuration):
 
-You can also specify pool [application packages](batch-application-packages.md) and the command line for a [start task](batch-api-basics.md#start-task).
+	azure batch pool create --id "pool1" --target-dedicated 1 --vm-size "small" --os-family "4"
+
+Creates a pool of compute nodes in the Batch service.
+
+As mentioned in the [Batch feature overview](batch-api-basics.md#pool), you have two options when you select an operating system for the nodes in your pool: **Virtual Machine Configuration** and **Cloud Services Configuration**. Use the `--image-*` options to create Virtual Machine Configuration pools, and `--os-family` to create Cloud Services Configuration pools. You cannot specify both `--os-family` and `--image-*` options.
+
+You can specify pool [application packages](batch-application-packages.md) and the command line for a [start task](batch-api-basics.md#start-task). To specify resource files for the start task, however, you must instead use a [JSON file](#json-files).
+
+## Create a job
+
+Usage:
+
+    azure batch job create [options] [json-file]
+
+Example:
+
+    azure batch job create --id "job001" --pool-id "pool01"
+
+Adds a job to the Batch account and specifies the pool on which its tasks will execute.
 
 ## List pools, jobs, tasks, and other Batch resources
 
-Each Batch resource type supports the `list` command which displays query for entities created under a Batch account.
+Each Batch resource type supports the `list` command which, as the name implies, queries your Batch account and lists resources of that type. For example, you can list the pools in your account and the tasks in a job:
 
-### Query for data
+    azure batch pool list
+    azure batch task list --job-id "job001"
 
-As an example, use **Get-AzureBatchPools** to find your pools. By default this queries for all pools under your account, assuming you already stored the BatchAccountContext object in *$context*:
+### Listing efficiently
 
-`Get-AzureBatchPool -BatchContext $context`
+For faster querying, you can specify an ODATA clause to filter (or limit) the amount of data returned from the Batch service. Because all filtering occurs server-side, only the data you are interested in crosses the wire. Use ODATA clauses to save bandwidth and time when you pervorm list operations.
 
-### Use an OData filter
+For example, you can list all pools with ids starting with "renderTask":
 
-You can supply an OData filter using the **Filter** parameter to find only the objects you're interested in. For example, you can find all pools with ids starting with "myPool":
+    azure batch task list --job-id "job001" --filter-clause "startswith(id, 'renderTask')"
 
-```
-$filter = "startswith(id,'myPool')"
-
-Get-AzureBatchPool -Filter $filter -BatchContext $context
-```
-
-This method is not as flexible as using “Where-Object” in a local pipeline. However, the query gets sent to the Batch service directly so that all filtering happens on the server side, saving Internet bandwidth.
-
-### Use the Id parameter
-
-An alternative to an OData filter is to use the **Id** parameter. To query for a specific pool with id "myPool":
-
-`Get-AzureBatchPool -Id "myPool" -BatchContext $context`
-
-The **Id** parameter supports only full-id search, not wildcards or OData-style filters.
-
-### Use the MaxCount parameter
-
-By default, each cmdlet returns a maximum of 1000 objects. If you reach this limit, either refine your filter to bring back fewer objects, or explicitly set a maximum using the **MaxCount** parameter. For example:
-
-`Get-AzureBatchTask -MaxCount 2500 -BatchContext $context`
-
-To remove the upper bound, set **MaxCount** to 0 or less.
-
-### Use the pipeline
-
-Batch cmdlets can leverage the PowerShell pipeline to send data between cmdlets. This has the same effect as specifying a parameter but makes listing multiple entities easier. For example, the following finds all tasks under your account:
-
-`Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $context`
+All filtering happens on the server side, saving Internet bandwidth.
 
 ## Next steps
 * For detailed cmdlet syntax and examples, see [Azure Batch cmdlet reference](https://msdn.microsoft.com/library/azure/mt125957.aspx).
