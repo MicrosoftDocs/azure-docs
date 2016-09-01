@@ -150,7 +150,6 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 
 Now that you've created and deployed resources using Azure Resource Manager, learn how to manage these resources by viewing these articles:
 
-- [Manage Azure Service Bus using Azure Automation](service-bus-automation-manage.md)
 - [Manage Event Hubs with PowerShell](service-bus-powershell-how-to-provision.md)
 - [Manage Event Hubs resources with the Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
 
