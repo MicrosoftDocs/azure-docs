@@ -40,18 +40,15 @@ The following links provide general Information about how to deploy a new web se
 
 ### With web services resource provider APIs (Azure Resource Manager APIs)
 
-The Azure Machine Learning resource provider for web services enables deployment and management of web services by using REST API calls. See the following article for additional details.
-
-* [Machine Learning Web service (REST)](https://msdn.microsoft.com/library/azure/mt767538.aspx) reference on MSDN
-
+The Azure Machine Learning resource provider for web services enables deployment and management of web services by using REST API calls. For additional details, see the [Machine Learning Web service (REST)](https://msdn.microsoft.com/library/azure/mt767538.aspx) reference on MSDN.
 
 ### With PowerShell cmdlets
 
 Azure Machine Learning resource provider for web services enables deployment and management of web services by using PowerShell cmdlets.
 
-To use the cmdlets, you must first sign in to your Azure account from within the PowerShell environment using the [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet. If you are unfamiliar with how to call PowerShell commands that are based on Resource Manager, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md#login-to-your-azure-account).
+To use the cmdlets, you must first sign in to your Azure account from within the PowerShell environment by using the [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet. If you are unfamiliar with how to call PowerShell commands that are based on Resource Manager, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md#login-to-your-azure-account).
 
-To export your predictive experiment, use this [sample code](https://github.com/ritwik20/AzureML-WebServices). After you create the exe from the code, you can type:
+To export your predictive experiment, use [this sample code](https://github.com/ritwik20/AzureML-WebServices). After you create the .exe file from the code, you can type:
 
 	C:\<folder>\GetWSD <experiment-url> <workspace-auth-token>
 
@@ -76,7 +73,7 @@ Here's an example:
         "id": "subscriptions/YouSubscriptionID/resourceGroups/YourResourceGroupID/Microsoft.MachineLearning/commitmentPlans/YourPlanName"
     }
 
-See the following articles and sample code for additional details.
+See the following articles and sample code for additional details:
 
 * [Azure Machine Learning cmdlets]( https://msdn.microsoft.com/library/azure/mt767952.aspx) reference on MSDN
 * Sample [walkthrough](https://github.com/raymondlaghaeian/azureml-webservices-arm-powershell/blob/master/sample-commands.txt) on GitHub
@@ -88,19 +85,18 @@ See the following articles and sample code for additional details.
 You can test your web service from the Azure Machine Learning Web Services portal. This includes testing the Request-Response service (RRS) and Batch Execution service (BES) interfaces.
 
 * [Deploy a new web service](machine-learning-webservice-deploy-a-web-service.md)
-* [Deploy an Azure Machine Learning Web Service](machine-learning-publish-a-machine-learning-web-service.md)
-* [Walkthrough Step 5: Deploy the Azure Machine Learning Web Service](machine-learning-walkthrough-5-publish-web-service.md)
+* [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md)
+* [Walkthrough Step 5: Deploy the Azure Machine Learning web service](machine-learning-walkthrough-5-publish-web-service.md)
 
 ### From Excel
 
 You can download an Excel template that consumes the web service:
 
-* [Consuming an Azure Machine Learning Web Service from Excel](machine-learning-consuming-from-excel.md)
-* [Excel Add-in for Azure Machine Learning Web Services](machine-learning-excel-add-in-for-web-services.md)
+* [Consuming an Azure Machine Learning web service from Excel](machine-learning-consuming-from-excel.md)
+* [Excel add-in for Azure Machine Learning Web Services](machine-learning-excel-add-in-for-web-services.md)
 
 
 ### From a REST-based client
 
-Azure Machine Learning Web Services are RESTful APIs. You can consume these APIs from various platforms, such as .NET, Python, R, Java, etc. The **Consume** page for your web service on the [Microsoft Azure Machine Learning Web Services portal](https://services.azureml.net) has sample code that can help you get started. For more information, see the following article:
+Azure Machine Learning Web Services are RESTful APIs. You can consume these APIs from various platforms, such as .NET, Python, R, Java, etc. The **Consume** page for your web service on the [Microsoft Azure Machine Learning Web Services portal](https://services.azureml.net) has sample code that can help you get started. For more information, see [How to consume an Azure Machine Learning Web service that has been deployed from a Machine Learning experiment](machine-learning-consume-web-services.md).
 
-* [How to consume an Azure Machine Learning Web service that has been deployed from a Machine Learning experiment](machine-learning-consume-web-services.md)
