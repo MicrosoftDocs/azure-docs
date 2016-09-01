@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/26/2016"
+	ms.date="08/31/2016"
 	ms.author="andkjell"/>
 
 
@@ -153,10 +153,10 @@ At Fabrikam, we have realized that some of the attributes we synchronize to the 
 
 ## Next steps
 
-Learn more about [Declarative Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md) and the options available in the sync rules.
+- Read more about the configuration model in [Understanding Declarative Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
+- Read more about the expression language in [Understanding Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
 
-Learn more about [Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) used for the attribute flows.
+**Overview topics**
 
-Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
-
-Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+- [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
+- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)

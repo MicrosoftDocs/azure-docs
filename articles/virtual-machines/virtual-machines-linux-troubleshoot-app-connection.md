@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="08/31/2016"
 	ms.author="iainfou"/>
 
 # Troubleshoot: cannot start, access or connect to an application running on an Azure virtual machine

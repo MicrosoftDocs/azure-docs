@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Manage DevTest Labs formulas to create VMs | Microsoft Azure"
-	description="Learn how to create, update, and remove DevTest Labs formulas, and use them to create new VMs."
+	pageTitle="Manage formulas in Azure DevTest Labs to create VMs | Microsoft Azure"
+	description="Learn how to create, update, and remove Azure DevTest Labs formulas, and use them to create new VMs."
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,56 +13,48 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2016"
+	ms.date="08/30/2016"
 	ms.author="tarcher"/>
 
 # Manage DevTest Labs formulas to create VMs
 
-## Overview
-
-Formulas - like [custom images](./devtest-lab-create-template.md) and [Marketplace images](./devtest-lab-configure-marketplace-images.md) -
-provide a mechanism for fast VM provisioning. A formula in DevTest Labs is a list of default property values used to create a lab VM. When creating a VM
-from a formula, the default values can be used as-is, or modified. 
+A formula in Azure DevTest Labs is a list of default property values used to create a virtual machine (VM). When creating a VM from a formula, the default values can be used as-is, or modified. Like [custom images](./devtest-lab-create-template.md) and [Marketplace images](./devtest-lab-configure-marketplace-images.md), formulas provide a mechanism for fast VM provisioning.  
 
 In this article, you'll learn how to perform the following tasks:
 
-- [Create a new formula](#create-a-new-formula)
-- [Use a formula to create a new VM](#use-a-formula-to-create-a-new-vm)
+- [Create a formula](#create-a-formula)
+- [Use a formula to provision a VM](#use-a-formula-to-provision-a-vm)
 - [Modify a formula](#modify-a-formula)
 - [Delete a formula](#delete-a-formula)
 
-> [AZURE.NOTE] Formulas are similar to [custom images](./devtest-lab-create-template.md) in that 
-each allows you to create a base image from a VHD that is used to provision a VM. To help decide which is right
-for your particular environment, refer to the article,
-[Comparing custom images and formulas in DevTest Labs](./devtest-lab-comparing-vm-base-image-types.md).
+> [AZURE.NOTE] Formulas - like [custom images](./devtest-lab-create-template.md) - enable you to create a base image from a VHD file. The base image can then be used to provision a new VM. To help decide which is right
+for your particular environment, refer to the article, [Comparing custom images and formulas in DevTest Labs](./devtest-lab-comparing-vm-base-image-types.md).
 
-## Create a new formula
-Anyone with DevTest Labs *Users* permissions is able to create VMs in a lab using a formula as a base. 
+## Create a formula
+Anyone with DevTest Labs *Users* permissions is able to create VMs using a formula as a base. 
 There are two ways to create formulas: 
 
-- From scratch - Use when you want to define all the characteristics of the formula from scratch.
+- From a base - Use when you want to define all the characteristics of the formula.
 - From an existing lab VM - Use when you want to create a formula based on the settings of an existing VM.
 
-### Create a new formula from scratch
-The following steps guide you through the process of creating a new formula from scratch.
+### Create a formula from a base
+The following steps guide you through the process of creating a formula from a custom image, Marketplace image, or another formula.
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Select **Browse**, and then select **DevTest Labs** from the list.
+1. Select **More Services**, and then select **DevTest Labs** from the list.
 
 1. From the list of labs, select the desired lab.  
 
-1. The selected lab's **Settings** blade will be displayed. 
-
-1. On the lab **Settings** blade, select **Formulas**.
+1. On the lab's blade, select **Formulas (reusable bases)**.
 
     ![Formula menu](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
 
 1. On the **Lab formulas** blade, select **+ Add**.
 
-    ![Add a new formula](./media/devtest-lab-manage-formulas/add-formula.png)
+    ![Add a formula](./media/devtest-lab-manage-formulas/add-formula.png)
 
-1. On the **Choose a base** blade, select the custom image or Marketplace image from which you want to create the formula.
+1. On the **Choose a base** blade, select the base (custom image, Marketplace image, or formula) from which you want to create the formula.
 
     ![Base list](./media/devtest-lab-manage-formulas/base-list.png)
 
@@ -70,52 +62,58 @@ The following steps guide you through the process of creating a new formula from
 
 	- **Formula name** - Enter a name for your formula. This value will be displayed in the list of base images when you create a VM. The name is validated as you type it, and if not valid, a message will indicate the requirements for a valid name.
 	- **Description** - Enter a meaningful description for your formula. This value is available from the formula's context menu when you create a VM.
+	- **User name** - Enter a user name that will be granted administrator privileges.
+	- **Password** - Enter - or select from the dropdown - a value that is associated with the secret (password) that you want to use for the specified user.  
 	- **Image** - This field displays name of the base image you selected on the previous blade. 
-	- **VM Size** - Select to one of the predefined items that specify the processor cores, RAM size, and the hard drive size of the VM to create.
-	- **Virtual network** - Select and select the desired virtual network.
-	- **Subnet** - Select and and select the desired subnet.
-	- **Public IP address** - If the lab policy is set to allow public IP addresses for the selected subnet, specify whether or not you want the IP address to be public by selecting either **Yes** or **No**. Otherwise, this option is disabled and selected as **No**.
-	- **Artifacts** - Select and - from the list of artifacts - select and configure the artifacts that you want to add to the base image. Note that artifact parameters that are secure strings don’t display, since the formula doesn’t save any secure string values. 
+	- **Virtual machine size** - Select one of the predefined items that specify the processor cores, RAM size, and the hard drive size of the VM to create.
+	- **Virtual network** - Specify the desired virtual network.
+	- **Subnet** - Specify the desired subnet.
+	- **Public IP address** - If the lab policy is set to allow public IP addresses for the selected subnet, specify whether you want the IP address to be public by selecting either **Yes** or **No**. Otherwise, this option is disabled and selected as **No**.
+	- **Artifacts** - Select and configure the artifacts that you want to add to the base image. Secure string values are not saved with the formula. Therefore, artifact parameters that are secure strings are not displayed. 
 
     	![Create formula](./media/devtest-lab-manage-formulas/create-formula.png)
 
-1. Select **Create** to create the formula. When the formula has been successfully created, it will be listed on the **Lab formulas** blade.
+1. Select **Create** to create the formula.
 
-	![Newly created formula](./media/devtest-lab-manage-formulas/newly-created-formula.png)
-
-### Create a new formula from a lab VM
+### Create a formula from a VM
 The following steps guide you through the process of creating a formula based on an existing VM. 
 
-> [AZURE.NOTE] Only VMs created after March 30, 2016 support creating a new formula from a lab VM. 
+> [AZURE.NOTE] To create a formula from a VM, the VM must have been created after March 30, 2016. 
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Select **Browse**, and then select **DevTest Labs** from the list.
+1. Select **More Services**, and then select **DevTest Labs** from the list.
 
 1. From the list of labs, select the desired lab.  
 
-1. On the lab blade, locate the section with the title **My VMs** and select the VM from which you wish to create the new formula.
+1. On the lab's **Overview** blade, select the VM from which you wish to create the formula.
 
 	![Labs VMs](./media/devtest-lab-manage-formulas/my-vms.png)
 
-1. On the VM's **Settings** blade, select **Create formula**.
+1. On the VM's blade, select **Create formula (reusable base)**.
 
 	![Create formula](./media/devtest-lab-manage-formulas/create-formula-menu.png)
 
-1. On the **Create formula** blade, enter a **Name** and **Description** for your new formula, and select **OK**. When the formula has been successfully created, it will be listed on the **Lab formulas** blade.
+1. On the **Create formula** blade, enter a **Name** and **Description** for your new formula.
 
 	![Create formula blade](./media/devtest-lab-manage-formulas/create-formula-blade.png)
+
+1. Select **OK** to create the formula.
+
+## Use a formula to provision a VM
+Once you've created a formula, you can create a VM based on that formula. The section
+[Add a VM with artifacts](devtest-lab-add-vm-with-artifacts.md#add-a-vm-with-artifacts) walks you through the process.
 
 ## Modify a formula
 To modify a formula, follow these steps:
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Select **Browse**, and then select **DevTest Labs** from the list.
+1. Select **More Services**, and then select **DevTest Labs** from the list.
 
 1. From the list of labs, select the desired lab.  
 
-1. On the lab **Settings** blade, select **Formulas**.
+1. On the lab's blade, select **Formulas (reusable bases)**.
 
     ![Formula menu](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
 
@@ -128,7 +126,7 @@ To delete a formula, follow these steps:
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Select **Browse**, and then select **DevTest Labs** from the list.
+1. Select **More Services**, and then select **DevTest Labs** from the list.
 
 1. From the list of labs, select the desired lab.  
 
@@ -145,8 +143,6 @@ To delete a formula, follow these steps:
     ![Formula context menu](./media/devtest-lab-manage-formulas/formula-delete-context-menu.png)
 
 1. Select **Yes** to the deletion confirmation dialog.
-
-    ![Formula context menu](./media/devtest-lab-manage-formulas/formula-delete-confirmation.png)
 
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
