@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
    ms.workload="NA"
-	ms.date="07/14/2016"
+	ms.date="08/29/2016"
 	ms.author="sstein" />
 
 # Overview: SQL Database Active Geo-Replication
@@ -39,6 +39,9 @@ You can failover to a secondary using the [Azure portal](sql-database-geo-replic
 - [Failover: Azure portal](sql-database-geo-replication-failover-portal.md)
 - [Failover: PowerShell](sql-database-geo-replication-failover-powershell.md)
 - [Failover: T-SQL](sql-database-geo-replication-failover-transact-sql.md)
+
+After failover, ensure the authentication requirements for your server and database are configured on the new primary. For details, see [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md).
+
 
 The Active Geo-Replication feature implements a mechanism to provide database redundancy within the same Microsoft Azure region or in different regions (geo-redundancy). Active Geo-Replication asynchronously replicates committed transactions from a database to up to four copies of the database on different servers, using read committed snapshot isolation (RCSI) for isolation. When Active Geo-Replication is configured a secondary database is created on the specified server. The original database becomes the primary database. The primary database asynchronously replicates committed transactions to each of the secondary databases. While at any given point, the secondary database might be slightly behind the primary database, the secondary data is guaranteed to always be transactionally consistent with changes committed to the primary database.
 
@@ -132,3 +135,4 @@ As discussed above, in addition to the Azure portal, Active Geo-Replication can 
 - To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md).
 - To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md).
 - To learn about using automated backups for archiving, see [database copy](sql-database-copy.md).
+- To learn about authentication requirements for a new primary server and database, see [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md).

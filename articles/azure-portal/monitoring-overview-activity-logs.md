@@ -39,7 +39,7 @@ A **Log Profile** controls how your Activity Log is exported. Using a Log Profil
 - Where the Activity Log should be sent (Storage Account or Event Hubs)
 - Which event categories (eg. Write, Delete, Action) should be sent
 - Which regions (locations) should be exported
-- How long the Activity Log should be retained in a Storage Account – a retention of zero days means logs are kept forever. If retention policies are set but storing logs in a Storage Account is disabled (eg. if only Event Hubs or OMS options are selected), the retention policies have no effect.
+- How long the Activity Log should be retained in a Storage Account – a retention of zero days means logs are kept forever. Otherwise, the value can be any number of days between 1 and 2147483647. If retention policies are set but storing logs in a Storage Account is disabled (eg. if only Event Hubs or OMS options are selected), the retention policies have no effect.
 
 These settings can be configured via the “Export” option in the Activity Log blade in the portal, or programmatically [using the REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell cmdlets, or CLI. A subscription can only have one log profile.
 
@@ -52,7 +52,7 @@ You can stream the Activity Log to an Event Hub or store them in a Storage Accou
 2. Click the **Export** button at the top of the blade.
 
     ![Export button in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
-3. In the blade that appears, you can select the regions for which you would like to export events, the Storage Account to which you would like to save events (as well as the number of days you want to retain these events in storage), and the Service Bus Namespace in which you would like an Event Hub to be created for streaming these events.
+3. In the blade that appears, you can select the regions for which you would like to export events, the Storage Account to which you would like to save events (as well as the number of days you want to retain these events in storage--0 days will retain the logs forever), and the Service Bus Namespace in which you would like an Event Hub to be created for streaming these events.
 
     ![Export Activity Log blade](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
 4. Click **Save** to save these settings. The settings are immediately be applied to your subscription.
@@ -74,7 +74,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 | StorageAccountId | No       | Resource ID of the Storage Account to which the Activity Log should be saved.                                                                                                                 |
 | serviceBusRuleId | No       | Service Bus Rule ID for the Service Bus namespace you would like to have event hubs created in. Will be a string with this format: `{service bus resource ID}/authorizationrules/{key name}`. |
 | Locations        | Yes      | Comma-separated list of regions for which you would like to collect Activity Log events.                                                                                                      |
-| RetentionInDays  | Yes      | Number of days for which events should be retained. A value of zero will store the logs indefinitely.                                                                                         |
+| RetentionInDays  | Yes      | Number of days for which events should be retained, between 1 and 2147483647. A value of zero will store the logs indefinitely (forever).                                                                                         |
 | Categories       | No       | Comma-separated list of event categories that should be collected. Possible values are Write, Delete, and Action.                                                                             |
 
 #### Remove a log profile
@@ -103,7 +103,7 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 | storageId        | No       | Resource ID of the Storage Account to which the Activity Log should be saved.                                                                                                                 |
 | serviceBusRuleId | No       | Service Bus Rule ID for the Service Bus namespace you would like to have event hubs created in. Will be a string with this format: `{service bus resource ID}/authorizationrules/{key name}`. |
 | locations        | Yes      | Comma-separated list of regions for which you would like to collect Activity Log events.                                                                                                      |
-| retentionInDays  | Yes      | Number of days for which events should be retained. A value of zero stores the logs indefinitely.                                                                                             |
+| retentionInDays  | Yes      | Number of days for which events should be retained, between 1 and 2147483647. A value of zero stores the logs indefinitely (forever).                                                                                             |
 | categories       | No       | Comma-separated list of event categories that should be collected. Possible values are Write, Delete, and Action.                                                                             |
 
 #### Remove a log profile

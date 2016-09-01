@@ -3,7 +3,7 @@
    description="Understand concurrency and workload management in Azure SQL Data Warehouse for developing solutions."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jrowlandjones"
+   authors="sonyam"
    manager="barbkess"
    editor=""/>
 
@@ -13,21 +13,21 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/17/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+   ms.date="08/30/2016"
+   ms.author="sonyama;barbkess;jrj"/>
 
 # Concurrency and workload management in SQL Data Warehouse
 
-To deliver predictable performance at scale, Microsoft Azure SQL Data Warehouse helps you control concurrency levels as well as resource allocations like memory and CPU prioritization. This article introduces you to the concepts of concurrency and workload management, explaining how both features have been implemented and how you can control them in your data warehouse. SQL Data Warehouse workload management is intended to help you support multiuser environments. It is not intended for multitenant workloads.
+To deliver predictable performance at scale, Microsoft Azure SQL Data Warehouse helps you control concurrency levels and resource allocations like memory and CPU prioritization. This article introduces you to the concepts of concurrency and workload management, explaining how both features have been implemented and how you can control them in your data warehouse. SQL Data Warehouse workload management is intended to help you support multiuser environments. It is not intended for multitenant workloads.
 
 ## Concurrency limits
 
-SQL Data Warehouse allows up to 1,024 concurrent connections. All 1,024 connections can submit queries concurrently. However, in order to optimize throughput, SQL Data Warehouse may queue some queries to ensure that each query receives a minimal memory grant. Queuing occurs at query execution time. By queuing queries when concurrency limits are reached, SQL Data Warehouse can increase total throughput by ensuring that active queries get access to critically needed memory resources.  
+SQL Data Warehouse allows up to 1,024 concurrent connections. All 1,024 connections can submit queries concurrently. However, to optimize throughput, SQL Data Warehouse may queue some queries to ensure that each query receives a minimal memory grant. Queuing occurs at query execution time. By queuing queries when concurrency limits are reached, SQL Data Warehouse can increase total throughput by ensuring that active queries get access to critically needed memory resources.  
 
 Concurrency limits are governed by two concepts: *concurrent queries* and *concurrency slots*. For a query to execute, it must execute within both the query concurrency limit and the concurrency slot allocation.
 
 - Concurrent queries are the queries executing at the same time. SQL Data Warehouse supports up to 32 concurrent queries on the larger DWU sizes.
-- Concurrency slots are allocated based on DWU. Each 100 DWU provides 4 concurrency slots. For example, a DW100 allocates 4 concurrency slots and DW1000 allocates 40. Each query consumes one or more concurrency slots, dependent on the [resource class](#resource-classes) of the query. Queries running in the smallrc resource class consume one concurrency slot. Queries running in a higher resource class will consume more concurrency slots.
+- Concurrency slots are allocated based on DWU. Each 100 DWU provides 4 concurrency slots. For example, a DW100 allocates 4 concurrency slots and DW1000 allocates 40. Each query consumes one or more concurrency slots, dependent on the [resource class](#resource-classes) of the query. Queries running in the smallrc resource class consume one concurrency slot. Queries running in a higher resource class  consume more concurrency slots.
 
 The following table describes the limits for both concurrent queries and concurrency slots at the various DWU sizes.
 
@@ -62,7 +62,7 @@ By default, each user is a member of the small resource class, smallrc. The proc
 EXEC sp_addrolemember 'largerc', 'loaduser'
 ```
 
-A good practice is to permanently assign users to a resource class rather than changing their resource classes. For example, loads to clustered columnstore tables create higher quality indexes when allocated more memory. To ensure that loads have access to higher memory, create a user specifically for loading data and permanently assign this user to a higher resource class.
+A good practice is to permanently assign users to a resource class rather than changing their resource classes. For example, loads to clustered columnstore tables create higher-quality indexes when allocated more memory. To ensure that loads have access to higher memory, create a user specifically for loading data and permanently assign this user to a higher resource class.
 
 There are a few types of queries that do not benefit from a larger memory allocation. The system will ignore their resource class allocation and always run these queries in the small resource class instead. If these queries always run in the small resource class, they can run when concurrency slots are under pressure and they won't consume more slots than needed. See [Resource class exceptions](#query-exceptions-to-concurrency-limits) for more information.
 
@@ -99,7 +99,7 @@ The following table maps the memory allocated to each distribution by DWU and re
 
 In the preceding example, a query running on a DW2000 in the xlargerc resource class is allocated a total of 375 GB of memory (6,400 MB * 60 distributions / 1,024 to convert to GB) over the entirety of SQL Data Warehouse.
 
-### Memory allocations system wide (GB)
+### Memory allocations system-wide (GB)
 
 |  DWU   | smallrc | mediumrc | largerc | xlargerc |
 | :----- | :-----: | :------: | :-----: | :------: |
@@ -119,7 +119,7 @@ In the preceding example, a query running on a DW2000 in the xlargerc resource c
 
 ## Concurrency slot consumption
 
-SQL Data Warehouse grants more memory to queries running in higher resource classes. Because memory is a fixed resource, the more memory allocated per query, the less concurrency can be supported. The following table reiterates all of the previous concepts in a single view that shows the number of concurrency slots available by DWU as well as the slots consumed by each resource class.
+SQL Data Warehouse grants more memory to queries running in higher resource classes. Because memory is a fixed resource, the more memory allocated per query, the less concurrency can be supported. The following table reiterates all of the previous concepts in a single view that shows the number of concurrency slots available by DWU and the slots consumed by each resource class.
 
 ### Allocation and consumption of concurrency slots
 
@@ -270,16 +270,16 @@ Removed as these two are not confirmed / supported under SQLDW
 
 ## Change a user resource class example
 
-1. **Create login:** Open a connection to your **master** database in SQL Data Warehouse and execute the following commands.
+1. **Create login:** Open a connection to your **master** database on the SQL server hosting your SQL Data Warehouse database and execute the following commands.
 
 	```sql
 	CREATE LOGIN newperson WITH PASSWORD = 'mypassword';
 	CREATE USER newperson for LOGIN newperson;
 	```
 
-	> [AZURE.NOTE] It is a good idea to create users for logins in the master database in both Azure SQL database and Azure SQL Data Warehouse. There are two server roles available at this level that require the login to have a user in **master** in order to grant membership. The roles are `Loginmanager` and `dbmanager`. In both Azure SQL database and SQL Data Warehouse, these roles grant rights to manage logins and to create databases. This is different from SQL Server. For more details, please refer to [Managing Databases and Logins in Azure SQL Database][].
+	> [AZURE.NOTE] It is a good idea to create a user in the master database for Azure SQL Data Warehouse users. Creating a user in master allows a user to login using tools like SSMS without specifying a database name.  It also allows them to use the object explorer to view all databases on a SQL server.  For more details about creating and managing users, see [Secure a database in SQL Data Warehouse][].
 
-2. **Create user account:** Open a connection to the **SQL Data Warehouse** database and execute the following command.
+2. **Create SQL Data Warehouse user:** Open a connection to the **SQL Data Warehouse** database and execute the following command.
 
 	```sql
 	CREATE USER newperson FOR LOGIN newperson;
@@ -311,9 +311,9 @@ You can use the `sys.dm_pdw_exec_requests` DMV to identify queries that are wait
 
 ```sql
 SELECT 	 r.[request_id]				 AS Request_ID
-	,r.[status]				 AS Request_Status
-	,r.[submit_time]			 AS Request_SubmitTime
-	,r.[start_time]				 AS Request_StartTime
+        ,r.[status]				 AS Request_Status
+        ,r.[submit_time]			 AS Request_SubmitTime
+        ,r.[start_time]				 AS Request_StartTime
         ,DATEDIFF(ms,[submit_time],[start_time]) AS Request_InitiateDuration_ms
         ,r.resource_class                         AS Request_resource_class
 FROM    sys.dm_pdw_exec_requests r;
@@ -331,8 +331,8 @@ AND     ro.[is_fixed_role]  = 0;
 The following query shows which role each user is assigned to.
 
 ```sql
-SELECT	r.name AS role_principal_name
-,		m.name AS member_principal_name
+SELECT	 r.name AS role_principal_name
+        ,m.name AS member_principal_name
 FROM	sys.database_role_members rm
 JOIN	sys.database_principals AS r			ON rm.role_principal_id		= r.principal_id
 JOIN	sys.database_principals AS m			ON rm.member_principal_id	= m.principal_id
@@ -342,7 +342,7 @@ WHERE	r.name IN ('mediumrc','largerc', 'xlargerc');
 SQL Data Warehouse has the following wait types:
 
 - **LocalQueriesConcurrencyResourceType**: Queries that sit outside of the concurrency slot framework. DMV queries and system functions such as `SELECT @@VERSION` are examples of local queries.
-- **UserConcurrencyResourceType**: Queries that sit inside the concurrency slot framework. Queries against end user tables represent examples that would use this resource type.
+- **UserConcurrencyResourceType**: Queries that sit inside the concurrency slot framework. Queries against end-user tables represent examples that would use this resource type.
 - **DmsConcurrencyResourceType**: Waits resulting from data movement operations.
 - **BackupConcurrencyResourceType**: This wait indicates that a database is being backed up. The maximum value for this resource type is 1. If multiple backups have been requested at the same time, the others will queue.
 
@@ -422,6 +422,7 @@ For more information about managing database users and security, see [Secure a d
 <!--Article references-->
 [Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 [Rebuilding indexes to improve segment quality]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
+[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 
 <!--MSDN references-->
 [Managing Databases and Logins in Azure SQL Database]:https://msdn.microsoft.com/library/azure/ee336235.aspx

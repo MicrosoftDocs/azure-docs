@@ -1,6 +1,6 @@
-There are various reasons when you cannot start or connect to an application running on an Azure virtual machine (VM) such as the application not running or listening on the expected ports, listening port blocked, or networking rules not correctly passing traffic to the application. This article describes a methodical approach to find and correct the problem.
+There are various reasons when you cannot start or connect to an application running on an Azure virtual machine (VM). Reasons include the application not running or listening on the expected ports, the listening port blocked, or networking rules not correctly passing traffic to the application. This article describes a methodical approach to find and correct the problem.
 
-If you are having issues connecting to your VM using RDP or SSH, please see one of the following articles first:
+If you are having issues connecting to your VM using RDP or SSH, see one of the following articles first:
 
  - [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](../articles/virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md)
  - [Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md).
@@ -11,7 +11,7 @@ If you need more help at any point in this article, you can contact the Azure ex
 
 ## Quick-start Troubleshooting Endpoint Connectivity problems
 
-If you have problems connecting to an application, try the following general troubleshooting steps. After each step, try connecting to your application again :
+If you have problems connecting to an application, try the following general troubleshooting steps. After each step, try connecting to your application again:
 
 - Restart the virtual machine
 - Recreate the endpoint / firewall rules / network security group (NSG) rules
