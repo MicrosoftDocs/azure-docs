@@ -36,14 +36,14 @@ First, we need to open the port we want.
 
     ![Azure container service load balancer probes](media/container-service-dcos-agents/add-probe.png)
 
-5. Fill out the probe form, including the protocol and port. 
+5. Fill out the probe form.
 
     | Field | Description |
     | ----- | ----------- |
     | Name  | A descriptive name of the probe. |
     | Port  | The port of the container to test. |
     | Path  | (When in HTTP mode) The relative website path to probe. HTTPS not supported. |
-    | Interval | The amount of time between probe attempts, in seconds.
+    | Interval | The amount of time between probe attempts, in seconds. |
     | Unhealthy threshold | Number of consecutive probe attempts before considering the container unhealthy. | 
     
     Click OK
@@ -51,6 +51,19 @@ First, we need to open the port we want.
 6. Back at the properties of the agent load balancer, click **Load balancing rules** and then **Add**.
 
     ![Azure container service load balancer rules](media/container-service-dcos-agents/add-balancer-rule.png)
+
+7. Fill out the load balancer form.
+
+    | Field | Description |
+    | ----- | ----------- |
+    | Name  | A descriptive name of the load balancer. |
+    | Port  | The public incoming port. |
+    | Backend port | The internal-public port of the container to route traffic to. |
+    | Backend pool | The containers in this pool will be the target for this load balancer. |
+    | Probe | The probe used to determine if a target in the **Backend pool** is healthy. |
+    | Session persistence | Determines how traffic from a client should be handled for the duration of the session.<br><br>**None**: Successive requests from the same client can be handled by any container.<br>**Client IP**: Successive requests from the same client IP will be handled by the same container.<br>**Client IP and protocol**:Successive requests from the same client IP and protocol combination will be handled by the same container. |
+
+    Click OK
 
 ## Add a security rule (portal)
 
