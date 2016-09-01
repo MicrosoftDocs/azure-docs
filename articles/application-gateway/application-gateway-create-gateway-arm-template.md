@@ -26,6 +26,7 @@ Azure Application Gateway is a layer-7 load balancer. It provides failover, perf
 - [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 - [Azure Classic PowerShell](application-gateway-create-gateway.md)
 - [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
+- [Azure CLI](application-gateway-create-gateway-cli.md)
 
 <BR>
 
@@ -74,7 +75,7 @@ You can download the existing Azure Resource Manager template to create a virtua
 	| **backendaddress2** | IP address of the second web server |
 
 
->[AZURE.IMPORTANT] Azure Resource Manager templates maintained in GitHub can change over time. Make sure that you check the template before using it.
+	>[AZURE.IMPORTANT] Azure Resource Manager templates maintained in GitHub can change over time. Make sure that you check the template before using it.
 
 6. Check the content under **resources** and notice the following:
 
@@ -147,8 +148,6 @@ Choose which of your Azure subscriptions to use. <BR>
 If needed, create a resource group by using the **New-AzureResourceGroup** cmdlet. In the example below, you create a new resource group called AppgatewayRG in East US location.
 
 	New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
-		VERBOSE: 5:38:49 PM - Created resource group 'AppgatewayRG' in location 'eastus'
-
 
 		ResourceGroupName : AppgatewayRG
 		Location          : eastus

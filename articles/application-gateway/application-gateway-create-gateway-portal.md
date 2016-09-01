@@ -26,7 +26,7 @@ Azure Application Gateway is a layer-7 load balancer. It provides failover, perf
 - [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
 - [Azure Classic PowerShell](application-gateway-create-gateway.md)
 - [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
-
+- [Azure CLI](application-gateway-create-gateway-cli.md)
 
 <BR>
 
@@ -49,7 +49,7 @@ This scenario will:
 
 ## Before you begin
 
-Azure Application Gateway requires its own subnet. When creating a virtual network, ensure that you leave enough address space to have multiple subnets. Once you deploy an application gateway to a subnet
+Azure Application Gateway requires its own subnet. When creating a virtual network, ensure that you leave enough address space to have multiple subnets. Once you deploy an application gateway to a subnet,
 only additional application gateways are able to be added to the subnet.
 
 ## Create the Application Gateway
@@ -58,7 +58,7 @@ only additional application gateways are able to be added to the subnet.
 
 Navigate to the Azure portal, click **New** > **Networking** > **Application Gateway**
 
-![Creating new Application Gateway][1]
+![Creating Application Gateway][1]
 
 ### Step 2
 
@@ -67,10 +67,10 @@ Next fill out the basic information about the application gateway. When complete
 The information needed for the basic settings is:
 
 - **Name** - The name for the application gateway.
-- **SKU size** - This is the size of the application gateway, available options are (Small, Medium, and Large).
+- **SKU size** - This setting is the size of the application gateway, available options are (Small, Medium, and Large).
 - **Instance count** - The number of instances, this value should be a number between 2 and 10.
-- **Resource group** - The resource group to hold the application gateway, this can be an existing resource group or a new one.
-- **Location** - The region for the application gateway, this is the same location at the resource group. *This is important as the virtual network and public IP must be in the same location as the gateway*.
+- **Resource group** - The resource group to hold the application gateway, it can be an existing resource group or a new one.
+- **Location** - The region for the application gateway, it is the same location at the resource group. *The location is important as the virtual network and public IP must be in the same location as the gateway*.
 
 ![blade showing basic settings][2]
 
@@ -79,7 +79,7 @@ The information needed for the basic settings is:
 
 ### Step 3
 
-Once the basic settings are defined, the next step is to define the virtual network to be used. The virtual network will house the application that the application gateway does load balancing for.
+Once the basic settings are defined, the next step is to define the virtual network to be used. The virtual network houses the application that the application gateway does load balancing for.
 
 Click **Choose a virtual network** to configure the virtual network.
 
@@ -103,7 +103,7 @@ Fill out the network information in the **Create Virtual Network** blade as desc
 
 Once the virtual network is created, the next step is to define the front-end IP for the application gateway. At this point, the choice is between a public 
 or a private IP address for the front-end. The choice depends on whether the application is internet facing or internal only. This scenario assumes 
-using a public IP address. To choose a private IP address the **Private** button can be clicked. An automatically assigned IP address is chosen or you 
+using a public IP address. To choose a private IP address, the **Private** button can be clicked. An automatically assigned IP address is chosen or you 
 can click the **Choose a specific private IP address** checkbox to enter one manually.
 
 ### Step 7
@@ -120,10 +120,10 @@ Next give the public IP address a friendly name and click **OK**
 
 ### Step 9
 
-The last setting to configure when creating an application gateway is the listener configuration.  If **http** is used nothing is left to configure and **OK** can be clicked. To leverage **https**
+The last setting to configure when creating an application gateway is the listener configuration.  If **http** is used, nothing is left to configure and **OK** can be clicked. To use **https**
 further configuration is required.
 
-To use **https** a certificate is required. The private key of the certificate is needed so a .pfx export of the certificate needs to be provided and the password for the file.
+To use **https**, a certificate is required. The private key of the certificate is needed so a .pfx export of the certificate needs to be provided and the password for the file.
 
 
 ![blank Listener Configuration section on Settings blade][8]
@@ -147,7 +147,7 @@ Once the application gateway has been created, navigate to it in the portal to c
 
 ![Application Gateway resource view][10]
 
-This creates a basic application gateway with default settings for the listener, backend pool, backend http settings, and rules. You can modify these settings to suit your deployment once the provisioning is successful
+These steps create a basic application gateway with default settings for the listener, backend pool, backend http settings, and rules. You can modify these settings to suit your deployment once the provisioning is successful
 
 ## Next steps
 
