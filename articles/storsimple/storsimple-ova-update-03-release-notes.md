@@ -39,12 +39,12 @@ The following table provides a summary of issues fixed in this release.
 | No.  | Feature                              | Issue                                                                                                                                                                                                                                                                                                                           |
 |------|--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1    | Backups                                |A problem was seen in the earlier release where the backups would fail to complete. The root cause was identified and fixed in this release. <br></br> Though the issue has been fixed, the fix does not apply retroactively to shares that are already seeing this issue. Customers who are seeing this issue should first apply Update 0.3, then contact Microsoft Support to have a full backup forced on the system to fix the issue. Instead of contacting Microsoft Support, customers can also restore to a new share from a healthy backup for these affected shares.                                                                                                                                                                                 |
-| 2    | iSCSI                         | An issue was seen in the earlier release where the volumes would disappear when copying data to a volume on the StorSimple Virtual Array. This issue was fixed in this release. <br></br> The fixes take effect only on newly created volumes. The fixes do not apply retroactively to volumes that are already seeing this issue. Customers are advised to bring the affected volumes online (from the UI), then trigger a backup for these volumes, and then restore these volumes to a new volume.                                                               |
+| 2    | iSCSI                         | An issue was seen in the earlier release where the volumes would disappear when copying data to a volume on the StorSimple Virtual Array. This issue was fixed in this release. <br></br> The fixes take effect only on newly created volumes. The fixes do not apply retroactively to volumes that are already seeing this issue. Customers are advised to bring the affected volumes online via the Azure classic portal, then trigger a backup for these volumes, and then restore these volumes to a new volume.                                                               |
 
 
 ## Known issues in the Update 0.3
 
-The following table provides a summary of known issues for the StorSimple Virtual Array and includes the issues release-noted from the previous releases. **The issues release noted in this release are marked with an asterisk. Almost all the issues in this list have carried over from the GA release of StorSimple Virtual Array.**
+The following table provides a summary of known issues for the StorSimple Virtual Array and includes the issues release-noted from the previous releases. 
 
 
 | No. | Feature | Issue | Workaround/comments |
@@ -62,9 +62,9 @@ The following table provides a summary of known issues for the StorSimple Virtua
 | **11.** | Password change | The virtual array device console only accepts input in en-US keyboard format. |   |
 | **12.** | CHAP | CHAP credentials once created cannot be removed. Additionally, if you modify the CHAP credentials, you need to take the volumes offline and then bring them online for the change to take effect. | This issue is addressed in a later release. |
 | **13.** | iSCSI server  | The 'Used storage' displayed for an iSCSI volume may be different in the StorSimple Manager service and the iSCSI host. | The iSCSI host has the filesystem view.<br></br>The device sees the blocks allocated when the volume was at the maximum size.|
-| **14.** | File server*  | If a file in a folder has an Alternate Data Stream (ADS) associated with it, the ADS is not backed up or restored via disaster recovery, clone, and Item Level Recovery.| |
+| **14.** | File server  | If a file in a folder has an Alternate Data Stream (ADS) associated with it, the ADS is not backed up or restored via disaster recovery, clone, and Item Level Recovery.| |
 
 
 ## Next step
 
-[Install Updates](storsimple-ova-install-update-01.md) on your StorSimple Virtual Array.
+[Install Update 0.3](storsimple-ova-install-update-01.md) on your StorSimple Virtual Array.
