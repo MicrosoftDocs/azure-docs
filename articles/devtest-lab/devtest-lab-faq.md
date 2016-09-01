@@ -13,24 +13,17 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/29/2016"
+	ms.date="09/01/2016"
 	ms.author="tarcher"/>
 
 # DevTest Labs FAQ
 
 This article answers some of the most common questions about DevTest Labs.
 
-## What if my question isn't answered here?
-If your question isn't listed here, let us know and we'll help you find an answer.
-
-- Post a question in the [Disqus thread](#comments) at the end of this FAQ and engage with the Azure Cache team and other community members about this article.
-- To reach a wider audience, post a question on the [Azure DevTest Labs MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs), and engage with the Azure DevTest Labs team and other members of the community.
-- To make a feature request, submit your requests and ideas to the [Azure DevTest Labs User Voice](https://feedback.azure.com/forums/320373-azure-devtest-labs).
-
-## Get started
-- [How do I get started using DevTest Labs?](http://go.microsoft.com/fwlink/?LinkID=627034&clcid=0x409)
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## General
+- [What if my question isn't answered here?](#what-if-my-question-isnt-answered-here)
 - [Why should I use DevTest Labs?](#why-should-i-use-devtest-labs) 
 - [What does "worry free, self-service" mean?](#what-does-quotworry-free-self-servicequot-mean)
 - [How can I use DevTest Labs?](#how-can-i-use-devtest-labs) 
@@ -68,6 +61,13 @@ If your question isn't listed here, let us know and we'll help you find an answe
  
 - [My artifact failed during VM creation. How do I troubleshoot it?](#my-artifact-failed-during-vm-creation-how-do-i-troubleshoot-it) 
 - [Why isn't my existing virtual network saving properly?](#why-isnt-my-existing-virtual-network-saving-properly)  
+
+### What if my question isn't answered here?
+If your question isn't listed here, let us know and we'll help you find an answer.
+
+- Post a question in the [Disqus thread](#comments) at the end of this FAQ and engage with the Azure Cache team and other community members about this article.
+- To reach a wider audience, post a question on the [Azure DevTest Labs MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs), and engage with the Azure DevTest Labs team and other members of the community.
+- To make a feature request, submit your requests and ideas to the [Azure DevTest Labs User Voice](https://feedback.azure.com/forums/320373-azure-devtest-labs).
 
 ### Why should I use DevTest Labs? 
 DevTest Labs can save your team time and money. Developers can create their own environments using a number of different bases, and use artifacts to quickly deploy and configure applications. Using custom images and formulas, virtual machines can be saved as templates and easily reproduced. In addition, labs offer several configurable policies ― such as auto-shutdown, cost threshold, maximum VMs per user, and maximum VM sizes ― that allow lab administrators to reduce waste and manage a team's environments. For a more in-depth explanation of DevTest Labs, read the [overview](devtest-lab-overview.md) or check out the [introductory video](/documentation/videos/videos/what-is-azure-devtest-labs). 
