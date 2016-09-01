@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/29/2016"
+   ms.date="09/01/2016"
    ms.author="cherylmc" />
 
 # ExpressRoute partners and peering locations
