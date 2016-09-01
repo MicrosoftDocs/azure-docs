@@ -24,14 +24,9 @@ The following articles explain how to configure and code triggers and bindings i
 
 ## Triggers and bindings articles
 
-* [HTTP and WebHook triggers and bindings](functions-bindings-http-webhook.md)
-* [Timer trigger](functions-bindings-timer.md)
-* [Azure Storage (queues, blobs, tables) triggers and bindings](functions-bindings-storage.md)
-* [Azure Service Bus (queues, topics) triggers and bindings](functions-bindings-service-bus.md)
-* [Azure DocumentDB bindings](functions-bindings-documentdb.md)
-* [Azure Event Hub bindings](functions-bindings-event-hubs.md)
-* [Azure Mobile Apps bindings](functions-bindings-mobile-apps.md)
-* [Azure Notification Hub output binding](functions-bindings-notification-hubs.md)
+You can 
+
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 ## Next steps
 
