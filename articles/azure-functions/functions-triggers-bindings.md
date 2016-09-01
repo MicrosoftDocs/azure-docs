@@ -15,7 +15,7 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/27/2016"
+	ms.date="08/27/2016"
 	ms.author="chrande"/>
 
 # Azure Functions triggers and bindings developer reference
@@ -24,7 +24,7 @@ The following articles explain how to configure and code triggers and bindings i
 
 ## Triggers and bindings articles
 
-You can 
+Click on a trigger or binding listed below to learn more:
 
 [AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
