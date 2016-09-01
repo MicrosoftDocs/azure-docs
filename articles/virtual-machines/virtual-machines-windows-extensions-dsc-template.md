@@ -234,12 +234,12 @@ Here's how the previous format adapts to the current format:
 | protectedSettings.configurationDataUrlSasToken | SAS token from protectedSettings.DataBlobUri |
 
 
-# Troubleshooting - Error Code 1100
+## Troubleshooting - Error Code 1100
 Error Code 1100 indicates that there is a problem with the user input to the DSC extension.
 The text of these errors is variable and may change.
 Here are some of the errors you may run into and how you can fix them.
 
-## Invalid Values
+### Invalid Values
 "Privacy.dataCollection is '{0}'. The only possible values are '', 'Enable', and 'Disable'"
 "WmfVersion is '{0}'. Only possible values are … and 'latest'"
 
@@ -247,7 +247,7 @@ Problem: A provided value is not allowed.
 
 Solution: Change the invalid value to a valid value. See the table in the Details section.
 
-## Invalid URL
+### Invalid URL
 "ConfigurationData.url is '{0}'. This is not a valid URL"
 "DataBlobUri is '{0}'. This is not a valid URL"
 "Configuration.url is '{0}'. This is not a valid URL"
@@ -256,21 +256,21 @@ Problem: A provided URL is not valid.
 
 Solution: Check all your provided URLs. Make sure all URLs resolve to valid locations that the extension can access on the remote machine.
 
-## Invalid ConfigurationArgument Type
+### Invalid ConfigurationArgument Type
 "Invalid configurationArguments type {0}"
 
 Problem: The ConfigurationArguments property cannot resolve to a Hashtable object. 
 
 Solution: Make your ConfigurationArguments property a Hashtable. Follow the format provided in the example above. Watch out for quotes, commas, and braces.
 
-## Duplicate ConfigurationArguments
+### Duplicate ConfigurationArguments
 "Found duplicate arguments '{0}' in both public and protected configurationArguments"
 
 Problem: The ConfigurationArguments in public settings and the ConfigurationArguments in protected settings contain properties with the same name.
 
 Solution: Remove one of the duplicate properties.
 
-## Missing Properties
+### Missing Properties
 "Configuration.function requires that configuration.url or configuration.module is specified"
 "Configuration.url requires that configuration.script is specified"
 "Configuration.script requires that configuration.url is specified"
