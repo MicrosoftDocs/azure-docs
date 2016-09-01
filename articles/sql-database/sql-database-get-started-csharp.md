@@ -25,7 +25,7 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-Learn how to use C# commands to create an Azure SQL database with the [Azure SQL Database Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). You'll try SQL Database by creating a single database with SQL and C#. To create elastic database pools, see [Create an Elastic database pool](sql-database-elastic-pool-create-portal.md).
+Learn how to use C# to create an Azure SQL database with the [Azure SQL Database Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). This article describes how to create a single database with SQL and C#. To create elastic database pools, see [Create an Elastic database pool](sql-database-elastic-pool-create-portal.md).
 
 The Azure SQL Database Library for .NET provides an [Azure Resource Manager](../resource-group-overview.md)-based API that wraps the [Resource Manager-based SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
@@ -33,7 +33,7 @@ The Azure SQL Database Library for .NET provides an [Azure Resource Manager](../
 > [AZURE.NOTE] The SQL Database Library for .NET is currently in preview.
 
 
-To complete the steps in this article you need the following:
+To complete the steps in this article, you need the following:
 
 - An Azure subscription. If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
 - Visual Studio. For a free copy of Visual Studio, see the [Visual Studio Downloads](https://www.visualstudio.com/downloads/download-visual-studio-vs) page.
@@ -43,12 +43,12 @@ To complete the steps in this article you need the following:
 
 1. Start Visual Studio.
 2. Click **File** > **New** > **Project**.
-3. Create a new C# **Console Application** and name it: *SqlDbConsoleApp*
+3. Create a C# **Console Application** and name it: *SqlDbConsoleApp*
 
 
 To create a SQL database with C#, load the required management libraries (using the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console)).
 
-1. After the new project is created, click **Tools** > **NuGet Package Manager** > **Package Manager Console**:
+1. After the new project is created, click **Tools** > **NuGet Package Manager** > **Package Manager Console**.
 2. Type `Install-Package Microsoft.Azure.Management.Sql –Pre` to install the [Microsoft Azure SQL Management Library](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
 3. Type `Install-Package Microsoft.Azure.Management.ResourceManager –Pre` to install the [Microsoft Azure Resource Manager Library](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
 4. Type `Install-Package Microsoft.Azure.Common.Authentication –Pre` to install the [Microsoft Azure Common Authentication Library](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication). 
@@ -60,9 +60,9 @@ To create a SQL database with C#, load the required management libraries (using 
 
 ## Create a SQL Database server, firewall rule, and SQL database - C# example
 
-The following sample creates a resource group, server, firewall rule, and a SQL database. See, [Create a service principal to access resources](#Create-a-service-principal-to-access-resources) to get the `_subscriptionId, _tenantId, _applicationId, and _applicationSecret` variables.
+The following sample creates a resource group, server, firewall rule, and a SQL database. See, [Create a service principal to access resources](#create-a-service-principal-to-access-resources) to get the `_subscriptionId, _tenantId, _applicationId, and _applicationSecret` variables.
 
-Replace the contents of **Program.cs** with the following, and update the variables above the `Main()` method with your app values.
+Replace the contents of **Program.cs** with the following, and update the `{variables}` with your app values (do not include the `{}`).
 
 
     using Microsoft.Azure;
@@ -79,10 +79,10 @@ Replace the contents of **Program.cs** with the following, and update the variab
        {
         // For details about these four (4) values, see
         // https://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal/
-        static string _subscriptionId = "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
-        static string _tenantId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
-        static string _applicationId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
-        static string _applicationSecret = "your-password!";
+        static string _subscriptionId = "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}";
+        static string _tenantId = "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}";
+        static string _applicationId = "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}";
+        static string _applicationSecret = "{your-password}";
 
         // Create management clients for the Azure resources your app needs to work with.
         // This app works with Resource Groups, and Azure SQL Database.
@@ -93,19 +93,19 @@ Replace the contents of **Program.cs** with the following, and update the variab
         static AuthenticationResult _token;
 
         // Azure resource variables
-        static string _resourceGroupName = "resource-group-name";
-        static string _resourceGrouplocation = "Azure-region";
+        static string _resourceGroupName = "{resource-group-name}";
+        static string _resourceGrouplocation = "{Azure-region}";
 
         static string _serverlocation = _resourceGrouplocation;
-        static string _serverName = "server-name";
-        static string _serverAdmin = "server-admin-login";
-        static string _serverAdminPassword = "server-admin-password";
+        static string _serverName = "{server-name}";
+        static string _serverAdmin = "{server-admin-login}";
+        static string _serverAdminPassword = "{server-admin-password}";
 
-        static string _firewallRuleName = "firewall-rule-name";
-        static string _startIpAddress = "0.0.0.0";
-        static string _endIpAddress = "255.255.255.255";
+        static string _firewallRuleName = "{firewall-rule-name}";
+        static string _startIpAddress = "{0.0.0.0}";
+        static string _endIpAddress = "{255.255.255.255}";
 
-        static string _databaseName = "dbfromcsarticle";
+        static string _databaseName = "{dbfromcsarticle}";
         static string _databaseEdition = DatabaseEditions.Basic;
         static string _databasePerfLevel = "";
 
@@ -224,14 +224,14 @@ Replace the contents of **Program.cs** with the following, and update the variab
 
 ## Create a service principal to access resources
 
-The following PowerShell script creates the Active Directory (AD) application and the service principal that we need to authenticate our C# app. The script outputs values we need for the C# sample above. For detailed information, see [Use Azure PowerShell to create a service principal to access resources](../resource-group-authenticate-service-principal.md)
+The following PowerShell script creates the Active Directory (AD) application and the service principal that we need to authenticate our C# app. The script outputs values we need for the preceding C# sample. For detailed information, see [Use Azure PowerShell to create a service principal to access resources](../resource-group-authenticate-service-principal.md).
 
    
     # Sign in to Azure.
     Add-AzureRmAccount
     
     # If you have multiple subscriptions, uncomment and set to the subscription you want to work with.
-    #$subscriptionId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    #$subscriptionId = "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}"
     #Set-AzureRmContext -SubscriptionId $subscriptionId
     
     # Provide these values for your new AAD app.
@@ -239,14 +239,14 @@ The following PowerShell script creates the Active Directory (AD) application an
     # $uri does not need to be a real uri.
     # $secret is a password you create.
     
-    $appName = "app-name"
-    $uri = "http://app-page"
-    $secret = "strong-password!"
+    $appName = "{app-name}"
+    $uri = "http://{app-name}"
+    $secret = "{app-password}"
     
-    # Create a new AAD app
+    # Create a AAD app
     $azureAdApplication = New-AzureRmADApplication -DisplayName $appName -HomePage $Uri -IdentifierUris $Uri -Password $secret
     
-    # Create a new Service Principal for the app
+    # Create a Service Principal for the app
     $svcprincipal = New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
     
     # To avoid a PrincipalNotFound error, I pause here for 15 seconds.
@@ -275,7 +275,7 @@ Now that you've tried SQL Database and set up a database with C#, you're ready f
 ## Additional Resources
 
 - [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
-
+- [Database Class](https://msdn.microsoft.com/library/azure/microsoft.azure.management.sql.models.database.aspx)
 
 
 
