@@ -19,7 +19,7 @@
 
 # Tutorial: Azure Active Directory integration with SAP NetWeaver
 
-In this tutorial, you learn how to integrate SAP NetWeaver with Azure Active Directory (Azure AD).
+In this tutorial, you learn how to integrate SAP NetWeaver with Azure Active Directory.
 
 Integrating SAP NetWeaver with Azure AD provides you with the following benefits:
 
