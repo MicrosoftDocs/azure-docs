@@ -50,6 +50,12 @@ The following table illustrates the actions that can be performed by users in ea
 
 > [AZURE.NOTE] When a user creates a VM, that user is automatically assigned to the **Owner** role of the created VM.
 
+In this article, you learn how to perform the following tasks:
+
+- [Add an owner to a lab](#add-an-owner-to-a-lab)
+- [Add a DevTest Labs user to a lab](add-a-devtest-Labs-user-to-a-lab)
+- [Add an external user to a lab](add-an-external-user-to-a-lab)
+
 ## Add an owner to a lab
 
 Azure permissions are propagated from parent scope to child scope in Azure. Therefore, owners of an Azure subscription that contains labs are automatically owners of those labs. They also own the VMs and other resources created by the lab's users, and the Azure DevTest Labs service. 
@@ -62,13 +68,11 @@ To add an owner to an Azure subscription, follow these steps:
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. In the left-nav, select **Subscriptions**.
+1. Select **More Services**, and then select **Subscriptions** from the list.
 
-	![Subscriptions link](./media/devtest-lab-add-devtest-user/subscriptions.png)
-	
 1. Select the desired subscription.
 
-1. Select the **Access** icon. 
+1. Select **Access** icon. 
 
 	![Access users](./media/devtest-lab-add-devtest-user/access-users.png)
 
@@ -78,7 +82,7 @@ To add an owner to an Azure subscription, follow these steps:
 
 1. On the **Select a role** blade, select **Owner**.
 
-1. Enter into the **User** text box the email of the user you want to add as an owner. If the user can't be found, you get an error message explaining the issue. If the user is found, that user is listed under the **User** text box.
+1. On the **Add users** blade, enter the email address or name of the user you want to add as an owner. If the user can't be found, you get an error message explaining the issue. If the user is found, that user is listed under the **User** text box.
 
 1. Select the located user name.
 
@@ -94,9 +98,7 @@ To add a DevTest Labs user to a lab, follow these steps:
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Select **Browse**.
-
-1. Select **DevTest Labs**.
+1. Select **More Services**, and then select **DevTest Labs** from the list.
 
 1. From the list of labs, select the desired lab.   
 
@@ -121,6 +123,10 @@ To add a DevTest Labs user to a lab, follow these steps:
 	1. Select **OK** to close the **Add access** blade.
 
 1. The **Users** blade displays the added roles and users.
+
+## Add an external user to a lab
+
+Coming soon.
 
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
