@@ -150,6 +150,10 @@ As mentioned in the [Batch feature overview](batch-api-basics.md#pool), you have
 
 You can specify pool [application packages](batch-application-packages.md) and the command line for a [start task](batch-api-basics.md#start-task). To specify resource files for the start task, however, you must instead use a [JSON file](#json-files).
 
+Delete a pool with:
+
+    azure batch pool delete [pool-id]
+
 ## Create a job
 
 Usage:
@@ -162,6 +166,10 @@ Example:
 
 Adds a job to the Batch account and specifies the pool on which its tasks will execute.
 
+Delete a job with:
+
+    azure batch job delete [job-id]
+
 ## List pools, jobs, tasks, and other Batch resources
 
 Each Batch resource type supports the `list` command which, as the name implies, queries your Batch account and lists resources of that type. For example, you can list the pools in your account and the tasks in a job:
@@ -169,15 +177,21 @@ Each Batch resource type supports the `list` command which, as the name implies,
     azure batch pool list
     azure batch task list --job-id "job001"
 
-### Listing efficiently
+### Listing resources efficiently
 
-For faster querying, you can specify an ODATA clause to filter (or limit) the amount of data returned from the Batch service. Because all filtering occurs server-side, only the data you are interested in crosses the wire. Use ODATA clauses to save bandwidth and time when you pervorm list operations.
+For faster querying, you can specify **select**, **filter**, and **expand** clause options for `list` operations. Use these options to limit the amount of data returned by the Batch service. Because all filtering occurs server-side, only the data you are interested in crosses the wire. Use these clauses to save bandwidth (and therefore time) when you perform list operations.
 
-For example, you can list all pools with ids starting with "renderTask":
+For example, this will return only pools whose ids start with "renderTask":
 
     azure batch task list --job-id "job001" --filter-clause "startswith(id, 'renderTask')"
 
-All filtering happens on the server side, saving Internet bandwidth.
+The Batch CLI supports all three clauses supported by the Batch service:
+
+* `--select-clause [select-clause]`  Return a subset of properties for each entity
+* `--filter-clause [filter-clause]`  Return only entities that match the specified ODATA expression
+* `--expand-clause [expand-clause]`  Obtain the entity information in a single underlying REST call. Only `stats` is currently supported by this clause.
+
+For details on the three clauses and performing list queries with them, see [Query the Azure Batch service efficiently](batch-efficient-list-queries.md).
 
 ## Next steps
 * For detailed cmdlet syntax and examples, see [Azure Batch cmdlet reference](https://msdn.microsoft.com/library/azure/mt125957.aspx).
