@@ -36,6 +36,7 @@ work items with the following features:
 
 - Authenticates users against Azure Active Directory
 - Queries directory users and groups using [Azure Active Directory Graph API](http://msdn.microsoft.com/library/azure/hh974476.aspx)
+- Use the ASP.NET MVC *No Authentication* template
 
 If you need role-based access control (RBAC) for your line-of-business app in Azure, see [Next Step](#next).
 
