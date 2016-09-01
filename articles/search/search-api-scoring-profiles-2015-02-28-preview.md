@@ -4,7 +4,7 @@
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
-	manager="mblythe"
+	manager="paulettm"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.author="heidist"
-	ms.date="05/18/2016" />
+	ms.date="08/29/2016" />
 
 # Scoring Profiles (Azure Search REST API Version 2015-02-28-Preview)
 
@@ -55,7 +55,7 @@ To use this scoring profile, your query is formulated to specify the profile on 
 
     GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&api-version=2015-02-28-Preview
 
-This query searches on the term 'inn' and passes in the current location. Note that this query includes other parameters, such as `scoringParameter`. Query parameters are described in [Search Documents (Azure Search API)](search-api-2015-02-28-preview/#SearchDocs).
+This query searches on the term 'inn' and passes in the current location. Note that this query includes other parameters, such as `scoringParameter`. Query parameters are described in [Search Documents (Azure Search API)](search-api-2015-02-28-preview.md#SearchDocs).
 
 Click [Example](#example) to review a more detailed example of a scoring profile.
 
@@ -175,10 +175,10 @@ Functions are used when additional calculations are required for specific contex
 
   - Function type (freshness, magnitude, distance, tag) must be lower case.
   - Functions cannot include null or empty values. Specifically, if you include fieldname, you have to set it to something.
-  - Functions can only be applied to filterable fields. See [Create Index](search-api-2015-02-28/#createindex) for more information about filterable fields.
+  - Functions can only be applied to filterable fields. See [Create Index](search-api-2015-02-28.md#createindex) for more information about filterable fields.
   - Functions can only be applied to fields that are defined in the fields collection of an index.
 
-After the index is defined, build the index by uploading the index schema, followed by documents. See [Create Index](search-api-2015-02-28-preview/#createindex) and [Add or Update Documents](search-api-2015-02-28-preview/#AddOrUpdateDocuments) for instructions on these operations. Once the index is built, you should have a functional scoring profile that works with your search data.
+After the index is defined, build the index by uploading the index schema, followed by documents. See [Create Index](search-api-2015-02-28-preview.md#createindex) and [Add or Update Documents](search-api-2015-02-28-preview.md#AddOrUpdateDocuments) for instructions on these operations. Once the index is built, you should have a functional scoring profile that works with your search data.
 
 <a name="bkmk_template"></a>
 ## Template
@@ -255,12 +255,12 @@ A scoring function can only be applied to fields that are filterable.
 | `magnitude:boostingRangeEnd` | Sets the end value of the range over which magnitude is scored. The value must be an integer or floating-point number. For star ratings of 1 through 4, this would be 4. |
 | `magnitude:constantBoostBeyondRange` | Valid values are true or false (default). When set to true, the full boost will continue to apply to documents that have a value for the target field that’s higher than the upper end of the range. If false, the boost of this function won’t be applied to documents having a value for the target field that falls outside of the range. |
 | `freshness` | The freshness scoring function is used to alter ranking scores for items based on values in DateTimeOffset fields. For example, an item with a more recent date can be ranked higher than older items. (Note that it is also possible to rank items like calendar events with future dates such that items closer to the present can be ranked higher than items further in the future.) In the current service release, one end of the range will be fixed to the current time. The other end is a time in the past based on the `boostingDuration`. To boost a range of times in the future use a negative `boostingDuration`. The rate at which the boosting changes from a maximum and minimum range is determined by the Interpolation applied to the scoring profile (see the figure below). To reverse the boosting factor applied, choose a boost factor of less than 1. |
-| `freshness:boostingDuration` | Sets an expiration period after which boosting will stop for a particular document. See [Set boostingDuration ][#bkmk_boostdur] in the following section for syntax and examples. |
+| `freshness:boostingDuration` | Sets an expiration period after which boosting will stop for a particular document. See [Set boostingDuration][#bkmk_boostdur] in the following section for syntax and examples. |
 | `distance` | The distance scoring function is used to affect the score of documents based on how close or far they are relative to a reference geographic location. The reference location is given as part of the query in a parameter (using the `scoringParameter` query parameter) as a lon,lat argument. |
-| `distance:referencePointParameter` | A parameter to be passed in queries to use as reference location. scoringParameter is a query parameter. See [Search Documents](search-api-2015-02-28-preview/#SearchDocs) for descriptions of query parameters. |
+| `distance:referencePointParameter` | A parameter to be passed in queries to use as reference location. scoringParameter is a query parameter. See [Search Documents](search-api-2015-02-28-preview.md#SearchDocs) for descriptions of query parameters. |
 | `distance:boostingDistance` | A number that indicates the distance in kilometers from the reference location where the boosting range ends. |
 | `tag` | The tag scoring function is used to affect the score of documents based on tags in documents and search queries. Documents that have tags in common with the search query will be boosted. The tags for the search query is provided as a scoring parameter in each search request(using the `scoringParameter` query parameter). |
-| `tag:tagsParameter` | A parameter to be passed in queries to specify tags for a particular request. `scoringParameter` is a query parameter. See [Search Documents](search-api-2015-02-28-preview/#SearchDocs) for descriptions of query parameters. |
+| `tag:tagsParameter` | A parameter to be passed in queries to specify tags for a particular request. `scoringParameter` is a query parameter. See [Search Documents](search-api-2015-02-28-preview.md#SearchDocs) for descriptions of query parameters. |
 | `functionAggregation` | Optional. Applies only when functions are specified. Valid values include: `sum` (default), `average`, `minimum`, `maximum`, and `firstMatching`. A search score is a single value that is computed from multiple variables, including multiple functions. This attributes indicates how the boosts of all the functions are combined into a single aggregate boost that is then applied to the base document score. The base score is based on the tf-idf value computed from the document and the search query. |
 | `defaultScoringProfile` | When executing a search request, if no scoring profile is specified, then default scoring is used (tf-idf only). A default scoring profile name can be set here, causing Azure Search to use that profile when no specific profile is given in the search request. |
 
