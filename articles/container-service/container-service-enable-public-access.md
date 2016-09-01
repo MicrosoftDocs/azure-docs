@@ -61,7 +61,7 @@ First, we need to open the port we want.
     | Backend port | The internal-public port of the container to route traffic to. |
     | Backend pool | The containers in this pool will be the target for this load balancer. |
     | Probe | The probe used to determine if a target in the **Backend pool** is healthy. |
-    | Session persistence | Determines how traffic from a client should be handled for the duration of the session.<br><br>**None**: Successive requests from the same client can be handled by any container.<br>**Client IP**: Successive requests from the same client IP will be handled by the same container.<br>**Client IP and protocol**:Successive requests from the same client IP and protocol combination will be handled by the same container. |
+    | Session persistence | Determines how traffic from a client should be handled for the duration of the session.<br><br>**None**: Successive requests from the same client can be handled by any container.<br>**Client IP**: Successive requests from the same client IP are handled by the same container.<br>**Client IP and protocol**: Successive requests from the same client IP and protocol combination are handled by the same container. |
     | Idle timeout | (TCP only) In minutes, the time to keep a TCP/HTTP client open without relying on *keep-alive* messages. |
 
     Click OK
@@ -89,7 +89,7 @@ Next, we need to add a security rule that routes traffic from our opened port th
     | Source | Restrict the incoming IP address range to be allowed or denied by this rule. Use **Any** to not specify a restriction. |
     | Service | Select a set of predefined services this security rule is for. Otherwise use **Custom** to create your own. |
     | Protocol | Restrict traffic based on **TCP** or **UDP**. Use **Any** to not specify a restriction. |
-    | Port range | When **Service** is **Custom**, specifies the range of ports this rule affects. You can use a single port, such as **80**, or a range like **1024-1500**. |
+    | Port range | When **Service** is **Custom**, specifies the range of ports that this rule affects. You can use a single port, such as **80**, or a range like **1024-1500**. |
     | Action | Allow or deny traffic that meets the criteria. |
 
 ## Next steps
