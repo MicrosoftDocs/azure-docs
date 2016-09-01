@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2016"
-	ms.author="genli"/>
+	ms.date="09/01/2016"
+	ms.author="glimoli;genli"/>
 
 # Prepare a Windows VHD to upload to Azure
 To upload a Windows VM from on-premises to Azure, you must correctly prepare the virtual hard disk (VHD). There are several recommended steps for you to complete before you upload a VHD to Azure. Running `sysprep` is a common process, but only one step in generalizing an image. This article shows you how to prepare a Windows VHD to upload to Microsoft Azure.
@@ -34,8 +34,8 @@ If you need to convert your virtual disk to the required format for Azure, use o
 	- Select **Convert** on the next screen
 		- If you need to convert from VHDX, select **VHD** and click **Next**
 		- If you need to convert from Dynamic disk, select **Fixed size** and click **Next**
-		
-	- Browse to and select **Path for the new VHD file**. 
+
+	- Browse to and select **Path for the new VHD file**.
 	- Click **Finish** to close.
 
 ### Convert using PowerShell
@@ -162,7 +162,7 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
 
 
 ## Configure Windows Firewall rules
-10. Allow WinRM through the three firewall profiles (Domain, Private and Public) and enable PowerShell Remote service: 
+10. Allow WinRM through the three firewall profiles (Domain, Private and Public) and enable PowerShell Remote service:
 
 	```
 	Enable-PSRemoting -force
