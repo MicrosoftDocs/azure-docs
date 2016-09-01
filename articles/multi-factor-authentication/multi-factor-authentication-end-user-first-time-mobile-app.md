@@ -18,7 +18,7 @@
 
 # Use a mobile app as your contact method with Azure Multi-Factor Authentication
 
-If you want to use the Microsoft Authenticator app as your primary contact method, you can use this article.  It will walk you through setting up multi-factor authentication to use your mobile app as your primary contact method.
+If you want to use the Microsoft Authenticator app as your primary contact method, you can use this article.  It will walk you through setting up Azure Multi-Factor Authentication to use your mobile app as your primary contact method.
 
 The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
