@@ -53,8 +53,8 @@ The following table illustrates the actions that can be performed by users in ea
 In this article, you learn how to perform the following tasks:
 
 - [Add an owner to a lab](#add-an-owner-to-a-lab)
-- [Add a DevTest Labs user to a lab](add-a-devtest-Labs-user-to-a-lab)
-- [Add an external user to a lab](add-an-external-user-to-a-lab)
+- [Add a DevTest Labs user to a lab](#add-a-devtest-Labs-user-to-a-lab)
+- [Add an external user to a lab](#add-an-external-user-to-a-lab)
 
 ## Add an owner to a lab
 
