@@ -34,7 +34,7 @@ Both Access ACLs and Default ACLs have the same structure.
 
 ![Data Lake Store ACLs](./media/data-lake-store-access-control/data-lake-store-acls-2.png)
 
->[AZURE.NOTE] Changing the DEFAULT ACL on a parent does not affect the ACCESS ACL or DEFAULT ACL of child items that already exist.
+>[AZURE.NOTE] Changing the Default ACL on a parent does not affect the Access ACL or Default ACL of child items that already exist.
 
 ## Users and identities
 
@@ -286,7 +286,7 @@ No.
 
 ### Where can I learn more about POSIX access control model?
 
-* http://www.vanemery.com/Linux/ACL/POSIX_ACL_on_Linux.html
+* [http://www.vanemery.com/Linux/ACL/POSIX_ACL_on_Linux.html](http://www.vanemery.com/Linux/ACL/POSIX_ACL_on_Linux.html)
 
 * [HDFS Permission Guide](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html) 
 
