@@ -30,7 +30,7 @@ There are three main roles that you can assign a user:
 
 The following table illustrates the actions that can be performed by users in each of these roles:
 
-| Actions users in this role can perform | User                         | Owner | Contributor |
+| Actions users in this role can perform | DevTest Labs User            | Owner | Contributor |
 |---|---|---|---|
 | **Lab tasks**                          |                              |       |             |
 | Add users to a lab                     | No                           | Yes   | No          |
