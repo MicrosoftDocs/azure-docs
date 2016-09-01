@@ -176,7 +176,7 @@ The script references the parameters in the following files:
 
     You can also use the `dnsServers` array to specify the addresses of DNS servers required by your application.
 
-- **[virtualNetworkGateway-vpn.parameters.json][virtualNetworkGateway-vpn-parameters]**. This file contains the parameters used to create the network gateway for the VPN connection:
+- **[virtualNetworkGateway-vpn.parameters.json][virtualnetworkgateway-vpn-parameters]**. This file contains the parameters used to create the network gateway for the VPN connection:
 
     <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-hybrid-network-vpn-er/parameters/virtualNetworkGateway-vpn.parameters.json#L4-L33 -->
     ```json
@@ -219,7 +219,7 @@ The script references the parameters in the following files:
 
     The `localNetworkGateway` object specifies the public IP address of the on-premises VPN appliance (*40.50.60.70* in this example), and an array of internal address spaces for the on-premises side of the network.
 
-- **[virtualNetworkGateway-expressRoute.parameters.json][virtualNetworkGateway-expressRoute-parameters]**. This file contains the parameters used to create the network gateway for ExpressRoute:
+- **[virtualNetworkGateway-expressRoute.parameters.json][virtualnetworkgateway-expressroute-parameters]**. This file contains the parameters used to create the network gateway for ExpressRoute:
     <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-hybrid-network-vpn-er/parameters/virtualNetworkGateway-expressRoute.parameters.json#L4-L30 -->
     ```json
     "parameters": {
