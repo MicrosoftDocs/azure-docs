@@ -610,7 +610,7 @@ Information about Azure Resource Manager - ARM :
 [Azure Resource Manager overview](../resource-group-overview.md)
 
 Information about deploying Linux VMs via templates :
-[Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](../virtual-machines-linux-cli-deploy-templates.md)
+[Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](virtual-machines-linux-cli-deploy-templates.md)
 
 Comparison of deployment models between ARM and classic :
 [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../resource-manager-deployment-model.md)
