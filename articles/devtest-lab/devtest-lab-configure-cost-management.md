@@ -18,8 +18,6 @@
 
 # View the monthly estimated lab cost trend in Azure DevTest Labs
 
-## Overview
-
 The Cost Management feature of DevTest Labs helps you track the cost of your lab. 
 This article illustrates how to use the **Monthly Estimated Cost Trend** chart 
 to view the current calendar month's estimated cost-to-date as well as the projected end-of-month cost for the current calendar month. In this article, you learn how to view the monthly estimated cost trend chart in the Azure portal.
