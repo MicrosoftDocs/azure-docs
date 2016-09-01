@@ -36,7 +36,17 @@ First, we need to open the port we want.
 
     ![Azure container service load balancer probes](media/container-service-dcos-agents/add-probe.png)
 
-5. Fill out the probe form, including the protocol and port. Click OK
+5. Fill out the probe form, including the protocol and port. 
+
+    | Field | Description |
+    | ----- | ----------- |
+    | Name  | A descriptive name of the probe. |
+    | Port  | The port of the container to test. |
+    | Path  | (When in HTTP mode) The relative website path to probe. HTTPS not supported. |
+    | Interval | The amount of time between probe attempts, in seconds.
+    | Unhealthy threshold | Number of consecutive probe attempts before considering the container unhealthy. | 
+    
+    Click OK
 
 6. Back at the properties of the agent load balancer, click **Load balancing rules** and then **Add**.
 
