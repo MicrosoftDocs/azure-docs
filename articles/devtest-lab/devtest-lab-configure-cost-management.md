@@ -44,7 +44,7 @@ To view the Monthly Estimated Cost Trend chart, follow these steps:
 
     ![Cost chart](./media/devtest-lab-configure-cost-management/graph.png)
 
-The **Estimated cost** value is the current calendar month's estimated cost-to-date. The **Projected cost** is the estimated cost for the entire current calendar month, calculated using the lab cost for the previous 5 days.
+The **Estimated cost** value is the current calendar month's estimated cost-to-date. The **Projected cost** is the estimated cost for the entire current calendar month, calculated using the lab cost for the previous five days.
  
 The cost amounts are rounded up to the next whole number. For example: 
 
@@ -55,7 +55,7 @@ The cost amounts are rounded up to the next whole number. For example:
 As it states above the chart, the costs you see in the chart are *estimated* costs using [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) offer rates.
 Additionally, the following are *not* included in the cost calculation:
 
-- CSP and Dreamspark subscriptions are currently not supported as Azure DevTest Labs uses the [Azure billing APIs](../billing-usage-rate-card-overview.md) to calculate the lab cost, and the Azure billing APIs do not support CSP or Dreamspark subscriptions.
+- CSP and Dreamspark subscriptions are currently not supported as Azure DevTest Labs uses the [Azure billing APIs](../billing-usage-rate-card-overview.md) to calculate the lab cost, which do not support CSP or Dreamspark subscriptions.
 - Your offer rates. Currently, we are not able to use your offer rates (shown under your subscription) that you have negotiated with Microsoft or Microsoft partners. We are using Pay-As-You-Go rates.
 - Your taxes
 - Your discounts
