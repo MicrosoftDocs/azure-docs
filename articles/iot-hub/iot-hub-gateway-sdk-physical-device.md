@@ -93,39 +93,7 @@ To set up your Edison device and familiarize yourself with it, you should comple
 
 Before running the sample, you need to verify that your Edison board can connect to the SensorTag device.
 
-First you need to update the version of the BlueZ software on your Edison. Note that even if you already have version 5.37 installed you should complete the following steps to ensure that the installation is complete:
-
-1. Stop the currently running bluetooth daemon.
-    
-    ```
-    systemctl stop bluetooth
-    ```
-
-2. Download and extract the [source code](http://www.kernel.org/pub/linux/bluetooth/bluez-5.37.tar.xz) for BlueZ version 5.37.
-    
-    ```
-    wget http://www.kernel.org/pub/linux/bluetooth/bluez-5.37.tar.xz
-    tar -xvf bluez-5.37.tar.xz
-    cd bluez-5.37
-    ```
-
-3. Build and install BlueZ.
-    
-    ```
-    ./configure --disable-udev --disable-systemd --enable-experimental
-    make
-    make install
-    ```
-
-4. Change the *systemd* service configuration for bluetooth so that it points to the new bluetooth daemon by editing the file **/lib/systemd/system/bluetooth.service**. Replace the value of the  **ExecStart** attribute so that it looks like this:
-    
-    ```
-    ExecStart=/usr/local/libexec/bluetooth/bluetoothd -E
-    ```
-
-5. Reboot your Edison.
-
-Next you need to verify that your Edison can connect to the SensorTag device.
+First you need to verify that your Edison can connect to the SensorTag device.
 
 1. Unblock bluetooth on the Edison and check that the version number is **5.37**.
     
@@ -134,20 +102,22 @@ Next you need to verify that your Edison can connect to the SensorTag device.
     bluetoothctl --version
     ```
 
-2. Execute the **bluetoothctl** command. You should see output similar to:
+2. Execute the **bluetoothctl** command. You are now in an interactive bluetooth shell. 
+
+3. Enter the command **power on** to power up the bluetooth controller. You should see output similar to:
     
     ```
     [NEW] Controller 98:4F:EE:04:1F:DF edison [default]
     ```
 
-3. You are now in an interactive bluetooth shell. Enter the command **scan on** to scan for bluetooth devices. You should see output similar to:
+4. While still in the interactive bluetooth shell, enter the command **scan on** to scan for bluetooth devices. You should see output similar to:
     
     ```
     Discovery started
     [CHG] Controller 98:4F:EE:04:1F:DF Discovering: yes
     ```
 
-4. Make the SensorTag device discoverable by pressing the small button (the green LED should flash). The Edison should discover the SensorTag device:
+5. Make the SensorTag device discoverable by pressing the small button (the green LED should flash). The Edison should discover the SensorTag device:
     
     ```
     [NEW] Device A0:E6:F8:B5:F6:00 CC2650 SensorTag
@@ -157,14 +127,14 @@ Next you need to verify that your Edison can connect to the SensorTag device.
     
     In this example, you can see that the MAC address of the SensorTag device is **A0:E6:F8:B5:F6:00**.
 
-5. Turn off scanning by entering the **scan off** command.
+6. Turn off scanning by entering the **scan off** command.
     
     ```
     [CHG] Controller 98:4F:EE:04:1F:DF Discovering: no
     Discovery stopped
     ```
 
-6. Connect to your SensorTag device using its MAC address by entering **connect <MAC address>**. Note that the sample output below is abbreviated:
+7. Connect to your SensorTag device using its MAC address by entering **connect <MAC address>**. Note that the sample output below is abbreviated:
     
     ```
     Attempting to connect to A0:E6:F8:B5:F6:00
@@ -185,7 +155,7 @@ Next you need to verify that your Edison can connect to the SensorTag device.
     
     Note: You can list the GATT characteristics of the device again using the **list-attributes** command.
 
-7. You can now disconnect from the device using the **disconnect** command and then exit from the bluetooth shell using the **quit** command:
+8. You can now disconnect from the device using the **disconnect** command and then exit from the bluetooth shell using the **quit** command:
     
     ```
     Attempting to disconnect from A0:E6:F8:B5:F6:00
