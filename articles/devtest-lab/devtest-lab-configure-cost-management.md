@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Monthly estimated cost trend | Microsoft Azure"
-	description="Learn about the DevTest Labs monthly estimated cost trend chart."
+	pageTitle="View the monthly estimated lab cost trend in Azure DevTest Labs | Microsoft Azure"
+	description="Learn about the Azure DevTest Labs monthly estimated cost trend chart."
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2016"
+	ms.date="09/01/2016"
 	ms.author="tarcher"/>
 
-# Monthly estimated cost trend
+# View the monthly estimated lab cost trend in Azure DevTest Labs
 
 ## Overview
 
 The Cost Management feature of DevTest Labs helps you track the cost of your lab. 
 This article illustrates how to use the **Monthly Estimated Cost Trend** chart 
-to view the current calendar month's estimated cost-to-date as well as the projected end-of-month cost for the current calendar month.
+to view the current calendar month's estimated cost-to-date as well as the projected end-of-month cost for the current calendar month. In this article, you learn how to view the monthly estimated cost trend chart in the Azure portal.
 
 ## Viewing the Monthly Estimated Cost Trend chart
 
@@ -30,7 +30,7 @@ In order to view the Monthly Estimated Cost Trend chart, follow these steps:
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Select **Browse**, and then select **DevTest Labs** from the list.
+1. Select **More Services**, and then select **DevTest Labs** from the list.
 
 1. From the list of labs, select the desired lab.   
 
@@ -38,7 +38,7 @@ In order to view the Monthly Estimated Cost Trend chart, follow these steps:
 
 	![Settings](./media/devtest-lab-configure-cost-management/lab-blade-settings.png)
 
-1. On the lab's **Settings** blade, under **Cost Management**, select **Thresholds**.
+1. On the lab's **Settings** blade, under **Cost Management**, select **Lab cost trend**.
 
 	![Menu](./media/devtest-lab-configure-cost-management/menu.png)
  
