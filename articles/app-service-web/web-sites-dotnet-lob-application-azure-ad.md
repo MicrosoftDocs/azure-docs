@@ -299,7 +299,7 @@ highlighted changes:
 	add `AadPicker` later.	 
 	
 	>[AZURE.NOTE] You can just as well get `token` and `tenant` from the client side with `~/.auth/me`, but that would be an 
-	additional call. For example:
+	additional server call. For example:
 	>  
     >     $.ajax({
     >         dataType: "json",
