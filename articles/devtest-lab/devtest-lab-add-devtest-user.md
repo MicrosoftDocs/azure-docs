@@ -126,7 +126,33 @@ To add a DevTest Labs user to a lab, follow these steps:
 
 ## Add an external user to a lab
 
-Coming soon.
+An external user is someone who is not a member of your organization's Azure Active Directory, but has a Microsoft Account (MSA). The following steps guide you through adding an external user:
 
+1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+
+1. Select **More Services**, and then select **Subscriptions** from the list.
+
+1. Select the desired subscription.
+
+1. Select **Access** icon. 
+
+	![Access users](./media/devtest-lab-add-devtest-user/access-users.png)
+
+1. On the **Users** blade, select **Add**.
+
+	![Add user](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
+
+1. On the **Select a role** blade, select the desired role. The table at the beginning of this article lists the tasks that can be accomplished for each of the DevTest Labs User, Owner, and Contributor roles.
+
+1. On the **Add users** blade, enter the email address or name of the user you want to add in the role you specified. If the user can't be found, you get an error message explaining the issue. If the user is found, that user is listed under the **User** text box.
+
+1. Select the located user name.
+
+1. Select **Select**.
+
+1. Select **OK** to close the **Add access** blade.
+
+1. When you return to the **Users** blade, the user has been added.  
+ 
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
