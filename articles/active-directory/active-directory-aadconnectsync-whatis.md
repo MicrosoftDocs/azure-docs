@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -34,11 +34,11 @@ Topic | What it covers and when to read
 [Topologies for Azure AD Connect](active-directory-aadconnect-topologies.md) | Describes the different topologies and scenarios the sync engine supports.
 **Custom configuration** |
 [Running the installation wizard again](active-directory-aadconnectsync-installation-wizard.md) | Explains what options you have available when you run the Azure AD Connect installation wizard again.
+[Understanding Declarative Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md)| Describes the configuration model called declarative provisioning.
+[Understanding Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) | Describes the syntax for the expression language used in declarative provisioning.
 [Understanding the default configuration](active-directory-aadconnectsync-understanding-default-configuration.md)| Describes the out-of-box rules and the default configuration. Also describes how the rules work together for the out-of-box scenarios to work.
 [Understanding Users and Contacts](active-directory-aadconnectsync-understanding-users-and-contacts.md) | Continues on the previous topic and describes how the configuration for users and contacts works together, in particular in a multi-forest environment.
 [How to make a change to the default configuration](active-directory-aadconnectsync-change-the-configuration.md) | Walks you through how to make a common configuration change to attribute flows.
-[Understanding Declarative Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md)| Describes the configuration model called declarative provisioning.
-[Understanding Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) | Describes the syntax for the expression language used in declarative provisioning.
 [Best practices for changing the default configuration](active-directory-aadconnectsync-best-practices-changing-default-configuration.md) | Support limitations and for making changes to the out-of-box configuration.
 [Configure Filtering](active-directory-aadconnectsync-configure-filtering.md) | Describes the different options for how to limit which objects are being synchronized to Azure AD and step-by-step how to configure these options.
 **Features and scenarios** |
