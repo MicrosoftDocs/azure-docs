@@ -21,6 +21,7 @@
 > [AZURE.SELECTOR]
 - [Portal]( media-services-portal-live-passthrough-get-started.md)
 - [.NET]( media-services-dotnet-live-encode-with-onpremises-encoders.md)
+- [REST]( https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 ##Prerequisites
 
