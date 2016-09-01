@@ -25,7 +25,8 @@
 ### Differences Between Deploying to VM and VMSS
 
 The underlying template structure for VMSS is slightly different from a single VM. Specifically, a single VM deploys extensions under the "virtualMachines" node. There is an entry of type "extensions" where DSC is added to the template
-```json
+
+```
 "resources": [
           {
               "name": "Microsoft.Powershell.DSC",
@@ -63,8 +64,8 @@ The underlying template structure for VMSS is slightly different from a single V
 ```
 
 A VMSS node has a "properties" section with the "VirtualMachineProfile", "extensionProfile" attribute. DSC is added under "extensions"
-```json
 
+```
 "extensionProfile": {
             "extensions": [
                 {
