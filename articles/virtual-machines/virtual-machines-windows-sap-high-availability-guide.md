@@ -232,9 +232,9 @@
 [sap-ha-guide]:virtual-machines-windows-sap-high-availability-guide.md (SAP NetWeaver on Windows virtual machines (VMs) – High Availability Guide)
 [sap-ha-guide-1]:virtual-machines-windows-sap-high-availability-guide.md#217c5479-5595-4cd8-870d-15ab00d4f84c (Prerequisites)
 [sap-ha-guide-2]:virtual-machines-windows-sap-high-availability-guide.md#42b8f600-7ba3-4606-b8a5-53c4f026da08 (Resources)
-[sap-ha-guide-3]:virtual-machines-windows-sap-high-availability-guide.md#42156640c6-01cf-45a9-b225-4baa678b24f1 (Differences in SAP HA Between Azure Resource Manager (ARM) and Classical Deployment Model)
+[sap-ha-guide-3]:virtual-machines-windows-sap-high-availability-guide.md#42156640c6-01cf-45a9-b225-4baa678b24f1 (Differences in SAP HA Between Azure Resource Manager and Classical Deployment Model)
 [sap-ha-guide-3.1]:virtual-machines-windows-sap-high-availability-guide.md#f76af273-1993-4d83-b12d-65deeae23686 (Resource Groups)
-[sap-ha-guide-3.2]:virtual-machines-windows-sap-high-availability-guide.md#3e85fbe0-84b1-4892-87af-d9b65ff91860 (Clustering with Azure Resource Manager (ARM) compared to Classical Deployment Model)
+[sap-ha-guide-3.2]:virtual-machines-windows-sap-high-availability-guide.md#3e85fbe0-84b1-4892-87af-d9b65ff91860 (Clustering with Azure Resource Manager compared to Classical Deployment Model)
 [sap-ha-guide-4]:virtual-machines-windows-sap-high-availability-guide.md#8ecf3ba0-67c0-4495-9c14-feec1a2255b7 (Windows Server Failover Clustering (WSFC))
 [sap-ha-guide-4.1]:virtual-machines-windows-sap-high-availability-guide.md#1a3c5408-b168-46d6-99f5-4219ad1b1ff2 (Quorum Modes)
 [sap-ha-guide-5]:virtual-machines-windows-sap-high-availability-guide.md#fdfee875-6e66-483a-a343-14bbaee33275 (Windows Failover Cluster on premises)
@@ -431,13 +431,13 @@
 Microsoft Azure enables companies to acquire compute, storage and network resources in minimal time without lengthy procurement cycles. Azure Virtual Machines allow companies to deploy classical applications, like SAP NetWeaver based applications (ABAP, Java and ABAP+Java stack) into Azure, and extend their reliability and availability without having further resources available on premises. Azure Virtual Machines also support cross-premises connectivity, which enables companies to actively integrate Azure Virtual Machines into their on-premises domains, their Private Clouds and their SAP System Landscape. 
 
 
-This document details all of the steps needed to deploy highly available SAP systems in Azure using our new method with new Azure Resource Manager (ARM) deployment model. The guide will walk you through the major steps: 
+This document details all of the steps needed to deploy highly available SAP systems in Azure using our new method with new Azure Resource Manager deployment model. The guide will walk you through the major steps: 
 
 
 - Finding the appropriate SAP installation guides and Notes, that are listed later in the section titled  [Resources][sap-ha-guide-2].  
   The paper complements the SAP Installation Documentation and SAP Notes which represent the primary resources for installations and deployments of SAP software on given platforms.
 
-- Understanding the difference between the current Azure Classical deployment model and this new one Azure Resource Manager (ARM) deployment model.
+- Understanding the difference between the current Azure Classical deployment model and this new one Azure Resource Manager deployment model.
 
 - Understanding Windows Server Failover Cluster (WSFC) quorum modes, so you can select the model appropriate for your Azure deployment
 
@@ -445,12 +445,12 @@ This document details all of the steps needed to deploy highly available SAP sys
 
 - Understanding how SAP single point of failure components like the SAP ASCS/SCS and  DBMS , and redundant components like SAP application servers can be protected in Azure
 
-- Step-by-step approach how to install and configure a high available (HA) SAP system in a Windows Failover Cluster (WSFC) using Microsoft Azure as a platform and the new Azure Resource Manager (ARM).
+- Step-by-step approach how to install and configure a high available (HA) SAP system in a Windows Failover Cluster (WSFC) using Microsoft Azure as a platform and the new Azure Resource Manager.
 
 - Additional steps needed for WSFC in Azure which are no needed in on-premise deployments
 
 
-To simplify the deployment and configuration, we are using the new SAP 3 tier HA ARM templates, that automates deployment of the complete infrastructure needed for highly available SAP system and that supports desired SAPS sizing of your SAP system. 
+To simplify the deployment and configuration, we are using the new SAP 3 tier HA Azure Resource Manager templates, that automates deployment of the complete infrastructure needed for highly available SAP system and that supports desired SAPS sizing of your SAP system. 
 
 [AZURE.INCLUDE [windows-warning](../../includes/virtual-machines-linux-sap-warning.md)]
 
@@ -458,10 +458,10 @@ To simplify the deployment and configuration, we are using the new SAP 3 tier HA
 
 Before you start, please make sure that the prerequisites that are the described in the following chapters are met and that you checked all resources listed in resources chapter. 
 
-We are using Azure ARM templates for 3-tier SAP NetWeaver:   
+We are using Azure Azure Resource Manager templates for 3-tier SAP NetWeaver:   
 [https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image/)
 
-An overview of SAP ARM templates is given here:   
+An overview of SAP Azure Resource Manager templates is given here:   
 [https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/)
 
 
@@ -491,22 +491,22 @@ The following SAP Notes are related to the topic of SAP on Azure:
 
 General default limitations and maximum limitations of Azure subscriptions can be found in [this article][azure-subscription-service-limits-subscription].
 
-##  <a name="42156640c6-01cf-45a9-b225-4baa678b24f1"></a> Differences in SAP HA Between Azure Resource Manager (ARM) and Classical Deployment Model 
+##  <a name="42156640c6-01cf-45a9-b225-4baa678b24f1"></a> Differences in SAP HA Between Azure Resource Manager and Classical Deployment Model 
 
 > [AZURE.NOTE] Classical deployment model is also known as Azure Service Management (ASM) model. 
 
 ### <a name="f76af273-1993-4d83-b12d-65deeae23686"></a> Resource Groups
 Resource groups are a new concept that contain all resources that have the same lifecycle, e.g. they are created and deleted at the same time. Read this article  for more information about resource groups.
 
-### <a name="3e85fbe0-84b1-4892-87af-d9b65ff91860"></a> Clustering with Azure Resource Manager (ARM) compared to Classical Deployment Model 
+### <a name="3e85fbe0-84b1-4892-87af-d9b65ff91860"></a> Clustering with Azure Resource Manager compared to Classical Deployment Model 
 
-The new Azure ARM model is offering the following changes in comparison to the classical deployment model for HA:
+The new Azure Azure Resource Manager model is offering the following changes in comparison to the classical deployment model for HA:
 
 - There is no need to have a cloud service to use an Azure Internal Load Balancer (ILB)
 
 If you still want to use the old Azure classical model, you need to follow the procedure as described in the paper [SAP NetWeaver on Azure - Clustering SAP ASCS/SCS Instances using Windows Server Failover Cluster on Azure with SIOS DataKeeper](http://go.microsoft.com/fwlink/?LinkId=613056). 
 
-> [AZURE.NOTE] It is strongly recommended to use the new Azure ARM deployment model for your SAP installations, as it is offering many benefits in comparison to the classical deployment model.   
+> [AZURE.NOTE] It is strongly recommended to use the new Azure Resource Manager deployment model for your SAP installations, as it is offering many benefits in comparison to the classical deployment model.   
 More information can be found in [this article][virtual-machines-azure-resource-manager-architecture-benefits-arm].   
 
 
@@ -666,22 +666,22 @@ _**Figure 8:** SAP HA Architectural Template 1 – with dedicated cluster for AS
 
 ## <a name="78092dbe-165b-454c-92f5-4972bdbef9bf"></a> Infrastructure Preparation
 
-In order to simplify the deployment of the required resources for SAP, we developed Azure ARM templates for SAP. 
+In order to simplify the deployment of the required resources for SAP, we developed Azure Resource Manager templates for SAP. 
 
 These 3-tier templates support also high availability scenarios e.g.:
 
 - **Architectural Template 1** – with two cluster, each cluster for SAP Single Points of Failures of SAP ASCS/SCS and DBMS
 
-ARM templates for Scenario 1 are available here:
+Azure Resource Manager templates for Scenario 1 are available here:
 
 - Azure Marketplace image: [https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image)  
 - Custom image: [https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image)
 
 When you click on the SAP 3 tier marketplace image, you will get following UI in Azure portal:
 
-![Figure 9: Specifying SAP HA ARM parameters][sap-ha-guide-figure-3000]
+![Figure 9: Specifying SAP HA Azure Resource Manager parameters][sap-ha-guide-figure-3000]
 
-_**Figure 9:** Specifying SAP HA ARM parameters_
+_**Figure 9:** Specifying SAP HA Azure Resource Manager parameters_
 
 
 Makes sure to choose **HA** for the SYSTEMAVAILABILITY option.
@@ -752,7 +752,7 @@ This deployment is appropriate mostly for the demo use case, but not for product
 
 In the field NEWOREXISTINGSUBNET choose _**new**_. Leave the SUBNETID field **empty**. 
 
-The Azure VNET and subnet will be created automatically by the SAP Azure ARM template. 
+The Azure VNET and subnet will be created automatically by the SAP Azure Resource Manager template. 
 
 > [AZURE.NOTE] In addition, you need to deploy at least one dedicated VM for AD/DNS in the same VNET. These VMs are not created by the template.
 
@@ -840,7 +840,7 @@ In our example we have following VMs and static IP addresses:
 
 ### <a name="7a8f3e9b-0624-4051-9e41-b73fff816a9e"></a> Setup Static IP-Address for Internal Load Balancer (ILB)
 
-The SAP Azure ARM template creates an Azure Internal Load Balancer (ILB) used for the SAP ASCS / SCS instance cluster and for the DBMS cluster. 
+The SAP Azure Resource Manager template creates an Azure Internal Load Balancer (ILB) used for the SAP ASCS / SCS instance cluster and for the DBMS cluster. 
 
 The initial deployment sets the ILB IP address to **Dynamic**. It is important to change the IP address to **Static**. 
 
@@ -866,7 +866,7 @@ In the same way, set the IP address of the Load Balancer _pr1-lb-dbms_ to the IP
 
 ### <a name="f19bd997-154d-4583-a46e-7f5a69d0153c"></a> Default ASCS/SCS Load Balancing Rules for Azure Internal Load Balancer (ILB)
 
-By default, the SAP Azure ARM template creates all needed ports for:
+By default, the SAP Azure Resource Manager template creates all needed ports for:
 
 - ABAP ASCS instance with default instance number **00**
 - Java SCS instance with default instance number **01**
@@ -1340,7 +1340,7 @@ Get-ClusterResource „SAP PR1 IP" | Get-ClusterParameter
 
 _**Figure 56:** Probe port of Cluster configuration is 0 by default_
 
-By default, the probe port number is set to 0. In order to make the configuration work, a port needs to be defined. In our case we have to use probe port _**62300**_, as this port number is defined in the SAP ARM templates. Assigning that port number can be done with the two commands below:
+By default, the probe port number is set to 0. In order to make the configuration work, a port needs to be defined. In our case we have to use probe port _**62300**_, as this port number is defined in the SAP Azure Resource Manager templates. Assigning that port number can be done with the two commands below:
 
 First get the SAP virtual host name cluster resource _**SAP WAC IP**_
 
