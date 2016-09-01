@@ -13,10 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
- 	ms.date="08/19/2016"  
+ 	ms.date="08/31/2016"  
 	ms.author="cenkdin;juliako"/>
 
 #How to perform live streaming with on-premise encoders using .NET
+
+> [AZURE.SELECTOR]
+- [Portal]( media-services-portal-live-passthrough-get-started.md)
+- [.NET]( media-services-dotnet-live-encode-with-onpremises-encoders.md)
+- [REST]( https://msdn.microsoft.com/library/azure/dn783458.aspx)
+
+This tutorial walks you through the steps of using the Azure Media Services .NET SDK to create a **Channel** that is configured for a pass-through delivery. 
+
 
 ##Prerequisites
 

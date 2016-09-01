@@ -51,14 +51,16 @@ You can enable Diagnostic Logs in the Azure portal when you create some resource
 
 1.	Go to **New** and choose the resource you are interested in.
 2.	After configuring the basic settings and selecting a size, in the **Settings** blade, under **Monitoring**, select **Enabled** and choose a storage account where you would like to store the Diagnostic Logs. You are charged normal data rates for storage and transactions when you send diagnostics to a storage account.
-![Enable Diagnostic Logs during resource creation](./media/monitoring-overview-of-diagnostic-logs/enable-portal-new.png)
+
+    ![Enable Diagnostic Logs during resource creation](./media/monitoring-overview-of-diagnostic-logs/enable-portal-new.png)
 3.	Click **OK** and create the resource.
 
 To enable Diagnostic Logs in the Azure portal after a resource has been created, do the following:
 
 1.	Go to the blade for the resource and open the **Diagnostics** blade.
 2.	Click **On** and pick a Storage Account and/or Event Hub.
-![Enable Diagnostic Logs after resource creation](./media/monitoring-overview-of-diagnostic-logs/enable-portal-existing.png)
+
+    ![Enable Diagnostic Logs after resource creation](./media/monitoring-overview-of-diagnostic-logs/enable-portal-existing.png)
 3.	Under **Logs**, select which **Log Categories** you would like to collect or stream.
 4.	Click **Save**.
 
@@ -93,7 +95,7 @@ The Service Bus Rule ID is a string with this format: `{service bus resource ID}
 
 To change Diagnostic Settings using the Insights REST API, see [this document](https://msdn.microsoft.com/library/azure/dn931931.aspx).
 
-## Supported Services and Schema for Diagnostic Logs
+## Supported services and schema for Diagnostic Logs
 The schema for Diagnostic Logs varies depending on the resource and log category. Below are the supported services and their schema.
 
 | Service                       | Schema & Docs                                                                                                   |
@@ -106,6 +108,31 @@ The schema for Diagnostic Logs varies depending on the resource and log category
 |    Data Lake Store            |    [Accessing diagnostic logs for Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
 |    Data Lake Analytics        |    [Accessing diagnostic logs for Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 |    Logic Apps                 |    No schema available.                                                                                         |
+|    Azure Batch                |    No schema available.                                                                                         |
+|    Azure Automation           |    No schema available.                                                                                         |
+
+## Supported log categories per resource type
+
+|Resource Type|Category|Category Display Name|
+|---|---|---|
+|Microsoft.Automation/automationAccounts|JobLogs|Job Logs|
+|Microsoft.Automation/automationAccounts|JobStreams|Job Streams|
+|Microsoft.Batch/batchAccounts|ServiceLog|Service Logs|
+|Microsoft.DataLakeAnalytics/accounts|Audit|Audit Logs|
+|Microsoft.DataLakeAnalytics/accounts|Requests|Request Logs|
+|Microsoft.DataLakeStore/accounts|Audit|Audit Logs|
+|Microsoft.DataLakeStore/accounts|Requests|Request Logs|
+|Microsoft.KeyVault/vaults|AuditEvent|Audit Logs|
+|Microsoft.Logic/workflows|WorkflowRuntime|Workflow runtime diagnostic events|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Network Security Group Event|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Network Security Group Rule Counter|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Network Security Group Rule Flow Event|
+|Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Load Balancer Alert Events|
+|Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Load Balancer Probe Health Status|
+|Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Application Gateway Access Log|
+|Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Application Gateway Performance Log|
+|Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Application Gateway Firewall Log|
+|Microsoft.Search/searchServices|OperationLogs|Operation Logs|
 
 ## Next Steps
 - [Stream Diagnostic Logs to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md)

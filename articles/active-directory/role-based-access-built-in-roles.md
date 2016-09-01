@@ -34,7 +34,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 | [BizTalk Contributor](#biztalk-contributor) | Can manage BizTalk services |
 | [ClearDB MySQL DB Contributor](#cleardb-mysql-db-contributor) | Can manage ClearDB MySQL databases |
 | [Contributor](#contributor) | Can manage everything except access. |
-| [Data Factory Contributor](#data-factory-contributor) | Can manage data factories |
+| [Data Factory Contributor](#data-factory-contributor) | Can create and manage data factories, and child resources within them. |
 | [DevTest Labs User](#devtest-labs-user) | Can view everything and connect, start, restart, and shutdown virtual machines |
 | [DocumentDB Account Contributor](#documentdb-account-contributor) | Can manage DocumentDB accounts |
 | [Intelligent Systems Account Contributor](#intelligent-systems-account-contributor) | Can manage Intelligent Systems accounts |
@@ -151,12 +151,12 @@ Can manage everything except access
 | Microsoft.Authorization/*/Write | Can’t create roles and role assignments |
 
 ### Data Factory Contributor
-Can manage data factories
+Create and manage data factories, and child resources within them.
 
 | **Actions** ||
 | ------- | ------ |
 | Microsoft.Authorization/*/read | Read roles and role Assignments |
-| Microsoft.DataFactory/dataFactories/* | Manage data factories |
+| Microsoft.DataFactory/dataFactories/* | Create and manage data factories, and child resources within them. |
 | Microsoft.Insights/alertRules/* | Create and manage alert rules |
 | Microsoft.ResourceHealth/availabilityStatuses/read | Read health of the resources |
 | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
