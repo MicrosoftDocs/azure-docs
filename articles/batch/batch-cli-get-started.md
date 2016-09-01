@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="big-compute"
-   ms.date="08/31/2016"
+   ms.date="09/02/2016"
    ms.author="marsma"/>
 
 # Get started with Azure Batch CLI
@@ -50,11 +50,11 @@ When in doubt, use the `-h` command line option to get help on any Azure CLI com
 
 * Example:
 
-  ```azure batch account create --location "West US"  --resource-group "resgroup001" "batchaccount001"```
+	azure batch account create --location "West US"  --resource-group "resgroup001" "batchaccount001"
 
 Creates a new Batch account with the specified parameters. You must specify at least a location, resource group, and account name. If you don't already have a resource group, create one by running the `azure group create` command, specifying one of the Azure regions (such as "West US") for the `--location` option. For example:
 
-`azure group create --name "resgroup001" --location "West US"`
+	azure group create --name "resgroup001" --location "West US"
 
 > [AZURE.NOTE] The Batch account name must be unique to the Azure region for the resource group, contain between 3 and 24 characters, and use lowercase letters and numbers only. You cannot use special characters like `-` or `_` in Batch account names.
 
@@ -66,7 +66,7 @@ To link an existing Azure Storage account to a new Batch account when you create
 
 First, show your storage account's details:
 
-`azure storage account show --resource-group "resgroup001" "storageaccount001"`
+    azure storage account show --resource-group "resgroup001" "storageaccount001"
 
 Then use the **Url** value for the `--autostorage-account-id` option. The Url value starts with "/subscriptions/" and contains your subscription ID and resource path to the account:
 
@@ -76,11 +76,11 @@ Then use the **Url** value for the `--autostorage-account-id` option. The Url va
 
 * Usage:
 
-  `azure batch account delete [options] <name>`
+    azure batch account delete [options] <name>
 
 * Example:
 
-  `azure batch account delete --resource-group "resgroup001" "batchaccount001"`
+	azure batch account delete --resource-group "resgroup001" "batchaccount001"
 
 Deletes the specified Batch account. When prompted, confirm you want to remove the account. Note that account removal can take some time to complete.
 
@@ -90,11 +90,11 @@ Deletes the specified Batch account. When prompted, confirm you want to remove t
 
 * Usage:
 
-  `azure batch account keys list [options] <name>`
+  azure batch account keys list [options] <name>
 
 * Example:
 
-  `azure batch account keys list --resource-group "resgroup001" "batchaccount001"`
+	azure batch account keys list --resource-group "resgroup001" "batchaccount001"
 
 Lists the account keys for the given Batch account.
 
@@ -106,45 +106,53 @@ Lists the account keys for the given Batch account.
 
 * Example:
 
-  ```azure batch account keys renew --resource-group "resgroup001" --primary "batchaccount001"```
+	azure batch account keys renew --resource-group "resgroup001" --primary "batchaccount001"
 
 Lists the account keys for the given Batch account.
 
 ## Create and modify Batch resources
 
-You can create, read, update, and delete (CRUD) Batch resources like pools, compute nodes, jobs, and tasks by using the Azure CLI. These operations require your Batch account name, access key, and endpoint (specified as the `-a`, `-k`, and `-u` options, repectively).
+You can create, read, update, and delete (CRUD) Batch resources like pools, compute nodes, jobs, and tasks by using the Azure CLI. These CRUD operations require your Batch account name, access key, and endpoint. You can specify these with the `-a`, `-k`, and `-u` options, or set [environment variables](#credential-environment-variables) which the CLI will use automatically.
 
 ### Credential environment variables
 
-You can set the `AZURE_BATCH_ACCOUNT`, `AZURE_BATCH_ACCESS_KEY`, and `AZURE_BATCH_ENDPOINT` environment variables instead of specifying the `-a`, `-k`, and `-u` options on the command line with each command.
+You can set `AZURE_BATCH_ACCOUNT`, `AZURE_BATCH_ACCESS_KEY`, and `AZURE_BATCH_ENDPOINT` environment variables instead of specifying `-a`, `-k`, and `-u` options on the command line for every command you execute. The Batch CLI uses these variables (if set) so that you can omit the `-a`, `-k`, and `-u` options. The remainder of this article assumes use of these environment variables.
 
-The remainder of the examples in the article assume that you've set the `AZURE_BATCH_ACCOUNT`, `AZURE_BATCH_ACCESS_KEY`, and `AZURE_BATCH_ENDPOINT` environment variables appropriate for your account, and the `-a`, `-k`, and `-u` options are ommitted.
+>[AZURE.TIP] List your keys with `azure batch account keys list`, and display the account's endpoint with `azure batch account show`.
 
->[AZURE.TIP] List your keys with `azure batch account keys list`, and find your endpoint with `azure batch account show`.
+### JSON files
+
+When you create Batch resources like pools and jobs, you can specify a JSON file containing the new resource's configuration instead of passing its parameters as command-line options. For example:
+
+`batch pool create my_batch_pool.json`
+
+While you can perform many resource creation operations using only command-line options, some features require a JSON-formatted file containing the resource details. For example, you must use a JSON file if you want to specify resource files for a start task.
+
+To find the JSON required to create a resource, refer to the [Batch REST API reference][rest_api] documentation on MSDN. Each "Add *resource type*" topic contains example JSON for creating the resource, which you can use as templates for your JSON files. For example, JSON for pool creation can be found in [Add a pool to an account][rest_add_pool].
 
 ## Create a pool
 
 * Usage:
 
-  `batch pool create [options] [json-file]`
+    batch pool create [options] [json-file]
 
 * Examples:
 
-  Cloud Services Configuration (PaaS, Windows only)
+  * Cloud Services Configuration (PaaS, Windows only)
 
-  ```azure batch pool create --id "pool1" --target-dedicated 1 --vm-size "small" --os-family "4"```
+	azure batch pool create --id "pool1" --target-dedicated 1 --vm-size "small" --os-family "4"
 
-  Virtual Machine Configuration (IaaS, Linux and Windows)
+  * Virtual Machine Configuration (IaaS, Linux and Windows)
 
     azure batch pool create --id "pool2" --target-dedicated 1 --vm-size "STANDARD_A1" --image-publisher "Canonical" --image-offer "UbuntuServer" --image-sku "14.04.2-LTS" --node-agent-id "batch.node.ubuntu 14.04"
 
-Creates a pool of compute nodes in the Batch service.
+Creates a pool of compute nodes in the Batch service. As mentioned in the [Batch feature overview](batch-api-basics.md#pool), you have two options when you select an operating system for the nodes in your pool: **Virtual Machine Configuration** and **Cloud Services Configuration**. The `--os-family` and `--image-*` options are mutually exclusive. If you specify an OS family, you create a Cloud Services Configuration pool, and the `--image-*` options are valid only for Virtual Machine Configuration pools. You cannot specify both `--os-family` and `--image-*` options.
 
-When creating or updating a Batch pool, you select a Cloud Services Configuration or a Virtual Machine configuration for the operating system on the compute nodes (see [Batch feature overview](batch-api-basics.md#pool)). Your choice determines whether your compute nodes are imaged with one of the [Azure Guest OS releases](../cloud-services/cloud-services-guestos-update-matrix.md#releases) or with one of the supported Linux or Windows VM images in the Azure Marketplace.
+You can also specify pool [application packages](batch-application-packages.md) and the command line for a [start task](batch-api-basics.md#start-task).
 
-## Query for pools, jobs, tasks, and other details
+## List pools, jobs, tasks, and other Batch resources
 
-Use cmdlets such as **Get-AzureBatchPool**, **Get-AzureBatchJob**, and **Get-AzureBatchTask** to query for entities created under a Batch account.
+Each Batch resource type supports the `list` command which displays query for entities created under a Batch account.
 
 ### Query for data
 
@@ -190,3 +198,6 @@ Batch cmdlets can leverage the PowerShell pipeline to send data between cmdlets.
 * For detailed cmdlet syntax and examples, see [Azure Batch cmdlet reference](https://msdn.microsoft.com/library/azure/mt125957.aspx).
 
 * See [Query the Batch service efficiently](batch-efficient-list-queries.md) for more about reducing the number of items and the type of information that is returned for queries to Batch.
+
+[rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx
+[rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
