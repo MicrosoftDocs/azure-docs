@@ -157,8 +157,8 @@ The relevant .NET managed API references for push notifications are located here
 + [Microsoft.ServiceBus.Notifications]
 
 
-  [0]: ./media/notification-hubs-push-notification-overview/registration-diagram.png
-  [1]: ./media/notification-hubs-push-notification-overview/notification-hub-diagram.png
+  [0]: ./media/notification-hubs-overview/registration-diagram.png
+  [1]: ./media/notification-hubs-overview/notification-hub-diagram.png
   [How customers are using Notification Hubs]: http://azure.microsoft.com/services/notification-hubs
   [Notification Hubs tutorials and guides]: http://azure.microsoft.com/documentation/services/notification-hubs
   [iOS]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started
