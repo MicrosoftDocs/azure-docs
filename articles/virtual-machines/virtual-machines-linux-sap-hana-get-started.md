@@ -46,11 +46,6 @@ These were the two test VMs used for the sample installation :
 * both VMs belonged to one Azure virtual network ( azure-hana-test-vnet )
 * OS in both cases was SLES 12 SP1
 
-Here are two screenshots from the Azure portal to show the two test VMs :
-
-![](./media/virtual-machines-linux-sap-hana-get-started/image000a.jpg)
-
-![](./media/virtual-machines-linux-sap-hana-get-started/image000b.jpg)
 
 Be aware of the fact though that as of July 2016 SAP HANA is only fully supported for
 OLAP ( BW ) production systems on Azure VM type GS5. For testing purposes where one is
@@ -156,7 +151,22 @@ additional disk space to a VM for running SAP. In the case of a SAP app server V
 prototype/demo environment it's fine to use Azure standard storage disks. Whereas for the SAP 
 HANA DB data and log files - Azure Premium storage disks should be used even in a non-production landscape.
 
+See some details about how to attach disks to a Linux VM [here](virtual-machines-linux-add-disk.md)
+
+When it comes to Azure disk caching - one must use "None" for disks which will be used to store the
+HANA transaction logs. For HANA data files it's ok to use read caching. As HANA is an in-memory
+database it depends on the overall usage pattern how much the read cache on Azure disk level will
+improve performance ( e.g. starting HANA and reading data from disk into memory ).
+
 See details about Azure Premium Storage [here](../storage/storage-premium-storage.md)
+
+[Here](https://github.com/Azure/azure-quickstart-templates) you find sample json templates to create VMs.
+The "101-vm-simple-linux" shows how a basic template looks like including the storage section which adds
+a 100GB data disk.
+
+[This article](virtual-machines-linux-sap-on-suse-quickstart.md) includes some information about
+how to find a SUSE image via Powershell or CLI and the importance to attach a disk via UUID.
+
 
 Depending on the size of the system and throughput requirements it might be necessary to attach multiple
 disks instead of one and later on create a stripe set across those disks on OS level. These are the two
@@ -598,6 +608,9 @@ Key Monitoring Metrics for SAP on Microsoft Azure :
 
 Information about Azure Resource Manager - ARM :
 [Azure Resource Manager overview](../resource-group-overview.md)
+
+Information about deploying Linux VMs via templates :
+[Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](../virtual-machines-linux-cli-deploy-templates.md)
 
 Comparison of deployment models between ARM and classic :
 [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../resource-manager-deployment-model.md)
