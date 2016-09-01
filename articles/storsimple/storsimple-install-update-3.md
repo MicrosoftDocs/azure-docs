@@ -21,7 +21,7 @@
 
 This tutorial explains how to install Update 3 on a StorSimple device running an earlier software version via the Azure classic portal and using the hotfix method. The hotfix method is used when a gateway is configured on a network interface other than DATA 0 of the StorSimple device and you are trying to update from a pre-Update 1 software version.
 
-Update 3 includes device software, LSI driver and firmware, Storport and Spaceport updates. If updating from a pre-Update 2 version, you will also be required to apply iSCSI, WMI, and disk firmware updates. The device software, WMI, iSCSI, LSI driver, Spaceport, and Storport fixes are non-disruptive updates and can be applied via the Azure classic portal. The disk firmware updates are disruptive updates and can only be applied via the Windows PowerShell interface of the device. 
+Update 3 includes device software, LSI driver and firmware, Storport and Spaceport updates. If updating from Update 2 or an earlier version, you will also be required to apply iSCSI, WMI, and in certain cases, disk firmware updates. The device software, WMI, iSCSI, LSI driver, Spaceport, and Storport fixes are non-disruptive updates and can be applied via the Azure classic portal. The disk firmware updates are disruptive updates and can only be applied via the Windows PowerShell interface of the device. 
 
 > [AZURE.IMPORTANT]
 
@@ -33,7 +33,7 @@ Update 3 includes device software, LSI driver and firmware, Storport and Spacepo
 
 ## Install Update 3 via the Azure classic portal
 
-Perform the following steps to update your device to [Update 3](storsimple-update21-release-notes.md).
+Perform the following steps to update your device to [Update 3](storsimple-update3-release-notes.md).
 
 
 > [AZURE.NOTE]
@@ -47,7 +47,7 @@ If you are applying Update 2 or later (including Update 2.1), Microsoft will be 
 
     Maintenance mode updates are disruptive updates that result in device downtime and can only be applied via the Windows PowerShell interface of your device. In some cases when you are running Update 1.2, your disk firmware might already be up-to-date, in which case you don't need to install any maintenance mode updates.
 
-	If you are updating from Update 2, your device should now be up-to-date. You can skip the remaining steps.
+	If you are updating from Update 2 or later, your device should now be up-to-date. You can skip the remaining steps.
 
 13. Download the maintenance mode updates by using the steps listed in [to download hotfixes](#to-download-hotfixes) to search for and download KB3121899, which installs disk firmware updates (the other updates should already be installed by now).
 
@@ -89,15 +89,17 @@ The hotfix method involves the following three steps:
 &#42;  *Note, software update consists of two binary files: device software update prefaced with `all-hcsmdssoftwareupdate` and the Cis and Mds agent prefaced with `all-cismdsagentupdatebundle`. The device software update must be installed before the Cis and Mds agent. You must also restart the active controller via the `Restart-HcsController` cmdlet after you apply the Cis and MDS agent update (and before applying the remaining updates).* 
 
 
-**If your device is running Update 0.1, 0.2, 0.3, 1.0, 1.1, 1.2, or 2.0**, you must download and install the following hotfixes in addition to the software and LSI driver and firmware updates, in the prescribed order:
+**If your device is running Update 0.1, 0.2, 0.3, 1.0, 1.1, 1.2, or 2.0**, you must download and install the following hotfixes in addition to the software, LSI driver and firmware updates (shown in the preceding table), in the prescribed order:
 
+| Order  | KB        | Description                    | Update type  | Install time |
+|--------|-----------|-------------------------|------------- |-------------|
 | 4.      | KB3146621 | iSCSI package | Regular <br></br>Non-disruptive  | ~ 20 mins |
 | 5.      | KB3103616 | WMI package |  Regular <br></br>Non-disruptive      | ~ 12 mins |
 
 
 <br></br>
 
-**If your device is running versions 0.2, 0.3, 1.0, 1.1, and 1.2**, you may also need to install disk firmware updates. You can verify whether you need the disk firmware updates by running the `Get-HcsFirmwareVersion` cmdlet. If you are running these firmware versions: `XMGG`, `XGEG`, `KZ50`, `F6C2`, `VR08`, then you do not need to install these updates.
+**If your device is running versions 0.2, 0.3, 1.0, 1.1, and 1.2**, you may also need to install disk firmware updates on top of all the updates shown in the preceding tables. You can verify whether you need the disk firmware updates by running the `Get-HcsFirmwareVersion` cmdlet. If you are running these firmware versions: `XMGG`, `XGEG`, `KZ50`, `F6C2`, `VR08`, then you do not need to install these updates.
 
 
 | Order  | KB        | Description                    | Update type  | Install time |
@@ -114,7 +116,7 @@ The hotfix method involves the following three steps:
 
 Perform the following steps to download and install the hotfixes.
 
-[AZURE.INCLUDE [storsimple-install-update21-hotfix](../../includes/storsimple-install-update21-hotfix.md)]
+[AZURE.INCLUDE [storsimple-install-update3-hotfix](../../includes/storsimple-install-update21-hotfix.md)]
 
 [AZURE.INCLUDE [storsimple-install-troubleshooting](../../includes/storsimple-install-troubleshooting.md)]
 
