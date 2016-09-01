@@ -55,11 +55,9 @@ Cached datasets can be used in Preview.  However, you cannot refresh cached data
 
 ## Authentication and authorization with app tokens
 
-**Microsoft Power BI Embedded** defers to your application to perform all the necessary user authentication and authorization. There is no explicit requirement that your end-users be customers of Azure Active Directory (Azure AD).  Instead, your application will express authorization to render a Power BI report to the **Microsoft Power BI Embedded** via **Application Authentication Tokens (App Tokens)**.  These **App Tokens** are created as needed when your app wants to render a report.  See [App Tokens](power-bi-embedded-get-started-sample.md#key-flow).
+**Microsoft Power BI Embedded** defers to your application to perform all the necessary user authentication and authorization. There is no explicit requirement that your end users be customers of Azure Active Directory (Azure AD).  Instead, your application expresses to **Microsoft Power BI Embedded** authorization to render a Power BI report by using **Application Authentication Tokens (App Tokens)**.  These **App Tokens** are created as needed when your app wants to render a report.  See [App Tokens](power-bi-embedded-get-started-sample.md#key-flow).
 
 ![](media\powerbi-embedded-whats-is\app-tokens.png)
-
-### Application Authentication Tokens
 
 **Application Authentication Tokens (App Tokens)** are used to authenticate against **Microsoft Power BI Embedded**.  There are three types of **App Tokens**:
 
@@ -67,18 +65,7 @@ Cached datasets can be used in Preview.  However, you cannot refresh cached data
 2.	Development Tokens - Used when making calls directly to the **Power BI REST APIs**
 3.	Embedding Tokens - Used when making calls to render a report in the embedded iframe
 
-These tokens are used for the various phases of your interactions with **Microsoft Power BI Embedded**.  The tokens are designed so that you can delegate permissions from your app to Power BI.
-
-### Generating App Tokens
-
-The SDKs provided for the Preview let you generate tokens. First, call one of the Create___Token() methods. Second, call the Generate() method with the access key retrieved from the **Workspace Collection**. The basic Create methods for tokens are defined in the Microsoft.PowerBI.Security.PowerBIToken class, and are as follows:
-
--	[CreateProvisionToken](https://msdn.microsoft.com/library/mt670218.aspx)
--	[CreateDevToken](https://msdn.microsoft.com/library/mt670215.aspx)
--	[CreateReportEmbedToken]( https://msdn.microsoft.com/library/mt710366.aspx)
-
-For an example of how to use [CreateProvisionToken](https://msdn.microsoft.com/library/mt670218.aspx) and [CreateDevToken](https://msdn.microsoft.com/library/mt670215.aspx), see [Get started with Microsoft Power BI Embedded sample code](power-bi-embedded-get-started-sample.md).
-
+These tokens are used for the various phases of your interactions with **Microsoft Power BI Embedded**.  The tokens are designed so that you can delegate permissions from your app to Power BI. For more information, see [App Token Flow](power-bi-embedded-app-token-flow.md).
 
 ## See Also
 - [Common Microsoft Power BI Embedded scenarios](power-bi-embedded-scenarios.md)
