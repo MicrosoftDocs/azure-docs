@@ -116,7 +116,7 @@ The hotfix method involves the following three steps:
 
 Perform the following steps to download and install the hotfixes.
 
-[AZURE.INCLUDE [storsimple-install-update3-hotfix](../../includes/storsimple-install-update21-hotfix.md)]
+[AZURE.INCLUDE [storsimple-install-update3-hotfix](../../includes/storsimple-install-update3-hotfix.md)]
 
 [AZURE.INCLUDE [storsimple-install-troubleshooting](../../includes/storsimple-install-troubleshooting.md)]
 
