@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create an Internet-facing load balancer in Resource Manager using the Azure Portal | Microsoft Azure"
-   description="Learn how to create an Internet-facing load balancer in Resource Manager using the Azure Portal"
+   pageTitle="Create an Internet-facing load balancer in Resource Manager using the Azure portal | Microsoft Azure"
+   description="Learn how to create an Internet-facing load balancer in Resource Manager using the Azure portal"
    services="load-balancer"
    documentationCenter="na"
    authors="anavinahar"
@@ -17,7 +17,7 @@
    ms.date="08/24/2016"
    ms.author="annahar" />
 
-# Get started creating an Internet facing load balancer using the Azure Portal
+# Get started creating an Internet facing load balancer using the Azure portal
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
@@ -43,7 +43,7 @@ You need to create and configure the following objects to deploy a load balancer
 
 - Probes - contains health probes used to check availability of virtual machines instances in the back-end address pool.
 
-You can get more information about load balancer components with Azure resource manager at [Azure Resource Manager support for Load Balancer](load-balancer-arm.md).
+You can get more information about load balancer components with Azure Resource Manager at [Azure Resource Manager support for Load Balancer](load-balancer-arm.md).
 
 
 ## Getting started creating an Internet-facing load balancer in the Azure portal
@@ -51,7 +51,7 @@ You can get more information about load balancer components with Azure resource 
 > [AZURE.IMPORTANT] This example assumes you have a virtual network called **myVNet**. Refer to [create virtual network](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) to do this. It also assumes there is a subnet within **myVNet** called **LB-Subnet-BE** and two VMs called **web1** and **web2** respectively within the same availability set called **myAvailSet** in **myVNet**. Refer to [this link](../virtual-machines/virtual-machines-windows-hero-tutorial.md) to create VMs.
 
 
-1. From a browser navigate to the Azure Portal: [http://portal.azure.com](http://portal.azure.com) and left-hand with your Azure account.
+1. From a browser navigate to the Azure portal: [http://portal.azure.com](http://portal.azure.com) and login with your Azure account.
 
 2. On the top left-hand side of the screen select **New** > **Networking** > **Load Balancer.**
 
