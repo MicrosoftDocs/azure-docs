@@ -53,6 +53,7 @@ To find out the JSON schema for certain elements, you can follow the following p
 
     ![HDInsight Hadoop create cluster resource manager template schema automation options](./media/hdinsight-hadoop-create-linux-clusters-arm-templates/hdinsight-create-cluster-resource-manager-template-automation-option.png)
 
+    The portal creates a Resource Manager template based on your configurations.
 ## Deploy with PowerShell
 
 The following procedure creates Linux-based HDInsight cluster.
