@@ -88,7 +88,7 @@ Function apps are built on App Service, so all of the [deployment options availa
 
 4.  click **Go**.
 
-	After Visual Studio Online loads, you'll see the *host.json* file and function folders under *wwwroot*. 
+	After App Service Editor loads, you'll see the *host.json* file and function folders under *wwwroot*. 
 
 5. Open files to edit them, or drag and drop from your development machine to upload files.
 
