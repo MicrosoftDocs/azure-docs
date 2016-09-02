@@ -463,7 +463,7 @@ Consider a scenario in which you have input measurement data from sensors availa
 
 Here is how you can model this scenario with Data Factory:
 
-**Input an Azure blob dataset:**
+**Input dataset**
 
 The hourly input files are dropped in the folder for the given day. Availability for input is set at **Hour** (frequency: Hour, interval: 1).
 
@@ -491,7 +491,7 @@ The hourly input files are dropped in the folder for the given day. Availability
 	  }
 	}
 
-**Output Azure blob dataset**
+**Output dataset**
 
 One output file is created every day in the day's folder. Availability of output is set at **Day** (frequency: Day and interval: 1).
 
@@ -738,7 +738,7 @@ To generate the dataset slice [**start**, **end**], a function must map the data
 	DatasetSlice = [start, end]
 	DependecyPeriod = [f(start, end), g(start, end)]
 
-**F** and **g** are mapping functions that calculate the start and end of the dependency period for each activity input.
+**F** and **g**  are mapping functions that calculate the start and end of the dependency period for each activity input.
 
 As seen in samples, the dependency period is same as the period for the data slice that will be produced. In these cases, Data Factory automatically computes the input slices that fall in the dependency period.  
 
