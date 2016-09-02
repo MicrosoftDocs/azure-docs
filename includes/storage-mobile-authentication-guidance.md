@@ -10,7 +10,7 @@ Shared Key authentication means that your application will use your account name
 
 > [AZURE.WARNING (Only use Shared Key authentication for testing purposes!) ] Your account name and account key, which give full read/write access to the associated Storage account, will be distributed to every person that downloads your app. This is **not** a good practice as you risk having your key compromised by untrusted clients.
 
-When using Shared Key authentication, you will create a [connection string](./storage-configure-connection-string). The connection string is comprised of:  
+When using Shared Key authentication, you will create a [connection string](./storage-configure-connection-string.md). The connection string is comprised of:  
 
 - The **DefaultEndpointsProtocol** - you can choose HTTP or HTTPS. However, using HTTPS is highly recommended.
 - The **Account Name** - the name of your storage account
