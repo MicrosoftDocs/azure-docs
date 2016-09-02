@@ -26,7 +26,7 @@ For example, resources used for development or test may have different security 
 
 ## Setting security policies for subscriptions
 
-Security policies can be configured for each subscription or resource group. To modify a security policy, you must be an Owner or Contributor of that subscription. Access Azure portal and follow the preceding steps to configure security polices in Security Center:
+Security policies can be configured for each subscription or resource group. To modify a security policy, you must be an Owner or Contributor of that subscription. Access Azure portal and follow the succeeding steps to configure security polices in Security Center:
 
 1. Click the **Policy** tile in the Security Center dashboard.
 
