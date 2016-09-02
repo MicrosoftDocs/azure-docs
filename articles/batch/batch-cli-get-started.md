@@ -176,7 +176,7 @@ Delete a job with:
 
 ## List pools, jobs, tasks, and other resources
 
-Each Batch resource type supports a `list` command that, as the name implies, queries your Batch account and lists resources of that type. For example, you can list the pools in your account and the tasks in a job:
+Each Batch resource type supports a `list` command that queries your Batch account and lists resources of that type. For example, you can list the pools in your account and the tasks in a job:
 
     azure batch pool list
     azure batch task list --job-id "job001"
