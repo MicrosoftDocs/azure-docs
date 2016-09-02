@@ -108,7 +108,7 @@ Example:
 
 	azure batch account keys renew --resource-group "resgroup001" --primary "batchaccount001"
 
-Lists the account keys for the given Batch account.
+Regenerates the specified account key for the given Batch account.
 
 ## Create and modify Batch resources
 
@@ -172,7 +172,7 @@ Delete a job with:
 
 ## List pools, jobs, tasks, and other resources
 
-Each Batch resource type supports the `list` command that, as the name implies, queries your Batch account and lists resources of that type. For example, you can list the pools in your account and the tasks in a job:
+Each Batch resource type supports a `list` command that, as the name implies, queries your Batch account and lists resources of that type. For example, you can list the pools in your account and the tasks in a job:
 
     azure batch pool list
     azure batch task list --job-id "job001"
@@ -215,9 +215,9 @@ You cannot currently specify which package version to deploy, so you must first 
 
 ### Deploy an application package
 
-You can specify an application package for deployment when you create a pool, or update an existing pool with a new package. If you specify a package at pool creation time, it will be deployed as each node joins the pool. If you update an existing  pool with a new application package, you must reboot or reimage existing nodes in the pool to deploy the new package.
+You can specify one or more application packages for deployment when you create a new pool. When you specify a package at pool creation time, it is deployed to each node as it node joins pool. Packages are also deployed when a node is rebooted or reimaged.
 
-This command deploys a package at pool creation, as each node joins the new pool:
+This command specifies a package at pool creation, and is deployed as each node joins the new pool:
 
     azure batch pool create --id "pool001" --target-dedicated 0 --vm-size "small" --os-family "4" --app-package-ref "MyTaskApplication"
 
@@ -225,7 +225,7 @@ This command deploys a package at pool creation, as each node joins the new pool
 
 ## Troubleshooting tips
 
-This section is intended to give you some tips to use when troubleshooting Azure CLI issues. It won't necessarily solve all of your problems, but it may help you narrow down the cause and point you to help resources.
+This section is intended to give you some tips to use when troubleshooting Azure CLI issues. It won't necessarily solve all problems, but it may help you narrow down the cause and point you to help resources.
 
 * Use `-h` to get **usage information** for any CLI command
 
