@@ -231,4 +231,4 @@ You may see tags that start with "hidden-" and "link:". These tags are internal 
 Use the **New-AzureRmTag** cmdlet to add new tags to the taxonomy. These tags are included in the autocomplete even though they haven't been applied to any resources or resource groups, yet. To remove a tag name/value, first remove the tag from any resources it may be used with and then use the **Remove-AzureRmTag** cmdlet to remove it from the taxonomy.
 
 
-[powershell] : https://msdn.microsoft.com/library/mt619274(v=azure.200).aspx
+[powershell]: https://msdn.microsoft.com/library/mt619274(v=azure.200).aspx
