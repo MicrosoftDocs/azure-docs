@@ -23,7 +23,7 @@ This article describes the steps required to install updates on your StorSimple 
 
 Keep in mind that installing an update or hotfix restarts your device. Given that the StorSimple Virtual Array is a single node device, any I/O in progress is disrupted and your device experiences downtime. 
 
-Before you apply an update, we recommend that you take the volumes or shares offline on the host first and then the device. This will minimize any possibility of data corruption.
+Before you apply an update, we recommend that you take the volumes or shares offline on the host first and then the device. This minimizes any possibility of data corruption.
 
 > [AZURE.IMPORTANT] If you are running Update 0.1 or GA software versions, you must use the hotfix method via the local web UI to install update 0.3. If you are running Update 0.2, we recommend that you install the updates via the Azure classic portal.
 
@@ -71,7 +71,7 @@ Prior to the update or hotfix installation, make sure that you have the update o
 
 Use this method to install updates on a device running GA or Update 0.1 software versions. This procedure takes less than 3 minutes to complete. Perform the following steps to install the update or hotfix.
 
->[AZURE.IMPORTANT] You will need to install two files, first install `WindowsTH-KB3011067-x64` file to update the device software. Next install the `GenevaMonitoringAgentPackageInstaller` file to update the MDS agent version. Repeat the following procedure to install these two files.
+>[AZURE.IMPORTANT] You need to install two files, first install `WindowsTH-KB3011067-x64` file to update the device software. Next install the `GenevaMonitoringAgentPackageInstaller` file to update the MDS agent version. Repeat the following procedure to install these two files.
 
 #### To install the update or the hotfix
 
@@ -83,15 +83,15 @@ Use this method to install updates on a device running GA or Update 0.1 software
 
 	![update device](./media/storsimple-ova-install-update-01/update2m.png)
 
-3.  A warning will show up. Given this is a single node device, after the update is applied, the device will restart and there will be downtime. Click the check icon.
+3.  A warning is displayed. Given this is a single node device, after the update is applied, the device restarts and there is downtime. Click the check icon.
 
 	![update device](./media/storsimple-ova-install-update-01/update3m.png)
 
-4. The update will start. After the device is successfully updated, it will restart. The local UI will not be accessible in this duration.
+4. The update starts. After the device is successfully updated, it restarts. The local UI is not accessible in this duration.
 
     ![update device](./media/storsimple-ova-install-update-01/update5m.png)
 
-5. After the restart is complete, you will be taken to the sign in page. To verify that the device software has updated, in the local web UI, go to **Maintenance** > **Software Update**. The displayed software version should be **10.0.10287.0** for Update 0.3.
+5. After the restart is complete, you are taken to the **Sign in** page. To verify that the device software has updated, in the local web UI, go to **Maintenance** > **Software Update**. The displayed software version should be **10.0.10287.0** for Update 0.3.
 
 	> [AZURE.NOTE] We report the software versions in a slightly different way in the local web UI and the Azure classic portal. For example, the local web UI reports **10.0.0.0.0.10288** and the Azure classic portal reports **10.0.10287.0** for the same version. 
 

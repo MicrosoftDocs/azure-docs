@@ -8,23 +8,23 @@
 
     ![update device](../includes/media/storsimple-ova-install-update-via-portal/azupdate1m.png)  
 
-3. You will see a message if the software updates are available. To check for updates, you can also click **Scan Updates** at the bottom of the page.
+3. You see a message if the software updates are available. To check for updates, you can also click **Scan Updates** at the bottom of the page.
 
     ![update device](../includes/media/storsimple-ova-install-update-via-portal/azupdate2m.png)
 
-4. From the bottom of the page, click **Download Updates**. A dialog notifies the user that the update is disruptive. Given the StorSimple Virtual Array is a single node device, the device will restart after it is updated. This will disrupt any IO in progress. Click the check icon to launch a job to download the available updates. 
+4. From the bottom of the page, click **Download Updates**. A dialog notifies the user that the update is disruptive. Given the StorSimple Virtual Array is a single node device, the device restarts after it is updated. This disrupts any IO in progress. Click the check icon to launch a job to download the available updates. 
 
     ![update device](../includes/media/storsimple-ova-install-update-via-portal/azupdate3m.png)
 
-5. You will be notified when the updates are downloaded. 
+5. You are notified when the updates are downloaded. 
 
     ![update device](../includes/media/storsimple-ova-install-update-via-portal/azupdate6m.png)
 
-6. From the bottom of the page, click **Install Updates** to begin updating the device. The dialog will be presented to you again. Click the check icon to start a job to install the updates. 
+6. From the bottom of the page, click **Install Updates** to begin updating the device. The dialog is presented to you again. Click the check icon to start a job to install the updates. 
 
     ![update device](../includes/media/storsimple-ova-install-update-via-portal/azupdate7m.png) 
 
-7. You will be notified after the job is created. 
+7. You are notified after the job is created. 
 
     ![update device](../includes/media/storsimple-ova-install-update-via-portal/azupdate8m.png)
 
