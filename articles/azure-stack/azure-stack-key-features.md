@@ -22,13 +22,13 @@ If you’re new to Microsoft Azure Stack, these terms and feature descriptions m
 
 ## Personas
 
-There are two varieties of users for Microsoft Azure Stack, the administrator and the tenant (customer).
+There are two varieties of users for Microsoft Azure Stack, the service administrator and the tenant (customer).
 
                                                                                            |
 
-| ![](media/azure-stack-key-features/image1.png) | An **administrator** can configure and manage resource providers, tenant offers, plans, services, quotas, and pricing.                                                                                           |
+| ![](media/azure-stack-key-features/image1.png) | A **service administrator** can configure and manage resource providers, tenant offers, plans, services, quotas, and pricing.                                                                                           |
 |---|---|
-| ![](media/azure-stack-key-features/image2.png) | A **tenant** purchases (or acquires) services that the administrator offers. Tenants can provision, monitor, and manage services that they have subscribed to, such as Web Apps, Storage, and Virtual Machines. |
+| ![](media/azure-stack-key-features/image2.png) | A **tenant** purchases (or acquires) services that the service administrator offers. Tenants can provision, monitor, and manage services that they have subscribed to, such as Web Apps, Storage, and Virtual Machines. |
 
 
 ## Portal
@@ -37,7 +37,7 @@ The primary method of interacting with Microsoft Azure Stack is the portal.
 
 ![](media/azure-stack-key-features/image3.png)
 
-The Microsoft Azure Stack portal, which is consistent with the Azure portal, is a web page that provides a self-service experience for both administrators and tenants with role-based access control (RBAC) to resources and cloud capacity, enabling quick application and service development and deployment.
+The Microsoft Azure Stack portal, which is consistent with the Azure portal, is a web page that provides a self-service experience for both service administrators and tenants with role-based access control (RBAC) to resources and cloud capacity, enabling quick application and service development and deployment.
 
 ## Regions, services, plans, offers, and subscriptions
 
@@ -60,9 +60,9 @@ Plans are groupings of one or more services. As a provider, you create plans to 
 
 Each service added to a plan can be configured with quota settings to help you manage your cloud capacity. Quotas can include restrictions such as VM, RAM, and CPU limits and are applied per user subscription. Quotas can be differentiated by location. For example, a plan containing compute services from Region A could have a quota of two virtual machines, 4GB RAM, and 10 CPU cores.
 
-When composing an offer, the sadministrator can include **base plans**. These base plans are included by default when a tenant subscribes to that offer. As soon as a user subscribes (and the subscription is created), the user has access to all the resource providers specified in those base plans (with the corresponding quotas).
+When composing an offer, the service administrator can include **base plans**. These base plans are included by default when a tenant subscribes to that offer. As soon as a user subscribes (and the subscription is created), the user has access to all the resource providers specified in those base plans (with the corresponding quotas).
 
-The administrator can also include **add-on plans** in an offer. Add-on plans are not included by default in the subscription. Add-on plans are additional plans (quotas) available in an offer that a subscription owner can add to their subscription.
+The service administrator can also include **add-on plans** in an offer. Add-on plans are not included by default in the subscription. Add-on plans are additional plans (quotas) available in an offer that a subscription owner can add to their subscription.
 
 ### Offers
 
@@ -112,11 +112,11 @@ With Azure Resource Manager, you can create a simple template (in JSON format) t
 
 Resource providers are web services that form the foundation for all Azure-based IaaS and PaaS services. Azure Resource Manager relies on different RPs to provide access to a hoster’s services.
 
-There are three main RPs: Network, Storage, and Compute. Each of these RPs helps you configure and control its respective resources. Administrators can also add new custom resource providers.
+There are three main RPs: Network, Storage, and Compute. Each of these RPs helps you configure and control its respective resources. Service administrators can also add new custom resource providers.
 
 ### Compute RP
 
-The Compute Resource Provider (CRP) allows Azure Stack tenants to create their own virtual machines. It also provides functionality for the administrator to setup and configure the resource provider for tenants. The CRP includes the ability to create virtual machines as well as Virtual Machine extensions. The Virtual Machine extension service helps provide IaaS capabilities for Windows and Linux virtual machines.
+The Compute Resource Provider (CRP) allows Azure Stack tenants to create their own virtual machines. It also provides functionality for the service administrator to setup and configure the resource provider for tenants. The CRP includes the ability to create virtual machines as well as Virtual Machine extensions. The Virtual Machine extension service helps provide IaaS capabilities for Windows and Linux virtual machines.
 
 ### Network RP
 
