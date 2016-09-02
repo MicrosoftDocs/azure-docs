@@ -324,7 +324,7 @@ The script references the following parameter files to build the VMs and the sur
 <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-n-tier/parameters/windows/businessTier.parameters.json#L96-L102 -->
 
 ```json
-    "buildingBlockSettings": {
+  "buildingBlockSettings": {
     "value": {
       "storageAccountsCount": 1,
       "vmCount": 3,
@@ -351,7 +351,7 @@ The script references the following parameter files to build the VMs and the sur
 
   >[AZURE.NOTE] For security purposes, the web, business, and database tiers block RDP/SSH traffic by default, even from the management tier. You can temporarily create additional rules to open these ports to enable you to connect and install software on these tiers, but then you can disable them again afterwards. However, you should open any ports required by whatever tools you are using to monitor and manage the web, business, and database tiers from the management tier.
 
-  **Important** The NSG rules for the management tier are applied to the NIC for the jump box rather than the management subnet. The default name for this NIC, ra-vm9-nic1, assumes that you haven't changed the `namePrefix` value for the management tier VMs, and that you have not modified the number or starting index of the VMs in each tier (by default, the jump box will be given the suffix 9). If you have changed these parameters, then you must also modify the value of the NIC referenced by the management tier NSG rules accordingly, otherwise they may be applied to a NIC associated with a different VM.
+  >[AZURE.IMPORTANT] The NSG rules for the management tier are applied to the NIC for the jump box rather than the management subnet. The default name for this NIC, ra-vm9-nic1, assumes that you haven't changed the `namePrefix` value for the management tier VMs, and that you have not modified the number or starting index of the VMs in each tier (by default, the jump box will be given the suffix 9). If you have changed these parameters, then you must also modify the value of the NIC referenced by the management tier NSG rules accordingly, otherwise they may be applied to a NIC associated with a different VM.
 
 <!-- source:  https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-n-tier/parameters/windows/networkSecurityGroups.parameters.json#L4-L162 -->
 
@@ -361,7 +361,7 @@ The script references the following parameter files to build the VMs and the sur
       "value": {
         "name": "ra-vnet",
         "resourceGroup": "ra-ntier-vm-rg"
-    }
+      }
     },
     "networkSecurityGroupsSettings": {
       "value": [
@@ -602,15 +602,19 @@ To run the script that deploys the solution:
 
 5. Edit the Deploy-ReferenceArchitecture.ps1 or deploy-reference-architecture.sh file in the Scripts folder, and change the following line to specify the resource group that should be created or used to hold the VM and resources created by the script:
 
-  ```powershell
-  # PowerShell
-  $resourceGroupName = "ra-multi-vm-rg"
-  ```
+    <!-- source:h ttps://github.com/mspnp/reference-architectures/blob/master/guidance-compute-n-tier/Deploy-ReferenceArchitecture.ps1#L48 -->
 
-  ```bash
-  # bash
-  RESOURCE_GROUP_NAME="ra-multi-vm-rg"
-  ```
+    ```powershell
+    # PowerShell
+    $resourceGroupName = "ra-ntier-vm-rg"
+    ```
+
+    <!-- https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-n-tier/deploy-reference-architecture.sh#L3 -->
+
+    ```bash
+    # bash
+    RESOURCE_GROUP_NAME="ra-ntier-vm-rg"
+    ```
 
 6. Edit each of the JSON files in the Parameters/Windows or Parameters/Linux folder to set the parameters for the virtual network, NSG, VMs, and load balancer, as described in the Solution Components section above.
 
@@ -618,9 +622,9 @@ To run the script that deploys the solution:
 
 7. If you are using PowerShell, open an Azure PowerShell window, move to the Scripts folder, and run the following command:
 
-  ```powershell
-  .\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> <os-type>
-  ```
+    ```powershell
+    .\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> <os-type>
+    ```
 
   Replace `<subscription id>` with your Azure subscription ID.
 
@@ -630,15 +634,15 @@ To run the script that deploys the solution:
 
 8. If you are using bash, open a bash shell command prompt, move to the Scripts folder, and run the following command:
 
-  ```bash
-  azure login
-  ```
+    ```bash
+    azure login
+    ```
 
   Follow the instructions to log in to your Azure account. When you have connected, run the following command:
 
-  ```bash
-  ./deploy-reference-architecture.sh -s <subscription id> -l <location> -o <os-type>
-  ```
+    ```bash
+    ./deploy-reference-architecture.sh -s <subscription id> -l <location> -o <os-type>
+    ```
 
   Replace `<subscription id>` with your Azure subscription ID.
 
