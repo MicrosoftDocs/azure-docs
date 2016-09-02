@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/25/2016"
+   ms.date="09/02/2016"
    ms.author="alkohli" />
 
 # StorSimple 8000 Series Update 3 release notes  
@@ -21,37 +21,32 @@
 
 The following release notes describe the new features and identify the critical open issues for StorSimple 8000 Series Update 3. They also contain a list of the StorSimple software updates included in this release. 
 
-Update 3 can be applied to any StorSimple device running Release (GA) or Update 0.1 through Update 2.2. The device version associated with Update 3 is 6.3.9600.17757.
+Update 3 can be applied to any StorSimple device running Release (GA) or Update 0.1 through Update 2.2. The device version associated with Update 3 is 6.3.9600.17759.
 
 Please review the information contained in the release notes before you deploy the update in your StorSimple solution.
 
 >[AZURE.IMPORTANT]
 > 
-> - Update 3 has software only updates. It takes approximately 1.5-2 hours to install this update. 
-
-> - If you are running Update 2.1, we recommend that you apply Update 3 as soon as possible.
+> - Update 3 has device software, LSI driver and firmware, and Storport and Spaceport updates. It takes approximately 1.5-2 hours to install this update. 
 
 > - For new releases, you may not see updates immediately because we do a phased rollout of the updates. Wait a few days, and then scan for updates again as these will become available soon.
 
 
 ## What's new in Update 3
 
-The following key improvements have been made in Update 3.
+The following key improvements and bug fixes have been made in Update 3.
 
  
-- **Automated space reclamation optimization** – When data is deleted on thinly provisioned volumes, the unused storage blocks need to be reclaimed. This release has improved the space reclamation process from the cloud resulting in the unused space becoming available faster as compared to the previous versions.
+- **Automated space reclamation changes** – Starting Update 3, the space reclamation algorithms run on the standby controller of the system resulting in faster execution. For more information on the ports that are required to work with space reclamation, refer to the StorSimple networking requirements.
 
+- **Performance enhancements** – Update 3 has improved read-write performance to the cloud.
 
-- **Snapshot performance enhancements** – Update 3 has improved the time to process a cloud snapshot in certain scenarios where large volumes are being used and there is minimal to no data churn. A scenario that would benefit from this enhancement would be the archive volumes.
+- **Support for new workloads** – Update 3 has enabled deployment of new workloads such as the use of a StorSimple as a backup target, and also for video surveillance.
 
+- **Migration-related improvements** – In this release, several bug fixes and improvements were done for the Migration feature from 5000/7000 series devices to 8000 series devices. 
 
-- **Hardening of Support package gathering** – There have been improvements in the way the Support package is gathered and uploaded in this release. 
+- **Monitoring related fixes** - For locally pinned volumes, several bugs related to monitoring charts, service dashboard, and device dashboard were fixed.
 
-
-- **Update reliability improvements** – This release has bug fixes that result in an improved Update reliability.
-
-  
- 
 
 ## Issues fixed in Update 3
 
@@ -59,15 +54,13 @@ The following tables provides a summary of issues that were fixed in Update 3.
 
 | No | Feature                                    | Issue                                                                                                                                                                                                                                                                                        | Applies to physical device | Applies to virtual device |
 |----|--------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------|---------------------------|
-| 1  | Host performance                      | In the earlier release, host-side performance issues were observed during the creation of a locally pinned volume and during the conversion of a tiered volume to a locally pinned volume. These issues are fixed in this release thereby resulting in an improvement in the host performance during the volume creation and conversion procedures.                                                                        | Yes                        | No                        |
-| 2  | Locally pinned volumes                     | In rare instances, the system would crash when creating a locally pinned volume. This bug has been fixed in this release.                                                                                                                                                               | Yes                        | No                        |
-| 3  | Tiering                                    | There were sporadic crashes when the metadata for the StorSimple Cloud Appliances (8010 and 8020) tiered to   the cloud. This issue is fixed in this release.                                                                                                                              | No                         | Yes                       |
-| 4  | Snapshot creation                          | There were issues related to the creation of incremental snapshots in scenarios with large volumes and minimal to no data churn. These issues are fixed in this release.                                                                                                                 | Yes                        | Yes                       |
-| 5  | Openstack authentication                   | When using Openstack as the cloud service provider, the user would run into an infrequent bug related to the authentication where the JSON parser resulted in a crash. This bug is fixed in this release.                                                                                                                              | Yes                        | No                        |
-| 6  | Host-side copy                             | In earlier versions of software,   an infrequent bug related to the ODX timing was seen when copying the data   from one volume to another volume. This would result in a controller failover and the system could potentially go into Recovery mode. This bug is fixed in   this release. | Yes                        | No       |
-| 7  | Windows Management   Instrumentation (WMI) | In the previous versions of   software, there were several instances of web proxy failure with the   exception “<ManagementException> Provider load failure”. This bug was attributed to a WMI memory leak and is now fixed.                                                               | Yes                        | No                        |
-| 8  | Update                                     | In certain rare instances, in   the previous versions of software, the user received a   "CisPowershellHcsscripterror" when trying to scan or install updates. This issue is fixed in this release.                                                                                        | Yes                        | Yes                       |
-| 9  | Support package                            | In this release, there have been improvements to the way the Support package is gathered and uploaded.                                                                                                                                                                                                      | Yes                        | Yes                                    |
+| 1  | Host-side data migration                      | In the earlier release, the StorSimple Cloud Appliance was going offline during a host-side data migration. This issue is fixed in this release.                                                | No                        | Yes                        |
+| 2  | Locally pinned volumes                     | In the previous release, there were issues related to I/O failures, volume conversion failures, and datapath failures for locally pinned volumes. These issues were root-caused and fixed in this release.                | Yes                        | No                       |
+| 3  | Monitoring                                    | There were multiple issues related to reporting units and monitoring as well as device dashboard charts where incorrect information was displayed for locally pinned volumes. These issues are fixed in this release. | Yes                         | No                       |
+| 4  | Heavy writes I/O                          | When using StorSimple for workloads involving heavy writes, the user would run into an infrequent bug where the working set was being tiered into the cloud. This bug is fixed in this release. | Yes                        | Yes                       |
+| 5  | Backup                                     | In certain rare instances, in the previous versions of software, when user took a backup of a remote clone, they would run into cloud errors and the operation would error out. In this release, the issue is fixed and the operation completes successfully.             | Yes                        | Yes                       |
+| 6  | Backup policy                                     | In certain rare instances, in the earlier releases of software, there was a bug related to the deletion of backup policy. This issue is fixed in this release.       | Yes                        | Yes                       |
+
 
 
 ## Known issues in Update 3
@@ -100,15 +93,14 @@ The following table provides a summary of known issues in this release.
 
 ## Controller and firmware updates in Update 3
 
-This release has software-only updates. However, if you are updating from a version prior to Update 3, you will need to install driver, Storport, Spaceport, and (in some cases) disk firmware updates on your device.
- 
-For more information on how to install the driver, Storport, Spaceport, and disk firmware updates, see [install Update 3](storsimple-install-update-21.md) on your StorSimple device.
+This release has LSI driver and firmware updates. For more information on how to install the LSI driver and firmware updates, see [install Update 3](storsimple-install-update-3.md) on your StorSimple device.
 
  
 ## Virtual device updates in Update 3
 
-This update cannot be applied to the virtual device. New virtual devices will need to be created. 
+This update cannot be applied to the StorSimple Cloud Appliance (also known as the virtual device). New virtual devices will need to be created. 
+
 
 ## Next step
 
-Learn how to [install Update 3](storsimple-install-update-21.md) on your StorSimple device.
+Learn how to [install Update 3](storsimple-install-update-3.md) on your StorSimple device.
