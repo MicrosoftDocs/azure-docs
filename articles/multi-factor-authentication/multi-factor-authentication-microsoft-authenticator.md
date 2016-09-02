@@ -38,7 +38,7 @@ For each account that you want to add to the Microsoft Authenticator app, use on
 
 ### Add an account to the app by using the QR code scanner
 
-1. Go to the security verification settings screen.  For information on how to get to this screen, see [Changing your Security Settings](multi-factor-authentication-end-user-manage-settings.md).
+1. Go to the security verification settings screen.  For information on how to get to this screen, see [Changing your security settings](multi-factor-authentication-end-user-manage-settings.md).
 
 2. Select **Configure**.
 
@@ -58,7 +58,7 @@ For each account that you want to add to the Microsoft Authenticator app, use on
 
 	![Screen for scanning a QR code](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan2.png)
 
-	If your camera is not working properly, you can enter the QR code and URL manually. For more information, see [Add an account manually](#add-an-account-manually).
+	If your camera is not working properly, you can enter the QR code and URL manually. For more information, see [Add an account to the app manually](#add-an-account-to-the-app-manually).
 
 5. Wait while the account is activated. When activation finishes, select **Contact me**.  This sends either a notification or a verification code to your phone.  Select **Verify**.
 
@@ -83,7 +83,7 @@ You should now see the new account on the **accounts** screen.
 
 ### Add an account to the app manually
 
-1. Go to the security verification settings screen.  For information on how to get to this screen, see [Changing your Security Settings](multi-factor-authentication-end-user-manage-settings.md).
+1. Go to the security verification settings screen.  For information on how to get to this screen, see [Changing your security settings](multi-factor-authentication-end-user-manage-settings.md).
 
 2. Select **Configure**.
 
