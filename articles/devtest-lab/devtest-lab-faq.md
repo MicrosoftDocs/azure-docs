@@ -31,7 +31,7 @@ This article answers some of the most common questions about Azure DevTest Labs.
  
 ## Security 
 - [What are the different security levels in Azure DevTest Labs?](#what-are-the-different-security-levels-in-azure-devtest-labs) 
-- [How do I create a specific role to allow users to perform only a single task?](#how-do-i-create-a-specific-role-to-allow-users-to-perform-only-a-single-task) 
+- [How do I create a role to allow users to perform a specific task?](#how-do-i-create-a-role-to-allow-users-to-perform-a-specific-task) 
  
 ## CI/CD Integration & Automation 
  
@@ -52,7 +52,7 @@ This article answers some of the most common questions about Azure DevTest Labs.
  
 ## Lab configuration 
  
-- [How do I create a lab from an Azure Resource Manager template?](#how-do-i-create-a-lab-from-an-arm-template) 
+- [How do I create a lab from an Azure Resource Manager template?](#how-do-i-create-a-lab-from-an-azure-resource-manager-template) 
 - [Why are my VMs created in different resource groups with arbitrary names? Can I rename or modify these resource groups?](#why-are-my-vms-created-in-different-resource-groups-with-arbitrary-names-can-i-rename-or-modify-these-resource-groups) 
 - [How many labs can I create under the same subscription?](#how-many-labs-can-i-create-under-the-same-subscription)
 - [How many VMs can I create per lab?](#how-many-vms-can-i-create-per-lab)
