@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="09/02/2016"
    ms.author="gwallace"/>
 
 # Create, start, or delete an application gateway
@@ -26,10 +26,7 @@ Azure Application Gateway is a layer-7 load balancer. It provides failover, perf
 - [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
 - [Azure CLI](application-gateway-create-gateway-cli.md)
 
-<BR>
-
 This article walks you through the steps to create, configure, start, and delete an application gateway.
-
 
 ## Before you begin
 
@@ -40,9 +37,7 @@ This article walks you through the steps to create, configure, start, and delete
 
 ## What is required to create an application gateway?
 
-
 When you use the **New-AzureApplicationGateway** command to create the application gateway, no configuration is set at this point and the newly created resource are configured either by using XML or a configuration object.
-
 
 The values are:
 
@@ -51,7 +46,6 @@ The values are:
 - **Front-end port:** This port is the public port that is opened on the application gateway. Traffic hits this port, and then gets redirected to one of the back-end servers.
 - **Listener:** The listener has a front-end port, a protocol (Http or Https, these values are case-sensitive), and the SSL certificate name (if configuring SSL offload).
 - **Rule:** The rule binds the listener and the back-end server pool and defines which back-end server pool the traffic should be directed to when it hits a particular listener.
-
 
 ## Create an application gateway
 
@@ -62,7 +56,6 @@ To create an application gateway:
 3. Commit the configuration to the newly created application gateway resource.
 
 >[AZURE.NOTE] If you need to configure a custom probe for your application gateway, see [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-classic-ps.md). Check out [custom probes and health monitoring](application-gateway-probe-overview.md) for more information.
-
 
 ### Create an application gateway resource
 
@@ -82,11 +75,7 @@ The following example creates a new application gateway by using a virtual netwo
 
  *Description*, *InstanceCount*, and *GatewaySize* are optional parameters.
 
-
 To validate that the gateway was created, you can use the **Get-AzureApplicationGateway** cmdlet.
-
-
-
 
 	Get-AzureApplicationGateway AppGwTest
 	Name          : AppGwTest
@@ -101,8 +90,7 @@ To validate that the gateway was created, you can use the **Get-AzureApplication
 
 >[AZURE.NOTE]  The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. You can choose between Small, Medium and Large.
 
-
- *VirtualIPs* and *DnsName* are shown as blank because the gateway has not started yet. These are created once the gateway is in the running state.
+*VirtualIPs* and *DnsName* are shown as blank because the gateway has not started yet. These are created once the gateway is in the running state.
 
 ## Configure the application gateway
 
@@ -331,10 +319,7 @@ Commit the configuration object to the application gateway resource by using **S
 
 Once the gateway has been configured, use the **Start-AzureApplicationGateway** cmdlet to start the gateway. Billing for an application gateway begins after the gateway has been successfully started.
 
-
 > [AZURE.NOTE] The **Start-AzureApplicationGateway** cmdlet might take up to 15-20 minutes to finish.
-
-
 
 	Start-AzureApplicationGateway AppGwTest
 
