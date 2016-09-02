@@ -243,7 +243,7 @@ This section is intended to provide you with resources to use when troubleshooti
 
 ## Next steps
 
-*  See [Application deployment with Azure Batch application packages](batch-application-oackages.md) to find out how to use this feature to manage and deploy the applications you execute on Batch compute nodes.
+*  See [Application deployment with Azure Batch application packages](batch-application-packages.md) to find out how to use this feature to manage and deploy the applications you execute on Batch compute nodes.
 
 * See [Query the Batch service efficiently](batch-efficient-list-queries.md) for more about reducing the number of items and the type of information that is returned for queries to Batch.
 
