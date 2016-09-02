@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Service Bus relayed messaging overview | Microsoft Azure"
+	pageTitle="Service Bus relay overview | Microsoft Azure"
 	description="Overview of Service Bus relay."
 	services="service-bus"
 	documentationCenter=".net"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
-	ms.date="05/06/2016"
+	ms.date="09/01/2016"
 	ms.author="sethm"/>
 
 
-# Service Bus relayed messaging
+# Overview of Service Bus relay
 
-The central component of Service Bus is a centralized (but highly load-balanced) relay service that enables you to build hybrid applications that run in both an Azure datacenter and your own on-premises enterprise environment.  The relay service supports a variety of different transport protocols and web services standards. This includes SOAP, WS-*, and even REST. The Service Bus relay facilitates your hybrid applications by enabling you to securely expose Windows Communication Foundation (WCF) services that reside within a corporate enterprise network to the public cloud, without having to open a firewall connection, or require intrusive changes to a corporate network infrastructure. 
+A major component of Service Bus is a centralized (but highly load-balanced) *relay* service that enables you to build hybrid applications that run in both an Azure datacenter and your own on-premises enterprise environment.  The Service Bus relay supports a variety of different transport protocols and web services standards. This includes SOAP, WS-*, and even REST. The relay service facilitates your hybrid applications by enabling you to securely expose Windows Communication Foundation (WCF) services that reside within a corporate enterprise network to the public cloud, without having to open a firewall connection, or require intrusive changes to a corporate network infrastructure. 
 
 ![Relay Concepts](./media/service-bus-relay-overview/sb-relay-01.png)
 
@@ -34,6 +34,6 @@ You initiate the connection between your on-premise service and the relay servic
 For details about the Service Bus relay, see the following topics.
 
 - [Azure Service Bus Architectural Overview](service-bus-fundamentals-hybrid-solutions.md)
-- [How to Use the Service Bus Relay Service](service-bus-dotnet-how-to-use-relay.md)
+- [How to use the Service Bus Relay service](service-bus-dotnet-how-to-use-relay.md)
 
  

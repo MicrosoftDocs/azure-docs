@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/11/2016"
+   ms.date="09/02/2016"
    ms.author="tomfitz"/>
 
 # Using linked templates with Azure Resource Manager
@@ -29,7 +29,7 @@ You create a link between two templates by adding a deployment resource within t
     "resources": [ 
       { 
          "apiVersion": "2015-01-01", 
-         "name": "nestedTemplate", 
+         "name": "linkedTemplate", 
          "type": "Microsoft.Resources/deployments", 
          "properties": { 
            "mode": "incremental", 
@@ -53,7 +53,7 @@ The Resource Manager service must be able to access the linked template. You can
 
 Although the linked template must be externally available, it does not need to be generally available to the public. You can add your template to a private storage account that is accessible to only the storage account owner. Then, you create a shared access signature (SAS) token to enable access during deployment. You add that SAS token to the URI for the linked template. For steps on setting up a template in a storage account and generating a SAS token, see [Deploy resources with Resource Manager templates and Azure PowerShell](resource-group-template-deploy.md) or [Deploy resources with Resource Manager templates and Azure CLI](resource-group-template-deploy-cli.md). 
 
-The following example shows a parent template that links to another template. The nested template is accessed with a SAS token that is passed in as a parameter.
+The following example shows a parent template that links to another template. The linked template is accessed with a SAS token that is passed in as a parameter.
 
     "parameters": {
         "sasToken": { "type": "securestring" }
@@ -61,7 +61,7 @@ The following example shows a parent template that links to another template. Th
     "resources": [
         {
             "apiVersion": "2015-01-01",
-            "name": "nestedTemplate",
+            "name": "linkedTemplate",
             "type": "Microsoft.Resources/deployments",
             "properties": {
               "mode": "incremental",
@@ -82,7 +82,7 @@ The next example uses the **parametersLink** property to link to a parameter fil
     "resources": [ 
       { 
          "apiVersion": "2015-01-01", 
-         "name": "nestedTemplate", 
+         "name": "linkedTemplate", 
          "type": "Microsoft.Resources/deployments", 
          "properties": { 
            "mode": "incremental", 
@@ -161,7 +161,7 @@ You provide that variable value for the deployment resource.
     "resources": [
         {
             "apiVersion": "2015-01-01",
-            "name": "nestedTemplate",
+            "name": "linkedTemplate",
             "type": "Microsoft.Resources/deployments",
             "properties": {
                 "mode": "incremental",
@@ -200,7 +200,7 @@ The following example shows the **existingStorageAccount.json** template.
       }
     }
 
-The next example shows the **newStorageAccount.json** template. Notice that like the existing storage account template the storage account object is returned in the outputs. The master template works with either nested template.
+The next example shows the **newStorageAccount.json** template. Notice that like the existing storage account template the storage account object is returned in the outputs. The master template works with either linked template.
 
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -247,7 +247,7 @@ The **parent.json** file consists of:
       "resources": [
         {
           "apiVersion": "2015-01-01",
-          "name": "nestedTemplate",
+          "name": "linkedTemplate",
           "type": "Microsoft.Resources/deployments",
           "properties": {
             "mode": "incremental",
@@ -261,7 +261,7 @@ The **parent.json** file consists of:
       "outputs": {
         "result": {
           "type": "object",
-          "value": "[reference('nestedTemplate').outputs.result]"
+          "value": "[reference('linkedTemplate').outputs.result]"
         }
       }
     }

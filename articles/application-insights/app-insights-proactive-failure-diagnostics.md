@@ -21,7 +21,7 @@
 
 This feature works for Java and ASP.NET web apps, hosted in the cloud or on your own servers. It also works for any app that generates request telemetry - for example, if you have a worker role that calls [TrackRequest()](app-insights-api-custom-events-metrics.md#track-request). 
 
-After setting up [Application Insights for your project](app-insights-get-started.md), and provided your app generates a certain minimum amount of telemetry, Proactive failure diagnostics takes 24 hours to learn the normal behavior of your app, before it is switched on and can send alerts.
+After setting up [Application Insights for your project](app-insights-overview.md), and provided your app generates a certain minimum amount of telemetry, Proactive failure diagnostics takes 24 hours to learn the normal behavior of your app, before it is switched on and can send alerts.
 
 Here's a sample alert. 
 
