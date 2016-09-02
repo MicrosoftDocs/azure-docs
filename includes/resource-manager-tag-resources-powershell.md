@@ -1,6 +1,6 @@
 ### Tag cmdlet changes in latest PowerShell version
 
-The August 2016 release of [Azure PowerShell 2.0](https://msdn.microsoft.com/library/mt619274(v=azure.200).aspx) includes significant changes in how you work with tags. Before proceeding, check the version of your AzureRm.Resources module.
+The August 2016 release of [Azure PowerShell 2.0](https://msdn.microsoft.com/library/mt619274#40v=azure.200#41.aspx) includes significant changes in how you work with tags. Before proceeding, check the version of your AzureRm.Resources module.
 
     Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
 
