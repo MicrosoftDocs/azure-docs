@@ -61,7 +61,7 @@ To create an application gateway:
 
 To create the gateway, use the **New-AzureApplicationGateway** cmdlet, replacing the values with your own. Billing for the gateway does not start at this point. Billing begins in a later step, when the gateway is successfully started.
 
-The following example creates a new application gateway by using a virtual network called "testvnet1" and a subnet called "subnet-1".
+The following example creates an application gateway by using a virtual network called "testvnet1" and a subnet called "subnet-1".
 
 
 	New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
@@ -212,7 +212,7 @@ Next, set the application gateway. Use the **Set-AzureApplicationGatewayConfig**
 
 ## Configure the application gateway by using a configuration object
 
-The following example shows how to configure the application gateway by using configuration objects. All configuration items have to be configured individually and then added to an application gateway configuration object. After creating the configuration object, you use the **Set-AzureApplicationGateway** command to commit the configuration to the previously created application gateway resource.
+The following example shows how to configure the application gateway by using configuration objects. All configuration items must be configured individually and then added to an application gateway configuration object. After creating the configuration object, you use the **Set-AzureApplicationGateway** command to commit the configuration to the previously created application gateway resource.
 
 >[AZURE.NOTE] Before assigning a value to each configuration object, you need to declare what kind of object PowerShell uses for storage. The first line to create the individual items defines what Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name) are used.
 

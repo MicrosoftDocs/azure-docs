@@ -68,19 +68,19 @@ Once the resource group is created, a virtual network is created for the applica
 
 ## Create a subnet
 
-After the virtual network is created, a subnet is added for the application gateway.  If you plan to use application gateway with a web app hosted in the same virtual network as the application gateway be sure to leave enough room for another subnet.
+After the virtual network is created, a subnet is added for the application gateway.  If you plan to use application gateway with a web app hosted in the same virtual network as the application gateway, be sure to leave enough room for another subnet.
 
     azure network vnet subnet create -g AdatumAppGatewayRG -n Appgatewaysubnet -v AdatumAppGatewayVNET -a 10.0.0.0/28 
 
 ## Create the application gateway
 
 Once the virtual network and subnet are created, the pre-requisites for the application gateway are complete. Additionally a previously exported .pfx certificate and the password for the certificate are required for the following step. 
-The IP addresses used for the backend are the IP addresses for your backend server. These can be either private IPs in the virtual network, public ips, or fully qualified domain names for your backend servers.
+The IP addresses used for the backend are the IP addresses for your backend server. These values can be either private IPs in the virtual network, public ips, or fully qualified domain names for your backend servers.
 
     azure network application-gateway create -n AdatumAppGateway -l eastus -g AdatumAppGatewayRG -e AdatumAppGatewayVNET -m Appgatewaysubnet -r 134.170.185.46,134.170.188.221,134.170.185.50 -y c:\AdatumAppGateway\adatumcert.pfx -x P@ssw0rd
 
-This creates a basic application gateway with default settings for the listener, backend pool, backend http settings, and rules. It also configures SSL offload. You can modify these settings to suit your deployment once the provisioning is successful.
-If you already have your web application defined with the IP addresses for the backend pool defined in the preceding steps, once the application gateway is provisioned and started load balancing will start.
+This example creates a basic application gateway with default settings for the listener, backend pool, backend http settings, and rules. It also configures SSL offload. You can modify these settings to suit your deployment once the provisioning is successful.
+If you already have your web application defined with the IP addresses for the backend pool defined in the preceding steps, once the application gateway is provisioned and started load balancing begins.
 
 ## Next steps
 

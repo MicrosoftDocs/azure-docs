@@ -47,7 +47,7 @@ In this scenario you will:
 
 ## Download and understand the Azure Resource Manager template
 
-You can download the existing Azure Resource Manager template to create a virtual network and two subnets from GitHub, make any changes you might want, and reuse it. To do so, follow the steps below:
+You can download the existing Azure Resource Manager template to create a virtual network and two subnets from GitHub, make any changes you might want, and reuse it. To do so, use the following steps:
 
 1. Navigate to [Create Application Gateway](https://github.com/Azure/azure-quickstart-templates/tree/master/101-application-gateway-create).
 2. Click **azuredeploy.json**, and then click **RAW**.
@@ -81,31 +81,31 @@ You can download the existing Azure Resource Manager template to create a virtua
 9. Save the file to a local folder on your computer.
 10. Open the file that you saved and edit the values for the parameters. Use the following values to deploy the application gateway described in our scenario.
 
-	{
+		{
 		"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-	{
-	"location" : {
-	"value" : "West US"
-	},
-	"addressPrefix": {
-	"value": "10.0.0.0/16"
-	},
-	"subnetPrefix": {
-	"value": "10.0.0.0/24"
-	},
-	"skuName": {
-	"value": "Standard_Small"
-	},
-	"capacity": {
-	"value": 2
-	},
-	"backendIpAddress1": {
-	"value": "10.0.1.10"
-	},
-	"backendIpAddress2": {
-	"value": "10.0.1.11"
-	}
-	}
+		{
+		"location" : {
+		"value" : "West US"
+		},
+		"addressPrefix": {
+		"value": "10.0.0.0/16"
+		},
+		"subnetPrefix": {
+		"value": "10.0.0.0/24"
+		},
+		"skuName": {
+		"value": "Standard_Small"
+		},
+		"capacity": {
+		"value": 2
+		},
+		"backendIpAddress1": {
+		"value": "10.0.1.10"
+		},
+		"backendIpAddress2": {
+		"value": "10.0.1.11"
+		}
+		}
 
 11. Save the file. You can test the JSON template and parameter template by using online JSON validation tools like [JSlint.com](http://www.jslint.com/).
 
@@ -136,7 +136,7 @@ Choose which of your Azure subscriptions to use. <BR>
 ### Step 4
 
 
-If needed, create a resource group by using the **New-AzureResourceGroup** cmdlet. In the example below, you create a new resource group called AppgatewayRG in East US location.
+If needed, create a resource group by using the **New-AzureResourceGroup** cmdlet. In the following example, you create a resource group called AppgatewayRG in East US location.
 
 	New-AzureRmResourceGroup -Name AppgatewayRG -Location "East US"
 

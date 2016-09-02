@@ -53,7 +53,7 @@ The difference between using Azure Classic and Azure Resource Manager is the ord
 
 With Resource Manager, all items that make an application gateway are configured individually and then put together to create the application gateway resource.
 
-The follower are the steps that are needed to create an application gateway.
+The following are the steps that are needed to create an application gateway.
 
 ## Create a resource group for Resource Manager
 
@@ -80,7 +80,7 @@ Choose which of your Azure subscriptions to use.
 
 ### Step 4
 
-Create a new resource group (skip this step if you're using an existing resource group).
+Create a resource group (skip this step if you're using an existing resource group).
 
     New-AzureRmResourceGroup -Name appgw-rg -location "West US"
 
@@ -121,7 +121,7 @@ Create a public IP resource "publicIP01" in resource group "appgw-rg" for the We
 
 ## Create an application gateway configuration object
 
-You need to set up all configuration items before creating the application gateway. The following steps create the configuration items that are needed for an application gateway resource.
+You must set up all configuration items before creating the application gateway. The following steps create the configuration items that are needed for an application gateway resource.
 
 ### Step 1
 
