@@ -88,8 +88,10 @@ Region of the destination data store | Region used for data movement
 :----------------------------------- | :----------------------------
 East US | East US
 East US 2 | East US 2
-Central US | Central US
 West US | West US
+West US 2 | West US
+Central US | Central US
+West Central US | Central US
 North Central US | North Central US
 South Central US | South Central US
 North Europe | North Europe
