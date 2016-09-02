@@ -1,4 +1,4 @@
-<!--author=alkohli last changed: 09/02/16  ![update device](../includes/media/storsimple-ova-install-update-via-portal/azupdate1m.png)-->
+<!--author=alkohli last changed: 09/02/16 -->
 
 #### To install updates via the Azure classic portal
 
@@ -6,7 +6,7 @@
 
 2. Navigate to **Devices > Maintenance > Software Updates**.
 
-   
+    ![update device](../includes/media/storsimple-ova-install-update-via-portal/azupdate1m.png)  
 
 3. You will see a message if the software updates are available. To check for updates, you can also click **Scan Updates** at the bottom of the page.
 
