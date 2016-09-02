@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="08/29/2016"
+   ms.date="09/02/2016"
    ms.author="tomfitz"/>
 
 # Use Azure PowerShell to create a service principal to access resources
@@ -56,13 +56,13 @@ In this section, you perform the steps to:
 - create the service principal
 - assign the Reader role to the service principal
 
-To quickly perform these actions, use the following example. 
+To quickly perform these steps, see the following three cmdlets. 
 
      $app = New-AzureRmADApplication -DisplayName "{app-name}" -HomePage "https://{your-domain}/{app-name}" -IdentifierUris "https://{your-domain}/{app-name}" -Password "{your-password}"
      New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
      New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.ApplicationId.Guid
 
-If you need more explanation of how to perform these actions, see the following steps.
+Let's go through these steps more carefully to make sure you understand the process.
 
 1. Sign in to your account.
 
@@ -70,13 +70,15 @@ If you need more explanation of how to perform these actions, see the following 
 
 1. Create a new Active Directory application by providing a display name for your application, the URI to a page that describes your application, the URIs that identify your application, and the password for your application identity.
 
-        $azureAdApplication = New-AzureRmADApplication -DisplayName "exampleapp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.contoso.org/example" -Password "<Your_Password>"
+        $app = New-AzureRmADApplication -DisplayName "exampleapp" -HomePage "https://www.contoso.org/exampleapp" -IdentifierUris "https://www.contoso.org/exampleapp" -Password "<Your_Password>"
 
+     For single-tenant applications, the URIs are not validated.
+     
      If your account does not have the [required permissions](#required-permissions) on the Active Directory, you see an error message indicating "Authentication_Unauthorized" or "No subscription found in the context".
 
 1. Examine the new application object. 
 
-        $azureAdApplication
+        $app
         
      Note in particular the **ApplicationId** property, which is needed for creating service principals, role assignments, and acquiring the access token.
 
@@ -92,11 +94,13 @@ If you need more explanation of how to perform these actions, see the following 
 
 2. Create a service principal for your application by passing in the application id of the Active Directory application.
 
-        New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+        New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
 
 3. Grant the service principal permissions on your subscription. In this example, you grant the service principal the permission to Read all resources in the subscription. For the **ServicePrincipalName** parameter, provide the **ApplicationId** that you used when creating the application. 
 
-        New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+        New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.ApplicationId.Guid
+
+    If your account does not have sufficient permissions to assign a role, you see an error message stating your acount **does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}'**. 
 
 That's it! Your AD application and service principal are set up. The next section shows you how to log in with the credential through PowerShell. If you want to use the credential in your code application, you can jump to the [Sample applications](#sample-applications). 
 
