@@ -1,6 +1,6 @@
 ### Tag cmdlet changes in latest PowerShell version
 
-The August 2016 release of [Azure PowerShell 2.0](https://msdn.microsoft.com/library/mt619274#40v=azure.200#41.aspx) includes significant changes in how you work with tags. Before proceeding, check the version of your AzureRm.Resources module.
+The August 2016 release of [Azure PowerShell 2.0][powershell] includes significant changes in how you work with tags. Before proceeding, check the version of your AzureRm.Resources module.
 
     Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
 
@@ -229,3 +229,6 @@ Which returns tag names and a count of the number of resources and resource grou
 You may see tags that start with "hidden-" and "link:". These tags are internal tags, which you should ignore and avoid changing.
 
 Use the **New-AzureRmTag** cmdlet to add new tags to the taxonomy. These tags are included in the autocomplete even though they haven't been applied to any resources or resource groups, yet. To remove a tag name/value, first remove the tag from any resources it may be used with and then use the **Remove-AzureRmTag** cmdlet to remove it from the taxonomy.
+
+
+[powershell] : https://msdn.microsoft.com/library/mt619274(v=azure.200).aspx
