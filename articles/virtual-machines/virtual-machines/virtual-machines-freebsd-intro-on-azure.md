@@ -30,9 +30,9 @@ Deploying a FreeBSD virtual machine is a straightforward process using an image 
 ## VM extension for FreeBSD
 Following are supported VM extensions in FreeBSD VM.
 
-#### [VMAccess](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)
+#### VMAccess
 
-The VMAccess extension can:
+The [VMAccess](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) extension can:
 
 - Reset the password of the original sudo user.
 - Create a sudo user with the password specified.
@@ -43,9 +43,9 @@ The VMAccess extension can:
 - Check drives.
 - Repair an added drive.
 
-#### [CustomSript](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript)
+#### CustomScript
 
-The CustomScript Extension can:
+The [CustomScript](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript) Extension can:
 
 - Download the customized scripts (if provided) from Azure Storage or external public storage such as Github.
 - Run the entry point script.
@@ -55,10 +55,10 @@ The CustomScript Extension can:
 - Protect sensitive data in CommandToExecute.
 
 ## Authentication: user names, passwords, and SSH keys
-When creating a FreeBSD virtual machine using the Azure classic portal, you are asked to provide a user name, password, or SSH public key.
+When creating a FreeBSD virtual machine using the Azure classic portal, you must provide a user name, password, or SSH public key.
 User names for deploying a FreeBSD virtual machine on Azure must not match names of system accounts (UID <100) already present in the virtual machine ("root," for example).
-Currently, only RSA SSH key is supported. Multiline SSH key must begin with ---- BEGIN SSH2 PUBLIC KEY
----- and end with ---- END SSH2 PUBLIC KEY ----.
+Currently, only RSA SSH key is supported. Multiline SSH key must begin with "---- BEGIN SSH2 PUBLIC KEY
+----" and end with "---- END SSH2 PUBLIC KEY ----."
 
 ## Obtain superuser privileges
 The user account that is specified during virtual machine instance deployment on Azure is a privileged account. The package of sudo was installed in the published FreeBSD image.
