@@ -30,23 +30,23 @@ To migrate to the Cognitive Services Recommendations API, do the following:
 
 1.	If you don’t already have an Azure subscription, [sign up](https://portal.azure.com/#create/Microsoft.CognitiveServices/apitype/Recommendations/pricingtier/S1) for one. 
 
-1.	Get step-by-step instructions from the [Quick Start Guide](https://azure.microsoft.com/en-us/documentation/articles/cognitive-services-recommendations-quick-start/)  to sign up for the Cognitive Services Recommendations API and use it programmatically. 
+1.	Get step-by-step instructions from the [Quick Start Guide](cognitive-services-recommendations-quick-start.md) to sign up for the Cognitive Services Recommendations API and use it programmatically. 
 
-1.	Go to the [Cognitive Services Recommendations API landing page](https://www.microsoft.com/cognitive-services/en-us/recommendations-api)  to learn about the service and find documentation.
+1.	Go to the [Cognitive Services Recommendations API landing page](https://www.microsoft.com/cognitive-services/en-us/recommendations-api) to learn about the service and find documentation.
 
 ## I used the Recommendations UI to build my models. Is there a similar tool for the Cognitive Services Recommendations API?
 
 Absolutely! The URL for the new [Recommendations UI](http://recommendations-portal.azurewebsites.net/) is http://recommendations-portal.azurewebsites.net. 
 
->[AZURE.NOTE] Your DataMarket credentials don’t work here. You need to sign up for a subscription in the Azure Portal, 
+>[AZURE.NOTE] Your DataMarket credentials don’t work here. Sign up for a subscription in the Azure Portal, 
 and get the Account Key needed to use the new [Recommendations UI](http://recommendations-portal.azurewebsites.net/).
-If you don’t have an Account Key, see Task 1 of the [Quick Start Guide](https://azure.microsoft.com/en-us/documentation/articles/cognitive-services-recommendations-quick-start/).
+If you don’t have an Account Key, see Task 1 of the [Quick Start Guide](cognitive-services-recommendations-quick-start.md).
 
 ##Is the new API format the same as the DataMarket Recommendations API?
 
-The API supports the same scenarios and process flows as those supported in the DataMarket version, but the
+The API supports the same scenarios and process flows as those scenarios supported in the DataMarket version, but the
 actual API interface has been updated to conform to the [Microsoft REST API Guidelines](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md). 
-This means that the APIs are more consistent and work better with tools that support Swagger.
+The APIs are more consistent and work better with tools that support Swagger.
 
 To understand each of the APIs, check out the [API explorer](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3db).
 Use the *Try* it button to test an API call. The format of files consumed by the Recommendations API (catalog and
