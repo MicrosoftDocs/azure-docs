@@ -23,8 +23,8 @@ A privileged role administrator can customize Azure AD Privileged Identity Manag
 ## Manage the role activation settings
 
 1. Go to the [Azure portal](https://portal.azure.com) and select the **Azure AD Privileged Identity Management** app from the dashboard.
-2. Select the role you want to manage from the roles table.
-3. Click **Settings**.
+2. Select **Manage privileged roles** > **Settings** > **Privileged Roles**.
+3. Choose the role whose settings you want to manage.
 
 On the settings page for each role, there are a number of settings you can configure. These settings only affect users who are eligible admins, not permanent admins.
 
@@ -40,19 +40,24 @@ On the settings page for each role, there are a number of settings you can confi
 
 - You cannot disable MFA for highly privileged roles for Azure AD and Office365. This is a safety feature because these roles should be carefully protected:  
 
-    - Global administrator
-    - Privileged role administrator   
-    - User account administrator  
+    - Application administrator
+    - Application Proxy server administrator
+    - Billing administrator  
+    - Compliance administrator  
+    - CRM service administrator
+    - Customer LockBox access approver
     - Directory writer  
+    - Exchange administrator  
+    - Global administrator
+    - Intune service administrator
+    - Mailbox administrator  
     - Partner tier1 support  
     - Partner tier2 support  
-    - Billing administrator  
+    - Privileged role administrator   
     - Security administrator  
-    - Exchange administrator  
-    - Mailbox administrator  
-    - Skype for Business administrator  
     - SharePoint administrator  
-    - Compliance administrator  
+    - Skype for Business administrator  
+    - User account administrator  
 
 For more information about using MFA with PIM see [How to Require MFA](active-directory-privileged-identity-management-how-to-require-mfa.md).
 
