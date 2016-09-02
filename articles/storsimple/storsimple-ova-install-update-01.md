@@ -93,7 +93,7 @@ Use this method to install updates on a device running GA or Update 0.1 software
 
 5. After the restart is complete, you will be taken to the sign in page. To verify that the device software has updated, in the local web UI, go to **Maintenance** > **Software Update**. The displayed software version should be **10.0.10287.0** for Update 0.3.
 
-	> [AZURE.NOTE] We report the software versions in a slightly different way in the local web UI and the Azure classic portal. For example, the local web UI reports **10.0.0.0.10287** and the Azure classic portal reports **10.0.10287.0** for the same version. 
+	> [AZURE.NOTE] We report the software versions in a slightly different way in the local web UI and the Azure classic portal. For example, the local web UI reports **10.0.0.0.0.10288** and the Azure classic portal reports **10.0.10287.0** for the same version. 
 
 	![update device](./media/storsimple-ova-install-update-01/update6m.png)
 
@@ -107,7 +107,7 @@ If running Update 0.2, we recommend that you install updates through the Azure c
 
 [AZURE.INCLUDE [storsimple-ova-install-update-via-portal](../../includes/storsimple-ova-install-update-via-portal.md)]
 
-After the installation is complete (as indicated by job status at 100 %), go to **Devices > Maintenance > Software Updates**. The displayed software version should be 10.0.10287.0.
+After the installation is complete (as indicated by job status at 100 %), go to **Devices > Maintenance > Software Updates**. The displayed software version should be 10.0.10288.0.
 
 ![update device](./media/storsimple-ova-install-update-01/azupdate12m.png)
 

@@ -23,7 +23,7 @@ The following release notes identify the critical open issues and the resolved i
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your StorSimple Virtual Array, carefully review the information contained in the release notes.
 
-Update 0.3 corresponds to the software version **10.0.10287.0**.
+Update 0.3 corresponds to the software version **10.0.10288.0**.
 
 > [AZURE.NOTE] Updates are disruptive and restart your device. If I/O are in progress, the device incurs downtime.
 
