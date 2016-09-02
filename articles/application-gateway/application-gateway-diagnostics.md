@@ -32,11 +32,11 @@ Audit logging is automatically enabled for every Resource Manager resource. You 
 
 1. Note your storage account's Resource ID, where the log data is stored. This would be of the form: /subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Storage/storageAccounts/\<storage account name\>. Any storage account in your subscription can be used. You can use the preview portal to find this information.
 
-![Preview portal - Application Gateway Diagnostics](./media/application-gateway-diagnostics/diagnostics1.png)
+	![Preview portal - Application Gateway Diagnostics](./media/application-gateway-diagnostics/diagnostics1.png)
 
 2. Note your Application Gateway's Resource ID for which logging is to be enabled. This would be of the form: /subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Network/applicationGateways/\<application gateway name\>. You can use the preview portal to find this information.
 
-![Preview portal - Application Gateway Diagnostics](./media/application-gateway-diagnostics/diagnostics2.png)
+	![Preview portal - Application Gateway Diagnostics](./media/application-gateway-diagnostics/diagnostics2.png)
 
 3. Enable diagnostics logging using the following powershell cmdlet.
 
