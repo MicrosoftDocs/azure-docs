@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2016"
+	ms.date="09/02/2016"
 	ms.author="jeedes"/>
 
 
@@ -103,7 +103,7 @@ To configure and test Azure AD single sign-on with The Funding Portal, you need 
 
 The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your The Funding Portal application.
 
-The Funding Portal application expects the SAML assertions to contain an attribute named "externalId1". The value of "externalId1" should be an recognized studentID. Please configure the "externalId1" claim for this application. You can manage the values of these attributes from the **"Atrributes"** tab of the application. The following screenshot shows an example for this.
+The Funding Portal application expects the SAML assertions to contain an attribute named "externalId1". The value of "externalId1" should be a recognized studentID. Please configure the "externalId1" claim for this application. You can manage the values of these attributes from the **"Atrributes"** tab of the application. The following screenshot shows an example for this.
 
 ![Configure Single Sign-On](./media/active-directory-saas-thefundingportal-tutorial/tutorial_thefundingportal_03.png) 
 
@@ -121,7 +121,7 @@ The Funding Portal application expects the SAML assertions to contain an attribu
 
 	b. In the **Attribute Name** textbox, type the attribute name "externalId1".
 
-	c. From the **Attribute Value** list, select the extension attribute that correspond to the student ID. In our case, we have mapped the "externalID1" attribute to the "extensionattribute1" value which contains the Student ID.
+	c. From the **Attribute Value** list, select the attribute you want to use for your implementation. For example, if you have stored the StudentID value in the ExtensionAttribute1, then select user.extensionattribute1.
 
 	d. Click **Complete**. Then, click **Apply Changes**.
 
