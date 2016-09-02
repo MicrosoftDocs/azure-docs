@@ -24,7 +24,7 @@ The app works in one of two ways:
 
 - **Notification**. The app can help prevent unauthorized access to accounts and stop fraudulent transactions by pushing a notification to your smartphone or tablet. Simply view the notification, and if it's legitimate, select **Verify**. Otherwise, you can select **Deny**. For information about denying notifications, see How to use the Deny and Report Fraud Feature for Multi-Factor Authentication.
 
-- **Password with verification code**. The app can be used as a software token to generate an OATH verification code. You enter the code provided by the app into the sign-in screen, along with the user name and password, when prompted. The verification code provides a second form of authentication.
+- **Password with verification code**. The app can be used as a software token to generate an OAuth verification code. You enter the code provided by the app into the sign-in screen, along with the user name and password, when prompted. The verification code provides a second form of authentication.
 
 With the release of the Microsoft Authenticator app, the old Azure Authenticator app is being replaced.  The Azure Authenticator app will continue to work, but if you decide to move to the new Microsoft Authenticator app, this article can assist you.  
 
@@ -79,8 +79,6 @@ For each account that you want to add to the Microsoft Authenticator app, use on
 
 You should now see the new account on the **accounts** screen.
 
-![Accounts screen](./media/multi-factor-authentication-azure-authenticator/addaccount2.png)
-
 ![Accounts screen](./media/multi-factor-authentication-azure-authenticator/accounts.png)
 
 ### Add an account to the app manually
@@ -115,8 +113,6 @@ You should now see the new account on the **accounts** screen.
 
 You should now see the new account on the **accounts** screen.
 
-![Accounts screen](./media/multi-factor-authentication-azure-authenticator/addaccount2.png)
-
 ![Accounts screen](./media/multi-factor-authentication-azure-authenticator/accounts.png)
 
 ### Add an account to the app by using Touch ID
@@ -127,7 +123,7 @@ Setting up Touch ID with Microsoft Authenticator is simple. You complete a norma
 
 ![Verification of Touch ID setup](./media/multi-factor-authentication-azure-authenticator/touchid1.png)
 
-From that point forward, when you are required to verify your sign-in, you select the received push notification and scan your fingerprint instead of entering your PIN.
+From that point forward, when you're required to verify your sign-in, you select the received push notification and scan your fingerprint instead of entering your PIN.
 
 ![Push notification](./media/multi-factor-authentication-azure-authenticator/touchid2.png)
 
