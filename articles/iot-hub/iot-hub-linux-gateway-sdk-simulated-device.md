@@ -41,7 +41,7 @@ To run the sample:
 
 In a text editor, open the file **samples/simulated_device_cloud_upload/src/simulated_device_cloud_upload_lin.json** in your local copy of the **azure-iot-gateway-sdk** repository. This file configures the modules in the sample gateway:
 
-- The **IoTHub** module connects to your IoT hub. You must configure it to send data to your IoT hub. Specifically, set the **IoTHubName** value to the name of your IoT hub and set the value of **IoTHubSuffix** to **azure-devices.net**.
+- The **IoTHub** module connects to your IoT hub. You must configure it to send data to your IoT hub. Specifically, set the **IoTHubName** value to the name of your IoT hub and set the **IoTHubSuffix** value to **azure-devices.net**. Set the **Transport** value to one of: "HTTP", "AMQP", or "MQTT". Note that currently, only "HTTP" will share one TCP connection for all device messages. If you set the value to "AMQP", or "MQTT", the gateway will maintain a separate TCP connection to IoT Hub for each device.
 - The **mapping** module maps the MAC addresses of your simulated devices to your IoT Hub device ids. Make sure that **deviceId** values match the ids of the two devices you added to your IoT hub, and that the **deviceKey** values contain the keys of your two devices.
 - The **BLE1** and **BLE2** modules are the simulated devices. Note how their MAC addresses match those in the **mapping** module.
 - The **Logger** module logs your gateway activity to a file.
@@ -58,7 +58,8 @@ In a text editor, open the file **samples/simulated_device_cloud_upload/src/simu
             "args" : 
             {
                 "IoTHubName" : "{Your IoT hub name}",
-                "IoTHubSuffix" : "azure-devices.net"
+                "IoTHubSuffix" : "azure-devices.net",
+                "Transport": "HTTP"
             }
         },
         {
