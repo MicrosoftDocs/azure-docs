@@ -109,7 +109,7 @@ If running Update 0.2, we recommend that you install updates through the Azure c
 
 After the installation is complete (as indicated by job status at 100 %), go to **Devices > Maintenance > Software Updates**. The displayed software version should be 10.0.10287.0.
 
-![update device](./media/storsimple-ova-install-update-01/azupdate12m.png)
+
 
 ## Next steps
 
