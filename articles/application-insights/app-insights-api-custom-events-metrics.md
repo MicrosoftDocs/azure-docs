@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/21/2016" 
+	ms.date="09/01/2016" 
 	ms.author="awills"/>
 
 # Application Insights API for custom events and metrics 
@@ -46,7 +46,6 @@ If you haven't done these yet:
 
 * Add the Application Insights SDK to your project:
  * [ASP.NET project][greenbrown]
- * [Windows project][windows]
  * [Java project][java] 
  * [JavaScript in each web page][client]   
 
@@ -276,7 +275,6 @@ The SDKs catch many exceptions automatically, so you don't always have to call T
 
 * ASP.NET: [Write code to catch exceptions](app-insights-asp-net-exceptions.md)
 * J2EE: [Exceptions are caught automatically](app-insights-java-get-started.md#exceptions-and-request-failures)
-* Windows apps: [Crashes are caught automatically](app-insights-windows-crashes.md)
 * JavaScript: Caught automatically. If you want to disable automatic collection, add a line into the code snippet that you insert in your web pages:
 
     ```
@@ -788,6 +786,5 @@ If you set any of these values yourself, consider removing the relevant line fro
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md
 [trace]: app-insights-search-diagnostic-logs.md
-[windows]: app-insights-windows-get-started.md
 
  

@@ -17,7 +17,7 @@
  
 # Application Insights - introduction
 
-[Visual Studio Application Insights](app-insights-get-started.md) is an extensible analytics service that monitors your live web application. With it you can detect and diagnose performance issues, and understand what users actually do with your app. It's designed for developers, to help you continuously improve  performance and usability. It works for apps on a wide variety of platforms including .NET, Node.js and J2EE, hosted on-premises or in the cloud. 
+Visual Studio Application Insights is an extensible analytics service that monitors your live web application. With it you can detect and diagnose performance issues, and understand what users actually do with your app. It's designed for developers, to help you continuously improve  performance and usability. It works for apps on a wide variety of platforms including .NET, Node.js and J2EE, hosted on-premises or in the cloud. 
 
 ![Chart user activity statistics, or drill into specific events.](./media/app-service-app-insights-get-started/00-sample.png)
 

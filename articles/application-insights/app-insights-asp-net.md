@@ -122,13 +122,13 @@ If you want, you can do these steps manually for [ASP.NET 4](app-insights-window
 
 ### To upgrade to future SDK versions
 
-To upgrade to a [new release of the SDK](app-insights-release-notes-dotnet.md), open NuGet package manager again, and filter on installed packages. Select Microsoft.ApplicationInsights.Web and choose Upgrade.
+To upgrade to a [new release of the SDK](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases), open NuGet package manager again, and filter on installed packages. Select Microsoft.ApplicationInsights.Web and choose Upgrade.
 
 If you made any customizations to ApplicationInsights.config, save a copy of it before you upgrade, and afterwards merge your changes into the new version.
 
 
 
-## What's next?
+## Next steps
 
 | | 
 |---|---
