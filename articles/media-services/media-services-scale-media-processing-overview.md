@@ -57,7 +57,14 @@ For information about quotas and limitations and how to open a support ticket, s
 
 ##Next step
 
-[User the Azure portal to scale media processing](media-services-portal-scale-media-processing.md)
+Achieve the scaling media processing task with one of these technologies: 
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-encoding-units.md)
+- [Portal](media-services-portal-scale-media-processing.md)
+- [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
+- [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+- [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
 
 ##Media Services learning paths
 
