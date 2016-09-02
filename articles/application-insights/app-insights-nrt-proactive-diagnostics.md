@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Near Real Time Proactive Diagnostics in Application Insights" 
+	pageTitle="Near Real Time Proactive Diagnostics in Application Insights | Microsoft Azure" 
 	description="Alerts you to unusual failure patterns in your app, and provides diagnostic analysis. No configuration is needed." 
 	services="application-insights" 
     documentationCenter=""
@@ -21,7 +21,7 @@
 
 This feature works for Java and ASP.NET web apps, hosted in the cloud or on your own servers. It also works for any app that generates request telemetry - for example, if you have a worker role that calls [TrackRequest()](app-insights-api-custom-events-metrics.md#track-request). 
 
-After setting up [Application Insights for your project](app-insights-get-started.md), and provided your app generates a certain minimum amount of telemetry, NRT Proactive Diagnostics takes 24 hours to learn the normal behavior of your app, before it is switched on and can send alerts.
+After setting up [Application Insights for your project](app-insights-overview.md), and provided your app generates a certain minimum amount of telemetry, NRT Proactive Diagnostics takes 24 hours to learn the normal behavior of your app, before it is switched on and can send alerts.
 
 Here's a sample alert. 
 
@@ -158,5 +158,18 @@ NRT Proactive Diagnostics complements other similar but distinct features of App
 ## Feedback please
 
 *We are very interested to know what you think about this. Please send feedback to:* [ainrtpd@microsoft.com](mailto:ainrtpd@microsoft.com).
+
+## Next steps
+
+These diagnostic tools help you inspect the telemetry from your app:
+
+* [Metric explorer](app-insights-metrics-explorer.md)
+* [Search explorer](app-insights-diagnostic-search.md)
+* [Analytics - powerful query language](app-insights-analytics-tour.md)
+
+Proactive detections are completely automatic. But maybe you'd like to set up some more alerts?
+
+* [Manually configured metric alerts](app-insights-alerts.md)
+* [Availability web tests](app-insights-monitor-web-app-availability.md) 
 
 

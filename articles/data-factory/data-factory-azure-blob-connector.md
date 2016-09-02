@@ -20,12 +20,10 @@
 # Move data to and from Azure Blob using Azure Data Factory
 This article explains how to use the Copy Activity in Azure Data Factory to move data to and from Azure Blob by sourcing blob data from another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity and the supported data store combinations.
 
-The copy activity supports the following operations:
- 
-- Copying from/to only **block blobs**.
-- Copying from/to general-purpose Azure Storage accounts. 
-- Copying from a Hot/Cool Blob storage, but does not support copying to a Hot/Cool Blob storage. 
-
+> [AZURE.NOTE]
+> The Copy Activity supports copying data from/to both general-purpose Azure Storage accounts and Hot/Cool Blob storage. 
+> 
+> The activity supports reading from block, append, or page blobs, but supports writing to only block blobs. 
 
 ## Copy data wizard
 The easiest way to create a pipeline that copies data to/from Azure Blob Storage is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
@@ -454,18 +452,18 @@ Properties available in the typeProperties section of the activity on the other 
 | -------- | ----------- | -------------- | -------- |
 | copyBehavior | Defines the copy behavior when the source is BlobSource or FileSystem. | **PreserveHierarchy:** preserves the file hierarchy in the target folder. The relative path of source file to source folder is identical to the relative path of target file to target folder.<br/><br/>**FlattenHierarchy:** all files from the source folder are in the first level of target folder. The target files have auto generated name. <br/><br/>**MergeFiles: (default)** merges all files from the source folder to one file. If the File/Blob Name is specified, the merged file name would be the specified name; otherwise, would be auto-generated file name. | No |
 
-**BlobSource** also supports these two properties that will be deprecated soon. 
+**BlobSource** also supports these two properties for backward compatibility. 
 
 - **treatEmptyAsNull**: Specifies whether to treat null or empty string as null value.
 - **skipHeaderLineCount** - Specifies how many lines need be skipped. It is applicable only when input dataset is using TextFormat.
 
-Similarly, **BlobSink** supports the following property that will be deprecated soon.
+Similarly, **BlobSink** supports the following property for backward compatibility.
 
 - **blobWriterAddHeader**: Specifies whether to add a header of column definitions while writing to an output dataset. 
 
 Datasets now support the following properties that implement the same functionality: **treatEmptyAsNull**, **skipLineCount**, **firstRowAsHeader**.
 
-The following table provides guidance on using the new dataset properties in place of blob source/sink properties that will be deprecated soon. 
+The following table provides guidance on using the new dataset properties in place of these blob source/sink properties. 
 
 | Copy Activity property | Dataset property |
 | :---------------------- | :---------------- | 
