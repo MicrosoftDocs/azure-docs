@@ -43,14 +43,14 @@ You can create as many Connector groups as you want. Connector group creation is
 
 2. Give your new Connector group a name, then use the dropdown menu to select which Connectors belong in this group.
 
-3. Select **Save** when your Connector Group is complete. 
+3. Select **Save** when your Connector Group is complete.
 
 ## Step 2: Assign applications to your Connector groups
 The last step is to set each application to the Connector group that will serve it.
 
-1. In the Azure classic portal, in your directory, select the Application you want to assign to the group and click **Configure**.
-2. Under **Connector group**, select the group you want the application to use. This change is immediately applied.
-	![Application proxy connector group screenshot - select group from dropdown menu](./media/active-directory-application-proxy-connectors/app_proxy_connectors_newgroup.png)
+1. From the management dashboard for your directory, select **Enterprise applications** > **All applications** > the application you want to assign to a connector group > **Application Proxy**.
+2. Under **Connector group**, use the dropdown menu to select the group you want the application to use.
+3. Select **Save** to apply the change. 
 
 
 ## See also
