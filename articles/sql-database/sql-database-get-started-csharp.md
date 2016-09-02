@@ -35,7 +35,7 @@ The Azure SQL Database Library for .NET provides an [Azure Resource Manager](../
 
 To complete the steps in this article, you need the following:
 
-- An Azure subscription. If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
+- An Azure subscription. If you need an Azure subscription simply click **FREE ACCOUNT** at the top of this page, and then come back to finish this article.
 - Visual Studio. For a free copy of Visual Studio, see the [Visual Studio Downloads](https://www.visualstudio.com/downloads/download-visual-studio-vs) page.
 
 
@@ -46,9 +46,9 @@ To complete the steps in this article, you need the following:
 3. Create a C# **Console Application** and name it: *SqlDbConsoleApp*
 
 
-To create a SQL database with C#, load the required management libraries (using the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console)).
+To create a SQL database with C#, load the required management libraries (using the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console)):
 
-1. After the new project is created, click **Tools** > **NuGet Package Manager** > **Package Manager Console**.
+1. Click **Tools** > **NuGet Package Manager** > **Package Manager Console**.
 2. Type `Install-Package Microsoft.Azure.Management.Sql –Pre` to install the [Microsoft Azure SQL Management Library](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
 3. Type `Install-Package Microsoft.Azure.Management.ResourceManager –Pre` to install the [Microsoft Azure Resource Manager Library](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
 4. Type `Install-Package Microsoft.Azure.Common.Authentication –Pre` to install the [Microsoft Azure Common Authentication Library](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication). 
@@ -107,7 +107,7 @@ Replace the contents of **Program.cs** with the following, and update the `{vari
 
         static string _databaseName = "{dbfromcsarticle}";
         static string _databaseEdition = DatabaseEditions.Basic;
-        static string _databasePerfLevel = "";
+        static string _databasePerfLevel = ""; // "S0", "S1", and so on here for other tiers
 
 
         static void Main(string[] args)
