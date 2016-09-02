@@ -107,7 +107,7 @@ After the VM completes provisioning, SSH to the VM using the VM's external IP ad
     >
     >On the CentOS-based HPC images from the Marketplace, kernel updates are disabled in the **yum** configuration file. Because the Linux RDMA drivers are distributed as an RPM package, driver updates might not work if the kernel is updated.
 
-* **Linux RDMA driver updates** - If you deployed an SLES 12 HPC VM, you need to update the RDMA drivers. See [About the A8, A9, A10, and A11 compute-intensive instances](virtual-machines-linux-a8-a9-a10-a11.md#rdma-driver-updates-for-sles-12) for details.
+* **Linux RDMA driver updates** - If you deployed an SLES 12 HPC VM, you need to update the RDMA drivers. See [About the A8, A9, A10, and A11 compute-intensive instances](virtual-machines-linux-a8-a9-a10-a11-specs.md#rdma-driver-updates-for-sles-12) for details.
 
 * **Intel MPI** - If you deployed an SLES 12 HPC VM, download and install the Intel MPI Library 5 runtime from the Intel.com site by running commands similar to the following. This step isn't necessary if you deployed a CentOS-based 6.5 or 7.1 HPC VM.
 
