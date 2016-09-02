@@ -56,7 +56,7 @@ Creates a new Batch account with the specified parameters. You must specify at l
 
 	azure group create --name "resgroup001" --location "West US"
 
-> [AZURE.NOTE] The Batch account name must be unique within the Azure region the account is created. It may contain only lowercase alphanumeric characters, and must be 3-24 characters in length. You cannot use special characters like `-` or `_` in Batch account names.
+> [AZURE.NOTE] The Batch account name must be unique within the Azure region the account is created. It may contain only lowercase alphanumeric characters, and must be 3-24 characters in length. You can't use special characters like `-` or `_` in Batch account names.
 
 ### Linked storage account (autostorage)
 
@@ -148,7 +148,7 @@ Example (Cloud Services Configuration):
 
 Creates a pool of compute nodes in the Batch service.
 
-As mentioned in the [Batch feature overview](batch-api-basics.md#pool), you have two options when you select an operating system for the nodes in your pool: **Virtual Machine Configuration** and **Cloud Services Configuration**. Use the `--image-*` options to create Virtual Machine Configuration pools, and `--os-family` to create Cloud Services Configuration pools. You cannot specify both `--os-family` and `--image-*` options.
+As mentioned in the [Batch feature overview](batch-api-basics.md#pool), you have two options when you select an operating system for the nodes in your pool: **Virtual Machine Configuration** and **Cloud Services Configuration**. Use the `--image-*` options to create Virtual Machine Configuration pools, and `--os-family` to create Cloud Services Configuration pools. You can't specify both `--os-family` and `--image-*` options.
 
 You can specify pool [application packages](batch-application-packages.md) and the command line for a [start task](batch-api-basics.md#start-task). To specify resource files for the start task, however, you must instead use a [JSON file](#json-files).
 
@@ -199,7 +199,9 @@ For details on the three clauses and performing list queries with them, see [Que
 
 ## Application package management
 
-Application packages provide a simplified way to deploy applications to the compute nodes in your pools. With the Azure CLI, you can upload application packages, manage package versions, and delete packages. Examples of the basic process--create application, add application package, activate package--appear blow.
+Application packages provide a simplified way to deploy applications to the compute nodes in your pools. With the Azure CLI, you can upload application packages, manage package versions, and delete packages.
+
+To create a new application and add a package version:
 
 **Create** an application:
 
@@ -209,11 +211,11 @@ Application packages provide a simplified way to deploy applications to the comp
 
     azure batch application package create "resgroup001" "batchaccount001" "MyTaskApplication" "1.10-beta3" package001.zip
 
-To use an application package, you must first **activate** it:
+**Activate** the package:
 
     azure batch application package activate "resgroup002" "azbatch002" "MyTaskApplication" "1.10-beta3" zip
 
-You cannot currently specify which package version to deploy, so you must first set a default version for the application by using the Azure portal. See how to set a default version in [Application deployment with Azure Batch application packages](batch-application-packages.md).
+You can't currently specify which package version to deploy. You must first set a default version for the application by using the Azure portal before you can assign it to a pool. See how to set a default version in [Application deployment with Azure Batch application packages](batch-application-packages.md).
 
 ### Deploy an application package
 
@@ -221,7 +223,7 @@ You can specify one or more application packages for deployment when you create 
 
 This command specifies a package at pool creation, and is deployed as each node joins the new pool:
 
-    azure batch pool create --id "pool001" --target-dedicated 0 --vm-size "small" --os-family "4" --app-package-ref "MyTaskApplication"
+    azure batch pool create --id "pool001" --target-dedicated 1 --vm-size "small" --os-family "4" --app-package-ref "MyTaskApplication"
 
 >[AZURE.IMPORTANT] You must [link an Azure Storage account](#linked-storage-account-autostorage) to your Batch account to use application packages.
 
@@ -237,7 +239,7 @@ This section is intended to provide you with resources to use when troubleshooti
 
 * The [Batch forum on MSDN][batch_forum] is a great help resource, and is monitored closely by Batch team members. Be sure to post your questions there if you run into issues or would like help with a specific operation.
 
-* Not every Batch resource operation is currently supported by the Azure CLI. For example, you cannot currently specify an application package *version* for a pool, only the package ID. In such cases, you may need to supply a `--json-file` for your command instead of using command-line options. Be sure to stay up-to-date with the latest CLI version to pick up future enhancements.
+* Not every Batch resource operation is currently supported by the Azure CLI. For example, you can't currently specify an application package *version* for a pool, only the package ID. In such cases, you may need to supply a `--json-file` for your command instead of using command-line options. Be sure to stay up-to-date with the latest CLI version to pick up future enhancements.
 
 ## Next steps
 
