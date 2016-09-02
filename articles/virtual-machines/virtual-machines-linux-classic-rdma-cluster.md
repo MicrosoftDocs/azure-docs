@@ -35,11 +35,11 @@ Following are methods you can use to create a Linux RDMA cluster either with or 
 
 * **Azure CLI scripts** - As shown later in this article, use the [Azure Command-Line Interface](../xplat-cli-install.md) (CLI) to script the deployment of a cluster of size A8 or A9 Linux VMs. The CLI in Service Management mode creates the cluster nodes serially in the classic deployment model, so deploying many compute nodes might take several minutes. In the classic deployment model, A8 or A9 VMs have to be deployed in the same cloud service to connect through the RDMA network.
 
-* **Azure Resource Manager templates** - Use the Resource Manager deployment model to deploy multiple A8 and A9 Linux VMs in a compute cluster that takes advantage of the RDMA network to run MPI workloads. You can [create your own template](../resource-group-authoring-templates.md), or check the [Azure quickstart templates](https://azure.microsoft.com/documentation/templates/) for templates contributed by Microsoft or the community to deploy the solution you want. Resource Manager templates can provide a fast and reliable way to deploy a Linux cluster. In the Resource Manager deployment model, A8 or A9 VMs have to be deployed in the same availability set to connect through the RDMA network.
+* **Azure Resource Manager templates** - Use the Resource Manager deployment model to deploy a cluster of A8 and A9 VMs that connects to the RDMA network to run MPI workloads. You can [create your own template](../resource-group-authoring-templates.md), or check the [Azure quickstart templates](https://azure.microsoft.com/documentation/templates/) for templates contributed by Microsoft or the community to deploy the solution you want. Resource Manager templates can provide a fast and reliable way to deploy a Linux cluster. In the Resource Manager deployment model, A8 or A9 VMs have to be deployed in the same availability set to connect through the RDMA network.
 
 ## Sample deployment in classic model
 
-The following steps show how to use the Azure CLI to deploy a SUSE Linux Enterprise Server (SLES) 12 HPC VM from the Azure Marketplace, install Intel MPI Library and other customizations, and create a custom VM image. Then, use the image to script the deployment of a cluster of A8 or A9 VMs. 
+The following steps show how to use the Azure CLI to deploy a SUSE Linux Enterprise Server (SLES) 12 HPC VM from the Azure Marketplace, install Intel MPI Library, and create a custom VM image. Then, use the image to script the deployment of a cluster of A8 or A9 VMs. 
 
 >[AZURE.TIP]  Use similar steps to deploy a cluster of A8 or A9 VMs based on the CentOS-based 6.5 or 7.1 HPC image in the Azure Marketplace. Differences are noted in the steps. For example, because the CentOS-based HPC images include Intel MPI, you do not need to install Intel MPI separately on VMs created from those images.
 
@@ -107,7 +107,7 @@ After the VM completes provisioning, SSH to the VM using the VM's external IP ad
     >
     >On the CentOS-based HPC images from the Marketplace, kernel updates are disabled in the **yum** configuration file. Because the Linux RDMA drivers are distributed as an RPM package, driver updates might not work if the kernel is updated.
 
-* **Linux RDMA driver updates** - If you deployed an SLES 12 HPC VM, you need to update the RDMA drivers. See [About the A8, A9, A10, and A11 compute-intensive instances](virtual-machines-linux-a8-a9-a10-a11.md#Linux-RDMA-driver-updates-for-SLES-12) for details.
+* **Linux RDMA driver updates** - If you deployed an SLES 12 HPC VM, you need to update the RDMA drivers. See [About the A8, A9, A10, and A11 compute-intensive instances](virtual-machines-linux-a8-a9-a10-a11-specs.md#rdma-driver-updates-for-sles-12) for details.
 
 * **Intel MPI** - If you deployed an SLES 12 HPC VM, download and install the Intel MPI Library 5 runtime from the Intel.com site by running commands similar to the following. This step isn't necessary if you deployed a CentOS-based 6.5 or 7.1 HPC VM.
 
@@ -129,7 +129,7 @@ After the VM completes provisioning, SSH to the VM using the VM's external IP ad
 
     >[AZURE.NOTE]For testing purposes, you can also set memlock to unlimited. For example: `<User or group name>    hard    memlock unlimited.
 
-* **SSH keys for SLES 12 VMs** - Generate SSH keys to establish trust for your user account among all the compute nodes in the SLES 12 HPC cluster when running MPI jobs. (If you deployed a CentOS-based HPC VM, don't follow this step. See instructions later in the article to set up passwordless SSH trust among the cluster nodes after you capture the image and deploy the cluster.) 
+* **SSH keys for SLES 12 VMs** - Generate SSH keys to establish trust for your user account among the compute nodes in the SLES 12 HPC cluster when running MPI jobs. (If you deployed a CentOS-based HPC VM, don't follow this step. See instructions later in the article to set up passwordless SSH trust among the cluster nodes after you capture the image and deploy the cluster.) 
 
     Run the following command to create SSH keys. When you are prompted for input, press Enter to generate the keys in the default location without setting a passphrase.
 

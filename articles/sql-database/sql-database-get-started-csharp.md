@@ -14,7 +14,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="csharp"
    ms.workload="data-management"
-   ms.date="05/26/2016"
+   ms.date="09/01/2016"
    ms.author="sstein"/>
 
 # Try SQL Database: Use C# to create a SQL database with the SQL Database Library for .NET
@@ -25,245 +25,44 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-Learn how to use C# commands to create an Azure SQL database with the [Azure SQL Database Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). You'll try SQL Database by creating a single database with SQL and C#. To create elastic database pools, see [Create an Elastic database pool](sql-database-elastic-pool-create-portal.md). Individual code snippets are broken out for clarity and a sample console application brings all the commands together in the section at the bottom of this article.
+Learn how to use C# to create an Azure SQL database with the [Azure SQL Database Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). This article describes how to create a single database with SQL and C#. To create elastic database pools, see [Create an Elastic database pool](sql-database-elastic-pool-create-portal.md).
 
-The Azure SQL Database Library for .NET provides an [Azure Resource Manager](../resource-group-overview.md)-based API that wraps the [Resource Manager-based SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx). This client library follows the common pattern for Resource Manager-based client libraries. Resource Manager requires resource groups, and authenticating with [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD).
+The Azure SQL Database Library for .NET provides an [Azure Resource Manager](../resource-group-overview.md)-based API that wraps the [Resource Manager-based SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
-<br>
 
 > [AZURE.NOTE] The SQL Database Library for .NET is currently in preview.
 
-<br>
 
-To complete the steps in this article you need the following:
+To complete the steps in this article, you need the following:
 
-- An Azure subscription. If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
+- An Azure subscription. If you need an Azure subscription simply click **FREE ACCOUNT** at the top of this page, and then come back to finish this article.
 - Visual Studio. For a free copy of Visual Studio, see the [Visual Studio Downloads](https://www.visualstudio.com/downloads/download-visual-studio-vs) page.
 
 
-## Install the required libraries
+## Create a console app and install the required libraries
 
-To set up a SQL database with C#, get the required management libraries by installing the following packages using the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
-
-    Install-Package Microsoft.Azure.Management.Sql –Pre
-    Install-Package Microsoft.Azure.Management.ResourceManager –Pre -Version 1.1.1-preview
-    Install-Package Microsoft.Azure.Common.Authentication –Pre
+1. Start Visual Studio.
+2. Click **File** > **New** > **Project**.
+3. Create a C# **Console Application** and name it: *SqlDbConsoleApp*
 
 
-## Configure authentication with Azure Active Directory
+To create a SQL database with C#, load the required management libraries (using the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console)):
 
-You must first enable your client application to access the SQL Database service by setting up the required authentication.
-
-To authenticate your client application based on the current user you must first register your application in the AAD domain associated with the subscription under which the Azure resources have been created. If your Azure subscription was created with a Microsoft account rather than a work or school account you will already have a default AAD domain.
-
-To create a new application and register it in the correct active directory do the following:
-
-1. Go to the [Azure Classic Portal](https://manage.windowsazure.com/).
-1. On the left side select the **Active Directory** service and then select the directory to authenticate your application and click it's **Name**.
-
-    ![Try SQL Database: Set up Azure Active Directory (AAD).][1]
-
-2. On the directory page, click **APPLICATIONS**.
-
-    ![The directory page with Applications.][5]
-
-4. Click **ADD** to create a new application.
-
-5. Select **Add an application my organization is developing**.
-
-5. Provide a **NAME** for the app, and select **NATIVE CLIENT APPLICATION**.
-
-    ![Provide information about your SQL C# application.][7]
-
-6. Provide a **REDIRECT URI**. It doesn't need to be an actual endpoint, just a valid URI.
-
-    ![Add a redirect URL for your SQL C# application.][8]
-
-7. Finish creating the app, click **CONFIGURE**, and copy the **CLIENT ID** (you will need the client id later in your code).
-
-    ![Get client ID for your SQL C# application.][9]
-
-
-1. On the bottom of the page click on **Add application**.
-1. Select **Microsoft Apps**.
-1. Select **Azure Service Management API**, and then complete the wizard.
-2. With the API selected you now need to grant the specific permissions required to access this API by selecting **Access Azure Service Management (preview)**.
-
-    ![Set permissions.][2]
-
-2. Click **SAVE**.
-
-
-
-### Identify the domain name
-
-The domain name is required for your code. An easy way to identify the proper domain name is to:
-
-1. Go to the [Azure Portal](http://portal.azure.com).
-2. Hover over your name in the upper right corner and note the Domain that appears in the pop-up window.
-
-    ![Identify the domain name.][3]
-
-
-
-
-
-**Additional AAD Resources**  
-
-Additional information about using Azure Active Directory for authentication can be found in [this useful blog post](http://www.cloudidentity.com/blog/2013/09/12/active-directory-authentication-library-adal-v1-for-net-general-availability/).
-
-
-### Retrieve the access token for the current user
-
-The client application must retrieve the application access token for the current user. The first time this code is executed by a user they will be prompted to enter their user credentials and the resulting token is cached locally. Subsequent executions will retrieve the token from the cache and will only prompt the user to log in if the token has expired.
-
-This code returns a Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationResult that you will need in the other code snippets below.
-
-        private static AuthenticationResult GetAccessToken()
-        {
-            AuthenticationContext authContext = new AuthenticationContext
-                ("https://login.windows.net/" + domainName /* Tenant ID or AAD domain */);
-
-            AuthenticationResult token = authContext.AcquireToken
-                ("https://management.azure.com/"/* the Azure Resource Management endpoint */,
-                    clientId,
-            new Uri(redirectUri) /* redirect URI */,
-            PromptBehavior.Auto /* with Auto user will not be prompted if an unexpired token is cached */);
-
-            return token;
-        }
+1. Click **Tools** > **NuGet Package Manager** > **Package Manager Console**.
+2. Type `Install-Package Microsoft.Azure.Management.Sql –Pre` to install the [Microsoft Azure SQL Management Library](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql).
+3. Type `Install-Package Microsoft.Azure.Management.ResourceManager –Pre` to install the [Microsoft Azure Resource Manager Library](https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceManager).
+4. Type `Install-Package Microsoft.Azure.Common.Authentication –Pre` to install the [Microsoft Azure Common Authentication Library](https://www.nuget.org/packages/Microsoft.Azure.Common.Authentication). 
 
 
 
 > [AZURE.NOTE] The examples in this article use a synchronous form of each API request and block until completion of the REST call on the underlying service. There are async methods available.
 
 
+## Create a SQL Database server, firewall rule, and SQL database - C# example
 
-## Create a resource group
+The following sample creates a resource group, server, firewall rule, and a SQL database. See, [Create a service principal to access resources](#create-a-service-principal-to-access-resources) to get the `_subscriptionId, _tenantId, _applicationId, and _applicationSecret` variables.
 
-With Resource Manager, all resources must be created in a resource group. A resource group is a container that holds related resources for an application. With Azure SQL Database the database server must be created within an existing resource group.
-
-        static void CreateResourceGroup()
-        {
-            creds = new Microsoft.Rest.TokenCredentials(token.AccessToken);
-
-            // Create a resource management client
-            ResourceManagementClient resourceClient = new ResourceManagementClient(creds);
-
-            // Resource group parameters
-            ResourceGroup resourceGroupParameters = new ResourceGroup()
-            {
-                Location = location,
-            };
-
-            //Create a resource group
-            resourceClient.SubscriptionId = subscriptionId;
-            var resourceGroupResult = resourceClient.ResourceGroups.CreateOrUpdate(resourceGroupName, resourceGroupParameters);
-        }
-
-
-## Create a server
-
-SQL databases are contained in servers. The server name must be globally unique among all Azure SQL servers so you will get an error here if the server name is already taken. Also worth noting is that this command may take several minutes to complete.
-
-    static void CreateServer()
-    {
-        // Create a SQL Database management client
-        SqlManagementClient sqlClient = new SqlManagementClient(new TokenCloudCredentials(subscriptionId, token.AccessToken));
-
-        // Create a server
-        ServerCreateOrUpdateParameters serverParameters = new ServerCreateOrUpdateParameters()
-        {
-            Location = location,
-            Properties = new ServerCreateOrUpdateProperties()
-            {
-                AdministratorLogin = administratorLogin,
-                AdministratorLoginPassword = administratorPassword,
-                Version = serverVersion
-            }
-        };
-            var serverResult = sqlClient.Servers.CreateOrUpdate(resourceGroupName, serverName, serverParameters);
-    }
-
-
-### Create an external server administrator
-
-
-    // Create a server external admin
-    ServerAdministratorCreateOrUpdateParameters aadAdminParameters = new ServerAdministratorCreateOrUpdateParameters()
-    {
-        Properties = new ServerAdministratorCreateOrUpdateProperties()
-        {
-            AdministratorType = "ActiveDirectory",
-            Login = "<login>",
-            Sid = new Guid("<Azure AD admin sid>"),
-            TenantId = new Guid("<Azure AD tenant id>")
-        }
-    };
-
-    var adminResult = sqlClient.ServerAdministrators.CreateOrUpdate(resourceGroupName, serverName, "ActiveDirectory", aadAdminParameters);
-    var adminGetResult = sqlClient.ServerAdministrators.Get(resourceGroupName, serverName, "ActiveDirectory");
-
-
-
-
-## Create a server firewall rule to allow access to the server
-
-By default a server cannot be connected to from any location. In order to connect to a server or any databases on the server, a [firewall rule](https://msdn.microsoft.com/library/azure/ee621782.aspx) must be defined that allows access from the client IP address.
-
-The following example creates a rule that opens access to the server from any IP address. It is recommended that you create appropriate SQL logins and passwords to secure your database and not rely on firewall rules as a primary defense against intrusion.
-
-
-        static void CreateFirewallRule()
-        {
-            // Create a firewall rule on the server
-            FirewallRuleCreateOrUpdateParameters firewallParameters = new FirewallRuleCreateOrUpdateParameters()
-            {
-                Properties = new FirewallRuleCreateOrUpdateProperties()
-                {
-                    StartIpAddress = "0.0.0.0",
-                    EndIpAddress = "255.255.255.255"
-                }
-            };
-            var firewallResult = sqlClient.FirewallRules.CreateOrUpdate(resourceGroupName, serverName, firewallRuleName, firewallParameters);
-        }
-
-
-
-
-To allow other Azure services to access a server add a firewall rule and set both the StartIpAddress and EndIpAddress to 0.0.0.0. Note that this allows Azure traffic from *any* Azure subscription to access the server.
-
-
-## Use C&#x23; to create a SQL database
-
-The following C# command will create a new SQL database if a database with the same name does not already exist on the server; if a database with the same name does exist it will be updated.
-
-
-        static void CreateDatabase()
-        {
-            // Create a database
-
-            // Retrieve the server on which the database will be created
-            Server currentServer = sqlClient.Servers.Get(resourceGroupName, serverName).Server;
-
-            // Create a database: configure create or update parameters and properties explicitly
-            DatabaseCreateOrUpdateParameters newDatabaseParameters = new DatabaseCreateOrUpdateParameters()
-            {
-                Location = currentServer.Location,
-                Properties = new DatabaseCreateOrUpdateProperties()
-                {
-                    Edition = databaseEdition,
-                    RequestedServiceObjectiveName = databasePerfLevel,
-                }
-            };
-            var dbResponse = sqlClient.Databases.CreateOrUpdate(resourceGroupName, serverName, databaseName, newDatabaseParameters);
-        }
-
-
-
-## Sample C&#x23; console application
-
-The following sample creates a resource group, server, firewall rule, and a SQL database. The *Configure authentication with Azure Active Directory* section at the top of this article shows where you get the values for the clientId, redirectUri, and domainName variables.
+Replace the contents of **Program.cs** with the following, and update the `{variables}` with your app values (do not include the `{}`).
 
 
     using Microsoft.Azure;
@@ -273,131 +72,125 @@ The following sample creates a resource group, server, firewall rule, and a SQL 
     using Microsoft.Azure.Management.Sql.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-
+    
     namespace SqlDbConsoleApp
     {
     class Program
-    {
-        // Get these values from the Azure portal
-        static string subscriptionId = "<Azure subscription id>";
-        static string clientId = "<Azure App clientId>";
-        static string redirectUri = "<Azure App redirectURI>";
-        static string domainName = "<domain>";
+       {
+        // For details about these four (4) values, see
+        // https://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal/
+        static string _subscriptionId = "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}";
+        static string _tenantId = "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}";
+        static string _applicationId = "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}";
+        static string _applicationSecret = "{your-password}";
 
-        // You create these values
-        static string resourceGroupName = "<your resource group name>";
-        static string location = "<Azure data center location>";
+        // Create management clients for the Azure resources your app needs to work with.
+        // This app works with Resource Groups, and Azure SQL Database.
+        static ResourceManagementClient _resourceMgmtClient;
+        static SqlManagementClient _sqlMgmtClient;
 
-        static string serverName = "<your server name>";
-        static string administratorLogin = "<your server admin>";
+        // Authentication token
+        static AuthenticationResult _token;
 
-        // store your password securely!
-        static string administratorPassword = "<your server admin password>";
-        static string serverVersion = "12.0";
+        // Azure resource variables
+        static string _resourceGroupName = "{resource-group-name}";
+        static string _resourceGrouplocation = "{Azure-region}";
 
-        static string firewallRuleName = "<your firewall rule name>";
+        static string _serverlocation = _resourceGrouplocation;
+        static string _serverName = "{server-name}";
+        static string _serverAdmin = "{server-admin-login}";
+        static string _serverAdminPassword = "{server-admin-password}";
 
-        static string databaseName = "dbfromcsharparticle";
-        static string databaseEdition = "Basic"; // Basic, Standard, or Premium
-        static string databasePerfLevel = "";
+        static string _firewallRuleName = "{firewall-rule-name}";
+        static string _startIpAddress = "{0.0.0.0}";
+        static string _endIpAddress = "{255.255.255.255}";
 
-        static AuthenticationResult token;
-        static Microsoft.Rest.TokenCredentials creds;
-
-        static SqlManagementClient sqlClient;
+        static string _databaseName = "{dbfromcsarticle}";
+        static string _databaseEdition = DatabaseEditions.Basic;
+        static string _databasePerfLevel = ""; // "S0", "S1", and so on here for other tiers
 
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Logging in...");
+            // Authenticate:
+            _token = GetToken(_tenantId, _applicationId, _applicationSecret);
+            Console.WriteLine("Token aquired. Expires on:" + _token.ExpiresOn);
 
-            token = GetAccessToken();
+            // Instantiate management clients:
+            _resourceMgmtClient = new ResourceManagementClient(new Microsoft.Rest.TokenCredentials(_token.AccessToken));
+            _sqlMgmtClient = new SqlManagementClient(new TokenCloudCredentials(_subscriptionId, _token.AccessToken));
 
-            Console.WriteLine("Logged in as: " + token.UserInfo.DisplayableId);
 
-            Console.WriteLine("Creating resource group...");
-            CreateResourceGroup();
+            Console.WriteLine("Resource group...");
+            ResourceGroup rg = CreateOrUpdateResourceGroup(_resourceMgmtClient, _subscriptionId, _resourceGroupName, _resourceGrouplocation);
+            Console.WriteLine("Resource group: " + rg.Id);
 
-            sqlClient = new SqlManagementClient(new TokenCloudCredentials(subscriptionId, token.AccessToken));
 
-            Console.WriteLine("Creating server...");
-            CreateServer();
+            Console.WriteLine("Server...");
+            ServerGetResponse sgr = CreateOrUpdateServer(_sqlMgmtClient, _resourceGroupName, _serverlocation, _serverName, _serverAdmin, _serverAdminPassword);
+            Console.WriteLine("Server: " + sgr.Server.Id);
 
-            Console.WriteLine("Creating firewall rule...");
-            CreateFirewallRule();
+            Console.WriteLine("Server firewall...");
+            FirewallRuleGetResponse fwr = CreateOrUpdateFirewallRule(_sqlMgmtClient, _resourceGroupName, _serverName, _firewallRuleName, _startIpAddress, _endIpAddress);
+            Console.WriteLine("Server firewall: " + fwr.FirewallRule.Id);
 
-            Console.WriteLine("Creating database...");
+            Console.WriteLine("Database...");
+            DatabaseCreateOrUpdateResponse dbr = CreateOrUpdateDatabase(_sqlMgmtClient, _resourceGroupName, _serverName, _databaseName, _databaseEdition, _databasePerfLevel);
+            Console.WriteLine("Database: " + dbr.Database.Id);
 
-            DatabaseCreateOrUpdateResponse dbResponse = CreateDatabase();
-            Console.WriteLine("Status: " + dbResponse.Status.ToString()
-                + " Code: " + dbResponse.StatusCode.ToString());
 
-            Console.WriteLine("Press enter to exit...");
-            Console.ReadLine();
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
         }
 
-        static void CreateResourceGroup()
+        static ResourceGroup CreateOrUpdateResourceGroup(ResourceManagementClient resourceMgmtClient, string subscriptionId, string resourceGroupName, string resourceGroupLocation)
         {
-            creds = new Microsoft.Rest.TokenCredentials(token.AccessToken);
-
-            // Create a resource management client
-            ResourceManagementClient resourceClient = new ResourceManagementClient(creds);
-
-            // Resource group parameters
             ResourceGroup resourceGroupParameters = new ResourceGroup()
             {
-                Location = location,
+                Location = resourceGroupLocation,
             };
-
-            //Create a resource group
-            resourceClient.SubscriptionId = subscriptionId;
-            var resourceGroupResult = resourceClient.ResourceGroups.CreateOrUpdate(resourceGroupName, resourceGroupParameters);
+            resourceMgmtClient.SubscriptionId = subscriptionId;
+            ResourceGroup resourceGroupResult = resourceMgmtClient.ResourceGroups.CreateOrUpdate(resourceGroupName, resourceGroupParameters);
+            return resourceGroupResult;
         }
 
-        static void CreateServer()
+        static ServerGetResponse CreateOrUpdateServer(SqlManagementClient sqlMgmtClient, string resourceGroupName, string serverLocation, string serverName, string serverAdmin, string serverAdminPassword)
         {
-            // Create a SQL Database management client
-            //SqlManagementClient sqlClient = new SqlManagementClient(new TokenCloudCredentials(subscriptionId, token.AccessToken));
-
-            // Create a server
             ServerCreateOrUpdateParameters serverParameters = new ServerCreateOrUpdateParameters()
             {
-                Location = location,
+                Location = serverLocation,
                 Properties = new ServerCreateOrUpdateProperties()
                 {
-                    AdministratorLogin = administratorLogin,
-                    AdministratorLoginPassword = administratorPassword,
-                    Version = serverVersion
+                    AdministratorLogin = serverAdmin,
+                    AdministratorLoginPassword = serverAdminPassword,
+                    Version = "12.0"
                 }
             };
-            var serverResult = sqlClient.Servers.CreateOrUpdate(resourceGroupName, serverName, serverParameters);
+            ServerGetResponse serverResult = sqlMgmtClient.Servers.CreateOrUpdate(resourceGroupName, serverName, serverParameters);
+            return serverResult;
         }
 
-        static void CreateFirewallRule()
+
+        static FirewallRuleGetResponse CreateOrUpdateFirewallRule(SqlManagementClient sqlMgmtClient, string resourceGroupName, string serverName, string firewallRuleName, string startIpAddress, string endIpAddress)
         {
-            // Create a firewall rule on the server
             FirewallRuleCreateOrUpdateParameters firewallParameters = new FirewallRuleCreateOrUpdateParameters()
             {
                 Properties = new FirewallRuleCreateOrUpdateProperties()
                 {
-                    // replace with your client IP address
-                    StartIpAddress = "0.0.0.0",
-                    EndIpAddress = "255.255.255.255"
+                    StartIpAddress = startIpAddress,
+                    EndIpAddress = endIpAddress
                 }
             };
-            var firewallResult = sqlClient.FirewallRules.CreateOrUpdate(resourceGroupName, serverName, firewallRuleName, firewallParameters);
+            FirewallRuleGetResponse firewallResult = sqlMgmtClient.FirewallRules.CreateOrUpdate(resourceGroupName, serverName, firewallRuleName, firewallParameters);
+            return firewallResult;
         }
 
-        static DatabaseCreateOrUpdateResponse CreateDatabase()
-        {
-            // Create a database
 
-            // Retrieve the server on which the database will be created
-            Server currentServer = sqlClient.Servers.Get(resourceGroupName, serverName).Server;
+
+        static DatabaseCreateOrUpdateResponse CreateOrUpdateDatabase(SqlManagementClient sqlMgmtClient, string resourceGroupName, string serverName, string databaseName, string databaseEdition, string databasePerfLevel)
+        {
+            // Retrieve the server that will host this database
+            Server currentServer = sqlMgmtClient.Servers.Get(resourceGroupName, serverName).Server;
 
             // Create a database: configure create or update parameters and properties explicitly
             DatabaseCreateOrUpdateParameters newDatabaseParameters = new DatabaseCreateOrUpdateParameters()
@@ -405,30 +198,72 @@ The following sample creates a resource group, server, firewall rule, and a SQL 
                 Location = currentServer.Location,
                 Properties = new DatabaseCreateOrUpdateProperties()
                 {
+                    CreateMode = DatabaseCreateMode.Default,
                     Edition = databaseEdition,
-                    RequestedServiceObjectiveName = databasePerfLevel,
+                    RequestedServiceObjectiveName = databasePerfLevel
                 }
             };
-            var dbResponse = sqlClient.Databases.CreateOrUpdate(resourceGroupName, serverName, databaseName, newDatabaseParameters);
+            DatabaseCreateOrUpdateResponse dbResponse = sqlMgmtClient.Databases.CreateOrUpdate(resourceGroupName, serverName, databaseName, newDatabaseParameters);
             return dbResponse;
         }
 
-        private static AuthenticationResult GetAccessToken()
+
+
+        private static AuthenticationResult GetToken(string tenantId, string applicationId, string applicationSecret)
         {
-            AuthenticationContext authContext = new AuthenticationContext
-                ("https://login.windows.net/" + domainName /* Tenant ID or AAD domain */);
-
-            AuthenticationResult token = authContext.AcquireToken
-                ("https://management.azure.com/"/* the Azure Resource Management endpoint */,
-                    clientId,
-            new Uri(redirectUri) /* redirect URI */,
-            PromptBehavior.Auto /* with Auto user will not be prompted if an unexpired token is cached */);
-
-            return token;
+            AuthenticationContext authContext = new AuthenticationContext("https://login.windows.net/" + tenantId);
+            _token = authContext.AcquireToken("https://management.core.windows.net/", new ClientCredential(applicationId, applicationSecret));
+            return _token;
         }
-    }
+      }
     }
 
+
+
+
+
+## Create a service principal to access resources
+
+The following PowerShell script creates the Active Directory (AD) application and the service principal that we need to authenticate our C# app. The script outputs values we need for the preceding C# sample. For detailed information, see [Use Azure PowerShell to create a service principal to access resources](../resource-group-authenticate-service-principal.md).
+
+   
+    # Sign in to Azure.
+    Add-AzureRmAccount
+    
+    # If you have multiple subscriptions, uncomment and set to the subscription you want to work with.
+    #$subscriptionId = "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}"
+    #Set-AzureRmContext -SubscriptionId $subscriptionId
+    
+    # Provide these values for your new AAD app.
+    # $appName is the display name for your app, must be unique in your directory.
+    # $uri does not need to be a real uri.
+    # $secret is a password you create.
+    
+    $appName = "{app-name}"
+    $uri = "http://{app-name}"
+    $secret = "{app-password}"
+    
+    # Create a AAD app
+    $azureAdApplication = New-AzureRmADApplication -DisplayName $appName -HomePage $Uri -IdentifierUris $Uri -Password $secret
+    
+    # Create a Service Principal for the app
+    $svcprincipal = New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+    
+    # To avoid a PrincipalNotFound error, I pause here for 15 seconds.
+    Start-Sleep -s 15
+    
+    # If you still get a PrincipalNotFound error, then rerun the following until successful. 
+    $roleassignment = New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+    
+    
+    # Output the values we need for our C# application to successfully authenticate
+    
+    Write-Output "Copy these values into the C# sample app"
+    
+    Write-Output "_subscriptionId:" (Get-AzureRmContext).Subscription.SubscriptionId
+    Write-Output "_tenantId:" (Get-AzureRmContext).Tenant.TenantId
+    Write-Output "_applicationId:" $azureAdApplication.ApplicationId.Guid
+    Write-Output "_applicationSecret:" $secret
 
 
 
@@ -440,7 +275,7 @@ Now that you've tried SQL Database and set up a database with C#, you're ready f
 ## Additional Resources
 
 - [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/)
-
+- [Database Class](https://msdn.microsoft.com/library/azure/microsoft.azure.management.sql.models.database.aspx)
 
 
 
