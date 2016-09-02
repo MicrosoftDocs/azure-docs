@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/22/2016"
+	ms.date="09/02/2016"
 	ms.author="darosa;sethm"/>
 
 # Service Bus Premium and Standard messaging tiers 
 
-Service Bus brokered messaging, which includes messaging entities such as queues and topics, combines enterprise messaging capabilities with rich publish-subscribe semantics at cloud scale. Service Bus messaging is used as the communication backbone for many sophisticated cloud solutions.
+Service Bus messaging, which includes messaging entities such as queues and topics, combines enterprise messaging capabilities with rich publish-subscribe semantics at cloud scale. Service Bus messaging is used as the communication backbone for many sophisticated cloud solutions.
 
 The *Premium* tier of Service Bus messaging addresses common customer requests around scale, performance, and availability for mission-critical applications. Although the feature sets are nearly identical, these two tiers of Service Bus messaging are designed to serve different use cases.
 
@@ -46,7 +46,7 @@ Partitioned entities are supported in Premium messaging, but they do not functio
 
 ### Express entities
 
-Because it runs in a completely isolated runtime environment, there is no longer a need for express entities in Premium messaging. Consequently, express entities are not supported in Premium namespaces. For more information about the express feature, see the [Microsoft.ServiceBus.Messaging.QueueDescription.EnableExpress](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enableexpress.aspx) property.
+Because Premium Messaging runs in a completely isolated runtime environment, express entities are not supported in Premium namespaces. For more information about the express feature, see the [Microsoft.ServiceBus.Messaging.QueueDescription.EnableExpress](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enableexpress.aspx) property.
 
 ## Next steps
 
