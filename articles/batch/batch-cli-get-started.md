@@ -18,7 +18,9 @@
 
 # Get started with Azure Batch CLI
 
-The cross-platform Azure Command-Line Interface (Azure CLI) enables you to perform and script many of the tasks you carry out with the Batch APIs, Azure portal, and Azure Batch PowerShell cmdlets. This is a quick introduction to the Batch commands in the Azure CLI you can use to manage your Batch accounts and work with Batch resources such as pools, jobs, and tasks. This article is based on Azure CLI version 0.10.3.
+The cross-platform Azure Command-Line Interface (Azure CLI) enables you to manage your Batch accounts and resources such as pools, jobs, and tasks in Windows, Mac, and Linux command shells. With the Azure CLI, you can perform and script many of the same tasks you carry out with the Batch APIs, Azure portal, and Azure Batch PowerShell cmdlets.
+
+This article is based on Azure CLI version 0.10.3.
 
 ## Prerequisites
 
@@ -138,11 +140,11 @@ Usage:
 
 Example (Virtual Machine Configuration):
 
-    azure batch pool create --id "pool2" --target-dedicated 1 --vm-size "STANDARD_A1" --image-publisher "Canonical" --image-offer "UbuntuServer" --image-sku "14.04.2-LTS" --node-agent-id "batch.node.ubuntu 14.04"
+    azure batch pool create --id "pool001" --target-dedicated 1 --vm-size "STANDARD_A1" --image-publisher "Canonical" --image-offer "UbuntuServer" --image-sku "14.04.2-LTS" --node-agent-id "batch.node.ubuntu 14.04"
 
 Example (Cloud Services Configuration):
 
-	azure batch pool create --id "pool1" --target-dedicated 1 --vm-size "small" --os-family "4"
+	azure batch pool create --id "pool002" --target-dedicated 1 --vm-size "small" --os-family "4"
 
 Creates a pool of compute nodes in the Batch service.
 
@@ -193,8 +195,39 @@ The Batch CLI supports all three clauses supported by the Batch service:
 
 For details on the three clauses and performing list queries with them, see [Query the Azure Batch service efficiently](batch-efficient-list-queries.md).
 
+## Application package management
+
+Application packages provide a simplified way to deploy applications to the compute nodes in your pools. With the Azure CLI, you can upload applications and manage package versions, set default versions, update existing versions, and delete packages.
+
+Several package management examples appear below. See [Application deployment with Azure Batch application packages](batch-application-oackages.md) for a full discussion on the feature.
+
+### Create an application
+
+    azure batch application create "resgroup001" "batchaccount001" "MyTaskApplication"
+
+### Add an application package
+
+    azure batch application package create "resgroup001" "batchaccount001" "MyTaskApplication" "1.10-beta3" package001.zip
+
+To use an application package, you must first **activate** it:
+
+    azure batch application package activate "resgroup002" "azbatch002" "MyTaskApplication" "1.10-beta3" zip
+
+You cannot currently specify which package version to deploy, so you must first set a default version for the application by using the Azure portal. See the [application packages article](batch-application-oackages.md) for more information.
+
+### Deploy an application package
+
+You can specify an application package for deployment when you create a pool, or update an existing pool with a new package. If you specify a package at pool creation time, it will be deployed as each node joins the pool. If you update an existing  pool with a new application package, you must reboot or reimage existing nodes in the pool to deploy the new package.
+
+This command deploys a package at pool creation, as each node joins the new pool:
+
+    azure batch pool create --id "pool001" --target-dedicated 0 --vm-size "small" --os-family "4" --app-package-ref "MyTaskApplication"
+
+>[AZURE.IMPORTANT] You must [link an Azure Storage account](#inked-storage-account-autostorage) to your Batch account to use application packages.
+
 ## Next steps
-* For detailed cmdlet syntax and examples, see [Azure Batch cmdlet reference](https://msdn.microsoft.com/library/azure/mt125957.aspx).
+
+*  See [Application deployment with Azure Batch application packages](batch-application-oackages.md) for full details on this helpful feature.
 
 * See [Query the Batch service efficiently](batch-efficient-list-queries.md) for more about reducing the number of items and the type of information that is returned for queries to Batch.
 
