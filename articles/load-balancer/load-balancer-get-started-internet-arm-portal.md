@@ -92,7 +92,7 @@ You can get more information about load balancer components with Azure resource 
 
 2. Create a load balancer rule.
 
-    Click on Load balancing rules in the Settings section of your load balancer. In the new blade, click on **Add**. Name your rule. Here, it is HTTP. Choose the frontend port and Backend port. Here, 80 is chosen for both. Choose **LB-backend** as your Backend pool and the previously created **HealthProbe** as the Probe. Other configurations can be set according to your requirements. The click OK to save the load balancing rule.
+    Click on Load balancing rules in the Settings section of your load balancer. In the new blade, click on **Add**. Name your rule. Here, it is HTTP. Choose the frontend port and Backend port. Here, 80 is chosen for both. Choose **LB-backend** as your Backend pool and the previously created **HealthProbe** as the Probe. Other configurations can be set according to your requirements. Then click OK to save the load balancing rule.
 
     ![Adding a load balancing rule](./media/load-balancer-get-started-internet-arm-portal/5-load-balancing-rules.png)
 
