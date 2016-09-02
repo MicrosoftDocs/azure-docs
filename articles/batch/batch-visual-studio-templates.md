@@ -220,6 +220,99 @@ All the information returned by exceptions is written into stdout.txt and stderr
 
 This section describes some client implementation requirements when invoking a job manager based on this template. See [How to pass parameters and environment variables from the client code](FIXME) for details on passing parameters and environment settings.
 
+**Mandatory credentials**
+
+In order to add tasks to the Azure Batch job, the job manager task requires your Azure Batch account URL and key. You must pass these in environment variables named YOUR_BATCH_URL and YOUR_BATCH_KEY. You can set these in the Job Manager task environment settings. For example, in a C# client:
+
+```csharp
+job.JobManagerTask.EnvironmentSettings = new [] {
+    new EnvironmentSetting("YOUR_BATCH_URL", "https://account.region.batch.azure.com"),
+    new EnvironmentSetting("YOUR_BATCH_KEY", "{your_base64_encoded_account_key}"),
+};
+```
+**Storage credentials**
+
+Typically, the client does not need to provide the linked storage account credentials to the job manager task because (a) most job managers do not need to explicitly access the linked storage account and (b) the linked storage account is often provided to all tasks as a common environment setting for the job. If you are not providing the linked storage account via the common environment settings, and the job manager requires access to linked storage, then you should supply the linked storage credentials as follows:
+
+```csharp
+job.JobManagerTask.EnvironmentSettings = new [] {
+    /* other environment settings */
+    new EnvironmentSetting("LINKED_STORAGE_ACCOUNT", "{storageAccountName}"),
+    new EnvironmentSetting("LINKED_STORAGE_KEY", "{storageAccountKey}"),
+};
+```
+
+**Job manager task settings**
+
+The client should set the job manager *killJobOnCompletion* flag to **false**.
+
+It is usually safe for the client to set *runExclusive* to **false**.
+
+The client should use the *resourceFiles* or *applicationPackageReferences* collection to have the job manager executable (and its required DLLs) deployed to the compute node.
+
+By default, the job manager will not be retried if it fails. Depending on your job manager logic, the client may want to enable retries via *constraints*/*maxTaskRetryCount*.
+
+**Job settings**
+
+If the job splitter emits tasks with dependencies, the client must set the job’s usesTaskDependencies to true.
+
+In the job splitter model, it is unusual for clients to wish to add tasks to jobs over and above what the job splitter creates. The client should therefore normally set the job’s *onAllTasksComplete* to **terminatejob**.
+
+## Task Processor template
+
+A Task Processor template helps you to implement a task processor that can perform the following actions:
+
+* Set up the information required by each Batch task to run.
+* Run all actions required by each Batch task.
+* Save task outputs to persistent storage.
+
+Although a task processor is not required to run tasks on Batch, the key advantage of using a task processor is that it provides a wrapper to implement all task execution actions in one location. For example, if you need to run several applications in the context of each task, or if you need to copy data to persistent storage after completing each task.
+
+The actions performed by the task processor can be as simple or complex, and as many or as few, as required by your workload. Additionally, by implementing all task actions into one task processor, you can readily update or add actions based on changes to applications or workload requirements. However, in some cases a task processor might not be the optimal solution for your implementation as it can add unnecessary complexity, for example when running jobs that can be quickly started from a simple command line.
+
+### Create a Task Processor using the template
+
+To add a task processor to the solution that you created earlier, follow these steps:
+
+1. Open your existing solution in Visual Studio 2015.
+
+2. In Solution Explorer, right-click the solution, click **Add**, and then click **New Project**.
+
+3. Under **Visual C#**, click **Cloud**, and then click **Azure Batch Task Processor**.
+
+4. Type a name that describes your application and identifies this project as the task processor (e.g. “LitwareTaskProcessor”).
+
+5. To create the project, click **OK**.
+
+6. Finally, build the project to force Visual Studio to load all referenced NuGet packages and to verify that the project is valid before you start modifying it.
+
+###Task Processor template files and their purpose
+
+When you create a project using the task processor template, it generates three groups of code files:
+
+* The main program file (Program.cs). This contains the program entry point and top-level exception handling. You shouldn’t normally need to modify this.
+
+* The Framework directory. This contains the files responsible for the ‘boilerplate’ work done by the job manager program – unpacking parameters, adding tasks to the Batch job, etc. You shouldn’t normally need to modify these files.
+
+* The task processor file (TaskProcessor.cs). This is where you will put your application-specific logic for executing a task (typically by calling out to an existing executable). Pre- and post-processing code, such as downloading additional data or uploading result files, also goes here.
+
+Of course you can add additional files as required to support your task processor code, depending on the complexity of the job splitting logic.
+
+The template also generates standard .NET project files such as a .csproj file, app.config, packages.config, etc.
+
+The rest of this section describes the different files and their code structure, and explains what each class does.
+
+
+
+
+
+
+
+
+
+
+
+
 **Storage credentials**
 
 If your task processor uses Azure blob storage to persist outputs, for example using the file conventions helper library, then it needs access to *either* the cloud storage account credentials *or* a blob container URL that includes a shared access signature (SAS). The template includes support for providing credentials via common environment variables. Your client can pass the storage credentials as follows:
@@ -238,6 +331,31 @@ If you prefer to use a container URL with SAS, you can also pass this via an job
 ** Storage setup**
 
 It is recommended that the client or job manager task create any containers required by tasks before adding the tasks to the job. This is mandatory if you use a container URL with SAS, as such a URL does not include permission to create the container. It is recommended even if you pass storage account credentials, as it saves every task having to call CloudBlobContainer.CreateIfNotExistsAsync on the container.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Pass parameters and environment variables from client code
 
