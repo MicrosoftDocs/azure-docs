@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Configure a Point-to-Site VPN connection to an Azure Virtual Network using the classic portal | Microsoft Azure"
-   description="Securely connect to your Azure Virtual Network by creating a Point-to-Site VPN connection."
+   pageTitle="Configure a Point-to-Site VPN gateway connection to an Azure Virtual Network using the classic portal | Microsoft Azure"
+   description="Securely connect to your Azure Virtual Network by creating a Point-to-Site VPN gateway connection."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -23,7 +23,7 @@
 - [PowerShell - Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
 - [Portal - Classic](vpn-gateway-point-to-site-create.md)
 
-A Point-to-Site (P2S) configuration allows you to create a secure connection from an individual client computer to a virtual network. A P2S connection is useful when you want to connect to your VNet from a remote location, such as from home or a conference, or when you only have a few clients that need to connect to a virtual network.
+A Point-to-Site (P2S) configuration lets you create a secure connection from an individual client computer to a virtual network. A P2S connection is useful when you want to connect to your VNet from a remote location, such as from home or a conference, or when you only have a few clients that need to connect to a virtual network.
 
 This article walks you through creating a VNet with a Point-to-Site connection in the **classic deployment model** using the classic portal. Currently, you cannot create this configuration end-to-end in the Azure portal for the classic deployment model.
 
@@ -144,16 +144,30 @@ To connect to the virtual network, you also need to configure a VPN client. The 
 
 3. After you generate and download the VPN client package from the Azure classic portal, you can install the client package on the client computer from which you want to connect to your virtual network. If you plan to install the VPN client package to multiple client computers, make sure that they each also have a client certificate installed.
 
-### Part 2: Install the VPN configuration package on the client and start the connection
+### Part 2: Install the VPN configuration package on the client
 
-1. Copy the configuration file locally to the computer that you want to connect to your virtual network and double-click the .exe file. Once the package has installed, you can start the VPN connection. The configuration package is not signed by Microsoft. You may want to sign the package using your organization's signing service, or sign it yourself using [SignTool]( http://go.microsoft.com/fwlink/p/?LinkId=699327). It's OK to use the package without signing. However, if the package isn't signed, a warning appears when you install the package.
-2. On the client computer, navigate to VPN connections and locate the VPN connection that you created. It will be named the same name as your virtual network. Click **Connect**.
-3. A pop-up message appears which is used to create a self-signed cert for the Gateway endpoint. Click **Continue** to use elevated privileges.
-4. On the **Connection** status page, click **Connect** to start the connection.
-5. If you see a **Select Certificate** screen, verify that the client certificate showing is the one that you want to use to connect. If it is not, use the drop-down arrow to select the correct certificate, and then click **OK**.
-6. You are now connected to your virtual network and have full access to any service and virtual machine hosted in your virtual network.
+1. Copy the configuration file locally to the computer that you want to connect to your virtual network and double-click the .exe file. 
 
-### Part 3: Verify the VPN connection
+2. Once the package has installed, you can start the VPN connection. The configuration package is not signed by Microsoft. You may want to sign the package using your organization's signing service, or sign it yourself using [SignTool]( http://go.microsoft.com/fwlink/p/?LinkId=699327). It's OK to use the package without signing. However, if the package isn't signed, a warning appears when you install the package.
+
+3. On the client computer, navigate to **Network Settings** and click **VPN**. You will see the connection listed. It will show the name of the virtual network that it will connect to and will look similar to this: 
+
+	![VPN client](./media/vpn-gateway-point-to-site-create/vpn.png "VPN client")
+
+
+### Part 3: Connect to Azure
+
+1. To connect to your VNet, on the client computer, navigate to VPN connections and locate the VPN connection that you created. It is named the same name as your virtual network. Click **Connect**. A pop-up message may appear that refers to using the certificate. If this happens, click **Continue** to use elevated privileges. 
+
+2. On the **Connection** status page, click **Connect** to start the connection. If you see a **Select Certificate** screen, verify that the client certificate showing is the one that you want to use to connect. If it is not, use the drop-down arrow to select the correct certificate, and then click **OK**.
+
+	![VPN client 2](./media/vpn-gateway-point-to-site-create/clientconnect.png "VPN client connection")
+
+3. Your connection should now be established.
+
+	![VPN client 3](./media/vpn-gateway-point-to-site-create/connected.png "VPN client connection 2")
+
+### Part 4: Verify the VPN connection
 
 1. To verify that your VPN connection is active, open an elevated command prompt, and run *ipconfig/all*.
 2. View the results. Notice that the IP address you received is one of the addresses within the Point-to-Site connectivity address range that you specified when you created your VNet. The results should be something similar to this:
