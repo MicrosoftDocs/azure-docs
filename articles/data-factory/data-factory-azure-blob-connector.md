@@ -23,7 +23,7 @@ This article explains how to use the Copy Activity in Azure Data Factory to move
 > [AZURE.NOTE]
 > The Copy Activity supports copying data from/to both general-purpose Azure Storage accounts and Hot/Cool Blob storage. 
 > 
-> The activity supports reading from block, page, or append blobs, but supports writing to only block blobs. 
+> The activity supports reading from block, append, or page blobs, but supports writing to only block blobs. 
 
 ## Copy data wizard
 The easiest way to create a pipeline that copies data to/from Azure Blob Storage is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
