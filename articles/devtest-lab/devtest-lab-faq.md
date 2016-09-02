@@ -134,7 +134,7 @@ The following blog posts provide guidance and information about using the VSTS e
 For other CI/CD toolchains, all the previously mentioned scenarios that can be achieved through the VSTS tasks extension can be similarly achieved through deploying [Azure Resource Manager templates](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) using [Azure PowerShell cmdlets](../resource-group-template-deploy.md) and [.NET SDKs](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). You can also use [REST APIs for DevTest Labs](http://aka.ms/dtlrestapis) to integrate with your toolchain.  
 
 ### Why can't I see certain VMs in the Azure Virtual Machines blade that I see within Azure DevTest Labs?
-When a VM is created in Azure DevTest Labs, permission is given to access that VM. You will be able to view it both in the labs blade and the **Virtual Machines** blade. Users in the DevTest Labs role can see all virtual machines created in the lab through the lab's **All Virtual Machines** blade. However, users in the DevTest Labs role are not automatically granted read-access to VM resources that others have created. Therefore, those VMs are not displayed in the **Virtual Machines** blade. 
+When a VM is created in Azure DevTest Labs, permission is given to access that VM. You are able to view it both in the labs blade and the **Virtual Machines** blade. Users in the DevTest Labs role can see all virtual machines created in the lab through the lab's **All Virtual Machines** blade. However, users in the DevTest Labs role are not automatically granted read-access to VM resources that others have created. Therefore, those VMs are not displayed in the **Virtual Machines** blade. 
 
 ### What is the difference between custom images and formulas? 
 A custom image is a VHD (virtual hard disk), whereas a formula is an image that you can configure with additional settings that you can save and reproduce. A custom image may be preferable if you want to quickly create several environments with the same basic, immutable image. A formula may be better if you want to reproduce the configuration of your VM with the latest bits, a virtual network/subnet, or a specific size. For a more in-depth explanation, see the article, [Comparing custom images and formulas in DevTest Labs](devtest-lab-comparing-vm-base-image-types.md). 
@@ -158,7 +158,7 @@ There are two options:
 - [Azure AzCopy](../storage/storage-use-azcopy.md#blob-upload) can be used to copy or upload VHD files to the storage account associated with the lab.
 - [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a standalone app that runs on Windows, OSX, and Linux.   
  
-To find the destination storage account associated with your lab: 
+To find the destination storage account associated with your lab, follow these steps:
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040). 
 1. Select **Resource Groups** from the left panel. 
@@ -169,19 +169,19 @@ To find the destination storage account associated with your lab:
 1. Use the **URL** as your destination in your AzCopy command.
 
 ### What are artifacts? 
-Artifacts are customizable elements that can be used to deploy your latest bits or your dev tools onto a VM. They are attached to your VM during creation with a few simple clicks, and once the VM is provisioned, the artifacts deploy and configure your VM. There are various preexisting artifacts in our [public Github repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts), but you can also easily [author your own artifacts](devtest-lab-artifact-author.md). 
+Artifacts are customizable elements that can be used to deploy your latest bits or your dev tools onto a VM. They are attached to your VM during creation with a few simple clicks, and once the VM is provisioned, the artifacts deploy and configure your VM. There are various pre-existing artifacts in our [public Github repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts), but you can also easily [author your own artifacts](devtest-lab-artifact-author.md). 
 
 ### How do I create a lab from an Azure Resource Manager template? 
 We have a [Github repository of lab Azure Resource Manager templates](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates). Each of these templates has a link that you can click to deploy the Azure DevTest Labs lab under your own Azure subscription. 
  
 ### Why are my VMs created in different resource groups with arbitrary names? Can I rename or modify these resource groups? 
-Resource groups are created this way in order for Azure DevTest Labs to manage the user permissions and access to virtual machines. While you can move the VM to another resource group with your desired name, this is not recommended. We are working on improving this experience to allow more flexibility.   
+Resource groups are created this way in order for Azure DevTest Labs to manage the user permissions and access to virtual machines. While you can move the VM to another resource group with your desired name, doing so is not recommended. We are working on improving this experience to allow more flexibility.   
  
 ### How many labs can I create under the same subscription? 
 There is no specific limit on the number of labs that can be created per subscription. However, the resources used are limited per subscription. You can read about the [limits and quotas imposed on Azure subscriptions](../azure-subscription-service-limits.md) and [how to increase these limits](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests). 
  
 ### How many VMs can I create per lab? 
-There is no specific limit on the number of VMs that can be created per lab, but currently the lab supports only about 40 VMs running at the same time in standard storage, and 25 VMs running concurrently in premium storage. We are currently working on increasing these limitations. 
+There is no specific limit on the number of VMs that can be created per lab. However, currently the lab supports only about 40 VMs running at the same time in standard storage, and 25 VMs running concurrently in premium storage. We are currently working on increasing these limits. 
  
 ### My artifact failed during VM creation. How do I troubleshoot it? 
 Refer to the blog post [How to troubleshoot failing Artifacts in AzureDevTestLabs](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs) - written by one of our MVPs - to learn how to obtain logs regarding your failed artifact. 
