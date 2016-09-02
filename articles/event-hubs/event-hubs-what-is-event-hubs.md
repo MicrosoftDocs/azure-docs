@@ -30,8 +30,6 @@ Event Hubs is an event processing service that provides event and telemetry proc
 
 Some other key Event Hubs capabilities include behavior tracking in mobile apps, traffic information from web farms, in-game event capture in console games, or telemetry collected from industrial machines or connected vehicles.
 
-Unlike [Service Bus queues and topics](../service-bus/service-bus-messaging-overview.md), Event Hubs is focused on delivering messaging stream handling at scale. Event Hubs capabilities differ from Service Bus topics, for example, in that Event Hubs are strongly biased towards high throughput and event processing scenarios. As a result, Event Hubs do not implement some of the messaging capabilities that are available for [topics](../service-bus/service-bus-fundamentals-hybrid-solutions.md#topics). If you need those capabilities, topics remain the optimal choice.
-
 ## Next steps
 
 For detailed information about Event Hubs, see the following topics.
