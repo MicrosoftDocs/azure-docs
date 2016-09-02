@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/25/2016"
+   ms.date="09/01/2016"
    ms.author="sonyama;barbkess;jrj"/>
 
 # SQL Data Warehouse capacity limits
@@ -46,8 +46,6 @@ The following tables contain the maximum values allowed for various components o
 | Table             | Characters per partition boundary value.| 4000 |
 | Index             | Non-clustered indexes per table.        | 999<br/><br/>Applies to rowstore tables only.|
 | Index             | Clustered indexes per table.            | 1<br><br/>Applies to both rowstore and columnstore tables.|
-| Index             | Rows in a columnstore index rowgroup | 1,024<br/><br/>Each columnstore index is implemented as multiple columnstore indexes. Note that if you insert 1,024 rows into a SQL Data Warehouse columnstore index, the rows will not all go to the same rowgroup.|
-| Index             | Concurrent builds of clustered columnstore indexes. | 32<br/><br/>Applies when the clustered columnstore indexes are all being built on different tables. Only one clustered columnstore index build is allowed per table. Additional requests will wait in a queue.|
 | Index             | Index key size.                          | 900 bytes.<br/><br/>Applies to rowstore indexes only.<br/><br/>Indexes on varchar columns with a maximum size of more than 900 bytes can be created if the existing data in the columns does not exceed 900 bytes when the index is created. However, later INSERT or UPDATE actions on the columns that cause the total size to exceed 900 bytes will fail.|
 | Index             | Key columns per index.                   | 16<br/><br/>Applies to rowstore indexes only. Clustered columnstore indexes include all columns.|
 | Statistics        | Size of the combined column values.      | 900 bytes.         |
