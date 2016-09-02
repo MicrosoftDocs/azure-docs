@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="05/02/2016"
+    ms.date="09/02/2016"
     ms.author="sethm" />
 
 # Service Bus messaging exceptions
@@ -101,6 +101,8 @@ For the Service Bus relay, this exception wraps the [System.ServiceModel.QuotaEx
 ## TimeoutException 
 
 A [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) indicates that a user-initiated operation is taking longer than the operation timeout. 
+
+You should check the value of the [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit(v=vs.110).aspx) property, as hitting this limit can also cause a [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx).
 
 ### Queues and topics
 
