@@ -13,16 +13,16 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="06/13/2016"
+	ms.date="08/31/2016"
 	ms.author="pratshar"/>
 
 # Protect Active Directory and DNS with Azure Site Recovery
 
-Enterprise applications such as SharePoint, Dynamics AX and SAP depend on Active Directory and a DNS infrastructure to function correctly. When you create a disaster recovery solution for applications, it's important to remember that you need to protect and recover Active Directory and DNS before the other application components, to ensure that things function correctly when disaster occurs.
+Enterprise applications such as SharePoint, Dynamics AX, and SAP depend on Active Directory and a DNS infrastructure to function correctly. When you create a disaster recovery solution for applications, it's important to remember that you need to protect and recover Active Directory and DNS before the other application components, to ensure that things function correctly when disaster occurs.
 
-Site Recovery is an Azure service that provides disaster recovery by orchestrating replication, failover and recovery of virtual machines. Site Recovery supports a number of replication scenarios to consistently protect, and seamlessly failover virtual machines and applications to private, public or hoster clouds.
+Site Recovery is an Azure service that provides disaster recovery by orchestrating replication, failover, and recovery of virtual machines. Site Recovery supports a number of replication scenarios to consistently protect, and seamlessly failover virtual machines and applications to private, public, or hoster clouds.
 
-Using Site Recovery, you can create a complete automated disaster recovery plan for Active Directory. When disruptions occur, you can initiate a failover within seconds from anywhere in get Active Directory up and running in a few minutes. If you've deployed Active Directory for multiple applications such as SharePoint and SAP in your primary site, and you want to fail over the complete site, you can fail over Active Directory first using Site Recovery, and then fail over the other applications using application-specific recovery plans.
+Using Site Recovery, you can create a complete automated disaster recovery plan for Active Directory. When disruptions occur, you can initiate a failover within seconds from anywhere and get Active Directory up and running in a few minutes. If you've deployed Active Directory for multiple applications such as SharePoint and SAP in your primary site, and you want to fail over the complete site, you can fail over Active Directory first using Site Recovery, and then fail over the other applications using application-specific recovery plans.
 
 This article explains how to create a disaster recovery solution for Active Directory, how to perform planned, unplanned, and test failovers using a one-click recovery plan, the supported configurations, and prerequisites.  You should be familiar with Active Directory and Azure Site Recovery before you start.
 
@@ -34,7 +34,7 @@ If you have a small number of applications and a single domain controller, and y
 
 ### Option 2
 
-If you have a large number of applications and there's more than one domain controller in the environment, or if you plan to fail over a few applications at a time, we recommend that in addition to replicating the domain controller virtual machine with Site Recovery you'll also set up an additional domain controller on the target site ( Azure or a secondary on-premises datacenter).
+If you have a large number of applications and there's more than one domain controller in the environment, or if you plan to fail over a few applications at a time, we recommend that in addition to replicating the domain controller virtual machine with Site Recovery you'll also set up an additional domain controller on the target site (Azure or a secondary on-premises datacenter).
 
 >[AZURE.NOTE] Even if you're implementing Option-2, for doing a test failover you'll still need to replicate the domain controller using Site Recovery. Read [test failover considerations](#considerations-for-test-failover) for more information.
 
@@ -66,7 +66,7 @@ For the domain controller/DNS virtual machine, configure network settings in Sit
 
 ### Site-to-site protection
 
-Create a domain controller on the secondary site and specify the name of the same domain that is being used on the primary site when you premote the server to a domain controller role. You can use the **Active Directory Sites and Services** snap-in to configure settings on the site link object to which the sites are added. By configuring settings on a site link, you can control when replication occurs between two or more sites, and how often. See [Scheduling Replication Between Sites](https://technet.microsoft.com/library/cc731862.aspx) for more details.
+Create a domain controller on the secondary site and specify the name of the same domain that is being used on the primary site when you promote the server to a domain controller role. You can use the **Active Directory Sites and Services** snap-in to configure settings on the site link object to which the sites are added. By configuring settings on a site link, you can control when replication occurs between two or more sites, and how often. See [Scheduling Replication Between Sites](https://technet.microsoft.com/library/cc731862.aspx) for more details.
 
 ###Site-to-Azure protection
 
@@ -84,17 +84,17 @@ Most applications also require the presence of a domain controller and a DNS ser
 
 1. Enable protection in Site Recovery for the domain controller/DNS virtual machine.
 2. Create an isolated network. Any virtual network created in Azure by default is isolated from other networks. We recommend that the IP address range for this network is same as that of your production network. Don't enable site-to-site connectivity on this network.
-3. Provide a DNS IP  address in the network created,  as the IP address that you expect the DNS virtual machine to get. If you're replicating to Azure then provide the IP address for the VM that will be used on failover in **Target IP** setting in VM properties. If you're replicating to another on-premises site and you're using DHCP follow the instructions to [setup DNS and DHCP for test failover](site-recovery-failover.md#prepare-dhcp)
+3. Provide a DNS IP  address in the network created,  as the IP address that you expect the DNS virtual machine to get. If you're replicating to Azure, then provide the IP address for the VM that will be used on failover in **Target IP** setting in VM properties. If you're replicating to another on-premises site and you're using DHCP follow the instructions to [setup DNS and DHCP for test failover](site-recovery-failover.md#prepare-dhcp)
 
->[AZURE.NOTE] The IP address allocated to a virtual machine during a test failover is same as the IP address it would get on during a planned or unplanned failover, if the IP address is available in the test failover network. If it isn't then the virtual machine  receives a different IP address that is available in the test failover network.
+>[AZURE.NOTE] The IP address allocated to a virtual machine during a test failover is same as the IP address it would get on during a planned or unplanned failover, if the IP address is available in the test failover network. If it isn't, then the virtual machine  receives a different IP address that is available in the test failover network.
 
-4. On the domain controller virtual machine run a test failover of it in the isolated network.
+4. On the domain controller virtual machine run a test failover of it in the isolated network. Use latest available application consistent recovery point of the domain controller virtual machine to do the test failover. 
 5. Run a test failover for the application recovery plan.
-6. After testing is complete, mark the test failover of job of domain controller virtual machine and the recovery plan 'Complete' on the **Jobs** tab in the Site Recovery portal.
+6. After testing is complete, mark the test failover job of domain controller virtual machine and of the recovery plan 'Complete' on the **Jobs** tab in the Site Recovery portal.
 
 ### DNS and domain controller on different machines
 
-If DNS isn't on the same virtual machine as the domain controller you’ll need to create a DNS VM for the test failover. If they're on the same VM you can skip this section.
+If DNS isn't on the same virtual machine as the domain controller you’ll need to create a DNS VM for the test failover. If they're on the same VM, you can skip this section.
 
 You can use a fresh DNS server and create all the required zones. For example, if your Active Directory domain is contoso.com, you can create a DNS zone with the name contoso.com. The entries corresponding to Active Directory must be updated in DNS, as follows:
 

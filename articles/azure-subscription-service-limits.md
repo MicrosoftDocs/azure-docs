@@ -63,6 +63,7 @@ As a result, you may find it useful to consider deciding what your Azure Resourc
 - [Media Services](#media-services-limits)
 - [Mobile Engagement](#mobile-engagement-limits)
 - [Mobile Services](#mobile-services-limits)
+- [Monitoring](#monitoring-limits)
 - [Multi-Factor Authentication](#multi-factor-authentication)
 - [Networking](#networking-limits)
 - [Notification Hub Service](#notification-hub-service-limits)
@@ -218,6 +219,10 @@ For more granular information about other limits, including document size, queri
 ### Mobile Services limits
 
 [AZURE.INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
+
+### Monitoring limits
+
+[AZURE.INCLUDE [monitoring-limits](../includes/monitoring-limits.md)]
 
 ### Notification Hub Service limits
 

@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="07/12/2016"
+	ms.date="09/01/2016"
 	ms.author="sdanie" />
 
 # ASP.NET Session State Provider for Azure Redis Cache
@@ -98,7 +98,7 @@ Once these steps are performed, your application is configured to use the Redis 
 
 - Sql Server Session State Provider - This provider stores the Session State in Sql Server. You should use this provider if you want to persist the Session state in a persistent storage. You can scale your Web App but using Sql Server for Session will have a performance impact on your Web App.
 
-- Distributed In Memory Session State Provider such as Redis Cache Session State Provider - This provider gives you the best of both worlds. Your Web App can have a simple, fast and scalable Session State Provider. However you have to keep in consideration that this provider stores the Session state in a Cache and your app has to take in consideration all the characteristics associated when talking to a Distributed In Memory Cache such as transient network failures. For best practices on using Cache, see [Caching guidance](https://github.com/mspnp/azure-guidance/blob/master/Caching.md) from Microsoft Patterns & Practices [Azure Cloud Application Design and Implementation Guidance](https://github.com/mspnp/azure-guidance).
+- Distributed In Memory Session State Provider such as Redis Cache Session State Provider - This provider gives you the best of both worlds. Your Web App can have a simple, fast and scalable Session State Provider. However you have to keep in consideration that this provider stores the Session state in a Cache and your app has to take in consideration all the characteristics associated when talking to a Distributed In Memory Cache such as transient network failures. For best practices on using Cache, see [Caching guidance](../best-practices-caching.md) from Microsoft Patterns & Practices [Azure Cloud Application Design and Implementation Guidance](https://github.com/mspnp/azure-guidance).
 
 For more information about session state and other best practices, see [Web Development Best Practices (Building Real-World Cloud Apps with Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices).
 
