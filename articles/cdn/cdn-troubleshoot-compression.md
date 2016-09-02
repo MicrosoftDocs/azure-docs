@@ -26,6 +26,10 @@ If you need more help at any point in this article, you can contact the Azure ex
 
 Compression for your endpoint is enabled, but files are being returned uncompressed.
 
+>[AZURE.TIP] To check whether your files are being returned compressed, you'll need to use a tool like [Fiddler](http://www.telerik.com/fiddler) or your browser's [developer tools](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/).  Check the HTTP response headers returned with your cached CDN content.  If there is a header named `Content-Encoding` with a value of **gzip**, **bzip2**, or **deflate**, your content is compressed.
+>
+>![Content-Encoding header](./media/cdn-troubleshoot-compression/cdn-content-header.png)
+
 ## Cause
 
 There are several possible causes, including:
