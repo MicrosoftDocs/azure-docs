@@ -83,7 +83,7 @@ Choose which of your Azure subscriptions to use.
 
 Create a resource group (skip this step if you're using an existing resource group).
 
-    New-AzureRmResourceGroup -Name appgw-rg -location "West US"
+    New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
 
 Azure Resource Manager requires that all resource groups specify a location. This location is used as the default location for resources in that resource group. Make sure that all commands to create an application gateway uses the same resource group.
 
@@ -193,7 +193,7 @@ To delete an application gateway, follow these steps:
 
 Get the application gateway object and associate it to a variable "$getgw".
 
-	$getgw =  Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
+	$getgw = Get-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 ### Step 2
 
