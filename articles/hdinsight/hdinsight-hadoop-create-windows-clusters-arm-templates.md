@@ -17,7 +17,7 @@
    ms.date="07/25/2016"
    ms.author="jgao"/>
 
-# Create Windows-based Hadoop clusters in HDInsight using Azure Resource Manager s
+# Create Windows-based Hadoop clusters in HDInsight using Azure Resource Manager templates
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
