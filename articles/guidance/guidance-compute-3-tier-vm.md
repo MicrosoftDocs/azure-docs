@@ -115,7 +115,7 @@ The following diagram builds on the topology shown in [Running multiple VMs on A
 
 - Use NSG rules to restrict traffic between tiers. For example, in the 3-tier architecture shown above, the web tier does not communicate directly with the database tier. To enforce this, the database tier should block incoming traffic from the web tier subnet.  
 
-  1. Create an NSG and associate it to the database tier subnet. 
+  1. Create an NSG and associate it to the database tier subnet.
 
   1. Add a rule that denies all inbound traffic from the VNet. (Use the `VIRTUAL_NETWORK` tag in the rule.) 
 
@@ -148,143 +148,147 @@ When you edit the templates, create objects that follow the naming conventions d
 The script references the following parameter files to build the VMs and the surrounding infrastructure. Note that there are two versions of these files; one for Windows VMs and another for Linux (RedHat). The examples shown below depict the Windows versions. The Linux files are very similar except where described:
 
 - **[virtualNetwork.parameters.json][vnet-parameters-windows]**. This file defines the VNet settings. The VNet contains separate subnets for the web, business, and database tiers, and a further subnet for hosting the VMs running management services. You can also specify the addresses of any DNS servers required. Note that subnet addresses must be contained within the address space of the VNet:
-  <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-n-tier/parameters/windows/virtualNetwork.parameters.json#L4-L32 -->
-  ```json
-    "parameters": {
-      "virtualNetworkSettings": {
-        "value": {
-          "name": "ra-vnet",
-          "addressPrefixes": [
-            "10.0.0.0/16"
-          ],
-          "subnets": [
-            {
-              "name": "app1-web-sn",
-              "addressPrefix": "10.0.0.0/24"
-            },
-            {
-              "name": "app1-biz-sn",
-              "addressPrefix": "10.0.1.0/24"
-            },
-            {
-              "name": "app1-data-sn",
-              "addressPrefix": "10.0.2.0/24"
-            },
-            {
-              "name": "app1-mgmt-sn",
-              "addressPrefix": "10.0.3.0/24"
-            }
-          ],
-          "dnsServers": [ ]
-        }
+
+<!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-n-tier/parameters/windows/virtualNetwork.parameters.json#L4-L32 -->
+
+```json
+  "parameters": {
+    "virtualNetworkSettings": {
+      "value": {
+        "name": "ra-vnet",
+        "addressPrefixes": [
+          "10.0.0.0/16"
+        ],
+        "subnets": [
+          {
+            "name": "app1-web-sn",
+            "addressPrefix": "10.0.0.0/24"
+          },
+          {
+            "name": "app1-biz-sn",
+            "addressPrefix": "10.0.1.0/24"
+          },
+          {
+            "name": "app1-data-sn",
+            "addressPrefix": "10.0.2.0/24"
+          },
+          {
+            "name": "app1-mgmt-sn",
+            "addressPrefix": "10.0.3.0/24"
+          }
+        ],
+        "dnsServers": [ ]
       }
     }
-  ```
+  }
+```
 
 - **[webTier.parameters.json][webtier-parameters-windows]**. This file defines the settings for the VMs in the web tier, including the [size of each VM][VM-sizes], the security credentials for the admin user, the disks to be created, the storage accounts to hold these disks. This file also contains the definition of an availability set for the VMs, and the load balancer configuration for distributing traffic across the VMs in this set.
-  <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-n-tier/parameters/windows/webTier.parameters.json#L4-L103 -->
-  ```json
-    "parameters": {
-      "loadBalancerSettings": {
-        "value": {
-          "name": "app1-web-lb",
-          "frontendIPConfigurations": [
-            {
-              "name": "lb-fe-config1",
-              "loadBalancerType": "public",
-              "internalLoadBalancerSettings": {
-                "privateIPAddress": "10.0.0.250",
-                "subnetName": "app1-web-sn"
-              }
+
+<!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-n-tier/parameters/windows/webTier.parameters.json#L4-L103 -->
+
+```json
+  "parameters": {
+    "loadBalancerSettings": {
+      "value": {
+        "name": "app1-web-lb",
+        "frontendIPConfigurations": [
+          {
+            "name": "lb-fe-config1",
+            "loadBalancerType": "public",
+            "internalLoadBalancerSettings": {
+              "privateIPAddress": "10.0.0.250",
+              "subnetName": "app1-web-sn"
             }
-          ],
-          "loadBalancingRules": [
-            {
-              "name": "lbr1",
-              "frontendPort": 80,
-              "backendPort": 80,
-              "protocol": "Tcp",
-              "backendPoolName": "lb-bep1",
-              "frontendIPConfigurationName": "lb-fe-config1"
-            }
-          ],
-          "probes": [
-            {
-              "name": "lbp1",
-              "port": 80,
-              "protocol": "Http",
-              "requestPath": "/"
-            }
-          ],
-          "backendPools": [
-            {
-              "name": "lb-bep1",
-              "nicIndex": 0
-            }
-          ],
-          "inboundNatRules": [ ]
-        }
-      },
-      "virtualMachinesSettings": {
-        "value": {
-          "namePrefix": "ra",
-          "computerNamePrefix": "cn",
-          "size": "Standard_DS1",
-          "adminUsername": "testuser",
-          "adminPassword": "AweS0me@PW",
-          "osType": "windows",
-          "osAuthenticationType": "password",
-          "sshPublicKey": "",
-          "nics": [
-            {
-              "isPublic": "false",
-              "isPrimary": "true",
-              "subnetName": "app1-web-sn",
-              "privateIPAllocationMethod": "dynamic",
-              "enableIPForwarding": false,
-              "dnsServers": [ ]
-            }
-          ],
-          "imageReference": {
-            "publisher": "MicrosoftWindowsServer",
-            "offer": "WindowsServer",
-            "sku": "2012-R2-Datacenter",
-            "version": "latest"
-          },
-          "osDisk": {
-            "caching": "ReadWrite"
-          },
-          "dataDisks": {
-            "count": 1,
-            "properties": {
-              "diskSizeGB": 128,
-              "caching": "None",
-              "createOption": "Empty"
-            }
-          },
-          "extensions": [ ],
-          "availabilitySet": {
-            "useExistingAvailabilitySet": "No",
-            "name": "app1-web-as"
-          },
-          "extensions": [ ]
-        }
-      },
-      "virtualNetworkSettings": {
-        "value": {
-          "name": "ra-vnet",
-          "resourceGroup": "ra-ntier-vm-rg"
-        }
-      },
-      "buildingBlockSettings": {
-        "value": {
-          "storageAccountsCount": 1,
-          "vmCount": 3,
-          "vmStartIndex": 1
-        }
+          }
+        ],
+        "loadBalancingRules": [
+          {
+            "name": "lbr1",
+            "frontendPort": 80,
+            "backendPort": 80,
+            "protocol": "Tcp",
+            "backendPoolName": "lb-bep1",
+            "frontendIPConfigurationName": "lb-fe-config1"
+          }
+        ],
+        "probes": [
+          {
+            "name": "lbp1",
+            "port": 80,
+            "protocol": "Http",
+            "requestPath": "/"
+          }
+        ],
+        "backendPools": [
+          {
+            "name": "lb-bep1",
+            "nicIndex": 0
+          }
+        ],
+        "inboundNatRules": [ ]
+      }
+    },
+    "virtualMachinesSettings": {
+      "value": {
+        "namePrefix": "ra",
+        "computerNamePrefix": "cn",
+        "size": "Standard_DS1",
+        "adminUsername": "testuser",
+        "adminPassword": "AweS0me@PW",
+        "osType": "windows",
+        "osAuthenticationType": "password",
+        "sshPublicKey": "",
+        "nics": [
+          {
+            "isPublic": "false",
+            "isPrimary": "true",
+            "subnetName": "app1-web-sn",
+            "privateIPAllocationMethod": "dynamic",
+            "enableIPForwarding": false,
+            "dnsServers": [ ]
+          }
+        ],
+        "imageReference": {
+          "publisher": "MicrosoftWindowsServer",
+          "offer": "WindowsServer",
+          "sku": "2012-R2-Datacenter",
+          "version": "latest"
+        },
+        "osDisk": {
+          "caching": "ReadWrite"
+        },
+        "dataDisks": {
+          "count": 1,
+          "properties": {
+            "diskSizeGB": 128,
+            "caching": "None",
+            "createOption": "Empty"
+          }
+        },
+        "extensions": [ ],
+        "availabilitySet": {
+          "useExistingAvailabilitySet": "No",
+          "name": "app1-web-as"
+        },
+        "extensions": [ ]
+      }
+    },
+    "virtualNetworkSettings": {
+      "value": {
+        "name": "ra-vnet",
+        "resourceGroup": "ra-ntier-vm-rg"
+      }
+    },
+    "buildingBlockSettings": {
+      "value": {
+        "storageAccountsCount": 1,
+        "vmCount": 3,
+        "vmStartIndex": 1
       }
     }
-  ```
+  }
+```
 
   The `virtualMachineSettings` section contains the configuration details for the VMs. The physical VM names and the logical computer names of the VMs are generated, based on the values specified for the `namePrefix` and `computerNamePrefix` parameters together with the `vmCount` parameter in the `buildingBlockSettings` section at the end of the file. (The `vmCount` parameter determines the number of VMs to build, and the `vmStartIndex` parameter indicates a starting point for numbering VMs.) The values shown above generate the suffixes 1, 2, and 3 which are appended to the names generated by the `namePrefix` and `computerNamePrefix`. Using the default values for these parameters (shown above), the physical names of the VMs that appear in the Azure portal will be ra-vm1, ra-vm2, and ra-vm3. The computer names of the VMs that appear on the virtual network will be cn1, cn2, and cn3.
 
@@ -298,15 +302,16 @@ The script references the following parameter files to build the VMs and the sur
 
   The default configuration for building Linux VMs references Ubuntu Linux 14.04. The `imageReference` section looks like this:
 
-  <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-n-tier/parameters/linux/webTier.parameters.json#L65-L70 -->
-  ```json
-    "imageReference": {
-      "publisher": "Canonical",
-      "offer": "UbuntuServer",
-      "sku": "14.04.5-LTS",
-      "version": "latest"
-    },
-  ```
+<!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-n-tier/parameters/linux/webTier.parameters.json#L65-L70 -->
+
+```json
+  "imageReference": {
+    "publisher": "Canonical",
+    "offer": "UbuntuServer",
+    "sku": "14.04.5-LTS",
+    "version": "latest"
+  },
+```
 
   Note that in this case the `osType` parameter must be set to `linux`. If you want to base your VMs on a different build of Linux from a different vendor, you can use the `azure vm image list` command to view the available images.
 
@@ -315,16 +320,18 @@ The script references the following parameter files to build the VMs and the sur
   >[AZURE.NOTE] The template does not install any web servers on the VMs in this tier. You can install a web server of your choice (IIS, Apache, etc) manually.
 
 - **[businessTier.parameters.json][businesstier-parameters-windows]**. This file contains the settings for the load balancer and VMs in the business tier. The parameters are very similar to those used by the template for creating the web tier. Note that you must set the values in the `buildingBlockSettings` section at the end of the file to ensure that VM and computer names do not clash with those in the web tier. The default configuration (shown below) creates a set of 3 VMs starting with suffix 4. The default web tier configuration uses suffixes 1 through 3, but if you create more VMs in the web tier you should adjust the `vmStartIndex` in this file:
-  <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-n-tier/parameters/windows/businessTier.parameters.json#L96-L102 -->
-  ```json
-     "buildingBlockSettings": {
-      "value": {
-        "storageAccountsCount": 1,
-        "vmCount": 3,
-        "vmStartIndex": 4
-      }
+
+<!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-n-tier/parameters/windows/businessTier.parameters.json#L96-L102 -->
+
+```json
+    "buildingBlockSettings": {
+    "value": {
+      "storageAccountsCount": 1,
+      "vmCount": 3,
+      "vmStartIndex": 4
     }
-  ```
+  }
+```
 
 - **[dataTier.parameters.json][datatier-parameters-windows]**. This file contains the settings for the load balancer and VMs in the database tier. As before, the parameters are very similar to those used by the template for creating the web tier. Again, you must be careful to set the `vmStartIndex` value in the `buildingBlockSettings` section of this file to avoid clashes with VM and computer names in the other two tiers.
 
@@ -342,204 +349,206 @@ The script references the following parameter files to build the VMs and the sur
 
   - The management subnet permits a user to connect to a VMs in this tier through a remote desktop (RDP) connection. All other traffic is blocked.
 
->[AZURE.NOTE] For security purposes, the web, business, and database tiers block RDP/SSH traffic by default, even from the management tier. You can temporarily create additional rules to open these ports to enable you to connect and install software on these tiers, but then you can disable them again afterwards. However, you should open any ports required by whatever tools you are using to monitor and manage the web, business, and database tiers from the management tier.
+  >[AZURE.NOTE] For security purposes, the web, business, and database tiers block RDP/SSH traffic by default, even from the management tier. You can temporarily create additional rules to open these ports to enable you to connect and install software on these tiers, but then you can disable them again afterwards. However, you should open any ports required by whatever tools you are using to monitor and manage the web, business, and database tiers from the management tier.
 
->[AZURE.IMPORTANT] The NSG rules for the management tier are applied to the NIC for the jump box rather than the management subnet. The default name for this NIC, ra-vm9-nic1, assumes that you haven't changed the `namePrefix` value for the management tier VMs, and that you have not modified the number or starting index of the VMs in each tier (by default, the jump box will be given the suffix 9). If you have changed these parameters, then you must also modify the value of the NIC referenced by the management tier NSG rules accordingly, otherwise they may be applied to a NIC associated with a different VM.
+  **Important** The NSG rules for the management tier are applied to the NIC for the jump box rather than the management subnet. The default name for this NIC, ra-vm9-nic1, assumes that you haven't changed the `namePrefix` value for the management tier VMs, and that you have not modified the number or starting index of the VMs in each tier (by default, the jump box will be given the suffix 9). If you have changed these parameters, then you must also modify the value of the NIC referenced by the management tier NSG rules accordingly, otherwise they may be applied to a NIC associated with a different VM.
 
-  <!-- source:  https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-n-tier/parameters/windows/networkSecurityGroups.parameters.json#L4-L162 -->
-  ```json
-    "parameters": {
-      "virtualNetworkSettings": {
-        "value": {
-          "name": "ra-vnet",
-          "resourceGroup": "ra-ntier-vm-rg"
-      }
-      },
-      "networkSecurityGroupsSettings": {
-        "value": [
-          {
-            "name": "app1-biz-nsg",
-            "subnets": [
-              "app1-biz-sn"
-            ],
-            "networkInterfaces": [
-            ],
-            "securityRules": [
-              {
-                "name": "allow-web-traffic",
-                "description": "Allow traffic originating from web layer.",
-                "protocol": "*",
-                "sourcePortRange": "*",
-                "destinationPortRange": "80",
-                "sourceAddressPrefix": "10.0.0.0/24",
-                "destinationAddressPrefix": "*",
-                "access": "Allow",
-                "priority": 100,
-                "direction": "Inbound"
-              },
-              {
-                "name": "deny-other-traffic",
-                "description": "Deny all other traffic",
-                "protocol": "*",
-                "sourcePortRange": "*",
-                "destinationPortRange": "*",
-                "sourceAddressPrefix": "*",
-                "destinationAddressPrefix": "*",
-                "access": "Deny",
-                "priority": 120,
-                "direction": "Inbound"
-              }
-            ]
-          },
-          {
-            "name": "app1-data-nsg",
-            "subnets": [
-              "app1-data-sn"
-            ],
-            "networkInterfaces": [
-            ],
-            "securityRules": [
-              {
-                "name": "allow-biz-traffic",
-                "description": "Allow traffic originating from biz layer.",
-                "protocol": "*",
-                "sourcePortRange": "*",
-                "destinationPortRange": "80",
-                "sourceAddressPrefix": "10.0.1.0/24",
-                "destinationAddressPrefix": "*",
-                "access": "Allow",
-                "priority": 100,
-                "direction": "Inbound"
-              },
-              {
-                "name": "deny-other-traffic",
-                "description": "Deny all other traffic",
-                "protocol": "*",
-                "sourcePortRange": "*",
-                "destinationPortRange": "*",
-                "sourceAddressPrefix": "*",
-                "destinationAddressPrefix": "*",
-                "access": "Deny",
-                "priority": 120,
-                "direction": "Inbound"
-              }
-            ]
-          },
-          {
-            "name": "app1-web-nsg",
-            "subnets": [
-              "app1-web-sn"
-            ],
-            "networkInterfaces": [
-            ],
-            "securityRules": [
-              {
-                "name": "allow-web-traffic-from-external",
-                "description": "Allow web traffic originating externally.",
-                "protocol": "*",
-                "sourcePortRange": "*",
-                "destinationPortRange": "80",
-                "sourceAddressPrefix": "*",
-                "destinationAddressPrefix": "*",
-                "access": "Allow",
-                "priority": 100,
-                "direction": "Inbound"
-              },
-              {
-                "name": "allow-web-traffic-from-vnet",
-                "description": "Allow web traffic originating from vnet.",
-                "protocol": "*",
-                "sourcePortRange": "*",
-                "destinationPortRange": "80",
-                "sourceAddressPrefix": "10.0.0.0/16",
-                "destinationAddressPrefix": "*",
-                "access": "Allow",
-                "priority": 110,
-                "direction": "Inbound"
-              },
-              {
-                "name": "deny-other-traffic",
-                "description": "Deny all other traffic",
-                "protocol": "*",
-                "sourcePortRange": "*",
-                "destinationPortRange": "*",
-                "sourceAddressPrefix": "*",
-                "destinationAddressPrefix": "*",
-                "access": "Deny",
-                "priority": 120,
-                "direction": "Inbound"
-              }
-            ]
-          },
-          {
-            "name": "app1-mgmt-nsg",
-            "subnets": [ ],
-            "networkInterfaces": [
-              "ra-vm9-nic1"
-            ],
-            "securityRules": [
-              {
-                "name": "RDP",
-                "description": "Allow RDP Subnet",
-                "protocol": "tcp",
-                "sourcePortRange": "*",
-                "destinationPortRange": "3389",
-                "sourceAddressPrefix": "*",
-                "destinationAddressPrefix": "*",
-                "access": "Allow",
-                "priority": 100,
-                "direction": "Inbound"
-              },
-              {
-                "name": "deny-other-traffic",
-                "description": "Deny all other traffic",
-                "protocol": "*",
-                "sourcePortRange": "*",
-                "destinationPortRange": "*",
-                "sourceAddressPrefix": "*",
-                "destinationAddressPrefix": "*",
-                "access": "Deny",
-                "priority": 120,
-                "direction": "Inbound"
-              }
-            ]
-          }
-        ]
-      }
+<!-- source:  https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-n-tier/parameters/windows/networkSecurityGroups.parameters.json#L4-L162 -->
+
+```json
+  "parameters": {
+    "virtualNetworkSettings": {
+      "value": {
+        "name": "ra-vnet",
+        "resourceGroup": "ra-ntier-vm-rg"
     }
-  ```
+    },
+    "networkSecurityGroupsSettings": {
+      "value": [
+        {
+          "name": "app1-biz-nsg",
+          "subnets": [
+            "app1-biz-sn"
+          ],
+          "networkInterfaces": [
+          ],
+          "securityRules": [
+            {
+              "name": "allow-web-traffic",
+              "description": "Allow traffic originating from web layer.",
+              "protocol": "*",
+              "sourcePortRange": "*",
+              "destinationPortRange": "80",
+              "sourceAddressPrefix": "10.0.0.0/24",
+              "destinationAddressPrefix": "*",
+              "access": "Allow",
+              "priority": 100,
+              "direction": "Inbound"
+            },
+            {
+              "name": "deny-other-traffic",
+              "description": "Deny all other traffic",
+              "protocol": "*",
+              "sourcePortRange": "*",
+              "destinationPortRange": "*",
+              "sourceAddressPrefix": "*",
+              "destinationAddressPrefix": "*",
+              "access": "Deny",
+              "priority": 120,
+              "direction": "Inbound"
+            }
+          ]
+        },
+        {
+          "name": "app1-data-nsg",
+          "subnets": [
+            "app1-data-sn"
+          ],
+          "networkInterfaces": [
+          ],
+          "securityRules": [
+            {
+              "name": "allow-biz-traffic",
+              "description": "Allow traffic originating from biz layer.",
+              "protocol": "*",
+              "sourcePortRange": "*",
+              "destinationPortRange": "80",
+              "sourceAddressPrefix": "10.0.1.0/24",
+              "destinationAddressPrefix": "*",
+              "access": "Allow",
+              "priority": 100,
+              "direction": "Inbound"
+            },
+            {
+              "name": "deny-other-traffic",
+              "description": "Deny all other traffic",
+              "protocol": "*",
+              "sourcePortRange": "*",
+              "destinationPortRange": "*",
+              "sourceAddressPrefix": "*",
+              "destinationAddressPrefix": "*",
+              "access": "Deny",
+              "priority": 120,
+              "direction": "Inbound"
+            }
+          ]
+        },
+        {
+          "name": "app1-web-nsg",
+          "subnets": [
+            "app1-web-sn"
+          ],
+          "networkInterfaces": [
+          ],
+          "securityRules": [
+            {
+              "name": "allow-web-traffic-from-external",
+              "description": "Allow web traffic originating externally.",
+              "protocol": "*",
+              "sourcePortRange": "*",
+              "destinationPortRange": "80",
+              "sourceAddressPrefix": "*",
+              "destinationAddressPrefix": "*",
+              "access": "Allow",
+              "priority": 100,
+              "direction": "Inbound"
+            },
+            {
+              "name": "allow-web-traffic-from-vnet",
+              "description": "Allow web traffic originating from vnet.",
+              "protocol": "*",
+              "sourcePortRange": "*",
+              "destinationPortRange": "80",
+              "sourceAddressPrefix": "10.0.0.0/16",
+              "destinationAddressPrefix": "*",
+              "access": "Allow",
+              "priority": 110,
+              "direction": "Inbound"
+            },
+            {
+              "name": "deny-other-traffic",
+              "description": "Deny all other traffic",
+              "protocol": "*",
+              "sourcePortRange": "*",
+              "destinationPortRange": "*",
+              "sourceAddressPrefix": "*",
+              "destinationAddressPrefix": "*",
+              "access": "Deny",
+              "priority": 120,
+              "direction": "Inbound"
+            }
+          ]
+        },
+        {
+          "name": "app1-mgmt-nsg",
+          "subnets": [ ],
+          "networkInterfaces": [
+            "ra-vm9-nic1"
+          ],
+          "securityRules": [
+            {
+              "name": "RDP",
+              "description": "Allow RDP Subnet",
+              "protocol": "tcp",
+              "sourcePortRange": "*",
+              "destinationPortRange": "3389",
+              "sourceAddressPrefix": "*",
+              "destinationAddressPrefix": "*",
+              "access": "Allow",
+              "priority": 100,
+              "direction": "Inbound"
+            },
+            {
+              "name": "deny-other-traffic",
+              "description": "Deny all other traffic",
+              "protocol": "*",
+              "sourcePortRange": "*",
+              "destinationPortRange": "*",
+              "sourceAddressPrefix": "*",
+              "destinationAddressPrefix": "*",
+              "access": "Deny",
+              "priority": 120,
+              "direction": "Inbound"
+            }
+          ]
+        }
+      ]
+    }
+  }
+```
 
   Note that the management tier security rule for the Linux implementation differs in that it opens port 22 to enable SSH connections rather than RDP:
 
-  <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-n-tier/parameters/linux/networkSecurityGroups.parameters.json#L20-L45 -->
-  ```json
-  "securityRules": [
-    {
-      "name": "allow-web-traffic",
-      "description": "Allow traffic originating from web layer.",
-      "protocol": "*",
-      "sourcePortRange": "*",
-      "destinationPortRange": "80",
-      "sourceAddressPrefix": "10.0.0.0/24",
-      "destinationAddressPrefix": "*",
-      "access": "Allow",
-      "priority": 100,
-      "direction": "Inbound"
-    },
-    {
-      "name": "deny-other-traffic",
-      "description": "Deny all other traffic",
-      "protocol": "*",
-      "sourcePortRange": "*",
-      "destinationPortRange": "*",
-      "sourceAddressPrefix": "*",
-      "destinationAddressPrefix": "*",
-      "access": "Deny",
-      "priority": 120,
-      "direction": "Inbound"
-    }
-  ]
-  ```
+<!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-n-tier/parameters/linux/networkSecurityGroups.parameters.json#L20-L45 -->
+
+```json
+"securityRules": [
+  {
+    "name": "allow-web-traffic",
+    "description": "Allow traffic originating from web layer.",
+    "protocol": "*",
+    "sourcePortRange": "*",
+    "destinationPortRange": "80",
+    "sourceAddressPrefix": "10.0.0.0/24",
+    "destinationAddressPrefix": "*",
+    "access": "Allow",
+    "priority": 100,
+    "direction": "Inbound"
+  },
+  {
+    "name": "deny-other-traffic",
+    "description": "Deny all other traffic",
+    "protocol": "*",
+    "sourcePortRange": "*",
+    "destinationPortRange": "*",
+    "sourceAddressPrefix": "*",
+    "destinationAddressPrefix": "*",
+    "access": "Deny",
+    "priority": 120,
+    "direction": "Inbound"
+  }
+]
+```
 
   You can open additional ports (or deny access through specific ports) by adding further items to the `securityRules` array for the appropriate subnet.
 
