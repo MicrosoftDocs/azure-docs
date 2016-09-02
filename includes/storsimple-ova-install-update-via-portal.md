@@ -18,7 +18,7 @@
 
 5. You will be notified when the updates are downloaded. 
 
-    ![update device](../includes/media/storsimple-ova-install-update-via-portal/azupdate6m.png) 
+  
 
 6. From the bottom of the page, click **Install Updates** to begin updating the device. The dialog will be presented to you again. Click the check icon to start a job to install the updates. 
 
