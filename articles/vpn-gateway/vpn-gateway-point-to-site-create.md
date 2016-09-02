@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Configure a Point-to-Site VPN connection to an Azure Virtual Network using the classic portal | Microsoft Azure"
-   description="Securely connect to your Azure Virtual Network by creating a Point-to-Site VPN connection."
+   pageTitle="Configure a Point-to-Site VPN gateway connection to an Azure Virtual Network using the classic portal | Microsoft Azure"
+   description="Securely connect to your Azure Virtual Network by creating a Point-to-Site VPN gateway connection."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -23,7 +23,7 @@
 - [PowerShell - Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
 - [Portal - Classic](vpn-gateway-point-to-site-create.md)
 
-A Point-to-Site (P2S) configuration allows you to create a secure connection from an individual client computer to a virtual network. A P2S connection is useful when you want to connect to your VNet from a remote location, such as from home or a conference, or when you only have a few clients that need to connect to a virtual network.
+A Point-to-Site (P2S) configuration lets you create a secure connection from an individual client computer to a virtual network. A P2S connection is useful when you want to connect to your VNet from a remote location, such as from home or a conference, or when you only have a few clients that need to connect to a virtual network.
 
 This article walks you through creating a VNet with a Point-to-Site connection in the **classic deployment model** using the classic portal. Currently, you cannot create this configuration end-to-end in the Azure portal for the classic deployment model.
 
