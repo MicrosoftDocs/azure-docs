@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/01/2016"
+   ms.date="09/02/2016"
    ms.author="alkohli" />
 
 # StorSimple Virtual Array Update 0.3 release notes
@@ -38,8 +38,8 @@ The following table provides a summary of issues fixed in this release.
 
 | No.  | Feature                              | Issue                                                                                                                                                                                                                                                                                                                           |
 |------|--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1    | Backups                                |A problem was seen in the earlier release where the backups would fail to complete. The root cause was identified and fixed in this release. <br></br> Though the issue has been fixed, the fix does not apply retroactively to shares that are already seeing this issue. Customers who are seeing this issue should first apply Update 0.3, then contact Microsoft Support to have a full backup forced on the system to fix the issue. Instead of contacting Microsoft Support, customers can also restore to a new share from a healthy backup for these affected shares.                                                                                                                                                                                 |
-| 2    | iSCSI                         | An issue was seen in the earlier release where the volumes would disappear when copying data to a volume on the StorSimple Virtual Array. This issue was fixed in this release. <br></br> The fixes take effect only on newly created volumes. The fixes do not apply retroactively to volumes that are already seeing this issue. Customers are advised to bring the affected volumes online via the Azure classic portal, then trigger a backup for these volumes, and then restore these volumes to a new volume.                                                               |
+| 1    | Backups                                |A problem was seen in the earlier release where the backups would fail to complete. The root cause was identified and fixed in this release. <br></br> The fix does not apply retroactively to shares that are already seeing this issue. Customers who are seeing this issue should first apply Update 0.3, then contact Microsoft Support to perform a full system backup to fix the issue. Instead of contacting Microsoft Support, customers can also restore to a new share from a healthy backup for the affected shares.                                                                                                                                                                                 |
+| 2    | iSCSI                         | An issue was seen in the earlier release where the volumes would disappear when copying data to a volume on the StorSimple Virtual Array. This issue was fixed in this release. <br></br> The fixes take effect only on newly created volumes. The fixes do not apply retroactively to volumes that are already seeing this issue. Customers are advised to bring the affected volumes online via the Azure classic portal, perform a backup for these volumes, and then restore these volumes to new volumes.                                                               |
 
 
 ## Known issues in the Update 0.3
