@@ -37,11 +37,11 @@ If the Application Gateway has no VMs or VM Scale Set configured in the back-end
 
 ### Solution
 
-Ensure that the back-end address pool is not empty. This can be done either via PowerShell, CLI or portal.
+Ensure that the back-end address pool is not empty. This can be done either via PowerShell, CLI, or portal.
 
 	Get-AzureRmApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
 
-The output from the above cmdlet should contain non-empty back-end address pool. Following is an example where two pools are returned which are configured with FQDN or IP addresses for backend VMs. The provisioning state of the BackendAddressPool must be 'Succeeded'.
+The output from the preceding cmdlet should contain non-empty back-end address pool. Following is an example where two pools are returned which are configured with FQDN or IP addresses for backend VMs. The provisioning state of the BackendAddressPool must be 'Succeeded'.
 	
 		BackendAddressPoolsText: 
 				[{
@@ -75,7 +75,7 @@ If all the instances of BackendAddressPool are unhealthy, then Application Gatew
 
 ### Solution
 
-Ensure that the instances are healthy and the application is properly configured. Check if the back-end instances are able to respond to a ping from another VM in the same VNet. If configured with a public end point,  ensure that a browser request to the web application is serviceable.
+Ensure that the instances are healthy and the application is properly configured. Check if the back-end instances are able to respond to a ping from another VM in the same VNet. If configured with a public end point, ensure that a browser request to the web application is serviceable.
 
 ## Problems with default health probe
 
@@ -95,8 +95,8 @@ Ensure that the instances are healthy and the application is properly configured
 
 - Ensure that a default site is configured and is listening at 127.0.0.1.
 - If BackendHttpSetting specifies a port other than 80, the default site should be configured to listen at that port.
-- The call to http://127.0.0.1:port should return a HTTP result code of 200. This should be returned within the 30 sec time-out period.
-- Ensure that port configured is open and that there are no firewall rules or Azure Network Security Groups which block incoming or outgoing traffic on the port configured.
+- The call to http://127.0.0.1:port should return an HTTP result code of 200. This should be returned within the 30 sec time-out period.
+- Ensure that port configured is open and that there are no firewall rules or Azure Network Security Groups, which block incoming or outgoing traffic on the port configured.
 - If Azure classic VMs or Cloud Service is used with FQDN or Public IP, ensure that the corresponding [endpoint](../virtual-machines/virtual-machines-windows-classic-setup-endpoints.md) is opened.
 - If the VM is configured via Azure Resource Manager and is outside the VNet where Application Gateway is deployed, [Network Security Group](../virtual-network/virtual-networks-nsg.md) must be configured to allow access on the desired port.
 
@@ -125,7 +125,7 @@ Validate that the Custom Health Probe is configured correctly as the preceding t
 - Ensure that the Protocol is set to HTTP only. HTTPS is not currently supported.
 - Ensure that the probe is correctly specified as per the [guide](application-gateway-create-probe-ps.md).
 - If Application Gateway is configured for a single site, by default the Host name should be specified as '127.0.0.1', unless otherwise configured in custom probe.
-- Ensure that a call to http://\<host\>:\<port\>\<path\> returns a HTTP result code of 200.
+- Ensure that a call to http://\<host\>:\<port\>\<path\> returns an HTTP result code of 200.
 - Ensure that Interval, Time-out and UnhealtyThreshold are within the acceptable ranges.
 
 ## Request time out
@@ -136,10 +136,10 @@ When a user request is received, Application Gateway applies the configured rule
 
 ### Solution
 
-Application Gateway allows users to configure this setting via BackendHttpSetting which can be then applied to different pools. Different back-end pools can have different BackendHttpSetting and hence different request time out configured.
+Application Gateway allows users to configure this setting via BackendHttpSetting, which can be then applied to different pools. Different back-end pools can have different BackendHttpSetting and hence different request time out configured.
 
 	New-AzureRmApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
 
 ## Next steps
 
-If the above steps do not resolve the issue, please open a [support ticket](https://azure.microsoft.com/support/options/).
+If the preceding steps do not resolve the issue, open a [support ticket](https://azure.microsoft.com/support/options/).
