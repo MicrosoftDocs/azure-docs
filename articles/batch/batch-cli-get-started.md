@@ -9,9 +9,9 @@
 
 <tags
    ms.service="batch"
-   ms.devlang="NA"
+   ms.devlang="na"
    ms.topic="get-started-article"
-   ms.tgt_pltfrm=""
+   ms.tgt_pltfrm="multiple"
    ms.workload="big-compute"
    ms.date="09/02/2016"
    ms.author="marsma"/>
