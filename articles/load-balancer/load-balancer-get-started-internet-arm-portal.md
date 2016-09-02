@@ -74,7 +74,7 @@ You can get more information about load balancer components with Azure Resource 
 
     ![Adding to the backend address pool - ](./media/load-balancer-get-started-internet-arm-portal/3-load-balancer-backend-02.png)
 
-3. Check to make sure your notifications drop down list has an update regarding saving the load balancer backend pool and updating the network interface for both the VMs **web1** and **web2**.
+3. Check to make sure your notifications drop down list has an update regarding saving the load balancer backend pool in addition to updating the network interface for both the VMs **web1** and **web2**.
 
 
 ## Create a probe, LB rule, and NAT rules
@@ -98,7 +98,7 @@ You can get more information about load balancer components with Azure Resource 
 
 3. Create inbound NAT rules
 
-    Click on Inbound NAT rules under the settings section of your load balancer. In the new blade that, click **Add**. Then name your inbound NAT rule. Here it is called **inboundNATrule1**. The destination should be the Public IP previously created. Select Custom under Service and select the protocol you would like to make use of. Here TCP is selected. Enter the port, 3441, and the Target port, in this case, 3389. then click OK to save this rule.
+    Click on Inbound NAT rules under the settings section of your load balancer. In the new blade that, click **Add**. Then name your inbound NAT rule. Here it is called **inboundNATrule1**. The destination should be the Public IP previously created. Select Custom under Service and select the protocol you would like to use. Here TCP is selected. Enter the port, 3441, and the Target port, in this case, 3389. then click OK to save this rule.
 
     Once the first rule is created, repeat this step for the second inbound NAT rule called inboundNATrule2 from port 3442 to Target port 3389.
 
