@@ -98,50 +98,7 @@ Before you can begin developing Azure applications, get the tools and set up you
 
 To begin using Service Bus features in Azure, you must first create a service namespace. A namespace provides a scoping container for addressing Service Bus resources within your application.
 
-1.  Sign in to the [Azure classic portal][].
-
-2.  In the left navigation pane of the portal, click
-    **Service Bus**.
-
-3.  In the lower pane of the portal, click **Create**.
-
-    ![][5]
-
-4.  In the **Add a new namespace** dialog box, enter a namespace name.
-    The system immediately checks to see if the name is available.
-    ![][6]
-
-5.  After making sure the namespace name is available, choose the
-    country or region in which your namespace should be hosted (make
-    sure you use the same country/region in which you are deploying your
-    compute resources).
-
-    > [AZURE.IMPORTANT] Pick the *same region* that you intend to choose for
-    deploying your application. This will give you the best performance.
-
-6.	Leave the other fields in the dialog box with their default values, then click the OK check mark. The system creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
-
-The namespace you created will appear in the portal, though it may take a moment to activate. Wait until the status is **Active** before moving on.
-
-## Obtain the default management credentials for the namespace
-
-In order to perform management operations on the new namespace, such as creating messaging entities, you must obtain credentials for the namespace.
-
-1.  In the main window, click the namespace you created in the previous step.
-
-2.  At the bottom of the page, click **Connection Information**.
-
-3.  In the **Access connection information** pane, find the connection string that contains the SAS key and key name.
-
-	![][45]
-
-4.  Copy the connection string, and paste it somewhere to use later in this tutorial.
-
-5. In the same portal page, click the **Configure** tab at the top of the page.
-
-6. Copy the primary key for the **RootManageSharedAccessKey** policy to the clipboard, or paste it into Notepad. You will use this value later in this tutorial.
-
-	![][46]
+[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Create an on-premises server
 
@@ -347,7 +304,7 @@ In this section you will build a simple ASP.NET application that displays data r
 
 8. Now you must configure Azure resources for a new web app. Follow all the steps in the section [Configure Azure resources for a new web app](../app-service-web/web-sites-dotnet-get-started.md#configure-azure-resources-for-a-new-web-app). Then, return to this tutorial and proceed to the next step.
 
-5.  In Solution Explorer, right click **Models** and then click **Add**,
+5.  In Solution Explorer, right-click **Models** and then click **Add**,
     then click **Class**. In the **Name** box, type the name
     **Product.cs**. Then click **Add**.
 
@@ -466,11 +423,11 @@ The next step is to hook up the on-premises products server with the ASP.NET app
 
 4.  In Solution Explorer, right-click the **ProductsPortal** project, then click **Add**, then **Existing Item**.
 
-5.  Navigate to the **ProductsContract.cs** file from the **ProductsServer** console project. Click to highlight   ProductsContract.cs. Click the down arrow next to **Add**, then click **Add as Link**.
+5.  Navigate to the **ProductsContract.cs** file from the **ProductsServer** console project. Click to highlight ProductsContract.cs. Click the down arrow next to **Add**, then click **Add as Link**.
 
 	![][24]
 
-6.  Now open the **HomeController.cs** file in the Visual Studio  editor and replace the namespace definition with the following code. Be sure to replace *yourServiceNamespace* with the name of your service namespace, and *yourKey* with your SAS key. This will enable the client to call the on-premises service, returning the result of the call.
+6.  Now open the **HomeController.cs** file in the Visual Studio editor and replace the namespace definition with the following code. Be sure to replace *yourServiceNamespace* with the name of your service namespace, and *yourKey* with your SAS key. This will enable the client to call the on-premises service, returning the result of the call.
 
 	```
 	namespace ProductsWeb.Controllers
@@ -549,7 +506,7 @@ Copy the URL of the deployed web app, as you will need the URL in the next step.
 ![][9] 
    
 
-> [AZURE.NOTE] You may see an error message in the browser window when the **ProductsPortal** web project is automatically launched after the deployment. This is normal, and occurs because the **ProductsServer** application isn't running yet.
+> [AZURE.NOTE] You may see an error message in the browser window when the **ProductsPortal** web project is automatically launched after the deployment. This is expected, and occurs because the **ProductsServer** application isn't running yet.
 
 ### Set ProductsPortal as web app
 
@@ -569,7 +526,7 @@ Before running the application in the cloud, you must ensure that **ProductsPort
 
 ## Run the application
 
-2.  Press F5 to build and run the application. The on-premises server (the **ProductsServer** console application) should start first, then the **ProductsPortal** application should start in a browser window, as shown in the following screen shot. This time, you will see that the product inventory lists data retrieved from the product service on-premises system. 	Check the URL to make sure that **ProductsPortal** is running in the cloud, as an Azure web app. 
+2.  Press F5 to build and run the application. The on-premises server (the **ProductsServer** console application) should start first, then the **ProductsPortal** application should start in a browser window, as shown in the following screen shot. Notice again that the product inventory lists data retrieved from the product service on-premises system, and displays that data in the web app. Check the URL to make sure that **ProductsPortal** is running in the cloud, as an Azure web app. 
 
     ![][1]
 
@@ -594,11 +551,6 @@ To learn more about Service Bus, see the following resources:
   [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
   [NuGet]: http://nuget.org
   
-  [Azure classic portal]: http://manage.windowsazure.com
-  [5]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-03.png
-  [6]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-04.png
-
-
   [11]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png
   [13]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-13.png
   [15]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-2.png
@@ -620,9 +572,8 @@ To learn more about Service Bus, see the following resources:
   [38]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-service2.png
   [41]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png
   [43]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
-  [45]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-45.png
-  [46]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/service-bus-policies.png
+
 
   [sbwacom]: /documentation/services/service-bus/  
-  [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
+  [sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md
 

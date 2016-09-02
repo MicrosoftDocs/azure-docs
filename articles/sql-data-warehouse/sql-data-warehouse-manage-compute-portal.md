@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/06/2016"
+   ms.date="08/22/2016"
    ms.author="barbkess;sonyama"/>
 
 # Manage compute power in Azure SQL Data Warehouse (Azure portal)
 
 > [AZURE.SELECTOR]
-- [Overview](sql-data-warehouse-overview-manage-compute.md)
+- [Overview](sql-data-warehouse-manage-compute-overview.md)
 - [Portal](sql-data-warehouse-manage-compute-portal.md)
 - [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 - [REST](sql-data-warehouse-manage-compute-rest-api.md)
@@ -34,7 +34,7 @@ This collection of tasks uses the Azure portal to:
 - Pause compute
 - Resume compute
 
-To learn about this, see [Manage compute power overview][].
+For more information, see [Manage compute overview][].
 
 <a name="scale-performance-bk"></a>
 <a name="scale-compute-bk"></a>
@@ -53,7 +53,7 @@ To change compute resources:
 
     ![Move Slider][2]
 
-1. Click **Save**. A confirmation message will appear. Click **yes** to confirm or **no** to cancel.
+1. Click **Save**. A confirmation message appears. Click **yes** to confirm or **no** to cancel.
 
     ![Click Save][3]
 
@@ -69,11 +69,11 @@ To pause a database:
 
     ![Online status][6]
 
-1. To suspend compute and memory resources, click **Pause**, and then a confirmation message will appear. Click **yes** to confirm or **no** to cancel.
+1. To suspend compute and memory resources, click **Pause**, and then a confirmation message appears. Click **yes** to confirm or **no** to cancel.
 
     ![Confirm pause][7]
 
-1. While SQL Data Warehouse is starting the database the status will be **Pausing".
+1. While SQL Data Warehouse is starting the database, the status is **Pausing**.
 2. When the status is **Paused**, the pause operation is done and you are no longer being charged for DWUs.
 
     ![Pause status][4]
@@ -89,12 +89,12 @@ To resume a database:
 
     ![Pause database][4]
 
-1. To resume the database click **Start**, and then a confirmation message will appear. Click **yes** to confirm or **no** to cancel.
+1. To resume the database click **Start**, and then a confirmation message appears. Click **yes** to confirm or **no** to cancel.
 
     ![Confirm resume][5]
 
-1. While SQL Data Warehouse is starting the database the status will be "Resuming".
-2. When the status is **online** the database is ready.
+1. While SQL Data Warehouse is starting the database, the status is "Resuming".
+2. When the status is **online**, the database is ready.
 
     ![Online status][6]
 
@@ -114,7 +114,7 @@ For more information, see [Management overview][].
 
 <!--Article references-->
 [Management overview]: ./sql-data-warehouse-overview-manage.md
-[Manage compute power overview]: ./sql-data-warehouse-overview-manage-compute.md
+[Manage compute overview]: ./sql-data-warehouse-manage-compute-overview.md
 
 <!--MSDN references-->
 

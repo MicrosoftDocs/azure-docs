@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api"
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na"
-ms.date="05/17/2016"
+ms.date="08/16/2016"
 ms.author="eugenesh" />
 
 # Indexing Documents in Azure Blob Storage with Azure Search
@@ -20,71 +20,6 @@ ms.author="eugenesh" />
 This article shows how to use Azure Search to index documents (such as PDFs, Microsoft Office documents, and several other common formats) stored in Azure Blob storage. The new Azure Search blob indexer makes this process quick and seamless. 
 
 > [AZURE.IMPORTANT] Currently this functionality is in preview. It is available only in the REST API using version **2015-02-28-Preview**. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
-
-## Setting up blob indexing
-
-To set up and configure an Azure Blob Storage indexer, you can use the Azure Search REST API to create and manage **indexers** and **data sources** as described in [this article](https://msdn.microsoft.com/library/azure/dn946891.aspx). In the future, support for blob indexing will be added to the Azure Search .NET SDK and the Azure Portal.
-
-A data source specifies which data to index, credentials needed to access the data, and policies that enable Azure Search to efficiently identify changes in the data (new, modified or deleted rows). A data source is defined as an independent resource so that it can be used by multiple indexers.
-
-An indexer is a resource that connects data sources with target search indexes.
-
-To set up blob indexing, do the following:
-
-1. Create a data source of type `azureblob` that references a container (and optionally, a folder in that container) in an Azure storage account.
-	- Pass in your storage account connection string as the `credentials.connectionString` parameter.
-	- Specify a container name. You can also optionally include a folder using the `query` parameter.
-2. Create a search index with a searchable `content` field. 
-3. Create the indexer by connecting your data source to the target index.
-
-### Create data source
-
-	POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
-	Content-Type: application/json
-	api-key: [admin key]
-
-	{
-	    "name" : "blob-datasource",
-	    "type" : "azureblob",
-	    "credentials" : { "connectionString" : "<my storage connection string>" },
-	    "container" : { "name" : "my-container", "query" : "my-folder" }
-	}   
-
-For more on the Create Datasource API, see [Create Datasource](search-api-indexers-2015-02-28-preview.md#create-data-source).
-
-### Create index 
-
-	POST https://[service name].search.windows.net/indexes?api-version=2015-02-28
-	Content-Type: application/json
-	api-key: [admin key]
-
-	{
-  		"name" : "my-target-index",
-  		"fields": [
-    		{ "name": "id", "type": "Edm.String", "key": true, "searchable": false },
-    		{ "name": "content", "type": "Edm.String", "searchable": true }
-  		]
-	}
-
-For more on the Create Index API, see [Create Index](https://msdn.microsoft.com/library/dn798941.aspx)
-
-### Create indexer 
-
-Finally, create an indexer that references the data source and a target index. For example:
-
-	POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
-	Content-Type: application/json
-	api-key: [admin key]
-
-	{
-	  "name" : "blob-indexer",
-	  "dataSourceName" : "blob-datasource",
-	  "targetIndexName" : "my-target-index",
-	  "schedule" : { "interval" : "PT2H" }
-	}
-
-For more details on the Create Indexer API, check out [Create Indexer](search-api-indexers-2015-02-28-preview.md#create-indexer).
-
 
 ## Supported document formats
 
@@ -98,6 +33,82 @@ The blob indexer can extract text from the following document formats:
 - EML
 - Plain text files  
 - JSON (see [Indexing JSON blobs](search-howto-index-json-blobs.md) for details)
+- CSV (see [Indexing CSV blobs](search-howto-index-csv-blobs.md) for details)
+
+## Setting up blob indexing
+
+To set up and configure an Azure Blob Storage indexer, you can use the Azure Search REST API to create and manage **indexers** and **data sources** as described in [this article](https://msdn.microsoft.com/library/azure/dn946891.aspx). You can also use [version 2.0-preview](https://msdn.microsoft.com/library/mt761536%28v=azure.103%29.aspx) of the .NET SDK. In the future, support for blob indexing will be added to the Azure Portal.
+
+To set up an indexer, do the following three steps: create a data source, create an index, configure the indexer.
+
+### Step 1: Create a data source
+
+A data source specifies which data to index, credentials needed to access the data, and policies that enable Azure Search to efficiently identify changes in the data (new, modified, or deleted rows). A data source can be used by multiple indexers in the same subscription.
+
+For blob indexing, the data source must have the following required properties: 
+
+- **name** is the unique name of the data source within your search service. 
+
+- **type** must be `azureblob`. 
+
+- **credentials** provides the storage account connection string as the `credentials.connectionString` parameter. You can get the connection string from the Azure Portal by navigating to the desired storage account blade > **Settings** > **Keys** and use the "Primary Connection String" or "Secondary Connection String" value. Since the connection string is bound to a storage account, specifying the connection string implicitly identifies the storage account providing the data.
+
+- **container** specifies a container in your storage account. By default, all blobs within the container are retrievable. If you only want to index blobs in a particular virtual directory, you can specify that directory using the optional **query** parameter. 
+
+The following example illustrates a data source definition:
+
+	POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
+
+	{
+	    "name" : "blob-datasource",
+	    "type" : "azureblob",
+	    "credentials" : { "connectionString" : "<my storage connection string>" },
+	    "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" }
+	}   
+
+For more on the Create Datasource API, see [Create Datasource](search-api-indexers-2015-02-28-preview.md#create-data-source).
+
+### Step 2: Create an index 
+
+The index specifies the fields in a document, attributes, and other constructs that shape the search experience.  
+
+For blob indexing, be sure that your index has a searchable `content` field for storing the blob.
+
+	POST https://[service name].search.windows.net/indexes?api-version=2015-02-28
+	Content-Type: application/json
+	api-key: [admin key]
+
+	{
+  		"name" : "my-target-index",
+  		"fields": [
+    		{ "name": "id", "type": "Edm.String", "key": true, "searchable": false },
+    		{ "name": "content", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
+  		]
+	}
+
+For more on the Create Index API, see [Create Index](https://msdn.microsoft.com/library/dn798941.aspx)
+
+### Step 3: Create an indexer 
+
+An indexer connects data sources with target search indexes, and provides scheduling information so that you can automate data refresh. Once the index and data source have been created, its relatively simple to create an indexer that references the data source and a target index. For example:
+
+	POST https://[service name].search.windows.net/indexers?api-version=2015-02-28-Preview
+	Content-Type: application/json
+	api-key: [admin key]
+
+	{
+	  "name" : "blob-indexer",
+	  "dataSourceName" : "blob-datasource",
+	  "targetIndexName" : "my-target-index",
+	  "schedule" : { "interval" : "PT2H" }
+	}
+
+This indexer will run every two hours (schedule interval is set to "PT2H"). To run an  indexer every 30 minutes, set the interval to "PT30M". Shortest supported interval is 5 minutes. Schedule is optional - if omitted, an indexer runs only once when created. However, you can run an indexer on-demand at any time.   
+
+For more details on the Create Indexer API, check out [Create Indexer](search-api-indexers-2015-02-28-preview.md#create-indexer).
+
 
 ## Document extraction process
 

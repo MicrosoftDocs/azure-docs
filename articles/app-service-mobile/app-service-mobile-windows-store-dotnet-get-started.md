@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Create a Universal Windows Platform (UWP) app on Azure App Service Mobile Apps | Microsoft Azure"
+	pageTitle="Create a Universal Windows Platform (UWP) that uses on Mobile Apps | Microsoft Azure"
 	description="Follow this tutorial to get started with using Azure mobile app backends for Universal Windows Platform (UWP) app development in C#, Visual Basic, or JavaScript."
 	services="app-service\mobile"
 	documentationCenter="windows"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="05/03/2016"
+	ms.date="08/11/2016"
 	ms.author="glenga"/>
 
 #Create a Windows app
@@ -80,13 +80,13 @@ Once you have configured your Mobile App backend, you can either create a new cl
 
 ##Next steps
 
-* [Add authentication to your app ](app-service-mobile-windows-store-dotnet-get-started-users.md)  
+* [Add authentication to your app](app-service-mobile-windows-store-dotnet-get-started-users.md)  
   Learn how to authenticate users of your app with an identity provider.
 
 * [Add push notifications to your app](app-service-mobile-windows-store-dotnet-get-started-push.md)  
   Learn how to add push notifications support to your app and configure your Mobile App backend to use Azure Notification Hubs to send push notifications.
 
-* [Enable offline sync for your Windows app](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
+* [Enable offline sync for your app](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
   Learn how to add offline support your app using an Mobile App backend. Offline sync allows end-users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection.
 
 <!-- Anchors. -->

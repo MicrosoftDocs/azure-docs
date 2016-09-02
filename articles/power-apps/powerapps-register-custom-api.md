@@ -14,12 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="04/12/2016"
+   ms.date="07/12/2016"
    ms.author="mandia"/>
 
 # What are Custom APIs
 
 Custom APIs are any RESTful APIs that you can bring in and use with your PowerApps and Logic Flows. These APIs can be hosted anywhere, as long as a well-documented specification that conforms to the [OpenAPI][1] standard is available.
+
+>[AZURE.IMPORTANT] This topic has moved to powerapps.microsoft.com at [What are custom APIs](https://powerapps.microsoft.com/tutorials/register-custom-api/). Please go to PowerApps for the latest version. This Azure link is being archived.
 
 ## What you need to get started
 

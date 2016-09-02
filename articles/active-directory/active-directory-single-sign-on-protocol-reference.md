@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure Single Sign On SAML Protocol | Microsoft Azure"
-	description="This article describes the Single Sign On SAML profile in Azure Active Directory"
+	description="This article describes the Single Sign On SAML protocol in Azure Active Directory"
 	services="active-directory"
 	documentationCenter=".net"
 	authors="priyamohanram"
@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="06/23/2016"
 	ms.author="priyamo"/>
 
 # Single Sign-On SAML protocol
-
-[AZURE.INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
 
 In this article, we will learn the SAML 2.0 authentication requests and responses that Azure Active Directory (Azure AD) supports for Single Sign-On.
 

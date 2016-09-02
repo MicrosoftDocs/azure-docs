@@ -4,7 +4,7 @@
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
-	manager="jwhit"
+	manager="cfreeman"
 	editor=""
 	keywords="backups; backing up;"/>
 
@@ -14,15 +14,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="08/26/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
 # Prepare your environment to back up Azure virtual machines
 
 > [AZURE.SELECTOR]
-- [Prepare to back up ARM VMs](backup-azure-arm-vms-prepare.md)
-- [Prepare to back up Azure VMs](backup-azure-vms-prepare.md)
+- [Resource manager model](backup-azure-arm-vms-prepare.md)
+- [Classic model](backup-azure-vms-prepare.md)
 
 Before you can back up an Azure virtual machine (VM), there are three conditions that must exist.
 
@@ -39,11 +39,12 @@ If you know these conditions already exist in your environment then proceed to t
 
 - Backing up virtual machines with more than 16 data disks is not supported.
 - Backing up virtual machines with a reserved IP address and no defined endpoint is not supported.
+- Backup data doesn't include network mounted drives attached to VM. 
 - Replacing an existing virtual machine during restore is not supported. First delete the existing virtual machine and any associated disks, and then restore the data from backup.
 - Cross-region backup and restore is not supported.
 - Backing up virtual machines by using the Azure Backup service is supported in all public regions of Azure (see the [checklist](https://azure.microsoft.com/regions/#services) of supported regions). If the region that you are looking for is unsupported today, it will not appear in the dropdown list during vault creation.
 - Backing up virtual machines by using the Azure Backup service is supported only for select operating system versions:
-  - **Linux**: See [the list of distributions that are endorsed by Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md). Other Bring-Your-Own-Linux distributions also should work as long as the VM agent is available on the virtual machine.
+  - **Linux**: Azure Backup supports [a list of distributions that are endorsed by Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md) except Core OS Linux. Other Bring-Your-Own-Linux distributions also might work as long as the VM agent is available on the virtual machine and support for Python exists.
   - **Windows Server**:  Versions older than Windows Server 2008 R2 are not supported.
 - Restoring a domain controller (DC) VM that is part of a multi-DC configuration is supported only through PowerShell. Read more about [restoring a multi-DC domain controller](backup-azure-restore-vms.md#restoring-domain-controller-vms).
 - Restoring virtual machines that have the following special network configurations is supported only through PowerShell. VMs that you create by using the restore workflow in the UI will not have these network configurations after the restore operation is complete. To learn more, see [Restoring VMs with special network configurations](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations).
@@ -124,7 +125,7 @@ To use an HTTP proxy to communicating to the public Internet, follow these steps
 
 #### Step 1. Configure outgoing network connections
 ###### For Windows machines
-This will setup proxy server configuration for Local System Account. 
+This will setup proxy server configuration for Local System Account.
 
 1. Download [PsExec](https://technet.microsoft.com/sysinternals/bb897553)
 2. Run following command from elevated prompt,
@@ -134,11 +135,11 @@ This will setup proxy server configuration for Local System Account.
      ```
      It will open internet explorer window.
 3. Go to Tools -> Internet Options -> Connections -> LAN settings.
-4. Verify proxy settings for System account. Set Proxy IP and port. 
+4. Verify proxy settings for System account. Set Proxy IP and port.
 5. Close Internet Explorer.
 
 This will set up a machine-wide proxy configuration, and will be used for any outgoing HTTP/HTTPS traffic.
-   
+
 If you have setup a proxy server on a current user account(not a Local System Account), use the following script to apply them to SYSTEMACCOUNT:
 
 ```
@@ -150,9 +151,9 @@ If you have setup a proxy server on a current user account(not a Local System Ac
    Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name Proxyserver -Value $obj.Proxyserver
 ```
 
->[AZURE.NOTE] If you observe "(407)Proxy Authentication Required" in proxy server log, check your authrntication is setup correctly. 
+>[AZURE.NOTE] If you observe "(407)Proxy Authentication Required" in proxy server log, check your authrntication is setup correctly.
 
-######For Linux machines 
+######For Linux machines
 
 Add the following line to the ```/etc/environment``` file:
 
@@ -161,7 +162,7 @@ http_proxy=http://<proxy IP>:<proxy port>
 ```
 
 Add the following lines to the ```/etc/waagent.conf``` file:
-   
+
 ```
 HttpProxy.Host=<proxy IP>
 HttpProxy.Port=<proxy port>

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="05/24/2016"
+	ms.date="07/21/2016"
 	ms.author="ricksal"/>
 
 
@@ -705,7 +705,7 @@ You can use the Active Directory Authentication Library (ADAL) to sign users int
 
 ## How to: add push notification to your app
 
-You can [read an overview](../notification-hubs/notification-hubs-overview.md#integration-with-app-service-mobile-apps) that describes how Microsoft Azure Notification Hubs supports a wide variety of push notifications,
+You can [read an overview](../notification-hubs/notification-hubs-push-notification-overview.md#integration-with-app-service-mobile-apps) that describes how Microsoft Azure Notification Hubs supports a wide variety of push notifications,
 
 In [this tutorial](app-service-mobile-android-get-started-push.md), every time a record is inserted, a push notification is sent.
 

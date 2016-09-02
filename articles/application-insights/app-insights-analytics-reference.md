@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Reference in Analytics in Application Insights" 
+	pageTitle="Reference in Analytics in Application Insights | Microsoft Azure" 
 	description="Reference for statements in Analytics, 
 	             the powerful search tool of Application Insights. " 
 	services="application-insights" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/26/2016" 
+	ms.date="08/09/2016" 
 	ms.author="awills"/>
 
 # Reference for Analytics
@@ -22,35 +22,109 @@
 [Application Insights](app-insights-overview.md). These pages describe the
  Analytics query lanquage.
 
+> [AZURE.NOTE] [Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo) if your app isn't sending data to Application Insights yet.
 
-[AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
-
-| | | | | 
-|---|---|---|---|---
-|[abs](#abs)|[dayofweek](#dayofweek)|[isnull](#isnull)|[rand](#rand)|[summarize op](#summarize-operator)
-|[ago](#ago)|[dayofyear](#dayofyear)|[join op](#join-operator)|[range](#range)|[take op](#take-operator)
-|[any](#any)|[dcount](#dcount)|[JSON Path expressions](#json-path-expressions)|[range op](#range-operator)|[todatetime](#todatetime)
-|[argmax](#argmax)|[dcountif](#dcountif)|[let clause](#let-clause)|[reduce op](#reduce-operator)|[todouble](#todouble)
-|[argmin](#argmin)|[Dynamic objects in let clauses](#dynamic-objects-in-let-clauses)|[limit op](#limit-operator)|[render directive](#render-directive)|[todynamic](#todynamic)
-|[Arithmetic ops](#arithmetic-operators)|[endofday](#endofday)|[log](#log)|[replace](#replace)|[toint](#toint)
-|[Array and object literals](#array-and-object-literals)|[endofmonth](#endofmonth)|[makelist](#makelist)|[restrict clause](#restrict-clause)|[tolong](#tolong)
-|[arraylength](#arraylength)|[endofweek](#endofweek)|[makeset](#makeset)|[Scalar comparisons](#scalar-comparisons)|[tolower](#tolower)
-|[avg](#avg)|[endofyear](#endofyear)|[max](#max)|[sort op](#sort-operator)|[top op](#top-operator)
-|[bin](#bin)|[exp](#exp)|[min](#min)|[split](#split)|[top-nested op](#top-nested-operator)
-|[Boolean Literals](#boolean-literals)|[extend op](#extend-operator)|[mvexpand op](#mvexpand-operator)|[sqrt](#sqrt)|[toscalar](#toscalar)
-|[Boolean ops](#boolean-operators)|[extract](#extract)|[notempty](#notempty)|[startofday](#startofday)|[totimespan](#totimespan)
-|[buildschema](#buildschema)|[extractjson](#extractjson)|[notnull](#notnull)|[startofmonth](#startofmonth)|[toupper](#toupper)
-|[Casts](#casts)|[floor](#floor)|[now](#now)|[startofweek](#startofweek)|[treepath](#treepath)
-|[count](#count)|[getmonth](#getmonth)|[Numeric literals](#numeric-literals)|[startofyear](#startofyear)|[union op](#union-operator)
-|[count op](#count-operator)|[gettype](#gettype)|[Obfuscated String Literals](#obfuscated-string-literals)|[stdev](#stdev)|[variance](#variance)
-|[countif](#countif)|[getyear](#getyear)|[parse op](#parse-operator)|[strcat](#strcat)|[weekofyear](#weekofyear)
-|[countof](#countof)|[hash](#hash)|[parsejson](#parsejson)|[String comparisons](#string-comparisons)|[where op](#where-operator)
-|[Date and time expressions](#date-and-time-expressions)|[iff](#iff)|[percentile](#percentile)|[String Literals](#string-literals)
-|[Date and time literals](#date-and-time-literals)|[isempty](#isempty)|[percentiles](#percentiles)|[strlen](#strlen)
-|[datepart](#datepart)|[isnotempty](#isnotempty)|[project op](#project-operator)|[substring](#substring)
-|[dayofmonth](#dayofmonth)|[isnotnull](#isnotnull)|[project-away op](#project-away-operator)|[sum](#sum)
+## Index
 
 
+**Let and set** [let](#let-clause) | [set](#set-clause)
+
+
+**Queries and operators** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator)
+
+**Aggregations** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
+
+**Scalars** [Boolean Literals](#boolean-literals) | [Boolean operators](#boolean-operators) | [Casts](#casts) | [Scalar comparisons](#scalar-comparisons) | [gettype](#gettype) | [hash](#hash) | [iff](#iff) | [isnotnull](#isnotnull) | [isnull](#isnull) | [notnull](#notnull) | [toscalar](#toscalar)
+
+**Numbers** [Arithmetic operators](#arithmetic-operators) | [Numeric literals](#numeric-literals) | [abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [log](#log) | [rand](#rand) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
+
+**Date and time** [Date and time expressions](#date-and-time-expressions) | [Date and time literals](#date-and-time-literals) | [ago](#ago) | [datepart](#datepart) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) | [dayofyear](#dayofyear) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth) | [getyear](#getyear) | [now](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
+
+**String** [GUIDs](#guids) | [Obfuscated String Literals](#obfuscated-string-literals) | [String Literals](#string-literals) | [String comparisons](#string-comparisons) | [countof](#countof) | [extract](#extract) | [isempty](#isempty) | [isnotempty](#isnotempty) | [notempty](#notempty) | [replace](#replace) | [split](#split) | [strcat](#strcat) | [strlen](#strlen) | [substring](#substring) | [tolower](#tolower) | [toupper](#toupper)
+
+**Arrays, objects and dynamic** [Array and object literals](#array-and-object-literals) | [Dynamic object functions](#dynamic-object-functions) | [Dynamic objects in let clauses](#dynamic-objects-in-let-clauses) | [JSON Path expressions](#json-path-expressions) | [Names](#names) | [arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [todynamic](#todynamic) | [treepath](#treepath)
+
+
+
+## Let and set
+
+### let clause
+
+**Tabular let - naming a table**
+
+    let recentReqs = requests | where timestamp > ago(3d); 
+    recentReqs | count
+
+**Scalar let - naming a value**
+
+    let interval = 3d; 
+    requests | where timestamp > ago(interval)
+
+**Lambda let - naming a function**
+
+    let Recent = 
+       (interval:timespan) { requests | where timestamp > ago(interval) };
+    Recent(3h) | count
+
+    let us_date = (t:datetime) { strcat(getmonth(t),'/',dayofmonth(t),'/',getyear(t)) }; 
+    requests | summarize count() by bin(timestamp, 1d) | project count_, day=us_date(timestamp)
+
+A let clause binds a [name](#names) to a tabular result, scalar value or function. The clause is a prefix to a query, and the scope of the binding is that query. (Let doesn't provide a way to name things that you use later in your session.)
+
+**Syntax**
+
+    let name = scalar_constant_expression ; query
+
+    let name = query ; query
+
+    let name = (parameterName : type [, ...]) { plain_query }; query
+
+    let name = (parameterName : type [, ...]) { scalar_expression }; query
+
+* *type:* `bool`, `int`, `long`, `double`, `string`, `timespan`, `datetime`, `guid`, [`dynamic`](#dynamic-type)
+* *plain_query:* A query not prefixed by a let-clause.
+
+**Examples**
+
+    let rows = (n:long) { range steps from 1 to n step 1 };
+    rows(10) | ...
+
+
+Self-join:
+
+    let Recent = events | where timestamp > ago(7d);
+    Recent | where name contains "session_started" 
+    | project start = timestamp, session_id
+    | join (Recent 
+        | where name contains "session_ended" 
+        | project stop = timestamp, session_id)
+      on session_id
+    | extend duration = stop - start 
+
+### Set clause
+
+The set clause sets an option for the duration of the query. Query options control how a query executes and returns results. They can be Boolean flags (off by default), or have some integer value. A query may contain zero, one, or more set statements. Set statements affect only the tabular expression statements that trail them in program order.
+
+    set OptionName [= OptionValue] ; query
+
+
+|Name | Implication if set to true
+|---|---
+|querytrace| Increases the level of debug traces generated by a query. 
+|noexecute| Disables the actual execution of the query (just query planning phase is run). 
+|perftrace| Enables performance tracing. 
+|notruncation| Disables result-set truncation. 
+|truncationmaxsize| Limit query result data size (In Bytes). 
+|truncationmaxrecords| Limit query result record number. 
+|nostreaming |Disables result-set streaming. 
+
+**Example**
+
+```
+
+    set querytrace;
+    requests | take 100
+```
 
 ## Queries and operators
 
@@ -64,7 +138,7 @@ requests // The request table starts this pipeline.
 | count 
 ```
     
-Each filter prefixed by the pipe character `|` is an instance of an *operator*, with some parameters. The input to the operator is the table that is the result of the preceding pipeline. In most cases, any parameters are [scalar expressions](##scalars) over the columns of the input. In a few cases, the parameters are the names of input columns, and in a few cases, the parameter is a second table. The result of a query is always a table, even if it only has one column and one row.
+Each filter prefixed by the pipe character `|` is an instance of an *operator*, with some parameters. The input to the operator is the table that is the result of the preceding pipeline. In most cases, any parameters are [scalar expressions](#scalars) over the columns of the input. In a few cases, the parameters are the names of input columns, and in a few cases, the parameter is a second table. The result of a query is always a table, even if it only has one column and one row.
 
 Queries may contain single line breaks, but are terminated by a blank line. They may contain comments between `//` and end of line.
 
@@ -105,6 +179,229 @@ This function returns a table with a single record and column of type
 ```AIQL
 requests | count
 ```
+
+### evaluate operator
+
+`evaluate` is an extension mechanism that allows specialized algorithms to be appended to queries.
+
+`evaluate` must be the last operator in the query pipeline (except for a possible `render`). It must not appear in a function body.
+
+[evaluate autocluster](#evaluate-autocluster) | [evaluate basket](#evaluate-basket) | [evaluate diffpatterns](#evaluate-diffpatterns) | [evaluate extractcolumns](#evaluate-extractcolumns)
+
+#### evaluate autocluster
+
+     T | evaluate autocluster()
+
+AutoCluster finds common patterns of discrete attributes (dimensions) in the data and will reduce the results of the original query (whether it's 100 or 100k rows) to a small number of patterns. AutoCluster was developed to help analyze failures (e.g. exceptions, crashes) but can potentially work on any filtered data set. 
+
+**Syntax**
+
+    T | evaluate autocluster( arguments )
+
+**Returns**
+
+AutoCluster returns a (usually small) set of patterns that capture portions of the data with shared common values across multiple discrete attributes. Each pattern is represented by a row in the results. 
+
+The first two columns are the count and percentage of rows out of the original query that are captured by the pattern. The remaining columns are from the original query and their value is either a specific value from the column or '*' meaning variable values. 
+
+Note that the patterns are not disjoint: they may be overlapping, and usually do not cover all the original rows. Some rows may not fall under any pattern.
+
+**Tips**
+
+* Use `where` and `project` in the input pipe to reduce the data to just what you're interested in.
+* When you find an interesting row, you might want to drill into it further by adding its specific values to your `where` filter.
+
+**Arguments (all optional)**
+
+* `output=all | values | minimal` 
+
+    The format of the results. The Count and Percent columns always appear in the results. 
+
+ * `all` - all the columns from the input are output
+ * `values` - filters out columns with only '*' in the results
+ * `minimal` - also filters out columns that are identical for all the rows in the original query. 
+
+
+* `min_percent=`*double* (default: 1)
+
+    The minimum percentage coverage of the generated rows.
+
+    Example: `T | evaluate autocluster("min_percent=5.5")`
+
+
+* `num_seeds=` *int* (default: 25) 
+
+    The number of seeds determines the number of initial local search points of the algorithm. In some cases, depending on the structure of the data, increasing the number of seeds increases the number (or quality) of the results through increased search space at slower query tradeoff. The num_seeds argument has diminishing results in both directions so decreasing it below 5 will achieve negligible performance improvements and increasing above 50 will rarely generate additional patterns.
+
+    Example: `T | evaluate autocluster("num_seeds=50")`
+
+
+* `size_weight=` *0<double<1*+ (default: 0.5)
+
+    Gives you some control over the balance between generic (high coverage) and informative (many shared values). Increasing size_weight usually reduces the number of patterns, and each pattern tends to cover a larger percentage. Decreasing size_weight usually produces more specific patterns with more shared values and smaller percentage coverage. The under the hood formula is a weighted geometric mean between the normalized generic score and informative score with size_weight and 1-size_weight as the weights. 
+
+    Example: `T | evaluate autocluster("size_weight=0.8")`
+
+
+* `weight_column=` *column_name*
+
+    Considers each row in the input according to the specified weight (by default each row has a weight of '1'), common usage of a weight column is to take into account sampling or bucketing/aggregation of the data that is already embedded into each row.
+
+    Example: `T | evaluate autocluster("weight_column=sample_Count")` 
+
+
+
+#### evaluate basket
+
+     T | evaluate basket()
+
+Basket finds all frequent patterns of discrete attributes (dimensions) in the data and will return all frequent patterns that passed the frequency threshold in the original query. Basket is guaranteed to find all frequent patterns in the data but is not guaranteed to have polynomial run-time. The run-time of the query is linear in the number of rows but in some cases might be exponential in the number of columns (dimensions). Basket is based on the Apriori algorithm originally developed for basket analysis data mining. 
+
+**Returns**
+
+All patterns appearing in more than a specified fraction (default 0.05) of the events.
+
+**Arguments (all optional)**
+
+
+* `threshold=` *0.015<double<1* (default: 0.05) 
+
+    Sets the minimal ratio of the rows to be considered frequent (patterns with smaller ratio will not be returned).
+
+    Example: `T | evaluate basket("threshold=0.02")`
+
+
+* `weight_column=` *column_name*
+
+    Considers each row in the input according to the specified weight (by default each row has a weight of '1'), common usage of a weight column is to take into account sampling or bucketing/aggregation of the data that is already embedded into each row.
+
+    Example: T | evaluate basket("weight_column=sample_Count")
+
+
+* `max_dims=` *1<int* (default: 5)
+
+    Sets the maximal number of uncorrelated dimensions per basket, limited by default to decrease the query runtime.
+
+
+* `output=minimize` | `all` 
+
+    The format of the results. The Count and Percent columns always appear in the results.
+
+ * `minimize` - filters out columns with only '*' in the results.
+ * `all` - all the columns from the input are output.
+
+
+
+
+#### evaluate diffpatterns
+
+     requests | evaluate diffpatterns("split=success")
+
+Diffpatterns compares two data sets of the same structure and finds patterns of discrete attributes (dimensions) that characterize differences between the two data sets. Diffpatterns was developed to help analyze failures (e.g. by comparing failures to non-failures in a given time frame) but can potentially find differences between any two data sets of the same structure. 
+
+**Syntax**
+
+`T | evaluate diffpatterns("split=` *BinaryColumn* `" [, arguments] )`
+
+**Returns**
+
+Diffpatterns returns a (usually small) set of patterns that capture different portions of the data in the two sets (i.e. a pattern capturing a large percentage of the rows in the first data set and low percentage of the rows in the second set). Each pattern is represented by a row in the results.
+
+The first four columns are the count and percentage of rows out of the original query that are captured by the pattern in each set, the fifth column is the difference (in absolute percentage points) between the two sets. The remaining columns are from the original query and their value is either a specific value from the column or * meaning variable values. 
+
+Note that the patterns are not distinct: they may be overlapping, and usually do not cover all the original rows. Some rows may not fall under any pattern.
+
+**Tips**
+
+* Use where and project in the input pipe to reduce the data to just what you're interested in.
+
+* When you find an interesting row, you might want to drill into it further by adding its specific values to your where filter.
+
+**Arguments**
+
+* `split=` *column name* (required)
+
+    The column must have precisely two values. If necessary, create such a column:
+
+    `requests | extend fault = toint(resultCode) >= 500` <br/>
+    `| evaluate diffpatterns("split=fault")`
+
+* `target=` *string*
+
+    Tells the algorithm to only look for patterns which have higher percentage in the target data set, the target must be one of the two values of the split column.
+
+    `requests | evaluate diffpatterns("split=success", "target=false")`
+
+* `threshold=` *0.015<double<1* (default: 0.05) 
+
+    Sets the minimal pattern (ratio) difference between the two sets.
+
+    `requests | evaluate diffpatterns("split=success", "threshold=0.04")`
+
+* `output=minimize | all`
+
+    The format of the results. The Count and Percent columns always appear in the results. 
+
+ * `minimize` - filters out columns with only '*' in the results
+ * `all` - all the columns from the input are output
+
+* `weight_column=` *column_name*
+
+    Considers each row in the input according to the specified weight (by default each row has a weight of '1'). A common use of a weight column is to take into account sampling or bucketing/aggregation of the data that is already embedded into each row.
+
+    `requests | evaluate autocluster("weight_column=itemCount")`
+
+
+
+
+
+
+#### evaluate extractcolumns
+
+     exceptions | take 1000 | evaluate extractcolumns("details=json") 
+
+Extractcolumns is used to enrich a table with multiple simple columns that are dynamically extracted out of (semi) structured column(s) based on their type. Currently it supports json columns only, both dynamic and string serialization of jsons.
+
+
+* `max_columns=` *int* (default: 10) 
+
+    The number of new added columns is dynamic and it can be very big (actually it’s the number of distinct keys in all json records) so we must limit it. The new columns are sorted in descending order based on their frequency and up to max_columns are added to the table.
+
+    `T | evaluate extractcolumns("json_column_name=json", "max_columns=30")`
+
+
+* `min_percent=` *double* (default: 10.0) 
+
+    Another way to limit new columns by ignoring columns whose frequency is lower than min_percent.
+
+    `T | evaluate extractcolumns("json_column_name=json", "min_percent=60")`
+
+
+* `add_prefix=` *bool* (default: true) 
+
+    If true the name of the complex column will be added as a prefix to the extracted columns names.
+
+
+* `prefix_delimiter=` *string* (default: "_") 
+
+    If add_prefix=true this parameter defines the delimiter that will be used to concatenate the names of the new columns.
+
+    `T | evaluate extractcolumns("json_column_name=json",` <br/>
+    `"add_prefix=true", "prefix_delimiter=@")`
+
+
+* `keep_original=` *bool* (default: false) 
+
+    If true the original (json) columns will be kept in the output table.
+
+
+* `output=query | table` 
+
+    The format of the results. 
+
+ * `table` - The output is the same table as received minus the specified input columns plus new columns that were extracted from the input columns.
+ * `query` - The output is a string representing the query you would make to get the result as table. 
+
 
 
 
@@ -213,53 +510,6 @@ Get extended activities from a log in which some entries mark the start and end 
 
 ```
 
-### let clause
-
-**Tabular let - naming a table**
-
-    let recentReqs = requests | where timestamp > ago(3d); 
-    recentReqs | count
-
-**Scalar let - naming a value**
-
-    let interval = 3d; 
-    requests | where timestamp > ago(interval)
-
-**Lambda let - naming a function**
-
-    let Recent = 
-       (interval:timespan) { requests | where timestamp > ago(interval) };
-    Recent(3h) | count
-
-A let clause binds a [name](#names) to a tabular result, scalar value or function. The clause is a prefix to a query, and the scope of the binding is that query. (Let doesn't provide a way to name things that you use later in your session.)
-
-**Syntax**
-
-    let name = scalar_constant_expression ; query
-
-    let name = query ; query
-
-    let name = (parameterName : type [, ...]) { plain_query }; query
-
-* *type:* `bool`, `int`, `long`, `double`, `string`, `timespan`, `datetime`, `guid`, [`dynamic`](#dynamic-type)
-* *plain_query:* A query not prefixed by a let-clause.
-
-**Examples**
-
-    let rows(n:long) = range steps from 1 to n step 1;
-    rows(10) | ...
-
-
-Self-join:
-
-    let Recent = events | where timestamp > ago(7d);
-    Recent | where name contains "session_started" 
-    | project start = timestamp, session_id
-    | join (Recent 
-        | where name contains "session_ended" 
-        | project stop = timestamp, session_id)
-      on session_id
-    | extend duration = stop - start 
 
 ### limit operator
 
@@ -355,7 +605,7 @@ Splits an exception record into rows for each item in the details field.
     with * "got" counter:long " " present "for" * "was" year:long *
 
 
-    T | parse kind="relaxed"
+    T | parse kind=relaxed
           "I got no socks for my birthday when I was 63 years old" 
     with * "got" counter:long " " present "for" * "was" year:long * 
 
@@ -714,14 +964,14 @@ Alias of [limit](#limit-operator)
 
 ### top operator
 
-    T | top 5 by Name desc
+    T | top 5 by Name desc nulls first
 
 Returns the first *N* records sorted by the specified columns.
 
 
 **Syntax**
 
-    T | top NumberOfRows by Sort_expression [ `asc` | `desc` ] [, ... ]
+    T | top NumberOfRows by Sort_expression [ `asc` | `desc` ] [`nulls first`|`nulls last`] [, ... ]
 
 **Arguments**
 
@@ -729,6 +979,7 @@ Returns the first *N* records sorted by the specified columns.
 * *Sort_expression:* An expression by which to sort the rows. It's typically just a column name. You can specify more than one sort_expression.
 * `asc` or `desc` (the default) may appear to control whether
 selection is actually from the "bottom" or "top" of the range.
+* `nulls first` or `nulls last` controls where null values appear. `First` is the default for `asc`, `last` is the default for `desc`.
 
 
 **Tips**
@@ -1023,7 +1274,7 @@ Returns a count of rows for which *Predicate* evaluates to `true`. If no *Predic
 
 **Perf tip**: use `summarize count(filter)` instead of `where filter | summarize count()`
 
-> [AZURE.NOTE] Avoid using count() to find the number of requests, exceptions or other events that have occurred. When [sampling](app-insights-sampling.md) is in operation, the number of data points will be less than the number of actual events. Instead, use `summarize sum(itemCount)...`. The itemCount property reflects the number of original events that are represented by each retained data point.
+> [AZURE.NOTE] Avoid using count() to find the number of requests, exceptions or other events that have occurred. When [sampling](app-insights-sampling.md) is in operation, the number of data points retained in Application Insights will be less than the number of original events. Instead, use `summarize sum(itemCount)...`. The itemCount property reflects the number of original events that are represented by each retained data point.
 
 ### countif
 
@@ -1117,15 +1368,25 @@ Calculates the minimum of *Expr*.
 
 <a name="percentile"></a>
 <a name="percentiles"></a>
-### percentile, percentiles
+<a name="percentilew"></a>
+<a name="percentilesw"></a>
+### percentile, percentiles, percentilew, percentilesw
 
     percentile(Expression, Percentile)
 
 Returns an estimate for *Expression* of the specified percentile in the group. The accuracy depends on the density of population in the region of the percentile.
     
-    percentiles(Expression, Percentile1 [ , Percentile2 ] )
+    percentiles(Expression, Percentile1 [ , Percentile2 ...] )
 
 Like `percentile()`, but calculates a number of percentile values (which is faster than calculating each percentile individually).
+
+    percentilew(Expression, WeightExpression, Percentile)
+
+Weighted percentile. Use this for pre-aggregated data.  `WeightExpression` is an integer that indicates how many original rows are represented by each aggregated row.
+
+    percentilesw(Expression, WeightExpression, Percentile1, [, Percentile2 ...])
+
+Like `percentilew()`, but calculates a number of percentile values.
 
 **Examples**
 
@@ -1150,7 +1411,6 @@ Simultaneously calculate several percentiles for different request names:
 
 The results show that for the request /Events/Index, 5% of requests are responded to in less than 2.44s,  half of them in 3.52s, and 5% are slower than 6.85s.
 
-
 Calculate multiple statistics:
 
     requests 
@@ -1160,7 +1420,43 @@ Calculate multiple statistics:
         percentiles(Duration, 5, 50, 95)
       by name
 
-##### Estimation error in percentiles
+#### Weighted percentiles
+
+Use the weighted percentile functions in cases where the data has been pre-aggregated. 
+
+For example, suppose your app performs many thousands of operations per second, and you want to know their latency. The simple solution would be to generate an Application Insights request or custom event for each operation. This would create a lot of traffic, although adaptive sampling would take effect to reduce it. But you decide to implement an even better solution: you will write some code in your app to aggregate the data before sending it to Application Insights. The aggregated summary will be sent at regular intervals, reducing the data rate perhaps to a few points per minute.
+
+Your code takes a stream of latency measurements in milliseconds. For example:
+    
+     { 15, 12, 2, 21, 2, 5, 35, 7, 12, 22, 1, 15, 18, 12, 26, 7 }
+
+It counts the measurements in the following bins: `{ 10, 20, 30, 40, 50, 100 }`
+
+Periodically, it makes a series of TrackEvent calls, one for each bucket, with custom measurements in each call: 
+
+    foreach (var latency in bins.Keys)
+    { telemetry.TrackEvent("latency", null, 
+         new Dictionary<string, double>
+         ({"latency", latency}, {"opCount", bins[latency]}}); }
+
+In Analytics, you see one such group of events like this:
+
+`opCount` | `latency`| meaning
+---|---|---
+8 | 10 | = 8 operations in the 10ms bin
+6 | 20 | = 6 operations in the 20ms bin
+3 | 30 | = 3 operations in the 30ms bin
+1 | 40 | = 1 operations in the 40ms bin
+
+To get an accurate picture of the original distribution of event latencies, we use `percentilesw`:
+
+    customEvents | summarize percentilesw(latency, opCount, 20, 50, 80)
+
+The results are the same as if we had used plain `percentiles` on the original set of measurements.
+
+> [AZURE.NOTE] Weighted percentiles are not applicable to [sampled data](app-insights-sampling.md), where each sampled row represents a random sample of original rows, rather than a bin. The plain percentile functions are appropriate for sampled data.
+
+#### Estimation error in percentiles
 
 The percentiles aggregate provides an approximate value using [T-Digest](https://github.com/tdunning/t-digest/blob/master/docs/t-digest-paper/histo.pdf). 
 
@@ -1385,7 +1681,6 @@ The evaluated argument. If the argument is a table, returns the first column of 
 
 
 
-## Boolean 
 
 ### Boolean Literals
 
@@ -1858,20 +2153,28 @@ h"hello"
 Operator|Description|Case-Sensitive|True example
 ---|---|---|---
 `==`|Equals |Yes| `"aBc" == "aBc"`
-`<>`|Not equals|Yes| `"abc" <> "ABC"`
+`<>` `!=`|Not equals|Yes| `"abc" <> "ABC"`
 `=~`|Equals |No| `"abc" =~ "ABC"`
 `!~`|Not equals |No| `"aBc" !~ "xyz"`
 `has`|Right-hand-side (RHS) is a whole term in left-hand-side (LHS)|No| `"North America" has "america"`
 `!has`|RHS is not a full term in LHS|No|`"North America" !has "amer"` 
-`contains` | RHS occurs as a subsequence of LHS|No| `"FabriKam" contains "BRik"`
+`hasprefix`|RHS is a prefix of a term in LHS|No|`"North America" hasprefix "ame"`
+`!hasprefix`|RHS is not a prefix of any term in LHS|No|`"North America" !hasprefix "mer"`
+`hassuffix`|RHS is a suffix of a term in LHS|No|`"North America" hassuffix "rth"`
+`!hassuffix`|RHS is not a suffix of any term in LHS|No|`"North America" !hassuffix "mer"`
+`contains` | RHS occurs as a substring of LHS|No| `"FabriKam" contains "BRik"`
 `!contains`| RHS does not occur in LHS|No| `"Fabrikam" !contains "xyz"`
-`containscs` | RHS occurs as a subsequence of LHS|Yes| `"FabriKam" contains "Kam"`
+`containscs` | RHS occurs as a substring of LHS|Yes| `"FabriKam" contains "Kam"`
 `!containscs`| RHS does not occur in LHS|Yes| `"Fabrikam" !contains "Kam"`
-`startswith`|RHS is an initial subsequence of LHS.|No|`"Fabrikam" startswith "fab"`
+`startswith`|RHS is an initial substring of LHS.|No|`"Fabrikam" startswith "fab"`
+`!startswith`|RHS is not an initial substring of LHS.|No|`"Fabrikam" !startswith "abr"`
+`endswith`|RHS is a terminal substring of LHS.|No|`"Fabrikam" endswith "kam"`
+`!endswith`|RHS is not a terminal substring of LHS.|No|`"Fabrikam" !endswith "ka"`
 `matches regex`|LHS contains a match for RHS|Yes| `"Fabrikam" matches regex "b.*k"`
+`in`|Equal to any of the elements|Yes|`"abc" in ("123", "345", "abc")`
+`!in`|Not equal to any of the elements|Yes|`"bc" !in ("123", "345", "abc")`
 
-
-Use `has` or `in` if you're testing for the presence of a whole lexical term - that is, a symbol or an alphanumeric word bounded by non-alphanumeric characters or start or end of field. `has` performs faster than `contains` or `startswith`. The first of these queries runs faster:
+Use `has` or `in` if you're testing for the presence of a whole lexical term - that is, a symbol or an alphanumeric word bounded by non-alphanumeric characters or start or end of field. `has` performs faster than `contains`, `startswith` or `endswith`. The first of these queries runs faster:
 
     EventLog | where continent has "North" | count;
 	EventLog | where continent contains "nor" | count
@@ -2126,7 +2429,7 @@ Converts a string to upper case.
 
 
 
-## GUIDs
+### GUIDs
 
     guid(00000000-1111-2222-3333-055567f333de)
 
@@ -2236,7 +2539,7 @@ T
 ```
 
 
-## Dynamic object functions
+### Dynamic object functions
 
 |||
 |---|---|
@@ -2445,7 +2748,7 @@ An array of path expressions.
 
 Note that "[0]" indicates the presence of an array, but does not specify the index used by a specific path.
 
-## Names
+### Names
 
 Names can be up to 1024 characters long. They are case-sensitive and may contain letters, digits and underscores (`_`). 
 

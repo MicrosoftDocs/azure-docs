@@ -13,18 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="05/26/2016"
+   ms.date="09/02/2016"
    ms.author="v-six" />
 
 # Troubleshoot Cloud Service roles that fail to start
 
 Here are some common problems and solutions related to Azure Cloud Services roles that fail to start.
 
-## Contact Azure Customer Support
-
-If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/).
-
-Alternatively, you can file an Azure support incident. Go to the [Azure Support site](http://azure.microsoft.com/support/options/) and click **Get Support**. For information about using Azure Support, read the [Microsoft Azure Support FAQ](http://azure.microsoft.com/support/faq/).
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Missing DLLs or dependencies
 
@@ -107,7 +103,7 @@ You can use the Microsoft Azure compute emulator to diagnose and troubleshoot is
 
 For best results in using this method of diagnosis, you should use a computer or virtual machine that has a clean installation of Windows. To best simulate the Azure environment, use Windows Server 2008 R2 x64.
 
-1. Install the standalone version of the [Azure SDK](https://azure.microsoft.com/downloads/)
+1. Install the standalone version of the [Azure SDK](https://azure.microsoft.com/downloads/).
 
 2. On the development machine, build the cloud service project.
 
@@ -163,6 +159,6 @@ Once you have verified that all errors have been corrected, you can deploy the s
 
 ## Next steps
 
-View more [troubleshooting articles](..\?tag=top-support-issue&service=cloud-services) for cloud services.
+View more [troubleshooting articles](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) for cloud services.
 
 To learn how to troubleshoot cloud service role issues by using Azure PaaS computer diagnostics data, see [Kevin Williamson's blog series](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).

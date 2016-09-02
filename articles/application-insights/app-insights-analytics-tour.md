@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="A tour through Analytics in Application Insights" 
+	pageTitle="A tour through Analytics in Application Insights | Microsoft Azure" 
 	description="Short samples of all the main queries in Analytics, 
 	             the powerful search tool of Application Insights." 
 	services="application-insights" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/20/2016" 
+	ms.date="07/29/2016" 
 	ms.author="awills"/>
 
 
@@ -26,8 +26,10 @@
  Analytics query lanquage.
 
 
-[AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
- 
+* **[Watch the introductory video](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
+* **[Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo)** if your app isn't sending data to Application Insights yet.
+
+
 Let's take a walk through some basic queries to get you started.
 
 ## Connect to your Application Insights data
@@ -149,8 +151,10 @@ You can flatten it by choosing the properties you're interested in:
 ```AIQL
 
     exceptions | take 10
-    | extend method1 = details[0].parsedStack[1].method
+    | extend method1 = tostring(details[0].parsedStack[1].method)
 ```
+
+Note that you need to use a [cast](app-insights-analytics-reference.md#casts) to the appropriate type.
 
 ## Custom properties and measurements
 
@@ -174,7 +178,7 @@ To extract these values in Analytics:
 
     customEvents
     | extend p1 = customDimensions.p1, 
-      m1 = todouble(customMeasurements.m1) // cast numerics
+      m1 = todouble(customMeasurements.m1) // cast to expected type
 
 ``` 
 
@@ -211,7 +215,13 @@ Notice that you can use `name=` to set the name of a result column, either in th
 
 ## Counting sampled data
 
-`sum(itemCount)` is the recommended aggregation to count events. In many cases, itemCount==1, so the function simply counts up the number of rows in the group. But when [sampling](app-insights-sampling.md) is in operation, only a fraction of the original events will be retained as a data point in Application Insights, so that for each data point you see, there are `itemCount` events. Summing up itemCount therefore gives a good estimate of the original number of events.
+`sum(itemCount)` is the recommended aggregation to count events. In many cases, itemCount==1, so the function simply counts up the number of rows in the group. But when [sampling](app-insights-sampling.md) is in operation, only a fraction of the original events will be retained as data points in Application Insights, so that for each data point you see, there are `itemCount` events. 
+
+For example, if sampling discards 75% of the original events, then itemCount==4 in the retained records - that is, for every retained record, there were four original records. 
+
+Adaptive sampling causes itemCount to be higher during periods when your application is being heavily used.
+
+Summing up itemCount therefore gives a good estimate of the original number of events.
 
 
 ![](./media/app-insights-analytics-tour/510.png)
@@ -223,7 +233,6 @@ There's a range of [aggregation functions](app-insights-analytics-reference.md#a
 
 
 ## Charting the results
-
 
 
 ```AIQL
@@ -456,7 +465,7 @@ In the same clauses, we rename the timestamp column.
 
 ## [Let](app-insights-analytics-reference.md#let-clause): Assign a result to a variable
 
-Use [let](./app-insights-analytics-syntax.md#let-statements) to separate out the parts of the previous expression. The results are unchanged:
+Use [let](./app-insights-analytics-reference.md#let-statements) to separate out the parts of the previous expression. The results are unchanged:
 
 ```AIQL
 
@@ -469,6 +478,9 @@ Use [let](./app-insights-analytics-syntax.md#let-statements) to separate out the
 ```
 
 > Tip: In the Analytics client, don't put blank lines between the parts of this. Make sure to execute all of it.
+
+
+* **[Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo)** if your app isn't sending data to Application Insights yet.
 
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]

@@ -1,8 +1,8 @@
 <properties
-	pageTitle="How to use CDN | Microsoft Azure"
-	description="Learn how to use the Azure Content Delivery Network (CDN) to deliver high-bandwidth content by caching blobs and static content."
+	pageTitle="Integrate a Storage Account with CDN | Microsoft Azure"
+	description="Learn how to use the Azure Content Delivery Network (CDN) to deliver high-bandwidth content by caching blobs from Azure Storage."
 	services="cdn"
-	documentationCenter=".net"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 
@@ -38,13 +38,13 @@ administrator or a co-administrator for the associated subscription.
 **To create a storage account for an Azure subscription**
 
 1.  Sign in to the [Azure Portal](https://portal.azure.com).
-2.  In the upper left corner, select **New**. In the **New** Dialog, select **Data  + Storage**, then click **Storage account**. Leave **Classic** selected as the deployment model, then click **Create**.
+2.  In the upper left corner, select **New**. In the **New** Dialog, select **Data  + Storage**, then click **Storage account**.
 
-    The **Storage account** blade appears.
+    The **Create storage account** blade appears.
 
     ![Create Storage Account][create-new-storage-account]
 
-4. In the **Storage** field, type a subdomain name. This entry can contain 3-24 lowercase letters and numbers.
+4. In the **Name** field, type a subdomain name. This entry can contain 3-24 lowercase letters and numbers.
 
     This value becomes the host name within the URI that is used to
     address Blob, Queue, or Table resources for the subscription. To
@@ -60,15 +60,15 @@ administrator or a co-administrator for the associated subscription.
 
 	This value is also used as the name of this storage account in the portal, or when accessing this account programmatically.
 
-5.  Select a **Pricing tier** or use the default.  For more information on pricing tiers, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/).
+5. Leave the defaults for **Deployment model**, **Account kind**, **Performance**, and **Replication**. 
 
-6.  Select or create a **Resource Group**.  For more information on Resource Groups, see [Azure Resource Manager overview](resource-group-overview.md#resource-groups).
+6. Select the **Subscription** that the storage account will be used with.
 
-7. Select the **Subscription** that the storage account will be used with.
+7. Select or create a **Resource Group**.  For more information on Resource Groups, see [Azure Resource Manager overview](resource-group-overview.md#resource-groups).
 
-8.  Click **Create**. The process of creating the storage account might take several minutes to complete.
+8. Select a location for your storage account.
 
-9.  To verify that the storage account was created successfully, verify that the account appears in the items listed for **Storage** with a status of **Online**.
+8. Click **Create**. The process of creating the storage account might take several minutes to complete.
 
 
 ## Step 2: Create a new CDN profile

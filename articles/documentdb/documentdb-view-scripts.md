@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="08/30/2016"
 	ms.author="anhoh"/>
 
 # Create and run stored procedures, triggers, and user-defined functions using the DocumentDB Script Explorer
@@ -23,17 +23,13 @@ This article provides an overview of the [Microsoft Azure DocumentDB](https://az
 
 ## Launch Script Explorer
 
-1. In the Azure portal, in the Jumpbar, click **DocumentDB Accounts**. If **DocumentDB Accounts** is not visible, click **Browse** and then click **DocumentDB Accounts**.
+1. In the Azure portal, in the Jumpbar, click **DocumentDB (NoSQL)**. If **DocumentDB Accounts** is not visible, click **More Services** and then click **DocumentDB (NoSQL)**.
 
-2. At the top of the **DocumentDB Accounts** blade, click **Script Explorer**.
+2. In the resources menu, click **Script Explorer**.
 
 	![Screenshot of the Script Explorer command](./media/documentdb-view-scripts/scriptexplorercommand.png)
  
-    >[AZURE.NOTE] Script Explorer also appears on the database and collection blades.
-
     The **Database** and **Collection** drop-down list boxes are pre-populated depending on the context in which you launch Script Explorer.  For example, if you launch from a database blade, then the current database is pre-populated.  If you launch from a collection blade, then the current collection is pre-populated.
-
-	![Screenshot of Script Explorer](./media/documentdb-view-scripts/scriptexplorerinitial.png)
 
 4.  Use the **Database** and **Collection** drop-down list boxes to easily change the collection from which scripts are currently being viewed without having to close and re-launch Script Explorer.  
 

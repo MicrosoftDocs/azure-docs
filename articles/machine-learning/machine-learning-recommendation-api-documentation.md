@@ -13,12 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/05/2016" 
+	ms.date="08/17/2016" 
 	ms.author="LuisCa"/>
 
 #Azure Machine Learning Recommendations API Documentation
 
-This document depicts Microsoft Azure Machine Learning Recommendations APIs.
+This document depicts Microsoft Azure Machine Learning Recommendations APIs exposed through the marketplace.
+
+
+> This is documentation for the old recommendations API in the data-market, which will be deprecated by 12/31/2016. You should
+> now move to use the [Recommendations API Cognitive Service](https://www.microsoft.com/cognitive-services/en-us/recommendations-api).
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -48,7 +52,6 @@ The Azure Machine Learning Recommendations API can be divided into the following
 - The maximum number of items that a catalog can hold is 100,000.
 - The maximum number of usage points that are kept is ~5,000,000. The oldest will be deleted if new ones will be uploaded or reported.
 - The maximum size of data that can be sent in POST (e.g. import catalog data, import usage data) is 200MB.
-- The number of transactions per second for a recommendation model build that is not active is ~2TPS. A recommendation model build that is active can hold up to 20TPS.
 - The maximum number of items that can be asked for when getting recommendations is 150.
 
 ##3. APIs - general information

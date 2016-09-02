@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="06/29/2016" 
 	ms.author="stbaro"/>
 
 #Request Units in DocumentDB
+Now available: DocumentDB [request unit calculator](https://www.documentdb.com/capacityplanner). Learn more in [Estimating your throughput needs](documentdb-request-units.md#estimating-throughput-needs).
 
+![Throughput calculator][5]
+
+##Introduction
 This article provides an overview of request units in [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/). 
 
 After reading this article, you'll be able to answer the following questions:  
@@ -54,6 +58,35 @@ A request unit is a normalized measure of request processing cost. A single requ
 
 > [AZURE.NOTE] The baseline of 1 request unit for a 1KB document corresponds to a simple GET by self link or id of the document.
 
+###Use the request unit calculator
+To help customers fine tune their throughput estimations, there is a web based [request unit calculator](https://www.documentdb.com/capacityplanner) to help estimate the request unit requirements for typical operations, including:
+
+- Document creates (writes)
+- Document reads
+- Document deletes
+- Document updates
+
+The tool also includes support for estimating data storage needs based on the sample documents you provide.
+
+Using the tool is simple:
+
+1. Upload one or more representative JSON documents.
+
+	![Upload documents to the request unit calculator][2]
+
+2. To estimate data storage requirements, enter the total number of documents you expect to store.
+
+3. Enter the number of document create, read, update, and delete operations you require (on a per-second basis). To estimate the request unit charges of document update operations, upload a copy of the sample document from step 1 above that includes typical field updates.  For example, if document updates typically modify two properties named lastLogin and userVisits, then simply copy the sample document, update the values for those two properties, and upload the copied document.
+
+	![Enter throughput requirements in the request unit calculator][3]
+
+4. Click calculate and examine the results.
+
+	![Request unit calculator results][4]
+
+>[AZURE.NOTE]If you have document types which will differ dramatically in terms of size and the number of indexed properties, then upload a sample of each *type* of typical document to the tool and then calculate the results.
+
+###Use the DocumentDB request charge response header
 Every response from the DocumentDB service includes a custom header (x-ms-request-charge) that contains the request units consumed for the request. This header is also accessible through the  DocumentDB SDKs. In the .NET SDK, RequestCharge is a property of the ResourceResponse object.  For queries, the DocumentDB Query Explorer in the Azure portal provides request charge information for executed queries.
 
 ![Examining RU charges in the Query Explorer][1]
@@ -156,8 +189,8 @@ Select top 10|15|150 Total|155|1275
 
 In this case, we expect an average throughput requirement of 1,275 RU/s.  Rounding up to the nearest 100, we would provision 1,300 RU/s for this application's collection.
 
-##Exceeding reserved throughput limits
-Recall that request unit consumption is evaluated as a rate per second. For applications that exceed the provisioned request unit rate for a collection, requests to that collection will be throttled until the rate drops below the reserved level. When a throttle occurs, the server will preemptively end the request with RequestRateTooLarge (HTTP status code 429) and return the x-ms-retry-after-ms header indicating the amount of time, in milliseconds, that the user must wait before reattempting the request.
+##<a id="RequestRateTooLarge"></a> Exceeding reserved throughput limits
+Recall that request unit consumption is evaluated as a rate per second. For applications that exceed the provisioned request unit rate for a collection, requests to that collection will be throttled until the rate drops below the reserved level. When a throttle occurs, the server will preemptively end the request with RequestRateTooLargeException (HTTP status code 429) and return the x-ms-retry-after-ms header indicating the amount of time, in milliseconds, that the user must wait before reattempting the request.
 
 	HTTP Status 429
 	Status Line: RequestRateTooLarge
@@ -169,7 +202,7 @@ If you have more than one client cumulatively operating above the request rate, 
 
 ##Next steps
 
-To learn more about reserved throughput with Azure DocumentDB, explore these resources:
+To learn more about reserved throughput with Azure DocumentDB databases, explore these resources:
  
 - [DocumentDB pricing](https://azure.microsoft.com/pricing/details/documentdb/)
 - [Managing DocumentDB capacity](documentdb-manage.md) 
@@ -182,3 +215,7 @@ To get started with scale and performance testing with DocumentDB, see [Performa
 
 
 [1]: ./media/documentdb-request-units/queryexplorer.png 
+[2]: ./media/documentdb-request-units/RUEstimatorUpload.png
+[3]: ./media/documentdb-request-units/RUEstimatorDocuments.png
+[4]: ./media/documentdb-request-units/RUEstimatorResults.png
+[5]: ./media/documentdb-request-units/RUCalculator2.png

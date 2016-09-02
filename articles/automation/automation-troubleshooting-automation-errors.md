@@ -1,24 +1,25 @@
 <properties
-   pageTitle="Troubleshooting tips for common errors in Azure Automation| Microsoft Azure"
-   description="This article provides basic troubleshooting steps to fix common errors you might hit when working with Azure Automation."
+   pageTitle="Azure automation error handling | Microsoft Azure"
+   description="This article provides basic error handling steps to troubleshoot and fix common Azure Automation errors."
    services="automation"
    documentationCenter=""
    authors="mgoedtel"
    manager="stevenka"
    editor="tysonn"
-   tags="top-support-issue"/>
+   tags="top-support-issue"
+   keywords="automation error, error handling"/>
 <tags
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/21/2016"
+   ms.date="07/06/2016"
    ms.author="sngun; v-reagie"/>
 
-# Troubleshooting tips for common errors in Azure Automation
+# Error handling tips for common Azure Automation errors
 
-This article explains some of the common errors you might experience when working with Azure Automation and suggests possible remediation steps.
+This article explains some of the common Azure Automation errors you might experience and suggests possible error handling steps.
 
 ## Troubleshoot authentication errors when working with Azure Automation runbooks  
 

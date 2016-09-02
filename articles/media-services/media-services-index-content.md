@@ -13,15 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/08/2016"   
+	ms.date="06/22/2016"   
 	ms.author="adsolank;juliako;johndeu"/>
 
 
 # Indexing Media Files with Azure Media Indexer
-
-> [AZURE.SELECTOR]
-- [Portal](media-services-manage-content.md#index)
-- [.NET](media-services-index-content.md)
 
 
 Azure Media Indexer enables you to make content of your media files searchable and to generate a full-text transcript for closed captioning and keywords. You can process one media file or multiple media files in a batch.  
@@ -272,7 +268,7 @@ Code | Name | Possible Reasons
 2005 | Unsupported file type | Input media file type is not supported.
 2006 | Too many input files | There are more than 10 files in the input manifest.
 3000 | Failed to decode media file | Unsupported media codec <br/>or<br/> Corrupted media file <br/>or<br/> No audio stream in input media.
-4000 | Batch indexing partially succeeded | Some of the input media files are failed to be indexed. For more information, see <a href="output_files">Output files</a>.
+4000 | Batch indexing partially succeeded | Some of the input media files are failed to be indexed. For more information, see <a href="#output_files">Output files</a>.
 other | Internal errors | Please contact support team. indexer@microsoft.com
 
 

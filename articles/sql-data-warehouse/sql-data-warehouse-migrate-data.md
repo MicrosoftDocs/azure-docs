@@ -13,24 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/31/2016"
+   ms.date="08/25/2016"
    ms.author="lodipalm;barbkess;sonyama"/>
 
 # Migrate Your Data
-Data can be moved from different sources into your SQL Data Warehouse with a variety tools.  ADF Copy, SSIS and bcp can all be used to achieve this goal. However, as the amount of data increases you should think about breaking down the data migration process into steps. This affords you the opportunity to optimize each step both for performance and for resilience to ensure a smooth data migration.
+Data can be moved from different sources into your SQL Data Warehouse with a variety tools.  ADF Copy, SSIS, and bcp can all be used to achieve this goal. However, as the amount of data increases you should think about breaking down the data migration process into steps. This affords you the opportunity to optimize each step both for performance and for resilience to ensure a smooth data migration.
 
-This article firstly discusses the simple migration scenarios of ADF Copy, SSIS and bcp. It then look a little deeper into how the migration can be optimized.
+This article first discusses the simple migration scenarios of ADF Copy, SSIS, and bcp. It then look a little deeper into how the migration can be optimized.
 
 ## Azure Data Factory (ADF) copy
 [ADF Copy][] is part of [Azure Data Factory][]. You can use ADF Copy to export your data to flat files residing on local storage, to remote flat files held in Azure blob storage or directly into SQL Data Warehouse.
 
-If your data starts in flat files then you will first need to transfer it to Azure storage blob before initiating a load it into SQL Data Warehouse. Once the data is transferred into Azure blob storage you can choose to use [ADF Copy][] again to push the data into SQL Data Warehouse.
+If your data starts in flat files, then you will first need to transfer it to Azure storage blob before initiating a load it into SQL Data Warehouse. Once the data is transferred into Azure blob storage you can choose to use [ADF Copy][] again to push the data into SQL Data Warehouse.
 
-PolyBase also provides a very high performance option for loading the data. However, that does mean using two tools instead of one. If you need the best performance then use PolyBase. If you want a single tool experience (and the data is not massive) then ADF is your answer.
+PolyBase also provides a high-performance option for loading the data. However, that does mean using two tools instead of one. If you need the best performance then use PolyBase. If you want a single tool experience (and the data is not massive) then ADF is your answer.
 
 > [AZURE.NOTE] PolyBase requires your data files to be in UTF-8. This is ADF Copy's default encoding so there is nothing to change. This is just a reminder to not change the default behavior of ADF Copy.
 
-Head over to the following article for some great [ADF Copy examples][].
+Head over to the following article for some great [ADF samples][].
 
 ## Integration Services ##
 Integration Services (SSIS) is a powerful and flexible Extract Transform and Load (ETL) tool that supports complex workflows, data transformation, and several data loading options. Use SSIS to simply transfer data to Azure or as part of a broader migration.
@@ -46,7 +46,7 @@ In addition, there is always the possibility that a package might fail due to th
 For more information consult the [SSIS documentation][].
 
 ## bcp
-bcp is a command-line utility that is designed for flat file data import and export. Some transformation can can take place during data export. To perform simple transformations use a query to select and transform the data. Once exported, the flat files can then be loaded directly into the target the SQL Data Warehouse database.
+bcp is a command-line utility that is designed for flat file data import and export. Some transformation can take place during data export. To perform simple transformations use a query to select and transform the data. Once exported, the flat files can then be loaded directly into the target the SQL Data Warehouse database.
 
 > [AZURE.NOTE] It is often a good idea to encapsulate the transformations used during data export in a view on the source system. This ensures that the logic is retained and the process is repeatable.
 
@@ -72,10 +72,10 @@ A SQLDW data migration process can be effectively broken down into three discret
 2. Transfer of data to Azure
 3. Load into the target SQLDW database
 
-Each step can be individually optimized to create a robust, re-startable and resilient migration process that maximises performance at each step.
+Each step can be individually optimized to create a robust, re-startable and resilient migration process that maximizes performance at each step.
 
 ## Optimizing data load
-Looking at these in reverse order for a moment; the fastest way to load data is via PolyBase. Optimizing for a PolyBase load process places pre-quisites on the preceding steps so it's best to understand this upfront. They are:
+Looking at these in reverse order for a moment; the fastest way to load data is via PolyBase. Optimizing for a PolyBase load process places prerequisites on the preceding steps so it's best to understand this upfront. They are:
 
 1. Encoding of data files
 2. Format of data files
@@ -118,9 +118,9 @@ The benefits of using [ExpressRoute][] are:
 Interested? For more information and pricing please visit the [ExpressRoute documentation][].
 
 ### Azure Import and Export Service
-The Azure Import and Export Service is a data transfer process designed for large (GB++) to massive (TB++) transfers of data into Azure. It involves writing your data to disks and shipping them to an Azure data center. The disk contents will then be loaded into Azure Storage Blobss on your behalf.
+The Azure Import and Export Service is a data transfer process designed for large (GB++) to massive (TB++) transfers of data into Azure. It involves writing your data to disks and shipping them to an Azure data center. The disk contents will then be loaded into Azure Storage Blobs on your behalf.
 
-A high level view of the import export process is as follows:
+A high-level view of the import export process is as follows:
 
 1. Configure an Azure Blob Storage container to receive the data
 2. Export your data to local storage
@@ -141,7 +141,7 @@ To upload a file from your file system you will need a command like the one belo
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Pattern:abc.txt
 ```
 
-A high level process summary could be:
+A high-level process summary could be:
 
 1. Configure an Azure storage blob container to receive the data
 2. Export your data to local storage
@@ -153,7 +153,7 @@ Full documentation available: [AZCopy][].
 ## Optimizing data export
 In addition to ensuring that the export conforms to the requirements laid out by PolyBase you can also seek to optimize the export of the data to improve the process further.
 
-> [AZURE.NOTE] As PolyBase requires the data to be in UTF-8 format it is unlikely you will use bcp to perform the data export. bcp does not support outputting data files to  UTF-8. SSIS or ADF Copy are much better suited to performing this kind of data export.
+> [AZURE.NOTE] As PolyBase requires the data to be in UTF-8 format it is unlikely you will use bcp to perform the data export. bcp does not support outputting data files to UTF-8. SSIS or ADF Copy are much better suited to performing this kind of data export.
 
 ### Data compression
 PolyBase can read gzip compressed data. If you are able to compress your data to gzip files then you will minimize the amount of data being pushed over the network.
@@ -174,9 +174,10 @@ For more development tips, see [development overview][].
 
 <!--Article references-->
 [AZCopy]: ../storage/storage-use-azcopy.md
-[ADF Copy]: ../data-factory/data-factory-copy-activity.md
-[ADF Copy examples]: ../data-factory/data-factory-copy-activity-examples.md
-[development overview]: sql-data-warehouse-develop-overview.md
+[ADF Copy]: ../data-factory/data-factory-data-movement-activities.md 
+[ADF samples]: ../data-factory/data-factory-samples.md
+[ADF Copy examples]: ../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md
+[development overview]: sql-data-warehouse-overview-develop.md
 [Migrate your solution to SQL Data Warehouse]: sql-data-warehouse-overview-migrate.md
 [SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
 [Use bcp to load data into SQL Data Warehouse]: sql-data-warehouse-load-with-bcp.md

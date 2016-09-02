@@ -4,7 +4,7 @@
    keywords=""
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="05/13/2016"
+   ms.date="06/23/2016"
    ms.author="carlrab"/>
    
 # Azure SQL Database Secures and Protects
@@ -27,13 +27,13 @@ Azure SQL Database supports millions of mission-critical databases in the cloud&
 
 ## We’ve got your back
 
-You can only hope you don't need to access yesterday's backups or recover from a disaster. But if you find yourself in this situation, SQL Database is there to help. With 99.99% availability, automatic backups, point-in-time restore, built-in geo-replication, and failover options, you'll rest easy knowing your app is safe and sound.
+You can only hope you don't need to access yesterday's backups or recover from a disaster. But if you find yourself in this situation, SQL Database is there to help. With 99.99% availability, automatic backups, Point-in-Time Restore, built-in Geo-Replication, and failover options, you'll rest easy knowing your app is safe and sound.
 
 [Read the documentation](sql-database-business-continuity.md)
 
 ## The largest compliance portfolio
 
-SQL Database has the largest compliance portfolio in the industry. So if you need HIPPA or FERPA or even Singapore MTCS Level 3 don't worry&mdash;we got you covered.  
+SQL Database has the largest compliance portfolio in the industry. So if you need HIPPA compliance or FERPA or even Singapore MTCS Level 3 don't worry&mdash;we got you covered.  
 
 [Read the documentation](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)
 
@@ -46,11 +46,11 @@ SQL Database provides multiple layers of data protection. Your data is protected
 Go to the homepage to see what else SQL Database has to offer.
 [Check it out](https://azure.microsoft.com/services/sql-database/) 
 
-## Next Steps
+## Next steps
 
 Get a [free Azure subscription](https://azure.microsoft.com/get-started/) and [create your first Azure SQL Database](sql-database-get-started.md).
 
-## Learn More
+## Additional resources
 
 Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
  

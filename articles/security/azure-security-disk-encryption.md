@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2016"
+   ms.date="06/14/2016"
    ms.author="devtiw"/>
 
 
@@ -27,7 +27,7 @@ Microsoft Azure is strongly committed to ensuring your data privacy, data sovere
 
 Azure Disk Encryption is a new capability that lets you encrypt your Windows and Linux IaaS virtual machine disks. Azure Disk Encryption leverages the industry standard [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) feature of Windows and the [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Linux to provide volume encryption for the OS and the data disks. The solution is integrated with [Azure Key](https://azure.microsoft.com/documentation/services/key-vault/) Vault to help you control and manage the disk encryption keys and secrets in your key vault subscription, while ensuring that all data in the virtual machine disks are encrypted at rest in your Azure storage.
 
-Azure disk encryption for Windows IaaS VMs is now in [General Availability](https://blogs.msdn.microsoft.com/azuresecurity/2016/04/15/azure-disk-encryption-for-windows-virtual-machines-reaches-general-availability/) in Australia region. The general availability for Windows IaaS VMs for other regions will be coming soon.
+> [AZURE.NOTE] Azure disk encryption for Windows IaaS VMs is now in [General Availability](https://blogs.msdn.microsoft.com/azuresecurity/2016/05/20/azure-disk-encryption-for-windows-virtual-machines-reaches-general-availability/).
 
 ### Encryption Scenarios
 
@@ -77,7 +77,7 @@ When you enable and deploy Azure disk encryption for Azure IaaS VMs, the followi
 
 - Encryption of OS volume to protect boot volume at rest in customer storage
 
-	- Encryption of OS volume on Linus IaaS VM already running in Azure is not support currently. Encryption of OS volume for Linux IaaS VM is supported only for pre-encrypted VHD scenario
+	- Encryption of OS volume on Linux IaaS VM already running in Azure is not support currently. Encryption of OS volume for Linux IaaS VM is supported only for pre-encrypted VHD scenario
 	
 - Encryption of Data volume/s to protect the data volumes at rest in customer storage
 
@@ -263,23 +263,23 @@ Azure AD Client ID and secret can also be provisioned using the Azure Service Ma
 
 1.Click the Active Directory tab as shown in Figure below:
 
-![Azure Disk Encryption](./media/azure-security-disk-encryption\disk-encryption-fig3.JPG)
+![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig3.JPG)
 
 2.Click Add Application and type the application name as shown below:
 
-![Azure Disk Encryption](./media/azure-security-disk-encryption\disk-encryption-fig4.JPG)
+![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig4.JPG)
 
 3.Click the arrow button and configure the app's properties as shown below:
 
-![Azure Disk Encryption](./media/azure-security-disk-encryption\disk-encryption-fig5.JPG)
+![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig5.JPG)
 
 4.Click the check mark in the lower left corner to finish. The app's configuration page appears. Notice the Azure AD Client ID is located in the bottom of the page as shown in figure below.
 
-![Azure Disk Encryption](./media/azure-security-disk-encryption\disk-encryption-fig6.JPG)
+![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig6.JPG)
 
 5.Save the Azure AD client secret by click in the Save button. Click the save button and note the secret from the keys text box, this is the Azure AD client secret. You should safeguard the Azure AD client secret appropriately.
 
-![Azure Disk Encryption](./media/azure-security-disk-encryption\disk-encryption-fig7.JPG)
+![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig7.JPG)
 
 
 **Note:** this flow above is not supported in the Portal.
@@ -610,7 +610,7 @@ To disable using the PS cmdlet, [Disable-AzureRmVMDiskEncryption](https://msdn.
 
 ### Connect to your subscription
 
-Make sure to review the perquisites section in this document before proceed. After ensuring that all prerequisites were fulfilled, follow the steps below to connect to your subscription:
+Make sure to review the *Prerequisites* section in this document before proceeding. After ensuring that all prerequisites were fulfilled, follow the steps below to connect to your subscription:
 
 1.Start an Azure PowerShell session and sign in to your Azure account with the following command:
 
@@ -683,13 +683,14 @@ Use the [manage-bde](https://technet.microsoft.com/library/ff829849.aspx) comman
     echo "Trying to get the key from disks ..." >&2
     mkdir -p $MountPoint
     modprobe vfat >/dev/null 2>&1
+    modprobe ntfs >/dev/null 2>&1
     sleep 2
     OPENED=0
-    for SFS in /sys/block/sd*; do
-        DEV=`basename $SFS`
-        F=$SFS/${DEV}1/dev
+    cd /sys/block
+    for DEV in sd*; do
         echo "> Trying device: $DEV ..." >&2
-        mount /dev/${DEV}1 $MountPoint -t vfat -r >/dev/null
+        mount -t vfat -r /dev/${DEV}1 $MountPoint >/dev/null||
+        mount -t ntfs -r /dev/${DEV}1 $MountPoint >/dev/null
         if [ -f $MountPoint/$KeyFileName ]; then
                 cat $MountPoint/$KeyFileName
                 umount $MountPoint 2>/dev/null
@@ -714,11 +715,19 @@ Use the [manage-bde](https://technet.microsoft.com/library/ff829849.aspx) comman
     Sda5_crypt uuid=xxxxxxxxxxxxxxxxxxxxx none luks,discard,keyscript=/usr/local/sbin/azure_crypt_key.sh
 
 3.If you are editing the *azure_crypt_key.sh* in Windows and copied it to Linux, do not forget to run *dos2unix /usr/local/sbin/azure_crypt_key.sh*.
-4.Run *update-initramfs -u -k all* to update the initramfs to make the keyscript take effect.
+4.Edit */etc/initramfs-tools/modules* by appending lines:
+
+    vfat
+    ntfs
+    nls_cp437
+    nls_utf8
+    nls_iso8859-1
+
+5.Run *update-initramfs -u -k all* to update the initramfs to make the keyscript take effect.
 
 ##### openSUSE 13.2.
 
-1.Edit the /etc/dracut.conf add_drivers+="vfat nls_cp437 nls_iso8859-1"
+1.Edit the /etc/dracut.conf add_drivers+="vfat ntfs nls_cp437 nls_iso8859-1"
 
 2.Comment out these lines by the end of the file “/usr/lib/dracut/modules.d/90crypt/module-setup.sh”:
 
@@ -742,9 +751,11 @@ Use the [manage-bde](https://technet.microsoft.com/library/ff829849.aspx) comman
     echo "Trying to get the key from disks ..." >&2
     mkdir -p $MountPoint >&2
     modprobe vfat >/dev/null >&2
+    modprobe ntfs >/dev/null >&2
     for SFS in /dev/sd*; do
        echo "> Trying device:$SFS..." >&2
-       mount ${SFS}1 $MountPoint -t vfat -r >&2
+       mount ${SFS}1 $MountPoint -t vfat -r >&2 ||
+       mount ${SFS}1 $MountPoint -t ntfs -r >&2
        if [ -f $MountPoint/$KeyFileName ]; then
           echo "> keyfile got..." >&2
           luksfile=$MountPoint/$KeyFileName
@@ -755,7 +766,7 @@ Use the [manage-bde](https://technet.microsoft.com/library/ff829849.aspx) comman
 5.Run the “dracut –f -v” to update the initrd
 
 ##### CentOS 7
-1.Edit the /etc/dracut.conf add_drivers+=" vfat nls_cp437 nls_iso8859-1"
+1.Edit the /etc/dracut.conf add_drivers+=" vfat ntfs nls_cp437 nls_iso8859-1"
 
 2.Comment out these lines by the end of the file “/usr/lib/dracut/modules.d/90crypt/module-setup.sh”:
 
@@ -780,9 +791,11 @@ Use the [manage-bde](https://technet.microsoft.com/library/ff829849.aspx) comman
     echo "Trying to get the key from disks ..." >&2
     mkdir -p $MountPoint >&2
     modprobe vfat >/dev/null >&2
+    modprobe ntfs >/dev/null >&2
     for SFS in /dev/sd*; do
     echo "> Trying device:$SFS..." >&2
-    mount ${SFS}1 $MountPoint -t vfat -r >&2
+    mount ${SFS}1 $MountPoint -t vfat -r >&2 ||
+    mount ${SFS}1 $MountPoint -t ntfs -r >&2
     if [ -f $MountPoint/$KeyFileName ]; then
         echo "> keyfile got..." >&2
         luksfile=$MountPoint/$KeyFileName

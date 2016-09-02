@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="06/14/2016" 
 	ms.author="fashah;garye;bradsev" /> 
 
 #Explore data in SQL Server Virtual Machine on Azure
@@ -71,6 +71,6 @@ Now you can work with the Pandas data frame as covered in topics [Process Azure 
 
 ## Cortana Analytics Process in Action Example
 
-For an end-to-end walkthrough example of the Cortana Analytics Process using a public dataset, see [The Cortana Analytics Process in action: using SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
+For an end-to-end walkthrough example of the Cortana Analytics Process using a public dataset, see [The Team Data Science Process in action: using SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
 
  

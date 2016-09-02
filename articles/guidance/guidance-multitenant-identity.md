@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="06/02/2016"
    ms.author="mwasson"/>
 
 # Identity management for multitenant applications in Microsoft Azure

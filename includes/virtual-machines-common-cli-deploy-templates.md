@@ -223,6 +223,8 @@ In this case, the template below will ask for:
 - A domain name for the outside world to use.
 - An Ubuntu Server version number -- but it will accept only one of a list.
 
+See more about [username and password requirements](virtual-machines-linux-faq.md#what-are-the-username-requirements-when-creating-a-vm).
+
 Once you decide on these values, you're ready to create a group for and deploy this template into your Azure subscription.
 
     {
@@ -1240,7 +1242,7 @@ And then, looking up myVM1:
 
 ## <a id="log-on-to-a-linux-based-virtual-machine"></a>Task: Log on to a Linux-based virtual machine
 
-Typically Linux machines are connected to through SSH. For more information, see [How to use SSH with Linux on Azure](../articles/virtual-machines/virtual-machines-linux-ssh-from-linux.md).
+Typically Linux machines are connected to through SSH. For more information, see [How to use SSH with Linux on Azure](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md).
 
 ## <a id="stop-a-virtual-machine"></a>Task: Stop a VM
 

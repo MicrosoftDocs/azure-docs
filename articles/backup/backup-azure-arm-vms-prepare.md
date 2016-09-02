@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Preparing your environment to back up ARM virtual machines | Microsoft Azure"
+	pageTitle="Preparing your environment to back up Resource Manager-deployed virtual machines | Microsoft Azure"
 	description="Make sure your environment is prepared for backing up virtual machines in Azure"
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
-	manager="jwhit"
+	manager="cfreeman"
 	editor=""
 	keywords="backups; backing up;"/>
 
@@ -14,23 +14,23 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="08/21/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
-# Prepare your environment to back up ARM virtual machines
+# Prepare your environment to back up Resource Manager-deployed virtual machines
 
 > [AZURE.SELECTOR]
-- [Resource manager model](backup-azure-arm-vms-prepare.md)
+- [Resource Manager model](backup-azure-arm-vms-prepare.md)
 - [Classic model](backup-azure-vms-prepare.md)
 
-This article provides the steps for preparing your environment to back up an Azure Resource Manager (ARM) virtual machine (VM). The steps shown in the procedures use the Azure portal.  
+This article provides the steps for preparing your environment to back up a Resource Manager-deployed virtual machine (VM). The steps shown in the procedures use the Azure portal.  
 
-The Azure Backup service has two types of vaults (back up vaults and recovery services vaults) for protecting your VMs. A backup vault protects VMs deployed using the Classic deployment model. A recovery services vault protects ** both Classic-deployed or ARM-deployed VMs** . You must use a Recovery Services vault to protect an ARM-deployed VM.
+The Azure Backup service has two types of vaults (back up vaults and recovery services vaults) for protecting your VMs. A backup vault protects VMs deployed using the Classic deployment model. A recovery services vault protects ** both Classic-deployed or Resource Manager-deployed VMs** . You must use a Recovery Services vault to protect a Resource Manager-deployed VM.
 
 >[AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../resource-manager-deployment-model.md). See [Prepare your environment to back up Azure virtual machines](backup-azure-vms-prepare.md) for details on working with Classic deployment model VMs.
 
-Before you can protect or back up an ARM virtual machine (VM), make sure these prerequisites exist:
+Before you can protect or back up a Resource Manager-deployed virtual machine (VM), make sure these prerequisites exist:
 
 - Create a recovery services vault (or identify an existing recovery services vault) *in the same location as your VM*.
 - Select a scenario, define the backup policy, and define items to protect.
@@ -46,11 +46,13 @@ Before you prepare your environment, please understand the limitations.
 
 - Backing up virtual machines with more than 16 data disks is not supported.
 - Backing up virtual machines with a reserved IP address and no defined endpoint is not supported.
+- Backup of Linux virtual machines with Docker extension is not supported. 
+- Backup data doesn't include network mounted drives attached to VM. 
 - Replacing an existing virtual machine during restore is not supported. If you attempt to restore the VM when the VM exists, the restore operation fails.
 - Cross-region backup and restore is not supported.
 - You can back up virtual machines in all public regions of Azure (see the [checklist](https://azure.microsoft.com/regions/#services) of supported regions). If the region that you are looking for is unsupported today, it will not appear in the dropdown list during vault creation.
 - You can back up virtual machines only for select operating system versions:
-  - **Linux**: See [the list of distributions that are endorsed by Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md). Other Bring-Your-Own-Linux distributions also should work as long as the VM agent is available on the virtual machine.
+  - **Linux**: Azure Backup supports  [a list of distributions that are endorsed by Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md) except Core OS Linux.  Other Bring-Your-Own-Linux distributions also might work as long as the VM agent is available on the virtual machine and support for Python exists.
   - **Windows Server**:  Versions older than Windows Server 2008 R2 are not supported.
 - Restoring a domain controller (DC) VM that is part of a multi-DC configuration is supported only through PowerShell. Read more about [restoring a multi-DC domain controller](backup-azure-restore-vms.md#restoring-domain-controller-vms).
 - Restoring virtual machines that have the following special network configurations is supported only through PowerShell. VMs created using the restore workflow in the UI will not have these network configurations after the restore operation is complete. To learn more, see [Restoring VMs with special network configurations](backup-azure-restore-vms.md#restoring-vms-with-special-netwrok-configurations).
@@ -84,7 +86,7 @@ To create a recovery services vault:
 
 5. Click **Subscription** to see the available list of subscriptions. If you are not sure which subscription to use, use the default (or suggested) subscription. There will be multiple choices only if your organizational account is associated with multiple Azure subscriptions.
 
-6. Click **Resource group** to see the available list of Resource groups, or click **New** to create a new Resource group. For complete information on Resource groups, see [Using the Azure Portal to deploy and manage your Azure resources](../azure-portal/resource-group-portal.md)
+6. Click **Resource group** to see the available list of Resource groups, or click **New** to create a new Resource group. For complete information on Resource groups, see [Azure Resource Manager overview](../resource-group-overview.md)
 
 7. Click **Location** to select the geographic region for the vault. The vault **must** be in the same region as the virtual machines that you want to protect.
 
@@ -152,7 +154,7 @@ on the Hub menu, click **Browse**.
 
     ![Select backup policy](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new.png)
 
-    The details of the default policy is listed in the details. If you want to create a new policy, select **Create New** from the drop-down menu. The drop-down menu also provides an option to switch the time when the snapshot is taken, to 7PM. For instructions on defining a backup policy, see [Defining a backup policy](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Once you click **OK**, the backup policy is associated with the vault.
+    The details of the default policy are listed in the details. If you want to create a new policy, select **Create New** from the drop-down menu. The drop-down menu also provides an option to switch the time when the snapshot is taken, to 7PM. For instructions on defining a backup policy, see [Defining a backup policy](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Once you click **OK**, the backup policy is associated with the vault.
 
     Next choose the VMs to associate with the vault.
 
@@ -229,7 +231,7 @@ To use an HTTP proxy to communicating to the public Internet, follow these steps
 #### Step 1. Configure outgoing network connections
 
 ###### For Windows machines
-This will setup proxy server configuration for Local System Account. 
+This will setup proxy server configuration for Local System Account.
 
 1. Download [PsExec](https://technet.microsoft.com/sysinternals/bb897553)
 2. Run following command from elevated prompt,
@@ -239,11 +241,11 @@ This will setup proxy server configuration for Local System Account.
      ```
      It will open internet explorer window.
 3. Go to Tools -> Internet Options -> Connections -> LAN settings.
-4. Verify proxy settings for System account. Set Proxy IP and port. 
+4. Verify proxy settings for System account. Set Proxy IP and port.
 5. Close Internet Explorer.
 
 This will set up a machine-wide proxy configuration, and will be used for any outgoing HTTP/HTTPS traffic.
-   
+
 If you have setup a proxy server on a current user account(not a Local System Account), use the following script to apply them to SYSTEMACCOUNT:
 
 ```
@@ -255,9 +257,9 @@ If you have setup a proxy server on a current user account(not a Local System Ac
    Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name Proxyserver -Value $obj.Proxyserver
 ```
 
->[AZURE.NOTE] If you observe "(407)Proxy Authentication Required" in proxy server log, check your authrntication is setup correctly. 
+>[AZURE.NOTE] If you observe "(407) Proxy Authentication Required" in proxy server log, check your authentication is setup correctly.
 
-######For Linux machines 
+######For Linux machines
 
 Add the following line to the ```/etc/environment``` file:
 
@@ -266,7 +268,7 @@ http_proxy=http://<proxy IP>:<proxy port>
 ```
 
 Add the following lines to the ```/etc/waagent.conf``` file:
-   
+
 ```
 HttpProxy.Host=<proxy IP>
 HttpProxy.Port=<proxy port>
@@ -310,7 +312,7 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 *These steps use specific names and values for this example. Please use the names and values for your deployment when entering, or cutting and pasting details into your code.*
 
 
-Now that you know you have network connectivity, you are ready to back up your VM. See [Back up Azure Resource Manager (ARM) VMs](backup-azure-arm-vms.md).
+Now that you know you have network connectivity, you are ready to back up your VM. See [Back up Resource Manager-deployed VMs](backup-azure-arm-vms.md).
 
 ## Questions?
 If you have questions, or if there is any feature that you would like to see included, [send us feedback](http://aka.ms/azurebackup_feedback).

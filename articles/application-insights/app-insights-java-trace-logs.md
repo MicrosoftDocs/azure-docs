@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/21/2016" 
+	ms.date="07/12/2016" 
 	ms.author="awills"/>
 
 # Explore Java trace logs in Application Insights
@@ -87,9 +87,9 @@ Download and extract the appropriate appender, then add the appropriate library 
 
 Logger | Download | Library
 ----|----|----
-Logback|[SDK with Logback appender](https://azuredownloads.blob.core.windows.net/applicationinsights/logbackAppender.zip)|applicationinsights-logging-logback
-Log4J v2.0|[SDK with Log4J v2 appender](https://azuredownloads.blob.core.windows.net/applicationinsights/log4j2Appender.zip )|applicationinsights-logging-log4j2 
-Log4j v1.2|[SDK with Log4J v1.2 appender](https://azuredownloads.blob.core.windows.net/applicationinsights/log4j1_2Appender.zip )|applicationinsights-logging-log4j1_2 
+Logback|[SDK with Logback appender](https://aka.ms/xt62a4)|applicationinsights-logging-logback
+Log4J v2.0|[SDK with Log4J v2 appender](https://aka.ms/qypznq)|applicationinsights-logging-log4j2 
+Log4j v1.2|[SDK with Log4J v1.2 appender](https://aka.ms/ky9cbo)|applicationinsights-logging-log4j1_2 
 
 
 
@@ -136,9 +136,9 @@ The Application Insights appenders can be referenced by any configured logger, a
 
 ## Explore your traces in the Application Insights portal
 
-Now that you've configured your project to send traces to Application Insights, you can view and search these traces in the Application Insights portal, in the [Diagnostic Search][diagnostic] blade.
+Now that you've configured your project to send traces to Application Insights, you can view and search these traces in the Application Insights portal, in the [Search][diagnostic] blade.
 
-![In the Application Insights portal, open Diagnostic Search](./media/app-insights-java-trace-logs/10-diagnostics.png)
+![In the Application Insights portal, open Search](./media/app-insights-java-trace-logs/10-diagnostics.png)
 
 ## Next steps
 

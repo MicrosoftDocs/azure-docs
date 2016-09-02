@@ -4,7 +4,7 @@
 	keywords="sql database tutorial, create a sql database"
 	services="sql-database"
 	documentationCenter=""
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor=""/>
 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="04/14/2016"
+	ms.date="07/05/2016"
 	ms.author="carlrab"/>
 
 # SQL Database tutorial: Create a SQL database in minutes using the Azure portal
@@ -27,15 +27,17 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-In this tutorial, you'll learn how to use the Azure portal to:
+In this tutorial, you learn how to use the Azure portal to:
 
-- Create a SQL Database logical server to host SQL databases
+- Create a SQL Database logical server in order to host SQL databases.
 - Create a SQL database with no data, with sample data or with data from a SQL database backup.
 - Create a server-level firewall rule for a single IP address or for a range of IP addresses.
 
 Use these links to perform these same tasks using either [C#](sql-database-get-started-csharp.md) or [PowerShell](sql-database-get-started-powershell.md).
 
 [AZURE.INCLUDE [Login](../../includes/azure-getting-started-portal-login.md)]
+
+<a name="create-logical-server-bk"></a>
 
 [AZURE.INCLUDE [Create SQL Database logical server](../../includes/sql-database-create-new-server-portal.md)]
 
@@ -54,8 +56,10 @@ Now that you've completed this SQL Database tutorial and created a database with
 
 - If you want to move your on-premises SQL Server databases to Azure, see [Migrating a database to Azure SQL Database](sql-database-cloud-migrate.md) to learn more.
 
+- If you want to load some data into a new table from a CSV file using BCP, see [Loading data into SQL Database from a CSV file using BCP](sql-database-load-from-csv-with-bcp.md).
 
-## Learn More
+
+## Additional resources
 
 [What is SQL Database?](sql-database-technical-overview.md)
 

@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Datasets in Azure Data Factory | Microsoft Azure" 
-	description="Understand Azure Data Factory datasets and learn how to create them." 
+	pageTitle="Create Datasets in Azure Data Factory | Microsoft Azure" 
+	description="Learn how to create datasets in Azure Data Factory with examples that use properties such as offset and anchorDateTime."
+    keywords="create dataset, dataset example, offset example"
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,15 +14,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2016" 
+	ms.date="06/27/2016" 
 	ms.author="spelluru"/>
 
 # Datasets in Azure Data Factory
-Datasets in Azure Data Factory are named references/pointers to the data that you want to use as an input or an output of an activity in a pipeline. Datasets identify data within different data stores including tables, files, folders, and documents. 
+This article describes datasets in Azure Data Factory and includes examples such as offset, anchorDateTime, and offset/style databases.
 
-When creating a data factory, you create linked services that link data stores to the data factory. A **linked service** defines the information needed for Azure Data Factory to **connect** to a data store, for example, Azure Storage Account and Azure SQL Database. The linked service defines the mechanism (address, protocol, authentication scheme, etc...) to access the data store. 
+When you create a dataset, you’re creating a pointer to the data that you want to process. Data is processed (input/output) in an activity and an activity is contained in a pipeline. An input dataset represents the input for an activity in the pipeline and an output dataset represents the output for the activity.
 
-A **dataset** in Data Factory represents data structures (for example: blob container, SQL table) within this data store that can be used as input or output of an activity in a pipeline. After you create datasets, you can use them with activities in the pipeline. For example, you can have a dataset as an input/output dataset of a Copy Activity/HDInsightHive Activity. 
+Datasets identify data within different data stores, such as tables, files, folders, and documents. After you create a dataset, you can use it with activities in a pipeline. For example, a dataset can be an input/output dataset of a Copy Activity or an HDInsightHive Activity. The Azure Portal gives you a visual layout of all of your pipelines and data inputs and outputs. At a glance, you can see all the relationships and dependencies of your data pipelines across all of your sources so you always know where data is coming from and where it is going.
+
+In Azure Data Factory you can get data from a dataset by using copy activity in a pipeline.
 
 > [AZURE.NOTE] If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](data-factory-introduction.md) for an overview of Azure Data Factory service and [Build your first data factory](data-factory-build-your-first-pipeline.md) for a tutorial to create your first data factory. These two articles provide you background information you need to understand this article better. 
 
@@ -67,7 +70,7 @@ The following table describes properties in the above JSON:
 | availability | Defines the processing window or the slicing model for the dataset production. <br/><br/>See [Dataset Availability](#Availability) topic for more details<br/><br/>See [Scheduling and Execution](data-factory-scheduling-and-execution.md) article for more details on the dataset slicing model | Yes | NA
 | policy | Defines the criteria or the condition that the dataset slices must fulfill. <br/><br/>See [Dataset Policy](#Policy) topic for more details | No | NA |
 
-### Example
+## Dataset example
 
 Below is an example of a dataset representing a table named **MyTable** in an **Azure SQL database**. 
 
@@ -169,7 +172,7 @@ If you want the slice to be produced on 9th day of each month at 6 AM, set offse
 
 For a 12 month (frequency = month; interval = 12) schedule, offset: 60.00:00:00 means every year on March 1st or 2nd (60 days from the beginning of the year if style =  StartOfInterval), depending on the year being leap year or not.
 
-### anchorDateTime example
+## anchorDateTime example
 
 **Example:** 23 hours dataset slices that starts on 2007-04-19T08:00:00
 
@@ -180,7 +183,7 @@ For a 12 month (frequency = month; interval = 12) schedule, offset: 60.00:00:00 
 		"anchorDateTime":"2007-04-19T08:00:00"	
 	}
 
-### offset/style Example
+## offset/style Example
 
 If you need dataset on monthly basis on specific date and time (suppose on 3rd of every month at 8:00 AM), you could use the **offset** tag to set the date and time it should run. 
 
@@ -342,4 +345,3 @@ You can create datasets that are scoped to a pipeline by using the **datasets** 
 	        ]
 	    }
 	}
-

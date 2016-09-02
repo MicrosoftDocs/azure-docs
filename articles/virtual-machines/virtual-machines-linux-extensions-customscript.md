@@ -21,32 +21,32 @@
 
 This article gives an overview of writing Azure Resource Manager templates with the Custom Script extension for bootstrapping workloads on a Linux VM.
 
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](virtual-machines-windows-classic-extensions-customscript.md).
-
 [AZURE.INCLUDE [virtual-machines-common-extensions-customscript](../../includes/virtual-machines-common-extensions-customscript.md)]
 
 ## Template example for a Linux VM
 
 Define the following extension resource in the Resource section of the template
 
-      {
-    "type": "Microsoft.Compute/virtualMachines/extensions",
-    "name": "MyCustomScriptExtension",
-    "apiVersion": "2015-05-01-preview",
-    "location": "[parameters('location')]",
-    "dependsOn": ["[concat('Microsoft.Compute/virtualMachines/',parameters('vmName'))]"],
-    "properties":
-    {
-      "publisher": "Microsoft.OSTCExtensions",
-      "type": "CustomScriptForLinux",
-      "typeHandlerVersion": "1.2",
-      "settings": {
-      "fileUris": [ "https: //raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-ubuntu/mongo-install-ubuntu.sh                        ],
-      "commandToExecute": "shmongo-install-ubuntu.sh"
+   {
+     "type": "Microsoft.Compute/virtualMachines/extensions",
+     "name": "MyCustomScriptExtension",
+     "apiVersion": "2015-05-01-preview",
+     "location": "[parameters('location')]",
+     "dependsOn": ["[concat('Microsoft.Compute/virtualMachines/',parameters('vmName'))]"],
+     "properties": {
+        "publisher": "Microsoft.OSTCExtensions",
+        "type": "CustomScriptForLinux",
+        "typeHandlerVersion": "1.2",
+        "autoUpgradeMinorVersion": true
+        "settings": {
+           "fileUris": [
+             "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-ubuntu/mongo-install-ubuntu.sh"
+           ],
+           "commandToExecute": "sh mongo-install-ubuntu.sh"
+         },
+         "protectedSettings": {}
       }
-    }
-    }
+   }
 
 In the example above, replace the file URL and the file name with your own settings.
 

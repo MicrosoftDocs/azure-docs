@@ -3,7 +3,7 @@
    description="Learn how to control routing and use virtual appliances using the Azure CLI"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 #Create User Defined Routes (UDR) in the Azure CLI
 
@@ -53,9 +53,9 @@ To create the route table and route needed for the front end subnet based on the
 		info:    network route-table create command OK
 
 	Parameters:
-	- **-g (or --resource-group)**. Name of the resource group where the NSG will be created. For our scenario, *TestRG*.
-	- **-l (or --location)**. Azure region where the new NSG will be created. For our scenario, *westus*.
-	- **-n (or --name)**. Name for the new NSG. For our scenario, *NSG-FrontEnd*.
+	- **-g (or --resource-group)**. Name of the resource group where the UDR will be created. For our scenario, *TestRG*.
+	- **-l (or --location)**. Azure region where the new UDR will be created. For our scenario, *westus*.
+	- **-n (or --name)**. Name for the new UDR. For our scenario, *UDR-FrontEnd*.
 
 4. Run the **`azure network route-table route create`** command to create a route in the route table created above to send all traffic destined to the back end subnet (192.168.2.0/24) to the **FW1** VM (192.168.0.4).
 

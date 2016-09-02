@@ -1,10 +1,10 @@
 <properties
-   pageTitle="Running multiple Windows VMs | Reference Architecture | Microsoft Azure"
+   pageTitle="Running multiple VMs | Reference Architecture | Microsoft Azure"
    description="How to run multiple VM instances on Azure for scalability, resiliency, manageability, and security."
    services=""
    documentationCenter="na"
-   authors="mikewasson"
-   manager="roshar"
+   authors="MikeWasson"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -14,44 +14,72 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/16/2016"
-   ms.author="mikewasson"/>
+   ms.date="08/25/2016"
+   ms.author="mwasson"/>
 
-# Running multiple Windows VMs on Azure 
+# Running multiple VMs on Azure for scalability and availability 
 
 [AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
-This article outlines a set of proven practices for running multiple virtual machine (VM) instances in an availability set, to improve availability and scalability.   
+This article outlines a set of proven practices for running multiple virtual machine (VM) instances, to improve availability and scalability.   
 
 In this architecture, the workload is distributed across the VM instances. There is a single public IP address, and Internet traffic is distributed to the VMs using a load balancer. This architecture can be used for a single-tier app, such as a stateless web app or storage cluster. It is also a building block for N-tier applications. 
 
-This article builds on [Running a Single Windows VM on Azure][single vm]. The recommendations in that article also apply to this architecture.
+This article builds on [Running a Single VM on Azure][single vm]. The recommendations in that article also apply to this architecture.
 
 > [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
 
 ## Architecture diagram
 
-![IaaS: multiple VMs](media/blueprints/compute-multi-vm.png)
+![[0]][0]
 
-- **Availability Set.** Put the VMs into an [Availability Set][availability set]. This makes the VMs eligible for the [SLA][vm-sla] for virtual machines. For the SLA to apply, you need a minimum of two VMs in the same availability set.
+The architecture has the following components:
 
-- **VNet**. Every VM in Azure is deployed into a virtual network (VNet), which is further divided into **subnets**. For this scenario, place the VMs on the same subnet.
+- **Availability Set.** The [availability Set][availability set] contains the VMs and is necessary for supporting the [availability SLA for Azure VMs][vm-sla].
 
-- **Azure Load Balancer.** Use an Internet-facing [load balancer] to distribute incoming Internet requests to the VM instances. The load balancer includes some related resources:
+- **VNet**. Every VM in Azure is deployed into a virtual network (VNet), which is further divided into **subnets**.
+
+- **Azure Load Balancer.** The [load balancer] distributes incoming Internet requests to the VM instances in an availability set. The load balancer includes some related resources:
 
     - **Public IP address.** A public IP address is needed for the load balancer to receive Internet traffic.
+
     - **Front-end configuration.** Associates the public IP address with the load balancer.
+
     - **Back-end address pool.** Contains the network interfaces (NICs) for the VMs that will receive the incoming traffic.
 
-- **Load balancer rules** are used to distribute network traffic among all the VMs in the back-end address pool. For example, to enable HTTP traffic, create a rule that maps port 80 from the front-end configuration to port 80 on the back-end address pool. When the load balancer receives a request on port 80 of the public IP address, it will route the request to port 80 on one of the NICs in the back-end address pool.
+- **Load balancer rules** are used to distribute network traffic among all the VMs in the back-end address pool. 
 
-- **NAT rules** are used to route traffic to a specific VM. For example, to enable remote desktop (RDP) to the VMs, create a separate NAT rule for each VM. Each rule should map a distinct port number to port 3389, which is the default port for RDP. (For example, use port 50001 for "VM1", port 50002 for "VM2", and so on.) Assign the NAT rules to the NICs on the VMs.
+- **NAT rules** are used to route traffic to a specific VM. For example, to enable remote desktop (RDP) to the VMs, create a separate NAT rule for each VM. 
 
-- **Network interfaces (NICs)**. Provision a NIC for each VM. The NIC provides network connectivity to the VM. Associate the NIC with the subnet and also with the back-end address pool of the load balancer.
+- **Network interfaces (NICs)**. Each VM has a NIC to connect to the network.
 
-- **Storage.** Create separate Azure storage accounts for each VM to hold the VHDs, in order to avoid hitting the [IOPS limits][vm-disk-limits] for storage accounts. Create one storage account for diagnostic logs. That account can be shared by all the VMs.
+- **Storage.** Storage accounts hold the VM images and other file-related resources, such as VM diagnostic data captured by Azure.
 
-## Scalability
+## Recommendations
+
+### Availability set recommendations
+
+You must create at least two VMs in the availability set to support the [availability SLA for Azure VMs][vm-sla]. Note that the Azure load balancer also requires that load-balanced VMs belong to the same availability set.
+
+### Network recommendations
+
+For this scenario, place all the VMs on the same subnet. Do not expose the VMs directly to the Internet, but instead give each VM a private IP address; clients connect by using the public IP address of the load balancer.
+
+### Load balancer recommendations
+
+Add all VMs in the availability set to the back-end address pool of the load balancer.
+
+Define load balancer rules to direct network traffic to the VMs. For example, to enable HTTP traffic, create a rule that maps port 80 from the front-end configuration to port 80 on the back-end address pool. When the load balancer receives a request on port 80 of the public IP address, it will route the request to port 80 on one of the NICs in the back-end address pool.
+
+Define NAT rules to route traffic to a specific VM. For example, to enable remote desktop (RDP) to the VMs, create a separate NAT rule for each VM. Each rule should map a distinct port number to port 3389, which is the default port for RDP. (For example, use port 50001 for "VM1", port 50002 for "VM2", and so on.) Assign the NAT rules to the NICs on the VMs.
+
+### Storage account recommendations
+
+Create separate Azure storage accounts for each VM to hold the VHDs, in order to avoid hitting the [IOPS limits][vm-disk-limits] for storage accounts. 
+
+Create one storage account for diagnostic logs. This storage account can be shared by all the VMs.
+
+## Scalability considerations
 
 The load balancer takes incoming network requests and distributes them across the NICs in the back-end address pool. To scale horizontally, add more VM instances to the Availability Set (or deallocate VMs to scale down). 
 
@@ -61,7 +89,7 @@ For example, suppose you're running a web server. You would add a load balancer 
 
 Each Azure Subscription has default limits in place, including a maximum number of VMs per region. You can increase the limit by filing a support request. For more information, see [Azure subscription and service limits, quotas, and constraints][subscription-limits].  
 
-## Availability
+## Availability considerations
 
 The Availability Set makes your app more resilient to both planned and unplanned maintenance events.
 
@@ -85,184 +113,375 @@ Here are some recommendations on load balancer health probes:
 
 - Use [health probe logs][health probe log] to view the status of the health probes. Enable logging in the Azure portal for each load balancer. Logs are written to Azure blob storage. The logs show how many VMs on the back-end are not receiving network traffic due to failed probe responses.
 
-## Manageability
+## Manageability considerations
 
 With multiple VMs, it becomes important to automate processes, so they are reliable and repeatable. You can use [Azure Automation][azure-automation] to automate deployment, OS patching, and other tasks. Azure Automation is an automation service that runs on Azure, and is based on Windows PowerShell. Example automation scripts are available at the [Runbook Gallery] on TechNet.
 
-## Security
+## Security considerations
 
 Virtual networks are a traffic isolation boundary in Azure. VMs in one VNet cannot communicate directly to VMs in a different VNet. VMs within the same VNet can communicate, unless you create [network security groups][nsg] (NSGs) to restrict traffic. For more information, see [Microsoft cloud services and network security][network-security].
 
 For incoming Internet traffic, the load balancer rules define which traffic can reach the back end. However, load balancer rules don't support IP whitelisting, so if you want to whitelist certain public IP addresses, add an NSG to the subnet.
 
-## Example deployment script
+## Solution components
 
-The following Windows batch script deploys the architecture shown in the previous diagram. The script requires version 0.9.20 or later of the [Azure Command-Line Interface (CLI)][azure-cli]. 
+A sample solution script, [Deploy-ReferenceArchitecture.ps1][solution-script], is available that you can use to implement the architecture that follows the recommendations described in this article. This script utilizes [Resource Manager][ARM-Templates] templates. The templates are available as a set of fundamental building blocks, each of which performs a specific action such as creating a VNet or configuring an NSG. The purpose of the script is to orchestrate template deployment.
 
-The script uses the naming conventions described in [Recommended Naming Conventions for Azure Resources][naming conventions]. It was tested against version 0.9.20 of the Azure CLI.
+>[AZURE.NOTE] Deploy-ReferenceArchitecture.ps1 is a PowerShell script. If your operating system does not support PowerShell, a bash script called [deploy-reference-architecture.sh][solution-script-bash] is also available.
 
-```bat
-ECHO OFF
-SETLOCAL
+The templates are parameterized, with the parameters held in separate JSON files. You can modify the parameters in these files to configure the deployment to meet your own requirements. You do not need to amend the templates themselves. Note that you must not change the schemas of the objects in the parameter files.
 
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: Set up variables for deploying resources to Azure.
-:: Change these variables for your own deployment.
+When you edit the templates, create objects that follow the naming conventions described in [Recommended Naming Conventions for Azure Resources][naming conventions].
 
-:: The APP_NAME variable must not exceed 4 characters in size.
-:: If it does the 15 character size limitation of the VM name may be exceeded.
-SET APP_NAME=app1
-SET LOCATION=eastus2
-SET ENVIRONMENT=dev
-SET USERNAME=testuser
-SET NUM_VM_INSTANCES=2
+The script references the following parameter files to build the VMs and the surrounding infrastructure. Note that there are two versions of these files; one for Windows VMs and another for Linux (RedHat). The examples shown below depict the Windows versions. The Linux files are very similar except where described:
 
-:: For Windows, use the following command to get the list of URNs:
-:: azure vm image list %LOCATION% MicrosoftWindowsServer WindowsServer 2012-R2-Datacenter
-SET WINDOWS_BASE_IMAGE=MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20160126
+- **[virtualNetwork.parameters.json][vnet-parameters-windows]**. This file defines the VNet settings, such as the name, address space, subnets, and the addresses of any DNS servers required. Note that subnet addresses must be contained within the address space of the VNet.
 
-:: For a list of VM sizes see: 
-::   https://azure.microsoft.com/documentation/articles/virtual-machines-size-specs/
-:: To see the VM sizes available in a region:
-:: 	azure vm sizes --location <location>
-SET VM_SIZE=Standard_DS1
+    <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-multi-vm/parameters/windows/virtualNetwork.parameters.json#L4-L21 -->
+	```json
+    "parameters": {
+      "virtualNetworkSettings": {
+        "value": {
+          "name": "ra-multi-vm-vnet",
+          "resourceGroup": "ra-multi-vm-rg",
+          "addressPrefixes": [
+            "10.0.0.0/16"
+          ],
+          "subnets": [
+            {
+              "name": "ra-multi-vm-sn",
+              "addressPrefix": "10.0.0.0/24"
+            }
+          ],
+          "dnsServers": [ ]
+        }
+      }
+    }
+	```
 
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+- **[networkSecurityGroup.parameters.json][nsg-parameters-windows]**. This file contains the definitions of NSGs and NSG rules. The `name` parameter in the `virtualNetworkSettings` block specifies the VNet to which the NSG is attached. The `subnets` parameter in the `networkSecurityGroupSettings` block identifies any subnets which apply the NSG rules in the VNet. These should be items defined in the **virtualNetwork.parameters.json** file.
 
-IF "%~2"=="" (
-    ECHO Usage: %0 subscription-id admin-password
-    EXIT /B
-    )
+    <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-multi-vm/parameters/windows/networkSecurityGroups.parameters.json#L4-L47 -->
+	```json
+    "parameters": {
+      "virtualNetworkSettings": {
+        "value": {
+          "name": "ra-multi-vm-vnet",
+          "resourceGroup": "ra-multi-vm-rg"
+        }
+      },
+      "networkSecurityGroupsSettings": {
+        "value": [
+          {
+            "name": "ra-multi-vm-nsg",
+            "subnets": [
+              "ra-multi-vm-sn"
+            ],
+            "networkInterfaces": [
+            ],
+            "securityRules": [
+              {
+                "name": "default-allow-rdp",
+                "direction": "Inbound",
+                "priority": 100,
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "sourcePortRange": "*",
+                "destinationPortRange": "3389",
+                "access": "Allow",
+                "protocol": "Tcp"
+              },
+              {
+                "name": "default-allow-http",
+                "protocol": "Tcp",
+                "sourcePortRange": "*",
+                "destinationPortRange": "80",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 110,
+                "direction": "Inbound"
+              }
+            ]
+          }
+        ]
+      }
+    }
+	```
 
-:: Explicitly set the subscription to avoid confusion as to which subscription
-:: is active/default
-SET SUBSCRIPTION=%1
-SET PASSWORD=%2
+	Note that the default security rule shown in the example enables a user to connect to a Windows VM through a remote desktop (RDP) connection. The `securityRules` array for the Linux version of this file opens port 22 to enable SSH connections:
 
-:: Set up the names of things using recommended conventions
-SET RESOURCE_GROUP=%APP_NAME%-%ENVIRONMENT%-rg
-SET AVAILSET_NAME=%APP_NAME%-as
+    <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-multi-vm/parameters/linux/networkSecurityGroups.parameters.json#L20-L31 -->
+	```json
+	"securityRules": [
+      {
+        "name": "default-allow-ssh",
+        "direction": "Inbound",
+        "priority": 100,
+        "sourceAddressPrefix": "*",
+        "destinationAddressPrefix": "*",
+        "sourcePortRange": "*",
+        "destinationPortRange": "22",
+        "access": "Allow",
+        "protocol": "Tcp"
+      },
+	```
 
-SET LB_NAME=%APP_NAME%-lb
-SET LB_FRONTEND_NAME=%LB_NAME%-frontend
-SET LB_BACKEND_NAME=%LB_NAME%-backend-pool
-SET LB_PROBE_NAME=%LB_NAME%-probe
-SET IP_NAME=%APP_NAME%-pip
-SET SUBNET_NAME=%APP_NAME%-subnet
-SET VNET_NAME=%APP_NAME%-vnet
-SET DIAGNOSTICS_STORAGE=%APP_NAME:-=%diag
+	You can open additional ports (or deny access through specific ports) by adding further items to the `securityRules` array. For example, if you wish to enable outside access to the HTTP service, you should add a rule that opens TCP port 80.
 
-:: Set up the postfix variables attached to most CLI commands
-SET POSTFIX=--resource-group %RESOURCE_GROUP% --subscription %SUBSCRIPTION%
+- **[loadBalancerParameters.json][loadbalancer-parameters-windows]**. This file defines the settings for the VMs, including the [size of each VM][VM-sizes], the security credentials for the admin user, the disks to be created, the storage accounts to hold these disks. This file also contains the definition of an availability set for the VMs, and the load balancer configuration for distributing traffic across the VMs in this set.
 
-CALL azure config mode arm
+    <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-multi-vm/parameters/windows/loadBalancer.parameters.json#L4-L127 -->
+	```json
+    "parameters": {
+      "virtualMachinesSettings": {
+        "value": {
+          "namePrefix": "ra-multi",
+          "computerNamePrefix": "cn",
+          "size": "Standard_DS1_v2",
+          "osType": "windows",
+          "adminUsername": "testuser",
+          "adminPassword": "AweS0me@PW",
+          "sshPublicKey": "",
+          "osAuthenticationType": "password",
+          "nics": [
+            {
+              "isPublic": "false",
+              "subnetName": "ra-multi-vm-sn",
+              "privateIPAllocationMethod": "dynamic",
+              "publicIPAllocationMethod": "dynamic",
+              "isPrimary": "true",
+              "enableIPForwarding": false,
+              "dnsServers": [ ]
+            }
+          ],
+          "imageReference": {
+            "publisher": "MicrosoftWindowsServer",
+            "offer": "WindowsServer",
+            "sku": "2012-R2-Datacenter",
+            "version": "latest"
+          },
+          "dataDisks": {
+            "count": 1,
+            "properties": {
+              "diskSizeGB": 128,
+              "caching": "None",
+              "createOption": "Empty"
+            }
+          },
+          "osDisk": {
+            "caching": "ReadWrite"
+          },
+          "extensions": [
+            {
+              "name": "iis-config-ext",
+              "settingsConfigMapperUri": "https://raw.githubusercontent.com/mspnp/template-building-blocks/master/templates/resources/Microsoft.Compute/virtualMachines/extensions/vm-extension-passthrough-settings-mapper.json",
+              "publisher": "Microsoft.Powershell",
+              "type": "DSC",
+              "typeHandlerVersion": "2.20",
+              "autoUpgradeMinorVersion": true,
+              "settingsConfig": {
+                "modulesUrl": "https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-compute-multi-vm/extensions/windows/iisaspnet.ps1.zip",
+                "configurationFunction": "iisaspnet.ps1\\iisaspnet"
+              }
+            }
+          ],
+          "availabilitySet": {
+            "useExistingAvailabilitySet": "No",
+            "name": "ra-multi-vm-as"
+          }
+        }
+      },
+      "loadBalancerSettings": {
+        "value": {
+          "name": "ra-multi-vm-lb",
+          "frontendIPConfigurations": [
+            {
+              "name": "ra-multi-vm-lb-fe-config1",
+              "loadBalancerType": "public",
+              "internalLoadBalancerSettings": {
+                "privateIPAddress": "10.0.0.250",
+                "subnetName": "ra-multi-vm-sn"
+              }
+            }
+          ],
+          "loadBalancingRules": [
+            {
+              "name": "lbr1",
+              "frontendPort": 80,
+              "backendPort": 80,
+              "protocol": "Tcp",
+              "backendPoolName": "ra-multi-vm-lb-bep1",
+              "frontendIPConfigurationName": "ra-multi-vm-lb-fe-config1",
+              "probeName": "lbp1"
+            }
+          ],
+          "probes": [
+            {
+              "name": "lbp1",
+              "port": 80,
+              "protocol": "Http",
+              "requestPath": "/"
+            }
+          ],
+          "backendPools": [
+            {
+              "name": "ra-multi-vm-lb-bep1",
+              "nicIndex": 0
+            }
+          ],
+          "inboundNatRules": [
+            {
+              "namePrefix": "rdp",
+              "frontendIPConfigurationName": "ra-multi-vm-lb-fe-config1",
+              "startingFrontendPort": 50000,
+              "backendPort": 3389,
+              "natRuleType": "All",
+              "protocol": "Tcp",
+              "nicIndex": 0
+            }
+          ]
+        }
+      },
+      "virtualNetworkSettings": {
+        "value": {
+          "name": "ra-multi-vm-vnet",
+          "resourceGroup": "ra-multi-vm-rg"
+        }
+      },
+      "buildingBlockSettings": {
+        "value": {
+          "storageAccountsCount": 1,
+          "vmCount": 2,
+          "vmStartIndex": 1
+        }
+      }
+  }
+	```
 
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: Create resources
+	Note that the physical VM names and the logical computer names of the VMs are generated, based on the values specified for the `namePrefix` and `computerNamePrefix` parameters. For example, using the default values for these parameters (shown above), the physical names of the VMs that appear in the Azure portal will be ra-multi-vm0 and ra-multi-vm1. The computer names of the VMs that appear on the virtual network will be cn0 and cn1.
 
-:: Create the enclosing resource group
-CALL azure group create --name %RESOURCE_GROUP% --location %LOCATION% ^
-  --subscription %SUBSCRIPTION%
+	The `subnetName` parameter in the `nics` section specifies the subnet for the VM. Similarly, the `name` parameter in the `virtualNetworkSettings` identifies the VNet to use. These should be the name of a subnet and VNet defined in the **virtualNetwork.parameters.json** file.
 
-:: Create the availability set
-CALL azure availset create --name %AVAILSET_NAME% --location %LOCATION% %POSTFIX%
+	You must specify an image in the `imageReference` section. The values shown above create a VM with the latest build of Windows Server 2012 R2 Datacenter. You can use the following Azure CLI command to obtain a list of all available Windows images in a region (the example uses the westus region):
 
-:: Create the VNet
-CALL azure network vnet create --address-prefixes 10.0.0.0/16 ^
-  --name %VNET_NAME% --location %LOCATION% %POSTFIX%
+	```text
+	azure vm image list westus MicrosoftWindowsServer WindowsServer
+	```
 
-:: Create the subnet
-CALL azure network vnet subnet create --vnet-name %VNET_NAME% --address-prefix ^
-  10.0.0.0/24 --name %SUBNET_NAME% %POSTFIX%
+	The default configuration for building Linux VMs references Ubuntu Linux 14.04. The `imageReference` section looks like this:
 
-:: Create the public IP address (dynamic)
-CALL azure network public-ip create --name %IP_NAME% --location %LOCATION% %POSTFIX%
+    <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-multi-vm/parameters/linux/loadBalancer.parameters.json#L26-L31 -->
+	```json
+  "imageReference": {
+      "publisher": "Canonical",
+      "offer": "UbuntuServer",
+      "sku": "14.04.5-LTS",
+      "version": "latest"
+  },
+	```
 
-:: Create the storage account for diagnostics logs
-CALL azure storage account create --type LRS --location %LOCATION% %POSTFIX% ^
-  %DIAGNOSTICS_STORAGE%
+	Note that in this case the `osType` parameter must be set to `linux`. If you want to base your VMs on a different build of Linux from a different vendor, you can use the `azure vm image list` command to view the available images.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: Load balancer
+	The `loadBalancerSettings` section specifies the configuration for the load balancer used to direct traffic to the VMs. The default configuration creates a public load balancer with an internal IP address of `10.0.0.250`. You can change this, but the address must fall within the address space of the specified subnet. The load balancer rules handle traffic appearing on TCP port 80 with a health probe referencing the same port. You can change these ports as appropriate, and you can add further load balancing rules if you need to open up different ports.
 
-:: Create the load balancer
-CALL azure network lb create --name %LB_NAME% --location %LOCATION% %POSTFIX%
+	>[AZURE.NOTE] The template does not install a web server on the VMs. You must perform this task manually after deploying the solution.
 
-:: Create LB front-end and associate it with the public IP address
-CALL azure network lb frontend-ip create --name %LB_FRONTEND_NAME% --lb-name ^
-  %LB_NAME% --public-ip-name %IP_NAME% %POSTFIX%
+	The load balancer also implements NAT rules to support RDP or SSH access directly to a specific VM; port 50000 in the load balancer is mapped to the RDP or SSH port on the first VM, port 50001 is mapped to the RDP or SSH port on the second VM, and so on.
 
-:: Create LB back-end address pool
-CALL azure network lb address-pool create --name %LB_BACKEND_NAME% --lb-name ^
-  %LB_NAME% %POSTFIX%
+	The `vmCount` parameter in the `buildingBlockSettings` section determines the number of VMs to build.
 
-:: Create a health probe for an HTTP endpoint
-CALL azure network lb probe create --name %LB_PROBE_NAME% --lb-name %LB_NAME% ^
-  --port 80 --interval 5 --count 2 --protocol http --path / %POSTFIX%
+## Solution deployment
 
-:: Create a load balancer rule for HTTP
-CALL azure network lb rule create --name %LB_NAME%-rule-http --protocol tcp ^
-  --lb-name %LB_NAME% --frontend-port 80 --backend-port 80 --frontend-ip-name ^
-  %LB_FRONTEND_NAME% --probe-name %LB_PROBE_NAME% %POSTFIX%
+The solution assumes the following prerequisites:
 
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: Create VMs and per-VM resources
-FOR /L %%I IN (1,1,%NUM_VM_INSTANCES%) DO CALL :CreateVM %%I
+- You have an existing Azure subscription in which you can create resource groups.
 
-GOTO :eof
+- You have installed the [Azure Command-Line Interface][azure-cli].
 
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-:: Subroutine to create the VMs and per-VM resources
+- If you wish to use PowerShell, you have downloaded and installed the most recent build. See [here][azure-powershell-download] for instructions.
 
-:CreateVm
+To run the script that deploys the solution:
 
-ECHO Creating VM %1
+1. Create a folder named `Scripts` that contains a subfolder named `Parameters`.
 
-SET VM_NAME=%APP_NAME%-vm%1
-SET NIC_NAME=%VM_NAME%-nic1
-SET VHD_STORAGE=%VM_NAME:-=%st1
-SET /a RDP_PORT=50000 + %1
+2. Download the [Deploy-ReferenceArchitecture.ps1][solution-script] PowerShell script or [deploy-reference-architecture.sh][solution-script-bash] bash script, as appropriate, to the Scripts folder.
 
-:: Create NIC for VM1
-CALL azure network nic create --name %NIC_NAME% --subnet-name %SUBNET_NAME% ^
-  --subnet-vnet-name %VNET_NAME% --location %LOCATION% %POSTFIX%
+3. If you are building a set of Windows VMs:
 
-:: Add NIC to back-end address pool
-CALL azure network nic address-pool create --name %NIC_NAME% --lb-name %LB_NAME% ^
-  --lb-address-pool-name %LB_BACKEND_NAME% %POSTFIX%
+	1. In the Parameters folder, create another subfolder named Windows.
 
-:: Create NAT rule for RDP
-CALL azure network lb inbound-nat-rule create --name rdp-vm%1 --frontend-port ^
-  %RDP_PORT% --backend-port 3389 --lb-name %LB_NAME% --frontend-ip-name ^
-  %LB_FRONTEND_NAME% %POSTFIX%
+	2. Download the following files to Parameters/Windows folder:
 
-:: Add NAT rule to the NIC
-CALL azure network nic inbound-nat-rule add --name %NIC_NAME% --lb-name ^
-  %LB_NAME% --lb-inbound-nat-rule-name rdp-vm%1 %POSTFIX%
+		- [virtualNetwork.parameters.json][vnet-parameters-windows]
 
-:: Create the storage account for the OS VHD
-CALL azure storage account create --type PLRS --location %LOCATION% ^
- %VHD_STORAGE% %POSTFIX%
+		- [networkSecurityGroup.parameters.json][nsg-parameters-windows]
 
-:: Create the VM
-CALL azure vm create --name %VM_NAME% --os-type Windows --image-urn ^
-  %WINDOWS_BASE_IMAGE% --vm-size %VM_SIZE% --vnet-subnet-name %SUBNET_NAME% ^
-  --nic-name %NIC_NAME% --vnet-name %VNET_NAME% --storage-account-name ^
-  %VHD_STORAGE% --os-disk-vhd "%VM_NAME%-osdisk.vhd" --admin-username ^
-  "%USERNAME%" --admin-password "%PASSWORD%" --boot-diagnostics-storage-uri ^
-  "https://%DIAGNOSTICS_STORAGE%.blob.core.windows.net/" --availset-name ^
-  %AVAILSET_NAME% --location %LOCATION% %POSTFIX%
+		- [loadBalancerParameters.json][loadbalancer-parameters-windows]
 
-:: Attach a data disk
-CALL azure vm disk attach-new --vm-name %VM_NAME% --size-in-gb 128 --vhd-name ^
-  %VM_NAME%-data1.vhd --storage-account-name %VHD_STORAGE% %POSTFIX%
+4. If you are building a set of Linux VMs:
 
-goto :eof
-```
+	1. In the Parameters folder, create another subfolder named Linux.
+
+	2. Download the following files to Parameters/Linux folder:
+
+		- [virtualNetwork.parameters.json][vnet-parameters-linux]
+
+		- [networkSecurityGroup.parameters.json][nsg-parameters-linux]
+
+		- [loadBalancerParameters.json][loadbalancer-parameters-linux]
+
+5. Edit the Deploy-ReferenceArchitecture.ps1 or deploy-reference-architecture.sh file in the Scripts folder, and change the following line to specify the resource group that should be created or used to hold the VM and resources created by the script:
+
+    <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-multi-vm/Deploy-ReferenceArchitecture.ps1#L38 -->
+	```powershell
+	$resourceGroupName = "ra-multi-vm-rg"
+	```
+
+    <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-multi-vm/deploy-reference-architecture.sh#L3 -->
+	```bash
+	RESOURCE_GROUP_NAME="ra-multi-vm-rg"
+	```
+
+6. Edit each of the JSON files in the Parameters/Windows or Parameters/Linux folder to set the parameters for the virtual network, NSG, VMs, and load balancer, as described in the Solution Components section above.
+
+	>[AZURE.NOTE] Make sure that you set the `resourceGroup` value in the `virtualNetworkSettings` section in each of the parameter files to be the same as that you specified in the Deploy-ReferenceArchitecture.ps1 script file.
+
+7. If you are using PowerShell, open an Azure PowerShell window, move to the Scripts folder, and run the following command:
+
+	```powershell
+	.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> <os-type>
+	```
+
+	Replace `<subscription id>` with your Azure subscription ID.
+
+	For `<location>`, specify an Azure region, such as `eastus` or `westus`.
+
+	Specify `windows` or `linux` for `<os-type>`
+
+8. If you are using bash, open a bash shell command prompt, move to the Scripts folder, and run the following command:
+
+	```bash
+	azure login
+	```
+
+	Follow the instructions to log in to your Azure account. When you have connected, run the following command:
+
+	```bash
+	./deploy-reference-architecture.sh -s <subscription id> -l <location> -o <os-type>
+	```
+
+	Replace `<subscription id>` with your Azure subscription ID.
+
+	For `<location>`, specify an Azure region, such as `eastus` or `westus`.
+
+	Specify `windows` or `linux` for `<os-type>`
+
+9. When the script has completed, use the Azure portal to verify that the network, NSG, VMs, and load balancer have been created successfully.
 
 ## Next steps
 
-- With a single tier, you have most of the building blocks needed for a multi-tier deployment. For more information, see [Running Windows VMs for an N-tier architecture on Azure][3-tier-blueprint].
+- Placing several VMs behind a load balancer is a building block for creating multi-tier architectures. For more information, see [Running VMs for an N-tier architecture on Azure][3-tier-blueprint].
 
 <!-- Links -->
 [3-tier-blueprint]: guidance-compute-3-tier-vm.md
@@ -285,3 +504,16 @@ goto :eof
 [subscription-limits]: ../azure-subscription-service-limits.md
 [vm-disk-limits]: ../azure-subscription-service-limits.md#virtual-machine-disk-limits
 [vm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_0/
+[ARM-Templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
+[VM-sizes]: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/
+[solution-script]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-multi-vm/Deploy-ReferenceArchitecture.ps1
+[solution-script-bash]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-multi-vm/deploy-reference-architecture.sh
+[vnet-parameters-windows]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-multi-vm/parameters/windows/virtualNetwork.parameters.json
+[nsg-parameters-windows]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-multi-vm/parameters/windows/networkSecurityGroups.parameters.json
+[loadbalancer-parameters-windows]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-multi-vm/parameters/windows/loadBalancer.parameters.json
+[vnet-parameters-linux]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-multi-vm/parameters/linux/virtualNetwork.parameters.json
+[nsg-parameters-linux]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-multi-vm/parameters/linux/networkSecurityGroups.parameters.json
+[loadbalancer-parameters-linux]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-multi-vm/parameters/linux/loadBalancer.parameters.json
+[azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+[azure-cli]: https://azure.microsoft.com/documentation/articles/xplat-cli-install/
+[0]: ./media/blueprints/compute-multi-vm.png "Architecture of a multi-VM solution on Azure comprising an availability set with two VMs and a load balancer"

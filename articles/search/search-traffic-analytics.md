@@ -14,7 +14,7 @@
 	ms.workload="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/21/2016" 
+	ms.date="07/19/2016" 
 	ms.author="betorres"
 />
 
@@ -71,8 +71,8 @@ Example path: `resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resour
 ### Logs
 
 The logs blobs contain your search service traffic logs.
-
 Each blob has one root object called **records** that contains an array of log objects
+Each blob has records on all the operation that took place during the same hour.
 
 ####Log schema
 
@@ -99,13 +99,16 @@ properties |object |see below |Object containing operation specific data
 
 ### Metrics
 
-The metrics blobs contain aggregated values for your search service.
-Each file has one root object called **records** that contains an array of metric objects
+The metrics blobs contain aggregated values for your search service. 
+Each file has one root object called **records** that contains an array of metric objects. This root object contains metrics for every minute for which data was available. 
 
 Available metrics:
 
-- Latency
-- SearchQueriesPerSecond
+- SearchLatency: Time the search service needed to process search queries, aggregated per minute.
+- SearchQueriesPerSecond: Number of search queries received per second, aggregated per minute.
+- ThrottledSearchQueriesPercentage: Percentage of search queries that were throttled, aggregated per minute.
+
+> [AZURE.IMPORTANT] Throttling occurs when too many queries are sent, exhausting the service's provisioned resource capacity. Consider adding more replicas to your service.
 
 ####Metrics schema
 
@@ -120,6 +123,13 @@ Available metrics:
 |total |int |258 |The total value of the raw samples in the metric time interval |
 |count |int |4 |The number of raw samples used to generate the metric |
 |timegrain |string |"PT1M" |The time grain of the metric in ISO 8601|
+
+All metrics are reported in one-minute intervals. This means that each of the metrics will expose the minimum, maximum and average values per minute.
+
+In the case of the SearchQueriesPerSecond metric, minimum will be the lowest value for search queries per second that was registered during that minute; same applies to the maximum value. Average, will be the the aggregate across the entire minute. 
+Think about this scenario: during one minute you can have 1 second of very high load, which will be you maximum for SearchQueriesPerSecond, followed by 58 seconds of mid load, and then one second with only one query, which will be the minimum.
+
+For ThrottledSearchQueriesPercentage, minimum, maximum, average and total will all be the same value, which is the percentage of search queries that were throttled, based on the total number of search queries during one minute.
 
 ## Analyzing your data
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/25/2016"
+	ms.date="06/11/2016"
 	ms.author="glenga"/>
 
 # How to use the managed client for Azure Mobile Apps
@@ -50,16 +50,30 @@ The corresponding typed client-side type in C# is the following:
 
 Note that the [JsonPropertyAttribute] is used to define the *PropertyName* mapping between the client type and the table.
 
-To learn how to create new tables in your Mobile Apps backend, see the information in the [.NET Server SDK HOWTO](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller)
-or the [Node.js Server SDK HOWTO](app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-dynamicschema). If you
+To learn how to create new tables in your Mobile Apps backend, see the information in the [.NET Server SDK topic](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller)
+or the [Node.js Server SDK topic](app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-dynamicschema). If you
 created your Mobile App backend in the Azure Portal using the QuickStart, you can also use the **Easy tables** setting in the [Azure portal].
+
+###How to: Install the managed client SDK package
+
+Use one of the following methods to install the managed client SDK package for Mobile Apps from [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/):
+
++ **Visual Studio**  
+Right-click your project, click **Manage NuGet Packages**, search for the `Microsoft.Azure.Mobile.Client` package, then click **Install**.
+
++ **Xamarin Studio**  
+Right-click your project, click **Add** > **Add NuGet Packages**, search for the `Microsoft.Azure.Mobile.Client `package, and then click **Add Package**.
+
+In your main activity file, remember to add the following **using** statement:
+
+	using Microsoft.WindowsAzure.MobileServices;
 
 ###<a name="symbolsource"></a>How to: Work with debug symbols in Visual Studio
 
 The symbols for the Microsoft.Azure.Mobile namespace are available on [SymbolSource].  Refer to the [SymbolSource instructions]
 to integrate SymbolSource with Visual Studio.
 
-##<a name="create-client"></a>Create the Mobile App client
+##<a name="create-client"></a>Create the Mobile Apps client
 
 The following code creates the [MobileServiceClient] object that is used to access your Mobile App backend.
 
@@ -343,7 +357,7 @@ transaction is rolled back.
 
 Mobile Apps supports optimistic concurrency control by tracking changes to each item using the `version` system property column that is defined for each table
 in your Mobile App backend. Each time a record is updated, Mobile Apps sets the `version` property for that record to a new value. During each update request,
-the `\version` property of the record included with the request is compared to the same property for the record on the server. If the version passed with the
+the `version` property of the record included with the request is compared to the same property for the record on the server. If the version passed with the
 request does not match the backend, then the client library raises a `MobileServicePreconditionFailedException<T>` exception. The type included with the exception
 is the record from the backend containing the servers version of the record. The application can then use this information to decide whether to execute the update
 request again with the correct `version` value from the backend to commit changes.
@@ -360,9 +374,9 @@ Define a column on the table class for the `version` system property to enable o
         [JsonProperty(PropertyName = "complete")]
         public bool Complete { get; set; }
 
-		// *** Enable Optimistic Concurrency *** //
+        // *** Enable Optimistic Concurrency *** //
         [JsonProperty(PropertyName = "version")]
-        public byte[] Version { set; get; }
+        public string Version { set; get; }
     }
 
 
@@ -804,7 +818,7 @@ When you use client-managed authentication, you can also cache the access token 
 	await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
 
 
-##<a name="pushnotifications">Push Notifications
+##<a name="pushnotifications"></a>Push Notifications
 
 The following topics cover Push Notifications:
 

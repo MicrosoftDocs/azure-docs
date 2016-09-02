@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/01/2016"
+	ms.date="08/24/2016"
 	ms.author="szark"/>
 
 #Introduction to Linux on Azure
@@ -28,7 +28,7 @@ When creating a Linux virtual machine using the Azure classic portal, you are as
 
 
  - See [Create a Virtual Machine Running Linux](virtual-machines-linux-quick-create-cli.md)
- - See [How to Use SSH with Linux on Azure](virtual-machines-linux-ssh-from-linux.md)
+ - See [How to Use SSH with Linux on Azure](virtual-machines-linux-mac-create-ssh-keys.md)
 
 
 ## Obtaining Superuser Privileges Using `sudo`
@@ -64,12 +64,12 @@ The Azure Linux Agent includes functionality to automatically detect this name c
  - [Azure Linux Agent User Guide](virtual-machines-linux-agent-user-guide.md)
 
 ### Cloud-Init
-**Ubuntu** and **CoreOS** images utilize cloud-init pn Azure, which provides additional capabilities for bootstrapping a virtual machine.
+**Ubuntu** and **CoreOS** images utilize cloud-init on Azure, which provides additional capabilities for bootstrapping a virtual machine.
 
  - [How to Inject Custom Data](virtual-machines-windows-classic-inject-custom-data.md)
  - [Custom Data and Cloud-Init on Microsoft Azure](https://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/)
  - [Create Azure Swap Partitions Using Cloud-Init](https://wiki.ubuntu.com/AzureSwapPartitions)
- - [How to Use CoreOS on Azure](virtual-machines-linux-classic-coreos-howto.md)
+ - [How to Use CoreOS on Azure](https://coreos.com/os/docs/latest/booting-on-azure.html)
 
 
 ## Virtual Machine Image Capture
@@ -96,4 +96,5 @@ On Linux, the resource disk is typically managed by the Azure Linux Agent and au
 
 On Linux the data disk might be named by the kernel as `/dev/sdc`, and users will need to partition, format and mount that resource. This is covered step-by-step in the tutorial: [How to Attach a Data Disk to a Virtual Machine](virtual-machines-linux-classic-attach-disk.md).
 
- - **See also:** [Configure Software RAID on Linux](virtual-machines-linux-configure-raid.md)
+ - **See also:** [Configure Software RAID on Linux](virtual-machines-linux-configure-raid.md) & [Configure LVM on a Linux VM in Azure](virtual-machines-linux-configure-lvm.md)
+

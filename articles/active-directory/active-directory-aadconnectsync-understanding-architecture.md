@@ -13,11 +13,11 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="04/14/2016"
+   ms.date="08/31/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect sync: Understanding the architecture
-This topic covers the basic architecture for Azure AD Connect sync. In many aspects it is very similar to its predecessors MIIS 2003, ILM 2007, and FIM 2010. Azure AD Connect sync is the evolution of these technologies. If you are familiar with any of these earlier technologies, the content of this topic will be familiar to you as well. If you are new to synchronization, then this topic is for you. It is however not a requirement to know the details of this topic to be successful in making customizations to Azure AD Connect sync (called sync engine in this topic).
+This topic covers the basic architecture for Azure AD Connect sync. In many aspects, it is similar to its predecessors MIIS 2003, ILM 2007, and FIM 2010. Azure AD Connect sync is the evolution of these technologies. If you are familiar with any of these earlier technologies, the content of this topic will be familiar to you as well. If you are new to synchronization, then this topic is for you. It is however not a requirement to know the details of this topic to be successful in making customizations to Azure AD Connect sync (called sync engine in this topic).
 
 ## Architecture
 The sync engine creates an integrated view of objects that are stored in multiple connected data sources and manages identity information in those data sources. This integrated view is determined by the identity information retrieved from connected data sources and a set of rules that determine how to process this information.
@@ -35,7 +35,7 @@ Data can flow in either direction, but it cannot flow in both directions simulta
 
 To configure a Connector, you specify the object types that you want to synchronize. Specifying the object types defines the scope of objects that are included in the synchronization process. The next step is to select the attributes to synchronize, which is known as an attribute inclusion list. These settings can be changed any time in response to changes to your business rules. When you use the Azure AD Connect installation wizard, these settings are configured for you.
 
-To export objects to a connected data source, the attribute inclusion list must include at least the minimum attributes required to create a specific object type in a connected data source. For example, the **sAMAccountName** attribute must be included in the attribute inclusion list to export a user object to Active Directory because all user objects in Active Directory must have a **sAMAccountName** attribute defined. Again, the installation wizard will do this for you.
+To export objects to a connected data source, the attribute inclusion list must include at least the minimum attributes required to create a specific object type in a connected data source. For example, the **sAMAccountName** attribute must be included in the attribute inclusion list to export a user object to Active Directory because all user objects in Active Directory must have a **sAMAccountName** attribute defined. Again, the installation wizard does this configuration for you.
 
 If the connected data source uses structural components, such as partitions or containers to organize objects, you can limit the areas in the connected data source that are used for a given solution.
 
@@ -68,7 +68,7 @@ All objects in the connector space have two attributes:
 - A globally unique identifier (GUID)
 - A distinguished name (also known as DN)
 
-Objects in the connector space can also have an anchor attribute if the connected data source assigns a unique attribute to the object. The anchor attribute uniquely identifies an object in the connected data source. The sync engine uses the anchor to locate the corresponding representation of this object in the connected data source. Sync engine assumes that the anchor of an object never changes over the lifetime of the object.
+If the connected data source assigns a unique attribute to the object, then objects in the connector space can also have an anchor attribute. The anchor attribute uniquely identifies an object in the connected data source. The sync engine uses the anchor to locate the corresponding representation of this object in the connected data source. Sync engine assumes that the anchor of an object never changes over the lifetime of the object.
 
 Many of the Connectors use a known unique identifier to generate an anchor automatically for each object when it is imported. For example, the Active Directory Connector uses the **objectGUID** attribute for an anchor. For connected data sources that do not provide a clearly defined unique identifier, you can specify anchor generation as part of the Connector configuration.
 
@@ -98,7 +98,7 @@ The following illustration shows how an export object is created by using identi
 
 ![Arch4](./media/active-directory-aadconnectsync-understanding-architecture/arch4.png)
 
-The sync engine confirms the export of the object by re-importing the object from the connected data source. Export objects become import objects as soon as sync engine receives them during the next import from that connected data source.
+The sync engine confirms the export of the object by reimporting the object from the connected data source. Export objects become import objects when sync engine receives them during the next import from that connected data source.
 
 ### Placeholders
 The sync engine uses a flat namespace to store objects. However, some connected data sources such as Active Directory use a hierarchical namespace. To transform information from a hierarchical namespace into a flat namespace, sync engine uses placeholders to preserve the hierarchy.
@@ -115,7 +115,7 @@ Metaverse objects cannot be manually created or deleted. The sync engine automat
 To map objects within a connected data source to a corresponding object type within the metaverse, sync engine provides an extensible schema with a predefined set of object types and associated attributes. You can create new object types and attributes for metaverse objects. Attributes can be single-valued or multivalued, and the attribute types can be strings, references, numbers, and Boolean values.
 
 ### Relationships between staging objects and metaverse objects
-Within the sync engine namespace, the data flow is enabled by the link relationship between staging objects and metaverse objects. A staging object that is linked to a metaverse object is called a **joined object** (or **connector object**). A staging object that is not linked to a metaverse object is called a  **disjoined object** (or **disconnector object**). The terms joined and disjoined are preferred to not confuse with the Connectors responsible for importing and exporting data from a connected directory.
+Within the sync engine namespace, the data flow is enabled by the link relationship between staging objects and metaverse objects. A staging object that is linked to a metaverse object is called a **joined object** (or **connector object**). A staging object that is not linked to a metaverse object is called a **disjoined object** (or **disconnector object**). The terms joined and disjoined are preferred to not confuse with the Connectors responsible for importing and exporting data from a connected directory.
 
 Placeholders are never linked to a metaverse object
 
@@ -129,9 +129,9 @@ A single connector space object can be linked to only one metaverse object. Howe
 
 The linked relationship between the staging object and a metaverse object is persistent and can be removed only by rules that you specify.
 
-A disjoined object is a staging object that is not linked to any metaverse object. The attribute values of a disjoined object are not processed any further within the metaverse. This means that the attribute values of the corresponding object in the connected data source are not updated by sync engine.
+A disjoined object is a staging object that is not linked to any metaverse object. The attribute values of a disjoined object are not processed any further within the metaverse. The attribute values of the corresponding object in the connected data source are not updated by sync engine.
 
-By using disjoined objects, you can store identity information in sync engine and process it at a later time. Keeping a staging object as a disjoined object in the connector space has many advantages. Because the system has already staged the required information about this object, it is not necessary to create a representation of this object again during the next import from the connected data source. This way, sync engine always has a complete snapshot of the connected data source, even if there is no current connection to the connected data source. Disjoined objects can be converted into joined objects, and vice versa, depending on the rules that you specify.
+By using disjoined objects, you can store identity information in sync engine and process it later. Keeping a staging object as a disjoined object in the connector space has many advantages. Because the system has already staged the required information about this object, it is not necessary to create a representation of this object again during the next import from the connected data source. This way, sync engine always has a complete snapshot of the connected data source, even if there is no current connection to the connected data source. Disjoined objects can be converted into joined objects, and vice versa, depending on the rules that you specify.
 
 An import object is created as a disjoined object. An export object must be a joined object. The system logic enforces this rule and deletes every export object that is not a joined object.
 
@@ -155,13 +155,13 @@ The following illustration shows where each of the processes occurs as identity 
 ### Import process
 During the import process, sync engine evaluates updates to identity information. Sync engine compares the identity information received from the connected data source with the identity information about a staging object and determines whether the staging object requires updates. If it is necessary to update the staging object with new data, the staging object is flagged as pending import.
 
-By staging objects in the connector space prior to synchronization, sync engine can process only the identity information that has changed. This provides the following benefits:
+By staging objects in the connector space before synchronization, sync engine can process only the identity information that has changed. This process provides the following benefits:
 
 - **Efficient synchronization**. The amount of data processed during synchronization is minimized.
 - **Efficient resynchronization**. You can change how sync engine processes identity information without reconnecting the sync engine to the data source.
 - **Opportunity to preview synchronization**. You can preview synchronization to verify that your assumptions about the identity management process are correct.
 
-For each object specified in the Connector, the sync engine first tries to locate a representation of the object in the connector space of the Connector. Sync engine examines all of the staging objects in the connector space and tries to find a corresponding staging object that has a matching anchor attribute. If no existing staging object has a matching anchor attribute, sync engine tries to find a corresponding staging object with the same distinguished name.
+For each object specified in the Connector, the sync engine first tries to locate a representation of the object in the connector space of the Connector. Sync engine examines all staging objects in the connector space and tries to find a corresponding staging object that has a matching anchor attribute. If no existing staging object has a matching anchor attribute, sync engine tries to find a corresponding staging object with the same distinguished name.
 
 When sync engine finds a staging object that matches by distinguished name but not by anchor, the following special behavior occurs:
 
@@ -172,11 +172,11 @@ If sync engine locates a staging object that corresponds to the object specified
 
 Staging objects with updated data are marked as pending import. Different types of pending imports are available. Depending on the result of the import process, a staging object in the connector space has one of the following pending import types:
 
-- **None**. No changes to any of the attributes of the staging object are available. Sync engine does not flag this as pending import.
-- **Add**. The staging object is a new import object in the connector space. Sync engine flags this as pending import for additional processing in the metaverse.
-- **Update**. Sync engine finds a corresponding staging object in the connector space and flags this as pending import so that updates to the attributes can be processed in the metaverse. Updates include object renaming.
-- **Delete**. Sync engine finds a corresponding staging object in the connector space and flags this as pending import so that the joined object can be deleted.
-- **Delete/Add**. Sync engine finds a corresponding staging object in the connector space, but the object types do not match. In this case, a delete-add modification is staged. A delete-add modification indicates to the synch engine that a complete resynchronization of this object must occur because different sets of rules will apply to this object when the object type changes.
+- **None**. No changes to any of the attributes of the staging object are available. Sync engine does not flag this type as pending import.
+- **Add**. The staging object is a new import object in the connector space. Sync engine flags this type as pending import for additional processing in the metaverse.
+- **Update**. Sync engine finds a corresponding staging object in the connector space and flags this type as pending import so that updates to the attributes can be processed in the metaverse. Updates include object renaming.
+- **Delete**. Sync engine finds a corresponding staging object in the connector space and flags this type as pending import so that the joined object can be deleted.
+- **Delete/Add**. Sync engine finds a corresponding staging object in the connector space, but the object types do not match. In this case, a delete-add modification is staged. A delete-add modification indicates to the sync engine that a complete resynchronization of this object must occur because different sets of rules apply to this object when the object type changes.
 
 By setting the pending import status of a staging object, it is possible to reduce significantly the amount of data processed during synchronization because doing so allows the system to process only those objects that have updated data.
 
@@ -186,7 +186,7 @@ Synchronization consists of two related processes:
 - Inbound synchronization, when the content of the metaverse is updated by using the data in the connector space.
 - Outbound synchronization, when the content of the connector space is updated by using data in the metaverse.
 
-By using the information staged in the connector space, the inbound synchronization process creates in the metaverse the integrated view of the data that is stored in the connected data sources. Either all staging objects or only those with pending import information are aggregated, depending on how the rules are configured.
+By using the information staged in the connector space, the inbound synchronization process creates in the metaverse the integrated view of the data that is stored in the connected data sources. Either all staging objects or only those with a pending import information are aggregated, depending on how the rules are configured.
 
 The outbound synchronization process updates export objects when metaverse objects change.
 
@@ -202,17 +202,17 @@ Inbound synchronization includes the following processes:
 
 Provision is the only process that creates objects in the metaverse. Provision affects only import objects that are disjoined objects. During provision, sync engine creates a metaverse object that corresponds to the object type of the import object and establishes a link between both objects, thus creating a joined object.
 
-The join process also establishes a link between import objects and a metaverse object. The difference between join and provision is that the join process requires that the import object be linked to an existing metaverse object, where the provision process creates a new metaverse object.
+The join process also establishes a link between import objects and a metaverse object. The difference between join and provision is that the join process requires that the import object are linked to an existing metaverse object, where the provision process creates a new metaverse object.
 
 Sync engine tries to join an import object to a metaverse object by using criteria that is specified in the Synchronization Rule configuration.
 
-During the provision and join processes, sync engine links a disjoind object to a metaverse object, thereby making them joined. After these object-level operations are completed, sync engine can update the attribute values of the associated metaverse object. This process is called import attribute flow.
+During the provision and join processes, sync engine links a disjoined object to a metaverse object, making them joined. After these object-level operations are completed, sync engine can update the attribute values of the associated metaverse object. This process is called import attribute flow.
 
 Import attribute flow occurs on all import objects that carry new data and are linked to a metaverse object.
 
 **Outbound synchronization**
 
-Outbound synchronization updates export objects when a metaverse object changes but is not deleted. The objective of outbound synchronization is to evaluate whether changes to metaverse objects require updates to staging objects in the connector spaces. In some cases, the changes can require that staging objects in all connector spaces be updated. Staging objects that are changed are flagged as pending export, making them export objects. These export objects are subsequently pushed out to the connected data source during the export process.
+Outbound synchronization updates export objects when a metaverse object change but is not deleted. The objective of outbound synchronization is to evaluate whether changes to metaverse objects require updates to staging objects in the connector spaces. In some cases, the changes can require that staging objects in all connector spaces be updated. Staging objects that are changed are flagged as pending export, making them export objects. These export objects are later pushed out to the connected data source during the export process.
 
 Outbound synchronization has three processes:
 
@@ -226,11 +226,11 @@ Provisioning is always triggered when changes are applied to objects in the meta
 
 - Create joined objects, where a metaverse object is linked to a newly created export object.
 - Rename a joined object.
-- Disjoin links between a metaverse object and staging objects, thereby creating a disjoined object.
+- Disjoin links between a metaverse object and staging objects, creating a disjoined object.
 
-If provisioning requires sync engine to create a new connector object, the staging object to which the metaverse object is linked is always an export object, because the object will not yet exist in the connected data source.
+If provisioning requires sync engine to create a new connector object, the staging object to which the metaverse object is linked is always an export object, because the object does not yet exist in the connected data source.
 
-If provisioning requires sync engine to disjoin a joined object, thereby creating a disjoined object, deprovisioning is triggered. The deprovisioning process will  delete the object.
+If provisioning requires sync engine to disjoin a joined object, creating a disjoined object, deprovisioning is triggered. The deprovisioning process deletes the object.
 
 During deprovisioning, deleting an export object does not physically delete the object. The object is flagged as **deleted**, which means that the delete operation is staged on the object.
 
@@ -247,7 +247,7 @@ The sync engine stores export and import status information about each staging o
 
 ![Arch7](./media/active-directory-aadconnectsync-understanding-architecture/arch7.png)
 
-For example, if sync engine exports attribute C, which has a value of 5, to a connected data source, it stores C=5 in its export status memory. Each additional export on this object results in an attempt to export C=5 to the connected data source again because sync engine assumes that this value has not been persistently applied to the object (that is, unless a different value was imported recently from the connected data source). The export memory is cleared as soon as C=5 is received during an import operation on the object.
+For example, if sync engine exports attribute C, which has a value of 5, to a connected data source, it stores C=5 in its export status memory. Each additional export on this object results in an attempt to export C=5 to the connected data source again because sync engine assumes that this value has not been persistently applied to the object (that is, unless a different value was imported recently from the connected data source). The export memory is cleared when C=5 is received during an import operation on the object.
 
 ## Next steps
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
