@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="08/27/2016" 
 	ms.author="awills"/>
 
 # Manage pricing and quota for Application Insights
@@ -77,7 +77,7 @@ If your application sends more than the monthly quota, you can:
 * Do nothing. Session data will continue to be recorded, but other data will not appear in diagnostic search or in metrics explorer.
 
 
-### How much data am I sending?
+## How much data am I sending?
 
 The chart at the bottom of the pricing blade shows your application's data point volume, grouped by data point type. (You can also create this chart in Metric Explorer.)
 
@@ -86,6 +86,8 @@ The chart at the bottom of the pricing blade shows your application's data point
 Click the chart for more detail, or drag across it and click (+) for the detail of a time range.
 
 The chart shows the volume of data that arrives at the Application Insights service, after [sampling](app-insights-sampling.md).
+
+If the data volume reaches your monthly quota, an annotation appears on the chart.
 
 
 ## Data rate
@@ -112,7 +114,7 @@ If throttling occurs, you'll see a notification warning that this has happened.
 * Or in Metrics Explorer, add a new chart and select **Data point volume** as its metric. Switch on Grouping, and group by **Data type**.
 
 
-### Tips for reducing your data rate
+## To reduce your data rate
 
 If you encounter the throttling limits, here are some things you can do:
 
@@ -124,16 +126,30 @@ If you encounter the throttling limits, here are some things you can do:
 
 ## Sampling
 
-[Sampling](app-insights-sampling.md) is a method of reducing the rate at which telemetry is sent to your app, while still retaining the ability to find related events during diagnostic searches, and still retaining correct event counts. Sampling helps you to keep within your monthly quota.
-
-There are several forms of sampling. We recommend [adaptive sampling](app-insights-sampling.md), which automatically adjusts to the volume of telemetry that your app sends. It operates in the SDK in your web app, so that the telemetry traffic on the network is reduced. You can use it if your web app framework is .NET: just install the latest (beta) version of the SDK.
-
-As an alternative, you can set *ingestion sampling* on the Quotas + pricing blade. This form of sampling operates at the point where telemetry from your app enters the Application Insights service. It doesn't affect the volume of telemetry sent from your app, but it reduces the volume retained by the service.
-
-![From the Quota and pricing blade, click the Samples tile and select a sampling fraction.](./media/app-insights-pricing/04.png)
+[Sampling](app-insights-sampling.md) is a method of reducing the rate at which telemetry is sent to your app, while still retaining the ability to find related events during diagnostic searches, and still retaining correct event counts. 
 
 Sampling is an effective way to reduce charges and stay within your monthly quota. The sampling algorithm retains related items of telemetry, so that, for example, when you use Search, you can find the request related to a particular exception. The algorithm also retains correct counts, so that you see the correct values in Metric Explorer for request rates, exception rates, and other counts.
 
+There are several forms of sampling.
+
+* [Adaptive sampling](app-insights-sampling.md) is the default for the ASP.NET SDK, which automatically adjusts to the volume of telemetry that your app sends. It operates automatically in the SDK in your web app, so that the telemetry traffic on the network is reduced. 
+* *Ingestion sampling* is an alternative that operates at the point where telemetry from your app enters the Application Insights service. It doesn't affect the volume of telemetry sent from your app, but it reduces the volume retained by the service. You can use it to reduce the quota used up by telemetry from browsers and other SDKs.
+
+To set ingestion sampling, set the control in the Quotas + Pricing blade:
+
+![From the Quota and pricing blade, click the Samples tile and select a sampling fraction.](./media/app-insights-pricing/04.png)
+
+> [AZURE.WARNING] The value shown on the Samples Retained tile indicates only the value you have set for ingestion sampling. It doesn't show the sampling rate that is operating at the SDK in your app. 
+> 
+> If the incoming telemetry has already been sampled at the SDK, ingestion sampling is not applied.
+ 
+To discover the actual sampling rate no matter where it has been applied, use an [Analytics query](app-insights-analytics.md) such as this:
+
+    requests | where timestamp > ago(1d)
+    | summarize 100/avg(itemCount) by bin(timestamp, 1h) 
+    | render areachart 
+
+In each retained record, `itemCount` indicates the number of original records that it represents, equal to 1 + the number of  previous discarded records. 
 
 ## Review the bill for your subscription to Azure
 

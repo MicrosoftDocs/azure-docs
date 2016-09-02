@@ -14,7 +14,7 @@ The following table lists the limits that apply to IoT Hub resources:
 | Maximum paid IoT hubs per Azure subscription | 10 |
 | Maximum free IoT hubs per Azure subscription | 1 |
 | Maximum number of device identities<br/>  returned in a single call | 1000 |
-| IoT Hub message maximum retention | 7 days |
+| IoT Hub message maximum retention for device-to-cloud messages | 7 days |
 | Maximum size of device-to-cloud message | 256 KB |
 | Maximum size of device-to-cloud batch | 256 KB |
 | Maximum messages in device-to-cloud batch | 500 |

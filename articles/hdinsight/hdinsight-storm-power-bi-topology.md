@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="05/27/2016"
+ ms.date="08/16/2016"
  ms.author="larryfr"/>
 
 # Use Power BI to visualize data from an Apache Storm topology
@@ -146,7 +146,7 @@ The topology will continue to run until you stop it or delete the Storm on HDIns
 
 2. Select the **Kill** button to stop the topology.
 
-    ![Kill button on the toplogy summary](./media/hdinsight-storm-power-bi-topology/killtopology.png)
+    ![Kill button on the topology summary](./media/hdinsight-storm-power-bi-topology/killtopology.png)
 
 ## Delete your cluster
 

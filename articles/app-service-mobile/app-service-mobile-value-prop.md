@@ -121,7 +121,7 @@ For more information on the Azure App Service platform, see [Azure App Service].
 [DocumentDB]: ../documentdb/documentdb-get-started.md
 [authentication features]: ./app-service-mobile-auth.md
 [data features]: ./app-service-mobile-offline-data-sync.md
-[push notification features]: ../notification-hubs/notification-hubs-overview.md
+[push notification features]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [iOS]: ./app-service-mobile-ios-how-to-use-client-library.md
 [Android]: ./app-service-mobile-android-how-to-use-client-library.md
 [Windows]: ./app-service-mobile-dotnet-how-to-use-client-library.md

@@ -18,7 +18,7 @@
 
 # Use IoT Hub security tokens and X.509 certificates
 
-IoT Hub uses security tokens to authenticate devices and services to avoid sending keys on the wire. Additionally, security tokens are limited in time validity and scope. [Azure IoT Hub SDKs][lnk-apis-sdks] automatically generate tokens without requiring any special configuration. Some scenarios, however, require the user to generate and use security tokens directly. These include the direct use of the AMQP, MQTT, or HTTP surfaces, or the implementation of the token service pattern, as explained in [IoT Hub guidance][lnk-guidance-security].
+IoT Hub uses security tokens to authenticate devices and services to avoid sending keys on the wire. Additionally, security tokens are limited in time validity and scope. [Azure IoT Hub SDKs][lnk-apis-sdks] automatically generate tokens without requiring any special configuration. Some scenarios, however, require the user to generate and use security tokens directly. These include the direct use of the MQTT, AMQP, or HTTP surfaces, or the implementation of the token service pattern, as explained in [IoT Hub guidance][lnk-guidance-security].
 
 IoT Hub also allows devices to authenticate with IoT Hub using X.509 certificates. IoT Hub supports X.509 based authentication for devices over the AMQP, AMQP over WebSockets and HTTP protocols.
 
@@ -27,7 +27,7 @@ This article describes:
 * The format of the security tokens and how to generate them.
 * The main use cases for using security tokens to authenticate both devices and back-end services.
 * Supported X.509 certificates for authentication of devices.
-* Process of registering a X.509 client certificate tied to a specific device.
+* Process of registering an X.509 client certificate tied to a specific device.
 * Runtime flow between device and IoT Hub using an X.509 client certificate for authentication.
 
 
@@ -187,7 +187,7 @@ These are the service functions exposed on the endpoints:
 As an example, a service generating using the precreated shared access policy called **registryRead** would create a token with the following parameters:
 
 * resource URI: `{IoT hub name}.azure-devices.net/devices`,
-* signing key: one of the keys of the `registryRead` plocy,
+* signing key: one of the keys of the `registryRead` policy,
 * policy name: `registryRead`,
 * any expiration time.
 
@@ -211,7 +211,7 @@ You can use any X.509 certificate to authenticate a device with IoT Hub. This in
 
 -   **CA-signed X.509 certificate**. You can also use an X.509 certificate generated and signed by a Certification Authority (CA) to identify a device and authenticate a device with IoT Hub.
 
-A device may either use a X.509 certificate or a security token for authentication, but not both.
+A device may either use an X.509 certificate or a security token for authentication, but not both.
 
 ## Register an X.509 client certificate for a device
 
@@ -223,7 +223,7 @@ The **RegistryManager** class provides a programmatic way to register a device. 
 
 > [AZURE.NOTE] IoT Hub does not require or store the entire X.509 client certificate, only the thumbprint.
 
-Here is a sample C\# code snippet to register a device using a X.509 client certificate:
+Here is a sample C\# code snippet to register a device using an X.509 client certificate:
 
 ```
 var device = new Device(deviceId)
