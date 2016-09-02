@@ -31,7 +31,7 @@ The Microsoft Authenticator app is available for [Windows Phone](http://go.micro
 	![Additional security verification screen](./media/multi-factor-authentication-end-user-first-time-mobile-app/mobileapp.png)
 
 3. On the phone that has the Microsoft Authenticator app installed, open the app and select **+** to add an account.
-4. Specify that you want to add a work or school account. This opens the QR code scanner. If your camera is not working properly, you can select to enter your company information manually. For more information, see [Adding an account manually](#adding-an-account-manually).
+4. Specify that you want to add a work or school account. This opens the QR code scanner. If your camera is not working properly, you can select to enter your company information manually. For more information, see [Add an account manually](#add-an-account-manually).
 
 	![Screen for selecting an account](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan.png)
 
