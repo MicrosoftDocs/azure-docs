@@ -20,11 +20,11 @@
 
 #Debug C# code in U-SQL for Data Lake Analytics jobs 
 
-Learn how to user Azure Data Lake Visual Studio tools to debug failed U-SQL jobs due to bugs inside user code. 
+Learn how to use Azure Data Lake Visual Studio tools to debug failed U-SQL jobs due to bugs inside user code. 
 
-The Visual Studio tool allows users to download compiled code and necessary vertex data from  cluster to trace and debug failed jobs .
+The Visual Studio tool allows you to download compiled code and necessary vertex data from  cluster to trace and debug failed jobs .
 
-Big data systems usually provide extensibility model through languages such as Java, C#, Python, etc. A lot of these systems provide limited runtime debugging informtion, that makes it hard to debug runtime errors in custom code. The latest Visual Studio tools comes with a feature called “Failed Vertex Debug”. Using this feature, you can download the runtime data from Azure to local workstation so that you can debug failed custom C# code using the same runtime and exact input data from the cloud.  After the problems are fixed, you can re-run the revised code in Azure from the tools.
+Big data systems usually provide extensibility model through languages such as Java, C#, Python, etc. Many these systems provide limited runtime debugging information, that makes it hard to debug runtime errors in custom code. The latest Visual Studio tools comes with a feature called “Failed Vertex Debug”. Using this feature, you can download the runtime data from Azure to local workstation so that you can debug failed custom C# code using the same runtime and exact input data from the cloud.  After the problems are fixed, you can re-run the revised code in Azure from the tools.
 
 For a video presentation of this feature, see [Debug your custom code in Azure Data Lake Analytics](https://mix.office.com/watch/1bt17ibztohcb).
 
@@ -66,7 +66,7 @@ In some rare cases, you use user defined operators in U-SQL code behind (Script.
  
 ##Debug the job
 
-After you have created a debug solution by downloading the vertex and have configured the environment, you can start debuggin your U-SQL code.
+After you have created a debug solution by downloading the vertex and have configured the environment, you can start debugging your U-SQL code.
 
 1.	From Solution Explorer, right-click the **LocalVertexHost** project you just created, point to **Debug**, and then click **Start new instance**. The LocalVertexHost must be set as the Startup project. You may see the following message for the first time which you can ignore. It can take up to one minute to get to the debug screen.
  
@@ -77,7 +77,7 @@ After you have created a debug solution by downloading the vertex and have confi
 
         The Program ‘LocalVertexHost.exe’ has exited with code 0 (0x0).
  
-##Re-submit the job
+##Resubmit the job
 
 After you have completed debugging your U-SQL code, you can resubmit the failed job.
 
@@ -88,7 +88,7 @@ After you have completed debugging your U-SQL code, you can resubmit the failed 
     3.	Register your new .dll assemblies to the ADLA database.
  
 2.	Or copy your C# code to script.usql.cs--C# code behind file.
-3.	Re-submit your job.
+3.	Resubmit your job.
 
 ##Next Steps
 
