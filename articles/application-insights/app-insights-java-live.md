@@ -107,9 +107,9 @@ To get the most accurate results, the filter should be mapped before all other f
 
 You might need to [set exceptions to send outgoing data](app-insights-ip-addresses.md).
 
-## 5. Restart your web app
+## 6. Restart your web app
 
-## 6. View your telemetry in Application Insights
+## 7. View your telemetry in Application Insights
 
 Return to your Application Insights resource in [Microsoft Azure portal](https://portal.azure.com).
 
