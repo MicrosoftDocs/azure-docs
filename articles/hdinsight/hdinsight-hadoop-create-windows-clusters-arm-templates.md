@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create Windows-based Hadoop clusters in HDInsight using ARM templates | Microsoft Azure"
-   	description="Learn how to create clusters for Azure HDInsight using Azure ARM templates."
+   pageTitle="Create Windows-based Hadoop clusters in HDInsight using Azure Resource Manager templates | Microsoft Azure"
+   	description="Learn how to create clusters for Azure HDInsight using Azure Resource Manager templates."
    services="hdinsight"
    documentationCenter=""
    tags="azure-portal"
@@ -17,11 +17,11 @@
    ms.date="07/25/2016"
    ms.author="jgao"/>
 
-# Create Windows-based Hadoop clusters in HDInsight using ARM templates
+# Create Windows-based Hadoop clusters in HDInsight using Azure Resource Manager templates
 
 [AZURE.INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
-Learn how to create HDInsight clusters using Azure Resource Manager(ARM) templates. For more information, see [Deploy an application with Azure Resource Manager template](../resource-group-template-deploy.md). For other cluster creation tools and features click the tab select on the top of this page or see [Cluster creation methods](hdinsight-provision-clusters.md#cluster-creation-methods).
+Learn how to create HDInsight clusters using Azure Resource Manager templates. For more information, see [Deploy an application with Azure Resource Manager template](../resource-group-template-deploy.md). For other cluster creation tools and features click the tab select on the top of this page or see [Cluster creation methods](hdinsight-provision-clusters.md#cluster-creation-methods).
 
 ##Prerequisites:
 
@@ -35,13 +35,13 @@ Before you begin the instructions in this article, you must have the following:
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)] 
 
-## ARM templates
+## Resource Manager templates
 
-ARM template makes it easy to create HDInsight clusters, their dependent resources (such as the default storage account), and other resources (such as Azure SQL Database to use Apache Sqoop) for your application in a single, coordinated operation. In the template, you define the resources that are needed for the application and specify deployment parameters to input values for different environments. The template consists of JSON and expressions which you can use to construct values for your deployment.
+Resource Manager template makes it easy to create HDInsight clusters, their dependent resources (such as the default storage account), and other resources (such as Azure SQL Database to use Apache Sqoop) for your application in a single, coordinated operation. In the template, you define the resources that are needed for the application and specify deployment parameters to input values for different environments. The template consists of JSON and expressions which you can use to construct values for your deployment.
 
-An ARM template for creating an HDInsight cluster and the dependent Azure Storage account can be found in [Appendix-A](#appx-a-arm-template). Use a text editor to save the template into a file on your workstation. You will learn how to call the template using various tools.
+A Resource Manager template for creating an HDInsight cluster and the dependent Azure Storage account can be found in [Appendix-A](#appx-a-arm-template). Use a text editor to save the template into a file on your workstation. You will learn how to call the template using various tools.
 
-For more information about ARM template, see
+For more information about Resource Manager template, see
 
 - [Author Azure Resource Manager templates](../resource-group-authoring-templates.md)
 - [Deploy an application with Azure Resource Manager template](../resource-group-template-deploy.md)
@@ -51,7 +51,7 @@ For more information about ARM template, see
 
 The following procedure creates an HDInsight cluster.
 
-**To deploy a cluster using ARM template**
+**To deploy a cluster using Resource Manager template**
 
 1. Save the json file in [Appendix A](#appx-a-arm-template) to your workstation.
 2. Set the parameters if needed.
@@ -144,7 +144,7 @@ In this article, you have learned several ways to create an HDInsight cluster. T
 
 
 
-##Appx-A: ARM template
+##Appx-A: Resource Manager template
 
 The following Azure Resource Manger template creates a Windows-based Hadoop cluster with the dependent Azure storage account.
 
