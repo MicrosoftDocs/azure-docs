@@ -348,8 +348,7 @@ The script references the following parameter files to build the VMs and the sur
   - The web tier only permits traffic that arrives on port 80. These requests can originate from an external network or from VMs in any of the subnets in the VNet. All other traffic is blocked.
 
   - The management subnet permits a user to connect to a VMs in this tier through a remote desktop (RDP) connection. All other traffic is blocked.
-
-  >[AZURE.NOTE] For security purposes, the web, business, and database tiers block RDP/SSH traffic by default, even from the management tier. You can temporarily create additional rules to open these ports to enable you to connect and install software on these tiers, but then you can disable them again afterwards. However, you should open any ports required by whatever tools you are using to monitor and manage the web, business, and database tiers from the management tier.
+    For security purposes, the web, business, and database tiers block RDP/SSH traffic by default, even from the management tier. You can temporarily create additional rules to open these ports to enable you to connect and install software on these tiers, but then you can disable them again afterwards. However, you should open any ports required by whatever tools you are using to monitor and manage the web, business, and database tiers from the management tier.
 
   >[AZURE.IMPORTANT] The NSG rules for the management tier are applied to the NIC for the jump box rather than the management subnet. The default name for this NIC, ra-vm9-nic1, assumes that you haven't changed the `namePrefix` value for the management tier VMs, and that you have not modified the number or starting index of the VMs in each tier (by default, the jump box will be given the suffix 9). If you have changed these parameters, then you must also modify the value of the NIC referenced by the management tier NSG rules accordingly, otherwise they may be applied to a NIC associated with a different VM.
 
@@ -618,7 +617,7 @@ To run the script that deploys the solution:
 
 6. Edit each of the JSON files in the Parameters/Windows or Parameters/Linux folder to set the parameters for the virtual network, NSG, VMs, and load balancer, as described in the Solution Components section above.
 
-  >[AZURE.NOTE] Make sure that you set the `resourceGroup` value in the `virtualNetworkSettings` section in each of the parameter files to be the same as that you specified in the Deploy-ReferenceArchitecture.ps1 script file.
+    >[AZURE.NOTE] Make sure that you set the `resourceGroup` value in the `virtualNetworkSettings` section in each of the parameter files to be the same as that you specified in the Deploy-ReferenceArchitecture.ps1 script file.
 
 7. If you are using PowerShell, open an Azure PowerShell window, move to the Scripts folder, and run the following command:
 
@@ -626,11 +625,11 @@ To run the script that deploys the solution:
     .\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> <os-type>
     ```
 
-  Replace `<subscription id>` with your Azure subscription ID.
+    Replace `<subscription id>` with your Azure subscription ID.
 
-  For `<location>`, specify an Azure region, such as `eastus` or `westus`.
+    For `<location>`, specify an Azure region, such as `eastus` or `westus`.
 
-  Specify `windows` or `linux` for `<os-type>`
+    Specify `windows` or `linux` for `<os-type>`
 
 8. If you are using bash, open a bash shell command prompt, move to the Scripts folder, and run the following command:
 
@@ -638,17 +637,17 @@ To run the script that deploys the solution:
     azure login
     ```
 
-  Follow the instructions to log in to your Azure account. When you have connected, run the following command:
+    Follow the instructions to log in to your Azure account. When you have connected, run the following command:
 
     ```bash
     ./deploy-reference-architecture.sh -s <subscription id> -l <location> -o <os-type>
     ```
 
-  Replace `<subscription id>` with your Azure subscription ID.
+    Replace `<subscription id>` with your Azure subscription ID.
 
-  For `<location>`, specify an Azure region, such as `eastus` or `westus`.
+    For `<location>`, specify an Azure region, such as `eastus` or `westus`.
 
-  Specify `windows` or `linux` for `<os-type>`
+    Specify `windows` or `linux` for `<os-type>`
 
 9. When the script has completed, use the Azure portal to verify that the network, NSG, VMs, and load balancer have been created successfully.
 
