@@ -602,14 +602,14 @@ To run the script that deploys the solution:
 
 5. Edit the Deploy-ReferenceArchitecture.ps1 or deploy-reference-architecture.sh file in the Scripts folder, and change the following line to specify the resource group that should be created or used to hold the VM and resources created by the script:
 
-    <!-- source:h ttps://github.com/mspnp/reference-architectures/blob/master/guidance-compute-n-tier/Deploy-ReferenceArchitecture.ps1#L48 -->
+    <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-n-tier/Deploy-ReferenceArchitecture.ps1#L48 -->
 
     ```powershell
     # PowerShell
     $resourceGroupName = "ra-ntier-vm-rg"
     ```
 
-    <!-- https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-n-tier/deploy-reference-architecture.sh#L3 -->
+    <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-n-tier/deploy-reference-architecture.sh#L3 -->
 
     ```bash
     # bash
