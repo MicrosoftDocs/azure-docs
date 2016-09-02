@@ -82,7 +82,7 @@ Copy Activity also reads from and writes to files in specified formats: text, Av
 Azure Data Factory is available only in the West US, East US, and North Europe regions. However, the service that powers Copy Activity is available globally in the following regions and geographies. The globally available topology ensures efficient data movement that usually avoids cross-region hops. See [Services by region](https://azure.microsoft.com/regions/#services) for availability of Data Factory and Data Movement in a region.
 
 ### Copy data between cloud data stores
-When both the source and sink data stores are in the cloud, Data Factory uses a service deployment in the region that is closest to the sink location in the same geography to move the data. Refer to the following table for mapping:
+When both source and sink data stores are in the cloud, Data Factory uses a service deployment in the region that is closest to the sink in the same geography to move the data. Refer to the following table for mapping:
 
 Region of the destination data store | Region used for data movement
 :----------------------------------- | :----------------------------
