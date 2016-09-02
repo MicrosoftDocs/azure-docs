@@ -31,7 +31,7 @@ First, let's see how data migration occurs between two cloud data stores, and be
 > [AZURE.NOTE] To learn about activities in general, see [Understanding pipelines and activities](data-factory-create-pipelines.md).
 
 ### Copy data between two cloud data stores
-When both the source and sink (destination) data stores are in the cloud, Copy Activity goes through the following stages to copy/move data from the source to the sink. The service that powers Copy Activity:
+When both source and sink data stores are in the cloud, Copy Activity goes through the following stages to copy data from the source to the sink. The service that powers Copy Activity:
 
 1. Reads data from the source data store.
 2. Performs serialization/deserialization, compression/decompression, column mapping, and type conversion. It does these operations based on the configurations of the input dataset, output dataset, and Copy Activity.
@@ -43,7 +43,7 @@ The service automatically chooses the optimal region to perform the data movemen
 
 
 ### Copy data between an on-premises data store and a cloud data store
-To securely move data between an on-premises data store behind your corporate firewall and a cloud data store, you need to install Data Management Gateway on your on-premises machine. Data Management Gateway is an agent that enables hybrid data movement and processing. You can install it on the same machine as the data store itself, or on a separate machine that has access to the data store.
+To securely move data between an on-premises data store and a cloud data store, install Data Management Gateway on your on-premises machine. Data Management Gateway is an agent that enables hybrid data movement and processing. You can install it on the same machine as the data store itself, or on a separate machine that has access to the data store.
 
 In this scenario, Data Management Gateway performs the serialization/deserialization, compression/decompression, column mapping, and type conversion. Data does not flow through the Azure Data Factory service. Instead, Data Management Gateway directly writes the data to the destination store.
 
@@ -185,7 +185,7 @@ Different data stores have different native type systems. Copy Activity performs
 1. Convert from native source types to a .NET type.
 2. Convert from a .NET type to a native sink type.
 
-The mapping for a native type system to a .NET type for the data store is in the respective data store article. (Click the specific link in the [Supported data stores](#supported-data-stores) table). You can use these mappings to determine appropriate types while creating your tables, so that Copy Activity performs the right conversions.
+The mapping for a native type system to a .NET type for a data store is in the respective data store article. (Click the specific link in the [Supported data stores](#supported-data-stores) table). You can use these mappings to determine appropriate types while creating your tables, so that Copy Activity performs the right conversions.
 
 
 ## Next steps
