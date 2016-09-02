@@ -150,50 +150,40 @@ To avoid providing the service principal credentials every time it needs to log 
 
 In this section, you perform the steps to create an AD application and service principal with a certificate. 
 
-Whenever you sign in as a service principal, you need to provide the tenant id of the directory for your AD app. A tenant is an instance of Active Directory.  
+### Create the self-signed certificate
 
-1. Sign in to your account.
+The version of PowerShell available with Windows 10 and Windows Server 2016 Technical Preview has an updated cmdlet for generating a self-signed certificate. This topic shows two ways of generating the certificate based on the operating system you have.
 
-        Add-AzureRmAccount
+If you have **Windows 10 or Windows Server 2016 Technical Preview**, run the following command to create a self-signed certificate: 
 
-2. If you only have one subscription, you can use:
-
-        $tenant = (Get-AzureRmSubscription).TenantId
-    
-     If you have more than one subscription, specify the subscription you will use for the AD app. Select the subscription where your Active Directory resides. For more information, see [Administer your Azure AD directory](./active-directory/active-directory-administer.md).
-
-        $tenant = (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
-
-1. Create a self-signed certificate. If you have **Windows 10 or Windows Server 2016 Technical Preview**, run the following command: 
-
-        $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleapp" -KeySpec KeyExchange
+    $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleapp" -KeySpec KeyExchange
        
-     Your variable contains information about the certificate, including the thumbprint.
+If you **do not have Windows 10 or Windows Server 2016 Technical Preview**, you need to download the [Self-signed certificate generator](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6) PowerShell script, and run the following commands to generate a certificate.
      
-        Directory: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+    # Only run if you could not use New-SelfSignedCertificate
+    Import-Module -Name c:\New-SelfSignedCertificateEx.ps1
+    New-SelfSignedCertificateEx -Subject "CN=exampleapp" -KeySpec "Exchange" -FriendlyName "exampleapp"
+    $cert = Get-ChildItem -Path cert:\CurrentUser\My\* -DnsName exampleapp
 
-        Thumbprint                                Subject
-        ----------                                -------
-        724213129BD2B950BB3F64FAB0C877E9348B16E9  CN=exampleapp
+You have your certificate and can proceed with creating your AD app.
 
-     If you **do not** have Windows 10 or Windows Server 2016 Technical Preview, you will not have the **New-SelfSignedCertificate** cmdlet. Instead, download the [Self-signed certificate generator](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6) PowerShell script, and run the following commands to generate a certificate. This step is not necessary if you already created the certificate in the previous example.
-     
-        # Only run if you could not use New-SelfSignedCertificate
-        Import-Module -Name c:\New-SelfSignedCertificateEx.ps1
-        New-SelfSignedCertificateEx -Subject "CN=exampleapp" -KeySpec "Exchange" -FriendlyName "exampleapp"
-        $cert = Get-ChildItem -Path cert:\CurrentUser\My\* -DnsName exampleapp
+### Create the Active Directory app and service principal
 
-2. Retrieve the key value from the certificate.
+1. Retrieve the key value from the certificate.
 
         $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
 
-4. Create an application in the directory.
+2. Sign in to your Azure account.
 
-        $azureAdApplication = New-AzureRmADApplication -DisplayName "exampleapp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.contoso.org/example" -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore      
+        Add-AzureRmAccount
+
+3. Create an application in the directory.
+
+        $app = New-AzureRmADApplication -DisplayName "exampleapp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.contoso.org/example" -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore      
         
     Examine the new application object. 
 
-        $azureAdApplication
+        $app
 
     Notice the **ApplicationId** property, which is needed for creating service principals, role assignments, and acquiring access tokens.
 
@@ -209,19 +199,27 @@ Whenever you sign in as a service principal, you need to provide the tenant id o
 
 5. Create a service principal for your application by passing in the application id of the Active Directory application.
 
-        New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+        New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
 
 6. Grant the service principal permissions on your subscription. In this example, you grant the service principal permission to read all resources in the subscription. For the **ServicePrincipalName** parameter, provide either the **ApplicationId** or the **IdentifierUris** that you used when creating the application. For more information on role-based access control, see [Azure Role-based Access Control](./active-directory/role-based-access-control-configure.md). To assign a role, you must have `Microsoft.Authorization/*/Write` access, which is granted through the [Owner](./active-directory/role-based-access-built-in-roles.md#owner) role or [User Access Administrator](./active-directory/role-based-access-built-in-roles.md#user-access-administrator) role.
 
-        New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+        New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.ApplicationId.Guid
 
 That's it! Your AD application and service principal are set up. The next section shows you how to log in with certificate through PowerShell.
 
 ### Provide certificate through automated PowerShell script
 
-To authenticate in your script, specify the account is a service principal and provide the certificate thumbprint, the application id, and tenant id. You already have these values in the variables **$azureAdApplication.ApplicationId**, **$cert.Thumbprint**, and **$tenant**. To automate your script, you can store these values as environment variables and retrieve them during execution, or you can include them in your script.
+Whenever you sign in as a service principal, you need to provide the tenant id of the directory for your AD app. A tenant is an instance of Active Directory. If you only have one subscription, you can use:
 
-    Add-AzureRmAccount -ServicePrincipal -CertificateThumbprint 000000 -ApplicationId 000000 -TenantId 0000000
+    $tenant = (Get-AzureRmSubscription).TenantId
+    
+If you have more than one subscription, specify the subscription you will use for the AD app. Select the subscription where your Active Directory resides. For more information, see [Administer your Azure AD directory](./active-directory/active-directory-administer.md).
+
+    $tenant = (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
+
+To authenticate in your script, specify the account is a service principal and provide the certificate thumbprint, the application id, and tenant id. To automate your script, you can store these values as environment variables and retrieve them during execution, or you can include them in your script.
+
+    Add-AzureRmAccount -ServicePrincipal -CertificateThumbprint $cert.Thumbprint -ApplicationId $app.ApplicationId -TenantId $tenant
 
 You are now authenticated as the service principal for the Active Directory application that you created.
 
@@ -232,8 +230,6 @@ If you need to retrieve the application id later, use:
 If you need to retrieve the certificate thumbprint later, use:
 
     (Get-ChildItem -Path cert:\CurrentUser\My\* -DnsName exampleapp).Thumbprint
-
-If you need to retrieve the tenant id later, see [Get tenant ID](#get-tenant-id).
 
 ## Sample applications
 
