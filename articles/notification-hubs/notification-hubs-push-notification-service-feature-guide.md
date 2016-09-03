@@ -64,7 +64,7 @@ Notification Hubs resources are broken down into namespaces and notification hub
 We provide [queries] for users to obtain all devices given a segment/tag, ID, or a hub.
 
 ###Bulk Import/Export
-Users are able to [bulk import/export] device registrations.
+You are able to [bulk import/export] device registrations.
 
 ###SLA
 We follow Azure's promise on [SLA].
