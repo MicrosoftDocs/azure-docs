@@ -92,25 +92,25 @@ We follow Azure's promise on [SLA].
 ##Tiers
 The tier-based feature support is detailed as follows:
 
-Feature | Free | Basic | Standard
---- | --- | ---
-Basic Push & Broadcast|[x]|[x]|[x]
-Audience Segmentation (Tags)|[x]|[x]|[x]
-Notification Customization (Push Variables)|[x]|[x]|[x]
-One Push For All Cross-Platform Devices (Templates)|[x]|[x]|[x]
-Localized Push (Templates)|[x]|[x]|[x]
-Silent Push|[x]|[x]|[x]
-Scheduled Push|||[x]
-Direct Batch Push||[x]|[x]
-Push Telemetry (Per Message Telemetry & PNS Feedback)|||[x]
-Azure Portal & Debug Send|[x]|[x]|[x]
-Push Resource Organization|||[x]
-Query My App Users|[x]|[x]|[x]
-Bulk Import/Export|||[x]
-SLA||[x]|[x]
-Platform Notification System Support|[x]|[x]|[x]
-Client SDK Support|[x]|[x]|[x]
-Server SDK Support|[x]|[x]|[x]
+| Feature                                               | Free | Basic | Standard |
+|-------------------------------------------------------|:----:|:-----:|:--------:|
+| Basic Push & Broadcast                                |   x  |   x   |     x    |
+| Audience Segmentation (Tags)                          |   x  |   x   |     x    |
+| Notification Customization (Push Variables)           |   x  |   x   |     x    |
+| One Push For All Cross-Platform Devices (Templates)   |   x  |   x   |     x    |
+| Localized Push (Templates)                            |   x  |   x   |     x    |
+| Silent Push                                           |   x  |   x   |     x    |
+| Scheduled Push                                        |      |       |     x    |
+| Direct Batch Push                                     |      |   x   |     x    |
+| Push Telemetry (Per Message Telemetry & PNS Feedback) |      |       |     x    |
+| Azure Portal & Debug Send                             |   x  |   x   |     x    |
+| Push Resource Organization                            |      |       |     x    |
+| Query My App Users                                    |   x  |   x   |     x    |
+| Bulk Import/Export                                    |      |       |     x    |
+| SLA                                                   |      |   x   |     x    |
+| Platform Notification System Support                  |   x  |   x   |     x    |
+| Client SDK Support                                    |   x  |   x   |     x    |
+| Server SDK Support                                    |   x  |   x   |     x    |
 
 For more information on tiers and limitation details, please visit our [pricing page].
 
