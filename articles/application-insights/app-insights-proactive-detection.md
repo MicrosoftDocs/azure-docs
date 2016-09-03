@@ -29,13 +29,13 @@ You can discover detections in two ways:
 
 * **You receive an email** from Application Insights. Here's a typical example:
 
-    ![Email alert](./media/app-insights-proactive-diagnostics/03.png)
+    ![Email alert](./media/app-insights-proactive-detection/03.png)
 
     Click the big button to open more detail in the portal.
 
 * **The Proactive Detection tile** on your app's overview blade shows a count of recent alerts. Click the tile to see a list of recent alerts.
 
-![View recent detections](./media/app-insights-proactive-diagnostics/04.png)
+![View recent detections](./media/app-insights-proactive-detection/04.png)
 
 Select an alert to see its details.
 
