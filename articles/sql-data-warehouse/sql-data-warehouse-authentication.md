@@ -37,14 +37,12 @@ To connect to SQL Data Warehouse, you must provide the following information:
 - Password
 - Default database (optional)
 
-By default your connection connects to the master database and not your user database. To connect to your user database, you can choose to do one of two things:
+By default your connection connects to the *master* database and not your user database. To connect to your user database, you can choose to do one of two things:
 
-- Specify the default database when registering your server with the SQL Server Object Explorer in SSDT, SSMS, or in your application connection string. For example, by including the InitialCatalog parameter for an ODBC connection.
-- First highlight the user database before creating a session in SSDT.
+- Specify the default database when registering your server with the SQL Server Object Explorer in SSDT, SSMS, or in your application connection string. For example, include the InitialCatalog parameter for an ODBC connection.
+- Highlight the user database before creating a session in SSDT.
 
-> [AZURE.NOTE] For guidance connecting to SQL Data Warehouse with SSDT, refer to the [Query with Visual Studio][] article.
-
-Note that the Transact-SQL statement **USE <your DB>** is not supported for changing the database for a connection
+> [AZURE.NOTE] The Transact-SQL statement **USE MyDatabase;** is not supported for changing the database for a connection. For guidance connecting to SQL Data Warehouse with SSDT, refer to the [Query with Visual Studio][] article.
 
 ## Azure Active Directory (AAD) authentication
 
@@ -63,7 +61,7 @@ Azure Active Directory benefits include:
 - Supports token-based authentication for applications connecting to SQL Data Warehouse.
 - Supports Multi-Factor authentication through Active Directory Universal Authentication for SQL Server Management Studio. For a description of Multi-Factor Authentication, see [SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse](../sql-database/sql-database-ssms-mfa-authentication.md).
 
-> [AZURE.NOTE] Azure Active Directory is still relatively new and has some limitations.  See [Azure AD features and limitations][], specifically the Additional considerations, to ensure that Azure Active Directory is a good fit for your environment.
+> [AZURE.NOTE] Azure Active Directory is still relatively new and has some limitations. To ensure that Azure Active Directory is a good fit for your environment, see [Azure AD features and limitations][], specifically the Additional considerations.
 
 ### Configuration steps
 
