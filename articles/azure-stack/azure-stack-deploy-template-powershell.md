@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/15/2016"
+	ms.date="09/05/2016"
 	ms.author="helaw"/>
 
 # Deploy templates in Azure Stack using PowerShell
@@ -53,7 +53,7 @@ Before authenticating PowerShell, you must allow cookies and JavaScript in the I
 
 1. [Turn off IE enhanced security and enable cookies](azure-stack-sql-rp-deploy-long.md#turn-off-ie-enhanced-security-and-enable-cookies).
 
-2.  Run the following PowerShell cmdlet to configure the environment, and authenticate a user.
+2.  Run the following PowerShell to configure the environment, and authenticate a user.
 
     - Replace *DIRECTORY_TENANT_NAME* with the fully qualified name of your directory tenant. Typically a directory tenant name will look like mydirectorytenant.onmicrosoft.com.
 	- Replace *SUBSCRIPTION_NAME* with the default provider subscription name.
