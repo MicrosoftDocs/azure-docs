@@ -27,19 +27,19 @@ problems and automation of business processes:
 - [Azure Functions](https://azure.microsoft.com/services/functions/)
 - [Azure App Service WebJobs](../app-service-web/web-sites-create-web-jobs.md)
 
-All of these services are useful when "gluing" together disparate systems. They can all define input, actions, 
+All these services are useful when "gluing" together disparate systems. They can all define input, actions, 
 conditions, and output. You can run each of them on a schedule or trigger. However, each service adds a unique set of 
 value, and comparing them is not a question of "Which service is the best?" but one of "Which service is best suited 
-for this situation?" In many cases, you will find that a combination of these services is your best option.
+for this situation?" Often, a combination of these services is your best option.
 
 <a name="flow"></a>
 ## Flow vs. Logic Apps
 
-We can Microsoft Flow and Azure App Service Logic Apps discuss together because they are both *configuration-first* 
+We can discuss Microsoft Flow and Azure App Service Logic Apps together because they are both *configuration-first* 
 integration services, which makes it easy to build processes and workflows and integrate with various SaaS and enterprise applications. 
 
 - Flow is built on top of Logic Apps
-- They share the same workflow designer
+- They have the same workflow designer
 - Connectors that work in one can also work in the other
 - Flows can be converted into Logic Apps anytime
 
@@ -48,7 +48,7 @@ developers or IT. On the other hand, Logic Apps can enable advanced or mission-c
 where enterprise-level DevOps and security practices are required. It is typical for a business workflow to grow in 
 complexity overtime. Similarly, you can start with a Flow at first, then convert it to a Logic App as needed.
 
-The following table helps you determine if Flow or Logic Apps is best for a given integration.
+The following table helps you determine whether Flow or Logic Apps is best for a given integration.
 
 |               | Flow                                                                             | Logic Apps                                                                                          |
 |---------------|----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
@@ -63,7 +63,7 @@ The following table helps you determine if Flow or Logic Apps is best for a give
 ## Functions vs. WebJobs
 
 We can discuss Azure Functions and Azure App Service WebJobs together because they are both *code-first* integration services
-and designed for developers. This makes it possible to run a script or a piece of code in response to a variety of events such 
+and designed for developers. They enable you to run a script or a piece of code in response to various events, such 
 as new Storage Blobs or a WebHook request. Here are their similarities: 
 
 - Both are built on Azure App Service and enjoy features such as source control, authentication, and monitoring
@@ -85,10 +85,10 @@ The following table summarizes the differences between Functions and WebJobs:
 
 |                        | Functions                                                                                                                                                                | WebJobs                            |
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------|
-| Scaling                | Configurationless   scaling                                                                                                                                              | scale   with App Service plan      |
-| Pricing                | Pay-per-use or part of App Service plan                                                                                                                                  | Part   of App Service plan         |
-| Run-type               | triggered,   scheduled (by timer trigger)                                                                                                                                | triggered,   continuous, scheduled |
-| Trigger events         | timer,   Azure DocumentDB, Azure Event Hubs, HTTP, WebHook (GitHub, Slack), Azure App   Service Mobile Apps, Azure Notification Hubs, Azure Service Bus, Azure   Storage | Azure Storage, Azure Service Bus   |
+| Scaling                | Configurationless scaling                                                                                                                                                | scale with App Service plan        |
+| Pricing                | Pay-per-use or part of App Service plan                                                                                                                                  | Part of App Service plan           |
+| Run-type               | triggered, scheduled (by timer trigger)                                                                                                                                  | triggered, continuous, scheduled   |
+| Trigger events         | timer, Azure DocumentDB, Azure Event Hubs, HTTP, WebHook (GitHub, Slack), Azure App Service Mobile Apps, Azure Notification Hubs, Azure Service Bus, Azure Storage | Azure Storage, Azure Service Bus         |
 | In-browser development | x                                                                                                                                                                        |                                    |
 | Window scripting       | experimental                                                                                                                                                             | x                                  |
 | PowerShell             | experimental                                                                                                                                                             | x                                  |
@@ -111,12 +111,11 @@ Logic app, you should take advantage of all the improvements in Functions.
 
 As previously mentioned, which service is best suited to you depends on your situation. 
 
-- For simple business optimization, use Flow.
-- If your integration scenario is too advanced for Flow, or you need enterprise-class enterprise-class DevOps and operational 
-support, use Logic Apps.
-- If some a step in your integration scenario requires highly custom transformation or specialized code, write a 
-Functions app, then trigger a function as an action in your Logic app.
+- For simple business optimization, then use Flow.
+- If your integration scenario is too advanced for Flow, or you need DevOps and Ops capabilities, then use Logic Apps.
+- If some a step in your integration scenario requires highly custom transformation or specialized code, then write a 
+Functions app, and then trigger a function as an action in your Logic app.
 
 You can integrate your Logic app into Flow, and you can integrate your flow into Logic Apps. You can also integrate your Functions 
-app into Logic apps. The integration between Flow, Logic Apps, and Functions will continue to improve overtime. This means that 
+app into Logic apps. The integration between Flow, Logic Apps, and Functions continue to improve overtime. Therefore, 
 any investment you make in these three technologies is worthwhile.
