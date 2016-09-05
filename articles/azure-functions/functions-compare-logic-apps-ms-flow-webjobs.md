@@ -71,7 +71,7 @@ as new Storage Blobs or a WebHook request. Here are their similarities:
 - Both support standard scripting and programming languages
 - Both have NuGet and NPM support
 
-Functions is a natural evolution of WebJobs in that it takes the best things about WebJobs and improves upon them. The improvements
+Functions is the natural evolution of WebJobs in that it takes the best things about WebJobs and improves upon them. The improvements
 include: 
 
 - streamlined dev, test, and run of code, directly in the browser
@@ -113,7 +113,7 @@ As previously mentioned, which service is best suited to you depends on your sit
 
 - For simple business optimization, then use Flow.
 - If your integration scenario is too advanced for Flow, or you need DevOps and Ops capabilities, then use Logic Apps.
-- If some a step in your integration scenario requires highly custom transformation or specialized code, then write a 
+- If a step in your integration scenario requires highly custom transformation or specialized code, then write a 
 Functions app, and then trigger a function as an action in your Logic app.
 
 You can integrate your Logic app into Flow, and you can integrate your flow into Logic Apps. You can also integrate your Functions 
