@@ -39,6 +39,7 @@ Learn the answers to common questions, patterns and best practices for Azure API
 -	[Can I use a self-signed SSL certificate for a backend?](#can-i-use-a-self-signed-ssl-certificate-for-a-backend)
 -	[Why am I getting authentication failure when I try to clone the GIT repository?] (#why-am-i-getting-authentication-failure-when-i-try-to-clone-the-git-repository)
 -	[Does API Management work with Express Route?](#does-api-management-work-with-express-route)
+-	[Can I move API Management instance from one subscription to another?](#can-i-move-api-management-instance-from-one-subscription-to-another)
 
 
 ### How can I ask a question to the API Management team?
@@ -156,3 +157,7 @@ If you are using GIT Credential Manager or trying to clone the repository throug
 ### Does API Management work with Express Route?
 
 Yes!
+
+### Can I move API Management instance from one subscription to another?
+
+Yes! Please follow insrurctions in this [article](../resource-group-move-resources.md).
