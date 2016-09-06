@@ -30,7 +30,7 @@ When using Microsoft Cloud Germany, you must be aware of the following:
 	- *.windows.net
 	- + Certificate Revocation Lists
 
-- When you sign in to your Azure AD directory you must use an account in the onmicrosoft.de domain.
+- When you sign in to your Azure AD directory, you must use an account in the onmicrosoft.de domain.
 - The following features are not available:
 	- Azure AD Connect Health
 	- Automatic updates
@@ -52,18 +52,18 @@ You should see the following:
 ![Azure AD Connect Blade](media\active-directory-aadconnect-germany\germany1.png)
 
  
-The following table will describe the features shown in the blade.
+The following table describe the features shown in the blade.
 
 
 Title|Description|
 ----- | ----- |
-SYNC STATUS|This tells you whether or not synchronization is enabled or disabled.|
+SYNC STATUS|Let's you know whether synchronization is enabled or disabled.|
 LAST SYNC|The last time a successful sync completed.|
-FEDERATED DOMAINS|This describes the number of federated domains currently setup.|
+FEDERATED DOMAINS|Shows the number of federated domains currently configured.|
 
 
 ## Installation
-To install Azure AD Connect you can use the documentation [here](active-directory-aadconnect.md#install-azure-ad-connect).
+To install Azure AD Connect, you can use the documentation [here](active-directory-aadconnect.md#install-azure-ad-connect).
 
 ## Advanced features and Additional Information
-For additional information and guidance on custom settings or advanced configurations, start with [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).  This page provides a lot of information and links to additional guidance.
+For additional information and guidance on custom settings or advanced configurations, start with [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).  This page provides information and links to additional guidance.
