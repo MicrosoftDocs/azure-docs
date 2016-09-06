@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Add a Git artifact repository to a lab in Azure DevTest Labs | Microsoft Azure"
-	description="Add a GitHub or Visual Studio Team Services Git repository for your custom artifacts in Azure DevTest Labs"
+	description="Add a GitHub or Visual Studio Team Services Git repository for your custom artifacts source in Azure DevTest Labs"
 	services="devtest-lab,virtual-machines,visual-studio-online"
 	documentationCenter="na"
 	authors="tomarcher"
