@@ -134,7 +134,6 @@ To use [EventProcessorHost][], you must have an [Azure Storage account][]:
 [1]: ./media/service-bus-event-hubs-getstarted/create-storage1.png
 [2]: ./media/service-bus-event-hubs-getstarted/create-storage2.png
 [3]: ./media/service-bus-event-hubs-getstarted/create-storage3.png
-[4]: ./media/service-bus-event-hubs-getstarted/create-storage4.png
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp1.png
 [15]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp2.png
