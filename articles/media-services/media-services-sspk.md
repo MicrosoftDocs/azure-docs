@@ -90,6 +90,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 - Alticast Corporation
 - Amazon Digital Services, Inc.
 - AVC Multimedia Software Co., Ltd.
+- Cavium, Inc.
 - EchoStar Purchasing Corporation
 - Enseo, Inc.
 - Fluendo S.A.
@@ -129,6 +130,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 - Filmflex Movies Limited
 - Fluendo S.A.
 - Gibson Innovations Limited
+- Haier Information Applicantion S.R.L
 - HANDAN BroadInfoCom Co., Ltd.
 - Homecast Co.,Ltd
 - Hon Hai Precision Industry Co., Ltd.
