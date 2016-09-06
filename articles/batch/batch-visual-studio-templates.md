@@ -69,7 +69,7 @@ We recommend creating a solution that can contain your job manager as well as yo
 
 2. Under **Templates**, expand **Other Project Types**, click **Visual Studio Solutions**, and then select **Blank Solution**.
 
-3. Type a name that describes your application and the purpose of this solution (e.g., “LitwareBatchTaskPrograms”).
+3. Type a name that describes your application and the purpose of this solution (e.g., "LitwareBatchTaskPrograms").
 
 4. To create the new solution, click **OK**.
 
@@ -80,7 +80,7 @@ The Job Manager template helps you to implement a job manager task that can perf
 * Split a job into multiple tasks.
 * Submit those tasks to run on Batch.
 
->[AZURE.NOTE] For more information about job manager tasks, see [Batch feature overview for developers][batch-api-basics.md#job-manager-task].
+>[AZURE.NOTE] For more information about job manager tasks, see [Batch feature overview for developers](batch-api-basics.md#job-manager-task).
 
 ### Create a Job Manager using the template
 
@@ -92,7 +92,7 @@ To add a job manager to the solution that you created earlier, follow these step
 
 3. Under **Visual C#**, click **Cloud**, and then click **Azure Batch Job Manager with Job Splitter**.
 
-4. Type a name that describes your application and identifies this project as the job manager (e.g. “LitwareJobManager”).
+4. Type a name that describes your application and identifies this project as the job manager (e.g. "LitwareJobManager").
 
 5. To create the project, click **OK**.
 
@@ -102,9 +102,9 @@ To add a job manager to the solution that you created earlier, follow these step
 
 When you create a project using the Job Manager template, it generates three groups of code files:
 
-* The main program file (Program.cs). This contains the program entry point and top-level exception handling. You shouldn’t normally need to modify this.
+* The main program file (Program.cs). This contains the program entry point and top-level exception handling. You shouldn't normally need to modify this.
 
-* The Framework directory. This contains the files responsible for the ‘boilerplate’ work done by the job manager program – unpacking parameters, adding tasks to the Batch job, etc. You shouldn’t normally need to modify these files.
+* The Framework directory. This contains the files responsible for the 'boilerplate' work done by the job manager program – unpacking parameters, adding tasks to the Batch job, etc. You shouldn't normally need to modify these files.
 
 * The job splitter file (JobSplitter.cs). This is where you will put your application-specific logic for splitting a job into tasks.
 
@@ -124,7 +124,7 @@ The rest of this section describes the different files and their code structure,
 
 * `JobManager.cs`: Orchestrates the components of the job manager program. It is responsible for the initializing the job splitter, invoking the job splitter, and dispatching the tasks returned by the job splitter to the task submitter.
 
-* `JobManagerException.cs`: Represents an error that requires the job manager to terminate. JobManagerException is used to wrap ‘expected’ errors where specific diagnostic information can be provided as part of termination.
+* `JobManagerException.cs`: Represents an error that requires the job manager to terminate. JobManagerException is used to wrap 'expected' errors where specific diagnostic information can be provided as part of termination.
 
 * `TaskSubmitter.cs`: This class is responsible to adding tasks returned by the job splitter to the Batch job. The JobManager class aggregates the sequence of tasks into batches for efficient but timely addition to the job, then calls TaskSubmitter.SubmitTasks on a background thread for each batch.
 
@@ -170,7 +170,7 @@ public IEnumerable<CloudTask> Split()
 }
 ```
 
->[AZURE.IMPORTANT] The annotated section in the `Split()` method is the only section of the Job Manager template code that is intended for you to modify by adding the logic to split your jobs into different tasks. If you want to modify a different section of the template, please ensure you are familiarized with how Batch works, and try out a few of the [Batch code samples][github_samples].
+>[AZURE.NOTE] The annotated section in the `Split()` method is the only section of the Job Manager template code that is intended for you to modify by adding the logic to split your jobs into different tasks. If you want to modify a different section of the template, please ensure you are familiarized with how Batch works, and try out a few of the [Batch code samples][github_samples].
 
 Your Split() implementation has access to:
 
@@ -188,7 +188,7 @@ If your job splitter encounters an error, it should either:
 
 * Throw an exception, in which case the job manager will be treated as failed and may be retried depending on how the client has configured it).
 
-In both cases, any tasks already returned by the job splitter and added to the Batch job will be eligible to run. If you don’t want this to happen, then you could:
+In both cases, any tasks already returned by the job splitter and added to the Batch job will be eligible to run. If you don't want this to happen, then you could:
 
 * Terminate the job before returning from the job splitter
 
@@ -198,7 +198,7 @@ In both cases, any tasks already returned by the job splitter and added to the B
 
 **Job manager retries**
 
-If the job manager fails, it may be retried by the Batch service depending on the client retry settings. In general, this is safe, because when the framework adds tasks to the job, it ignores any tasks that already exist. However, if calculating tasks is expensive, you may not wish to incur the cost of recalculating tasks that have already been added to the job; conversely, if the re-run is not guaranteed to generate the same task IDs then the ‘ignore duplicates’ behavior will not kick in. In these cases you should design your job splitter to detect the work that has already been done and not repeat it, for example by performing a CloudJob.ListTasks before starting to yield tasks.
+If the job manager fails, it may be retried by the Batch service depending on the client retry settings. In general, this is safe, because when the framework adds tasks to the job, it ignores any tasks that already exist. However, if calculating tasks is expensive, you may not wish to incur the cost of recalculating tasks that have already been added to the job; conversely, if the re-run is not guaranteed to generate the same task IDs then the 'ignore duplicates' behavior will not kick in. In these cases you should design your job splitter to detect the work that has already been done and not repeat it, for example by performing a CloudJob.ListTasks before starting to yield tasks.
 
 ### Exit codes and exceptions in the Job Manager template
 
@@ -209,16 +209,16 @@ A job manager task that is implemented with the Job Manager template can return 
 | Code | Description |
 |------|-------------|
 | 0    | The job manager completed successfully. Your job splitter code ran to completion, and all tasks were added to the job. |
-| 1    | The job manager task failed with an exception in an ‘expected’ part of the program. The exception was translated to a JobManagerException with diagnostic information and, where possible, suggestions for resolving the failure. |
-| 2    | The job manager task failed with an ‘unexpected’ exception. The exception was logged to standard output, but the job manager was unable to add any additional diagnostic or remediation information. |
+| 1    | The job manager task failed with an exception in an 'expected' part of the program. The exception was translated to a JobManagerException with diagnostic information and, where possible, suggestions for resolving the failure. |
+| 2    | The job manager task failed with an 'unexpected' exception. The exception was logged to standard output, but the job manager was unable to add any additional diagnostic or remediation information. |
 
-In the case of job manager task failure, some tasks may still have been added to the service before the error occurred. These tasks will run as normal. See “Job Splitter Failure” above for discussion of this code path.
+In the case of job manager task failure, some tasks may still have been added to the service before the error occurred. These tasks will run as normal. See "Job Splitter Failure" above for discussion of this code path.
 
 All the information returned by exceptions is written into stdout.txt and stderr.txt files. For more information, see [Error Handling](batch-api-basics.md#error-handling).
 
 ### Client considerations
 
-This section describes some client implementation requirements when invoking a job manager based on this template. See [How to pass parameters and environment variables from the client code](FIXME) for details on passing parameters and environment settings.
+This section describes some client implementation requirements when invoking a job manager based on this template. See [How to pass parameters and environment variables from the client code](#pass-environment-settings) for details on passing parameters and environment settings.
 
 **Mandatory credentials**
 
@@ -254,9 +254,9 @@ By default, the job manager will not be retried if it fails. Depending on your j
 
 **Job settings**
 
-If the job splitter emits tasks with dependencies, the client must set the job’s usesTaskDependencies to true.
+If the job splitter emits tasks with dependencies, the client must set the job's usesTaskDependencies to true.
 
-In the job splitter model, it is unusual for clients to wish to add tasks to jobs over and above what the job splitter creates. The client should therefore normally set the job’s *onAllTasksComplete* to **terminatejob**.
+In the job splitter model, it is unusual for clients to wish to add tasks to jobs over and above what the job splitter creates. The client should therefore normally set the job's *onAllTasksComplete* to **terminatejob**.
 
 ## Task Processor template
 
@@ -280,19 +280,19 @@ To add a task processor to the solution that you created earlier, follow these s
 
 3. Under **Visual C#**, click **Cloud**, and then click **Azure Batch Task Processor**.
 
-4. Type a name that describes your application and identifies this project as the task processor (e.g. “LitwareTaskProcessor”).
+4. Type a name that describes your application and identifies this project as the task processor (e.g. "LitwareTaskProcessor").
 
 5. To create the project, click **OK**.
 
 6. Finally, build the project to force Visual Studio to load all referenced NuGet packages and to verify that the project is valid before you start modifying it.
 
-###Task Processor template files and their purpose
+### Task Processor template files and their purpose
 
 When you create a project using the task processor template, it generates three groups of code files:
 
-* The main program file (Program.cs). This contains the program entry point and top-level exception handling. You shouldn’t normally need to modify this.
+* The main program file (Program.cs). This contains the program entry point and top-level exception handling. You shouldn't normally need to modify this.
 
-* The Framework directory. This contains the files responsible for the ‘boilerplate’ work done by the job manager program – unpacking parameters, adding tasks to the Batch job, etc. You shouldn’t normally need to modify these files.
+* The Framework directory. This contains the files responsible for the 'boilerplate' work done by the job manager program – unpacking parameters, adding tasks to the Batch job, etc. You shouldn't normally need to modify these files.
 
 * The task processor file (TaskProcessor.cs). This is where you will put your application-specific logic for executing a task (typically by calling out to an existing executable). Pre- and post-processing code, such as downloading additional data or uploading result files, also goes here.
 
@@ -302,16 +302,111 @@ The template also generates standard .NET project files such as a .csproj file, 
 
 The rest of this section describes the different files and their code structure, and explains what each class does.
 
+![solution_explorer02]
 
+**Framework files**
 
+* `Configuration.cs`: Encapsulates the loading of job configuration data such as Batch account details, linked storage account credentials, job and task information, and job parameters. It also provides access to Batch-defined environment variables (see Environment settings for tasks, in the Batch documentation) via the Configuration.EnvironmentVariable class.
 
+* `IConfiguration.cs`: Abstracts the implementation of the Configuration class, so that you can unit test your job splitter using a fake or mock configuration object.
 
+* `TaskProcessorException.cs`: Represents an error that requires the job manager to terminate. TaskProcessorException is used to wrap 'expected' errors where specific diagnostic information can be provided as part of termination.
 
+**Task Processor**
 
+* `TaskProcessor.cs`: Runs the task. The framework invokes the TaskProcessor.Run method. This is the class where you will inject the application-specific logic of your task. Implement the Run method to:
+  * Parse and validate any task parameters
+  * Compose the command line for any external program you want to invoke
+  * Log any diagnostic information you may require for debugging purposes
+  * Start a process using that command line
+  * Wait for the process to exit
+  * Capture the exit code of the process to determine if it succeeded or failed
+  * Save any output files you want to keep to persistent storage
 
+**Standard .NET command line project files**
 
+* `App.config`: Standard .NET application configuration file.
+* `Packages.config`: Standard NuGet package dependency file.
+* `Program.cs`: Contains the program entry point and top-level exception handling.
 
+## Implementing the task processor
 
+When you open the Task Processor template project, the project will have the TaskProcessor.cs file open by default. You can implement the run logic for the tasks in your workload by using the Run() method shown below:
+
+```csharp
+/// <summary>
+/// Runs the task processing logic. This is where you inject
+/// your application-specific logic for decomposing the job into tasks.
+///
+/// The task processor framework invokes the Run method for you; you need
+/// only to implement it, not to call it yourself. Typically, your
+/// implementation will execute an external program (from resource files or
+/// an application package), check the exit code of that program and
+/// save output files to persistent storage.
+/// </summary>
+public async Task<int> Run()
+
+{
+    try
+    {
+        //Your code for the task processor goes here.
+        var command = $"compare {_parameters["Frame1"]} {_parameters["Frame2"]} compare.gif";
+        using (var process = Process.Start($"cmd /c {command}"))
+        {
+            process.WaitForExit();
+            var taskOutputStorage = new TaskOutputStorage(
+            _configuration.StorageAccount,
+            _configuration.JobId,
+            _configuration.TaskId
+            );
+            await taskOutputStorage.SaveAsync(
+            TaskOutputKind.TaskOutput,
+            @"..\stdout.txt",
+            @"stdout.txt"
+            );
+            return process.ExitCode;
+        }
+    }
+    catch (Exception ex)
+    {
+        throw new TaskProcessorException(
+        $"{ex.GetType().Name} exception in run task processor: {ex.Message}",
+        Ex
+        );
+    }
+}
+```
+>[AZURE.NOTE] The annotated section in the Run() method is the only section of the Task Processor template code that is intended for you to modify by adding the run logic for the tasks in your workload. If you want to modify a different section of the template, please first familiarize yourself with how Batch works by reviewing the Batch documentation and trying out a few of the Batch code samples.
+
+The Run() method is responsible for launching the command line, starting one or more processes, waiting for all process to complete, saving the results, and finally returning with an exit code. The Run() method is where you implement the processing logic for your tasks. The task processor framework invokes the Run() method for you; you do not need to call it yourself.
+
+Your Run() implementation has access to:
+
+* The task parameters, via the _parameters field.
+* The job and task ids, via the _jobId and _taskId fields.
+* The task configuration, via the _configuration field.
+
+**Task failure**
+
+In case of failure, you can exit the Run() method by throwing an exception, but this leaves the top level exception handler in control of the task exit code. If you need to control the exit code so that you can distinguish different types of failure, for example for diagnostic purposes or because some failure modes should terminate the job and others should not, then you should exit the Run() method by returning a non-zero exit code. This becomes the task exit code.
+
+### Exit codes and exceptions in the Task Processor template
+
+Exit codes and exceptions provide a mechanism to determine the outcome of running a program, and they can help identify any problems with the execution of the program. The Task Processor template implements the exit codes and exceptions described in this section.
+
+A task processor task that is implemented with the Task Processor template can return three possible exit codes:
+
+| Code | Description |
+|------|-------------|
+|  [Process.ExitCode][process_exitcode] | The task processor ran to completion. Note that this does not imply that the program you invoked was successful – only that the task processor invoked it successfully and performed any post-processing without exceptions. The meaning of the exit code depends on the invoked program – typically exit code 0 means the program succeeded and any other exit code means the program failed. |
+| 1    | The task processor failed with an exception in an 'expected' part of the program. The exception was translated to a `TaskProcessorException` with diagnostic information and, where possible, suggestions for resolving the failure. |
+| 2    | The task processor failed with an 'unexpected' exception. The exception was logged to standard output, but the task processor was unable to add any additional diagnostic or remediation information. |
+
+>[AZURE.NOTE] If the program you invoke uses exit codes 1 and 2 to indicate specific failure modes, then using exit codes 1 and 2 for task processor errors is ambiguous. You can change these task processor error codes to distinctive exit codes by editing the exception cases in the Program.cs file.
+
+All the information returned by exceptions is written into stdout.txt and stderr.txt files. For more information, see Error Handling, in the Batch documentation.
+
+### Client considerations
 
 **Storage credentials**
 
@@ -332,31 +427,6 @@ If you prefer to use a container URL with SAS, you can also pass this via an job
 
 It is recommended that the client or job manager task create any containers required by tasks before adding the tasks to the job. This is mandatory if you use a container URL with SAS, as such a URL does not include permission to create the container. It is recommended even if you pass storage account credentials, as it saves every task having to call CloudBlobContainer.CreateIfNotExistsAsync on the container.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Pass parameters and environment variables from client code
 
 ### Pass environment settings
@@ -373,9 +443,9 @@ For example, to get the `BatchClient` instance for a Batch account, you can pass
 
 ### Pass parameters to the Job Manager template
 
-In many cases, it’s useful to pass per-job parameters to the job manager task, either to control the job splitting process or to configure the tasks for the job. You can do this by uploading a JSON file named parameters.json as a resource file for the job manager task. The parameters can then become available in the `JobSplitter._parameters` field in the Job Manager template.
+In many cases, it's useful to pass per-job parameters to the job manager task, either to control the job splitting process or to configure the tasks for the job. You can do this by uploading a JSON file named parameters.json as a resource file for the job manager task. The parameters can then become available in the `JobSplitter._parameters` field in the Job Manager template.
 
->[AZURE.NOTE] The built-in parameter handler supports only string-to-string dictionaries. If you want to pass complex JSON values as parameter values, you will need to pass these as strings and parse them in the job splitter, or modify the framework’s `Configuration.GetJobParameters` method.
+>[AZURE.NOTE] The built-in parameter handler supports only string-to-string dictionaries. If you want to pass complex JSON values as parameter values, you will need to pass these as strings and parse them in the job splitter, or modify the framework's `Configuration.GetJobParameters` method.
 
 ### Pass parameters to the Task Processor template
 
@@ -383,11 +453,11 @@ You can also pass parameters to individual tasks implemented using the Task Proc
 
 parameters.json, and if found it loads it as the parameters dictionary. There are a couple of options for how to pass parameters to the task processor tasks:
 
-* Reuse the job parameters JSON. This works well if the only parameters are job-wide ones (for example, a render height and width). To do this, when creating a CloudTask in the job splitter, add a reference to the parameters.json resource file object from the job manager task’s ResourceFiles (`JobSplitter._jobManagerTask.ResourceFiles`) to the CloudTask’s ResourceFiles collection.
+* Reuse the job parameters JSON. This works well if the only parameters are job-wide ones (for example, a render height and width). To do this, when creating a CloudTask in the job splitter, add a reference to the parameters.json resource file object from the job manager task's ResourceFiles (`JobSplitter._jobManagerTask.ResourceFiles`) to the CloudTask's ResourceFiles collection.
 
-* Generate and upload a task-specific parameters.json document as part of job splitter execution, and reference that blob in the task’s resource files collection. This is necessary if different tasks have different parameters. An example might be a 3D rendering scenario where the frame index is passed to the task as a parameter.
+* Generate and upload a task-specific parameters.json document as part of job splitter execution, and reference that blob in the task's resource files collection. This is necessary if different tasks have different parameters. An example might be a 3D rendering scenario where the frame index is passed to the task as a parameter.
 
->[AZURE.NOTE] The built-in parameter handler supports only string-to-string dictionaries. If you want to pass complex JSON values as parameter values, you will need to pass these as strings and parse them in the task processor, or modify the framework’s `Configuration.GetTaskParameters` method.
+>[AZURE.NOTE] The built-in parameter handler supports only string-to-string dictionaries. If you want to pass complex JSON values as parameter values, you will need to pass these as strings and parse them in the task processor, or modify the framework's `Configuration.GetTaskParameters` method.
 
 ## Next steps
 
@@ -397,9 +467,10 @@ parameters.json, and if found it loads it as the parameters dictionary. There ar
 [github_migration]: https://github.com/Azure/azure-batch-apps-migration
 [github_migration_guide]: https://github.com/Azure/azure-batch-apps-migration/blob/master/developer-migration-guide.pdf
 [github_samples]: https://github.com/Azure/azure-batch-samples
+[process_exitcode]: https://msdn.microsoft.com/library/system.diagnostics.process.exitcode.aspx
 [vs_gallery]: https://visualstudiogallery.msdn.microsoft.com/
 [vs_gallery_templates]: https://go.microsoft.com/fwlink/?linkid=820714
 [vs_find_use_ext]: https://msdn.microsoft.com/library/dd293638.aspx
 
 [diagram01]: ./media/batch-visual-studio-templates/diagram01.png
-[solution_explorer01]: ./media/batch-visual-studio-templates/solution_explorer01.png
+[solution_explorer01]: ./media/batch-visual-studio-templates/solution_explorer01.png[solution_explorer02]: ./media/batch-visual-studio-templates/solution_explorer02.png
