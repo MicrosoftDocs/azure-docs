@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="09/02/2016"
+   ms.date="09/06/2016"
    ms.author="tomfitz"/>
 
 # Use Azure PowerShell to create a service principal to access resources
@@ -96,7 +96,7 @@ Let's go through these steps more carefully to make sure you understand the proc
 
         New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
 
-3. Grant the service principal permissions on your subscription. In this example, you grant the service principal the permission to Read all resources in the subscription. For the **ServicePrincipalName** parameter, provide the **ApplicationId** that you used when creating the application. 
+3. Grant the service principal permissions on your subscription. In this example, you add the service principal to the **Reader** role, which grants permission to read all resources in the subscription. For other roles, see [RBAC: Built-in roles](./active-directory/role-based-access-built-in-roles.md). For the **ServicePrincipalName** parameter, provide the **ApplicationId** that you used when creating the application. 
 
         New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.ApplicationId.Guid
 
@@ -106,7 +106,7 @@ That's it! Your AD application and service principal are set up. The next sectio
 
 ### Provide credentials through PowerShell
 
-Now, you need to login as the application to perform operations.
+Now, you need to log in as the application to perform operations.
 
 1. Create a **PSCredential** object that contains your credentials by running the **Get-Credential** command. You need the **ApplicationId** before running this command so make sure you have that available to paste.
 
@@ -222,14 +222,6 @@ To authenticate in your script, specify the account is a service principal and p
     Add-AzureRmAccount -ServicePrincipal -CertificateThumbprint $cert.Thumbprint -ApplicationId $app.ApplicationId -TenantId $tenant
 
 You are now authenticated as the service principal for the Active Directory application that you created.
-
-If you need to retrieve the application id later, use:
-
-    (Get-AzureRmADApplication -IdentifierUri "https://www.contoso.org/example").ApplicationId
-        
-If you need to retrieve the certificate thumbprint later, use:
-
-    (Get-ChildItem -Path cert:\CurrentUser\My\* -DnsName exampleapp).Thumbprint
 
 ## Sample applications
 
