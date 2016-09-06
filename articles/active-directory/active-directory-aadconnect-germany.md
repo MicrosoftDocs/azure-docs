@@ -21,7 +21,7 @@
 
 ## Introduction
 Azure AD Connect provides synchronization between your on-premises Active Directory and Azure Active Directory.
-Currently, many of the scenarios in [Microsoft Cloud Germany](https://www.microsoft.com/cloud/deutschland/default.aspx) must be done by the operator. 
+Currently, many of the scenarios in [Microsoft Cloud Germany](https://www.microsoft.com/de-de/cloud/deutschland/default.aspx) must be done by the operator. 
 When using Microsoft Cloud Germany, you must be aware of the following:
 
 
@@ -42,7 +42,8 @@ You can download Azure AD Connect from the Azure AD Connect blade within the por
 ### The Azure AD Connect Blade
 
 Once you have signed in to the Azure portal, do the following:
-1.	 Go to Browse
+
+1. Go to Browse
 2.	Select Azure Active Directory
 3.	Then select Azure AD Connect
 
