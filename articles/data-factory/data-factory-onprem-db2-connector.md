@@ -57,7 +57,7 @@ The sample has the following data factory entities:
 
 The sample copies data from a query result in a DB2 database to an Azure blob hourly. The JSON properties used in these samples are described in sections following the samples. 
 
-As a first step, set up the data management gateway as per the instructions in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article.
+As a first step, install and configure a data management gateway. Instructions are in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article.
 
 **DB2 linked service:**
 
@@ -264,7 +264,7 @@ For Copy Activity, when source is of type **RelationalSource** (which includes D
 | -------- | ----------- | -------- | -------------- |
 | query | Use the custom query to read data. | SQL query string. For example: `"query": "select * from "MySchema"."MyTable""`. | No (if **tableName** of **dataset** is specified)|
 
-> [AZURE.NOTE] Schema and table names are case-sensitive and they have to be enclosed in "" (double quotes) in the query.  
+> [AZURE.NOTE] Schema and table names are case-sensitive. Enclose the names in "" (double quotes) in the query.  
 
 **Example:**
 
