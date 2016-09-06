@@ -127,6 +127,8 @@ The Azure portal exposes most of the cluster properties. Using Azure ARM templat
 
 		![Additional storage blade](./media/hdinsight-hadoop-create-linux-cluster-portal/HDI.CreateCluster.9.png "Specify additional storage accounts")
 
+		You can also add additioanl storage accounts after a cluster has been created.  See [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
+
 		Click **Select** till you are back on the **New HDInsight cluster** blade.
         
         In addition to Blob storage account, you can also link Azure Data Lake stores. The configuration can be done by configure AAD from Data Source where you configured the default storage account and default container.
