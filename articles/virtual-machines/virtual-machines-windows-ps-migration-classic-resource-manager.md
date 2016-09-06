@@ -76,7 +76,15 @@ Set your Azure subscription for the current session. Replace everything within t
 	$subscr="<subscription name>"
 	Get-AzureSubscription –SubscriptionName $subscr | Select-AzureSubscription
 
-## Step 4: Run commands to migrate your IaaS resources
+## Step 4: Make sure you have enough Azure Resource Manager Virtual Machine cores in the Azure region of your current deployment or VNET
+
+You can use the following powershell command to check the current amount of cores you have in Azure Resource Manager. To learn more about core quotas, see [Limits and the Azure Resource Manager](https://azure.microsoft.com/en-us/documentation/articles/azure-subscription-service-limits/#limits-and-the-azure-resource-manager)
+
+```
+Get-AzureRmVMUsage -Location "<Your VNET or Deployment's Azure region"
+```
+
+## Step 5: Run commands to migrate your IaaS resources
 
 >[AZURE.NOTE] All the operations described here are idempotent. If you have a problem other than an unsupported feature or a configuration error, we recommend that you retry the prepare, abort, or commit operation. The platform then tries the action again.
 
