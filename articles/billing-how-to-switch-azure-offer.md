@@ -23,14 +23,14 @@
 
 You [may be eligible](#to-do) to switch your subscription to a more favorable offer, without any service downtime. Below are the paths we currently support in the [Account Center](https://account.windowsazure.com/Subscriptions).
 
-| From                                                              | To                                                                                      | Offer Number | Spending Limit |
-|-------------------------------------------------------------------|-----------------------------------------------------------------------------------------|--------------|----------------|
-| [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [12-Month Prepay](https://azure.microsoft.com/offers/ms-azr-0026p/)                     | 0026P        |                |
-| [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)          | 0059P        | Yes            |
-| [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)     | 0060P        | Yes            |
-| [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/)                      | 0062P        | Yes            |
-| [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)            | 0063P        | Yes            |
-| [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [Visual Studio Enterprise (Bizspark)](https://azure.microsoft.com/offers/ms-azr-0064p/) | 0064P        | Yes            |
+| From                                                              | To                                                                                      | Offer Number | [Spending limit](https://azure.microsoft.com/pricing/spending-limits/) |
+|-------------------------------------------------------------------|-----------------------------------------------------------------------------------------|--------------|------------------------------------------------------------------------|
+| [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [12-Month Prepay](https://azure.microsoft.com/offers/ms-azr-0026p/)                     | 0026P        |                                                                        |
+| [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)          | 0059P        | Yes                                                                    |
+| [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)     | 0060P        | Yes                                                                    |
+| [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/)                      | 0062P        | Yes                                                                    |
+| [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)            | 0063P        | Yes                                                                    |
+| [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [Visual Studio Enterprise (Bizspark)](https://azure.microsoft.com/offers/ms-azr-0064p/) | 0064P        | Yes                                                                    |
 
 > [AZURE.NOTE] For other offer changes, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 	
