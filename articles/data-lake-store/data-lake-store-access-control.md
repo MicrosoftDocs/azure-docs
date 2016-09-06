@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/30/2016"
+   ms.date="09/06/2016"
    ms.author="nitinme"/>
 
 # Access control in Azure Data Lake Store
@@ -299,6 +299,12 @@ No.
 * [POSIX ACL on Linux](http://users.suse.com/~agruen/acl/linux-acls/online/)
 
 * [ACL using Access Control Lists on Linux](http://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
+
+## See also
+
+* [Overview of Azure Data Lake Store](data-lake-store-overview.md)
+
+* [Get Started with Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 
 
 
