@@ -45,7 +45,7 @@ Use Login-AzureRmAccount to authenticate.
 
 Check the subscriptions for the account.
 
-		get-AzureRmSubscription
+	Get-AzureRmSubscription
 
 You are prompted to authenticate with your credentials.<BR>
 

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/31/2016"
+   ms.date="09/06/2016"
    ms.author="gwallace"/>
 
 # Application Gateway overview
@@ -28,8 +28,8 @@ Application Gateway currently supports layer-7 application delivery with the fol
 - **[Secure Sockets Layer (SSL) offload](application-gateway-ssl-arm.md)** - This feature takes the costly task of decrypting HTTPS traffic off your web servers. By terminating the SSL connection at the Application Gateway and forwarding the request to server un-encrypted, the web server is unburdened by the decryption.  Application Gateway re-encrypts the response before sending it back the to client. This feature is useful in scenarios where the back-end is located in the same secured virtual network as the Application Gateway in Azure.
 - **[URL-based content routing](application-gateway-url-route-overview.md)** - This feature provides the capability to use different back-end servers for different traffic. Traffic for a folder on the web server or for a CDN could be routed to a different back-end, reducing unneeded load on backends that don't server specific content.
 - **[Multi-site routing](application-gateway-multi-site-overview.md)** - Application gateway allows for you to consolidate up to 20 websites on a single application gateway.
-- **Websocket support** - Another great feature of Application Gateway is the support for websocket support.  Websocket enables full duplex communication between server and client over long running connections. Websocket enabled applications still need an HTTP back-end to support the health probes of Application Gateway.
-- **End to End SSL Encryption** - This feature allows you to transmit sensitive data to the back-end while still leveraging the other added benefits of Application Gateway. The Application Gateway terminates the SSL session at the gateway. Traffic is then decrypted and the appropriate rules are applied to the packet. Application Gateway then initiates a new SSL connection to the back-end.
+- **Websocket support** - Another great feature of Application Gateway is the support for websocket support.
+
 
 ## HTTP layer 7 load balancing
 
@@ -45,7 +45,6 @@ HTTP layer 7 load balancing is useful for:
 - Applications that support websocket traffic, but still have an http endpoint for monitoring.
 
 [AZURE.INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
-
 
 ## Gateway sizes and instances
 

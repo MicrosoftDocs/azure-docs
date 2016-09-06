@@ -19,7 +19,9 @@
 
 # Create an application gateway by using the portal
 
-Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. Application gateway has the following application delivery features: HTTP load balancing, cookie-based session affinity, and Secure Sockets Layer (SSL) offload, custom health probes, and support for multi-site.
+Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. 
+Application provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others. 
+To find a complete list of supported features visit [Application Gateway Overview](application-gateway-introduction)
 
 > [AZURE.SELECTOR]
 - [Azure portal](application-gateway-create-gateway-portal.md)
