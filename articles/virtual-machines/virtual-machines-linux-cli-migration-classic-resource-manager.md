@@ -66,7 +66,7 @@ For this step you'll need to switch to `arm` mode. Do this with the following co
 azure config mode arm
 ```
 
-You can use the following CLI command to check the current amount of cores you have in Azure Resource Manager. To learn more about core quotas, see [Limits and the Azure Resource Manager](../articles/azure-subscription-service-limits/#limits-and-the-azure-resource-manager)
+You can use the following CLI command to check the current amount of cores you have in Azure Resource Manager. To learn more about core quotas, see [Limits and the Azure Resource Manager](../articles/azure-subscription-service-limits.md/#limits-and-the-azure-resource-manager)
 
 ```
 azure vm list-usage -l "<Your VNET or Deployment's Azure region"
