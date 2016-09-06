@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="rastala"
-	manager=""
+	manager="paulettm"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2016"
+	ms.date="09/6/2016"
 	ms.author="roastala" />
 
 
