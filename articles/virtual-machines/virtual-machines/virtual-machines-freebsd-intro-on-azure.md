@@ -34,25 +34,25 @@ Following are supported VM extensions in FreeBSD VM.
 
 The [VMAccess](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) extension can:
 
-- Reset the password of the original sudo user.
-- Create a sudo user with the password specified.
-- Set the public host key with the key given.
-- Reset the public host key provided during VM provisioning if the host key is not provided.
-- Open the SSH port (22) and restore the sshd_config if reset_ssh is set to **true**.
-- Remove the existing user.
-- Check drives.
-- Repair an added drive.
+- Reset the password of the original sudo user
+- Create a new sudo user with the password specified
+- Set the public host key with the key given
+- Reset the public host key provided during VM provisioning if the host key is not provided
+- Open the SSH port (22) and restore the sshd_config if reset_ssh is set to true
+- Remove the existing user
+- Check disks
+- Repair an added disk
 
 #### CustomScript
 
-The [CustomScript](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript) Extension can:
+The [CustomScript](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript) extension can:
 
-- Download the customized scripts (if provided) from Azure Storage or external public storage such as Github.
-- Run the entry point script.
-- Support inline commands.
-- Convert Windows-style newline in shell and Python scripts automatically.
-- Remove BOM in shell and Python scripts automatically.
-- Protect sensitive data in CommandToExecute.
+- If provided, download the customized scripts from Azure Storage or external public storage (for example, Github)
+- Run the entry point script
+- Support inline commands
+- Convert Windows-style newline in shell and Python scripts automatically
+- Remove BOM in shell and Python scripts automatically
+- Protect sensitive data in CommandToExecute
 
 ## Authentication: user names, passwords, and SSH keys
 When creating a FreeBSD virtual machine using the Azure classic portal, you must provide a user name, password, or SSH public key.
