@@ -1,8 +1,8 @@
 <properties
 	pageTitle="Monitor Azure web app performance | Microsoft Azure"
 	description="Application performance monitoring for Azure web apps. Chart load and response time, dependency information and set alerts on performance."
-	services="azure-portal"
-    documentationCenter="na"
+	services="application-insights"
+    documentationCenter=".net"
 	authors="alancameronwills"
 	manager="douge"/>
 
