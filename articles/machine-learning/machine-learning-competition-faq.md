@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/05/2016"
+	ms.date="09/06/2016"
 	ms.author="haining;chlovel;garye"/>
 
 # Microsoft Cortana Intelligence Competitions FAQ
@@ -33,7 +33,7 @@ forum](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning
 
 **How do I enter a competition?**
 
-Access the Competitions home page Competitions home page via the Cortana Intelligence Gallery. This page contains all competitions that are running. Each competition will have detailed instructions and participation rules, prizes, and duration on its sign up page. Please go [here](http://aka.ms/CIComp) to access the Competitions home page.  
+Access the Competitions home page via the Cortana Intelligence Gallery. This page contains all competitions that are running. Each competition will have detailed instructions and participation rules, prizes, and duration on its sign up page. Please go [here](http://aka.ms/CIComp) to access the Competitions home page.  
 
 1. Find the competition you’d like to participate in Cortana Intelligence Gallery, read all the instructions and watch the tutorial video, then click on the “Enter Competition” button to copy the Starter Experiment into your existing Azure Machine Learning workspace. If you don’t already have access to a workspace, you must create one beforehand. Run the Starter Experiment, observe the performance metric, then use your creativity to improve the performance of the model. You will likely spend majority of your time in this step.   
 
