@@ -21,7 +21,7 @@
 
 ## What you need to know
 
-You [may be eligible](#to-do) to switch your subscription to a more favorable offer, without any service downtime. Below are the paths we currently support in the [Account Center](https://account.windowsazure.com/Subscriptions).
+You [may be eligible](#where-is-the-button) to switch your subscription to a more favorable offer, without any service downtime. Below are the paths we currently support in the [Account Center](https://account.windowsazure.com/Subscriptions). Click on the links to learn about requirements.
 
 | From                                                              | To                                                                                      | Offer Number | [Spending Limit](https://azure.microsoft.com/pricing/spending-limits/) |
 |-------------------------------------------------------------------|-----------------------------------------------------------------------------------------|--------------|------------------------------------------------------------------------|
@@ -33,6 +33,8 @@ You [may be eligible](#to-do) to switch your subscription to a more favorable of
 | [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [Visual Studio Enterprise (Bizspark)](https://azure.microsoft.com/offers/ms-azr-0064p/) | 0064P        | Yes                                                                    |
 
 > [AZURE.NOTE] For other offer changes, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
+If you've just signed up for your subscription recently, you must wait until your first billing period to complete before you can change offers.
 	
 ## Guide to switching your subscription to another offer
 
@@ -40,10 +42,11 @@ You [may be eligible](#to-do) to switch your subscription to a more favorable of
 
 1.	Sign in at [Azure Account Center](https://account.windowsazure.com/Subscriptions).
 2.	Select the subscription to change.
-3.	Click **Switch to another offer**.
+3.	Click **Switch to another offer**. Find out why [if you don't see the button](#where-is-the-button).
 
 	![siwtchbutton](./media/billing-how-to-switch-azure-offer/switchbutton.png)
-4.	You will be presented with all the offers your subscription can be switched to.  This list will vary based on the memberships that your account is associated with, and also by the current offer. You can click on the “Learn more” link under each offer for detailed information about it. Click on the desired offer to proceed to the next step.
+	
+4.	You will be presented with all the offers your subscription can be switched to.  This list will vary based on the memberships that your account is associated with, and also by the current offer. You can click on the **Learn more** under each offer for detailed information about it. Click on the desired offer to proceed to the next step.
 
 	![selectoffer](./media/billing-how-to-switch-azure-offer/selectoffer.png)
 5.	Depending on the offer you’re switching to, you may see a note about the impact of switching. Go through this carefully and follow the instructions before you proceed.
@@ -60,6 +63,14 @@ You [may be eligible](#to-do) to switch your subscription to a more favorable of
 
 See the list of [available offers you can switch to](#what-you-need-to-know).
 
+### Where is the button?
+
+You might not see the **Switch to another offer** button because:
+
+- You're still on your first billing period; you must wait for your first billing period to complete before you can change offers.
+
+- You're not eligible for any offer changes. Check the list of [available offers you can switch to](#what-you-need-to-know) to make sure your desired offer change is supported.
+
 ### Does switching offers have any impact to my service?
 
 There is no service downtime. However, the offer you switch to may have restrictions. For instance, some offers prohibit production use. So you would need to move production resources to another subscription.
@@ -74,8 +85,7 @@ On the day you switch, an invoice will be generated for all outstanding charges.
 
 > [AZURE.NOTE] Due to billing-related constraints, the offer cannot be changed within the first billing cycle after creating a subscription.
 
-### Can I use this mechanism to migrate from web direct to [Cloud
- Solution Provider](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP), or an [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA) offer?
+### Can I use this mechanism to migrate from web direct to [Cloud Solution Provider](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP), or an [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA) offer?
 
 This mechanism can be used to switch from - and to - only web direct offers. In order to move your existing subscription into EA, have your enrollment admin add your account into the EA. You will then receive an invitation email. When you follow the instructions to accept the invitation, your subscriptions will automatically be moved under the Enterprise Agreement. There is no option to move an existing web direct subscription into CSP today.
 
