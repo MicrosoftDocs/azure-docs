@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="08/30/2016" 
+	ms.date="08/31/2016" 
 	ms.author="juliako"/>
 
 
 #How to perform live streaming with on-premise encoders using the Azure portal
 
-This tutorial walks you through the steps of using the Azure portal to create a **Channel** that is configured for a pass-through delivery. 
+> [AZURE.SELECTOR]
+- [Portal]( media-services-portal-live-passthrough-get-started.md)
+- [.NET]( media-services-dotnet-live-encode-with-onpremises-encoders.md)
+- [REST]( https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
+This tutorial walks you through the steps of using the Azure portal to create a **Channel** that is configured for a pass-through delivery. 
 
 ##Prerequisites
 
