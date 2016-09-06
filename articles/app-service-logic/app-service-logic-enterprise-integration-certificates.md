@@ -88,6 +88,6 @@ After you upload a certificate, it will be available for you to secure your B2B 
 
 
 ## Next steps
-- - [Create a Logic app that uses B2B features](./app-service-logic-enterprise-integration-b2b.md)  
+- [Create a Logic app that uses B2B features](./app-service-logic-enterprise-integration-b2b.md)  
 - [Create a B2B agreement](./app-service-logic-enterprise-integration-agreements.md)  
 - [Learn more about key Vault](../key-vault/key-vault-get-started.md "Learn about Key Vault")  
