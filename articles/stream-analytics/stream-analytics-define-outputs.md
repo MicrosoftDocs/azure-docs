@@ -17,7 +17,7 @@
 	ms.date="08/29/2016"
 	ms.author="jeffstok"/>
 
-# Target Stream Analytics data transformation outputs to analysis tools and data storage options
+# Stream Analytics outputs: Options for storage, analysis
 
 When authoring a Stream Analytics job, consider how the resulting data will be consumed. How will you view the results of the Stream Analytics job and where will you store it?
 
@@ -84,7 +84,7 @@ The table below lists the property names and their description needed for creati
 </tbody>
 </table>
 
-### Renew Power BI Authorization
+### Renew Data Lake Store Authorization
 
 You will need to re-authenticate your Data Lake Store account if its password has changed since your job was created or last authenticated.
 

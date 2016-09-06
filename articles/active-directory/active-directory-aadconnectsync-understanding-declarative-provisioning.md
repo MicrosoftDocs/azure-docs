@@ -145,10 +145,18 @@ If you have several objects in the same connector space joined to the same metav
 For this scenario, you need to change the scope of the sync rules so the source objects have different sync rules in scope. That allows you to define different precedence.  
 ![Multiple objects joined to the same mv object](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/multiple2.png)  
 
-## Additional Resources
+## Next steps
 
-- [Azure AD Connect sync: How to make a change to the default configuration](active-directory-aadconnectsync-change-the-configuration.md)
-- [Azure AD Connect sync: Understanding Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)
-- [Azure AD Connect sync: Functions Reference](active-directory-aadconnectsync-functions-reference.md)
-- [Azure AD Connect Sync: Customizing Synchronization options](active-directory-aadconnectsync-whatis.md)
+- Read more about the expression language in [Understanding Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
+- See how declarative provisioning is used out-of-box in [Understanding the default configuration](active-directory-aadconnectsync-understanding-default-configuration.md).
+- See how to make a practical change using declarative provisioning in [How to make a change to the default configuration](active-directory-aadconnectsync-change-the-configuration.md).
+- Continue to read how users and contacts work together in [Understanding Users and Contacts](active-directory-aadconnectsync-understanding-users-and-contacts.md).
+
+**Overview topics**
+
+- [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
 - [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+
+**Reference topics**
+
+- [Azure AD Connect sync: Functions Reference](active-directory-aadconnectsync-functions-reference.md)

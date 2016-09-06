@@ -44,9 +44,9 @@ To use an escapeChar instead of quoteChar, replace the line with quoteChar with 
 
 ### Scenarios for using firstRowAsHeader and skipLineCount
 
-- You are copying from a non-file source to a text file and would like to add a header line containing the schema metadata (for example: SQL schema). Specify firstRowAsHeader as true in the output dataset for this scenario. 
-- You are copying from a text file containing a header line to a non-file sink and would like to drop that line. Specify firstRowAsHeader as true in the input dataset.
-- You are copying from a text file and want to skip a few lines at the beginning that are neither data nor header. Specify skipLineCount to indicate the number of lines to be skipped. If the rest of the file contains a header line, you can also specify firstRowAsHeader. If both skipLineCount and firstRowAsHeader are specified, the lines are skipped first and then the header information is read from the input file
+- You are copying from a non-file source to a text file and would like to add a header line containing the schema metadata (for example: SQL schema). Specify **firstRowAsHeader** as true in the output dataset for this scenario. 
+- You are copying from a text file containing a header line to a non-file sink and would like to drop that line. Specify **firstRowAsHeader** as true in the input dataset.
+- You are copying from a text file and want to skip a few lines at the beginning that are neither data nor header. Specify **skipLineCount** to indicate the number of lines to be skipped. If the rest of the file contains a header line, you can also specify **firstRowAsHeader**. If both **skipLineCount** and **firstRowAsHeader** are specified, the lines are skipped first and then the header information is read from the input file
 
 ### Specifying AvroFormat
 If the format is set to AvroFormat, you do not need to specify any properties in the Format section within the typeProperties section. Example:
