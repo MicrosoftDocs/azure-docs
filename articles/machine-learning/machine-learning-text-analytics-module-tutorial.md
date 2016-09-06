@@ -29,7 +29,7 @@ In a text analytics experiment, you would typically:
  4. Score and validate the model
  5. Deploy the model to production
 
-In this tutorial, you learn these steps as we walk through a sentiment analysis model using [AZURE.INCLUDE ["Book Reviews from Amazon" dataset] (../../includes/machine-learning-sample-dataset-book-reviews-from-amazon.md)]. This dataset consists of review scores (1-2 or 4-5) and a free-form text. The goal is to predict the review score: low (1-2) or high (4-5).
+In this tutorial, you learn these steps as we walk through a sentiment analysis model using [AZURE.INCLUDE [machine-learning-sample-dataset-book-reviews-from-amazon](../../includes/machine-learning-sample-dataset-book-reviews-from-amazon.md)]. This dataset consists of review scores (1-2 or 4-5) and a free-form text. The goal is to predict the review score: low (1-2) or high (4-5).
 
 You can find experiments covered in this tutorial at Cortana Intelligence Gallery:
 
@@ -41,11 +41,11 @@ You can find experiments covered in this tutorial at Cortana Intelligence Galler
 
 We begin the experiment by dividing the review scores into categorical low and high buckets to formulate the problem as two-class classification. We use [Edit Metadata] (https://msdn.microsoft.com/library/azure/dn905986.aspx) and [Group Categorical Values] (https://msdn.microsoft.com/library/azure/dn906014.aspx) modules.
 
-![Create Label] (./media/machine-learning-text-analytics-module-tutorial/create-label.png)
+![Create Label](./media/machine-learning-text-analytics-module-tutorial/create-label.png)
 
 Then, we clean the text using [Preprocess Text] (https://msdn.microsoft.com/library/azure/mt762915.aspx) module. The cleaning reduces the noise in the dataset, help you find the most important features, and improve the accuracy of the final model. We remove stopwords - common words such as "the" or "a" - and numbers, special characters, duplicated characters, email addresses, and URLs. We also convert the text to lowercase, lemmatize the words, and detect sentence boundaries that are then indicated by "|||" symbol in pre-processed text.
 
-![Preprocess Text] (./media/machine-learning-text-analytics-module-tutorial/preprocess-text.png)
+![Preprocess Text](./media/machine-learning-text-analytics-module-tutorial/preprocess-text.png)
 
 What if you want to use a custom list of stopwords? You can pass it in as optional input. You can also use custom C# syntax regular expression to replace substrings, and remove words by part of speech: nouns, verbs, or adjectives.
 
@@ -55,7 +55,7 @@ After the preprocessing is complete, we split the data into train and test sets.
 
 To build a model for text data, you typically have to convert free-form text into numeric feature vectors. In this example, we use [Extract N-Gram Features from Text] (https://msdn.microsoft.com/library/azure/mt762916.aspx) module to transform the text data to such format. This module takes a column of whitespace-separated words and computes a dictionary of words, or N-grams of words, that appear in your dataset. Then, it counts how many times each word, or N-gram, appears in each record, and creates feature vectors from those counts. In this tutorial, we set N-gram size to 2, so our feature vectors include single words and combinations of two subsequent words.
 
-![Extract N-grams] (./media/machine-learning-text-analytics-module-tutorial/extract-ngrams.png)
+![Extract N-grams](./media/machine-learning-text-analytics-module-tutorial/extract-ngrams.png)
 
 We apply TF*IDF (Term Frequency Inverse Document Frequency) weighting to N-gram counts. This approach adds weight of words that appear frequently in a single record but are rare across the entire dataset. Other options include binary, TF, and graph weighing.
 
@@ -71,7 +71,7 @@ Now the text has been transformed to numeric feature columns. The dataset still 
 
 We then use [Two-Class Logistic Regression] (https://msdn.microsoft.com/library/azure/dn905994.aspx) to predict our target: high or low review score. At this point, the text analytics problem has been transformed into a regular classification problem. You can use the tools available in Azure Machine Learning to improve the model. For example, you can experiment with different classifiers to find out how accurate results they give, or use hyperparameter tuning to improve the accuracy.
 
-![Train and Score] (./media/machine-learning-text-analytics-module-tutorial/scoring-text.png)
+![Train and Score](./media/machine-learning-text-analytics-module-tutorial/scoring-text.png)
 
 ## Step 4: Score and validate the model
 
@@ -87,7 +87,7 @@ To set up the predictive experiment, we first save the N-gram vocabulary as data
 
 We insert Select Columns in Dataset module before Preprocess Text module to remove the label column, and unselect "Append score column to dataset" option in Score Module. That way, the web service does not request the label it is trying to predict, and does not echo the input features in response.
 
-![Predictive Experiment] (./media/machine-learning-text-analytics-module-tutorial/predictive-text.png)
+![Predictive Experiment](./media/machine-learning-text-analytics-module-tutorial/predictive-text.png)
 
 Now we have an experiment that can be published as a web service and called using request-response or batch execution APIs.
 
