@@ -44,7 +44,7 @@ You can use [OpenSSL](http://www.openssl.org/) to create your management certifi
 
     openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
 
-To create the `.cer` certificate, execute this:
+To create the `.cer` certificate, execute:
 
     openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 
@@ -70,9 +70,9 @@ You can create a self-signed management certificate on your machine using `makec
 
     makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 
-The command creates the `.cer` file, and install it in the **Personal** certificate store. For more details, see [Certificates Overview for Azure Cloud Services](./cloud-services-certs-create.md).
+The command creates the `.cer` file, and installs it in the **Personal** certificate store. For more details, see [Certificates Overview for Azure Cloud Services](./cloud-services-certs-create.md).
 
-After you have created the certificate, you will need to upload the `.cer` file to Azure via the "Upload" action of the "Settings" tab of the [Azure classic portal][management-portal].
+After you have created the certificate, you need to upload the `.cer` file to Azure via the "Upload" action of the "Settings" tab of the [Azure classic portal][management-portal].
 
 After you have obtained your subscription ID, created a certificate, and uploaded the `.cer` file to Azure, you can connect to the Azure management endpoint by passing the subscription id and the location of the certificate in your **Personal** certificate store to **ServiceManagementService** (again, replace *AzureCertificate* with the name of your certificate):
 
@@ -99,7 +99,7 @@ To list the locations that are available for hosting services, use the **list\_l
 	for location in result:
 		print(location.name)
 
-When you create a cloud service or storage service you will need to provide a valid location. The **list\_locations** method always return an up-to-date list of the currently available locations. As of this writing, the available locations are:
+When you create a cloud service or storage service you need to provide a valid location. The **list\_locations** method always returns an up-to-date list of the currently available locations. As of this writing, the available locations are:
 
 - West Europe
 - North Europe
@@ -158,7 +158,7 @@ You can delete a cloud service by passing the service name to the **delete\_host
 
 	sms.delete_hosted_service('myhostedservice')
 
-Before you can delete a service, all deployments for the the service must first be deleted. (See [How to: Delete a deployment](#DeleteDeployment) for details.)
+Before you can delete a service, all deployments for the service must first be deleted. (See [How to: Delete a deployment](#DeleteDeployment) for details.)
 
 ## <a name="DeleteDeployment"> </a>How to: Delete a deployment
 
