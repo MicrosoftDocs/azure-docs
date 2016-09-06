@@ -3,7 +3,7 @@
    description="Power BI Embedded enables you to integrate Power BI reports into your web or mobile applications so you don't need to build custom solutions to visualize data for your users"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="mgblythe"
    manager="mblythe"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="07/05/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # What is Microsoft Power BI Embedded?
 

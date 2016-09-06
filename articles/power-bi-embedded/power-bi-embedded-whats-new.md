@@ -3,7 +3,7 @@
    description="Get the latest info on what's new in Power BI Embedded"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="mgblythe"
    manager="mblythe"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="07/06/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # What's new in Power BI Embedded
 
