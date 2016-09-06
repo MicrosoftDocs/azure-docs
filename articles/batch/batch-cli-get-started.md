@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="multiple"
    ms.workload="big-compute"
-   ms.date="09/02/2016"
+   ms.date="09/06/2016"
    ms.author="marsma"/>
 
 # Get started with Azure Batch CLI
@@ -26,7 +26,7 @@ This article is based on Azure CLI version 0.10.3.
 
 * [Install the Azure CLI](../xplat-cli-install.md)
 
-* [Connect to your Azure subscription from the Azure CLI](../xplat-cli-connect.md)
+* [Connect the Azure CLI to your Azure subscription](../xplat-cli-connect.md)
 
 * Switch to **Resource Manager mode**: `azure config mode arm`
 
@@ -34,7 +34,7 @@ This article is based on Azure CLI version 0.10.3.
 
 ## Command help
 
-You can display usage information for every command in the Azure CLI by appending `-h` as the only option after the command. For example:
+You can display help text for every command in the Azure CLI by appending `-h` as the only option after the command. For example:
 
 * To get help for the `azure` command, enter: `azure -h`
 * To get a list of all Batch commands in the CLI, use: `azure batch -h`
@@ -126,17 +126,19 @@ You can set `AZURE_BATCH_ACCOUNT`, `AZURE_BATCH_ACCESS_KEY`, and `AZURE_BATCH_EN
 
 When you create Batch resources like pools and jobs, you can specify a JSON file containing the new resource's configuration instead of passing its parameters as command-line options. For example:
 
-`batch pool create my_batch_pool.json`
+`azure batch pool create my_batch_pool.json`
 
 While you can perform many resource creation operations using only command-line options, some features require a JSON-formatted file containing the resource details. For example, you must use a JSON file if you want to specify resource files for a start task.
 
 To find the JSON required to create a resource, refer to the [Batch REST API reference][rest_api] documentation on MSDN. Each "Add *resource type*" topic contains example JSON for creating the resource, which you can use as templates for your JSON files. For example, JSON for pool creation can be found in [Add a pool to an account][rest_add_pool].
 
+>[AZURE.NOTE] If you specify a JSON file when you create a resource, all other parameters that you specify on the command line for that resource are ignored.
+
 ## Create a pool
 
 Usage:
 
-    batch pool create [options] [json-file]
+    azure batch pool create [options] [json-file]
 
 Example (Virtual Machine Configuration):
 
@@ -192,8 +194,8 @@ For example, this will return only pools whose ids start with "renderTask":
 The Batch CLI supports all three clauses supported by the Batch service:
 
 * `--select-clause [select-clause]`  Return a subset of properties for each entity
-* `--filter-clause [filter-clause]`  Return only entities that match the specified ODATA expression
-* `--expand-clause [expand-clause]`  Obtain the entity information in a single underlying REST call. Only `stats` is currently supported by this clause.
+* `--filter-clause [filter-clause]`  Return only entities that match the specified OData expression
+* `--expand-clause [expand-clause]`  Obtain the entity information in a single underlying REST call. The expand clause supports only the `stats` property at this time.
 
 For details on the three clauses and performing list queries with them, see [Query the Azure Batch service efficiently](batch-efficient-list-queries.md).
 
@@ -215,8 +217,6 @@ To create a new application and add a package version:
 
     azure batch application package activate "resgroup002" "azbatch002" "MyTaskApplication" "1.10-beta3" zip
 
-You can't currently specify which package version to deploy. You must first set a default version for the application by using the Azure portal before you can assign it to a pool. See how to set a default version in [Application deployment with Azure Batch application packages](batch-application-packages.md).
-
 ### Deploy an application package
 
 You can specify one or more application packages for deployment when you create a new pool. When you specify a package at pool creation time, it is deployed to each node as the node joins pool. Packages are also deployed when a node is rebooted or reimaged.
@@ -225,13 +225,15 @@ This command specifies a package at pool creation, and is deployed as each node 
 
     azure batch pool create --id "pool001" --target-dedicated 1 --vm-size "small" --os-family "4" --app-package-ref "MyTaskApplication"
 
+You can't currently specify which package version to deploy by using command-line options. You must first set a default version for the application by using the Azure portal before you can assign it to a pool. See how to set a default version in [Application deployment with Azure Batch application packages](batch-application-packages.md). You can, however, specify a default version if you use a [JSON file](#json-files) instead of command line options when you create a pool.
+
 >[AZURE.IMPORTANT] You must [link an Azure Storage account](#linked-storage-account-autostorage) to your Batch account to use application packages.
 
 ## Troubleshooting tips
 
 This section is intended to provide you with resources to use when troubleshooting Azure CLI issues. It won't necessarily solve all problems, but it may help you narrow down the cause and point you to help resources.
 
-* Use `-h` to get **usage information** for any CLI command
+* Use `-h` to get **help text** for any CLI command
 
 * Use `-v` and `-vv` to display **verbose** command output; `-vv` is "extra" verbose and displays the actual REST requests and responses. These switches are handy for displaying full error output.
 
