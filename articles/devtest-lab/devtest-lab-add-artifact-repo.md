@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/30/2016"
+	ms.date="09/06/2016"
 	ms.author="tarcher"/>
 
 # Add a Git artifact repository to a lab in Azure DevTest Labs
@@ -95,13 +95,9 @@ To get the Visual Studio Team Services repository clone URL and personal access 
 
 1. From the list of labs, select the desired lab.   
 
-1. On the lab's blade, select **Settings**.
+1. On the lab's blade, select **Configuration**.
 
-	![Settings button](./media/devtest-lab-add-artifact-repo/settings-button.png)
-
-1. On the lab's **Settings** blade, select **Artifacts Repositories**.
-
-	![Artifact repositories menu](./media/devtest-lab-add-artifact-repo/artifact-repositories-menu.png)
+1. On the lab's **Configuration** blade, select **Artifacts Repositories**.
 
 1. On the **Artifacts Repositories** blade, select **+ Add**.
 
