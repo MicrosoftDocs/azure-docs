@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="support-article"
-	ms.date="06/14/2016"
+	ms.date="09/01/2016"
 	ms.author="iainfou"/>
 
 # Troubleshoot Remote Desktop connections to an Azure virtual machine running Windows
@@ -65,13 +65,13 @@ After each troubleshooting step, try reconnecting to the VM.
 		-VMName "myVM" -Name "myVMAccess" -Location Westus
 	```
 
-	> [AZURE.NOTE] In the preceding examples, `myVMAccessExtension` or `MyVMAccess` is a name that you specify for the new extension to install as part of the process. This is often set to the name of the VM. If you have previously worked with the VMAccessAgent, you can get the name of the existing extension by using `Get-AzureRmVM -ResourceGroupName "myRG" -Name "myVM"` to check the properties of the VM. Then look under the 'Extensions' section of the output. Since only one VMAccessAgent can exist on a VM, you also need to add the `-ForceReRun` parameter when using `Set-AzureRmVMExtension` to re-register the agent.
+	> [AZURE.NOTE] In the preceding examples, `myVMAccessExtension` or `MyVMAccess` is a name that you specify for the new extension to install as part of the process. This is often set to the name of the VM. If you have previously worked with the VMAccessAgent, you can get the name of the existing extension by using `Get-AzureRmVM -ResourceGroupName "myRG" -Name "myVM"` to check the properties of the VM. Look under the 'Extensions' section of the output to view the name. Since only one VMAccessAgent can exist on a VM, you also need to add the `-ForceReRun True` parameter when using `Set-AzureRmVMExtension` to re-register the agent.
 
 2. Restart your VM to address other startup issues. Select **Browse** > **Virtual machines** > *your VM* > **Restart**.
 
 3. [Redeploy VM to a new Azure node](virtual-machines-windows-redeploy-to-new-node.md).
 
-	After this operation finishes, ephemeral disk data is lost and dynamic IP addresses that are associated with the virtual machine will are updated.
+	After this operation finishes, ephemeral disk data is lost and dynamic IP addresses that are associated with the virtual machine are updated.
 	
 4. Verify that your [Network Security Group rules](../virtual-network/virtual-networks-nsg.md) allow RDP traffic (TCP port 3389).
 
@@ -92,7 +92,7 @@ After each troubleshooting step, try reconnecting to the VM.
 
 3. [Redeploy VM to a new Azure node](virtual-machines-windows-redeploy-to-new-node.md).
 
-	After this operation finishes, ephemeral disk data will be lost and dynamic IP addresses that are associated with the virtual machine will be updated.
+	After this operation finishes, ephemeral disk data is lost and dynamic IP addresses that are associated with the virtual machine are updated.
 	
 4. Verify that your [Cloud Services endpoint allow RDP traffic](../cloud-services/cloud-services-role-enable-remote-desktop.md).
 

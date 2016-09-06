@@ -18,7 +18,12 @@
 
 
 # Upload files into a Media Services account using the Azure portal 
- 
+
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-upload-files.md)
+- [.NET](media-services-dotnet-upload-files.md)
+- [REST](media-services-rest-upload-files.md)
+
 > [AZURE.NOTE] To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
 
 In Media Services, you upload your digital files into an asset. The Asset  can contain video, audio, images, thumbnail collections, text tracks and closed caption files (and the metadata about these files.) Once the files are uploaded, your content is stored securely in the cloud for further processing and streaming.

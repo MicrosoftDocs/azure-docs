@@ -26,13 +26,13 @@ Most of the Transact-SQL features that applications depend on are supported in b
 - Operators.
 - String, arithmetic, logical, and cursor functions.
 
-However, Azure SQL Database is designed to isolate features from any dependency on the **master** database. As a consequence many server-level activities are inappropriate for SQL Database and are unsupported. This topic details the features that are not fully supported in SQL Database.
+However, Azure SQL Database is designed to isolate features from any dependency on the **master** database. As a consequence many server-level activities are inappropriate for SQL Database and are unsupported. Features that are deprecated in SQL Server are generally not supported in SQL Database.
 
-Also, features that are deprecated in SQL Server are generally not supported in SQL Database.
+> [AZURE.NOTE]
+> This topic discusses the features that are available with SQL Database when upgraded to the current version; SQL Database V12. For more information about V12, see [SQL Database V12 What's New](sql-database-v12-whats-new.md).
 
-## Upgrading to SQL Database V12
+The following sections list features that are partially supported, and the features that are completely unsupported.
 
-This topic discusses the features that are available with SQL Database when upgraded to the free SQL Database V12. For more information about V12, see [SQL Database V12 What's New](sql-database-v12-whats-new.md). SQL Database V12 adds performance and manageability improvements, as well as support for additional features. The following sections, list features that are partially supported, and complete unsupported. 
 
 ## Features partially supported in SQL Database V12
 

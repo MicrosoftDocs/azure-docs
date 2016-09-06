@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Learn to copy/move Azure Blob Datasets | Azure Data Factory" 
+	pageTitle="Copy data to/from Azure Blob Storage | Azure Data Factory" 
 	description="Learn how to copy blob data in Azure Data Factory. Use our sample: How to copy data to and from Azure Blob Storage and Azure SQL Database." 
     keywords="blob data, azure blob copy"
 	services="data-factory" 
@@ -14,13 +14,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/22/2016" 
+	ms.date="08/25/2016" 
 	ms.author="spelluru"/>
 
 # Move data to and from Azure Blob using Azure Data Factory
-This article explains how to use the Copy Activity in Azure Data Factory to move data to and from Azure Blob by sourcing blob data from another data store. This article builds on the data movement activities article, which presents a general overview of data movement with the copy activity and the supported data store combinations.
+This article explains how to use the Copy Activity in Azure Data Factory to move data to and from Azure Blob by sourcing blob data from another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity and the supported data store combinations.
 
-> [AZURE.NOTE] This Azure Blob connector currently only supports copying from/to block blobs. And it supports both general-purpose Azure Storage and Hot/Cool Blob Storage.
+> [AZURE.NOTE]
+> The Copy Activity supports copying data from/to both general-purpose Azure Storage accounts and Hot/Cool Blob storage. 
+> 
+> The activity supports reading from block, append, or page blobs, but supports writing to only block blobs. 
 
 ## Copy data wizard
 The easiest way to create a pipeline that copies data to/from Azure Blob Storage is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
@@ -38,7 +41,7 @@ The following sample shows:
 4.	An output [dataset](data-factory-create-datasets.md) of type [AzureSqlTable](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties).
 4.	A [pipeline](data-factory-create-pipelines.md) with a Copy activity that uses [BlobSource](#azure-blob-copy-activity-type-properties) and [SqlSink](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties).
 
-The sample copies time-series data from an Azure blob to a table in an Azure SQL database every hour. The JSON properties used in these samples are described in sections following the samples. 
+The sample copies time-series data from an Azure blob to an Azure SQL table hourly. The JSON properties used in these samples are described in sections following the samples. 
 
 **Azure SQL linked service:**
 
@@ -210,7 +213,7 @@ The following sample shows:
 4.	A [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [SqlSource](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties) and [BlobSink](#azure-blob-copy-activity-type-properties).
 
 
-The sample copies time-series data from a table in Azure SQL database to an Azure blob every hour. The JSON properties used in these samples are described in sections following the samples. 
+The sample copies time-series data from an Azure SQL table to an Azure blob hourly. The JSON properties used in these samples are described in sections following the samples. 
 
 **Azure SQL linked service:**
 
@@ -433,7 +436,7 @@ In this example, year, month, day, and time of SliceStart are extracted into sep
 
 
 ## Azure Blob Copy Activity type properties  
-For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, various policies etc., are available for all types of activities.
+For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output datasets, and policies are available for all types of activities.
 
 Properties available in the typeProperties section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks
 
@@ -441,17 +444,34 @@ Properties available in the typeProperties section of the activity on the other 
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- | 
-| treatEmptyAsNull | Specifies whether to treat null or empty string as null value. <br/><br/>When the **quoteChar** property is specified, a quoted empty string can also be treated as null with this property. | TRUE(default) <br/>FALSE | No |
-| skipHeaderLineCount | Indicates how many lines need be skipped. It is applicable only when input dataset is using **TextFormat**. | Integer from 0 to Max. | No | 
 | recursive | Indicates whether the data is read recursively from the sub folders or only from the specified folder. | True (default value), False | No | 
-
 
 **BlobSink** supports the following properties **typeProperties** section:
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
-| blobWriterAddHeader | Specifies whether to add header of column definitions. | TRUE<br/>FALSE (default) | No |
 | copyBehavior | Defines the copy behavior when the source is BlobSource or FileSystem. | **PreserveHierarchy:** preserves the file hierarchy in the target folder. The relative path of source file to source folder is identical to the relative path of target file to target folder.<br/><br/>**FlattenHierarchy:** all files from the source folder are in the first level of target folder. The target files have auto generated name. <br/><br/>**MergeFiles: (default)** merges all files from the source folder to one file. If the File/Blob Name is specified, the merged file name would be the specified name; otherwise, would be auto-generated file name. | No |
+
+**BlobSource** also supports these two properties for backward compatibility. 
+
+- **treatEmptyAsNull**: Specifies whether to treat null or empty string as null value.
+- **skipHeaderLineCount** - Specifies how many lines need be skipped. It is applicable only when input dataset is using TextFormat.
+
+Similarly, **BlobSink** supports the following property for backward compatibility.
+
+- **blobWriterAddHeader**: Specifies whether to add a header of column definitions while writing to an output dataset. 
+
+Datasets now support the following properties that implement the same functionality: **treatEmptyAsNull**, **skipLineCount**, **firstRowAsHeader**.
+
+The following table provides guidance on using the new dataset properties in place of these blob source/sink properties. 
+
+| Copy Activity property | Dataset property |
+| :---------------------- | :---------------- | 
+| skipHeaderLineCount on BlobSource | skipLineCount and firstRowAsHeader. Lines are skipped first and then the first row is read as a header. |
+| treatEmptyAsNull on BlobSource | treatEmptyAsNull on input dataset |
+| blobWriterAddHeader on BlobSink | firstRowAsHeader on output dataset | 
+
+See [Specifying TextFormat](#specifying-textformat) section for detailed information on these properties.    
 
 ### recursive and copyBehavior examples
 This section describes the resulting behavior of the Copy operation for different combinations of recursive and copyBehavior values. 

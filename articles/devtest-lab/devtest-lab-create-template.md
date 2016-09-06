@@ -18,10 +18,12 @@
 
 # Manage Azure DevTest Labs custom images to create VMs
 
-After you have [created a lab](devtest-lab-create-lab.md), you can [add virtual machines (VMs) to that lab](devtest-lab-add-vm-with-artifacts.md).
-When you create a VM, you specify a *base*, which can be either a *custom image* or a *Marketplace image*. 
-In this article, you'll learn how to [create a custom image from a VHD](#create-a-custom-image-from-a-vhd) so that you can subsequently create a VM from that custom image. In addition, you can also [create a custom image
-from a VM](#create-a-custom-image-from-a-vm) for subsequent rapid VM creation.
+In Azure DevTest Labs, custom images enable you to create VMs quickly without waiting for all the required software to be installed on the target machine. Custom images allow you to pre-install all the software that you need in a VHD file, and then use the VHD file to create a VM. Because the software is already installed, the VM creation time is much quicker. In addition, custom images are used to clone VMs by creating a custom image from a VM, and then creating VMs from that custom image.
+
+In this article, you'll learn how to:
+
+- [Create a custom image from a VHD file](#create-a-custom-image-from-a-vhd-file) so that you can subsequently create a VM from that custom image. 
+- [Create a custom image from a VM](#create-a-custom-image-from-a-vm) for subsequent rapid VM cloning.
 
 ## Create a custom image from a VHD file
 

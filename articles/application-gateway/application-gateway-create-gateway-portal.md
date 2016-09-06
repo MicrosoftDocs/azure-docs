@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="09/02/2016"
    ms.author="gwallace" />
 
 # Create an application gateway by using the portal
@@ -29,10 +29,6 @@ To find a complete list of supported features visit [Application Gateway Overvie
 - [Azure Classic PowerShell](application-gateway-create-gateway.md)
 - [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
 - [Azure CLI](application-gateway-create-gateway-cli.md)
-
-<BR>
-
-
 
 ## Scenario
 
@@ -77,7 +73,6 @@ The information needed for the basic settings is:
 ![blade showing basic settings][2]
 
 >[AZURE.NOTE] An instance count of 1 can be chosen for testing purposes. It is important to know that any instance count under two instances is not covered by the SLA and are therefore not recommended. Small gateways are to be used for dev test and not for production purposes.
-
 
 ### Step 3
 
@@ -155,7 +150,7 @@ These steps create a basic application gateway with default settings for the lis
 
 Learn how to create custom health probes by visiting [Create a custom health probe](application-gateway-create-probe-portal.md)
 
-Learn how to configure SSL Offloading and take the costly SSL decryption off your web servers by visiting [Configure SSL Offload](application-gateway-ssl-arm.md)
+Learn how to configure SSL Offloading and take the costly SSL decryption off your web servers by visiting [Configure SSL Offload](application-gateway-ssl-portal.md)
 
 <!--Image references-->
 [1]: ./media/application-gateway-create-gateway-portal/figure1.png
