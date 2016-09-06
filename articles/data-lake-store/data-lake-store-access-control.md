@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Overview of Access Control in Data Lake Store | Azure"
+   pageTitle="Overview of Access Control in Data Lake Store | Microsoft Azure"
    description="Understand how access control in Azure Data Lake Store"
    services="data-lake-store"
    documentationCenter=""
