@@ -17,7 +17,7 @@
    ms.author="iainfou"/>
 
 # How to reset local Windows password for Azure VM
-You can reset the local Windows password of a VM in Azure using the [Azure portal or Azure PowerShell](virtual-machines-windows-reset-rdp.md) provided the Azure guest agent is installed. This is primary way to reset a password for an Azure VM. If you encounter issues with the Azure guest agent not responding, or failing to install after uploading a custom image, you can manually reset a Windows password. This article details how to reset a local account password by attaching the source OS virtual disk to another VM. 
+You can reset the local Windows password of a VM in Azure using the [Azure portal or Azure PowerShell](virtual-machines-windows-reset-rdp.md) provided the Azure guest agent is installed. This method is the primary way to reset a password for an Azure VM. If you encounter issues with the Azure guest agent not responding, or failing to install after uploading a custom image, you can manually reset a Windows password. This article details how to reset a local account password by attaching the source OS virtual disk to another VM. 
 
 > [AZURE.WARNING] Only use this process as a last resort. Always try to reset a password using the [Azure portal or Azure PowerShell](virtual-machines-windows-reset-rdp.md) first.
 
@@ -25,11 +25,11 @@ You can reset the local Windows password of a VM in Azure using the [Azure porta
 ## Overview of the process
 The core steps for performing a local password reset for a Windows VM in Azure when there is no access to the Azure guest agent is as follows:
 
-- Delete the souce VM. The virtual disks are retained.
+- Delete the source VM. The virtual disks are retained.
 - Attach the source VM's OS disk to another VM within your Azure subscription. This VM is referred to as the troubleshooting VM.
 - Using the troubleshooting VM, create some config files on the source VM's OS disk.
 - Detach the VM's OS disk from the troubleshooting VM.
-- Use a Resource Manager template to create a new VM, using the original virtual disk.
+- Use a Resource Manager template to create a VM, using the original virtual disk.
 - When the new VM boots, the config files you create update the password of the required user.
 
 
@@ -50,7 +50,7 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](virt
 
     - Under *VHD File*, select the storage account that contains your source VM.
 
-    ![Select storage account](./media/virtual-machines-windows-reset-local-password-without-guest-agent/disks_select_storageaccount.png)
+    ![Select storage account](./media/virtual-machines-windows-reset-local-password-without-guest-agent/disks_select_storageaccount.PNG)
 
     - Select the source container (typically *vhds*).
 
@@ -109,9 +109,9 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](virt
     - Select the VM in the Azure portal, click *Disks*.
     - Select the data disk attached in step 2, click *Detach*.
 
-    ![Detatch disk](./media/virtual-machines-windows-reset-local-password-without-guest-agent/detach_disk.png)
+    ![Detach disk](./media/virtual-machines-windows-reset-local-password-without-guest-agent/detach_disk.png)
 
-8. Before you create a new VM, obtain the URI to your source OS disk:
+8. Before you create a VM, obtain the URI to your source OS disk:
     - Select the storage account in the Azure portal, click *Blobs*.
     - Select the container, typically *vhds*.
 
@@ -121,7 +121,7 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](virt
 
     ![Copy disk URI](./media/virtual-machines-windows-reset-local-password-without-guest-agent/copy_source_vhd_uri.png)
 
-9. Create a new VM from the source VM’s OS disk:
+9. Create a VM from the source VM’s OS disk:
     - Use [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd) to create a VM from a specialized VHD. Click the `Deploy to Azure` button to open the Azure portal with the templated details populated for you.
 
     ![Create new VM from template](./media/virtual-machines-windows-reset-local-password-without-guest-agent/create_new_vm_from_template.png)
