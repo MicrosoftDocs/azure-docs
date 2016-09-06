@@ -14,11 +14,11 @@ articles/sql-database/sql-database-configure-firewall-settings
 Use the following steps in the Azure portal to create a server-level firewall rule that allows connections from an individual IP address (your client computer) or an entire IP address range to a SQL Database logical server.
 
 1. If you're not currently connected, connect to the [Azure portal](http://portal.azure.com).
-2. In the default blade, click **SQL servers**.
+2. On the default blade, click **SQL servers**.
 
   	![New server firewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-1.png)
 
-3. In the **SQL servers** blade, click the server on which to create the firewall rule.
+3. On the **SQL servers** blade, click the server on which to create the firewall rule.
 
  	![New server firewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-2.png)
 
@@ -26,7 +26,7 @@ Use the following steps in the Azure portal to create a server-level firewall ru
 
  	![New server firewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-3.png)
 
-5. In the **Settings** blade, click **Firewall**.
+5. On the **Settings** blade, click **Firewall**.
 
  	![New server firewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-4.png)
 
@@ -44,4 +44,4 @@ Use the following steps in the Azure portal to create a server-level firewall ru
 
      ![New server firewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-7.png)
 
-	>[AZURE.IMPORTANT] Your client IP address might change from time to time, and you might not be able to access your server until you create a new firewall rule. You can check your IP address using [Bing](http://www.bing.com/search?q=my%20ip%20address). Then add a single IP address or a range of IP addresses. See [Manage firewall settings](sql-database-configure-firewall-settings.md#manage-existing-server-level-firewall-rules-through-the-azure-portal) for details.
+	>[AZURE.IMPORTANT] Your client IP address might change from time to time, and you might not be able to access your server until you create a new firewall rule. You can check your IP address by using [Bing](http://www.bing.com/search?q=my%20ip%20address). Then add a single IP address or a range of IP addresses. See [Manage firewall settings](sql-database-configure-firewall-settings.md#manage-existing-server-level-firewall-rules-through-the-azure-portal) for details.
