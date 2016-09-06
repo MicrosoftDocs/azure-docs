@@ -20,7 +20,7 @@
 
 This article provides a conceptual overview of monitoring Azure resources and pointers to more information on specific types of resources.  For high-level information on monitoring your application from non-Azure point of view, see [Monitoring and diagnostics guidance](../best-practices-monitoring.md).
 
-Cloud applications are complex with many moving parts. Monitoring provides data to ensure that your application stays up and running in a healthy state. It also helps you to stave off potential problems or troubleshoots past ones. In addition, you can use monitoring data to gain deep insights about your application. Those insights may help you to improve its performance or maintainability, or to automate some actions that would otherwise require manual intervention.
+Cloud applications are complex with many moving parts. Monitoring provides data to ensure that your application stays up and running in a healthy state. It also helps you to stave off potential problems or troubleshoot past ones. In addition, you can use monitoring data to gain deep insights about your application. Those insights may help you to improve its performance or maintainability, or to automate some actions that would otherwise require manual intervention.
 
 The following diagram shows a conceptual view of Azure monitoring, including the type of logs you can collect and what you can do with that data.   
 
