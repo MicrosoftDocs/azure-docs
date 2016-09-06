@@ -35,7 +35,7 @@ Use the following steps in the Azure portal to create a new Azure SQL database o
  - Server admin login
  - Password
  - Pricing tier: If you're just getting started, use the default value S0.
- - Collation: This only applies if a blank database was chosen.
+ - Collation: This applies only if a blank database was chosen.
 
         ![New database](./media/sql-database-create-new-database-portal/sql-database-create-new-database-portal-4.png)
 
