@@ -19,9 +19,11 @@
 # About VPN Gateway
 
 
-VPN Gateway is a collection of settings that are used to send network traffic between virtual networks and on-premises locations. VPN Gateway is used for Site-to-Site, Point-to-Site, and ExpressRoute connections. VPN Gateway is also used to send traffic between multiple virtual networks within Azure (VNet-to-VNet). 
+VPN Gateway is a collection of resources that are used to send network traffic between virtual networks and on-premises locations. Gateways are used for Site-to-Site, Point-to-Site, and ExpressRoute connections. VPN Gateway is also used to send traffic between multiple virtual networks within Azure (VNet-to-VNet). 
 
-Each virtual network can have only one virtual network gateway. To create a connection, you add virtual network gateway to a VNet and configure additional VPN Gateway settings. In some cases, the connection you create is a VPN connection. In other cases, your configuration does not require a VPN. The collection of settings is called "VPN Gateway" regardless of whether a VPN is required for your connection.
+To create a connection, you add a virtual network gateway to a VNet and configure additional VPN Gateway resources and their settings. Each virtual network can have only one virtual network gateway per gateway type. For example, you can have one virtual network gateway that uses -GatewayType Vpn, and one that uses -GatewayType ExpressRoute.
+
+For information regarding gateway requirements, see [Gateway Requirements](vpn-gateway-about-vpn-gateway-settings.md#requirements). For estimated aggregate throughput, see [About VPN Gateway Settings](vpn-gateway-about-vpn-gateway-settings.md#aggthroughput). For pricing, see [VPN Gateway Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway). For subscriptions and service limits, see [Networking Limits](../articles/azure-subscription-service-limits.md#networking-limits).
 
 When you configure VPN Gateway, the instructions you use depend on the deployment model that you used to create your virtual network. For example, if you created your VNet using the classic deployment model, you use the guidelines and instructions for the classic deployment model to create and configure your VPN gateway settings. See [Understanding Resource Manager and classic deployment models](../resource-manager-deployment-model.md) for more information.
 
@@ -32,9 +34,12 @@ The sections below contain tables that list the following information for the co
 - links that take you directly to an article, if available
 
 
-Use the diagrams and descriptions to help select the configuration topology to match your requirements. The diagrams show the main baseline topologies, but it's possible to build more complex configurations using the diagrams as a guideline. Each configuration relies on the VPN Gateway settings you select. For information about the individual settings available, see [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md). 
+Use the diagrams and descriptions to help select the configuration topology to match your requirements. The diagrams show the main baseline topologies, but it's possible to build more complex configurations using the diagrams as a guideline. Each configuration relies on the VPN Gateway settings you select.
 
-Because VPN Gateway is a collection of settings, you can configure some of the settings using one tool, and then switch to another. Currently, you can't configure every VPN gateway setting in the Azure portal. The instructions in the articles for each configuration specify if a specific tool is needed. If you are working with the classic deployment model, you might want to work in the classic portal or use PowerShell at this time.
+### Configuring VPN Gateway settings
+
+Because VPN Gateway is a collection of resources, you can configure some of the resources using one tool, and then switch to another to configure different resource settings. Currently, you can't configure every VPN gateway resource setting in the Azure portal. The instructions in the articles for each configuration specify if a specific tool is needed. If you are working with the classic deployment model, you might want to work in the classic portal or use PowerShell at this time. For information about the individual settings available, see [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md).
+
 
 
 ## Site-to-Site and Multi-Site
@@ -77,14 +82,15 @@ The VNets you connect can be:
 
 Azure currently has two deployment models: classic and Resource Manager. If you have been using Azure for some time, you probably have Azure VMs and instance roles running in a classic VNet. Your newer VMs and role instances may be running in a VNet created in Resource Manager. You can create a connection between the VNets to allow the resources in one VNet to communicate directly with resources in another.
 
-### VNet peering
-
-You may be able to use VNet peering to create your connection, as long as your virtual network configuration meets certain requirements. VNet peering does not use a virtual network gateway. [VNet peering](../virtual-network/virtual-network-peering-overview.md) is currently in Preview.
-
 
 ### Deployment models and methods
 
 [AZURE.INCLUDE [vpn-gateway-table-vnet-to-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)] 
+
+### VNet peering
+
+You may be able to use VNet peering to create your connection, as long as your virtual network configuration meets certain requirements. VNet peering does not use a virtual network gateway. [VNet peering](../virtual-network/virtual-network-peering-overview.md) is currently in Preview.
+
 
 
 ## Point-to-Site
@@ -108,7 +114,9 @@ For more information about ExpressRoute, see the [ExpressRoute technical overvie
 
 ## Site-to-Site and ExpressRoute coexisting connections
 
-ExpressRoute is a direct, dedicated connection from your WAN (not over the public Internet) to Microsoft Services, including Azure. Site-to-Site VPN traffic travels encrypted over the public Internet. Being able to configure Site-to-Site VPN and ExpressRoute connections for the same virtual network has several advantages. You can configure a Site-to-Site VPN as a secure failover path for ExpressRoute, or use Site-to-Site VPNs to connect to sites that are not part of your network, but that are connected through ExpressRoute. 
+ExpressRoute is a direct, dedicated connection from your WAN (not over the public Internet) to Microsoft Services, including Azure. Site-to-Site VPN traffic travels encrypted over the public Internet. Being able to configure Site-to-Site VPN and ExpressRoute connections for the same virtual network has several advantages.
+
+You can configure a Site-to-Site VPN as a secure failover path for ExpressRoute, or use Site-to-Site VPNs to connect to sites that are not part of your network, but that are connected through ExpressRoute. This configuration requires two virtual network gateways for the same virtual network, one using -GatewayType Vpn, and the other using -GatewayType ExpressRoute.
 
 
 ![Coexist connection](./media/vpn-gateway-about-vpngateways/demoer.png "expressroute-site2site")

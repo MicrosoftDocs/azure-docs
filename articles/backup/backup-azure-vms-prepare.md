@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/03/2016"
+	ms.date="08/26/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
@@ -39,6 +39,7 @@ If you know these conditions already exist in your environment then proceed to t
 
 - Backing up virtual machines with more than 16 data disks is not supported.
 - Backing up virtual machines with a reserved IP address and no defined endpoint is not supported.
+- Backup data doesn't include network mounted drives attached to VM. 
 - Replacing an existing virtual machine during restore is not supported. First delete the existing virtual machine and any associated disks, and then restore the data from backup.
 - Cross-region backup and restore is not supported.
 - Backing up virtual machines by using the Azure Backup service is supported in all public regions of Azure (see the [checklist](https://azure.microsoft.com/regions/#services) of supported regions). If the region that you are looking for is unsupported today, it will not appear in the dropdown list during vault creation.

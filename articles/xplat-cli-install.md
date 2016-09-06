@@ -35,33 +35,35 @@ Once the Azure CLI is installed, [connect it with your Azure subscription](xplat
 
 
 
-## Install an npm package
+## Option 1. Install an npm package
 
 To install the CLI from an npm package, you need the latest Node.js and npm installed on your system. Then, run the following command to install the Azure CLI package. (On Linux distributions, you might need to use **sudo** to successfully run the __npm__ command.)
 
 	npm install azure-cli -g
 
-> [AZURE.NOTE]If you need to install or update Node.js and npm for your operating system, see the documentation at [Nodejs.org](https://nodejs.org/en/download/package-manager/). We recommend that you install the most recent Node.js LTS version (4.x). If you use an older version, you might get installation errors.
+> [AZURE.NOTE]If you need to install or update Node.js and npm for your operating system, see the documentation at [Nodejs.org](https://nodejs.org/en/download/package-manager/). We recommend that you install the most recent Node.js LTS version (4.x). If you use an older version, you might get installation errors. More information about npm is at [npmjs.com](https://www.npmjs.com/).
 
-## Use an installer
+## Option 2. Use an installer
 
 The following CLI installer packages are also available for download:
 
 
-* [OS X installer][mac-installer]
+* [Mac OS X installer][mac-installer]
 
 * [Windows installer][windows-installer]
 
 * [Linux tar file][linux-installer] (requires Node.js and npm) - install by running `sudo npm install -g <path to downloaded tar file>`
 
 
-## Use a Docker container
+## Option 3. Use a Docker container
 
-In a Docker host, run:
+If you have set up a Docker host, you can run the Azure CLI in a Docker container. Run:
 
 ```
 docker run -it microsoft/azure-cli
 ```
+
+More information about Docker is at [docker.com](https://docs.docker.com/engine/understanding-docker/).
 
 ## Run Azure CLI commands
 After the Azure CLI is installed, run the **azure** command from your command-line user interface (Bash, Terminal, Command prompt, and so on). For example, to run the help command, type the following:
@@ -83,7 +85,7 @@ azure --version
 
 Now you are ready! To access all the CLI commands to work with your own resources, [connect to your Azure subscription from the Azure CLI](xplat-cli-connect.md).
 
->[AZURE.NOTE] When you first use Azure CLI version 0.9.20 or later, you see a message asking if you want to allow Microsoft to collect information about how you use the CLI. Participation is voluntary. If you choose to participate, you can stop at any time by running `azure telemetry --disable`. To enable participation at any time, run `azure telemetry --enable`.
+>[AZURE.NOTE] When you first use Azure CLI, you see a message asking if you want to allow Microsoft to collect information about how you use the CLI. Participation is voluntary. If you choose to participate, you can stop at any time by running `azure telemetry --disable`. To enable participation at any time, run `azure telemetry --enable`.
 
 
 ## Update the CLI

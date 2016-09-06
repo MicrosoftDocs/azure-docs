@@ -44,8 +44,8 @@ Select an alert to see its details.
 
 There are three kinds of detection:
 
-* [Near-real time failure alerts](app-insights-nrt-proactive-diagnostics.md). We use machine learning to set the expected rate of failed requests for your app, correlating with load and other factors. If the failure rate goes outside the expected envelope, we send an alert.
-* [Anomalous behavior](app-insights-proactive-detection.md). We search for anomalous patterns in response times and failure rates every day. We correlate these issues with properties such as location, browser, client OS, server instance, and time of day.
+* [Near-real time failure alerts](app-insights-proactive-failure-diagnostics.md). We use machine learning to set the expected rate of failed requests for your app, correlating with load and other factors. If the failure rate goes outside the expected envelope, we send an alert.
+* [Anomaly diagnostics](app-insights-proactive-anomaly-diagnostics.md). We search for anomalous patterns in response times and failure rates every day. We correlate these issues with properties such as location, browser, client OS, server instance, and time of day.
 * [Azure Cloud Services](https://azure.microsoft.com/blog/proactive-notifications-on-cloud-service-issues-with-azure-diagnostics-and-application-insights/). You get alerts if your app is hosted in Azure Cloud Services and a role instance has startup failures, frequent recycling, or runtime crashes.
 
 (The help links in each notification take you to the relevant articles.)
@@ -53,7 +53,13 @@ There are three kinds of detection:
 
 ## Next steps
 
-Proactive diagnostics are completely automatic. But maybe you'd like to set up some more alerts?
+These diagnostic tools help you inspect the telemetry from your app:
+
+* [Metric explorer](app-insights-metrics-explorer.md)
+* [Search explorer](app-insights-diagnostic-search.md)
+* [Analytics - powerful query language](app-insights-analytics-tour.md)
+
+Proactive detections are completely automatic. But maybe you'd like to set up some more alerts?
 
 * [Manually configured metric alerts](app-insights-alerts.md)
 * [Availability web tests](app-insights-monitor-web-app-availability.md) 
