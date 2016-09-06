@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="mobile"
-   ms.date="05/08/2016"
+   ms.date="06/01/2016"
    ms.author="tarcher" />
 
 # Adding Azure storage by using Visual Studio Connected Services
@@ -48,7 +48,7 @@ You can use the Connected Services dialog to connect to Azure Storage in the fol
 
     ![Add Connected Service dialog box - Storage](./media/vs-azure-tools-connected-services-storage/IC796703.png)
 
-1. In the **Azure Storage** dialog box, choose an existing storage account and then click **Add**.
+1. In the **Azure Storage** dialog box, select an existing storage account, and select **Add**.
 
     If you need to create a new storage account, go to the next step. Otherwise, skip to step 6.
 
@@ -64,7 +64,7 @@ You can use the Connected Services dialog to connect to Azure Storage in the fol
 
         When you're back in the **Azure Storage** dialog box, the new storage appears in the list.
 
-    1. Select the new storage in the list and click **Add**.
+    1. Select the new storage in the list, and select **Add**.
 
 1. The  storage connected service appears under the Service References node of your WebJob project.
 

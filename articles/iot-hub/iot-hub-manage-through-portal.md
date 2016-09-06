@@ -13,7 +13,7 @@
 	 ms.topic="article"
 	 ms.tgt_pltfrm="na"
 	 ms.workload="na"
-	 ms.date="03/14/2016"
+	 ms.date="06/06/2016"
 	 ms.author="nasing"/>
 
 # Manage IoT hubs through the Azure portal
@@ -120,6 +120,24 @@ Click the **Messaging** policies to display a list of messaging properties for t
 
 ![][11]
 
+## File upload
+
+In order to use the file upload functionality in IoT Hub, you must first associate an Azure Storage account with your hub. Select the **File upload** settings to display a list of file upload properties for the IoT hub that is being modified.
+
+**Storage account**: Use the portal to select a storage account in your current subscription to associate with your IoT Hub. IoT Hub will generage SAS URIs from this storage account for devices to use when uploading files.
+
+![][14]
+
+**Receive notifications for uploaded files**: Enable or disable file upload notifications via the toggle.
+
+**SAS TTL**: This setting is the time-to-live of the SAS URIs returned to the device by IoT Hub. Set to 1 hour by default but can be customized to other values using the slider.
+
+**File notification settings default TTL**: The time-to-live of a file upload notification before it is expired. Set to 1 day by default but can be customized to other values using the slider.
+
+**File notification maximum delivery count**: The number of times the IoT Hub will attempt to deliver a file upload notification. Set to 10 by default but can be customized to other values using the slider.
+
+![][13]
+
 ## Pricing and scale
 
 The pricing of an existing IoT hub can be changed through the **Pricing** settings, with the following exceptions:
@@ -149,6 +167,8 @@ Follow these links to learn more about Azure IoT Hub:
   [10]: ./media/iot-hub-manage-through-portal/shared-access-policies.png
   [11]: ./media/iot-hub-manage-through-portal/messaging-settings.png
   [12]: ./media/iot-hub-manage-through-portal/pricing-error.png
+  [13]: ./media/iot-hub-manage-through-portal/file-upload-settings.png
+  [14]: ./media/iot-hub-manage-through-portal/file-upload-container-selection.png
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [What is Azure IoT Hub?]: iot-hub-what-is-iot-hub.md

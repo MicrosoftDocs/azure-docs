@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/12/2016"
+	ms.date="05/26/2016"
 	ms.author="banders"/>
 
 # Wire Data solution in Log Analytics
@@ -56,6 +56,8 @@ Use the following information to install and configure the solution.
 - If you want to view wire data for a specific solution, you'll need to have the solution already added to your OMS workspace.
 
 ## Wire Data data collection details
+
+Wire data collects metadata about network traffic using the agents that you have enabled.
 
 The following table shows data collection methods and other details about how data is collected for Wire Data.
 

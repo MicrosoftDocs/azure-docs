@@ -45,7 +45,7 @@ The extensions in this section provide critical security features for your Azure
 |**McAfeeEndpointSecurity**|Protects your VM against malicious software.|[McAfee](https://www.mcafeeasap.com/MarketingContent/default.aspx)|
 |**TrendMicroDSA**|Enables TrendMicro’s Deep Security platform support to provide intrusion detection and prevention, firewall, anti-malware, web reputation, log inspection, and integrity monitoring.|[How to install and configure Trend Micro Deep Security as a Service on an Azure VM](../articles/virtual-machines/virtual-machines-windows-classic-install-trend.md)|
 |**PortalProtectExtension**|Guards against threats to your Microsoft SharePoint environment.|[Securing Your SharePoint Deployment on Azure](http://blog.trendmicro.com/securing-sharepoint-deployment-azure/)|
-|**IaaSAntimalware**|Microsoft Antimalware for Azure Cloud Services and Virtual Machines is a real-time protection capability that helps identify and remove viruses, spyware, and other malicious software, with configurable alerts when known malicious or unwanted software attempts to install itself or run on your system.|[Download antimalware documentation](http://go.microsoft.com/fwlink/?linkid=398023&clcid=0x409)|
+|**IaaSAntimalware**|Microsoft Antimalware for Azure Cloud Services and Virtual Machines is a real-time protection capability that helps identify and remove viruses, spyware, and other malicious software, with configurable alerts when known malicious or unwanted software attempts to install itself or run on your system.|[Antimalware for Azure Cloud Services and Virtual Machines](../articles/azure-security-antimalware.md)|
 |**SymantecEndpointProtection**|Symantec Endpoint Protection 12.1.4 enables security and performance across physical and virtual systems.|[How to install and configure Symantec Endpoint Protection on an Azure VM](../articles/virtual-machines/virtual-machines-windows-classic-install-symantec.md)
 
 ##VM Operations and Management
@@ -78,6 +78,6 @@ These extensions provide support for other VM features that might be useful.
 
 |VM Extension Name|Feature Description|More Information|
 |---|---|---|
-|**BGInfo**|Presents a consolidated picture of useful server information on the desktop when using RDP.|[BGInfo Extension](https://msdn.microsoft.com/library/dn606289.aspx)|
+|**BGInfo**|Presents a consolidated picture of useful server information on the desktop when using RDP.|[BGInfo Extension](https://msdn.microsoft.com/library/mt589195.aspx)|
 |**HpcVmDrivers**|Installs, configures, and maintains the remote direct memory access (RDMA) network device drivers on a size A8 or A9 VM running Windows Server 2012 R2 or Windows Server 2012. Enables clustered A8 or A9 VMs to use the RDMA network when running parallel MPI applications.|[About the A8, A9, A10, and A11 compute-intensive instances](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md)
 

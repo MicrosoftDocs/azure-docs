@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="na"
-	ms.date="04/19/2016"
+	ms.date="06/03/2016"
 	ms.author="marsma" />
 
 # Provision Linux compute nodes in Azure Batch pools
 
 Azure Batch enables you to run parallel compute workloads on both Linux and Windows virtual machines. This article details how to create pools of Linux compute nodes in the Batch service using both the [Batch Python][py_batch_package] and [Batch .NET][api_net] client libraries.
 
-> [AZURE.NOTE] Linux support in Batch is currently in preview. Some aspects of the feature discussed here may change prior to general availability. [Application packages](batch-application-packages.md) and [multi-instance tasks](batch-mpi.md) are **currently unsupported** on Linux compute nodes.
+> [AZURE.NOTE] Linux support in Batch is currently in preview. Some aspects of the feature discussed here may change prior to general availability. [Application packages](batch-application-packages.md) are **currently unsupported** on Linux compute nodes.
 
 ## Virtual Machine Configuration
 
@@ -210,11 +210,13 @@ The table below lists which Marketplace virtual machine images are compatible wi
 | Canonical | UbuntuServer | 14.04.3-LTS | latest | batch.node.ubuntu 14.04 |
 | Canonical | UbuntuServer | 14.04.4-LTS | latest | batch.node.ubuntu 14.04 |
 | Canonical | UbuntuServer | 15.10 | latest | batch.node.debian 8 |
+| Canonical | UbuntuServer | 16.04.0-LTS | latest | batch.node.ubuntu 16.04 |
 | Credativ | Debian | 8 | latest | batch.node.debian 8 |
 | OpenLogic | CentOS | 7.0 | latest | batch.node.centos 7 |
 | OpenLogic | CentOS | 7.1 | latest | batch.node.centos 7 |
 | OpenLogic | CentOS | 7.2 | latest | batch.node.centos 7 |
-| Oracle | Oracle-Linux-7 | OL70 | latest | batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7.1 | latest | batch.node.centos 7 |
+| Oracle | Oracle-Linux | 7.0 | latest | batch.node.centos 7 |
 | SUSE | SLES | 12 | latest | batch.node.opensuse 42.1 |
 | SUSE | SLES | 12-SP1 | latest | batch.node.opensuse 42.1 |
 | SUSE | SLES-HPC | 12 | latest | batch.node.opensuse 42.1 |
@@ -283,9 +285,13 @@ Azure Batch is built on Azure Cloud Services and Azure Virtual Machines technolo
 
 ## Next steps
 
+### Batch Python tutorial
+
+For a more in-depth tutorial on working with Batch using Python, check out [Get started with the Azure Batch Python client](batch-python-tutorial.md). Its companion [code sample][github_samples_pyclient] includes a helper function, `get_vm_config_for_distro`, that shows another technique for obtaining a virtual machine configuration.
+
 ### Batch Python code samples
 
-Check out the [Python code samples][github_samples_py] in the [azure-batch-samples][github_samples] repository on GitHub for several scripts that show you how to perform common Batch operations such as pool, job, and task creation, and more. The [README][github_py_readme] that accompanies the Python samples has details on installing the required packages.
+Check out the other [Python code samples][github_samples_py] in the [azure-batch-samples][github_samples] repository on GitHub for several scripts that show you how to perform common Batch operations such as pool, job, and task creation, and more. The [README][github_py_readme] that accompanies the Python samples has details on installing the required packages.
 
 ### Batch Forum
 
@@ -299,6 +305,7 @@ The [Azure Batch Forum][forum] on MSDN is a great place to discuss Batch and ask
 [github_py_readme]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/README.md
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_py]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch
+[github_samples_pyclient]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/article_samples/python_tutorial_client.py
 [portal]: https://portal.azure.com
 [net_cloudpool]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.aspx
 [net_computenodeuser]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.computenodeuser.aspx

@@ -13,17 +13,20 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="05/18/2016"
    ms.author="lodipalm;barbkess;sonyama" />
 
 # Visualize data with Power BI
 
+> [AZURE.SELECTOR]
+- [Power BI][]
+- [Azure Machine Learning][]
+
+This tutorial shows you how to use Power BI to connect to SQL Data Warehouse and create a few basic visualizations.
 
 > [AZURE.NOTE] To complete this tutorial, you need a SQL Data Warehouse database that is pre-loaded with the AdventureWorksDW sample database. [Create a SQL Data Warehouse](sql-data-warehouse-get-started-provision.md) shows you how to create one.
 >
 > If you already have a SQL Data Warehouse database but do not have sample data, you can [load sample data manually][].
-
-This tutorial shows you how to use Power BI to connect to SQL Data Warehouse and create a few basic visualizations.
 
 > [AZURE.VIDEO azure-sql-data-warehouse-sample-data-and-powerbi]
 
@@ -85,7 +88,7 @@ You are now ready to use Power BI to analyze your AdventureWorksDW sample data. 
 You can save your progress at any time by clicking **File** and selecting **Save**.
 
 ## Next steps
-Now that we've given you some time to warm up with the sample data, see how to [develop][], [load][], or [migrate][].
+Now that we've given you some time to warm up with the sample data, see how to [develop][], [load][], or [migrate][]. Or take a look at the [Power BI Website][].
 
 <!--Image references-->
 [1]:./media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png
@@ -105,8 +108,12 @@ Now that we've given you some time to warm up with the sample data, see how to [
 [migrate]: ./sql-data-warehouse-overview-migrate.md
 [develop]: ./sql-data-warehouse-overview-develop.md
 [load]: ./sql-data-warehouse-overview-load.md
-[load sample data manually]: ./sql-data-warehouse-get-started-manually-load-samples.md
-[Azure Portal]: https://portal.azure.com/
-[Power BI]: http://www.powerbi.com/
+[load sample data manually]: ./sql-data-warehouse-get-started-load-sample-databases.md
 [connecting to SQL Data Warehouse]: ./sql-data-warehouse-integrate-power-bi.md
 [Create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
+[Power BI]: ./sql-data-warehouse-get-started-visualize-with-power-bi.md
+[Azure Machine Learning]: ./sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
+
+<!--Other-->
+[Azure Portal]: https://portal.azure.com/
+[Power BI Website]: http://www.powerbi.com/

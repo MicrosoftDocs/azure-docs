@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/21/2016"
+   ms.date="05/31/2016"
    ms.author="magoedte;bwren" />
 
 # Child runbooks in Azure Automation
@@ -30,9 +30,19 @@ When a runbook is published, any child runbooks that it calls must already be pu
 
 The parameters of a child runbook called inline can be any data type including complex objects, and there is no [JSON serialization](automation-starting-a-runbook.md#runbook-parameters) as there is when you start the runbook using the Azure Management Portal or with the Start-AzureRmAutomationRunbook cmdlet.
 
+
 ### Runbook types
 
-You can't use a [PowerShell Workflow runbook](automation-runbook-types.md#powershell-workflow-runbooks) or a [Graphical runbook](automation-runbook-types.md#graphical-runbooks) as a child in a [PowerShell runbook](automation-runbook-types.md#powershell-runbooks) using inline execution.  Similarly, you can't use a PowerShell runbook as a child with inline execution in a PowerShell Workflow runbook or a Graphical runbook.  PowerShell runbooks can only use another PowerShell as a child.  Graphical and PowerShell Workflow runbooks can use each other as child runbooks.
+Which types can call each other:
+
+- A [PowerShell runbook](automation-runbook-types.md#powershell-runbooks)and [Graphical runbooks](automation-runbook-types.md#graphical-runbooks) can call each other inline (both are PowerShell based).
+- A [PowerShell Workflow runbook](automation-runbook-types.md#powershell-workflow-runbooks) and Graphical PowerShell Workflow runbooks can call each other inline (both are PowerShell Workflow based)
+- The PowerShell types and the PowerShell Workflow types can’t call each other inline, and must use Start-AzureRmAutomationRunbook.
+	
+When does publish order matter:
+
+- The publish order of runbooks only matters for PowerShell Workflow and Graphical PowerShell Workflow runbooks.
+
 
 When you call a Graphical or PowerShell Workflow child runbook using inline execution, you just use the name of the runbook.  When you call a PowerShell child runbook, you must preceded its name with *.\\* to specify that the script is located in the local directory. 
 

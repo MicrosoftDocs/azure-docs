@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/10/2016"
+   ms.date="05/17/2016"
    ms.author="larryfr"/>
 
 # Process events from Azure Event Hubs with Storm on HDInsight (C#)
@@ -566,6 +566,8 @@ Export an import allows you to persist checkpoint data when you need to delete t
 In this document, you have learned how to use the Java Event Hubs Spout and Bolt from a C# topology to work with data in Azure Event Hub. To learn more about creating C# topologies, see the following.
 
 * [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
+
+* [SCP programming guide](hdinsight-storm-scp-programming-guide.md)
 
 * [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md)
  

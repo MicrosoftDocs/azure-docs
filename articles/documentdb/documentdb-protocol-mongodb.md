@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="DocumentDB protocol support for MongoDB | Microsoft Azure" 
-	description="Learn about DocumentDB protocol support for MongoDB, now available for preview." 
-	keywords="mongodb protocol, mongodb, mongo database"
+	description="Learn about DocumentDB protocol support for MongoDB, now available in public preview." 
+	keywords="mongodb"
 	services="documentdb" 
 	authors="stephbaron" 
 	manager="jhubbard" 
@@ -14,44 +14,26 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2016" 
+	ms.date="05/31/2016" 
 	ms.author="stbaro"/>
 
 # DocumentDB protocol support for MongoDB
 
-Microsoft Azure DocumentDB databases can now be used as the data store for apps written for MongoDB. Using existing drivers for MongoDB and this preview functionality, applications written for MongoDB can easily and transparently communicate with DocumentDB.  Developers can use their current tools and skill set for MongoDB to build applications that leverage DocumentDB's fully managed and scalable NoSQL databases.
+## What is Azure DocumentDB?
+Azure DocumentDB is a fully managed NoSQL database service built for fast and predictable performance, high availability, automatic scaling, and ease of development. Its flexible data model, consistent low latencies, and rich query capabilities make it a great fit for web, mobile, gaming, IoT, and many other applications that need seamless scale. Read more in the [DocumentDB introduction](documentdb-introduction.md).
 
-We are currently on-boarding customers to preview this new functionality.  If you want to be considered for the preview, follow the directions below to request access to the preview program and we will contact you once you're approved.    
+## What is DocumentDB protocol support for MongoDB?
+DocumentDB databases can now be used as the data store for apps written for MongoDB. Using existing [drivers](https://docs.mongodb.org/ecosystem/drivers/) for MongoDB, applications can easily and transparently communicate with DocumentDB, in many cases by simply changing a connection string.  Using this preview functionality, customers can easily build and run applications in the Azure cloud - leveraging DocumentDB's fully managed and scalable NoSQL databases - while continuing to use familiar skills and tools for MongoDB.
 
-## Prerequisites
-
-Before requesting access to the preview program, you must have the following.
-
-- **An Azure subscription**. See [Create your free Azure account today](https://azure.microsoft.com/free/).
-
-## Request access to the DocumentDB protocol support for MongoDB Preview  
-
-To request access to the preview, perform the following steps.
-
-1. Sign in to the [Azure Portal](https://portal.azure.com).
-2. Click **NEW**, click **Data + Storage**, click **See all**, click **More**, and then click **DocumentDB - Protocol Support for MongoDB**.
-
-	![Screen shot of the Marketplace and Data + Storage blades, highlighting DocumentDB - Protocol Support for MongoDB, Mongo database](./media/documentdb-protocol-mongodb/marketplacegallery1.png)
-
-3. Alternatively, search the **Data + Storage** category for "DocumentDB protocol".
-
-	![Screen shot of the Marketplace and Data + Storage search blades, highlighting DocumentDB - Protocol Support for MongoDB, Mongo database](./media/documentdb-protocol-mongodb/marketplacegallery2.png)
-
-4. Click **Create** to launch the preview signup process.
-
-	![The DocumentDB - Protocol Support for MongoDB blade in the Azure portal](./media/documentdb-protocol-mongodb/marketplacegallery3.png)
-
-5. In the **New DocumentDB Account** blade, click **Sign up to preview**. Read the information and then click **OK**. You will receive an e-mail once your subscription has been enabled for the Public Preview.
-
-	![The Sign up to preview today blade for DocumentDB - Protocol Support for MongoDB in the Azure portal](./media/documentdb-protocol-mongodb/registerforpreview.png)
-
+DocumentDB protocol support for MongoDB enables the core MongoDB API functions to Create, Read, Update and Delete (CRUD) data as well as query the database. The currently implemented capabilities have been prioritized based on the needs of common platforms, frameworks, tools, and large scale MongoDB customers evaluating Azure for their cloud platform.
+  
 
 ## Next steps
-- Once you've been approved for the preview, you will receive a welcome email with instructions on how to create your account and get started.
+
+
+- Learn how to [create](documentdb-create-mongodb-account.md) a DocumentDB account with protocol support for MongoDB.
+- Learn how to [connect](documentdb-connect-mongodb-account.md) to a DocumentDB account with protocol support for MongoDB.
+- Learn how to [use MongoChef](documentdb-mongodb-mongochef.md) with a DocumentDB account with protocol support for MongoDB.
+- Explore DocumentDB with protocol support for MongoDB [samples](documentdb-mongodb-samples.md).
 
  

@@ -23,10 +23,10 @@ For customers using Windows Server with Software Assurance, you can bring your o
 > [AZURE.NOTE] You cannot use Azure Marketplace images to deploy Windows Server VMs utilizing the Azure Hybrid Use Benefit. You must deploy your VMs using either PowerShell or Resource Manager templates in to correctly register your VMs as eligible for base compute rate discount.
 
 ## Pre-requisites
-There a couple of pre-requisites in order to utilize Azure Hybrid Use Benefit for Windows Server VMs in Azure:
+There are a couple of pre-requisites in order to utilize Azure Hybrid Use Benefit for Windows Server VMs in Azure:
 
-- Install Azure PowerShell module installed
-- A Windows Server VHD you upload to Azure Storage
+- Have the Azure PowerShell module installed
+- Have your Windows Server VHD uploaded to Azure Storage
 
 ### Install Azure PowerShell
 See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for information about how to install the latest version of Azure PowerShell, select the subscription that you want to use, and sign in to your Azure account. Even if you are going to deploy your VMs using Resource Manager templates, you will still need Azure PowerShell installed in order to upload your Windows Server VHD (see the next step below).

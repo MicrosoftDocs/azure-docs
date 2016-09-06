@@ -23,7 +23,85 @@
 This guide describes how to use Service Bus topics and subscriptions. The samples are written in Java and use the [Azure SDK for Java][]. The scenarios covered include **creating topics and subscriptions**, **creating subscription filters**, **sending messages to a topic**, **receiving messages from a subscription**, and
 **deleting topics and subscriptions**.
 
-[AZURE.INCLUDE [service-bus-java-how-to-create-topic](../../includes/service-bus-java-how-to-create-topic.md)]
+## What are Service Bus topics and subscriptions?
+
+Service Bus topics and subscriptions support a *publish/subscribe*
+messaging communication model. When using topics and subscriptions,
+components of a distributed application do not communicate directly with
+each other; instead they exchange messages via a topic, which acts as an
+intermediary.
+
+![TopicConcepts](./media/service-bus-java-how-to-use-topics-subscriptions/sb-topics-01.png)
+
+In contrast with Service Bus queues, in which each message is processed by a
+single consumer, topics and subscriptions provide a "one-to-many" form
+of communication, using a publish/subscribe pattern. It is possible to
+register multiple subscriptions to a topic. When a message is sent to a
+topic, it is then made available to each subscription to handle/process
+independently.
+
+A subscription to a topic resembles a virtual queue that receives copies of
+the messages that were sent to the topic. You can optionally register
+filter rules for a topic on a per-subscription basis, which allows you
+to filter/restrict which messages to a topic are received by which topic
+subscriptions.
+
+Service Bus topics and subscriptions enable you to scale to process a
+very large number of messages across a very large number of users and
+applications.
+
+## Create a service namespace
+
+To begin using Service Bus topics and subscriptions in Azure,
+you must first create a service namespace. A namespace provides
+a scoping container for addressing Service Bus resources within your
+application.
+
+To create a namespace:
+
+1.  Log on to the [Azure classic portal][].
+
+2.  In the left navigation pane of the portal, click
+    **Service Bus**.
+
+3.  In the lower pane of the portal, click **Create**.
+    ![][0]
+
+4.  In the **Add a new namespace** dialog, enter a namespace name.
+    The system immediately checks to see if the name is available.
+    ![][2]
+
+5.  After making sure the namespace name is available, choose the
+    country or region in which your namespace should be hosted (make
+    sure you use the same country/region in which you are deploying your
+    compute resources).
+
+	IMPORTANT: Pick the **same region** that you intend to choose for
+    deploying your application. This will give you the best performance.
+
+6. 	Leave the other fields in the dialog with their default values (**Messaging** and **Standard Tier**), then click the check mark. The system now creates your service
+    namespace and enables it. You might have to wait several minutes as
+    the system provisions resources for your account.
+
+## Obtain the default management credentials for the namespace
+
+In order to perform management operations, such as creating a topic or
+subscription on the new namespace, you must obtain the management
+credentials for the namespace. You can obtain these credentials from the portal.
+
+### To obtain management credentials from the portal
+
+1.  In the left navigation pane, click the **Service Bus** node to
+    display the list of available namespaces:
+    ![][0]
+
+2.  Click on the namespace you just created from the list shown:
+    ![][3]
+
+3.  Click **Configure** to view the shared access policies for your namespace.
+	![](./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-14.png)
+
+4.  Make a note of the primary key, or copy it to the clipboard.
 
 ## Configure your application to use Service Bus
 
@@ -189,9 +267,8 @@ service.sendTopicMessage("TestTopic", message);
 }
 ```
 
-Service Bus topics support a maximum message size of 256 MB (the header,
-which includes the standard and custom application properties, can have
-a maximum size of 64 MB). There is no limit on the number of messages
+Service Bus topics support a maximum message size of 256 KB in the [Standard tier](service-bus-premium-messaging.md) and 1 MB in the [Premium tier](service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have
+a maximum size of 64 KB. There is no limit on the number of messages
 held in a topic but there is a cap on the total size of the messages
 held by a topic. This topic size is defined at creation time, with an
 upper limit of 5 GB.
@@ -336,3 +413,7 @@ Now that you've learned the basics of Service Bus queues, see [Service Bus queue
   [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx 
   [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
+  
+  [0]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-13.png
+  [2]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-04.png
+  [3]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-09.png

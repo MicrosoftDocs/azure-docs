@@ -8,7 +8,6 @@ Cores per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) 
 SQL Database servers per subscription|6|150
 DNS servers per subscription|9|100
 Reserved IPs per subscription|20|100
-ExpressRoute dedicated circuits per subscription|10|25
 Hosted service certificates per subscription|400|400
 [Affinity groups](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per subscription|256|256
 [Batch](https://azure.microsoft.com/services/batch/) accounts per region per subscription|1|50

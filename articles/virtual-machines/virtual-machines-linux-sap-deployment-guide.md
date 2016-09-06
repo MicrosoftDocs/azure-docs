@@ -276,7 +276,7 @@
 [virtual-machines-azure-resource-manager-architecture]:virtual-machines-azure-resource-manager-architecture.md
 [virtual-machines-windows-tutorial]:virtual-machines-windows-hero-tutorial.md
 [virtual-networks-create-vnet-arm-pportal]:virtual-networks-create-vnet-arm-pportal.md
-[virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:virtual-machines-windows-create-powershell.md
+[virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:virtual-machines-windows-ps-create.md
 [virtual-machines-linux-tutorial]:virtual-machines-linux-quick-create-cli.md
 
 [msdn-set-azurermvmaemextension]:https://msdn.microsoft.com/library/azure/mt670598.aspx

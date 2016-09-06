@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="05/26/2016"
 	ms.author="banders"/>
 
 # Capacity Management solution in Log Analytics
@@ -53,12 +53,21 @@ Use the following information to install and configure the solution.
 
 ## Capacity Management data collection details
 
+Capacity Management collects performance data, metadata, and state data using the agents that you have enabled.
+
 The following table shows data collection methods and other details about how data is collected for capacity management.
 
 | platform | Direct Agent | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
 |---|---|---|---|---|---|---|
 |Windows|![No](./media/log-analytics-capacity/oms-bullet-red.png)|![Yes](./media/log-analytics-capacity/oms-bullet-green.png)|![No](./media/log-analytics-capacity/oms-bullet-red.png)|            ![Yes](./media/log-analytics-capacity/oms-bullet-green.png)|![Yes](./media/log-analytics-capacity/oms-bullet-green.png)| hourly|
 
+The following table shows examples of data types collected by Capacity Management:
+
+|**Data type**|**Fields**|
+|---|---|
+|Metadata|BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Address, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime|
+|Performance|ObjectName, CounterName, PerfmonInstanceName, PerformanceDataId, PerformanceSourceInternalID, SampleValue, TimeSampled, TimeAdded|
+|State|StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified|
 
 ## Capacity Management page
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # Manage DevTest Labs formulas to create VMs
@@ -48,21 +48,21 @@ The following steps guide you through the process of creating a new formula from
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Tap **Browse**, and then tap **DevTest Labs** from the list.
+1. Select **Browse**, and then select **DevTest Labs** from the list.
 
-1. From the list of labs, tap the desired lab.  
+1. From the list of labs, select the desired lab.  
 
 1. The selected lab's **Settings** blade will be displayed. 
 
-1. On the lab **Settings** blade, tap **Formulas**.
+1. On the lab **Settings** blade, select **Formulas**.
 
     ![Formula menu](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
 
-1. On the **Lab formulas** blade, tap **+ Add**.
+1. On the **Lab formulas** blade, select **+ Add**.
 
     ![Add a new formula](./media/devtest-lab-manage-formulas/add-formula.png)
 
-1. On the **Choose a base** blade, tap the custom image or Marketplace image from which you want to create the formula.
+1. On the **Choose a base** blade, select the custom image or Marketplace image from which you want to create the formula.
 
     ![Base list](./media/devtest-lab-manage-formulas/base-list.png)
 
@@ -71,15 +71,15 @@ The following steps guide you through the process of creating a new formula from
 	- **Formula name** - Enter a name for your formula. This value will be displayed in the list of base images when you create a VM. The name is validated as you type it, and if not valid, a message will indicate the requirements for a valid name.
 	- **Description** - Enter a meaningful description for your formula. This value is available from the formula's context menu when you create a VM.
 	- **Image** - This field displays name of the base image you selected on the previous blade. 
-	- **VM Size** - Tap to one of the predefined items that specify the processor cores, RAM size, and the hard drive size of the VM to create.
-	- **Virtual network** - Tap and select the desired virtual network.
-	- **Subnet** Tap and and select the desired subnet.
+	- **VM Size** - Select to one of the predefined items that specify the processor cores, RAM size, and the hard drive size of the VM to create.
+	- **Virtual network** - Select and select the desired virtual network.
+	- **Subnet** - Select and and select the desired subnet.
 	- **Public IP address** - If the lab policy is set to allow public IP addresses for the selected subnet, specify whether or not you want the IP address to be public by selecting either **Yes** or **No**. Otherwise, this option is disabled and selected as **No**.
-	- **Artifacts** - Tap and - from the list of artifacts - select and configure the artifacts that you want to add to the base image. Note that artifact parameters that are secure strings don’t display, since the formula doesn’t save any secure string values. 
+	- **Artifacts** - Select and - from the list of artifacts - select and configure the artifacts that you want to add to the base image. Note that artifact parameters that are secure strings don’t display, since the formula doesn’t save any secure string values. 
 
     	![Create formula](./media/devtest-lab-manage-formulas/create-formula.png)
 
-1. Tap **Create** to create the formula. When the formula has been successfully created, it will be listed on the **Lab formulas** blade.
+1. Select **Create** to create the formula. When the formula has been successfully created, it will be listed on the **Lab formulas** blade.
 
 	![Newly created formula](./media/devtest-lab-manage-formulas/newly-created-formula.png)
 
@@ -90,19 +90,19 @@ The following steps guide you through the process of creating a formula based on
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Tap **Browse**, and then tap **DevTest Labs** from the list.
+1. Select **Browse**, and then select **DevTest Labs** from the list.
 
-1. From the list of labs, tap the desired lab.  
+1. From the list of labs, select the desired lab.  
 
-1. On the lab blade, locate the section with the title **My VMs** and click the VM from which you wish to create the new formula.
+1. On the lab blade, locate the section with the title **My VMs** and select the VM from which you wish to create the new formula.
 
 	![Labs VMs](./media/devtest-lab-manage-formulas/my-vms.png)
 
-1. On the VM's **Settings** blade, tap **Create formula**.
+1. On the VM's **Settings** blade, select **Create formula**.
 
 	![Create formula](./media/devtest-lab-manage-formulas/create-formula-menu.png)
 
-1. On the **Create formula** blade, enter a **Name** and **Description** for your new formula, and tap **OK**. When the formula has been successfully created, it will be listed on the **Lab formulas** blade.
+1. On the **Create formula** blade, enter a **Name** and **Description** for your new formula, and select **OK**. When the formula has been successfully created, it will be listed on the **Lab formulas** blade.
 
 	![Create formula blade](./media/devtest-lab-manage-formulas/create-formula-blade.png)
 
@@ -111,32 +111,32 @@ To modify a formula, follow these steps:
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Tap **Browse**, and then tap **DevTest Labs** from the list.
+1. Select **Browse**, and then select **DevTest Labs** from the list.
 
-1. From the list of labs, tap the desired lab.  
+1. From the list of labs, select the desired lab.  
 
-1. On the lab **Settings** blade, tap **Formulas**.
+1. On the lab **Settings** blade, select **Formulas**.
 
     ![Formula menu](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
 
-1. On the **Lab formulas** blade, tap the formula you wish to modify.
+1. On the **Lab formulas** blade, select the formula you wish to modify.
 
-1. On the **Update formula** blade, make the desired edits, and tap **Update**.
+1. On the **Update formula** blade, make the desired edits, and select **Update**.
 
 ## Delete a formula 
 To delete a formula, follow these steps:
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Tap **Browse**, and then tap **DevTest Labs** from the list.
+1. Select **Browse**, and then select **DevTest Labs** from the list.
 
-1. From the list of labs, tap the desired lab.  
+1. From the list of labs, select the desired lab.  
 
-1. On the lab **Settings** blade, tap **Formulas**.
+1. On the lab **Settings** blade, select **Formulas**.
 
     ![Formula menu](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
 
-1. On the **Lab formulas** blade, click the ellipsis to the right of the formula you wish to delete.
+1. On the **Lab formulas** blade, select the ellipsis to the right of the formula you wish to delete.
 
     ![Formula menu](./media/devtest-lab-manage-formulas/lab-formulas-blade.png)
 
@@ -144,7 +144,7 @@ To delete a formula, follow these steps:
 
     ![Formula context menu](./media/devtest-lab-manage-formulas/formula-delete-context-menu.png)
 
-1. Tap **Yes** to the deletion confirmation dialog.
+1. Select **Yes** to the deletion confirmation dialog.
 
     ![Formula context menu](./media/devtest-lab-manage-formulas/formula-delete-confirmation.png)
 

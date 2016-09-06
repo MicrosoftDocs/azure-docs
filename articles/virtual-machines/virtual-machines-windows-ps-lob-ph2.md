@@ -19,9 +19,6 @@
 
 # Line of Business Application Workload Phase 2: Configure domain controllers
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
- 
-
 In this phase of deploying a high-availability line of business application in Azure infrastructure services, you configure two replica domain controllers in the Azure Virtual Network so that client web requests for web resources can be authenticated locally within the Azure virtual network, rather than sending that authentication traffic across the connection to your on-premises network. 
 
 You must complete this phase before moving on to [Phase 3](virtual-machines-windows-ps-lob-ph3.md). See [Deploy a High-Availability Line of Business Application in Azure](virtual-machines-windows-lob-overview.md) for all of the phases.

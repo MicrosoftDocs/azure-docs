@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="05/17/2016"
 	ms.author="piyushjo;ricksal" />
 
 # Android SDK Integration for Azure Mobile Engagement
@@ -52,7 +52,11 @@ You can add these features:
 
 ## Release notes
 
-###4.2.1 (05/10/2016)
+### 4.2.2 (05/17/2016)
+
+- Stability improvements.
+
+### 4.2.1 (05/10/2016)
 
 - Security: disable web view local file access.
 - Security: remove `EngagementPreferenceActivity` class that extends obsolete and unsecure `PreferenceActivity` class.

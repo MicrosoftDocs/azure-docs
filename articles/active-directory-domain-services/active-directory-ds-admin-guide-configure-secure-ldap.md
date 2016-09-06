@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/27/2016"
+	ms.date="05/20/2016"
 	ms.author="maheshu"/>
 
 # Configure Secure LDAP (LDAPS) for an Azure AD Domain Services managed domain
@@ -30,7 +30,7 @@ To perform the tasks listed in this article, you will need:
 
 4. A **certificate to be used to enable secure LDAP**.
     - **Recommended** - Obtain a certificate from your enterprise CA or public certification authority. This is a much more secure configuration option.
-	- Alternately, you may also choose to [create a self-signed certificate](./active-directory-ds-admin-guide-configure-secure-ldap.md/#task-1---obtain-a-certificate-for-secure-ldap) as shown later in this article.
+	- Alternately, you may also choose to [create a self-signed certificate](#task-1---obtain-a-certificate-for-secure-ldap) as shown later in this article.
 
 <br>
 
@@ -60,7 +60,7 @@ The first task involves obtaining a certificate you will use for secure LDAP acc
 ### Option A (Recommended) - Obtain a secure LDAP certificate from a certification authority
 If your organization deploys an enterprise public key infrastructure (PKI), you will need to obtain a certificate from the enterprise certification authority (CA) for your organization. If your organization obtains its certificates from a public certification authority, you will need to obtain the secure LDAP certificate from that public certification authority.
 
-When requesting a certificate ensure that you follow the requirements outlined in [Requirement for the secure LDAP certificate](./active-directory-ds-admin-guide-configure-secure-ldap.md/#requirements-for-the-secure-ldap-certificate).
+When requesting a certificate ensure that you follow the requirements outlined in [Requirement for the secure LDAP certificate](#requirements-for-the-secure-ldap-certificate).
 
 Note that client computers that need to connect to the managed domain using secure LDAP must trust the issuer of the LDAPS certificate.
 
@@ -147,7 +147,7 @@ Perform the following steps, in order to export the LDAPS certificate to a .PFX 
 
     ![Export certificate specify password](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-password.png)
 
-	> [AZURE.NOTE] Make a note of this password. You will need it while enabling secure LDAP for this managed domain in [Task 3 - Enable secure LDAP for the managed domain](./active-directory-ds-admin-guide-configure-secure-ldap.md/#task-3---enable-secure-ldap-for-the-managed-domain)
+	> [AZURE.NOTE] Make a note of this password. You will need it while enabling secure LDAP for this managed domain in [Task 3 - Enable secure LDAP for the managed domain](#task-3---enable-secure-ldap-for-the-managed-domain)
 
 15. On the **File to Export** page, specify the file name and location where you'd like to export the certificate.
 
@@ -201,7 +201,7 @@ Perform the following configuration steps in order to enable secure LDAP.
 ## Task 4 - Enable secure LDAP access over the internet
 **Optional task** - skip this task if you do not plan to access the managed domain using LDAPS over the internet.
 
-Before you begin this task, ensure you have completed the steps outlined in [Task 3](./active-directory-ds-admin-guide-configure-secure-ldap.md/#task-3---enable-secure-ldap-for-the-managed-domain).
+Before you begin this task, ensure you have completed the steps outlined in [Task 3](#task-3---enable-secure-ldap-for-the-managed-domain).
 
 1. You should see an option to **ENABLE SECURE LDAP ACCESS OVER THE INTERNET** in the **domain services** section of the **Configure** page. This will be set to **NO** by default since internet access to the managed domain over secure LDAP is disabled by default.
 
@@ -225,7 +225,7 @@ Before you begin this task, ensure you have completed the steps outlined in [Tas
 ## Task 5 - Configure DNS to access the managed domain from the internet
 **Optional task** - skip this task if you do not plan to access the managed domain using LDAPS over the internet.
 
-Before you begin this task, ensure you have completed the steps outlined in [Task 4](./active-directory-ds-admin-guide-configure-secure-ldap.md/#task-4---enable-secure-ldap-access-over-the-internet).
+Before you begin this task, ensure you have completed the steps outlined in [Task 4](#task-4---enable-secure-ldap-access-over-the-internet).
 
 Once you have enabled secure LDAP access over the internet for your managed domain, you need to update DNS so that client computers can find this managed domain. At the end of task 4, an external IP address is displayed on the **Configure** tab in **EXTERNAL IP ADDRESS FOR LDAPS ACCESS**.
 

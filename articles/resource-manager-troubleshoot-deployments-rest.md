@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Troubleshooting deployments with REST API | Microsoft Azure"
-   description="Describes how to use the Azure Resource Manager REST API to detect and fix issues from Resource Manager deployment."
+   pageTitle="View deployment operations with REST API | Microsoft Azure"
+   description="Describes how to use the Azure Resource Manager REST API to detect issues from Resource Manager deployment."
    services="azure-resource-manager,virtual-machines"
    documentationCenter=""
    tags="top-support-issue"
    authors="tfitzmac"
    manager="timlt"
-   editor=""/>
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="03/21/2016"
+   ms.date="05/19/2016"
    ms.author="tomfitz"/>
 
-# Troubleshooting resource group deployments with Azure Resource Manager REST API
+# View deployment operations with Azure Resource Manager REST API
 
 > [AZURE.SELECTOR]
 - [Portal](resource-manager-troubleshoot-deployments-portal.md)
@@ -25,7 +25,7 @@
 - [Azure CLI](resource-manager-troubleshoot-deployments-cli.md)
 - [REST API](resource-manager-troubleshoot-deployments-rest.md)
 
-If you've received an error when deploying resources to Azure, you need to troubleshoot what went wrong. The REST API provides operations that enable you to find the errors and determine potential fixes.
+If you've received an error when deploying resources to Azure, you may want to see more details about the deployment operations that were executed. The REST API provides operations that enable you to find the errors and determine potential fixes.
 
 [AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
 

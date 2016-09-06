@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2016"
+	ms.date="05/24/2016"
 	ms.author="anhoh"/>
 
 # Write, edit, and run SQL queries for DocumentDB using Query Explorer 

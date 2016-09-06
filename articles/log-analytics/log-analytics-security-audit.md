@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="05/26/2016"
 	ms.author="banders"/>
 
 # Security and Audit solution in Log Analytics
@@ -28,6 +28,8 @@ Use the following information to install and configure the solution.
 
 
 ## Security and Audit data collection details
+
+Security and Audit collects Windows security events, Windows application events, and Windows firewall logs using the agents that you have enabled.
 
 The following table shows data collection methods and other details about how data is collected for the Security and Audit solution.
 

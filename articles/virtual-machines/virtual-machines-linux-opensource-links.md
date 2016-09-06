@@ -68,8 +68,7 @@ Find all the documentation you need to create and manage Linux-based virtual mac
 - [How to: Install and Run MySQL](virtual-machines-linux-classic-mysql-on-opensuse.md)
 
 ### CoreOS
-- [How to: Use CoreOS on Azure](virtual-machines-linux-classic-coreos-howto.md)
-- [How to: Get Started with Fleet and Docker on CoreOS on Azure](virtual-machines-linux-classic-coreos-fleet-get-started.md)
+- [How to: Use CoreOS on Azure](https://coreos.com/os/docs/latest/booting-on-azure.html)
 
 
 ## Planning

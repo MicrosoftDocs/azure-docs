@@ -12,14 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/26/2016" 
+	ms.date="06/03/2016" 
 	ms.author="awills"/>
  
 # Using Diagnostic Search in Application Insights
 
-Diagnostic Search is the blade in [Application Insights][start] that you use to find and explore individual telemetry items, such as page views, exceptions, or web requests. And you can view log traces and events that you have coded.
+Diagnostic Search is a feature of [Application Insights][start] that you use to find and explore individual telemetry items, such as page views, exceptions, or web requests. And you can view log traces and events that you have coded.
 
-## When do you see Diagnostic Search?
+## Where do you see Diagnostic Search?
 
 
 ### In the Azure portal
@@ -52,10 +52,11 @@ The Search window has the same features as the web portal:
 ![](./media/app-insights-diagnostic-search/34.png)
 
 
-### Sampling
+## Sampling
 
 If your app generates a lot of telemetry (and you are using the ASP.NET SDK version 2.0.0-beta3 or later), the adaptive sampling module will automatically reduce the volume that is sent to the portal by sending only a representative fraction of events. However, events that are related to the same request will be selected or deselected as a group, so that you can navigate between related events. 
-> [Learn about sampling](app-insights-sampling.md).
+
+[Learn about sampling](app-insights-sampling.md).
 
 
 ## Inspect individual items
@@ -158,7 +159,7 @@ Sample query | Effect
 ---|---
 slow|Find all events in the date range whose fields include the term "slow"
 database??|Matches database01, databaseAB, ...<br/>? is not allowed at the start of a search term.
-database*|Matches database, database01, databaseNNNN<br/>* is not allowed at the start of a search term
+database* |Matches database, database01, databaseNNNN<br/> * is not allowed at the start of a search term
 apple AND banana|Find events that contain both terms. Use capital "AND", not "and".
 apple OR banana<br/>apple banana|Find events that contain either term. Use "OR", not "or".</br/>Short form.
 apple NOT banana<br/>apple -banana|Find events that contain one term but not the other.<br/>Short form.
@@ -216,6 +217,6 @@ We don't log the POST data automatically, but you can use [TrackTrace or log cal
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
 [trace]: app-insights-search-diagnostic-logs.md
-[track]: app-insights-spi-custom-events-metrics.md
+[track]: app-insights-api-custom-events-metrics.md
 
  

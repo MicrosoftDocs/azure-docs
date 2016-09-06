@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/06/2016" 
+	ms.date="05/26/2016" 
 	ms.author="stefsch"/>	
 
 # How To Control Inbound Traffic to an App Service Environment
@@ -41,7 +41,7 @@ The following is a list of ports used by an App Service Environment:
 - 80:  Default port for inbound HTTP traffic to apps running in App Service Plans in an App Service Environment
 - 443: Default port for inbound SSL traffic to apps running in App Service Plans in an App Service Environment
 - 21:  Control channel for FTP.  This port can be safely blocked if FTP is not being used.
-- 10001-10020: Data channels for FTP.  As with the control channel, these ports can be safely blocked if FTP is not being used   (**Note:** the FTP data channels may change during preview.)
+- 10001-10020: Data channels for FTP.  As with the control channel, these ports can be safely blocked if FTP is not being used   
 - 4016: Used for remote debugging with Visual Studio 2012.  This port can be safely blocked if the feature is not being used.
 - 4018: Used for remote debugging with Visual Studio 2013.  This port can be safely blocked if the feature is not being used.
 - 4020: Used for remote debugging with Visual Studio 2015.  This port can be safely blocked if the feature is not being used.

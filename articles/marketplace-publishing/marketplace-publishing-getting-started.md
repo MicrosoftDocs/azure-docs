@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/29/2016"
+   ms.date="06/01/2016"
    ms.author="hascipio" />
 
 # How to publish an offer to the Azure Marketplace
@@ -44,11 +44,12 @@ Some steps are shared between the different types of solutions. This article pro
 | **Step 4: Deploy your offer to the Marketplace** | [Deploy your offer to the Marketplace][link-pushprod] | Private Preview | [Deploy your offer to the Marketplace][link-pushprod] | [Deploy your offer to the Marketplace][link-pushprod] |
 
 ## Support
-- [Get support as a publisher][suppt-general]
+- [Post-production guide for virtual machine offers](marketplace-publishing-vm-image-post-publishing.md)
 - [Understanding seller insights reporting][suppt-rpt-insights]
 - [Understanding payout reporting][suppt-rpt-payouts]
 - [How to change your Cloud Solution Provider reseller incentive](marketplace-publishing-csp-incentive.md)
 - [Troubleshooting common publishing problems in the Marketplace][suppt-common]
+- [Get support as a publisher][suppt-general]
 
 ## Additional resources
 - To learn more about the portals used, see [Portals you will need](marketplace-publishing-portals.md).

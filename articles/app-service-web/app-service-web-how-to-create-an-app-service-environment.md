@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/06/2016" 
+	ms.date="06/08/2016" 
 	ms.author="ccompy"/>
 
 # How to Create an App Service Environment #
@@ -36,7 +36,7 @@ There are some important details to each of those items.
 - All apps made in an ASE will be in the same subscription as the ASE itself
 - If you do not have access to the subscription used to make the ASE you cannot use the ASE to create apps
 - VNETs used to host an ASE must be Regional classic "v1" VNETs 
-- The subnet used to host the ASE must not contain any other compute resources
+- **The subnet used to host the ASE must not contain any other compute resources**
 - Only one ASE can exist in a subnet
 - Currently only virtual networks with an RFC1918 address space (i.e. private addresses) are supported.
 

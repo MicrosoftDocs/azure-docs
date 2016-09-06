@@ -150,7 +150,10 @@ The Windows version of the **iothub\_client\_sample\_ampq** application includes
 
 This solution contains a single project. It is worth noting that there are four NuGet packages installed in this solution:
 
-  ![](media/iot-hub-device-sdk-c-intro/17-iothub-client-sample-amqp-githubpackages.PNG)
+- Microsoft.Azure.C.SharedUtility
+- Microsoft.Azure.IoTHub.AmqpTransport
+- Microsoft.Azure.IoTHub.IoTHubClient
+- Microsoft.Azure.uamqp
 
 You always need the **Microsoft.Azure.C.SharedUtility** package when you are working with the SDK. Since this sample relies on AMQP, you must also include the **Microsoft.Azure.uamqp** and **Microsoft.Azure.IoTHub.AmqpTransport** packages (there are equivalent packages for HTTP and MQTT). Because the sample uses the **IoTHubClient** library, you must also include the **Microsoft.Azure.IoTHub.IoTHubClient** package in your solution.
 
@@ -262,7 +265,11 @@ Within the **serializer** folder in the azure-iot-sdks repository is a **samples
 
 As with the previous sample, this one includes several NuGet packages:
 
-  ![](media/iot-hub-device-sdk-c-intro/18-simplesample_amqp-githubpackages.PNG)
+- Microsoft.Azure.C.SharedUtility
+- Microsoft.Azure.IoTHub.AmqpTransport
+- Microsoft.Azure.IoTHub.IoTHubClient
+- Microsoft.Azure.IoTHub.Serializer
+- Microsoft.Azure.uamqp
 
 We've seen most of these in the previous sample, but **Microsoft.Azure.IoTHub.Serializer** is new. This is required when we use the **serializer** library.
 

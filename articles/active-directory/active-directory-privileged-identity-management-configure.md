@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/15/2016"
+	ms.date="05/19/2016"
 	ms.author="kgremban"/>
 
 # Azure AD Privileged Identity Management
@@ -54,9 +54,9 @@ You can start using Azure AD Privileged Identity Management by accessing the [Az
 5. Select **Azure AD Privileged Identity Management**.
 6. Check the **Pin to dashboard** option and then click the **Create** button. The Privileged Identity Management dashboard will open.
 
-If you're the first person to use Azure AD Privileged Identity Management in your directory, then the [security wizard](active-directory-privileged-identity-management-security-wizard.md) will walk you through the initial assignment experience. After that you will automatically become the first **Security administrator** of the directory.
+If you're the first person to use Azure AD Privileged Identity Management in your directory, then the [security wizard](active-directory-privileged-identity-management-security-wizard.md) will walk you through the initial assignment experience. After that you will automatically become the first **Security administrator** and **privileged role administrator** of the directory.
 
-Only a security administrator can use the PIM app to manage access for other administrators. You can [give other users the ability to manage in PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md).
+Only a privileged role administrator can use the PIM app to manage access for other administrators. You can [give other users the ability to manage in PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md).
 
 ## Privileged Identity Management dashboard
 

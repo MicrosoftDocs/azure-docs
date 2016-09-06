@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/12/2016"
+	ms.date="05/16/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Plan your VM backup infrastructure in Azure
@@ -85,6 +85,16 @@ While a majority of the backup time is spent in reading and copying data, there 
 - Time needed to [install or update the backup extension](backup-azure-vms.md#offline-vms).
 - Snapshot time, which is the time taken to trigger a snapshot. Snapshots are triggered close to the scheduled backup time.
 - Queue wait time. Since the Backup service is processing backups from multiple customers, copying backup data from snapshot to the Azure backup vault might not start immediately. In times of peak load, the wait times can stretch up to 8 hours due to the number of backups being processed. However, the total VM backup time will be less than 24 hours for daily backup policies.
+
+## Best Practices
+We suggest following Best Practices while configuring backups for virtual machines
+
+- Please don't schedule more than 4 classic VMs from same cloud service to backup at the same time. We suggest staggering backup schedules by an hour if you want to configure more VMs from same cloud service for backup. 
+- Please don't schedule more than 40 Resource Manager VMs to backup at the same time.
+- Schedule backups during non-peak hours for VMs so that backup service gets IOPS for transferring data from customer storage account to backup vault. 
+- Please make sure that in a policy VMs are spread from different storage accounts. We suggest that if the total number of disks stored in a single storage account from VMs is more than 20, spread the VMs into different backup schedules to get required IOPS during transfer phase of the backup.
+- Restoring the VM running on Premium storage to same storage account is not recommended as this operation can get into backup operation and will reduce the number of IOPS available for backup. 
+- It is suggested to keep each Premium VM on different premium storage account to get good backup time performance. 
 
 ## Data encryption
 

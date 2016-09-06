@@ -3,7 +3,7 @@
 	description="Write plug-ins for the SDK to filter, sample or add properties to the data before the telemetry is sent to the Application Insights portal." 
 	services="application-insights"
     documentationCenter="" 
-	authors="alancameronwills" 
+	authors="beckylino" 
 	manager="douge"/>
  
 <tags 
@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/27/2016" 
-	ms.author="awills"/>
+	ms.date="05/19/2016" 
+	ms.author="borooji"/>
 
 # Sampling, filtering and preprocessing telemetry in the Application Insights SDK
 
@@ -30,13 +30,10 @@ Currently these features are available for the ASP.NET SDK.
 
 Before you start:
 
-* Install the [Application Insights SDK](app-insights-asp-net.md) in your app. Install the NuGet packages manually and select the latest *prerelease* version.
-* Try the [Application Insights API](app-insights-api-custom-events-metrics.md). 
+* Install the [Application Insights SDK for ASP.NET v2](app-insights-asp-net.md) in your app. 
 
 
 ## Sampling
-
-*This feature is in beta.*
 
 [Sampling](app-insights-sampling.md) is the recommended way to reduce traffic while preserving accurate statistics. The filter selects items that are related so that you can navigate between items in diagnosis. Event counts are adjusted in metric explorer to compensate for the filtered items.
 
@@ -92,7 +89,7 @@ To filter telemetry, you write a telemetry processor and register it with the SD
 
 ### Create a telemetry processor
 
-1. Update the Application Insights SDK to the latest version (2.0.0-beta2 or later). Right-click your project in Visual Studio Solution Explorer and choose Manage NuGet Packages. In NuGet package manager, check **Include prerelease** and search for Microsoft.ApplicationInsights.Web.
+1. Verify that the Application Insights SDK in your project is  version 2.0.0 or later. Right-click your project in Visual Studio Solution Explorer and choose Manage NuGet Packages. In NuGet package manager, check Microsoft.ApplicationInsights.Web.
 
 1. To create a filter, implement ITelemetryProcessor. This is another extensibility point like telemetry module, telemetry initializer and telemetry channel. 
 
@@ -239,6 +236,11 @@ public void Process(ITelemetry item)
 }
 
 ```
+
+#### Diagnose dependency issues
+
+[This blog](https://azure.microsoft.com/blog/implement-an-application-insights-telemetry-processor/) describes a project to diagnose dependency issues by automatically sending regular pings to dependencies.
+
 
 <a name="add-properties"></a>
 ## Add properties: ITelemetryInitializer

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="05/03/2016"
+   ms.date="06/08/2016"
    ms.author="jimpark;"/>
 
 # Use Azure Backup to replace your tape infrastructure

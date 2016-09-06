@@ -20,6 +20,25 @@
 
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in. 
 
+## May Guest OS 
+
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-051 | [3155533] | Cumulative Security Update for Internet Explorer | 4.32, 3.39, 2.51 | May 10, 2016 |  
+| MS16-053 | [3156764] | Cumulative Security Update for JScript and VBScript | 2.51 | May 10, 2016 | 
+| MS16-055 | [3156754] | Security Update for Microsoft Graphics Component | 4.32, 3.39, 2.51 | May 10, 2016 | 
+| MS16-057 | [3156987] | Security Update for Windows Shell | 4.32 | May 10, 2016 | 
+| MS16-060 | [3154846] | Security Update for Windows Kernel | 4.32, 3.39, 2.51 | May 10, 2016 | 
+| MS16-061 | [3155520] | Security Update to RPC | 4.32, 3.39, 2.51 | May 10, 2016 | 
+| MS16-062 | [3158222] | Security Update for Kernel Mode Drivers | 4.32, 3.39, 2.51 | May 10, 2016 | 
+| MS16-065 | [3156757] | Security Update for .Net Framework | 4.32, 3.39, 2.51 | May 10, 2016 | 
+| MS16-067 | [3155784] | Security Update for Volume Manager Driver | 4.32, 3.39 | May 10, 2016 | 
+|  | [3148851] | Time zone changes for Russia in Windows  | 4.32, 3.39, 2.51 | May 10, 2016 | 
+|  | [3133977] | BitLocker can't encrypt drives because of service crashes in svchost.exe process in Windows 7 or Windows Server 2008 R2  | 2.51 | May 10, 2016 | 
+|  | [3133681] | Virtual machines don't respond to your operation in SCVMM in Windows Server 2012 R2  | 4.32 | May 10, 2016 | 
+|  | [3123245] | Update improves port exhaustion identification in Windows Server 2012 R2  | 4.32 | May 10, 2016 | 
+|  | [Disable RC4] |  Microsoft security advisory: Update for disabling RC4  | 4.32, 3.39, 2.51 | May 10, 2016 | 
+
 
 ## April Guest OS 
 
@@ -268,6 +287,23 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A         | [3007054][3007054]  | PIN-protected printing option always shows when you print a document within a Windows Store application in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
 | N/A         | [2999802][2999802]  | Solid lines instead of dotted lines are printed in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
 | N/A         | [2896881][2896881]  | Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
+
+[3155533]: http://support.microsoft.com/kb/3155533
+[3156764]: http://support.microsoft.com/kb/3156764
+[3156754]: http://support.microsoft.com/kb/3156754
+[3156987]: http://support.microsoft.com/kb/3156987
+[3141083]: http://support.microsoft.com/kb/3141083
+[3154846]: http://support.microsoft.com/kb/3154846
+[3155520]: http://support.microsoft.com/kb/3155520
+[3158222]: http://support.microsoft.com/kb/3158222
+[3156757]: http://support.microsoft.com/kb/3156757
+[3155784]: http://support.microsoft.com/kb/3155784
+[3148851]: http://support.microsoft.com/kb/3148851
+[3133977]: http://support.microsoft.com/kb/3133977
+[3133681]: http://support.microsoft.com/kb/3133681
+[3123245]: http://support.microsoft.com/kb/3123245
+[Disable RC4]: https://blogs.msdn.microsoft.com/azuresecurity/2016/04/12/azure-cipher-suite-change-removes-rc4-support/
+
 
 [3148531]: http://support.microsoft.com/kb/3148531
 [3148522]: http://support.microsoft.com/kb/3148522

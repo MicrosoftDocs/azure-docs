@@ -12,8 +12,8 @@
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="04/08/2016" 
+	ms.topic="article" 
+	ms.date="05/16/2016" 
 	ms.author="tomfitz"/>
 
 
@@ -75,75 +75,9 @@ After setting up your resource group, you may want to view the Resource Manager 
 
 2. You can become familiar with template syntax by looking at the JavaScript Object Notation (JSON) that represents your solution.
 
-Through the portal, you can either generate a template that represents the current state of your resource group, or retrieve the template that was used for a particular deployment. Both options are shown in this topic.
-
-Exporting the template for a resource group is helpful when you have made changes to a resource group, and need to retrieve the JSON representation of its current state. However, the generated template contains
-only a minimal number of parameters and no variables. Most of the values in the template are hard-coded. Before deploying the generated template, you may wish to convert more of the values into parameters so you can customize the
-deployment for different environments.
-
-Exporting the template for a
-particular deployment is helpful when you need to view the actual template that was used to deploy resources. The template will include all of the parameters and variables defined for the original deployment.
-However, if someone in your organization has
-made changes to the resource group outside of what is defined in the template, this template will not represent the current state of the resource group.
-
 > [AZURE.NOTE] The export template feature is in preview, and not all resource types currently support exporting a template. When attempting to export a template, you may see an error that states some resources were not exported. If needed, you can manually define these resources in your template after downloading it.
 
-### Export template for resource group
-
-From the resource group blade, you can export the template that represents the current state of the resource group.
-
-To view the template for a resource group, select **Export template**.
-
-![export resource group](./media/resource-group-portal/export-resource-group.png)
-
-Resource Manager generates 4 files for you:
-
-1. The template that defines the infrastructure for your solution
-
-2. A parameter file that you can use to pass in values during deployment
-
-3. An Azure PowerShell script file that you can execute to deploy the template
-
-4. An Azure CLI script file that you can execute to deploy the template
-
-First, look at the template that represents the current resource group.
-
-![show template](./media/resource-group-portal/show-rg-template.png)
-
-Within the **resources** section, you will see the definitions for the resources to deploy.
-
-In the parameters file, you can save parameter values to pass in during deployment.
-
-![show parameters](./media/resource-group-portal/show-parameters.png)
-
-There is a script file for deploying the template through Azure PowerShell.
-
-![show Azure PowerShell](./media/resource-group-portal/show-powershell.png)
-
-And, a script file for deploying the template through Azure CLI.
-
-![show Azure CLI](./media/resource-group-portal/show-cli.png)
-
-The portal offers three options for working with this template. To re-deploy the template right now, select **Deploy**. To download all of the files locally,
-select **Download**. To save the files to your Azure account for later use through the portal, select **Save template**.
-
-### Download template from a deployment
-
-From within the resource group blade, you can see the date and status of the last deployment for this resource group. Selecting the link, displays a history of deployments for the group.
-
-![last deployment](./media/resource-group-portal/last-deployment.png)
-
-Selecting any deployment from the history shows details about that deployment. Every time you deploy resources, Resource Manager persists the template that you used. You can retrieve the actual template
-that was used for the deployment by selecting **View template**.
-
-![export template](./media/resource-group-portal/export-template.png)
-
-You will see the template used for this deployment. It contains all of the parameters and variables as you defined them.
-
-![show template](./media/resource-group-portal/show-template.png)
-
-As noted earlier, this might not be a complete representation of the resource group. If you added or deleted resources outside of this deployment, those actions are not reflected in the template.
-You can view the template, parameters file, and script files as shown in the previous section. You can also re-deploy, download, or save the template as shown in the previous section.
+For step-by-step guidance, see [Export Azure Resource Manager template from existing resources](../resource-manager-export-template/).
 
 ## Manage resource group
 

@@ -12,15 +12,15 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="04/28/2016"
+	ms.topic="get-started-article"
+	ms.date="05/26/2016"
 	ms.author="banders"/>
 
 # Analyze data usage in Log Analytics
 
 Log Analytics in the Operations Management Suite (OMS) collects data and sends it to the OMS service periodically.  You can use the **Usage** page to view how much data is being sent to the OMS service. The **Usage** page also shows you how much data is being sent daily by solutions and how often your servers are sending data.
 
->[AZURE.NOTE] If you have a free account created using the [OMS website](http://www.microsoft.com/oms), you're limited to sending 500 MB of data to the OMS service daily. If you reach the daily limit, data analysis will stop and resume at the start of the next day.
+>[AZURE.NOTE] If you have a free account created using the [OMS website](http://www.microsoft.com/oms), you're limited to sending 500 MB of data to the OMS service daily. If you reach the daily limit, data analysis will stop and resume at the start of the next day. You'll also need to resend any data that wasn't accepted or processed by OMS.
 
 You can view your usage by using the **Usage** tile on the **Overview** dashboard in OMS.
 

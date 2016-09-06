@@ -52,6 +52,6 @@ To learn more about Service Bus messaging, see the following topics.
 - [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 - [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
 - [Service Bus architecture](service-bus-architecture.md)
-- [How to use Service Bus Queues](service-bus-dotnet-how-to-use-queues.md)
+- [How to use Service Bus Queues](service-bus-dotnet-get-started-with-queues.md)
 - [How to use Service Bus Topics](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  

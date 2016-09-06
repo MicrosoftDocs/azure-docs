@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/08/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # Create a lab in Azure DevTest Labs
@@ -29,11 +29,11 @@ To create a lab, you will need:
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Tap **Browse**.
+1. Select **Browse**.
 
-1. Tap **DevTest Labs** from the list.
+1. Select **DevTest Labs** from the list.
 
-1. On the **DevTest Labs** blade, tap **Add**.
+1. On the **DevTest Labs** blade, select **Add**.
 
     ![Add a lab](./media/devtest-lab-create-lab/add-lab-button.png)
 
@@ -42,7 +42,7 @@ To create a lab, you will need:
     1. Enter a **Lab Name** for the new lab.
     1. Select the **Subscription** to associate with the lab.
     1. Select a **Location** in which to store the lab.
-    1. Tap **Create**.
+    1. Select **Create**.
 
     ![Create a lab blade](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
 

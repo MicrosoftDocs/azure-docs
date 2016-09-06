@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="php" 
 	ms.devlang="php" 
 	ms.topic="article" 
-	ms.date="02/29/2016" 
+	ms.date="06/07/2016" 
 	ms.author="wesmc"/>
 
 # How to use Notification Hubs from PHP
@@ -38,7 +38,7 @@ For example, to create a client:
 To send an iOS native notification:
 	
 	$notification = new Notification("apple", '{"aps":{"alert": "Hello!"}}');
-	$hub->sendNotification($notification);
+	$hub->sendNotification($notification, null);
 
 ## Implementation
 If you did not already, please follow our [Get started tutorial] up to the last section where you have to implement the back-end.
@@ -208,18 +208,18 @@ Then add the send code depending on your target mobile platform.
 	$toast = '<toast><visual><binding template="ToastText01"><text id="1">Hello from PHP!</text></binding></visual></toast>';
 	$notification = new Notification("windows", $toast);
 	$notification->headers[] = 'X-WNS-Type: wns/toast';
-	$hub->sendNotification($notification);
+	$hub->sendNotification($notification, null);
 
 ### iOS
 
 	$alert = '{"aps":{"alert":"Hello from PHP!"}}';
 	$notification = new Notification("apple", $alert);
-	$hub->sendNotification($notification);
+	$hub->sendNotification($notification, null);
 
 ### Android
 	$message = '{"data":{"msg":"Hello from PHP!"}}';
 	$notification = new Notification("gcm", $message);
-	$hub->sendNotification($notification);
+	$hub->sendNotification($notification, null);
 
 ### Windows Phone 8.0 and 8.1 Silverlight
 
@@ -232,13 +232,13 @@ Then add the send code depending on your target mobile platform.
 	$notification = new Notification("windowsphone", $toast);
 	$notification->headers[] = 'X-WindowsPhone-Target : toast';
 	$notification->headers[] = 'X-NotificationClass : 2';
-	$hub->sendNotification($notification);
+	$hub->sendNotification($notification, null);
 
 
 ### Kindle Fire
 	$message = '{"data":{"msg":"Hello from PHP!"}}';
 	$notification = new Notification("adm", $message);
-	$hub->sendNotification($notification);
+	$hub->sendNotification($notification, null);
 
 Running your PHP code should produce now a notification appearing on your target device.
 

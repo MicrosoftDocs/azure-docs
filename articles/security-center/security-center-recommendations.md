@@ -107,7 +107,7 @@ Using the **Enable Antimalware** recommendation, let’s walk through an example
 5. Enter the required configuration settings on the **Add Extension** blade, and then select **OK**.
 ![][6]
 
-[Microsoft Antimalware](../azure-security-antimalware.md) is now active on the selected virtual machine.
+[Microsoft Antimalware](../security/azure-security-antimalware.md) is now active on the selected virtual machine.
 
 
 ## Next steps

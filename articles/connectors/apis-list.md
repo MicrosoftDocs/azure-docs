@@ -1,5 +1,5 @@
 <properties
-	pageTitle="List of Microsoft-managed connectors | Microsoft Azure App Service"
+	pageTitle="List of Microsoft-managed connectors for use in Microsoft Azure Logic apps | Microsoft Azure App Service"
 	description="Get a complete list of the Microsoft-Managed connectors you can use to build Logic apps in Azure App Service"
 	services="app-service\logic"
 	documentationCenter=""
@@ -14,30 +14,29 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/29/2016"
+	ms.date="05/31/2016"
 	ms.author="deonhe"/>
 
-# List of Managed Connectors
+# List of managed connectors
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Connectors List](../app-service-logic/app-service-logic-connectors-list.md). 
+>[AZURE.NOTE] This version of the article applies to Logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Connectors List](../app-service-logic/app-service-logic-connectors-list.md). 
 
 For pricing information and a list of what is included with each Service Tier, see [Azure App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/).
 
-> [AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic). You can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
+> [AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic). You can immediately create a short-lived starter Logic app in App Service. No credit cards required; no commitments.
 
-Select an icon to learn how to quickly leverage these connectors to build  apps that call these services. These connectors can be used to build logic apps, PowerApps and Flows.
+Select an icon to learn how to quickly leverage these connectors to build  apps that call these services. These connectors can be used to build Logic apps, PowerApps and Flows.
 
-|APIs||||
+|Connectors||||
 |-----------|-----------|-----------|-----------|
-|[![API Icon][blobicon]<br/>**Azure Blob**][azureblobdoc]|[![API Icon][bingsearchicon]<br/>**Bing Search**][bingsearchdoc]|[![API Icon][boxicon]<br/>**Box**][boxDoc]|[![API Icon][crmonlineicon]<br/>**CRM Online**][crmonlinedoc]|
-|[![API Icon][dropboxicon]<br/>**Dropbox**][dropboxdoc]|[![API Icon][facebookicon]<br/>**Facebook**][facebookdoc]|[![API Icon][ftpicon]<br/>**FTP**][ftpdoc]|[![API Icon][githubicon]<br/>**GitHub**][githubdoc]|
-[![API Icon][googledriveicon]<br/>**Google Drive**][googledrivedoc]|[![API Icon][mailchimpicon]<br/>**MailChimp**][mailchimpdoc]|[![API Icon][microsofttranslatoricon]<br/>**Translator**][microsofttranslatordoc]|[![API Icon][office365icon]<br/>**Office 365**<br/>**Outlook**][office365outlookdoc]|
-|[![API Icon][office365icon]<br/>**Office 365**<br/>**Users**][office365usersdoc]|[![API Icon][office365icon]<br/>**Office 365**<br/>**Video**][office365videodoc]|[![API Icon][onedriveicon]<br/>**OneDrive**][onedrivedoc]|[![API Icon][onedriveicon]<br/>**OneDrive<br/>for Business**][onedriveforbusinessdoc]|
-|[![API Icon][outlookicon]<br/>**Outlook**][outlookdoc]|[![API Icon][projectonlineicon]<br/>**Project<br/>Online**][projectonlinedoc]|[![API Icon][rssicon]<br/>**RSS**][rssdoc]|[![API Icon][salesforceicon]<br/>**Salesforce**][salesforcedoc]|
-|[![API Icon][sendgridicon]<br/>**SendGrid**][sendgriddoc]|[![API Icon][servicebusicon]<br/>**Service Bus**][servicebusdoc]|[![API Icon][sftpicon]<br/>**SFTP**][sftpdoc]|[![API Icon][sharepointicon]<br/>**SharePoint**<br/>**Online**][sharepointdoc]|
-|[![API Icon][slackicon]<br/>**Slack**<br/>][slackdoc]|[![API Icon][smtpicon]<br/>**SMTP**][smtpdoc]|[![API Icon][sqlicon]<br/>**SQL Azure**][sqldoc]|[![API Icon][sqlicon]<br/>**SQL Mashup**][mashupsqldoc]|
-|[![API Icon][trelloicon]<br/>**Trello**][trellodoc]|[![API Icon][twilioicon]<br/>**Twilio**][twiliodoc]|[![API Icon][twittericon]<br/>**Twitter**][twitterdoc]|[![API Icon][wunderlisticon]<br/>**Wunderlist**][wunderlistdoc]|
-[![API Icon][yammericon]<br/>**Yammer**][yammerdoc] | |
+|[![API Icon][blobicon]<br/>**Azure Blob**][azureblobdoc]|[![API Icon][boxicon]<br/>**Box**][boxDoc]|[![API Icon][crmonlineicon]<br/>**CRM Online**][crmonlinedoc]|[![API Icon][dropboxicon]<br/>**Dropbox**][dropboxdoc]|
+|[![API Icon][facebookicon]<br/>**Facebook**][facebookdoc]|[![API Icon][ftpicon]<br/>**FTP**][ftpdoc]|[![API Icon][githubicon]<br/>**GitHub**][githubdoc]|[![API Icon][googledriveicon]<br/>**Google Drive**][googledrivedoc]|
+|[![API Icon][mailchimpicon]<br/>**MailChimp**][mailchimpdoc]|[![API Icon][microsofttranslatoricon]<br/>**Translator**][microsofttranslatordoc]|[![API Icon][office365icon]<br/>**Office 365**<br/>**Outlook**][office365outlookdoc]|[![API Icon][office365icon]<br/>**Office 365**<br/>**Users**][office365usersdoc]|
+|[![API Icon][office365icon]<br/>**Office 365**<br/>**Video**][office365videodoc]|[![API Icon][onedriveicon]<br/>**OneDrive**][onedrivedoc]|[![API Icon][onedriveicon]<br/>**OneDrive<br/>for Business**][onedriveforbusinessdoc]|[![API Icon][outlookicon]<br/>**Outlook**][outlookdoc]|
+|[![API Icon][projectonlineicon]<br/>**Project<br/>Online**][projectonlinedoc]|[![API Icon][rssicon]<br/>**RSS**][rssdoc]|[![API Icon][salesforceicon]<br/>**Salesforce**][salesforcedoc]|[![API Icon][sendgridicon]<br/>**SendGrid**][sendgriddoc]|
+|[![API Icon][servicebusicon]<br/>**Service Bus**][servicebusdoc]|[![API Icon][sftpicon]<br/>**SFTP**][sftpdoc]|[![API Icon][sharepointicon]<br/>**SharePoint**<br/>**Online**][sharepointdoc]|[![API Icon][slackicon]<br/>**Slack**<br/>][slackdoc]|
+|[![API Icon][smtpicon]<br/>**SMTP**][smtpdoc]|[![API Icon][sqlicon]<br/>**SQL Azure**][sqldoc]|[![API Icon][trelloicon]<br/>**Trello**][trellodoc]|[![API Icon][twilioicon]<br/>**Twilio**][twiliodoc]|
+|[![API Icon][twittericon]<br/>**Twitter**][twitterdoc]|[![API Icon][wunderlisticon]<br/>**Wunderlist**][wunderlistdoc]|[![API Icon][yammericon]<br/>**Yammer**][yammerdoc] | |
 
 > [AZURE.NOTE] If you've been creating Logic apps using the 2014-12-01-preview schema, you'll notice that the enterprise integration connectors such as those for BizTalk aren't listed above. We know these are important and we are working hard to get them to you soon. While we don't have an exact availability date to share, be aware that getting these to you is one of our top priorities. In the meantime, you can access your [v1 APIs and BizTalk APIs from Logic Apps](https://blogs.msdn.microsoft.com/logicapps/2016/02/25/accessing-v1-apis-and-biztalk-apis-from-logic-apps/). Thanks for your understanding. Stay tuned.
 
@@ -56,11 +55,11 @@ Connectors can also be used as actions within your apps. Actions are useful for 
 
 
 [What's new](../app-service-logic/app-service-logic-schema-2015-08-01.md)  
-[Build a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md)  
+[Build a Logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md)  
 [Get started with PowerApps now](../power-apps/powerapps-get-started-azure-portal.md)  
 [Migrate existing Logic apps to the latest schema version](connectors-schema-migration.md) 
 
-<!--API Documentation-->
+<!--Connectors Documentation-->
 [azureblobdoc]: ./connectors-create-api-azureblobstorage.md "Connect to Azure blob to manage files in your blob container."
 [bingsearchDoc]: ./connectors-create-api-bingsearch.md "Search Bing for web, images, news and video."
 [boxDoc]: ./connectors-create-api-box.md "Connects to Box and can upload, get, delete, list, and more file tasks."
@@ -90,7 +89,6 @@ Connectors can also be used as actions within your apps. Actions are useful for 
 [mailchimpdoc]: ./connectors-create-api-mailchimp.md "Send Better Email."
 [smtpdoc]: ./connectors-create-api-smtp.md "Connects to a SMTP server and can send email with attachments."
 [sqldoc]: ./connectors-create-api-sqlazure.md "Connects to SQL Azure Database. You can create, update, get, and delete entries on a SQL database table."
-[mashupsqldoc]: ./connectors-create-api-mashupsql.md "Connects to SQL. You can create, update, get, and delete entries on a SQL database table."
 [trellodoc]: ./connectors-create-api-trello.md "Trello is the free,  flexible, and visual way to organize anything with anyone."
 [twiliodoc]: ./connectors-create-api-twilio.md "Connects to Twilio and can send and get messages, get available numbers, managing incoming phone numbers, and more."
 [twitterdoc]: ./connectors-create-api-twitter.md "Connects to Twitter and get timelines, post tweets, and more."
@@ -124,7 +122,6 @@ Connectors can also be used as actions within your apps. Actions are useful for 
 [slackicon]: ./media/apis-list/slackicon.png
 [smtpicon]: ./media/apis-list/smtpicon.png
 [sqlicon]: ./media/apis-list/sqlicon.png
-[mashupsqlicon]: ./media/apis-list/mashupsqlicon.png
 [trelloicon]: ./media/apis-list/trelloicon.png
 [twilioicon]: ./media/apis-list/twilioicon.png
 [twittericon]: ./media/apis-list/twittericon.png

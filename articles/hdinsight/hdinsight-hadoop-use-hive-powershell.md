@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/07/2016"
+   ms.date="05/18/2016"
    ms.author="larryfr"/>
 
 #Run Hive queries using PowerShell
@@ -94,10 +94,9 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
         $resourceGroup = $clusterInfo.ResourceGroup
         $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
         $container=$clusterInfo.DefaultStorageContainer
-        $storageAccountKey=Get-AzureRmStorageAccountKey `
+        $storageAccountKey=(Get-AzureRmStorageAccountKey `
             -Name $storageAccountName `
-            -ResourceGroupName $resourceGroup `
-            | %{ $_.Key1 }
+        -ResourceGroupName $resourceGroup)[0].Value
 		# Print the output
 		Write-Host "Display the standard output..." -ForegroundColor Green
 		Get-AzureRmHDInsightJobOutput `
@@ -129,10 +128,9 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
         $resourceGroup = $clusterInfo.ResourceGroup
         $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
         $container=$clusterInfo.DefaultStorageContainer
-        $storageAccountKey=Get-AzureRmStorageAccountKey `
+        $storageAccountKey=(Get-AzureRmStorageAccountKey `
             -Name $storageAccountName `
-            -ResourceGroupName $resourceGroup `
-            | %{ $_.Key1 }
+        -ResourceGroupName $resourceGroup)[0].Value
         Invoke-AzureRmHDInsightHiveJob `
             -StatusFolder "statusout" `
             -DefaultContainer $container `

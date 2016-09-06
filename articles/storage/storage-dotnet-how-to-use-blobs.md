@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Get started with Azure Blob storage using .NET | Microsoft Azure"
+	pageTitle="Get started with Azure Blob storage (object storage) using .NET | Microsoft Azure"
 	description="Store unstructured data in the cloud with Azure Blob storage (object storage)."
 	services="storage"
 	documentationCenter=".net"

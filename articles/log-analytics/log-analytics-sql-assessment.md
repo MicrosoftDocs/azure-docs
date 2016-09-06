@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016"
+	ms.date="06/01/2016"
 	ms.author="banders"/>
 
 # Optimize your environment with the SQL Assessment solution in Log Analytics
@@ -38,6 +38,7 @@ SQL Assessment works with all currently supported versions of SQL Server for the
 
 Use the following information to install and configure the solution.
 
+- Agents must be installed on servers that have SQL Server installed.
 - The SQL Assessment solution requires .NET Framework 4 installed on each computer that has an OMS agent.
 - When using the Operations Manager agent with SQL Assessment, you'll need to use an Operations Manager Run-As account. See [Operations Manager run-as accounts for OMS](#operations-manager-run-as-accounts-for-oms) below for more information.
 
@@ -48,6 +49,8 @@ Use the following information to install and configure the solution.
 >[AZURE.NOTE] After you've added the solution, the AdvisorAssessment.exe file is added to servers with agents. Configuration data is read and then sent to the OMS service in the cloud for processing. Logic is applied to the received data and the cloud service records the data.
 
 ## SQL Assessment data collection details
+
+SQL Assessment collects WMI data, registry data, performance data, and SQL Server dynamic management view results using the agents that you have enabled.
 
 The following table shows data collection methods for agents, whether Operations Manager (SCOM) is required, and how often data is collected by an agent.
 
@@ -66,6 +69,8 @@ Use the following information to set the Operations Manager run-as account for S
  If you are already using the SQL Server management pack, you should use that Run As account.
 
 #### To configure the SQL Run As account in the Operations console
+
+>[AZURE.NOTE] If you are using the OMS direct agent, rather than the SCOM agent, the management pack always runs in the security context of the Local System account. Skip steps 1-5 below, and run either the T-SQL or Powershell sample, specifying NT AUTHORITY\SYSTEM as the user name.
 
 1. In Operations Manager, open the Operations console, and then click **Administration**.
 

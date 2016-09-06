@@ -99,7 +99,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
     > [AZURE.NOTE] To obtain access to the SilkRoad Life Suite Authentication application for configuring federation with Microsoft Azure AD, please contact SilkRoad Support or your SilkRoad Services representative.
 
 
-6. Go to **Service Provider**, and then clcik **Federation Details**. 
+6. Go to **Service Provider**, and then click **Federation Details**. 
 <br><br>![Azure AD Single Sign-On][10] <br>
 
 

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/28/2016"
-	ms.author="mohabib;xibingao;bradsev" />
+	ms.date="05/10/2016"
+	ms.author="xibingao;bradsev" />
 
 # Set up an Azure SQL Server virtual machine as an IPython Notebook server for advanced analytics
 
@@ -185,7 +185,7 @@ computer, configure SQL Server for mixed mode authentication. Mixed mode
 authentication allows both SQL Server Authentication and Windows
 Authentication. SQL authentication mode is required in order to ingest data
 directly from your SQL Server VM databases in the
-[Azure Machine Learning Studio](https://studio.azureml.net) using the Reader module.
+[Azure Machine Learning Studio](https://studio.azureml.net) using the Import Data module.
 
 1.  While connected to the virtual machine by using Remote Desktop, use the Windows **Search** pane and type **SQL Server Management Studio** (SMSS). Click to start the SQL Server Management Studio (SSMS). You may want to add a shortcut to SSMS on your Desktop for future use.
 
@@ -353,9 +353,9 @@ because it can be redirected to a new IP address.)
 
 ##<a name="amlconnect"></a>Connect to the Database Engine from Azure Machine Learning
 
-In later stages of the Cortana Analytics Process, you will use the [Azure Machine Learning Studio](https://studio.azureml.net) to build and deploy machine learning models. To ingest data from your SQL Server VM databases directly into Azure Machine Learning for training or scoring, use the **Reader** module in a new [Azure Machine Learning Studio](https://studio.azureml.net) experiment. This topic is covered in more details through the Cortana Analytics Process guide links. For an introduction, see [What is Azure Machine Learning Studio?](machine-learning-what-is-ml-studio.md).
+In later stages of the Cortana Analytics Process, you will use the [Azure Machine Learning Studio](https://studio.azureml.net) to build and deploy machine learning models. To ingest data from your SQL Server VM databases directly into Azure Machine Learning for training or scoring, use the **Import Data** module in a new [Azure Machine Learning Studio](https://studio.azureml.net) experiment. This topic is covered in more details through the Cortana Analytics Process guide links. For an introduction, see [What is Azure Machine Learning Studio?](machine-learning-what-is-ml-studio.md).
 
-2.	In the **Properties** pane of the [Reader module](https://msdn.microsoft.com/library/azure/dn905997.aspx), select **Azure SQL Database** from the **Data Source** 	dropdown list.
+2.	In the **Properties** pane of the [Import Data module](https://msdn.microsoft.com/library/azure/dn905997.aspx), select **Azure SQL Database** from the **Data Source** 	dropdown list.
 
 3.	In the **Database server name** text box, enter `tcp:<DNS name of your virtual machine>,1433`
 
@@ -363,7 +363,7 @@ In later stages of the Cortana Analytics Process, you will use the [Azure Machin
 
 5.	Enter the sql user's password in the **Server user account password** text box.
 
-	![Azure ML Reader][13]
+	![Azure ML Import Data][13]
 
 ##<a name="shutdown"></a>Shutdown and deallocate virtual machine when not in use
 

@@ -75,7 +75,7 @@ In most competitions, you will notice that you will receive a public score for e
 
 * The entire dataset used in the competition is randomly split with stratification into training and testing (the remaining) data. The random split is stratified to ensure that the distributions of labels in both training and testing data are consistent.
  
-* The training data is uploaded and given to you as part of the Starter Experiment in the Reader module configuration.
+* The training data is uploaded and given to you as part of the Starter Experiment in the Import Data module configuration.
 
 * The testing data is further split into public and private testing data, using the same stratification.
 

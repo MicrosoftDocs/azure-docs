@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/14/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+   ms.date="06/03/2016"
+   ms.author="lodipalm;barbkess;sonyama;jrj"/>
 
 # Migrate your SQL code to SQL Data Warehouse
 
@@ -80,7 +80,7 @@ Common table expressions have some limitations in SQL Data Warehouse including:
 
 Recursive CTEs are not supported in SQL Data Warehouse.  The migraion of recursive CTE can be somewhat complete and the best process is to break down the into multiple steps. You can typically use a loop and populate a temporary table as you iterate over the recursive interim queries. Once the temporary table is populated you can then return the data as a single result set. A similar approach has been used to solve `GROUP BY WITH CUBE` in the [group by clause with rollup / cube / grouping sets options][] article.
 
-### System functions
+## System functions
 
 There are also some system functions that are not supported. Some of the main ones you might typically find used in data warehousing are:
 
@@ -103,30 +103,31 @@ AND     request_id IN
                     (   SELECT TOP 1    request_id
                         FROM            sys.dm_pdw_exec_requests
                         WHERE           session_id = SESSION_ID()
+                        AND             resource_class IS NOT NULL
                         ORDER BY end_time DESC
                     )
 ;
 ```
 
 ## Next steps
-For advice on developing your code please refer to the [development overview][].
+For a complete list of all supported T-SQL statements, see [Transact-SQL topics][].
 
 <!--Image references-->
 
 <!--Article references-->
-[ANSI joins on updates]: sql-data-warehouse-develop-ctas.md
-[ANSI joins on deletes]: sql-data-warehouse-develop-ctas.md
-[merge statement]: sql-data-warehouse-develop-ctas.md
-[INSERT..EXEC]: sql-data-warehouse-develop-temporary-tables.md
+[ANSI joins on updates]: ./sql-data-warehouse-develop-ctas.md
+[ANSI joins on deletes]: ./sql-data-warehouse-develop-ctas.md
+[merge statement]: ./sql-data-warehouse-develop-ctas.md
+[INSERT..EXEC]: ./sql-data-warehouse-develop-temporary-tables.md
+[Transact-SQL topics]: ./sql-data-warehouse-reference-tsql-statements.md
 
-[cursors]: sql-data-warehouse-develop-loops.md
-[SELECT..INTO]: sql-data-warehouse-develop-ctas.md
-[group by clause with rollup / cube / grouping sets options]: sql-data-warehouse-develop-group-by-options.md
-[nesting levels beyond 8]: sql-data-warehouse-develop-transactions.md
-[updating through views]: sql-data-warehouse-develop-views.md
-[use of select for variable assignment]: sql-data-warehouse-develop-variable-assignment.md
-[no MAX data type for dynamic SQL strings]: sql-data-warehouse-develop-dynamic-sql.md
-[development overview]: sql-data-warehouse-overview-develop.md
+[cursors]: ./sql-data-warehouse-develop-loops.md
+[SELECT..INTO]: ./sql-data-warehouse-develop-ctas.md
+[group by clause with rollup / cube / grouping sets options]: ./sql-data-warehouse-develop-group-by-options.md
+[nesting levels beyond 8]: ./sql-data-warehouse-develop-transactions.md
+[updating through views]: ./sql-data-warehouse-develop-views.md
+[use of select for variable assignment]: ./sql-data-warehouse-develop-variable-assignment.md
+[no MAX data type for dynamic SQL strings]: ./sql-data-warehouse-develop-dynamic-sql.md
 
 <!--MSDN references-->
 

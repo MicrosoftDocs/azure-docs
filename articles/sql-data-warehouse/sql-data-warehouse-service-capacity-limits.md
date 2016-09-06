@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="05/13/2016"
+   ms.date="06/01/2016"
    ms.author="sonyama;barbkess;jrj"/>
 
 # SQL Data Warehouse capacity limits
@@ -35,7 +35,7 @@ The below tables contains the maximum values allowed for various components of A
 
 | Category          | Description                                  | Maximum            |
 | :---------------- | :------------------------------------------- | :----------------- |
-| Database          | Max size                                     | 60 TB compressed on disk<br/><br/>SQL Data Warehouse allows up to 60 TB of raw space on disk per database.  The space on disk is the compressed size for permanent tables.  This space is independent of tempdb or log space, and therefore this space is dedicated to permanent tables.   Clustered columnstore compression is estimated at 5X which means that the uncompressed size of the database could grow to approximately 300 TB when all tables are clustered columnstore (the default table type).  The 60 TB limit will be increased to 240 TB at the end of public preview, which will allow most databases to grow to over 1 PB of uncompressed data.|
+| Database          | Max size                                     | 240 TB compressed on disk<br/><br/>This space is independent of tempdb or log space, and therefore this space is dedicated to permanent tables.  Clustered columnstore compression is estimated at 5X which means that the uncompressed size of the database could grow to approximately 1 PB when all tables are clustered columnstore (the default table type).|
 | Table             | Max size                                     | 60 TB compressed on disk   |
 | Table             | Tables per database                          | 2 billion          |
 | Table             | Columns per table                            | 1024 columns       |

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/10/2016"
+   ms.date="05/17/2016"
    ms.author="navale;tomfitz;"/>
 
 # Azure Resource Manager SDK for .Net  
@@ -35,7 +35,7 @@ A full downloadable sample project from where all code snippets below have been 
 Authentication for ARM is handled by Azure Active Directory (AD). In order to connect to any API you first need to authenticate 
 with Azure AD to receive an authentication token that you can pass on to every request. To get this token you first need to create 
 what is called an Azure AD Application and a Service Principal that will be used to login with. 
-Follow [Create Azure AD Application and Service Principle](./resource-group-create-service-principal-portal.md) for step by step instructions.
+Follow [Create Azure AD Application and Service Principle](resource-group-create-service-principal-portal.md) for step by step instructions.
 
 After creating the service principal, you should have:
 * Client id (GUID)
@@ -297,7 +297,7 @@ private static async Task<VirtualMachine> CreateVirtualMachineAsync(TokenCredent
 ```
 
 ### Using a templated deployment
-Please read and follow the [Deploy Azure resources using .NET libraries and a template](./arm-template-deployment/#step-4-create-the-credentials-that-are-used-to-authenticate-requests) tutorial for detailed instructions on how to deploy a template.
+Please read and follow the [Deploy Azure resources using .NET libraries and a template](./virtual-machines/virtual-machines-windows-csharp-template.md ) tutorial for detailed instructions on how to deploy a template.
 
 In short deploying a template is much easier than provisioning the resources manually and the below code shows you how to do it by 
 pointing at the URIs where you have the template and a parameters file. 

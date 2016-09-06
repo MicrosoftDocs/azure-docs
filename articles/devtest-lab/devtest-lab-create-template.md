@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/08/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
 # Create a DevTest Labs custom image from a VHD file
@@ -29,17 +29,17 @@ Note that you'll need access to a valid VHD file to perform all the steps in thi
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Tap **Browse**, and then tap **DevTest Labs** from the list.
+1. Select **Browse**, and then select **DevTest Labs** from the list.
 
-1. From the list of labs, tap the desired lab.  
+1. From the list of labs, select the desired lab.  
 
 1. The selected lab's **Settings** blade will be displayed. 
 
-1. On the lab **Settings** blade, tap **Custom images**.
+1. On the lab **Settings** blade, select **Custom images**.
 
     ![Custom images option](./media/devtest-lab-create-template/lab-settings-custom-images.png)
 
-1. On the **Custom images** blade, tap **+ Custom image**.
+1. On the **Custom images** blade, select **+ Custom image**.
 
     ![Add Custom image](./media/devtest-lab-create-template/add-custom-image.png)
 
@@ -47,23 +47,23 @@ Note that you'll need access to a valid VHD file to perform all the steps in thi
 
 1. Enter the description of the custom image. This description is displayed in the list of base images when creating a new VM.
 
-1. Tap **VHD File**.
+1. Select **VHD File**.
 
 1. If you have access to a VHD file that is not listed, add it by following the instructions in the [Upload a VHD file](#upload-a-vhd-file) section, and return here when finished.
 
 1. Select the desired VHD file.
 
-1. Tap **OK** to close the **VHD File** blade.
+1. Select **OK** to close the **VHD File** blade.
 
-1. Tap **OS Configuration**.
+1. Select **OS Configuration**.
 
 1. On the **OS Configuration** tab, select either **Windows** or **Linux**.
 
 1. If **Windows** is selected, specify via the checkbox whether or not *Sysprep* has been run on the machine.
 
-1. Tap **OK** to close the **OS Configuration** blade.
+1. Select **OK** to close the **OS Configuration** blade.
 
-1. Tap **OK** to create the custom image.
+1. Select **OK** to create the custom image.
 
 1. Go to the [Next Steps](#next-steps) section.
 
@@ -71,7 +71,7 @@ Note that you'll need access to a valid VHD file to perform all the steps in thi
 
 In order to add a new custom image, you'll need to have access to a VHD file.
 
-1. On the **VHD File** blade, tap **Upload a VHD file using PowerShell**.
+1. On the **VHD File** blade, select **Upload a VHD file using PowerShell**.
 
     ![Upload image](./media/devtest-lab-create-template/upload-image-using-psh.png)
 

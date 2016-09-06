@@ -176,7 +176,7 @@ The full deployment may take between 25 and 55 minutes on some highly utilized A
 
 ## Verify the deployment using the Azure Stack Portal
 
-1. Sign out of the ClientVM and sign in again as **AzureStack\User**.
+1. Sign out of the ClientVM and sign in again as **AzureStack\AzureStackUser**.
 
 2. On the desktop, click **Azure Stack POC Portal** and sign in to the portal as the service admin.
 

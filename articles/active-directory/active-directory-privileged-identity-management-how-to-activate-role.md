@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="04/15/2016"
+   ms.date="05/19/2016"
    ms.author="kgremban"/>
 
 # How to activate or deactivate roles in Azure AD Privileged Identity Management
@@ -22,7 +22,7 @@ Azure Active Directory (AD) Privileged Identity Management simplifies how enterp
 
 This article is for admins who need to activate their role in Azure AD Privileged Identity Management (PIM). It will walk you through the steps to activate a role when you need the permissions, and deactivate the role when you're done.
 
-If you have been assigned to an administrative role, you can activate that role when you need to perform a task that requires that role. For example, if you only need to manage Office 365 sometimes, your organization's security administrators don't want to make you a permanent admin. Instead, they make you a candidate for the Global Administrator or Exchange Online Administrator roles in Azure AD. This means that you can request a temporary role assignment when you need those privileges, and you'll have admin control for Office 365 for a predetermined time period.
+If you have been assigned to an administrative role, you can activate that role when you need to perform a task that requires that role. For example, if you only need to manage Office 365 sometimes, your organization's privileged role administrators don't want to make you a permanent admin. Instead, they make you a candidate for the Global Administrator or Exchange Online Administrator roles in Azure AD. This means that you can request a temporary role assignment when you need those privileges, and you'll have admin control for Office 365 for a predetermined time period.
 
 
 ## Add the Privileged Identity Management application
@@ -46,7 +46,7 @@ When you need to take on a role, you can request activation using the **Activate
 3. Select the role you want to activate.
 4. Select **Activate**. The **Request role activation** blade will appear.
 5. For some roles, like Global Administrator, Multi-Factor Authentication (MFA) is required to activate the role.  If you did not perform MFA when logging in, you may have to before the role can be activated.
-6. Enter the reason for the activation request in the text field.  The security administrator may also require you to supply a trouble ticket number.
+6. Enter the reason for the activation request in the text field.  The privileged role administrator may also require you to supply a trouble ticket number.
 7. Select **OK**.  The role will now be activated and the role change will become visible in the Microsoft Online Services.
 
 ## Deactivate a role

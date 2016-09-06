@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/12/2016"
-	ms.author="erikre"/>
+	ms.author="cephalin"/>
 
 # Configure a custom domain name in Azure App Service (Purchased directly from GoDaddy)
 

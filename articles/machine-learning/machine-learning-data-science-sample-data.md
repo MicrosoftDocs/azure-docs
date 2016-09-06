@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/07/2016" 
+	ms.date="05/10/2016" 
 	ms.author="fashah;garye;bradsev" /> 
 
 #<a name="heading"></a>Sample data in Azure blob containers, SQL Server, and Hive tables
 
-## Introduction
-
-This document covers how to sample data that is stored three Azure locations typically used when analyzing and modeling data in the Cortana Analytics Process:
+This document links to topics that covers how to sample data that is stored in one of three different Azure locations:
 
 - **Azure blob container data** is sampled by downloading it programmatically and then sampling it with sample Python code.
 - **SQL Server data** is sampled using both SQL and the Python Programming Language. 

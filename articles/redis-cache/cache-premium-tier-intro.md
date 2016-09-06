@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Introduction to the Azure Redis Cache Premium tier" 
+	pageTitle="Introduction to the Azure Redis Cache Premium tier | Microsoft Azure" 
 	description="Learn how to create and manage Redis Persistence, Redis clustering, and VNET support for your Premium tier Azure Redis Cache instances" 
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2016" 
+	ms.date="05/18/2016" 
 	ms.author="sdanie"/>
 
 # Introduction to the Azure Redis Cache Premium tier
 Azure Redis Cache is a distributed, managed cache that helps you build highly scalable and responsive applications by providing super-fast access to your data. 
 
-The new Premium-tier is an Enterprise ready tier which includes all the Standard-tier features and more, such as better performance, bigger workloads, disaster recovery, and enhanced security. Continue reading to learn more about the additional features of the Premium cache tier.
+The new Premium-tier is an Enterprise ready tier which includes all the Standard-tier features and more, such as better performance, bigger workloads, disaster recovery, import/export, and enhanced security. Continue reading to learn more about the additional features of the Premium cache tier.
 
 ## Better performance compared to Standard or Basic tier
 **Better performance over Standard or Basic tier.** Caches in the Premium tier are deployed on hardware which has faster processors and gives better performance compared to the Basic or Standard Tier. Premium tier Caches have higher throughput and lower latencies. 
@@ -45,6 +45,16 @@ Caches created in the Basic or Standard tier are accessible on the public intern
 
 For more information, see [How to configure Virtual Network support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md).
 
+## Import/Export
+
+Import/Export is an Azure Redis Cache data management operation which allows you to import data into Azure Redis Cache or export data from Azure Redis Cache by importing and exporting a Redis Cache Database (RDB) snapshot from a premium cache to a page blob in an Azure Storage Account. This enables you to migrate between different Azure Redis Cache instances or populate the cache with data before use.
+
+Import can be used to bring Redis compatible RDB file(s) from any Redis server running in any cloud or environment, including Redis running on Linux, Windows, or any cloud provider such as Amazon Web Services and others. Importing data is an easy way to create a cache with pre-populated data. During the import process Azure Redis Cache loads the RDB files from Azure storage into memory and then inserts the keys into the cache.
+
+Export allows you to export the data stored in Azure Redis Cache to Redis compatible RDB file(s). You can use this feature to move data from one Azure Redis Cache instance to another or to another Redis server. During the export process a temporary file is created on the VM that hosts the Azure Redis Cache server instance, and the file is uploaded to the designated storage account. When the export operation completes with either a status of success or failure, the temporary file is deleted.
+
+For more information, see [How to import data into and export data from Azure Redis Cache](cache-how-to-import-export-data.md).
+
 ## Next steps
 
 Create a cache and explore the new premium tier features.
@@ -52,5 +62,6 @@ Create a cache and explore the new premium tier features.
 -	[How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md)
 -	[How to configure Virtual Network support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md)
 -	[How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md)
+-	[How to import data into and export data from Azure Redis Cache](cache-how-to-import-export-data.md)
   
 

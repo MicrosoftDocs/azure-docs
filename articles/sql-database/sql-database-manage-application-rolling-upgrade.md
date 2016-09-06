@@ -22,7 +22,7 @@
 > [AZURE.NOTE] [Active Geo-Replication](sql-database-geo-replication-overview.md) is now available for all databases in all tiers.
 
 
-Learn how to use [geo-replication](sql-database-geo-replication-overview.md) in SQL Database to enable rolling upgrades of your cloud application. Because upgrade is a disruptive operation, it should be part of your business continuity planning and design. In this article we look at two different methods of orchestrating the upgrade process, and discuss the benefits and trade-offs of each option. For the purposes of this article we will use a simple application that consists of a web site connected to a single database as its data tier. Our goal is to upgrade version 1 of the application to version 2 without any significant impact on the end user experience. 
+Learn how to use [Geo-Replication](sql-database-geo-replication-overview.md) in SQL Database to enable rolling upgrades of your cloud application. Because upgrade is a disruptive operation, it should be part of your business continuity planning and design. In this article we look at two different methods of orchestrating the upgrade process, and discuss the benefits and trade-offs of each option. For the purposes of this article we will use a simple application that consists of a web site connected to a single database as its data tier. Our goal is to upgrade version 1 of the application to version 2 without any significant impact on the end user experience. 
 
 When evaluating the upgrade options you should consider the following factors:
 
@@ -40,7 +40,7 @@ If your application relies on automatic database backups and uses geo-restore fo
 
 > [AZURE.NOTE] Note the preparation steps will not impact the application in the production slot and it can function in full access mode.
 
-![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-1.png)
+![SQL Database Go-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-1.png)
 
 Once the preparation steps are completed the application is ready for the actual upgrade. The following diagram illustrates the steps involved in the upgrade process. 
 
@@ -48,14 +48,14 @@ Once the preparation steps are completed the application is ready for the actual
 2. Disconnect the secondary database using the planned termination mode (4). It will create a fully synchronized independent copy of the primary database. This database will be upgraded.
 3. Turn the primary database to read-write mode and run the upgrade script in the stage slot  (5).     
 
-![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-2.png)
+![SQL Database Geo-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-2.png)
 
 If the upgrade completed successfully you are now ready to switch the end users to the staged copy the application. It will now become the production slot of the application.  This involves a few more steps as illustrated on the following diagram.
 
 1. Switch the online endpoint in the WATM profile to <i>contoso-2.azurewebsites.net</i>, which points to the V2 version of the web site (6). It now becomes the production slot with the V2 application and the end user traffic is directed to it.  
 2. If you no longer need the V1 application components so you can safely remove them (7).   
 
-![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-3.png)
+![SQL Database Geo-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-3.png)
 
 If the upgrade process is unsuccessful, for example due to an error in the upgrade script, the stage slot should be considered compromised. To rollback the application to the pre-upgrade state you simply revert the application in the production slot to full access. The steps involved are shown on the next diagram.    
 
@@ -66,13 +66,13 @@ At this point the application is fully functional and the upgrade steps can be r
 
 > [AZURE.NOTE] The rollback does not require changes in WATM profile as it already points to <i>contoso-1.azurewebsites.net</i> as the active endpoint.
 
-![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-4.png)
+![SQL Database Geo-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option1-4.png)
 
 The key **advantage** of this option is that you can upgrade a application in a single region using a set of simple steps. The dollar cost of the upgrade is relatively low. The main **tradeoff** is that if a catastrophic failure occurs during the upgrade the recovery to the pre-upgrade state will involve re-deployment of the application in a different region and restoring the database from backup using geo-restore. This process will result in significant downtime.   
 
-## Upgrading applications that rely on database geo-replication for disaster recovery
+## Upgrading applications that rely on database Geo-Replication for disaster recovery
 
-If your application leverages geo-replication for business continuity, it is deployed  to at least two different regions with an active deployment in Primary region and a standby deployment in Backup region. In addition to the factors mentioned earlier, the upgrade process must guarantee that:
+If your application leverages Geo-Replication for business continuity, it is deployed  to at least two different regions with an active deployment in Primary region and a standby deployment in Backup region. In addition to the factors mentioned earlier, the upgrade process must guarantee that:
 
 + The application remains protected from catastrophic failures at all times during the upgrade process
 + The geo-redundant components of the application are upgraded in parallel with the active components
@@ -86,7 +86,7 @@ To achieve these goals you will leverage Azure Traffic Manager (WATM) using the 
 
 > [AZURE.NOTE] Note the preparation steps will not impact the application in the production slot and it can function in full access mode.
 
-![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option2-1.png)
+![SQL Database Geo-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option2-1.png)
 
 Once the preparation steps are completed, the stage slot is ready for the upgrade. The following diagram illustrates the upgrade steps.
 
@@ -94,14 +94,14 @@ Once the preparation steps are completed, the stage slot is ready for the upgrad
 2. Disconnect the secondary database in the same region using the planned termination mode (7). It will create a fully synchronized independent copy of the primary database, which will automatically become a primary after the termination. This database will be upgraded.
 3. Turn the primary database in the stage slot to read-write mode and run the upgrade script (8).    
 
-![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option2-2.png)
+![SQL Database Geo-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option2-2.png)
 
 If the upgrade completed successfully you are now ready to switch the end users to the V2 version of the application. The following diagram illustrates the steps involved.
 
 1. Switch the active endpoint in the WATM profile to <i>contoso-2.azurewebsites.net</i>, which now points to the V2 version of the web site (9). It now becomes a production slot with the V2 application and end user traffic is directed to it. 
 2. If you no longer need the V1 application so you can safely remove it (10 and 11).  
 
-![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option2-3.png)
+![SQL Database Geo-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option2-3.png)
 
 If the upgrade process is unsuccessful, for example due to an error in the upgrade script, the stage slot should be considered compromised. To rollback the application to the pre-upgrade state you simply revert to using the application in the production slot with full access. The steps involved are shown on the next diagram.    
 
@@ -112,7 +112,7 @@ At this point the application is fully functional and the upgrade steps can be r
 
 > [AZURE.NOTE] The rollback does not require changes in WATM profile as it already points to  <i>contoso-1.azurewebsites.net</i> as the active endpoint.
 
-![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option2-4.png)
+![SQL Database Geo-Replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/Option2-4.png)
 
 The key **advantage** of this option is that you can upgrade both the application and its geo-redundant copy in parallel without compromising your business continuity during the upgrade. The main **tradeoff** is that it requires double redundancy of each application component and therefore incurs higher dollar cost. It also involves a more complicated workflow. 
 
@@ -125,7 +125,7 @@ The two upgrade methods described in the article differ in complexity and the do
 
 - [Add secondary database](https://msdn.microsoft.com/library/azure/mt603689.aspx) 
 - [Failover database to secondary](https://msdn.microsoft.com/library/azure/mt619393.aspx)
-- [Disconnect geo-replication secondary](https://msdn.microsoft.com/library/azure/mt603457.aspx)
+- [Disconnect Geo-Replication secondary](https://msdn.microsoft.com/library/azure/mt603457.aspx)
 - [Geo-restore database](https://msdn.microsoft.com/library/azure/mt693390.aspx) 
 - [Drop database](https://msdn.microsoft.com/library/azure/mt619368.aspx)
 - [Copy database](https://msdn.microsoft.com/library/azure/mt603644.aspx)

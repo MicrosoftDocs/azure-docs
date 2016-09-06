@@ -65,8 +65,9 @@ For information about how to configure the Azure PowerShell cmdlets to work with
 
 The following C# snippet shows how to enable metrics and logging for the Blob service using the storage client library for .NET:
 
-	// Parse connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
+    //Parse the connection string for the storage account.
+    const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
 
     // Create service client for credentialed access to the Blob service.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();

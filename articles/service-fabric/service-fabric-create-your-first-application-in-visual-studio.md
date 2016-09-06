@@ -3,7 +3,7 @@
    description="Create, deploy, and debug a Service Fabric application using Visual Studio"
    services="service-fabric"
    documentationCenter=".net"
-   authors="seanmck"
+   authors="rwike77"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="03/27/2016"
-   ms.author="seanmck"/>
+   ms.author="ryanwi"/>
 
 # Create your first Azure Service Fabric application in Visual Studio
 
@@ -115,10 +115,10 @@ Now that you have an application, you can try running it.
   Before wrapping up, it's important to remember that the local cluster is very real. Even after you stop the debugger and close Visual Studio, your applications will keep running in the background. Depending on the nature of your apps, this background activity can take up significant resources on your machine. You have several options to manage this:
 
   1. To remove an individual application and all of its data, use the **Delete application** action in Service Fabric Explorer either with the **ACTIONS** menu or the context menu in the application list view in the left hand pane.
-  
+
     ![Delete an application is Service Fabric Explorer][sfe-delete-application]
-    
-  2. After deleting the application from the cluster you can then choose to **Unprovision Type** for the application which removes the application's package, including its code and configuration, from the cluster's image store. 
+
+  2. After deleting the application from the cluster you can then choose to **Unprovision Type** for the application which removes the application's package, including its code and configuration, from the cluster's image store.
   3. To shut down the cluster but keep the application data and traces, click **Stop Local Cluster** in the system tray app.
 
   4. To delete the cluster entirely, click **Remove Local Cluster** in the system tray app. Note that this option will result in another slow deployment the next time you press F5 in Visual Studio. Use this only if you don't intend to use the local cluster for some time or if you need to reclaim resources.

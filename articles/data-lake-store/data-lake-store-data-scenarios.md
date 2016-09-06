@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="03/09/2016"
+   ms.date="05/27/2016"
    ms.author="nitinme"/>
 
 # Data scenarios involving Azure Data Lake Store
@@ -132,4 +132,4 @@ You can use a mix of services to create visual representations of data stored in
 ![Visualize data in Data Lake Store](./media/data-lake-store-data-scenarios/visualize-data.png "Visualize data in Data Lake Store")
 
 * You can start by using [Azure Data Factory to move data from Data Lake Store to Azure SQL Data Warehouse](../data-factory/data-factory-data-movement-activities.md#supported-data-stores)
-* After that, you can [integrate Power BI with Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi) to create visual representation of the data.
+* After that, you can [integrate Power BI with Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) to create visual representation of the data.

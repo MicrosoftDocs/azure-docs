@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/19/2016"
+	ms.date="05/16/2016"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C preview: Limitations and restrictions
 
-There are several features and functionalities of Azure Active Directory (Azure AD) B2C that are not yet supported during the preview. Many of these limitations will be removed before Azure AD B2C reaches general availability, but you should be aware of them if you are building consumer-facing applications using Azure AD B2C during preview.
+There are several features and functionalities of Azure Active Directory (Azure AD) B2C that are not yet supported during the preview. Many of these known issues & limitations will be removed before Azure AD B2C reaches general availability, but you should be aware of them if you are building consumer-facing applications using Azure AD B2C during preview.
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
@@ -91,3 +91,10 @@ You won't be able to delete an Azure AD B2C tenant in the Azure classic portal.
 ## Issues with verifying a domain on the Azure classic portal
 
 Currently you can't verify a domain successfully on the [Azure classic portal](https://manage.windowsazure.com/). We are working on a fix.
+
+## Issues with Sign-in with MFA policy on Safari browsers
+
+Requests to sign-in policies (with MFA turned ON) fail intermittently on Safari browsers with HTTP 400 (Bad Request) errors. This is due Safari's low cookie size limits. There are a couple of workarounds for this issue:
+
+- Use the "Sign-up or sign-in policy" instead of the "sign-in policy".
+- Reduce the number of **Application claims** being requested in your policy. 

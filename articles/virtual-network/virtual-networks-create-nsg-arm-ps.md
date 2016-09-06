@@ -30,7 +30,7 @@
 The sample PowerShell commands below expect a simple environment already created based on the scenario above. If you want to run the commands as they are displayed in this document, first build the test environment by deploying [this template](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd), click **Deploy to Azure**, replace the default parameter values if necessary, and follow the instructions in the portal.
 
 ## How to create the NSG for the front end subnet
-To create an NSG named named *NSG-FrontEnd* based on the scenario above, follow the steps below.
+To create an NSG named named *NSG-FrontEnd* based on the scenario above, follow the steps below:
 
 [AZURE.INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
 
@@ -136,7 +136,7 @@ To create an NSG named named *NSG-FrontEnd* based on the scenario above, follow 
 		}
 
 ## How to create the NSG for the back end subnet
-To create an NSG named named *NSG-BackEnd* based on the scenario above, follow the steps below.
+To create an NSG named *NSG-BackEnd* based on the scenario above, follow the steps below:
 
 1. Create a security rule allowing access from the front end subnet to port 1433 (default port used by SQL Server).
 
@@ -154,7 +154,7 @@ To create an NSG named named *NSG-BackEnd* based on the scenario above, follow t
 
 5. Add the rules created above to a new NSG named **NSG-BackEnd**.
 
-		$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus `-Name "NSG-BackEnd" `
+		$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName TestRG -Location westus -Name "NSG-BackEnd" `
 			-SecurityRules $rule1,$rule2
 
 6. Associate the NSG created above to the *BackEnd* subnet.

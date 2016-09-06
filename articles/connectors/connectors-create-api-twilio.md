@@ -1,10 +1,10 @@
 <properties
-pageTitle="Add the Twilio API in your Logic apps| Microsoft Azure"
-description="Overview of the Twilio API with REST API parameters"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Add the Twilio Connector in your Logic apps| Microsoft Azure"
+description="Overview of the Twilio Connector with REST API parameters"
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,10 +14,10 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="05/12/2016"
+ms.date="05/18/2016"
 ms.author="mandia"/>
 
-# Get started with the Twilio API
+# Get started with the Twilio connector
 
 Connect to Twilio to send and receive global SMS, MMS, and IP messages.
 
@@ -31,16 +31,16 @@ With Twilio, you can:
 To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Triggers and actions
-The Twilio API includes the following actions. There are no triggers. 
+The Twilio Connector includes the following actions. There are no triggers. 
 
 | Triggers | Actions|
 | --- | --- |
 |None| <ul><li>Get Message</li><li>List Messages</li><li>Send Message</li></ul>|
 
-All APIs support data in JSON and XML formats. 
+All connectors support data in JSON and XML formats. 
 
 ## Create a connection to Twilio
-When you add this API to your logic apps, enter the following Twilio values:
+When you add this Connector to your logic apps, enter the following Twilio values:
 
 |Property| Required|Description|
 | ---|---|---|

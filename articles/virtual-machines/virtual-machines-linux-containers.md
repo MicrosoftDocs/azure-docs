@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure" 
-	ms.date="12/14/2015" 
+	ms.date="06/06/2016" 
 	ms.author="rasquill" 
 />
 

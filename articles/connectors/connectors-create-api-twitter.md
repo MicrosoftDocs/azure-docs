@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/12/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
 
 # Get started with the Twitter connector
-Connect to Twitter to post a tweet, get a user's timeline, and more. The Twitter connector can be be used from:
+Connect to Twitter to post a tweet, get a user's timeline, and more. The Twitter connector can be used from:
 
 - Logic apps 
 - PowerApps

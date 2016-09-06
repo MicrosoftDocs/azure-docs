@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/10/2016"
+   ms.date="06/06/2016"
    ms.author="yurid"/>
 
 #Security health monitoring in Azure Security Center
@@ -34,7 +34,7 @@ For more information on how to apply recommendations read [Implementing security
 
 On the **Resources security health** tile you can to monitor the security state of your resources. In the example below, you can see a number of issues with high and medium severity that require attention. The security policies that are enabled will impact the types of controls that are monitored.
 
-![Resources health](./media/security-center-monitoring/security-center-monitoring-fig1-new2.png)
+![Resources health](./media/security-center-monitoring/security-center-monitoring-fig1-new3.png)
 
 If Security Center identifies a vulnerability that needs to addressed, such as a VM with missing security updates or a subnet without a [network security group](../virtual-network/virtual-networks-nsg.md), it will be listed here.
 
@@ -100,20 +100,19 @@ This blade has the security details for the VM. At the bottom of this blade you 
 ###Monitor virtual networks
 When you click on **Networking** in the **Resources security health** tile, the **Networking** blade will open with more details as shown below:
 
-![Networking](./media/security-center-monitoring/security-center-monitoring-fig9-new.png)
+![Networking](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
 
 ####Networking recommendations
 
 Similar to the virtual machines resource health information, this blade provides a summarized list of issues at the top of the blade and a list of monitored networks on the bottom.
 
-![Networking blade](./media/security-center-monitoring/security-center-monitoring-fig9-new2.png)
-
 The networking status breakdown section lists potential security issues and offers recommendations. Possible issues can include:
 
+- Next Generation Firewall (NGFW) not installed
 - Network Security Groups (NSGs) on subnets not enabled
 - NSGs on VMs not enabled
 - Restrict external access through public external endpoint
-- Healthy Subnets
+- Healthy internet facing endpoints
 
 When you click in one of those recommendations a new blade will open with more details regarding the recommendation as shown in the example below.
 
@@ -123,18 +122,29 @@ In this example the **Configure Missing Network Security Groups for Subnets** bl
 
 In the **Choose network security group** blade you will select the most appropriate Network Security Group for the subnet or your can create a new Network Security Group. 
 
-####Networking section
+####Internet facing endpoints section
 
-In the **Networking** section, there is a hierarchical view of the resources as shown below:
+In the **Internet facing endpoints** section, you will be able to see the VMs that are currently configured with an Internet facing endpoint and its current status.
 
-![Network tree](./media/security-center-monitoring/security-center-monitoring-fig121-new2.png)
+![Internet facing endpoint](./media/security-center-monitoring/security-center-monitoring-fig121-new5.png)
+
+This table has the endpoint name that represents the VM, the Internet facing IP address, the current severity status of the NSG and the NGFW. The table is sorted by severity, as described below:
+- Red (on top): high priority and should be addressed immediately 
+- Orange: medium priority and should be addressed as soon as possible
+- Green (last one): health state
+
+####Networking topology section
+
+In the **Networking topology** section, there is a hierarchical view of the resources as shown below:
+
+![Networking topology](./media/security-center-monitoring/security-center-monitoring-fig121-new4.png)
 
 This table is sorted (VMs and Subnets) by severity, as described below:
 - Red (on top): high priority and should be addressed immediately 
 - Orange: medium priority and should be addressed as soon as possible
 - Green (last one): health state
 
-In this hierarchy, the first level has [Virtual Networks](../virtual-network/virtual-networks-overview.md), [Virtual Network Gateways](../vpn-gateway/vpn-gateway-site-to-site-create.md) and [Virtual Network (classic)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). The second level has subnets and the third level has the VMs that belongs to those subnets. The right column has the current status of the Network Security Group (NSG) for those resources. The example below is the result of selecting the VM VM-CL-W1:
+In this topology view, the first level has [Virtual Networks](../virtual-network/virtual-networks-overview.md), [Virtual Network Gateways](../vpn-gateway/vpn-gateway-site-to-site-create.md) and [Virtual Network (classic)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). The second level has subnets and the third level has the VMs that belongs to those subnets. The right column has the current status of the Network Security Group (NSG) for those resources. The example below is the result of selecting the VM VM-CL-W1:
 
 ![Network tree](./media/security-center-monitoring/security-center-monitoring-fig13-new2.png)
 

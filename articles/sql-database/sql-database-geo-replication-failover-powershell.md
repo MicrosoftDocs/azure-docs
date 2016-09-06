@@ -26,7 +26,7 @@
 - [Transact-SQL](sql-database-geo-replication-failover-transact-sql.md)
 
 
-This article shows you how to Initiate a planned or unplanned failover for SQL Database with PowerShell. To configure geo-replication, see [Configure geo-replication for Azure SQL Database](sql-database-geo-replication-powershell.md).
+This article shows you how to Initiate a planned or unplanned failover for SQL Database with PowerShell. To configure Geo-Replication, see [Configure Geo-Replication for Azure SQL Database](sql-database-geo-replication-powershell.md).
 
 
 
@@ -38,7 +38,7 @@ The command performs the following workflow:
 
 1. Temporarily switch replication to synchronous mode. This will cause all outstanding transactions to be flushed to the secondary.
 
-2. Switch the roles of the two databases in the geo-replication partnership.  
+2. Switch the roles of the two databases in the Geo-Replication partnership.  
 
 This sequence guarantees that the two databases are synchronized before the roles switch and therefore no data loss will occur. There is a short period during which both databases are unavailable (on the order of 0 to 25 seconds) while the roles are switched. The entire operation should take less than a minute to complete under normal circumstances. For more information, see [Set-AzureRmSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt619393.aspx).
 
@@ -81,8 +81,8 @@ The following command switches the roles of the database named "mydb” to prima
 
 ## Additional resources
 
-- [Spotlight on new geo-replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
-- [Designing cloud applications for business continuity using geo-replication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Spotlight on new Geo-Replication capabilities](https://azure.microsoft.com/blog/spotlight-on-new-capabilities-of-azure-sql-database-geo-replication/)
+- [Designing cloud applications for business continuity using Geo-Replication](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 - [Business Continuity Overview](sql-database-business-continuity.md)
 - [SQL Database documentation](https://azure.microsoft.com/documentation/services/sql-database/)
 - [Disaster Recovery Drills](sql-database-disaster-recovery-drills.md)
