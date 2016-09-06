@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/29/2016"
+	ms.date="08/31/2016"
 	ms.author="markusvi;andkjell"/>
 
 
@@ -82,9 +82,17 @@ For example:
 `Word([proxyAddresses],1,"@") & "@contoso.com"` For every value with an @-sign, replace the domain with @contoso.com.  
 `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Look for the SIP-address and remove it from the values.
 
-## Additional Resources
+## Next steps
 
-- [Azure AD Connect sync: Understanding Declarative Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md)
-- [Azure AD Connect sync: Functions Reference](active-directory-aadconnectsync-functions-reference.md)
-- [Azure AD Connect Sync: Customizing Synchronization options](active-directory-aadconnectsync-whatis.md)
+- Read more about the configuration model in [Understanding Declarative Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
+- See how declarative provisioning is used out-of-box in [Understanding the default configuration](active-directory-aadconnectsync-understanding-default-configuration.md).
+- See how to make a practical change using declarative provisioning in [How to make a change to the default configuration](active-directory-aadconnectsync-change-the-configuration.md).
+
+**Overview topics**
+
+- [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
 - [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
+
+**Reference topics**
+
+- [Azure AD Connect sync: Functions Reference](active-directory-aadconnectsync-functions-reference.md)
