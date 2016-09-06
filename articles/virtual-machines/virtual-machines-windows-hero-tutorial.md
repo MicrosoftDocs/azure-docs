@@ -109,12 +109,12 @@ It is a good idea to stop the VM so you don't incur charges when you aren't actu
 
 ![Screenshot showing the button to stop a VM.](./media/virtual-machines-windows-hero-tutorial/stop-vm.png)
 	
-Just click the **Start** button to restart the VM when you are ready to use it again.
+Click the **Start** button to restart the VM when you are ready to use it again.
 
 
 ## Next steps
 
-* You can also experiment withyour new VM by [installing IIS on your VM and opening port 80](virtual-machines-windows-hero-role.md) to incoming web traffic. 
+* You can also experiment with your new VM by [installing IIS on your VM and opening port 80](virtual-machines-windows-hero-role.md) to incoming web traffic. 
 
 * You can also [create a Windows VM using Powershell](virtual-machines-windows-ps-create.md) or [create a Linux virtual machine](virtual-machines-linux-quick-create-cli.md) using the Azure CLI.
 
