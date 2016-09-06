@@ -41,8 +41,6 @@ In this tutorial, you perform the following steps:
 2.	Create the **linked services**. You create a linked service to link a data store or a compute service to the data factory. A data store such as Azure Storage holds input/output data of activities in the pipeline. A compute service such as Azure HDInsight processes/transforms data.    
 3.	Create input and output **datasets**. An input dataset represents the input for an activity in the pipeline and an output dataset represents the output for the activity.
 3.	Create the **pipeline**. A pipeline can have one or more activities (Examples: Copy Activity, HDInsight Hive Activity). This sample uses the HDInsight Hive activity that runs a Hive script. The script first creates an external table that references the raw web log data stored in Azure blob storage and then partitions the raw data by year and month.
-
-Your first pipeline, called **MyFirstPipeline**, uses a Hive activity to transform and analyze a web log that you upload to the **inputdata** folder in **adfgetstarted** container in your Azure blob storage. 
  
 ![Diagram view in Data Factory tutorial](./media/data-factory-build-your-first-pipeline/data-factory-tutorial-diagram-view.png)
 
