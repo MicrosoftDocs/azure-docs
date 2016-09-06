@@ -13,159 +13,43 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/16/2015" 
+	ms.date="08/23/2016" 
 	ms.author="nickfloyd@newrelic.com"/>
-
 
 
 # New Relic Application Performance Management on Azure
 
-This guide describes how to add New Relic's world-class performance
-monitoring to your Azure hosted applications. We'll cover the fast and simple
-process to add New Relic to your application and introduce you to some of
-New Relic's features. For more information about using New Relic, see [Using New Relic](#using-new-relic).
+You can add New Relic's world-class performance monitoring to your Azure hosted applications. Along with comprehensive capabilities for monitoring, troubleshooting, and tuning your Azure apps, you are also eligible for a discounted price for New Relic products by using Azure.
 
 ## What is New Relic?
 
-New Relic is a developer focused tool that monitors your production applications
-and provides deep insight into their performance and reliability. It is
-designed to save you time when identifying and diagnosing performance issues, and
-it puts the information you need to solve these issues at your fingertips.
+With [New Relic products](https://newrelic.com/products), you can solve app errors, stay ahead of potential issues, and understand the performance of your entire environment. It is designed to save you time when identifying and diagnosing performance issues, and it puts the information you need to solve these issues at your fingertips.
 
-New Relic tracks the load time and throughput for your web transaction, both from
-the server and your users' browsers. It shows how much time you spend in the
-database, analyzes slow queries and web requests, provides uptime monitoring and
-alerting, tracks application exceptions, and a whole lot more.
+New Relic tracks the load time and throughput for your web transactions, both from the server and your users' browsers. It shows how much time you spend in the database, analyzes slow queries and web requests, provides uptime monitoring and alerting, tracks application exceptions, and a whole lot more. 
 
-## New Relic special pricing through the Azure Store
+## Special pricing
+New Relic Standard is free to Azure users. New Relic Pro is offered based on instance size for Azure Cloud Services. For pricing information, see the [New Relic page](https://azure.microsoft.com/marketplace/partners/newrelic/newrelic/) in the Azure Marketplace or contact New Relic (sales@newrelic.com) for enterprise-level pricing.
 
-
-New Relic Standard is free to Azure users
-New Relic Pro is offered based on instance size for Azure Cloud Services
-
-For pricing information see the [New Relic page in the Azure Store](https://azure.microsoft.com/marketplace/partners/newrelic/newrelic/).
-
-> [AZURE.NOTE] Pricing is only listed for up to 10 compute instances. For counts greater than 10 please contact New Relic (sales@newrelic.com) for volume pricing.
-
-Azure customers receive a 2 week trial subscription of New Relic Pro when they deploy the New Relic agent.
+Azure customers receive a two week trial subscription of New Relic Pro when they deploy the New Relic agent.
 
 ## Sign up for New Relic using the Azure Store
+New Relic integrates seamlessly with Azure Web Roles and Worker roles. You can quickly and easily sign up for New Relic directly from the Azure Store. For instructions, see the [Azure store sign-up instructions](https://docs.newrelic.com/docs/agents/net-agent/azure-installation/azure-cloud-services#signup) from New Relic.
 
-New Relic integrates seamlessly with Azure Web Roles and Worker roles.
+##View your data
 
-To sign up for New Relic directly from the Azure Store, follow these three easy steps.
+Once you've signed up, you can take advantage of New Relic's amazing application monitoring and data-driven analysis. To check your app's performance in New Relic:
 
-### Step 1. Sign up through the Azure Store
-
-1. Log in to the [Azure Management Portal](https://manage.windowsazure.com).
-2. In the lower pane of the management portal, click **New**.
-3. Click **Store**.
-4. In the **Choose an Add-on** dialog, select **New Relic** and click **Next**.
-5. In the **Personalize Add-on** dialog, select the New Relic plan that you want.
-6. Enter a promotion code, if applicable.
-7. Enter a name for how the New Relic service will appear in your Azure
-   settings, or use the default value **NewRelic**. This name must be unique in
-   your list of subscribed Azure Store items.
-8. Choose a value for the region; for example, **West US**.
-9. Click **Next**.
-10. In the **Review Purchase** dialog, review the plan and pricing information,
-    and review the legal terms. If you agree to the terms, click **Purchase**.
-11. After you click **Purchase**, your New Relic account will begin the creation process. You can monitor the status in the Azure management portal.
-12. To retrieve your New Relic license key, click **Output Values**. 
-13. Copy the license key that appears. You will need to enter it when you install the New Relic Nuget package.
-
-### Step 2. Install the Nuget package
-
-1. Open your Visual Studio solution, or create a new one by selecting
-   **File > New > Project**.
-
-	![Visual Studio](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget01.png)
-
-2. If you don't already have an Azure Cloud Service Project in your
-   solution, add one by right-clicking your app in the Solution Explorer and
-   selecting **Add Azure Cloud Service Project**.
-
-	![Create cloud service](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget02.png)
-
-3. Open the Package Manager console by selecting **Tools > Library Package Manager > 
-   Package Manager Console**. Set your project to be the Default Project at the
-   top of the Package Manager Console window.
-
-	![Package manager console](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget04.png)
-
-4. On the Package Manager command prompt, type `Install-Package
-   NewRelicWindowsAzure` and press **Enter**.
-
-	![install in package manager](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget06.png)
-
-5. At the license key prompt, enter the license key you received from the Azure Store.
-
-	![enter license key](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget07.png)
-
-6. Optional: At the application name prompt, enter your app's name as it will
-   appear in New Relic's dashboard. Or, use your solution name as the default.
-
-	![enter application name](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget08.png)
-
-7. From the Solution Explorer, right-click your Azure Cloud Service Project, and select **Publish**.
-
-	![public the cloud project](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget09.png)
-
-
-**Note:** If this is your first time deploying this app to Azure, you will be prompted to enter your 
-Azure credentials. For more information, see [Deploying an ASP.NET Web Application to an Azure Website](app-service-web\web-sites-dotnet-get-started.md)
-
-![publish settings](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget10.png)
-
-### Step 3. Check out your application's performance in New Relic.
-
-To view your New Relic dashboard:
-
-1. From the Azure portal, click the **Manage** button.
+1. From the Azure Portal, select Manage.
 2. Sign in with your New Relic account email and password.
-3. From the New Relic menu bar, select **Applications > (application's name)**.
+3. Select your app from the Application index to view all your app's data in the [APM overview page](https://docs.newrelic.com/docs/apm/applications-menu/monitoring/apm-overview-page).
 
-	The **Monitoring > Overview** dashboard automatically appears.
+##Using New Relic with Azure
 
-	![New Relic monitoring dashboard](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelic_app.png)
+For more information about using New Relic and Azure, see [New Relic's Documentation site](https://docs.newrelic.com/docs/agents/net-agent/azure-installation), including: 
 
-	After you select an app from the list on your **Applications** menu, the **Overview** dashboard shows current app server and browser information.
+* [New Relic for .NET](https://docs.newrelic.com/docs/agents/net-agent/getting-started/new-relic-net)
+* [Instrument a .NET Worker Role on Azure Cloud service](https://docs.newrelic.com/docs/agents/net-agent/azure-installation/instrument-net-worker-role-azure-cloud-service)
+* [New Relic for the Microsoft Azure Cloud platform](https://docs.newrelic.com/docs/agents/net-agent/azure-installation/azure-cloud-services)
+* [New Relic for the Microsoft Azure App Services](https://docs.newrelic.com/docs/agents/net-agent/azure-installation/azure-portal)
+* [New Relic/Azure troubleshooting](https://docs.newrelic.com/docs/agents/net-agent/azure-troubleshooting)
 
-### <a id="using-new-relic"></a>Using New Relic
-
-After you select your app from the list on the Applications menu, the Overview dashboard shows current app server and browser information. To toggle between the two views, click the **App server** or **Browser** button.
-
-In addition to the [standard New Relic UI](https://newrelic.com/docs/site/the-new-relic-ui#functions") and [dashboard drill-down](https://newrelic.com/docs/site/the-new-relic-ui#drilldown) functions, the Applications Overview dashboard has additional functions.
-
-| If you want to... | Do this... |
-| ----------------- | ---------- |
-| Show dashboard information for the selected app's server or browser. | Click the **App Server** or **Browser** button. |
-| View threshold levels for your app's [Apdex](https://newrelic.com/docs/site/apdex) score. | Point to the Apdex score **?** icon. |
-| View worldwide Apdex details. | From the Overview's **Browser** view, point anywhere on the Global Apdex map. **Tip:** To go directly to the selected app's [Geography](https://docs.newrelic.com/docs/new-relic-browser/geography-dashboard") dashboard, click the **Global Apdex** title, or click anywhere on the Global Apdex map. |
-| View the [Web Transactions](https://newrelic.com/docs/applications-dashboards/web-transactions) dashboard. | Click the Web Transactions table on the Applications Overview dashboard. Or, to view details about a specific web transaction (including [Key Transactions](https://newrelic.com/docs/site/key-transactions"), click its name. |
-| View the [Errors](https://newrelic.com/docs/site/errors) dashboard. | Click the Error rate chart's title on the Applications Overview dashboard. **Tip:** You can also view the Errors dashboard from **Applications** > (your app) > Events > Errors. |
-
-
-Additionally, if you want to view the app's server details, do any of the following:
-
-- Toggle between a table view of the hosts or breakout metric details of each host.
-- Click an individual server's name.
-- Point to an individual server's Apdex score.
-- Click an individual server's CPU usage or Memory.
-
-Below is an example of the Applications Overview dashboard when you select the Browser view.
-
-![Package manager console](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelic_app_browser.png)
-
-## Next steps
-
-Check out these additional resources for more information:
-
- * [Installing the .NET Agent on Azure](https://newrelic.com/docs/dotnet/installing-the-net-agent-on-azure): New Relic .NET Agent installation procedures 
- * [The New Relic User Interface](https://newrelic.com/docs/site/the-new-relic-ui): 
-Overview of the New Relic UI, setting user rights and profiles, using standard functions and dashboard drill-down details
- * [Applications Overview](https://newrelic.com/docs/site/applications-overview): Features and functions when using New Relic's Applications Overview dashboard
- * [Apdex](https://newrelic.com/docs/site/apdex): Overview of how Apdex measures end users' satisfaction with your application
- * [Real User Monitoring](https://newrelic.com/docs/features/real-user-monitoring): Overview of how RUM details the time it takes for your users' 
-browsers to load your webpages, where they come from, and what browsers they use
- * [Finding Help](https://newrelic.com/docs/site/finding-help): Resources available through New Relic's online Help Center

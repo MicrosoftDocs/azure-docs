@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2016"
-	ms.author="genli"/>
+	ms.date="09/01/2016"
+	ms.author="glimoli;genli"/>
 
 # Prepare a Windows VHD to upload to Azure
 To upload a Windows VM from on-premises to Azure, you must correctly prepare the virtual hard disk (VHD). There are several recommended steps for you to complete before you upload a VHD to Azure. Running `sysprep` is a common process, but only one step in generalizing an image. This article shows you how to prepare a Windows VHD to upload to Microsoft Azure.
@@ -26,7 +26,7 @@ To upload a Windows VM from on-premises to Azure, you must correctly prepare the
 
 Make sure that the Windows VHD is working correctly on the local server. Resolve any errors within the VM itself before trying to convert or upload to Azure.
 
-If you need to convert your virtual disk to the required format for Azure, use one of the methods noted in the following sections.
+If you need to convert your virtual disk to the required format for Azure, use one of the methods noted in the following sections. Back up the VM before running any virtual disk conversion process or Sysprep.
 
 ### Convert using Hyper-V Manager
 - Open Hyper-V Manager and select your local computer on the left. In the menu above it, click **Action** > **Edit Disk**.
@@ -34,8 +34,8 @@ If you need to convert your virtual disk to the required format for Azure, use o
 	- Select **Convert** on the next screen
 		- If you need to convert from VHDX, select **VHD** and click **Next**
 		- If you need to convert from Dynamic disk, select **Fixed size** and click **Next**
-		
-	- Browse to and select **Path for the new VHD file**. 
+
+	- Browse to and select **Path for the new VHD file**.
 	- Click **Finish** to close.
 
 ### Convert using PowerShell
@@ -66,7 +66,7 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
 3. Configure the disk SAN policy to [Onlineall](https://technet.microsoft.com/library/gg252636.aspx):
 
 	```
-	dispart san policy=onlineall
+	diskpart san policy=onlineall
 	```
 
 4. Use Coordinated Universal Time (UTC) time for Windows and set the startup type of the Windows Time (w32time) service to **Automatically**:
@@ -162,7 +162,7 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
 
 
 ## Configure Windows Firewall rules
-10. Allow WinRM through the three firewall profiles (Domain, Private and Public) and enable PowerShell Remote service: 
+10. Allow WinRM through the three firewall profiles (Domain, Private and Public) and enable PowerShell Remote service:
 
 	```
 	Enable-PSRemoting -force
@@ -287,6 +287,7 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
 
 	- [Create a VM image from an existing Azure VM using the Resource Manager deployment model](virtual-machines-windows-capture-image.md)
 	- [Create a VM image from an existing Azure VM using the Classic deployment modem](virtual-machines-windows-classic-capture-image.md)
+	- [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 
 ## Suggested extra configurations

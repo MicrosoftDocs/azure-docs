@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="sql-database"
-   ms.date="06/15/2016"
+   ms.date="08/29/2016"
    ms.author="carlrab"/>
 
 #Getting Started with Temporal Tables in Azure SQL Database
