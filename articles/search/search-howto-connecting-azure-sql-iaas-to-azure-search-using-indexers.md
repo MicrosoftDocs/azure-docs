@@ -24,9 +24,9 @@ As noted in [Connecting Azure SQL Database to Azure Search using indexers](searc
 
 Azure Search requires a secure connection to read data from your database. This means that you will need to enable encrypted connections on your SQL Azure VM by configuring an SSL certificate. 
 
-The steps for enabling encrypted connections to SQL Server are documented in [Enable Encrypted Connections to the Database Engine ](https://msdn.microsoft.com/library/ms191192.aspx), but for public internet connections, such as a connection from Azure Search to a SQL Azure VM, there are a few additional requirements to make this work.
+The steps for enabling encrypted connections to SQL Server are documented in [Enable Encrypted Connections to the Database Engine](https://msdn.microsoft.com/library/ms191192.aspx), but for public internet connections, such as a connection from Azure Search to a SQL Azure VM, there are a few additional requirements to make this work.
 
-* The subject name of the SSL certificate must be the fully-qualified domain name (or **FQDN**) of the SQL VM. It's the same FQDN you'll specify in the database connection string when creating a data source in your search service. A FQDN is formatted as `<your-VM-name>.<geo-region>.cloudapp.azure.com`. You can find the FQDN of your SQL Azure VM as the DNS name label in the [Azure portal](https://portal.azure.com/).
+* The subject name of the SSL certificate must be the fully-qualified domain name (or **FQDN**) of the SQL VM. It's the same FQDN you'll specify in the database connection string when creating a data source in your search service. An FQDN is formatted as `<your-VM-name>.<geo-region>.cloudapp.azure.com`. You can find the FQDN of your SQL Azure VM as the DNS name label in the [Azure portal](https://portal.azure.com/).
 
 * To install the certificate in the local store of the Azure VM, edit the registry. SQL Server Configuration Manager is not able to show the FQDN SSL certificate in the **Certificate** dropdown as described in the documentation. The workaround is to configure the SSL certificate by editing this registry key: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\[MSSQL13.MSSQLSERVER]\MSSQLServer\SuperSocketNetLib\Certificate**. The *[MSSQL13.MSSQLSERVER]* part varies based on your SQL Server version and instance name. This key needs to be updated with the **thumbprint** of the SSL certificate you installed on the SQL Azure VM.
 
@@ -34,7 +34,7 @@ The steps for enabling encrypted connections to SQL Server are documented in [En
 
 ## Step 2: Configure the SQL Azure VM firewall to allow connections from search services
 
-It is not unusual to configure the VM firewall and corresponding Azure endpoint or access control list (ACL) to make your Azure VM accessible from other parties. Chances are you have done this already to allow your own application logic to connect to your SQL Azure VM. It's no different for an Azure Search connection to your SQL Azure VM. If you haven't done this yet, here are a few  good security practices to keep in mind:
+It is not unusual to configure the VM firewall and corresponding Azure endpoint or access control list (ACL) to make your Azure VM accessible from other parties. Chances are you have done this already to allow your own application logic to connect to your SQL Azure VM. It's no different for an Azure Search connection to your SQL Azure VM. If you haven't done this yet, here are a few good security practices to keep in mind:
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
