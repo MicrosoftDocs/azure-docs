@@ -21,7 +21,7 @@
 
 ## Introduction
 Azure AD Connect provides synchronization between your on-premises Active Directory and Azure Active Directory.
-Currently, many of the scenarios in Microsoft Cloud Germany must be done by the operator. 
+Currently, many of the scenarios in [Microsoft Cloud Germany](https://www.microsoft.com/cloud/deutschland/default.aspx) must be done by the operator. 
 When using Microsoft Cloud Germany, you must be aware of the following:
 
 
