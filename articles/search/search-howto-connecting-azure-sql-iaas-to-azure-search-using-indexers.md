@@ -26,7 +26,7 @@ Azure Search requires a secure connection to read data from your database. This 
 
 The steps for enabling encrypted connections to SQL Server are documented in [Enable Encrypted Connections to the Database Engine ](https://msdn.microsoft.com/library/ms191192.aspx), but for public internet connections, such as a connection from Azure Search to a SQL Azure VM, there are a few additional requirements to make this work.
 
-* The subject name of the SSL certificate must be the fully-qualified domain name (or **FQDN**) of the SQL VM. It's the same FQDN you'll specify in the database connection string when creating a data source in your search service. A FQDN is  formatted as `<your-VM-name>.<geo-region>.cloudapp.azure.com`. You can find the FQDN of your SQL Azure VM as the DNS name label in the [Azure portal](https://portal.azure.com/).
+* The subject name of the SSL certificate must be the fully-qualified domain name (or **FQDN**) of the SQL VM. It's the same FQDN you'll specify in the database connection string when creating a data source in your search service. A FQDN is formatted as `<your-VM-name>.<geo-region>.cloudapp.azure.com`. You can find the FQDN of your SQL Azure VM as the DNS name label in the [Azure portal](https://portal.azure.com/).
 
 * To install the certificate in the local store of the Azure VM, edit the registry. SQL Server Configuration Manager is not able to show the FQDN SSL certificate in the **Certificate** dropdown as described in the documentation. The workaround is to configure the SSL certificate by editing this registry key: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\[MSSQL13.MSSQLSERVER]\MSSQLServer\SuperSocketNetLib\Certificate**. The *[MSSQL13.MSSQLSERVER]* part varies based on your SQL Server version and instance name. This key needs to be updated with the **thumbprint** of the SSL certificate you installed on the SQL Azure VM.
 
@@ -48,4 +48,4 @@ It is not unusual to configure the VM firewall and corresponding Azure endpoint 
 
 ## Next steps
 
-With the above configuration requirements out of the way, you can now specify a SQL Azure VMs as a data source for an Azure Search indexer. See [Connecting Azure SQL Database to Azure Search using indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md) for more information.
+With the above configuration requirements out of the way, you can now specify a SQL Azure VM as a data source for an Azure Search indexer. See [Connecting Azure SQL Database to Azure Search using indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md) for more information.
