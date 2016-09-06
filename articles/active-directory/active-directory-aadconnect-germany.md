@@ -52,7 +52,7 @@ You should see the following:
 ![Azure AD Connect Blade](media\active-directory-aadconnect-germany\germany1.png)
 
  
-The following table describe the features shown in the blade.
+The following table describes the features shown in the blade.
 
 
 Title|Description|
