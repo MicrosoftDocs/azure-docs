@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="08/31/2016" 
+	ms.date="09/05/2016" 
 	ms.author="juliako"/>
 
 
@@ -136,9 +136,13 @@ For more details about pass-through channels, see [Live streaming with on-premis
 
 	This will create a pass-through channel with the RTMP ingest protocol.
 
-	The channel also adds, starts and publishes a default live event/program. This event is configured to have 8 hours of archive window. 
+##Create events
 
-	To add more events, press **Live Event** button.
+1. Select a channel to which you want to add an event.
+2. Press **Live Event** button.
+
+![Event](./media/media-services-portal-passthrough-get-started/media-services-create-events.png)
+
 
 ##Get ingest URLs
 
@@ -169,7 +173,9 @@ To manage your assets select **Setting** and click **Assets**.
 
 ![Assets](./media/media-services-portal-passthrough-get-started/media-services-assets.png)
 
-##Media Services learning paths
+##Next step
+
+Review Media Services learning paths.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
