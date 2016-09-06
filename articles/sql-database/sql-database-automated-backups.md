@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/16/2016"
+   ms.date="09/06/2016"
    ms.author="carlrab"/>
 
 # SQL Database automated backups
