@@ -42,8 +42,28 @@ Deallocate the VM, which frees up the VHD to be copied.
 - **Portal**: Click **Virtual machines** > <vmName> > Stop
 - **Powershell**: Stop-AzureRmVM -ResourceGroupName <resourceGroup> -Name <vmName>
 
-
 The *Status* for the VM in the Azure portal changes from **Stopped** to **Stopped (deallocated)**.
+
+## Download the source VM template
+
+1. Log in to the [Azure portal](https://portal.azure.com/).
+2. One the hub menu, select **Virtual Machines**.
+3. Select the original virtual machine in the list.
+4. If the VM is running, click the **Stop** button to stop\deallocate the VM.
+5. In the Settings blade for the VM, select **Export template**.
+6. Select **Download** and save the .zip file to your local computer.
+7. Open the .zip file and extract the files to a folder. The .zip file should contain:
+	
+	- deploy.ps1
+	- deploy.sh 
+	- DeploymentHelper.cs
+	- parameters.json
+	- template.json
+
+You can also download the template using [Azure PowerShell](https://msdn.microsoft.com/library/mt715427.aspx):
+
+	Export-AzureRmResourceGroup -ResourceGroupName "<resourceGroupName"
+
 
 ## Get the storage account URLs
 
@@ -62,6 +82,7 @@ Find the access keys for the source and destination storage accounts. For more i
 - **Portal**: Click **More services** > **Storage accounts** > <storage account> **All Settings** > **Access keys**. Copy the key labeled as **key1**.
 - **Powershell**: Get-AzureRmStorageAccountKey -Name <storageAccount> -ResourceGroupName <resourceGroupName>. Copy the key labeled as **key1**.
 
+
 ## Copy the VHD 
 
 You can copy files between storage accounts using AzCopy. For the destination container, if the specified container doesn't exist, it will be created for you. 
@@ -77,96 +98,126 @@ If you only want to copy a specific VHD in a container with multiple files, you 
  	AzCopy /Source:<URL_of_the_source_blob_container> /Dest:<URL_of_the_destination_blob_container> /SourceKey:<Access_key_for_the_source_storage> /DestKey:<Access_key_for_the_destination_storage> /Pattern:<File_name_of_the_VHD_you_are_copying.vhd>
 
 
-## Log in to Azure PowerShell
+## Update the azuredeploy.json template file 
 
-1. Open Azure PowerShell and sign in to your Azure account.
+Now we need to edit the azuredeploy.json file to use copied VHD in the destination storage account. To edit the .json file, it is really easy to make the updates using Visual Studio and the Azure SDK and Tools. But, you can also edit the .json file using your favorite .json editor and a lint tool to validate the changes.
 
-		Login-AzureRmAccount
+Change default value of the storage account and the diagnostic storage account parameters.  Append the **diagnostics** or some other identifier to the  `<destination storage account>` name to use for the storage diagnostics account and replace the storage account name entirely. 
 
-	A pop-up window opens for you to enter your Azure account credentials.
+```none
+"storageAccounts_demomigrate2320diagnostics_name": {
+    "defaultValue": "<destinationStorageAccount>diagnostics",
+    "type": "String"
+        },
+"storageAccounts_demomigrate2320_name": {
+    "defaultValue": "<destinationStorageAccount>",
+    "type": "String"
+},
+```
 
-2. Get the subscription IDs for your available subscriptions.
+> [AZURE.NOTE] The parameter name is inherited from the source VM, this is ok. Do not change it or you will have to update paramter name throughout the rest of the template.
 
-		Get-AzureRmSubscription
+Since we already have a storage account, we need to remove the storage account resource. Remove the section that looks something like this:
 
-3. Set the correct subscription using the subscription ID.		
+```none
+{
+    "comments": "Generalized from resource: '/subscriptions/d5b9d4b7-6fc1-46c5-bajy-38effaed19b2/resourceGroups/demomigrate/providers/Microsoft.Storage/storageAccounts/demomigrate2320'.",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[parameters('storageAccounts_demomigrate2320_name')]",
+    "apiVersion": "2015-06-15",
+    "location": "westus",
+    "tags": { },
+    "properties": {
+    "accountType": "Standard_LRS"
+    },
+    "dependsOn": [ ]
+}
+```
 
-		Select-AzureRmSubscription -SubscriptionId "<subscriptionID>"
+Because we are using an existing VHD to create the VM, we need to remove the Image reference from the virtual machine resource. Remove the section that looks something like this:  
 
+```none
+"imageReference": {
+    "publisher": "MicrosoftWindowsServer",
+    "offer": "WindowsServer",
+    "sku": "Windows-Server-Technical-Preview",
+    "version": "latest"
+ },
+```
 
+Change the operating system disk option in the VM resource from **FromImage** to **Attach**. Also, make sure that there is a line for `"osType": "Windows",`.
 
+```none
+"osDisk": {
+    "osType": "Windows",
+    "name": "[parameters('virtualMachines_demomigrate_name')]",
+    "createOption": "Attach",
+    "vhd": {
+        "uri": "[concat('https', '://', parameters('storageAccounts_demomigrate2320_name'), '.blob.core.windows.net', concat('/vhds/', parameters('virtualMachines_demomigrate_name'),'201651414373.vhd'))]"
+    },
+    "caching": "ReadWrite"
+},
+```
 
-## Create variables
+Because we are using an existing .vhd with a working operating system, we need to remove the OS profile from the VM resource.
 
-$sourceRG = "<sourceResourceGroupName>"
-$destinationRG = "<destinationResourceGroupName>"
+```none
+"osProfile": {
+    "computerName": "[parameters('virtualMachines_demomigrate_name')]",
+    "adminUsername": "neillocal",
+    "windowsConfiguration": {
+        "provisionVMAgent": true,
+        "enableAutomaticUpdates": true
+    },
+    "secrets": [ ]
+},
+```
 
-$vm = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Compute/virtualMachines" -ResourceName "<vmName>"
-$storageAccount = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Storage/storageAccounts" -ResourceName "<storageAccountName>"
+We also need to remove the dependency on the storage account from the VM resource, because we already have a storage account created. It should look something like this:
 
-$diagStorageAccount = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Storage/storageAccounts" -ResourceName "<diagnosticStorageAccountName>"
-
-
-$vNet = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Network/virtualNetworks" -ResourceName "<vNetName>"
-$nic = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Network/networkInterfaces" -ResourceName "<nicName>"
-$ip = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Network/publicIPAddresses" -ResourceName "<ipName>"
-$nsg = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Network/networkSecurityGroups" -ResourceName "<nsgName>"
-
-
-
-## Create a VM by using the copied VHD
-
-By using the VHD copied in the preceding steps, you can now use Azure PowerShell to create a Resource Manager-based Windows VM in a new virtual network. The VHD should be present in the same storage account as the new virtual machine that will be created.
-
-
-Set up a virtual network and NIC for your new VM, similar to following script. Use values for the variables (represented by the **$** sign) as appropriate to your application.
-
-	$pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName -Location $location -AllocationMethod Dynamic
-
-	$subnetconfig = New-AzureRmVirtualNetworkSubnetConfig -Name $subnet1Name -AddressPrefix $vnetSubnetAddressPrefix
-
-	$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location -AddressPrefix $vnetAddressPrefix -Subnet $subnetconfig
-
-	$nic = New-AzureRmNetworkInterface -Name $nicname -ResourceGroupName $rgName -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
-
-
-Now set up the VM configurations, create a new VM and attach the copied VHD as the OS VHD.
-</br>
-
-	#Set the VM name and size
-	$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A2"
-
-	#Add the NIC
-	$vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
-
-	#Add the OS disk by using the URL of the copied OS VHD
-	$osDiskName = $vmName + "osDisk"
-	$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption attach -Windows
-
-	#Add data disks by using the URLs of the copied data VHDs at the appropriate Logical Unit Number (Lun)
-	$dataDiskName = $vmName + "dataDisk"
-	$vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -VhdUri $dataDiskUri -Lun 0 -CreateOption attach
-
-The data and operating system disk URLs look something like this: `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd`. You can find this on the portal by browsing to the target storage container, clicking the operating system or data VHD that was copied, and then copying the contents of the URL.
-
-	#Create the new VM
-	New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
-
-If this command was successful, you'll see output like this:
-
-	RequestId IsSuccessStatusCode StatusCode ReasonPhrase
-	--------- ------------------- ---------- ------------
-	                         True         OK OK
+```none
+"[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_demomigrate2320_name'))]",
+```
 
 
-You should see the newly created VM either in the [Azure portal](https://portal.azure.com), under **Browse** > **Virtual machines**, or by using the following PowerShell commands:
+## Portal: Create the VM from the template using the Azure portal
 
-	$vmList = Get-AzureRmVM -ResourceGroupName $rgName
-	$vmList.Name
+1. Copy the entire contents of the edited azuredeploy.json file to your clipboard (CRTL + A and then CTRL + C).
+3. Go to the [Azure portal](https://portal.azure.com/).
+4. On the hub menu, select **New** and then type **template deployment**. Select **Template deployment** from the list.
+5. In the **Custom Deployment** blade, click **Edit template**.
+6. Select the existing content in the template and delete it to empty the file.
+7. Paste the contents of the azuredeploy.json file from your clipboard into the window (CTRL+V) and then click **Save**.
+8. In the**Custom deployment** blade, select **Edit paprameters**.
+9. In the **Parameters** blade, enter the password for the administrator account that you used when you created the original VM into the **VIRTUALMACHINES_IISVM_ADMINPASSWORD** field and then click **OK**.
+10. In the **Custom deployments** blade, make sure the subscription name is the name of the destination subsctription.
+11. In **Resource group** select **Existing** and select the name of the resource group. This should have the same name as the resource group that the original VM was in.
+12. Click **Review legal terms** and if everything looks okay, select **Purchase**.
+13. When you are finished, click **Create** and the deployment will start.
 
-To sign in to your new virtual machine, browse to the VM in the [portal](https://portal.azure.com), click **Connect**, and open the Remote Desktop RDP file. Use the account credentials of your original virtual machine to sign in to your new virtual machine.
+
+
+## PowerShell: Deploy the VM using the template
+
+1. Replace the value of **$deployName** with the name of the deployment. Replace the value of **$templatePath** with the path and name of the template file. Replace the value of **$parameterFile** with the path and name of the parameters file. Create the variables. 
+
+	$location = "<locationName>"
+	$destRG="<destinationResourceGroupName>"
+	$deployName="<deploymentName>"
+	$templatePath = "<localPathtotheTemplateFile"
+	$parameterFile = "<localPathtotheParamerterFile>"
+
+2. Deploy the template. 
+
+        New-AzureRmResourceGroupDeployment -ResourceGroupName $destRG -TemplateFile $templatePath -TemplateParameterFile $parameterFile
+
+## Troubleshooting
+
+- When you use AZCopy, if you see the error "Server failed to authenticate the request. Make sure the value of Authorization header is formed correctly including the signature." and you are using Key 2 or the secondary storage key, try using the primary or 1st storage key.
 
 
 ## Next steps
 
-To manage your new virtual machine with Azure PowerShell, see [Manage virtual machines using Azure Resource Manager and PowerShell](virtual-machines-windows-ps-manage.md).
+- If there were issues with the deployment, a next step would be to look at [Troubleshooting resource group deployments with Azure Portal](../resource-manager-troubleshoot-deployments-portal.md)
+
+- To manage your new virtual machine with Azure PowerShell, see [Manage virtual machines using Azure Resource Manager and PowerShell](virtual-machines-windows-ps-manage.md).
