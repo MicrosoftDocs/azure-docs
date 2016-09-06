@@ -213,7 +213,7 @@ Add the probe to the back-end pool setting configuration and time-out by using *
 
 Save the configuration to the application gateway by using **Set-AzureRmApplicationGateway**.
 
-	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
+	Set-AzureRmApplicationGateway -ApplicationGateway $getgw
 
 ## Remove a probe from an existing application gateway
 
@@ -241,6 +241,6 @@ Update the back-end pool setting to remove the probe and time-out setting by usi
 
 ### Step 4
 
-Save the configuration to the application gateway by using **Set-AzureRmApplicationGateway**.
+Save the configuration to the application gateway by using **Set-AzureRmApplicationGateway**. 
 
-	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
+	Set-AzureRmApplicationGateway -ApplicationGateway $getgw
