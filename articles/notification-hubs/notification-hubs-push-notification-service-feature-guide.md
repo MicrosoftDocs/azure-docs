@@ -24,18 +24,19 @@
 We help you push fast notifications to a scalable audience.
 
 ###Audience Segmentation
-Our [Tags] feature lets you dynamically segment their audiences. Customers use tags to:
-* Segment devices into groups for targeted push (each device can have up to 60 tags)
-* Simplify the push to device or push to user scenario
+Our [Tags] feature lets you dynamically segment your audiences. A few things customers use tags for:
+
+* Segment devices into groups for targeted push (each device can have up to 60 tags/segments)
+* Simplify push to device or push to user scenario
 * Enable secure groups/secure push notifications
 
-Tags can be used in expressions (for example, &&, ||, and !) and gives users the flexibility to manipulate relating segments.
+Tags can be used in expressions (with, for example, &&, ||, and !) for flexibility.
 
 ###Notification Customization
-Our [Push Variables] feature provides users the convenience of associating up to 60 string key-value pairs with each device. On send, you are able to use registered keys as placeholders that Notification Hubs substitutes in the corresponding value for each send at runtime. You can do something like "$(firstName:{Greetings}), good morning!" - if the device has a firstName key, its value is switched in; otherwise "Greetings, good morning!" is sent.
+Our [Push Variables] feature provides users the convenience of associating up to 60 string key-value pairs with each device. On send, you are able to use registered keys as placeholders for their corresponding device-specific values. Notification Hubs substitutes in all push variable values for each send at runtime. You can do something like "$(firstName:{Greetings}), good morning!". If the device has a firstName key, its value is switched in; otherwise "Greetings, good morning!" is sent.
 
 ###One Push For All Cross-Platform Devices
-Our [Templates] feature lets you pre-register payload templates for devices, meaning you can send plain and omni messages to all platforms, with one push request.
+Our [Templates] feature lets you pre-register payload templates for devices, meaning you can send plain and cross-platform messages to all devices, with one push request.
 
 ###Localized Push
 Templates can also enable localized notification scenarios. See our [Send localized notifications tutorial].
@@ -50,18 +51,18 @@ You can [schedule notifications] with us.
 With [Direct Send], you are able to send a notification directly to a Platform Notification System handle. This feature is great for customers who choose to manage their own devices or use Notification Hubs to deliver to unregistered devices.
 There is also a [batch version] that lets you push to up to 1000 device tokens per request.
 
-###Push Telemetry: Notification Hubs Processing & Platform Notification Systems Feedback
+###Push Telemetry: Notification Hubs & Platform Notification Systems Feedback
 Our [Per Message Telemetry] feature shows users the status and telemetry of a notification request starting from when their request is sent until when Platform Notification Systems respond. We give users all errors, outcomes, and metrics along the way as we process their request, and our [Platform Notification System Feedback] feature helps capture any errors returned from PNSes.
 
 ###Azure Portal & Debug Send
 We provide UI for many management operations (for example, configuring various push platforms, debug send) in the [Azure portal].
-Debug Send is available for each hub, and can send out broadcast, segmented, and templated test notifications to help with their development.
+Debug Send is available for each hub, and can send out broadcast, segmented, and templated test notifications to help with development.
 
 ###Push Resource Organization
 Notification Hubs resources are broken down into namespaces and notification hubs. A namespace is a collection of notification hubs in the same region, usually mapping to one app. The various hubs within one namespace can be used as production hub, testing hub, or other purposes. To facilitate this organization, we have [multi-tenant APIs] designed to help large apps that span across multiple hubs.
 
 ###Query My App Users
-We provide [queries] for users to obtain all devices given a segment/tag, ID, or a hub.
+We provide [queries] for users to obtain all devices given a segment/tag, an ID, or a hub.
 
 ###Bulk Import/Export
 You are able to [bulk import/export] device registrations.
@@ -90,7 +91,7 @@ We follow Azure's promise on [SLA].
 * Node.js
 * Python
 
-##Tiers
+##Tier Details
 The tier-based feature support is detailed as follows:
 
 | Feature                                               | Free | Basic | Standard |
