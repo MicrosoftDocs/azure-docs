@@ -58,14 +58,13 @@ Here are the detailed steps to upload your public certificates into your integra
 ### Private certificate
 You can upload private certificates into your integration account as well. To do this, you need to perform the following steps:  
 1. [Upload your private key to key Vault](../key-vault/key-vault-get-started.md "Learn about Key Vault")  
-2. Create a private certificate 
+2. Create a private certificate  
 3. Upload the private certificate into your integration account  
 
-After you have done the steps above, you can use the private certificate to create agreements.
-
 >[AZURE.TIP]You must authorize the Logic Apps service to perform operations on Key Valut. You can grant access to the Logic Apps service principal by using this PowerShell command:        
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list
+`Set-AzureRmKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`  
 
+After you have done the steps above, you can use the private certificate to create agreements.
 
 Here are the detailed steps to upload your private certificates into your integration account after you log into the Azure portal:   
 1. Select **Browse**  
