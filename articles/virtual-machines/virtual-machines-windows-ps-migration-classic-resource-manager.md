@@ -78,7 +78,7 @@ Set your Azure subscription for the current session. Replace everything within t
 
 ## Step 4: Make sure you have enough Azure Resource Manager Virtual Machine cores in the Azure region of your current deployment or VNET
 
-You can use the following powershell command to check the current amount of cores you have in Azure Resource Manager. To learn more about core quotas, see [Limits and the Azure Resource Manager](../azure-subscription-service-limits.md/#limits-and-the-azure-resource-manager)
+You can use the following powershell command to check the current amount of cores you have in Azure Resource Manager. To learn more about core quotas, see [Limits and the Azure Resource Manager](../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager)
 
 ```
 Get-AzureRmVMUsage -Location "<Your VNET or Deployment's Azure region"
