@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="cache-redis"
     ms.workload="tbd"
-    ms.date="06/09/2016"
+    ms.date="09/06/2016"
     ms.author="sdanie" />
 
 # Migrate from Managed Cache Service to Azure Redis Cache
