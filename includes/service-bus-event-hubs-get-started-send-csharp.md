@@ -67,5 +67,5 @@ In this section, you'll write a Windows console app that sends events to your Ev
 
 
 <!-- Images -->
-[7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
-[8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
+[7]: ./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp1.png
+[8]: ./media/service-bus-event-hubs-getstarted-send-csharp/create-sender-csharp2.png
