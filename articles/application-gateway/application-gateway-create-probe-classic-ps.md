@@ -195,7 +195,7 @@ Save the XML file.
 
 Update the application gateway configuration with the new XML file by using **Set-AzureApplicationGatewayConfig**. This updates your application gateway with the new configuration.
 
-	Det-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
+	Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
 
 
 ## Next steps
