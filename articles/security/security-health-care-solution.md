@@ -4,7 +4,7 @@
    services="security"
    documentationCenter="na"
    authors="TomShinder"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor="TomSh"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/08/2016"
+   ms.date="09/06/2016"
    ms.author="terrylan"/>
 
 # A practical guide to designing secure health care solutions in Azure
