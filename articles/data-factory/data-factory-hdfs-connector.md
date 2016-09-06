@@ -25,7 +25,7 @@ Data factory currently supports only moving data from an on-premises HDFS to oth
 ## Enabling connectivity
 Data Factory service supports connecting to on-premises HDFS using the Data Management Gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway. Use the gateway to connect to HDFS even if it is hosted in an Azure IaaS VM. 
 
-While you can install the gateway on the same on-premises machine or the Azure VM as the HDFS, we recommend that you install the gateway on a separate machine/Azure IaaS VM. Having gateway on a separate machine reduces resource contention and improves performance. When you install the gateway on a separate machine, the machine should be able to access the machine with the HDFS. 
+While you can install gateway on the same on-premises machine or the Azure VM as the HDFS, we recommend that you install the gateway on a separate machine/Azure IaaS VM. Having gateway on a separate machine reduces resource contention and improves performance. When you install the gateway on a separate machine, the machine should be able to access the machine with the HDFS. 
 
 
 ## Copy data wizard
@@ -283,7 +283,7 @@ fileFilter | Specify a filter to be used to select a subset of files in the fold
 
 As mentioned in the previous section, you can specify a dynamic folderPath, filename for time series data with partitionedBy. You can do so with the Data Factory macros and the system variable SliceStart, SliceEnd that indicate the logical time period for a given data slice. 
 
-See [Creating Datasets](data-factory-create-datasets.md), [Scheduling & Execution](data-factory-scheduling-and-execution.md), and [Creating Pipelines](data-factory-create-pipelines.md) articles to understand more details on time series datasets, scheduling, and slices.
+To understand more details on time series datasets, scheduling, and slices, see [Creating Datasets](data-factory-create-datasets.md), [Scheduling & Execution](data-factory-scheduling-and-execution.md), and [Creating Pipelines](data-factory-create-pipelines.md) articles. 
 
 #### Sample 1:
 
