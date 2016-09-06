@@ -91,6 +91,6 @@ We insert Select Columns in Dataset module before Preprocess Text module to remo
 
 Now we have an experiment that can be published as a web service and called using request-response or batch execution APIs.
 
-## Additional information
+## Next Steps
 
-[MSDN documentation on text analytics modules] (https://msdn.microsoft.com/library/azure/dn905886.aspx)
+Learn about text analytics modules from [MSDN documentation] (https://msdn.microsoft.com/library/azure/dn905886.aspx).
