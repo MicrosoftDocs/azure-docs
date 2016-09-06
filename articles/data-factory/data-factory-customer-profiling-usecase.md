@@ -26,7 +26,7 @@ All you need to access and try out this simple use case is an [Azure subscriptio
 
 Contoso is a gaming company that creates games for multiple platforms: game consoles, hand held devices, and personal computers (PCs). As players play these games, large volume of log data is produced that tracks the usage patterns, gaming style, and preferences of the user.  When combined with demographic, regional, and product data, Contoso can perform analytics to guide them about how to enhance players’ experience and target them for upgrades and in-game purchases. 
 
-Contoso’s goal is to identify up-sell/cross-sell opportunities based on the gaming history profile of its players and add compelling features to drive business growth and provide a better experience to customers. For this use case, we use a gaming company as an example of a business. The company wants to optimize its games based on players’ behavior. These principles apply to any business that wants to engage its customers around its goods and services and enhance their customers’ experience.
+Contoso’s goal is to identify up-sell/cross-sell opportunities based on the gaming history of its players and add compelling features to drive business growth and provide a better experience to customers. For this use case, we use a gaming company as an example of a business. The company wants to optimize its games based on players’ behavior. These principles apply to any business that wants to engage its customers around its goods and services and enhance their customers’ experience.
 
 ## Challenges
 
@@ -43,7 +43,7 @@ This Figure depicts how the data pipelines appear in the Azure portal after they
 2.	The **EnrichGameLogsPipeline** joins partitioned game events with geo code reference data and enriches the data by mapping IP addresses to the corresponding geo-locations.
 3.	The **AnalyzeMarketingCampaignPipeline** pipeline uses the enriched data and processes it with the advertising data to create the final output that contains marketing campaign effectiveness.
 
-In this example, Data Factory is used to orchestrate activities that copy input data, transform, and process the data with HDInsight Hive/Pig and output the final data to an Azure SQL Database.  You can also visualize the network of data pipelines, manage them, and monitor their status from the UI.
+In this example, Data Factory is used to orchestrate activities that copy input data, transform, and process the data, and output the final data to an Azure SQL Database.  You can also visualize the network of data pipelines, manage them, and monitor their status from the UI.
 
 ## Benefits
 
