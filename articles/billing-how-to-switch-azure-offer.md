@@ -23,14 +23,16 @@
 
 You [may be eligible](#where-is-the-button) to switch your subscription to a more favorable offer, without any service downtime. Below are the paths we currently support in the [Account Center](https://account.windowsazure.com/Subscriptions). Click on the links to learn about requirements.
 
-| From                                                              | To                                                                                      | Offer Number | [Spending Limit](https://azure.microsoft.com/pricing/spending-limits/) |
-|-------------------------------------------------------------------|-----------------------------------------------------------------------------------------|--------------|------------------------------------------------------------------------|
-| [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [12-Month Prepay](https://azure.microsoft.com/offers/ms-azr-0026p/)                     | 0026P        |                                                                        |
-| [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)          | 0059P        | Yes                                                                    |
-| [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)     | 0060P        | Yes                                                                    |
-| [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/)                      | 0062P        | Yes                                                                    |
-| [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)            | 0063P        | Yes                                                                    |
-| [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [Visual Studio Enterprise (Bizspark)](https://azure.microsoft.com/offers/ms-azr-0064p/) | 0064P        | Yes                                                                    |
+| From                                                              | To                                                                                      |
+|-------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [12-Month Prepay](https://azure.microsoft.com/offers/ms-azr-0026p/)                     |
+| [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)          |
+| [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)     |
+| [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/)                      |
+| [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)            |
+| [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [Visual Studio Enterprise (Bizspark)](https://azure.microsoft.com/offers/ms-azr-0064p/) |
+
+If you're on Free Trial, learn how to [upgrade to Pay-As-You-Go](billing-buy-sign-up-azure-subscription.md#upgrade-azure-free-trial-to-pay-as-you-go).
 
 > [AZURE.NOTE] For other offer changes, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
@@ -65,7 +67,7 @@ See the list of [available offers you can switch to](#what-you-need-to-know).
 
 ### Where is the button?
 
-You might not see the **Switch to another offer** button because:
+You might not see **Switch to another offer** if:
 
 - You're still on your first billing period; you must wait for your first billing period to complete before you can change offers.
 
@@ -83,7 +85,7 @@ There is no impact to any users associated with the subscription.
 
 On the day you switch, an invoice will be generated for all outstanding charges. Subsequently, your subscription will be billed per the new offer’s pricing terms. Your subscription billing anniversary changes to the date on which you changed offers. Usage and billing data prior to the offer change will not be retained, so we recommend that you download these prior to switching.
 
-> [AZURE.NOTE] Due to billing-related constraints, the offer cannot be changed within the first billing cycle after creating a subscription.
+> [AZURE.NOTE] Due to billing-related constraints, offer changes are not possible within the first billing cycle after creating a subscription.
 
 ### Can I use this mechanism to migrate from web direct to [Cloud Solution Provider](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP), or an [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA) offer?
 
