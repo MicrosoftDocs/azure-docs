@@ -23,7 +23,9 @@ Once you have your first VM up and running, you can move on to installing softwa
 
 ## Make sure the VM is running
 
-Open the Azure portal and navigate to your VM. If the status is **Stopped (Deallocated), click on the **Start** button in the **Essentials** blade for the VM.
+1. Open the [Azure portal](https://portal.azure.com).
+2. Under **Virtual machines** select the VM that you created.
+3. If the status is **Stopped (Deallocated), click on the **Start** button in the **Essentials** blade for the VM. If the status is **Running*, you can move on to the next step.
 
 ## Connect to the virtual machine and log on
 
