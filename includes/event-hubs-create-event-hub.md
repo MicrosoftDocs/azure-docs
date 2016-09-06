@@ -34,7 +34,7 @@
 
 	![][6]
 
-5. Back in the namespace blade (not the Event Hub blade), click **Shared access policies**, then click **RootManageSharedAccessKey**.
+5. Back in the namespace blade (not the specific Event Hub blade), click **Shared access policies**, and then click **RootManageSharedAccessKey**.
 
 	![][7]
 
