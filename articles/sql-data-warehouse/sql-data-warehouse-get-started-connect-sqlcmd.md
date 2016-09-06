@@ -24,7 +24,7 @@
 - [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 - [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 
-This walkthrough uses the [sqlcmd][] command-line utility to query an Azure SQL Data Warehouse .  
+This walkthrough uses the [sqlcmd][] command-line utility to query an Azure SQL Data Warehouse.  
 
 ## 1. Connect
 
@@ -32,9 +32,9 @@ To get started with [sqlcmd][], open the command prompt and enter **sqlcmd** fol
 
 + **Server (-S):** Server in the form `<`Server Name`>`.database.windows.net
 + **Database (-d):** Database name.
-+ **Enable Quoted Identifiers (-I):** Quoted identifiers must be enabled in order to connect to a SQL Data Warehouse instance.
++ **Enable Quoted Identifiers (-I):** Quoted identifiers must be enabled to connect to a SQL Data Warehouse instance.
 
-To use SQL Server Authentication, you will need to add the username/password parameters:
+To use SQL Server Authentication, you need to add the username/password parameters:
 
 + **User (-U):** Server user in the form `<`User`>`
 + **Password (-P):** Password associated with the user.
@@ -45,7 +45,7 @@ For example, your connection string might look like the following:
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
 ```
 
-To use Azure Active Directory Integrated authentication, you will need to add the Azure Active Directory parameters:
+To use Azure Active Directory Integrated authentication, you need to add the Azure Active Directory parameters:
 
 + **Azure Active Directory Authentication (-G):** use Azure Active Directory for authentication
 
@@ -55,7 +55,8 @@ For example, your connection string might look like the following:
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 ```
 
-> [AZURE.NOTE] You will need to [enable Azure Active Directory Authentication](https://azure.microsoft.com/documentation/articles/sql-data-warehouse-authentication/#azure-active-directory-aad-authentication) to authenticate using Active Directory.
+> [AZURE.NOTE] You 
+> d to [enable Azure Active Directory Authentication](https://azure.microsoft.com/documentation/articles/sql-data-warehouse-authentication/#azure-active-directory-aad-authentication) to authenticate using Active Directory.
 
 ## 2. Query
 
