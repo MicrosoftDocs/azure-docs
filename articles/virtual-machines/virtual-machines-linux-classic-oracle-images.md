@@ -14,7 +14,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="vm-linux"
   ms.workload="infrastructure-services"
-  ms.date="05/17/2016"
+  ms.date="09/06/2016"
   ms.author="rclaus" />
 
 #List of Oracle virtual machine images
