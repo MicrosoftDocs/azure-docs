@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Job and task output persistence in Azure Batch | Microsoft Azure"
-	description="Learn how to use Azure Storage as a durable store for your Batch task and job output, and enable viewing this persisted output in the Azure portal."
+	pageTitle="Visual Studio templates for Azure Batch | Microsoft Azure"
+	description="Learn how these Visual Studio project templates can help you implement and run your compute-intensive workloads on Azure Batch"
 	services="batch"
 	documentationCenter=".net"
 	authors="fayora"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="09/06/2016"
+	ms.date="09/07/2016"
 	ms.author="marsma" />
 
 # Visual Studio project templates for Azure Batch
