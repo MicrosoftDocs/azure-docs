@@ -49,10 +49,10 @@ Here are the detailed steps to upload your public certificates into your integra
 ![](./media/app-service-logic-enterprise-integration-certificates/certificate-1.png)  
 5. Select the **Add** button in the Certificates blade that opens  
 ![](./media/app-service-logic-enterprise-integration-certificates/certificate-2.png)  
-6. Enter a **Name** for your certificate, select the certificate type (in this example, I used the public certificate type) then select the folder icon on the right side of the **Certificate** text box. This opens up the file picker which allows you to browse to, and select the certificate file you wish to upload to your integration account. After you've selected the certificate, select **OK** in the file picker. This validates and uploads the certificate to your integration account. Finally, back on the **Add certificate blade**, select the **OK** button.  
+6. Enter a **Name** for your certificate, select the certificate type (in this example, I used the public certificate type) then select the folder icon on the right side of the **Certificate** text box. The file picker opens, allowing you to browse to, and select the certificate file you wish to upload to your integration account. After you've selected the certificate, select **OK** in the file picker. This action validates and uploads the certificate to your integration account. Finally, back on the **Add certificate blade**, select the **OK** button.  
 ![](./media/app-service-logic-enterprise-integration-certificates/certificate-3.png)  
 7. Within one minute, you will see a notification that indicates that the certificate upload is complete.  
-8. Select the **Certificates tile**. This refreshes the page and you should see the newly added certificate:  
+8. Select the **Certificates tile**. After the page is refreshed, you should see the newly added certificate:  
 ![](./media/app-service-logic-enterprise-integration-certificates/certificate-4.png)  
 
 ### Private certificate
@@ -77,10 +77,10 @@ Here are the detailed steps to upload your private certificates into your integr
 ![](./media/app-service-logic-enterprise-integration-certificates/certificate-1.png)  
 5. Select the **Add** button in the Certificates blade that opens  
 ![](./media/app-service-logic-enterprise-integration-certificates/certificate-2.png)  
-6. Enter a **Name** for your certificate, select the certificate type (in this example, I used the public certificate type) then select the folder icon on the right side of the **Certificate** text box. This opens up the file picker, which allows you to browse to, and select the certificate file you wish to upload to your integration account. After you've selected the certificate, select **OK** in the file picker. This validates and uploads the certificate to your integration account. Finally, back on the **Add certificate blade**, select the **OK** button.  
+6. Enter a **Name** for your certificate, select the certificate type (in this example, I used the public certificate type) then select the folder icon on the right side of the **Certificate** text box. The file picker opens, allowing you to browse to, and select the certificate file you wish to upload to your integration account. After you've selected the certificate, select **OK** in the file picker. This action validates and uploads the certificate to your integration account. Finally, back on the **Add certificate blade**, select the **OK** button.  
 ![](./media/app-service-logic-enterprise-integration-certificates/privatecertificate-1.png)  
 7. Within one minute, you will see a notification that indicates that the certificate upload is complete.  
-8. Select the **Certificates tile**. This refreshes the page and you should see the newly added certificate:  
+8. Select the **Certificates tile**. You should see the newly added certificate:  
 ![](./media/app-service-logic-enterprise-integration-certificates/privatecertificate-2.png)  
 
 After you upload a certificate, it will be available for you to secure your B2B messages when you define their properties in [agreements](./app-service-logic-enterprise-integration-agreements.md).  
