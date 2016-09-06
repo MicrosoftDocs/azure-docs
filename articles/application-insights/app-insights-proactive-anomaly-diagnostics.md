@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Application Insights: Proactive anomaly detection | Microsoft Azure" 
+	pageTitle="Application Insights: Proactive anomaly diagnostics | Microsoft Azure" 
 	description="Application Insights performs deep analysis of your app telemetry and warns you of potential problems." 
 	services="application-insights" 
     documentationCenter="windows"
@@ -15,11 +15,11 @@
 	ms.date="08/31/2016" 
 	ms.author="awills"/>
 
-#  Application Insights: Proactive anomaly detection
+#  Proactive anomaly diagnostics
 
 *Application Insights is in preview.*
 
-Application Insights performs deep analysis of your app telemetry, and can warn you about potential performance problems. You're probably reading this because you received one of our proactive alerts by email. 
+[Visual Studio Application Insights](app-insights-overview.md) performs deep analysis of your app telemetry, and can warn you about potential performance problems. You're probably reading this because you received one of our proactive alerts by email. 
 
 This feature requires no setup, and is automatically active when your app generates enough telemetry.
 
@@ -38,7 +38,7 @@ Currently, our algorithms look at page load times, request response times at the
 
 You don't have to set any thresholds or configure rules. Machine learning and data mining algorithms are used to detect abnormal patterns. 
 
-We’re very eager to have your feedback. Please let us know how it helps you, how we can improve Proactive detection and what additional capabilities you want us to add. You can provide feedback trough Send a smile/frown in the portal or email us to AppInsightsML@microsoft.com. 
+We’re very eager to have your feedback. Please let us know how it helps you, how we can improve Proactive detection and what additional capabilities you want us to add. You can provide feedback through Send a smile/frown in the portal or email us to AppInsightsML@microsoft.com. 
 
 ## About the proactive alert
 

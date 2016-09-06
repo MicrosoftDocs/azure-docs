@@ -43,12 +43,7 @@ Use Login-AzureRmAccount to authenticate.
 
 Check the subscriptions for the account.
 
-<<<<<<< HEAD
 	Get-AzureRmSubscription
-=======
-		Get-AzureRmSubscription
->>>>>>> 373641d7cd9f70b4e6e7276231c0e213cf51056b
-
 
 ### Step 3
 
@@ -241,12 +236,9 @@ Update the back-end pool setting to remove the probe and time-out setting by usi
 
 Save the configuration to the application gateway by using **Set-AzureRmApplicationGateway**. 
 
-<<<<<<< HEAD
-	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
+	Set-AzureRmApplicationGateway -ApplicationGateway $getgw
 
 ## Next steps
 
 Learn to configure SSL offloading by visiting [Configure SSL Offload](application-gateway-ssl-arm.md)
-=======
-	Set-AzureRmApplicationGateway -ApplicationGateway $getgw
->>>>>>> 373641d7cd9f70b4e6e7276231c0e213cf51056b
+

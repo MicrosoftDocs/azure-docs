@@ -13,17 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/01/2016"
+   ms.date="09/02/2016"
    ms.author="kgremban"/>
 
 # How to start an access review in Azure AD Privileged Identity Management
 
-Role assignments become "stale" when users have privileged access that they don't need anymore. In order to reduce the risk associated with these stale role assignments, privileged role administrators should regularly review the roles that users have been given. This document covers the steps for starting a security review in Azure AD Privileged Identity Management (PIM).
+Role assignments become "stale" when users have privileged access that they don't need anymore. In order to reduce the risk associated with these stale role assignments, privileged role administrators should regularly review the roles that users have been given. This document covers the steps for starting an access review in Azure AD Privileged Identity Management (PIM).
 
-## Start a security review
+## Start an access review
 > [AZURE.NOTE] If you haven't added the PIM application to your dashboard in the Azure portal, see the steps in  [Getting Started with Azure Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md)
 
-From the PIM application main page, there are three ways to start a security review:
+From the PIM application main page, there are three ways to start an access review:
 
 - **Access reviews** > **Add**
 - **Roles** > **Review** button
@@ -53,13 +53,14 @@ Each review focuses on only one role. Unless you started the access review from 
 
 ### Decide who will perform the review
 
-There are two options for performing a review. You can do it yourself, approving or denying access for all users in a role. Or, you can have each user review their own access.
+There are three options for performing a review. You can assign the review to someone else to complete, you can do it yourself, or you can have each user review their own access.
 
 1. Navigate to **Select reviewers**
 
     ![Select reviewers - screenshot][4]
 
 2. Choose one of the options:
+    - **Select reviewer**: Use this option when you don't know who needs access. With this option, you can assign the review to a resource owner or group manager to complete.
     - **Me**: Useful if you want to preview how access reviews work, or you want to review on behalf of people who can't.
     - **Members review themselves**: Use this option to have the users review their own role assignments.
 

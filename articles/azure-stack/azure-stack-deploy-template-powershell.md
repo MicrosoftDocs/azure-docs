@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/15/2016"
+	ms.date="09/05/2016"
 	ms.author="helaw"/>
 
 # Deploy templates in Azure Stack using PowerShell
 
-Use PowerShell to deploy Azure Resource Manager (ARM) templates to the Azure Stack POC.
+Use PowerShell to deploy Resource Manager templates to the Azure Stack POC.
 
-ARM templates deploy and provision all of the resources for your application in a single, coordinated operation.
+Resource Manager templates deploy and provision all the resources for your application in a single, coordinated operation.
 
 > [AZURE.NOTE] If you work on the Client VM, you’ll need to first **uninstall** the existing Azure PowerShell module and then [download](http://aka.ms/azStackPsh) the latest Azure PowerShell SDK. 
 
 ## Turn off IE enhanced security and enable cookies
 
-Before authenticating PowerShell, you must allow cookies and JavaScript in the Internet Explorer profile you use to sign in to Azure Active Directory for both administrator and user sign-ins. These configurations should be set on any Windows Server machine being used to execute Azure PowerShell against Azure Stack. In most cases this will be the ClientVM.
+Before authenticating PowerShell, you must allow cookies and JavaScript in the Internet Explorer profile you use to sign in to Azure Active Directory for both administrator and user sign-ins. These configurations should be set on any Windows Server machine being used to execute Azure PowerShell against Azure Stack. Typically this will be the ClientVM.
 
 **To turn off IE enhanced security:**
 
@@ -46,18 +46,18 @@ Before authenticating PowerShell, you must allow cookies and JavaScript in the I
 
 3. In Internet Explorer, click the **Tools (gear) icon** &gt; **Internet options** &gt; **Privacy** tab.
 
-4. Click **Advanced**, make sure that both **Accept** buttons are selected, click **OK**, and then click **OK** again.
+4. Click **Advanced**, ensure both **Accept** buttons are selected, click **OK**, and then click **OK** again.
 
 
 ## Authenticate PowerShell with Microsoft Azure Stack (required)
 
 1. [Turn off IE enhanced security and enable cookies](azure-stack-sql-rp-deploy-long.md#turn-off-ie-enhanced-security-and-enable-cookies).
 
-2.  Run the following PowerShell cmdlet to configure the environment, and authenticate a user.
+2.  Run the following PowerShell to configure the environment, and authenticate a user.
 
     - Replace *DIRECTORY_TENANT_NAME* with the fully qualified name of your directory tenant. Typically a directory tenant name will look like mydirectorytenant.onmicrosoft.com.
 	- Replace *SUBSCRIPTION_NAME* with the default provider subscription name.
-	- If you're using China Azure AD, please use "chinacloudapi.cn" to replace "windows.net" in the following cmdlets. You also also need to add "https://*.microsoftonline.cn" and "https://*.microsoftonline-p.cn" to your trusted website list.
+	- If you're using China Azure AD, use "chinacloudapi.cn" to replace "windows.net" in the following cmdlets. You also also need to add "https://*.microsoftonline.cn" and "https://*.microsoftonline-p.cn" to your trusted website list.
 
 ```PowerShell
 
@@ -85,7 +85,7 @@ Before authenticating PowerShell, you must allow cookies and JavaScript in the I
 
 ## Run AzureRM PowerShell cmdlets
 
-In this example, you'll run the following script to deploy a virtual machine to Azure Stack POC using an ARM template.
+In this example, you'll run the following script to deploy a virtual machine to Azure Stack POC using a Resource Manager template.
 
 The VHD used in this example template is a default marketplace image (WindowsServer-2012-R2-Datacenter). If you want to target another VHD, you must first add an image to the Platform Image Repository as described in [Add an image to the Platform Image Repository](azure-stack-add-image-pir.md).
 

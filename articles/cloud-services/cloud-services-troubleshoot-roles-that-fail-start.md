@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="06/03/2016"
+   ms.date="09/02/2016"
    ms.author="v-six" />
 
 # Troubleshoot Cloud Service roles that fail to start
@@ -103,7 +103,7 @@ You can use the Microsoft Azure compute emulator to diagnose and troubleshoot is
 
 For best results in using this method of diagnosis, you should use a computer or virtual machine that has a clean installation of Windows. To best simulate the Azure environment, use Windows Server 2008 R2 x64.
 
-1. Install the standalone version of the [Azure SDK](https://azure.microsoft.com/downloads/)
+1. Install the standalone version of the [Azure SDK](https://azure.microsoft.com/downloads/).
 
 2. On the development machine, build the cloud service project.
 
