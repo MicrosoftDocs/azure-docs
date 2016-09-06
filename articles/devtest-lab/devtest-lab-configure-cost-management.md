@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2016"
+	ms.date="09/06/2016"
 	ms.author="tarcher"/>
 
 # View the monthly estimated lab cost trend in Azure DevTest Labs
@@ -32,14 +32,10 @@ To view the Monthly Estimated Cost Trend chart, follow these steps:
 
 1. From the list of labs, select the desired lab.   
 
-1. Select **Settings**.
+1. On the lab's blade, select **Cost settings**.
 
-	![Settings](./media/devtest-lab-configure-cost-management/lab-blade-settings.png)
+1. On the lab's **Cost settings** blade, select **Lab cost trend**.
 
-1. On the lab's **Settings** blade, under **Cost Management**, select **Lab cost trend**.
-
-	![Menu](./media/devtest-lab-configure-cost-management/menu.png)
- 
 1. The following screen shot shows an example of a cost chart. 
 
     ![Cost chart](./media/devtest-lab-configure-cost-management/graph.png)
