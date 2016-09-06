@@ -23,7 +23,7 @@
 
 You [may be eligible](#to-do) to switch your subscription to a more favorable offer, without any service downtime. Below are the paths we currently support in the [Account Center](https://account.windowsazure.com/Subscriptions).
 
-| From                                                              | To                                                                                      | Offer Number | [Spending limit](https://azure.microsoft.com/pricing/spending-limits/) |
+| From                                                              | To                                                                                      | Offer Number | [Spending Limit](https://azure.microsoft.com/pricing/spending-limits/) |
 |-------------------------------------------------------------------|-----------------------------------------------------------------------------------------|--------------|------------------------------------------------------------------------|
 | [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [12-Month Prepay](https://azure.microsoft.com/offers/ms-azr-0026p/)                     | 0026P        |                                                                        |
 | [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)          | 0059P        | Yes                                                                    |
