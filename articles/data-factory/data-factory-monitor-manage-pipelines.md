@@ -183,7 +183,7 @@ For example: in the following screen shot, an issue has been identified with the
 
 ![Pipeline to be suspended](./media/data-factory-monitor-manage-pipelines/pipeline-to-be-suspended.png)
 
-To suspend a pipeline, Run the following PowerShell command.
+To suspend a pipeline, run the following PowerShell command.
 
 	Suspend-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 
