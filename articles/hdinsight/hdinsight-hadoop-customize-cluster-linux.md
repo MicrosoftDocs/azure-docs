@@ -638,7 +638,7 @@ If the cluster creation failed due to an error in script action, the script acti
 
 	![Screenshot of operations](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
 
-	Under this, the logs are organized separately for headnode, workdernode, and zookeeper nodes. Some examples are:
+	Under this, the logs are organized separately for headnode, workernode, and zookeeper nodes. Some examples are:
 	* **Headnode** - `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
 	* **Worker node** - `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
 	* **Zookeeper node** - `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
