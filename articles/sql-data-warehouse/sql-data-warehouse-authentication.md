@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="08/15/2016"
+   ms.date="09/04/2016"
    ms.author="rickbyh;barbkess;sonyama"/>
 
 # Authentication to Azure SQL Data Warehouse
@@ -37,15 +37,12 @@ To connect to SQL Data Warehouse, you must provide the following information:
 - Password
 - Default database (optional)
 
-By default your connection connects to the master database and not your user database. To connect to your user database, you can choose to do one of two things:
+By default your connection connects to the *master* database and not your user database. To connect to your user database, you can choose to do one of two things:
 
-- Specify the default database when registering your server with the SQL Server Object Explorer in SSDT, SSMS, or in your application connection string. For example, by including the InitialCatalog parameter for an ODBC connection.
-- First highlight the user database before creating a session in SSDT.
+- Specify the default database when registering your server with the SQL Server Object Explorer in SSDT, SSMS, or in your application connection string. For example, include the InitialCatalog parameter for an ODBC connection.
+- Highlight the user database before creating a session in SSDT.
 
-> [AZURE.NOTE] For guidance connecting to SQL Data Warehouse with SSDT, refer to the [Query with Visual Studio][] article.
-
-It is again important to note that the Transact-SQL statement **USE <your DB>** is not supported for changing the database for a connection
-
+> [AZURE.NOTE] The Transact-SQL statement **USE MyDatabase;** is not supported for changing the database for a connection. For guidance connecting to SQL Data Warehouse with SSDT, refer to the [Query with Visual Studio][] article.
 
 ## Azure Active Directory (AAD) authentication
 
@@ -53,21 +50,22 @@ It is again important to note that the Transact-SQL statement **USE <your DB>** 
 
 ### Benefits
 
-Benefits include the following:
+Azure Active Directory benefits include:
 
-- It provides an alternative to SQL Server authentication.
+- Provides an alternative to SQL Server authentication.
 - Helps stop the proliferation of user identities across database servers.
 - Allows password rotation in a single place
-- Customers can manage database permissions using external (AAD) groups.
-- It can eliminate storing passwords by enabling integrated Windows authentication and other forms of authentication supported by Azure Active Directory.
-- Azure Active Directory authentication uses contained database users to authenticate identities at the database level.
-- Azure Active Directory supports token-based authentication for applications connecting to SQL Data Warehouse.
-- When Azure Active Directory authentication is configured, SQL Server Management Studio supports Multi-Factor authentication through Active Directory Universal Authentication. For a description of Multi-Factor Authentication, see [SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse](../sql-database/sql-database-ssms-mfa-authentication.md).
+- Manage database permissions using external (AAD) groups.
+- Eliminates storing passwords by enabling integrated Windows authentication and other forms of authentication supported by Azure Active Directory.
+- Uses contained database users to authenticate identities at the database level.
+- Supports token-based authentication for applications connecting to SQL Data Warehouse.
+- Supports Multi-Factor authentication through Active Directory Universal Authentication for SQL Server Management Studio. For a description of Multi-Factor Authentication, see [SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse](../sql-database/sql-database-ssms-mfa-authentication.md).
 
+> [AZURE.NOTE] Azure Active Directory is still relatively new and has some limitations. To ensure that Azure Active Directory is a good fit for your environment, see [Azure AD features and limitations][], specifically the Additional considerations.
 
 ### Configuration steps
 
-The configuration steps include the following procedures to configure and use Azure Active Directory authentication.
+Follow these steps to configure Azure Active Directory authentication.
 
 1. Create and populate an Azure Active Directory
 2. Optional: Associate or change the active directory that is currently associated with your Azure Subscription
@@ -90,3 +88,4 @@ To start querying your data warehouse with Visual Studio and other applications,
 [Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 [Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
 [What is Azure Active Directory]: ../active-directory/active-directory-whatis.md
+[Azure AD features and limitations]: ../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations
