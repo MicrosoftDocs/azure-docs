@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2016"
+	ms.date="09/06/2016"
 	ms.author="tarcher"/>
 
 # Configure a virtual network in Azure DevTest Labs
@@ -31,14 +31,10 @@ The following steps walk you through adding an existing virtual network (and sub
 
 1. From the list of labs, select the desired lab. 
 
-1. Select **Settings**.
+1. On the lab's blade, select **Configuration**.
 
-	![Settings](./media/devtest-lab-configure-vnet/lab-blade-settings.png)  
+1. On the lab's **Configuration** blade, select **Virtual networks**.
 
-1. Select **Virtual networks**.
-
-	![Virtual networks can be configured from the lab's Settings blade](./media/devtest-lab-configure-vnet/lab-settings-vnet.png)
-	
 1. On the **Virtual networks** blade, you see a list of virtual networks configured for the current lab as well
 as the default virtual network that is created for your lab. 
 
