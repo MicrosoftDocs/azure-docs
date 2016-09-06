@@ -62,7 +62,7 @@ In a text editor, open the file **samples\\simulated_device_cloud_upload\\src\\s
         },
         {
             "module name" : "mapping",
-            "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\identitymap\\Debug\\identitymap_hl.dll",
+            "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\identitymap\\Debug\\identity_map_hl.dll",
             "args" : 
             [
                 {

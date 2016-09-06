@@ -64,7 +64,7 @@ In a text editor, open the file **samples/simulated_device_cloud_upload/src/simu
         },
         {
             "module name" : "mapping",
-            "module path" : "./build/modules/identitymap/libidentitymap_hl.so",
+            "module path" : "./build/modules/identitymap/libidentity_map_hl.so",
             "args" : 
             [
                 {
