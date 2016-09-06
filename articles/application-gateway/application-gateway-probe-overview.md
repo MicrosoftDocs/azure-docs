@@ -55,7 +55,7 @@ Custom probes allow you to have a more granular control over the health monitori
 |Probe property| Description|
 |---|---|
 | Name | Name of the probe. This name is used to refer to the probe in back-end HTTP settings. |
-| Protocol | Protocol used to send the probe. HTTP is the only valid protocol. |
+| Protocol | Protocol used to send the probe. HTTP or HTTPS are valid protocols. |
 | Host |  Host name to send the probe. |
 | Path | Relative path of the probe. The valid path starts from '/'. The probe is sent to \<protocol\>://\<host\>:\<port\>\<path\> |
 | Interval | Probe interval in seconds. This is the time interval between two consecutive probes.|
