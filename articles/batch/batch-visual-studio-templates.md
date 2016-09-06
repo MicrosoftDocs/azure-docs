@@ -473,4 +473,5 @@ parameters.json, and if found it loads it as the parameters dictionary. There ar
 [vs_find_use_ext]: https://msdn.microsoft.com/library/dd293638.aspx
 
 [diagram01]: ./media/batch-visual-studio-templates/diagram01.png
-[solution_explorer01]: ./media/batch-visual-studio-templates/solution_explorer01.png[solution_explorer02]: ./media/batch-visual-studio-templates/solution_explorer02.png
+[solution_explorer01]: ./media/batch-visual-studio-templates/solution_explorer01.png
+[solution_explorer02]: ./media/batch-visual-studio-templates/solution_explorer02.png
