@@ -120,7 +120,7 @@ If your application accesses resources on behalf of a signed-in user, you must g
 
 1. Select **Add application**.
 
-2. From the list, select the **Azure Service Management API**. Then, select the complete icon.
+2. From the list, select the **Windows Azure Service Management API**. Then, select the complete icon.
 
       ![select app](./media/resource-group-create-service-principal-portal/select-app.png)
 
