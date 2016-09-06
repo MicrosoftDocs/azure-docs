@@ -12,7 +12,7 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na" 
 ms.devlang="na" 
 ms.topic="article" 
-ms.date="06/07/2016" 
+ms.date="09/06/2016" 
 ms.author="adegeo"/>
 
 # Customize the Lifecycle of a Web or Worker role in .NET
@@ -33,9 +33,9 @@ When extending **RoleEntryPoint**, you should be aware of the following behavior
 
      If an exception occurs within one of the lifecycle methods, Azure will raise the [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) event, and then the process is terminated. After your role has been taken offline, it will be restarted by Azure. When an unhandled exception occurs, the [Stopping](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.stopping.aspx) event is not raised, and the **OnStop** method is not called.
 
-If your role does not start, or is recycling between the initializing, busy, and stopping states, your code may be throwing an unhandled exception within one of the lifecycle events each time the role restarts. In this case, use the [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) event to determine the cause of the exception and handle it appropriately. Your role may also be returning from the [Run](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) method, which causes the role to restart. For more information about deployment states, see [Common Issues Which Cause Roles to Recycle](https://msdn.microsoft.com/library/azure/gg465402.aspx).
+If your role does not start, or is recycling between the initializing, busy, and stopping states, your code may be throwing an unhandled exception within one of the lifecycle events each time the role restarts. In this case, use the [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) event to determine the cause of the exception and handle it appropriately. Your role may also be returning from the [Run](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) method, which causes the role to restart. For more information about deployment states, see [Common Issues Which Cause Roles to Recycle](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
 
-> [AZURE.NOTE] If you are using the [Azure Tools for Microsoft Visual Studio](https://msdn.microsoft.com/library/azure/ee405484.aspx) to develop your application, the role project templates automatically extend the **RoleEntryPoint** class for you, in the WebRole.cs and WorkerRole.cs files.
+> [AZURE.NOTE] If you are using the **Azure Tools for Microsoft Visual Studio** to develop your application, the role project templates automatically extend the **RoleEntryPoint** class for you, in the *WebRole.cs* and *WorkerRole.cs* files.
 
 ## OnStart method
 
