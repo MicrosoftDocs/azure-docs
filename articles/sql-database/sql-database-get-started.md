@@ -18,6 +18,7 @@
 	ms.date="07/05/2016"
 	ms.author="carlrab"/>
 
+
 # SQL Database tutorial: Create a SQL database in minutes by using the Azure portal
 
 **Single database**
