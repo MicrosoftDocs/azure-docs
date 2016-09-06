@@ -74,7 +74,7 @@ When the pipeline is enabled (not in paused state), it is shown with a green lin
 
 ![Pipeline Running](./media/data-factory-monitor-manage-app/PipelineRunning.png)
 
-You notice that there are three command buttons for the pipeline in the diagram view. You can use the second button to pause the pipeline. Pausing does not terminate the currently running activities and let them proceed to completion. Third button pauses the pipeline and terminate its existing executing activities. First button resumes the pipeline i.e. un-pauses it. When your pipeline is paused, you notice the color change for the pipeline tile as follows.
+You notice that there are three command buttons for the pipeline in the diagram view. You can use the second button to pause the pipeline. Pausing does not terminate the currently running activities and let them proceed to completion. Third button pauses the pipeline and terminates its existing executing activities. First button resumes (un-pauses) the pipeline. When your pipeline is paused, you notice the color change for the pipeline tile as follows.
 
 ![Pause/Resume on Tile](./media/data-factory-monitor-manage-app/SuspendResumeOnTile.png)
 
@@ -193,7 +193,7 @@ The activity windows can be in one of the following statuses:
 </table>
 
 
-When you click an activity window in the list, you see details about the activity window in **Activity Windows Explorer** or **Properties** window on the right.
+When you click an activity window in the list, you see details about the it in **Activity Windows Explorer** or **Properties** window on the right.
 
 ![Activity Window Explorer](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
 
@@ -214,7 +214,7 @@ The **Activity Window Explorer** window is in the right-most pane of the Monitor
 
 ![Activity Window Explorer](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-3.png)
 
-You can switch to different activity window by clicking it in the calendar view at the top. You can also use the **left arrow**/**right arrow** buttons at the top to see activity windows from the previous/next week.
+You can switch to another activity window by clicking it in the calendar view at the top. You can also use the **left arrow**/**right arrow** buttons at the top to see activity windows from the previous/next week.
 
 You can use the toolbar buttons in the bottom pane to **rerun** the activity window or **refresh** the details in the pane. 
 
@@ -277,7 +277,7 @@ You can multi-select two or more pipelines (using CTRL) and use command bar butt
 ![Suspend/Resume on Command bar](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
 
 ## Creating alerts 
-The Alerts page lets you create an alert, view/edit/delete existing alerts. You can also disable/enable an alert. Click the Alerts tab to see the page.
+The Alerts page lets you create an alert, view/edit/delete existing alerts. You can also disable/enable an alert. To see the ALerts page, click the Alerts tab.
 
 ![Alerts tab](./media/data-factory-monitor-manage-app/AlertsTab.png)
 
