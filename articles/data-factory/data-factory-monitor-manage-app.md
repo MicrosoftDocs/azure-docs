@@ -74,7 +74,7 @@ When the pipeline is enabled (not in paused state), it is shown with a green lin
 
 ![Pipeline Running](./media/data-factory-monitor-manage-app/PipelineRunning.png)
 
-You notice that there are three command buttons for the pipeline in the diagram view. You can use the second button to pause the pipeline. Pausing does not terminate the currently running activities and let them proceed to completion. Third button pauses the pipeline and terminates its existing executing activities. First button resumes (un-pauses) the pipeline. When your pipeline is paused, you notice the color change for the pipeline tile as follows.
+You notice that there are three command buttons for the pipeline in the diagram view. You can use the second button to pause the pipeline. Pausing does not terminate the currently running activities and let them proceed to completion. Third button pauses the pipeline and terminates its existing executing activities. First button resumes the pipeline. When your pipeline is paused, you notice the color change for the pipeline tile as follows.
 
 ![Pause/Resume on Tile](./media/data-factory-monitor-manage-app/SuspendResumeOnTile.png)
 
@@ -193,7 +193,7 @@ The activity windows can be in one of the following statuses:
 </table>
 
 
-When you click an activity window in the list, you see details about the it in **Activity Windows Explorer** or **Properties** window on the right.
+When you click an activity window in the list, you see details about it in **Activity Windows Explorer** or **Properties** window on the right.
 
 ![Activity Window Explorer](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
 

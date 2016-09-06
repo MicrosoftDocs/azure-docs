@@ -56,7 +56,7 @@ This section also provides how a slice transitions from one state to another sta
 #### Diagram view of your data factory
 The Diagram View of a data factory provides a single pane of glass to monitor and manage the data factory and its assets.
 
-Click **Diagram** on the data factory home page to see the diagram view of your data factory.
+To see the diagram view of your data factory, click **Diagram** on the data factory home page.
 
 ![Diagram view](./media/data-factory-monitor-manage-pipelines/diagram-view.png)
 
@@ -152,7 +152,7 @@ If the slice has been executed multiple times, you see multiple rows in the **Ac
 
 ![Activity runs for a slice](./media/data-factory-monitor-manage-pipelines/activity-runs-for-a-slice.png)
 
-You can view details about an activity run by clicking the run entry in the **Activity runs** list. This showcases all the log files along with an error message if any. This feature is useful to view and debug logs without having to leave your data factory.
+You can view details about an activity run by clicking the run entry in the **Activity runs** list. The list shows all the log files along with an error message if any. This feature is useful to view and debug logs without having to leave your data factory.
 
 ![Activity run details](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
 
@@ -170,20 +170,20 @@ Waiting-> In-Progress/In-Progress (Validating) -> Ready/Failed
 
 The slices start in a **Waiting** state for pre-conditions to be met before executing. Then, the activity starts executing and the slice goes in **In-Progress** state. The activity execution may succeed or fail. The slice is marked as **Ready**’ or **Failed** based on the result of the execution. 
 
-You can reset the slice to go back from **Ready** or **Failed** state to **Waiting** state. You can also mark the slice state to **Skip**, which  prevents the activity from executing and not process the slice.
+You can reset the slice to go back from **Ready** or **Failed** state to **Waiting** state. You can also mark the slice state to **Skip**, which prevents the activity from executing and not process the slice.
 
 
 ## Manage pipelines
 You can manage your pipelines using Azure PowerShell. For example, you can pause and resume pipelines by running Azure PowerShell cmdlets. 
 
 ### Pause and resume pipelines
-You can pause/suspend pipelines using the **Suspend-AzureRmDataFactoryPipeline** Powershell cmdlet. This cmdlet is useful when you have figured out an issue with your data and don’t want to run your pipelines to process data any further until the issue is fixed.
+You can pause/suspend pipelines using the **Suspend-AzureRmDataFactoryPipeline** Powershell cmdlet. This cmdlet is useful when you don’t want to run your pipelines until an issue is fixed.
 
 For example: in the following screen shot, an issue has been identified with the **PartitionProductsUsagePipeline** in **productrecgamalbox1dev** data factory and we want to suspend the pipeline.
 
 ![Pipeline to be suspended](./media/data-factory-monitor-manage-pipelines/pipeline-to-be-suspended.png)
 
-To suspend a pipeline, Run the following PowerShell command .
+To suspend a pipeline, Run the following PowerShell command.
 
 	Suspend-AzureRmDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 
@@ -295,7 +295,7 @@ You can rerun failures by using the Set-AzureRmDataFactorySliceStatus cmdlet. Se
 **Example:**
 The following example sets the status of all slices for the table 'DAWikiAggregatedData' to 'Waiting' in the Azure data factory 'WikiADF'.
 
-The UpdateType is set to UpstreamInPipeline, which means that statuses of each slice for the table and all the dependent (upstream) tables are set to "Waiting." Other possible value for this parameter is "Individual".
+The UpdateType is set to UpstreamInPipeline, which means that statuses of each slice for the table and all the dependent (upstream) tables are set to "Waiting." Other possible value for this parameter is "Individual."
 
 	Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -TableName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 
@@ -308,7 +308,7 @@ Azure events provide useful insights into what is happening in your Azure resour
 
 - Azure Data Factory is created/updated/deleted.
 - Data processing (called as Runs) has started/completed.
-- When an on-demand HDInsight cluster is created and removed.
+- An on-demand HDInsight cluster is created and removed.
 
 You can create alerts on these user events and configure them to send email notifications to the administrator and co-administrators of the subscription. In addition, you can specify additional email addresses of users who need to receive email notifications when the conditions are met. This feature is useful when you want to get notified on failures and don’t want to continuously monitor your data factory.
 
@@ -484,7 +484,7 @@ Data Factory allows you to capture various metrics and create alerts on metrics.
 - Failed Runs
 - Successful Runs
 
-These metrics are useful and allow users to get an overview of overall failed and successful runs in their data factory. Metrics are emitted every time there is a slice run. On top of the hour, these metrics are aggregated and pushed to your storage account. Therefore, to enable metrics, set up a storage account.
+These metrics are useful and allow you to get an overview of overall failed and successful runs in their data factory. Metrics are emitted every time there is a slice run. On top of the hour, these metrics are aggregated and pushed to your storage account. Therefore, to enable metrics, set up a storage account.
 
 #### Enabling Metrics:
 To enable metrics, click the following from Data Factory blade:
