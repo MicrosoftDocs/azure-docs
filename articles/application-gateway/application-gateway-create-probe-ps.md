@@ -45,9 +45,8 @@ Use Login-AzureRmAccount to authenticate.
 
 Check the subscriptions for the account.
 
-		get-AzureRmSubscription
+		Get-AzureRmSubscription
 
-You are prompted to authenticate with your credentials.<BR>
 
 ### Step 3
 
@@ -89,7 +88,7 @@ Create a virtual network named "appgwvnet" in resource group "appgw-rg" for the 
 
 Assign a subnet variable for the next steps, which create an application gateway.
 
-	$subnet=$vnet.Subnets[0]
+	$subnet = $vnet.Subnets[0]
 
 ## Create a public IP address for the front-end configuration
 
@@ -214,7 +213,7 @@ Add the probe to the back-end pool setting configuration and time-out by using *
 
 Save the configuration to the application gateway by using **Set-AzureRmApplicationGateway**.
 
-	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
+	Set-AzureRmApplicationGateway -ApplicationGateway $getgw
 
 ## Remove a probe from an existing application gateway
 
@@ -238,10 +237,10 @@ Remove the probe configuration from the application gateway by using **Remove-Az
 Update the back-end pool setting to remove the probe and time-out setting by using **-Set-AzureRmApplicationGatewayBackendHttpSettings**.
 
 
-	 $getgw=Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol http -CookieBasedAffinity Disabled
+	 $getgw = Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol http -CookieBasedAffinity Disabled
 
 ### Step 4
 
-Save the configuration to the application gateway by using **Set-AzureRmApplicationGateway**.
+Save the configuration to the application gateway by using **Set-AzureRmApplicationGateway**. 
 
-	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
+	Set-AzureRmApplicationGateway -ApplicationGateway $getgw

@@ -14,3 +14,5 @@ Where the validation for reverse DNS checks fail, the service management operati
 Reverse DNS is not supported for Azure Websites. Reverse DNS is supported for Azure PaaS roles and IaaS virtual machines.
 ### Can I configure multiple reverse DNS records for my Cloud Service?
 No. Azure supports a single reverse DNS record for each Azure Cloud Service. Each Azure Cloud Service however can have their own reverse DNS record.
+### Can I send emails to external domains from my Azure Compute services?
+No. As per [here](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/), Azure Compute services do not support sending emails to external domains.
