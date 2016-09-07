@@ -20,9 +20,9 @@
 # Create a copy of a specialized Windows Azure VM in the Azure Resource Manager deployment model
 
 
-This article shows you how to create a copy of your **specialized** Azure virtual machine (VM) running Windows. A ***specialized** VM maintains the user accounts and other state data from your original VM. We will use the AzCopy tool to copy the VHD and then we will create a new VM and attach the copy of the VHD.
+This article shows you how to create a copy of your **specialized** Azure virtual machine (VM) running Windows. A **specialized** VM maintains the user accounts and other state data from your original VM. We will use the AzCopy tool to copy the VHD and then we will create a new VM from the source VM template and attach the copy of the VHD.
 
-If you need to create mass deployments of similar Windows VMs, you should use an image that has been ***generalized** using Sysprep. To create generalized image and use that image to create a VM, see [How to capture a Windows virtual machine](virtual-machines-windows-capture-image.md).
+If you need to create mass deployments of similar Windows VMs, you should use an image that has been **generalized** using Sysprep. To create generalized image and use that image to create a VM, see [How to capture a Windows virtual machine](virtual-machines-windows-capture-image.md).
 
 
 ## Before you begin
@@ -42,20 +42,20 @@ Deallocate the VM, which frees up the VHD to be copied.
 - **Portal**: Click **Virtual machines** > <vmName> > Stop
 - **Powershell**: Stop-AzureRmVM -ResourceGroupName <resourceGroup> -Name <vmName>
 
-The *Status* for the VM in the Azure portal changes from **Stopped** to **Stopped (deallocated)**.
+The **Status** for the VM in the Azure portal changes from **Stopped** to **Stopped (deallocated)**.
 
 ## Download the source VM template
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. One the hub menu, select **Virtual Machines**.
 3. Select the original virtual machine in the list.
-4. If the VM is running, click the **Stop** button to stop\deallocate the VM.
-5. In the Settings blade for the VM, select **Export template**.
+5. In select **Automation script**.
 6. Select **Download** and save the .zip file to your local computer.
 7. Open the .zip file and extract the files to a folder. The .zip file should contain:
 	
 	- deploy.ps1
 	- deploy.sh 
+	- deployer.rb
 	- DeploymentHelper.cs
 	- parameters.json
 	- template.json
