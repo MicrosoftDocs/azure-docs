@@ -27,7 +27,7 @@ If you haven't already created your first VM, you should go back to [Create your
 
 1. Open the [Azure portal](https://portal.azure.com).
 2. On the hub menu, click **Virtual Machines**. Select the virtual machine from the list.
-3. If the status is **Stopped (Deallocated), click the **Start** button on the **Essentials** blade of the VM. If the status is **Running**, you can move on to the next step.
+3. If the status is **Stopped (Deallocated)**, click the **Start** button on the **Essentials** blade of the VM. If the status is **Running**, you can move on to the next step.
 
 ## Connect to the virtual machine and sign in
 
