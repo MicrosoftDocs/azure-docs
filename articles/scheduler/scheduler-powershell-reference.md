@@ -19,7 +19,9 @@
 
 The following table describes and links to the reference page of each of the major cmdlets in Azure Scheduler.
 
-To install the latest Azure PowerShell version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](../articles/powershell-install-configure.md). For more information about Azure Resource Manager cmdlets, see [Using Azure PowerShell with Azure Resource Manager](../articles/articles/powershell-azure-resource-manager.md).
+To install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](../articles/powershell-install-configure.md). 
+
+For more information about [Azure Resource Manager cmdlets](https://msdn.microsoft.com/library/mt125356(v=azure.200).aspx), see [Using Azure PowerShell with Azure Resource Manager](../articles/articles/powershell-azure-resource-manager.md).
 
 |Cmdlet|Cmdlet Description|
 |---|---|
