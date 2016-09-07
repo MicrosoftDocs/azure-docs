@@ -30,7 +30,7 @@ We analyze the [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) data
 
 Before you can use a Linux Data Science Virtual Machine, you must have the following:
 
-- An **Azure subscription**. If you do not already have one, see [Create your free Azure account today](https://azure.microsoft.com/en-us/free/).
+- An **Azure subscription**. If you do not already have one, see [Create your free Azure account today](https://azure.microsoft.com/free/).
 - A [**Linux data science VM**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). For information on provisioning this VM, see [Provision the Linux Data Science Virtual Machine](machine-learning-data-science-linux-dsvm-intro.md). 
 - [X2Go](http://wiki.x2go.org/doku.php) installed on your computer and opened an XFCE session. For information on installing and configuring an **X2Go client**, see [Installing and configuring X2Go client](machine-learning-data-science-linux-dsvm-intro.md#Installing-and-configuring-X2Go-client). 
 - An **AzureML account**. If you don't already have one, sign up for new one at the [AzureML homepage](https://studio.azureml.net/). There is a free usage tier to help you get started.
