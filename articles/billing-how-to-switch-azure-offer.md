@@ -32,11 +32,11 @@ You [may be eligible](#where-is-the-button) to switch your subscription to a mor
 | [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)            |
 | [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [Visual Studio Enterprise (Bizspark)](https://azure.microsoft.com/offers/ms-azr-0064p/) |
 
-If you're on Free Trial, learn how to [upgrade to Pay-As-You-Go](billing-buy-sign-up-azure-subscription.md#upgrade-azure-free-trial-to-pay-as-you-go).
+> [AZURE.NOTE] If you're on Free Trial, learn how to [upgrade to Pay-As-You-Go](billing-buy-sign-up-azure-subscription.md#upgrade-azure-free-trial-to-pay-as-you-go).
 
-> [AZURE.NOTE] For other offer changes, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> If you've signed up for your subscription recently, you must wait until your first billing period to complete before you can change offers.
 
-If you've signed up for your subscription recently, you must wait until your first billing period to complete before you can change offers.
+> For other offer changes, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 	
 ## Guide to switching your subscription to another offer
 
