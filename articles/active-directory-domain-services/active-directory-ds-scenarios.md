@@ -29,7 +29,8 @@ Server virtual machines that are joined to the managed domain can also be manage
 
 As servers and other infrastructure reaches end-of-life, Contoso is moving many applications currently hosted on premises to the cloud. Their current IT standard mandates that servers hosting corporate applications must be domain-joined and managed using Group Policy. Contoso's IT administrator prefers to domain join virtual machines deployed in Azure, to make administration easier. This enables administrators and users to log in using their corporate credentials. At the same time, machines can be configured to comply with required security baselines using Group Policy. Contoso would prefer not to have to deploy, monitor, and manage domain controllers in Azure to secure Azure virtual machines. Therefore, Azure AD Domain Services is a great fit for this use-case.
 
-A few important points to note when considering this scenario:
+# Deployment notes
+Consider the following important points for this deployment scenario:
 
 - Managed domains provided by Azure AD Domain Services provide a single flat OU (Organizational Unit) structure by default. All domain-joined machines reside in a single flat OU. You may however choose to create custom OUs.
 - Azure AD Domain Services supports simple Group Policy in the form of a built-in GPO each for the users and computers containers. You cannot target GP by OU/department, perform WMI filtering, or create custom GPOs.
@@ -37,9 +38,13 @@ A few important points to note when considering this scenario:
 
 
 ## Lift-and-shift an on-premises application that uses LDAP bind authentication to Azure Infrastructure Services
+
+![LDAP bind](./media/active-directory-domain-services-scenarios/ldap-bind.png)
+
 Contoso has an on-premises application that was purchased from an ISV many years ago. The application is currently in maintenance mode by the ISV and requesting changes to the application is prohibitively expensive for Contoso. This application has a web-based frontend that collects user credentials using a web form and then authenticates users by performing an LDAP bind to the corporate Active Directory. Contoso would like to migrate this application to Azure Infrastructure Services. It is desirable that the application works as is, without requiring any changes. Additionally, users should be able to authenticate using their existing corporate credentials and without having to retrain users to do things differently. In other words, end users should be oblivious of where the application is running and the migration should be transparent to them.
 
-A few important points to note when considering this scenario:
+# Deployment notes
+Consider the following important points for this deployment scenario:
 
 - Ensure that the application does not need to modify/write to the directory. LDAP write access to managed domains provided by Azure AD Domain Services is not supported.
 - End users cannot change their password directly against the managed domain. They can change their password either using Azure AD's self-service password change mechanism or against the on-premises directory. These changes are automatically synchronized and available in the managed domain.
@@ -56,7 +61,11 @@ A few important points to note when considering this scenario:
 
 
 ## Migrate an on-premises service or daemon application to Azure Infrastructure Services
-Contoso has a custom-built software vault application that includes a web front end, a SQL server, and a backend FTP server. Windows-integrated authentication of service accounts is used to authenticate the web front end to the FTP server. They would like to move this application to Azure Infrastructure Services. Contoso prefers not to have to deploy a domain controller virtual machine in the cloud, in order to support the identity needs of this application. Contoso's IT administrator can deploy the servers hosting the web front end, SQL server and the FTP server to Azure virtual machines and join them to an Azure AD Domain Services domain. Then, they can use the same service account in their directory for the app’s authentication purposes.
+Some applications consist of multiple tiers, where one of the tiers needs to perform authenticated calls to a backend tier such as a database tier. Active Directory service accounts are commonly used for these use-cases. You can lift-and-shift such applications to Azure Infrastructure Services and use Azure AD Domain Services for the identity needs of these applications. You can choose to use either the same service account that is synchronized from your on-premises directory to Azure AD or create a separate service account in a custom OU, to deploy such applications.
+
+![Service account using WIA](./media/active-directory-domain-services-scenarios/wia-service-account.png)
+
+Contoso has a custom-built software vault application that includes a web front end, a SQL server, and a backend FTP server. Windows-integrated authentication of service accounts is used to authenticate the web front end to the FTP server. The web front end is set up to run as a service account. The backend server is configured to authorize access from the service account for the web front end. Contoso prefers not to have to deploy a domain controller virtual machine in the cloud to move this application to Azure Infrastructure Services. Contoso's IT administrator can deploy the servers hosting the web front end, SQL server and the FTP server to Azure virtual machines and join them to an Azure AD Domain Services domain. Then, they can use the same service account in their on-premises directory for the app’s authentication purposes. This service account is synchronized to the Azure AD Domain Services managed domain and is available for use.
 
 A few important points to note when considering this scenario:
 
