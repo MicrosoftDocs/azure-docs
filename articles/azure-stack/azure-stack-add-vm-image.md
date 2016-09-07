@@ -107,7 +107,7 @@ An example invocation of the script is:
 
 ```powershell
 AddVMImage -publisher 'Canonical' -offer 'Ubuntu' -sku 'Server' -version
-'1.0.0' -osDiskLocalPath 'C:\\Users\\admin1\\Desktop\\Ubuntu.vhd'
+'1.0.0' -osDiskLocalPath 'C:\Users\admin1\Desktop\Ubuntu.vhd'
 -osType Linux -tenantID 'myAADTenant.onmicrosoft.com'
 ```
 
@@ -126,36 +126,36 @@ item.](https://azure.microsoft.com/en-us/documentation/articles/azure-stack-crea
 
 A full list of the parameters for the script below is below:
 
-tenantID : This your Azure Active Directory tenant ID in the form
+**tenantID** : This your Azure Active Directory tenant ID in the form
 &lt;AADTenantID.onmicrosoft.com&gt;
 
-publisher : The Publisher name segment of the VM Image that tenants will
+**publisher** : The Publisher name segment of the VM Image that tenants will
 use when deploying the image. An example is ‘Microsoft’. Do not include
 a space or other special characters in this field.
 
-offer : The Offer name segment of the VM Image that tenants will use
+**offer** : The Offer name segment of the VM Image that tenants will use
 when deploying the image. An example is ‘WindowsServer’. Do not include
 a space or other special characters in this field.
 
-sku : The SKU name segment of the VM Image that tenants will use when
+**sku** : The SKU name segment of the VM Image that tenants will use when
 deploying the image. An example is ‘Datacenter2016’. Do not include a
 space or other special characters in this field.
 
-version : The Version of the VM Image that tenants will use when
+**version** : The Version of the VM Image that tenants will use when
 deploying the image. This version is in the format \#.\#.\#. An example
 is ‘1.0.0’. Do not include a space or other special characters in this
 field.
 
-osType : The OS Type of the image must be either ‘Windows’ or ‘Linux’.
+**osType** : The OS Type of the image must be either ‘Windows’ or ‘Linux’.
 
-osDiskLocalPath: This is the local path to the OS Disk VHD that you are
+**osDiskLocalPath** : This is the local path to the OS Disk VHD that you are
 uploading as a VM Image into Azure Stack.
 
-dataDiskLocalPaths: This is an optional array of the local paths for
+**dataDiskLocalPaths**: This is an optional array of the local paths for
 data disks that can be uploaded as part of the VM Image.
 
-osDiskBlobURI: Optionally, this script will also accept a blob storage
+**osDiskBlobURI**: Optionally, this script will also accept a blob storage
 URI for the osDisk.
 
-dataDiskBlobURIs: Optionally, this script can also accept an array of
+**dataDiskBlobURIs**: Optionally, this script can also accept an array of
 blob storage URIs for adding data disks to the image.
