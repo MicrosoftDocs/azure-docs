@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="09/07/2016"
 	ms.author="andkjell"/>
 
 
@@ -46,9 +46,9 @@ Refresh Schema | Refreshes the cached schema. It is preferred to use the option 
 The delete action is used for two different things.
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectordelete.png)
 
-The option **Delete connector space only** will remove all data, but keep all configuration.
+The option **Delete connector space only** will remove all data, but keep the configuration.
 
-The option **Delete Connector and connector space** will remove the data as well as all configuration. This is used when you do not want to connect to a forest anymore.
+The option **Delete Connector and connector space** will remove the data as well as the configuration. This is used when you do not want to connect to a forest anymore.
 
 Both options will sync all objects and update the metaverse objects. This is a long running operation.
 
@@ -75,13 +75,13 @@ When you are troubleshooting a problem with data, follow an object from the sour
 **Import**  
 When you open a cs object, there are several tabs at the top. The **Import** tab shows the data which is staged after an import.
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/csimport.png)
-The **Old Value** shows what currently is stored in the system and the **New Value** what has been received from the source system and has not been applied yet. In this case since there is a synchronization error, the change cannot be applied.
+The **Old Value** shows what currently is stored in the system and the **New Value** what has been received from the source system and has not been applied yet. In this case, since there is a synchronization error, the change cannot be applied.
 
 **Error**  
 The error page is only visible if there is a problem with the object. See the details on the operations page for more information on how to [troubleshoot synchronization errors](active-directory-aadconnectsync-service-manager-ui-operations.md#troubleshoot-errors-in-operations-tab).
 
 **Lineage**  
-The lineage tab shows how the connector space object is related to the metaverse object. We can see when we last imported a change from the connected system and which rules applied to populate data in the metaverse.
+The lineage tab shows how the connector space object is related to the metaverse object. You can see when the Connector last imported a change from the connected system and which rules applied to populate data in the metaverse.
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cslineage.png)
 In the **Action** column we can see there is one **Inbound** sync rule with the action **Provision**. That indicates that as long as this connector space object is present, the metaverse object will remain. If the list of sync rules instead shows a sync rule with direction **Outbound** and **Provision** it indicates that this object will be deleted when the metaverse object is deleted.
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cslineageout.png)
