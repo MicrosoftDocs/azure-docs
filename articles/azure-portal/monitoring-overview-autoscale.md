@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/30/2016"
+	ms.date="09/06/2016"
 	ms.author="robb"/>
 
 # Overview of autoscale in Microsoft Azure Virtual Machines, Cloud Services, and Web Apps
@@ -93,7 +93,7 @@ Autoscale increases resources in only scales horizontally, which is an increase 
 ## Methods of access 
 You can set up autoscale via 
 
-- [Azure portal]
+- [Azure portal](insights-how-to-scale)
 - [PowerShell](insights-powershell-samples.md#create-and-manage-autoscale-settings) 
 - [Cross-platform Command Line Interface (CLI)](insights-cli-samples.md#autoscale )
 - [Insights REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx )
