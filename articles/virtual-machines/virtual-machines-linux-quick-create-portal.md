@@ -21,7 +21,6 @@
 
 # Create a Linux VM on Azure using the Portal
 
-> [AZURE.NOTE] If you have a few moments, help us to improve the Azure Linux VM documentation by taking this [quick survey](https://aka.ms/linuxdocsurvey) of your experiences. Every answer helps us help you get your work done.
 
 This article shows how to use the [Azure portal](https://portal.azure.com/) to create a Linux Virtual Machine quickly. The only requirements are [an Azure account](https://azure.microsoft.com/pricing/free-trial/) and [SSH public and private key files](virtual-machines-linux-mac-create-ssh-keys.md).
 

@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/29/2016"
+   ms.date="09/01/2016"
    ms.author="cherylmc" />
 
 # ExpressRoute partners and peering locations
@@ -83,7 +83,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **MTN** | Supported | Supported | London |
 | **NEXTDC** | Supported | Supported | Melbourne, Sydney |
 | **NTT Communications** | Supported | Supported | London, Los Angeles, Osaka, Tokyo |
-| **[Orange]( http://www.orange-business.com/en/products/business-vpn-galerie)** | Supported | Supported | Amsterdam, Hong Kong, London, Silicon Valley, Singapore, Washington DC |
+| **[Orange]( http://www.orange-business.com/en/products/business-vpn-galerie)** | Supported | Supported | Amsterdam, Hong Kong, London, Silicon Valley, Singapore, Sydney, Washington DC |
 | **PCCW Global Limited** | Supported | Supported | Hong Kong |
 | **[SingTel]( http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |  Supported | Supported | Singapore |
 | **Softbank** | Supported | Supported | Osaka, Tokyo | 

@@ -119,4 +119,4 @@ Learn more about Mobile Services and Notification Hubs in the following topics:
 
 [What are Notification Hubs?]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-windows-store-dotnet-send-breaking-news.md
-[Send template-based notifications to subscribers]: ../notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
+[Send template-based notifications to subscribers]: ../notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md

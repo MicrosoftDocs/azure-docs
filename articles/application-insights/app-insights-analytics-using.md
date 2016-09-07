@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/26/2016" 
+	ms.date="09/06/2016" 
 	ms.author="danha"/>
 
 
@@ -128,11 +128,14 @@ By default, results are initially displayed as a table, and you select the diagr
 
 ## Pin to dashboard
 
-You can pin a diagram to one of your [shared dashboards](app-insights-dashboards.md) - just click the pin. (You might need to [upgrade your app's pricing package](app-insights-pricing.md) to turn on this feature.) 
+You can pin a diagram or table to one of your [shared dashboards](app-insights-dashboards.md) - just click the pin. (You might need to [upgrade your app's pricing package](app-insights-pricing.md) to turn on this feature.) 
 
 ![Click the pin](./media/app-insights-analytics-using/pin-01.png)
 
 This means that, when you put together a dashboard to help you monitor the performance or usage of your web services, you can include quite complex analysis alongside the other metrics. 
+
+You can pin a table to the dashboard, if it has four or fewer columns. Only the top seven rows are displayed.
+
 
 #### Dashboard refresh
 

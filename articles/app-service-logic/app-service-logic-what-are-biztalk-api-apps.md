@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="07/28/2016" 
+	ms.date="09/01/2016" 
 	ms.author="mandia"/>
 
 # What are Connectors and BizTalk API Apps
@@ -35,7 +35,7 @@ There are different Service "Tiers" available. All Tiers include all the connect
 
 
 ## Hybrid Connectors 
-The hybrid connectors extend the reach further into the enterprise with connectivity to [SAP](app-service-logic-connector-sap.md), [Oracle](app-service-logic-connector-oracle.md), [DB2](app-service-logic-connector-db2.md), [Informix](app-service-logic-connector-informix.md), and WebSphere MQ. 
+The hybrid connectors extend the reach further into the enterprise with connectivity to [DB2](app-service-logic-connector-db2.md), [Informix](app-service-logic-connector-informix.md), and WebSphere MQ. 
 
 ## EAI and EDI Services
 Building business critical apps require more than just connectivity. Based on the foundation of Microsoft's industry leading integration platform - BizTalk Server - the BizTalk API Apps provide advanced integration capabilities that can be snapped into your Web, Mobile and Logic Apps with ease. Some of these integration capabilities include [Validate](app-service-logic-xml-validator.md), [Extract](app-service-logic-xpath-extract.md), [Transform](app-service-logic-transform-xml-documents.md), [Encoders](app-service-logic-connector-jsonencoder.md), [Trading Partner Management](app-service-logic-connector-tpm.md) and support for EDI formats like [X12](app-service-logic-connector-x12.md), [EDIFACT](app-service-logic-connector-edifact.md), and [AS2](app-service-logic-connector-as2.md).

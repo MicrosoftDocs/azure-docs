@@ -48,7 +48,7 @@ In this section, you'll create a Node.js console app that creates a new device i
     npm init
     ```
 
-2. At your command-prompt in the **createdeviceidentity** folder, run the following command to install the **azure-iothub** package:
+2. At your command-prompt in the **createdeviceidentity** folder, run the following command to install the **azure-iothub** Service SDK package:
 
     ```
     npm install azure-iothub --save
@@ -184,7 +184,7 @@ In this section, you'll create a Node.js console app that simulates a device tha
     npm init
     ```
 
-2. At your command-prompt in the **simulateddevice** folder, run the following command to install the **azure-iot-device-amqp** package:
+2. At your command-prompt in the **simulateddevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-amqp** package:
 
     ```
     npm install azure-iot-device azure-iot-device-amqp --save

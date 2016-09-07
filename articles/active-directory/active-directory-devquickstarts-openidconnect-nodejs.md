@@ -205,7 +205,7 @@ app.configure(function() {
 
 // Our Auth routes (Section 3)
 
-// POST /auth/openid
+// GET /auth/openid
 //   Use passport.authenticate() as route middleware to authenticate the
 //   request.  The first step in OpenID authentication will involve redirecting
 //   the user to their OpenID provider.  After authenticating, the OpenID
