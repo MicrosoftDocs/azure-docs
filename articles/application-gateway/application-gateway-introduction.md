@@ -28,7 +28,7 @@ Application Gateway currently supports layer-7 application delivery with the fol
 - **[Secure Sockets Layer (SSL) offload](application-gateway-ssl-arm.md)** - This feature takes the costly task of decrypting HTTPS traffic off your web servers. By terminating the SSL connection at the Application Gateway and forwarding the request to server un-encrypted, the web server is unburdened by the decryption.  Application Gateway re-encrypts the response before sending it back the to client. This feature is useful in scenarios where the back-end is located in the same secured virtual network as the Application Gateway in Azure.
 - **[URL-based content routing](application-gateway-url-route-overview.md)** - This feature provides the capability to use different back-end servers for different traffic. Traffic for a folder on the web server or for a CDN could be routed to a different back-end, reducing unneeded load on backends that don't server specific content.
 - **[Multi-site routing](application-gateway-multi-site-overview.md)** - Application gateway allows for you to consolidate up to 20 websites on a single application gateway.
-- **[Websocket support](application-gateway-websocket.md)** - Another great feature of Application Gateway is the support for websocket support.
+- **[Websocket support](application-gateway-websocket.md)** - Another great feature of Application Gateway is the native support for Websocket.
 
 
 ## HTTP layer 7 load balancing
