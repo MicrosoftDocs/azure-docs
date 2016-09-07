@@ -42,8 +42,8 @@ PowerShell window, Linux shell, or OS X terminal.
 [sign up for a free trial](/pricing/free-trial/?WT.mc_id=A261C142F) or 
 [activate your Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
->[AZURE.NOTE] See a web app in action. [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751) immediately and create a short-lived starter app—no credit 
-card required, no commitments.
+>[AZURE.NOTE] You can [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751) before you get an Azure account. Create a starter app and play with
+it for up to an hour—no credit card required, no commitments.
 
 <a name="create"></a>
 ## Create a web app
