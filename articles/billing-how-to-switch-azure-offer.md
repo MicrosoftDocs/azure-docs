@@ -25,13 +25,13 @@ You [may be eligible](#where-is-the-button) to switch your subscription to a mor
 
 | From                                                              | To                                                                                      |
 |-------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)              |
 | [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [12-Month Prepay](https://azure.microsoft.com/offers/ms-azr-0026p/)                     |
 | [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)          |
 | [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)     |
 | [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/)                      |
 | [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)            |
 | [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | [Visual Studio Enterprise (Bizspark)](https://azure.microsoft.com/offers/ms-azr-0064p/) |
-
 > [AZURE.NOTE] If you're on Free Trial, learn how to [upgrade to Pay-As-You-Go](billing-buy-sign-up-azure-subscription.md#upgrade-azure-free-trial-to-pay-as-you-go).
 
 > If you've signed up for your subscription recently, you must wait until your first billing period to complete before you can change offers.
