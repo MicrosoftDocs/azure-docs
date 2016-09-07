@@ -21,7 +21,7 @@
 
 ## What you need to know
 
-You [may be eligible](#where-is-the-button) to switch your subscription to a more favorable offer, without any service downtime. Below are the paths we currently support in the [Account Center](https://account.windowsazure.com/Subscriptions). Click on the links to learn about requirements.
+You [may be eligible](#where-is-the-button) to switch your subscription to a more favorable offer, without any service downtime. Below are the paths we currently support in the [Account Center](https://account.windowsazure.com/Subscriptions). Click the links to learn about requirements.
 
 | From                                                              | To                                                                                      |
 |-------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
@@ -36,7 +36,7 @@ If you're on Free Trial, learn how to [upgrade to Pay-As-You-Go](billing-buy-sig
 
 > [AZURE.NOTE] For other offer changes, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-If you've just signed up for your subscription recently, you must wait until your first billing period to complete before you can change offers.
+If you've signed up for your subscription recently, you must wait until your first billing period to complete before you can change offers.
 	
 ## Guide to switching your subscription to another offer
 
@@ -48,13 +48,13 @@ If you've just signed up for your subscription recently, you must wait until you
 
 	![siwtchbutton](./media/billing-how-to-switch-azure-offer/switchbutton.png)
 	
-4.	You will be presented with all the offers your subscription can be switched to.  This list will vary based on the memberships that your account is associated with, and also by the current offer. You can click on the **Learn more** under each offer for detailed information about it. Click on the desired offer to proceed to the next step.
+4.	You will be presented with all the offers your subscription can be switched to.  This list will vary based on the memberships that your account is associated with, and also by the current offer. You can click the **Learn more** under each offer for detailed information about it. Click the desired offer to proceed to the next step.
 
 	![selectoffer](./media/billing-how-to-switch-azure-offer/selectoffer.png)
-5.	Depending on the offer you’re switching to, you may see a note about the impact of switching. Go through this carefully and follow the instructions before you proceed.
+5.	Depending on the offer you’re switching to, you may see a note about the impact of switching. Go through this list carefully and follow the instructions before you proceed.
 
 	![thingstonote](./media/billing-how-to-switch-azure-offer/thingstonote.png)
-6.	You have the option to rename your subscription. By default, we set it to the new offer name. Click on Switch Offer to complete the process.
+6.	You can to rename your subscription. By default, we set it to the new offer name. Click **Switch Offer** to complete the process.
 
 	![confirmpage](./media/billing-how-to-switch-azure-offer/confirmpage.png)
 7.	Success! Your subscription is now switched to the new offer.
@@ -89,7 +89,7 @@ On the day you switch, an invoice will be generated for all outstanding charges.
 
 ### Can I use this mechanism to migrate from web direct to [Cloud Solution Provider](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP), or an [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA) offer?
 
-This mechanism can be used to switch from - and to - only web direct offers. In order to move your existing subscription into EA, have your enrollment admin add your account into the EA. You will then receive an invitation email. When you follow the instructions to accept the invitation, your subscriptions will automatically be moved under the Enterprise Agreement. There is no option to move an existing web direct subscription into CSP today.
+This mechanism can be used to switch from - and to - only web direct offers. To move your existing subscription into EA, have your enrollment admin add your account into the EA. You will then receive an invitation email. When you follow the instructions to accept the invitation, your subscriptions will automatically be moved under the Enterprise Agreement. There is no option to move an existing web direct subscription into CSP today.
 
 ## Next steps
 
