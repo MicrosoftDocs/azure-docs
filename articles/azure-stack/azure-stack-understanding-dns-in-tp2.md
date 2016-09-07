@@ -1,6 +1,20 @@
----
-title: Understanding DNS in Azure Stack TP2
----
+﻿<properties
+	pageTitle="Understanding DNS in Azure Stack TP2 | Microsoft Azure"
+	description="understanding new DNS features and capabilities in Azure Stack TP2."
+	services="azure-stack"
+	documentationCenter=""
+	authors="ScottNapolitan"
+	manager="darmour"
+	editor=""/>
+
+<tags
+	ms.service="azure-stack"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="09/26/2016"
+	ms.author="scottnap"/>
 
 Introducing iDNS for Azure Stack
 ================================
