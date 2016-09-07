@@ -24,14 +24,12 @@ Once you have your first VM up and running, you can move on to installing softwa
 ## Make sure the VM is running
 
 1. Open the [Azure portal](https://portal.azure.com).
-2. In **Virtual machines** select the VM that you created.
+2. On the Hub menu, click **Virtual Machines**. Select the virtual machine from the list.
 3. If the status is **Stopped (Deallocated), click on the **Start** button on the **Essentials** blade of the VM. If the status is **Running*, you can move on to the next step.
 
 ## Connect to the virtual machine and log on
 
-1.	On the Hub menu, click **Virtual Machines**.
-
-2.	Select the virtual machine from the list.
+1.	On the Hub menu, click **Virtual Machines**. Select the virtual machine from the list.
 
 3. On the blade for the virtual machine, click **Connect**. This creates and downloads a Remote Desktop Protocol file (.rdp file) that is like a shortcut to connect to your machine. You might want to save the file to your desktop for easy access. **Open** this file to connect to your VM.
 
