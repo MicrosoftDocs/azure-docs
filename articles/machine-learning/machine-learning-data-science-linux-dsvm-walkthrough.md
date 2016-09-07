@@ -19,11 +19,11 @@
 
 # Data science on the Linux Data Science Virtual Machine
 
-This walkthrough shows you how to perform several common data science tasks with the Linux Data Science VM. The Linux Data Science Virtual Machine (DSVM) is a virtual machine image available on Azure that is pre-installed with a collection of tools commonly used for data analytics and machine learning. The key software components are itemized in the [Provision the Linux Data Science Virtual Machine](machine-learning-data-science-linux-dsvm-intro.md) topic. The VM image makes it easy to get started doing data science in minutes without having to install and configure all of the tools individually. You can easily scale up the VM, if needed, and stop it when not in use. So this resource is both elastic and cost-efficient. 
+This walkthrough shows you how to perform several common data science tasks with the Linux Data Science VM. The Linux Data Science Virtual Machine (DSVM) is a virtual machine image available on Azure that is pre-installed with a collection of tools commonly used for data analytics and machine learning. The key software components are itemized in the [Provision the Linux Data Science Virtual Machine](machine-learning-data-science-linux-dsvm-intro.md) topic. The VM image makes it easy to get started doing data science in minutes, without having to install and configure each of the tools individually. You can easily scale up the VM, if needed, and stop it when not in use. So this resource is both elastic and cost-efficient. 
 
 The data science tasks demonstrated in this walkthrough follow the steps outlined in the [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/data-science-process/). This process provides a systematic approach to data science that enables teams of data scientists to effectively collaborate over the lifecycle of building intelligent applications. The data science process also provides an iterative framework for data science that can be followed by an individual.
 
-We analyze the [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) dataset in this walkthrough. This is a set of emails that are marked as either spam or ham (meaning they are not spam), and also contains some statistics on the content of the emails.The statistics included are discussed in the next but one section. 
+We analyze the [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) dataset in this walkthrough. This is a set of emails that are marked as either spam or ham (meaning they are not spam), and also contains some statistics on the content of the emails. The statistics included are discussed in the next but one section. 
 
 
 ## Prerequisites
@@ -38,9 +38,9 @@ Before you can use a Linux Data Science Virtual Machine, you must have the follo
 
 ## Download the spambase dataset and add headers
 
-The [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) dataset is a relatively small set of data that contains only 4601 examples. This is a convenient size to use when demonstrating that some of the key features of the Data Science VM as it keeps the resource requirements quite modest.
+The [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) dataset is a relatively small set of data that contains only 4601 examples. This is a convenient size to use when demonstrating that some of the key features of the Data Science VM as it keeps the resource requirements modest.
 
->[AZURE.NOTE]: This walkthrough was created on a D2 v2-sized Linux Data Science Virtual Machine. This sized DSVM is capable of handling the procedures in this walkthrough.
+>[AZURE.NOTE]: This walkthrough was created on a D2 v2-sized Linux Data Science Virtual Machine. This size DSVM is capable of handling the procedures in this walkthrough.
 
 >[AZURE.NOTE]: If you need more storage space, you can create additional disks and attach them to your VM. These disks use persistent Azure storage, so their data is preserved even when the server is reprovisioned due to resizing or is shut down. To add a disk and attach it to your VM, follow the instructions in [Add a disk to a Linux VM](../virtual-machines/virtual-machines-linux-add-disk.md). These steps use the Azure Command-Line Interface (Azure CLI), which is already installed on the DSVM. So these procedures can be done entirely from the VM itself.
 
@@ -212,7 +212,7 @@ Publish the predictSpam function to AzureML using the **publishWebService** func
         list("spam"="int"),
         wsID, wsAuth)
 
-This function takes the **predictSpam** function, creates a new web service named **spamWebService** with defined inputs and outputs, and returns information about the new endpoint.
+This function takes the **predictSpam** function, creates a web service named **spamWebService** with defined inputs and outputs, and returns information about the new endpoint.
 
 View details of the published web service, including its API endpoint and access keys with the command:
 
@@ -275,7 +275,7 @@ To make predictions:
 
     clf.predict(X.ix[0:20, :])
 
-To show how to publish an AzureML endpoint, let's make a simpler model the three variables as we did when we pubished the R model previously. 
+To show how to publish an AzureML endpoint, let's make a simpler model the three variables as we did when we published the R model previously. 
 
     X = data.ix[["char_freq_dollar", "word_freq_remove", "word_freq_hp"]]
     y = data.ix[:, 57]
@@ -351,7 +351,7 @@ The **Explore** tab also allows you to generate many insightful plots. To plot a
 
 - Select **Distributions**.
 - Check **Histogram** for **word_freq_remove** and **word_freq_you**.
-- Select **Execute**. You should see both density plots in a single graph window, where it is clear that the word *you* appears much more frequently in emails than *remove*.
+- Select **Execute**. You should see both density plots in a single graph window, where it is clear that the word "you" appears much more frequently in emails than "remove".
 
 The Correlation plots are also interesting. To create one:
 
@@ -520,5 +520,5 @@ You could also query with Squirrel SQL. Follow similar steps for PostgreSQL, usi
 
 For an overview of topics that walk you through the tasks that comprise the Data Science process in Azure, see [Team Data Science Process](http://aka.ms/datascienceprocess).
 
-[Team Data Science Process walkthroughs](data-science-process-walkthroughs.md) describes other end-to-end walkthroughs that demonstrate the steps in the Team Data Science Process for specific scenarios. The walkthroughs also illustrate how to combine cloud and on-premises tools and services into a workflow or pipeline to create an intelligent application.
+[Team Data Science Process walkthroughs](data-science-process-walkthroughs.md) describe other end-to-end walkthroughs that demonstrate the steps in the Team Data Science Process for specific scenarios. The walkthroughs also illustrate how to combine cloud and on-premises tools and services into a workflow or pipeline to create an intelligent application.
 
