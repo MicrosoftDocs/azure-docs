@@ -12,20 +12,27 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2016"
+	ms.date="09/01/2016"
 	ms.author="awills"/>
 
 # Monitor Azure web app performance
 
-In the [Azure Portal](https://portal.azure.com) you can set up monitoring to collect the  statistics and details on the application dependencies in your [Azure web apps](../app-service-web/app-service-web-overview.md) or [virtual machines](../virtual-machines/virtual-machines-linux-about.md).
+In the [Azure Portal](https://portal.azure.com) you can set up application performance monitoring of your [Azure web apps](../app-service-web/app-service-web-overview.md) or [virtual machines](../virtual-machines/virtual-machines-linux-about.md). Performance monitoring solutions instrument your app to send telemetry about its activities. The resulting metrics and telemetry can be used to help diagnose issues, improve performance, and assess usage.
 
-Azure supports Application Performance Monitoring (APM) by leveraging extensions. These extensions are installed into your application and collect the data and report back to the monitoring services.
+## Run time or build time
 
-**Application Insights** and **New Relic** are two of the performance monitoring extensions that are available. To use them, you install an agent at runtime. With Application Insights, there's also the option to build your code with an SDK. The SDK lets you write code to monitor the usage and performance of your app in more detail.
+You can configure monitoring by instrumenting the app in either of two ways:
 
-## Application Insights
+* **Run-time** - You can select a performance monitoring extension when your web app is already live. It isn't necessary to rebuild or re-install your app. You get a standard set of packages that monitor response times, success rates, exceptions, dependencies, and so on. 
 
-### (Optional) Rebuild the app with the SDK...
+    **Application Insights** and **New Relic** are two of the runtime performance monitoring extensions that are available.
+ 
+* **Build time** - You can install a package in your app in development. This option is more versatile. In addition to the same standard packages, you can write code to customize the telemetry or to send your own telemetry. You can log specific activities or record events according to the semantics of your app domain. 
+
+    **Application Insights** provides build-time packages. 
+
+
+## Build the app with the Application Insights package...
 
 Application Insights can provide more detailed telemetry by installing an SDK into your app.
 
@@ -46,7 +53,7 @@ The SDK provides an API so that you can [write custom telemetry](../application-
 
 ### ...or set up a resource manually
 
-If you didn't add the SDK in Visual Studio, you must set up the Application Insights resource in Azure, where telemetry is stored, analyzed and displayed.
+If you didn't add the SDK in Visual Studio, you must set up an Application Insights resource in Azure, where telemetry is stored, analyzed and displayed.
 
 ![Click Add, Developer Services, Application Insights. Choose ASP.NET app type.](./media/insights-perf-analytics/01-new.png)
 

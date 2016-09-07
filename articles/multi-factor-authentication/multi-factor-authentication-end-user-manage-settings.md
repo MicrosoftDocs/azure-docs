@@ -158,7 +158,7 @@ First, you need to ensure the following:
 - If you selected to receive verification codes by text message to your mobile phone, make sure your service plan and device supports text message delivery. Your delivery speed and availability may vary by location and service provider. Also make sure that you have an adequate cell signal when trying to receive these codes.
 - If you chose to receive a verification via the mobile app, ensure that you have a significant cell signal.  Also remember that delivery speed and availability may vary by location and service provider. 
 
-If you have a smartphone, we recommend you use the [Azure Authenticator app](multi-factor-authentication-microsoft-authenticator.md).
+If you have a smartphone, we recommend you use the Microsoft Authenticator app which is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
 You can switch between receiving your verification codes via text messages through the mobile app by choosing **Use a different verification option** when you sign-in. 
 

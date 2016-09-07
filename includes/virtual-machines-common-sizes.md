@@ -69,155 +69,174 @@ ACUs marked with a * use Intel® Turbo technology to increase CPU frequency and 
 
 The following tables show the sizes and the capacities they provide.
 
-* Storage capacity is represented by using 1024^3 bytes as the unit of measurement for GB. This is sometimes referred to as gibibyte, or base 2 definition. When comparing sizes that use different base systems, remember that base 2 sizes may appear smaller than base 10 but for any specific size (such as 1 GB) a base 2 system provides more capacity than a base 10 system, because 1024^3 is greater than 1000^3.
+* Storage capacity is shown in units of GiB or 1024^3 bytes. When comparing disks measured in GB (1000^3 bytes) to disks measured in GiB (1024^3) remember that capacity numbers given in GiB may appear smaller. For example, 1023 GiB = 1098.4 GB
+
+* Disk throughput is measured in input/output operations per second (IOPS) and MBps where MBps = 10^6 bytes/sec.
+
+* Data disks can operate in cached or uncached modes.  For cached data disk operation, the host cache mode is set to **ReadOnly** or **ReadWrite**.  For uncached data disk operation, the host cache mode is set to **None**.
+
 
 * Maximum network bandwidth is the maximum aggregated bandwidth allocated and assigned per VM type. The maximum bandwidth provides guidance for selecting the right VM type to ensure adequate network capacity is available. When moving between Low, Moderate, High and Very High, the throughput will increase accordingly. Actual network performance will depend on many factors including network and application loads, and application network settings.
 
 
 ## A-series
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)| Max network bandwidth |
-|---|---|---|---|---|---|---|---|
-|Standard_A0 |1|768 MB|1| Temporary = 20 GB |1|1x500| low |
-|Standard_A1 |1|1.75 GB|1|Temporary = 70 GB |2|2x500| moderate |
-|Standard_A2 |2|3.5 GB|1|Temporary = 135 GB |4|4x500| moderate |
-|Standard_A3 |4|7 GB|2|Temporary = 285 GB |8|8x500| high |
-|Standard_A4 |8|14 GB|4|Temporary = 605 GB |16|16x500| high |
-|Standard_A5 |2|14 GB|1|Temporary = 135 GB |4|4X500| moderate |
-|Standard_A6 |4|28 GB|2|Temporary = 285 GB |8|8x500| high |
-|Standard_A7 |8|56 GB|4|Temporary = 605 GB |16|16x500| high |
+| Size        | CPU cores | Memory: GiB | Local disk size: GiB | Max data disks | Max data disk throughput: IOPS | Max NICs / Network bandwidth |
+|-------------|-----------|--------------|-----------------------|----------------|--------------------|-----------------------|
+| Standard_A0 | 1         | 0.768        | 20                    | 1              | 1x500              | 1 / low                   |
+| Standard_A1 | 1         | 1.75         | 70                    | 2              | 2x500              | 1 / moderate              |
+| Standard_A2 | 2         | 3.5 GB       | 135                   | 4              | 4x500              | 1 / moderate              |
+| Standard_A3 | 4         | 7            | 285                   | 8              | 8x500              | 2 / high                  |
+| Standard_A4 | 8         | 14           | 605                   | 16             | 16x500             | 4 / high                  |
+| Standard_A5 | 2         | 14           | 135                   | 4              | 4X500              | 1 / moderate              |
+| Standard_A6 | 4         | 28           | 285                   | 8              | 8x500              | 2 / high                  |
+| Standard_A7 | 8         | 56           | 605                   | 16             | 16x500             | 4 / high                  |
 
-
-
+<br>
 ## A-series - compute-intensive instances
 
 For information and considerations about using these sizes, see [About the A8, A9, A10, and A11 compute intensive instances](../articles/virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)| Max network bandwidth |
-|---|---|---|---|---|---|---|---|
-|Standard_A8|8|56 GB|2| Temporary = 382 GB  |16|16x500| high |
-|Standard_A9|16|112 GB|4| Temporary = 382 GB  |16|16x500| very high |
-|Standard_A10|8|56 GB|2| Temporary = 382 GB  |16|16x500| high |
-|Standard_A11|16|112 GB|4| Temporary = 382 GB  |16|16x500| very high |
 
+| Size         | CPU cores | Memory: GiB | Local disk size: GiB | Max data disks | Max data disk throughput: IOPS | Max NICs / Network bandwidth |
+|--------------|-----------|--------------|-----------------------|----------------|--------------------|-----------------------|
+| Standard_A8  | 8         | 56           | 382                   | 16             | 16x500             | 2 / high                  |
+| Standard_A9  | 16        | 112          | 382                   | 16             | 16x500             | 4 / very high             |
+| Standard_A10 | 8         | 56           | 382                   | 16             | 16x500             | 2 / high                  |
+| Standard_A11 | 16        | 112          | 382                   | 16             | 16x500             | 4 / very high             |
+
+<br>
 ## D-series
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)| Max network bandwidth |
-|---|---|---|---|---|---|---|---|
-|Standard_D1 |1|3.5 GB|1|Temporary (SSD) =50 GB |2|2x500| moderate |
-|Standard_D2 |2|7 GB|2|Temporary (SSD) =100 GB |4|4x500| high |
-|Standard_D3 |4|14 GB|4|Temporary (SSD) =200 GB |8|8x500| high |
-|Standard_D4 |8|28 GB|8|Temporary (SSD) =400 GB |16|16x500| high |
-|Standard_D11 |2|14 GB|2|Temporary (SSD) =100 GB |4|4x500| high |
-|Standard_D12 |4|28 GB|4|Temporary (SSD) =200 GB |8|8x500| high |
-|Standard_D13 |8|56 GB|8|Temporary (SSD) =400 GB |16|16x500| high |
-|Standard_D14 |16|112 GB|8|Temporary (SSD) =800 GB |32|32x500| very high |
 
+| Size         | CPU cores | Memory: GiB | Local disk size: GiB | Max data disks | Max data disk throughput: IOPS | Max NICs / Network bandwidth |
+|--------------|-----------|--------------|----------------------|----------------|--------------------|-----------------------|
+| Standard_D1  | 1         | 3.5          | 50                   | 2              | 2x500              | 1 / moderate              |
+| Standard_D2  | 2         | 7            | 100                  | 4              | 4x500              | 2 / high                  |
+| Standard_D3  | 4         | 14           | 200                  | 8              | 8x500              | 4 / high                  |
+| Standard_D4  | 8         | 28           | 400                  | 16             | 16x500             | 8 / high                  |
+| Standard_D11 | 2         | 14           | 100                  | 4              | 4x500              | 2 / high                  |
+| Standard_D12 | 4         | 28           | 200                  | 8              | 8x500              | 4 / high                  |
+| Standard_D13 | 8         | 56           | 400                  | 16             | 16x500             | 8 / high                  |
+| Standard_D14 | 16        | 112          | 800                  | 32             | 32x500             | 8 / very high             |
 
+<br>
 ## Dv2-series
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)| Max network bandwidth |
-|---|---|---|---|---|---|---|---|
-|Standard_D1_v2 |1|3.5 GB|1|Temporary (SSD) =50 GB |2|2x500| moderate |
-|Standard_D2_v2 |2|7 GB|2|Temporary (SSD) =100 GB |4|4x500| high |
-|Standard_D3_v2 |4|14 GB|4|Temporary (SSD) =200 GB |8|8x500| high |
-|Standard_D4_v2 |8|28 GB|8|Temporary (SSD) =400 GB |16|16x500| high |
-|Standard_D5_v2 |16|56 GB|8|Temporary (SSD) =800 GB |32|32x500| extremely high |
-|Standard_D11_v2 |2|14 GB|2|Temporary (SSD) =100 GB |4|4x500| high |
-|Standard_D12_v2 |4|28 GB|4|Temporary (SSD) =200 GB |8|8x500| high |
-|Standard_D13_v2 |8|56 GB|8|Temporary (SSD) =400 GB |16|16x500| high |
-|Standard_D14_v2 |16|112 GB|8|Temporary (SSD) =800 GB |32|32x500| extremely high |
-|Standard_D15_v2 |20|140 GB|8|Temporary (SSD) =1 TB |40|40x500| extremely high |
+| Size            | CPU cores | Memory: GiB | Local disk size: GiB | Max data disks | Max data disk throughput: IOPS | Max NICs / Network bandwidth |
+|-----------------|-----------|--------------|----------------------|----------------|--------------------|-----------------------|
+| Standard_D1_v2  | 1         | 3.5          | 50                   | 2              | 2x500              | 1 / moderate              |
+| Standard_D2_v2  | 2         | 7            | 100                  | 4              | 4x500              | 2 / high                  |
+| Standard_D3_v2  | 4         | 14           | 200                  | 8              | 8x500              | 4 / high                  |
+| Standard_D4_v2  | 8         | 28           | 400                  | 16             | 16x500             | 8 / high                  |
+| Standard_D5_v2  | 16        | 56           | 800                  | 32             | 32x500             | 8 / extremely high        |
+| Standard_D11_v2 | 2         | 14           | 100                  | 4              | 4x500              | 2 / high                  |
+| Standard_D12_v2 | 4         | 28           | 200                  | 8              | 8x500              | 4 / high                  |
+| Standard_D13_v2 | 8         | 56           | 400                  | 16             | 16x500             | 8 / high                  |
+| Standard_D14_v2 | 16        | 112          | 800                  | 32             | 32x500             | 8 / extremely high        |
+| Standard_D15_v2 | 20        | 140          | 1,000                | 40             | 40x500             | 8 / extremely high        |
 
-
+<br>
 ## DS-series*
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Cache size (GB)|Max. disk IOPS &amp; bandwidth| Max network bandwidth |
-|---|---|---|---|---|---|---|---|---|
-|Standard_DS1 |1|3.5|1|Local SSD disk = 7 GB |2|43| 3,200  32 MB per second | moderate |
-|Standard_DS2 |2|7|2|Local SSD disk = 14 GB |4|86| 6,400  64 MB per second | high |
-|Standard_DS3 |4|14|4|Local SSD disk = 28 GB |8|172| 12,800  128 MB per second | high |
-|Standard_DS4 |8|28|8|Local SSD disk = 56 GB |16|344| 25,600  256 MB per second | high |
-|Standard_DS11 |2|14|2|Local SSD disk = 28 GB |4|72| 6,400  64 MB per second | high |
-|Standard_DS12 |4|28|4|Local SSD disk = 56 GB |8|144| 12,800  128 MB per second | high |
-|Standard_DS13 |8|56|8|Local SSD disk = 112 GB |16|288| 25,600  256 MB per second | high |
-|Standard_DS14 |16|112|8|Local SSD disk = 224 GB |32|576| 51,200  512 MB per second | very high |
 
-*The maximum input/output operations per second (IOPS) and throughput (bandwidth) possible with a DS series VM is affected by the size of the disk. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
+| Size          | CPU cores | Memory: GiB | Local disk size: GiB | Max data disks | Max cached disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth |
+|---------------|-----------|--------------|--------------------------------|----------------|--------------------------------------------|----------------------------------------------|-----------------------|
+| Standard_DS1  | 1   | 3.5          | 7       | 2     | 4,000 / 32 (42)               | 3,200 / 32    | 1 / moderate              |
+| Standard_DS2  | 2   | 7            | 14      | 4     | 8,000 / 64 (86)               | 6,400 / 64    | 2 / high                  |
+| Standard_DS3  | 4   | 14           | 28      | 8     | 16,000 / 128 (172)            | 12,800 / 128  | 4 / high                  |
+| Standard_DS4  | 8   | 28           | 56      | 16    | 32,000 / 256 (344)            | 25,600 / 256  | 8 / high                  |
+| Standard_DS11 | 2   | 14           | 28      | 4     | 8,000 / 64 (72)               | 6,400 / 64    | 2 / high                  |
+| Standard_DS12 | 4   | 28           | 56      | 8     | 16,000 / 128 (144)            | 12,800 / 128  | 4 / high                  |
+| Standard_DS13 | 8   | 56           | 112     | 16    | 32,000 / 256 (288)            | 25,600 / 256  | 8 / high                  |
+| Standard_DS14 | 16  | 112          | 224     | 32    | 64,000 / 512 (576)            | 51,200 / 512  | 8 / very high             |
+
+MBps = 10^6 bytes per second.
+
+*The maximum disk throughput (IOPS or MBps) possible with a DS series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
 
 
+
+<br>
 ## DSv2-series*
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Cache size (GB)|Max. disk IOPS &amp; bandwidth| Max network bandwidth |
-|---|---|---|---|---|---|---|---|---|
-|Standard_DS1_v2 |1|3.5|1|Local SSD disk = 7 GB |2|43| 3,200  48 MB per second | moderate |
-|Standard_DS2_v2 |2|7|2|Local SSD disk = 14 GB |4|86| 6,400  96 MB per second | high |
-|Standard_DS3_v2 |4|14|4|Local SSD disk = 28 GB |8|172| 12,800  192 MB per second | high |
-|Standard_DS4_v2 |8|28|8|Local SSD disk = 56 GB |16|344| 25,600  384 MB per second | high |
-|Standard_DS5_v2 |16|56|8|Local SSD disk = 112 GB |32|688| 51,200  768 MB per second | extremely high |
-|Standard_DS11_v2 |2|14|2|Local SSD disk = 28 GB |4|72| 6,400  96 MB per second | high |
-|Standard_DS12_v2 |4|28|4|Local SSD disk = 56 GB |8|144| 12,800  192 MB per second | high |
-|Standard_DS13_v2 |8|56|8|Local SSD disk = 112 GB |16|288| 25,600  384 MB per second | high |
-|Standard_DS14_v2 |16|112|8|Local SSD disk = 224 GB |32|576| 51,200  768 MB per second | extremely high |
-|Standard_DS15_v2 |20|140 GB|8|Local SSD disk = 280 GB |40| 720|64,000 960 MB per second | extremely high |
+
+| Size             | CPU cores | Memory: GiB | Local SSD disk size: GiB | Max data disks | Max cached disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth |
+|------------------|-----------|--------------|---------------------------|----------------|-------------------------------------------------|-------------------------------------------------|------------------------------|
+| Standard_DS1_v2  | 1         | 3.5          | 7                         | 2              | 4,000 / 32 (43)                        | 3,200 / 48                                 | 4 moderate                   |
+| Standard_DS2_v2  | 2         | 7            | 14                        | 4              | 8,000 / 64 (86)                        | 6,400 / 96                                 | 2 high                       |
+| Standard_DS3_v2  | 4         | 14           | 28                        | 8              | 16,000 / 128 (172)                     | 12,800 / 192                               | 4 high                       |
+| Standard_DS4_v2  | 8         | 28           | 56                        | 16             | 32,000 / 256 (344)                     | 25,600 / 384                               | 8 high                       |
+| Standard_DS5_v2  | 16        | 56           | 112                       | 32             | 64,000 / 512 (688)                     | 51,200 / 768                               | 8 extremely high             |
+| Standard_DS11_v2 | 2         | 14           | 28                        | 4              | 8,000 / 64 (72)                        | 6,400 / 96                                 | 2 high                       |
+| Standard_DS12_v2 | 4         | 28           | 56                        | 8              | 16,000 / 128 (144)                     | 12,800 / 192                               | 4 high                       |
+| Standard_DS13_v2 | 8         | 56           | 112                       | 16             | 32,000 / 256 (288)                     | 25,600 / 384                               | 8 high                       |
+| Standard_DS14_v2 | 16        | 112          | 224                       | 32             | 64,000 / 512 (576)                     | 51,200 / 768                               | 8 extremely high             |
+| Standard_DS15_v2 | 20        | 140 GB       | 280                       | 40             | 80,000 / 640 (720)                     | 64,000 / 960                               | 8 extremely high             |
+
+MBps = 10^6 bytes per second. 
+
+*The maximum disk throughput (IOPS or MBps) possible with a DSv2 series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
 
 
-*The maximum input/output operations per second (IOPS) and throughput (bandwidth) possible with a DS series VM is affected by the size of the disk. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
-
-
+<br>
 ## F-series
 
 
-| Size         | CPU cores | Memory | NICs (Max) | Disk size          | Max data disks (1023 GB each) | Max IOPS (500 per disk) | Max network bandwidth |
-|--------------|-----------|--------|------------|-------------------------|--------------------------|--------------------------|-------------|
-| Standard_F1  | 1         | 2 GB   | 1          | Temporary (SSD) =16 GB  | 2                        | 2x500                    | moderate    |
-| Standard_F2  | 2         | 4 GB   | 2          | Temporary (SSD) =32 GB  | 4                        | 4x500                    | high        |
-| Standard_F4  | 4         | 8 GB   | 4          | Temporary (SSD) =64 GB  | 8                        | 8x500                    | high        |
-| Standard_F8  | 8         | 16 GB  | 8          | Temporary (SSD) =128 GB | 16                       | 16x500                   | high        |
-| Standard_F16 | 16        | 32 GB  | 8          | Temporary (SSD) =256 GB | 32                       | 32x500                   | extremely high   |
+| Size         | CPU cores | Memory: GiB | Local SSD disk size: GiB | Max data disks | Max disk throughput: IOPS | Max NICs / Network bandwidth |
+|--------------|-----------|--------------|----------------------|----------------|--------------------|-----------------------|
+| Standard_F1  | 1         | 2            | 16                   | 2              | 2x500              | 1 / moderate              |
+| Standard_F2  | 2         | 4            | 32                   | 4              | 4x500              | 2 / high                  |
+| Standard_F4  | 4         | 8            | 64                   | 8              | 8x500              | 4 / high                  |
+| Standard_F8  | 8         | 16           | 128                  | 16             | 16x500             | 8 / high                  |
+| Standard_F16 | 16        | 32           | 256                  | 32             | 32x500             | 8 / extremely high        |
 
-
-
+<br>
 ## Fs-series*
 
-| Size          | CPU cores | Memory | NICs (Max) | Disk size         | Max data disks (1023 GB each) | Cache size (GB) | Max disk IOPS & bandwidth | Max network bandwidth |
-|---------------|-----------|--------|------------|------------------------|-----------|-----------|----------------------------|------------|
-| Standard_F1s  | 1         | 2      | 1          | Local SSD disk = 4 GB  | 2         | 12        | 3,200 48 MB per second     | moderate   |
-| Standard_F2s  | 2         | 4      | 2          | Local SSD disk = 8 GB  | 4         | 24        | 6,400 96 MB per second     | high       |
-| Standard_F4s  | 4         | 8      | 4          | Local SSD disk = 16 GB | 8         | 48        | 12,800 192 MB per second   | high       |
-| Standard_F8s  | 8         | 16     | 8          | Local SSD disk = 32 GB | 16        | 96        | 25,600 384 MB per second   | high       |
-| Standard_F16s | 16        | 32     | 8          | Local SSD disk = 64 GB | 32        | 192       | 51,200 768 MB per second   | extremely high  |
+| Size             | CPU cores | Memory: GiB | Local SSD disk size: GiB | Max data disks | Max cached disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth |
+|---------------|-------|-----|----------|--------|------------------------------|---------------------------------|---------------|
+| Standard_F1s  | 1     | 2   | 4        | 2      | 4,000 / 32 (12)         | 3,200 / 48        | 1 / moderate       |
+| Standard_F2s  | 2     | 4   | 8        | 4      | 8,000 / 64 (24)         | 6,400 / 96        | 2 / high           |
+| Standard_F4s  | 4     | 8   | 16       | 8      | 16,000 / 128 (48)       | 12,800 / 192      | 4 / high           |
+| Standard_F8s  | 8     | 16  | 32       | 16     | 32,000 / 256 (96)       | 25,600 / 384      | 8 / high           |
+| Standard_F16s | 16    | 32  | 64       | 32     | 64,000 / 512 (192)      | 51,200 / 768      | 8 / extremely high |
+
+MBps = 10^6 bytes per second. 
+
+*The maximum disk throughput (IOPS or MBps) possible with a Fs series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
 
 
-
-*The maximum input/output operations per second (IOPS) and throughput (bandwidth) possible with a Fs series VM is affected by the size of the disk. For details, see [Premium Storage: High-performance storage for Azure virtual machine workloads](../articles/storage/storage-premium-storage.md).
-
-
-
-
-
+<br>
 ## G-series
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Max. IOPS (500 per disk)| Max network bandwidth |
-|---|---|---|---|---|---|---|---|
-|Standard_G1 |2|28 GB|1|Local SSD disk = 384 GB |4|4 x 500| high |
-|Standard_G2 |4|56 GB|2|Local SSD disk = 768 GB |8|8 x 500| high |
-|Standard_G3 |8|112 GB|4|Local SSD disk = 1,536 GB |16|16 x 500| very high | 
-|Standard_G4 |16|224 GB|8|Local SSD disk = 3,072 GB |32|32 x 500| extremely high |
-|Standard_G5 |32|448 GB|8|Local SSD disk = 6,144 GB |64| 64 x 500 | extremely high |
+| Size        | CPU cores | Memory: GiB  | Local SSD size: GiB  | Max data disks | Max disk throughput: IOPS | Max NICs / Network bandwidth |
+|-------------|-----------|--------------|----------------------|----------------|--------------------|-----------------------|
+| Standard_G1 | 2         | 28           | 384                  | 4              | 4 x 500            | 1 / high                  |
+| Standard_G2 | 4         | 56           | 768                  | 8              | 8 x 500            | 2 / high                  |
+| Standard_G3 | 8         | 112          | 1,536                | 16             | 16 x 500           | 4 / very high             |
+| Standard_G4 | 16        | 224          | 3,072                | 32             | 32 x 500           | 8 / extremely high        |
+| Standard_G5 | 32        | 448          | 6,144                | 64             | 64 x 500           | 8 / extremely high        |
 
 
 
+<br>
+## GS-series*
 
-## GS-series
 
-|Size |CPU cores|Memory|NICs (Max)|Max. disk size|Max. data disks (1023 GB each)|Cache size (GB)|Max. disk IOPS &amp; bandwidth| Max network bandwidth |
-|---|---|---|---|---|---|---|---|---|
-|Standard_GS1|2|28|1|Local SSD disk = 56 GB |4|264| 5,000  125 MB per second | high |
-|Standard_GS2|4|56|2|Local SSD disk = 112 GB |8|528| 10,000  250 MB per second | high | 
-|Standard_GS3|8|112|4|Local SSD disk = 224 GB |16|1056| 20,000  500 MB per second | very high |
-|Standard_GS4|16|224|8|Local SSD disk = 448 GB |32|2112| 40,000  1,000 MB per second | extremely high |
-|Standard_GS5|32|448|8|Local SSD disk = 896 GB |64|4224| 80,000  2,000 MB per second | extremely high |
+| Size         | CPU cores | Memory: GiB | Local SSD disk size: GiB | Max data disks | Max cached disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth |
+|--------------|-----------|--------------|---------------------------|--------------------------------|----------------|--------------------------------------------|----------------------------------------------|-----------------------|
+| Standard_GS1 | 2         | 28      | 56       | 4   | 10,000 / 100 (264)       | 5,000 / 125     | 1 / high                  |
+| Standard_GS2 | 4         | 56      | 528      | 8   | 20,000 / 200 (528)       | 10,000 / 250    | 2 / High                  |
+| Standard_GS3 | 8         | 112     | 1,056    | 16  | 40,000 / 400 (1,056)     | 20,000 / 500    | 4 / very high             |
+| Standard_GS4 | 16        | 224     | 2,112    | 32  | 80,000 / 800 (2,112)     | 40,000 / 1,000  | 8 / extremely high        |
+| Standard_GS5 | 32        | 448     | 4,224    | 64  | 160,000 / 1,600 (4,224)  | 80,000 / 2,000  | 8 / extremely high        |
+
+MBps = 10^6 bytes per second. 
+
+*The maximum disk throughput (IOPS or MBps) possible with a GS series VM may be limited by the number, size and striping of the attached disk(s). 
+
+
 
 ## N-series (preview)
 
@@ -228,11 +247,11 @@ The NC and NV sizes are also known as GPU-enabled instances. These are specializ
 The NV instances are powered by NVIDIA’s Tesla M60 GPUs and NVIDIA GRID for desktop accelerated applications and virtual desktops where customers will be able to visualize their data or simulations. Users will be able to visualize their graphics intensive workflows on the NV instances to get superior graphics capability and additionally run single precision workloads such as encoding and rendering. The Tesla M60 delivers 4096 CUDA cores in a dual-GPU design with up to 36 streams of 1080p H.264.
 
 
-| Size | Cores | GPU            | Memory | Disk        |
-|------|-------|----------------|--------|-------------|
-| Standard_NV6  | 6     | 1 x NVIDIA M60 | 56 GB  | 380 GB SSD  |
-| Standard_NV12 | 12    | 2 x NVIDIA M60 | 112 GB | 680 GB SSD  |
-| Standard_NV24 | 24    | 4 x NVIDIA M60 | 224 GB | 1440 GB SSD | 
+| Size          | CPU cores | Memory: GiB  | Local SSD disk size: GiB | GPU            |
+|---------------|-----------|--------------|---------------------------|----------------|
+| Standard_NV6  | 6         | 56           | 380                       | 1 x NVIDIA M60 |
+| Standard_NV12 | 12        | 112          | 680                       | 2 x NVIDIA M60 |
+| Standard_NV24 | 24        | 224          | 1440                      | 4 x NVIDIA M60 |
 
 
 
@@ -241,11 +260,13 @@ The NV instances are powered by NVIDIA’s Tesla M60 GPUs and NVIDIA GRID for de
 The NC instances are powered by NVIDIA’s Tesla K80. Users can now crunch through data much faster by leveraging CUDA for energy exploration applications, crash simulations, ray traced rendering, deep learning and more. The Tesla K80 delivers 4992 CUDA cores with a dual-GPU design, up to 2.91 Teraflops of double-precision and up to 8.93 Teraflops of single-precision performance. 
 
 
-| Size | Cores | GPU            | Memory | Disk        |
-|------|-------|----------------|--------|-------------|
-| Standard_NC6  | 6     | 1 x NVIDIA K80 | 56 GB  | 380 GB SSD  |
-| Standard_NC12 | 12    | 2 x NVIDIA K80 | 112 GB | 680 GB SSD  |
-| Standard_NC24 | 24    | 4 x NVIDIA K80 | 224 GB | 1440 GB SSD |
+| Size          | CPU cores | Memory: GiB  | Local SSD disk size: GiB  | GPU            |
+|---------------|-----------|--------------|---------------------------|----------------|
+| Standard_NC6  | 6         | 56           | 380                       | 1 x NVIDIA K80 |
+| Standard_NC12 | 12        | 112          | 680                       | 2 x NVIDIA K80 |
+| Standard_NC24 | 24        | 224          | 1440                      | 4 x NVIDIA K80 |
+
+
 
 ## Notes: Standard A0 - A4 using CLI and PowerShell 
 

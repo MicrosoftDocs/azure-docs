@@ -14,7 +14,7 @@
     ms.workload="search"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
-    ms.date="08/15/2016"
+    ms.date="08/29/2016"
     ms.author="brjohnst"/>
 
 # Upload data to Azure Search using the .NET SDK

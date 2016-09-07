@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="08/17/2016"
+  ms.date="09/01/2016"
   ms.author="andrl"/>
 
 # Community portal
@@ -120,9 +120,9 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 
 | Event Name                                                                                                                 | Speaker                                                     | Location             | Date                     | Hashtag |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ------------------------ | ------- |
-| [Capital City .NET Users Group](https://www.meetup.com/tally-dot-net/events/233070827/) | Santosh Hari | Tallahassee, FL | September 1, 2016 | n/a |
 | [Ignite 2016](https://myignite.microsoft.com/sessions?q=documentdb) | Andrew Liu and Tara Jana | Atlanta, GA | September 26-30, 2016 | [#MSIgnite](https://twitter.com/MS_Ignite) |
 | [Strata + Hadoop World](http://conferences.oreilly.com/strata/hadoop-big-data-ny/?cmp=kn-data-confreg-home-stny16_bing_branded) | TBD | New York, NY | September 26-29, 2016 | [#StrataConf](https://twitter.com/strataconf) |
+| [Capital City .NET Users Group](http://www.meetup.com/tally-dot-net/events/233768568/) | Santosh Hari | Tallahassee, FL | November 3, 2016 | n/a |
 
 
 *Are you speaking at or hosting an event? [Let us know](mailto:askdocdb@microsoft.com) how we can help!*
@@ -210,7 +210,7 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 
 | Learning partner                                                                                                                                                                      | Description |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://www.microsoftvirtualacademy.com/en-us/training-courses/developing-solutions-with-azure-documentdb-10554) | [**Microsoft Virtual Academy**](https://www.microsoftvirtualacademy.com/en-us/training-courses/developing-solutions-with-azure-documentdb-10554) offers you training from the people who help build Azure DocumentDB. |
+| [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://mva.microsoft.com/en-US/training-courses/deploying-web-apps-to-azure-app-service-16629) | [**Microsoft Virtual Academy**](https://mva.microsoft.com/en-US/training-courses/deploying-web-apps-to-azure-app-service-16629) offers you training from the people who help build Azure DocumentDB. |
 | [![Pluralsight](./media/documentdb-community/pluralsight.png)](http://www.pluralsight.com/courses/azure-documentdb-introduction)                                                      | [**Pluralsight**](http://www.pluralsight.com/courses/azure-documentdb-introduction) is a key Microsoft partner offering Azure training. If you are an MSDN subscriber, use your benefits to access Microsoft Azure training. |
 | [![OpsGility](./media/documentdb-community/opsgility.png)](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb)                                                 | [**OpsGility**](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) provides deep technical training on Microsoft Azure. Get instructor-led training on-site or through a remote classroom by their industry-acknowledged trainers. |
 

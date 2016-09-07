@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Monitor service metrics in Microsoft Azure | Microsoft Azure"
+	pageTitle="Overview of Metrics in Microsoft Azure | Microsoft Azure"
 	description="Learn how to customize monitoring charts in Azure."
 	authors="rboucher"
 	manager=""
@@ -16,7 +16,7 @@
 	ms.date="09/08/2015"
 	ms.author="robb"/>
 
-# Monitor service metrics
+# Overview of Metrics in Microsoft Azure
 
 All Azure services track key metrics that allow you to monitor the health, performance, availability and usage of your services. You can view these metrics in the Azure portal, and you can also use the [REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx) or [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights/) to access the full set of metrics programmatically.
 

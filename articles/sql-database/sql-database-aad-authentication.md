@@ -324,6 +324,7 @@ To connect to a database using integrated authentication and an Azure AD identit
 	conn.Open();
 
 Note that the connection string keyword ``Integrated Security=True`` is not supported for connecting to Azure SQL Database.
+Note that when making an ODBC connection you will need to remove spaces and set Authentication to 'ActiveDirectoryIntegrated'.
 
 ### 7.2. Connecting with an Azure AD principal name and a password
 To connect to a database using integrated authentication and an Azure AD identity, the Authentication keyword must be set to Active Directory Password. The connection string must contain User ID/UID and Password/PWD keywords and values. The following C# code sample uses ADO .NET.

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/26/2016"
+	ms.date="08/30/2016"
 	ms.author="nitinme"/>
 
 
@@ -58,7 +58,7 @@ HDInsight tools for Eclipse is available as part of the Azure Toolkit for Eclips
 
 ## Log into your Azure subscription
 
-1. Open the Azure Explorer. From the **Window** menu in the IDE, click **Show View** and then click **Other**. From the dialog box that opens, expand **Azure**, click **Azure Explorer**, and then click **OK**.
+1. Launch the Eclipse IDE and open the Azure Explorer. From the **Window** menu in the IDE, click **Show View** and then click **Other**. From the dialog box that opens, expand **Azure**, click **Azure Explorer**, and then click **OK**.
 
 	![Create Spark Scala application](./media/hdinsight-apache-spark-eclipse-tool-plugin/view-explorer-1.png)
 
