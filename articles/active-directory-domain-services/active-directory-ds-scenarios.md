@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/07/2016"
 	ms.author="maheshu"/>
 
 
@@ -21,11 +21,17 @@
 In this section, we take a look at a few scenarios and use-cases that would benefit from Azure Active Directory (AD) Domain Services.
 
 ## Secure, easy administration of Azure virtual machines
-As servers and other infrastructure reaches end-of-life, Contoso is moving many applications currently hosted on premises to the cloud. Their current IT standard mandates that servers hosting corporate applications must be domain-joined and managed using Group Policy. Contoso's IT administrator prefers to domain join virtual machines deployed in Azure, in order to make administration easier (i.e. admins can login using corporate credentials). Contoso would prefer not to have to deploy, monitor and manage domain controllers in Azure in order to secure Azure virtual machines.
+You can use Azure Active Directory Domain Services to manage your Azure virtual machines in a streamlined manner. Azure virtual machines can be joined to the managed domain, thus enabling you to use your corporate AD credentials to log in. This helps avoid the ongoing credential management hassles associated with maintaining local administrator accounts on each of your Azure virtual machines.
+
+Server virtual machines that are joined to the managed domain can also be managed and secured using Group Policy. This enables you to secure your Azure virtual machines and lock them down in accordance with corporate security guidelines. For example, you can use group policy management capabilities to restrict the types of applications that can be launched on these virtual machines.
+
+![Streamlined administration of Azure virtual machines](./media/active-directory-domain-services-scenarios/streamlined-vm-administration.png)
+
+As servers and other infrastructure reaches end-of-life, Contoso is moving many applications currently hosted on premises to the cloud. Their current IT standard mandates that servers hosting corporate applications must be domain-joined and managed using Group Policy. Contoso's IT administrator prefers to domain join virtual machines deployed in Azure, in order to make administration easier (i.e. admins and users can login using corporate credentials). Contoso would prefer not to have to deploy, monitor and manage domain controllers in Azure in order to secure Azure virtual machines. Therefore, Azure AD Domain Services is a great fit for this use-case.
 
 A few important points to note when considering this scenario:
 
-- Managed domains provided by Azure AD Domain Services support only a flat OU (Organizational Unit) structure. All domain-joined machines reside in a single flat OU and hierarchical OU structures are not supported.
+- Managed domains provided by Azure AD Domain Services provide a single flat OU (Organizational Unit) structure by default. All domain-joined machines reside in a single flat OU. You may however choose to create custom OUs.
 - Azure AD Domain Services supports simple Group Policy in the form of a built-in GPO each for the users and computers containers. You cannot target GP by OU/department, perform WMI filtering or create custom GPOs.
 - Azure AD Domain Services supports the base AD computer object schema. You cannot extend the computer object's schema.
 
