@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2016"
+	ms.date="09/07/2016"
 	ms.author="genli"/>
 
 #  Azure Billing and Subscription FAQ
@@ -34,6 +34,7 @@ This article answers some of the most common questions about Azure Billing and S
 
 - [How do I get a copy of my invoice?](#how-do-i-get-a-copy-of-my-invoice)
 - [I do not see an invoice for the last billing period. Why?](#i-do-not-see-an-invoice-for-the-last-billing-period-why)
+- [How do I make a payment?](#how-do-i-make-a-payment)
 
 ## Free Trial
 
@@ -317,3 +318,9 @@ Free Trial subscriptions are not eligible for quota increases. If you have a Fre
 Visit the [Free Trial offer page](https://azure.microsoft.com/offers/ms-azr-0044p/) and read the [Official Free Trial FAQ](https://azure.microsoft.com/pricing/free-trial-faq/).
 
 > [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+
+### How do I make a payment?
+
+If you have set up a credit card or a debit card as your payment method, the payment will be made automatically.
+
+If you are set up to use an [invoice method of payment](https://azure.microsoft.com/pricing/invoicing/), send your payment to the location listed at the bottom of your invoice. For more help, [contact support](billing-how-to-create-billing-support-ticket.md).
