@@ -249,6 +249,11 @@ now see your app running using your custom domain name.
     <td>awverify.www.&lt;<i>appname</i>>.com</td>
     <td>&lt;<i>appname</i>>.azurewebsites.net</td>
   </tr>
+    <tr>
+    <td>*.contoso.com (sub)</td>
+    <td>awverify.*.&lt;<i>appname</i>>.com</td>
+    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
+  </tr>
 </table>
 Once this DNS record is created, go back to Azure portal and add '&lt;<i>appname</i>>.com' or/and 'www.&lt;<i>appname</i>>.com' to your web app.
  
