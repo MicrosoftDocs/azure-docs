@@ -56,5 +56,7 @@ This article summarizes supported operating systems and components for Azure Sit
 **Azure Site Recovery Unified Setup (VMware to Azure)** | Coordinates communications between on-premises VMware servers and Azure <br/><br/> Installed on on-premises VMware servers | 9.3.4246.1 (available from portal) | [Latest features and fixes](https://support.microsoft.com/kb/3155002)
 **Mobility service** | Coordinates replication between on-premises VMware servers/physical servers and Azure/secondary site | NA (available from portal) | Installed on each VMware VM or physical server that you want to replicate. **Microsoft Azure Recovery Services (MARS) agent** | Coordinates replication between Hyper-V VMs and Azure<br/><br/> Installed on on-premises Hyper-V servers (with or without a VMM server) | 2.0.8689.0 (available from portal) | This agent is used by Azure Site Recovery and Azure Backup). [Learn more] (https://support.microsoft.com/en-us/kb/2997692)
 
+## Next steps
 
-During Azure Site Recovery deployment you’ll install the Azure Site Recovery Provider on the VMM server, and the Recovery Services agent on Hyper-V hosts. The Provider and agent need to connect to Azure over the internet directly or through a proxy. Note that an HTTPS-based proxy isn't supported. The proxy server on the VMM server and Hyper-V hosts should allow access to:
+[Prepare for deployment](site-recovery-best-practices.md)
+
