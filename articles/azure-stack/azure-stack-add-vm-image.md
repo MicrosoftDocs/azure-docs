@@ -63,15 +63,15 @@ preview.
     blob anonymously accessible, but if you do not wish to do this, you
     can instead generate a Shared Access Signature for the container.
 
-![](/articles/azure-stack/media/azure-stack-add-vm-image/image1.png){width="6.5in" height="2.0076388888888888in"}
+![](/articles/azure-stack/media/azure-stack-add-vm-image/image1.png)
 
-![](/articles/azure-stack/media/azure-stack-add-vm-image/image2.png){width="6.5in" height="2.484722222222222in"}
+![](/articles/azure-stack/media/azure-stack-add-vm-image/image2.png)
 
 1.  Login to Azure Stack as an administrator. Navigate to Region
     Management -&gt; Under RPs, select the **Compute** Resource Provider
     -&gt; select VM Images and then select **Add.**
 
-    ![](/articles/azure-stack/media/azure-stack-add-vm-image/image3.png){width="6.5in" height="3.263888888888889in"}
+    ![](/articles/azure-stack/media/azure-stack-add-vm-image/image3.png)
 
 2.  On the following blade, enter the Publisher, Offer, SKU, and Version
     of the VM Image. These name segments are used to refer to the VM
@@ -80,7 +80,7 @@ preview.
     image was uploaded in step 1. Click Create to begin creating the
     VM Image.
 
-    ![](/articles/azure-stack/media/azure-stack-add-vm-image/image4.png){width="6.5in" height="3.3652777777777776in"}
+    ![](/articles/azure-stack/media/azure-stack-add-vm-image/image4.png)
 
 3.  The VM Image status will change to ‘Succeeded’ when the image is
     successfully added.
@@ -104,9 +104,12 @@ Stack administrator credentials while running the script.
 
 An example invocation of the script is:
 
+
+```powershell
 AddVMImage -publisher 'Canonical' -offer 'Ubuntu' -sku 'Server' -version
 '1.0.0' -osDiskLocalPath 'C:\\Users\\admin1\\Desktop\\Ubuntu.vhd'
 -osType Linux -tenantID 'myAADTenant.onmicrosoft.com'
+```
 
 *Note: Make sure to change ‘myAADTenant.onmicrosoft.com’ to your AAD
 tenant.*
