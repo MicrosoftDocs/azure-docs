@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="07/25/2016"
+   ms.date="09/07/2016"
    ms.author="brjohnst"/>
 
 # Azure Search Service REST API: Version 2015-02-28-Preview

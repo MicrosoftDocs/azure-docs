@@ -13,7 +13,7 @@ ms.devlang="rest-api"
 ms.workload="search" 
 ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="07/14/2016" 
+ms.date="09/07/2016" 
 ms.author="eugenesh" />
 
 #Indexer Operations (Azure Search Service REST API: 2015-02-28-Preview)#
