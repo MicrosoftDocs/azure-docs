@@ -25,9 +25,9 @@ having to specify custom DNS Server entries.
 
 -   Authoritative DNS service for name resolution and DNS registration within the tenant virtual network.
 
--   Recursive DNS service for resolution of Internet names from tenant VMs. Tenants no longer need to specify custom DNS entries to resolve Internet names (e.g. www.bing.com ).
+-   Recursive DNS service for resolution of Internet names from tenant VMs. Tenants no longer need to specify custom DNS entries to resolve Internet names (for example, www.bing.com ).
 
-Of course, you can still bring your own DNS and use Custom DNS servers
+You can still bring your own DNS and use Custom DNS servers
 if you wish. But now if you just want to be able to resolve Internet DNS
 names and be able to connect to other virtual machines in the same
 virtual network you don’t need to specify anything and it will just
