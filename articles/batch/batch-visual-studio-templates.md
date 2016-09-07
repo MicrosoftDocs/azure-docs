@@ -382,9 +382,9 @@ The Run() method is responsible for launching the command line, starting one or 
 
 Your Run() implementation has access to:
 
-* The task parameters, via the _parameters field.
-* The job and task ids, via the _jobId and _taskId fields.
-* The task configuration, via the _configuration field.
+* The task parameters, via the `_parameters` field.
+* The job and task ids, via the `_jobId` and `_taskId` fields.
+* The task configuration, via the `_configuration` field.
 
 **Task failure**
 
@@ -423,11 +423,11 @@ The storage account is then available in the TaskProcessor class via the `_confi
 
 If you prefer to use a container URL with SAS, you can also pass this via an job common environment setting, but the task processor template does not currently include built-in support for this.
 
-** Storage setup**
+**Storage setup**
 
 It is recommended that the client or job manager task create any containers required by tasks before adding the tasks to the job. This is mandatory if you use a container URL with SAS, as such a URL does not include permission to create the container. It is recommended even if you pass storage account credentials, as it saves every task having to call CloudBlobContainer.CreateIfNotExistsAsync on the container.
 
-## Pass parameters and environment variables from client code
+## Pass parameters and environment variables
 
 ### Pass environment settings
 
