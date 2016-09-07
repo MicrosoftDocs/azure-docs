@@ -42,7 +42,7 @@ As shown in the diagram below, a compute job that uses these templates will go t
 
 3. The task processor tasks run independently, in parallel, to process the input data and generate the output data.
 
-![diagram01]
+![Diagram showing how client code interacts with the Batch service][diagram01]
 
 ## Prerequisites
 
@@ -114,7 +114,7 @@ The template also generates standard .NET project files such as a .csproj file, 
 
 The rest of this section describes the different files and their code structure, and explains what each class does.
 
-![solution_explorer01]
+![Visual Studio Solution Explorer showing the Job Manager template solution][solution_explorer01]
 
 **Framework files**
 
@@ -302,7 +302,7 @@ The template also generates standard .NET project files such as a .csproj file, 
 
 The rest of this section describes the different files and their code structure, and explains what each class does.
 
-![solution_explorer02]
+![Visual Studio Solution Explorer showing the Task Processor template solution][solution_explorer02]
 
 **Framework files**
 
@@ -461,12 +461,18 @@ parameters.json, and if found it loads it as the parameters dictionary. There ar
 
 ## Next steps
 
-* Batch Apps users should head over to the [Batch Apps Migration][github_migration] repository on GitHub. This article is available there in PDF format, as well as the [Developer Migration Guide][github_migration_guide]. The Batch Apps preview functionality is now available in Batch, so the **preview of Batch Apps will be discontinued on September 30, 2016**. To avoid downtime, workloads that use the Batch Apps preview need to be migrated to Batch by using the updated Batch API.
+### Persist job and task output to Azure Storage
 
+Another helpful tool in Batch solution development is [Azure Batch File Conventions][nuget_package]. Use this .NET class library (currently in preview) in your Batch .NET applications to easily store and retrieve task outputs to and from Azure Storage. [Persist Azure Batch job and task output](batch-task-output.md) contains a full discussion of the library and its usage.
+
+### Batch Forum
+
+The [Azure Batch Forum][forum] on MSDN is a great place to discuss Batch and ask questions about the service. Head on over for helpful "sticky" posts, and post your questions as they arise while you build your Batch solutions.
+
+[forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [net_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobmanagertask.aspx
-[github_migration]: https://github.com/Azure/azure-batch-apps-migration
-[github_migration_guide]: https://github.com/Azure/azure-batch-apps-migration/blob/master/developer-migration-guide.pdf
 [github_samples]: https://github.com/Azure/azure-batch-samples
+[nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files
 [process_exitcode]: https://msdn.microsoft.com/library/system.diagnostics.process.exitcode.aspx
 [vs_gallery]: https://visualstudiogallery.msdn.microsoft.com/
 [vs_gallery_templates]: https://go.microsoft.com/fwlink/?linkid=820714
