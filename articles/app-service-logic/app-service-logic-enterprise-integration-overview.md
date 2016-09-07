@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2016" 
+	ms.date="09/08/2016" 
 	ms.author="deonhe"/>
 
 # Overview of the Enterprise Integration Pack
@@ -34,6 +34,8 @@ Architecturally, the Enterprise Integration Pack is based on **integration accou
 
 ## How to get started with enterprise integration?
 You can build and manage B2B apps using the Enterprise Integration Pack via the Logic apps designer on the **Azure portal**.  
+
+You can also use [PowerShell](https://msdn.microsoft.com/library/azure/mt652195.aspx "Logic apps PowerShell topics") to manage your Logic apps. 
 
 Here is an overview of the steps you need to take before you can create apps in the Azure portal:
 ![overviewimage](./media/app-service-logic-enterprise-integration-overview/overview-0.png)  
