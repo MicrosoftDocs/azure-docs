@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/01/2016"
+   ms.date="09/07/2016"
    ms.author="cherylmc" />
 
 # ExpressRoute partners and peering locations
@@ -31,7 +31,7 @@ You will have access to Azure services across all regions within a geopolitical 
 |---|---|---|
 |**North America**|East US, West US, East US 2, Central US, South Central US, North Central US, Canada Central, Canada East|Atlanta, Chicago, Dallas, Las Vegas+, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto|
 |**South America**|Brazil South|Sao Paulo|
-|**Europe**|North Europe, West Europe|Amsterdam, Dublin, London, Newport(Wales)+, Paris|
+|**Europe**|North Europe, West Europe, UK West, UK South|Amsterdam, Dublin, London, Newport(Wales)+, Paris|
 |**Asia**|East Asia, Southeast Asia|Hong Kong, Singapore|
 |**Japan**|Japan West, Japan East|Osaka, Tokyo|
 |**Australia**|Australia Southeast, Australia East|Melbourne, Sydney|
