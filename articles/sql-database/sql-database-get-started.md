@@ -132,7 +132,7 @@ Now that you've completed this SQL Database tutorial and created a database with
 
 - If you want to load some data into a new table from a CSV file by using the BCP command-line tool, see [Loading data into SQL Database from a CSV file using BCP](sql-database-load-from-csv-with-bcp.md).
 
-- If you want to start exploring Azure SQL Database security, see [Getting started with security](sql-database-getting-started-with-security.md)
+- If you want to start exploring Azure SQL Database security, see [Getting started with security](sql-database-get-started-security.md)
 
 
 ## Additional resources
