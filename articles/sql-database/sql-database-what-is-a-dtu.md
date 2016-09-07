@@ -45,7 +45,7 @@ If you are looking to migrate an existing on-premises or SQL Server virtual mach
 
 ## How do I know if I could benefit from an elastic pool of resources?
 
-Pools are suited for a large number of databases with specific utilization patterns. For a given database, this pattern is characterized by low average utilization with relatively infrequent utilization spikes. SQL Database automatically evaluates the historical resource usage of databases in an existing SQL Database server and recommends the appropriate pool configuration in the Azure portal. For more information, see [when should an elastic database pool be used?](sql-database-elastic-pool-guidance.md).
+Pools are suited for a large number of databases with specific utilization patterns. For a given database, this pattern is characterized by low average utilization with relatively infrequent utilization spikes. SQL Database automatically evaluates the historical resource usage of databases in an existing SQL Database server and recommends the appropriate pool configuration in the Azure portal. For more information, see [when should an elastic database pool be used?](sql-database-elastic-pool-guidance.md)
 
 ## What happens when I hit my maximum DTUs
 
@@ -53,7 +53,7 @@ Performance levels are calibrated and governed to provide the needed resources t
 
 ## Next steps
 
-- See [Service tier](sql-database-service-tiers.md) for information on the DTUs and eDTUs available for standalone databases and for elastic pools
-- See [Azure SQL Database resource limits](sql-database-resource-limits.md) for information on limit on resources other than CPU, memory, data I/O and transaction log I/O.
+- See [Service tier](sql-database-service-tiers.md) for information on the DTUs and eDTUs available for standalone databases and for elastic pools.
+- See [Azure SQL Database resource limits](sql-database-resource-limits.md) for information on limit on resources other than CPU, memory, data I/O, and transaction log I/O.
 - See [SQL Database Query Performance Insight](sql-database-query-performance.md) to understand your (DTUs) consumption.
-- See [SQL Database benchmark overview](sql-database-benchmark-overview.md) oo understand the methodology behind the OLTP benchmark workload used to determine the DTU blend.
+- See [SQL Database benchmark overview](sql-database-benchmark-overview.md) to understand the methodology behind the OLTP benchmark workload used to determine the DTU blend.
