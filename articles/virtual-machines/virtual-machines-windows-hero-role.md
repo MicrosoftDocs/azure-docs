@@ -27,7 +27,7 @@ If you haven't already created your first VM, you should go back to [Create your
 
 1. Open the [Azure portal](https://portal.azure.com).
 2. On the hub menu, click **Virtual Machines**. Select the virtual machine from the list.
-3. If the status is **Stopped (Deallocated), click on the **Start** button on the **Essentials** blade of the VM. If the status is **Running*, you can move on to the next step.
+3. If the status is **Stopped (Deallocated), click the **Start** button on the **Essentials** blade of the VM. If the status is **Running*, you can move on to the next step.
 
 ## Connect to the virtual machine and sign in
 
@@ -43,7 +43,7 @@ If you haven't already created your first VM, you should go back to [Create your
 
 5. In the Windows Security window, type the username and password for the local account that you created when you created the VM. The username is entered as *vmname*&#92;*username*, then click **OK**.
 
-	![Screenshot of entering the VM name, user name and password](./media/virtual-machines-windows-hero-tutorial/credentials.png)
+	![Screenshot of entering the VM name, user name, and password](./media/virtual-machines-windows-hero-tutorial/credentials.png)
  	
 6.	You get a warning that the certificate cannot be verified. This is normal. Click **Yes** to verify the identity of the virtual machine and finish logging on.
 
@@ -91,7 +91,7 @@ In order for your VM to accept inbound traffic over port 80, you need to add an 
 
 	![Screenshot showing the virtual machine setting for the network interfaces](./media/virtual-machines-windows-hero-tutorial/network-interface.png)
 
-4. In **Essentials** for the network interface, click on the **Network security group**.
+4. In **Essentials** for the network interface, click the **Network security group**.
 
 	![Screenshot showing the Essentials section for the network interface](./media/virtual-machines-windows-hero-tutorial/select-nsg.png)
 
@@ -117,7 +117,7 @@ For more information about NSGs, inbound and outbound rules, see [Allow external
 	![Screenshot showing where to find the public IP address of your VM](./media/virtual-machines-windows-hero-tutorial/ipaddress.png)
 
 2. Open a browser and in the address bar, type in your public IP address like this: http://<publicIPaddress> and click **Enter** to go to that address.
-3. Your browser should open the default IIS web page. It will look something like this:
+3. Your browser should open the default IIS web page. It looks something like this:
 
 	![Screenshot showing what the default IIS page looks like in a browser](./media/virtual-machines-windows-hero-tutorial/iis-default.png)
 	

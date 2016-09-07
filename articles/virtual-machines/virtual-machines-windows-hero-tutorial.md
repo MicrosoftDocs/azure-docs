@@ -21,7 +21,7 @@
 
 This tutorial shows you how easy it is to create a Windows virtual machine (VM) in just a few minutes, by using the Azure portal.  
 
-If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free/) in just a couple of minutes.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Choose the VM image from the marketplace
 
@@ -96,7 +96,7 @@ After you select the image, you can use the default settings and quickly create 
 
 If you run in to trouble when you try to connect, see [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-windows-troubleshoot-rdp-connection.md).
 
-You can now work with the virtual machine just as you would with any other server.
+You can now work with the virtual machine as you would with any other server.
 
 
 
