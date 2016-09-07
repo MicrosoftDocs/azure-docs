@@ -28,7 +28,7 @@ In this article, you learn how to:
 ## Create a custom image from a VHD file
 
 In this section, you see how to create a custom image from a VHD file.
-Note that you need access to a valid VHD file to perform all the steps in this section.   
+You need access to a valid VHD file to perform all the steps in this section.   
 
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
@@ -71,7 +71,7 @@ Note that you need access to a valid VHD file to perform all the steps in this s
 
 ###Upload a VHD file
 
-To add a new custom image, you need to have access to a VHD file.
+To add a custom image, you need to have access to a VHD file.
 
 1. On the **VHD File** blade, select **Upload a VHD file using PowerShell**.
 
