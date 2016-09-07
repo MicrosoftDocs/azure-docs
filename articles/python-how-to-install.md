@@ -18,7 +18,7 @@
 
 # Installing Python and the SDK
 
-Python is easy to setup on Windows and comes pre-installed on Mac, Linux, and [Bash for Windows](https://msdn.microsoft.com/en-us/commandline/wsl/about). This guide walks you through installation and getting your machine ready for use with Azure.
+Python is easy to setup on Windows and comes pre-installed on Mac, Linux, and [Bash for Windows](https://msdn.microsoft.com/commandline/wsl/about). This guide walks you through installation and getting your machine ready for use with Azure.
 
 ## What's in the Python Azure SDK?
 
@@ -130,7 +130,7 @@ For more information on developing and publishing Azure Websites, see the tutori
 
 * [Azure SDK for Python ReadTheDocs](http://azure-sdk-for-python.readthedocs.io/en/latest/)
 * [Azure SDK for Python Github](https://github.com/Azure/azure-sdk-for-python)
-* [Official Azure samples for Python](https://azure.microsoft.com/en-us/documentation/samples/?platform=python)
+* [Official Azure samples for Python](https://azure.microsoft.com/documentation/samples/?platform=python)
 * [Continuum Analytics Python Distribution][]
 * [Enthought Python Distribution][]
 * [ActiveState Python Distribution][]
