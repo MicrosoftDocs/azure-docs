@@ -30,8 +30,8 @@ We analyze the [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) data
 
 Before you can use a Linux Data Science Virtual Machine, you must have the following:
 
-- An **Azure subscription**. If you do not already have one, [get an Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- A [**Linux data science VM**](aka.ms/linuxdsvm). For information on provisioning this VM, see [Provision the Linux Data Science Virtual Machine](machine-learning-data-science-linux-dsvm-intro.md). 
+- An **Azure subscription**. If you do not already have one, see [Create your free Azure account today](https://azure.microsoft.com/en-us/free/).
+- A [**Linux data science VM**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). For information on provisioning this VM, see [Provision the Linux Data Science Virtual Machine](machine-learning-data-science-linux-dsvm-intro.md). 
 - [X2Go](http://wiki.x2go.org/doku.php) installed on your computer and opened an XFCE session. For information on installing and configuring an **X2Go client**, see [Installing and configuring X2Go client](machine-learning-data-science-linux-dsvm-intro.md#Installing-and-configuring-X2Go-client). 
 - An **AzureML account**. If you don't already have one, sign up for new one at the [AzureML homepage](https://studio.azureml.net/). There is a free usage tier to help you get started.
 
@@ -40,9 +40,9 @@ Before you can use a Linux Data Science Virtual Machine, you must have the follo
 
 The [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) dataset is a relatively small set of data that contains only 4601 examples. This is a convenient size to use when demonstrating that some of the key features of the Data Science VM as it keeps the resource requirements modest.
 
->[AZURE.NOTE]: This walkthrough was created on a D2 v2-sized Linux Data Science Virtual Machine. This size DSVM is capable of handling the procedures in this walkthrough.
+>[AZURE.NOTE] This walkthrough was created on a D2 v2-sized Linux Data Science Virtual Machine. This size DSVM is capable of handling the procedures in this walkthrough.
 
->[AZURE.NOTE]: If you need more storage space, you can create additional disks and attach them to your VM. These disks use persistent Azure storage, so their data is preserved even when the server is reprovisioned due to resizing or is shut down. To add a disk and attach it to your VM, follow the instructions in [Add a disk to a Linux VM](../virtual-machines/virtual-machines-linux-add-disk.md). These steps use the Azure Command-Line Interface (Azure CLI), which is already installed on the DSVM. So these procedures can be done entirely from the VM itself.
+If you need more storage space, you can create additional disks and attach them to your VM. These disks use persistent Azure storage, so their data is preserved even when the server is reprovisioned due to resizing or is shut down. To add a disk and attach it to your VM, follow the instructions in [Add a disk to a Linux VM](../virtual-machines/virtual-machines-linux-add-disk.md). These steps use the Azure Command-Line Interface (Azure CLI), which is already installed on the DSVM. So these procedures can be done entirely from the VM itself.
 
 To download the data, open a terminal window and run this command:
 
@@ -77,7 +77,7 @@ To get copies of the code samples used in this walkthrough, clone the **Azure-Ma
 
 Start a new R session with the R interactive console.
 
->[AZURE.NOTE]: You can also use RStudio for the following procedures. To install RStudio, execute this command at a terminal: `./Desktop/DSVM\ tools/installRStudio.sh`
+>[AZURE.NOTE] You can also use RStudio for the following procedures. To install RStudio, execute this command at a terminal: `./Desktop/DSVM\ tools/installRStudio.sh`
 
 To import the data and set up the environment, run:
 
@@ -259,7 +259,7 @@ XGBoost can also call from python or a command line.
 
 For development using Python, the Anaconda Python distributions 2.7 and 3.5 have been installed in the DSVM. 
 
->[AZURE.NOTE]: The Anaconda distribution includes [Condas](http://conda.pydata.org/docs/index.html), which can be used to create custom environments for Python that have different versions and/or packages installed in them.
+>[AZURE.NOTE] The Anaconda distribution includes [Condas](http://conda.pydata.org/docs/index.html), which can be used to create custom environments for Python that have different versions and/or packages installed in them.
 
 Let's read in some of the spambase dataset and classify the emails with support vector machines in scikit-learn:
 
@@ -302,7 +302,7 @@ To publish the model to AzureML:
     # Call the model
     predictSpam.service(1, 1, 1)
 
->[AZURE.NOTE]: This is only available for python 2.7 and is not yet supported on 3.5. Run with **/anaconda/bin/python2.7**.
+>[AZURE.NOTE] This is only available for python 2.7 and is not yet supported on 3.5. Run with **/anaconda/bin/python2.7**.
 
 
 ## Jupyterhub
@@ -311,11 +311,11 @@ The Anaconda distribution in the DSVM comes with a Jupyter notebook, a cross-pla
 
 Several sample notebooks are already installed on the VM:
 
-- See the [IntroToJupyterPython.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IntroToJupyterPython.ipynb) for Python notebook.
-- See [IntroTutorialinR](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IntroTutorialinR.ipynb) for an **R** notebook.
+- See the [IntroToJupyterPython.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IntroToJupyterPython.ipynb) for a sample Python notebook.
+- See [IntroTutorialinR](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IntroTutorialinR.ipynb) for a sample **R** notebook.
 - See the [IrisClassifierPyMLWebService](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IrisClassifierPyMLWebService.ipynb) for another sample **Python** notebook.
 
->[AZURE.NOTE]: You can work with Julia language on the Linux Data Science VM on the command line, as well as in a Jupyter notebook. 
+>[AZURE.NOTE] The Julia language is also available from the command line on the Linux Data Science VM.
 
 
 ## Rattle
@@ -328,7 +328,7 @@ Install and start Rattle with the following commands:
     require(rattle)
     rattle()
 
->[AZURE.NOTE]: Installation is not required on the DSVM. But Rattle may prompt you to install additional packages when it loads.
+>[AZURE.NOTE] Installation is not required on the DSVM. But Rattle may prompt you to install additional packages when it loads.
 
 Rattle uses a tab-based interface. Most of the tabs correspond to steps in the [Data Science Process](https://azure.microsoft.com/documentation/learning-paths/data-science-process/), like loading data or exploring it. The data science process flows from left to right through the tabs. But the last tab contains a log of the R commands run by Rattle. 
 
@@ -398,7 +398,7 @@ One of the nice features of Rattle is its ability to run several machine learnin
 
 Once you're finished building models, select the **Log** tab to view the R code run by Rattle during your session. You can select the **Export** button to save it. 
 
->[AZURE.NOTE]: There is a bug in current release of Rattle. To modify the script or use it to repeat your steps later, you must insert a # character in front of *Export this log ... * in the text of the log. 
+>[AZURE.NOTE] There is a bug in current release of Rattle. To modify the script or use it to repeat your steps later, you must insert a # character in front of *Export this log ... * in the text of the log. 
 
 
 ## PostgresSQL & Squirrel SQL
@@ -507,7 +507,7 @@ Copy data with bcp:
 
     bcp spam in spambaseHeaders.data -q -c -t  ',' -S <server-name>.database.windows.net -d <database-name> -U <username> -P <password> -F 1 -r "\r\n"
 
->[AZURE.NOTE]: The line endings in the downloaded file are Windows-style, but bcp expects UNIX-style, so we need to tell bcp that with the -r flag.
+>[AZURE.NOTE] The line endings in the downloaded file are Windows-style, but bcp expects UNIX-style, so we need to tell bcp that with the -r flag.
 
 And query with sqlcmd:
 
