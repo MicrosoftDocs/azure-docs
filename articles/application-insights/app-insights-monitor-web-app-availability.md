@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/10/2016"
+	ms.date="09/07/2016"
 	ms.author="awills"/>
 
 # Monitor availability and responsiveness of any web site
@@ -81,7 +81,7 @@ Click any bar on the summary chart for a more detailed view of that time period.
 These charts combine results for all the web tests of this application.
 
 
-## <a name="failures"></a>If you see failures...
+## <a name="failures"></a>If you see failures
 
 Click a red dot.
 
