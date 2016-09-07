@@ -24,6 +24,7 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 
 ##List of Tutorials
 
+
 | Logo| App Name |
 | --- | --- |
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Frankly.png)| [&frankly](https://go.microsoft.com/fwLink/?LinkID=823723&clcid=0x409)|
