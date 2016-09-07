@@ -24,7 +24,7 @@ By using the technique in this article, you can also view your task output in **
 
 ![Saved output files and Saved logs selectors in portal][1]
 
->[AZURE.NOTE] The file storage and retrieval method discussed here provides similar functionality to the way **Batch Apps** (now deprecated) managed its task outputs.
+>[AZURE.NOTE] The [Azure Batch File Conventions][nuget_package] .NET class library discussed in this article is currently in preview. Some of the features described here may change prior to general availability.
 
 ## Task output considerations
 
