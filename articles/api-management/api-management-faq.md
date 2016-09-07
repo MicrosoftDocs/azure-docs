@@ -111,7 +111,7 @@ Currently, your options are:
 
 ### Is SOAP supported in API Management?
 
-Currently, we offer limited support for SOAP within Azure API Management. It is a feature we are currently investigating. We would be  interested to get examples of you WSDL documents, as this would help us in valiadting our thinking. Please contact us using the contact information referenced in [How can I ask a question to the API Management team?](#how-can-i-ask-a-question-to-the-api-management-team)
+Currently, we offer limited support for SOAP within Azure API Management. It is a feature we are currently investigating. We would be  interested to get examples of your WSDL documents, as this would help us in valiadting our thinking. Please contact us using the contact information referenced in [How can I ask a question to the API Management team?](#how-can-i-ask-a-question-to-the-api-management-team)
 
 If you need to get it working, some of our community members have suggested work-arounds – see [Azure API Management - APIM, consuming a SOAP WCF service over HTTP](http://mostlydotnetdev.blogspot.com/2015/03/azure-api-management-apim-consuming.html).
 
