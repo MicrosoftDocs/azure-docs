@@ -13,12 +13,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="06/16/2016"
+	ms.date="09/06/2016"
 	ms.author="spelluru"/>
 
 
 # Data Catalog developer samples
-Get started developing Data Catalog apps using the Data Catalog REST API. The Data Catalog REST API is a REST-based API that provides programmatic access to Data Catalog resources to register, annotate and search data assets programmatically.
+Get started developing Data Catalog apps using the Data Catalog REST API. The Data Catalog REST API is a REST-based API that provides programmatic access to Data Catalog resources to register, annotate, and search data assets programmatically.
 
 Here are the samples we have on GitHub:
 

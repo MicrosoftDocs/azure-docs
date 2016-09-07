@@ -284,11 +284,7 @@ If the web app is in Azure and you create your resources using an Azure Resource
 * [Add web client telemetry][usage] to see exceptions from web page code and to let you insert trace calls.
 * [Add Application Insights SDK to your web service code][greenbrown] so that you can insert trace and log calls in the server code.
 
-## Video
 
-#### Performance monitoring
-
-[AZURE.VIDEO app-insights-performance-monitoring]
 
 <!--Link references-->
 
