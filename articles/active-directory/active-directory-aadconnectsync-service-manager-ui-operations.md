@@ -49,7 +49,7 @@ Start by clicking the error string (**sync-rule-error-function-triggered** in th
 
 **TIP:** You can right-click in the **call stack information** box, choose **select all**, and **copy**. You can then copy the stack and look at the error in your favorite editor, such as Notepad.
 
-- If the error is from **SyncRulesEngine**, then the call stack information first have a list of all attributes on the object. Scroll down until you see the heading **InnerException =>**.  
+- If the error is from **SyncRulesEngine**, then the call stack information first has a list of all attributes on the object. Scroll down until you see the heading **InnerException =>**.  
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/errorinnerexception.png)  
 The line after shows the error. In the picture above, the error is from a custom Sync Rule Fabrikam created.
 

@@ -66,7 +66,7 @@ Start by selecting a **scope**. You can search based on data (RDN, DN, Anchor, S
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearchscope.png)  
 If you for example do a Sub-Tree search, you get all objects in one OU.
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cssearchsubtree.png)
-From this you can select an object, select **properties**, and [follow it](#follow-an-object-and-its-data-through-the-system) from the source connector space, through the metaverse, and to the target connector space.
+From this grid you can select an object, select **properties**, and [follow it](#follow-an-object-and-its-data-through-the-system) from the source connector space, through the metaverse, and to the target connector space.
 
 ## Follow an object and its data through the system
 When you are troubleshooting a problem with data, follow an object from the source connector space, to the metaverse, and to the target connector space is a key procedure to understand why data does not have the expected values.
@@ -83,11 +83,11 @@ The error page is only visible if there is a problem with the object. See the de
 **Lineage**  
 The lineage tab shows how the connector space object is related to the metaverse object. You can see when the Connector last imported a change from the connected system and which rules applied to populate data in the metaverse.
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cslineage.png)
-In the **Action** column we can see there is one **Inbound** sync rule with the action **Provision**. That indicates that as long as this connector space object is present, the metaverse object remains. If the list of sync rules instead shows a sync rule with direction **Outbound** and **Provision**, it indicates that this object is deleted when the metaverse object is deleted.
+In the **Action** column, you can see there is one **Inbound** sync rule with the action **Provision**. That indicates that as long as this connector space object is present, the metaverse object remains. If the list of sync rules instead shows a sync rule with direction **Outbound** and **Provision**, it indicates that this object is deleted when the metaverse object is deleted.
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/cslineageout.png)
-We can also see in the **PasswordSync** column that the inbound connector space can contribute changes to the password since one sync rule has the value **True**. This password is then sent to Azure AD through the outbound rule.
+You can also see in the **PasswordSync** column that the inbound connector space can contribute changes to the password since one sync rule has the value **True**. This password is then sent to Azure AD through the outbound rule.
 
-From the lineage tab, you can get to the metaverse by clicking on [Metaverse Object Properties](#metaverse-object-properties).
+From the lineage tab, you can get to the metaverse by clicking [Metaverse Object Properties](#metaverse-object-properties).
 
 At the bottom of all tabs are two buttons: **Preview** and **Log**.
 
