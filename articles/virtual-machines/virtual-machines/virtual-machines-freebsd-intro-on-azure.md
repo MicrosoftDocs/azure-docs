@@ -27,46 +27,46 @@ As for future versions of FreeBSD, the strategy is to stay current and make the 
 ## Deploy a FreeBSD virtual machine
 Deploying a FreeBSD virtual machine is a straightforward process using an image from the [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/).
 
-## VM extension for FreeBSD
-Following are supported VM extensions in FreeBSD VM.
+## VM extensions for FreeBSD
+Following are supported VM extensions in FreeBSD.
 
-#### VMAccess
+### VMAccess
 
 The [VMAccess](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) extension can:
 
-- Reset the password of the original sudo user
-- Create a new sudo user with the password specified
-- Set the public host key with the key given
-- Reset the public host key provided during VM provisioning if the host key is not provided
-- Open the SSH port (22) and restore the sshd_config if reset_ssh is set to true
-- Remove the existing user
-- Check disks
-- Repair an added disk
+- Reset the password of the original sudo user.
+- Create a new sudo user with the password specified.
+- Set the public host key with the key given.
+- Reset the public host key provided during VM provisioning if the host key is not provided.
+- Open the SSH port (22) and restore the sshd_config if reset_ssh is set to true.
+- Remove the existing user.
+- Check disks.
+- Repair an added disk.
 
-#### CustomScript
+### CustomScript
 
 The [CustomScript](https://github.com/Azure/azure-linux-extensions/tree/master/CustomScript) extension can:
 
-- If provided, download the customized scripts from Azure Storage or external public storage (for example, Github)
-- Run the entry point script
-- Support inline commands
-- Convert Windows-style newline in shell and Python scripts automatically
-- Remove BOM in shell and Python scripts automatically
-- Protect sensitive data in CommandToExecute
+- If provided, download the customized scripts from Azure Storage or external public storage (for example, GitHub).
+- Run the entry point script.
+- Support inline commands.
+- Convert Windows-style newline in shell and Python scripts automatically.
+- Remove BOM in shell and Python scripts automatically.
+- Protect sensitive data in CommandToExecute.
 
 ## Authentication: user names, passwords, and SSH keys
-When creating a FreeBSD virtual machine using the Azure portal, you must provide a user name, password, or SSH public key.
+When you're creating a FreeBSD virtual machine by using the Azure portal, you must provide a user name, password, or SSH public key.
 User names for deploying a FreeBSD virtual machine on Azure must not match names of system accounts (UID <100) already present in the virtual machine ("root," for example).
-Currently, only RSA SSH key is supported. Multiline SSH key must begin with "---- BEGIN SSH2 PUBLIC KEY
+Currently, only the RSA SSH key is supported. A multiline SSH key must begin with "---- BEGIN SSH2 PUBLIC KEY
 ----" and end with "---- END SSH2 PUBLIC KEY ----".
 
 ## Obtain superuser privileges
 The user account that is specified during virtual machine instance deployment on Azure is a privileged account. The package of sudo was installed in the published FreeBSD image.
-Once logged in using this user account, you can run commands as root using the command syntax.
+After you're logged in through this user account, you can run commands as root by using the command syntax.
 
     # sudo <COMMAND>
 
-You can optionally obtain a root shell using sudo -s.
+You can optionally obtain a root shell by using sudo -s.
 
 ## Next steps
 - Go to [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/) to create a FreeBSD VM.
