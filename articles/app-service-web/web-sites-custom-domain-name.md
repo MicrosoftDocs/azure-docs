@@ -232,7 +232,7 @@ now see your app running using your custom domain name.
 
 8.  Once Azure finishes configuring your new custom domain name, navigate to your custom domain name in a browser. The browser should open your Azure app, which means that your custom domain name is configured properly.
 
-> [AZURE.NOTE] If DNS record is already in use (active domain serving traffic scenario) and you need to preemptively bind your web app to it for domain verification, then simply create a TXT records as below,
+> [AZURE.NOTE] If DNS record is already in use (active domain serving traffic scenario) and you need to preemptively bind your web app to it for domain verification, then simply create a TXT records as examples shown in following table. Your additional TXT record takes on the convention that maps from &lt;*subdomain*>.&lt;*rootdomain*> to &lt;*subdomain*>.azurewebsites.net. 
 > <table cellspacing="0" border="1">
   <tr>
     <th>FQDN example</th>
@@ -241,17 +241,17 @@ now see your app running using your custom domain name.
   </tr>
   <tr>
     <td>contoso.com (root)</td>
-    <td>awverify.&lt;<i>appname</i>>.com</td>
+    <td>awverify.contoso.com</td>
     <td>&lt;<i>appname</i>>.azurewebsites.net</td>
   </tr>
   <tr>
     <td>www.contoso.com (sub)</td>
-    <td>awverify.www.&lt;<i>appname</i>>.com</td>
+    <td>awverify.www.contoso.com</td>
     <td>&lt;<i>appname</i>>.azurewebsites.net</td>
   </tr>
     <tr>
     <td>*.contoso.com (sub)</td>
-    <td>awverify.*.&lt;<i>appname</i>>.com</td>
+    <td>awverify.*.contoso.com</td>
     <td>&lt;<i>appname</i>>.azurewebsites.net</td>
   </tr>
 </table>
