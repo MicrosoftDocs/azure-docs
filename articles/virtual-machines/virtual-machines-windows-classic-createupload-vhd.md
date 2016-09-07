@@ -95,7 +95,7 @@ From the Azure PowerShell window you used in the previous step, type the followi
 
 ## Step 4: Add the image to your list of custom images
 
-Use the [Add-AzureVMImage])(https://msdn.microsoft.com/library/mt589167.aspx) cmdlet to add the image to the list of your custom images.
+Use the [Add-AzureVMImage](https://msdn.microsoft.com/library/mt589167.aspx) cmdlet to add the image to the list of your custom images.
 
 		Add-AzureVMImage -ImageName <ImageName> -MediaLocation "https://<StorageAccountName>.blob.core.windows.net/<ContainerName>/<vhdName>.vhd" -OS "Windows"
 
