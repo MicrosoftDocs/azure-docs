@@ -186,19 +186,19 @@ For Update 3 and later versions, StorSimple also supports failback. After the fa
 
 ## Frequently asked questions
 
-Q. What happens if the DR fails or has partial success?
+Q. **What happens if the DR fails or has partial success?**
 
 A. If the DR fails, we recommend that you try agian. The second time around, DR knows what all was done and when the process stalled the first time. The DR process starts from that point onwards. 
 
-Q. Can I delete a device while the device failover is in progress?
+Q. **Can I delete a device while the device failover is in progress?**
 
 A. You cannot delete a device while a DR is in progress. You can only delete your device after the DR is complete.
 
-Q.	When does the garbage collection start on the source device so that the local data on source device is deleted?
+Q.	**When does the garbage collection start on the source device so that the local data on source device is deleted?**
 
 A. Garbage collection will be enabled on the source device only after the device is completely cleaned up. The cleanup includes cleaning up objects that have failed over from the source device such as volumes, backup objects (not data), volume containers, and policies.
 
-Q. What happens if the delete job associated with the volume containers in the source device fails?
+Q. **What happens if the delete job associated with the volume containers in the source device fails?**
 
 A.  If the delete job fails, then you will need to manually trigger the deletion of the volume containers. In the **Devices** page, select your source device and click **Volume containers**. Select the volume containers that you failed over and in the bottom of the page, click **Delete**. Once you have deleted all the failed over volume containers on the source device, you can start the failback.
 
