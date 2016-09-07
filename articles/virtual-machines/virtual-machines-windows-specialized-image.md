@@ -29,7 +29,7 @@ If you need to create mass deployments of similar Windows VMs, you should use an
 
 Make sure that you:
 
-- Have information about the **source and destination storage accounts**. For the source VM, you need to storage account and container names. In most cases, the container name will be **vhds**. You also need to have a destination storage account. If you don't already have one, you can create one using either the portal (**More Services** > Storage accounts > Add or using the [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) cmdlet. 
+- Have information about the **source and destination storage accounts**. For the source VM, you need to storage account and container names. Usually, the container name will be **vhds**. You also need to have a destination storage account. If you don't already have one, you can create one using either the portal (**More Services** > Storage accounts > Add or using the [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) cmdlet. 
 
 - Have Azure [PowerShell 1.0](../powershell-install-configure.md) (or later) installed.
 
@@ -71,7 +71,7 @@ You need the URLs of the source and destination storage accounts. The URLs look 
 
 You can also use the Azure portal or Azure Powershell to get the URL:
 
-- **Portal**:  **More services** > **Storage accounts** > <storage account> **Blobs** and your source VHD file is probably in the **vhds** container. Click **Properties** for the container, and copy the text labeled **URL**. You'll need the URLs of both the source and destination containers. 
+- **Portal**: Click **More services** > **Storage accounts** > <storage account> **Blobs** and your source VHD file is probably in the **vhds** container. Click **Properties** for the container, and copy the text labeled **URL**. You'll need the URLs of both the source and destination containers. 
 
 - **Powershell**: Get-AzureRmVM -ResourceGroupName "resource_group_name" -Name "vm_name". In the results, look in the **Storage profile** section for the **Vhd Uri**. The first part of the Uri is the URL to the container and the last part is the OS VHD name for the VM.
 
@@ -102,7 +102,7 @@ If you only want to copy a specific VHD in a container with multiple files, you 
 
 Now we need to edit the azuredeploy.json file to use copied VHD in the destination storage account. To edit the .json file, it is really easy to make the updates using Visual Studio and the Azure SDK and Tools. But, you can also edit the .json file using your favorite .json editor and a lint tool to validate the changes.
 
-Change default value of the storage account and the diagnostic storage account parameters.  Append the **diagnostics** or some other identifier to the  `<destination storage account>` name to use for the storage diagnostics account and replace the storage account name entirely. 
+Change default value of the storage account and the diagnostic storage account parameters. Append **diag** or some other identifier to the `<destinationStorageAccountName>`  as the name to use for the storage diagnostics account and replace the storage account name entirely. 
 
 ```none
 "storageAccounts_demomigrate2320diagnostics_name": {
@@ -115,7 +115,7 @@ Change default value of the storage account and the diagnostic storage account p
 },
 ```
 
-> [AZURE.NOTE] The parameter name is inherited from the source VM, this is ok. Do not change it or you will have to update paramter name throughout the rest of the template.
+> [AZURE.NOTE] The parameter name is inherited from the source VM, this is ok. Do not change it or you will have to update parameter name throughout the rest of the template.
 
 Since we already have a storage account, we need to remove the storage account resource. Remove the section that looks something like this:
 
@@ -134,7 +134,7 @@ Since we already have a storage account, we need to remove the storage account r
 }
 ```
 
-Because we are using an existing VHD to create the VM, we need to remove the Image reference from the virtual machine resource. Remove the section that looks something like this:  
+Because we are using an existing VHD to create the VM, we need to remove the Image reference from the virtual machine resource. Remove the section that looks something like this: 
 
 ```none
 "imageReference": {
@@ -188,9 +188,9 @@ We also need to remove the dependency on the storage account from the VM resourc
 5. In the **Custom Deployment** blade, click **Edit template**.
 6. Select the existing content in the template and delete it to empty the file.
 7. Paste the contents of the azuredeploy.json file from your clipboard into the window (CTRL+V) and then click **Save**.
-8. In the**Custom deployment** blade, select **Edit paprameters**.
+8. In the**Custom deployment** blade, select **Edit parameters**.
 9. In the **Parameters** blade, enter the password for the administrator account that you used when you created the original VM into the **VIRTUALMACHINES_IISVM_ADMINPASSWORD** field and then click **OK**.
-10. In the **Custom deployments** blade, make sure the subscription name is the name of the destination subsctription.
+10. In the **Custom deployments** blade, make sure the subscription name is the name of the destination subscription.
 11. In **Resource group** select **Existing** and select the name of the resource group. This should have the same name as the resource group that the original VM was in.
 12. Click **Review legal terms** and if everything looks okay, select **Purchase**.
 13. When you are finished, click **Create** and the deployment will start.
@@ -209,7 +209,7 @@ We also need to remove the dependency on the storage account from the VM resourc
 
 2. Deploy the template. 
 
-        New-AzureRmResourceGroupDeployment -ResourceGroupName $destRG -TemplateFile $templatePath -TemplateParameterFile $parameterFile
+	New-AzureRmResourceGroupDeployment -ResourceGroupName $destRG -TemplateFile $templatePath -TemplateParameterFile $parameterFile
 
 ## Troubleshooting
 
@@ -218,6 +218,6 @@ We also need to remove the dependency on the storage account from the VM resourc
 
 ## Next steps
 
-- If there were issues with the deployment, a next step would be to look at [Troubleshooting resource group deployments with Azure Portal](../resource-manager-troubleshoot-deployments-portal.md)
+- If there were issues with the deployment, a next step would be to look at [Troubleshooting resource group deployments with Azure portal](../resource-manager-troubleshoot-deployments-portal.md)
 
 - To manage your new virtual machine with Azure PowerShell, see [Manage virtual machines using Azure Resource Manager and PowerShell](virtual-machines-windows-ps-manage.md).
