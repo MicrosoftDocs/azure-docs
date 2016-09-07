@@ -42,7 +42,7 @@ The [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) dataset is a re
 
 >[AZURE.NOTE]: This walkthrough was created on a D2 v2-sized Linux Data Science Virtual Machine. This sized DSVM is capable of handling the procedures in this walkthrough.
 
->[AZURE.NOTE]: If you need more storage space, you can create additional disks and attach them to your VM. These disks use persistent Azure storage, so their data is preserved even when the server is reprovisioned due to resizing or is shut down. To add a disk and attach it to your VM, follow the instructions in [Add a disk to a Linux VM](../virtual-machines/virtual-machines-linux-add-disk/). These steps use the Azure Command-Line Interface (Azure CLI), which is already installed on the DSVM. So these procedures can be done entirely from the VM itself.
+>[AZURE.NOTE]: If you need more storage space, you can create additional disks and attach them to your VM. These disks use persistent Azure storage, so their data is preserved even when the server is reprovisioned due to resizing or is shut down. To add a disk and attach it to your VM, follow the instructions in [Add a disk to a Linux VM](../virtual-machines/virtual-machines-linux-add-disk.md). These steps use the Azure Command-Line Interface (Azure CLI), which is already installed on the DSVM. So these procedures can be done entirely from the VM itself.
 
 To download the data, open a terminal window and run this command:
 
