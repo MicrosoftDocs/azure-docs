@@ -232,6 +232,27 @@ now see your app running using your custom domain name.
 
 8.  Once Azure finishes configuring your new custom domain name, navigate to your custom domain name in a browser. The browser should open your Azure app, which means that your custom domain name is configured properly.
 
+> [AZURE.NOTE] If DNS record is already in use (active domain serving traffic scenario) and you need to preemptively bind your web app to it for domain verification then simply create a TXT records as below,
+> <table cellspacing="0" border="1">
+  <tr>
+    <th>FQDN example</th>
+    <th>TXT Host</th>
+    <th>TXT Value</th>
+  </tr>
+  <tr>
+    <td>contoso.com (root)</td>
+    <td>awverify.&lt;<i>appname</i>>.com</td>
+    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
+  </tr>
+  <tr>
+    <td>www.contoso.com (sub)</td>
+    <td>awverify.www.&lt;<i>appname</i>>.com</td>
+    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
+  </tr>
+</table>
+Once this DNS record is created, go back to Azure portal and add '&lt;<i>appname</i>>.com' or/and 'www.&lt;<i>appname</i>>.com' to your web app.
+ 
+
 <a name="verify"></a>
 ## Verify DNS propagation
 
