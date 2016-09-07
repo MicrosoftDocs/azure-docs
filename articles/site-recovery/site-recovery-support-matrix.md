@@ -23,7 +23,7 @@ This article summarizes supported operating systems and components for Azure Sit
 ## Supported operating systems for virtualization servers
 
 **Replicate** | **What's replicated** | **Replicate to** | **Host OS**
---- | --- | --- |
+--- | --- | --- 
 **Hyper-V hosts** | Any workload | Azure | Windows Server 2012 R2 with latest updates
 **Hyper-V hosts in VMM clouds** | Any workload | Azure | Windows Server 2012 R2 with latest updates
 **Hyper-V hosts in VMM clouds** | Any workload | Secondary VMM site | Windows Server 2012 with latest updates
@@ -33,7 +33,7 @@ This article summarizes supported operating systems and components for Azure Sit
 ## Supported requirements for replicated machines
 
 **Replicate** | **What's replicated** | **Replicate to** | **Host OS**
---- | --- | --- |
+--- | --- | --- 
 **Hyper-V VMs** | Any workload | Azure | Any guest OS [supported by Azure](https://technet.microsoft.com/library/cc794868.aspx)
 **Hyper-V VMs in VMM cloud** | Any workload | Azure | Any guest OS [supported by Azure](https://technet.microsoft.com/library/cc794868.aspx)
 **Hyper-V VMs in VMM clouds** | Any workload | Secondary VMM site | Any guest OS [supported by Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
