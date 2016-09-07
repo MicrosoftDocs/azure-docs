@@ -56,4 +56,4 @@ Performance levels are calibrated and governed to provide the needed resources t
 - See [Service tier](sql-database-service-tiers.md) for information on the DTUs and eDTUs available for standalone databases and for elastic pools
 - See [Azure SQL Database resource limits](sql-database-reource-limits.md) for information on limit on resources other than CPU, memory, data I/O and transaction log I/O.
 - See [SQL Database Query Performance Insight](sql-database-query-performance.md) to understand your (DTUs) consumption.
-- To understand the methodology behind the OLTP benchmark workload used to determine the DTU blend, see [SQL Database benchmark overview](sql-database-benchmark-overview.md).
+- See [SQL Database benchmark overview](sql-database-benchmark-overview.md) oo understand the methodology behind the OLTP benchmark workload used to determine the DTU blend.
