@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2016"
+	ms.date="09/07/2016"
 	ms.author="tarcher"/>
 
 # Manage Azure DevTest Labs custom images to create VMs
@@ -33,15 +33,13 @@ Note that you'll need access to a valid VHD file to perform all the steps in thi
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Select **Browse**, and then select **DevTest Labs** from the list.
+1. Select **More services**, and then select **DevTest Labs** from the list.
 
 1. From the list of labs, select the desired lab.  
 
-1. The selected lab's **Settings** blade will be displayed. 
+1. On the lab's blade, select **Configuration**. 
 
-1. On the lab **Settings** blade, select **Custom images**.
-
-    ![Custom images option](./media/devtest-lab-create-template/lab-settings-custom-images.png)
+1. On the lab **Configuration** blade, select **Custom images**.
 
 1. On the **Custom images** blade, select **+ Custom image**.
 
@@ -87,11 +85,13 @@ If you have a VM that is already configured, you can create a custom image from 
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Select **Browse**, and then select **DevTest Labs** from the list.
+1. Select **More services**, and then select **DevTest Labs** from the list.
 
 1. From the list of labs, select the desired lab.  
 
-1. On the lab's **Overview** blade, select the VM from which you want to create the custom image.
+1. On the lab's blade, select **My virtual machines**.
+ 
+1. On the **My virtual machines** blade, select the VM from which you want to create the custom image.
 
 1. On the VM's blade, select **Create custom image (VHD)**.
 
