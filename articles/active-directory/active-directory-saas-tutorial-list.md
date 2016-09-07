@@ -24,7 +24,6 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 
 ##List of Tutorials
 
-
 | Logo| App Name |
 | --- | --- |
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Frankly.png)| [&frankly](https://go.microsoft.com/fwLink/?LinkID=823723&clcid=0x409)|
@@ -187,13 +186,13 @@ For the comprehensive list of SaaS apps that have been pre-integrated into Azure
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Plurasight.png)| [Pluralsight](http://go.microsoft.com/fwlink/?LinkID=733453&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_PolicyStat.png)| [PolicyStat](https://go.microsoft.com/fwLink/?LinkID=530234&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_PostBeyond.png)| [PostBeyond](https://go.microsoft.com/fwLink/?LinkID=822858&clcid=0x409)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Zscaler.png)| [Predictix Assortment Planning](https://go.microsoft.com/fwLink/?LinkID=708693&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Predictix.png)| [Predictix Assortment Planning](https://go.microsoft.com/fwLink/?LinkID=708693&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Predictix.png)| [Predictix Ordering](https://go.microsoft.com/fwLink/?LinkID=807998&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Predictic.png)| [Predictix Price Reporting](http://go.microsoft.com/fwlink/?LinkId=708693&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Printix.png)| [Printix](https://go.microsoft.com/fwLink/?LinkID=785283&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Projectplace.png)| [Projectplace](https://go.microsoft.com/fwLink/?LinkID=510265&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_ProMapp.png)| [Promapp](http://go.microsoft.com/fwlink/?LinkId=530229)|
-| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_QlikSenseEnterprise.png.png)| [Qlik Sense Enterprise](https://go.microsoft.com/fwLink/?LinkID=822859&clcid=0x409)|
+| ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_QlikSenseEnterprise.png)| [Qlik Sense Enterprise](https://go.microsoft.com/fwLink/?LinkID=822859&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Qualtrics.png)| [Qualtrics](https://go.microsoft.com/fwLink/?LinkID=522567&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_Questetra_BPM_Suite.png)| [Questetra BPM Suite](https://go.microsoft.com/fwLink/?LinkID=530240&clcid=0x409)|
 | ![logo](./media/active-directory-saas-tutorial-list/SaaSApp_QuickHelp.png)| [QuickHelp](https://go.microsoft.com/fwLink/?LinkID=530246&clcid=0x409)|
