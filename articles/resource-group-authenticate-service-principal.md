@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="09/06/2016"
+   ms.date="09/07/2016"
    ms.author="tomfitz"/>
 
 # Use Azure PowerShell to create a service principal to access resources
@@ -100,7 +100,7 @@ Let's go through these steps more carefully to make sure you understand the proc
 
         New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.ApplicationId.Guid
 
-    If your account does not have sufficient permissions to assign a role, you see an error message stating your acount **does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}'**. 
+    If your account does not have sufficient permissions to assign a role, you see an error message stating your account **does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}'**. 
 
 That's it! Your AD application and service principal are set up. The next section shows you how to log in with the credential through PowerShell. If you want to use the credential in your code application, you can jump to the [Sample applications](#sample-applications). 
 
@@ -152,18 +152,23 @@ In this section, you perform the steps to create an AD application and service p
 
 ### Create the self-signed certificate
 
-The version of PowerShell available with Windows 10 and Windows Server 2016 Technical Preview has an updated cmdlet for generating a self-signed certificate. This topic shows two ways of generating the certificate based on the operating system you have.
+The version of PowerShell available with Windows 10 and Windows Server 2016 Technical Preview has an updated **New-SelfSignedCertificate** cmdlet for generating a self-signed certificate. Earlier operating systems have the New-SelfSignedCertificate cmdlet but it does not offer the parameters needed for this topic. Instead, you need to import a module to generate the certificate. This topic shows both approaches for generating the certificate based on the operating system you have. 
 
 If you have **Windows 10 or Windows Server 2016 Technical Preview**, run the following command to create a self-signed certificate: 
 
     $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleapp" -KeySpec KeyExchange
        
-If you **do not have Windows 10 or Windows Server 2016 Technical Preview**, you need to download the [Self-signed certificate generator](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6) PowerShell script, and run the following commands to generate a certificate.
+If you **do not have Windows 10 or Windows Server 2016 Technical Preview**, you need to install or download the [Public Key Infrastructure PowerShell module](https://pspki.codeplex.com/releases/view/625365) from Codeplex. If you downloaded the .zip file, extract its contents and import the cmdlet you need.
      
     # Only run if you could not use New-SelfSignedCertificate
-    Import-Module -Name c:\New-SelfSignedCertificateEx.ps1
+    Import-Module -Name c:\ExtractedModule\New-SelfSignedCertificateEx.ps1
+    
+Then, generate the certificate and retrieve it from the certificate store.
+    
     New-SelfSignedCertificateEx -Subject "CN=exampleapp" -KeySpec "Exchange" -FriendlyName "exampleapp"
     $cert = Get-ChildItem -Path cert:\CurrentUser\My\* -DnsName exampleapp
+
+If you have created multiple certificates with the same DNS name, the Get-ChildItem cmdlet returns all of those certificates. In that case, you must specify the particular certificate you wish to use, such as `$cert[0]`.
 
 You have your certificate and can proceed with creating your AD app.
 
@@ -180,6 +185,10 @@ You have your certificate and can proceed with creating your AD app.
 3. Create an application in the directory.
 
         $app = New-AzureRmADApplication -DisplayName "exampleapp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.contoso.org/example" -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore      
+    
+    For single-tenant applications, the URIs are not validated.
+    
+    If your account does not have the [required permissions](#required-permissions) on the Active Directory, you see an error message indicating "Authentication_Unauthorized" or "No subscription found in the context".
         
     Examine the new application object. 
 
@@ -201,9 +210,11 @@ You have your certificate and can proceed with creating your AD app.
 
         New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
 
-6. Grant the service principal permissions on your subscription. In this example, you grant the service principal permission to read all resources in the subscription. For the **ServicePrincipalName** parameter, provide either the **ApplicationId** or the **IdentifierUris** that you used when creating the application. For more information on role-based access control, see [Azure Role-based Access Control](./active-directory/role-based-access-control-configure.md). To assign a role, you must have `Microsoft.Authorization/*/Write` access, which is granted through the [Owner](./active-directory/role-based-access-built-in-roles.md#owner) role or [User Access Administrator](./active-directory/role-based-access-built-in-roles.md#user-access-administrator) role.
+6. Grant the service principal permissions on your subscription. In this example, you add the service principal to the **Reader** role, which grants permission to read all resources in the subscription. For other roles, see [RBAC: Built-in roles](./active-directory/role-based-access-built-in-roles.md). For the **ServicePrincipalName** parameter, provide the **ApplicationId** that you used when creating the application.
 
         New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.ApplicationId.Guid
+
+    If your account does not have sufficient permissions to assign a role, you see an error message stating your account **does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}'**.
 
 That's it! Your AD application and service principal are set up. The next section shows you how to log in with certificate through PowerShell.
 
