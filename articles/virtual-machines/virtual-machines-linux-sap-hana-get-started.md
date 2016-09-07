@@ -61,6 +61,9 @@ The guide describes two different ways to manually install SAP HANA on Azure VMs
 * install SAP HANA via SAP Software Provisioning Manager ( SWPM ) as part of a distributed NetWeaver installation in the "database instance" step
 * install SAP HANA using the HANA Life Cycle Manager tool hdblcm and then install NetWeaver afterwards
 
+It's also possible to use SWPM and install all components ( SAP HANA, SAP application server, ASCS instance, SAP GUI )
+in one single VM. This option isn't described in this article but the items which have to be considered are the same.
+
 Before starting an installation the section after the checklists below about setting up the Azure test VMs should be read 
 to avoid several basic mistakes which will happen when using only a default Azure VM configuration.
 
@@ -304,6 +307,7 @@ This chapter consists of two secitions which cover the following topics :
 * Installation of Gnome desktop and xrdp on SLES 12
 * Running Java-based SAP MC using Firefox on SLES 12
 
+One could also use alternatives like Xterminal, VNC but as of Sep 2016 this article only describes xrdp.
 
 ### Installation of Gnome desktop and xrdp on SLES 12
 
@@ -416,20 +420,20 @@ Then one has to login to the SAP HANA DB server VM and start SWPM to accomplish 
 distributed NW 7.5 installation - "Database Instance".
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image020.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image035b.jpg)
 
 Related to the SAP HANA installation there isn't in fact too much to enter after selecting a "typical"
 installation. Besides the path to the installatiom media one has to enter a DB SID, the host name, the
 instance number and the DB Sys Admin password.
 
  
-![](./media/virtual-machines-linux-sap-hana-get-started/image021.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image036b.jpg)
 
 Next step is to enter the password for the DBACOCKPIT schema.
 
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image022.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image037b.jpg)
 
 Then comes the question for the SAPABAP1 schema password.
 
