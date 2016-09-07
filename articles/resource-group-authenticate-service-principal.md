@@ -100,7 +100,7 @@ Let's go through these steps more carefully to make sure you understand the proc
 
         New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.ApplicationId.Guid
 
-    If your account does not have sufficient permissions to assign a role, you see an error message stating your account **does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}'**. 
+    If your account does not have sufficient permissions to assign a role, you see an error message. The message states your account **does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}'**. 
 
 That's it! Your AD application and service principal are set up. The next section shows you how to log in with the credential through PowerShell. If you want to use the credential in your code application, you can jump to the [Sample applications](#sample-applications). 
 
@@ -120,7 +120,7 @@ Now, you need to log in as the application to perform operations.
 
         $tenant = (Get-AzureRmSubscription).TenantId
     
-     If you have more than one subscription, specify the subscription you will use for the AD app. Select the subscription where your Active Directory resides. For more information, see [How Azure subscriptions are associated with Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated-directory.md).
+     If you have more than one subscription, specify the subscription where your Active Directory resides. For more information, see [How Azure subscriptions are associated with Azure Active Directory](./active-directory/active-directory-how-subscriptions-associated-directory.md).
 
         $tenant = (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
 
@@ -163,7 +163,7 @@ To quickly perform these steps with Azure PowerShell 2.0 on Windows 10 or Window
     New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
     New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.ApplicationId.Guid
 
-Let's go through these steps more carefully to make sure you understand the process. You will see how to accomplish the same results when using earlier versions of Azure PowerShell or operating systems.
+Let's go through these steps more carefully to make sure you understand the process. This article also shows how to accomplish the tasks when using earlier versions of Azure PowerShell or operating systems.
 
 ### Create the self-signed certificate
 
@@ -183,7 +183,7 @@ The version of PowerShell available with Windows 10 and Windows Server 2016 Tech
         New-SelfSignedCertificateEx -Subject "CN=exampleapp" -KeySpec "Exchange" -FriendlyName "exampleapp"
         $cert = Get-ChildItem -Path cert:\CurrentUser\My\* -DnsName exampleapp
 
-     If you have created multiple certificates with the same DNS name, the Get-ChildItem cmdlet returns all of those certificates. In that case, you must specify the particular certificate you wish to use, such as `$cert[0]`.
+     If you have created multiple certificates with the same DNS name, the Get-ChildItem cmdlet returns all those certificates. In that case, you must specify the particular certificate you wish to use, such as `$cert[0]`.
 
 You have your certificate and can proceed with creating your AD app.
 
@@ -199,7 +199,7 @@ You have your certificate and can proceed with creating your AD app.
 
 3. Create a new Active Directory application by providing a display name, the URI that describes your application, the URIs that identify your application, and the password for your application identity.
 
-     If you Azure PowerShell 2.0 (August 2016 or later), use the following cmdlet:
+     If you have Azure PowerShell 2.0 (August 2016 or later), use the following cmdlet:
 
         $app = New-AzureRmADApplication -DisplayName "exampleapp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.contoso.org/example" -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore      
     
@@ -236,7 +236,7 @@ You have your certificate and can proceed with creating your AD app.
 
         New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.ApplicationId.Guid
 
-    If your account does not have sufficient permissions to assign a role, you see an error message stating your account **does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}'**.
+    If your account does not have sufficient permissions to assign a role, you see an error message. The message states your account **does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}'**.
 
 That's it! Your AD application and service principal are set up. The next section shows you how to log in with certificate through PowerShell.
 
@@ -246,7 +246,7 @@ Whenever you sign in as a service principal, you need to provide the tenant id o
 
     $tenant = (Get-AzureRmSubscription).TenantId
     
-If you have more than one subscription, specify the subscription you will use for the AD app. Select the subscription where your Active Directory resides. For more information, see [Administer your Azure AD directory](./active-directory/active-directory-administer.md).
+If you have more than one subscription, specify the subscription where your Active Directory resides. For more information, see [Administer your Azure AD directory](./active-directory/active-directory-administer.md).
 
     $tenant = (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
 
