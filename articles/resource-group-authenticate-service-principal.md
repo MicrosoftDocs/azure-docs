@@ -68,7 +68,7 @@ Let's go through these steps more carefully to make sure you understand the proc
 
         Add-AzureRmAccount
 
-1. Create a new Active Directory application by providing a display name for your application, the URI to a page that describes your application, the URIs that identify your application, and the password for your application identity.
+1. Create a new Active Directory application by providing a display name, the URI that describes your application, the URIs that identify your application, and the password for your application identity.
 
         $app = New-AzureRmADApplication -DisplayName "exampleapp" -HomePage "https://www.contoso.org/exampleapp" -IdentifierUris "https://www.contoso.org/exampleapp" -Password "<Your_Password>"
 
@@ -148,27 +148,42 @@ To avoid providing the service principal credentials every time it needs to log 
         
 ## Create service principal with certificate
 
-In this section, you perform the steps to create an AD application and service principal with a certificate. 
+In this section, you perform the steps to:
+
+- create a self-signed certificate
+- create the AD application with the certificate
+- create the service principal
+- assign the Reader role to the service principal
+
+To quickly perform these steps with Azure PowerShell 2.0 on Windows 10 or Windows Server 2016 Technical Preview, see the following cmdlets. 
+
+    $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleapp" -KeySpec KeyExchange
+    $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
+    $app = New-AzureRmADApplication -DisplayName "exampleapp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.contoso.org/example" -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
+    New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
+    New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.ApplicationId.Guid
+
+Let's go through these steps more carefully to make sure you understand the process. You will see how to accomplish the same results when using earlier versions of Azure PowerShell or operating systems.
 
 ### Create the self-signed certificate
 
 The version of PowerShell available with Windows 10 and Windows Server 2016 Technical Preview has an updated **New-SelfSignedCertificate** cmdlet for generating a self-signed certificate. Earlier operating systems have the New-SelfSignedCertificate cmdlet but it does not offer the parameters needed for this topic. Instead, you need to import a module to generate the certificate. This topic shows both approaches for generating the certificate based on the operating system you have. 
 
-If you have **Windows 10 or Windows Server 2016 Technical Preview**, run the following command to create a self-signed certificate: 
+- If you have **Windows 10 or Windows Server 2016 Technical Preview**, run the following command to create a self-signed certificate: 
 
-    $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleapp" -KeySpec KeyExchange
+        $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleapp" -KeySpec KeyExchange
        
-If you **do not have Windows 10 or Windows Server 2016 Technical Preview**, you need to install or download the [Public Key Infrastructure PowerShell module](https://pspki.codeplex.com/releases/view/625365) from Codeplex. If you downloaded the .zip file, extract its contents and import the cmdlet you need.
+- If you **do not have Windows 10 or Windows Server 2016 Technical Preview**, you need to install or download the [Public Key Infrastructure PowerShell module](https://pspki.codeplex.com/releases/view/625365) from Codeplex. If you downloaded the .zip file, extract its contents and import the cmdlet you need.
      
-    # Only run if you could not use New-SelfSignedCertificate
-    Import-Module -Name c:\ExtractedModule\New-SelfSignedCertificateEx.ps1
+        # Only run if you could not use New-SelfSignedCertificate
+        Import-Module -Name c:\ExtractedModule\New-SelfSignedCertificateEx.ps1
     
-Then, generate the certificate and retrieve it from the certificate store.
+     Then, generate the certificate and retrieve it from the certificate store.
     
-    New-SelfSignedCertificateEx -Subject "CN=exampleapp" -KeySpec "Exchange" -FriendlyName "exampleapp"
-    $cert = Get-ChildItem -Path cert:\CurrentUser\My\* -DnsName exampleapp
+        New-SelfSignedCertificateEx -Subject "CN=exampleapp" -KeySpec "Exchange" -FriendlyName "exampleapp"
+        $cert = Get-ChildItem -Path cert:\CurrentUser\My\* -DnsName exampleapp
 
-If you have created multiple certificates with the same DNS name, the Get-ChildItem cmdlet returns all of those certificates. In that case, you must specify the particular certificate you wish to use, such as `$cert[0]`.
+     If you have created multiple certificates with the same DNS name, the Get-ChildItem cmdlet returns all of those certificates. In that case, you must specify the particular certificate you wish to use, such as `$cert[0]`.
 
 You have your certificate and can proceed with creating your AD app.
 
@@ -182,9 +197,15 @@ You have your certificate and can proceed with creating your AD app.
 
         Add-AzureRmAccount
 
-3. Create an application in the directory.
+3. Create a new Active Directory application by providing a display name, the URI that describes your application, the URIs that identify your application, and the password for your application identity.
+
+     If you Azure PowerShell 2.0 (August 2016 or later), use the following cmdlet:
 
         $app = New-AzureRmADApplication -DisplayName "exampleapp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.contoso.org/example" -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore      
+    
+    If you have Azure PowerShell 1.0, use the following cmdlet:
+    
+        $app = New-AzureRmADApplication -DisplayName "exampleapp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.contoso.org/example" -KeyValue $keyValue -KeyType AsymmetricX509Cert  -EndDate $cert.NotAfter -StartDate $cert.NotBefore      
     
     For single-tenant applications, the URIs are not validated.
     
@@ -197,13 +218,14 @@ You have your certificate and can proceed with creating your AD app.
     Notice the **ApplicationId** property, which is needed for creating service principals, role assignments, and acquiring access tokens.
 
         DisplayName             : exampleapp
-        Type                    : Application
-        ApplicationId           : 1975a4fd-1528-4086-a992-787dbd23c46b
-        ApplicationObjectId     : 9665e5f3-84b7-4344-92e2-8cc20ad16a8b
-        AvailableToOtherTenants : False
-        AppPermissions          : {}
+        ObjectId                : c95e67a3-403c-40ac-9377-115fa48f8f39
         IdentifierUris          : {https://www.contoso.org/example}
-        ReplyUrls               : {}    
+        HomePage                : https://www.contoso.org
+        Type                    : Application
+        ApplicationId           : 8bc80782-a916-47c8-a47e-4d76ed755275
+        AvailableToOtherTenants : False
+        AppPermissions          : 
+        ReplyUrls               : {}
 
 
 5. Create a service principal for your application by passing in the application id of the Active Directory application.
