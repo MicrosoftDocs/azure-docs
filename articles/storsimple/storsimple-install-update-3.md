@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/31/2016"
+   ms.date="09/07/2016"
    ms.author="alkohli" />
 
 # Install Update 3 on your StorSimple device
@@ -71,9 +71,11 @@ The software versions that can be upgraded using the hotfix method are:
 
 The hotfix method involves the following three steps:
 
-- Download the hotfixes from the Microsoft Update Catalog.
-- Install and verify the regular mode hotfixes.
-- Install and verify the maintenance mode hotfix (only when updating from pre-Update 2 software).
+1.  Download the hotfixes from the Microsoft Update Catalog.
+
+2.  Install and verify the regular mode hotfixes.
+
+3.  Install and verify the maintenance mode hotfix (only when updating from pre-Update 2 software).
 
 
 #### Download updates for your device
