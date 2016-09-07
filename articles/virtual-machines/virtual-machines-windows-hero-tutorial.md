@@ -89,7 +89,7 @@ After you select the image, you can use the default settings and quickly create 
 
 	![Screenshot of entering the VM name, user name and password](./media/virtual-machines-windows-hero-tutorial/credentials.png)
  	
-6.	You will get a warning that the certificate cannot be verified. This is normal. Click **Yes** to verify the identity of the virtual machine and finish logging on.
+6.	You get a warning that the certificate cannot be verified. This is normal. Click **Yes** to verify the identity of the virtual machine and finish logging on.
 
 	![Screenshot showing a message abut verifying the identity of the VM](./media/virtual-machines-windows-hero-tutorial/cert-warning.png)
 

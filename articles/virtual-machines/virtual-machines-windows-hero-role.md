@@ -43,7 +43,7 @@ Once you have your first VM up and running, you can move on to installing softwa
 
 	![Screenshot of entering the VM name, user name and password](./media/virtual-machines-windows-hero-tutorial/credentials.png)
  	
-6.	You will get a warning that the certificate cannot be verified. This is normal. Click **Yes** to verify the identity of the virtual machine and finish logging on.
+6.	You get a warning that the certificate cannot be verified. This is normal. Click **Yes** to verify the identity of the virtual machine and finish logging on.
 
 	![Screenshot showing a message abut verifying the identity of the VM](./media/virtual-machines-windows-hero-tutorial/cert-warning.png)
 
@@ -84,8 +84,8 @@ Now that you are logged in to the VM, we will install a server role so that you 
 In order for your VM to accept inbound traffic over port 80, you need to add an inbound rule to the network security group. 
 
 1. Open the [Azure portal](https://portal.azure.com).
-2. Under **Virtual machines** select the VM that you created.
-3. Under the virtual machines settings, select **Network interfaces** and then select the existing network interface.
+2. In **Virtual machines** select the VM that you created.
+3. In the virtual machines settings, select **Network interfaces** and then select the existing network interface.
 
 	![Screenshot showing the virtual machine setting for the network interfaces](./media/virtual-machines-windows-hero-tutorial/network-interface.png)
 
