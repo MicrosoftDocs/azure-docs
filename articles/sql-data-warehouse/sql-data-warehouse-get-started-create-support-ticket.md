@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="09/01/2016"
-   ms.author="sonyam;barbkess;sonyama"/>
+   ms.author="sonyama;barbkess"/>
 
 # How to create a support ticket for SQL Data Warehouse
  
