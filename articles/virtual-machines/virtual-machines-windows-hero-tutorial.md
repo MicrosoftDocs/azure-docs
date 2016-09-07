@@ -34,7 +34,7 @@ We use a Windows Server 2012 R2 Datacenter image as an example, but that's just 
 	![Screenshot that shows the Azure VM images available in the portal](./media/virtual-machines-windows-hero-tutorial/marketplace-new.png)
 
 
-3. On the **Windows Server 2012 R2 Datacenter** blade, under **Select a deployment model**, verify that **Resource Manager** is selected. Click **Create**.
+3. On the **Windows Server 2012 R2 Datacenter** blade, in **Select a deployment model**, verify that **Resource Manager** is selected. Click **Create**.
 
 	![Screenshot that shows the deployment model to select for the VM](./media/virtual-machines-windows-hero-tutorial/deployment-model.png)
 
@@ -60,7 +60,7 @@ After you select the image, you can use the default settings and quickly create 
 
 	![Screenshot of the Size blade that shows the Azure VM sizes that you can select](./media/virtual-machines-windows-hero-tutorial/size-blade.png)
 
-6. On the **Settings** blade, you can change the storage and networking options. For this tutorial, accept the default settings. If you selected a virtual machine size that supports it, you can try out Premium Storage by selecting **Premium (SSD)** under **Disk type**. When you are done making changes, click **OK**.
+6. On the **Settings** blade, you can change the storage and networking options. For this tutorial, accept the default settings. If you selected a virtual machine size that supports it, you can try out Premium Storage by selecting **Premium (SSD)** in **Disk type**. When you are done making changes, click **OK**.
 
 	![Screenshot of the Settings blade where you can configure optional features for an Azure VM](./media/virtual-machines-windows-hero-tutorial/settings-blade.png)
 
@@ -68,7 +68,7 @@ After you select the image, you can use the default settings and quickly create 
 
 	![Screenshot of the Summary page that shows the configuration choices made for the Azure VM](./media/virtual-machines-windows-hero-tutorial/summary-blade.png)
 
-8. While Azure creates the virtual machine, you can track the progress under **Virtual Machines** in the hub menu. 
+8. While Azure creates the virtual machine, you can track the progress in **Virtual Machines** in the hub menu. 
 
 
 ## Connect to the virtual machine and sign on
@@ -111,8 +111,8 @@ Click the **Start** button to restart the VM when you are ready to use it again.
 
 ## Next steps
 
-* You can also experiment with your new VM by [installing IIS on your VM and opening port 80](virtual-machines-windows-hero-role.md) to incoming web traffic. 
+- You can also experiment with your new VM by [installing IIS on your VM and opening port 80](virtual-machines-windows-hero-role.md) to incoming web traffic. 
 
-* You can also [create a Windows VM using Powershell](virtual-machines-windows-ps-create.md) or [create a Linux virtual machine](virtual-machines-linux-quick-create-cli.md) using the Azure CLI.
+- You can also [create a Windows VM using Powershell](virtual-machines-windows-ps-create.md) or [create a Linux virtual machine](virtual-machines-linux-quick-create-cli.md) using the Azure CLI.
 
-* If you are interested in automating deployments, take a look at [Creating a Windows virtual machine using a Resource Manager template](virtual-machines-windows-ps-template.md).
+- If you are interested in automating deployments, take a look at [Creating a Windows virtual machine using a Resource Manager template](virtual-machines-windows-ps-template.md).

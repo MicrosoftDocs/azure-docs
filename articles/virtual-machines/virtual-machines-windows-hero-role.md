@@ -124,4 +124,4 @@ For more information about NSGs, inbound and outbound rules, see [Allow external
 	
 	## Next steps
 
-* You can also experiment with [attaching a data disk](virtual-machines-windows-attach-disk-portal.md) to your virtual machine. Data disks provide more storage for your virtual machine.
+- You can also experiment with [attaching a data disk](virtual-machines-windows-attach-disk-portal.md) to your virtual machine. Data disks provide more storage for your virtual machine.
