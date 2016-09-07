@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="06/17/2016"
+	ms.date="09/06/2016"
 	ms.author="spelluru"/>
 
 # Tutorial: Build your first pipeline to process data using Hadoop cluster 
@@ -30,19 +30,17 @@ In this tutorial, you build your first Azure data factory with a data pipeline t
 
 This article provides an **overview** of the tutorial and step-by-step instructions for meeting the **pre-requisites** for the tutorial. After completing the prerequisite steps, you use one of the following to do the tutorial: Data Factory Editor in the Azure portal, Visual Studio, Azure PowerShell, and Azure Resource Manager template.  
 
-Note that this article does not provide a conceptual overview of Azure Data Factory. For a conceptual overview of the service, see [Introduction to Azure Data Factory](data-factory-introduction.md).
+This article does not provide a conceptual overview of Azure Data Factory. For a conceptual overview of the service, see [Introduction to Azure Data Factory](data-factory-introduction.md).
 
 ## What’s covered in this tutorial?	
-**Azure Data Factory** enables you to compose data **movement** and data **processing** tasks as data-driven workflows (also called data pipelines). You learn how to build your first data pipeline with a data processing (or data transformation) task that uses an Azure HDInsight cluster to transform and analyze web logs and schedule the pipeline to run on a monthly basis.  
+**Azure Data Factory** enables you to compose data **movement** and data **processing** tasks as data-driven workflows (also called data pipelines). You learn how to build your first data pipeline with a data processing (or data transformation) task. This task uses an Azure HDInsight cluster to transform and analyze web logs.  
 
 In this tutorial, you perform the following steps:
 
 1.	Create the **data factory**. A data factory can contain one or more data pipelines that move and process data. 
 2.	Create the **linked services**. You create a linked service to link a data store or a compute service to the data factory. A data store such as Azure Storage holds input/output data of activities in the pipeline. A compute service such as Azure HDInsight processes/transforms data.    
 3.	Create input and output **datasets**. An input dataset represents the input for an activity in the pipeline and an output dataset represents the output for the activity.
-3.	Create the **pipeline**. A pipeline can have one or more activities such as Copy Activity to copy data from a source to a destination (or) HDInsight Hive Activity to transform input data using Hive script to produce output data. This sample uses the HDInsight Hive activity that runs a Hive script. The script first creates an external table that references the raw web log data stored in Azure blob storage and then partitions the raw data by year and month.
-
-Your first pipeline, called **MyFirstPipeline**, uses a Hive activity to transform and analyze a web log that you upload to the **inputdata** folder in **adfgetstarted** container (adfgetstarted/inputdata) in your Azure blob storage. 
+3.	Create the **pipeline**. A pipeline can have one or more activities (Examples: Copy Activity, HDInsight Hive Activity). This sample uses the HDInsight Hive activity that runs a Hive script. The script first creates an external table that references the raw web log data stored in Azure blob storage and then partitions the raw data by year and month.
  
 ![Diagram view in Data Factory tutorial](./media/data-factory-build-your-first-pipeline/data-factory-tutorial-diagram-view.png)
 
@@ -160,7 +158,7 @@ In this section, you do the following:
 		  month(date)
 		FROM WebLogsRaw
 
-At runtime, the Hive Activity in the Data Factory pipeline passes values for the inputtable and partitionedtable parameters as shown below where storageaccountname is the name of your Azure storage account: 
+At runtime, the Hive Activity in the Data Factory pipeline passes values for the inputtable and partitionedtable parameters as shown in the following snippet. The storageaccountname is the name of your Azure storage account. 
 
 		"inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
 		"partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
@@ -196,15 +194,15 @@ This section provides instructions on using **AzCopy** tool to copy files to Azu
 	 
 2. To prepare the Azure storage for the tutorial:
 	1. Download the [latest version of **AzCopy**](http://aka.ms/downloadazcopy), or the [latest preview version](http://aka.ms/downloadazcopypr). See [How to use AzCopy](../storage/storage-use-azcopy.md) article for instructions on using the utility.
-	2. After AzCopy has been installed, you can add it to the system path by running the following command at a command prompt. 
+	2. After AzCopy has been installed, add it to the system path by running the following command at the command prompt. 
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
 
-	3. Navigate to the c:\adfgetstarted folder, and run the following command to upload the **input.log** file to the storage account (**adfgetstarted** container and **inputdata** folder). Replace **StorageAccountName** with the name of your storage account, and **Storage Key** with the storage account key.
+	3. Navigate to the c:\adfgetstarted folder, and run the following command. This command uploads the **input.log** file to the storage account (**adfgetstarted** container and **inputdata** folder). Replace **StorageAccountName** with the name of your storage account, and **Storage Key** with the storage account key.
 
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/inputdata /DestKey:<storagekey>  /Pattern:input.log
 
-		> [AZURE.NOTE] The above command creates a container named **adfgetstarted** in your Azure Blob storage and copies the **input.log** file from your local drive to the **inputdata** folder in the container. 
+		> [AZURE.NOTE] This command creates a container named **adfgetstarted** in your Azure Blob storage and copies the **input.log** file from your local drive to the **inputdata** folder in the container. 
 	
 	5. After the file has been successfully uploaded, you see the output similar to the following one from AzCopy.
 	
