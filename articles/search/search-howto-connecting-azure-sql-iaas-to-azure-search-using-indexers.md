@@ -28,15 +28,15 @@ Azure Search requires a secure connection to read data from your database. This 
 
 The steps for enabling encrypted connections to SQL Server are documented in [Enable Encrypted Connections to the Database Engine](https://msdn.microsoft.com/library/ms191192.aspx), but for public internet connections, such as a connection from Azure Search to a SQL Azure VM, there are a few additional requirements to make this work.
 
-### Specify a FQDN in the certificate
+### Specify an FQDN in the SSL certificate
 
 The subject name of the SSL certificate must be the fully qualified domain name (or **FQDN**) of the SQL Azure VM. It's the same FQDN you'll specify in the database connection string when creating a data source in your search service. An FQDN is formatted as `<your-VM-name>.<region>.cloudapp.azure.com` for **Resource Manager** VMs. If you are still on **classic** VMs, it is formatted as `<your-cloud-service-name.cloudapp.net>`. You can find the FQDN of your SQL Azure VM as the DNS name/label in the [Azure portal](https://portal.azure.com/).
 
-### Use REGEDIT for certificate installation
+### Use REGEDIT to configure the SSL certificate
 
 SQL Server Configuration Manager is not able to show the FQDN SSL certificate in the **Certificate** dropdown as described in the documentation. The workaround is to configure the SSL certificate by editing this registry key: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\[MSSQL13.MSSQLSERVER]\MSSQLServer\SuperSocketNetLib\Certificate**. The *[MSSQL13.MSSQLSERVER]* part varies based on your SQL Server version and instance name. This key needs to be updated with the **thumbprint** of the SSL certificate you installed on the SQL Azure VM.
 
-### Assign permissions to the service account
+### Grant permissions to the service account
 
 Make sure the SQL Server service account is granted appropriate permission on the private key of the SSL certificate. If you overlook this step, SQL Server will not start.
 
@@ -46,15 +46,15 @@ It is not unusual to configure the firewall and corresponding Azure endpoint or 
 
 If you are using **Resource Manager** VMs, see [Connect to a SQL Server Virtual Machine on Azure using Resource Manager](../virtual-machines/virtual-machines-windows-sql-connect.md). If you are still on **classic** VMs, see [Connect to a SQL Server Virtual Machine on Azure Classic](../virtual-machines/virtual-machines-windows-classic-sql-connect.md).
 
-### Restrict access to the service IP address
+### Restrict access to the search service IP address
 
 For either deployment model, when configuring connections from Azure Search, we strongly recommend that you restrict the access to the IP address of your search service in the ACL instead of making your SQL Azure VMs wide open to any connection requests. You can easily find out the IP address by pinging the FQDN (for example, `<your-search-service-name>.search.windows.net`) of your search service.
 
-### Use an IP range
+### Configure an IP address range
 
 Note that if your search service has only one search unit (that is, one replica and one partition), the IP address may change during routine service restarts. To avoid connection failures, you should specify the IP address range of the Azure region where your search service is provisioned. The list of IP ranges from which public IP addresses are allocated to Azure resources is published at [Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
 
-### Include the portal IP
+### Include the Azure Search portal IP addresses
 
 Additionally, if you are using the Azure portal to create an indexer, Azure Search portal logic also needs access to your SQL Azure VM during creation time. Azure search portal IP addresses can be found by pinging `stamp1.search.ext.azure.com` and `stamp2.search.ext.azure.com`.
 
