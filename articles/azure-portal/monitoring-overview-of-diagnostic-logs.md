@@ -33,7 +33,7 @@ Diagnostic Logs for non-Compute resources are configured using Diagnostic Settin
 
 - Where Diagnostic Logs are sent (Storage Account, Event Hubs, and/or OMS Log Analytics).
 - Which Log Categories are sent.
-- How long each log category should be retained in a Storage Account – a retention of zero days means that logs are kept forever. If retention policies are set but storing logs in a Storage Account is disabled (for example if only Event Hubs or OMS options are selected), the retention policies have no effect.
+- How long each log category should be retained in a Storage Account – a retention of zero days means that logs are kept forever. Otherwise, this value can range from 1 to 2147483647. If retention policies are set but storing logs in a Storage Account is disabled (for example if only Event Hubs or OMS options are selected), the retention policies have no effect.
 
 These settings are easily configured via the Diagnostics blade for a resource in the Azure portal, via Azure PowerShell and CLI commands, or via the [Insights REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 

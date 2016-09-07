@@ -21,12 +21,10 @@
 > [AZURE.SELECTOR]
 - [Security Overview](sql-data-warehouse-overview-manage-security.md)
 - [Threat detection](sql-data-warehouse-security-threat-detection.md)
-- [Encryption (Portal)](sql-data-warehouse-encryption-tde.md)
-- [Encryption (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 - [Auditing Overview](sql-data-warehouse-auditing-overview.md)
 - [Auditing downlevel clients](sql-data-warehouse-auditing-downlevel-clients.md)
-
-
+- [Transparent Data Encryption (Portal)](sql-data-warehouse-encryption-tde.md)
+- [Transparent Data Encryption (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 
 This article walks through the basics of securing your Azure SQL Data Warehouse database. In particular, this article will get you started with resources for limiting access, protecting data, and monitoring activities on a database.
 
@@ -34,10 +32,9 @@ This article walks through the basics of securing your Azure SQL Data Warehouse 
 
 Connection Security refers to how you restrict and secure connections to your database using firewall rules and connection encryption.
 
-Firewall rules are used by both the server and the database to reject connection attempts from IP addresses that have not been explicitly whitelisted. To allow connections from your application or client machine's public IP address, you must first create a server-level firewall rule using the Azure Classic Portal, REST API, or PowerShell. As a best practice, you should restrict the IP address ranges allowed through your server firewall as much as possible.  To access Azure SQL Data Warehouse from your local computer, ensure the firewall on your network and local computer allows outgoing communication on TCP port 1433.  For more information, see [Azure SQL Database firewall][], [sp_set_firewall_rule][], and [sp_set_database_firewall_rule][].
+Firewall rules are used by both the server and the database to reject connection attempts from IP addresses that have not been explicitly whitelisted. To allow connections from your application or client machine's public IP address, you must first create a server-level firewall rule using the Azure Portal, REST API, or PowerShell. As a best practice, you should restrict the IP address ranges allowed through your server firewall as much as possible.  To access Azure SQL Data Warehouse from your local computer, ensure the firewall on your network and local computer allows outgoing communication on TCP port 1433.  For more information, see [Azure SQL Database firewall][], [sp_set_firewall_rule][], and [sp_set_database_firewall_rule][].
 
-Connections to your SQL Data Warehouse can be encrypted by setting the encryption mode in your connection string.  The syntax for turning on encryption for the connection varies by protocol.  To help you set up your connection string, navigate to your database on the Azure Portal.  Under *Essentials* click on *Show database connection strings*.
-
+Connections to your SQL Data Warehouse are encrypted by default.  Modifying connection settings to disable encryption are ignored.
 
 ## Authentication
 

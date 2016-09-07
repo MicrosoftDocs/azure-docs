@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/23/2016"
+	ms.date="09/01/2016"
 	ms.author="banders"/>
 
 
@@ -141,7 +141,7 @@ After you have the solution enabled in the OMS portal, you'll see the **Containe
 
 ![Containers tile](./media/log-analytics-containers/containers-title.png)
 
-The tile shows hosts that are overwhelmed with CPU or Memory usage (&gt;90%), as well as an overview of how many containers you have in the environment and whether they're failed, running, or stopped.
+The tile shows an overview of how many containers you have in the environment and whether they're failed, running, or stopped.
 
 ### Using the Containers dashboard
 

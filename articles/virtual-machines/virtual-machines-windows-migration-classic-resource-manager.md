@@ -97,13 +97,14 @@ Resource Manager | Role Based Access Control (RBAC) for classic resources | Beca
 Compute | Multiple subnets associated with a VM | Update the subnet configuration to reference only subnets.
 Compute | Virtual machines that belong to a virtual network but don't have an explicit subnet assigned | You can optionally delete the VM.
 Compute | Virtual machines that have alerts, Autoscale policies | The migration goes through and these settings are dropped. It is highly recommended that you evaluate your environment before you do the migration. Alternatively, you can reconfigure the alert settings after migration is complete.
-Compute | XML VM extensions (Visual Studio Debugger, Web Deploy, and Remote Debugging) | This is not supported. It is recommended that you remove these extensions from the virtual machine to continue migration.
+Compute | XML VM extensions (BGInfo 1.*, Visual Studio Debugger, Web Deploy, and Remote Debugging) | This is not supported. It is recommended that you remove these extensions from the virtual machine to continue migration or they will be dropped automatically during the migration process.
 Compute | Boot diagnostics with Premium storage | Disable Boot Diagnostics feature for the VMs before continuing with migration. You can re-enable boot diagnostics in the Resource Manager stack after the migration is complete. Additionally, blobs that are being used for screenshot and serial logs should be deleted so you are no longer charged for those blobs.
 Compute | Cloud services that contain web/worker roles | This is currently not supported.
 Network | Virtual networks that contain virtual machines and web/worker roles |  This is currently not supported.
 Azure App Service | Virtual networks that contain App Service environments | This is currently not supported.
 Azure HDInsight | Virtual networks that contain HDInsight services | This is currently not supported.
 Microsoft Dynamics Lifecycle Services | Virtual networks that contain virtual machines that are managed by Dynamics Lifecycle Services | This is currently not supported.
+Compute | Azure Security Center extensions with a VNET that has a VPN gateway or ER gateway with on-prem DNS server | Azure Security Center automatically installs extensions on your Virtual Machines to monitor their security and raise alerts. These extensions usually get installed automatically if the Azure Security Center policy is enabled on the subscription. As gateway migration is not supported currently and the gateway needs to be deleted before proceeding with committing the migration, the internet access to VM storage account is lost when the gateway is deleted. The migration will not proceed when this happens as the guest agent status blob cannot be populated. It is recommended to disable Azure Security Center policy on the subscription 3 hours before proceeding with migration.
 
 ## The migration experience
 
@@ -205,7 +206,7 @@ During migration, the resources transform from classic to Resource Manager. So w
 
 **What if I’m using Azure Site Recovery or Azure Backup today?**
 
-Azure Site Recovery and Backup support for VMs under Resource Manager was added recently. We are working to enable the capability to support migration of VMs into Resource Manager as well. We currently recommend that you don't run migration if you're using these functionalities.
+To migrate your Virtual Machine that are enabled for backup, see [I have backed up my classic VMs in backup vault. Now I want to migrate my VMs from classic mode to Resource Manager mode. How Can I backup them in recovery services vault?](../backup/backup-azure-backup-ibiza-faq.md#i-have-backed-up-my-classic-vms-in-backup-vault-now-i-want-to-migrate-my-vms-from-classic-mode-to-resource-manager-mode-how-can-i-backup-them-in-recovery-services-vault)
 
 **Can I validate my subscription or resources to see if they're capable of migration?**
 
@@ -225,7 +226,8 @@ All the resources that you explicitly provide names for in the classic deploymen
 
 **I got a message *"VM is reporting the overall agent status as Not Ready. Hence, the VM cannot be migrated. Ensure that the VM Agent is reporting overall agent status as Ready"* or *"VM contains Extension whose Status is not being reported from the VM. Hence, this VM cannot be migrated."***
 
-This message is received when the VM does not have outbound connectivity to the internet. The VM agent uses outbound connectivity to reach the Azure storage account for updating the agent status every five minutes. 
+This message is received when the VM does not have outbound connectivity to the internet. The VM agent uses outbound connectivity to reach the Azure storage account for updating the agent status every five minutes.
+
 
 ## Next steps
 Now that you understand the migration of classic IaaS resources to Resource Manager, you can start migrating resources.

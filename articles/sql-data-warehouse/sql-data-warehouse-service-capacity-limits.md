@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/25/2016"
+   ms.date="09/01/2016"
    ms.author="sonyama;barbkess;jrj"/>
 
 # SQL Data Warehouse capacity limits
@@ -23,13 +23,14 @@ The following tables contain the maximum values allowed for various components o
 
 ## Workload management
 
-| Category            | Description                                  | Maximum            |
-| :------------------ | :------------------------------------------- | :----------------- |
-| [Data Warehouse Units (DWU)][]| Compute, Memory, and IO Resources      | 6000               |
-| Database connection | Concurrent open sessions                     | 1024<br/><br/>We support a maximum of 1024 active connections, each of which can submit requests to a SQL Data Warehouse database at the same time. Note, that there are limits on the number of queries that can actually execute concurrently. When the concurrency limit is exceeded, the request goes into an internal queue where it waits to be processed.|
-| Database connection | Maximum memory for prepared statements       | 20 MB              |
-| [Workload management][] | Maximum concurrent queries                   | 32<br/><br/> By default, SQL Data Warehouse can execute a maximum of 32 concurrent queries and queues remaining queries.<br/><br/>The concurrency level may decrease when users are assigned to a higher resource class or when SQL Data Warehouse is configured with low DWU. Some queries, like DMV queries, are always allowed to run.|
-| [Tempdb][]          | Max size of Tempdb                           | 399 GB per DW100. Therefore at DWU1000 Tempdb is sized to 3.99 TB |
+| Category            | Description                                       | Maximum            |
+| :------------------ | :------------------------------------------------ | :----------------- |
+| [Data Warehouse Units (DWU)][]| Max DWU for a single SQL Data Warehouse | 6000               |
+| [Data Warehouse Units (DWU)][]| Max DWU for a single SQL server         | 6000 by default<br/><br/> By default, each SQL server (e.g. myserver.database.windows.net) has a DTU Quota of 45,000 which allows up to 6000 DWU. This quota is simply a safety limit. You can increase your quota by [creating a support ticket][] and selecting *Quota* as the request type.  To calculate your DTU needs, multiply the 7.5 by the total DWU needed. You can view your current DTU consumption from the SQL server blade in the portal. Both paused and un-paused databases count toward the DTU quota. |
+| Database connection | Concurrent open sessions                          | 1024<br/><br/>We support a maximum of 1024 active connections, each of which can submit requests to a SQL Data Warehouse database at the same time. Note, that there are limits on the number of queries that can actually execute concurrently. When the concurrency limit is exceeded, the request goes into an internal queue where it waits to be processed.|
+| Database connection | Maximum memory for prepared statements            | 20 MB              |
+| [Workload management][] | Maximum concurrent queries                    | 32<br/><br/> By default, SQL Data Warehouse can execute a maximum of 32 concurrent queries and queues remaining queries.<br/><br/>The concurrency level may decrease when users are assigned to a higher resource class or when SQL Data Warehouse is configured with low DWU. Some queries, like DMV queries, are always allowed to run.|
+| [Tempdb][]          | Max size of Tempdb                                | 399 GB per DW100. Therefore at DWU1000 Tempdb is sized to 3.99 TB |
 
 
 ## Database objects
@@ -46,8 +47,6 @@ The following tables contain the maximum values allowed for various components o
 | Table             | Characters per partition boundary value.| 4000 |
 | Index             | Non-clustered indexes per table.        | 999<br/><br/>Applies to rowstore tables only.|
 | Index             | Clustered indexes per table.            | 1<br><br/>Applies to both rowstore and columnstore tables.|
-| Index             | Rows in a columnstore index rowgroup | 1,024<br/><br/>Each columnstore index is implemented as multiple columnstore indexes. Note that if you insert 1,024 rows into a SQL Data Warehouse columnstore index, the rows will not all go to the same rowgroup.|
-| Index             | Concurrent builds of clustered columnstore indexes. | 32<br/><br/>Applies when the clustered columnstore indexes are all being built on different tables. Only one clustered columnstore index build is allowed per table. Additional requests will wait in a queue.|
 | Index             | Index key size.                          | 900 bytes.<br/><br/>Applies to rowstore indexes only.<br/><br/>Indexes on varchar columns with a maximum size of more than 900 bytes can be created if the existing data in the columns does not exceed 900 bytes when the index is created. However, later INSERT or UPDATE actions on the columns that cause the total size to exceed 900 bytes will fail.|
 | Index             | Key columns per index.                   | 16<br/><br/>Applies to rowstore indexes only. Clustered columnstore indexes include all columns.|
 | Statistics        | Size of the combined column values.      | 900 bytes.         |
@@ -107,6 +106,7 @@ For more reference information, see [SQL Data Warehouse reference overview][].
 [Workload management]: ./sql-data-warehouse-develop-concurrency.md
 [Tempdb]: ./sql-data-warehouse-tables-temporary.md
 [data type]: ./sql-data-warehouse-tables-data-types.md
+[creating a support ticket]: /sql-data-warehouse-get-started-create-support-ticket.md
 
 <!--MSDN references-->
 [Row-Overflow Data Exceeding 8 KB]: https://msdn.microsoft.com/library/ms186981.aspx
