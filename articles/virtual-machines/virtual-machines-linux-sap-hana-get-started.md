@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Quickstart Guide for manual installation of SAP HANA on Azure VMs | Microsoft Azure"
-   description="Quickstart Guide for manual installation of SAP HANA on Azure VMs"
+   pageTitle="Quickstart guide for manual installation of SAP HANA on Azure VMs | Microsoft Azure"
+   description="Quickstart guide for manual installation of SAP HANA on Azure VMs"
    services="virtual-machines,virtual-network,storage"
    documentationCenter="saponazure"
    authors="hermanndms"
@@ -14,7 +14,7 @@
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="na"
-   ms.date="08/31/2016"
+   ms.date="09/07/2016"
    ms.author="hermannd"/>
 
 # Quickstart Guide for manual installation of single-instance SAP HANA on Azure VMs
@@ -41,7 +41,7 @@ general information section at the end of this article.
 
 These were the two test VMs used for the sample installation :
 
-* hana-appsrv ( type DS3 V2 ) to host the NW 7.5 ASCS instance + PAS
+* hana-appsrv ( type DS3 ) to host the NW 7.5 ASCS instance + PAS
 * hana-dbsrv  ( type GS4 ) to host HANA SP12
 * both VMs belonged to one Azure virtual network ( azure-hana-test-vnet )
 * OS in both cases was SLES 12 SP1
@@ -144,7 +144,7 @@ of five sections which cover the following topics :
 * /etc/fstab
 
 
-### Disk Setup
+### Disk setup
 
 The root filesystem in a Linux VM on Azure is of limited size. Therefore it's necessary to attach
 additional disk space to a VM for running SAP. In the case of a SAP app server VM used in a pure
@@ -297,7 +297,7 @@ watch out as in this case the additional disk space might not be available and p
 root filesystem. In case /hana would be missing SAP HANA wouldn't start though at all.
 
 
-## Install Graphical Gnome desktop on SLES 12
+## Install graphical Gnome desktop on SLES 12
 
 This chapter consists of two secitions which cover the following topics :
 
@@ -459,18 +459,18 @@ filesystem runs out of free space.
 Here one can see the same thing as described before for the /usr/sap directory.
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image027.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image027b.jpg)
 
 The last step of the distributed ABAP installation is the "Primary Application Server Instance"
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image028.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image028b.jpg)
 
 Once the PAS as well as SAP GUI got installed one can check via the transaction "dbacockpit" that
 everything looks right with the SAP HANA installation.
 
  
-![](./media/virtual-machines-linux-sap-hana-get-started/image029.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image038b.jpg)
 
 As a last step one could install SAP HANA Studio in the SAP app server VM and connect to the SAP HANA
 instance running on the DB server VM.
@@ -478,7 +478,7 @@ instance running on the DB server VM.
 
 
 
-## Manual SAP HANA installation via HANA Life Cycle Manager tool hdblcm
+## Manual SAP HANA installation via HANA life cycle manager tool hdblcm
 
 
 Besides installing SAP HANA as part of a distributed installation via SWPM it's also possibe to first 
@@ -536,7 +536,7 @@ includes e.g. all the SAP NetWeaver tables isn't available yet.
 
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image035.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image035b.jpg)
 
 After installing SAP HANA one can install SAP NetWeaver on top of it. In this sample it was done
 using a "distributed installation" via SWPM as described in the corresponding section above.
@@ -546,25 +546,25 @@ installation and add additional schemas.
 
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image036.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image036b.jpg)
 
 This is the picture of the SWPM installation step where one has to enter data regarding the
 DBACOCKPIT schema.
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image037.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image037b.jpg)
 
 Then SWPM expects to enter data about the SAPABAP1 schema.
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image038.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image038b.jpg)
 
 Once the SWPM database instance installation is finished one can see the SAPABAP1 schema in
 HANA Studio.
 
 
 
-![](./media/virtual-machines-linux-sap-hana-get-started/image039.jpg)
+![](./media/virtual-machines-linux-sap-hana-get-started/image039b.jpg)
 
 And finally after installation of the SAP app server and SAP GUI one should be able to verify 
 the HANA DB instance with transaction "dbacockpit".
@@ -574,50 +574,50 @@ the HANA DB instance with transaction "dbacockpit".
 
 ## General information related to SAP Azure certifications, running SAP HANA on Azure and SAP software download
 
-general SAP Azure docu about running SAP on Azure with Windows OS in classic mode :
+* general SAP Azure docu about running SAP on Azure with Windows OS in classic mode :
 [Using SAP on Windows virtual machines in Azure](virtual-machines-windows-classic-sap-get-started.md)
 
-information about existing SAP templates for usage by customers :
+* information about existing SAP templates for usage by customers :
 [Azure Quickstart Templates for SAP](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/)
 
-general SAP Azure docu about running SAP on Azure with Linux OS in ARM mode :
+* general SAP Azure docu about running SAP on Azure with Linux OS in ARM mode :
 [Using SAP on Linux virtual machines (VMs)](virtual-machines-linux-sap-get-started.md)
 
-certified SAP HANA hardware directory which lists which Azure VM types are supported for production :
+* certified SAP HANA hardware directory which lists which Azure VM types are supported for production :
 [Certified SAP HANA® Hardware Directory](https://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html)
 
-information about virtual machine sizes especially for Linux workloads :
+* information about virtual machine sizes especially for Linux workloads :
 [Sizes for virtual machines in Azure](virtual-machines-linux-sizes.md)
 
-SAP Note which lists all supported SAP products on Azure and supported Azure VM types for SAP :
+* SAP Note which lists all supported SAP products on Azure and supported Azure VM types for SAP :
 [SAP Note 1928533](https://launchpad.support.sap.com/#/notes/1928533/E)
 
-SAP Note about SAP "enhanced monitoring" with Linux VMs on Azure :
+* SAP Note about SAP "enhanced monitoring" with Linux VMs on Azure :
 [SAP Note 2191498](https://launchpad.support.sap.com/#/notes/2191498/E)
 
-SAP HANA offering on Azure "Large Instances". It's important to understand that this is not about running
+* SAP HANA offering on Azure "Large Instances". It's important to understand that this is not about running
 SAP HANA on Azure VMs but in a hybrid environment where the SAP app servers run in Azure VMs but SAP HANA
 runs on bare-metal servers : 
 [SAP Note 2316233](https://launchpad.support.sap.com/#/notes/2316233/E)
 
-SAP Note with information about SAPOSCOL on Linux :
+* SAP Note with information about SAPOSCOL on Linux :
 [SAP Note 1102124](https://launchpad.support.sap.com/#/notes/1102124/E)
 
-Key Monitoring Metrics for SAP on Microsoft Azure :
+* Key Monitoring Metrics for SAP on Microsoft Azure :
 [SAP Note 2178632](https://launchpad.support.sap.com/#/notes/2178632/E)
 
-Information about Azure Resource Manager - ARM :
+* Information about Azure Resource Manager - ARM :
 [Azure Resource Manager overview](../resource-group-overview.md)
 
-Information about deploying Linux VMs via templates :
+* Information about deploying Linux VMs via templates :
 [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](virtual-machines-linux-cli-deploy-templates.md)
 
-Comparison of deployment models between ARM and classic :
+* Comparison of deployment models between ARM and classic :
 [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../resource-manager-deployment-model.md)
 
-Download NetWeaver 7.5 for Linux/HANA from the SAP Service Marketplace :
+* Download NetWeaver 7.5 for Linux/HANA from the SAP Service Marketplace :
 ![](./media/virtual-machines-linux-sap-hana-get-started/image001.jpg)
 
-Download HANA SP12 Platform Edition from the SAP Service Marketplace :
+* Download HANA SP12 Platform Edition from the SAP Service Marketplace :
 ![](./media/virtual-machines-linux-sap-hana-get-started/image002.jpg)
 
