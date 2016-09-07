@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/02/2016"
+   ms.date="09/07/2016"
    ms.author="alkohli" />
 
 # Install Updates on your StorSimple Virtual Array
@@ -56,22 +56,15 @@ Perform the following steps to download the software update from the Microsoft U
 
 6. Click **Download**. Specify or **Browse** to a local location where you want the downloads to appear. The updates are downloaded to the specified location and placed in a subfolder with the same name as the update. The folder can also be copied to a network share that is reachable from the device.
 
-7. Open the copied folder, you should see two files: 
-    
-    a. A Microsoft Update Standalone Package file `WindowsTH-KB3011067-x64` ,and 
-    
-    b. A Cabinet file `GenevaMonitoringAgentPackageInstaller`. Double click the `GenevaMonitoringAgentPackageInstaller`, then select the file, right-click and extract the file. 
-    
-    These two files are used to install the update or hotfix.
+7. Open the copied folder, you should see a Microsoft Update Standalone Package file `WindowsTH-KB3011067-x64`. This file is used to install the update or hotfix.
 
 
 ### Install the update or the hotfix
 
 Prior to the update or hotfix installation, make sure that you have the update or the hotfix downloaded either locally on your host or accessible via a network share. 
 
-Use this method to install updates on a device running GA or Update 0.1 software versions. This procedure takes less than 3 minutes to complete. Perform the following steps to install the update or hotfix.
+Use this method to install updates on a device running GA or Update 0.1 software versions. This procedure takes less than 2 minutes to complete. Perform the following steps to install the update or hotfix.
 
->[AZURE.IMPORTANT] You need to install two files, first install `WindowsTH-KB3011067-x64` file to update the device software. Next install the `GenevaMonitoringAgentPackageInstaller` file to update the MDS agent version. Repeat the following procedure to install these two files.
 
 #### To install the update or the hotfix
 
