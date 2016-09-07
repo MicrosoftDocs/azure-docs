@@ -24,7 +24,7 @@
 - [Portal](resource-group-create-service-principal-portal.md)
 
 
-When you have an application or script that needs to access resources, you most likely do not want to run this process under your own credentials. You may have different permissions that you want for the application, and you do not want the application to continue using your credentials if your responsibilities change. Instead, you create an identity for the application that includes authentication credentials and role assignments. Every time the app runs, it authenticates itself with these credentials. This topic shows you how to use [Azure CLI for Mac, Linux and Windows](xplat-cli-install.md) to set up everything you need for an application to run under its own credentials and identity.
+When you have an application or script that needs to access resources, you most likely do not want to run this process under your own credentials. You may have different permissions that you want for the application, and you do not want the application to continue using your credentials if your responsibilities change. Instead, you create an identity for the application that includes authentication credentials and role assignments. Every time the app runs, it authenticates itself with these credentials. This topic shows you how to use [Azure CLI for Mac, Linux and Windows](xplat-cli-install.md) to set up an application to run under its own credentials and identity.
 
 With Azure CLI, you have two options for authenticating your AD application:
 
@@ -94,7 +94,7 @@ Let's go through these steps more carefully to make sure you understand the proc
 
      If your account does not have sufficient permissions to assign a role, you see an error message. The message states your account **does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}'**. 
 
-That's it! Your AD application and service principal are set up. The next section shows you how to log in with the credential through Azure CLI; however, if you want to use the credential in your code application, you do not need to continue with this topic. You can jump to the [Sample applications](#sample-applications) for examples of logging in with your application id and password. 
+That's it! Your AD application and service principal are set up. The next section shows you how to log in with the credential through Azure CLI. If you want to use the credential in your code application, you do not need to continue with this topic. You can jump to the [Sample applications](#sample-applications) for examples of logging in with your application id and password. 
 
 ### Provide credentials through Azure CLI
 
@@ -122,7 +122,7 @@ Now, you need to log in as the application to perform operations.
 
         azure login -u https://www.contoso.org/example --service-principal --tenant {tenant-id}
 
-    You will be prompted for the password. Provide the password you specified when creating the AD application.
+    You are prompted for the password. Provide the password you specified when creating the AD application.
 
         info:    Executing command login
         Password: ********
@@ -154,7 +154,7 @@ To complete these steps, you must have [OpenSSL](http://www.openssl.org/) instal
         azure config mode arm
         azure login
 
-1. Create a service principal for your application. Provide a display name, the URI to a page that describes your application, the URIs that identify your application, and the the certificate data you copied. This command creates both the AD application and the service principal.
+1. Create a service principal for your application. Provide a display name, the URI to a page that describes your application, the URIs that identify your application, and the certificate data you copied. This command creates both the AD application and the service principal.
 
         azure ad sp create -n "exampleapp" --home-page "https://www.contoso.org" -i "https://www.contoso.org/example" --key-value <certificate data>
         
@@ -248,4 +248,4 @@ The following sample applications show how to log in as the service principal.
 ## Next Steps
   
 - For detailed steps on integrating an application into Azure for managing resources, see [Developer's guide to authorization with the Azure Resource Manager API](resource-manager-api-authentication.md).
-- To get more information about using certificates and Azure CLI, see [Certificate-based auth with Azure Service Principals from Linux command line](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx). 
+- To get more information about using certificates and Azure CLI, see [Certificate-based authentication with Azure Service Principals from Linux command line](http://blogs.msdn.com/b/arsen/archive/2015/09/18/certificate-based-auth-with-azure-service-principals-from-linux-command-line.aspx). 
