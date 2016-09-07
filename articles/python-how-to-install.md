@@ -37,7 +37,7 @@ There are several flavors of Python interpreters available - examples include:
 * IronPython - Python interpreter that runs on .Net/CLR
 * Jython - Python interpreter that runs on the Java Virtual Machine
 
-Only **CPython** is tested and supported for the Python Azure SDK.  We recommend version 3.5, or if you still using Python 2 the 2.7 version.
+**CPython** v2.7 or v3.3+ and PyPy 5.4.0 are tested and supported for the Python Azure SDK.
 
 ## Where to get Python?
 
@@ -47,7 +47,7 @@ There are several ways to get CPython:
 * From a reputable distro such as [www.continuum.io][], [www.enthought.com][] or [www.activestate.com][]
 * Build from source!
 
-Unless you have a specific need, we recommend the first two options, as described below.
+Unless you have a specific need, we recommend the first two options.
 
 ## SDK Installation on Windows, Linux and MacOS (client libraries only)
 
@@ -69,7 +69,7 @@ Preview packages can be installed using the `--pre` flag:
 ```
 
 You can also install a set of Azure libraries in a single line using the `azure` meta-package. Since not all packages in this meta-package are published as stable yet, the `azure` meta-package is still in preview. 
-However, the core packages, from code quality/completeness perspectives can at this time be considered "stable" 
+However, the core packages, from code quality/completeness perspectives can be considered "stable" at this time
 - it will be officially labeled as such in sync with other languages as soon as possible. 
 We are not planning on any further major changes until then.
 
