@@ -18,13 +18,13 @@
 
 # Installing Python and the SDK
 
-Python is pretty easy to setup on Windows and comes pre-installed on Mac, Linux and [Bash for Windows](https://msdn.microsoft.com/en-us/commandline/wsl/about). This guide walks you through installation and getting your machine ready for use with Azure.
+Python is easy to setup on Windows and comes pre-installed on Mac, Linux, and [Bash for Windows](https://msdn.microsoft.com/en-us/commandline/wsl/about). This guide walks you through installation and getting your machine ready for use with Azure.
 
 ## What's in the Python Azure SDK?
 
 The Azure SDK for Python includes components that allow you to develop, deploy, and manage Python applications for Azure. Specifically, the Azure SDK for Python includes the following:
 
-* **Management libraries**. These class libraries provide an interface managing Azure resources, such as storage accounts, virtual machines, etc.
+* **Management libraries**. These class libraries provide an interface managing Azure resources, such as storage accounts, virtual machines.
 
 * **Runtime libraries**. These class libraries provide an interface for accessing Azure features, such as storage and service bus.
 
@@ -33,7 +33,7 @@ The Azure SDK for Python includes components that allow you to develop, deploy, 
 There are several flavors of Python interpreters available - examples include:
 
 * CPython - the standard and most commonly used Python interpreter
-* PyPy - fast, ciompliant alternative implementation to CPython
+* PyPy - fast, compliant alternative implementation to CPython
 * IronPython - Python interpreter that runs on .Net/CLR
 * Jython - Python interpreter that runs on the Java Virtual Machine
 
@@ -49,11 +49,14 @@ There are several ways to get CPython:
 
 Unless you have a specific need, we recommend the first two options.
 
-## SDK Installation on Windows, Linux and MacOS (client libraries only)
+## SDK Installation on Windows, Linux, and MacOS (client libraries only)
 
 If you already have Python installed, you can use pip to install a bundle of all the client libraries in your existing Python 2.7 or Python 3.3+ environment. This will download the packages from the [Python Package Index][] (PyPI).
 
-Note that you may need to use the `sudo` command on Linux and MacOS ie. `sudo pip install azure-mgmt-compute`.
+You may need administrator rights:
+
+- Linux and MacOS, use the `sudo` command: `sudo pip install azure-mgmt-compute`.
+- Windows: open your PowerShell/Command prompt as an administrator
 
 You can install individually each library for each Azure service:
 
@@ -87,16 +90,16 @@ or directly
 
 ## Getting More Packages
 
-The [Python Package Index][] (PyPI) has a rich selection of Python libraries.  If you chose to install a Distro, you'll already have most of the interesting bits for a variety of scenarios from web development to Technical Computing.
+The [Python Package Index][] (PyPI) has a rich selection of Python libraries.  If you chose to install a Distro, you'll already have most of the interesting bits for various scenarios from web development to Technical Computing.
 
 
 ## Python Tools for Visual Studio
 
-[Python Tools for Visual Studio][] (PTVS) is a free/OSS plugin from Microsoft which turns VS into a full-fledged Python IDE:
+[Python Tools for Visual Studio][] (PTVS) is a free/OSS plugin from Microsoft, which turns VS into a full-fledged Python IDE:
 
 ![how-to-install-python-ptvs](./media/python-how-to-install/how-to-install-python-ptvs.png)
 
-Using PTVS is optional, but is recommended as it gives you Python and Web Project/Solution support, debugging, profiling, interactive window, Template editing and Intellisense.
+Using PTVS is optional, but is recommended as it gives you Python and Web Project/Solution support, debugging, profiling, interactive window, Template editing, and Intellisense.
 
 PTVS also makes it easy to deploy to Microsoft Azure, with support for deployment to [Cloud Services][] and [Websites][].
 
@@ -104,7 +107,7 @@ PTVS works with your existing Visual Studio 2013 or 2015 installation.  For docu
 
 ## Python Azure Scenarios for Linux and MacOS
 
-For Linux or MacOS, these are main Azure scenarios that are supported:
+For Linux or MacOS, main Azure scenarios that are supported:
 
 1. Consuming Azure Services by using the client libraries for Python
 
@@ -112,7 +115,7 @@ For Linux or MacOS, these are main Azure scenarios that are supported:
 
 3. Developing and publishing to Azure Websites using Git
 
-The first scenario enables you to author rich web apps that take advantage of the Azure PaaS capabilities such as [blob storage][], [queue storage][], [table storage][] etc. via Pythonic wrappers for the Azure REST API's.  These work identically on Windows, Mac and Linux.  You can also use these client libraries from your local development machine or a Linux VM running on Azure.
+The first scenario enables you to author rich web apps that take advantage of the Azure PaaS capabilities such as [blob storage][], [queue storage][], [table storage][] etc. via Pythonic wrappers for the Azure REST APIs. These works identically on Windows, Mac, and Linux.  You can also use these client libraries from your local development machine or a Linux VM running on Azure.
 
 For the VM scenario, you simply start a Linux VM of your choice (Ubuntu, CentOS, Suse) and run/manage what you like.  As an example, you can run [IPython][] REPL/notebook on your Windows/Mac/Linux machine and point your browser to a Linux or Windows multi-proc VM running the IPython Engine on Azure. See the [IPython Notebook on Azure][] tutorial for more information.
 
@@ -120,7 +123,7 @@ For information on how to setup a Linux VM, please see the [Create a Virtual Mac
 
 Using Git deployment, you can develop a Python web application and publish it to an Azure Website from any operating system.  When you push your repository to Azure, it will automatically create a virtual environment and pip install your required packages.
 
-For more information on developing and publishing Azure Websites, see the tutorials for [Creating Websites with Django][], [Creating Websites with Bottle][] and [Creating Websites with Flask][]. For more general information on using any WSGI compliant framework, see [Configuring Python with Azure Websites][].
+For more information on developing and publishing Azure Websites, see the tutorials for [Creating Websites with Django][], [Creating Websites with Bottle][], and [Creating Websites with Flask][]. For more general information on using any WSGI-compliant framework, see [Configuring Python with Azure Websites][].
 
 
 ## Additional Software and Resources:
