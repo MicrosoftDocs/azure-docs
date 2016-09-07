@@ -23,7 +23,7 @@ This walkthrough shows you how to perform several common data science tasks with
 
 The data science tasks demonstrated in this walkthrough follow the steps outlined in the [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/data-science-process/). This process provides a systematic approach to data science that enables teams of data scientists to effectively collaborate over the lifecycle of building intelligent applications. The data science process also provides an iterative framework for data science that can be followed by an individual.
 
-We analyze the [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) dataset in this walkthrough. This is a set of emails that are marked as either spam or ham (meaning they are not spam), as well as some statistics on the content of the emails discussed in the next but one section. 
+We analyze the [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) dataset in this walkthrough. This is a set of emails that are marked as either spam or ham (meaning they are not spam), and also contains some statistics on the content of the emails.The statistics included are discussed in the next but one section. 
 
 
 ## Prerequisites
@@ -40,9 +40,9 @@ Before you can use a Linux Data Science Virtual Machine, you must have the follo
 
 The [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) dataset is a relatively small set of data that contains only 4601 examples. This is a convenient size to use when demonstrating that some of the key features of the Data Science VM as it keeps the resource requirements quite modest.
 
->[AZURE.NOTE]: This walkthrough was created on a D2 v2-sized Linux Data Science Virtual Machine. So this sized DSVM is capable of handling the procedures in this walkthrough.
+>[AZURE.NOTE]: This walkthrough was created on a D2 v2-sized Linux Data Science Virtual Machine. This sized DSVM is capable of handling the procedures in this walkthrough.
 
->[AZURE.NOTE]: If you need more storage space, you can create additional disks and attach them to your VM. These disks use persistent Azure storage, so their data is preserved even when the server is reprovisioned due to re-sizing or is shut down. Follow the instructions in [Add a disk to a Linux VM](../virtual-machines/virtual-machines-linux-add-disk/) to add a disk and attach it to your VM. These steps use the Azure Command-Line Interface (Azure CLI), which is already installed on the DSVM. So these procedures can be done entirely from the VM itself.
+>[AZURE.NOTE]: If you need more storage space, you can create additional disks and attach them to your VM. These disks use persistent Azure storage, so their data is preserved even when the server is reprovisioned due to resizing or is shut down. To add a disk and attach it to your VM, follow the instructions in [Add a disk to a Linux VM](../virtual-machines/virtual-machines-linux-add-disk/). These steps use the Azure Command-Line Interface (Azure CLI), which is already installed on the DSVM. So these procedures can be done entirely from the VM itself.
 
 To download the data, open a terminal window and run this command:
 
@@ -98,7 +98,7 @@ The *spam* column was read as an integer, but it's actually a categorical variab
 
     data$spam <- as.factor(data$spam)
 
-To do some exploratory analysis, use the [ggplot2](http://ggplot2.org/) package, a popular graphing library for R that is already installed on the VM. Note, from the summary data  displayed earlier, that we have summary statistics on the frequency of the exclamation mark character. Let's plot those frequencies here with the following commands:
+To do some exploratory analysis, use the [ggplot2](http://ggplot2.org/) package, a popular graphing library for R that is already installed on the VM. Note, from the summary data displayed earlier, that we have summary statistics on the frequency of the exclamation mark character. Let's plot those frequencies here with the following commands:
 
     library(ggplot2)
     ggplot(data) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)
@@ -159,7 +159,7 @@ To determine how well it performs on the test set:
     accuracy <- sum(diag(t))/sum(t)
     accuracy
 
-Let's also try a random forest model, which is a potentially more powerful machine learning approach as they correct for the tendency of a decision tree model to overfit a training dataset. Random forests train a multitude of decision trees and output a class that is the mode of the classifications from all of the individual trees.
+Let's also try a random forest model. Random forests train a multitude of decision trees and output a class that is the mode of the classifications from all of the individual decision trees. They provide a more powerful machine learning approach as they correct for the tendency of a decision tree model to overfit a training dataset. 
 
     require(randomForest)
     trainVars <- setdiff(colnames(data), 'spam')
@@ -176,9 +176,9 @@ Let's also try a random forest model, which is a potentially more powerful machi
 
 ## Deploy a model to Azure Machine Learning
 
-[Azure Machine Learning Studio](https://studio.azureml.net/) (AzureML) is a cloud service that makes it easy to build and deploy predictive analytics models. One of the nice features of AzureML is its ability to publish any R function as a web service. The AzureML R package makes this easy to do right from our R session on the DSVM. Let's do that with the decision tree code used on the spam dataset in the previous section. 
+[Azure Machine Learning Studio](https://studio.azureml.net/) (AzureML) is a cloud service that makes it easy to build and deploy predictive analytics models. One of the nice features of AzureML is its ability to publish any R function as a web service. The AzureML R package makes deployment easy to do right from our R session on the DSVM. 
 
-Sign in to Azure Machine Learning Studio. You need your workspace ID and an authorization token. To find these values and initialize the AzureML variables with them:
+To deploy the decision tree code from the previous section, you need to sign in to Azure Machine Learning Studio. You need your workspace ID and an authorization token to sigh in. To find these values and initialize the AzureML variables with them:
 
 - Select **Settings** on the left-hand menu. Note your **WORKSPACE ID**. ![](./media/machine-learning-data-science-linux-dsvm-walkthrough/workspace-id.png)
 - Select **Authorization Tokens** from the overhead menu and note your **Primary Authorization Token**.![](./media/machine-learning-data-science-linux-dsvm-walkthrough/workspace-token.png)
@@ -189,7 +189,7 @@ Sign in to Azure Machine Learning Studio. You need your workspace ID and an auth
     wsID = "<workspace-id>"
 
 
-Let's simplify the model to make this demonstration somewhat easier to implement. Pick the three variables in the decision tree closest to the root and build a new tree using just those three variables:
+Let's simplify the model to make this demonstration easier to implement. Pick the three variables in the decision tree closest to the root and build a new tree using just those three variables:
 
     colNames <- c("char_freq_dollar", "word_freq_remove", "word_freq_hp", "spam")
     smallTrainSet <- trainSet[, colNames]
@@ -261,7 +261,7 @@ For development using Python, the Anaconda Python distributions 2.7 and 3.5 have
 
 >[AZURE.NOTE]: The Anaconda distribution includes [Condas](http://conda.pydata.org/docs/index.html), which can be used to create custom environments for Python that have different versions and/or packages installed in them.
 
-Let's read in the some of the spambase dataset and classify the emails with support vector machines in scikit-learn:
+Let's read in some of the spambase dataset and classify the emails with support vector machines in scikit-learn:
 
     import pandas
     from sklearn import svm    
@@ -275,7 +275,7 @@ To make predictions:
 
     clf.predict(X.ix[0:20, :])
 
-To show how to publish an AzureML endpoint, let's make a simpler model the three variables as we did when we pubished the R model above. 
+To show how to publish an AzureML endpoint, let's make a simpler model the three variables as we did when we pubished the R model previously. 
 
     X = data.ix[["char_freq_dollar", "word_freq_remove", "word_freq_hp"]]
     y = data.ix[:, 57]
@@ -307,15 +307,15 @@ To publish the model to AzureML:
 
 ## Jupyterhub
 
-The Anaconda distribution in the DSVM comes with a Jupyter notebook, an cross-platform environment to share Python, R, or Julia code and analysis. The Jupyter notebook is accessed through JupyterHub. You sign in using your local Linux user name and password at ***https://\<VM DNS name or IP Address\>:8000/***. All configuration files for JupyterHub are found in directory **/etc/jupyterhub**.
+The Anaconda distribution in the DSVM comes with a Jupyter notebook, a cross-platform environment to share Python, R, or Julia code and analysis. The Jupyter notebook is accessed through JupyterHub. You sign in using your local Linux user name and password at ***https://\<VM DNS name or IP Address\>:8000/***. All configuration files for JupyterHub are found in directory **/etc/jupyterhub**.
 
-Several sample notebooks are already installed:
+Several sample notebooks are already installed on the VM:
 
 - See the [IntroToJupyterPython.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IntroToJupyterPython.ipynb) for Python notebook.
 - See [IntroTutorialinR](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IntroTutorialinR.ipynb) for an **R** notebook.
-- See the  [IrisClassifierPyMLWebService](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IrisClassifierPyMLWebService.ipynb) for another sample **Python** notebook.
+- See the [IrisClassifierPyMLWebService](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Data-Science-Virtual-Machine/Samples/Notebooks/IrisClassifierPyMLWebService.ipynb) for another sample **Python** notebook.
 
->[AZURE.NOTE]: You can work with Julia language on the Linux Data Science VM on the command line as well as in a Jupyter notebook. 
+>[AZURE.NOTE]: You can work with Julia language on the Linux Data Science VM on the command line, as well as in a Jupyter notebook. 
 
 
 ## Rattle
@@ -328,7 +328,7 @@ Install and start Rattle with the following commands:
     require(rattle)
     rattle()
 
->[AZURE.NOTE]: Installation should not be required on the DSVM. But Rattle may prompt you to install additional packages when it loads.
+>[AZURE.NOTE]: Installation is not required on the DSVM. But Rattle may prompt you to install additional packages when it loads.
 
 Rattle uses a tab-based interface. Most of the tabs correspond to steps in the [Data Science Process](https://azure.microsoft.com/documentation/learning-paths/data-science-process/), like loading data or exploring it. The data science process flows from left to right through the tabs. But the last tab contains a log of the R commands run by Rattle. 
 
@@ -337,7 +337,7 @@ To load and configure the dataset:
 
 - To load the file, select the **Data** tab, then 
 - Choose the selector next to **Filename** and choose **spambaseHeaders.data**. 
-- Select **Execute** in the top row of buttons to load the file. You should see a summary of each column, including its identified data type, whether it's an input, a target, or other type of variable, and the number of unique values.
+- To load the file. select **Execute** in the top row of buttons. You should see a summary of each column, including its identified data type, whether it's an input, a target, or other type of variable, and the number of unique values.
 - Rattle has correctly identified the **spam** column as the target. Select the spam column, then set the **Target Data Type** to **Categoric**.
 
 To explore the data: 
@@ -350,8 +350,8 @@ The **Explore** tab also allows you to generate many insightful plots. To plot a
 
 
 - Select **Distributions**.
-- Check **Histogram** for *word_freq_remove* and *word_freq_you* .
-- Select **Execute**. You should see both density plots in a single graph window, where it is clear that *you* appears much more frequently in emails than *remove*.
+- Check **Histogram** for **word_freq_remove** and **word_freq_you**.
+- Select **Execute**. You should see both density plots in a single graph window, where it is clear that the word *you* appears much more frequently in emails than *remove*.
 
 The Correlation plots are also interesting. To create one:
 
@@ -362,11 +362,11 @@ The Correlation plots are also interesting. To create one:
 
 There are some interesting correlations that come up: "technology" is strongly correlated to "HP" and "labs", for example. It is also strongly correlated to "650", because the area code of the dataset donors is 650.
 
-In the Explore window, you'll see the numeric values for the correlations between words. It is interesting to note, for example, that "technology" is negatively correlated with "your" and "money".
+The numeric values for the correlations between words are available in the Explore window. It is interesting to note, for example, that "technology" is negatively correlated with "your" and "money".
 
-Rattle can transform the dataset to handle some common issues. For example, it allows you to re-scale features, impute missing values, handle outliers, and remove variables or observations with missing data. Rattle can also identify association rules between observations and/or variables. These tabs are out of scope for this introductory walkthrough.
+Rattle can transform the dataset to handle some common issues. For example, it allows you to rescale features, impute missing values, handle outliers, and remove variables or observations with missing data. Rattle can also identify association rules between observations and/or variables. These tabs are out of scope for this introductory walkthrough.
 
-Rattle can also perform cluster analysis. Let's exclude some features to make the output easier to read. On the **Data** tab, choose **Ignore** next to all of the variables except these ten:
+Rattle can also perform cluster analysis. Let's exclude some features to make the output easier to read. On the **Data** tab, choose **Ignore** next to each of the variables except these ten items:
 
 - word_freq_hp
 - word_freq_technology
@@ -381,25 +381,24 @@ Rattle can also perform cluster analysis. Let's exclude some features to make th
 
 Then go back to the **Cluster** tab, choose **KMeans**, and set the *Number of clusters* to 4. Then **Execute**. The results are displayed in the output window. One cluster has high frequency of "george" and "hp" and is probably a legitimate business email.
 
-To build a build a simple decision tree machine learning model: 
+To build a simple decision tree machine learning model: 
 
 - Select the **Model** tab, 
 - Choose **Tree** as the **Type**. 
 - Select **Execute** to display the tree in text form in the output window. 
-- Select the **Draw** button to view a graphical version. This looks very similar to the tree we obtained earlier using *rpart*.
+- Select the **Draw** button to view a graphical version. This looks quite similar to the tree we obtained earlier using *rpart*.
 
-One of the nice features of Rattle is its ability to run several machine learning methods and quickly evaluate them.:
-
+One of the nice features of Rattle is its ability to run several machine learning methods and quickly evaluate them. Here is the procedure:
 
 - Choose **All** for the **Type**. 
 - Select **Execute**. 
-- After it finishes you can click on any single **Type**, like **SVM**, and view the results. 
+- After it finishes you can click any single **Type**, like **SVM**, and view the results. 
 - You can also compare the performance of the models on the validation set using the **Evaluate** tab. For example, the **Error Matrix** selection shows you the confusion matrix, overall error, and averaged class error for each model on the validation set. 
 - You can also plot ROC curves, perform sensitivity analysis, and do other types of model evaluations.
 
 Once you're finished building models, select the **Log** tab to view the R code run by Rattle during your session. You can select the **Export** button to save it. 
 
->[AZURE.NOTE]: There is a bug in current release of Rattle - please insert a # character in front of *Export this log ... * in the text of the log. Then you can modify the script or use it to repeat your steps at a later time.
+>[AZURE.NOTE]: There is a bug in current release of Rattle. To modify the script or use it to repeat your steps later, you must insert a # character in front of *Export this log ... * in the text of the log. 
 
 
 ## PostgresSQL & Squirrel SQL
@@ -470,14 +469,14 @@ To set up the connection to the local server:
 - Set the URL to *jdbc:postgresql://localhost/spam*. 
 - Enter your *username* and *password*. 
 - Click **OK**. 
-- To open the **Connection** window, double-click on the ***Spam database*** alias. 
+- To open the **Connection** window, double-click the ***Spam database*** alias. 
 - Select **Connect**.
 
 To run some queries:
 
 - Select the **SQL** tab.
 - Enter a simple query such as `SELECT * from data;` in the query textbox at the top of the SQL tab. 
-- Press **Ctrl-Enter** to run it.By default Squirrel SQL will return the first 100 rows from your query. 
+- Press **Ctrl-Enter** to run it. By default Squirrel SQL returns the first 100 rows from your query. 
 
 There are many more queries you could run to explore this data. For example, how does the frequency of the word *make* differ between spam and ham?
 
@@ -519,4 +518,7 @@ You could also query with Squirrel SQL. Follow similar steps for PostgreSQL, usi
 
 ## What's next?
 
-For more information about steps in the data science process, see [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/data-science-process/). 
+For an overview of topics that walk you through the tasks that comprise the Data Science process in Azure, see [Team Data Science Process](http://aka.ms/datascienceprocess).
+
+[Team Data Science Process walkthroughs](data-science-process-walkthroughs.md) describes other end-to-end walkthroughs that demonstrate the steps in the Team Data Science Process for specific scenarios. The walkthroughs also illustrate how to combine cloud and on-premises tools and services into a workflow or pipeline to create an intelligent application.
+
