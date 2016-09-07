@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="09/05/2016"
+	ms.date="09/07/2016"
 	ms.author="chrande; glenga"/>
 
 # Choose between Flow, Logic Apps, Functions, and WebJobs
@@ -119,3 +119,9 @@ Functions app, and then trigger a function as an action in your Logic app.
 You can integrate your Logic app into Flow, and you can integrate your flow into Logic Apps. You can also integrate your Functions 
 app into Logic apps. The integration between Flow, Logic Apps, and Functions continue to improve overtime. Therefore, 
 any investment you make in these three technologies is worthwhile.
+
+## More resources
+
+- [Microsoft Flow Frequently asked questions](https://flow.microsoft.com/en-us/documentation/frequently-asked-questions/)
+- [Azure WebJobs documentation resources](https://azure.microsoft.com/en-us/documentation/articles/websites-webjobs-resources/)
+- [List of connectors](https://azure.microsoft.com/en-us/documentation/articles/apis-list/)
