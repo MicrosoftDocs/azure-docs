@@ -27,7 +27,7 @@ If you haven't already created your first VM, you should go back to [Create your
 
 1. Open the [Azure portal](https://portal.azure.com).
 2. On the hub menu, click **Virtual Machines**. Select the virtual machine from the list.
-3. If the status is **Stopped (Deallocated), click the **Start** button on the **Essentials** blade of the VM. If the status is **Running*, you can move on to the next step.
+3. If the status is **Stopped (Deallocated), click the **Start** button on the **Essentials** blade of the VM. If the status is **Running**, you can move on to the next step.
 
 ## Connect to the virtual machine and sign in
 
@@ -120,8 +120,9 @@ For more information about NSGs, inbound and outbound rules, see [Allow external
 3. Your browser should open the default IIS web page. It looks something like this:
 
 	![Screenshot showing what the default IIS page looks like in a browser](./media/virtual-machines-windows-hero-tutorial/iis-default.png)
-	
-	
-	## Next steps
+
+    
+
+## Next steps
 
 - You can also experiment with [attaching a data disk](virtual-machines-windows-attach-disk-portal.md) to your virtual machine. Data disks provide more storage for your virtual machine.
