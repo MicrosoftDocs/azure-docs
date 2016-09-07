@@ -19,19 +19,19 @@
 
 # Experiment with installing a role on your Windows VM
 	
-Once you have your first VM up and running, you can move on to installing software and services. For this tutorial, we are going to use Server Manager on the Windows Server VM to install IIS. Then, we will create a Network Security Group (NSG) using the Azure portal to open port 80 to IIS traffic. 
+Once you have your first virtual machine (VM) up and running, you can move on to installing software and services. For this tutorial, we are going to use Server Manager on the Windows Server VM to install IIS. Then, we will create a Network Security Group (NSG) using the Azure portal to open port 80 to IIS traffic. 
 
 If you haven't already created your first VM, you should go back to [Create your first Windows virtual machine in the Azure portal](virtual-machines-windows-hero-tutorial.md) before continuing with this tutorial.
 
 ## Make sure the VM is running
 
 1. Open the [Azure portal](https://portal.azure.com).
-2. On the Hub menu, click **Virtual Machines**. Select the virtual machine from the list.
+2. On the hub menu, click **Virtual Machines**. Select the virtual machine from the list.
 3. If the status is **Stopped (Deallocated), click on the **Start** button on the **Essentials** blade of the VM. If the status is **Running*, you can move on to the next step.
 
-## Connect to the virtual machine and log on
+## Connect to the virtual machine and sign in
 
-1.	On the Hub menu, click **Virtual Machines**. Select the virtual machine from the list.
+1.	On the hub menu, click **Virtual Machines**. Select the virtual machine from the list.
 
 3. On the blade for the virtual machine, click **Connect**. This creates and downloads a Remote Desktop Protocol file (.rdp file) that is like a shortcut to connect to your machine. You might want to save the file to your desktop for easy access. **Open** this file to connect to your VM.
 
