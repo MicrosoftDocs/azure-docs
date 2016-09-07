@@ -255,7 +255,7 @@ now see your app running using your custom domain name.
     <td>&lt;<i>appname</i>>.azurewebsites.net</td>
   </tr>
 </table>
-Once this DNS record is created, go back to Azure portal and add '&lt;<i>appname</i>>.com' or/and 'www.&lt;<i>appname</i>>.com' to your web app.
+Once this DNS record is created, go back to Azure portal and add your custom domain name to your web app.
  
 
 <a name="verify"></a>
