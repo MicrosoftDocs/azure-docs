@@ -20,24 +20,24 @@
 
 This article describes what Microsoft Azure autoscale is, its benefits, and how to get started using it.  
 
-Azure Insights autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/) and  [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/). 
+Azure Insights autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), and [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/). 
 
 >[AZURE.NOTE] Azure has two autoscale methods. An older version of autoscale applies to Virtual Machines (availability sets). This feature has limited support and we recommend migrating to VM Scale Sets for faster and more reliable autoscale support. A link on how to use the older technology is included in this article.  
 
 
 ## What is autoscale?
 
-Autoscale allows you to have the right amount of resources running to handle the load on your application. It allows you to add resources to handle increases in load and also save money by removing resources which are sitting idle. You specify a minimum and maximum number of instances to run and add or remove VMs  automatically based on a set of rules. Having a minimum makes sure your application is always running even under no load. Having a maximum limits your total possible hourly cost. You automatically scale between these two extremes using rules you create. 
+Autoscale allows you to have the right amount of resources running to handle the load on your application. It allows you to add resources to handle increases in load and also save money by removing resources which are sitting idle. You specify a minimum and maximum number of instances to run and add or remove VMs automatically based on a set of rules. Having a minimum makes sure your application is always running even under no load. Having a maximum limits your total possible hourly cost. You automatically scale between these two extremes using rules you create. 
 
  ![Autoscale explained. Add and remove VMs](./media/monitoring-autoscale-overview/AutoscaleConcept.png)
 
-When rule conditions are met, one or more autoscale actions is triggered. You can add and remove VMs, or perform other actions. The conceptual diagram below shows this process.  
+When rule conditions are met, one or more autoscale actions is triggered. You can add and remove VMs, or perform other actions. The following conceptual diagram shows this process.  
 
  ![Conceptual Autoscale Flow Diagram](./media/monitoring-autoscale-overview/AutoscaleOverview3.png)
  
 
 ## Autoscale Process Explained
-The following explanation matches the pieces of the diagram above.  
+The following explanation apply to the pieces of the previous diagram.   
 
 ### Resource metrics 
 Resources emit metrics, which are later processed by rules. Metrics come via different methods.
@@ -52,7 +52,7 @@ The diagram shows only one autoscale rule, but you can have many of them. You ca
  - **Metric-based** - For example, do this action when CPU usage is above 50%. 
  - **Time-based** - For example, trigger a webhook every 8am on Saturday in a given time zone.
 
-Metric-based rules measure application load and add or remove VMs based on that load. Schedule-based rules allow you to scale if you see time patterns in your load and want to scale before a possible load increase or decrease occurs.  
+Metric-based rules measure application load and add or remove VMs based on that load. Schedule-based rules allow you to scale when you see time patterns in your load and want to scale before a possible load increase or decrease occurs.  
 
  
 ### Actions and automation
@@ -72,9 +72,9 @@ Autoscale use the following terminology and structure.
         - A **capacity setting** indicates the minimum, maximum, and default values for number of instances. [appropriate place to use fig 1]
         - A **rule** includes a trigger—either a metric trigger or a time trigger—and a scale action, indicating whether autoscale should scale up or down when that rule is satisfied. 
         - A **recurrence** indicates when autoscale should put this profile into effect. You can have different autoscale profiles for different times of day or days of the week, for example.
-- A **notification setting** defines what notifications should occur when an autoscale event occurs based on satisfying the criteria of one of the autoscale setting’s profiles. Autoscale can notify one more more email addresses or make calls to one or more webhooks.
+- A **notification setting** defines what notifications should occur when an autoscale event occurs based on satisfying the criteria of one of the autoscale setting’s profiles. Autoscale can notify one or more email addresses or make calls to one or more webhooks.
  
-![Azure autoscale setting, profile and rule structure](./media/monitoring-autoscale-overview/AzureResourceManagerRuleStructure3.png)
+![Azure autoscale setting, profile, and rule structure](./media/monitoring-autoscale-overview/AzureResourceManagerRuleStructure3.png)
 
 The full list of configurable fields and descriptions is available in the [Autoscale REST API](https://msdn.microsoft.com/library/dn931928.aspx).
 
@@ -93,7 +93,7 @@ Autoscale increases resources in only scales horizontally, which is an increase 
 ## Methods of access 
 You can set up autoscale via 
 
-- [Azure portal](insights-how-to-scale)
+- [Azure portal](insights-how-to-scale.md)
 - [PowerShell](insights-powershell-samples.md#create-and-manage-autoscale-settings) 
 - [Cross-platform Command Line Interface (CLI)](insights-cli-samples.md#autoscale )
 - [Insights REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx )
