@@ -38,7 +38,7 @@
 
     ![](media/azure-stack-create-plan/image02a.png)
 
-6.  Click **Services**, use the Shift key to multi-select all three providers (**Compute Provider Admin**, **Storage Provider Admin**, and **Network Provider Admin**) and then click **Select**.
+6.  Click **Services**, select **Microsoft.Compute**, **Microsoft.Network**, and **Microsoft.Storage**, and then click **Select**.
 
     ![](media/azure-stack-create-plan/image03.png)
 
