@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Tutorial: Create a pipeline with Copy Activity using REST API" 
+	pageTitle="Tutorial: Create a pipeline with Copy Activity using REST API | Microsoft Azure" 
 	description="In this tutorial, you create an Azure Data Factory pipeline with a Copy Activity by using REST API." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -23,11 +23,12 @@
 - [Using PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 - [Using Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 - [Using REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [Using .NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 - [Using Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
 
 This tutorial shows you how to create and monitor an Azure data factory using the REST API. The pipeline in the data factory uses a Copy Activity to copy data from Azure Blob Storage to Azure SQL Database.
 
-The Copy Activity performs the data movement in Azure Data Factory and the activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity.   
+The Copy Activity performs the data movement in Azure Data Factory. The activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity.   
 
 > [AZURE.NOTE] 
 > This article does not cover all the Data Factory REST API. See [Data Factory REST API Reference](https://msdn.microsoft.com/library/azure/dn906738.aspx) for comprehensive documentation on Data Factory cmdlets.
@@ -57,7 +58,7 @@ The Copy Activity performs the data movement in Azure Data Factory and the activ
 
 			New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
-		If the resource group already exists, you specify whether to update it (Y) or keep it as it as (N). 
+		If the resource group already exists, you specify whether to update it (Y) or keep it as (N). 
 
 		Some of the steps in this tutorial assume that you use the resource group named ADFTutorialResourceGroup. If you use a different resource group, you need to use the name of your resource group in place of ADFTutorialResourceGroup in this tutorial.
   
@@ -142,7 +143,7 @@ The JSON definition defines a dataset named **AzureBlobInput**, which represents
 - **folderPath** is set to the **adftutorial** container and **fileName** is set to **emp.txt**.  
 - format **type** is set to **TextFormat**
 - There are two fields in the text file – **FirstName** and **LastName** – separated by a comma character (**columnDelimiter**)	
-- The **availability** is set to **hourly** (frequency is set to hour and interval is set to 1), so the Data Factory service looks for input data every hour in the root folder in the blob container (**adftutorial**) you specified. 
+- The **availability** is set to **hourly** (frequency is set to hour and interval is set to 1). Therefore, Data Factory looks for input data every hour in the root folder of the specified blob container (**adftutorial**). 
 
 if you don't specify a **fileName** for an input dataset, all files/blobs from the input folder (**folderPath**) are considered as inputs. If you specify a fileName in the JSON, only the specified file/blob is considered as an input.
 
@@ -196,7 +197,7 @@ Note the following:
 - dataset **type** is set to **AzureSQLTable**.
 - **linkedServiceName** is set to **AzureSqlLinkedService**.
 - **tablename** is set to **emp**.
-- There are three columns – **ID**, **FirstName**, and **LastName** – in the emp table in the database, but ID is an identity column, so you need to specify only **FirstName** and **LastName** here.
+- There are three columns – **ID**, **FirstName**, and **LastName** – in the emp table in the database. ID is an identity column, so you need to specify only **FirstName** and **LastName** here.
 - The **availability** is set to **hourly** (**frequency** set to **hour** and **interval** set to **1**).  The Data Factory service generates an output data slice every hour in the **emp** table in the Azure SQL database.
 
 ### pipeline.json
@@ -238,8 +239,8 @@ Note the following:
 	        }
 	      }
 	    ],
-	    "start": "2016-07-12T00:00:00Z",
-	    "end": "2016-07-13T00:00:00Z"
+	    "start": "2016-08-12T00:00:00Z",
+	    "end": "2016-08-13T00:00:00Z"
 	  }
 	}
 
@@ -256,7 +257,7 @@ Both start and end datetimes must be in [ISO format](http://en.wikipedia.org/wik
 
 If you do not specify value for the **end** property, it is calculated as "**start + 48 hours**". To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property.
 
-In the example above, there are 24 data slices as each data slice is produced hourly.
+In the example, there are 24 data slices as each data slice is produced hourly.
 	
 > [AZURE.NOTE] See [Anatomy of a Pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline) for details about JSON properties used in the example above.
 
@@ -285,7 +286,7 @@ Run the following command to authenticate with Azure Active Directory (AAD).
 
 ## Create data factory
 
-In this step, you create an Azure Data Factory named **ADFCopyTutorialDF**. A data factory can have one or more pipelines. A pipeline can have one or more activities in it. For example, a Copy Activity to copy data from a source to a destination data store and a HDInsight Hive activity to run Hive script to transform input data to product output data. Run the following commands to create the data factory: 
+In this step, you create an Azure Data Factory named **ADFCopyTutorialDF**. A data factory can have one or more pipelines. A pipeline can have one or more activities in it. For example, a Copy Activity to copy data from a source to a destination data store. A HDInsight Hive activity to run Hive script to transform input data to product output data. Run the following commands to create the data factory: 
 
 1. Assign the command to variable named **cmd**. 
 
@@ -295,7 +296,7 @@ In this step, you create an Azure Data Factory named **ADFCopyTutorialDF**. A da
 2. Run the command by using **Invoke-Command**.
 
 		$results = Invoke-Command -scriptblock $cmd;
-3. View the results. If the data factory has been successfully created, you  see the JSON for the data factory in the **results**; otherwise, you see an error message.  
+3. View the results. If the data factory has been successfully created, you see the JSON for the data factory in the **results**; otherwise, you see an error message.  
 
 		$results
 
@@ -320,7 +321,7 @@ Note the following:
 			Get-AzureRmResourceProvider
 	- Login using the Azure subscription into the [Azure portal](https://portal.azure.com) and navigate to a Data Factory blade (or) create a data factory in the Azure portal. This action automatically registers the provider for you.
 
-Before creating a pipeline, you need to create a few Data Factory entities first. You first create linked services to link source and destination data stores to your data store, define input and output datasets to represent data in linked data stores, and then create the pipeline with an activity that uses these datasets.
+Before creating a pipeline, you need to create a few Data Factory entities first. You first create linked services to link source and destination data stores to your data store. Then, define input and output datasets to represent data in linked data stores. Finally, create the pipeline with an activity that uses these datasets.
 
 ## Create linked services
 Linked services link data stores or compute services to an Azure data factory. A data store can be an Azure Storage, Azure SQL Database, or an on-premises SQL Server database that contains input data or stores output data for a Data Factory pipeline. A compute service is the service that processes input data and produces output data. 
@@ -357,7 +358,7 @@ In this step, you link your Azure SQL database to your data factory. With this t
 
 In the previous step, you created linked services **AzureStorageLinkedService** and **AzureSqlLinkedService** to link an Azure Storage account and Azure SQL database to the data factory: **ADFCopyTutorialDF**. In this step, you create datasets that represent the input and output data for the Copy Activity in the pipeline you create in the next step. 
 
-The input dataset in this tutorial refers to a blob container in the Azure Storage that AzureStorageLinkedService points to and the output dataset refers to a SQL table in the Azure SQL database that AzureSqlLinkedService points to.  
+The input dataset in this tutorial refers to a blob container in the Azure Storage that AzureStorageLinkedService points to. The output dataset refers to a SQL table in the Azure SQL database that AzureSqlLinkedService points to.  
 
 ### Prepare Azure Blob Storage and Azure SQL Database for the tutorial
 Perform the following steps to prepare the Azure blob storage and Azure SQL database for this tutorial. 
@@ -390,7 +391,7 @@ Perform the following steps to prepare the Azure blob storage and Azure SQL data
 
 	If you have SQL Server 2014 installed on your computer: follow instructions from [Step 2: Connect to SQL Database of the Managing Azure SQL Database using SQL Server Management Studio][sql-management-studio] article to connect to your Azure SQL server and run the SQL script.
 
-	If you have Visual Studio 2013 installed on your computer: in the Azure portal ([http://portal.azure.com](http://portal.sazure.com)), click **BROWSE** hub on the left, click **SQL servers**, select your database, and click **Open in Visual Studio** button on toolbar to connect to your Azure SQL server and run the script. If your client is not allowed to access the Azure SQL server, you need to configure firewall for your Azure SQL server to allow access from your machine (IP Address). See the article above for steps to configure the firewall for your Azure SQL server.
+	If your client is not allowed to access the Azure SQL server, you need to configure firewall for your Azure SQL server to allow access from your machine (IP Address). See [this article](../sql-database/sql-database-configure-firewall-settings.md) for steps to configure the firewall for your Azure SQL server.
 		
 ### Create input dataset 
 In this step, you create a dataset named **AzureBlobInput** that points to a blob container in the Azure Storage represented by the **AzureStorageLinkedService** linked service. This blob container (**adftutorial**) contains the input data in the file: **emp.txt**. 
@@ -406,7 +407,7 @@ In this step, you create a dataset named **AzureBlobInput** that points to a blo
 		$results
 
 ### Create output dataset
-In this part of the step, you create an output table named **AzureSqlOutput** that points to a SQL table (**emp**) in the Azure SQL database that is represented by the **AzureSqlLinkedService** linked service. The pipeline copies data from the input blob to the **emp** table. 
+In this step, you create an output table named **AzureSqlOutput**. This dataset points to a SQL table (**emp**) in the Azure SQL database represented by **AzureSqlLinkedService**. The pipeline copies data from the input blob to the **emp** table. 
 
 1. Assign the command to variable named **cmd**.
  

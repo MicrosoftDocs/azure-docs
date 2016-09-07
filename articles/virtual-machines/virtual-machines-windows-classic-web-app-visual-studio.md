@@ -4,7 +4,7 @@
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="TomArcher"
-	manager="douge"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 

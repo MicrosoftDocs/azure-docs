@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="08/19/2016"
 	ms.author="garye"/>
 
 # Convert a Machine Learning training experiment to a predictive experiment
@@ -37,7 +37,7 @@ The process of converting a training experiment to a predictive experiment invol
 After you have run your experiment (**RUN** button at the bottom of the experiment canvas), the **Set Up Web Service** button (select the **Predictive Web Service** option) will perform for you the three steps of converting your training experiment to a predictive experiment:
 
 1.	It saves your trained model as a module in the **Trained Models** section of the module palette (to the left of the experiment canvas), then replaces the machine learning algorithm and [Train Model][train-model] modules with the saved trained model.
-2.	It removes modules that are clearly not needed. In our example, this includes the [Split][split], 2nd [Score Model][score-model], and [Evaluate Model][evaluate-model] modules.
+2.	It removes modules that are clearly not needed. In our example, this includes the [Split Data][split], 2nd [Score Model][score-model], and [Evaluate Model][evaluate-model] modules.
 3.	It creates Web service input and output modules and adds them in default locations in your experiment.
 
 For example, the following experiment trains a two-class boosted decision tree model using sample census data:

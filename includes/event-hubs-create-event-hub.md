@@ -24,3 +24,5 @@ Your Event Hub is now created, and you have the connection strings you need to s
 [2]: ./media/event-hubs-create-event-hub/create-event-hub2.png
 [3]: ./media/event-hubs-create-event-hub/create-event-hub3.png
 [4]: ./media/event-hubs-create-event-hub/create-conn-str1.png
+
+[Azure classic portal]: https://manage.windowsazure.com/

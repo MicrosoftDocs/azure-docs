@@ -4,7 +4,7 @@
 	services="sql-database"
 	keywords="c# database query, c# query, connect to database, SQL C#"
 	documentationCenter=""
-	authors="MightyPen"
+	authors="stevestein"
 	manager="jhubbard"
 	editor=""/>
 
@@ -15,7 +15,8 @@
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
 	ms.date="08/17/2016"
-	ms.author="annemill"/>
+	ms.author="stevestein"/>
+
 
 
 # Connect to a SQL Database with Visual Studio
@@ -25,78 +26,63 @@
 - [SSMS](sql-database-connect-query-ssms.md)
 - [Excel](sql-database-connect-excel.md)
 
-Learn how to connect to an Azure SQL Database in Visual Studio. 
+Learn how to connect to an Azure SQL database in Visual Studio. 
 
 ## Prerequisites
 
 
-To connect to SQL Database using Visual Studio, you must have: 
+To connect to a SQL database using Visual Studio, you need the following: 
 
 
-- An Azure account and subscription. You can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
-
-
-- An **AdventureWorksLT** demonstration database on the Azure SQL Database service.
- - [Create the demo database](sql-database-get-started.md) in minutes.
+- A SQL database to connect to. This article uses the **AdventureWorks** sample database. To get the AdventureWorks sample database, see [Create the demo database](sql-database-get-started.md).
 
 
 - Visual Studio 2013 update 4 (or later). Microsoft now provides Visual Studio Community for *free*.
  - [Visual Studio Community, download](http://www.visualstudio.com/products/visual-studio-community-vs)
  - [More options for free Visual Studio](http://www.visualstudio.com/products/free-developer-offers-vs.aspx)
- - Or, let the [step](#InstallVSForFree) later in this topic describe how the [Azure Portal](https://portal.azure.com/) guides you to the install of Visual Studio.
 
 
-<a name="InstallVSForFree" id="InstallVSForFree"></a>
-
-&nbsp;
-
-## Step 1: Install Visual Studio Community for free
 
 
-If you need to install Visual Studio, you can:
-
-- Install Visual Studio Community for free by navigating your browser to Visual Studio product webpages that provide free downloads and other options; or
-- Let the [Azure Portal](https://portal.azure.com/) guide you to the download webpage, which described next.
+## Open Visual Studio from the Azure portal
 
 
-### Visual Studio through the Azure Portal
+1. Log in to the [Azure portal](https://portal.azure.com/).
+
+2. Click **More Services** > **SQL databases**
+3. Open the **AdventureWorks** database blade by locating and clicking the *AdventureWorks* database.
+
+6. Click the **Tools** button at the top of the database blade:
+
+	![New query. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query/tools.png)
+
+7. Click **Open in Visual Studio** (if you need Visual Studio, click the download link):
+
+	![New query. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query/open-in-vs.png)
 
 
-1. Login through the [Azure Portal](https://portal.azure.com/), http://portal.azure.com/.
-
-2. Click **BROWSE* ALL** > **SQL databases**. A blade opens that searches for databases.
-
-3. In the filter text box near the top, start typing the name of your **AdventureWorksLT** database.
-
-4. When you see the row for your database on your server, click the row. A blade opens for your database.
-
-5. For convenience, click the minimize control on each of the previous blades.
-
-6. Click the **Open in Visual Studio** button near the top on your database blade. A new blade about Visual Studio opens with links to install locations for Visual Studio.
-
-	![Open in Visual Studio button][20-OpenInVisualStudioButton]
-
-7. Click the **Community (free)** link, or a similar link. A new webpage is added.
-
-8. Use links on the new webpage to install Visual Studio.
-
-9. After Visual Studio is installed, on the **Open In Visual Studio** blade click the **Open In Visual Studio** button. Visual Studio opens.
-
-10. Visual Studio will prompt you to fill in connection string fields in a dialog.
- - Choose **SQL Server Authentication**, not **Windows Authentication**.
- - Remember to specify your **AdventureWorksLT** database (**Options** > **Connection Properties** in the dialog).
-
-11. In the **SQL Server Object Explorer**, expand the node for your database.
+8. Visual Studio opens with the **Connect to Server** window already set to connect to the server and database you selected in the portal.  (Click **Options** to verify that the connection is set to the correct database.)
+   Type your server admin password and click **Connect**.
 
 
-## Step 2:  Run sample queries
+	![New query. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query/connect.png)
 
-After you connect to your logical server, you can connect to a database and run a sample query. 
 
-1. In **Object Explorer**, navigate to a database on the server to which you have permission, such as the **AdventureWorks** sample database.
+8. If you do not have a firewall rule set up for your computer's IP address, you get a *Cannot connect* message here. To create a firewall rule, see [Configure an Azure SQL Database server-level firewall rule](sql-database-configure-firewall-settings.md).
+
+
+9. After successfully connecting, the **SQL Server Object Explorer** window opens with a connection to your database.
+
+	![New query. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query/sql-server-object-explorer.png)
+
+
+## Run a sample query
+
+Now that we're connected to the database, the following steps show how to run a simple query:
+
 2. Right-click the database and then select **New Query**.
 
-	![New query. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query-ssms/4-run-query.png)
+	![New query. Connect to SQL Database server: SQL Server Management Studio](./media/sql-database-connect-query/new-query.png)
 
 3. In the query window, copy and paste the following code.
 
@@ -108,16 +94,14 @@ After you connect to your logical server, you can connect to a database and run 
 		,CompanyName
 		FROM SalesLT.Customer;
 
-4. Click the **Execute** button.  The following screen shot shows a successful query.
+4. Click the **Execute** button to run the query:
 
-	![Success. Connect to SQL Database server: SVisual Studio](./media/sql-database-connect-query-ssms/5-success.png)
+	![Success. Connect to SQL Database server: SVisual Studio](./media/sql-database-connect-query/run-query.png)
 
 ## Next steps
 
-[Connect to SQL Database by using .NET (C#)](sql-database-develop-dotnet-simple.md) 
+- Opening SQL databases in Visual Studio uses SQL Server Data Tools. For more details, see [SQL Server Data Tools](https://msdn.microsoft.com/library/hh272686.aspx).
+- To connect to a SQL database using code, see [Connect to SQL Database by using .NET (C#)](sql-database-develop-dotnet-simple.md).
 
 
-<!-- Image references. -->
-
-[20-OpenInVisualStudioButton]: ./media/sql-database-connect-query/connqry-free-vs-e.png
 

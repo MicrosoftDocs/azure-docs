@@ -53,7 +53,7 @@ There are three kinds of detection:
 
 ## Next steps
 
-Proactive diagnostics are completely automatic. But maybe you'd like to set up some more alerts?
+Proactive detections are completely automatic. But maybe you'd like to set up some more alerts?
 
 * [Manually configured metric alerts](app-insights-alerts.md)
 * [Availability web tests](app-insights-monitor-web-app-availability.md) 

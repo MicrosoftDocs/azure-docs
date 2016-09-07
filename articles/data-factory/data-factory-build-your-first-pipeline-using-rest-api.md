@@ -52,6 +52,7 @@ In this article, you learn how to use Data Factory REST API to create your first
 Create following JSON files in the folder where curl.exe is located. 
 
 ### datafactory.json 
+> [AZURE.IMPORTANT] Name must be globally unique, so you may want to prefix/suffix ADFCopyTutorialDF to make it a unique name. 
 
 	{  
 	    "name": "FirstDataFactoryREST",  
@@ -253,6 +254,8 @@ In this step, you create an Azure Data Factory named **FirstDataFactoryREST**. A
 
 1. Assign the command to variable named **cmd**. 
 
+	Confirm that the name of the data factory you specify here (ADFCopyTutorialDF) matches the name specified in the **datafactory.json**. 
+
 		$cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@datafactory.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/FirstDataFactoryREST?api-version=2015-10-01};
 2. Run the command by using **Invoke-Command**.
 
@@ -263,7 +266,10 @@ In this step, you create an Azure Data Factory named **FirstDataFactoryREST**. A
 
 Note the following:
  
-- The name of the Azure Data Factory must be globally unique. If you see the error in results: **Data factory name “FirstDataFactoryREST” is not available**, change the name (for example, yournameFirstDataFactoryREST) in the JSON file and in the above command. Use this name in place of **FirstDataFactoryREST** while performing steps in this tutorial. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
+- The name of the Azure Data Factory must be globally unique. If you see the error in results: **Data factory name “FirstDataFactoryREST” is not available**, do the following:  
+	1. Change the name (for example, yournameFirstDataFactoryREST) in the **datafactory.json** file. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
+	2. In the first command where the **$cmd** variable is assigned a value, replace FirstDataFactoryREST with the new name and run the command. 
+	3. Run the next two commands to invoke the REST API to create the data factory and print the results of the operation. 
 - To create Data Factory instances, you need to be a contributor/administrator of the Azure subscription
 - The name of the data factory may be registered as a DNS name in the future and hence become publicly visible.
 - If you receive the error: "**This subscription is not registered to use namespace Microsoft.DataFactory**", do one of the following and try publishing again: 

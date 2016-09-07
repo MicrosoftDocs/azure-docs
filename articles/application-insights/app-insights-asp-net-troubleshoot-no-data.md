@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2016" 
+	ms.date="08/24/2016" 
 	ms.author="awills"/>
  
 # Troubleshooting no data - Application Insights for .NET
@@ -24,11 +24,15 @@
 * If you are consistently seeing the same fraction, it's probably due to adaptive [sampling](app-insights-sampling.md). To confirm this, open Search (from the overview blade) and look at an instance of a Request or other event. At the bottom of the properties section click "..." to get full property details. If Request Count > 1, then sampling is in operation. 
 * Otherwise, it's possible that you're hitting a [data rate limit](app-insights-pricing.md#limits-summary) for your pricing plan. These limits are applied per minute.
 
-## Status Monitor problems
+## No data from my server
+
+*I installed my app on my web server, and now I don't see any telemetry from it. It worked OK on my dev machine.*
+
+* Probably a firewall issue. [Set firewall exceptions for Application Insights to send data](app-insights-ip-addresses.md).
 
 *I [installed Status Monitor](app-insights-monitor-performance-live-website-now.md) on my web server to monitor existing apps. I don't see any results.*
 
-See [Troubleshooting Status Monitor](app-insights-monitor-performance-live-website-now.md#troubleshooting). Firewall ports are the most common issue.
+* See [Troubleshooting Status Monitor](app-insights-monitor-performance-live-website-now.md#troubleshooting). 
 
 
 ## <a name="q01"></a>No 'Add Application Insights' option in Visual Studio

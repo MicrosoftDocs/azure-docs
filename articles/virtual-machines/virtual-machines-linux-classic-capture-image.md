@@ -33,7 +33,7 @@ These steps assume that you've already created an Azure virtual machine using th
 
 ## Capture the virtual machine
 
-1. [Connect to the virtual machine](virtual-machines-linux-classic-log-on.md) using an SSH client of your choice.
+1. [Connect to the virtual machine](virtual-machines-linux-mac-create-ssh-keys.md) using an SSH client of your choice.
 
 2. In the SSH window, type the following command.  Note that the output from `waagent` may vary slightly depending on the version of this utility:
 

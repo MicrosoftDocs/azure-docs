@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/01/2016"
+	ms.date="08/21/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 
 # Prepare your environment to back up Resource Manager-deployed virtual machines
 
 > [AZURE.SELECTOR]
-- [Resource manager model](backup-azure-arm-vms-prepare.md)
+- [Resource Manager model](backup-azure-arm-vms-prepare.md)
 - [Classic model](backup-azure-vms-prepare.md)
 
 This article provides the steps for preparing your environment to back up a Resource Manager-deployed virtual machine (VM). The steps shown in the procedures use the Azure portal.  
@@ -46,6 +46,7 @@ Before you prepare your environment, please understand the limitations.
 
 - Backing up virtual machines with more than 16 data disks is not supported.
 - Backing up virtual machines with a reserved IP address and no defined endpoint is not supported.
+- Backup of Linux virtual machines with Docker extension is not supported.  
 - Replacing an existing virtual machine during restore is not supported. If you attempt to restore the VM when the VM exists, the restore operation fails.
 - Cross-region backup and restore is not supported.
 - You can back up virtual machines in all public regions of Azure (see the [checklist](https://azure.microsoft.com/regions/#services) of supported regions). If the region that you are looking for is unsupported today, it will not appear in the dropdown list during vault creation.
@@ -152,7 +153,7 @@ on the Hub menu, click **Browse**.
 
     ![Select backup policy](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new.png)
 
-    The details of the default policy is listed in the details. If you want to create a new policy, select **Create New** from the drop-down menu. The drop-down menu also provides an option to switch the time when the snapshot is taken, to 7PM. For instructions on defining a backup policy, see [Defining a backup policy](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Once you click **OK**, the backup policy is associated with the vault.
+    The details of the default policy are listed in the details. If you want to create a new policy, select **Create New** from the drop-down menu. The drop-down menu also provides an option to switch the time when the snapshot is taken, to 7PM. For instructions on defining a backup policy, see [Defining a backup policy](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Once you click **OK**, the backup policy is associated with the vault.
 
     Next choose the VMs to associate with the vault.
 
@@ -255,7 +256,7 @@ If you have setup a proxy server on a current user account(not a Local System Ac
    Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name Proxyserver -Value $obj.Proxyserver
 ```
 
->[AZURE.NOTE] If you observe "(407)Proxy Authentication Required" in proxy server log, check your authrntication is setup correctly.
+>[AZURE.NOTE] If you observe "(407) Proxy Authentication Required" in proxy server log, check your authentication is setup correctly.
 
 ######For Linux machines
 

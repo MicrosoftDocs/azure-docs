@@ -204,7 +204,7 @@ This section provides instructions on using **AzCopy** tool to copy files to Azu
 
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/inputdata /DestKey:<storagekey>  /Pattern:input.log
 
-		> [AZURE.NOTE] The above command creates a container named **adfgetstarted** in your Azure Blob storage and copies the **partitionweblogs.hql** file from your local drive to the **inputdata** folder in the container. 
+		> [AZURE.NOTE] The above command creates a container named **adfgetstarted** in your Azure Blob storage and copies the **input.log** file from your local drive to the **inputdata** folder in the container. 
 	
 	5. After the file has been successfully uploaded, you see the output similar to the following one from AzCopy.
 	

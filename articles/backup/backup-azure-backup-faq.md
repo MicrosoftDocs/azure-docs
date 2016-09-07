@@ -14,14 +14,14 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="get-started-article"
-	 ms.date="07/01/2016"
+	 ms.date="08/21/2016"
 	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
 
 # Azure Backup service- FAQ
 
 > [AZURE.SELECTOR]
 - [Backup FAQ for Classic mode](backup-azure-backup-faq.md)
-- [Backup FAQ for ARM mode](backup-azure-backup-ibiza-faq.md)
+- [Backup FAQ for Resource manager mode](backup-azure-backup-ibiza-faq.md)
 
 This article is a list of commonly asked questions (and the respective answers) about the Azure Backup service. Our community replies quickly, and if a question is asked often, we add it to this article. The answers to questions typically provide reference or support information. You can ask questions about Azure Backup in the Disqus section of this article or a related article. You can also post questions about the Azure Backup service in the [discussion forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
@@ -231,6 +231,9 @@ A3. The encryption key should be at least 16 characters.
 
 **Q4. What happens if I misplace the encryption key? Can I recover the data (or) can Microsoft recover the data?** <br/>
 A4. The key used to encrypt the backup data is present only on the customer premises. Microsoft does not maintain a copy in Azure and does not have any access to the key. If the customer misplaces the key, Microsoft cannot recover the backup data.
+
+**Q5. Is backup data for Azure VMs encrypted?** <br/>
+A5. Azure Backup relies on encryption settings of the Azure VM for backup encryption. If your VM is encrypted using Azure Disk Encryption, Azure Backup uses that encryption to secure your data. 
  
 
 ## Backup cache

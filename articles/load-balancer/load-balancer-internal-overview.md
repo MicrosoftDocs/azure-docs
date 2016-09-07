@@ -1,26 +1,26 @@
 
-<properties 
+<properties
    pageTitle="Internal load balancer Overview | Microsoft Azure"
    description="Overview for internal load balancer and its features.How a load balancer works for Azure and possible scenarios to configure internal endpoints"
    services="load-balancer"
    documentationCenter="na"
-   authors="joaoma"
-   manager="adinah"
+   authors="sdwheeler"
+   manager="carmonm"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="load-balancer"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 
 # Internal Load balancer Overview
 
 Internal Load Balancer (ILB) is a security enhancement over the current Internet facing load balancer that is offered in Azure. Access to the ILB can only be done by resources inside the cloud service or using VPN to access the Azure infrastructure to reach the ILB.
-			
+
 The infrastructure  restricts the accessibility and creates a trust boundary between the load balanced virtual IP addresses to a Cloud Service or a Virtual Network and will never be exposed to a Internet endpoint directly. This enables internal Line of Business applications to run in Azure and be accessed within the cloud or from on-premises.
 
 ## Scenarios for internal load balancer
@@ -41,7 +41,7 @@ The existing Azure load balancing only provides load balancing between Internet-
 
 - Internet-facing, multi-tier applications in which the back-end tiers are not Internet-facing but require load balancing for traffic from the Internet-facing tier.
 - Load balancing for line-of-business (LOB) applications hosted in Azure without requiring additional load balancer hardware or software.
-Including on-premises servers in the set of computers whose traffic is load balanced. 
+Including on-premises servers in the set of computers whose traffic is load balanced.
 - The following sections describe these configurations in more detail.
 
 ## Internet facing multi-tier applications
@@ -51,7 +51,7 @@ The web tier has Internet facing endpoints for Internet clients and is part of a
 
 The database servers are behind an ILB endpoint which the web servers use for storage. This database service load balanced endpoint, which traffic is load balanced across the database servers in the ILB set.
 
-The image below describes the Internet facing multi-tier application within the same cloud service. 
+The image below describes the Internet facing multi-tier application within the same cloud service.
 
 Figure 1
 
@@ -91,4 +91,3 @@ Another scenario for the LOB is to have a site to site VPN to the virtual networ
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
 
- 

@@ -15,12 +15,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2016"
+	ms.date="08/24/2016"
 	ms.author="genli"/>
 
 # What do I do if my Azure subscription is disabled?
 
-If your Azure subscription becomes disabled, you can use the steps in this article to re-enable it. Your Azure subscription can become disabled for the following reasons:
+> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+
+If your Azure subscription becomes disabled, you can use the steps in this article to re-enable it. Your Azure subscription can become disabled for the following reasons.
 
 ## You have reached your spending limit
 
@@ -35,9 +37,9 @@ Here is how you can remove your Spending Limit:
 3. Select a subscription.
 
 4. If you see *Subscription reached the Spending Limit and has been disabled to prevent charges*, click on it.
-	
-	Alternatively, click **Remove spending limit** in the **Subscription Status** area. 
-	
+
+	Alternatively, click **Remove spending limit** in the **Subscription Status** area.
+
 5. Select one of the following options that is appropriate for you：
 
 |Option|Effect|
@@ -70,3 +72,5 @@ If you cannot access the portal, submit a support request from the Azure Support
  * To submit a support ticket from the [Azure Account Center](https://account.windowsazure.com/Subscriptions), select a subscription, and then click **Contact Microsoft Support**.
 
 For more information, see [How to Create a Support Ticket for Azure Billing and Subscription Issues](billing-how-to-create-billing-support-ticket.md).
+
+> [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.

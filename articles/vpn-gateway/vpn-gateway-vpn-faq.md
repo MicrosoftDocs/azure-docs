@@ -42,17 +42,15 @@ The following cross-premises connections are supported:
 
 - [ExpressRoute](../expressroute/expressroute-introduction.md) – ExpressRoute is a direct connection to Azure from your WAN, not over the public Internet. See the [ExpressRoute Technical Overview](../expressroute/expressroute-introduction.md) and the [ExpressRoute FAQ](../expressroute/expressroute-faqs.md) for more information.
 
-For more information about cross-premises connections, see [About secure cross-premises connectivity](vpn-gateway-cross-premises-options.md).
+For more information about connections, see [VPN Gateway connection diagrams](vpn-gateway-topology.md).
 
 ### What is the difference between a Site-to-Site connection and Point-to-Site?
 
-**Site-to-Site** connections let you connect between any of the computers located on your premises to any virtual machine or role instance within your virtual network, depending on how you choose to configure routing. It's a great option for an always-available cross-premises connection and is well-suited for hybrid configurations. This type of connection relies on an IPsec VPN appliance (hardware or soft appliance), which must be deployed at the edge of your network. In order to create this type of connection, you'll have to have the required VPN hardware and an externally facing IPv4 address.
+**Site-to-Site** connections let you connect between any of the computers located on your premises to any virtual machine or role instance within your virtual network, depending on how you choose to configure routing. It's a great option for an always-available cross-premises connection and is well-suited for hybrid configurations. This type of connection relies on an IPsec VPN appliance (hardware or soft appliance), which must be deployed at the edge of your network. To create this type of connection, you must have the required VPN hardware and an externally facing IPv4 address.
 
 **Point-to-Site** connections let you connect from a single computer from anywhere to anything located in your virtual network. It uses the Windows in-box VPN client. As part of the Point-to-Site configuration, you install a certificate and a VPN client configuration package, which contains the settings that allow your computer to connect to any virtual machine or role instance within the virtual network. It's great when you want to connect to a virtual network, but aren't located on-premises. It's also a good option when you don't have access to VPN hardware or an externally facing IPv4 address, both of which are required for a Site-to-Site connection. 
 
 You can configure your virtual network to use both Site-to-Site and Point-to-Site concurrently, provided that you create your Site-to-Site connection using a route-based VPN type for your gateway. Route-based VPN types are called dynamic gateways in the classic deployment model.
-
-For more information, see [About secure cross-premises connectivity for virtual networks](vpn-gateway-cross-premises-options.md).
 
 ### What is ExpressRoute?
 
@@ -184,7 +182,7 @@ If you are using the Azure Classic Portal, add each range that you want sent thr
 
 Yes. See [Configure forced tunneling](vpn-gateway-about-forced-tunneling.md).
 
-### Can I setup my own VPN server in Azure and use it to connect to my on-premises network?
+### Can I set up my own VPN server in Azure and use it to connect to my on-premises network?
 
 Yes, you can deploy your own VPN gateways or servers in Azure either from the Azure Marketplace or creating your own VPN routers. You will need to configure User-Defined Routes in your virtual network to ensure traffic is routed properly between your on-premises networks and your virtual network subnets.
 
@@ -227,7 +225,7 @@ Yes, Point-to-Site (P2S) VPNs can be used with the VPN gateways connecting to mu
 
 ### Can I configure multiple tunnels between my virtual network and my on-premises site using multi-site VPN?
 
-No, redundant tunnels between an Azure virtual network and an on-premises site is not supported.
+No, redundant tunnels between an Azure virtual network and an on-premises site are not supported.
 
 ### Can there be overlapping address spaces among the connected virtual networks and on-premises local sites?
 
