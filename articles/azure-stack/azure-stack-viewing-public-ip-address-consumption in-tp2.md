@@ -3,7 +3,7 @@
 	description="Administrators can view the consumption of Public IP Addresses in a Region."
 	services="azure-stack"
 	documentationCenter=""
-	authors="scottnapolitan"
+	authors="ScottNapolitan"
 	manager="darmour"
 	editor=""/>
 
