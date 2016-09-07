@@ -111,7 +111,7 @@ Click the **Start** button to restart the VM when you're ready to use it again.
 
 ## Next steps
 
-- You can experiment with your new VM by [installing IIS on your VM and opening port 80](virtual-machines-windows-hero-role.md) to incoming web traffic. 
+- You can experiment with your new VM by [installing IIS](virtual-machines-windows-hero-role.md). This tutorial also shows how to open port 80 to incoming web traffic using a network security group (NSG). 
 
 - You can also [create a Windows VM by using PowerShell](virtual-machines-windows-ps-create.md) or [create a Linux virtual machine](virtual-machines-linux-quick-create-cli.md) by using the Azure CLI.
 
