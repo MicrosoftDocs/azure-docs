@@ -36,7 +36,7 @@ using Microsoft.ServiceFabric.Services.Runtime;
 
 public interface IMyService : IService
 {
-    Task<string> GetHelloWorld();
+    Task<string> HelloWorldAsync();
 }
 
 class MyService : StatelessService, IMyService
@@ -46,7 +46,7 @@ class MyService : StatelessService, IMyService
     {
     }
 
-    public Task HelloWorld()
+    public Task HelloWorldAsync()
     {
         return Task.FromResult("Hello!");
     }
@@ -69,7 +69,7 @@ Calling methods on a service by using the remoting stack is done by using a loca
 
 IMyService helloWorldClient = ServiceProxy.Create<IMyService>(new Uri("fabric:/MyApplication/MyHelloWorldService"));
 
-string message = await helloWorldClient.GetHelloWorld();
+string message = await helloWorldClient.HelloWorldAsync();
 
 ```
 
