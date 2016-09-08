@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/06/2016"
+	ms.date="09/08/2016"
 	ms.author="billmath"/>
 
-#Azure AD Connect in Microsoft Cloud Germany
+#Azure AD Connect in Microsoft Cloud Germany - Public Preview
 
 ## Introduction
 Azure AD Connect provides synchronization between your on-premises Active Directory and Azure Active Directory.
