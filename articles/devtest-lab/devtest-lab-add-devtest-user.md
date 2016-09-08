@@ -24,8 +24,8 @@ Azure DevTest Labs access is controlled by [Azure Role-Based Access Control (RBA
 
 - [Actions that can be performed in each role](#actions-that-can-be-performed-in-each-role)
 - [Add an owner or user at the lab level](#add-an-owner-or-user-at-the-lab-level)
-- [Add an owner or user at the subscription level](#add-an-owner-or-user-at-the-subscription-level)
 - [Add an external user to a lab using PowerShell](#add-an-external-user-to-a-lab-using-powershell)
+- [Add an owner or user at the subscription level](#add-an-owner-or-user-at-the-subscription-level)
 
 ## Actions that can be performed in each role
 
@@ -89,42 +89,6 @@ an owner or user to a lab:
 
 1. When you return to the **Users** blade, the user has been added.  
 
-## Add an owner or user at the subscription level
-
-Azure permissions are propagated from parent scope to child scope in Azure. Therefore, owners of an Azure subscription that contains labs are automatically owners of those labs. They also own the VMs and other resources created by the lab's users, and the Azure DevTest Labs service. 
-
-You can add additional owners to a lab via the lab's blade in the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040). 
-However, the added owner's scope of administration is more narrow than the subscription owner's scope. 
-For example, the added owners do not have full access to some of the resources that are created in the subscription by the DevTest Labs service. 
-
-To add an owner to an Azure subscription, follow these steps:
-
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-
-1. Select **More Services**, and then select **Subscriptions** from the list.
-
-1. Select the desired subscription.
-
-1. Select **Access** icon. 
-
-	![Access users](./media/devtest-lab-add-devtest-user/access-users.png)
-
-1. On the **Users** blade, select **Add**.
-
-	![Add user](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
-
-1. On the **Select a role** blade, select **Owner**.
-
-1. On the **Add users** blade, enter the email address or name of the user you want to add as an owner. If the user can't be found, you get an error message explaining the issue. If the user is found, that user is listed under the **User** text box.
-
-1. Select the located user name.
-
-1. Select **Select**.
-
-1. Select **OK** to close the **Add access** blade.
-
-1. When you return to the **Users** blade, the user has been added as an owner. This user is now an owner of any labs created under this subscription, and thus be able to perform owner tasks. 
-
 ## Add an external user to a lab using PowerShell
 
 In addition to adding users in the Azure portal, you can add an external user to your lab using a PowerShell script. 
@@ -165,5 +129,41 @@ You can retrieve these values from the lab blade in the Azure portal.
 	$labId = ('subscriptions/' + $subscriptionId + '/resourceGroups/' + $resourceGroup + '/providers/Microsoft.DevTestLab/labs/' + $labId)
 	
 	New-AzureRmRoleAssignment -ObjectId $adObject.Id -RoleDefinitionName 'DevTest Labs User' -Scope $labId
+
+## Add an owner or user at the subscription level
+
+Azure permissions are propagated from parent scope to child scope in Azure. Therefore, owners of an Azure subscription that contains labs are automatically owners of those labs. They also own the VMs and other resources created by the lab's users, and the Azure DevTest Labs service. 
+
+You can add additional owners to a lab via the lab's blade in the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040). 
+However, the added owner's scope of administration is more narrow than the subscription owner's scope. 
+For example, the added owners do not have full access to some of the resources that are created in the subscription by the DevTest Labs service. 
+
+To add an owner to an Azure subscription, follow these steps:
+
+1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+
+1. Select **More Services**, and then select **Subscriptions** from the list.
+
+1. Select the desired subscription.
+
+1. Select **Access** icon. 
+
+	![Access users](./media/devtest-lab-add-devtest-user/access-users.png)
+
+1. On the **Users** blade, select **Add**.
+
+	![Add user](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
+
+1. On the **Select a role** blade, select **Owner**.
+
+1. On the **Add users** blade, enter the email address or name of the user you want to add as an owner. If the user can't be found, you get an error message explaining the issue. If the user is found, that user is listed under the **User** text box.
+
+1. Select the located user name.
+
+1. Select **Select**.
+
+1. Select **OK** to close the **Add access** blade.
+
+1. When you return to the **Users** blade, the user has been added as an owner. This user is now an owner of any labs created under this subscription, and thus be able to perform owner tasks. 
 
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
