@@ -48,7 +48,7 @@ Here are the detailed steps for uploading your public certificates into your int
  3. Select the integration account to which you want to add the certificate.  
 ![Select the integration account to which you want to add the certificate](./media/app-service-logic-enterprise-integration-overview/overview-3.png)  
 
- 4. Select the **Certificates** tile.  
+4. Select the **Certificates** tile.  
 ![Select the Certificates tile](./media/app-service-logic-enterprise-integration-certificates/certificate-1.png)  
 
 5. In the **Certificates** blade that opens, select the **Add** button.   
@@ -79,7 +79,8 @@ You can upload private certificates into your integration account by taking the 
 
 After you've taken the previous steps, you can use the private certificate to create agreements.
 
-Following are the detailed steps for uploading your private certificates into your integration account after you sign in to the Azure portal:   
+Following are the detailed steps for uploading your private certificates into your integration account after you sign in to the Azure portal:  
+
 1. Select **Browse**.  
 ![Upload your private certificates into your integration account](./media/app-service-logic-enterprise-integration-overview/overview-1.png)    
 
@@ -89,7 +90,7 @@ Following are the detailed steps for uploading your private certificates into yo
 3. Select the **integration account** to which you want to add the certificate.  
 ![Select the integration account to which you want to add the certificate](./media/app-service-logic-enterprise-integration-overview/overview-3.png)  
 
-4.  Select the **Certificates** tile.  
+4. Select the **Certificates** tile.  
 ![Select the Certificates tile](./media/app-service-logic-enterprise-integration-certificates/certificate-1.png)  
 
 5. In the **Certificates** blade that opens, select the **Add** button.
@@ -107,7 +108,6 @@ Following are the detailed steps for uploading your private certificates into yo
 
 11. Select the **Certificates tile**. You should see the newly added certificate.
 ![See the new certificate](./media/app-service-logic-enterprise-integration-certificates/privatecertificate-2.png)  
-
 After you upload a certificate, it's available to help you to secure your B2B messages when you define their properties in [agreements](./app-service-logic-enterprise-integration-agreements.md).  
 
 
