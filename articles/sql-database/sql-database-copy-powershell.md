@@ -22,16 +22,16 @@
 
 > [AZURE.SELECTOR]
 - [Overview](sql-database-copy.md)
-- [Azure Portal](sql-database-copy-portal.md)
+- [Azure portal](sql-database-copy-portal.md)
 - [PowerShell](sql-database-copy-powershell.md)
 - [T-SQL](sql-database-copy-transact-sql.md)
 
-This following steps show you how to copy a SQL database with PowerShell to the same server or a different server. The database copy operation uses the [New-AzureRmSqlDatabaseCopy](https://msdn.microsoft.com/library/mt603644.aspx) cmdlet. 
+The following steps show you how to copy a SQL database with PowerShell to the same server, to a different server, or copy a database into an [elastic database pool](sql-database-elastic-pool.md). The database copy operation uses the [New-AzureRmSqlDatabaseCopy](https://msdn.microsoft.com/library/mt603644.aspx) cmdlet. 
 
 
-To complete this article you need the following:
+To complete this article, you need the following:
 
-- An Azure SQL Database (a database to copy). If you do not have a SQL database, create one following the steps in this article: [Create your first Azure SQL Database](sql-database-get-started.md).
+- An Azure SQL database (a database to copy). If you do not have a SQL database, create one following the steps in this article: [Create your first Azure SQL Database](sql-database-get-started.md).
 - The latest version of Azure PowerShell. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
 
@@ -39,10 +39,7 @@ Many new features of SQL Database are only supported when you are using the [Azu
 
 **To submit a copy database request to the SQL Database service, run the [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt603644.aspx) cmdlet.** 
 
-This article provides code snippets to create a SQL database copy in the same server, in a different server, or into an elastic database pool.
-
 >[AZURE.NOTE] Depending on the size of your database, the copy operation may take some time to complete.
-
 
 
 ## Copy a SQL database to the same server
@@ -64,13 +61,9 @@ To create a copy of a SQL database in a pool set the `-ElasticPoolName` paramete
 
     New-AzureRmSqlDatabaseCopy -ResourceGroupName "resourcegoup1" -ServerName "server1" -DatabaseName "database1" -CopyResourceGroupName "poolResourceGroup" -CopyServerName "poolServer1" -CopyDatabaseName "database1_copy" -ElasticPoolName "poolName"
 
-
-
-
-
 ## Monitor the progress of a copy operation
 
-After running **New-AzureRmSqlDatabaseCopy** you can check the status of the copy request. Running this immediately after the request will usually return **State : Pending** or **State : Running** so you can run this multiple times until you see **State : COMPLETED** in the output. 
+Check status of a copy operation by running the [Get-AzureRmSqlDatabaseActivity](https://msdn.microsoft.com/library/mt603687.aspx) cmdlet. 
 
     Get-AzureRmSqlDatabaseActivity -ResourceGroupName $copyDbResourceGroupName -ServerName $copyDbServerName -DatabaseName $copyDbName
 
@@ -125,13 +118,15 @@ The following script assumes all resource groups, servers, and the pool already 
 ## Next steps
 
 - See [Copy an Azure SQL database](sql-database-copy.md) for an overview of copying an Azure SQL Database.
-- See [Copy an Azure SQL database using the Azure Portal](sql-database-copy-portal.md) to copy a database using the Azure portal.
+- See [Copy an Azure SQL database using the Azure portal](sql-database-copy-portal.md) to copy a database using the Azure portal.
 - See [Copy an Azure SQL database using T-SQL](sql-database-copy-transact-sql.md) to copy a database using Transact-SQL.
 - See [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md) to learn about managing users and logins when copying a database to a different logical server.
 
 
 ## Additional resources
 
+- [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt603644.aspx)
+- [Get-AzureRmSqlDatabaseActivity](https://msdn.microsoft.com/library/mt603687.aspx)
 - [Manage logins](sql-database-manage-logins.md)
 - [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md)
 - [Export the database to a BACPAC](sql-database-export.md)
