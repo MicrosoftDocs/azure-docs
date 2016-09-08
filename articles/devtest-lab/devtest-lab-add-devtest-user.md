@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Add owners and users to a lab in Azure DevTest Labs| Microsoft Azure"
-	description="Securely add a user who is not in your subscription to Azure DevTest Labs"
+	pageTitle="Add owners and users in Azure DevTest Labs| Microsoft Azure"
+	description="Add owners and users in Azure DevTest Labs using either the Azure portal or PowerShell"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -16,13 +16,11 @@
 	ms.date="09/08/2016"
 	ms.author="tarcher"/>
 
-# Add owners and users to a lab in Azure DevTest Labs
+# Add owners and users in Azure DevTest Labs
 
 > [AZURE.VIDEO how-to-set-security-in-your-devtest-lab]
 
-Azure DevTest Labs access is controlled by Azure Role-Based Access Control (RBAC). Search for [Role-Based-Access-Control (RBAC)](https://azure.microsoft.com/search/?q=role%20based%20access%20control) in the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) to learn more.
-
-In this article, you learn the following:
+Azure DevTest Labs access is controlled by [Azure Role-Based Access Control (RBAC)](https://azure.microsoft.com/search/?q=role%20based%20access%20control). In this article, you learn the following:
 
 - [Actions that can be performed in each role](#actions-that-can-be-performed-in-each-role)
 - [Add an owner or user at the lab level](#add-an-owner-or-user-at-the-lab-level)
