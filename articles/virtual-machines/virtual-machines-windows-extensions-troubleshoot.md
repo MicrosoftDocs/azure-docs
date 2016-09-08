@@ -55,7 +55,7 @@ Here is the sample output:
     }
   ]
 
-## Troubleshooting extenson failures
+## Troubleshooting extension failures
 
 ### Re-running the extension on the VM
 
