@@ -52,7 +52,7 @@ Here are the detailed steps for uploading your public certificates into your int
 ![Select the Certificates tile](./media/app-service-logic-enterprise-integration-certificates/certificate-1.png)  
 
 5. In the **Certificates** blade that opens, select the **Add** button.
-![Select the Add button](./media/app-service-logic-enterprise-integration-certificates/certificate-2.png)  
+![Select the Add button](./media/app-service-logic-enterprise-integration-certificates/certificate-2.png)
 
 6. Enter a **Name** for your certificate, and then select the certificate type. (In this example, we used the public certificate type.) Next, select the folder icon to the right of the **Certificate** text box.
 
