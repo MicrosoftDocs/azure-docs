@@ -17,7 +17,7 @@
 	ms.author="maheshu"/>
 
 # Azure AD Domain Services *(Preview)* - Enable password synchronization to Azure AD Domain Services
-After you enable Azure AD Domain Services for your Azure AD tenant, the next task is to enable credential hashes required for NTLM and Kerberos authentication to synchronize to Azure AD Domain Services. Once credential synchronization is set up, users can sign in to the managed domain using their corporate credentials.
+In preceding tasks, you enabled Azure AD Domain Services for your Azure AD tenant. The next task is to enable credential hashes required for NTLM and Kerberos authentication to synchronize to Azure AD Domain Services. Once credential synchronization is set up, users can sign in to the managed domain using their corporate credentials.
 
 The steps involved are different based on whether your organization has a cloud-only Azure AD tenant or is set to synchronize with your on-premises directory using Azure AD Connect.
 
@@ -41,21 +41,21 @@ This password change process causes the credential hashes required by Azure AD D
 ### Enable NTLM and Kerberos credential hash generation for a cloud-only Azure AD tenant
 Here are instructions you need to provide end users, so they can change their passwords:
 
-1. Navigate to the Azure AD Access Panel page for your organization. This is typically available at [http://myapps.microsoft.com](http://myapps.microsoft.com).
+1. Navigate to the Azure AD Access Panel page for your organization at [http://myapps.microsoft.com](http://myapps.microsoft.com).
 
 2. Select the **profile** tab on this page.
 
-3. Click on the **Change password** tile on this page to initiate a password change.
+3. Click on the **Change password** tile on this page.
 
     ![Create a virtual network for Azure AD Domain Services.](./media/active-directory-domain-services-getting-started/user-change-password.png)
 
     > [AZURE.NOTE] If you do not see the **Change password** option on the Access Panel page, ensure that your organization has configured [password management in Azure AD](../active-directory/active-directory-passwords-getting-started.md).
 
-4. On the **change password** page, type your existing (old) password and then type a new password and confirm it. Click **Submit**.
+4. On the **change password** page, type your existing (old) password and then type a new password and confirm it. Click **submit**.
 
     ![Create a virtual network for Azure AD Domain Services.](./media/active-directory-domain-services-getting-started/user-change-password2.png)
 
-After users have changed their password, the new password will be usable in Azure AD Domain Services shortly. After a few minutes (typically, about 20 minutes), users can sign in to computers joined to the managed domain using their newly changed password.
+After you have changed your password, the new password will be usable in Azure AD Domain Services shortly. After a few minutes (typically, about 20 minutes), you can sign in to computers joined to the managed domain using the newly changed password.
 
 <br>
 
