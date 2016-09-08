@@ -1,3 +1,4 @@
+
 <properties
 	pageTitle="Using certificates with Enterprise Integration Pack | Microsoft Azure"
 	description="Learn how to use certificates with the Enterprise Integration Pack and Logic apps"
