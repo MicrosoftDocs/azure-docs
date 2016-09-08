@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="09/07/2016"
+	ms.date="09/08/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -26,7 +26,7 @@
 - [PowerShell](sql-database-copy-powershell.md)
 - [T-SQL](sql-database-copy-transact-sql.md)
 
-The following steps show you how to copy a SQL database with PowerShell to the same server, to a different server, or copy a database into an [elastic database pool](sql-database-elastic-pool.md). The database copy operation uses the [New-AzureRmSqlDatabaseCopy](https://msdn.microsoft.com/library/mt603644.aspx) cmdlet. 
+This article shows how to copy a SQL database with PowerShell to the same server, to a different server, or copy a database into an [elastic database pool](sql-database-elastic-pool.md). The database copy operation uses the [New-AzureRmSqlDatabaseCopy](https://msdn.microsoft.com/library/mt603644.aspx) cmdlet. 
 
 
 To complete this article, you need the following:
@@ -37,7 +37,6 @@ To complete this article, you need the following:
 
 Many new features of SQL Database are only supported when you are using the [Azure Resource Manager deployment model](../resource-group-overview.md), so examples use the [Azure SQL Database PowerShell cmdlets](https://msdn.microsoft.com/library/azure/mt574084.aspx) for Resource Manager. The existing classic deployment model [Azure SQL Database (classic) cmdlets](https://msdn.microsoft.com/library/azure/dn546723.aspx) are supported for backward compatibility, but we recommend you use the Resource Manager cmdlets.
 
-**To submit a copy database request to the SQL Database service, run the [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt603644.aspx) cmdlet.** 
 
 >[AZURE.NOTE] Depending on the size of your database, the copy operation may take some time to complete.
 
@@ -50,7 +49,7 @@ To create the copy on the same server, omit the `-CopyServerName` parameter (or 
 
 ## Copy a SQL database to a different server
 
-To create the copy on a different server, include the `-CopyServerName` parameter and set it to a different (but existing) server.
+To create the copy on a different server, include the `-CopyServerName` parameter and set it to a different server. The *copy* server must already exist. If it is in a different resource group, then you must also include the `-CopyResourceGroupName` parameter.
 
     New-AzureRmSqlDatabaseCopy -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -CopyServerName "server2" -CopyDatabaseName "database1_copy"
 
@@ -95,7 +94,6 @@ The following script assumes all resource groups, servers, and the pool already 
     $copyDbName = "db1_copy"
     $copyDbServerName = "server2"
     $copyDbResourceGroupName = "rg2"
-    $copyDbLocation = "westus2"
     
     # Copy a database to the same server
     # ----------------------------------
@@ -132,3 +130,4 @@ The following script assumes all resource groups, servers, and the pool already 
 - [Export the database to a BACPAC](sql-database-export.md)
 - [Business Continuity Overview](sql-database-business-continuity.md)
 - [SQL Database documentation](https://azure.microsoft.com/documentation/services/sql-database/)
+- [Azure SQL Database PowerShell Cmdlet Reference](https://msdn.microsoft.com/library/mt574084.aspx)
