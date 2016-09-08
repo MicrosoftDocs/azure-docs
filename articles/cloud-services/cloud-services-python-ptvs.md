@@ -242,6 +242,8 @@ if (-not $is_emulated){
 
 #### Modify LaunchWorker.ps1
 
+In case of Worker Role project, **LauncherWorker.ps1** file is required to execute startup file. In Web Role project, startup file is defined at the project Properties.
+
 The **bin\LaunchWorker.ps1** was originally created to do a lot of prep work but it doesn't really work. Replace the contents in that file with the following script.
 
 This script calls the **worker.py** file from your python project. If the **PYTHON2** enviornment variable is set to **on** then Python 2.7 will be used, otherwise Python 3.5 will be used.
