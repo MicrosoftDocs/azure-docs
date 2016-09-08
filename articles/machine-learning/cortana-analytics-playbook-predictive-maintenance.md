@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2016"
+	ms.date="09/08/2016"
 	ms.author="fboylu" />
 
 # Cortana Intelligence Solution Template Playbook for predictive maintenance in aerospace and other businesses
