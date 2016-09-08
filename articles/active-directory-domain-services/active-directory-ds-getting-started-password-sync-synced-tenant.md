@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/06/2016"
+	ms.date="09/07/2016"
 	ms.author="maheshu"/>
 
 # Azure AD Domain Services *(Preview)* - Enable password synchronization to Azure AD Domain Services
 
 ## Task 5: Enable password synchronization to AAD Domain Services for a synced Azure AD tenant
-Once you have enabled Azure AD Domain Services for your Azure AD directory, the next task is to enable synchronization of passwords to Azure AD Domain Services. This enables users to sign in to the domain using their corporate credentials.
+Once you have enabled Azure AD Domain Services for your Azure AD directory, the next task is to enable synchronization of passwords to Azure AD Domain Services. After you do so, users can sign in to the domain using their corporate credentials.
 
 The steps involved are different based on whether your organization has a cloud-only Azure AD directory or is set to synchronize with your on-premises directory using Azure AD Connect.
 
@@ -40,9 +40,9 @@ You will need to install the latest recommended release of Azure AD Connect on a
 
 **[Download Azure AD Connect](http://www.microsoft.com/download/details.aspx?id=47594)**
 
-Recommended version: **1.1.189.0** - published on June 3, 2016.
+Recommended version: **1.1.281.0** - published on September 7, 2016.
 
-  > [AZURE.WARNING] You MUST install the latest recommended release of Azure AD Connect in order to enable legacy password credentials (required for NTLM and Kerberos authentication) to synchronize to your Azure AD tenant. This functionality is not available in prior releases of Azure AD Connect or with the legacy DirSync tool.
+  > [AZURE.WARNING] You MUST install the latest recommended release of Azure AD Connect to enable the legacy password credentials (required for NTLM and Kerberos authentication) to synchronize to your Azure AD tenant. This functionality is not available in prior releases of Azure AD Connect or with the legacy DirSync tool.
 
 Installation instructions for Azure AD Connect are available in the following article - [Getting started with Azure AD Connect](../active-directory/active-directory-aadconnect.md)
 

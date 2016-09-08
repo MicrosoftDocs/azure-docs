@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/07/2016"
 	ms.author="maheshu"/>
 
 # Azure AD Domain Services *(Preview)*
@@ -21,9 +21,9 @@
 ## Overview
 Azure Infrastructure Services enable you to deploy a wide range of computing solutions in an agile manner. With Azure Virtual Machines, you can deploy nearly instantaneously and you pay only by the minute. Using support for Windows, Linux, SQL Server, Oracle, IBM, SAP, and BizTalk, you can deploy any workload, any language, on nearly any operating system. These benefits enable you to migrate legacy applications deployed on-premises to Azure, in order save on operational expenses.
 
-A key aspect of migrating on-premises applications to Azure is handling the identity needs of these applications. Directory-aware applications may rely on LDAP for read or write access to the corporate directory or rely on Windows Integrated Authentication (Kerberos or NTLM authentication) to authenticate end-users. Line of business applications running on Windows Server are typically deployed on domain joined machines, so they can be managed securely using Group Policy. In order to 'lift-and-shift' on-premises applications to the cloud, these dependencies on the corporate identity infrastructure need to be resolved.
+A key aspect of migrating on-premises applications to Azure is handling the identity needs of these applications. Directory-aware applications may rely on LDAP for read or write access to the corporate directory or rely on Windows Integrated Authentication (Kerberos or NTLM authentication) to authenticate end-users. Line of business applications running on Windows Server are typically deployed on domain joined machines, so they can be managed securely using Group Policy. To 'lift-and-shift' on-premises applications to the cloud, these dependencies on the corporate identity infrastructure need to be resolved.
 
-In order to satisfy the identity needs of their applications deployed in Azure, administrators often turn to one of the following solutions:
+Administrators often turn to one of the following solutions to satisfy the identity needs of their applications deployed in Azure:
 
 - Deploy a site-to-site VPN connection between workloads running in Azure Infrastructure Services and the corporate directory on-premises.
 - Extend the corporate AD domain/forest infrastructure by setting up replica domain controllers using Azure virtual machines.
@@ -56,7 +56,7 @@ A few salient aspects of the managed domain that is provisioned by Azure AD Doma
 ### Azure AD Domain Services for hybrid organizations
 Organizations with a hybrid IT infrastructure consume a mix of cloud resources and on-premises resources. Such organizations synchronize identity information from their on-premises directory to their Azure AD tenant. As hybrid organizations look to migrate more of their on-premises applications to the cloud, especially legacy directory-aware applications, Azure AD Domain Services can be very useful to them.
 
-Litware Corporation has deployed [Azure AD Connect](../active-directory/active-directory-aadconnect.md), in order to synchronize identity information from their on-premises directory to their Azure AD tenant. This includes user accounts, their credential hashes for authentication (password sync) and group memberships. Note that **password synchronization is mandatory for hybrid organizations to use Azure AD Domain Services**. This is because users' credentials are required in the managed domain provided by Azure AD Domain Services, in order to authenticate these users via NTLM or Kerberos authentication methods.
+Litware Corporation has deployed [Azure AD Connect](../active-directory/active-directory-aadconnect.md), to synchronize identity information from their on-premises directory to their Azure AD tenant. This includes user accounts, their credential hashes for authentication (password sync) and group memberships. Note that **password synchronization is mandatory for hybrid organizations to use Azure AD Domain Services**. This is because users' credentials are required in the managed domain provided by Azure AD Domain Services, to authenticate these users via NTLM or Kerberos authentication methods.
 
 ![Azure AD Domain Services for Litware Corporation](./media/active-directory-domain-services-overview/aadds-overview-synced-tenant.png)
 
