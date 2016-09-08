@@ -14,51 +14,35 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="06/03/2016"
+   	ms.date="09/08/2016"
    	ms.author="jgao"/>
 
-# Introduce Secure HDInsight
+# Introduce Secure HDInsight (Preview)
 
-[a short intro here]
+The HDInsight cluster until today supported only a single user local admin mode with minimal auditing and authorization. Using the enterprise grade security features in HDInsight, you can create a secure HDInsight cluster joined to an Active Directory domain, configure a list of employees from the enterprise who can authenticate (through Azure Active Directory or through on premise Active Directory via [Express Route](https://azure.microsoft.com/services/expressroute/)) to log on to HDInsight cluster, configure role based access control for HiveServer2 security using Apache Ranger, and audit the data access by employees, and any changes done to access control policies, thus achieving a high degree of governance of your corporate resources.
 
-- Protect your enterprise data lake
-- Audit access by users to resource on Hive from a centralized Security Administration console (Ranger)
-
-
-[jgao questions:] 
-
-- Public preview ETA: Sept 22, 2016
-- Only Hive and Yarn are supported by the public preview.
-- The Names: Ranger admin UI (found on Ambari) vs Ranger administration console (HDP name) vs. Policy Manager.
-
+[AZURE.NOTE]> the new features described in this preview are available only on Linux-based HDInsight clusters for HiveServer2 workload. The other workloads, such as HBase, Spark, Storm and Kafka, will be enabled in future releases. 
 
 ## Benefits
 
-At a high level, there are four pillars of security and governance in Hadoop. This section briefly describes each pillar and outlines the capabilities present in the current preview to support that pillar. 
+Enterprise Security contains four big pillars – Authentication, Authorization, Encryption and Auditing.
 
-- **Authentication**
-This pillar deals with allowing only the users that belong to the organization access the Hadoop resources. Anyone outside the organization cannot log in or access cluster resources. This is accomplished by integrating with the organization’s identity management system. 
-HDInsight provides strong authentication through the use of Active Directory Domain Services (ADDS). 
+###Authentication
 
-- **Authorization**
-Proper authorization ensures that only the users allowed to access a Hadoop resource are able to access it. For example, within an organization, not everyone may have the same level of privileges to access financial or HR data. For those cases, an administrator in the organization should be able to define and administer access control policies on all Hadoop resources. 
-HDInsight supports defining role-based access control (RBAC) policies using Apache Ranger. 
+With this public preview, an enterprise admin can create a secure HDInsight cluster in a virtual network. The nodes of the HDInsight cluster will be joined to the domain managed by the enterprise. This is achieved through use of [Azure Active Directory Domain Services](https://technet.microsoft.com/en-us/library/cc770946%28v=ws.10%29.aspx?f=255&MSPPError=-2147217396). The HDInsight cluster can be configured with either Windows Azure Storage Blob or Azure Data Lake Storage as the data stores for HDFS. All the nodes in the cluster are joined to a domain that the enterprise manages. With this setup, the enterprise employees can log on to the cluster nodes using their domain credentials. They can also use their domain credentials to authenticate with other approved endpoints like Hue, Ambari Views, ODBC tools, PowerShell and REST APIs to interact with the cluster. The admin has full control over limiting the number of users interacting with the cluster via these endpoints.
 
-- **Auditing**
-Hadoop administrators or auditors should be able to audit how the cluster resources were accessed and used by different members of the organization. This may be needed for compliance and governance reasons. 
-HDInsight supports auditing through Apache Ranger. 
+###Authorization
 
-- **Data Protection**
-This pillar deals with the encryption of data and the associated key management. HDInsight customers with data in Azure Storage can leverage the transparent server-side encryption capability that was recently announced in public preview. https://azure.microsoft.com/en-us/documentation/articles/storage-service-encryption/
+A best practice followed by most enterprises is that not every employee has access to all enterprise resources. Likewise, with this release, the admin can define role based access control policies for the cluster resources. For example, the admin can configure [Apache Ranger](http://hortonworks.com/apache/ranger/) to set access control policies for the HiveServer2. This functionality ensures that employees will be able to access only as much data as they need to be successful in their jobs. The admin also has complete control to restrict access to only some employees for logging in the cluster using SSH tools.
 
-## Azure AD
+###Encryption
 
+Protecting data is important for meeting organizational security and compliance requirements, and along with restricting access to data from unauthorized employees, it should also be secured by encrypting it. Both the data stores for HDInsight clusters, Windows Azure Storage Blob, and Azure Data Lake Storage support encryption of data . See [Azure Storage Blob supports encryption(https://azure.microsoft.com/documentation/articles/storage-service-encryption/]). Secure HDInsight clusters will rely on the server side encryption of data at rest capability.
 
-## Apache Ranger
+###Auditing
 
-- http://hortonworks.com/hadoop-tutorial/securing-data-lake-auditing-user-access-using-hdp-security/ 
+Along with protecting the HDInsight cluster resources from unauthorized users, and securing the data, auditing of all access to the cluster resources, and the data is necessary to track unauthorized or unintentional access of the resources. With this preview, the admin can view and report all access to the HDInsight cluster resources and data. The admin can also view and report all changes to the access control policies done in Apache Ranger supported endpoints. A secure HDInsight cluster uses [Apache Solr](http://hortonworks.com/apache/solr/) to record and search audit logs.
 
-[jgao: ranger architecture diagram here]
 
 ## Configure Secure HDInsight environment
 
@@ -68,6 +52,3 @@ See [Configure Secure HDInsight](hdinsight-secure-setup.md)
 
 See [Run a Hive job using Secure HDInsight](hdinsight-secure-run-hive.md)
 
-## Use Yarn in secure HDInsight
-
-See ...
