@@ -29,17 +29,17 @@ Each piece of data in the repository is stored as a record.  When you populate t
 ![Populating the OMS repository](media/operations-management-suite-integration/repository.png)
 
 
-## Populate the Log Analytics repository
+### Populate the Log Analytics repository
 There are multiple methods for populating the OMS repository.  The method that you use will depend on factors such as where the source data is located, the format of the data, and which clients you need to support.  Once data is stored in the repository, it makes no difference how it was collected.
 
 The following sections describe the different options for populating the OMS repository.
 
-### Connected Sources and Data sources 
+#### Connected Sources and Data sources 
 Connected sources are the locations where data can be retrieved for the OMS repository.  Data Sources and Solutions run on Connected Sources and define the specific data that’s collected.  If your application writes data to one of these data sources, then you can collect it by configuring the data source.  For example, if your application creates Syslog events, then they can be collected by the Syslog data source on a Linux agent.
 
 - [Data sources in Log Analytics](../log-analytics/log-analytics-data-sources.md)
 
-### Solutions
+#### Solutions
 
 Solutions extend the capabilities of OMS.  A solution may collect data from the connected source or it may perform analysis on records already collected in the repository.  Each solution provided by Microsoft has an individual article that provides the details on the data that it collects.
 
@@ -47,18 +47,18 @@ Solutions extend the capabilities of OMS.  A solution may collect data from the 
 
 
 
-### HTTP Data Collector API
+#### HTTP Data Collector API
 
 The Log Analytics HTTP Data Collector API is a REST API that allows you to add JSON data to the Log Analytics repository.  You can leverage this API when you have an application that doesn’t provide data through one of the other data sources or solutions.  It can be used to populate the repository from any client that can call the API and does not rely on the collection schedule of any data source or solution.
 
 - [Log Analytics HTTP Data Collector API](../log-analytics/log-analytics-data-collector-api.md)
 
 
-## Retrieve data from the Log Analytics repository
+### Retrieve data from the Log Analytics repository
 
 There are multiple methods for retrieving data from the OMS repository.  You may want users to retrieve data using the OMS console and provide them with different kinds of visualizations and analysis.  You can also retrieve the data from an external process such as another management solution.
 
-### Log searches
+#### Log searches
 
 All data stored in the OMS repository is available through log searches.  Users may perform their own ad hoc analysis in the OMS console or create a dashboard with a visualization for a particular log search.  Solutions can contain custom views with visualizations based on predefined searches.  
 
@@ -71,13 +71,13 @@ You can use the Log Search API to access data in the OMS repository from an exte
 
 
 
-### Custom views 
+#### Custom views 
 The View Designer allows you to create custom views in the OMS console that provide users with visualization and analysis of the data in your solution.  Each view includes a tile that’s displayed on the main page of the console and any number of visualization parts that are based on log searches that you define.
   
 - [Log Analytics View Designer](../log-analytics/log-analytics-view-designer.md)
 
 
-### Power BI
+#### Power BI
 
 Log Analytics can automatically export data from the OMS repository into Power BI so you can leverage its visualizations and analysis tools.  It performs this export on a schedule so the data is kept up to date. 
 
