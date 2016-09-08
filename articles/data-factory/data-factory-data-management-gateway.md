@@ -343,6 +343,32 @@ Click **Archive gateway** logs link to archive and save logs and then share the 
 
 ![Data Management Gateway - Archive logs](media/data-factory-data-management-gateway/data-management-gateway-archive-logs.png)
 
+### Gateway is online with limited functionality 
+You see status of the gateway as **online with limited functionality** for one of the following reasons.
+
+- Gateway cannot connect to cloud service through service bus.
+- Cloud service cannot connect to gateway through service bus.
+
+When gateway is online with limited functionality, you may not be able to use the Data Factory Copy Wizard to create data pipelines for copying data to/from on-premises data stores.
+
+Resolution/workaround for this issue (online with limited functionality) is  based on whether gateway cannot connect to cloud service or the other way. The following sections provide these workarounds. 
+
+#### Gateway cannot connect to cloud service through service bus
+Follow these steps to get the gateway back online: 
+
+1. Enable outbound ports 9350-9354 on both the Windows Firewall on gateway machine and Corporate Firewall. See [Ports and firewall](#ports-and-firewall) section for detail.
+2. Configure proxy settings on the gateway. See [Proxy server considerations](#proxy-server-considerations) section for detail. 
+
+As a workaround, use Data Factory Editor in Azure Portal (or) Visual Studio (or) Azure PowerShell.
+
+#### Error: Cloud service cannot connect to gateway through service bus.
+Follow these steps to get the gateway back online:
+ 
+1. Enable outbound ports 5671 and 9350-9354 on both the Windows Firewall on gateway machine and Corporate Firewall. See [Ports and firewall](#ports-and-firewall) section for detail.
+2. Configure proxy settings on the gateway. See [Proxy server considerations](#proxy-server-considerations) section for detail.
+3. Remove static IP limitation on the proxy server. 
+
+As a workaround, you can use Data Factory Editor in Azure Portal (or) Visual Studio (or) Azure PowerShell.
  
 ## Move gateway from a machine to another
 This section provides steps for moving gateway client from one machine to another machine. 
