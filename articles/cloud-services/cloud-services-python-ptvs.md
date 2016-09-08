@@ -242,7 +242,7 @@ if (-not $is_emulated){
 
 #### Modify LaunchWorker.ps1
 
-In case of Worker Role project, **LauncherWorker.ps1** file is required to execute startup file. In Web Role project, startup file is defined at the project Properties.
+>[AZURE.NOTE] In the case of a **worker role** project, **LauncherWorker.ps1** file is required to execute the startup file. In a **web role** project, the startup file is instead defined in the project properties.
 
 The **bin\LaunchWorker.ps1** was originally created to do a lot of prep work but it doesn't really work. Replace the contents in that file with the following script.
 
