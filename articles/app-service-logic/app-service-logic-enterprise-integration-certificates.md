@@ -54,7 +54,7 @@ Here are the detailed steps for uploading your public certificates into your int
 5. In the **Certificates** blade that opens, select the **Add** button.   
 ![Select the Add button](./media/app-service-logic-enterprise-integration-certificates/certificate-2.png)  
 
- 6. Enter a **Name** for your certificate, and then select the certificate type. (In this example, we used the public certificate type.) Next, select the folder icon to the right of the **Certificate** text box.
+6. Enter a **Name** for your certificate, and then select the certificate type. (In this example, we used the public certificate type.) Next, select the folder icon to the right of the **Certificate** text box.
 
 7. After the file picker opens, find and select the certificate file that you want to upload to your integration account. Then select **OK** in the file picker. This action validates the certificate and uploads the it to your integration account.
 
