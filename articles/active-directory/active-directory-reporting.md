@@ -33,6 +33,7 @@ Depending on the scope of the data you are looking for, you can access these rep
 
 ## Sign-in activities
 
+
 ### User sign-in activities 
 
 With the information provided by the user sign-in report, you find answers to questions such as:
@@ -67,9 +68,6 @@ Each row in the sign-in activities list gives you the detailed information about
 - What is the IP address of the sign-in?
 
 - What was the status of the sign-in?
-
-
-While the overview section provides you with an aggregated view of all user sign-ins, you can also scope the data around a specific user, groups or applications.
 
 
 ### Usage of managed applications
@@ -113,7 +111,17 @@ By using the column chooser, you can select the data fields you want to display.
 ![Reporting](./media/active-directory-reporting/column_chooser.png "Reporting")
 
 
-Like in the case of user sign-in data, you can scope the application data around specific applications.
+
+### Filtering sign-ins
+
+You can filter sign-ins by a time interval to limit the amount of displayed data.
+
+![Reporting](./media/active-directory-reporting/927.png "Reporting")
+
+
+Another method to filter the entries of a audit log is to search for specific entries.
+The search method enables scope your sign-ins around specific users, groups or applications.
+
 
 ![Reporting](./media/active-directory-reporting/sign_ins_search.png "Reporting")
 
@@ -202,7 +210,7 @@ If you just want to review auditing data that is related to applications, you ca
 
 ### Filtering audit logs 
 
-You can filter an audit report by a date or a target resource type such as a specific application, a user or group and you can group them by activity.
+You can filter an audit report by a time interval to limit the amount of displayed data.
 
 ![Auditing](./media/active-directory-reporting/324.png "Auditing")
 
