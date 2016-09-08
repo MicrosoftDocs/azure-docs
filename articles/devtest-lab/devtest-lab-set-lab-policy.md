@@ -20,8 +20,6 @@
 
 > [AZURE.VIDEO how-to-set-vm-policies-in-a-devtest-lab]
 
-## Overview
-
 Azure DevTest Labs enables you to specify key policies that govern how your lab and its VMs are used. 
 For example, you can set the rules for the VM sizes allowed to create VMs, the threshold for the number of VMs that can be created, and schedule jobs to automatically start/stop the lab VMs. 
 
