@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Set up and use the Machine Learning Recommendations API | Microsoft Azure" 
 	description="Microsoft RECOMMENDATIONS API built with Azure Machine Learning FAQ" 
 	services="machine-learning" 
@@ -26,7 +26,6 @@
 > features will be developed there. It has new capabilities like batching support, a better API Explorer,
 > a cleaner API surface, more consistent signup/billing experience, etc.
 > Learn more about [Migrating to the new Cognitive Service](http://aka.ms/recomigrate)
-
 
 For organizations and businesses that rely on recommendations to cross-sell and up-sell products and services to their customers, RECOMMENDATIONS in Azure Machine Learning provides a self-service recommendations engine. It is an implementation of collaborative filtering that uses matrix factorization as its core algorithm. Application developers can access RECOMMENDATIONS by using REST APIs. 
 
