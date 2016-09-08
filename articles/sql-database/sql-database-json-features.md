@@ -3,7 +3,7 @@
 	description="Azure SQL Database enables you to parse, query, and format data in JavaScript Object Notation (JSON) notation."
 	services="sql-database"
 	documentationCenter=""
-	authors="carlrabeler"
+	authors="jovanpop-msft"
 	manager="jhubbard"
 	editor=""/>
 
@@ -11,7 +11,7 @@
 	ms.service="sql-database"
 	ms.devlang="NA"
 	ms.date="08/17/2016"
-	ms.author="carlrab"
+	ms.author="jovanpop"
    ms.workload="NA"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>

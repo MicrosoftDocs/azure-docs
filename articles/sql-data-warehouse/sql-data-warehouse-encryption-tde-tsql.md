@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="06/07/2016"
+   ms.date="08/29/2016"
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Get started with Transparent Data Encryption (TDE)
@@ -53,6 +53,8 @@ To disable TDE for a SQL Data Warehouse, follow the steps below:
 ```sql
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 ```
+
+NOTE: A paused SQL Data Warehouse must be resumed before making changes to the TDE settings.
 
 ##Verifying Encryption
 

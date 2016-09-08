@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2016"
+	ms.date="08/24/2016"
 	ms.author="genli"/>
 
 # Switch your Azure subscription to another offer
@@ -24,7 +24,7 @@ You can switch your existing subscription to a more favorable offer without any 
 -	If you find that you have a high Azure spend, you might be eligible for a discount by switching to the monetary commitment offer. Click [here](billing-usage-rate-card-overview.md) to see more information about how to gain insights into your Microsoft Azure resource consumption.
 -	If you would like to avail of membership benefits such as MSDN or BizSpark, after you’ve already signed up for a Pay-As-You-Go subscription.
 
-> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) to get your issue resolved quickly.
+> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
 ## Guide to switching your subscription to another offer
 
@@ -80,4 +80,4 @@ Below are the paths we currently support in the [Account Center](https://account
 
 For other offer changes, [contact Support](http://go.microsoft.com/fwlink/?LinkID=619338).
 
-> [AZURE.NOTE] If you still have further questions, please [contact support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) to get your issue resolved quickly.
+> [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
