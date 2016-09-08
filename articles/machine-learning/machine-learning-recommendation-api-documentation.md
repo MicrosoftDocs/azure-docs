@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Machine Learning Recommendations API Documentation | Microsoft Azure" 
 	description="Azure Machine Learning Recommendations API documentation for a recommendations engine available in the Microsoft Azure Marketplace." 
 	services="machine-learning" 
@@ -13,16 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/17/2016" 
+	ms.date="09/08/2016" 
 	ms.author="LuisCa"/>
 
 #Azure Machine Learning Recommendations API Documentation
 
-This document depicts Microsoft Azure Machine Learning Recommendations APIs exposed through the marketplace.
+>[AZURE.NOTE] You should start using the Recommendations API Cognitive Service instead of this
+> version. The Recommendations Cognitive Service will be replacing this service, and all the new 
+> features will be developed there. It has new capabilities like batching support, a better API Explorer,
+> a cleaner API surface, more consistent signup/billing experience, etc.
+> Learn more about [Migrating to the new Cognitive Service](http://aka.ms/recomigrate)
 
-
-> This is documentation for the old recommendations API in the data-market, which will be deprecated by 12/31/2016. You should
-> now move to use the [Recommendations API Cognitive Service](https://www.microsoft.com/cognitive-services/en-us/recommendations-api).
+This document depicts Microsoft Azure Machine Learning Recommendations APIs.
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
