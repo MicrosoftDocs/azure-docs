@@ -35,7 +35,7 @@
 
 5. Back in the namespace blade (not the specific Event Hub blade), click **Shared access policies**, and then click **RootManageSharedAccessKey**.
 
-	![][7]
+	![](./media/event-hubs-create-event-hub/create-event-hub7.png)
 
 5. Click the copy button to copy the **RootManageSharedAccessKey** connection string to the clipboard. Save this connection string to use later in the tutorial.
 
@@ -49,7 +49,6 @@ Your Event Hub is now created, and you have the connection strings you need to s
 [4]: ./media/event-hubs-create-event-hub/create-event-hub4.png
 [5]: ./media/event-hubs-create-event-hub/create-event-hub5.png
 [6]: ./media/event-hubs-create-event-hub/create-event-hub6.png
-[7]: ./media/event-hubs-create-event-hub/create-event-hub7.png
 [8]: ./media/event-hubs-create-event-hub/create-event-hub8.png
 [9]: ./media/event-hubs-create-event-hub/create-event-hub9.png
 
