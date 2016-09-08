@@ -27,6 +27,7 @@ In this article, you learn the following:
 - [Actions that can be performed in each role](#actions-that-can-be-performed-in-each-role)
 - [Add an owner or user at the lab level](#add-an-owner-or-user-at-the-lab-level)
 - [Add an owner or user at the subscription level](#add-an-owner-or-user-at-the-subscription-level)
+- [Add an external user to a lab using PowerShell](#add-an-external-user-to-a-lab-using-powershell)
 
 ## Actions that can be performed in each role
 
