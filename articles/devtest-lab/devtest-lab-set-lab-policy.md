@@ -21,7 +21,7 @@
 > [AZURE.VIDEO how-to-set-vm-policies-in-a-devtest-lab]
 
 Azure DevTest Labs enables you to specify key policies that govern how your lab and its VMs are used. 
-For example, you can set the rules for the VM sizes allowed to create VMs, the threshold for the number of VMs that can be created, and schedule jobs to automatically start/stop the lab VMs. 
+You can define the rules for the maximum number of VMs created per user and per lab, and various auto-shutdown and auto-start options. 
 
 ## Accessing a lab's policies
 
@@ -76,7 +76,7 @@ If a user attempts to create a VM when the user limit has been met, an error mes
 
 1. Select **On** to enable this policy, and **Off** to disable it.
 
-1. If you enable this policy, in the **Maximum allowed virtual machines per user** text box, enter a numeric value indicating the maximum number of VMs that can be created by a user. 
+1. If you enable this policy, enter a numeric value indicating the maximum number of VMs that can be created by a user. 
 If you enter a number that is not valid, the UI displays the maximum number allowed for this field.
 
 1. Select **Save**.
@@ -92,7 +92,7 @@ If a user attempts to create a VM when the lab limit has been met, an error mess
 
 1. Select **On** to enable this policy, and **Off** to disable it.
 
-1. If you enable this policy, in the **Maximum virtual machines allowed in this lab** text box, enter a numeric value indicating the maximum number of VMs that can be created for the current lab. 
+1. If you enable this policy, enter a numeric value indicating the maximum number of VMs that can be created for the current lab. 
 If you enter a number that is not valid, the UI displays the maximum number allowed for this field.
 
 1. Select **Save**.
