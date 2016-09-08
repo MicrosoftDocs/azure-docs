@@ -28,18 +28,19 @@ The RateCard API provides rate information from Azure. After authenticating with
 Below is a sample response from the API showing the prices for the A0 (Windows) instance:
 
     {
-		"MeterId": "0e59ad56-03e5-4c3d-90d4-6670874d7e29",
-		"MeterName": "Compute Hours",
-		"MeterCategory": "Virtual Machines",
-		"MeterSubCategory": "A0 VM (Windows)",
-		"Unit": "Hours",
-		"MeterRates":
-		{
-			"0": 0.029
-		},
-		"EffectiveDate": "2014-08-01T00:00:00Z",
-		"IncludedQuantity": 0.0
-	},
+        "MeterId": "0e59ad56-03e5-4c3d-90d4-6670874d7e29",
+        "MeterName": "Compute Hours",
+        "MeterCategory": "Virtual Machines",
+        "MeterSubCategory": "A0 VM (Windows)",
+        "Unit": "Hours",
+        "MeterRates":
+        {
+            "0": 0.029
+        },
+        "EffectiveDate": "2014-08-01T00:00:00Z",
+        "IncludedQuantity": 0.0,
+        "MeterStatus": "Active"
+    },
 
 ### Cloud Cruiser’s Interface to Azure RateCard API
 Cloud Cruiser can leverage the RateCard API information in different ways. For this article, we will show how it can be used to make IaaS workload cost simulation and analysis.
