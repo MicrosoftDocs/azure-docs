@@ -17,7 +17,7 @@
    	ms.date="09/08/2016"
    	ms.author="jgao"/>
 
-# Introduce Secure HDInsight (Preview)
+# Introduce Secure HDInsight(Preview)
 
 The HDInsight cluster until today supported only a single user local admin mode with minimal auditing and authorization. Using the enterprise grade security features in HDInsight, you can create a secure HDInsight cluster joined to an Active Directory domain, configure a list of employees from the enterprise who can authenticate (through Azure Active Directory or through on premise Active Directory via [Express Route](https://azure.microsoft.com/services/expressroute/)) to log on to HDInsight cluster, configure role based access control for HiveServer2 security using Apache Ranger, and audit the data access by employees, and any changes done to access control policies, thus achieving a high degree of governance of your corporate resources.
 
@@ -29,7 +29,7 @@ Enterprise Security contains four big pillars – Authentication, Authorization,
 
 ###Authentication
 
-With this public preview, an enterprise admin can create a secure HDInsight cluster in a virtual network. The nodes of the HDInsight cluster will be joined to the domain managed by the enterprise. This is achieved through use of [Azure Active Directory Domain Services](https://technet.microsoft.com/en-us/library/cc770946%28v=ws.10%29.aspx?f=255&MSPPError=-2147217396). The HDInsight cluster can be configured with either Windows Azure Storage Blob or Azure Data Lake Storage as the data stores for HDFS. All the nodes in the cluster are joined to a domain that the enterprise manages. With this setup, the enterprise employees can log on to the cluster nodes using their domain credentials. They can also use their domain credentials to authenticate with other approved endpoints like Hue, Ambari Views, ODBC tools, PowerShell and REST APIs to interact with the cluster. The admin has full control over limiting the number of users interacting with the cluster via these endpoints.
+With this public preview, an enterprise admin can create a secure HDInsight cluster in a virtual network. The nodes of the HDInsight cluster will be joined to the domain managed by the enterprise. This is achieved through use of [Azure Active Directory Domain Services](https://technet.microsoft.com/library/cc770946%28v=ws.10%29.aspx?f=255&MSPPError=-2147217396). The HDInsight cluster can be configured with either Azure Storage Blob or Azure Data Lake Storage as the data stores for HDFS. All the nodes in the cluster are joined to a domain that the enterprise manages. With this setup, the enterprise employees can log on to the cluster nodes using their domain credentials. They can also use their domain credentials to authenticate with other approved endpoints like Hue, Ambari Views, ODBC tools, PowerShell and REST APIs to interact with the cluster. The admin has full control over limiting the number of users interacting with the cluster via these endpoints.
 
 ###Authorization
 
@@ -37,7 +37,7 @@ A best practice followed by most enterprises is that not every employee has acce
 
 ###Encryption
 
-Protecting data is important for meeting organizational security and compliance requirements, and along with restricting access to data from unauthorized employees, it should also be secured by encrypting it. Both the data stores for HDInsight clusters, Windows Azure Storage Blob, and Azure Data Lake Storage support encryption of data . See [Azure Storage Blob supports encryption(https://azure.microsoft.com/documentation/articles/storage-service-encryption/]). Secure HDInsight clusters will rely on the server side encryption of data at rest capability.
+Protecting data is important for meeting organizational security and compliance requirements, and along with restricting access to data from unauthorized employees, it should also be secured by encrypting it. Both the data stores for HDInsight clusters, Azure Storage Blob, and Azure Data Lake Storage support encryption of data . See [Azure Storage Blob supports encryption(https://azure.microsoft.com/documentation/articles/storage-service-encryption/]). Secure HDInsight clusters will rely on the server side encryption of data at rest capability.
 
 ###Auditing
 
