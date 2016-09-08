@@ -44,7 +44,7 @@ Here are the detailed steps for uploading your public certificates into your int
 ![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)  
 
 2. Enter **integration** in the filter search box and select **Integration Accounts** from the results list     
- ![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)
+![](./media/app-service-logic-enterprise-integration-overview/overview-2.png)
 
 3. Select the **integration account** to which you will add the certificate  
 ![](./media/app-service-logic-enterprise-integration-overview/overview-3.png)  
