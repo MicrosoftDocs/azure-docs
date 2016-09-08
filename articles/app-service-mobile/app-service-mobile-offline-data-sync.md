@@ -45,7 +45,7 @@ The following tutorials show how to add offline sync to your mobile clients usin
 * [Xamarin iOS: Enable offline sync]
 * [Xamarin Android: Enable offline sync]
 * [Xamarin.Forms: Enable offline sync](app-service-mobile-xamarin-forms-get-started-offline-data.md)
-* [Windows 8.1: Enable offline sync]
+* [Universal Windows Platform: Enable offline sync]
 
 ## What is a sync table?
 
@@ -65,7 +65,7 @@ default local store implementation. On Windows, Xamarin and Android, it is based
 on Core Data.
 
 To use the SQLite-based implementation on Windows Phone or Windows Store 8.1, you need to install a SQLite
-extension. For more details, see [Windows 8.1: Enable offline sync]. Android and iOS ship with a version of
+extension. For more details, see [Universal Windows Platform: Enable offline sync]. Android and iOS ship with a version of
 SQLite in the device operating system itself, so it is not necessary to reference your own version of SQLite.
 
 Developers can also implement their own local store. For instance, if you wish to store data in an encrypted
@@ -138,7 +138,7 @@ the local store is populated with new data only when there is a call to *pull* d
 * [iOS: Enable offline sync]
 * [Xamarin iOS: Enable offline sync]
 * [Xamarin Android: Enable offline sync]
-* [Windows 8.1: Enable offline sync]
+* [Universal Windows Platform: Enable offline sync]
 
 <!-- Links -->
 [.NET client SDK]: app-service-mobile-dotnet-how-to-use-client-library.md
@@ -146,4 +146,4 @@ the local store is populated with new data only when there is a call to *pull* d
 [iOS: Enable offline sync]: app-service-mobile-ios-get-started-offline-data.md
 [Xamarin iOS: Enable offline sync]: app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Xamarin Android: Enable offline sync]: app-service-mobile-xamarin-ios-get-started-offline-data.md
-[Windows 8.1: Enable offline sync]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
+[Universal Windows Platform: Enable offline sync]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md

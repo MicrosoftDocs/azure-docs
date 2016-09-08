@@ -47,7 +47,7 @@ integration services, which makes it easy to build processes and workflows and i
 Flows empowers any office worker to perform simple integrations (e.g. get SMS for important emails) without going through 
 developers or IT. On the other hand, Logic Apps can enable advanced or mission-critical integrations (e.g. B2B processes) 
 where enterprise-level DevOps and security practices are required. It is typical for a business workflow to grow in 
-complexity overtime. Accordinly, you can start with a flow at first, then convert it to a logic app as needed.
+complexity overtime. Accordingly, you can start with a flow at first, then convert it to a logic app as needed.
 
 The following table helps you determine whether Flow or Logic Apps is best for a given integration.
 
@@ -56,7 +56,7 @@ The following table helps you determine whether Flow or Logic Apps is best for a
 | Audience      | office workers, business users                                                   | IT pros, developers                                                                                 |
 | Scenarios     | Self-service                                                                     | Mission-critical                                                                                    |
 | Design Tool   | In-browser, UI only                                                              | In-browser and [Visual Studio](../app-service/logic/app-service-logic-deploy-from-vs.md), [Code view](../app-service-logic/app-service-logic-author-definitions.md) available |
-| DevOps        | Ad-hoc, develop in production                                                    | source control, testing, support, as well as automation and manageability in [Azure Resource Management](../app-service-logic/app-service-logic-arm-provision.md)|
+| DevOps        | Ad-hoc, develop in production                                                    | source control, testing, support, and automation and manageability in [Azure Resource Management](../app-service-logic/app-service-logic-arm-provision.md)|
 | Admin Experience| [https://flow.microsoft.com](https://flow.microsoft.com)                       | [https://portal.azure.com](https://portal.azure.com)                                                |
 | Security      | Standard practices: [data sovereignty](https://wikipedia.org/wiki/Technological_Sovereignty), [encryption at rest](https://wikipedia.org/wiki/Data_at_rest#Encryption) for sensitive data, etc. | Security assurance of Azure: [Azure Security](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [audit logs](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/), and more. |
 
@@ -122,7 +122,7 @@ function app, and then trigger a function as an action in your logic app.
 
 You can use a logic app as part of a flow, and you use a flow as part of a logic app. You can also use a function 
 as part of a logic app. The integration between Flow, Logic Apps, and Functions continue to improve overtime. You can 
-build something in one service and leverage it in the other services. Therefore, any investment you make in these three 
+build something in one service and use it in the other services. Therefore, any investment you make in these three 
 technologies is worthwhile.
 
 ## More resources
