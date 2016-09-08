@@ -132,7 +132,8 @@ Request contains the following properties:
 	- `name`, required:
 		- Azure SQL: specifies the table or view. You can use schema-qualified names, such as `[dbo].[mytable]`.
 		- DocumentDB: specifies the collection. 
-		- Azure Blob and Table Storage: specifes the storage container. 
+		- Azure Blob Storage: specifies the storage container.
+		- Azure Table Storage: specifies the name of the table. 
 	- `query`, optional:
 		- DocumentDB: allows you to specify a query that flattens an arbitrary JSON document layout into a flat schema that Azure Search can index.  
 		- Azure Blob Storage: allows you to specify a virtual folder within the blob container. For example, for blob path `mycontainer/documents/blob.pdf`, `documents` can be used as the virtual folder.
