@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Deploy your first web app to Azure in 5 minutes" 
-	description="Learn how easy it is to run web apps in App Service by deploying a sample app with only a few steps. Start doing real development in 5 minutes and see results immediately." 
+	pageTitle="Deploy your first web app to Azure in five minutes" 
+	description="Learn how easy it is to run web apps in App Service by deploying a sample app. Start doing real development quickly and see results immediately." 
 	services="app-service\web"
 	documentationCenter=""
 	authors="cephalin" 
@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="hero-article"
-	ms.date="09/07/2016" 
+	ms.date="09/08/2016" 
 	ms.author="cephalin"
 />
 	
-# Deploy your first web app to Azure in 5 minutes
+# Deploy your first web app to Azure in five minutes
 
 [AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
@@ -26,13 +26,12 @@ This tutorial helps you deploy your first web app to [Azure App Service](../app-
 App Service lets you create web apps, [mobile app backends](/documentation/learning-paths/appservice-mobileapps/) 
 and [API apps](../app-service-api/app-service-api-apps-why-best-platform.md).
 
-With little action on your part, you will: 
+You will: 
 
-- Deploy a sample web app (choose between ASP.NET, PHP, Node.js, Java, or Python).
-- See your app running live in seconds.
+- Create a web app in Azure App Service.
+- Deploy sample code (choose between ASP.NET, PHP, Node.js, Java, or Python).
+- See your code running live in production.
 - Update your web app the same way you would [push Git commits](https://git-scm.com/docs/git-push).
-
-You'll also take a first glance at the [Azure portal](https://portal.azure.com) and survey the features available there. 
 
 ## Prerequisites
 
@@ -42,15 +41,15 @@ PowerShell window, Linux shell, or OS X terminal.
 [sign up for a free trial](/pricing/free-trial/?WT.mc_id=A261C142F) or 
 [activate your Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
->[AZURE.NOTE] You can [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751) before you get an Azure account. Create a starter app and play with
-it for up to an hour—no credit card required, no commitments.
+>[AZURE.NOTE] You can [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751) without an Azure account. Create a starter app and play with
+it for up to an hour--no credit card required, no commitments.
 
 <a name="create"></a>
 ## Create a web app
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
-2. From the left menu, click [New] > [Web + Mobile] > [Web App].
+2. From the left menu, click **New** > **Web + Mobile** > **Web App**.
 
     ![](./media/app-service-web-get-started/create-web-app-portal.png)
 
@@ -69,25 +68,29 @@ it for up to an hour—no credit card required, no commitments.
 
     ![](./media/app-service-web-get-started/create-web-app-started.png)
 
-4. When deployment is finished, you should see this notification message. Click the message to open your web app's blade.
+4. When deployment is finished, you should see this notification message. Click the message to open your deployment's blade.
 
     ![](./media/app-service-web-get-started/create-web-app-finished.png)
 
+5. In the **Deployment succeeded** blade, click the **Resource** link to open your new web app's blade.
+
+    ![](./media/app-service-web-get-started/create-web-app-resource.png)
+
 ## Deploy code to your web app
 
-Now, let's deploy code to Azure using Git.
+Now, let's deploy some code to Azure using Git.
 
-5. In the settings blade, scroll down to **Deployment options** or search for it, then click it. 
+5. In the web app blade, scroll down to **Deployment options** or search for it, then click it. 
 
     ![](./media/app-service-web-get-started/deploy-web-app-deployment-options.png)
 
 6. Click **Choose Source** > **Local Git Repository** > **OK**.
 
-7. Back in the settings blade, click **Deployment credentials**.
+7. Back in the web app blade, click **Deployment credentials**.
 
 8. Set your deployment credentials and click **Save**.
 
-7. Back in the settings blade, scroll down to **Properties** or search for it, then click it. Next to **Git URL**, click the **Copy** button.
+7. Back in the web app blade, scroll down to **Properties** or search for it, then click it. Next to **Git URL**, click the **Copy** button.
 
     ![](./media/app-service-web-get-started/deploy-web-app-properties.png)
 
@@ -128,12 +131,12 @@ Now, let's deploy code to Azure using Git.
     scripts restores the required packages for you. You can also [enable the Composer extension](web-sites-php-mysql-deploy-use-git.md#composer) to automatically process composer.json files
     in your PHP app.
 
-That's it! Your code is now running live in Azure. In your browser, navigate to http://&lt;appname>.azurewebsites.net to see it in action. 
+That's it! Your code is now running live in Azure. In your browser, navigate to http://*&lt;appname>*.azurewebsites.net to see it in action. 
 
 ## Make updates to your app
 
-You can now use Git to push from your project (repository) root anytime to make an update to the live site. You do it the same way as when you deployed your app to Azure 
-for the first time. For example, every time you want to push a new change that you've tested locally, just run the following commands from your project 
+You can now use Git to push from your project (repository) root anytime to make an update to the live site. You do it the same way as when you deployed your code
+the first time. For example, every time you want to push a new change that you've tested locally, just run the following commands from your project 
 (repository) root:
     
     git add .
