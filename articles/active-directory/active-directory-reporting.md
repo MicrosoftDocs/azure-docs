@@ -16,7 +16,7 @@
    ms.date="08/17/2016"
    ms.author="markvi"/>
 
-# Azure Active Directory reporting - preview
+# Azure Active Directory reporting 
 
 With Azure Active Directory reporting, you get all the information you need to determine how your environment is doing.
 
@@ -122,17 +122,40 @@ Like in the case of user sign-in data, you can scope the application data around
 
 ## System activities
 
-The auditing reports in Azure Active Directory provide records of system activities for compliance.
+The auditing logs in Azure Active Directory provide records of system activities for compliance.
 
-There are two main audit views in the Azure portal:
+There are three main categories for auditing related activities in the Azure portal:
 
-- User and group related activities  
+- Users and groups   
 
-- Application activities  
+- Applications
 
-You can filter an audit report by a date or a target resource type such as a specific application, a user or group and you can group them by activity.
+- Directory   
 
-\<screenshot\>
+
+For a complete list of audit report activities, see the [list of audit report events](active-directory-reporting-audit-events.md#list-of-audit-report-events).
+
+
+Your entry point to all auditing data is **Audit logs** in the **Activity** section of **Azure Active Directory**.
+
+
+![Auditing](./media/active-directory-reporting/61.png "Auditing")
+
+
+An audit log has a list view that shows the actors (who), the activities (what) and the targets. 
+
+
+![Auditing](./media/active-directory-reporting/345.png "Auditing")
+
+
+By clicking an item in the list view, you can get more details about it.
+
+![Auditing](./media/active-directory-reporting/873.png "Auditing")
+
+
+
+
+### Users and groups audit logs
 
 
 With user and group-based audit reports, you can get answers to questions such as:
@@ -152,6 +175,13 @@ With user and group-based audit reports, you can get answers to questions such a
 - Have the owners of group been changed? 
 
 
+If you just want to review auditing data that is related to users and groups, you can find a filtered view under **Audit logs** in the **Activity** section of **Users and Groups**.
+
+
+![Auditing](./media/active-directory-reporting/93.png "Auditing")
+
+
+### Application audit logs 
 
 With application-based audit reports, you can get answers to questions such as:
 
@@ -163,5 +193,19 @@ With application-based audit reports, you can get answers to questions such as:
 
 - Have the names of applications been changed? 
 
-For a complete list of audit report activities, see the [list of audit report events](active-directory-reporting-audit-events.md#list-of-audit-report-events).
 
+If you just want to review auditing data that is related to applications, you can find a filtered view under **Audit logs** in the **Activity** section of **Enterprise applications**.
+
+
+![Auditing](./media/active-directory-reporting/134.png "Auditing")
+
+
+### Filtering audit logs 
+
+You can filter an audit report by a date or a target resource type such as a specific application, a user or group and you can group them by activity.
+
+![Auditing](./media/active-directory-reporting/324.png "Auditing")
+
+Another method to filter the entries of a audit log is to search for specific entries.
+ 
+![Auditing](./media/active-directory-reporting/237.png "Auditing")
