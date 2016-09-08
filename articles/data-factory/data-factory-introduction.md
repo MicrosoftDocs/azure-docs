@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="What is Data Factory? Data integration service | Microsoft Azure" 
+	pageTitle="Introduction to Data Factory, a data integration service | Microsoft Azure" 
 	description="Learn what Azure Data Factory is: A cloud data integration service that orchestrates and automates movement and transformation of data." 
 	keywords="data integration, cloud data integration, what is azure data factory"
 	services="data-factory" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="07/12/2016" 
+	ms.date="09/08/2016" 
 	ms.author="spelluru"/>
 
 # Introduction to Azure Data Factory Service, a data integration service in the cloud
@@ -40,12 +40,11 @@ Azure Data Factory has a few key entities that work together to define the input
 
 **Figure 2.** Relationships between Dataset, Activity, Pipeline, and Linked service
 
+### Pipelines
+[Pipelines](data-factory-create-pipelines.md) are a logical grouping of Activities. They are used to group activities into a unit that together perform a task. For example, a sequence of several transformation Activities might be needed to cleanse log file data.  This sequence could have a complex schedule and dependencies that need to be orchestrated and automated. All of these activities could be grouped into a single Pipeline named “CleanLogFiles”.  “CleanLogFiles” could then be deployed, scheduled, or deleted as one single unit  instead of managing each individual activity independently.
 
 ### Activities
 Activities define the actions to perform on your data. Each activity takes zero or more [datasets](data-factory-create-datasets.md) as inputs and produces one or more datasets as outputs. An activity is a unit of orchestration in Azure Data Factory. For example, you may use a [Copy activity](data-factory-data-movement-activities.md) to orchestrate copying data from one dataset to another. Similarly you may use a [Hive activity](data-factory-data-transformation-activities.md) which will run a Hive query on an Azure HDInsight cluster to transform or analyze your data. Azure Data Factory provides a wide range of data transformation, analysis, and data movement activities. 
-
-### Pipelines
-[Pipelines](data-factory-create-pipelines.md) are a logical grouping of Activities. They are used to group activities into a unit that together perform a task. For example, a sequence of several transformation Activities might be needed to cleanse log file data.  This sequence could have a complex schedule and dependencies that need to be orchestrated and automated. All of these activities could be grouped into a single Pipeline named “CleanLogFiles”.  “CleanLogFiles” could then be deployed, scheduled, or deleted as one single unit  instead of managing each individual activity independently.
 
 ### Datasets
 [Datasets](data-factory-create-datasets.md) are named references/pointers to the data you want to use as an input or an output of an Activity. Datasets identify data structures within different data stores including tables, files, folders, and documents.
