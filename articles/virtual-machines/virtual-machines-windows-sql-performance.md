@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="07/15/2016"
+	ms.date="09/07/2016"
 	ms.author="jroth" />
 
 # Performance best practices for SQL Server in Azure Virtual Machines
@@ -37,7 +37,7 @@ The following is a quick check list for optimal performance of SQL Server on Azu
 |---|---|
 |[VM size](#vm-size-guidance)|[DS3](virtual-machines-windows-sizes.md#standard-tier-ds-series) or higher for SQL Enterprise edition.<br/><br/>[DS2](virtual-machines-windows-sizes.md#standard-tier-ds-series) or higher for SQL Standard and Web editions.|
 |[Storage](#storage-guidance)|Use [Premium Storage](../storage/storage-premium-storage.md). Standard storage is only recommended for dev/test.<br/><br/>Keep the [storage account](../storage/storage-create-storage-account.md) and SQL Server VM in the same region.<br/><br/>Disable Azure [geo-redundant storage](../storage/storage-redundancy.md) (geo-replication) on the storage account.|
-|[Disks](#disks-guidance)|Use a minimum of 2 [P30 disks](../storage/storage-premium-storage.md#scalability-and-performance-targets-when-using-premium-storage) (1 for log files; 1 for data files and TempDB).<br/><br/>Avoid using operating system or temporary disks for database storage or logging.<br/><br/>Enable read caching on the disk(s) hosting the data files and TempDB.<br/><br/>Do not enable caching on disk(s) hosting the log file.<br/><br/>Stripe multiple Azure data disks to get increased IO throughput.<br/><br/>Format with documented allocation sizes.|
+|[Disks](#disks-guidance)|Use a minimum of 2 [P30 disks](../storage/storage-premium-storage.md#scalability-and-performance-targets-when-using-premium-storage) (1 for log files; 1 for data files and TempDB).<br/><br/>Avoid using operating system or temporary disks for database storage or logging.<br/><br/>Enable read caching on the disk(s) hosting the data files and TempDB.<br/><br/>Do not enable caching on disk(s) hosting the log file.<br/><br/>Important: Stop the SQL Server service when changing the cache settings for an Azure VM disk.<br/><br/>Stripe multiple Azure data disks to get increased IO throughput.<br/><br/>Format with documented allocation sizes.|
 |[I/O](#io-guidance)|Enable database page compression.<br/><br/>Enable instant file initialization for data files.<br/><br/>Limit or disable autogrow on the database.<br/><br/>Disable autoshrink on the database.<br/><br/>Move all databases to data disks, including system databases.<br/><br/>Move SQL Server error log and trace file directories to data disks.<br/><br/>Setup default backup and database file locations.<br/><br/>Enable locked pages.<br/><br/>Apply SQL Server performance fixes.|
 |[Feature specific](#feature-specific-guidance)|Back up directly to blob storage.|
 
@@ -100,7 +100,13 @@ For VMs that support Premium Storage (DS-series, DSv2-series, and GS-series), we
 
 - **Caching policy**: For Premium Storage data disks, enable read caching on the data disks hosting your data files and TempDB only. If you are not using Premium Storage, do not enable any caching on any data disks. For instructions on configuring disk caching, see the following topics: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) and [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx).
 
+	>[AZURE.WARNING] Stop the SQL Server service when changing the cache setting of Azure VM disks to avoid the possibility of any database corruption.
+
 - **NTFS allocation unit size**: When formatting the data disk, it is recommended that you use a 64-KB allocation unit size for data and log files as well as TempDB.
+
+- **Disk management best practices**: When removing a data disk or changing its cache type, stop the SQL Server service during the change. When the caching settings are changed on the OS disk, Azure stops the VM, changes the cache type, and restarts the VM. When the cache settings of a data disk are changed, the VM is not stopped, but the data disk is detached from the VM during the change and then reattached.
+
+	>[AZURE.WARNING] Failure to stop the SQL Server service during these operations can cause database corruption.
 
 ## I/O guidance
 

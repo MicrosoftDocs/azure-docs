@@ -88,7 +88,7 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 
 ## Manageability considerations
 
-- **Resource groups.** Put tightly coupled resources that share the same life cycle into a same [resource group][resource-manager-overview]. Resource groups allow you to deploy and monitor resources as a group, and roll up billing costs by resource group. You can also delete resources as a set, which is very useful for test deployments. Give resources meaningful names. That makes it easier to locate a specific resource and understand its role. See [Recommended Naming Conventions for Azure Resources][naming conventions].
+- **Resource groups.** Put tightly-coupled resources that share the same life cycle into a same [resource group][resource-manager-overview]. Resource groups allow you to deploy and monitor resources as a group and roll up billing costs by resource group. You can also delete resources as a set, which is very useful for test deployments. Give resources meaningful names. That makes it easier to locate a specific resource and understand its role. See [Recommended Naming Conventions for Azure Resources][naming conventions].
 
 - **VM diagnostics.** Enable monitoring and diagnostics, including basic health metrics, diagnostics infrastructure logs, and [boot diagnostics][boot-diagnostics]. Boot diagnostics can help you diagnose a boot failure if your VM gets into a non-bootable state. For more information, see [Enable monitoring and diagnostics][enable-monitoring]. Use the [Azure Log Collection][log-collector] extension to collect Azure platform logs and upload them to Azure storage.   
 
@@ -118,13 +118,13 @@ Provisioning a VM in Azure involves more moving parts than just the VM itself. T
 
     - Security Center is configured per Azure subscription. Enable security data collection as described in [Use Security Center].
 
-    - Once data collection is enabled, Security Center automatically scans any VMs created under that subscription.
+    - When data collection is enabled, Security Center automatically scans any VMs created under that subscription.
 
 - **Patch management.** If enabled, Security Center checks whether security and critical updates are missing. Use [Group Policy settings][group-policy] on the VM to enable automatic system updates.
 
-- **Antimalware.** If enabled, Security Center checks whether antimalware software is installed. You can also use Security Center to install antimalware software from inside the Azure Portal.
+- **Antimalware.** If enabled, Security Center checks whether antimalware software is installed. You can also use Security Center to install antimalware software from inside the Azure portal.
 
-- Use [role-based access control][rbac] (RBAC) to control access to the Azure resources that you deploy. RBAC lets you assign authorization roles to members of your DevOps team. For example, the Reader role can view Azure resources but not create, manage, or delete them. Some roles are specific to particular Azure resource types. For example, the Virtual Machine Contributor role can restart or deallocate a VM, reset the administrator password, create a new VM, and so forth. Other [built-in RBAC roles][rbac-roles] that might be useful for this reference architecture include [DevTest Lab User][rbac-devtest] and [Network Contributor][rbac-network]. A user can be assigned to multiple roles, and you can create custom roles for even more fine-grained permissions.
+- Use [role-based access control][rbac] (RBAC) to control access to the Azure resources that you deploy. RBAC lets you assign authorization roles to members of your DevOps team. For example, the Reader role can view Azure resources but not create, manage, or delete them. Some roles are specific to particular Azure resource types. For example, the Virtual Machine Contributor role can restart or deallocate a VM, reset the administrator password, create a new VM, and so forth. Other [built-in RBAC roles][rbac-roles] that might be useful for this reference architecture include [DevTest Labs User][rbac-devtest] and [Network Contributor][rbac-network]. A user can be assigned to multiple roles, and you can create custom roles for even more fine-grained permissions.
 
     > [AZURE.NOTE] RBAC does not limit the actions that a user logged into a VM can perform. Those permissions are determined by the account type on the guest OS.   
 
@@ -150,18 +150,19 @@ The script references the following parameter files to build the VM and the surr
 
 - **[virtualNetwork.parameters.json][vnet-parameters]**. This file defines the VNet settings, such as the name, address space, subnets, and the addresses of any DNS servers required. Note that subnet addresses must be subsumed by the address space of the VNet.
 
+	<!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/parameters/windows/virtualNetwork.parameters.json#L4-L21 -->
 	```json
   "parameters": {
     "virtualNetworkSettings": {
       "value": {
-        "name": "app1-vnet",
-        "resourceGroup": "app1-dev-rg",
+        "name": "ra-single-vm-vnet",
+        "resourceGroup": "ra-single-vm-rg",
         "addressPrefixes": [
           "172.17.0.0/16"
         ],
         "subnets": [
           {
-            "name": "app1-subnet",
+            "name": "ra-single-vm-sn",
             "addressPrefix": "172.17.0.0/24"
           }
         ],
@@ -171,27 +172,27 @@ The script references the following parameter files to build the VM and the surr
   }
 	```
 
-- **[networkSecurityGroup.parameters.json][nsg-parameters]**. This file contains the definitions of NSGs and NSG rules. The `name` parameter in the `virtualNetworkSettings` block specifies the VNet to which the NSG is attached. The `subnets` parameter in the `networkSecurityGroupSettings` block identifies any subnets which apply the NSG rules in the VNet. These should be items defined in the **virtualNetwork.parameters.json** file.
+- **[networkSecurityGroups.parameters.json][nsg-parameters]**. This file contains the definitions of NSGs and NSG rules. The `name` parameter in the `virtualNetworkSettings` block specifies the VNet to which the NSG is attached. The `subnets` parameter in the `networkSecurityGroupSettings` block identifies any subnets which apply the NSG rules in the VNet. These should be items defined in the **virtualNetwork.parameters.json** file.
 
 	Note that the default security rule shown in the example enables a user to connect to the VM through a remote desktop (RDP) connection. You can open additional ports (or deny access through specific ports) by adding further items to the `securityRules` array.
 
+	<!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/parameters/windows/networkSecurityGroups.parameters.json#L4-L36 -->
 	```json
   "parameters": {
     "virtualNetworkSettings": {
       "value": {
-        "name": "app1-vnet",
-        "resourceGroup": "app1-dev-rg"
-      },
-      "metadata": {
-        "description": "Infrastructure Settings"
+        "name": "ra-single-vm-vnet",
+        "resourceGroup": "ra-single-vm-rg"
       }
     },
-    "networkSecurityGroupSettings": {
+    "networkSecurityGroupsSettings": {
       "value": [
         {
-          "name": "app1-nsg",
+          "name": "ra-single-vm-nsg",
           "subnets": [
-            "app1-subnet"
+            "ra-single-vm-sn"
+          ],
+          "networkInterfaces": [
           ],
           "securityRules": [
             {
@@ -216,21 +217,22 @@ The script references the following parameter files to build the VM and the surr
 
 	You must specify an image in the `imageReference` section. The values shown below create a VM with the latest build of Windows Server 2012 R2 Datacenter. You can use the following Azure CLI command to obtain a list of all available Windows images in a region (the example uses the westus region):
 
-	```powershell
+	```text
 	azure vm image list westus MicrosoftWindowsServer WindowsServer
 	```
 
-	The `subnetName` parameter in the `nics` section specifies the subnet for the VM. Similarly, the `name` parameter in the `virtualNetworkSettings` identifies the VNet to use. These should be the name of a subnet and VNet defined in the **virtualNetwork.parameters.json** file. 
+	The `subnetName` parameter in the `nics` section specifies the subnet for the VM. Similarly, the `name` parameter in the `virtualNetworkSettings` identifies the VNet to use. These values should be the name of a subnet and VNet defined in the **virtualNetwork.parameters.json** file. 
 
 	You can create multiple VMs either sharing a storage account or with their own storage accounts by modifying the settings in the `buildingBlockSettings` section. If you create multiple VMs, you must also specify the name of an availability set to use or create in the `availabilitySet` section.
 
+	<!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/parameters/windows/virtualMachine.parameters.json#L4-L64 -->
 	```json
-  "parameters": {
+   "parameters": {
     "virtualMachinesSettings": {
       "value": {
-        "namePrefix": "app1",
+        "namePrefix": "ra-single-vm",
         "computerNamePrefix": "cn",
-        "size": "Standard_DS1",
+        "size": "Standard_DS1_v2",
         "osType": "windows",
         "adminUsername": "testuser",
         "adminPassword": "AweS0me@PW",
@@ -239,9 +241,12 @@ The script references the following parameter files to build the VM and the surr
         "nics": [
           {
             "isPublic": "true",
-            "subnetName": "app1-subnet",
+            "subnetName": "ra-single-vm-sn",
             "privateIPAllocationMethod": "dynamic",
             "publicIPAllocationMethod": "dynamic",
+            "enableIPForwarding": false,
+            "dnsServers": [
+            ],
             "isPrimary": "true"
           }
         ],
@@ -262,22 +267,17 @@ The script references the following parameter files to build the VM and the surr
         "osDisk": {
           "caching": "ReadWrite"
         },
+        "extensions": [ ],
         "availabilitySet": {
           "useExistingAvailabilitySet": "No",
           "name": ""
         }
-      },
-      "metadata": {
-        "description": "Settings for Virtual Machines"
       }
     },
     "virtualNetworkSettings": {
       "value": {
-        "name": "app1-vnet",
-        "resourceGroup": "app1-dev-rg"
-      },
-      "metadata": {
-        "description": "Infrastructure Settings"
+        "name": "ra-single-vm-vnet",
+        "resourceGroup": "ra-single-vm-rg"
       }
     },
     "buildingBlockSettings": {
@@ -285,9 +285,6 @@ The script references the following parameter files to build the VM and the surr
         "storageAccountsCount": 1,
         "vmCount": 1,
         "vmStartIndex": 0
-      },
-      "metadata": {
-        "description": "Settings specific to the building block"
       }
     }
   }
@@ -299,7 +296,7 @@ The solution assumes the following prerequisites:
 
 - You have an existing Azure subscription in which you can create resource groups.
 
-- You have downloaded and installed the most recent build of Azure Powershell. See [here][azure-powershell-download] for instructions.
+- You have downloaded and installed the most recent build of Azure PowerShell. See [here][azure-powershell-download] for instructions.
 
 To run the script that deploys the solution:
 
@@ -313,20 +310,21 @@ To run the script that deploys the solution:
 
 	- [virtualNetwork.parameters.json][vnet-parameters]
 
-	- [networkSecurityGroup.parameters.json][nsg-parameters]
+	- [networkSecurityGroups.parameters.json][nsg-parameters]
 
 	- [virtualMachineParameters.json][vm-parameters]
 
 5. Edit the Deploy-ReferenceArchitecture.ps1 file in the Scripts folder, and change the following line to specify the resource group that should be created or used to hold the VM and resources created by the script:
 
+	<!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-compute-single-vm/Deploy-ReferenceArchitecture.ps1#L37 -->
 	```powershell
-	$resourceGroupName = "app1-dev-rg"
+	$resourceGroupName = "ra-single-vm-rg"
 	```
 6. Edit each of the JSON files in the Templates/Windows folder to set the parameters for the virtual network, NSG, and VM, as described in the Solution Components section above.
 
-	>[AZURE.NOTE] Make sure that you set the `resourceGroup` parameter in the `virtualNetworkSettings` section of the virtualMachineParameters.json file to be the same as that you specified in the Deploy-ReferenceArchitecture.ps1 script file.
+	>[AZURE.NOTE] Make sure that you set the `resourceGroup` parameter in the `virtualNetworkSettings` section of the virtualMachineParameters.json file to be the same as the one you specified in the Deploy-ReferenceArchitecture.ps1 script file.
 
-7. Open an Azure PowerShell window, move to the Scripts folder, and run the following command:
+7. Open a PowerShell window, move to the Scripts folder, and run the following command:
 
 	```powershell
 	.\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> Windows
@@ -340,7 +338,7 @@ To run the script that deploys the solution:
 
 ## Next steps
 
-In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy two or more instances in an Availability Set. For more information, see [Running multiple VMs on Azure][multi-vm].
+In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy two or more instances in an availability set. For more information, see [Running multiple VMs on Azure][multi-vm].
 
 <!-- links -->
 
@@ -353,7 +351,7 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 [boot-diagnostics]: https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/
 [cname-record]: https://en.wikipedia.org/wiki/CNAME_record
 [data-disk]: ../articles/virtual-machines/virtual-machines-windows-about-disks-vhds.md
-[disk-encryption]: ../articles/azure-security-disk-encryption.md
+[disk-encryption]: ../articles/security/azure-security-disk-encryption.md
 [enable-monitoring]: ../articles/azure-portal/insights-how-to-use-diagnostics.md
 [fqdn]: ../articles/virtual-machines/virtual-machines-windows-portal-create-fqdn.md
 [group-policy]: https://technet.microsoft.com/en-us/library/dn595129.aspx
@@ -386,9 +384,9 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 [vm-resize]: ../articles/virtual-machines/virtual-machines-linux-change-vm-size.md
 [vm-sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_0/
 [ARM-Templates]: https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/
-[solution-script]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Scripts/Deploy-ReferenceArchitecture.ps1
-[vnet-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/windows/virtualNetwork.parameters.json
-[nsg-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/windows/networkSecurityGroup.parameters.json
-[vm-parameters]: https://raw.githubusercontent.com/mspnp/arm-building-blocks/master/guidance-compute-single-vm/Templates/windows/virtualMachine.parameters.json
+[solution-script]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/Deploy-ReferenceArchitecture.ps1
+[vnet-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/windows/virtualNetwork.parameters.json
+[nsg-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/windows/networkSecurityGroups.parameters.json
+[vm-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-single-vm/parameters/windows/virtualMachine.parameters.json
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [0]: ./media/guidance-blueprints/compute-single-vm.png "Single Windows VM architecture in Azure"

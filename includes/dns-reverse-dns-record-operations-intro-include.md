@@ -1,6 +1,6 @@
 ## What are reverse DNS records?
 
-Reverse DNS records are used in a variety of situations. Server validation and authenticating server requests among them. For example, reverse DNS records are widely used in combating e-mail spam by verifying the sender of an e-mail message by verifying its reverse DNS record, and also, if that host was recognized as authorized to send e-mail from the originating domain.<BR>
+Reverse DNS records are used in a variety of situations. Server validation and authenticating server requests among them. For example, reverse DNS records are widely used in combating e-mail spam by verifying the sender of an e-mail message by verifying its reverse DNS record, and also, if that host was recognized as authorized to send e-mail from the originating domain. Please note that Azure Compute services do not support sending emails to external domains as per [here](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/). <BR>
 Reverse DNS records, or PTR records, are DNS record types that enable the translation of a publically routable IP address back to a name. In DNS, names such as app1.contoso.com, are resolved to IP addresses in a process that is called forward resolution. With reverse DNS, this process is reversed to enable the resolution of the name given its IP address.<BR>
 For more information on Reverse DNS records, please see [here](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).<BR>
 

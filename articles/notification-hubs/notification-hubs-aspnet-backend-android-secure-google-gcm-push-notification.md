@@ -20,9 +20,9 @@
 #Sending Secure Push Notifications with Azure Notification Hubs
 
 > [AZURE.SELECTOR]
-- [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-secure-push.md)
-- [iOS](notification-hubs-aspnet-backend-ios-secure-push.md)
-- [Android](notification-hubs-aspnet-backend-android-secure-push.md)
+- [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
+- [iOS](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md)
+- [Android](notification-hubs-aspnet-backend-android-secure-google-gcm-push-notification.md)
 
 ##Overview
 

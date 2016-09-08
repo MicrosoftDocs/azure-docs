@@ -64,6 +64,11 @@ This command submits the copy database request to the service. Depending on the 
     # Copy a database to the same server
     Start-AzureSqlDatabaseCopy -ServerName $ServerName -DatabaseName $DatabaseName -PartnerDatabase $PartnerDatabaseName
 
+Using the Azure Resource Manager cmdlets:
+
+    # Copy a database to the same server
+    New-AzureRmSqlDatabaseCopy -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -CopyDatabaseName $PartnerDatabaseName
+
 ### Copy a SQL database to a different server
 
 This command submits the copy database request to the service. Depending on the size of your database the copy operation may take some time to complete.
@@ -71,6 +76,10 @@ This command submits the copy database request to the service. Depending on the 
     # Copy a database to a different server
     Start-AzureSqlDatabaseCopy -ServerName $ServerName -DatabaseName $DatabaseName -PartnerServer $PartnerServerName -PartnerDatabase $PartnerDatabaseName
     
+Using the Azure Resource Manager cmdlets:
+
+    # Copy a database to a different server
+    New-AzureRmSqlDatabaseCopy -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -CopyServerName $PartnerServerName -CopyDatabaseName $PartnerDatabaseName
 
 ## Monitor the progress of the copy operation
 

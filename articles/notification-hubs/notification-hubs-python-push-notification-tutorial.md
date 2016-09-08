@@ -22,8 +22,8 @@
 You can access all Notification Hubs features from a Java/PHP/Python/Ruby back-end using the Notification Hub REST interface as described in the MSDN topic [Notification Hubs REST APIs](http://msdn.microsoft.com/library/dn223264.aspx).
 
 > [AZURE.NOTE] This is a sample reference implementation for implementing the notification sends in Python and is not the officially supported Notifications Hub Python SDK.
-
-> [AZURE.NOTE] This sample is written using Python 3.4.
+>
+> This sample is written using Python 3.4.
 
 In this topic we show how to:
 

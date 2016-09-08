@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="data-services"
-  ms.date="07/06/2016"
+  ms.date="09/01/2016"
   ms.author="andrl"/>
 
 # Community portal
@@ -42,7 +42,7 @@ Check it out on [Github](https://github.com/mingaliu/DocumentDBStudio).
 
 *by Ariel Mashraki*
 
-DoQmentDB is a Node.js promise-based client, that provide a MongoDB-like layer on top of DocumentDB.
+DoQmentDB is a Node.js promise-based client, that provides a MongoDB-like layer on top of DocumentDB.
 
 Check it out on [Github](https://github.com/a8m/doqmentdb) and [npm](https://www.npmjs.com/package/doqmentdb).
 
@@ -58,7 +58,7 @@ Check it out on [Github](https://github.com/HEDIDIN/DocumentDB-REST/tree/master/
 
 *by Yoichi Kawasaki*
 
-fluent-plugin-documentdb is a Fluentd plugin for outputing to Azure DocumentDB.
+fluent-plugin-documentdb is a Fluentd plugin for outputting to Azure DocumentDB.
 
 Check it out on [Github](https://github.com/yokawasa/fluent-plugin-documentdb) and [rubygems](https://rubygems.org/gems/fluent-plugin-documentdb).
 
@@ -76,7 +76,7 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 
 - [**Notifications for new or changed DocumentDB resources using Logic Apps**](documentdb-change-notification.md) - *by Howard Edidin*
 
-- [**Collecting logs into Azure DocumentDB using fluent-plugin-documentdb**](http://unofficialism.info/posts/collecting-logs-into-azure-documentdb-using-fluent-plugin-documentdb/) - *by Yoichi Kawasaki*
+- [**Collecting logs in to Azure DocumentDB using fluent-plugin-documentdb**](http://unofficialism.info/posts/collecting-logs-into-azure-documentdb-using-fluent-plugin-documentdb/) - *by Yoichi Kawasaki*
 
 - [**DocumentDB revisited Part 1/2 – The theory**](https://peterintheazuresky.wordpress.com/2016/02/19/documentdb-revisited-part-12-the-theory/) - *by Peter Mannerhult*
 
@@ -121,6 +121,8 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 | Event Name                                                                                                                 | Speaker                                                     | Location             | Date                     | Hashtag |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------------------- | ------------------------ | ------- |
 | [Ignite 2016](https://myignite.microsoft.com/sessions?q=documentdb) | Andrew Liu and Tara Jana | Atlanta, GA | September 26-30, 2016 | [#MSIgnite](https://twitter.com/MS_Ignite) |
+| [Strata + Hadoop World](http://conferences.oreilly.com/strata/hadoop-big-data-ny/?cmp=kn-data-confreg-home-stny16_bing_branded) | TBD | New York, NY | September 26-29, 2016 | [#StrataConf](https://twitter.com/strataconf) |
+| [Capital City .NET Users Group](http://www.meetup.com/tally-dot-net/events/233768568/) | Santosh Hari | Tallahassee, FL | November 3, 2016 | n/a |
 
 
 *Are you speaking at or hosting an event? [Let us know](mailto:askdocdb@microsoft.com) how we can help!*
@@ -161,7 +163,7 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 | [@Scale Seattle](http://www.atscaleconference.com/)                                                                        | Dharma Shukla                                               | Seattle, WA          | June 17, 2015          | [Schema Agnostic Indexing with Azure DocumentDB](https://www.youtube.com/watch?v=VJQ_5qFFVP4) |
 | [Tech Refresh 2015](https://channel9.msdn.com/Events/DXPortugal/Tech-Refresh-2015)                                         | Bruno Lopes                                                 | Lisbon, Portugal     | June 15, 2015          | [DocumentDB 101](https://channel9.msdn.com/Events/DXPortugal/Tech-Refresh-2015/DPDEV01) |
 | [SQL Saturday #417 - Sri Lanka 2015](http://www.sqlsaturday.com/417/Sessions/Details.aspx?sid=21415)                       | Mihail Mateev                                               | Colombo, Sri Lanka   | June 06, 2015          | n/a |
-| [Meetup:Seattle Scalability Meetup](http://www.meetup.com/Seattle-Scalability-Meetup/events/204010442/)                    | Dharma Shukla                                               | Seattle, WA          | May 27, 2015           | n/a |
+| [Meetup: Seattle Scalability Meetup](http://www.meetup.com/Seattle-Scalability-Meetup/events/204010442/)                    | Dharma Shukla                                               | Seattle, WA          | May 27, 2015           | n/a |
 | [SQL Saturday #377 - Kiev 2015](http://www.sqlsaturday.com/377/Sessions/Details.aspx?sid=20322)                            | Mihail Mateev                                               | Kiev, Ukraine        | May 23, 2015           | n/a |
 | [Database Month](http://www.databasemonth.com/database/azure-documentdb)                                                   | Dharma Shukla                                               | New York, NY         | May 19, 2015           | [Azure DocumentDB: Massively-Scalable,­ Multi-Tenant Document Database Service](https://www.youtube.com/watch?v=iZsqBc3Dkbk) |
 | [Meetup: London SQL Server User Group](http://www.meetup.com/London-SQL-Server-User-Group/events/221525058/)               | Allan Mitchell                                              | London, UK           | May 19, 2015           | n/a |
@@ -208,7 +210,7 @@ You can stay up-to-date with the latest DocumentDB news and features by followin
 
 | Learning partner                                                                                                                                                                      | Description |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://www.microsoftvirtualacademy.com/en-us/training-courses/developing-solutions-with-azure-documentdb-10554) | [**Microsoft Virtual Academy**](https://www.microsoftvirtualacademy.com/en-us/training-courses/developing-solutions-with-azure-documentdb-10554) offers you training from the people who help build Azure DocumentDB. |
+| [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://mva.microsoft.com/en-US/training-courses/deploying-web-apps-to-azure-app-service-16629) | [**Microsoft Virtual Academy**](https://mva.microsoft.com/en-US/training-courses/deploying-web-apps-to-azure-app-service-16629) offers you training from the people who help build Azure DocumentDB. |
 | [![Pluralsight](./media/documentdb-community/pluralsight.png)](http://www.pluralsight.com/courses/azure-documentdb-introduction)                                                      | [**Pluralsight**](http://www.pluralsight.com/courses/azure-documentdb-introduction) is a key Microsoft partner offering Azure training. If you are an MSDN subscriber, use your benefits to access Microsoft Azure training. |
 | [![OpsGility](./media/documentdb-community/opsgility.png)](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb)                                                 | [**OpsGility**](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb) provides deep technical training on Microsoft Azure. Get instructor-led training on-site or through a remote classroom by their industry-acknowledged trainers. |
 
@@ -229,7 +231,7 @@ Follow us on twitter [@DocumentDB](https://twitter.com/DocumentDB) and stay up t
 
 ![Team](./media/documentdb-community/documentdb-team.png)
 
-Do you need technical help? Have questions? Wondering whether NoSQL is a good fit for you? You can [schedule a 1:1 chat directly with the DocumentDB engineering team](http://www.askdocdb.com/).You can also shoot us an [e-mail](mailto:askdocdb@microsoft.com) or tweet us at [@DocumentDB](https://twitter.com/DocumentDB). 
+Do you need technical help? Have questions? Wondering whether NoSQL is a good fit for you? You can [schedule a 1:1 chat directly with the DocumentDB engineering team](http://www.askdocdb.com/). You can also shoot us an [e-mail](mailto:askdocdb@microsoft.com) or tweet us at [@DocumentDB](https://twitter.com/DocumentDB). 
 
 ## Open source projects
 

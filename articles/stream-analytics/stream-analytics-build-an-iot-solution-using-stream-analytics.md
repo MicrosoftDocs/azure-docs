@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Build an IOT solution using Stream Analytics | Microsoft Azure" 
 	description="getting started tutorial for the Stream Analytics iot solution of a tollbooth scenario"
-	keywords=""
+	keywords="iot solution, window functions"
 	documentationCenter=""
 	services="stream-analytics"
 	authors="jeffstokes72" 
@@ -15,7 +15,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/27/2016" 
+	ms.date="08/11/2016" 
 	ms.author="jeffstok"
 />
 
@@ -42,7 +42,7 @@ You will need the following pre-requisites to successfully complete this tutoria
 -   [Azure Subscription](https://azure.microsoft.com/pricing/free-trial/)
 -   Administrative Privileges on the computer
 -   Download [TollApp.zip](http://download.microsoft.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip) from the Microsoft Download Center
--   Optional: Source code for TollApp event generator in [GitHub](https://github.com/streamanalytics/samples/tree/master/TollApp)
+-   Optional: Source code for TollApp event generator in [GitHub](https://aka.ms/azure-stream-analytics-toll-source)
 
 ## Scenario Introduction - “Hello, Toll!”
 
@@ -58,8 +58,8 @@ We will work with two streams of data which are produced by sensors installed in
 ### Entry Data Stream
 
 Entry data stream contains information about cars entering toll stations.
-  
-  
+
+
 | Toll Id | EntryTime               | LicensePlate | State | Make   | Model   | Vehicle Type | Vehicle Weight | Toll | Tag       |
 |---------|-------------------------|--------------|-------|--------|---------|--------------|----------------|------|-----------|
 | 1       | 2014-09-10 12:01:00.000 | JNB 7001     | NY    | Honda  | CRV     | 1            | 0              | 7    |           |
@@ -68,11 +68,11 @@ Entry data stream contains information about cars entering toll stations.
 | 2       | 2014-09-10 12:03:00.000 | XYZ 1003     | CT    | Toyota | Corolla | 1            | 0              | 4    |           |
 | 1       | 2014-09-10 12:03:00.000 | BNJ 1007     | NY    | Honda  | CRV     | 1            | 0              | 5    | 789123456 |
 | 2       | 2014-09-10 12:05:00.000 | CDE 1007     | NJ    | Toyota | 4x4     | 1            | 0              | 6    | 321987654 |
-  
+
 
 Here is a short description of the columns:
-  
-  
+
+
 | TollID       | Toll booth ID uniquely identifying a toll booth                |
 |--------------|----------------------------------------------------------------|
 | EntryTime    | The date and time of entry of the vehicle to Toll Booth in UTC |
@@ -89,8 +89,8 @@ Here is a short description of the columns:
 ### Exit Data Stream
 
 Exit data stream contains information about cars leaving the toll station.
-  
-  
+
+
 | **TollId** | **ExitTime**                 | **LicensePlate** |
 |------------|------------------------------|------------------|
 | 1          | 2014-09-10T12:03:00.0000000Z | JNB 7001         |
@@ -101,8 +101,8 @@ Exit data stream contains information about cars leaving the toll station.
 | 2          | 2014-09-10T12:07:00.0000000Z | CDE 1007         |
 
 Here is a short description of the columns:
-  
-  
+
+
 | Column | Description |
 |--------------|-----------------------------------------------------------------|
 | TollID       | Toll booth ID uniquely identifying a toll booth                 |
@@ -112,8 +112,8 @@ Here is a short description of the columns:
 ### Commercial Vehicle Registration Data
 
 We will use a static snapshot of commercial vehicle registration database.
-  
-  
+
+
 | LicensePlate | RegistrationId | Expired |
 |--------------|----------------|---------|
 | SVT 6023     | 285429838      | 1       |
@@ -121,11 +121,11 @@ We will use a static snapshot of commercial vehicle registration database.
 | BAC 1005     | 876133137      | 1       |
 | RIV 8632     | 992711956      | 0       |
 | SNY 7188     | 592133890      | 0       |
-| ELH 9896     | 678427724      | 1       |                      
+| ELH 9896     | 678427724      | 1       |
 
 Here is a short description of the columns:
-  
-  
+
+
 | Column | Description |
 |--------------|-----------------------------------------------------------------|
 | LicensePlate | License Plate number of the vehicle                |
@@ -233,9 +233,9 @@ Connect to the Azure database (the destination) from Visual Studio:
 
 1)  Open Visual Studio then click “Tools” and then “Connect to Database…” menu item.
 
-2)  If asked, select “Microsoft SQL Server” as a data source  
+2)  If asked, select “Microsoft SQL Server” as a data source
 
-![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image16.png)  
+![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image16.png)
 
 3)  In the Server Name field paste the name of the SQL Server copied in the previous section from Azure Portal (i.e. *servername*.database.windows.net)
 
@@ -243,25 +243,25 @@ Connect to the Azure database (the destination) from Visual Studio:
 
 5)  Enter a LOGIN NAME as “tolladmin” and LOGIN PASSWORD as “123toll!”
 
-6)  Choose TollDataDB as the database  
+6)  Choose TollDataDB as the database
 
-![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image17.jpg)  
-    
+![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image17.jpg)
+
 7)  Click OK.
 
-8)  Open Server Explorer  
+8)  Open Server Explorer
 
-![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image18.png)  
-  
-9)  See 4 tables created in the TollDataDB database.  
-  
-![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image19.jpg)  
-  
+![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image18.png)
+
+9)  See 4 tables created in the TollDataDB database.
+
+![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image19.jpg)
+
 ## Event Generator - TollApp Sample Project
 
 The PowerShell script automatically starts sending events using the TollApp sample application program. You don’t need to perform any additional steps.
 
-However, if you are interested in implementation details, you can find the source code of the TollApp application under in GitHub [samples/TollApp](https://github.com/streamanalytics/samples/tree/master/TollApp)
+However, if you are interested in implementation details, you can find the source code of the TollApp application under in GitHub [samples/TollApp](https://aka.ms/azure-stream-analytics-toll-source)
 
 ![](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image20.png)
 
@@ -376,9 +376,9 @@ Let’s say, we need to count the number of vehicles that enter a toll booth. Si
 
 Let’s look at the Azure Stream Analytics query answering this question:
 
-    SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*) AS Count
-    FROM EntryStream TIMESTAMP BY EntryTime
-    GROUP BY TUMBLINGWINDOW(minute, 3), TollId
+SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*) AS Count
+FROM EntryStream TIMESTAMP BY EntryTime
+GROUP BY TUMBLINGWINDOW(minute, 3), TollId
 
 As you can see, Azure Stream Analytics is using a SQL-like query language with a few additional extensions to enable specifying time related aspects of the query.
 
@@ -419,11 +419,11 @@ We want to find average time required for the car to pass the toll to assess eff
 
 For this we need to join the stream containing EntryTime with the stream containing ExitTime. We will join the streams on TollId and LicencePlate columns. JOIN operator requires specifying a temporal wiggle room describing acceptable time difference between the joined events. We will use DATEDIFF function to specify that events should be no more than 15 minutes from each other. We will also apply DATEDIFF function to Exit and Entry times to compute actual time a car spends in the toll. Note the difference of the use of DATEDIFF when used in a SELECT statement compared to a JOIN condition.
 
-    SELECT EntryStream.TollId, EntryStream.EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute , EntryStream.EntryTime, ExitStream.ExitTime) AS DurationInMinutes
-    FROM EntryStream TIMESTAMP BY EntryTime
-    JOIN ExitStream TIMESTAMP BY ExitTime
-    ON (EntryStream.TollId= ExitStream.TollId AND EntryStream.LicensePlate = ExitStream.LicensePlate)
-    AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
+SELECT EntryStream.TollId, EntryStream.EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute , EntryStream.EntryTime, ExitStream.ExitTime) AS DurationInMinutes
+FROM EntryStream TIMESTAMP BY EntryTime
+JOIN ExitStream TIMESTAMP BY ExitTime
+ON (EntryStream.TollId= ExitStream.TollId AND EntryStream.LicensePlate = ExitStream.LicensePlate)
+AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
 To test this query, update the query on the Query tab of your job:
 
@@ -443,11 +443,11 @@ Azure Stream Analytics can use static snapshots of data to join with temporal da
 
 If a commercial vehicle is registered with the Toll Company, they can pass through the toll booth without being stopped for inspection. We will use Commercial Vehicle Registration lookup table to identify all commercial vehicles with expired registration.
 
-    SELECT EntryStream.EntryTime, EntryStream.LicensePlate, EntryStream.TollId, Registration.RegistrationId
-    FROM EntryStream TIMESTAMP BY EntryTime
-    JOIN Registration
-    ON EntryStream.LicensePlate = Registration.LicensePlate
-    WHERE Registration.Expired = '1'
+SELECT EntryStream.EntryTime, EntryStream.LicensePlate, EntryStream.TollId, Registration.RegistrationId
+FROM EntryStream TIMESTAMP BY EntryTime
+JOIN Registration
+ON EntryStream.LicensePlate = Registration.LicensePlate
+WHERE Registration.Expired = '1'
 
 Note that testing a query with Reference Data requires that an input source for the Reference Data is defined, which we have done in Step 5.
 
@@ -486,9 +486,9 @@ Open Visual Studio Server Explorer and right click TollDataRefJoin table. Select
 
 Azure Stream Analytics is designed to elastically scale and be able to handle high load of data. The Azure Stream Analytics query can use a **PARTITION BY** clause to tell the system that this step will scale out. PartitionId is a special column added by the system that matches the partition id of the input (Event Hub)
 
-    SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*)AS Count
-    FROM EntryStream TIMESTAMP BY EntryTime PARTITION BY PartitionId
-    GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId    
+SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*)AS Count
+FROM EntryStream TIMESTAMP BY EntryTime PARTITION BY PartitionId
+GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId
 
 Stop the current job, update the query in Query tab and open Scale tab.
 
