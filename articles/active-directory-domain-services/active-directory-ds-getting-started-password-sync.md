@@ -51,7 +51,7 @@ Here are instructions you need to provide end users, so they can change their pa
 
     > [AZURE.NOTE] If you do not see the **Change password** option on the Access Panel page, ensure that your organization has configured [password management in Azure AD](../active-directory/active-directory-passwords-getting-started.md).
 
-4. On the **change password** page, users can enter their existing (old) password and proceed to change their password.
+4. On the **change password** page, type your existing (old) password and then type a new password and confirm it. Click **Submit**.
 
     ![Create a virtual network for Azure AD Domain Services.](./media/active-directory-domain-services-getting-started/user-change-password2.png)
 
