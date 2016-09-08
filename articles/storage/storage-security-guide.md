@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/03/2016"
+	ms.date="09/08/2016"
 	ms.author="robinsh"/>
 
 #Azure Storage security guide
@@ -366,19 +366,17 @@ While you can use Client-side Encryption to encrypt the data in transit (which i
 
 ###Storage Service Encryption (SSE)
 
-SSE is a new Azure Storage feature in public preview. This feature allows you to request that the storage service automatically encrypt the data when writing it to Azure Storage. When you read the data from Azure Storage, it will be decrypted by the storage service before being returned. This enables you to secure your data without having to modify code or add code to any applications.
+SSE allows you to request that the storage service automatically encrypt the data when writing it to Azure Storage. When you read the data from Azure Storage, it will be decrypted by the storage service before being returned. This enables you to secure your data without having to modify code or add code to any applications.
 
 This is a setting that applies to the whole storage account. You can enable and disable this feature by changing the value of the setting. To do this, you can use the Azure Portal, PowerShell, the Azure CLI, the Storage Resource Provider REST API, or the .NET Storage Client Library. By default, SSE is turned off.
 
 At this time, the keys used for the encryption are managed by Microsoft. We generate the keys originally, and manage the secure storage of the keys as well as the regular rotation as defined by internal Microsoft policy. In the future, you will get the ability to manage your own encryption keys, and provide a migration path from Microsoft-managed keys to customer-managed keys.
 
-This feature is available for Standard and Premium Storage accounts created using the Resource Manager deployment model and created after 3/30/2016 12:00 am PST. SSE applies only to block blobs, page blobs, and append blobs. The other types of data, including tables, queues, and files, will not be encrypted.
+This feature is available for Standard and Premium Storage accounts created using the Resource Manager deployment model. SSE applies only to block blobs, page blobs, and append blobs. The other types of data, including tables, queues, and files, will not be encrypted.
 
-Data is only encrypted when SSE is enabled and the data is written to Blob Storage. Enabling or disabling the SSE does not impact existing data. In other words, when you enable this encryption, it will not go back and encrypt data that already exists; nor will it decrypt the data that already exists when you disable SSE.
+Data is only encrypted when SSE is enabled and the data is written to Blob Storage. Enabling or disabling SSE does not impact existing data. In other words, when you enable this encryption, it will not go back and encrypt data that already exists; nor will it decrypt the data that already exists when you disable SSE.
 
-If you want to try this feature with a storage account created prior to the aforementioned date, or a Classic storage account, you can create a new storage account and use AzCopy to copy the data to the new account. This should not be required after the preview.
-
-As with most previews, this should not be used in production until the feature becomes Generally Available.
+If you want to use this feature with a Classic storage account, you can create a new Resource Manager storage account and use AzCopy to copy the data to the new account. 
 
 ###Client-side Encryption
 
@@ -461,7 +459,7 @@ Client-side encryption is more load on the client, and you have to account for t
 
 ####Storage Service Encryption (SSE)
 
-SSE is managed by Azure Storage, and is easily managed. Using SSE does not provide for the security of the data in transit, but it does encrypt the data as it is written to Azure Storage. There is no impact on the performance when using this feature.
+SSE is managed by Azure Storage. Using SSE does not provide for the security of the data in transit, but it does encrypt the data as it is written to Azure Storage. There is no impact on the performance when using this feature.
 
 You can only encrypt block blobs, append blobs, and page blobs using SSE. If you need to encrypt table data or queue data, you should consider using client-side encryption.
 
