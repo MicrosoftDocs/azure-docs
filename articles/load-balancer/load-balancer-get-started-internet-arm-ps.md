@@ -43,7 +43,7 @@ For more information see [Azure Resource Manager support for Load Balancer](load
 
 ## Setup PowerShell to use Resource Manager
 
-Make sure you have the latest production version of the Azure Resource Manager (ARM) module for PowerShell.
+Make sure you have the latest production version of the Azure Resource Manager module for PowerShell.
 
 1. Sign into Azure
 
