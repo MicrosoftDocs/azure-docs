@@ -8,7 +8,8 @@
 
 3. In the **Create namespace** blade, enter a namespace name. The system immediately checks to see if the name is available.
 
-	![][1]
+	![](./media/event-hubs-create-event-hub/create-event-hub1.png)
+
 4. After making sure the namespace name is available, choose the pricing tier (Basic or Standard). Also, choose an Azure subscription, resource group, and location in which to create the resource. 
 
 2. Click **Create** to create the namespace.
@@ -43,7 +44,6 @@
 
 Your Event Hub is now created, and you have the connection strings you need to send and receive events.
 
-[1]: ./media/event-hubs-create-event-hub/create-event-hub1.png
 [2]: ./media/event-hubs-create-event-hub/create-event-hub2.png
 [3]: ./media/event-hubs-create-event-hub/create-event-hub3.png
 [4]: ./media/event-hubs-create-event-hub/create-event-hub4.png
