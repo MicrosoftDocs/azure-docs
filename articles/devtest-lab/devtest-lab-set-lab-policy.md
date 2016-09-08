@@ -39,7 +39,7 @@ To view (and change) the policies for a lab, follow these steps:
 
 	![Policy settings blade](./media/devtest-lab-set-lab-policy/policies.png)
 
-	Select the desired policy from the following list to learn more about setting it:
+	To learn more about setting a policy, select it from the following list:
 
 	- [Allowed virtual machine sizes](#set-allowed-virtual-machine-sizes) - Select the list of VM sizes allowed in the lab. A user can create VMs only from this list.
 
