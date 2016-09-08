@@ -18,7 +18,7 @@
 
 # Move data From Amazon Simple Storage Service using Azure Data Factory
 
-This article outlines how you can use the Copy Activity in an Azure data factory to move data to from Amazon Simple Storage Service (S3) to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with copy activity, and a list of supported source/sink data stores with copy activity.  
+This article outlines how you can use the Copy Activity in an Azure data factory to move data to from Amazon Simple Storage Service (S3) to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article that presents a general overview of data movement, and a list of supported source/sink data stores with copy activity.  
 
 Data factory currently supports only moving data from Amazon S3 to other data stores, but not for moving data from other data stores to Amazon S3.
 
