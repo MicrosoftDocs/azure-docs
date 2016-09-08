@@ -92,6 +92,18 @@ We recommend that you create local working branches that target a specific scope
 * Spelling and grammar edits on an article.
 * Applying a single formatting change across a large set of articles (e.g. new copyright footer).
 
+### Labels
+
+Each Pull Request can be labeled and managed by Microsoft.
+
+* Contribution License Agreement related
+    * cla-not-required: Mark as minor change that  does not required.
+    * cla-required: The PR has large changes and contributor does not recognized as CLA signee.
+    * cla-signed: The contributor recognized as CLA signee.
+* Blue labels with three-letter acronyms: Remarks for the area of Microsoft work that the topic falls into
+* Change sent to author: PR will be reviewed by author.
+
+
 ## How to use markdown to format your topic
 
 All the articles in this repository use GitHub flavored markdown.  Here's a list of resources.
