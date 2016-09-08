@@ -3,7 +3,7 @@
    description="Improving scalability in a web application running in Microsoft Azure."
    services="app-service,app-service\web,sql-database"
    documentationCenter="na"
-   authors="mikewasson"
+   authors="MikeWasson"
    manager="roshar"
    editor=""
    tags=""/>
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="07/12/2016"
-   ms.author="mikewasson"/>
+   ms.author="mwasson"/>
 
 
 # Improving scalability in a web application 

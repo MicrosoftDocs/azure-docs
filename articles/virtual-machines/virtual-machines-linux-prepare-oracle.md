@@ -3,6 +3,7 @@ pageTitle="Prepare an Oracle Linux Virtual Machine for Azure | Microsoft Azure"
 description="Step by Step configuration of an Oracle virtual machine running Linux in Microsoft Azure."
 services="virtual-machines-linux"
 authors="bbenz"
+manager="timlt"
 documentationCenter="virtual-machines"
 tags="azure-service-management,azure-resource-manager"
 />

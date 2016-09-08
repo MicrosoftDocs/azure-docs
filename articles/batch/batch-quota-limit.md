@@ -94,7 +94,7 @@ Once you've submitted your support request, Azure support will contact you. Note
 
 ## Related topics
 
-* [Create and manage an Azure Batch account](batch-account-create-portal.md)
+* [Create an Azure Batch account using the Azure portal](batch-account-create-portal.md)
 
 * [Azure Batch feature overview](batch-api-basics.md)
 

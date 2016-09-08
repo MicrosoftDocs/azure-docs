@@ -206,6 +206,8 @@ Where parameters are as follows:
 
 	![Storage account](./media/site-recovery-vmm-to-azure-classic/storage.png)
 
+> [AZURE.NOTE] [Migration of storage accounts](../resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for storage accounts used for deploying Site Recovery.
+
 ## Step 5: Install the Azure Recovery Services Agent
 
 Install the Azure Recovery Services agent on each Hyper-V host server in the VMM cloud.
@@ -267,6 +269,8 @@ Before you begin network mapping verify that virtual machines on the source VMM 
 After you save the settings a job starts to track the mapping progress and it can be monitored on the Jobs tab. Any existing replica virtual machines that correspond to the source VM network will be connected to the target Azure networks. New virtual machines that are connected to the source VM network will be connected to the mapped Azure network after replication. If you modify an existing mapping with a new network, replica virtual machines will be connected using the new settings.
 
 Note that if the target network has multiple subnets and one of those subnets has the same name as subnet on which the source virtual machine is located, then the replica virtual machine will be connected to that target subnet after failover. If there’s no target subnet with a matching name, the virtual machine will be connected to the first subnet in the network.
+
+> [AZURE.NOTE] [Migration of networks](../resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for networks used for deploying Site Recovery.
 
 ## Step 8: Enable protection for virtual machines
 
@@ -332,14 +336,10 @@ Test failover simulates your failover and recovery mechanism in an isolated netw
 
 	![Create recovery plan](./media/site-recovery-vmm-to-azure-classic/recovery-plan1.png)
 
-2. In the **Select Virtual Machines** page, select virtual machines to add to the recovery plan. These virtual machines are added to the recovery plan default group—Group 
-3. 
-4. 
-5. 1. A maximum of 100 virtual machines in a single recovery plan have been tested.
+2. In the **Select Virtual Machines** page, select virtual machines to add to the recovery plan. These virtual machines are added to the recovery plan default group—Group 1. A maximum of 100 virtual machines in a single recovery plan have been tested.
 
-	- If you want to verify the virtual machine properties before adding them to the plan, click the virtual machine on the properties page of the cloud in which it’s located. You can also configure the virtual machine properties in the VMM console.
-	- All of the virtual machines that are displayed have been enabled for protection. The list includes both virtual machines that are enabled for protection and initial replication has completed, and those that are enabled for protection with initial replication pending. Only virtual machines with initial replication completed can fail over as part of a recovery plan.
-
+- If you want to verify the virtual machine properties before adding them to the plan, click the virtual machine on the properties page of the cloud in which it’s located. You can also configure the virtual machine properties in the VMM console.
+- All of the virtual machines that are displayed have been enabled for protection. The list includes both virtual machines that are enabled for protection and initial replication has completed, and those that are enabled for protection with initial replication pending. Only virtual machines with initial replication completed can fail over as part of a recovery plan.
 
 	![Create recovery plan](./media/site-recovery-vmm-to-azure-classic/select-rp.png)
 

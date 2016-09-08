@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/03/2016" 
+	ms.date="09/07/2016" 
 	ms.author="tamram"/>
 
 # Use the Azure Storage Emulator for Development and Testing
@@ -203,7 +203,13 @@ There are no differences specific to Queue storage in the emulator.
 
 ## Storage emulator release notes
 
+### Version 4.5
+
+- Fixed a bug that caused initialization and installation of the storage emulator to fail when the backing database was renamed.
+
 ### Version 4.4
+
+- The storage emulator now supports version 2015-12-11 of the storage services on Blob, Queue, and Table service endpoints.
 
 - The storage emulator's garbage collection of blob data is now more efficient when dealing with large numbers of blobs.
 

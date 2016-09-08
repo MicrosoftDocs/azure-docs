@@ -4,7 +4,7 @@
     services="active-directory"
     documentationCenter=""
     authors="MarkusVi"
-    manager="stevenpo"
+    manager="femila"
     editor=""/>
 <tags
     ms.service="active-directory"
@@ -12,8 +12,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="05/19/2016"
-    ms.author="markvi;liviodlc"/>
+    ms.date="08/16/2016"
+    ms.author="markvi"/>
 
 #How to Deploy the Access Panel Extension for Internet Explorer using Group Policy
 

@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na"
   ms.devlang="node"
   ms.topic="hero-article"
-  ms.date="04/26/2016"
+  ms.date="08/11/2016"
   ms.author="anhoh"/>
 
 # NoSQL Node.js tutorial: DocumentDB Node.js console application  
@@ -56,7 +56,7 @@ Let's create a DocumentDB account. If you already have an account you want to us
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-##<a id="SetupNode"></a> Step 2: Setup your Node.js application
+## <a id="SetupNode"></a>Step 2: Setup your Node.js application
 
 1. Open your favorite terminal.
 2. Locate the folder or directory where you'd like to save your Node.js application.
@@ -72,7 +72,7 @@ Let's create a DocumentDB account. If you already have an account you want to us
 
 Great! Now that you've finished setting up, let's start writing some code.
 
-##<a id="Config"></a> Step 3: Set your app's configurations
+## <a id="Config"></a>Step 3: Set your app's configurations
 
 Open ```config.js``` in your favorite text editor.
 
@@ -598,7 +598,7 @@ You should see the output of your get started app. The output should match the e
 
 Congratulations! You've created you've completed the Node.js tutorial and have your first DocumentDB console application!
 
-##<a id="GetSolution"></a> Get the complete Node.js tutorial solution
+## <a id="GetSolution"></a>Get the complete Node.js tutorial solution
 To build the GetStarted solution that contains all the samples in this article, you will need the following:
 
 -   [DocumentDB account][documentdb-create-account].

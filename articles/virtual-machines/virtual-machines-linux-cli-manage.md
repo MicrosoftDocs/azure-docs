@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="07/12/2016"
+   ms.date="08/23/2016"
    ms.author="rclaus" />
 
 # Common Azure CLI commands on Linux and Mac

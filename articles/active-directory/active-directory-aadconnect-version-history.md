@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="AndKjell"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/02/2016"
+   ms.date="08/23/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect: Version Release History
@@ -29,6 +29,27 @@ Topic |
 Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a previous version to the latest](active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect release.
 Required permissions | For permissions required to apply an update, see [accounts and permissions](active-directory-aadconnect-accounts-permissions.md#upgrade)
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+
+## 1.1.281.0
+Released: 2016 August
+
+**Fixed issues:**
+
+- Changes to sync interval does not take place until after next sync cycle completes.
+- Azure AD Connect wizard does not accept Azure AD account whose username starts with an underscore (_).
+- Azure AD Connect wizard fails to authenticate Azure AD account provided if account password contains too many special characters. Error message "Unable to validate credentials. An unexpected error has occurred." is returned.
+- Uninstalling staging server disables password synchronization in Azure AD tenant and causes password synchronization to fail with active server.
+- Password synchronization fails in uncommon cases when there is no password hash stored on the user.
+- When Azure AD Connect server is enabled for staging mode, password writeback is not temporarily disabled.
+- Azure AD Connect wizard does not show the actual password synchronization and password writeback configuration when server is in staging mode. It always shows them as disabled.
+- Configuration changes to password synchronization and password writeback are not persisted by Azure AD Connect wizard when server is in staging mode.
+
+**Improvements:**
+
+- Updated Start-ADSyncSyncCycle cmdlet to indicate whether it is able to successfully start a new sync cycle or not.
+- Added Stop-ADSyncSyncCycle cmdlet to terminate sync cycle and operation which are currently in progress.
+- Updated Stop-ADSyncScheduler cmdlet to terminate sync cycle and operation which are currently in progress.
+- When configuring [Directory Extensions](active-directory-aadconnectsync-feature-directory-extensions.md) in Azure AD Connect wizard, AD attribute of type "Teletex string" can now be selected.
 
 ## 1.1.189.0
 Released: 2016 June
@@ -134,7 +155,7 @@ Released: 2015 November
 **New preview features:**
 
 - [Azure AD Connect Health for sync](active-directory-aadconnect-health-sync.md).
-- Support for [Azure AD Domain Services](active-directory-get-started.md) password synchronization.
+- Support for [Azure AD Domain Services](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords) password synchronization.
 
 **New supported scenario:**
 
@@ -270,7 +291,7 @@ Released: 2014 October
 
 **New features:**
 
-- Password synchronization from multiple on-premise AD to Azure AD.
+- Password synchronization from multiple on-premises AD to Azure AD.
 - Localized installation UI to all Windows Server languages.
 
 **Upgrading from AADSync 1.0 GA**

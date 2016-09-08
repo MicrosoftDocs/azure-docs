@@ -4,7 +4,7 @@
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="TomArcher"
-	manager="douge"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/15/2016"
 	ms.author="tarcher"/>
 
 # Creating a virtual machine for a web application with Visual Studio

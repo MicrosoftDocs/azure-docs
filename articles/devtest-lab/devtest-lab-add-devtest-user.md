@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/01/2016"
+	ms.date="08/25/2016"
 	ms.author="tarcher"/>
 
 # Add owners and users to a lab
@@ -103,3 +103,6 @@ To add a DevTest Labs user to your lab, follow these steps:
 	1. Select **OK** to close the **Add access** blade.
 
 1. The **Users** blade displays the added roles and users.
+
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+

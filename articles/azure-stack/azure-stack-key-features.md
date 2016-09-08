@@ -3,7 +3,7 @@
 	description="Learn about the key features and concepts in Azure Stack."
 	services="azure-stack"
 	documentationCenter=""
-	authors="ErikjeMS"
+	authors="heathl17"
 	manager="byronr"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/25/2016"
-	ms.author="erikje"/>
+	ms.date="08/15/2016"
+	ms.author="helaw"/>
 
 # Key features and concepts in Azure Stack
 

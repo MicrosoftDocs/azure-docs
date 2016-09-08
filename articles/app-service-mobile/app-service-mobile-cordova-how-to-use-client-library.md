@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/23/2016"
+	ms.date="08/22/2016"
 	ms.author="ggailey"/>
 
 # How to Use Apache Cordova Client Library for Azure Mobile Apps
@@ -28,7 +28,7 @@ guide, we focus on the client-side Apache Cordova Plugin.
 
 This guide assumes that you have created a backend with a table. This guide assumes that the table has the same schema as the tables in those
 tutorials. This guide also assumes that you have added the Apache Cordova Plugin to your code.  If you have not done so, you may add the Apache
-Cordova plugin to your project on the command-line:
+Cordova plugin to your project on the command line:
 
 ```
 cordova plugin add cordova-plugin-ms-azure-mobile-apps
@@ -64,11 +64,11 @@ since the authentication service only knows how to utilize your service by defau
 emulator, running your service locally or in a different Azure App Service but redirecting to the Azure App Service for
 authentication, or Live Reload with Ionic.  Follow these instructions to add your local settings to the configuration:
 
-1. Log into the [Azure Portal]
+1. Log into the [Azure portal]
 2. Select **All resources** or **App Services** then click on the name of your Mobile App.
 3. Click on **Tools**
 4. Click on **Resource explorer** in the OBSERVE menu, then click on **Go**.  A new window or tab will open.
-5. Expand the **config**, **authsettings** nodes for your site in the left hand navigation.
+5. Expand the **config**, **authsettings** nodes for your site in the left-hand navigation.
 6. Click on **Edit**
 7. Look for the "allowedExternalRedirectUrls" element.  It will be set to null.  Change it to the following:
 
@@ -86,7 +86,7 @@ authentication, or Live Reload with Ionic.  Follow these instructions to add you
 The settings will be saved at this point.  Do not close the browser window until the settings have finished saving.
 You will also need to add these loopback URLs to the CORS settings:
 
-1. Log into the [Azure Portal]
+1. Log into the [Azure portal]
 2. Select **All resources** or **App Services** then click on the name of your Mobile App.
 3. The Settings blade will open automatically.  If it doesn't, click on **All Settings**.
 4. Click on **CORS** under the API menu.
@@ -144,7 +144,7 @@ send push notifications directly from clients as that could be used to trigger a
 service attack against Notification Hubs or the PNS.
 
 <!-- URLs. -->
-[Azure Portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [Azure Mobile Apps Quick Start]: app-service-mobile-cordova-get-started.md
 [Get started with authentication]: app-service-mobile-cordova-get-started-users.md
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md

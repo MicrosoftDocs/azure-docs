@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="05/06/2016"
+	ms.date="08/23/2016"
 	ms.author="sethm"/>
 
 # How to use Service Bus topics and subscriptions
@@ -59,49 +59,7 @@ application.
 
 To create a namespace:
 
-1.  Log on to the [Azure classic portal][].
-
-2.  In the left navigation pane of the portal, click
-    **Service Bus**.
-
-3.  In the lower pane of the portal, click **Create**.
-    ![][0]
-
-4.  In the **Add a new namespace** dialog, enter a namespace name.
-    The system immediately checks to see if the name is available.
-    ![][2]
-
-5.  After making sure the namespace name is available, choose the
-    country or region in which your namespace should be hosted (make
-    sure you use the same country/region in which you are deploying your
-    compute resources).
-
-	IMPORTANT: Pick the **same region** that you intend to choose for
-    deploying your application. This will give you the best performance.
-
-6. 	Leave the other fields in the dialog with their default values (**Messaging** and **Standard Tier**), then click the check mark. The system now creates your service
-    namespace and enables it. You might have to wait several minutes as
-    the system provisions resources for your account.
-
-## Obtain the default management credentials for the namespace
-
-In order to perform management operations, such as creating a topic or
-subscription on the new namespace, you must obtain the management
-credentials for the namespace. You can obtain these credentials from the portal.
-
-### To obtain management credentials from the portal
-
-1.  In the left navigation pane, click the **Service Bus** node to
-    display the list of available namespaces:
-    ![][0]
-
-2.  Click on the namespace you just created from the list shown:
-    ![][3]
-
-3.  Click **Configure** to view the shared access policies for your namespace.
-	![](./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-14.png)
-
-4.  Make a note of the primary key, or copy it to the clipboard.
+[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Configure your application to use Service Bus
 
@@ -188,7 +146,7 @@ filter.
 
 ### Create subscriptions with filters
 
-You can also setup filters that allow you to scope which messages sent
+You can also create filters that enable you to scope which messages sent
 to a topic should show up within a specific topic subscription.
 
 The most flexible type of filter supported by subscriptions is the
@@ -243,7 +201,7 @@ service.sendTopicMessage("TestTopic", message);
 Messages sent to Service Bus Topics are instances of the
 [BrokeredMessage][] class. [BrokeredMessage][]* objects have a set of
 standard methods (such as **setLabel** and **TimeToLive**), a dictionary
-that is used to hold custom application specific properties, and a body
+that is used to hold custom application-specific properties, and a body
 of arbitrary application data. An application can set the body of the
 message by passing any serializable object into the constructor of the
 [BrokeredMessage][], and the appropriate **DataContractSerializer** will

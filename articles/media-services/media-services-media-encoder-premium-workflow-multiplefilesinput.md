@@ -153,7 +153,7 @@ Connections in the workflow:
 
 
 ### Clip List XML customization
-You can specify the Clip List XML in the workflow at runtime by using **sourceTranscode** in the configuration string XML. This requires the Clip List XML pin to be connected to the Media Source component in the workflow.
+You can specify the Clip List XML in the workflow at runtime by using **transcodeSource** in the configuration string XML. This requires the Clip List XML pin to be connected to the Media Source component in the workflow.
 
     <?xml version="1.0" encoding="utf-16"?>
       <transcodeRequest>

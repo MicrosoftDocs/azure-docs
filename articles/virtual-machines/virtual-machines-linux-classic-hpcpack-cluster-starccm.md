@@ -4,7 +4,7 @@
  services="virtual-machines-linux"
  documentationCenter=""
  authors="xpillons"
- manager="kateh"
+ manager="timlt"
  editor=""
  tags="azure-service-management,azure-resource-manager,hpc-pack"/>
 <tags

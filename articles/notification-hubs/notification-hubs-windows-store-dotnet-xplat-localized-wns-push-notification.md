@@ -19,8 +19,8 @@
 # Use Notification Hubs to send localized breaking news
 
 > [AZURE.SELECTOR]
-- [Windows Store C#](notification-hubs-windows-store-dotnet-send-localized-breaking-news.md)
-- [iOS](notification-hubs-ios-send-localized-breaking-news.md)
+- [Windows Store C#](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
+- [iOS](notification-hubs-ios-xplat-localized-apns-push-notification.md)
 
 ##Overview
 

@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/11/2016"
+   ms.date="08/15/2016"
    ms.author="yurid"/>
 
 # Operations Management Suite Security and Audit solution data security
@@ -41,11 +41,11 @@ OMS Security and Audit Solution analyze data from your Virtual Machines and phys
 
 **Data segregation**: Data is kept logically separate on each component throughout the service. All data is tagged per organization. This tagging persists throughout the data lifecycle, and it is enforced at each layer of the service. 
 
-**Data access**: To provide security recommendations and investigate potential security threats, Microsoft personnel may access information collected or analyzed by services. We adhere to the [Microsoft Online Services Terms](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) and [Privacy Statement](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx), which state that Microsoft will not use Customer Data or derive information from it for any advertising or similar commercial purposes. We only use Customer Data as needed to provide you with Azure services, including purposes compatible with providing those services. You retain all rights to Customer Data.
+**Data access**: To provide security recommendations and investigate potential security threats, Microsoft personnel may access information collected or analyzed by services. We adhere to the [Microsoft Online Services Terms](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) and [Privacy Statement](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx), which state that Microsoft will not use Customer Data or derive information from it for any advertising or similar commercial purposes. To provide security recommendations and investigate potential security threats, Microsoft personnel may access information collected or analyzed by services. We only use Customer Data as needed to provide you with Azure services, including purposes compatible with providing those services. You retain all rights to your own data.
 
 **Data use**: Microsoft uses patterns and threat intelligence seen across multiple tenants to enhance our prevention and detection capabilities; we do so in accordance with the privacy commitments described in our [Privacy Statement](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx).
 
-> [AZURE.NOTE] Data location is configured at the OMS workspace level, during the workspace creation.
+> [AZURE.NOTE] Data location is configured at the OMS workspace level, during the workspace creation, which is part of the initial OMS Security and Audit configuration process.
 
 ## See also
 

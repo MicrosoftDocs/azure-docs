@@ -175,6 +175,8 @@ In this article, you will use the PySpark kernel. In the article [Kernels availa
 
 * [Website log analysis using Spark in HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
+* [Application Insight telemetry data analysis using Spark in HDInsight](hdinsight-spark-analyze-application-insight-logs.md)
+
 ### Create and run applications
 
 * [Create a standalone application using Scala](hdinsight-apache-spark-create-standalone-application.md)
