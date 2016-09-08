@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/06/2016"
+	ms.date="09/07/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -26,67 +26,53 @@
 - [PowerShell](sql-database-copy-powershell.md)
 - [T-SQL](sql-database-copy-transact-sql.md)
 
-This following steps show you how to copy a SQL database with PowerShell to the same server or a different server. The database copy operation uses the [Start-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720220.aspx) cmdlet. 
+This following steps show you how to copy a SQL database with PowerShell to the same server or a different server. The database copy operation uses the [New-AzureRmSqlDatabaseCopy](https://msdn.microsoft.com/library/mt603644.aspx) cmdlet. 
 
 
 To complete this article you need the following:
 
-- An Azure subscription. If you need an Azure subscription simply click **FREE TRIAL** at the top of this page, and then come back to finish this article.
-- An Azure SQL Database. If you do not have a SQL database, create one following the steps in this article: [Create your first Azure SQL Database](sql-database-get-started.md).
-- Azure PowerShell. You can download and install the Azure PowerShell modules by running the [Microsoft Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409). For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+- An Azure SQL Database (a database to copy). If you do not have a SQL database, create one following the steps in this article: [Create your first Azure SQL Database](sql-database-get-started.md).
+- The latest version of Azure PowerShell. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+
+
+Many new features of SQL Database are only supported when you are using the [Azure Resource Manager deployment model](../articles/resource-group-overview.md), so examples use the [Azure SQL Database PowerShell cmdlets](https://msdn.microsoft.com/library/azure/mt574084.aspx) for Resource Manager. The existing classic deployment model [Azure SQL Database (classic) cmdlets](https://msdn.microsoft.com/library/azure/dn546723.aspx) are supported for backward compatibility, but we recommend you use the Resource Manager cmdlets.
+
+**To submit a copy database request to the SQL Database service, run the [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/mt603644.aspx) cmdlet.** 
+
+This article provides code snippets to create a SQL database copy in the same server, in a different server, or into an elastic database pool.
+
+>[AZURE.NOTE] Depending on the size of your database, the copy operation may take some time to complete.
 
 
 
-## Copy your SQL database
+## Copy a SQL database to the same server
 
-There are a few variables where you need to replace the example values with the specific values for your database and servers. Replace the placeholder values with the values for your environment:
+To create the copy on the same server, omit the `-CopyServerName` parameter (or set it to the same server).
 
-    # The name of the server on which the source database resides.
-    $ServerName = "sourceServerName"
+    New-AzureRmSqlDatabaseCopy -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -CopyDatabaseName "database1_copy"
 
-    # The name of the source database (the database to copy). 
-    $DatabaseName = "sourceDatabaseName" 
-    
-    # The name of the server that hosts the target database. This server must be in the same Azure subscription as the source database server. 
-    $PartnerServerName = "partnerServerName"
+## Copy a SQL database to a different server
 
-    # The name of the target database (the name of the copy).
-    $PartnerDatabaseName = "partnerDatabaseName" 
+To create the copy on a different server, include the `-CopyServerName` parameter and set it to a different (but existing) server.
+
+    New-AzureRmSqlDatabaseCopy -ResourceGroupName "resourcegroup1" -ServerName "server1" -DatabaseName "database1" -CopyServerName "server2" -CopyDatabaseName "database1_copy"
 
 
+## Copy a SQL database into an elastic database pool
+
+To create a copy of a SQL database in a pool set the `-ElasticPoolName` parameter to an existing pool.
+
+    New-AzureRmSqlDatabaseCopy -ResourceGroupName "resourcegoup1" -ServerName "server1" -DatabaseName "database1" -CopyResourceGroupName "poolResourceGroup" -CopyServerName "poolServer1" -CopyDatabaseName "database1_copy" -ElasticPoolName "poolName"
 
 
 
-### Copy a SQL database to the same server
-
-This command submits the copy database request to the service. Depending on the size of your database the copy operation may take some time to complete.
-
-    # Copy a database to the same server
-    Start-AzureSqlDatabaseCopy -ServerName $ServerName -DatabaseName $DatabaseName -PartnerDatabase $PartnerDatabaseName
-
-Using the Azure Resource Manager cmdlets:
-
-    # Copy a database to the same server
-    New-AzureRmSqlDatabaseCopy -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -CopyDatabaseName $PartnerDatabaseName
-
-### Copy a SQL database to a different server
-
-This command submits the copy database request to the service. Depending on the size of your database the copy operation may take some time to complete.
-
-    # Copy a database to a different server
-    Start-AzureSqlDatabaseCopy -ServerName $ServerName -DatabaseName $DatabaseName -PartnerServer $PartnerServerName -PartnerDatabase $PartnerDatabaseName
-    
-Using the Azure Resource Manager cmdlets:
-
-    # Copy a database to a different server
-    New-AzureRmSqlDatabaseCopy -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -CopyServerName $PartnerServerName -CopyDatabaseName $PartnerDatabaseName
-
-## Monitor the progress of the copy operation
-
-After running **Start-AzureSqlDatabaseCopy** you can check the status of the copy request. Running this immediately after the request will usually return **State : Pending** or **State : Running** so you can run this multiple times until you see **State : COMPLETED** in the output. 
 
 
-    Get-AzureSqlDatabaseOperation -ServerName $ServerName -DatabaseName $DatabaseName
+## Monitor the progress of a copy operation
+
+After running **New-AzureRmSqlDatabaseCopy** you can check the status of the copy request. Running this immediately after the request will usually return **State : Pending** or **State : Running** so you can run this multiple times until you see **State : COMPLETED** in the output. 
+
+    Get-AzureRmSqlDatabaseActivity -ResourceGroupName $copyDbResourceGroupName -ServerName $copyDbServerName -DatabaseName $copyDbName
 
 ## Resolve logins
 
@@ -95,27 +81,45 @@ To resolve logins after the copy operation completes, see [Resolve logins](sql-d
 
 ## Example PowerShell script
 
-    # The name of the server where the source database resides
-    $ServerName = "sourceServerName"
+The following script assumes all resource groups, servers, and the pool already exist (replace the variable values with your existing resources). Everything must exist except for the copyDbName:
 
-    # The name of the source database (the database to copy) 
-    $DatabaseName = "sourceDatabaseName" 
+    # Sign in to Azure and set the subscription to work with
+    # ---------------------------------------------------
+    $SubscriptionId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    Add-AzureRmAccount
+    Select-AzureRmSubscription -SubscriptionId $SubscriptionId
     
-    # The name of the server to host the database copy. This server must be in the same Azure subscription as the source database server
-    $PartnerServerName = "partnerServerName"
-
-    # The name of the target database (the name of the copy)
-    $PartnerDatabaseName = "partnerDatabaseName" 
-
-
-    Add-AzureAccount
-    Select-AzureSubscription -SubscriptionName "myAzureSubscriptionName"
-      
-    # Copy a database to a different server (remove the -PartnerServer parameter to copy to the same server)
-    Start-AzureSqlDatabaseCopy -ServerName $ServerName -DatabaseName $DatabaseName -PartnerServer $PartnerServerName -PartnerDatabase $PartnerDatabaseName
     
-    # Monitor the status of the copy
-    Get-AzureSqlDatabaseOperation -ServerName $ServerName -DatabaseName $DatabaseName
+    # SQL database source (the existing database to copy)
+    # ---------------------------------------------------
+    $sourceDbName = "db1"
+    $sourceDbServerName = "server1"
+    $sourceDbResourceGroupName = "rg1"
+    $sourceDbLocation = "westus"
+    
+    # SQL database copy (the new db to be created)
+    # --------------------------------------------
+    $copyDbName = "db1_copy"
+    $copyDbServerName = "server2"
+    $copyDbResourceGroupName = "rg2"
+    $copyDbLocation = "westus2"
+    
+    # Copy a database to the same server
+    # ----------------------------------
+    New-AzureRmSqlDatabaseCopy -ResourceGroupName $sourceDbResourceGroupName -ServerName $sourceDbServerName -DatabaseName $sourceDbName -CopyDatabaseName $copyDbName
+    
+    # Copy a database to a different server
+    # -------------------------------------
+    New-AzureRmSqlDatabaseCopy -ResourceGroupName $sourceDbResourceGroupName -ServerName $sourceDbServerName -DatabaseName $sourceDbName -CopyResourceGroupName $copyDbResourceGroupName -CopyServerName $copyDbServerName -CopyDatabaseName $copyDbName
+    
+    # Copy a database into an elastic database pool
+    # ---------------------------------------------
+    $poolName = "pool1"
+    
+    New-AzureRmSqlDatabaseCopy -ResourceGroupName $sourceDbResourceGroupName -ServerName $sourceDbServerName -DatabaseName $sourceDbName -CopyResourceGroupName $copyDbResourceGroupName -CopyServerName $copyDbServerName -ElasticPoolName $poolName -CopyDatabaseName $copyDbName
+
+
+
     
 
 ## Next steps
