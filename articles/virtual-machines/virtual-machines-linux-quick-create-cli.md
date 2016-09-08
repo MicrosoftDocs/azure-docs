@@ -50,7 +50,7 @@ For the **ImageURN** option (`-Q`), we are using `UbuntuLTS` to deploy an Ubuntu
 
 ## Detailed walkthrough
 
-The previous quick-create example only called out the `-M` flag to identify the SSH public key to upload while disabling SSH passwords.  For the detailed walkthrough you are running every cli flag needed to not be prompted for any further input.
+The previous quick-create example only called out the `-M` flag to identify the SSH public key to upload while disabling SSH passwords.  For the detailed walkthrough, you are running every cli flag needed to not be prompted for any further input.
 
 ```bash
 azure vm quick-create \
@@ -141,7 +141,7 @@ data:      Diagnostics Instance View:
 info:    vm quick-create command OK
 ```
 
-Log in to your VM by using SSH on port 22 and the public IP address listed in the output. You can also use the fully qualified domain name (FQDN) that's listed.
+Log in to your VM by using the public IP address listed in the output. You can also use the fully qualified domain name (FQDN) that's listed.
 
 ```bash
 ssh -i ~/.ssh/id_rsa.pub exampleAdminUser@138.91.247.29
