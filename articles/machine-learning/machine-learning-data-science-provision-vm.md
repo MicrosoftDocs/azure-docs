@@ -85,13 +85,13 @@ Here are the steps to create an instance of the Microsoft Data Science Virtual M
 
 ## How to access the Microsoft Data Science Virtual Machine
 
-Once the VM is created, you can remote desktop into it using the Admin account credentials that you configured in the  preceding **Basics** section. 
+Once the VM is created, you can remote desktop into it using the Admin account credentials that you configured in the preceding **Basics** section. 
 
 Once your VM is created and provisioned, you are ready to start using the tools that are installed and configured on it. There are start menu tiles and desktop icons for many of the tools. 
 
 ## How to create a strong password on the Jupyter notebook server 
 
-To create your own strong password for the Jupyter notebook server installed on the machine, run the following command from a command-prompt on the Data Science Virtual Machine .
+To create your own strong password for the Jupyter notebook server installed on the machine, run the following command from a command-prompt on the Data Science Virtual Machine.
 
 	c:\anaconda\python.exe -c "import IPython;print IPython.lib.passwd()"
 
@@ -106,7 +106,7 @@ Finally, you need to stop and restart the Jupyter server, which is running on th
 ## Tools installed on the Microsoft Data Science Virtual Machine
 
 ### Microsoft R Server Developer Edition
-If you wish to use R for your analytics, the VM has Microsoft R Server Developer edition installed. Microsoft R Server is a broadly deployable enterprise-class analytics platform based on R that is supported, scalable, and secure. Supporting a variety of big data statistics, predictive modeling and machine learning capabilities, R Server supports the full range of analytics – exploration, analysis, visualization, and modeling. By using and extending open source R, Microsoft R Server is fully compatible with R scripts, functions and CRAN packages, to analyze data at enterprise scale. It also addresses the in-memory limitations of Open Source R by adding parallel and chunked processing of data. This enabling users to run analytics on data much bigger than what fits in main memory.  Visual Studio Community Edition included on the VM contains the R Tools for Visual Studio extension that provides a full IDE for working with R. You can also download and use other IDEs as well such as [RStudio](http://www.rstudio.com). 
+If you wish to use R for your analytics, the VM has Microsoft R Server Developer edition installed. Microsoft R Server is a broadly deployable enterprise-class analytics platform based on R that is supported, scalable, and secure. Supporting a variety of big data statistics, predictive modeling and machine learning capabilities, R Server supports the full range of analytics – exploration, analysis, visualization, and modeling. By using and extending open source R, Microsoft R Server is fully compatible with R scripts, functions and CRAN packages, to analyze data at enterprise scale. It also addresses the in-memory limitations of Open Source R by adding parallel and chunked processing of data. This enables you to run analytics on data much bigger than what fits in main memory.  Visual Studio Community Edition included on the VM contains the R Tools for Visual Studio extension that provides a full IDE for working with R. You can also download and use other IDEs as well such as [RStudio](http://www.rstudio.com). 
 
 ### Python
 For development using Python, Anaconda Python distribution 2.7 and 3.5 has been installed. This distribution contains the base Python along with about 300 of the most popular math, engineering, and data analytics packages. You can use Python Tools for Visual Studio (PTVS) that is installed within the Visual Studio 2015 Community edition or one of the IDEs bundled with Anaconda like IDLE or Spyder. You can launch one of these by searching on the search bar (**Win** + **S** key).
