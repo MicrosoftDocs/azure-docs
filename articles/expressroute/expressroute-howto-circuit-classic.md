@@ -41,7 +41,7 @@ Follow the instructions in [How to install and configure Azure PowerShell](../po
 
 ### 2. Log in to your Azure account and select a subscription
 
-1. Open PowerShell with an account that has local administrator privileges. Then, run the following cmdlet:
+1. Run the following cmdlet using an elevated Windows PowerShell prompt:
 
 		Add-AzureAccount
 2. In the sign-in screen that appears, sign in to your account.
@@ -57,7 +57,7 @@ Follow the instructions in [How to install and configure Azure PowerShell](../po
 
 ### 1. Import the PowerShell modules for ExpressRoute
 
- You must import the Azure and ExpressRoute modules into the PowerShell session in order to start using the ExpressRoute cmdlets. You import the modules from the location that they were installed to on your local computer. Depending on the method you used to install the modules, the location may be different than the following example shows. Modify the example if necessary.  
+ If you have not already done so, you must import the Azure and ExpressRoute modules into the PowerShell session in order to start using the ExpressRoute cmdlets. You import the modules from the location that they were installed to on your local computer. Depending on the method you used to install the modules, the location may be different than the following example shows. Modify the example if necessary.  
 
 	Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
 	Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
