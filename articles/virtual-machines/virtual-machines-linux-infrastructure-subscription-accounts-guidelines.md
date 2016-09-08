@@ -29,11 +29,11 @@ This article focuses on understanding how to approach subscription and account m
 Decisions:
 
 - What set of subscriptions and accounts do you need to host your IT workload or infrastructure?
-- How to break down the hierarchy  to fit your organization?
+- How to break down the hierarchy to fit your organization?
 
 Tasks:
 
-- Define your logical organization hierarchy  as you would like to manage it from a subscription level.
+- Define your logical organization hierarchy as you would like to manage it from a subscription level.
 - To match this logical hierarchy, define the accounts required and subscriptions under each account.
 - Create the set of subscriptions and accounts using your naming convention.
 
