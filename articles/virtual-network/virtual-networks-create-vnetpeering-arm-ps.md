@@ -188,7 +188,7 @@ To create VNet peering across subscriptions using PowerShell, please follow the 
 
         Set-AzureRmVirtualNetwork -VirtualNetwork $vnet1
 
-[AZURE.INCLUDE [virtual-networks-create-vnet-scenario-asmtoarm-include](../../includes/virtual-networks-create-vnetpeering-scenario-asmtoarm-include)]
+[AZURE.INCLUDE [virtual-networks-create-vnet-scenario-asmtoarm-include.md](../../includes/virtual-networks-create-vnetpeering-scenario-asmtoarm-include)]
 
 To create a VNet peering between a classic Virtual network and a Azure resource manager virtual network in PowerShell, follow the steps below:
 
