@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/18/2016"
+   ms.date="09/07/2016"
    ms.author="tomfitz"/>
 
 # Use portal to create Active Directory application and service principal that can access resources
@@ -150,9 +150,23 @@ You can set the scope at the level of the subscription, resource group, or resou
 
      If you do not have the correct permissions to grant access to an application, you must either request that your subscription administrator adds you to the User Access Administrator role, or request that an administrator grants access to the application.
 
-1. Navigate to the level of scope you wish to assign the application to. For this topic, you can navigate to a resource group, and from the resource group blade, select **Access control**.
+1. Navigate to the level of scope you wish to assign the application to. To assign a role at the subscription scope, select **Subscriptions**.
+
+     ![select subscription](./media/resource-group-create-service-principal-portal/select-subscription.png)
+
+     Select the particular subscription to assign the application to.
+
+     ![select subscription for assignment](./media/resource-group-create-service-principal-portal/select-one-subscription.png)
+
+     Select the **Access** icon in the upper-right corner.
+
+     ![select access](./media/resource-group-create-service-principal-portal/select-access.png)
+     
+     Or, to assign a role at resource group scope, navigate to a resource group. From the resource group blade, select **Access control**.
 
      ![select users](./media/resource-group-create-service-principal-portal/select-users.png)
+
+     The following steps are the same for any scope.
 
 2. Select **Add**.
 

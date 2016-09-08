@@ -21,8 +21,6 @@
 
 # SQL Database tutorial: Create a SQL database in minutes by using the Azure portal
 
-**Single database**
-
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-get-started.md)
 - [C#](sql-database-get-started-csharp.md)
