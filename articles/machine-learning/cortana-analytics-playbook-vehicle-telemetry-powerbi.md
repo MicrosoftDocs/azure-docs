@@ -79,7 +79,7 @@ Now, you are ready to configure the PowerBI dashboard with rich visualizations t
 	 
 **Start the real-time dashboard application**
 
-An application is included as part of the solution to generate the real-time dashboard in PowerBI. This application is listening to an Event Hub instance where Stream Analytics is publishing the events in a continuously pattern. For every event that this application received, it processes the data using Machine Learning Request-Response scoring endpoint and the resultant dataset is published to the PowerBI push API’s for visualization. 
+The solution includes an application that generates a real-time dashboard in PowerBI. This application listens to an Event Hub instance, from which Stream Analytics is publishing the events in a continuously pattern. For every event that this application receives, it processes the data using a Machine Learning Request-Response scoring endpoint. The resultant dataset is published to the PowerBI push APIs for visualization. 
 
 To download the application:
 
@@ -95,7 +95,7 @@ To download the application:
 
 
 ### Configure PowerBI reports
-The real-time reports and the dashboard takes about 30-45 minutes to complete. 
+The real-time reports and the dashboard take about 30-45 minutes to complete. 
 Browse to [http://powerbi.com](http://powerbi.com) and login.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/6-1-powerbi-signin.png)
@@ -177,7 +177,7 @@ Click on ![Add](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-das
 Select **vin** field and change visualization type to **Card**.  
 	![Connected Cars - Vin Card Visualization](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4m.png)  
 
-In the dataset we have a field named “MaintenanceLabel”. This field can have a value of “0” or “1”.” It is set by the Azure Machine Learning model provisioned as part of solution and integrated with the real-time path. The “1” value indicate a vehicle requires maintenance. 
+In the dataset we have a field named “MaintenanceLabel”. This field can have a value of “0” or “1”.” It is set by the Azure Machine Learning model provisioned as part of solution and integrated with the real-time path. The value “1” indicates a vehicle requires maintenance. 
 
 We will be adding **Page Level** filter for showing vehicles data which are requiring maintenance.  
 
@@ -203,7 +203,7 @@ Drag **vin** fields into **Color Saturation** present at **Fields** ![Fields](./
 ![Connected Cars - Color Saturation](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4q.png)  
 
 Change **Data Colors** in visualizations from **Format** section  
-Change Minimum color to : **F2C812**  
+Change Minimum color to: **F2C812**  
 Change Maximum color to: **FF6300**  
 ![Connected Cars - Color Changes](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4r.png)  
 ![Connected Cars - New Visualization Colors](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4s.png)  
@@ -215,11 +215,11 @@ Select **Clustered column chart** from visualizations, drag **vin** field into *
 
 Click on the blank area to add new visualization.  
 
-Select **Multi Row Card** visualization from visualizations, drag **Model** and **vin** into the **Fields** area.  
-![Connected Cars - Multi Row Card](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4u.png)    
+Select **Multi-Row Card** visualization from visualizations, drag **Model** and **vin** into the **Fields** area.  
+![Connected Cars - Multi-Row Card](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4u.png)    
 
-Rearrange all visualization, The final report will look like as shown below  
-![Connected Cars - Multi Row Card](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4v.png)  
+Rearranging all of the visualization, the final report looks as follows:  
+![Connected Cars - Multi-Row Card](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4v.png)  
 
 You have successfully configured the “Vehicles Requiring Maintenance” real-time report. You can proceed to create the next real-time report or stop here and configure the dashboard. 
 
@@ -229,7 +229,7 @@ Click on ![Add](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-das
 
 Select **Gauge** visualization from visualizations, then drag the **Speed** field into
 **Value, Minimum Value, Maximum Value** areas.  
-![Connected Cars - Multi Row Card](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4w.png)  
+![Connected Cars - Multi-Row Card](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4w.png)  
 
 Change the default aggregation of **speed** in **Value area** to **Average** 
 
@@ -237,7 +237,7 @@ Change the default aggregation of **speed** in **Minimum area** to **Minimum**
 
 Change the default aggregation of **speed** in **Maximum area** to **Maximum**
 
-![Connected Cars - Multi Row Card](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4x.png)  
+![Connected Cars - Multi-Row Card](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4x.png)  
 
 Rename the **Gauge Title** to **“Average speed”** 
  
@@ -259,7 +259,7 @@ Drag the **engineTemperature** field into **Line Values** area, change the  aggr
 
 ![Connected Cars - Visualizations Fields](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4aa.png)
 
-Change the chart **Title** to **“Average speed, tire pressure, engine oil and engine temperature”**  
+Change the chart **Title** to **“Average speed, tire pressure, engine oil and engine temperature”**.  
 
 ![Connected Cars - Visualizations Fields](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4bb.png)
 
@@ -267,19 +267,19 @@ Click on the blank area to add new visualization.
 
 Select **Treemap** visualization from visualizations, drag the **Model** field into the **Group** area, and drag the field **MaintenanceProbability** into the **Values** area.
 
-Change the chart **Title** to **“Vehicle models requiring maintenance”**
+Change the chart **Title** to **“Vehicle models requiring maintenance”**.
 
 ![Connected Cars - Change Chart Title](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4cc.png)
 
-Click on the blank area to add new visualization.
+Click the blank area to add new visualization.
 
-Select **100% Stacked Bar Chart** from visualization from visualizations, drag the **city** field into the **Axis** area, and drag the **MaintenanceProbability**, **RecallProbability** fields into the **Value** area
+Select **100% Stacked Bar Chart** from visualization, drag the **city** field into the **Axis** area, and drag the **MaintenanceProbability**, **RecallProbability** fields into the **Value** area.
 
 ![Connected Cars - Add New Visualization](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4dd.png)
 
-Click on **Format**, select **Data Colors**, change the **MaintenanceProbability** color to the value **“F2C80F”**
+Click **Format**, select **Data Colors**, and set the **MaintenanceProbability** color to the value **“F2C80F”**.
 
-Change the **Title** of the chart to **“Probability of Vehicle Maintenance & Recall by City”**  
+Change the **Title** of the chart to **“Probability of Vehicle Maintenance & Recall by City”**.
 
 ![Connected Cars - Add New Visualization](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4ee.png)
 
@@ -289,7 +289,7 @@ Select **Area Chart** from visualization from visualizations, drag the **Model**
 
 ![Connected Cars - Change Aggregation Type](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4ff.png)
 
-Change the Title of the chart to **“Average engine oil, tire pressure, speed and maintenance probability by model”**
+Change the Title of the chart to **“Average engine oil, tire pressure, speed and maintenance probability by model”**.
 
 ![Connected Cars - Change Chart Title](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4gg.png)
 
@@ -303,7 +303,7 @@ Click on the blank area to add new visualization.
 
 ![Connected Cars - Add new visualization](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4hh.png)
 
-Change the chart **Title** to **“Averages of Fuel, Engine Temperature by Model”**
+Change the chart **Title** to **“Averages of Fuel, Engine Temperature by Model”**.
 
 ![Connected Cars - Change Chart Title](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4ii.png)
 
