@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/08/2016"
+   ms.date="09/07/2016"
    ms.author="bwren" />
 
 # Integrating with Operations Management Suite (OMS)
@@ -97,9 +97,9 @@ OMS can automate processes to react to collected data or to perform other manage
 Runbooks in Azure Automation run PowerShell scripts and workflows in the Azure cloud.  You can use them to manage resources in Azure or any other resources that can be accessed from the cloud.  Runbooks can also be run in a local datacenter using Hybrid Runbook Worker.  You can start a runbook from the Azure portal or from external processes using a number of methods such as PowerShell or the Automation API.
 
 - [Starting a runbook in Azure Automation](../automation/automation-starting-a-runbook.md)
-- [Azure Automation cmdlets](https://msdn.microsoft.com/library/dn690262.aspx)
-- [Automation REST API](https://msdn.microsoft.com/library/mt662285.aspx)
-- [Automation .NET](https://msdn.microsoft.com//library/mt465763.aspx)
+- [Azure Automation cmdlets](https://msdn.microsoft.com/en-us/library/dn690262.aspx)
+- [Automation REST API](https://msdn.microsoft.com/en-us/library/mt662285.aspx)
+- [Automation .NET](https://msdn.microsoft.com/en-us/library/mt465763.aspx)
 
 ### Alerts
 
@@ -113,9 +113,9 @@ Alert rules automatically run log searches according to a schedule.  If the resu
 
 Azure Backup and Site Recovery provide services for protecting your enterprise data and ensuring the availability of servers and applications.  You can leverage these services to perform such scenarios as providing backup services for your application or initiating a failover of a virtual machine.
 
-- [Azure Backup cmdlets](https://msdn.microsoft.com/library/mt619253.aspx)
-- [Azure Site Recovery REST API](https://msdn.microsoft.com/library/azure/mt750497.aspx)
-- [Azure Site Recovery Cmdlets](https://msdn.microsoft.com/library/mt637930.aspx)
+- [Azure Backup cmdlets](https://msdn.microsoft.com/en-us/library/mt619253.aspx)
+- [Azure Site Recovery REST API](https://msdn.microsoft.com/en-us/library/azure/mt750497.aspx)
+- [Azure Site Recovery Cmdlets](https://msdn.microsoft.com/en-us/library/mt637930.aspx)
 
 ## Custom solutions
 
@@ -124,4 +124,4 @@ You can encapsulate custom logic into a custom solution to run in your workspace
 - Creating custom solutions (Link not available yet)    
 
 ## Next steps
-- Reference the OMS SDK for technical information on automating OMS services.
+- Automate OMS services from PowerShell.
