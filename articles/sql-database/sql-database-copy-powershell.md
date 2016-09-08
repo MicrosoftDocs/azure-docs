@@ -74,7 +74,7 @@ The following script assumes all resource groups, servers, and the pool already 
     # ------------------------------------------------------
     $SubscriptionId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     Add-AzureRmAccount
-    Select-AzureRmSubscription -SubscriptionId $SubscriptionId
+    Set-AzureRmContext -SubscriptionId $SubscriptionId
     
     
     # SQL database source (the existing database to copy)
