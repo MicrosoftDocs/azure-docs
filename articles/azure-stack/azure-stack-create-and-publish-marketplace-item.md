@@ -18,7 +18,7 @@
 
 # Create and publish a marketplace item
 
-## Create a marketplace item
+## Create a marketplace itepum
 
 1. [Download](http://www.aka.ms/azurestackmarketplaceitem) the Azure Gallery Packaging Tool and Sample Marketplace Item.
 
@@ -31,7 +31,7 @@
 		/Contoso.TodoList/Strings/
 		/Contoso.TodoList/DeploymentTemplates/
 
-3. [Create an Azure Resource Manager template](../resource-group-authoring-templates.md) or choose a template from GitHub. The Marketplace item will use this template to create a new resource.
+3. [Create an Azure Resource Manager template](../resource-group-authoring-templates.md) or choose a template from GitHub. The Marketplace item uses this template to create a new resource.
 
 4. Test the template with the Microsoft Azure Stack APIs to make sure the resource can be deployed successfully.
 
@@ -53,7 +53,7 @@
 	            "isDefault": true
             }
 
-10. Replace **My Marketplace Items** with a list of the categories where your Marketplace item will appear.
+10. Replace **My Marketplace Items** with a list of the categories where your Marketplace item should appear.
 
              "categories":[
          		"My Marketplace Items"
@@ -61,14 +61,14 @@
 
 11. For any further edits to the manifest.json, refer to [Reference: marketplace item manifest.json](## Reference: marketplace item manifest.json).
 
-12. Open a command prompt and run the following command to package the folders into an .azpkg file:
+12. Open a command prompt and run the following command to package the folders into an azpkg file:
 
     	AzureGalleryPackager.exe package –m <path to manifest.json> -o <output location for the package>
     Note: The full path to output package must exist. For example, if the output path is C:\MarketPlaceItem\yourpackage.azpkg, the folder C:\MarketPlaceItem must exist.
 
-## Pubish a marketplace item
+## Publish a marketplace item
 
-1. Use PowerShell or Azure Storage Explorer to upload your marketplace item (.azpkg) to blob storage. You can upload to local Azure Stack storage or upload to Azure storage. This will just be a temporary location. Make sure the blob is publically accessible. 
+1. Use PowerShell or Azure Storage Explorer to upload your marketplace item (.azpkg) to blob storage. You can upload to local Azure Stack storage or upload to Azure storage (it is a temporary location for the package). Make sure the blob is publically accessible. 
 
 2.  On the Client VM in Microsoft Azure Stack environment, ensure that your PowerShell Session is set up with your service administrator credentials. You can find instructions for how to authenticate PowerShell in Azure Stack in  [Deploy a Template with PowerShell](azure-stack-deploy-template-powershell.md).
 
@@ -78,7 +78,7 @@
 
 	| Parameter | Description |
 	|-----------|-------------|
-	| SubscriptionID | Admin subscription ID. This can be retrieved using PowerShell or in the portal by navigating to the provider Subscription and copying the Subscription ID |
+	| SubscriptionID | Admin subscription ID. Can be retrieved using PowerShell or in the portal by navigating to the provider Subscription and copying the Subscription ID |
 	| GalleryItemUri | The blob uri for your gallery package that has already been uploaded to storage |
 	| Apiversion | Set as "2015-04-01" |
 
@@ -116,7 +116,7 @@
 
 ### Images
 
-Below is the list of icons used in the marketplace.
+Following is the list of icons used in the marketplace.
 
 | NAME          | WIDTH | HEIGHT | NOTES                             |
 |---------------|-------|--------|-----------------------------------|
@@ -127,11 +127,11 @@ Below is the list of icons used in the marketplace.
 
 ### Categories
 
-Each marketplace item should be tagged with a category. This dictates which category the item appears in the portal UI. You can choose one of the existing categories in Azure Stack (Compute, Data + Storage, etc.) or choose a completely new one.
+Each marketplace item should be tagged with a category. This dictates which category the item appears in the portal UI. You can choose one of the existing categories in Azure Stack (Compute, Data + Storage, etc.) or choose a new one.
 
 ### Links
 
-Each marketplace item can include a variety of links to additional content. The links are specified as a list of names and URIs.
+Each marketplace item can include various links to additional content. The links are specified as a list of names and URIs.
 
 | NAME        | REQUIRED | TYPE   | CONSTRAINTS          | DESCRIPTION |
 |-------------|----------|--------|----------------------|-------------|
@@ -140,7 +140,7 @@ Each marketplace item can include a variety of links to additional content. The 
 
 ### Additional properties
 
-In addition to the above metadata, marketplace authors can also provide custom key/value pair data in the following form.
+In addition to the preceding metadata, marketplace authors can also provide custom key/value pair data in the following form.
 
 | NAME        | REQUIRED | TYPE   | CONSTRAINTS          | DESCRIPTION |
 |-------------|----------|--------|----------------------|-------------|
