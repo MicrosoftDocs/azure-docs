@@ -126,5 +126,45 @@ To add an owner to an Azure subscription, follow these steps:
 
 1. When you return to the **Users** blade, the user has been added as an owner. This user is now an owner of any labs created under this subscription, and thus be able to perform owner tasks. 
 
-[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+## Add an external user to a lab using PowerShell
 
+In addition to adding users in the Azure portal, you can add an external user to your lab using a PowerShell script. 
+
+In the following example:
+
+- Replace the placeholder value for `$emailAddress` with the email address of the external user. 
+- Replace the placeholder values of `$subscriptionId` and `$resourceGroup` with the Azure subscription id and resource group name that contains the lab
+- Replace `$labID` with the id of the lab. 
+
+You can retrieve these values from the lab blade in the Azure portal.
+
+	# Add an external user in DevTest Labs user role to a lab
+	# Ensure that guest users can be added to the Azure Active directory:
+	# https://azure.microsoft.com/en-us/documentation/articles/active-directory-create-users/#set-guest-user-access-policies
+	
+	# Replace the placeholder values of the following items with their respective values.
+	
+	$subscriptionId = "The id of the Azure subscription that contains the lab"
+	$resourceGroup = "The resource group name that contains the lab"
+	$labId = "The id of the lab"
+	
+	# Replace the value for $emailAddress with the email address for the external
+	# user to add.
+	
+	$emailAddress = "user@live.com"
+	
+	# Login to your Azure account
+	Login-AzureRmAccount
+	
+	# Select the Azure subscription that contains the lab. This step is optional
+	# if you only have one subscription.
+	
+	Select-AzureRmSubscription -SubscriptionId $subscriptionId
+	
+	$adObject = Get-AzureRmADUser -SearchString $emailAddress
+	
+	$labId = ('subscriptions/' + $subscriptionId + '/resourceGroups/' + $resourceGroup + '/providers/Microsoft.DevTestLab/labs/' + $labId)
+	
+	New-AzureRmRoleAssignment -ObjectId $adObject.Id -RoleDefinitionName 'DevTest Labs User' -Scope $labId
+
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
