@@ -25,11 +25,11 @@ For example, you can set the rules for the VM sizes allowed to create VMs, the t
 
 ## Accessing a lab's policies
 
-In order to view (and change) the policies for a lab, follow these steps:
+To view (and change) the policies for a lab, follow these steps:
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Select **Browse**, and then select **DevTest Labs** from the list.
+1. Select **More services**, and then select **DevTest Labs** from the list.
 
 1. From the list of labs, select the desired lab.   
 
@@ -39,7 +39,7 @@ In order to view (and change) the policies for a lab, follow these steps:
 
 	![Policy settings blade](./media/devtest-lab-set-lab-policy/policies.png)
 
-	Select the desired policy from the list below to learn more about setting it:
+	Select the desired policy from the following list to learn more about setting it:
 
 	- [Allowed virtual machine sizes](#set-allowed-virtual-machine-sizes) - Select the list of VM sizes allowed in the lab. A user can create VMs only from this list.
 
@@ -68,7 +68,7 @@ The policy for setting the allowed VM sizes helps to minimize lab waste by enabl
 ## Set virtual machines per user
 
 The policy for **Virtual machines per user** allows you to specify the maximum number of VMs that can be created by an individual user. 
-If a user attempts to create a VM when the user limit has been met, an error message will indicate that the VM cannot be created. 
+If a user attempts to create a VM when the user limit has been met, an error message indicates that the VM cannot be created. 
 
 1. On the lab's **Policy settings** blade, select **Virtual machines per user**.
 
@@ -77,14 +77,14 @@ If a user attempts to create a VM when the user limit has been met, an error mes
 1. Select **On** to enable this policy, and **Off** to disable it.
 
 1. If you enable this policy, in the **Maximum allowed virtual machines per user** text box, enter a numeric value indicating the maximum number of VMs that can be created by a user. 
-If you enter a number that is not valid, the UI will display the maximum number allowed for this field.
+If you enter a number that is not valid, the UI displays the maximum number allowed for this field.
 
 1. Select **Save**.
 
 ## Set virtual machines per lab
 
 The policy for **Virtual machines per lab** allows you to specify the maximum number of VMs that can be created for the current lab. 
-If a user attempts to create a VM when the lab limit has been met, an error message will indicate that the VM cannot be created. 
+If a user attempts to create a VM when the lab limit has been met, an error message indicates that the VM cannot be created. 
 
 1. On the lab's **Policy settings** blade, select **Virtual machines per lab**.
 
@@ -93,7 +93,7 @@ If a user attempts to create a VM when the lab limit has been met, an error mess
 1. Select **On** to enable this policy, and **Off** to disable it.
 
 1. If you enable this policy, in the **Maximum virtual machines allowed in this lab** text box, enter a numeric value indicating the maximum number of VMs that can be created for the current lab. 
-If you enter a number that is not valid, the UI will display the maximum number allowed for this field.
+If you enter a number that is not valid, the UI displays the maximum number allowed for this field.
 
 1. Select **Save**.
 
@@ -136,7 +136,7 @@ The auto-start policy allows you to specify when the VMs in the current lab shou
 Once you've defined and applied the various VM policy settings for your lab, here are some things to try next:
 
 - [Configure cost management](./devtest-lab-configure-cost-management.md) - Illustrates how to use the **Monthly Estimated Cost Trend** chart  
-to view the current month's estimated cost-to-date as well as the projected end-of-month cost.
+to view the current month's estimated cost-to-date and the projected end-of-month cost.
 - [Create custom image](./devtest-lab-create-template.md) - When you create a VM, you specify a base, which can be either a custom image or a Marketplace image. This article illustrates
 how to create a custom image from a VHD file.
 - [Configure Marketplace images](./devtest-lab-configure-marketplace-images.md) - Azure DevTest Labs supports creating VMs based on Azure Marketplace images. This article
