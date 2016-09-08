@@ -3,7 +3,7 @@
    description="Power BI Embedded, interact with reports using the JavaScript API"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="jocaplan"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="08/26/2016"
-   ms.author="jocaplan"/>
+   ms.author="mblythe"/>
 
 # Interact with Power BI reports using the JavaScript API
 

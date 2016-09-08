@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/09/2016"
+	ms.date="09/04/2016"
 	ms.author="juliako"/>
 
 
 #Manage Azure Media Services Accounts with PowerShell
 
 > [AZURE.SELECTOR]
-- [Portal](media-services-create-account.md)
+- [Portal](media-services-portal-create-account.md)
 - [PowerShell](media-services-manage-with-powershell.md)
 - [REST](http://msdn.microsoft.com/library/azure/dn194267.aspx)
 

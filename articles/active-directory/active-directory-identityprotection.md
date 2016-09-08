@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/25/2016"
+	ms.date="09/07/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection 
@@ -24,10 +24,6 @@ Azure Active Directory Identity Protection is a security service that provides a
 ## Limitations of the current preview
 This section lists limitations that apply to the current preview of Azure Active Directory Identity Protection.
 
-### Country or Region limitation
-
-The preview of Azure Active Directory Identity Protection is currently available only for directories with a **Country or Region** value of **United States**. <br><br>
-![Remediation](./media/active-directory-identityprotection/222.png "Remediation")
 
 
 ### Identity Protection and federated domains
