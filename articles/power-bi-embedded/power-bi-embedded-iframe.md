@@ -3,7 +3,7 @@
    description="Learn how to use Power BI Embedded with REST "
    services="power-bi-embedded"
    documentationCenter=""
-   authors="tsmatsuz"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="08/02/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # How to use Power BI Embedded with REST
 
