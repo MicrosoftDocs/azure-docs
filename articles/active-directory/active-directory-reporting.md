@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Active Directory Reporting: Getting started | Microsoft Azure"
+   pageTitle="Azure Active Directory reporting - preview | Microsoft Azure"
    description="Lists the various available reports in Azure Active Directory reporting"
    services="active-directory"
    documentationCenter=""
@@ -16,7 +16,7 @@
    ms.date="08/17/2016"
    ms.author="markvi"/>
 
-# Azure Active Directory reporting 
+# Azure Active Directory reporting - preview
 
 With Azure Active Directory reporting, you get all the information you need to determine how your environment is doing.
 
@@ -119,8 +119,8 @@ You can filter sign-ins by a time interval to limit the amount of displayed data
 ![Reporting](./media/active-directory-reporting/927.png "Reporting")
 
 
-Another method to filter the entries of a audit log is to search for specific entries.
-The search method enables scope your sign-ins around specific users, groups or applications.
+Another method to filter the entries of the sign-in activities is to search for specific entries.
+The search method enables you to scope your sign-ins around specific users, groups or applications.
 
 
 ![Reporting](./media/active-directory-reporting/sign_ins_search.png "Reporting")
@@ -182,6 +182,8 @@ With user and group-based audit reports, you can get answers to questions such a
 
 - Have the owners of group been changed? 
 
+- What licenses have been assigned to a group or a user?
+
 
 If you just want to review auditing data that is related to users and groups, you can find a filtered view under **Audit logs** in the **Activity** section of **Users and Groups**.
 
@@ -193,13 +195,15 @@ If you just want to review auditing data that is related to users and groups, yo
 
 With application-based audit reports, you can get answers to questions such as:
 
-- What are the applications that have been added?
+- What are the applications that have been added or updated?
 
 - What are the applications that have been removed?
 
 - Has a service principle for an application changed?
 
 - Have the names of applications been changed? 
+
+- Who gave consent to an application?
 
 
 If you just want to review auditing data that is related to applications, you can find a filtered view under **Audit logs** in the **Activity** section of **Enterprise applications**.
