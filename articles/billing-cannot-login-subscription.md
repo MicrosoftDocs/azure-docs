@@ -26,11 +26,11 @@ This article guides you through some of the most common methods to resolve login
 
 ## Portal URLs
 
--	Azure portal： [https://portal.azure.com](https://portal.azure.com)
+-	Azure portal: [https://portal.azure.com](https://portal.azure.com)
 -	Azure classic portal: [https://manage.windowsazure.com](https://manage.windowsazure.com)
 -	Azure Account Center (for subscription and billing management): [https://account.windowsazure.com/Subscriptions](https://account.windowsazure.com/Subscriptions)
 
-## Symptom: A blank page is received or the page hangs in the loading status
+## Symptom: The page hangs in the loading status
 
 This issue can be caused a problem that affects your Internet browser.
 
@@ -43,17 +43,17 @@ To resolve this issue, try the following methods, in the given order. After you 
 1.	Click **Settings** > **Safety** > **InPrivate Browsing**.
 2.	Browse to the [Azure portal](https://portal.azure.com) or the [Azure classic portal](https://manage.windowsazure.com), and then sign in to the portal.
 
-## Symptom: Error message “No subscriptions found” or "You do not have any subscriptions"
+## Symptom: Error message "No subscriptions found”
 
 This issue can occur if the account doesn’t have sufficient user rights.
 
 **Error message is received in the Azure portal or the Azure classic portal**
 
-To resolve this issue, add the administrator roles for the account.
+To resolve this issue, [add the administrator roles](billing-add-change-azure-subscription-administrator.md) for the account.
 
 **Error message is received in the Azure Account Center**
 
-Check whether the account that you used is the [account administrator](billing-add-change-azure-subscription-administrator.md). To verify who the account administrator is, follow these steps:
+Check whether the account that you used is the account administrator. To verify who the account administrator is, follow these steps:
 
 1.	Sign in to the [Azure portal](https://portal.azure.com).
 2.	On the Hub menu, select **Subscription**.
