@@ -3,7 +3,7 @@
 	description="Azure Machine Learning Recommendations - Quick Start Guide" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="luisca" 
+	authors="LuisCabrer" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,10 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/09/2016" 
+	ms.date="09/08/2016" 
 	ms.author="luisca"/>
 
 # Quick start guide for the Machine Learning Recommendations API
+
+>[AZURE.NOTE] You should start using the Recommendations API Cognitive Service instead of this
+> version. The Recommendations Cognitive Service will be replacing this service, and all the new 
+> features will be developed there. It has new capabilities like batching support, a better API Explorer,
+> a cleaner API surface, more consistent signup/billing experience, etc.
+> Learn more about [Migrating to the new Cognitive Service](http://aka.ms/recomigrate)
+
 
 This document describes how to onboard your service or application to use Microsoft Azure Machine Learning Recommendations. You can find more details on the Recommendations API in the [gallery](http://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
 

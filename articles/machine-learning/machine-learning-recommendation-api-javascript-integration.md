@@ -3,7 +3,7 @@
 	description="Azure Machine Learning Recommendations - JavaScript Integration – documentation" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="AharonGumnik" 
+	authors="LuisCabrer" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,10 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="02/10/2016" 
+	ms.date="09/08/2016" 
 	ms.author="luisca"/>
 
 # Azure Machine Learning Recommendations - JavaScript Integration
+
+>[AZURE.NOTE] You should start using the Recommendations API Cognitive Service instead of this
+> version. The Recommendations Cognitive Service will be replacing this service, and all the new 
+> features will be developed there. It has new capabilities like batching support, a better API Explorer,
+> a cleaner API surface, more consistent signup/billing experience, etc.
+> Learn more about [Migrating to the new Cognitive Service](http://aka.ms/recomigrate)
 
 This document depict how to integrate your site using JavaScript. The JavaScript enables you to send Data Acquisition events and to consume recommendations once you build a recommendation model. All operations done via JS can be also done from server side.
 
