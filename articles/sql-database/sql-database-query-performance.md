@@ -22,10 +22,7 @@
 Managing and tuning the performance of relational databases is a challenging task that requires significant expertise and time investment. Query Performance Insight allows you to spend less time troubleshooting database performance by providing the following:
 
 - Deeper insight into your databases resource (DTU) consumption. 
-- The top CPU consuming queries, which can potentially be tuned for improved performance. 
-  - CPU
-  - Duration
-  - Execution count
+- The top queries by CPU/Duration/Execution count, which can potentially be tuned for improved performance.
 - The ability to drill down into the details of a query, view its text and history of resource utilization. 
 - Performance tuning annotations that show actions performed by [SQL Azure Database Advisor](sql-database-advisor.md)  
 
