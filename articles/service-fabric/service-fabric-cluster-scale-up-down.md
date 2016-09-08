@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/04/2016"
+   ms.date="09/09/2016"
    ms.author="chackdan"/>
 
 
@@ -47,6 +47,40 @@ Follow these instructions [to set up auto-scale for each VM scale set](../virtua
 
 >[AZURE.NOTE] In a scale down scenario, unless your node type has a durability level of Gold or Silver you will need to call the [Remove-ServiceFabricNodeState cmdlet](https://msdn.microsoft.com/library/azure/mt125993.aspx) with the appropriate node name.
 
+## Manually add VMs to a node type/VM scale set
+
+Follow the sample/instructions in the [quick start template gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) to change the number of VMs in each of the Nodetype. 
+
+>[AZURE.NOTE] Adding of VMs takes time, so do not expect the additions to be instantaneous. So plan to add capacity  well in time, to allow for over 10 minutes before the VM capacity is available for the replicas/ service instances to get placed.
+
+## Manually remove VMs from the primary node type/VM scale set
+
+>[AZURE.NOTE] The service fabric system services run in the Primary node type in your cluster. So should never shut down or scale down the number of instances in that node types less than what the reliability tier warrants. Refer to [the details on reliability tiers here](service-fabric-cluster-capacity.md). 
+
+You need the execute the following steps one VM instance at a time. This allows for the system services (and your stateful services) to be shut down gracefully on the VM instance you are removing and new replicas created else where.
+
+1. Run [Disable-ServiceFabricNode](https://msdn.microsoft.com/en-us/library/mt125852.aspx)  with intent ‘RemoveNode’ to disable the node you’re going to remove (the highest instance in that node type).
+
+2. Run [Get-ServiceFabricNode](https://msdn.microsoft.com/en-us/library/mt125856.aspx) to make sure that the node has indeed transitioned to disabled. If not wait till the node is disabled. You cannot hurry this step.
+
+2. Follow the sample/instructions in the [quick start template gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) to change the number of VMs by one in that Nodetype. This will now remove the highest VM instance. 
+
+3. Repeat steps 1 through 3 as needed, but never scale down the number of instances in the primary node types less than what the reliability tier warrants. Refer to [the details on reliability tiers here](service-fabric-cluster-capacity.md). 
+
+## Manually remove VMs from the non-primary node type/VM scale set
+
+>[AZURE.NOTE] For a stateful service, you need a certain number of nodes to be up at all times in order to maintain availability and preserve state of your service. At the very minimum, you will need the number of nodes equal to the target replica set count of the partition/service. 
+
+You need the execute the following steps one VM instance at a time. This allows for the system services (and your stateful services) to be shut down gracefully on the VM instance you are removing and new replicas created else where.
+
+1. Run [Disable-ServiceFabricNode](https://msdn.microsoft.com/en-us/library/mt125852.aspx)  with intent ‘RemoveNode’ to disable the node you’re going to remove (the highest instance in that node type).
+
+2. Run [Get-ServiceFabricNode](https://msdn.microsoft.com/en-us/library/mt125856.aspx) to make sure that the node has indeed transitioned to disabled. If not wait till the node is disabled. You cannot hurry this step.
+
+2. Follow the sample/instructions in the [quick start template gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) to change the number of VMs by one in that Nodetype. This will now remove the highest VM instance. 
+
+3. Repeat steps 1 through 3 as needed, but never scale down the number of instances in the primary node types less than what the reliability tier warrants. Refer to [the details on reliability tiers here](service-fabric-cluster-capacity.md).
+
 ## Behaviors you may observe in Service Fabric Explorer
 
 When you scale up a cluster the Service Fabric Explorer will reflect the number of nodes (VM scale set instances) that are part of the cluster.  However, when you scale a cluster down you will still see the removed node/VM instance displayed in an unhealthy state unless you call [Remove-ServiceFabricNodeState cmd](https://msdn.microsoft.com/library/mt125993.aspx) with the appropriate node name.   
@@ -58,7 +92,7 @@ The nodes listed in Service Fabric Explorer are a reflection of what the Service
 In order to make sure that a node is removed when a VM is removed you have two options:
 
 1) Choose a durability level of Gold or Silver (available soon) for the node types in your cluster, which will give you the infrastructure integration. Which will then automatically remove the nodes from our system services (FM) state when you scale down.
-Refer to [the details on durability levels](service-fabric-cluster-capacity.md)
+Refer to [the details on durability levels here](service-fabric-cluster-capacity.md)
 
 2) Once the VM instance has been scaled down, you will need to call the [Remove-ServiceFabricNodeState cmdlet](https://msdn.microsoft.com/library/mt125993.aspx).
 

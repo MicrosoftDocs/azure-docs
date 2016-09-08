@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/02/2016"
+   ms.date="09/09/2016"
    ms.author="chackdan"/>
 
 # Create standalone Service Fabric clusters on Windows Server or Linux
@@ -27,8 +27,8 @@ Service Fabric provides an install package for you to create these standalone Se
 You will be able to create clusters on VMs or computers running these operating systems:
 
 * Windows Server 2012 R2
-* Windows Server 2016
-* Linux
+* Windows Server 2016 (After it is announced as generally available)
+* Linux (soon)
 
 For more information on Windows Server read [Service Fabric cluster creation for Windows Server](service-fabric-cluster-creation-for-windows-server.md)
 
