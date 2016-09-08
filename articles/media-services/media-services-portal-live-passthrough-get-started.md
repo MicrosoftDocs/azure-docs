@@ -83,6 +83,7 @@ To take advantage of dynamic packaging, you need to get at least one streaming u
 
 To create and change the number of streaming reserved units, do the following:
 
+1. Log in at the [Azure portal](https://portal.azure.com/).
 1. In the **Settings** window, click **Streaming endpoints**. 
 
 2. Click on the default streaming endpoint. 
@@ -91,7 +92,7 @@ To create and change the number of streaming reserved units, do the following:
 
 3. To specify the number of streaming units, slide the **Streaming units** slider.
 
-	![Streaming units](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
+	![Streaming units](./media/media-services-portal-passthrough-get-started/media-services-streaming-units.png)
 
 4. Click the **Save** button to save your changes.
 
@@ -150,7 +151,7 @@ Once the channel is created, you can get ingest URLs that you will provide to th
 
 ![Created](./media/media-services-portal-passthrough-get-started/media-services-channel-created.png)
 
-##Watch an event
+##Watch the event
 
 To watch the event, click **Watch** in the Azure portal or copy the streaming URL and use a player of your choice. 
  
