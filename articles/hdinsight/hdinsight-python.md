@@ -126,13 +126,13 @@ Once past registration, the Pig Latin for this example is the same for both:
 
 Here's what this example does:
 
-2. The next line loads the sample data file, **sample.log** into **LOGS**. Since this log file doesn't have a consistent schema, it also defines each record (**LINE** in this case,) as a **chararray**. Chararray is, essentially, a string.
+1. The first line loads the sample data file, **sample.log** into **LOGS**. Since this log file doesn't have a consistent schema, it also defines each record (**LINE** in this case,) as a **chararray**. Chararray is, essentially, a string.
 
-3. The third line filters out any null values, storing the result of the operation into **LOG**.
+2. The next line filters out any null values, storing the result of the operation into **LOG**.
 
-4. Next, it iterates over the records in **LOG** and uses **GENERATE** to invoke the **create_structure** method contained in the Python/Jython script loaded as **myfuncs**.  **LINE** is used to pass the current record to the function.
+3. Next, it iterates over the records in **LOG** and uses **GENERATE** to invoke the **create_structure** method contained in the Python/Jython script loaded as **myfuncs**.  **LINE** is used to pass the current record to the function.
 
-5. Finally, the outputs are dumped to STDOUT using the **DUMP** command. This is just to immediately show the results after the operation completes; in a real script you would normally **STORE** the data into a new file.
+4. Finally, the outputs are dumped to STDOUT using the **DUMP** command. This is just to immediately show the results after the operation completes; in a real script you would normally **STORE** the data into a new file.
 
 The actual Python script file is also similar between C Python and Jython, the only real difference being that you must import from __pig\_util__ when using C Python. Here's the __pig\_python.py__ script:
 
