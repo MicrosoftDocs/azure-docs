@@ -32,15 +32,32 @@ This article walks you through the steps to create an Azure ExpressRoute circuit
 
 ## Before you begin
 
-- You need the latest version of the Azure PowerShell modules. You can download the latest PowerShell modules from the PowerShell section of the [Azure Downloads page](https://azure.microsoft.com/downloads/). Follow the instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules.
+Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.  
 
-- Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
+
+### 1. Install the latest versions of the Azure PowerShell modules 
+
+Follow the instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules.
+
+### 2. Log in to your Azure account and select a subscription
+
+1. Open PowerShell with an account that has local administrator privileges. Then, run the following cmdlet:
+
+		Add-AzureAccount
+2. In the sign-in screen that appears, sign in to your account.
+
+3. Get a list of your subscriptions.
+
+		Get-AzureSubscription
+4. Select the subscription that you want to use.
+	
+		Select-AzureSubscription -SubscriptionName "mysubscriptionname"
 
 ## Create and provision an ExpressRoute circuit
 
 ### 1. Import the PowerShell modules for ExpressRoute
 
- You must import the Azure and ExpressRoute modules into the PowerShell session in order to start using the ExpressRoute cmdlets. To do this, run the following commands:  
+ You must import the Azure and ExpressRoute modules into the PowerShell session in order to start using the ExpressRoute cmdlets. You import the modules from the location that they were installed to on your local computer. Depending on the method you used to install the modules, the location may be different than the following example shows. Modify the example if necessary.  
 
 	Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
 	Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
