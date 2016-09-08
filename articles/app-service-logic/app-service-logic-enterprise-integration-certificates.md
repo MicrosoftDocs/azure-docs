@@ -56,14 +56,14 @@ Here are the detailed steps for uploading your public certificates into your int
 
  6. Enter a **Name** for your certificate, and then select the certificate type. (In this example, we used the public certificate type.) Next, select the folder icon to the right of the **Certificate** text box.
 
- 7. After the file picker opens, find and select the certificate file that you want to upload to your integration account. Then select **OK** in the file picker. This action validates the certificate and uploads the it to your integration account.
+7. After the file picker opens, find and select the certificate file that you want to upload to your integration account. Then select **OK** in the file picker. This action validates the certificate and uploads the it to your integration account.
 
- 8. Back on the **Add certificate blade**, select the **OK** button.  
+8. Back on the **Add certificate blade**, select the **OK** button.  
 ![Add the certificate](./media/app-service-logic-enterprise-integration-certificates/certificate-3.png)  
 
- 9. In about a minute, you will see a notification that indicates that the certificate upload is complete.  
+9. In about a minute, you will see a notification that indicates that the certificate upload is complete.  
 
- 10. Select the **Certificates** tile. After the page refreshes, you should see the newly added certificate.  
+10. Select the **Certificates** tile. After the page refreshes, you should see the newly added certificate.  
 ![See the new certificate](./media/app-service-logic-enterprise-integration-certificates/certificate-4.png)  
 
 ### Private certificates
@@ -105,7 +105,7 @@ Following are the detailed steps for uploading your private certificates into yo
 ![Add certificate](./media/app-service-logic-enterprise-integration-certificates/privatecertificate-1.png)  
 10. In about a minute, you will see a notification that indicates that the certificate upload is complete.
 
-8. Select the **Certificates tile**. You should see the newly added certificate.
+11. Select the **Certificates tile**. You should see the newly added certificate.
 ![See the new certificate](./media/app-service-logic-enterprise-integration-certificates/privatecertificate-2.png)  
 
 After you upload a certificate, it's available to help you to secure your B2B messages when you define their properties in [agreements](./app-service-logic-enterprise-integration-agreements.md).  
