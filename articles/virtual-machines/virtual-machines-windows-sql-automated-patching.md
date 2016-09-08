@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/18/2016"
+	ms.date="08/19/2016"
 	ms.author="jroth" />
 
 # Automated Patching for SQL Server in Azure Virtual Machines (Resource Manager)
@@ -22,7 +22,7 @@
 - [Resource Manager](virtual-machines-windows-sql-automated-patching.md)
 - [Classic](virtual-machines-windows-classic-sql-automated-patching.md)
 
-Automated Patching establishes a maintenance window for an Azure Virtual Machine running SQL Server. Automated Updates can only be installed during this maintenance window. For SQL Server, this ensures that system updates and any associated restarts occur at the best possible time for the database. Automated Patching depends on the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md).
+Automated Patching establishes a maintenance window for an Azure Virtual Machine running SQL Server. Automated Updates can only be installed during this maintenance window. For SQL Server, this rescriction ensures that system updates and any associated restarts occur at the best possible time for the database. Automated Patching depends on the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model. To view the classic version of this article, see [Automated Patching for SQL Server in Azure Virtual Machines Classic](virtual-machines-windows-classic-sql-automated-patching.md).
 
@@ -60,10 +60,10 @@ The following table describes the options that can be configured for Automated P
 |**Patch Category**|Important|The category of updates to download and install.|
 
 ## Configuration in the Portal
-You can use the Azure Portal to configure Automated Patching during provisioning or for existing VMs.
+You can use the Azure portal to configure Automated Patching during provisioning or for existing VMs.
 
 ### New VMs
-Use the Azure Portal to configure Automated Patching when you create a new SQL Server Virtual Machine in the Resource Manager deployment model.
+Use the Azure portal to configure Automated Patching when you create a new SQL Server Virtual Machine in the Resource Manager deployment model.
 
 In the **SQL Server settings** blade, select **Automated patching**. The following Azure portal screenshot shows the **SQL Automated Patching** blade.
 
@@ -82,7 +82,7 @@ In the **SQL Server configuration** blade, click the **Edit** button in the Auto
 
 When finished, click the **OK** button on the bottom of the **SQL Server configuration** blade to save your changes.
 
-If you are enabling Automated Patching for the first time, Azure configures the SQL Server IaaS Agent in the background. During this time, the Azure portal might not show that Automated Patching is configured. Wait several minutes for the agent to be installed, configured. After that the Azure portal will reflect the new settings.
+If you are enabling Automated Patching for the first time, Azure configures the SQL Server IaaS Agent in the background. During this time, the Azure portal might not show that Automated Patching is configured. Wait several minutes for the agent to be installed, configured. After that the Azure portal reflects the new settings.
 
 >[AZURE.NOTE] You can also configure Automated Patching using a template. For more information, see [Azure quickstart template for Automated Patching](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-autopatching-update).
 
@@ -105,7 +105,7 @@ Based on this example, the following table describes the practical effect on the
 |**DayOfWeek**|Patches installed every Thursday.|
 |**MaintenanceWindowStartingHour**|Begin updates at 11:00am.|
 |**MaintenanceWindowsDuration**|Patches must be installed within 120 minutes. Based on the start time, they must complete by 1:00pm.|
-|**PatchCategory**|The only possible setting for this parameter is “Important”.|
+|**PatchCategory**|The only possible setting for this parameter is **Important**.|
 
 It could take several minutes to install and configure the SQL Server IaaS Agent.
 

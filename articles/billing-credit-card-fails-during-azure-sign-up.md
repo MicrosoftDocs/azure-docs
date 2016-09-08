@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="08/17/2016"
 	ms.author="cjiang"/>
 
 # My credit card or debit card is declined when I try to sign up for Azure
@@ -23,7 +23,7 @@ If your credit card or debit card was declined, it might be because you’re usi
 
 If you are indeed using a valid credit card or debit card, make sure that the card is active and your bank is not blocking online transactions due to its security policies.
 
-[AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
+> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
 ## Is your credit/debit card information correct and complete?
 - The credit or debit card you’re using should be listed in the drop-down list for the country you choose. If it’s not listed, then it is not an available option for your country.
@@ -40,3 +40,5 @@ You can also pay for your Azure subscription via invoicing payment methods such 
 To use the invoice payment option, you must represent a business. This option is not available for individual subscribers. Once your business is set up to pay using the invoice option, you cannot change to a different payment option at a later time.
 
 To start the process of setting up an invoice, see [Azure Billing - How to invoice](https://azure.microsoft.com/pricing/invoicing/) for details.
+
+> [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.

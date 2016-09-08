@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="07/25/2016"
+	ms.date="08/18/2016"
 	ms.author="sdanie" />
 
 # How to configure Azure Redis Cache
@@ -35,9 +35,7 @@ Azure Redis Cache provides the following settings on the **Settings** blade.
 -	[General settings](#general-settings)
 	-	[Properties](#properties)
 	-	[Access keys](#access-keys)
-	-	[Access ports](#access-ports)
-	-	[Maxmemory policy](#maxmemory-policy-and-maxmemory-reserved)
-	-	[Advanced settings (keyspace notifications)](#keyspace-notifications-advanced-settings)
+	-	[Advanced settings](#advanced-settings)
 	-	[Redis Cache Advisor](#redis-cache-advisor)
 -	[Scale settings](#scale-settings)
 	-	[Pricing tier](#pricing-tier)
@@ -76,9 +74,7 @@ The settings in the **General** section allow you to access and configure the fo
 
 -	[Properties](#properties)
 -	[Access keys](#access-keys)
--	[Access ports](#access-ports)
--	[Maxmemory policy](#maxmemory-policy-and-maxmemory-reserved)
--	[Advanced settings (keyspace notifications)](#keyspace-notifications-advanced-settings)
+-	[Advanced settings](#advanced-settings)
 -	[Redis Cache Advisor](#redis-cache-advisor)
 
 ### Properties
@@ -93,15 +89,29 @@ Click **Access keys** to view or regenerate the access keys for your cache. Thes
 
 ![Redis Cache Access Keys](./media/cache-configure/redis-cache-manage-keys.png)
 
+
+
+
+
+
+### Advanced settings
+
+The following settings are configure on the **Advanced settings** blade.
+
+-	[Access Ports](#access-ports)
+-	[Maxmemory-policy and maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved)
+-	[Keyspace notifications (advanced settings)](#keyspace-notifications-advanced-settings)
+
+
 ### Access Ports
 
-By default, non-SSL access is disabled for new caches. To enable the non-SSL port, click **Access Ports** blade and then click **No**.
+By default, non-SSL access is disabled for new caches. To enable the non-SSL port, click **No** for **Allow access only via SSL** on the **Advanced settings blade** and then click **Save**.
 
 ![Redis Cache Access Ports](./media/cache-configure/redis-cache-access-ports.png)
 
 ### Maxmemory-policy and maxmemory-reserved
 
-Click **Maxmemory policy** to configure the memory policies for the cache. The **maxmemory-policy** setting configures the eviction policy for the cache and **maxmemory-reserved** configures the memory reserved for non-cache processes.
+The **Maxmemory policy** and **maxmemory-reserved** settings on the **Advanced settings** blade configure the memory policies for the cache. The **maxmemory-policy** setting configures the eviction policy for the cache and **maxmemory-reserved** configures the memory reserved for non-cache processes.
 
 ![Redis Cache Maxmemory Policy](./media/cache-configure/redis-cache-maxmemory-policy.png)
 
@@ -122,7 +132,7 @@ The **maxmemory-reserved** setting configures the amount of memory in MB that is
 
 ### Keyspace notifications (advanced settings)
 
-Click **Advanced settings** to configure Redis keyspace notifications. Keyspace notifications allows clients to receive notifications when certain events occur.
+Redis keyspace notifications are configured on the **Advanced settings** blade. Keyspace notifications allow clients to receive notifications when certain events occur.
 
 ![Redis Cache Advanced Settings](./media/cache-configure/redis-cache-advanced-settings.png)
 
@@ -291,7 +301,7 @@ The **Tags** section helps you organize your resources. For more information, se
 
 The **Locks** section allows you to lock a subscription, resource group or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. For more information, see [Lock resources with Azure Resource Manager](../resource-group-lock-resources.md).
 
-The **Users** section provides support for role-based access control (RBAC) in the Azure Portal to help organizations meet their access management requirements simply and precisely. For more information, see [Role-based access control in the Azure Portal](../active-directory/role-based-access-control-configure.md).
+The **Users** section provides support for role-based access control (RBAC) in the Azure portal to help organizations meet their access management requirements simply and precisely. For more information, see [Role-based access control in the Azure portal](../active-directory/role-based-access-control-configure.md).
 
 Click **Export template** to build and export a template of your deployed resources for future deployments. For more information about working with templates, see [Deploy resources with Azure Resource Manager templates](../resource-group-template-deploy.md).
 
@@ -303,7 +313,7 @@ New Azure Redis Cache instances are configured with the following default Redis 
 >
 >`StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 >  
->Any values that are configurable, such as **max-memory-policy**, are configurable through the Azure Portal or command line management tools such as Azure CLI or PowerShell.
+>Any values that are configurable, such as **max-memory-policy**, are configurable through the Azure portal or command line management tools such as Azure CLI or PowerShell.
 
 |Setting|Default value|Description|
 |---|---|---|

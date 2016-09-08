@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Overview of Monitoring in Microsoft Azure | Microsoft Azure"
-	description="Top level overview of monitoring and diagnostics in azure alerts to other non-Azure systems."
+	description="Top level overview of monitoring and diagnostics in Microsoft Azure including alerts, webhooks, autoscale and more."
 	authors="rboucher"
 	manager=""
 	editor=""

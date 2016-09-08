@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="08/22/2016"
 	ms.author="mahender"/>
 
 # How to configure your App Service application to use Twitter login
@@ -29,7 +29,7 @@ To complete the procedure in this topic, you must have a Twitter account that ha
 
 1. Log on to the [Azure portal], and navigate to your application. Copy your **URL**. You will use this to configure your Twitter app.
 
-2. Navigate to the [Twitter Developers] website, sign-in with your Twitter account credentials, and click **Create New App**.
+2. Navigate to the [Twitter Developers] website, sign in with your Twitter account credentials, and click **Create New App**.
 
 3. Type in the **Name** and a **Description** for your new app. Paste in your application's **URL** for the **Website** value. Then, for the **Callback URL**, paste the **Callback URL** you copied earlier. This is your Mobile App gateway appended with the path, _/.auth/login/twitter/callback_. For example, `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. Make sure that you are using the HTTPS scheme.
 

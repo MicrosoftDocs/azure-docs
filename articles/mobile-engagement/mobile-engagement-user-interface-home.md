@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile"
-   ms.date="11/29/2015"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # How to manage your existing application and projects
@@ -23,7 +23,7 @@ This article describes the **Home** page of the **Mobile Engagement** portal. Yo
 
 To get to the home page, click **Home** on the top left of the page. It contains the list of all of your applications that are part of the chosen collection. On this page you just see a quick overview of your applications.
 
-The home page also contains all your projects that can include any application that are in your account. Note that anyone can access the home page of the UI by creating an account, but you need to grant permission to other users in order for them to have access to your custom applications in **My Projects**.
+The home page also contains all your projects that can include any application that is in your account. Note that anyone can access the home page of the UI by creating an account, but you need to grant permission to other users in order for them to have access to your custom applications in **My Projects**.
 
 You can also view the comparison chart for the selected applications. Or, choose to view the comparison chart for selected applications in a project.
 
@@ -44,7 +44,7 @@ Among other things, the overview of your applications includes:
 
 Once you click on an application, you can start monitoring and managing your apps through the UI. For example:    
 
-- [Monitor real time data about your application](mobile-engagement-user-interface-monitor.md)
+- [Monitor real-time data about your application](mobile-engagement-user-interface-monitor.md)
 - [Analyze historical data about your application](mobile-engagement-user-interface-analytics.md)
 - [Create and manage segments of users to identify usage patterns](mobile-engagement-user-interface-segments.md)
 - [Reach out to the users of your application with push notifications](mobile-engagement-user-interface-reach.md)
