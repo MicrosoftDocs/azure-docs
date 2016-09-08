@@ -39,22 +39,31 @@ To use a **public certificate** in your logic apps with B2B capabilities, you fi
 After you upload a certificate, it's available to help you secure your B2B messages when you define their properties in the [agreements](./app-service-logic-enterprise-integration-agreements.md) that you create.  
 
 Here are the detailed steps for uploading your public certificates into your integration account after you sign in to the Azure portal:   
-1. Select **Browse**.  
-![Upload your public certificates](./media/app-service-logic-enterprise-integration-overview/overview-1.png)    
-2. Enter **integration** in the filter search box, and then select **Integration Accounts** from the results list.     
+ 1. Select **Browse**.  
+![Upload your public certificates](./media/app-service-logic-enterprise-integration-overview/overview-1.png)   
+
+ 2. Enter **integration** in the filter search box, and then select **Integration Accounts** from the results list.     
  ![Select Integration Accounts](./media/app-service-logic-enterprise-integration-overview/overview-2.png)  
-3. Select the integration account to which you want to add the certificate.  
+
+ 3. Select the integration account to which you want to add the certificate.  
 ![Select the integration account to which you want to add the certificate](./media/app-service-logic-enterprise-integration-overview/overview-3.png)  
-4. Select the **Certificates** tile.  
+
+ 4. Select the **Certificates** tile.  
 ![Select the Certificates tile](./media/app-service-logic-enterprise-integration-certificates/certificate-1.png)  
+
 5. In the **Certificates** blade that opens, select the **Add** button.   
 ![Select the Add button](./media/app-service-logic-enterprise-integration-certificates/certificate-2.png)  
-6. Enter a **Name** for your certificate, and then select the certificate type. (In this example, we used the public certificate type.) Next, select the folder icon to the right of the **Certificate** text box.
-7. After the file picker opens, find and select the certificate file that you want to upload to your integration account. Then select **OK** in the file picker. This action validates the certificate and uploads the it to your integration account.
-8. Back on the **Add certificate blade**, select the **OK** button.  
+
+ 6. Enter a **Name** for your certificate, and then select the certificate type. (In this example, we used the public certificate type.) Next, select the folder icon to the right of the **Certificate** text box.
+
+ 7. After the file picker opens, find and select the certificate file that you want to upload to your integration account. Then select **OK** in the file picker. This action validates the certificate and uploads the it to your integration account.
+
+ 8. Back on the **Add certificate blade**, select the **OK** button.  
 ![Add the certificate](./media/app-service-logic-enterprise-integration-certificates/certificate-3.png)  
-9. In about a minute, you will see a notification that indicates that the certificate upload is complete.  
-10. Select the **Certificates** tile. After the page refreshes, you should see the newly added certificate.  
+
+ 9. In about a minute, you will see a notification that indicates that the certificate upload is complete.  
+
+ 10. Select the **Certificates** tile. After the page refreshes, you should see the newly added certificate.  
 ![See the new certificate](./media/app-service-logic-enterprise-integration-certificates/certificate-4.png)  
 
 ### Private certificates
@@ -65,6 +74,7 @@ You can upload private certificates into your integration account by taking the 
 	> [AZURE.TIP] You must authorize the Logic Apps service to perform operations on Key Vault. You can grant access to the Logic Apps service principal by using the following PowerShell command: `Set-AzureRmKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`  
 
 2. Create a private certificate.  
+
 3. Upload the private certificate to your integration account.
 
 After you've taken the previous steps, you can use the private certificate to create agreements.
@@ -72,20 +82,29 @@ After you've taken the previous steps, you can use the private certificate to cr
 Following are the detailed steps for uploading your private certificates into your integration account after you sign in to the Azure portal:   
 1. Select **Browse**.  
 ![Upload your private certificates into your integration account](./media/app-service-logic-enterprise-integration-overview/overview-1.png)    
+
 2. Enter **integration** in the filter search box, and then select **Integration Accounts** from the results list.     
  ![Select Integration Accounts](./media/app-service-logic-enterprise-integration-overview/overview-2.png)  
+
 3. Select the **integration account** to which you want to add the certificate.  
 ![Select the integration account to which you want to add the certificate](./media/app-service-logic-enterprise-integration-overview/overview-3.png)  
+
 4.  Select the **Certificates** tile.  
 ![Select the Certificates tile](./media/app-service-logic-enterprise-integration-certificates/certificate-1.png)  
+
 5. In the **Certificates** blade that opens, select the **Add** button.
-![Select the Add button](./media/app-service-logic-enterprise-integration-certificates/certificate-2.png)  
+![Select the Add button](./media/app-service-logic-enterprise-integration-certificates/certificate-2.png)
+
 6. Enter a **Name** for your certificate, and then select the certificate type. (In this example, we used the public certificate type.) Then select the folder icon on the right side of the **Certificate** text box.
+
 7. When the file picker opens, find and select the certificate file that you want to upload to your integration account.
+
 8. After you've selected the certificate, select **OK** in the file picker. This action validates the certificate and uploads it to your integration account.
+
 9. Finally, back on the **Add certificate blade**, select the **OK** button.  
 ![Add certificate](./media/app-service-logic-enterprise-integration-certificates/privatecertificate-1.png)  
-7. In about a minute, you will see a notification that indicates that the certificate upload is complete.  
+10. In about a minute, you will see a notification that indicates that the certificate upload is complete.
+
 8. Select the **Certificates tile**. You should see the newly added certificate.
 ![See the new certificate](./media/app-service-logic-enterprise-integration-certificates/privatecertificate-2.png)  
 
