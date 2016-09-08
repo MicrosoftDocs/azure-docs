@@ -56,15 +56,10 @@ To create the copy on a different server, include the `-CopyServerName` paramete
 
 ## Copy a SQL database into an elastic database pool
 
-To create a copy of a SQL database in a pool set the `-ElasticPoolName` parameter to an existing pool.
+To create a copy of a SQL database in a pool, set the `-ElasticPoolName` parameter to an existing pool.
 
     New-AzureRmSqlDatabaseCopy -ResourceGroupName "resourcegoup1" -ServerName "server1" -DatabaseName "database1" -CopyResourceGroupName "poolResourceGroup" -CopyServerName "poolServer1" -CopyDatabaseName "database1_copy" -ElasticPoolName "poolName"
 
-## Monitor the progress of a copy operation
-
-Check status of a copy operation by running the [Get-AzureRmSqlDatabaseActivity](https://msdn.microsoft.com/library/mt603687.aspx) cmdlet. 
-
-    Get-AzureRmSqlDatabaseActivity -ResourceGroupName $copyDbResourceGroupName -ServerName $copyDbServerName -DatabaseName $copyDbName
 
 ## Resolve logins
 
@@ -73,10 +68,10 @@ To resolve logins after the copy operation completes, see [Resolve logins](sql-d
 
 ## Example PowerShell script
 
-The following script assumes all resource groups, servers, and the pool already exist (replace the variable values with your existing resources). Everything must exist except for the copyDbName:
+The following script assumes all resource groups, servers, and the pool already exist (replace the variable values with your existing resources). Everything must exist, except for the database copy.
 
     # Sign in to Azure and set the subscription to work with
-    # ---------------------------------------------------
+    # ------------------------------------------------------
     $SubscriptionId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     Add-AzureRmAccount
     Select-AzureRmSubscription -SubscriptionId $SubscriptionId
@@ -87,7 +82,6 @@ The following script assumes all resource groups, servers, and the pool already 
     $sourceDbName = "db1"
     $sourceDbServerName = "server1"
     $sourceDbResourceGroupName = "rg1"
-    $sourceDbLocation = "westus"
     
     # SQL database copy (the new db to be created)
     # --------------------------------------------
