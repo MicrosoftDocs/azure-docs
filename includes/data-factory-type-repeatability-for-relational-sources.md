@@ -15,7 +15,7 @@ Usually, when reading from relational stores, you would want to read only the da
 	    "sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm\\'', WindowStart, WindowEnd)"
 	  },
 
-This query will read data from ‘MyTable’ that falls in the slice duration range. Rerun of this slice would also always ensure this behavior. 
+This query reads data from ‘MyTable’ that falls in the slice duration range. Rerun of this slice would also always ensure this behavior. 
 
 In other cases, you may wish to read the entire Table (suppose for one time move only) and may define the sqlReaderQuery as follows:
 
