@@ -20,22 +20,17 @@
 
 ##Overview
 
-**Azure Media Redactor** is an [Azure Media Analytics](media-services-analytics-overview.md) media processor (MP) that offers scalable face redaction in the cloud. This processor enables you to blur faces of selected individuals. You may want to use the face reduction service in public safety and news media scenarios. A  few minutes of footage that contains multiple faces can take hours to redact manually, but with this service the face reduction process will require just few simple touchups. For more information, see [this](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
-
-The **Azure Media Redactor** MP is currently in Preview.
+**Azure Media Redactor** is an [Azure Media Analytics](media-services-analytics-overview.md) media processor (MP) that offers scalable face redaction in the cloud. This processor enables you to blur faces of selected individuals. You may want to use the face reduction service in public safety and news media scenarios. A  few minutes of footage that contains multiple faces can take hours to redact manually, but with this service the face reduction process will require just a few simple steps. For more information, see [this](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
 
 This topic gives details about  **Azure Media Redactor** and shows how to use it with Media Services SDK for .NET.
 
+The **Azure Media Redactor** MP is currently in Preview.
+
 ## Face redaction modes
 
-Facial redaction works by detecting faces in every frame of video and tracking the face object both forwards and backwards in time, so that the same individual can be blurred from other angles as well.
+Facial redaction works by detecting faces in every frame of video and tracking the face object both forwards and backwards in time, so that the same individual can be blurred from other angles as well. The automated redaction process us very complex and does not always produce 100% of desired output, for this reason  Media Analytics provies you with a couple of ways to modify the final output.
 
-Redaction is still a difficult for computers to solve and accuracy is not at the level of a real person. It is expected to find false positives and false negatives especially with difficult video such as low light or high movement scenes.
-
-Since automated redaction may not be 100%, we provide a couple of ways to modify the final output.
-
-In addition to a fully automatic mode, there is a two pass workflow which allows the selection/de-selection of found faces via a list of IDs, and to make arbitrary per frame adjustments using a metadata file in JSON format. This workflow is split into 'Analyze' and 'Redact' modes, as well as a single pass 'Combined' mode that runs both in one job.
-
+In addition to a fully automatic mode, there is a two-pass workflow which allows the selection/de-selection of found faces via a list of IDs. Also, to make arbitrary per frame adjustments the MP uses a metadata file in JSON format. This workflow is split into **Analyze** and **Redact** modes. You can combine the two modes in a single pass that runs both tasks in one job; this mode is called **Combined**.
 
 ###Combined mode
 
