@@ -13,47 +13,43 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2016"
+	ms.date="09/07/2016"
 	ms.author="curtand"/>
 
 
-# Add new users to Azure Active Directory
+# Add new users to Azure Active Directory preview
 
 > [AZURE.SELECTOR]
 - [Azure portal](active-directory-users-create-azure-portal.md)
 - [Azure classic portal](active-directory-create-users.md)
 
-This article explains how to add new users in your organization. Added users don't have administrator permissions by default, but you can assign roles to them at any time.
+This article explains how to add new users in your organization.
 
 1.  Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 
-2.  Select **More services**, enter User Management in the text box, and then select **Enter**.
+2.  Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
 
     ![Opening user management](./media/active-directory-users-create-azure-portal/create-users-user-management.png)
 
-3.  On the User Management blade, select the **Users** tab, and then select **Add**.
+3.  On the **Users and groups** blade, select **All users**, and then select **Add**.
 
     ![Selecting the Add command](./media/active-directory-users-create-azure-portal/create-users-add-command.png)
 
-4.  Enter details for the user – **Name,** **User name**, fill out the information in the **Profile** tab, and then select **OK** on the **Profile** tab.
+4.  Enter details for the user, such as **Name** and **User name**. The domain name portion of the user name must either be the initial default domain name "foo.onmicrosoft.com" domain name, or a verified, non-federated domain name such as "contoso.com."
 
-    ![Opening the user profile](./media/active-directory-users-create-azure-portal/create-users-user-profile.png)
+5. Copy or otherwise note the generated user password so that you can provide it to the user after this process is complete.
 
-5.  On the **Groups** tab, select the groups to which you want to add the user.
+6. Optionally, you can open and fill out the information in the **Profile** blade, the **Groups** blade, or the **Directory role** blade for the user. For more information about user and administrator roles, see [Assigning administrator roles in Azure AD](active-directory-assign-admin-roles.md).
 
-    ![Adding a user to groups](./media/active-directory-users-create-azure-portal/create-users-user-groups.png)
+7.  On the **User** blade, select **Create**.
 
-6.  Select an administrative role for the user from the options available, and click **Ok**. For more information about user and administrator roles, see [Assigning administrator roles in Azure AD](active-directory-assign-admin-roles.md).
-
-    ![Assigning a user to a role](./media/active-directory-users-create-azure-portal/create-users-assign-role.png)
-
-7.  Click **Create**.
+8. Securely distribute the generated password to the new user so that the user can sign in.
 
 ## What's next
 
 - [Add an external user](active-directory-users-create-external-azure-portal.md)
-- Configure user properties while adding a user
-- Resetting a user's password in the new Azure portal
-- Assigning a user to a role in your Azure AD
-- Managing user properties
-- Deleting a user in your Azure AD
+- [Reset a user's password in the new Azure portal](active-directory-users-reset-password-azure-portal.md)
+- [Change a user's work information](active-directory-users-work-info-azure-portal.md)
+- [Manage user profiles](active-directory-users-profile-azure-portal.md)
+- [Delete a user in your Azure AD](active-directory-users-delete-user-azure-portal.md)
+- [Assign a user to a role in your Azure AD](active-directory-users-assign-role-azure-portal.md)

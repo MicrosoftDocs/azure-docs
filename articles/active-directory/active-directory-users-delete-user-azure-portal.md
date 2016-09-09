@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2016"
+	ms.date="09/07/2016"
 	ms.author="curtand"/>
 
-# Delete a user from a directory in Azure Active Directory
+# Delete a user from a directory in Azure Active Directory preview
 
 This article explains how to delete a user from a directory in Azure Active Directory (Azure AD). For information about adding new users in your organization, see [Add new users to Azure Active Directory](active-directory-users-create-azure-portal.md).
 
@@ -24,15 +24,15 @@ This article explains how to delete a user from a directory in Azure Active Dire
 
 1.  Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 
-2.  Select **More services**, enter User Management in the text box, and then select **Enter**.
+2.  Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
 
     ![Opening user management](./media/active-directory-users-delete-user-azure-portal/create-users-user-management.png)
 
-3.  On the **User Management** blade, select **Users**.
+3.  On the **Users and groups** blade, select **Users**.
 
     ![Opening the Users blade](./media/active-directory-users-delete-user-azure-portal/create-users-open-users-blade.png)
 
-4. On the **User Management - Users** blade, select a user from the list.
+4. On the **Users and groups - Users** blade, select a user from the list.
 
 5. On the blade for the selected user, select **Overview**, and then in the command bar, select **Delete**.
 

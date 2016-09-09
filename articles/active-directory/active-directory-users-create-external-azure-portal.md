@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2016"
+	ms.date="09/07/2016"
 	ms.author="curtand"/>
 
-# Add users from other directories or partner companies in Azure Active Directory
+# Add users from other directories or partner companies in Azure Active Directory preview
 
 > [AZURE.SELECTOR]
 - [Azure portal](active-directory-users-create-external-azure-portal.md)
@@ -28,18 +28,19 @@ This article explains how to add users either from other directories in Azure Ac
 
 1.  Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 
-2.  Select **More services**, enter User Management in the text box, and then select **Enter**.
+2.  Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
 
     ![Opening user management](./media/active-directory-users-create-external-azure-portal/create-users-user-management.png)
 
-3.  On the **User Management** blade, select **Users**, and then select **Add**.
+3.  On the **Users and groups** blade, select **Users**, and then select **Add**.
 
     ![Selecting the Add command](./media/ management](./media/active-directory-users-create-external-azure-portal/create-users-add-command.png)
 
-4. On the **User** blade:
-	- Provide a display name in **Name** and the user's sign-in name in **User name**.
+4. On the **User** blade, provide a display name in **Name** and the user's sign-in name in **User name**.
 
-	- Select **Profile** to add the users first and last name, a job title, and a department name.
+5. Copy or otherwise note the generated user password so that you can provide it to the user after this process is complete.
+
+6. Optionally, select **Profile** to add the users first and last name, a job title, and a department name.
 
 		![Opening the user profile](./media/ management](./media/active-directory-users-create-external-azure-portal/create-users-user-profile.png)
 
@@ -51,7 +52,9 @@ This article explains how to add users either from other directories in Azure Ac
 
 		![Assigning a user to a role](./media/ management](./media/active-directory-users-create-external-azure-portal/create-users-assign-role.png)
 
-5. Select **Create**.
+7. Select **Create**.
+
+8. Securely distribute the generated password to the new user so that the user can sign in.
 
 > [AZURE.IMPORTANT] If your organization uses more than one domain, you should know about the following issues when you add a user account:
 >
