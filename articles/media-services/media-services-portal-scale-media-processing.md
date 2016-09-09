@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/29/2016"
+	ms.date="09/01/2016"
 	ms.author="juliako"/>
 
 # Change the reserved unit type
@@ -27,7 +27,7 @@
 
 ## Overview
 
-To get more information about scaling media processing, see this [overview](media-services-scale-media-processing-overview.md) topic.
+>[AZURE.IMPORTANT] Make sure to review the [overview](media-services-scale-media-processing-overview.md) topic to get more information about scaling media processing topic.
 
 ## Scale media processing
 

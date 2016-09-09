@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="05/18/2016"
+	ms.date="09/02/2016"
 	ms.author="rashimg;jgao"/>
 
 # Fix an Out of Memory (OOM) error with Hive memory settings in Hadoop in Azure HDInsight
