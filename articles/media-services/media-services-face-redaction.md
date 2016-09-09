@@ -304,7 +304,9 @@ The following program shows how to:
         }
 
 
-##Media Services learning paths
+##Next step
+
+Review Media Services learning paths.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
