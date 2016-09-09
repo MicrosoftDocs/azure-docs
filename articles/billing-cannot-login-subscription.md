@@ -42,7 +42,7 @@ To resolve this issue, try the following methods, in the given order. After you 
 -	Use a different Internet browser.
 -	If you’re using Microsoft Internet Explorer, browse to the Azure portal by using the InPrivate Browsing mode. To do this, follow these steps:
 
-	1.	Click **Settings** > **Safety** > **InPrivate Browsing**.
+	1.	Click **Tools** ![toolsbutton](./media/billing-cannot-login-subscription/toolsbutton.png) > **Safety** > **InPrivate Browsing**.
 	2.	Browse to the [Azure portal](https://portal.azure.com) or the [Azure classic portal](https://manage.windowsazure.com), and then sign in to the portal.
 
 ## Symptom: Error message "No subscriptions found”
@@ -69,11 +69,11 @@ This issue can occur if you're using more than one user account in an Internet b
 To resolve the issue, try one of the following methods:
 
 - Sign out of the portal,  and then sign back in with the account you want to use.
--	Clear the cache and delete Internet cookies. To do this in Internet Explorer, click **Tools** > **Internet Options** > **Delete**, make sure that the check boxes for temporary files, cookies, and browsing history are selected, and then click Delete.
+-	Clear the cache and delete Internet cookies. To do this in Internet Explorer, click **Tools** ![toolsbutton](./media/billing-cannot-login-subscription/toolsbutton.png) > **Internet Options** > **Delete**, make sure that the check boxes for temporary files, cookies, password, and browsing history are selected, and then click Delete.
 
--	Reset the Internet Explorer settings to revert any personal settings that you’ve made. To do this, click **Tools** > **Internet Options** > **Advanced** >select the **Delete personal settings** box > **Reset**.
+-	Reset the Internet Explorer settings to revert any personal settings that you’ve made. To do this, click **Tools** ![toolsbutton](./media/billing-cannot-login-subscription/toolsbutton.png)> **Internet Options** > **Advanced** >select the **Delete personal settings** box > **Reset**.
 
--	Browse to the Azure portal in InPrivate Browsing mode. To do this, click **Settings** > **Safety** > **InPrivate Browsing**.
+-	Browse to the Azure portal in InPrivate Browsing mode. To do this, click **Tools** ![toolsbutton](./media/billing-cannot-login-subscription/toolsbutton.png) > **Safety** > **InPrivate Browsing**.
 
 ## Microsoft account vs Organizational account
 
