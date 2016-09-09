@@ -262,7 +262,7 @@ A sample solution script, [Deploy-ReferenceArchitecture.ps1][solution-script], i
 
 The templates are parameterized, with the parameters held in separate JSON files. You can modify the parameters in these files to configure the deployment to meet your own requirements. You do not need to amend the templates themselves. Note that you must not change the schemas of the objects in the parameter files.
 
-When you edit the templates, create objects that follow the naming conventions described in [Recommended Naming Conventions for Azure Resources][naming conventions].
+When you edit the templates, create objects that follow the naming conventions described in [Recommended Naming Conventions for Azure Resources][naming-conventions].
 
 >[AZURE.NOTE] This script creates the ExpressRoute circuit but does not provision it. You must work with your service provider to perform this task.
 
