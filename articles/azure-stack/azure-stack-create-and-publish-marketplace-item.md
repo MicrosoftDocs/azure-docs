@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Publish a marketplace item in Azure Stack | Microsoft Azure"
-	description="Publish a marketplace item in Azure Stack."
+	pageTitle="Create and publish a marketplace item in Azure Stack | Microsoft Azure"
+	description="Create and publish a marketplace item in Azure Stack."
 	services="azure-stack"
 	documentationCenter=""
 	authors="rupisure"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/29/2016"
+	ms.date="09/09/2016"
 	ms.author="rupisure"/>
 
 # Create and publish a marketplace item
@@ -74,7 +74,7 @@
 
 3.  Use the Add-AzureRMGalleryItem PowerShell cmdlet to publish the marketplace item to your Azure Stack. For example:
 
-		Add-AzureRMGalleryItem -SubscriptionId $SubscriptionId -GalleryItemUri https://sample.blob.core.windows.net/gallerypackages/Microsoft.SimpleTemplate.1.0.0.azpkg  -Apiversion "2015-04-01" –Verbose
+		Add-AzureRMGalleryItem -SubscriptionId (Get-AzureRmSubscription -SubscriptionName 'Default Provider Subscription').SubscriptionId -GalleryItemUri https://sample.blob.core.windows.net/gallerypackages/Microsoft.SimpleTemplate.1.0.0.azpkg  -Apiversion "2015-04-01" –Verbose
 
 	| Parameter | Description |
 	|-----------|-------------|
@@ -88,7 +88,7 @@
 
 6. You can remove a marketplace item by using the Remove-AzureRMGalleryItem cmdlet. Example:
 
-		Remove-AzureRMGalleryItem -SubscriptionId $SubscriptionId -Name Microsoft.SimpleTemplate.1.0.0 -Apiversion "2015-04-01" –Verbose
+		Remove-AzureRMGalleryItem -SubscriptionId (Get-AzureRmSubscription -SubscriptionName 'Default Provider Subscription').SubscriptionId -Name Microsoft.SimpleTemplate.1.0.0 -Apiversion "2015-04-01" –Verbose
 
 >[AZURE.NOTE] The marketplace UI may error after you remove an item. To fix this, click **Settings** in the portal. Then, select **Discard modifications** under Portal customization.
 
@@ -120,6 +120,7 @@ Following is the list of icons used in the marketplace.
 
 | NAME          | WIDTH | HEIGHT | NOTES                             |
 |---------------|-------|--------|-----------------------------------|
+| Wide          | 255px | 115px  | Always required.                  |
 | Large         | 115px | 115px  | Always required.                  |
 | Medium        | 90px  | 90px   | Always required.                  |
 | Small         | 40px  | 40px   | Always required.                  |
