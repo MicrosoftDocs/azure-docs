@@ -21,9 +21,9 @@ Multiple site hosting enables you to configure more than one web application on 
 
 ![imageURLroute](./media/application-gateway-multi-site-overview/multisite.png)
 
-Requests for http://contoso.com will be routed to ContosoServerPool, and http://fabrikam.com will be routed to FabrikamServerPool. 
+Requests for http://contoso.com are routed to ContosoServerPool, and http://fabrikam.com are routed to FabrikamServerPool. 
 
-Similarly two sub-domains of the same parent domain can be hosted on the same application gateway deployment. Examples of this could include http://blog.contoso.com and http://app.contoso.com hosted on a single application gateway deployment.
+Similarly two subdomains of the same parent domain can be hosted on the same application gateway deployment. Examples of this could include http://blog.contoso.com and http://app.contoso.com hosted on a single application gateway deployment.
 
 
 ## Host headers and Server Name Indication (SNI)
@@ -38,7 +38,7 @@ Currently an application gateway gets a single public IP address on which it lis
 
 ## Listener configuration element
 
-Existing HTTPListener configuration element is enhanced to support host name and server name indication elements which is used by application gateway to route traffic to appropriate backend pool. This is the snippet of HttpListeners element from template file.
+Existing HTTPListener configuration element is enhanced to support host name and server name indication elements, which is used by application gateway to route traffic to appropriate backend pool. This is the snippet of HttpListeners element from template file.
 
  		"httpListeners": [
                     {
@@ -77,7 +77,7 @@ Existing HTTPListener configuration element is enhanced to support host name and
 	
 
 
-You can check out [ARM template using multiple site hosting](https://github.com/Azure/azure-quickstart-templates/blob/master/201-application-gateway-multihosting) for an end to end template based deployment.
+You can check out [Resource Manager template using multiple site hosting](https://github.com/Azure/azure-quickstart-templates/blob/master/201-application-gateway-multihosting) for an end to end template-based deployment.
 
 ## Routing rule
 

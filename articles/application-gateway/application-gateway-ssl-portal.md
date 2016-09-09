@@ -30,13 +30,13 @@ The following scenario goes through configuring SSL offload on an existing appli
 
 ## Before you begin
 
-To configure SSL offload with an application gateway a certificate is required. This certificate is loaded on the application gateway and used to encrypt and decrypt the traffic sent via SSL. The certificate needs to be in Personal Information Exchange (pfx) format. This file format allows for the private key to be exported which is required by the application gateway to perform the encryption and decryption of traffic.
+To configure SSL offload with an application gateway, a certificate is required. This certificate is loaded on the application gateway and used to encrypt and decrypt the traffic sent via SSL. The certificate needs to be in Personal Information Exchange (pfx) format. This file format allows for the private key to be exported which is required by the application gateway to perform the encryption and decryption of traffic.
 
 The following certificate types are supported for use with Application Gateway
 
 - Wildcard certificates
 - CA certificates
-- Self signed certificates **Self signed certificates should only be used for testing purposes**
+- Self-signed certificates **Self-signed certificates are to be used for testing purposes**
 
 ## Add an HTTPS listener
 
@@ -44,13 +44,13 @@ The HTTPS listener looks for traffic based on its configuration and helps route 
 
 ### Step 1
 
-Navigate the Azure Portal and select an existing application gateway
+Navigate to the Azure portal and select an existing application gateway
 
 ![app gateway overview blade][1]
 
 ### Step 2
 
-Click Listeners and click the Add button to add a new listener.
+Click Listeners and click the Add button to add a listener.
 
 ### Step 3
 
@@ -76,7 +76,7 @@ The listener has now been created. It is time to create a rule to handle the tra
 
 Click the **Rules** of the application gateway, and then click Add.
 
-![appgateway rules blade][3]
+![app gateway rules blade][3]
 
 ### Step 2
 

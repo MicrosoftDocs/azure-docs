@@ -21,7 +21,7 @@
 
 Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. 
 Application provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others. 
-To find a complete list of supported features visit [Application Gateway Overview](application-gateway-introduction.md)
+To find a complete list of supported features, visit [Application Gateway Overview](application-gateway-introduction.md)
 
 > [AZURE.SELECTOR]
 - [Azure portal](application-gateway-create-gateway-portal.md)
@@ -134,7 +134,7 @@ The following certificate types are supported for use with Application Gateway
 
 - Wildcard certificates
 - CA certificates
-- Self signed certificates **Self signed certificates should only be used for testing purposes**
+- Self-signed certificates **Self signed certificates should only be used for testing purposes**
 
 Once complete click **OK** to review the settings for the Application Gateway.
 

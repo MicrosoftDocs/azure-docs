@@ -54,15 +54,15 @@ This scenario will:
 Azure Application Gateway requires its own subnet. When creating a virtual network, ensure that you leave enough address space to have multiple subnets. Once you deploy an application gateway to a subnet,
 only additional application gateways are able to be added to the subnet.
 
-## Login to Azure
+## Log in to Azure
 
     azure login
 
-A code will be provided, navigate to https://aka.ms/devicelogin in a browser to continue the login process.
+A code is provided. Navigate to https://aka.ms/devicelogin in a browser to continue the login process.
 
 ![cmd showing device login][1]
 
-In the browser enter the code you received. You will be redirected to a sign-in pageTitle
+In the browser, enter the code you received. You are redirected to a sign-in pageTitle
 
 ![browser to enter code][2]
 
@@ -70,7 +70,7 @@ Once the code has been entered you are signed in, close the browser to continue 
 
 ![successfully signed in][3]
 
-## Switch to ARM Mode
+## Switch to Resource Manager Mode
 
     azure config mode arm
 
