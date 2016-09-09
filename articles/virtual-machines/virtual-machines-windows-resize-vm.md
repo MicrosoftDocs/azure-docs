@@ -24,8 +24,6 @@ This article shows you how to resize a Windows VM, created in the Resource Manag
 
 After you create a virtual machine (VM), you can scale the VM up or down by changing the VM size. In some cases, you must deallocate the VM first. This can happen if the new size is not available on the hardware cluster that is currently hosting the VM.
 
-This article shows how to resize a VM using Azure PowerShell.
-
 ## Resize a Windows VM not in an availability set
 
 To resize a VM not in an availability set, perform the following steps.
