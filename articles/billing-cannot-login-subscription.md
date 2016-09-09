@@ -42,8 +42,8 @@ To resolve this issue, try the following methods, in the given order. After you 
 -	Use a different Internet browser.
 -	If you’re using Microsoft Internet Explorer, browse to the Azure portal by using the InPrivate Browsing mode. To do this, follow these steps:
 
-1.	Click **Settings** > **Safety** > **InPrivate Browsing**.
-2.	Browse to the [Azure portal](https://portal.azure.com) or the [Azure classic portal](https://manage.windowsazure.com), and then sign in to the portal.
+	1.	Click **Settings** > **Safety** > **InPrivate Browsing**.
+	2.	Browse to the [Azure portal](https://portal.azure.com) or the [Azure classic portal](https://manage.windowsazure.com), and then sign in to the portal.
 
 ## Symptom: Error message "No subscriptions found”
 
