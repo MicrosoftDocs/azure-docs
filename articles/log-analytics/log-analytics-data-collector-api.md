@@ -25,7 +25,7 @@ When you use the Azure Log Analytics HTTP Data Collector API, you can add POST J
 
 The next two tables list the attributes that are required for each request to the Log Analytics HTTP Data Collector API. We describe each attribute in more detail later in the article.
 
-### To request the URI
+### Request URI
 
 | Attribute | Property |
 |:--|:--|
@@ -33,14 +33,14 @@ The next two tables list the attributes that are required for each request to th
 | URI | https://<WorkspaceID>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
 | Content type | application/json |
 
-### To request URI parameters
+### Request URI parameters
 | Parameter | Description |
 |:--|:--|
-| CustomerID  | The unique identifier for the Microsoft Operations Management Suite (OMS) workspace |
+| CustomerID  | The unique identifier for the Microsoft Operations Management Suite workspace |
 | Resource    | The API resource name. /api/logs |
 | API Version | The version of the API to use with this request. Currently, it's 2016-04-01. |
 
-### To request headers
+### Request headers
 | Header | Description |
 |:--|:--|
 | Authorization | The authorization signature. Later in the article, you can read about how to create an HMAC-SHA256 header. |
@@ -59,7 +59,7 @@ Here's the format for the authorization header:
 Authorization: SharedKey <WorkspaceID>:<Signature>
 ```
 
-*WorkspaceID* is the unique identifier for the OMS workspace. *Signature* is a [Hash-based Message Authentication Code (HMAC)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) that is constructed from the request and then computed by using the [SHA256 algorithm](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Then, you encode it by using Base64 encoding.
+*WorkspaceID* is the unique identifier for the Operations Management Suite workspace. *Signature* is a [Hash-based Message Authentication Code (HMAC)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) that is constructed from the request and then computed by using the [SHA256 algorithm](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Then, you encode it by using Base64 encoding.
 
 Use this format to encode the **SharedKey** signature string:
 
@@ -155,7 +155,7 @@ If you then submitted the following entry, before the record type was created, L
 
 ## Return codes
 
-The HTTP status code 202 means that the request has been accepted for processing, but processing has not yet completed. This indicates that the operation completed successfully.
+The HTTP status code 202 means that the request has been accepted for processing, but processing has not yet finished. This indicates that the operation completed successfully.
 
 This table lists the complete set of status codes that the service might return:
 
@@ -186,11 +186,11 @@ In the next sections, you'll find samples of how to submit data to the Log Analy
 
 For each sample, do these steps to set the variables for the authorization header.
 
-1. In the OMS portal, choose the **Settings** tile, and then choose the **Connected Sources** tab.
+1. In the Operations Management Suite portal, choose the **Settings** tile, and then choose the **Connected Sources** tab.
 2. To the right of **Workspace ID**, choose the copy icon, and then paste the ID as the value of the **Customer ID** variable.
 3. To the right of **Primary Key**, choose the copy icon, and then paste the ID as the value of the **Shared Key** variable.
 
-Alternatively, you can change the variables for the Log Type and JSON data.
+Alternatively, you can change the variables for the log type and JSON data.
 
 ### PowerShell sample
 
@@ -291,7 +291,7 @@ namespace OIAPIExample
 // An example JSON object, with key value pairs
         static string json = @"[{""DemoField1"":""DemoValue1"",""DemoField2"":""DemoValue2""},{""DemoField1"":""DemoValue3"",""DemoField2"":""DemoValue4""}]";
 
-// Update customerId to your OMS workspace ID
+// Update customerId to your Operations Management Suite workspace ID
         static string customerId = "xxxxxxxx-xxx-xxx-xxx-xxxxxxxxxxxx";
 
 // For sharedKey, use either the primary or the secondary Connected Sources client authentication key   
@@ -355,7 +355,7 @@ import hashlib
 import hmac
 import base64
 
-# Update the customer ID to your OMS workspace ID
+# Update the customer ID to your Operations Management Suite workspace ID
 customer_id = 'xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 
 # For the shared key, use either the primary or the secondary Connected Sources client authentication key   
