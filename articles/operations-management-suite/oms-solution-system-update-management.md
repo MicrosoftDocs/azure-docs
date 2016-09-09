@@ -16,13 +16,14 @@
     ms.date="09/08/2016"
     ms.author="magoedte"/>
 
-# ![System Update Management Solution in OMS](media/oms-solution-system-update-management/system-update-management-solution-icon.png) System Update Management solution in OMS
+# ![System Update Management Solution in OMS](./media/oms-solution-system-update-management/system-update-management-solution-icon.png) System Update Management solution in OMS
 
 The System Update Management solution in OMS allows you to manage system updates for your Windows and Linux computers.  You can quickly assess the status of available updates on all agent computers and initiate the process of installing required updates for Windows servers. 
 
 ## Prerequisites
 
--   Windows agents must either be configured to communicate with a Windows Server Update Services (WSUS) server or have access to Microsoft Update.
+-   Windows agents must either be configured to communicate with a Windows Server Update Services (WSUS) server or have access to Microsoft Update.<br>  
+    > [AZURE.NOTE] The Windows agent cannot be managed concurrently by System Center Configuration Manager.  The System Center Configuration Manager client will need to be removed before adding this solution to your workspace.  
 -	Linux agents must have access to an update repository.
 
 ## Configuration
@@ -56,7 +57,7 @@ Perform the following steps to add the System Update Management solution to your
       c. Restart the service using the following command.
 
         sudo service omsagent restart 
-
+       
        If your system is RHEL 5.x or SLES 11 then use the following command.
 
         sudo /etc/init.d/omsagent restart 
@@ -85,8 +86,7 @@ The following table describes the connected sources that are supported by this s
 Connected Source | Supported | Description|
 Windows agents | Yes | The solution collects information about system updates from Windows agents and initiates installation of required updates.|
 Linux agents | Yes | The solution collects information about system updates from Linux agents.|
-Operations Manager management group | Yes | The solution collects information about system updates from agents in a connected management group.<br>
-A direct connection from the Operations Manager agent to Log Analytics is not required. Data is forwarded from the management group to the OMS repository.|
+Operations Manager management group | Yes | The solution collects information about system updates from agents in a connected management group.<br>A direct connection from the Operations Manager agent to Log Analytics is not required. Data is forwarded from the management group to the OMS repository.|
 Azure storage account | No | Azure storage does not include information about system updates.|  
 
 ### Collection frequency
@@ -102,10 +102,10 @@ Click on the **System Update Management** tile to open the **System Update Manag
 
 Column | Description|
 ----------|----------|
-Computers Missing Required Updates ||
+**Computers Missing Required Updates** ||
 Critical or Security Updates | Lists the top ten computers that are missing updates sorted by the number of updates they're missing. Click on a computer name to run a log search returning all update records for that computer.|
 Critical or Security Updates older than 30 days| Identifies number of computers that are missing critical or security updates grouped by the length of time since the update was published. Click on one of the entries to run a log search returning all missing and critical updates.|
-Required Missing Updates||
+**Required Missing Updates**||
 Critical or Security Updates | Lists classifications of updates that computers are missing sorted by the number of computers missing updates in the category. Click a classification to run a log search returning all update records for that classification.|
 Update Runs||
 Update Runs | Number of currently scheduled update runs and the duration until the next scheduled run.  Click on the tile to view schedules, currently running, and completed updates or to schedule a new run.|  
@@ -122,7 +122,7 @@ Updates are installed by runbooks in Azure Automation.  You cannot currently vie
 
 ### Viewing update runs
 
-Click the **Update Runs** tile to view the list of existing Update Runs.  They are grouped by status – Scheduled, Running, and Completed.<br> ![Update Runs Schedule Page](./media/oms-solution-system-update-management/system-update-updaterun-schedule-page.png)
+Click the **Update Runs** tile to view the list of existing Update Runs.  They are grouped by status – **Scheduled**, **Running**, and **Completed**.<br> ![Update Runs Schedule Page](./media/oms-solution-system-update-management/system-update-updaterun-schedule-page.png)
 
 The properties displayed for each Update Run are described in the following table.
 
@@ -133,11 +133,7 @@ Schedule | Type of schedule.  *OneTime* is currently the only possible value.|
 Start Time|Date and time that the Update Run is scheduled to start.|
 Duration | Number of minutes the Update Run is allowed to run.  If all updates are not installed within this duration, then the remaining updates must wait until the next Update Run.|
 Servers | Number of computers affected by the Update Run.|
-Status | Current status of the Update Run.<br><br>
-Possible values are:<br>
--	Not Started
--	Running
--	Finished|  
+Status | Current status of the Update Run.<br><br>Possible values are:<br>-	Not Started<br>- Running<br>- Finished|  
 
 Click on an Update Run to view its detail screen which includes the columns in the following table.  These columns will not be populated if the Update Run has not yet started.
 
