@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Using attributes to create advanced rules for group membership in Azure Active Directory | Microsoft Azure"
+	pageTitle="Using attributes to create advanced rules for group membership in Azure Active Directory preview | Microsoft Azure"
 	description="How to create advanced rules for dynamic group membership including supported expression rule operators and parameters."
 	services="active-directory"
 	documentationCenter=""
@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2016"
+	ms.date="09/12/2016"
 	ms.author="curtand"/>
 
 
-# Using attributes to create advanced rules for membership in Azure Active Directory groups
+# Using attributes to create advanced rules for group membership in Azure Active Directory preview
 
 The Azure portal provides you with the ability to create advanced rules to enable more complex attribute-based dynamic memberships for Azure Active Directory (Azure AD) groups. This article details the rule attributes and syntax to create these advanced rules.
 
@@ -26,15 +26,15 @@ The Azure portal provides you with the ability to create advanced rules to enabl
 
 1.  Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 
-2.  Select **More services**, enter User Management in the text box, and then select **Enter**.
+2.  Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
 
   ![Opening user management](./media/active-directory-groups-dynamic-membership-azure-portal/search-user-management.png)
 
-3.  On the **User Management** blade, select **Groups**.
+3.  On the **Users and groups** blade, select **All groups**.
 
   ![Opening the groups blade](./media/active-directory-groups-dynamic-membership-azure-portal/view-groups-blade.png)
 
-4. On the **User Management - Groups** blade, select the **Add** command.
+4. On the **Users and groups - All groups** blade, select the **Add** command.
 
   ![Add new group](./media/active-directory-groups-dynamic-membership-azure-portal/add-group-type.png)
 

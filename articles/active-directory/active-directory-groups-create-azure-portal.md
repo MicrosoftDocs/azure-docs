@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Create a new group in Azure Active Directory | Microsoft Azure"
+	pageTitle="Create a new group in Azure Active Directory preview | Microsoft Azure"
 	description="How to create a group in Azure Active Directory and add users (members) to the group"
 	services="active-directory"
 	documentationCenter=""
@@ -12,28 +12,28 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/24/2016"
+	ms.topic="article"
+	ms.date="09/12/2016"
 	ms.author="curtand"/>
 
 
-# Create a new group in Azure Active Directory
+# Create a new group in Azure Active Directory preview
 
-This article explains how to create and populate a new group in Azure Active Directory (Azure AD). Use a group to perform management tasks such as assigning licenses or permissions to a number of users or devices at once.
+This article explains how to create and populate a new group in the Azure Active Directory (Azure AD) preview. Use a group to perform management tasks such as assigning licenses or permissions to a number of users or devices at once.
 
 ## How do I create a group?
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 
-2. Select **More services**, enter User Management in the text box, and then select **Enter**.
+2. Select **More services**, enter **User and groups** in the text box, and then select **Enter**.
 
   ![Opening user management](./media/active-directory-groups-create-azure-portal/search-user-management.png)
 
-3. On the **User Management** blade, select **Groups**.
+3. On the **Users and groups** blade, select **All groups**.
 
   ![Opening the groups blade](./media/active-directory-groups-create-azure-portal/view-groups-blade.png)
 
-4. On the **User Management - Groups** blade, select the **Add** command.
+4. On the **Users and groups - All groups** blade, select the **Add** command.
 
   ![Selecting the Add command](./media/active-directory-groups-create-azure-portal/add-group-command.png)
 

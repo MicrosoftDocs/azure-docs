@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Manage the groups your group is a member of in Azure Active Directory | Microsoft Azure"
+	pageTitle="Manage the groups your group is a member of in Azure Active Directory preview | Microsoft Azure"
 	description="Groups can contain other groups in Azure Active Directory. Here's how to manage those memberships."
 	services="active-directory"
 	documentationCenter=""
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2016"
+	ms.date="09/12/2016"
 	ms.author="curtand"/>
 
 
-# Manage the groups your group is a member of in Azure Active Directory
+# Manage the groups your group is a member of in Azure Active Directory preview
 
 Groups can contain other groups in Azure Active Directory. Here's how to manage those memberships.
 
@@ -25,15 +25,15 @@ Groups can contain other groups in Azure Active Directory. Here's how to manage 
 
 1.  Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 
-2.  Select **More services**, enter User Management in the text box, and then select **Enter**.
+2.  Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
 
   ![Opening user management](./media/active-directory-groups-membership-azure-portal/search-user-management.png)
 
-3.  On the **User Management** blade, select **Groups**.
+3.  On the **Users and groups** blade, select **All groups**.
 
   ![Opening the groups blade](./media/active-directory-groups-membership-azure-portal/view-groups-blade.png)
 
-4. On the **User Management - Groups** blade, select a group.
+4. On the **Users and groups - All groups** blade, select a group.
 
 5. On the **Group - *groupname*** blade, select **Group memberships**.
 
