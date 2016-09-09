@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2016"
+	ms.date="09/09/2016"
 	ms.author="genli"/>
 
 # I cannot sign in to manage my Azure subscription
@@ -42,8 +42,9 @@ To resolve this issue, try the following methods, in the given order. After you 
 -	Use a different Internet browser.
 -	If you’re using Microsoft Internet Explorer, browse to the Azure portal by using the InPrivate Browsing mode. To do this, follow these steps:
 
-	1.	Click **Tools**![tools button](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Safety** > **InPrivate Browsing**.
-	2.	Browse to the [Azure portal](https://portal.azure.com) or the [Azure classic portal](https://manage.windowsazure.com), and then sign in to the portal.
+	A.	Click **Tools** ![tools button](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Safety** > **InPrivate Browsing**.
+
+	B.	Browse to the [Azure portal](https://portal.azure.com) or the [Azure classic portal](https://manage.windowsazure.com), and then sign in to the portal.
 
 ## Symptom: Error message "No subscriptions found”
 
