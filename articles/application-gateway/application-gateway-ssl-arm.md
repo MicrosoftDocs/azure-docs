@@ -85,14 +85,14 @@ You are prompted to authenticate with your credentials.<BR>
 Choose which of your Azure subscriptions to use. <BR>
 
 
-		PS C:\> Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+	Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
 ### Step 4
 
 Create a resource group (skip this step if you're using an existing resource group).
 
-    New-AzureRmResourceGroup -Name appgw-rg -location "West US"
+    New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
 
 Azure Resource Manager requires that all resource groups specify a location. This setting is used as the default location for resources in that resource group. Make sure that all commands to create an application gateway uses the same resource group.
 
@@ -115,7 +115,7 @@ This creates a virtual network named "appgwvnet" in resource group "appgw-rg" fo
 
 ### Step 3
 
-	$subnet=$vnet.Subnets[0]
+	$subnet = $vnet.Subnets[0]
 
 This assigns the subnet object to variable $subnet for the next steps.
 

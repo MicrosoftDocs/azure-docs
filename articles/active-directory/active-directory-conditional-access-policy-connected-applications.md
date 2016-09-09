@@ -155,7 +155,7 @@ You have two options for applications:
 Selecting **For browser and native applications** enforces the policy on access to applications by: 
 
 - Browsers (e.g. Edge in Windows 10, Safari in iOS, etc.) 
-- Applications using the Active Directory Application Library (ADAL) in any platform or the Web Account Manager (WAM) API in Windows 10 
+- Applications using the Active Directory Authentication Library (ADAL) in any platform or the Web Account Manager (WAM) API in Windows 10 
 
 >[AZURE.NOTE] For more information about browser support and other considerations for the end-user accessing device-based CA protected applications see, [Azure Active Directory Conditional Access](active-directory-conditional-access.md). 
 

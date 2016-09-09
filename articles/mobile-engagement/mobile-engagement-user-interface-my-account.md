@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/29/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 # How to manage your account profile and test devices
  
 This article describes the **Home** page of the **Mobile Engagement** portal. You use the **Mobile Engagement** portal to monitor and manage your mobile apps. 
  
-To get to the my account page, click on your account on the top of the page.
+To get to the **my account** page, click on your account on the top of the page.
 
 The My Account section of the UI is where you can view and change the settings associated with your account, including your Profile settings and test Device IDs. These settings contain items that can also be accessed via the Device API.
 

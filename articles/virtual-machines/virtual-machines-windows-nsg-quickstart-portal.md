@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Allow external access to a VM using the portal | Microsoft Azure"
-   description="Learn how to open a port / create an endpoint that allows access to your VM using the resource manager deployment model in the Azure Portal"
+   pageTitle="Open ports to a VM using the Azure portal | Microsoft Azure"
+   description="Learn how to open a port / create an endpoint to your Windows VM using the resource manager deployment model in the Azure Portal"
    services="virtual-machines-windows"
    documentationCenter=""
    authors="iainfoulds"
@@ -16,7 +16,7 @@
    ms.date="08/08/2016"
    ms.author="iainfou"/>
 
-# Allow external access to your VM using the Azure Portal
+# Opening ports to a VM in Azure using the Azure Portal
 [AZURE.INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## Quick commands
@@ -34,7 +34,7 @@ Select your new Network Security Group. You now create an inbound rule:
 
 ![Add an inbound rule](./media/virtual-machines-windows-nsg-quickstart-portal/add-inbound-rule.png)
 
-Provide a name for your new rule. Note that port 80 is already entered by default. This is where you would change the source, protocol, and destination when adding additional rules to your Network Security Group:
+Provide a name for your new rule. Port 80 is already entered by default. This blade is where you would change the source, protocol, and destination when adding additional rules to your Network Security Group:
 
 ![Create an inbound rule](./media/virtual-machines-windows-nsg-quickstart-portal/create-inbound-rule.png)
 
@@ -46,7 +46,7 @@ Select your virtual network, and then select the appropriate subnet:
 
 ![Associating a Network Security Group with virtual networking](./media/virtual-machines-windows-nsg-quickstart-portal/select-vnet-subnet.png)
 
-You have now created a Network Security Group, created an inbound rule that allows traffic on port 80, and associated it with a subnet. Any VMs you connect to that subnet will be reachable on port 80.
+You have now created a Network Security Group, created an inbound rule that allows traffic on port 80, and associated it with a subnet. Any VMs you connect to that subnet are reachable on port 80.
 
 
 ## More information on Network Security Groups
@@ -54,7 +54,7 @@ The quick commands here allow you to get up and running with traffic flowing to 
 
 You can define Network Security Groups and ACL rules as part of Azure Resource Manager templates. Read more about [creating Network Security Groups with templates](../virtual-network/virtual-networks-create-nsg-arm-template.md).
 
-If you need to use port-forwarding to map a unique external port to an internal port on your VM, you need to use a load balancer and Network Address Translation (NAT) rules. For example, you may want to expose TCP port 8080 externally and have traffic directed to TCP port 80 on a VM. You can learn about [creating an Internet-facing load balancer](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
+If you need to use port-forwarding to map a unique external port to an internal port on your VM, use a load balancer and Network Address Translation (NAT) rules. For example, you may want to expose TCP port 8080 externally and have traffic directed to TCP port 80 on a VM. You can learn about [creating an Internet-facing load balancer](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
 
 ## Next steps
 In this example, you created a simple rule to allow HTTP traffic. You can find information on creating more detailed environments in the following articles:

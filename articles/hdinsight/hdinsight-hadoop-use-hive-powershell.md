@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/16/2016"
+   ms.date="09/07/2016"
    ms.author="larryfr"/>
 
 #Run Hive queries using PowerShell

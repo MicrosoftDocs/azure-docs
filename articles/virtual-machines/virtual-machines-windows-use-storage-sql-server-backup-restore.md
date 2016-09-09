@@ -3,7 +3,7 @@
 	description="Learn how to back up SQL Server to Azure Storage. Explains the benefits of backing up SQL databases to Azure Storage."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="rothja"
+	authors="MikeRayMSFT"
 	manager="jhubbard"
 	tags="azure-service-management"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="07/22/2016"
-	ms.author="jroth"/>
+	ms.author="mikeray"/>
 
 # Use Azure Storage for SQL Server Backup and Restore
 

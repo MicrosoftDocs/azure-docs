@@ -4,11 +4,11 @@
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+	services="virtual-machine-scale-sets"
+	documentationCenter=""/>
 
 <tags
-	ms.service="monitoring-and-diagnostics"
+	ms.service="virtual-machine-scale-sets"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"

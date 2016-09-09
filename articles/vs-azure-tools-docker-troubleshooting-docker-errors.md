@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="06/08/2016"
+   ms.date="08/18/2016"
    ms.author="allclark" />
 
 # Troubleshooting Visual Studio Docker Development
@@ -22,10 +22,10 @@ The following are some common issues and resolutions.
 
 ##Failed to configure Program.cs for Docker support
 
-When adding docker support, `.UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_SERVER.URLS"))` must be added to the WebHostBuilder().
-If Program.cs the `Main()` function or a new WebHostBuilder class wasn't found, a warning will be displayed.
+When adding docker support, `.UseUrls(Environment.GetEnvironmentVariable("ASPNETCORE_URLS"))` must be added to the WebHostBuilder().
+If the `Main()` function or a new WebHostBuilder class wasn't found in `Program.cs`, a warning is displayed.
 `.UseUrls()` is required to enable Kestrel to listen to incoming traffic, beyond localhost when run within a docker container.
-Upon completion, the typical code will look like the following:
+Upon completion, the typical code looks like the following:
 
 ```
 public class Program
@@ -46,7 +46,7 @@ public class Program
 ```
 
 UseUrls() configured the WebHost to listen to incoming URL traffic.
-[Docker Tools for Visual Studio](http://aka.ms/DockerToolsForVS) will configure the environment variable in the dockerfile.debug/release mode as follows:
+[Docker Tools for Visual Studio](http://aka.ms/DockerToolsForVS) configures the environment variable in the dockerfile.debug/release mode as follows:
 
 ```
 # Configure the listening port to 80
@@ -91,25 +91,25 @@ Documents        Libraries        Pictures         desktop.ini
 /wormhole #
 ```
 
-**Note:** *When working with Linux VMs, the container file system is case sensitive.*  
+> [AZURE.NOTE] When working with Linux VMs, the container file system is case-sensitive. 
 
 If you're unable to see the contents, try the following:
 
 **Docker for Windows beta**
-- Verify the Docker for Windows desktop app is running by looking for the moby icon in system tray, and making sure it's white and functional.
-- Verify volume mapping is configured by right-clicking the moby icon in the system tray, selecting settings and cliking **Manage shared drives...**
+- Verify the Docker for Windows desktop app is running by looking for the `moby` icon in system tray, and making sure it's white and functional.
+- Verify volume mapping is configured by right-clicking the `moby` icon in the system tray, selecting settings and clicking **Manage shared drives...**
 
 **Docker Toolbox w/VirtualBox**
 
 By default, VirtualBox shares `C:\Users` as `c:/Users`. If possible, move your project below this directory. Otherwise, you may manually add it to the VirtualBox [Shared folders](https://www.virtualbox.org/manual/ch04.html#sharedfolders).
 	
-##Build : Failed to build the image, Error checking TLS connection: Host is not running
+##Build: Failed to build the image, Error checking TLS connection: Host is not running
 
 - Verify the default docker host is running. See the article, [Configure the Docker client](./vs-azure-tools-docker-setup.md).
 
 ##Using Microsoft Edge as the default browser
 
-If you are using the Microsoft Edge browser, the site might not open as Edge considers the IP address to be unsecured. To remedy this, perform the following steps:
+If you are using the Microsoft Edge browser, the site might not open as Edge considers the IP address to be unsecured. To remedy this problem, perform the following steps:
 
 1. Go to **Internet Options**.
     - On Windows 10, you can type `Internet Options` in the Windows Run box.
@@ -127,7 +127,7 @@ If you are using the Microsoft Edge browser, the site might not open as Edge con
 
 ###Running the app causes PowerShell to open, display an error, and then close. The browser page doesn’t open.
 
-This could be an error during `docker-compose-up`. To view the error, perform the following steps:
+The failure to open the browser could be an error during `docker-compose-up`. To view the error, perform the following steps:
 
 1. Open the `Properties\launchSettings.json` file
 1. Locate the Docker entry.
@@ -137,7 +137,7 @@ This could be an error during `docker-compose-up`. To view the error, perform th
     "commandLineArgs": "-ExecutionPolicy RemoteSigned …”
     ```
 	
-1. Add the `-noexit` parameter so that the line now resembles the following. This will keep PowerShell open so that you can view the error.
+1. Add the `-noexit` parameter so that the line now resembles the following. This code keeps PowerShell open so that you can view the error.
 
     ```
 	"commandLineArgs": "-noexit -ExecutionPolicy RemoteSigned …”
