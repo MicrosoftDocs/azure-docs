@@ -22,8 +22,6 @@ Use PowerShell to deploy Azure Resource Manager (ARM) templates to the Azure Sta
 
 ARM templates deploy and provision all of the resources for your application in a single, coordinated operation.
 
-> [AZURE.NOTE] If you work on the Client VM, you’ll need to first **uninstall** the existing Azure PowerShell module and then [download](http://aka.ms/azStackPsh) the latest Azure PowerShell SDK. 
-
 ## Run AzureRM PowerShell cmdlets
 
 In this example, you'll run the following script to deploy a virtual machine to Azure Stack POC using an ARM template.
