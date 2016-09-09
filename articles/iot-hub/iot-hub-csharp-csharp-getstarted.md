@@ -60,7 +60,7 @@ In this section, you'll create a Windows console app that creates a new device i
 5. Add the following fields to the **Program** class. Replace the placeholder value with the connection string for the IoT hub that you created in the previous section.
 
 		static RegistryManager registryManager;
-        static string connectionString = "{iothub connection string}";
+        static string connectionString = "{iot hub connection string}";
 
 6. Add the following method to the **Program** class:
 
@@ -252,7 +252,7 @@ To continue getting started with IoT Hub and to explore other IoT scenarios see:
 - [Getting started with device management][lnk-device-management]
 - [Getting started with the Gateway SDK][lnk-gateway-SDK]
 
-To learn how to extend your your IoT solution and process device-to-cloud messages at scale, see the [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial.
+To learn how to extend your IoT solution and process device-to-cloud messages at scale, see the [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial.
 
 <!-- Images. -->
 [41]: ./media/iot-hub-csharp-csharp-getstarted/run-apps1.png

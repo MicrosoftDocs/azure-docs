@@ -64,7 +64,7 @@ The [device management sample UI][lnk-dm-sample-ui] is a sample web application 
 
 ## Build and run
 
-To run this sample you must build a custom image for your Edison board that includes the IoT Hub gateway software and device management client.
+To run this sample, you must build a custom image for your Edison board that includes the IoT Hub gateway software and device management client.
 
 Before you get started, you should make sure you can connect your Edison board to your wireless network. To set up your Edison board, you need to connect it to a host computer. Later, you will use the host computer to flash your Edison board with the custom image you create. Intel has a set of getting started guides that include guides for the following operating systems:
 

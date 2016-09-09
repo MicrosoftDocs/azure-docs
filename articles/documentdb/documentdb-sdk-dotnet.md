@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/15/2016" 
+	ms.date="09/01/2016" 
 	ms.author="rnagpal"/>
 
 # DocumentDB APIs and SDKs 
@@ -39,8 +39,19 @@
 
 ## Release Notes
 
-### <a name="1.9.3"/>[1.9.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.3)
 > [AZURE.IMPORTANT] You may receive System.NotSupportedException when querying partitioned collections. To avoid this error, uncheck the "Prefer 32-bit" option in your project properties window, on the Build tab.
+
+### <a name="1.9.5"/>[1.9.5](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.5)
+
+  - Fixed an issue that caused the following NotFoundException: The read session is not available for the input session token. This exception occurred in some cases when querying for the read-region of a geo-distributed account.
+  - Exposed the ResponseStream property in the ResourceResponse class, which enables direct access to the underlying stream from a response.
+
+### <a name="1.9.4"/>[1.9.4](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.4)
+
+  - Modified the ResourceResponse, FeedResponse, StoredProcedureResponse and MediaResponse classes to implement the corresponding public interface so that they can be mocked for test driven deployment (TDD).
+  - Fixed an issue that caused a malformed partition key header when using a custom JsonSerializerSettings object for serializing data.
+
+### <a name="1.9.3"/>[1.9.3](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.9.3)
 
   - Fixed an issue that caused long running queries to fail with error: Authorization token is not valid at the current time.
   - Fixed an issue that removed the original SqlParameterCollection from cross partition top/order-by queries.
@@ -164,6 +175,8 @@ All versions of the Azure DocumentDB SDK for .NET prior to version **1.0.0** wil
  
 | Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
+| [1.9.5](#1.9.5) | September 01, 2016 |---
+| [1.9.4](#1.9.4) | August 24, 2016 |---
 | [1.9.3](#1.9.3) | August 15, 2016 |---
 | [1.9.2](#1.9.2) | July 23, 2016 |---
 | 1.9.1 | Deprecated |---

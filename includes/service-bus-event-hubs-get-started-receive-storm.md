@@ -1,6 +1,6 @@
 ## Receive messages with Apache Storm
 
-[**Apache Storm**](https://storm.incubator.apache.org) is a distributed real time computation system that simplifies reliable processing of unbounded streams of data. This section shows how to use an Event Hubs Storm spout to receive events from Event Hubs. Using Apache Storm, you can split events across multiple processes hosted in different nodes. The Event Hubs integration with Storm simplifies event consumption by transparently checkpointing its progress using Storm's Zookeeper installation, managing persistent checkpoints and parallel receives from Event Hubs.
+[**Apache Storm**](https://storm.incubator.apache.org) is a distributed real-time computation system that simplifies reliable processing of unbounded streams of data. This section shows how to use an Event Hubs Storm spout to receive events from Event Hubs. Using Apache Storm, you can split events across multiple processes hosted in different nodes. The Event Hubs integration with Storm simplifies event consumption by transparently checkpointing its progress using Storm's Zookeeper installation, managing persistent checkpoints and parallel receives from Event Hubs.
 
 For more information about Event Hubs receive patterns, see the [Event Hubs overview][].
 
@@ -226,6 +226,4 @@ This tutorial uses an [HDInsight Storm][] installation, which comes with the Eve
 
 <!-- Images -->
 
-[12]: ./media/service-bus-event-hubs-getstarted/create-storm1.png
-[13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
-[14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
+[12]: ./media/service-bus-event-hubs-get-started-receive-storm/create-storm1.png

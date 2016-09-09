@@ -357,13 +357,11 @@ The *measure* command is used to apply statistical functions to the raw search r
 
 Syntax:
 
-	 measure aggregateFunction([aggregatedField]) [as fieldAlias] by groupField [interval interval]
+	measure aggregateFunction1([aggregatedField]) [as fieldAlias1] [, aggregateFunction2([aggregatedField2]) [as fieldAlias2] [, ...]] by groupField1 [, groupField2 [, groupField3]]  [interval interval]
+	
 
-	 measure aggregateFunction1([aggregatedField]) [as fieldAlias1] , aggregateFunction2([aggregatedField]) [as fieldAlias2] by groupField [interval interval]
+	measure aggregateFunction1([aggregatedField]) [as fieldAlias1] [, aggregateFunction2([aggregatedField2]) [as fieldAlias2] [, ...]]  interval interval
 
-	 measure aggregateFunction([aggregatedField])  interval interval
-
-	 measure aggregateFunction1([aggregatedField]), aggregateFunction2([aggregatedField]), ...  interval interval
 
 
 Aggregates the results by *groupField* and calculates the aggregated measure values by using *aggregatedField*.
@@ -474,13 +472,21 @@ Same as the previous example, but uses *PCT70*. Note that *PCT##* is only an ali
 
 **Example 12**
 
+	Type:Perf | measure avg(CounterValue) by Computer, CounterName
+
+*Explanation*
+
+Groups Perf first by Computer and then CounterName, and calculates the average (avg).
+
+**Example 13**
+
 	Type:Alert | measure count() as Count by WorkflowName | sort Count desc | top 5
 
 *Explanation*
 
 Gets the top five workflows with the maximum number of alerts.
 
-**Example 13**
+**Example 14**
 
 	* | measure countdistinct(Computer) by Type
 
@@ -488,7 +494,7 @@ Gets the top five workflows with the maximum number of alerts.
 
 Counts the number of unique computers reporting for each Type.
 
-**Example 14**
+**Example 15**
 
 	* | measure countdistinct(Computer) Interval 1HOUR
 
@@ -496,7 +502,7 @@ Counts the number of unique computers reporting for each Type.
 
 Counts the number of unique computers reporting for every hour.
 
-**Example 15**
+**Example 16**
 
 ```
 Type:Perf CounterName=”% Processor Time” InstanceName=”_Total” | measure avg(CounterValue) by Computer Interval 1HOUR
@@ -506,7 +512,7 @@ Type:Perf CounterName=”% Processor Time” InstanceName=”_Total” | measure
 
 Groups % Processor Time by Computer, and returns the average for every 1 hour.
 
-**Example 16**
+**Example 17**
 
 	Type:W3CIISLog | measure max(TimeTaken) by csMethod Interval 5MINUTES
 
@@ -514,7 +520,7 @@ Groups % Processor Time by Computer, and returns the average for every 1 hour.
 
 Groups W3CIISLog by method, and returns the maximum for every 5 minutes.
 
-**Example 17**
+**Example 18**
 
 ```
 Type:Perf CounterName=”% Processor Time” InstanceName=”_Total”  | measure min(CounterValue) as MIN, avg(CounterValue) as AVG, percentile75(CounterValue) as PCT75, max(CounterValue) as MAX by Computer Interval 1HOUR
@@ -523,6 +529,17 @@ Type:Perf CounterName=”% Processor Time” InstanceName=”_Total”  | measur
 *Explanation*
 
 Groups % Processor Time by computer, and returns the minimum, average, 75 percentile, and maximum for every 1 hour.
+
+**Example 19**
+
+```
+Type:Perf CounterName=”% Processor Time”  | measure min(CounterValue) as MIN, avg(CounterValue) as AVG, percentile75(CounterValue) as PCT75, max(CounterValue) as MAX by Computer, InstanceName Interval 1HOUR
+```
+
+*Explanation*
+
+Groups % Processor Time first by computer and then by Instance name, and returns the minimum, average, 75 percentile, and maximum for every 1 hour
+
 
 ### Where
 

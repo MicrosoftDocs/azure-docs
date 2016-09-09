@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="06/14/2016"
+ms.date="08/30/2016"
 ms.author="larryfr"/>
 
 # Ports and URIs used by HDInsight
@@ -64,6 +64,8 @@ All services publicly exposed on the internet must be authenticated:
 
 ## Non-public ports
 
+> [AZURE.NOTE] Some services are only available on specific cluster types. For example, HBase is only available on HBase cluster types.
+
 ### HDFS ports
 
 | Service | Node(s) | Port | Protocol | Description |
@@ -74,6 +76,7 @@ All services publicly exposed on the internet must be authenticated:
 | DataNode | All worker nodes | 30010 | &nbsp; | Data transfer |
 | DataNode | All worker nodes | 30020 | IPC | Metadata operations |
 | Secondary NameNode | Head nodes | 50090 | HTTP | Checkpoint for NameNode metadata |
+
 ### YARN ports
 
 | Service | Node(s) | Port | Protocol | Description |
@@ -133,3 +136,9 @@ All services publicly exposed on the internet must be authenticated:
 | Region server | All worker nodes | 16020 | &nbsp; | &nbsp; |
 | &nbsp; | &nbsp; | 2181 | &nbsp; | The port that clients use to connect to ZooKeeper |
 
+### Kafka ports
+
+| Service | Node(s) | Port | Protocol | Description |
+| ------- | ------- | ---- | -------- | ----------- |
+| Broker  | Worker nodes | 9092 | [Kafka Wire Protocol](http://kafka.apache.org/protocol.html) | Used for client communication |
+| &nbsp; | Zookeeper nodes | 2181 | &nbsp; | The port that clients use to connect to Zookeeper |

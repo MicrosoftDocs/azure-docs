@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="08/31/2016"
 	ms.author="maheshu"/>
 
 # Azure AD Domain Services *(Preview)*
@@ -27,9 +27,9 @@ The following features are available in the Azure AD Domain Services preview rel
 
 - **One domain instance per Azure AD directory:** You can create a single Active Directory domain for each Azure AD directory.
 
-- **Create domains with custom names:** You can create domains with custom names (eg. contoso.local) using Azure AD Domain Services. This includes both verified as well as unverified domain names. Optionally, you can also create a domain with the built-in domain suffix (i.e. *.onmicrosoft.com) that is offered by your Azure AD directory.
+- **Create domains with custom names:** You can create domains with custom names (eg. 'contoso100.com') using Azure AD Domain Services. This includes both verified as well as unverified domain names. Optionally, you can also create a domain with the built-in domain suffix (i.e. *.onmicrosoft.com) that is offered by your Azure AD directory.
 
-- **Integrated with Azure AD:** You do not need to configure or manage replication to Azure AD Domain Services. User accounts, group memberships and user credentials (passwords) from your Azure AD directory are automatically available in Azure AD Domain Services. New users, groups or changes to attributes ocurring in your Azure AD tenant or in your on-premises directory are automatically synchronized to Azure AD Domain Services.
+- **Integrated with Azure AD:** You do not need to configure or manage replication to Azure AD Domain Services. User accounts, group memberships and user credentials (passwords) from your Azure AD directory are automatically available in Azure AD Domain Services. New users, groups or changes to attributes occurring in your Azure AD tenant or in your on-premises directory are automatically synchronized to Azure AD Domain Services.
 
 - **NTLM and Kerberos authentication:** With support for NTLM and Kerberos authentication, you can deploy applications that rely on Windows Integrated Authentication.
 

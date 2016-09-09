@@ -23,7 +23,7 @@
 
 By monitoring your application with [Visual Studio Application Insights][start], you can correlate failed requests with exceptions and other events at both the client and server, so that you can quickly diagnose the causes.
 
-To monitor an ASP.NET app, you have to [add Application Insights SDK][greenbrown] to your application, or [install Status Monitor on your IIS server][redfield], or, if your app is an Azure Web App, add the [Application Insights Extension][azure].
+To monitor an ASP.NET app, you have to [add Application Insights SDK][greenbrown] to your application, or [install Status Monitor on your IIS server][redfield], or, if your app is an Azure Web App, add the [Application Insights Extension](app-insights-azure-web-apps.md).
 
 ## Diagnosing exceptions using Visual Studio
 
@@ -76,7 +76,7 @@ From there you can look at the stack trace and detailed properties of each excep
 
 A *dependency* is a service that your application calls, typically through a REST API or database connection. [Application Insights Status Monitor][redfield] automatically monitors a variety of types of dependency call, measuring call duration and success or failure. 
 
-To get dependency data, you have to [install Status Monitor][redfield] on your IIS server, or if your app is an Azure Web App, use the [Application Insights Extension][azure]. 
+To get dependency data, you have to [install Status Monitor][redfield] on your IIS server, or if your app is an Azure Web App, use the [Application Insights Extension](app-insights-azure-web-apps.md). 
 
 Failed calls to dependencies are listed on the Failures blade, and you can also find them under Related Items in the request details and exception details.
 
@@ -467,7 +467,6 @@ Note that it will be different from the 'Exceptions' count calculated by the App
 <!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
-[azure]: ../azure-portal/insights-perf-analytics.md
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
 [greenbrown]: app-insights-asp-net.md

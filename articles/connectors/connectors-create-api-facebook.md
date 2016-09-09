@@ -14,14 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="05/18/2016"
+   ms.date="08/18/2016"
    ms.author="mandia"/>
 
 # Get started with the Facebook connector
-Connect to Facebook and post to a timeline, get a page feed, and more. The Facebook connector can be used from:
-
-- Logic apps (discussed in this topic)
-- PowerApps (see the [PowerApps connections list](https://powerapps.microsoft.com/tutorials/connections-list/) for the complete list)
+Connect to Facebook and post to a timeline, get a page feed, and more. 
 
 >[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
@@ -31,6 +28,8 @@ With Facebook, you can:
 - Build your business flow based on the data you get from Facebook. 
 - Use a trigger when a new post is received.
 - Use actions that post to your timeline, get a page feed, and more. These actions get a response, and then make the output available for other actions. For example, when there is a new post on your timeline, you can take that post and push it to your Twitter feed. 
+
+
 
 To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 

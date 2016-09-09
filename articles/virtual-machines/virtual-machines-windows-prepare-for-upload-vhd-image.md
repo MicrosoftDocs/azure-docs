@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2016"
-	ms.author="genli"/>
+	ms.date="09/01/2016"
+	ms.author="glimoli;genli"/>
 
 # Prepare a Windows VHD to upload to Azure
 To upload a Windows VM from on-premises to Azure, you must correctly prepare the virtual hard disk (VHD). There are several recommended steps for you to complete before you upload a VHD to Azure. Running `sysprep` is a common process, but only one step in generalizing an image. This article shows you how to prepare a Windows VHD to upload to Microsoft Azure.
@@ -26,7 +26,7 @@ To upload a Windows VM from on-premises to Azure, you must correctly prepare the
 
 Make sure that the Windows VHD is working correctly on the local server. Resolve any errors within the VM itself before trying to convert or upload to Azure.
 
-If you need to convert your virtual disk to the required format for Azure, use one of the methods noted in the following sections.
+If you need to convert your virtual disk to the required format for Azure, use one of the methods noted in the following sections. Back up the VM before running any virtual disk conversion process or Sysprep.
 
 ### Convert using Hyper-V Manager
 - Open Hyper-V Manager and select your local computer on the left. In the menu above it, click **Action** > **Edit Disk**.
@@ -34,8 +34,8 @@ If you need to convert your virtual disk to the required format for Azure, use o
 	- Select **Convert** on the next screen
 		- If you need to convert from VHDX, select **VHD** and click **Next**
 		- If you need to convert from Dynamic disk, select **Fixed size** and click **Next**
-		
-	- Browse to and select **Path for the new VHD file**. 
+
+	- Browse to and select **Path for the new VHD file**.
 	- Click **Finish** to close.
 
 ### Convert using PowerShell
@@ -66,7 +66,7 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
 3. Configure the disk SAN policy to [Onlineall](https://technet.microsoft.com/library/gg252636.aspx):
 
 	```
-	dispart san policy=onlineall
+	diskpart san policy=onlineall
 	```
 
 4. Use Coordinated Universal Time (UTC) time for Windows and set the startup type of the Windows Time (w32time) service to **Automatically**:
@@ -93,17 +93,17 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
 
 	sc config iphlpsvc start= auto
 
-	sc config PolicyAgent start= manual
+	sc config PolicyAgent start= demand
 
 	sc config LSM start= auto
 
-	sc config netlogon start= manual
+	sc config netlogon start= demand
 
-	sc config netman start= manual
+	sc config netman start= demand
 
-	sc config NcaSvc start= manual
+	sc config NcaSvc start= demand
 
-	sc config netprofm start= manual
+	sc config netprofm start= demand
 
 	sc config NlaSvc start= auto
 
@@ -113,11 +113,11 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
 
 	sc config RpcEptMapper start= auto
 
-	sc config termService start= manual
+	sc config termService start= demand
 
 	sc config MpsSvc start= auto
 
-	sc config WinHttpAutoProxySvc start= manual
+	sc config WinHttpAutoProxySvc start= demand
 
 	sc config LanmanWorkstation start= auto
 
@@ -162,7 +162,7 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
 
 
 ## Configure Windows Firewall rules
-10. Allow WinRM through the three firewall profiles (Domain, Private and Public) and enable PowerShell Remote service: 
+10. Allow WinRM through the three firewall profiles (Domain, Private and Public) and enable PowerShell Remote service:
 
 	```
 	Enable-PSRemoting -force
@@ -205,25 +205,25 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
 	- Outbound
 
 	```
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (LLMNR-UDP-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (LLMNR-UDP-Out)" new enable=yes
 
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Datagram-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (NB-Datagram-Out)" new enable=yes
 
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Name-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (NB-Name-Out)" new enable=yes
 
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (Pub-WSD-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (Pub-WSD-Out)" new enable=yes
 
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (SSDP-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (SSDP-Out)" new enable=yes
 
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (UPnPHost-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (UPnPHost-Out)" new enable=yes
 
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (UPnP-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (UPnP-Out)" new enable=yes
 
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD Events-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (WSD Events-Out)" new enable=yes
 
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD EventsSecure-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (WSD EventsSecure-Out)" new enable=yes
 
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (WSD-Out)" new enable=yes
 	```
 
 
@@ -233,17 +233,15 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
 13. Make sure the Boot Configuration Data (BCD) settings match the following:
 
 	```
-	bcdedit /set {bootmgr} device partition=<Boot Partition>
-
 	bcdedit /set {bootmgr} integrityservices enable
 
-	bcdedit /set {default} device partition=<OS Partition>
+	bcdedit /set {default} device partition=C:
 
 	bcdedit /set {default} integrityservices enable
 
 	bcdedit /set {default} recoveryenabled Off
 
-	bcdedit /set {default} osdevice partition=<OS Partition>
+	bcdedit /set {default} osdevice partition=C:
 
 	bcdedit /set {default} bootstatuspolicy IgnoreAllFailures
 	```
@@ -287,6 +285,7 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
 
 	- [Create a VM image from an existing Azure VM using the Resource Manager deployment model](virtual-machines-windows-capture-image.md)
 	- [Create a VM image from an existing Azure VM using the Classic deployment modem](virtual-machines-windows-classic-capture-image.md)
+	- [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
 
 ## Suggested extra configurations
