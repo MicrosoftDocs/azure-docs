@@ -134,7 +134,7 @@ This is the schema for the settings portion of the Azure DSC extension in an ARM
 
 ```
 
-# Details
+## Details
 | Property Name	| Type | Description |
 | --- | --- | --- |
 | settings.wmfVersion | string | Specifies the version of the Windows Management Framework that should be installed on your VM. Setting this property to 'latest' installs the most updated version of WMF. The only current possible values for this property are **'4.0', '5.0', '5.0PP', and 'latest'**. These possible values are subject to updates. The default value is 'latest'.|
