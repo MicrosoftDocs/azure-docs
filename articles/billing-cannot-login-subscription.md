@@ -71,7 +71,7 @@ To resolve the issue, try one of the following methods:
 - Sign out of the portal,  and then sign back in with the account you want to use.
 -	Clear the cache and delete Internet cookies. To do this in Internet Explorer, click **Tools** ![tools button](./media/billing-cannot-login-subscription/toolsbutton.png) > **Internet Options** > **Delete**, make sure that the check boxes for temporary files, cookies, password, and browsing history are selected, and then click Delete.
 
--	Reset the Internet Explorer settings to revert any personal settings that you’ve made. To do this, click **Tools** ![tools button](./media/billing-cannot-login-subscription/toolsbutton.png)> **Internet Options** > **Advanced** >select the **Delete personal settings** box > **Reset**.
+-	Reset the Internet Explorer settings to revert any personal settings that you’ve made. To do this, click **Tools** ![tools button](./media/billing-cannot-login-subscription/tools button.png)> **Internet Options** > **Advanced** >select the **Delete personal settings** box > **Reset**.
 
 -	Browse to the Azure portal in InPrivate Browsing mode. To do this, click **Tools** ![tools button](./media/billing-cannot-login-subscription/toolsbutton.png) > **Safety** > **InPrivate Browsing**.
 
