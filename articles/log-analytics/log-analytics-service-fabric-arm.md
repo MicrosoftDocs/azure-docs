@@ -32,7 +32,7 @@ You can leverage the following ARM templates depending on what scenario best fit
 ##Deploy a new Service Fabric Cluster connected to a Log Analytics workspace.
 This template does the following:
 
-1. Deploys an Azure Service Fabric cluster already connected to a Log Analytics workspace. You can create a new workspace while deploying the template, or you can input the name of an already existing Log Analytics workspace.
+1. Deploys an Azure Service Fabric cluster already connected to a Log Analytics workspace. You can create a new workspace while deploying the template, or input the name of an already existing Log Analytics workspace.
 2. Adds the diagnostic storage account to the Log Analytics workspace. 
 3. Enables the Service Fabric solution in your Log Analytics workspace.
 
@@ -41,6 +41,7 @@ This template does the following:
 
 Once you select the deploy button above, you will arrive on the Azure portal, go ahead and edit the parameters listed. Be sure to create a new resource group if you input a new Log Analytics workspace name:
 ![Service Fabric](./media/log-analytics-service-fabric/2.png)
+
 ![Service Fabric](./media/log-analytics-service-fabric/3.png)
 
 Accept the legal terms and hit "Create" to start the deployment. Once the deployment is completed, you should be able to see the new workspace and cluster created, and the WADServiceFabric*Event, WADWindowsEventLogs and WADETWEvent tables added:
