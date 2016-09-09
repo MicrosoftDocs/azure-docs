@@ -106,7 +106,7 @@ Alert rules automatically run log searches according to a schedule.  If the resu
 - [Log Analytics Alert API](../log-analytics/log-analytics-api-alerts.md)
 
 
-## Back and Site Recovery
+## Backup and Site Recovery
 
 Azure Backup and Site Recovery provide services for protecting your enterprise data and ensuring the availability of servers and applications.  You can leverage these services to perform such scenarios as providing backup services for your application or initiating a failover of a virtual machine.
 
