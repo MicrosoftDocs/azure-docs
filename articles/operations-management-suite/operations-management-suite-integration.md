@@ -116,9 +116,11 @@ Azure Backup and Site Recovery provide services for protecting your enterprise d
 
 ## Custom solutions
 
-You can encapsulate custom logic into a custom solution to run in your workspace or in a customer's workspace.  Your custom solution can include any of the integration methods in this article in addition to other resources to provide custom management.  For example, it could include a runbook to gather and process data and then populate the repository using the HTTP Data Collector API.  You could also include a custom view that presents and analyzes the collected data.  The resources in the solution are packaged such that when the solution is removed, all of the resources that it created are removed from the OMS workspace and Azure subscription.
+You can encapsulate integration logic into a custom solution to run in your workspace or in a customer's workspace.  Your solution can include any of the integration methods in this article in addition to other resources to provide a complete management scenario.  The resources in the solution are packaged such that when the solution is removed, all of the resources that it created are removed from the OMS workspace and Azure subscription.
+
+For example, your solution could include an Automation runbook to gather and process data and then populate the Log Analytics repository using the HTTP Data Collector API.  You could also include a custom view that presents and analyzes the collected data.  
 
 - Creating custom solutions (Link not available yet)    
 
 ## Next steps
-- Reference the OMS SDK for technical information on automating OMS services.
+- Reference the OMS SDK for technical information on automating OMS services.  (Link not available yet) 
