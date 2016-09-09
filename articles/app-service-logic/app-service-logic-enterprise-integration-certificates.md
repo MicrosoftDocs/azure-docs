@@ -28,7 +28,7 @@ Enterprise integration uses certificates to secure B2B communications. You can u
 Certificates are digital documents that verify the identity of the participants in electronic communications and that also secure electronic communications.
 
 ## Why use certificates?
-Sometimes B2B communications need to be kept confidential. Enterprise integration uses certificates to secure these communications in two ways:
+Sometimes B2B communications must be kept confidential. Enterprise integration uses certificates to secure these communications in two ways:
 - By encrypting the contents of messages
 - By digitally signing messages  
 
