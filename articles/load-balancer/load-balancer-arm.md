@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Resource Manager support for Load Balancer Preview | Microsoft Azure "
-   description="Using powershell for Load Balancer with Azure Resource Manager (ARM) in preview. Using templates for load balancer"
+   description="Using powershell for Load Balancer with Azure Resource Manager in preview. Using templates for load balancer"
    services="load-balancer"
    documentationCenter="na"
    authors="sdwheeler"
