@@ -95,6 +95,9 @@ In addition to adding users in the Azure portal, you can add an external user to
 In the following example, simply modify the parameter values under the **Values to change** comment.
 You can retrieve the `subscriptionId`, `labResourceGroup`, and `labName` values from the lab blade in the Azure portal.
 
+> [AZURE.NOTE]
+> The sample script assumes that the specified user has been added as a guest to the Active Directory. If the specified user has not been added to the Active Directory, this script will fail. To add users that are not in the Active Directory, you need to use the Azure portal and assign them a role at which time the user is automatically added to the Active Directory.   
+
 	# Add an external user in DevTest Labs user role to a lab
 	# Ensure that guest users can be added to the Azure Active directory:
 	# https://azure.microsoft.com/en-us/documentation/articles/active-directory-create-users/#set-guest-user-access-policies
