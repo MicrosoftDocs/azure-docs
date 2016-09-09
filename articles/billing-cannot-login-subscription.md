@@ -1,5 +1,5 @@
 <properties
-	pageTitle="I am unable to log in to manage my Azure subscription | Microsoft Azure"
+	pageTitle="I cannot sign in to manage my Azure subscription | Microsoft Azure"
 	description="Describes the troubleshoot information for some common Azure subscription login issues"
 	services=""
 	documentationCenter=""
@@ -18,23 +18,25 @@
 	ms.date="09/08/2016"
 	ms.author="genli"/>
 
-# I am unable to log in to manage my Azure subscription
+# I cannot sign in to manage my Azure subscription
 
 This article guides you through some of the most common methods to resolve login issues.
 
 > [AZURE.NOTE] If you need more help at any point in this article, please [contact support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) to get your issue resolved quickly.
 
-## Portal URLs
+## Azure portals
 
--	Azure portal: [https://portal.azure.com](https://portal.azure.com)
--	Azure classic portal: [https://manage.windowsazure.com](https://manage.windowsazure.com)
--	Azure Account Center (for subscription and billing management): [https://account.windowsazure.com/Subscriptions](https://account.windowsazure.com/Subscriptions)
+| Name  | Description  |  URL |
+|---|---|---|
+| Azure portal |A central place where you can provision and manage your Azure resources   | [https://portal.azure.com](https://portal.azure.com)  |
+| Azure classic portal  | The old Azure portal |[https://manage.windowsazure.com](https://manage.windowsazure.com)   |
+| Azure Account Center | A central place where you can track your Azure usage and manage your subscription. |[https://account.windowsazure.com/Subscriptions](https://account.windowsazure.com/Subscriptions)   ||
 
 ## Symptom: The page hangs in the loading status
 
 This issue can be caused a problem that affects your Internet browser.
 
-To resolve this issue, try the following methods, in the given order. After you do each method, try to reconnect to the sign-in page on the [Azure portal](https://portal.azure.com).
+To resolve this issue, try the following methods, in the given order. After you do each method, try to reconnect to the sign-in page on the portal.
 
 -	Refresh the page.
 -	Use a different Internet browser.
@@ -45,13 +47,13 @@ To resolve this issue, try the following methods, in the given order. After you 
 
 ## Symptom: Error message "No subscriptions found”
 
-This issue can occur if the account doesn’t have sufficient user rights.
+This issue can occur if the account doesn’t have sufficient user rights. An account administrator can only access the [Account Center](https://account.windowsazure.com/) whereas service administrators (SA) and co-administrators (CA) only have access to the [Azure portal](https://portal.azure.com) or the [Azure classic portal](https://manage.windowsazure.com/).
 
-**Error message is received in the Azure portal or the Azure classic portal**
+**Scenario 1: Error message is received in the Azure portal or the Azure classic portal**
 
-To resolve this issue, [add the administrator roles](billing-add-change-azure-subscription-administrator.md) for the account.
+To resolve this issue, [add the co-administrator or owner role](billing-add-change-azure-subscription-administrator.md) for the account.
 
-**Error message is received in the Azure Account Center**
+**Scenario 2: Error message is received in the Azure Account Center**
 
 Check whether the account that you used is the account administrator. To verify who the account administrator is, follow these steps:
 
@@ -66,6 +68,7 @@ This issue can occur if you're using more than one user account in an Internet b
 
 To resolve the issue, try one of the following methods:
 
+- Sign out of the portal,  and then sign back in with the account you want to use.
 -	Clear the cache and delete Internet cookies. To do this in Internet Explorer, click **Tools** > **Internet Options** > **Delete**, make sure that the check boxes for temporary files, cookies, and browsing history are selected, and then click Delete.
 
 -	Reset the Internet Explorer settings to revert any personal settings that you’ve made. To do this, click **Tools** > **Internet Options** > **Advanced** >select the **Delete personal settings** box > **Reset**.
