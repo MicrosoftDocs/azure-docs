@@ -85,35 +85,12 @@ best practices. These sections are suitable for technical audience.
 ## Predictive maintenance in IoT
 The impact of unscheduled equipment downtime can be extremely
 destructive for businesses. It is critical to keep field equipment
-running in order to maximize utilization and performance and by minimizing
-costly, unscheduled downtime. Simply, waiting for the failure to occur
-is not affordable in today’s business operations
-scene. To remain competitive, companies look for new ways to maximize
-asset performance by making use of the data collected from various
-channels. One important way to analyze such information is to utilize
-predictive analytic techniques that use historical patterns to predict
-future outcomes. One of the most popular of these solutions is called
-Predictive Maintenance which can generally be defined as but not limited
-to predicting possibility of failure of an asset in the near future so
-that the assets can be monitored to proactively identify failures and
-take action before the failures occur. These solutions detect failure
-patterns to determine assets that are at the greatest risk of failure.
-This early identification of issues helps deploy limited maintenance
-resources in a more cost-effective way and enhance quality and supply
-chain processes.
+running in order to maximize utilization and performance and by minimizing costly, unscheduled downtime. Simply, waiting for the failure to occur is not affordable in today’s business operations
+scene. To remain competitive, companies look for new ways to maximize asset performance by making use of the data collected from various channels. One important way to analyze such information is to utilize predictive analytic techniques that use historical patterns to predict future outcomes. One of the most popular of these solutions is called Predictive Maintenance which can generally be defined as but not limited to predicting possibility of failure of an asset in the near future so that the assets can be monitored to proactively identify failures and take action before the failures occur. These solutions detect failure patterns to determine assets that are at the greatest risk of failure. This early identification of issues helps deploy limited maintenance resources in a more cost-effective way and enhance quality and supply chain processes.
 
-With the rise of the Internet of Things (IoT) applications, predictive
-maintenance has been gaining increasing attention in the industry as the
-data collection and processing technologies has matured enough to
-generate, transmit, store and analyze all kinds of data in batches or in
-real-time. Such technologies enable easy development and deployment of
-end-to-end solutions with advanced analytics solutions, with predictive maintenance solutions providing arguably the largest benefit.
+With the rise of the Internet of Things (IoT) applications, predictive maintenance has been gaining increasing attention in the industry as the data collection and processing technologies has matured enough to generate, transmit, store and analyze all kinds of data in batches or in real-time. Such technologies enable easy development and deployment of end-to-end solutions with advanced analytics solutions, with predictive maintenance solutions providing arguably the largest benefit.
 
-Business problems in the predictive maintenance domain range from high
-operational risk due to unexpected failures and limited insight into the
-root cause of problems in complex business environments. The majority of
-these problems can be categorized to fall under the following business
-questions:
+Business problems in the predictive maintenance domain range from high operational risk due to unexpected failures and limited insight into the root cause of problems in complex business environments. The majority of these problems can be categorized to fall under the following business questions:
 
 -   What is the probability that a piece of equipment fails in the near
     future?
@@ -123,6 +100,7 @@ questions:
 
 By utilizing predictive maintenance to answer these questions,
 businesses can:
+
 -   Reduce operational risk and increase rate of return on assets by
     spotting failures before they occurred
 -   Reduce unnecessary time-based maintenance operations and control
@@ -134,40 +112,15 @@ businesses can:
 -   Discover patterns connected to various maintenance problems
 
 Predictive maintenance solutions can provide businesses with key
-performance indicators such as health scores to monitor real-time asset
-condition, an estimate of the remaining lifespan of assets,
-recommendation for proactive maintenance activities and estimated order
-dates for replacement of parts.
+performance indicators such as health scores to monitor real-time asset condition, an estimate of the remaining lifespan of assets,
+recommendation for proactive maintenance activities and estimated order dates for replacement of parts.
 
 ## Qualification criteria for predictive maintenance
-It is important to emphasize that not all use cases or business problems
-can be effectively solved by predictive maintenance. Important
-qualification criteria include whether the problem is predictive in nature,
-that a clear path of action exists in order to prevent failures when they
-are detected beforehand and most importantly, data with sufficient
-quality to support the use case is available. Here, we focus on the data
-requirements for building a successful predictive maintenance solution.
+It is important to emphasize that not all use cases or business problems can be effectively solved by predictive maintenance. Important qualification criteria include whether the problem is predictive in nature, that a clear path of action exists in order to prevent failures when they are detected beforehand and most importantly, data with sufficient quality to support the use case is available. Here, we focus on the data requirements for building a successful predictive maintenance solution.
 
-When building predictive models, we use historical data to train the
-model which can then recognize hidden patterns and further identify
-these patterns in the future data. These models are trained with
-examples described by their features and the target of prediction. The
-trained model is expected to make predictions on the target by only
-looking at the features of the new examples. It is crucial that the
-model capture the relationship between features and the target of
-prediction. In order to train an effective machine learning model, we
-need training data which includes features that actually have predictive
-power towards the target of prediction meaning the data should be relevant
-to the prediction goal to expect accurate predictions.
+When building predictive models, we use historical data to train the model which can then recognize hidden patterns and further identify these patterns in the future data. These models are trained with examples described by their features and the target of prediction. The trained model is expected to make predictions on the target by only looking at the features of the new examples. It is crucial that the model capture the relationship between features and the target of prediction. In order to train an effective machine learning model, we need training data which includes features that actually have predictive power towards the target of prediction meaning the data should be relevant to the prediction goal to expect accurate predictions.
 
-For example, if the target is to predict failures of train wheels, the
-training data should contain wheel-related features (e.g. telemetry
-reflecting the health status of wheels, the mileage, car load, etc.).
-However, if the target is to predict train engine failures, we probably
-need another set of training data that has engine-related features.
-Before building predictive models, we expect the business expert to
-understand the data relevancy requirement and provide the domain
-knowledge that is needed to select relevant subsets of data for the analysis.
+For example, if the target is to predict failures of train wheels, the training data should contain wheel-related features (e.g. telemetry reflecting the health status of wheels, the mileage, car load, etc.). However, if the target is to predict train engine failures, we probably need another set of training data that has engine-related features. Before building predictive models, we expect the business expert to understand the data relevancy requirement and provide the domain knowledge that is needed to select relevant subsets of data for the analysis.
 
 There are three essential data sources we look for when qualifying a business problem to be suitable for a predictive maintenance solution:
 
@@ -182,87 +135,43 @@ more general ones.
 One common question that is usually asked about failure history data is "How many failure events are required to train a model and how many is considered as "enough"? There is no clear answer to that question as in many predictive analytics scenarios, it is usually the quality of the data that dictates what is acceptable. If the dataset does not include features that are relevant to failure prediction, then even if there are many failure events, building a good model may not be possible. However, the rule of thumb is that the more the failure events the better the model is and a rough estimate of how many failure examples are required is a very context and data-dependent measure. This issue is discussed in the section for handling imbalanced datasets where we propose methods to cope with the problem of not having enough failures.
 
 ## Sample use cases
-This section focuses on a collection of predictive maintenance use cases
-from several industries such as Aerospace, Utilities and Transportation.
-Each subsection drills into the use-cases collected from these areas and
-discusses a business problem, the data surrounding the business problem and
-the benefits of a predictive maintenance solution.
+This section focuses on a collection of predictive maintenance use cases from several industries such as Aerospace, Utilities and Transportation. Each subsection drills into the use-cases collected from these areas and discusses a business problem, the data surrounding the business problem and the benefits of a predictive maintenance solution.
 
 ### Aerospace
 #### Use Case 1: Flight delay and cancellations
 ##### *Business problem and data sources*
-One of the major business problems that airlines face is the significant
-costs that are associated with flights being delayed due to mechanical
-problems. If the mechanical failures cannot be repaired, flights may
-even be canceled. This is extremely costly as delays create problems in
-scheduling and operations, causes bad reputation and customer
-dissatisfaction along with many other problems. Airlines are
-particularly interested in predicting such mechanical failures in
-advance so that they can reduce flight delays or cancellations. The goal
-of the predictive maintenance solution for these cases is to predict the
-probability of an aircraft being delayed or canceled, based
-on relevant data sources such as maintenance history and flight route
-information. The two major data sources for this use case are the flight
-legs and page logs. Flight leg data includes data about the flight route
-details such as the date and time of departure and arrival, departure
-and arrival airports, etc. Page log data includes a series of error and
-maintenance codes that are recorded by the maintenance personnel.
+One of the major business problems that airlines face is the significant costs that are associated with flights being delayed due to mechanical problems. If the mechanical failures cannot be repaired, flights may
+even be canceled. This is extremely costly as delays create problems in scheduling and operations, causes bad reputation and customer dissatisfaction along with many other problems. Airlines are particularly interested in predicting such mechanical failures in advance so that they can reduce flight delays or cancellations. The goal of the predictive maintenance solution for these cases is to predict the probability of an aircraft being delayed or canceled, based on relevant data sources such as maintenance history and flight route information. The two major data sources for this use case are the flight legs and page logs. Flight leg data includes data about the flight route details such as the date and time of departure and arrival, departure and arrival airports, etc. Page log data includes a series of error and maintenance codes that are recorded by the maintenance personnel.
 
 ##### *Business value of the predictive model*
-Using the available historical data, a predictive model was built using
-a multi-classification algorithm to predict the type of mechanical issue
-which results in a delay or cancellation of a flight within the next 24 hours.
-By making this prediction, necessary maintenance actions can be taken
-to mitigate the risk while the aircrafts are being serviced and thus prevent
-possible delays or cancellations. Using Azure Machine Learning
-web service, the predictive models can seamlessly and easily be integrated
+Using the available historical data, a predictive model was built using a multi-classification algorithm to predict the type of mechanical issue which results in a delay or cancellation of a flight within the next 24 hours. By making this prediction, necessary maintenance actions can be taken to mitigate the risk while an aircraft is being serviced and thus prevent possible delays or cancellations. Using Azure Machine Learning web service, the predictive models can seamlessly and easily be integrated
 into airlines’ existing operating platforms. 
 
 #### Use Case 2: Aircraft component failure
 ##### *Business problem and data sources*
-Aircraft engines are very sensitive and expensive pieces of equipment
-and engine part replacements are among the most common maintenance tasks in the airline industry. Maintenance solutions for airlines require careful management of component stock availability, delivery and planning. Being able to gather intelligence on component reliability leads to substantial reduction on investment costs. The major data source for this use case is telemetry data collected from a number of sensors in the aircraft providing information on the condition of the aircraft. Maintenance records were also used to identify when component failures occurred and replacements were made.
+Aircraft engines are very sensitive and expensive pieces of equipment and engine part replacements are among the most common maintenance tasks in the airline industry. Maintenance solutions for airlines require careful management of component stock availability, delivery and planning. Being able to gather intelligence on component reliability leads to substantial reduction on investment costs. The major data source for this use case is telemetry data collected from a number of sensors in the aircraft providing information on the condition of the aircraft. Maintenance records were also used to identify when component failures occurred and replacements were made.
 
 ##### Business value of the predictive model
 A multi-class classification model was built that predicts the
 probability of a failure due to a certain component within the next
 month. By employing these solutions, airlines can reduce component
-repair costs, improve component stock availability, reduce inventory
-levels of related assets and improve maintenance planning.
+repair costs, improve component stock availability, reduce inventory levels of related assets and improve maintenance planning.
 
 ### Utilities
 #### Use Case 1: ATM cash dispense failure
 ##### *Business problem and data sources*
 Executives in asset intensive industries often state that primary
-operational risk to their businesses is unexpected failures of their assets. As an example, failure of machinery such as ATMs in banking industry is a very common problem that occurs frequently. These types of problems makes predictive maintenance solutions very desirable for operators of such machinery. In this use-case, prediction problem is to calculate the probability that an ATM cash withdrawal transaction gets interrupted due to a failure in the cash dispenser such as a paper jam or a part failure. Major data sources for this case are sensor readings that collect measurements while cash notes are being dispensed and also maintenance records collected over time. Sensor data included sensor readings per each transaction completed and also sensor readings per each note dispensed. The sensor readings provided measurements such
+operational risk to their businesses is unexpected failures of their assets. As an example, failure of machinery such as ATMs in banking industry is a very common problem that occurs frequently. These types of problems make predictive maintenance solutions very desirable for operators of such machinery. In this use-case, prediction problem is to calculate the probability that an ATM cash withdrawal transaction gets interrupted due to a failure in the cash dispenser such as a paper jam or a part failure. Major data sources for this case are sensor readings that collect measurements while cash notes are being dispensed and also maintenance records collected over time. Sensor data included sensor readings per each transaction completed and also sensor readings per each note dispensed. The sensor readings provided measurements such
 as gaps between notes, thickness, note arrival distance etc. Maintenance data included error codes and repair information. These were used to identify failure cases.
 
 ##### *Business value of the predictive model*
 Two predictive models were built to predict failures in the cash
-withdrawal transactions and failures in the individual notes dispensed
-during a transaction. By being able to predict transaction failures
-beforehand, ATMs can be serviced proactively to prevent failures from
-occurring. Also, with note failure prediction, if a transaction is
-likely to fail before it is complete due to a note dispense failure, it
-may be best to stop the process and warn the customer for incomplete
-transaction rather than waiting for the maintenance service to arrive
-after the error occurs which may lead to larger customer
+withdrawal transactions and failures in the individual notes dispensed during a transaction. By being able to predict transaction failures beforehand, ATMs can be serviced proactively to prevent failures from occurring. Also, with note failure prediction, if a transaction is likely to fail before it is complete due to a note dispense failure, it may be best to stop the process and warn the customer for incomplete transaction rather than waiting for the maintenance service to arrive after the error occurs which may lead to larger customer
 dissatisfaction.
 
 #### Use Case 2: Wind turbine failures
 ##### *Business problem and data sources*
-With the raise of environmental awareness, wind turbines have become one
-of the major sources of energy generation and they usually cost millions
-of dollars. One of the key components of wind turbines is the generator
-motor which is equipped with many sensors that helps to monitor turbine
-conditions and status. The sensor readings contain valuable information
-which can be used to build a predictive model to predict critical Key Performance Indicators (KPIs)
-such as mean time to failure for components of the wind turbine. Data
-for this use case comes from multiple wind turbines that are located in
-3 different farm locations. Measurements from close to a hundred sensors from each
-turbine were recorded every 10 seconds for one year. These readings
-include measurements such as temperature, generator speed, turbine power
-and generator winding.
+With the raise of environmental awareness, wind turbines have become one of the major sources of energy generation and they usually cost millions of dollars. One of the key components of wind turbines is the generator motor which is equipped with many sensors that helps to monitor turbine conditions and status. The sensor readings contain valuable information which can be used to build a predictive model to predict critical Key Performance Indicators (KPIs) such as mean time to failure for components of the wind turbine. Data for this use case comes from multiple wind turbines that are located in three different farm locations. Measurements from close to a hundred sensors from each turbine were recorded every 10 seconds for one year. These readings include measurements such as temperature, generator speed, turbine power and generator winding.
 
 ##### *Business value of the predictive model*
 Predictive models were built to estimate remaining useful life for
@@ -365,16 +274,12 @@ the regular maintenance regimes.
 ### Data sources
 The common data elements for predictive maintenance problems can be
 summarized as follows:
--   Failure history: The failure history of a machine or component
-    within the machine.
--   Maintenance history: The repair history of a machine, e.g. error
-    codes, previous maintenance activities or component replacements.
--   Machine conditions and usage: The operating conditions of a
-    machine e.g. data collected from sensors.
--   Machine features: The features of a machine, e.g. engine size, make
-    and model, location.
--   Operator features: The features of the operator, e.g. gender,
-    past experience.
+
+-   Failure history: The failure history of a machine or component within the machine.
+-   Maintenance history: The repair history of a machine, e.g. error codes, previous maintenance activities or component replacements.
+-   Machine conditions and usage: The operating conditions of a machine e.g. data collected from sensors.
+-   Machine features: The features of a machine, e.g. engine size, make and model, location.
+-   Operator features: The features of the operator, e.g. gender, past experience.
 
 It is possible and usually the case that failure history is contained in
 maintenance history such as in the form of special error codes or order
@@ -492,28 +397,15 @@ and t<sub>2</sub> which are indicated by orange and green groupings respectively
 
 Figure 1. Rolling aggregate features
 
-As examples, for aircraft component failure, sensor values from last
-week, last three days and last day were used to create rolling means,
-standard deviation and sum features. Similarly, for ATM failures, both
-raw sensor values and rolling means, median, range, standard deviations,
-number of outliers beyond three standard deviations, upper and lower
-CUMSUM features were used.
+As examples, for aircraft component failure, sensor values from last week, last three days and last day were used to create rolling means, standard deviation and sum features. Similarly, for ATM failures, both raw sensor values and rolling means, median, range, standard deviations, number of outliers beyond three standard deviations, upper and lower CUMSUM features were used.
 
-For flight delay prediction, counts of error codes from last week were
-used to create features. For train door failures, counts of the events
-on the last day, counts of events over the previous 2 weeks and variance
-of counts of events of the previous 15 days were used to create lag
-features. Same counting was used for maintenance-related events.
+For flight delay prediction, counts of error codes from last week were used to create features. For train door failures, counts of the events on the last day, counts of events over the previous 2 weeks and variance of counts of events of the previous 15 days were used to create lag features. Same counting was used for maintenance-related events.
 
 Additionally, by picking a W that is very large (ex. years), it is
-possible to look at the whole history of an asset such as counting all
-maintenance records, failures etc. up until the time of the record. This
-method was used for counting circuit breaker failures for the last three
-years. Also for train failures, all maintenance events were counted to
-create a feature to captures the long-term maintenance effects.
+possible to look at the whole history of an asset such as counting all maintenance records, failures etc. up until the time of the record. This method was used for counting circuit breaker failures for the last three years. Also for train failures, all maintenance events were counted to create a feature to capture the long-term maintenance effects.
 
 ##### *Tumbling aggregates*
-For each labelled record of an asset, we pick a window of size "W-<sub>k</sub>" where k is the number or windows of size "W" that we want to create lag
+For each labeled record of an asset, we pick a window of size "W-<sub>k</sub>" where k is the number or windows of size "W" that we want to create lag
 features for. "k" can be picked as a large number to capture long-term
 degradation patterns or a small number to capture short-term effects. We
 then use k tumbling windows W-<sub>k</sub> , W-<sub>(k-1)</sub>, …, W-<sub>2</sub> , W-<sub>1</sub> to create aggregate features for the periods before the record date and time (see Figure 2). These are also rolling windows at the record level for a time unit which is not captured in Figure 2 but the idea is the same as in Figure 1 where t<sub>2</sub> is also used to demonstrate the rolling
@@ -542,9 +434,7 @@ The final feature table after feature engineering steps discussed in the earlier
 |...|...|||
 
 ## Modeling techniques
-Predictive Maintenance is a very rich domain often employing business
-questions which may be approached from many different angles of the
-predictive modeling perspective. In the next sections, we provide main techniques that are used to model different business questions that can be answered with predictive maintenance solutions. Although there are similarities, each model has its own way of constructing labels which are described in detail. As an accompanying resource, you can refer to the predictive maintenance template that is included in the sample experiments provided within Azure Machine Learning. The links to the online material for this template are provided in the resources section. You can see how some of the feature engineering techniques discussed above and the modeling technique that is described in the next sections are applied to predict aircraft engine failures using Azure Machine Learning.
+Predictive Maintenance is a very rich domain often employing business questions which may be approached from many different angles of the predictive modeling perspective. In the next sections, we provide main techniques that are used to model different business questions that can be answered with predictive maintenance solutions. Although there are similarities, each model has its own way of constructing labels which are described in detail. As an accompanying resource, you can refer to the predictive maintenance template that is included in the sample experiments provided within Azure Machine Learning. The links to the online material for this template are provided in the resources section. You can see how some of the feature engineering techniques discussed above and the modeling technique that is described in the next sections are applied to predict aircraft engine failures using Azure Machine Learning.
 
 ### Binary classification for predictive maintenance
 Binary Classification for predictive maintenance is used to predict the probability that equipment fails within a future time period. The time period is determined by and based on business rules and the data at hand. Some common time periods are minimum lead time required to purchase spare parts to replace likely to damage components or time required to deploy maintenance resources to perform maintenance routines to fix the problem that is likely to occur within that time period. We call this future horizon period "X".
@@ -554,15 +444,15 @@ In order to use binary classification, we need to identify two types of examples
 #### Label construction
 In order to create a predictive model to answer the question "What is the probability that the asset fails in the next X units of time?", labeling is done by taking X records prior to the failure of an asset and labeling them as "about to fail" (label = 1) while labeling all other records as "normal" (label =0). In this method, labels are categorical variables (see Figure 3).
 
-![Figure 3. Labelling for binary classification](media/cortana-analytics-playbook-predictive-maintenance/labelling-for-binary-classification.png)
+![Figure 3. Labeling for binary classification](media/cortana-analytics-playbook-predictive-maintenance/labelling-for-binary-classification.png)
 
-Figure 3. Labelling for binary classification
+Figure 3. Labeling for binary classification
 
 For flight delays and cancellations, X is picked as one day to predict delays in the next 24 hours. All flights that are within 24 hours before failures were labeled as 1s. For ATM cash dispense failures, two binary classification models were built to predict the failure probability of a transaction in the next 10 minutes and also to predict the probability of failure in the next 100 notes dispensed. All transactions that happened within the last 10 minutes of the failure are labeled as 1 for the first model. And all notes dispensed within the last 100 notes of a failure were labeled as 1 for the second model. For circuit breaker failures, the task is to predict the probability that the next circuit breaker command fails in which case X is chosen to be one future command. For train door failures, the binary classification model was built to predict failures within the next 7 days. For wind turbine failures, X was chosen as 3 months.
 
 Wind turbine and train door cases are also used for regression analysis
 to predict remaining useful life using the same data but by utilizing a
-different labelling strategy which is explained in the next section.
+different labeling strategy which is explained in the next section.
 
 ### Regression for predictive maintenance
 Regression models in predictive maintenance are used to compute the
@@ -575,12 +465,12 @@ record prior to the failure and labeling them by calculating how many
 units of time remain before the next failure. In this method, labels are
 continuous variables (See Figure 4).
 
-![Figure 4. Labelling for regression](media/cortana-analytics-playbook-predictive-maintenance/labelling-for-regression.png)
+![Figure 4. Labeling for regression](media/cortana-analytics-playbook-predictive-maintenance/labelling-for-regression.png)
 
-Figure 4. Labelling for regression
+Figure 4. Labeling for regression
 
 Different than binary classification, for regression, assets without any
-failures in the data cannot be used for modeling as labelling is done
+failures in the data cannot be used for modeling as labeling is done
 in reference to a failure point and its calculation is not possible
 without knowing how long the asset survived before failure. This issue
 is best addressed by another statistical technique called Survival
@@ -606,16 +496,16 @@ technicians can be more effective in taking
 their first repair actions after failures.
 
 #### Label construction
-Given the two questions which are "What is the probability that an asset fails in the next "aZ" units of time where "a" is the number of periods" and "What is the probability that the asset fails in the next X units of time due to problem "P<sub>i</sub>" where "i" is the number of possible root causes, labelling is done in the following way for these to techniques.
+Given the two questions which are "What is the probability that an asset fails in the next "aZ" units of time where "a" is the number of periods" and "What is the probability that the asset fails in the next X units of time due to problem "P<sub>i</sub>" where "i" is the number of possible root causes, labeling is done in the following way for these to techniques.
 
 For the first question, labeling is done by taking aZ records prior to
 the failure of an asset and labeling them using buckets of time (3Z, 2Z,
 Z) as their labels while labeling all other records as "normal" (label
 =0). In this method, label is categorical variable (See Figure 5).
 
-![Figure 5. Labelling for multiclass classification for failure time prediction](media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png)
+![Figure 5. Labeling for multiclass classification for failure time prediction](media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-failure-time-prediction.png)
 
-Figure 5. Labelling for multiclass classification for failure time
+Figure 5. Labeling for multiclass classification for failure time
 prediction
 
 For the second question, labeling is done by taking X records prior to
@@ -624,9 +514,9 @@ problem P<sub>i</sub>" (label = P<sub>i</sub>) while labeling all other records 
 "normal" (label =0). In this method, labels are categorical variables
 (See Figure 6).
 
-![Figure 6. Labelling for multiclass classification for root cause prediction](media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png)
+![Figure 6. Labeling for multiclass classification for root cause prediction](media/cortana-analytics-playbook-predictive-maintenance/labelling-for-multiclass-classification-for-root-cause-prediction.png)
 
-Figure 6. Labelling for multiclass classification for root cause
+Figure 6. Labeling for multiclass classification for root cause
 prediction
 
 The model assigns a failure probability due to each P<sub>i</sub> as well as the probability of no failure. These probabilities can be ordered by magnitude to allow prediction of the problems that are most likely to occur in the future. Aircraft component failure use case was structured as a multiclass classification problem. This enables the prediction of the probabilities of failure due to two different pressure valve components occurring within the next
@@ -642,43 +532,19 @@ need years’ worth of experience.
 
 ## Training, validation and testing methods in predictive maintenance
 In predictive maintenance, similar to any other solution space
-containing timestamped data, the typical training and testing routine
-needs to take account the time varying aspects to better generalize on
-unseen future data.
+containing timestamped data, the typical training and testing routine needs to take account the time varying aspects to better generalize on unseen future data.
 
 ### Cross validation
-Many machine learning algorithms depend on a number of hyperparameters
-that can change model performance significantly. The optimal values of
-these hyperparameters are not computed automatically when training the
-model, but should be specified by data scientist. There are several ways
-of finding good values of hyperparameters. The most common one is
-"k-fold cross-validation" which splits the examples randomly into "k"
-folds. For each set of hyperparameters values, learning algorithm is run
-k times. At each iteration, the examples in the current fold are used as
-a validation set, the rest of the examples are used as a training set.
-The algorithm trains over training examples and the performance metrics
-are computed over validation examples. At the end of this loop for each
-set of hyperparameter values, we compute average of the k performance
-metric values and choose hyperparameter values that have the best
-average performance.
+Many machine learning algorithms depend on a number of hyperparameters that can change model performance significantly. The optimal values of these hyperparameters are not computed automatically when training the model, but should be specified by data scientist. There are several ways of finding good values of hyperparameters. The most common one is "k-fold cross-validation" which splits the examples randomly into "k" folds. For each set of hyperparameters values, learning algorithm is run
+k times. At each iteration, the examples in the current fold are used as a validation set, the rest of the examples are used as a training set. The algorithm trains over training examples and the performance metrics are computed over validation examples. At the end of this loop for each set of hyperparameter values, we compute average of the k performance metric values and choose hyperparameter values that have the best average performance.
 
 As mentioned before, in predictive maintenance problems, data is
-recorded as a time series of events that come from several data sources. These records can be ordered according to the time of labeling a record or an example. Hence, if we split the dataset randomly into training and validation set, some of the training examples are later in time than some of validation examples. This results in estimating future performance of hyperparameter values based on the data that arrived before model was trained. These estimations might be overly optimistic, especially if time-series are not stationary and change their behavior over time. As a result, chosen hyperparameter values might be suboptimal.
+recorded as a time series of events that come from several data sources. These records can be ordered according to the time of labeling a record or an example. Hence, if we split the dataset randomly into training and validation set, some of the training examples are later in time than some of validation examples. This results in estimating future performance of hyperparameter values based on the data that arrived before model was trained. These estimations might be overly optimistic, especially if time-series are not stationary and change their behavior over time. As a result, chosen hyperparameter values might be sub-optimal.
 
-A better way of finding good values of hyperparameters is to split the
-examples into training and validation set in a time-dependent way, such
-that all validation examples are later in time than all training
-examples. Then, for each set of values of hyperparameters we train the
-algorithm over training set, measure model’s performance over the same
-validation set and choose hyperparameter values that show the best
-performance. When time-series data is not stationary and evolves over
-time, the hyperparameter values chosen by train/validation split lead to
-better future performance of the model than the ones chosen randomly by
-cross-validation.
+A better way of finding good values of hyperparameters is to split the examples into training and validation set in a time-dependent way, such that all validation examples are later in time than all training examples. Then, for each set of values of hyperparameters we train the algorithm over training set, measure model’s performance over the same validation set and choose hyperparameter values that show the best performance. When time-series data is not stationary and evolves over time, the hyperparameter values chosen by train/validation split lead to a better future performance by the model than by the ones chosen randomly by cross-validation.
 
 The final model is generated by training a learning algorithm over
-entire data using the best hyperparameter values that are found by using
-training/validation split or cross-validation.
+entire data using the best hyperparameter values that are found by using training/validation split or cross-validation.
 
 ### Testing for model performance
 After building a model we need to estimate its future performance on new
@@ -741,11 +607,11 @@ Figure 7. Time-dependent split for binary classification
 The green squares represent the records belonging to the time units that
 can be used for training. As explained earlier, each training example in
 the final feature table is generated by looking at past 3 periods for
-feature generation and 2 future periods for labelling before the
+feature generation and 2 future periods for labeling before the
 training day cut-off. We do not use examples in the training set when
 any part of the 2 future periods for that example is beyond the training
 cut-off since we assume that we do not have visibility beyond the
-training cut-off. Due to that constraint, black examples represent the records of the final labeled dataset that should not be used in the training data set. These records won’t be used in testing data either since they are before the training cut-off and their labeling timeframes partially depend on the training timeframe which should not be the case as we would like to completely separate labelling timeframes for training and testing to prevent label information leakage.
+training cut-off. Due to that constraint, black examples represent the records of the final labeled dataset that should not be used in the training data set. These records won’t be used in testing data either since they are before the training cut-off and their labeling timeframes partially depend on the training timeframe which should not be the case as we would like to completely separate labeling timeframes for training and testing to prevent label information leakage.
 
 This technique allows for overlap in the data used for feature
 generation between training and testing examples that are close to the
