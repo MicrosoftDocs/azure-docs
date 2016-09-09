@@ -154,7 +154,7 @@ If your corporate network environment uses a proxy server to access the internet
 
 ![Set proxy during registration](media/data-factory-data-management-gateway/SetProxyDuringRegistration.png)
 
-Gateway uses the proxy server to connect to the cloud service. Click **Change** link during initial setup that launches the proxy setting dialog.
+Gateway uses the proxy server to connect to the cloud service. Click **Change** link during initial setup. You see the **proxy setting** dialog.
 
 ![Set proxy using config manager](media/data-factory-data-management-gateway/SetProxySettings.png)
 
@@ -206,7 +206,7 @@ If you select **Use system proxy** setting for the HTTP proxy, gateway uses the 
 In addition to these points, you also need to make sure Microsoft Azure is in your company’s whitelist. The list of valid Microsoft Azure IP addresses can be downloaded from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
 
 #### Possible symptoms for firewall and proxy server-related issues
-If you encounter errors such as the following ones, it is likely because of the improper configuration of the firewall or proxy server, which blocks gateway from connecting to Data Factory to authenticate itself. Refer to previous section to ensure your firewall and proxy server are properly configured.
+If you encounter errors similar to the following ones, it is likely due to improper configuration of the firewall or proxy server, which blocks gateway from connecting to Data Factory to authenticate itself. Refer to previous section to ensure your firewall and proxy server are properly configured.
 
 1.	When you try to register the gateway, you receive the following error: "Failed to register the gateway key. Before trying to register the gateway key again, confirm that the Data Management Gateway is in a connected state and the Data Management Gateway Host Service is Started."
 2.	When you open Configuration Manager, you see status as “Disconnected” or “Connecting.” When viewing Windows event logs, under “Event Viewer” > “Application and Services Logs” > “Data Management Gateway”, you see error messages such as the following:
@@ -220,7 +220,7 @@ If you are using a third-party firewall, you can manually open the port 8050. If
 
 	msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
-If you choose not to open the port 8050 on the gateway machine, to set up an on-premises linked service, use mechanisms other than using the **Setting Credentials** application to configure data store credentials. For example, you could use [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell cmdlet. See [Setting Credentials and Security](#set-credentials-and-securityy) section on how data store credentials can be set.
+If you choose not to open the port 8050 on the gateway machine, use mechanisms other than using the **Setting Credentials** application to configure data store credentials. For example, you could use [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell cmdlet. See [Setting Credentials and Security](#set-credentials-and-securityy) section on how data store credentials can be set.
 
 ## Update 
 By default, Data Management Gateway is automatically updated when a newer version of the gateway is available. The gateway is not updated until all the scheduled tasks are done. No further tasks are processed by the gateway until the update operation is completed. If the update fails, gateway is rolled back to the old version. 
@@ -343,6 +343,32 @@ Click **Archive gateway** logs link to archive and save logs and then share the 
 
 ![Data Management Gateway - Archive logs](media/data-factory-data-management-gateway/data-management-gateway-archive-logs.png)
 
+### Gateway is online with limited functionality 
+You see status of the gateway as **online with limited functionality** for one of the following reasons.
+
+- Gateway cannot connect to cloud service through service bus.
+- Cloud service cannot connect to gateway through service bus.
+
+When gateway is online with limited functionality, you may not be able to use the Data Factory Copy Wizard to create data pipelines for copying data to/from on-premises data stores.
+
+Resolution/workaround for this issue (online with limited functionality) is based on whether gateway cannot connect to cloud service or the other way. The following sections provide these workarounds. 
+
+#### Gateway cannot connect to cloud service through service bus
+Follow these steps to get the gateway back online: 
+
+1. Enable outbound ports 9350-9354 on both the Windows Firewall on gateway machine and Corporate Firewall. See [Ports and firewall](#ports-and-firewall) section for detail.
+2. Configure proxy settings on the gateway. See [Proxy server considerations](#proxy-server-considerations) section for detail. 
+
+As a workaround, use Data Factory Editor in Azure portal (or) Visual Studio (or) Azure PowerShell.
+
+#### Error: Cloud service cannot connect to gateway through service bus.
+Follow these steps to get the gateway back online:
+ 
+1. Enable outbound ports 5671 and 9350-9354 on both the Windows Firewall on gateway machine and Corporate Firewall. See [Ports and firewall](#ports-and-firewall) section for detail.
+2. Configure proxy settings on the gateway. See [Proxy server considerations](#proxy-server-considerations) section for detail.
+3. Remove static IP limitation on the proxy server. 
+
+As a workaround, you can use Data Factory Editor in Azure portal (or) Visual Studio (or) Azure PowerShell.
  
 ## Move gateway from a machine to another
 This section provides steps for moving gateway client from one machine to another machine. 
@@ -410,7 +436,7 @@ If you access the portal from a machine that is different from the gateway machi
 
 When you use the **Setting Credentials** application, the portal encrypts the credentials with the certificate specified in the **Certificate** tab of the **Gateway Configuration Manager** on the gateway machine. 
 
-If you are looking for an API-based approach for encrypting the credentials, you can use the [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell cmdlet to encrypt credentials. The cmdlet uses the certificate that gateway is configured to use to encrypt the credentials. You add encrypted credentials to the **EncryptedCredential** element of the **connectionString** in the JSON file that you use with the [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) cmdlet or in the JSON snippet in the Data Factory Editor. 
+If you are looking for an API-based approach for encrypting the credentials, you can use the [New-AzureRmDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) PowerShell cmdlet to encrypt credentials. The cmdlet uses the certificate that gateway is configured to use to encrypt the credentials. You add encrypted credentials to the **EncryptedCredential** element of the **connectionString** in the JSON. You use the JSON with the [New-AzureRmDataFactoryLinkedService](https://msdn.microsoft.com/library/mt603647.aspx) cmdlet or in the Data Factory Editor. 
 
 	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
 

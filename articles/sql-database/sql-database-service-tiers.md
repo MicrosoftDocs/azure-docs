@@ -19,7 +19,9 @@
 
 # SQL Database options and performance: Understand what's available in each service tier
 
-[Azure SQL Database](sql-database-technical-overview.md) has multiple service tiers to handle different workloads. You can [change service tiers](sql-database-scale-up.md) at any time with minimal downtime to your application (generally averaging under four seconds). You can also [create a single database](sql-database-get-started.md) with defined characteristics and pricing. Or you can manage multiple databases by [creating an elastic database pool](sql-database-elastic-pool-create-portal.md). In both cases, the tiers include **Basic**, **Standard**, and **Premium**. Database options in these tiers are similar for standalone databases and elastic pools, but there are additional considerations for elastic pools. This article provides detail of service tiers for standalone databases and elastic pools.
+[Azure SQL Database](sql-database-technical-overview.md) offers three service tiers with multiple performance levels to handle different workloads. Each performance level provides an increasing set of resources designed to deliver increasingly higher throughput. You can manage each database in its own [service tier](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) with its own performance level. You can also manage multiple databases in an [elastic pool](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) with a shared set of resources. The resources available for standalone databases are expressed in terms of Database Transaction Units (DTUs) and for elastic pools in terms of elastic DTUs or eDTUs. For more on DTUs and eDTUs, see [What is a DTU](sql-database-what-is-a-DTU.md). 
+
+In both cases, the service tiers include **Basic**, **Standard**, and **Premium**. Database options in these tiers are similar for standalone databases and elastic pools, but there are additional considerations for elastic pools. This article provides detail of service tiers for standalone databases and elastic pools.
 
 ## Service tiers and database options
 Basic, Standard, and Premium service tiers all have an uptime SLA of 99.99% and offer predictable performance, flexible business continuity options, security features, and hourly billing. The following table provides examples of the tiers best suited for different application workloads.
@@ -39,24 +41,18 @@ Performance characteristics listed here apply to databases created using [SQL Da
 
 [AZURE.INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
-For a better understanding of DTUs, see the [DTU section](#understanding-dtus) in this topic.
-
 >[AZURE.NOTE] For a detailed explanation of all other rows in this service tiers table, see [Service tier capabilities and limits](sql-database-performance-guidance.md#service-tier-capabilities-and-limits).
 
 ## Elastic pool service tiers and performance in eDTUs
 In addition to creating and scaling a standalone database, you also have the option of managing multiple databases within an [elastic pool](sql-database-elastic-pool.md). All the databases in an elastic pool share a common set of resources. The performance characteristics are measured by *elastic Database Transaction Units* (eDTUs). As with standalone databases, pools come in three service tiers: **Basic**, **Standard**, and **Premium**. For pools, these three service tiers still define the overall performance limits and several features.
 
-Pools allow databases to share and consume DTU resources without needing to assign a specific performance level to each databases in the pool. For example, a standalone database in a Standard pool can go from using 0 eDTUs to the maximum database eDTU you set up when you configure the pool. Pools allow multiple databases with varying workloads to efficiently use eDTU resources available to the entire pool. See [Price and performance considerations for an elastic pool](sql-database-elastic-pool-guidance.md) for details.
+Pools allow databases to share and consume DTU resources without needing to assign a specific performance level to each database in the pool. For example, a standalone database in a Standard pool can go from using 0 eDTUs to the maximum database eDTU you set up when you configure the pool. Pools allow multiple databases with varying workloads to efficiently use eDTU resources available to the entire pool. See [Price and performance considerations for an elastic pool](sql-database-elastic-pool-guidance.md) for details.
 
 The following table describes the characteristics of pool service tiers.
 
 [AZURE.INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
 Each database within a pool also adheres to the standalone database characteristics for that tier. For example, the Basic pool has a limit for max sessions per pool of 4800 - 28800, but an individual database within a Basic pool has a database limit of 300 sessions.
-
-## Understanding DTUs
-
-[AZURE.INCLUDE [SQL DB DTU description](../../includes/sql-database-understanding-dtus.md)]
 
 ## Choosing a service tier
 
