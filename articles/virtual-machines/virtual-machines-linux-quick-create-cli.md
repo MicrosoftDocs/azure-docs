@@ -29,7 +29,7 @@ You can use one command to deploy a CoreOS VM and attach your Secure Shell (SSH)
 azure vm quick-create -M ~/.ssh/azure_id_rsa.pub -Q CoreOS
 ```
 
-We are now going to walk through the command and explain each step by using Red Hat Enterprise Linux 7.2.  
+We are now going to walk through the command and explain each step by using Ubuntu Server 14.04LTS.  
 
 ## VM quick-create aliases
 
