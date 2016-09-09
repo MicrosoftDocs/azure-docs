@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="09/06/2016"
    ms.author="gwallace" />
 
 # Create a custom probe for Azure Application Gateway by using PowerShell for Azure Resource Manager
@@ -23,8 +23,6 @@
 - [Azure portal](application-gateway-create-probe-portal.md)
 - [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
 - [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
-
-<BR>
 
 [AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
@@ -45,25 +43,23 @@ Use Login-AzureRmAccount to authenticate.
 
 Check the subscriptions for the account.
 
-		get-AzureRmSubscription
-
-You are prompted to authenticate with your credentials.<BR>
+	Get-AzureRmSubscription
 
 ### Step 3
 
 Choose which of your Azure subscriptions to use. <BR>
 
 
-		Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+	Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 
 
 ### Step 4
 
-Create a new resource group (skip this step if you're using an existing resource group).
+Create a resource group (skip this step if you're using an existing resource group).
 
     New-AzureRmResourceGroup -Name appgw-rg -location "West US"
 
-Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. Make sure that all commands to create an application gateway use the same resource group.
+Azure Resource Manager requires that all resource groups specify a location. This location is used as the default location for resources in that resource group. Make sure that all commands to create an application gateway use the same resource group.
 
 In the example above, we created a resource group called "appgw-RG" and location "West US".
 
@@ -89,7 +85,7 @@ Create a virtual network named "appgwvnet" in resource group "appgw-rg" for the 
 
 Assign a subnet variable for the next steps, which create an application gateway.
 
-	$subnet=$vnet.Subnets[0]
+	$subnet = $vnet.Subnets[0]
 
 ## Create a public IP address for the front-end configuration
 
@@ -101,9 +97,7 @@ Create a public IP resource "publicIP01" in resource group "appgw-rg" for the We
 
 ## Create an application gateway configuration object with a custom probe
 
-You need to set up all configuration items before creating the
-application gateway. The following steps create the configuration items that are needed for an application gateway resource.
-
+You set up all configuration items before creating the application gateway. The following steps create the configuration items that are needed for an application gateway resource.
 
 ### Step 1
 
@@ -115,7 +109,7 @@ Create an application gateway IP configuration named "gatewayIP01". When Applica
 ### Step 2
 
 
-Configure the back-end IP address pool named "pool01" with IP addresses "134.170.185.46, 134.170.188.221,134.170.185.50". Those are the IP addresses that receive the network traffic that comes from the front-end IP endpoint. You replace the IP addresses above to add your own application IP address endpoints.
+Configure the back-end IP address pool named "pool01" with IP addresses "134.170.185.46, 134.170.188.221,134.170.185.50". Those values are the IP addresses that receive the network traffic that comes from the front-end IP endpoint. You replace the IP addresses above to add your own application IP address endpoints.
 
 	$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
@@ -127,22 +121,20 @@ The custom probe is configured in this step.
 
 The parameters used are:
 
-- **-Interval** - Configures the probe interval checks in seconds.
-- **-Timeout** - Defines the probe time-out for an HTTP response check.
-- **-Hostname and -path** - Complete URL path that is invoked by Application Gateway to determine the health of the instance. For example, if you have a website http://contoso.com/, then the custom probe can be configured for "http://contoso.com/path/custompath.htm" for probe checks to have a successful HTTP response.
-- **-UnhealthyThreshold** - The number of failed HTTP responses needed to flag the back-end instance as *unhealthy*.
+- **Interval** - Configures the probe interval checks in seconds.
+- **Timeout** - Defines the probe time-out for an HTTP response check.
+- **-Hostname and path** - Complete URL path that is invoked by Application Gateway to determine the health of the instance. For example, if you have a website http://contoso.com/, then the custom probe can be configured for "http://contoso.com/path/custompath.htm" for probe checks to have a successful HTTP response.
+- **UnhealthyThreshold** - The number of failed HTTP responses needed to flag the back-end instance as *unhealthy*.
 
 <BR>
 
 	$probe = New-AzureRmApplicationGatewayProbeConfig -Name probe01 -Protocol Http -HostName "contoso.com" -Path "/path/path.htm" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
 
-
 ### Step 4
 
-Configure application gateway setting "poolsetting01" for the traffic in the back-end pool. This step also has a time-out configuration that is for the back-end pool response to an application gateway request. When a back-end response hits a time-out limit, Application Gateway cancels the request. This is different from a probe time-out that is only for the back-end response to probe checks.
+Configure application gateway setting "poolsetting01" for the traffic in the back-end pool. This step also has a time-out configuration that is for the back-end pool response to an application gateway request. When a back-end response hits a time-out limit, Application Gateway cancels the request. This value is different from a probe time-out that is only for the back-end response to probe checks.
 
 	$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 80
-
 
 ### Step 5
 
@@ -214,7 +206,7 @@ Add the probe to the back-end pool setting configuration and time-out by using *
 
 Save the configuration to the application gateway by using **Set-AzureRmApplicationGateway**.
 
-	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
+	Set-AzureRmApplicationGateway -ApplicationGateway $getgw
 
 ## Remove a probe from an existing application gateway
 
@@ -238,10 +230,15 @@ Remove the probe configuration from the application gateway by using **Remove-Az
 Update the back-end pool setting to remove the probe and time-out setting by using **-Set-AzureRmApplicationGatewayBackendHttpSettings**.
 
 
-	 $getgw=Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol http -CookieBasedAffinity Disabled
+	 $getgw = Set-AzureRmApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol http -CookieBasedAffinity Disabled
 
 ### Step 4
 
-Save the configuration to the application gateway by using **Set-AzureRmApplicationGateway**.
+Save the configuration to the application gateway by using **Set-AzureRmApplicationGateway**. 
 
-	Set-AzureRmApplicationGateway -ApplicationGateway $getgw -verbose
+	Set-AzureRmApplicationGateway -ApplicationGateway $getgw
+
+## Next steps
+
+Learn to configure SSL offloading by visiting [Configure SSL Offload](application-gateway-ssl-arm.md)
+

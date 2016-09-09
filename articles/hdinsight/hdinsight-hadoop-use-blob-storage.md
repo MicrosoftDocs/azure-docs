@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/10/2016"
+	ms.date="09/06/2016"
 	ms.author="jgao"/>
 
 
@@ -49,7 +49,7 @@ In addition, HDInsight provides the ability to access data that is stored in Azu
 
 Hadoop supports a notion of the default file system. The default file system implies a default scheme and authority. It can also be used to resolve relative paths. During the HDInsight creation process, an Azure Storage account and a specific Azure Blob storage container from that account is designated as the default file system.
 
-In addition to this storage account, you can add additional storage accounts from the same Azure subscription or different Azure subscriptions during the creation process. For instructions about adding additional storage accounts, see [Create HDInsight clusters][hdinsight-creation].
+In addition to this storage account, you can add additional storage accounts from the same Azure subscription or different Azure subscriptions during the creation process or after a cluster has been created. For instructions about adding additional storage accounts, see [Create HDInsight clusters][hdinsight-creation].
 
 - **Containers in the storage accounts that are connected to a cluster:** Because the account name and key are associated with the cluster during creation, you have full access to the blobs in those containers.
 
