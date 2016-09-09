@@ -44,8 +44,11 @@ By default, Visual Studio will remove existing instances of your application typ
     ![Set Application Debug Mode Property][debugmodeproperty]
 
 These are the **Application Debug Mode** options available.
+
 1. **Auto Upgrade**: The application will continue to run when the debug session ends. The next **F5** will treat the deployment as an upgrade by using unmonitored auto mode to quickly upgrade the application to a newer version with a date string appended. The upgrade process preserves any data that you entered in a previous debug session.
+
 2. **Keep Application**: The application will keep running in the cluster when the debug seesion ends. On the next **F5** the application will be removed and the newly build application will be deployed to the cluster.
+
 3. **Remove Applcation** will cause the application to be removed when the debug session ends.
 
 For **Auto Upgrade** data is preserved by leveraging the application upgrade capabilities of Service Fabric, but it is tuned to optimize for performance rather than safety. For more information about upgrading applications and how you might perform an upgrade in a real enviornment, refer to [Service Fabric application upgrade](service-fabric-application-upgrade.md).
