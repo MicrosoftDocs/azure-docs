@@ -154,16 +154,16 @@ You need to create an application to get tweets, calculate tweet sentiment score
 3. From **Solution Explorer**, add **System.Configuration** to the reference.
 4. Add a new class file to the project called **HBaseWriter.cs**, and then replace the code with the following:
 
-        using System;
-        using System.Collections.Generic;
-        using System.Linq;
-        using System.Text;
-        using System.IO;
-        using System.Threading;
-        using Microsoft.HBase.Client;
-        using Tweetinvi.Core.Interfaces;
-        using org.apache.hadoop.hbase.rest.protobuf.generated;
-
+		using System;
+		using System.Collections.Generic;
+		using System.Linq;
+		using System.Text;
+		using System.IO;
+		using System.Threading;
+		using Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling;
+		using org.apache.hadoop.hbase.rest.protobuf.generated;
+		using Microsoft.HBase.Client;
+		using Tweetinvi.Core.Interfaces;
         namespace TweetSentimentStreaming
         {
             class HBaseWriter
@@ -232,7 +232,9 @@ You need to create an application to get tweets, calculate tweet sentiment score
 				{
 					try
 					{
-						var cellSet = client.GetCellsAsync(HBASETABLENAME, COUNT_ROW_KEY).Result;
+						RequestOptions options = RequestOptions.GetDefaultOptions();
+						options.RetryPolicy = RetryPolicy.NoRetry;
+						var cellSet = client.GetCellsAsync(HBASETABLENAME, COUNT_ROW_KEY, options).Result;
 						if (cellSet.rows.Count != 0)
 						{
 							var countCol = cellSet.rows[0].values.Find(cell => Encoding.UTF8.GetString(cell.column) == COUNT_COLUMN_NAME);
@@ -436,7 +438,7 @@ You need to create an application to get tweets, calculate tweet sentiment score
                             HBaseWriter hbase = new HBaseWriter();
                             var stream = Stream.CreateFilteredStream();
                             stream.AddLocation(new Coordinates(-180, -90), new Coordinates(180, 90)); 
-							
+
                             var tweetCount = 0;
                             var timer = Stopwatch.StartNew();
 
