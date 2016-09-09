@@ -18,7 +18,7 @@
 
 # Azure Insights Cross-platform CLI quick start samples
 
-This article shows you sample command line interface (CLI) commands that will help you access Azure Insights monitoring features. Azure Insights allows you to AutoScale Cloud Services, Virtual Machines, and Web Apps and to send alert notifications or call web URLs based on values of configured telemetry data.
+This article shows you sample command-line interface (CLI) commands to help you access Azure Insights monitoring features. Azure Insights allows you to AutoScale Cloud Services, Virtual Machines, and Web Apps and to send alert notifications or call web URLs based on values of configured telemetry data.
 
 
 ## Prerequisites
@@ -46,7 +46,7 @@ The first step is to login to your Azure account.
 azure login
 ```
 
-This requires you to sign in. Afterward, you'll see your Account, TenantId and default Subscription Id. All commands will work in the context of your default subscription.
+After running this command, you have to sign in via the instructions on the screen. Afterward, you see your Account, TenantId, and default Subscription Id. All commands work in the context of your default subscription.
 
 To list the details of your current subscription, use the following command.
 
@@ -60,7 +60,7 @@ To change working context to a different subscription, use the following command
 azure account set "subscription ID or subscription name"
 ```
 
-To use Azure Resource Manager and Azure Insights commands, you need to be on the ARM mode
+To use Azure Resource Manager and Azure Insights commands, you need to be in Azure Resource Manager mode.
 
 ```
 azure config mode arm
@@ -199,22 +199,22 @@ azure insights diagnostic set --resourceId /subscriptions/df602c9c-7aa0-407d-a6f
 
 
 ## Autoscale
-Use the information in this section to work with Autoscale settings. You'll need to modify these examples.
+Use the information in this section to work with autoscale settings. You need to modify these examples.
 
-### Get Autoscale settings for a resource group
+### Get autoscale settings for a resource group
 
 ```
 azure insights autoscale setting list montest2
 ```
 
-### Get Autoscale settings by name in a resource group
+### Get autoscale settings by name in a resource group
 
 ```
 azure insights autoscale setting list montest2 -n setting2
 ```
 
 
-### Set the Auotoscale settings
+### Set auotoscale settings
 
 ```
 azure insights autoscale setting set montest2 -n setting2 --settingSpec
