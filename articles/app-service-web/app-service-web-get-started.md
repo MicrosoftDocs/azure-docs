@@ -14,13 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="09/08/2016" 
+	ms.date="09/09/2016" 
 	ms.author="cephalin"
 />
 	
 # Deploy your first web app to Azure in five minutes
-
-[AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
 This tutorial helps you deploy your first web app to [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 You can use App Service to create web apps, [mobile app back ends](/documentation/learning-paths/appservice-mobileapps/),
@@ -145,8 +143,19 @@ the first time. For example, every time you want to push a new change that you'v
 
 ## Next steps
 
+Find the preferred development and deployment steps for your language framework:
+
+> [AZURE.SELECTOR]
+- [.NET](web-sites-dotnet-get-started.md)
+- [PHP](app-service-web-php-get-started.md)
+- [Node.js](app-service-web-nodejs-get-started.md)
+- [Python](web-sites-python-ptvs-django-mysql.md)
+- [Java](web-sites-java-get-started.md)
+
+Or, do more with your first web app. For example:
+
 - Try out [other ways to deploy your code to Azure](../app-service-web/web-sites-deploy.md). For example, to deploy from one of your GitHub repositories, simply select
 **GitHub** instead of **Local Git Repository** in **Deployment options**.
-- Find the preferred development and deployment steps for your language framework by selecting your framework at the top of the article.
 - Take your Azure app to the next level. Authenticate your users. Scale it based on demand. Set up some performance alerts. All with a few clicks. See 
 [Add functionality to your first web app](app-service-web-get-started-2.md).
+
