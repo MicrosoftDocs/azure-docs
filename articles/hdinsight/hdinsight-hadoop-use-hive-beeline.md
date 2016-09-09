@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/16/2016"
+   ms.date="07/12/2016"
    ms.author="larryfr"/>
 
 #Use Hive with Hadoop in HDInsight with Beeline
@@ -23,7 +23,7 @@
 
 In this article, you will learn how to use Secure Shell (SSH) to connect to a Linux-based HDInsight cluster, and then interactively submit Hive queries by using the [Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) command-line tool.
 
-> [AZURE.NOTE] Beeline used JDBC to connect to Hive. For more information on using JDBC with Hive, see [Connect to Hive on Azure HDInsight using the Hive JDBC driver](hdinsight-connect-hive-jdbc-driver.md).
+> [AZURE.NOTE] Beeline uses JDBC to connect to Hive. For more information on using JDBC with Hive, see [Connect to Hive on Azure HDInsight using the Hive JDBC driver](hdinsight-connect-hive-jdbc-driver.md).
 
 ##<a id="prereq"></a>Prerequisites
 
@@ -55,27 +55,17 @@ For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDI
 
 ##<a id="beeline"></a>Use the Beeline command
 
-1. Once connected, use the following to get the hostname of the head node:
+1. Once connected, use the following to start Beeline:
 
-        hostname -f
+        beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
+
+    This will start the Beeline client, and connect to the JDBC url. Here, `localhost` is used since HiveServer2 runs on both head nodes in the cluster, and we're running Beeline directly on head node 0.
     
-    Save the returned host name, as it will be used later when connecting to HiveServer2 from Beeline.
-    
-2. Start the Hive CLI by using the following command:
+    Once the command completes, you will arrive at a `jdbc:hive2://localhost:10001/>` prompt.
 
-        beeline
+3. Beeline commands usually begin with a `!` character, for example `!help` displays help. However the `!` can often be omitted. For example, `help` will also work.
 
-2. From the `beeline>` prompt, use the following to connect to the HiveServer2 service. Replace __HOSTNAME__ with the host name returned for the head node ealier:
-
-        !connect jdbc:hive2://HOSTNAME:10001/;transportMode=http admin
-
-    When prompted, enter the password for the administrator (admin) account for your HDInsight cluster. Once the connection is established, the prompt will change to the following:
-    
-        jdbc:hive2://HOSTNAME:10001/>
-
-3. Beeline commands usually begin with a `!` character, for example `!help` displays help. However the `!` can often be ommited. For example, `help` will also work.
-
-    If you view help, you will notice `!sql`, which is used to execute HiveQL statements. However, HiveQL is so commonly used that you can ommit the preceeding `!sql`. The following two statements have exactly the same results; displaying the tables currently available through Hive:
+    If you view help, you will notice `!sql`, which is used to execute HiveQL statements. However, HiveQL is so commonly used that you can omit the preceding `!sql`. The following two statements have exactly the same results; displaying the tables currently available through Hive:
     
         !sql show tables;
         show tables;
@@ -111,7 +101,7 @@ For more information on using PuTTY, see [Use SSH with Linux-based Hadoop on HDI
         DROP TABLE log4jLogs;
         CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
         ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-        STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
+        STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
         SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
     These statements perform the following actions:
@@ -176,11 +166,13 @@ Beeline can also be used to run a file that contains HiveQL statements. Use the 
     
 3. To save the file, use __Ctrl__+___X__, then enter __Y__, and finally __Enter__.
 
-4. Use the following to run the file using Beeline. Replease __HOSTNAME__ with the name obtained earlier for the head node, and __PASSWORD__ with the password for the admin account:
+4. Use the following to run the file using Beeline. Replace __HOSTNAME__ with the name obtained earlier for the head node, and __PASSWORD__ with the password for the admin account:
 
-        beeline -u 'jdbc:hive2://HOSTNAME:10001/;transportMode=http' -n admin -p PASSWORD -f query.hql
+        beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin -i query.hql
 
-5. To verify that the **errorLogs** table was created, start Beeline and connect to HiveServer2, then use the following statement to return all the rows from **errorLogs**:
+    > [AZURE.NOTE] The `-i` parameter starts Beeline, runs the statements in the query.hql file, and remains in Beeline at the `jdbc:hive2://localhost:10001/>` prompt. You can also run a file using the `-f` parameter, which returns you to Bash after the file has been processed.
+
+5. To verify that the **errorLogs** table was created, use the following statement to return all the rows from **errorLogs**:
 
         SELECT * from errorLogs;
 

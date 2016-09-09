@@ -84,8 +84,7 @@ For articles about using native Apache Spark clusters in the Azure Portal, go to
 
 * [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md)
 * [Install and use Spark on Hadoop clusters](hdinsight-hadoop-spark-install.md)
-* [Spark job server on HDInsight clusters](hdinsight-apache-spark-job-server.md)
-* [Provision Apache Spark and run interactive queries using Spark SQL](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql-v1.md)
+
 
 
 ## Big data solutions

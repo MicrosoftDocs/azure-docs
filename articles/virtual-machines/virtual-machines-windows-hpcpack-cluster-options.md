@@ -13,14 +13,14 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="big-compute"
- ms.date="02/04/2016"
+ ms.date="06/17/2016"
  ms.author="danlep"/>
 
 # Options to create and manage a Windows high performance computing (HPC) cluster in Azure with Microsoft HPC Pack
 
 [AZURE.INCLUDE [virtual-machines-common-hpcpack-cluster-options](../../includes/virtual-machines-common-hpcpack-cluster-options.md)]
 
-If you want to run Linux HPC workloads with HPC Pack, see [Options to create and manage a Linux HPC cluster in Azure with Microsoft HPC Pack](virtual-machines-linux-hpcpack-cluster-options.md).
+This article focuses on options to use HPC Pack to run Windows workloads. There are also options for running [Linux HPC workloads with HPC Pack](virtual-machines-linux-hpcpack-cluster-options.md).
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -32,9 +32,9 @@ If you want to run Linux HPC workloads with HPC Pack, see [Options to create and
 
 * (Marketplace) [HPC Pack cluster for Excel workloads](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterexcelcn/)
 
-* (Quickstart) [Create an HPC cluster](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)
+* (Quickstart) [Create an HPC cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster)
 
-* (Quickstart) [Create an HPC cluster with custom compute node image](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/)
+* (Quickstart) [Create an HPC cluster with custom compute node image](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster-custom-image)
 
 ### Azure VM images
 

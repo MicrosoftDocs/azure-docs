@@ -1,549 +1,113 @@
 <properties
-pageTitle="Use the SharePoint Online API in your Logic Apps or Power Apps| Microsoft Azure"
-description="Get started using the Azure App Service SharePoint Online API in your Logic apps and your PowerApps."
-services=""	
-documentationCenter="" 	
+pageTitle="Learn how to use the SharePoint Online connector in logic apps | Microsoft Azure"
+description="Create logic apps with the SharePoint Online connector to mange lists on SharePoint."
+services="logic-apps"	
+documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	
 editor=""
-tags="connectors"/>
+tags="connectors" />
 
 <tags
-ms.service="multiple"
-ms.devlang="na"
+ms.service="logic-apps"
+ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
-ms.workload="na"
-ms.date="03/16/2016"
+ms.workload="integration"
+ms.date="07/19/2016"
 ms.author="deonhe"/>
 
-# Get started with the SharePoint Online API
+# Get started with the SharePoint Online connector
 
-The SharePoint Connection Provider provides an API to work with Lists on SharePoint.
+Use the SharePoint Online connector to manage SharePoint lists.  
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [SharePoint](../app-service-logic/app-service-logic-connector-SharePoint.md).
+To use [any connector](./apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-With SharePoint, you can:
+## Connect to SharePoint Online
 
-* Use it to build logic apps
-* Use it to build PowerApps  
+Before your logic app can access any service, you first need to create a *connection* to the service. A [connection](./connectors-overview.md) provides connectivity between a logic app and another service.  
 
-To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+### Create a connection to SharePoint Online
 
-## Let's talk about triggers and actions
+>[AZURE.INCLUDE [Steps to create a connection to SharePoint](../../includes/connectors-create-api-sharepointonline.md)]
 
-The SharePoint API can be used as an action; it has trigger(s). All APIs support data in JSON and XML formats. 
+## Use a SharePoint Online trigger
 
-The SharePoint API has the following action(s) and/or trigger(s) available:
+A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
 
-### SharePoint actions
-You can take these action(s):
+>[AZURE.INCLUDE [Steps to create a SharePoint Online trigger](../../includes/connectors-create-api-sharepointonline-trigger.md)]
 
-|Action|Description|
-|--- | ---|
-|GetFileMetadata|Used for getting a file metadata on Document Library|
-|UpdateFile|Used for updating a file on Document Library|
-|DeleteFile|Used for deleting a file on Document Library|
-|GetFileMetadataByPath|Used for getting a file metadata on Document Library|
-|GetFileContentByPath|Used for getting a file on Document Library|
-|GetFileContent|Used for getting a file on Document Library|
-|CreateFile|Used for uploading a file on Document Library|
-|CopyFile|Used for copying a file on Document Library|
-|ExtractFolderV2|Used for extracting a folder on Document Library|
-|PostItem|Creates a new item in a SharePoint list|
-|GetItem|Retrieves a single item from a SharePoint list|
-|DeleteItem|Deletes an item from a SharePoint list|
-|PatchItem|Updates an item in a SharePoint list|
-### SharePoint triggers
-You can listen for these event(s):
+## Use a SharePoint Online action
+
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
+
+>[AZURE.INCLUDE [Steps to create a SharePoint Online action](../../includes/connectors-create-api-sharepointonline-action.md)]
+
+## Technical Details
+
+Here are the details about the triggers, actions and responses that this connection supports:
+
+## SharePoint Online triggers
+
+SharePoint has the following trigger(s):  
 
 |Trigger | Description|
 |--- | ---|
-|OnNewFile|Triggers a flow when a new file is created in a SharePoint folder|
-|OnUpdatedFile|Triggers a flow when a file is modified in a SharePoint folder|
-|GetOnNewItems|When a new item is created in a SharePoint list|
-|GetOnUpdatedItems|When an existing item is modified in a SharePoint list|
+|[When a file is created](connectors-create-api-sharepointonline.md#when-a-file-is-created)|This operation triggers a flow when a new file is created in a SharePoint folder.|
+|[When a file is modified](connectors-create-api-sharepointonline.md#when-a-file-is-modified)|This operation triggers a flow when a file is modified in a SharePoint folder.|
+|[When a new item is created](connectors-create-api-sharepointonline.md#when-a-new-item-is-created)|This operation triggers a flow when a new item is created in a SharePoint list.|
+|[When an existing item is modified](connectors-create-api-sharepointonline.md#when-an-existing-item-is-modified)|This operation triggers a flow when an existing item is modified in a SharePoint list.|
 
 
-## Create a connection to SharePoint
-To use the SharePoint API, you first create a **connection** then provide the details for these properties: 
+## SharePoint Online actions
 
-|Property| Required|Description|
+SharePoint has the following actions:
+
+
+|Action|Description|
+|--- | ---|
+|[Get file metadata](connectors-create-api-sharepointonline.md#get-file-metadata)|This operation gets file metadata using the file id.|
+|[Update file](connectors-create-api-sharepointonline.md#update-file)|This operation updates file content.|
+|[Delete file](connectors-create-api-sharepointonline.md#delete-file)|This operation deletes a file.|
+|[Get file metadata using path](connectors-create-api-sharepointonline.md#get-file-metadata-using-path)|This operation gets file metadata using the file path.|
+|[Get file content using path](connectors-create-api-sharepointonline.md#get-file-content-using-path)|This operation gets file contents using the file path.|
+|[Get file content](connectors-create-api-sharepointonline.md#get-file-content)|This operation gets file content using the file id.|
+|[Create file](connectors-create-api-sharepointonline.md#create-file)|This operation uploads a file to a SharePoint site.|
+|[Copy file](connectors-create-api-sharepointonline.md#copy-file)|This operation copies a file to a SharePoint site.|
+|[List folder](connectors-create-api-sharepointonline.md#list-folder)|This operation gets files contained in a SharePoint folder.|
+|[List root folder](connectors-create-api-sharepointonline.md#list-root-folder)|This operaiton gets the files in the root SharePoint folder.|
+|[Extract folder](connectors-create-api-sharepointonline.md#extract-folder)|This operation extracts an archive file into a SharePoint folder (example: .zip).|
+|[Get items](connectors-create-api-sharepointonline.md#get-items)|This operation gets items from a SharePoint list.|
+|[Create item](connectors-create-api-sharepointonline.md#create-item)|This operation creates a new item in a SharePoint list.|
+|[Get item](connectors-create-api-sharepointonline.md#get-item)|This operation gets a single item by its id from a SharePoint list.|
+|[Delete item](connectors-create-api-sharepointonline.md#delete-item)|This operation deletes an item from a SharePoint list.|
+|[Update item](connectors-create-api-sharepointonline.md#update-item)|This operation updates an item in a SharePoint list.|
+|[Get entity values](connectors-create-api-sharepointonline.md#get-entity-values)|This operation gets possible values for a SharePoint entity.|
+|[Get lists](connectors-create-api-sharepointonline.md#get-lists)|This operation gets SharePoint lists from a site.|
+### Action details
+
+Here are the details for the actions and triggers for this connector, along with their responses:
+
+
+
+### Get file metadata
+This operation gets file metadata using the file id. 
+
+
+|Property Name| Display Name|Description|
 | ---|---|---|
-|Token|Yes|Provide SharePoint Credentials|
+|dataset*|Site URL|SharePoint site url like http://contoso.sharepoint.com/sites/mysite|
+|id*|File identifier|Select a file|
 
-In order to connect to **SharePoint Online**, you need to provide your identity (username and password, smart card credentials, etc.) to SharePoint Online. Once you've been authenticated, you can proceed to use the SharePoint Online API in your logic app. 
+An * indicates that a property is required
 
-While on the designer of your logic app, follow these steps to sign into SharePoint to create the connection **connection** for use in your logic app:
+#### Output Details
 
-1. Enter SharePoint in the search box and wait for the search to return all entries with SharePoint in the name:   
-![Configure SharePoint][1]  
-2. Select **SharePoint Online - When a file is created**   
-3. Select **Sign in to SharePoint Online**:   
-![Configure SharePoint][2]    
-4. Provide your SharePoint credentials to sign in to authenticate with SharePoint   
-![Configure SharePoint][3]     
-5. After the authentication completes you'll be redirected to your logic app to complete it by configuring SharePoint's **When a file is created** dialog.          
-![Configure SharePoint][4]  
-6. You can then add other triggers and actions that you need to complete your logic app.   
-7. Save your work by selecting **Save** on the menu bar above.  
+BlobMetadata
 
->[AZURE.TIP] You can use this connection in other logic apps or PowerApps or both.
 
-## SharePoint REST API reference
-#### This documentation is for version: 1.0
-
-
-### Used for getting a file metadata on Document Library
-**```GET: /datasets/{dataset}/files/{id}```** 
-
-
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|none|SharePoint Site URL. E.g. http://contoso.sharepoint.com/sites/mysite|
-|id|string|yes|path|none|Unique identifier of the file|
-
-
-### Here are the possible responses:
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-------
-
-
-
-### Used for updating a file on Document Library
-**```PUT: /datasets/{dataset}/files/{id}```** 
-
-
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|none|SharePoint Site URL. E.g. http://contoso.sharepoint.com/sites/mysite|
-|id|string|yes|path|none|Unique identifier of the file|
-|body| |yes|body|none|The Content of the file|
-
-
-### Here are the possible responses:
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-------
-
-
-
-### Used for deleting a file on Document Library
-**```DELETE: /datasets/{dataset}/files/{id}```** 
-
-
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|none|SharePoint Site URL. E.g. http://contoso.sharepoint.com/sites/mysite|
-|id|string|yes|path|none|Unique identifier of the file|
-
-
-### Here are the possible responses:
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-------
-
-
-
-### Used for getting a file metadata on Document Library
-**```GET: /datasets/{dataset}/GetFileByPath```** 
-
-
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|none|SharePoint Site URL. E.g. http://contoso.sharepoint.com/sites/mysite|
-|path|string|yes|query|none|Path of the file|
-
-
-### Here are the possible responses:
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-------
-
-
-
-### Used for getting a file on Document Library
-**```GET: /datasets/{dataset}/GetFileContentByPath```** 
-
-
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|none|SharePoint Site URL. E.g. http://contoso.sharepoint.com/sites/mysite|
-|path|string|yes|query|none|Path of the file|
-
-
-### Here are the possible responses:
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-------
-
-
-
-### Used for getting a file on Document Library
-**```GET: /datasets/{dataset}/files/{id}/content```** 
-
-
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|none|SharePoint Site URL. E.g. http://contoso.sharepoint.com/sites/mysite|
-|id|string|yes|path|none|Unique identifier of the file|
-
-
-### Here are the possible responses:
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-------
-
-
-
-### Used for uploading a file on Document Library
-**```POST: /datasets/{dataset}/files```** 
-
-
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|none|SharePoint Site URL. E.g. http://contoso.sharepoint.com/sites/mysite|
-|folderPath|string|yes|query|none|The path to the folder|
-|name|string|yes|query|none|Name of the file|
-|body| |yes|body|none|The Content of the file|
-
-
-### Here are the possible responses:
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-------
-
-
-
-### Used for copying a file on Document Library
-**```POST: /datasets/{dataset}/copyFile```** 
-
-
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|none|SharePoint Site URL. E.g. http://contoso.sharepoint.com/sites/mysite|
-|source|string|yes|query|none|Path to the source file|
-|destination|string|yes|query|none|Path to the destination file|
-|overwrite|boolean|no|query|false|Whether or not to overwrite an existing file|
-
-
-### Here are the possible responses:
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-------
-
-
-
-### Triggers a flow when a new file is created in a SharePoint folder
-**```GET: /datasets/{dataset}/triggers/onnewfile```** 
-
-
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|none|SharePoint site url|
-|folderId|string|yes|query|none|Unique identifier of the folder in SharePoint|
-
-
-### Here are the possible responses:
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-------
-
-
-
-### Triggers a flow when a file is modified in a SharePoint folder
-**```GET: /datasets/{dataset}/triggers/onupdatedfile```** 
-
-
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|none|SharePoint site url|
-|folderId|string|yes|query|none|Unique identifier of the folder in SharePoint|
-
-
-### Here are the possible responses:
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-------
-
-
-
-### Used for extracting a folder on Document Library
-**```POST: /datasets/{dataset}/extractFolderV2```** 
-
-
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|none|SharePoint Site URL. E.g. http://contoso.sharepoint.com/sites/mysite|
-|source|string|yes|query|none|Path to the source file|
-|destination|string|yes|query|none|Path to the destination folder|
-|overwrite|boolean|no|query|false|Whether or not to overwrite an existing file|
-
-
-### Here are the possible responses:
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-------
-
-
-
-### When a new item is created in a SharePoint list
-**```GET: /datasets/{dataset}/tables/{table}/onnewitems```** 
-
-
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|none|SharePoint Site url (example: http://contoso.sharepoint.com/sites/mysite)|
-|table|string|yes|path|none|SharePoint list name|
-|$skip|integer|no|query|none|Number of entries to skip (default = 0)|
-|$top|integer|no|query|none|Maximum number of entries to retrieve (default = 256)|
-|$filter|string|no|query|none|An ODATA filter query to restrict the number of entries|
-|$orderby|string|no|query|none|An ODATA orderBy query for specifying the order of entries|
-
-
-### Here are the possible responses:
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-------
-
-
-
-### When an existing item is modified in a SharePoint list
-**```GET: /datasets/{dataset}/tables/{table}/onupdateditems```** 
-
-
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|none|SharePoint Site url (example: http://contoso.sharepoint.com/sites/mysite)|
-|table|string|yes|path|none|SharePoint list name|
-|$skip|integer|no|query|none|Number of entries to skip (default = 0)|
-|$top|integer|no|query|none|Maximum number of entries to retrieve (default = 256)|
-|$filter|string|no|query|none|An ODATA filter query to restrict the number of entries|
-|$orderby|string|no|query|none|An ODATA orderBy query for specifying the order of entries|
-
-
-### Here are the possible responses:
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-------
-
-
-
-### Creates a new item in a SharePoint list
-**```POST: /datasets/{dataset}/tables/{table}/items```** 
-
-
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|none|SharePoint Site url (example: http://contoso.sharepoint.com/sites/mysite)|
-|table|string|yes|path|none|SharePoint list name|
-|item| |yes|body|none|Item to create|
-
-
-### Here are the possible responses:
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-------
-
-
-
-### Retrieves a single item from a SharePoint list
-**```GET: /datasets/{dataset}/tables/{table}/items/{id}```** 
-
-
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|none|SharePoint Site url (example: http://contoso.sharepoint.com/sites/mysite)|
-|table|string|yes|path|none|SharePoint list name|
-|id|integer|yes|path|none|Unique identifier of item to be retrieved|
-
-
-### Here are the possible responses:
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-------
-
-
-
-### Deletes an item from a SharePoint list
-**```DELETE: /datasets/{dataset}/tables/{table}/items/{id}```** 
-
-
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|none|SharePoint Site url (example: http://contoso.sharepoint.com/sites/mysite)|
-|table|string|yes|path|none|SharePoint list name|
-|id|integer|yes|path|none|Unique identifier of item to be deleted|
-
-
-### Here are the possible responses:
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-------
-
-
-
-### Updates an item in a SharePoint list
-**```PATCH: /datasets/{dataset}/tables/{table}/items/{id}```** 
-
-
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|dataset|string|yes|path|none|SharePoint Site url (example: http://contoso.sharepoint.com/sites/mysite)|
-|table|string|yes|path|none|SharePoint list name|
-|id|integer|yes|path|none|Unique identifier of item to be updated|
-|item| |yes|body|none|Item with changed properties|
-
-
-### Here are the possible responses:
-
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
-------
-
-
-
-## Object definition(s): 
-
- **DataSetsMetadata**:
-
-Required properties for DataSetsMetadata:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|tabular|not defined|
-|blob|not defined|
-
-
-
- **TabularDataSetsMetadata**:
-
-Required properties for TabularDataSetsMetadata:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|source|string|
-|displayName|string|
-|urlEncoding|string|
-|tableDisplayName|string|
-|tablePluralName|string|
-
-
-
- **BlobDataSetsMetadata**:
-
-Required properties for BlobDataSetsMetadata:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|source|string|
-|displayName|string|
-|urlEncoding|string|
-
-
-
- **BlobMetadata**:
-
-Required properties for BlobMetadata:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
+| Property Name | Data Type |
+|---|---|---|
 |Id|string|
 |Name|string|
 |DisplayName|string|
@@ -557,151 +121,549 @@ None of the properties are required.
 
 
 
- **Object**:
 
-Required properties for Object:
-
-
-None of the properties are required. 
+### Update file
+This operation updates file content. 
 
 
-**All properties**: 
+|Property Name| Display Name|Description|
+| ---|---|---|
+|dataset*|Site URL|SharePoint site url like http://contoso.sharepoint.com/sites/mysite|
+|id*|File identifier|Select a file|
+|body*|File Content|Content of the file|
+
+An * indicates that a property is required
+
+#### Output Details
+
+BlobMetadata
 
 
-| Name | Data Type |
-|---|---|
-
-
-
- **TableMetadata**:
-
-Required properties for TableMetadata:
-
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
-|---|---|
-|name|string|
-|title|string|
-|x-ms-permission|string|
-|schema|not defined|
+| Property Name | Data Type |
+|---|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
 
 
 
- **DataSetsList**:
 
-Required properties for DataSetsList:
-
-
-None of the properties are required. 
+### Delete file
+This operation deletes a file. 
 
 
-**All properties**: 
+|Property Name| Display Name|Description|
+| ---|---|---|
+|dataset*|Site URL|SharePoint site url like http://contoso.sharepoint.com/sites/mysite|
+|id*|File identifier|Select a file|
+
+An * indicates that a property is required
 
 
-| Name | Data Type |
+
+
+### Get file metadata using path
+This operation gets file metadata using the file path. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|dataset*|Site URL|SharePoint site url like http://contoso.sharepoint.com/sites/mysite|
+|path*|File path|Select a file|
+
+An * indicates that a property is required
+
+#### Output Details
+
+BlobMetadata
+
+
+| Property Name | Data Type |
+|---|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### Get file content using path
+This operation gets file contents using the file path. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|dataset*|Site URL|SharePoint site url like http://contoso.sharepoint.com/sites/mysite|
+|path*|File path|Select a file|
+
+An * indicates that a property is required
+
+
+
+
+### Get file content
+This operation gets file content using the file id. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|dataset*|Site URL|SharePoint site url like http://contoso.sharepoint.com/sites/mysite|
+|id*|File identifier|Select a file|
+
+An * indicates that a property is required
+
+
+
+
+### Create file
+This operation uploads a file to a SharePoint site. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|dataset*|Site URL|SharePoint site url like http://contoso.sharepoint.com/sites/mysite|
+|folderPath*|Folder Path|Select a file|
+|name*|File name|Name of the file|
+|body*|File Content|Content of the file|
+
+An * indicates that a property is required
+
+#### Output Details
+
+BlobMetadata
+
+
+| Property Name | Data Type |
+|---|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### Copy file
+This operation copies a file to a SharePoint site. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|dataset*|Site URL|SharePoint site url like http://contoso.sharepoint.com/sites/mysite|
+|source*|Source file Path|Path to the source file|
+|destination*|Destination file path|Path to the destination file|
+|overwrite|Overwrite flag|Whether or not to overwrite the destination file if it exists|
+
+An * indicates that a property is required
+
+#### Output Details
+
+BlobMetadata
+
+
+| Property Name | Data Type |
+|---|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### When a file is created
+This operation triggers a flow when a new file is created in a SharePoint folder. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|dataset*|Site URL|SharePoint site url|
+|folderId*|Folder Id|Select a folder|
+
+An * indicates that a property is required
+
+
+
+
+### When a file is modified
+This operation triggers a flow when a file is modified in a SharePoint folder. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|dataset*|Site URL|SharePoint site url|
+|folderId*|Folder Id|Select a folder|
+
+An * indicates that a property is required
+
+
+
+
+### List folder
+This operation gets files contained in a SharePoint folder. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|dataset*|Site URL|SharePoint site url like http://contoso.sharepoint.com/sites/mysite|
+|id*|File identifier|Unique identifier of the folder|
+
+An * indicates that a property is required
+
+
+
+#### Output Details
+
+BlobMetadata
+
+
+| Property Name | Data Type |
+|---|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### List root folder
+This operaiton gets the files in the root SharePoint folder. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|dataset*|Site URL|SharePoint site url like http://contoso.sharepoint.com/sites/mysite|
+
+An * indicates that a property is required
+
+
+
+#### Output Details
+
+BlobMetadata
+
+
+| Property Name | Data Type |
+|---|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### Extract folder
+This operation extracts an archive file into a SharePoint folder (example: .zip). 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|dataset*|Site URL|SharePoint site url like http://contoso.sharepoint.com/sites/mysite|
+|source*|Source file Path|Path to the source file|
+|destination*|Destination folder path|Path to the destination folder|
+|overwrite|Overwrite flag|Whether or not to overwrite the destination file if it exists|
+
+An * indicates that a property is required
+
+
+
+#### Output Details
+
+BlobMetadata
+
+
+| Property Name | Data Type |
+|---|---|---|
+|Id|string|
+|Name|string|
+|DisplayName|string|
+|Path|string|
+|LastModified|string|
+|Size|integer|
+|MediaType|string|
+|IsFolder|boolean|
+|ETag|string|
+|FileLocator|string|
+
+
+
+
+### When a new item is created
+This operation triggers a flow when a new item is created in a SharePoint list. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|dataset*|Site url|SharePoint site url (example: http://contoso.sharepoint.com/sites/mysite)|
+|table*|List name|SharePoint list name|
+|$filter|Filter Query|An ODATA filter query to restrict the entries returned|
+|$orderby|Order By|An ODATA orderBy query for specifying the order of entries|
+|$skip|Skip Count|Number of entries to skip (default = 0)|
+|$top|Maximum Get Count|Maximum number of entries to retrieve (default = 256)|
+
+An * indicates that a property is required
+
+#### Output Details
+
+ItemsList
+
+
+| Property Name | Data Type | 
 |---|---|
 |value|array|
 
 
 
- **DataSet**:
 
-Required properties for DataSet:
-
-
-None of the properties are required. 
+### When an existing item is modified
+This operation triggers a flow when an existing item is modified in a SharePoint list. 
 
 
-**All properties**: 
+|Property Name| Display Name|Description|
+| ---|---|---|
+|dataset*|Site url|SharePoint site url (example: http://contoso.sharepoint.com/sites/mysite)|
+|table*|List name|SharePoint list name|
+|$filter|Filter Query|An ODATA filter query to restrict the entries returned|
+|$orderby|Order By|An ODATA orderBy query for specifying the order of entries|
+|$skip|Skip Count|Number of entries to skip (default = 0)|
+|$top|Maximum Get Count|Maximum number of entries to retrieve (default = 256)|
+
+An * indicates that a property is required
+
+#### Output Details
+
+ItemsList
 
 
-| Name | Data Type |
+| Property Name | Data Type |
 |---|---|
-|Name|string|
-|DisplayName|string|
+|value|array|
 
 
 
- **Table**:
 
-Required properties for Table:
-
-
-None of the properties are required. 
+### Get items
+This operation gets items from a SharePoint list. 
 
 
-**All properties**: 
+|Property Name| Display Name|Description|
+| ---|---|---|
+|dataset*|Site url|SharePoint site url (example: http://contoso.sharepoint.com/sites/mysite)|
+|table*|List name|SharePoint list name|
+|$filter|Filter Query|An ODATA filter query to restrict the entries returned|
+|$orderby|Order By|An ODATA orderBy query for specifying the order of entries|
+|$skip|Skip Count|Number of entries to skip (default = 0)|
+|$top|Maximum Get Count|Maximum number of entries to retrieve (default = 256)|
+
+An * indicates that a property is required
+
+#### Output Details
+
+ItemsList
 
 
-| Name | Data Type |
+| Property Name | Data Type |
 |---|---|
-|Name|string|
-|DisplayName|string|
+|value|array|
 
 
 
- **Item**:
 
-Required properties for Item:
-
-
-None of the properties are required. 
+### Create item
+This operation creates a new item in a SharePoint list. 
 
 
-**All properties**: 
+|Property Name| Display Name|Description|
+| ---|---|---|
+|dataset*|Site url|SharePoint site url (example: http://contoso.sharepoint.com/sites/mysite)|
+|table*|List name|SharePoint list name|
+|item*|Item|Item to create|
+
+An * indicates that a property is required
+
+#### Output Details
+
+Item
 
 
-| Name | Data Type |
+| Property Name | Data Type |
 |---|---|
 |ItemInternalId|string|
 
 
 
- **ItemsList**:
 
-Required properties for ItemsList:
-
-
-None of the properties are required. 
+### Get item
+This operation gets a single item by its id from a SharePoint list. 
 
 
-**All properties**: 
+|Property Name| Display Name|Description|
+| ---|---|---|
+|dataset*|Site url|SharePoint site url (example: http://contoso.sharepoint.com/sites/mysite)|
+|table*|List name|SharePoint list name|
+|id*|Id|Unique identifier of item to be retrieved|
+
+An * indicates that a property is required
+
+#### Output Details
+
+Item
 
 
-| Name | Data Type |
+| Property Name | Data Type |
+|---|---|
+|ItemInternalId|string|
+
+
+
+
+### Delete item
+This operation deletes an item from a SharePoint list. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|dataset*|Site url|SharePoint site url (example: http://contoso.sharepoint.com/sites/mysite)|
+|table*|List name|SharePoint list name|
+|id*|Id|Unique identifier of item to be deleted|
+
+An * indicates that a property is required
+
+
+
+
+### Update item
+This operation updates an item in a SharePoint list. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|dataset*|Site url|SharePoint site url (example: http://contoso.sharepoint.com/sites/mysite)|
+|table*|List name|SharePoint list name|
+|id*|Id|Unique identifier of item to be updated|
+|item*|Item|Item with changed properties|
+
+An * indicates that a property is required
+
+#### Output Details
+
+Item
+
+
+| Property Name | Data Type |
+|---|---|
+|ItemInternalId|string|
+
+
+
+
+### Get entity values
+This operation gets possible values for a SharePoint entity. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|dataset*|SharePoint site url|SharePoint site url|
+|table*|table name|table name|
+|id*|entity id|entity id|
+
+An * indicates that a property is required
+
+#### Output Details
+
+
+
+
+
+### Get lists
+This operation gets SharePoint lists from a site. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|dataset*|Site url|SharePoint site url (example: http://contoso.sharepoint.com/sites/mysite)|
+
+An * indicates that a property is required
+
+#### Output Details
+
+TablesList
+
+
+| Property Name | Data Type |
 |---|---|
 |value|array|
 
 
 
- **TablesList**:
+## HTTP responses
 
-Required properties for TablesList:
+The actions and triggers above can return one or more of the following HTTP status codes: 
 
-
-None of the properties are required. 
-
-
-**All properties**: 
-
-
-| Name | Data Type |
+|Name|Description|
 |---|---|
-|value|array|
+|200|OK|
+|202|Accepted|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occurred.|
+|default|Operation Failed.|
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## Next Steps
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)  
-[Create a power app](../power-apps/powerapps-get-started-azure-portal.md)  
-
-[1]: ./media/connectors-create-api-sharepointonline/connectionconfig1.png
-[2]: ./media/connectors-create-api-sharepointonline/connectionconfig2.png 
-[3]: ./media/connectors-create-api-sharepointonline/connectionconfig3.png
-[4]: ./media/connectors-create-api-sharepointonline/connectionconfig4.png
-[5]: ./media/connectors-create-api-sharepointonline/connectionconfig5.png
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)

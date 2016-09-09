@@ -1,25 +1,25 @@
 <properties 
-   pageTitle="Overview of the Azure Event Hubs APIs | Microsoft Azure"
-   description="A summary of some of the key Event Hubs .NET client APIs."
-   services="event-hubs"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" />
+    pageTitle="Overview of the Azure Event Hubs APIs | Microsoft Azure"
+    description="A summary of some of the key Event Hubs .NET client APIs."
+    services="event-hubs"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="event-hubs"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="01/26/2016"
-   ms.author="sethm" />
+    ms.service="event-hubs"
+    ms.devlang="dotnet"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="07/11/2016"
+    ms.author="sethm" />
 
 # Event Hubs API overview
 
-This article summarizes some of the key Event Hubs .NET client APIs. There are two categories: management and runtime APIs. Runtime APIs consist of all operations needed to send and receive a message. Management operations enable you to manage an Event Hubs entity state by creating, updating, and deleting entities.
+This article summarizes some of the key Event Hubs .NET client APIs. There are two categories: management and run-time APIs. Run-time APIs consist of all operations needed to send and receive a message. Management operations enable you to manage an Event Hubs entity state by creating, updating, and deleting entities.
 
-Monitoring scenarios span both management and runtime. For detailed reference documentation on the .NET APIs, see the [Service Bus .NET](https://msdn.microsoft.com/library/azure/mt419900.aspx) and [EventProcessorHost API](https://msdn.microsoft.com/library/azure/mt445521.aspx) references.
+Monitoring scenarios span both management and run-time. For detailed reference documentation on the .NET APIs, see the [Service Bus .NET](https://msdn.microsoft.com/library/azure/mt419900.aspx) and [EventProcessorHost API](https://msdn.microsoft.com/library/azure/mt445521.aspx) references.
 
 ## Management APIs
 
@@ -53,7 +53,7 @@ namespaceManager.UpdateEventHubAsync(ehd).Wait();
 namespaceManager.DeleteEventHubAsync("Event Hub name").Wait();
 ```
 
-## Runtime APIs
+## Run-time APIs
 
 ### Create publisher
 

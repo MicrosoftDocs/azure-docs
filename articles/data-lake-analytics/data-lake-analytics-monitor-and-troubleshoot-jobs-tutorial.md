@@ -3,7 +3,7 @@
    description="Learn how to use the Azure Portal to troubleshoot Data Lake Analytics jobs. " 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="edmacauley" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/11/2016"
-   ms.author="jgao"/>
+   ms.date="05/16/2016"
+   ms.author="edmaca"/>
 
 # Troubleshoot Azure Data Lake Analytics jobs using Azure Portal
 

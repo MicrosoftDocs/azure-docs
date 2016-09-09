@@ -12,7 +12,7 @@
    ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="01/16/2016"
+   ms.date="06/13/2016"
    ms.author="cherylmc"/>
 
 # ExpressRoute technical overview
@@ -33,21 +33,31 @@ Microsoft Azure ExpressRoute lets you extend your on-premises networks into the 
 
 See the [ExpressRoute FAQ](expressroute-faqs.md) for more details.
 
-## How can I connect my network to Microsoft using ExpressRoute?
+## <a name="howtoconnect"></a>How can I connect my network to Microsoft using ExpressRoute?
 
-You can create a connection between your on-premises network and the Microsoft cloud in three different ways
+You can create a connection between your on-premises network and the Microsoft cloud in three different ways:
 
-1. **Co-located at a cloud exchange.** If you are co-located in a facility with a cloud exchange, you can order virtual cross-connections to the Microsoft cloud through the co-location provider’s Ethernet exchange. Co-location providers can offer either Layer 2 cross-connections, or managed Layer 3 cross-connections between your infrastructure in the co-location facility and the Microsoft cloud.
-2.	**Point-to-point Ethernet connections.** You can connect your on-premises datacenters/offices to the Microsoft cloud through point-to-point Ethernet links. Point-to-point Ethernet providers can offer Layer 2 connections, or managed Layer 3 connections between your site and the Microsoft cloud.
-3.	**Any-to-any (IPVPN) networks.** You can integrate your WAN with the Microsoft cloud. IPVPN providers (typically MPLS VPN) offer any-to-any connectivity between your branch offices and datacenters. The Microsoft cloud can be interconnected to your WAN to make it look just like any other branch office. WAN providers typically offer managed Layer 3 connectivity.
+### Co-located at a cloud exchange
+
+If you are co-located in a facility with a cloud exchange, you can order virtual cross-connections to the Microsoft cloud through the co-location provider’s Ethernet exchange. Co-location providers can offer either Layer 2 cross-connections, or managed Layer 3 cross-connections between your infrastructure in the co-location facility and the Microsoft cloud.
+
+### Point-to-point Ethernet connections 
+
+You can connect your on-premises datacenters/offices to the Microsoft cloud through point-to-point Ethernet links. Point-to-point Ethernet providers can offer Layer 2 connections, or managed Layer 3 connections between your site and the Microsoft cloud.
+
+### Any-to-any (IPVPN) networks
+
+You can integrate your WAN with the Microsoft cloud. IPVPN providers (typically MPLS VPN) offer any-to-any connectivity between your branch offices and datacenters. The Microsoft cloud can be interconnected to your WAN to make it look just like any other branch office. WAN providers typically offer managed Layer 3 connectivity. ExpressRoute capabilities and features are all identical across all of the above connectivity models. 
+
+Connectivity providers can offer one or more connectivity models. You can work with your connectivity provider to pick the model that works best for you.
 
 ![](./media/expressroute-introduction/expressroute-connectivitymodels.png)
 
-ExpressRoute capabilities and features are all identical across all of the above connectivity models. Connectivity providers can offer one or more connectivity models from the above list. You can work with your connectivity provider to pick the model that works best for you.
+
 
 ## ExpressRoute features
 
-ExpressRoute supports the following features and capabilities. 
+ExpressRoute supports the following features and capabilities: 
 
 ### Layer 3 connectivity
 
@@ -59,7 +69,9 @@ Each ExpressRoute circuit consists of two connections to two Microsoft Enterpris
 
 ### Connectivity to Microsoft cloud services
 
-ExpressRoute connections enable access to the following services.
+[AZURE.INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
+
+ExpressRoute connections enable access to the following services:
 
 - Microsoft Azure services
 - Microsoft Office 365 services

@@ -1,22 +1,20 @@
+<properties
+	pageTitle="Set and retrieve properties and metadata for objects in Azure Storage | Microsoft Azure"
+	description="Store custom metadata on objects in Azure Storage, and set and retrieve system properties."
+	services="storage"
+	documentationCenter=""
+	authors="tamram"
+	manager="carmonm"
+	editor="tysonn"/>
 
-<properties 
-  pageTitle="Set and retrieve properties and metadata for objects in Azure Storage | Microsoft Azure" 
-  description="Store custom metadata on objects in Azure Storage, and set and retrieve system properties." 
-  services="storage" 
-  documentationCenter="" 
-  authors="tamram" 
-  manager="carmonm" 
-  editor="tysonn"/>
-
-<tags 
-  ms.service="storage" 
-  ms.workload="storage" 
-  ms.tgt_pltfrm="na" 
-  ms.devlang="na" 
-  ms.topic="article" 
-  ms.date="02/20/2016" 
-  ms.author="tamram"/>
-
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/23/2016"
+	ms.author="tamram"/>
 
 # Set and Retrieve Properties and Metadata #
 
@@ -41,8 +39,8 @@ To set properties on an object, specify the property value, then call the **SetP
 The following code example creates a container and writes some of its property values to a console window:
 
     //Parse the connection string for the storage account.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+	const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
 	
 	//Create the service client object for credentialed access to the Blob service.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -64,7 +62,7 @@ The following code example creates a container and writes some of its property v
 
 You can specify metadata as one or more name-value pairs on a blob or container resource. To set metadata, add name-value pairs to the **Metadata** collection on the resource, then call the **SetMetadata** method to save the values to the service.
 
-> [AZURE.NOTE]: The name of your metadata must conform to the naming conventions for C# identifiers.
+> [AZURE.NOTE] The name of your metadata must conform to the naming conventions for C# identifiers.
  
 The following code example sets metadata on a container. One value is set using the collection's **Add** method. The other value is set using implicit key/value syntax. Both are valid.
 

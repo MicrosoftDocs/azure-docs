@@ -1,33 +1,35 @@
-<properties 
+<properties
    pageTitle="Manage your StorSimple bandwidth templates | Microsoft Azure"
    description="Describes how to manage StorSimple bandwidth templates, which allow you to control bandwidth consumption."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
-<tags 
+<tags
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="12/02/2015"
+   ms.date="05/24/2016"
    ms.author="alkohli" />
 
 # Use the StorSimple Manager service to manage StorSimple bandwidth templates
 
 ## Overview
 
-Bandwidth templates allow you to configure multiple time-of-day schedules to tier the data from the StorSimple device to the cloud. You can also create, modify, delete, and save these schedules as templates. These bandwidth templates can then be applied across volume containers to control the bandwidth consumed by your StorSimple device when performing operations that involve the cloud. Depending on your bandwidth usage pattern, you can also choose from a list of default templates.
+Bandwidth templates allow you to configure network bandwidth usage across multiple time-of-day schedules to tier the data from the StorSimple device to the cloud.
 
 With bandwidth throttling schedules you can:
 
-- Specify schedules that customize bandwidth usage depending on the workloads.
+- Specify customized bandwidth schedules depending on the workload network usages.
 
 - Centralize management and reuse the schedules across multiple devices in an easy and seamless manner.
 
-This feature is available only for StorSimple physical devices and not for virtual devices. All the bandwidth templates for your service are displayed in a tabular format, and contain the following information:
+> [AZURE.NOTE] This feature is available only for StorSimple physical devices and not for virtual devices.
+
+All the bandwidth templates for your service are displayed in a tabular format, and contain the following information:
 
 - **Name** – A unique name assigned to the bandwidth template when it was created.
 
@@ -35,13 +37,7 @@ This feature is available only for StorSimple physical devices and not for virtu
 
 - **Used by** – The number of volumes using the bandwidth templates.
 
-You use the StorSimple Manager service **Configure** page in the Azure classic portal to manage bandwidth templates. The most common tasks related to bandwidth templates that can be performed on this page are:
-
-- Add a bandwidth template
-- Edit a bandwidth template
-- Delete a bandwidth template
-- Use a default bandwidth template
-- Create an all-day bandwidth template that starts at a specified time
+You use the StorSimple Manager service **Configure** page in the Azure classic portal to manage bandwidth templates.
 
 You can also find additional information to help configure bandwidth templates in:
 
@@ -67,11 +63,11 @@ Perform the following steps to create a new bandwidth template.
    2. Select the **All Day** option if the schedule is enforced for the entire day. When this option is checked, you can no longer specify a **Start Time** or an **End Time**. The schedule runs from 12:00 AM to 11:59 PM.
    3. From the drop-down list, select a **Start Time**. This is when the schedule will begin.
    4. From the drop-down list, select an **End Time**. This is when the schedule will stop.
-   
+
          > [AZURE.NOTE] Overlapping schedules are not allowed. If the start and end times will result in an overlapping schedule, you will see an error message to that effect.
 
-   5. Specify the **Bandwidth Rate**. This is the bandwidth in Megabits per second (Mbps) used by your StorSimple device in operations involving the cloud. Supply a number between 1 and 1,000 for this field.
-   
+   5. Specify the **Bandwidth Rate**. This is the bandwidth in Megabits per second (Mbps) used by your StorSimple device in operations involving the cloud (both uploads and downloads). Supply a number between 1 and 1,000 for this field.
+
    6. Click the check icon ![Check icon](./media/storsimple-manage-bandwidth-templates/HCS_CheckIcon.png). The template that you have created will be added to the list of bandwidth templates on the service **Configure** page.
 
     ![Create new bandwidth template](./media/storsimple-manage-bandwidth-templates/HCS_CreateNewBT1.png)
@@ -122,7 +118,7 @@ The default template can be edited. The usage of this template (including edited
 
 ## Create an all-day bandwidth template that starts at a specified time
 
-Follow this procedure to create a schedule that starts at a specified time and runs all day. In the example, the schedule starts at 9 AM in the morning and runs until 9 AM the next morning. It's important to note that the start and end times for a given schedule must both be contained on the same 24 hour schedule and cannot span multiple days. If you need to set up bandwidth templates that span multiple days, you will need to use multiple schedules (as shown in the example). 
+Follow this procedure to create a schedule that starts at a specified time and runs all day. In the example, the schedule starts at 9 AM in the morning and runs until 9 AM the next morning. It's important to note that the start and end times for a given schedule must both be contained on the same 24 hour schedule and cannot span multiple days. If you need to set up bandwidth templates that span multiple days, you will need to use multiple schedules (as shown in the example).
 
 #### To create an all-day bandwidth template
 

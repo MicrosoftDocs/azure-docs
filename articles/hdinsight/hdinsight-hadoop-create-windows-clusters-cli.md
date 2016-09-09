@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/08/2016"
+   ms.date="05/27/2016"
    ms.author="jgao"/>
 
 # Create Windows-based Hadoop clusters in HDInsight using Azure CLI
@@ -31,7 +31,9 @@ Learn how to create HDInsight clusters using Azure CLI. For other cluster creati
 Before you begin the instructions in this article, you must have the following:
 
 - **Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- **Azure CLI** - See [Install and configure the Azure CLI](../xplat-cli-install.md) for installation and configuration information.
+- **Azure CLI**.
+
+	[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
 
 ##Connect to Azure
 

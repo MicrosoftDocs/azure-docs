@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2016"
+	ms.date="07/25/2016"
 	ms.author="larryfr"/>
 
 #Generate movie recommendations by using Apache Mahout with Hadoop in HDInsight
@@ -41,7 +41,9 @@ Mahout is a [machine learning][ml] library for Apache Hadoop. Mahout contains al
 ##prerequisites
 
 - **An Windows-based Hadoop cluster in HDInsight**. For information about creating one, see [Get started using Hadoop in HDInsight][getstarted]
-- **A workstation with Azure PowerShell**. See [Install Azure PowerShell 1.0 and greater](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater).
+- **A workstation with Azure PowerShell**.
+
+    [AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 
 ##<a name="recommendations"></a>Generate recommendations by using Windows PowerShell
@@ -89,10 +91,9 @@ Use the following Windows PowerShell script to run a job that uses the Mahout re
     $resourceGroup = $clusterInfo.ResourceGroup
     $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
     $container=$clusterInfo.DefaultStorageContainer
-    $storageAccountKey=Get-AzureRmStorageAccountKey `
+    $storageAccountKey=(Get-AzureRmStorageAccountKey `
         -Name $storageAccountName `
-        -ResourceGroupName $resourceGroup `
-        | %{ $_.Key1 }
+        -ResourceGroupName $resourceGroup)[0].Value
             
     #Create a storage content and upload the file
     $context = New-AzureStorageContext `
@@ -107,7 +108,7 @@ Use the following Windows PowerShell script to run a job that uses the Mahout re
 	# set $jarFile to the jar file you
 	# uploaded.
 	# For example,
-	# $jarFile = "wasb:///example/jars/mahout-core-0.9-job.jar"
+	# $jarFile = "wasbs:///example/jars/mahout-core-0.9-job.jar"
 
 	# The arguments for this job
 	# * input - the path to the data uploaded to HDInsight
@@ -115,9 +116,9 @@ Use the following Windows PowerShell script to run a job that uses the Mahout re
 	# * tempDir - the directory for temp files
 	$jobArguments = "--similarityClassname", "recommenditembased", `
                     "-s", "SIMILARITY_COOCCURRENCE", `
-	                "--input", "wasb:///HdiSamples/MahoutMovieData/user-ratings.txt",
-	                "--output", "wasb:///example/out",
-	                "--tempDir", "wasb:///example/temp"
+	                "--input", "wasbs:///HdiSamples/MahoutMovieData/user-ratings.txt",
+	                "--output", "wasbs:///example/out",
+	                "--tempDir", "wasbs:///example/temp"
 
 	# Create the job definition
 	$jobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
@@ -180,10 +181,9 @@ Although the generated output might be OK for use in an application, it's not ve
     $resourceGroup = $clusterInfo.ResourceGroup
     $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
     $container=$clusterInfo.DefaultStorageContainer
-    $storageAccountKey=Get-AzureRmStorageAccountKey `
+    $storageAccountKey=(Get-AzureRmStorageAccountKey `
         -Name $storageAccountName `
-        -ResourceGroupName $resourceGroup `
-        | %{ $_.Key1 }
+        -ResourceGroupName $resourceGroup)[0].Value
     #Create a storage content and upload the file
     $context = New-AzureStorageContext `
         -StorageAccountName $storageAccountName `
@@ -341,10 +341,9 @@ One of the classification methods available with Mahout is to build a [random fo
         $resourceGroup = $clusterInfo.ResourceGroup
         $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
         $container=$clusterInfo.DefaultStorageContainer
-        $storageAccountKey=Get-AzureRmStorageAccountKey `
+        $storageAccountKey=(Get-AzureRmStorageAccountKey `
             -Name $storageAccountName `
-            -ResourceGroupName $resourceGroup `
-            | %{ $_.Key1 }
+        -ResourceGroupName $resourceGroup)[0].Value
         
         #Create a storage content and upload the file
         $context = New-AzureStorageContext `
@@ -367,19 +366,19 @@ One of the classification methods available with Mahout is to build a [random fo
 
 3. Use the following command to generate the file descriptor (__KDDTrain+.info__), which uses Mahout.
 
-		hadoop jar "c:/apps/dist/mahout-0.9.0.2.2.9.1-8/examples/target/mahout-examples-0.9.0.2.2.9.1-8-job.jar" org.apache.mahout.classifier.df.tools.Describe -p "wasb:///example/data/KDDTrain+.arff" -f "wasb:///example/data/KDDTrain+.info" -d N 3 C 2 N C 4 N C 8 N 2 C 19 N L
+		hadoop jar "c:/apps/dist/mahout-0.9.0.2.2.9.1-8/examples/target/mahout-examples-0.9.0.2.2.9.1-8-job.jar" org.apache.mahout.classifier.df.tools.Describe -p "wasbs:///example/data/KDDTrain+.arff" -f "wasbs:///example/data/KDDTrain+.info" -d N 3 C 2 N C 4 N C 8 N 2 C 19 N L
 
 	The `N 3 C 2 N C 4 N C 8 N 2 C 19 N L` describes the attributes of the data in the file. For example, L indicates a label.
 
 4. Build a forest of decision trees by using the following command:
 
-		hadoop jar c:/apps/dist/mahout-0.9.0.2.2.9.1-8/examples/target/mahout-examples-0.9.0.2.2.9.1-8-job.jar org.apache.mahout.classifier.df.mapreduce.BuildForest -Dmapred.max.split.size=1874231 -d wasb:///example/data/KDDTrain+.arff -ds wasb:///example/data/KDDTrain+.info -sl 5 -p -t 100 -o nsl-forest
+		hadoop jar c:/apps/dist/mahout-0.9.0.2.2.9.1-8/examples/target/mahout-examples-0.9.0.2.2.9.1-8-job.jar org.apache.mahout.classifier.df.mapreduce.BuildForest -Dmapred.max.split.size=1874231 -d wasbs:///example/data/KDDTrain+.arff -ds wasbs:///example/data/KDDTrain+.info -sl 5 -p -t 100 -o nsl-forest
 
-    The output of this operation is stored in the __nsl-forest__ directory, which is located in the storage for your HDInsight cluster at __wasb://user/&lt;username>/nsl-forest/nsl-forest.seq. The &lt;username> is the user name that you used for your Remote Desktop session. This file is not readable by humans.
+    The output of this operation is stored in the __nsl-forest__ directory, which is located in the storage for your HDInsight cluster at __wasbs://user/&lt;username>/nsl-forest/nsl-forest.seq. The &lt;username> is the user name that you used for your Remote Desktop session. This file is not readable by humans.
 
 5. Test the forest by classifying the __KDDTest+.arff__ dataset. Use the following command:
 
-    	hadoop jar c:/apps/dist/mahout-0.9.0.2.2.9.1-8/examples/target/mahout-examples-0.9.0.2.2.9.1-8-job.jar org.apache.mahout.classifier.df.mapreduce.TestForest -i wasb:///example/data/KDDTest+.arff -ds wasb:///example/data/KDDTrain+.info -m nsl-forest -a -mr -o wasb:///example/data/predictions
+    	hadoop jar c:/apps/dist/mahout-0.9.0.2.2.9.1-8/examples/target/mahout-examples-0.9.0.2.2.9.1-8-job.jar org.apache.mahout.classifier.df.mapreduce.TestForest -i wasbs:///example/data/KDDTest+.arff -ds wasbs:///example/data/KDDTrain+.info -m nsl-forest -a -mr -o wasbs:///example/data/predictions
 
     This command returns summary information about the classification process similar to the following:
 
@@ -407,7 +406,7 @@ One of the classification methods available with Mahout is to build a [random fo
 	    Reliability                                53.4921%
 	    Reliability (standard deviation)            0.4933
 
-  This job also produces a file located at __wasb:///example/data/predictions/KDDTest+.arff.out__. However, this file is not readable by humans.
+  This job also produces a file located at __wasbs:///example/data/predictions/KDDTest+.arff.out__. However, this file is not readable by humans.
 
 > [AZURE.NOTE] Mahout jobs do not overwrite files. If you want to run these jobs again, you must delete the files that were created by previous jobs.
 
@@ -438,10 +437,9 @@ Mahout is installed on HDInsight 3.1 clusters, and it can be installed manually 
         $resourceGroup = $clusterInfo.ResourceGroup
         $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
         $container=$clusterInfo.DefaultStorageContainer
-        $storageAccountKey=Get-AzureRmStorageAccountKey `
+        $storageAccountKey=(Get-AzureRmStorageAccountKey `
             -Name $storageAccountName `
-            -ResourceGroupName $resourceGroup `
-            | %{ $_.Key1 }
+        -ResourceGroupName $resourceGroup)[0].Value
         
         #Create a storage content and upload the file
         $context = New-AzureStorageContext `
@@ -470,12 +468,11 @@ HDInsight 3.1 clusters include Mahout. The path and file name include the versio
         $resourceGroup = $clusterInfo.ResourceGroup
         $storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
         $container=$clusterInfo.DefaultStorageContainer
-        $storageAccountKey=Get-AzureRmStorageAccountKey `
+        $storageAccountKey=(Get-AzureRmStorageAccountKey `
             -Name $storageAccountName `
-            -ResourceGroupName $resourceGroup `
-            | %{ $_.Key1 }
+        -ResourceGroupName $resourceGroup)[0].Value
     Invoke-AzureRmHDInsightHiveJob `
-            -StatusFolder "wasb:///example/statusout" `
+            -StatusFolder "wasbs:///example/statusout" `
             -DefaultContainer $container `
             -DefaultStorageAccountName $storageAccountName `
             -DefaultStorageAccountKey $storageAccountKey `

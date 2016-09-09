@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="01/21/2016"
+	ms.date="07/21/2016"
 	ms.author="wesmc"/>
 
 # Handling database write conflicts
@@ -128,9 +128,9 @@ Two or more clients may write changes to the same item, at the same time, in som
 	> [AZURE.NOTE] When using untyped tables, enable optimistic concurrency by adding the Version flag to the SystemProperties of the table.
 	>
 	>`````
-	//Enable optimistic concurrency by retrieving __version
-todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
-`````
+	>//Enable optimistic concurrency by retrieving __version
+	>todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
+	>`````
 
 
 2. By adding the `Version` property to the `TodoItem` class, the application will be notified with a `MobileServicePreconditionFailedException` exception during an update if the record has changed since the last query. This exception includes the latest version of the item from the server. In MainPage.cs for the shared project, add the following code to handle the exception in the `UpdateToDoItem()` method.

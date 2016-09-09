@@ -1,6 +1,6 @@
 <properties
    pageTitle="Get started with SQL Data Warehouse Threat Detection"
-   description="How to get started with SQL Data Warehouse Threat Detection"
+   description="How to get started with Threat Detection"
    services="sql-data-warehouse"
    documentationCenter=""
    authors="lodipalm"
@@ -13,17 +13,27 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/03/2016"
+   ms.date="05/31/2016"
    ms.author="lodipalm;sonyama;barbkess"/>
 
 
-# Get started with SQL Data Warehouse threat detection
+# Get started with threat detection
+
+> [AZURE.SELECTOR]
+- [Security Overview](sql-data-warehouse-overview-manage-security.md)
+- [Threat detection](sql-data-warehouse-security-threat-detection.md)
+- [Encryption (Portal)](sql-data-warehouse-encryption-tde.md)
+- [Encryption (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+- [Auditing Overview](sql-data-warehouse-auditing-overview.md)
+- [Auditing downlevel clients](sql-data-warehouse-auditing-downlevel-clients.md)
+
+
 
 ## Overview
 
 Threat Detection detects anomalous database activities indicating potential security threats to the database. Threat Detection is in preview and is supported for SQL Data Warehouse.
 
-Threat Detection provides a new layer of security, which enables customers to detect and respond to potential threats as they occur by providing security alerts on anomalous activities. Users can explore the suspicious events using [Azure SQL Data Warehouse Auditing]sql-data-warehouse-auditing-get-started.md) to determine if they result from an attempt to access, breach or exploit data in the data warehouse.
+Threat Detection provides a new layer of security, which enables customers to detect and respond to potential threats as they occur by providing security alerts on anomalous activities. Users can explore the suspicious events using [Azure SQL Data Warehouse Auditing](sql-data-warehouse-auditing-overview.md) to determine if they result from an attempt to access, breach or exploit data in the data warehouse.
 Threat Detection makes it simple to address potential threats to the data warehouse without the need to be a security expert or manage advanced security monitoring systems.
 
 For example, Threat Detection detects certain anomalous database activities indicating potential SQL injection attempts. SQL injection is one of the common Web application security issues on the Internet, used to attack data-driven applications. Attackers take advantage of application vulnerabilities to inject malicious SQL statements into application entry fields, for breaching or modifying data in the database.

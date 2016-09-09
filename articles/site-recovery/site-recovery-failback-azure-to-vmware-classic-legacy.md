@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
    pageTitle="Fail back VMware virtual machines and physical servers from Azure to VMware (legacy) | Microsoft Azure" 
    description="This article describes how to fail back a VMware virtual machine that's been replicated to Azure with Azure Site Recovery." 
    services="site-recovery" 
@@ -13,14 +13,16 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="storage-backup-recovery" 
-   ms.date="03/06/2016"
+   ms.date="07/08/2016"
    ms.author="ruturajd@microsoft.com"/>
 
 # Fail back VMware virtual machines and physical servers from Azure to VMware with Azure Site Recovery (legacy)
 
 > [AZURE.SELECTOR]
-- [Enhanced](site-recovery-failback-azure-to-vmware-classic.md)
-- [Legacy](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+- [Azure Portal](site-recovery-failback-azure-to-vmware.md)
+- [Azure Classic Portal](site-recovery-failback-azure-to-vmware-classic.md)
+- [Azure Classic Portal (Legacy)](site-recovery-failback-azure-to-vmware-classic-legacy.md)
+
 
 The Azure Site Recovery service contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication, failover and recovery of virtual machines and physical servers. Machines can be replicated to Azure, or to a secondary on-premises data center. For a quick overview read [What is Azure Site Recovery?](site-recovery-overview.md)
 
@@ -148,7 +150,7 @@ enable the parameter “disk.EnableUUID = TRUE” as follows:
 
 	![](./media/site-recovery-failback-azure-to-vmware/image14.png)
 
-4. Checks whether a row with **disk.EnableUUID** exists. If it does and is set to **False** then set it to **True **(not case sensitive). If exists and is set to true, click **Cancel** and test the SCSI command inside the guest operating system after it's booted up. If doesn't exist click **Add Row.**
+4. Checks whether a row with **disk.EnableUUID** exists. If it does and is set to **False** then set it to **True** (not case sensitive). If exists and is set to true, click **Cancel** and test the SCSI command inside the guest operating system after it's booted up. If doesn't exist click **Add Row**.
 5. Add disk.EnableUUID in the **Name** column. Set its value as TRUE. Don't add the above values along with double-quotes.
 
 	![](./media/site-recovery-failback-azure-to-vmware/image15.png)
@@ -245,8 +247,8 @@ target Server using Secure Shell.
 internet connection use the Linux master target server’s public virtual
 IP address (from the virtual machines **Dashboard** tab) and the public
 endpoint created for ssh to login to the Linux servder.
-6. Extract  the files from the gzipped Linux master target Server installer
-tar archive by running: *“tar –xvzf Microsoft-ASR\_UA\_8.2.0.0\_RHEL6-64\*”* from the directory that contains the installer file.
+6. Extract the files from the gzipped Linux master target Server installer
+tar archive by running: *“tar –xvzf Microsoft-ASR\_UA\_8.2.0.0\_RHEL6-64\”* from the directory that contains the installer file.
 
 	![](./media/site-recovery-failback-azure-to-vmware/image16.png)
 

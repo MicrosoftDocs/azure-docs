@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Testing your Traffic Manager settings"
    description="This article will help you test your Traffic Manager settings."
    services="traffic-manager"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="03/17/2016"
+   ms.date="06/10/2016"
    ms.author="joaoma" />
 
 # Testing Traffic Manager Settings

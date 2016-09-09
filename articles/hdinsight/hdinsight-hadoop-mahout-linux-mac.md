@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
+	ms.date="06/14/2016"
 	ms.author="larryfr"/>
 
 #Generate movie recommendations by using Apache Mahout with Linux-based Hadoop in HDInsight

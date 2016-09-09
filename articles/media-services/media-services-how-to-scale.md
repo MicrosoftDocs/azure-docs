@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 
@@ -37,7 +37,7 @@ For information about scaling encoding units, see the following **Portal** and *
 
 [AZURE.INCLUDE [media-services-selector-scale-encoding-units](../../includes/media-services-selector-scale-encoding-units.md)]
 
-Note that the reserved units are the same for Encoding and Indexing tasks.
+Note that the reserved units are the same for encoding and Indexing tasks.
 
 ##<a id="storage"></a>Scale Storage
 

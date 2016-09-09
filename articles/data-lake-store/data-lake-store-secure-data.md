@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Securing data stored in Azure Data Lake Store | Azure" 
+   pageTitle="Securing data stored in Azure Data Lake Store | Microsoft Azure" 
    description="Learn how to secure data in Azure Data Lake Store using groups and access control lists" 
    services="data-lake-store" 
    documentationCenter="" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="03/15/2016"
+   ms.date="06/22/2016"
    ms.author="nitinme"/>
 
 # Securing data stored in Azure Data Lake Store
@@ -26,7 +26,9 @@ Securing data in Azure Data Lake Store is a three-step approach.
 
 3. Assign the AAD security groups as access control lists (ACLs) on the Data Lake Store file system.
 
-This article provides instructions on how to use the Azure portal to perform the above tasks. 
+4. Additionally, you can also set an IP address range for clients that can access the data in Data Lake Store.
+
+This article provides instructions on how to use the Azure portal to perform the above tasks. For in-depth information on how Data Lake Store implements security at the account and data level, see [Security in Azure Data Lake Store](data-lake-store-security-overview.md).
 
 ## Prerequisites
 
@@ -34,6 +36,10 @@ Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 - **An Azure Data Lake Store account**. For instructions on how to create one, see [Get started with Azure Data Lake Store](data-lake-store-get-started-portal.md)
+
+## Do you learn fast with videos?
+
+[Watch this video](https://mix.office.com/watch/1q2mgzh9nn5lx) on how to secure data stored in Data Lake Store. 
 
 ## Create security groups in Azure Active Directory
 
@@ -84,7 +90,9 @@ When you assign users or security groups to Azure Data Lake Store accounts, you 
 
 ## <a name="filepermissions"></a>Assign users or security group as ACLs to the Azure Data Lake Store file system
 
-By assigning user/security groups to the Azure Data Lake file system, you set access control on the data stored in Azure Data Lake Store. In the current release, you can set ACLs only at the root node of your file system.
+By assigning user/security groups to the Azure Data Lake file system, you set access control on the data stored in Azure Data Lake Store.
+
+>[AZURE.NOTE] In the current release, you can set ACLs only at the root node of the Data Lake Store account. Also, only users with the Owner role assigned can add/modify ACLs.
 
 1. In your Data Lake Store account blade, click **Data Explorer**.
 
@@ -98,8 +106,8 @@ By assigning user/security groups to the Azure Data Lake file system, you set ac
 
 	![List standard and custom access](./media/data-lake-store-secure-data/adl.acl.2.png "List standard and custom access")
 
-	* Standard access is the UNIX-style access, where you specify read, write, execute (rwx) to three distinct user classes: owner, group, and others.
-	* Custom access corresponds to the POSIX ACLs that enables you to set permissions for specific named users or groups, and not only the file's owner or group.
+	* **Standard access** is the UNIX-style access, where you specify read, write, execute (rwx) to three distinct user classes: owner, group, and others.
+	* **Custom access** corresponds to the POSIX ACLs that enables you to set permissions for specific named users or groups, and not only the file's owner or group. 
 	
 	For more information, see [HDFS ACLs](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists). 
 
@@ -111,8 +119,13 @@ By assigning user/security groups to the Azure Data Lake file system, you set ac
 
 	![Assign permissions to group](./media/data-lake-store-secure-data/adl.acl.4.png "Assign permissions to group")
 
+	The permissions can be understood as follows:
 
-	>[AZURE.NOTE] The Execute permission is required for enumeration of directories and is often required when providing a user or group read-only access to data.
+	* **Read** - If this permission is set on a directory, it provides the ability to read the names of the files in the directory.
+	* **Write** - If this permission is set on a directory, it provides the ability to modify the entries in the directory such as create a file, delete a file, or rename a file.
+	* **Execute** - If this permission is set on a directory, it provides the ability to access the contents of the file in the directory. This also provides access to the metadata of the file, if the file name is known. However, this permission does not enable you to list files in the directory, unless the **Read** permission is also set.
+
+	>[AZURE.NOTE] **Read + Execute** permission is required for enumeration of directories and is often required when providing a user or group read-only access to data.
 
 
 6. In the **Add Custom Access** blade, click **OK**. The newly added group, with the associated permissions, will now be listed in the **Access** blade.
@@ -122,6 +135,12 @@ By assigning user/security groups to the Azure Data Lake file system, you set ac
 	> [AZURE.IMPORTANT] In the current release, you can only have 9 entries under **Custom Access**. If you want to add more than 9 users, you should create security groups, add users to security groups, add provide access to those security groups for the Data Lake Store account.
 
 7. If required, you can also modify the access permissions after you have added the group. Clear or select the check box for each permission type (Read, Write, Execute) based on whether you want to remove or assign that permission to the security group. Click **Save** to save the changes, or **Discard** to undo the changes.
+
+## Set IP address range for data access
+
+Azure Data Lake Store enables you to further lock down access to your data store at network level. You can enable firewall, specify an IP address, or define an IP address range for your trusted clients. Once enabled, only clients that have the IP addresses within defined range can connect to the store.
+
+![Firewall settings and IP access](./media/data-lake-store-secure-data/firewall-ip-access.png "Firewall settings and IP address")
 
 ## Remove security groups for an Azure Data Lake Store account
 
@@ -164,3 +183,4 @@ When you remove security groups ACLs from Azure Data Lake Store file system, you
 - [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
 - [Get Started with Data Lake Store using PowerShell](data-lake-store-get-started-powershell.md)
 - [Get Started with Data Lake Store using .NET SDK](data-lake-store-get-started-net-sdk.md)
+- [Access diagnostic logs for Data Lake Store](data-lake-store-diagnostic-logs.md)

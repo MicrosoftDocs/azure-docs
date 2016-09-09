@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter="android"
 	authors="RickSaling"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="07/21/2016"
 	ms.author="ricksal"/>
 
 
@@ -65,9 +65,9 @@ Change both **build.gradle** files:
 
 2. Add this code to the *Module app* level **build.gradle** file inside the *dependencies* tag:
 
-		compile 'com.microsoft.azure:azure-mobile-android:3.1'
+		compile 'com.microsoft.azure:azure-mobile-android:3.1.0'
 
-	Currently the latest version is 3.1. The supported versions are listed [here](http://go.microsoft.com/fwlink/p/?LinkID=717034).
+	Currently the latest version is 3.1.0. The supported versions are listed [here](http://go.microsoft.com/fwlink/p/?LinkID=717034).
 
 ###<a name="enable-internet"></a>Enable internet permission
 To access Azure, your app must have the INTERNET permission enabled. If it's not already enabled, add the following line of code to your **AndroidManifest.xml** file:
@@ -103,24 +103,24 @@ If your SQL Azure table contains more columns, you would add the corresponding f
 
 For example if it had an integer Priority column, then you might add this field, along with its getter and setter methods:
 
-		private Integer priority;
+	private Integer priority;
 
-	    /**
-	     * Returns the item priority
-	     */
-	    public Integer getPriority() {
-	        return mPriority;
-	    }
-
-	    /**
-	     * Sets the item priority
-	     *
-	     * @param priority
-	     *            priority to set
-	     */
-	    public final void setPriority(Integer priority) {
-	        mPriority = priority;
-	    }
+	/**
+	* Returns the item priority
+	*/
+	public Integer getPriority() {
+	return mPriority;
+	}
+	
+	/**
+	* Sets the item priority
+	*
+	* @param priority
+	*            priority to set
+	*/
+	public final void setPriority(Integer priority) {
+	mPriority = priority;
+	}
 
 To learn how to create additional tables in your Mobile Apps backend, see [How to: Define a table controller](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller) (.NET backend) or [Define Tables using a Dynamic Schema](app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations) (Node.js backend). For a Node.js backend, you can also use the **Easy tables** setting in the [Azure portal].
 
@@ -129,8 +129,8 @@ To learn how to create additional tables in your Mobile Apps backend, see [How t
 This code creates the **MobileServiceClient** object that is used to access your Mobile App backend. The code goes in the `onCreate` method of the **Activity** class specified in *AndroidManifest.xml* as a **MAIN** action and **LAUNCHER** category. In the Quickstart code, it goes in the **ToDoActivity.java** file.
 
 		MobileServiceClient mClient = new MobileServiceClient(
-				"MobileAppUrl", // Replace with the above Site URL
-				this)
+			"MobileAppUrl", // Replace with the above Site URL
+			this)
 
 In this code, replace `MobileAppUrl` with the URL of your Mobile App backend, which can be found in the [Azure portal](https://portal.azure.com/) in the blade for your Mobile App backend. For this line of code to compile, you also need to add the following **import** statement:
 
@@ -140,7 +140,7 @@ In this code, replace `MobileAppUrl` with the URL of your Mobile App backend, wh
 
 The easiest way to query or modify data in the backend is by using the *typed programming model*, since Java is a strongly typed language (later on we will discuss the *untyped* model). This model provides seamless JSON serialization and deserialization using the [gson](http://go.microsoft.com/fwlink/p/?LinkId=290801) library when sending data between  client objects and tables in the backend Azure SQL: the developer doesn't have to do anything, the framework handles it all.
 
-To access a table, first create a [MobileServiceTable](http://go.microsoft.com/fwlink/p/?LinkId=296835) object by calling the **getTable** method on the [**MobileServiceClient**](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html).  This method has two overloads:
+To access a table, first create a [MobileServiceTable](http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/table/MobileServiceTable.html) object by calling the **getTable** method on the [MobileServiceClient](http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html).  This method has two overloads:
 
 	public class MobileServiceClient {
 	    public <E> MobileServiceTable<E> getTable(Class<E> clazz);
@@ -149,14 +149,14 @@ To access a table, first create a [MobileServiceTable](http://go.microsoft.com/f
 
 In the following code, *mClient* is a reference to your MobileServiceClient object.
 
-The [first overload](http://go.microsoft.com/fwlink/p/?LinkId=296839) is used where the class name and the table name are the same, and is the one used in the Quickstart:
+The [first overload](http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html#getTable-java.lang.String-) is used where the class name and the table name are the same, and is the one used in the Quickstart:
 
-		MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable(ToDoItem.class);
+	MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable(ToDoItem.class);
 
 
-The [2nd overload](http://go.microsoft.com/fwlink/p/?LinkId=296840) is used when the table name is different from the class name: the first parameter is the table name.
+The [2nd overload](http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html#getTable-java.lang.String-java.lang.Class-) is used when the table name is different from the class name: the first parameter is the table name.
 
-		MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
+	MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
 
 ###<a name="binding"></a>How to: Bind data to the user interface
 
@@ -182,7 +182,6 @@ The layout is defined by several snippets of XML code. Given an existing layout,
         android:layout_height="wrap_content"
         tools:listitem="@layout/row_list_to_do" >
     </ListView>
-
 
 In the above code the *listitem* attribute specifies the id of the layout for an individual row in the list. Here is that code, which specifies a check box and its associated text. This gets instantiated once for each item in the list. This layout does not display the **id** field, and a more complex layout would specify additional fields in the display. This code is in the **row_list_to_do.xml** file.
 
@@ -266,9 +265,6 @@ To see how these asynchronous APIs are used in your Android app and how data is 
 #### <a name="use-adapter"></a>How to: Use the adapter
 
 You are now ready to use data binding. The following code shows how to get the items in the mobile service table, clear the adapter, and then call the adapter's *add* method to fill it with the returned items.
-
-
-**TBD**: Test this code!!
 
     public void showAll(View view) {
         AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
@@ -709,7 +705,7 @@ You can use the Active Directory Authentication Library (ADAL) to sign users int
 
 ## How to: add push notification to your app
 
-You can [read an overview](notification-hubs-overview.md/#integration-with-app-service-mobile-apps) that describes how Microsoft Azure Notification Hubs supports a wide variety of push notifications,
+You can [read an overview](../notification-hubs/notification-hubs-overview.md#integration-with-app-service-mobile-apps) that describes how Microsoft Azure Notification Hubs supports a wide variety of push notifications,
 
 In [this tutorial](app-service-mobile-android-get-started-push.md), every time a record is inserted, a push notification is sent.
 

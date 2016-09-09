@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/12/2016"
+	ms.date="07/14/2016"
 	ms.author="trinadhk; jimpark; markgal;"/>
 
 # Plan your VM backup infrastructure in Azure
-This article covers the key things to keep in mind when planning to back up virtual machines in Azure. If you've [prepared your environment](backup-azure-vms-prepare.md), this is the next step before you begin [to backup VMs](backup-azure-vms.md). If you need more information about Azure virtual machines, see the [Virtual Machines documentation](https://azure.microsoft.com/documentation/services/virtual-machines/).
+This article provides performance and resource suggestions to help you plan your VM backup infrastructure. It also defines key aspects of the Backup service; these aspects can be critical in determining your architecture, capacity planning and scheduling. If you've [prepared your environment](backup-azure-vms-prepare.md), this is the next step before you begin [to backup VMs](backup-azure-vms.md). If you need more information about Azure virtual machines, see the [Virtual Machines documentation](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## How does Azure back up virtual machines?
 When the Azure Backup service initiates a backup job at the scheduled time, it triggers the backup extension to take a point-in-time snapshot. This snapshot is taken in coordination with the Volume Shadow Copy Service (VSS) to get a consistent snapshot of the disks in the virtual machine without having to shut it down.
@@ -52,21 +52,21 @@ This table explains the types of consistency and the conditions that they occur 
 
 
 ## Performance and resource utilization
-Like backup software that is deployed on-premises, backing up VMs in Azure also needs to be planned for capacity and resource utilization. The [Azure Storage limits](azure-subscription-service-limits.md#storage-limits) define how to structure VM deployments to get maximum performance with minimum impact to running workloads.
+Like backup software that is deployed on-premises, you should plan for capacity and resource utilization needs when backing up VMs in Azure. The [Azure Storage limits](azure-subscription-service-limits.md#storage-limits) define how to structure VM deployments to get maximum performance with minimum impact to running workloads.
 
-There are two main Azure Storage limits that impact backup performance:
+Pay attention to the following Azure Storage limits when planning backup performance:
 
 - Max egress per storage account
 - Total request rate per storage account
 
 ### Storage account limits
-When the backup data is copied out of the customer storage account, it counts towards the input/output operations per second (IOPS) and egress (storage throughput) metrics of the storage account. At the same time, the virtual machines are running and consuming  (IOPS) and throughput. The goal is to ensure that the total traffic--backup and virtual machine--does not exceed the storage account limits.
+Whenever backup data is copied from a storage account, it counts towards the input/output operations per second (IOPS) and egress (or throughput) metrics of the storage account. At the same time, the virtual machines are running and consuming IOPS and throughput. The goal is to ensure the total traffic -backup and virtual machine- does not exceed the storage account limits.
 
 ### Number of disks
-The backup process is greedy and tries to consume as many resources as it can, with the aim of completing backup as quickly as possible. However, all I/O operations are limited by the *Target Throughput for Single Blob*, which has a limit of 60 MB per second. In order to speed up the backup process, the backup of each disk of the VM is attempted *in parallel*. So, if a VM has four disks, then Azure Backup will attempt to back up all four disks in parallel. Because of this, the single most important factor that determines the backup traffic exiting from a customer storage account is the **number of disks** being backed up from the storage account.
+The backup process tries to complete a backup job as quickly as possible. In doing so, it consumes as many resources as it can. However, all I/O operations are limited by the *Target Throughput for Single Blob*, which has a limit of 60 MB per second. In an attempt to maximize its speed, the backup process tries to back up each of the VM's disks *in parallel*. So, if a VM has four disks, then Azure Backup attempts to back up all four disks in parallel. Because of this, the most important factor determining backup traffic exiting a customer storage account is the **number of disks** being backed up from the storage account.
 
 ### Backup schedule
-An additional factor that impacts performance is the **backup schedule**. If you configure all the VMs to back up at the same time, then the number of disks being backed up *in parallel* will increase--as Azure Backup will attempt to back up as many disks as possible. So one way to reduce the backup traffic from a storage account is to ensure that different VMs are backed up at different times of the day, with no overlap.
+An additional factor that impacts performance is the **backup schedule**. If you configure the policies so all VMs are backed up at the same time, you have scheduled a traffic jam. The backup process will attempt to back up all disks in parallel. One way to reduce the backup traffic from a storage account is- ensure different VMs are backed up at different times of the day, with no overlap.
 
 ## Capacity planning
 Putting all these factors together means that storage account usage needs to be planned properly. Download the [VM backup capacity planning Excel spreadsheet](https://gallery.technet.microsoft.com/Azure-Backup-Storage-a46d7e33) to see the impact of your disk and backup schedule choices.
@@ -79,12 +79,22 @@ For each disk being backed up, Azure Backup reads the blocks on the disk and sto
 | Initial backup | 160 Mbps |
 | Incremental backup (DR) | 640 Mbps <br><br> This throughput can drop significantly if there is a lot of dispersed churn on the disk that needs to be backed up. |
 
-### Total VM backup time
+## Total VM backup time
 While a majority of the backup time is spent in reading and copying data, there are other operations that contribute to the total time needed to back up a VM:
 
 - Time needed to [install or update the backup extension](backup-azure-vms.md#offline-vms).
 - Snapshot time, which is the time taken to trigger a snapshot. Snapshots are triggered close to the scheduled backup time.
-- Queue wait time. Since the Backup service is processing backups from multiple customers, copying backup data from snapshot to the Azure backup vault might not start immediately. In times of peak load, the wait times can stretch up to 8 hours due to the number of backups being processed. However, the total VM backup time will be less than 24 hours for daily backup policies.
+- Queue wait time. Since the Backup service is processing backups from multiple customers, copying backup data from snapshot to the backup or Recovery Services vault might not start immediately. In times of peak load, the wait can stretch up to 8 hours due to the number of backups being processed. However, the total VM backup time will be less than 24 hours for daily backup policies.
+
+## Best Practices
+We suggest following these practices while configuring backups for virtual machines:
+
+- Don't schedule more than four classic VMs from the same cloud service to back up at the same time. We suggest staggering backup start times by an hour if you want to back up multiple VMs from same cloud service.
+- Do not schedule more than 40 Resource Manager-deployed VMs to back up at the same time.
+- Schedule VM backups during non-peak hours so the backup service uses IOPS for transferring data from the customer storage account to the backup or Recovery Services vault.
+- Make sure that a policy addresses VMs spread across different storage accounts. We suggest no more than 20 total disks from a single storage account be protected by one policy. If you have greater than 20 disks in a storage account, spread those VMs across multiple policies to get the required IOPS during the transfer phase of the backup process.
+- Do not restore a VM running on Premium storage to same storage account. If the restore operation process coincides with the backup operation, it reduces the available IOPS for backup.
+- We recommend running each Premium VM on a distinct premium storage account to ensure optimal backup performance.
 
 ## Data encryption
 

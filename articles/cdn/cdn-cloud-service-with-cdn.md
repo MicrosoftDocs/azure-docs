@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Integrate a cloud service with Azure CDN"
+	pageTitle="Integrate a cloud service with Azure CDN | Microsoft Azure"
 	description="A tutorial that teaches you how to deploy a cloud service that serves content from an integrated Azure CDN endpoint"
 	services="cdn, cloud-services"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/25/2016" 
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 
@@ -102,25 +102,7 @@ A CDN profile is a collection of CDN endpoints.  Each profile contains one or mo
 
 > [AZURE.TIP] If you already have a CDN profile that you want to use for this tutorial, proceed to [Create a new CDN endpoint](#create-a-new-cdn-endpoint).
 
-**To create a new CDN profile**
-
-1. In the [Azure Management Portal](https://portal.azure.com), in the upper left, click **New**.  In the **New** blade, select **Media + CDN**, then **CDN**.
-
-    The new CDN profile blade appears.
-
-    ![New CDN Profile][new-cdn-profile]
-
-2. Enter a name for your CDN profile.
-
-3. Select a **Pricing tier** or use the default.
-
-4. Select or create a **Resource Group**.  It is not necessary that this is the same Resource Group as your storage account.
-
-5. Select the **Subscription** for this CDN profile.  This will need to be the same subscription as the storage account for the purposes of this tutorial.
-
-6. Select a **Location**.  This is the Azure location where your CDN profile information will be stored.  It has no impact on CDN endpoint locations.  It does not need to be the same location as the storage account.
-
-7. Click the **Create** button to create the new profile.
+[AZURE.INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]
 
 ## Create a new CDN endpoint
 
@@ -626,7 +608,7 @@ The [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.as
 
 ## More Information ##
 - [Overview of the Azure Content Delivery Network (CDN)](http://msdn.microsoft.com/library/azure/ff919703.aspx)
-- [Using CDN for Azure](cdn-how-to-use-cdn.md)
+- [Using Azure CDN](cdn-create-new-endpoint.md)
 - [ASP.NET Bundling and Minification](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
 
 

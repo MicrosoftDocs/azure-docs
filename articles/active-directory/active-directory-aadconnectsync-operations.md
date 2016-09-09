@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/21/2016"
+   ms.date="06/27/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect sync: Operational tasks and consideration
@@ -30,7 +30,9 @@ With a server in staging mode you can make changes to the configuration and prev
 
 During installation you can select the server to be in **staging mode**. This will make the server active for import and synchronization, but it will not do any exports. A server in staging mode will not run password sync or enable password writeback even if you select these features. When you disable staging mode, the server will start exporting and enable password sync and password writeback (if enabled).
 
-A server in staging mode will continue to receive changes from Active Directory and Azure AD. It will therefor always have a copy of the latest changes and can very fast take over the responsibilities of another server. If you make configuration changes to your primary server, it is your responsibility to make the same changes to the server(s) in staging mode.
+You can still force an export by using the synchronization service manager.
+
+A server in staging mode will continue to receive changes from Active Directory and Azure AD. It will always have a copy of the latest changes and can very fast take over the responsibilities of another server. If you make configuration changes to your primary server, it is your responsibility to make the same changes to the server(s) in staging mode.
 
 For those of you with knowledge of older sync technologies, the staging mode is different since the server has its own SQL database. This allows the staging mode server to be located in a different datacenter.
 
@@ -46,24 +48,24 @@ To apply this method, follow these steps:
 
 1. Install Azure AD Connect, select **staging mode**, and unselect **start synchronization** on the last page in the installation wizard. This will allow us to run the sync engine manually.
 ![ReadyToConfigure](./media/active-directory-aadconnectsync-operations/readytoconfigure.png)
-2. Logoff/logon and from the start menu select **Synchronization Service**.
+2. Sign off/sign in and from the start menu select **Synchronization Service**.
 
 **Import and Synchronize**
 
 1. Select **Connectors**, and select the first Connector with the type **Active Directory Domain Services**. Click on **Run**, select **Full import**, and **OK**. Do this for all Connectors of this type.
 2. Select the Connector with type **Azure Active Directory (Microsoft)**. Click on **Run**, select **Full import**, and **OK**.
-4. Make sure Connectors is still selected and for each Connector with type **Active Directory Domain Services**, click **Run**, select **Delta Synchronization**, and **OK**.
-5. Select the Connector with type **Azure Active Directory (Microsoft)**. Click **Run**, select **Delta Synchronization**, and then OK.
+3. Make sure Connectors is still selected and for each Connector with type **Active Directory Domain Services**, click **Run**, select **Delta Synchronization**, and **OK**.
+4. Select the Connector with type **Azure Active Directory (Microsoft)**. Click **Run**, select **Delta Synchronization**, and then OK.
 
-You have now staged export changes to Azure AD and on-premises AD (if you are using Exchange hybrid deployment). The next steps will allow you to inspect what is about to change before you actually start the export to the directories.
+You have now staged export changes to Azure AD and on-premises AD (if you are using Exchange hybrid deployment). The next steps allow you to inspect what is about to change before you actually start the export to the directories.
 
 **Verify**
 
-1. Start a cmd prompt and go to `%Program Files%\Microsoft Azure AD Sync\bin`
-2. Run: `csexport "Name of Connector" %temp%\export.xml /f:x`<BR/>
-The name of the Connector can be found in Synchronization Service. It will have a name similar to “contoso.com – AAD” for Azure AD.
+1. Start a cmd prompt and go to `%ProgramFiles%\Microsoft Azure AD Sync\bin`
+2. Run: `csexport "Name of Connector" %temp%\export.xml /f:x`  
+The name of the Connector can be found in Synchronization Service. It will have a name similar to "contoso.com – AAD" for Azure AD.
 3. Run: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`
-4. You now have a file in %temp% named export.csv which can be examined in Microsoft Excel. This file contains all changes which are about to be exported.
+4. You now have a file in %temp% named export.csv that can be examined in Microsoft Excel. This file contains all changes which are about to be exported.
 5. Make necessary changes to the data or configuration and run these steps again (Import and Synchronize and Verify) until the changes which are about to be exported are expected.
 
 **Understanding the export.csv file**
@@ -99,7 +101,7 @@ Since Azure AD Connect sync has a dependency on a SQL database, you should also 
 ### Rebuild when needed
 A viable strategy is to plan for a server rebuild when needed. In many cases installing the sync engine and do the initial import and sync can be completed within a few hours. If there isn’t a spare server available, it is possible to temporarily use a domain controller to host the sync engine.
 
-The sync engine server does not store any state about the objects so the database can be rebuilt from the data in Active Directory and Azure AD. The **sourceAnchor** attribute is used to join the objects from on-premises and the cloud. If you rebuild the server with existing objects on-premises and the cloud, the sync engine will on reinstallation match those together again.
+The sync engine server does not store any state about the objects so the database can be rebuilt from the data in Active Directory and Azure AD. The **sourceAnchor** attribute is used to join the objects from on-premises and the cloud. If you rebuild the server with existing objects on-premises and the cloud, then the sync engine will on reinstallation match those together again.
 The things you need to document and save are the configuration changes made to the server, such as filtering and synchronization rules. These must be re-applied before you start synchronizing.
 
 ### Have a spare standby server - staging mode

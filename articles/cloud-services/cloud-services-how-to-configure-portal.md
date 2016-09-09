@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to configure a cloud service | Microsoft Azure" 
+	pageTitle="How to configure a cloud service (portal) | Microsoft Azure" 
 	description="Learn how to configure cloud services in Azure. Learn to update the cloud service configuration and configure remote access to role instances. These examples use the Azure portal." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -13,11 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/15/2016"
+	ms.date="07/27/2016"
 	ms.author="adegeo"/>
-
-
-
 
 # How to Configure Cloud Services
 
@@ -27,66 +24,84 @@
 
 You can configure the most commonly used settings for a cloud service in the Azure portal. Or, if you like to update your configuration files directly, download a service configuration file to update, and then upload the updated file and update the cloud service with the configuration changes. Either way, the configuration updates are pushed out to all role instances.
 
-You can also enable a Remote Desktop connection to one or all roles running in your cloud service.  Remote Desktop allows you to access the desktop of your application while it is running and troubleshoot and diagnose problems.  You can enable a Remote Desktop connection to your role even if you did not configure the service definition file (.csdef) for Remote Desktop during application development.  There is no need to redeploy your application in order to enable a Remote Desktop connection.
+You can also manage the instances of your cloud service roles, or remote desktop into them.
 
 Azure can only ensure 99.95 percent service availability during the configuration updates if you have at least two role instances for every role. That enables one virtual machine to process client requests while the other is being updated. For more information, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
 
 ## Change a cloud service
 
-1. In the [Azure portal](https://portal.azure.com/), navigate to your cloud service.
+After opening the [Azure portal](https://portal.azure.com/), navigate to your cloud service. From here you manage many aspects of it. 
 
-2. Click on the **Settings** icon or the **Essentials/All settings** link to open up the **Settings** blade.
+![Settings Page](./media/cloud-services-how-to-configure-portal/cloud-service.png)
 
-    ![Settings Page](./media/cloud-services-how-to-configure-portal/cloud-service.png)
-    
-    From here you can view the **Properties**, change the **Configuration**, manage the **Certificates**, and manage the **Users** who have access to this cloud service.
+The **Settings** or **All settings** links will open up the **Settings** blade where you can change the **Properties**, change the **Configuration**, manage the **Certificates**, setup **Alert rules**, and manage the **Users** who have access to this cloud service.
 
-2. Under the **Monitoring** section you can click on any tile to configure alerts. 
-
-    ![Cloud Service Monitoring](./media/cloud-services-how-to-configure-portal/cs-monitoring.png)
-    
-3. Under the **Roles and instances** section you can click on any cloud service role to manage the instance.
-
-    ![Cloud Service Instance](./media/cloud-services-how-to-configure-portal/cs-instance.png)
-    
-    You can remotely connect to, reboot, or reimage the cloud service from here.
-    
-    ![Cloud Service Instance Buttons](./media/cloud-services-how-to-configure-portal/cs-instance-buttons.png)
+![Azure cloud service settings blade](./media/cloud-services-how-to-configure-portal/cs-settings-blade.png)
 
 >[AZURE.NOTE]
 >The operating system used for the cloud service cannot be changed using the **Azure portal**, you can only change this setting through the [Azure classic portal](http://manage.windowsazure.com/). This is detailed [here](cloud-services-how-to-configure.md#update-a-cloud-service-configuration-file).
 
-## Update a cloud service configuration file
+## Monitoring
 
-1. First, download the existing cloud service configuration file (.cscfg).
+You can add alerts to your cloud service. Click **Settings** > **Alert Rules** > **Add alert**. 
 
-    1. In the [Azure portal](https://portal.azure.com/), navigate to your cloud service.
+![](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
-    2. Click on the **Settings** icon or the **Essentials/All settings** link to open up the **Settings** blade.
+From here you can setup an alert. With the **Mertic** drop down box, you can setup an alert for the following types of data.
 
-        ![Settings Page](./media/cloud-services-how-to-configure-portal/cloud-service.png)
+- Disk read
+- Disk write
+- Network in
+- Network out
+- CPU percentage 
+
+![](./media/cloud-services-how-to-configure-portal/cs-alert-item.png)
+
+### Configure monitoring from a metric tile
+
+Instead of using **Settings** > **Alert Rules**, you can click on one of the metric tiles in the **Monitoring** section of the **Cloud service** blade.
+
+![Cloud Service Monitoring](./media/cloud-services-how-to-configure-portal/cs-monitoring.png)
+
+From here you can customize the chart used with the tile, or add an alert rule.
+
+
+## Reboot, reimage, or remote desktop
+
+At this time you cannot configure remote desktop using the **Azure portal**. However, you can set it up through the [Azure classic portal](cloud-services-role-enable-remote-desktop.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md), or through [Visual Studio](../vs-azure-tools-remote-desktop-roles.md). 
+
+First, click on the cloud service instance.
+
+![Cloud Service Instance](./media/cloud-services-how-to-configure-portal/cs-instance.png)
+
+From the blade that opens uou can initiate a remote desktop connection, remotely reboot the instance, or remotely reimage (start with a fresh image) the instance.
+
+![Cloud Service Instance Buttons](./media/cloud-services-how-to-configure-portal/cs-instance-buttons.png)
+
+
+
+## Reconfigure your .cscfg
+
+You may need to reconfigure you cloud service through the [service config (cscfg)](cloud-services-model-and-package.md#cscfg) file. First you need to download your .cscfg file, modify it, then upload it.
+
+1. Click on the **Settings** icon or the **All settings** link to open up the **Settings** blade.
+
+    ![Settings Page](./media/cloud-services-how-to-configure-portal/cloud-service.png)
+
+2. Click on the **Configuration** item.
+
+    ![Configuration Blade](./media/cloud-services-how-to-configure-portal/cs-settings-config.png)
+
+3. Click on the **Download** button.
+
+    ![Download](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
+
+4. After you update the service configuration file, upload and apply the configuration updates:
+
+    ![Upload](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png) 
     
-    3. Click on the **Configuration** item.
+5. Select the .cscfg file and click **OK**.
 
-        ![Configuration Blade](./media/cloud-services-how-to-configure-portal/cs-settings-config.png)
-    
-    4. Click on the **Download** button.
-
-        ![Download](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
-
-2. After you update the service configuration file, upload and apply the configuration updates:
-
-    1. Follow the first 3 steps from above to open up the **Configuration** blade for the cloud service.
-    
-    2. Click on the **Upload** button.
-
-        ![Upload](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png) 
-    
-    3. Select the .cscfg file and click **OK**.
-
-## Configure remote access to role instances
-
-Remote access cannot be configured using the **Azure portal**, you can only change this setting through the [Azure classic portal](http://manage.windowsazure.com/). This is described [here](cloud-services-role-enable-remote-desktop.md).
 			
 ## Next steps
 

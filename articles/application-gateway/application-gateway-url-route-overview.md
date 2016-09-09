@@ -3,7 +3,7 @@
    description="This page provides an overview of the Application Gateway URL based content routing, UrlPathMap configuration and PathBasedRouting rule ."
    documentationCenter="na"
    services="application-gateway"
-   authors="joaoma"
+   authors="georgewallace"
    manager="carmonm"
    editor="tysonn"/>
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/05/2016"
-   ms.author="joaoma"/>
+   ms.author="gwallace"/>
 
 # URL Path Based Routing overview
 

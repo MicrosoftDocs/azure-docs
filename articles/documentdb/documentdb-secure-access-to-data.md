@@ -2,7 +2,7 @@
 	pageTitle="Learn how to secure access to data in DocumentDB | Microsoft Azure" 
 	description="Learn about access control concepts in DocumentDB, including master keys, read-only keys, users, and permissions." 
 	services="documentdb" 
-	authors="ryancrawcour" 
+	authors="kiratp" 
 	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
@@ -14,11 +14,11 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="03/30/2016" 
-	ms.author="ryancraw"/>
+	ms.author="kipandya"/>
 
 # Securing access to DocumentDB data
 
-This article provides an overview of securing access to data stored in [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/). 
+This article provides an overview of securing access to data stored in [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/).
 
 After reading this overview, you'll be able to answer the following questions:  
 

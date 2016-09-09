@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="na"
-      ms.date="02/06/2016"
+      ms.date="07/27/2016"
       ms.author="hascipio; v-divte" />
 
 # Guide to create a solution template for Azure Marketplace
@@ -32,6 +32,7 @@ Go to  [https://publish.windowsazure.com](http://publish.windowsazure.com). When
 
 ### 3. Start with topologies
 A solution template is a "parent" to all of its topologies. You can define multiple topologies in one offer/solution template. When an offer is pushed to staging, it is pushed with all of its topologies. Follow the steps below to define your offer:     
+
 - Create a Topology: “Topology Identifier” is typically the name of the topology for the solution template. The topology identifier is used in the URL as shown below:
 
   Azure Marketplace:
@@ -44,27 +45,23 @@ https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{Topolog
 
 ### 4. Get your topology versions certified
 Upload a zip file that contains all required files to provision that particular version of the topology. This zip file must contain the following:
+
 - *mainTemplate.json* and *createUiDefinition.json* file at its root directory.
 - Any linked templates and all required scripts.
-
-After uploading the zip file, click **Request Certification**. The Microsoft certification team will review the files and certify the topology.
 
   > [AZURE.TIP] While your developers work on creating the solution template topologies and getting them certified, the business, marketing, and/or legal departments of your company can work on the marketing and legal content.
 
 ## Next steps
-Now that you created your solution template and submitted the zip file with the required files for certification, you can can continue to and follow the instructions in the [Marketplace marketing content guide](marketplace-publishing-push-to-staging.md) before preparing your offer for testing in staging. Or, to see the full set of marketplace publishing articles, see [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md).
+Now that you created your solution template and uploaded the zip file, please follow the instructions in the [Marketplace marketing content guide](marketplace-publishing-push-to-staging.md) before pushing the offer to staging. To see the full set of marketplace publishing articles, visit [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md).
 
 You might also be interested in these related articles:
 
 - VM images: [About Virtual Machine Images in Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
-
 - VM extensions: [VM Agent and VM Extensions Overview](https://msdn.microsoft.com/library/azure/dn832621.aspx) and [Azure VM Extensions and Features](https://msdn.microsoft.com/library/azure/dn606311.aspx)
-
-- Azure Resource Manager: [Authoring Azure ARM Templates](../resource-group-authoring-templates/) and [Simple ARM Template Examples](https://github.com/rjmax/ArmExamples)
-
+- Azure Resource Manager: [Authoring Azure ARM Templates](../resource-group-authoring-templates.md) and [Simple ARM Template Examples](https://github.com/rjmax/ArmExamples)
 - Storage account throttles: [How to Monitor for Storage Account Throttling](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) and [Premium storage](../storage/storage-premium-storage.md#scalability-and-performance-targets-when-using-premium-storage)
 
 [img-pubportal-menu-sol-templ]:media/marketplace-publishing-solution-template-creation/pubportal-menu-solution-templates.png
 [img-pubportal-sol-templ-new]:media/marketplace-publishing-solution-template-creation/pubportal-solution-template-new.png
-[link-acct-creation]:marketplace-publishing-microsoft-accounts-creation-registration.md
+[link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
 [link-pubportal]:https://publish.windowsazure.com

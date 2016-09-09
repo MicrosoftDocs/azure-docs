@@ -13,14 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/07/2016"
-	ms.author="andkjell;markusvi"/>
+	ms.date="08/02/2016"
+	ms.author="andkjell;markvi"/>
 
 
 # Azure AD Connect sync: Functions Reference
 
-
-In Azure Active Directory Sync, functions are used to manipulate an attribute value during synchronization.  
+In Azure AD Connect, functions are used to manipulate an attribute value during synchronization.  
 The Syntax of the functions is expressed using the following format:  
 `<output type> FunctionName(<input type> <position name>, ..)`
 
@@ -36,51 +35,44 @@ The types are expressed with the following syntax:
 - **enum** – Enumeration of known constants
 - **exp** – Expression, which is expected to evaluate to a Boolean
 - **mvbin** – Multi Valued Binary
-- **mvstr** – Multi Valued Reference
+- **mvstr** – Multi Valued String
+- **mvref** – Multi Valued Reference
 - **num** – Numeric
 - **ref** – Single Valued Reference
 - **str** – Single Valued String
 - **var** – A variant of (almost) any other type
 - **void** – doesn’t return a value
 
-
-
 ## Functions Reference
 
-----------
-**Conversion:**
-
-[CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [CDate](#cdate) &nbsp;&nbsp;&nbsp;&nbsp; [CGuid](#cguid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [ConvertFromBase64](#convertfrombase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertFromUTF8Hex](#convertfromutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [CNum](#cnum)  &nbsp;&nbsp;&nbsp;&nbsp; [CRef](#cref) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr)  &nbsp;&nbsp;&nbsp;&nbsp; [StringFromGuid](#StringFromGuid) &nbsp;&nbsp;&nbsp;&nbsp; [StringFromSid](#stringfromsid)
-
-**Date / Time:**
-
-[DateAdd](#dateadd) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum)  &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime)  &nbsp;&nbsp;&nbsp;&nbsp; [Now](#now)  &nbsp;&nbsp;&nbsp;&nbsp; [NumFromDate](#numfromdate)
-
-**Directory**
-
-[DNComponent](#dncomponent)  &nbsp;&nbsp;&nbsp;&nbsp; [DNComponentRev](#dncomponentrev) &nbsp;&nbsp;&nbsp;&nbsp; [EscapeDNComponent](#escapedncomponent)
-
-**Evaluation:**
-
-[IsBitSet](#isbitset)  &nbsp;&nbsp;&nbsp;&nbsp; [IsDate](#isdate) &nbsp;&nbsp;&nbsp;&nbsp; [IsEmpty](#isempty)
-&nbsp;&nbsp;&nbsp;&nbsp; [IsGuid](#isguid) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsNumeric](#isnumeric)  &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring)
-
-**Math:**
-
-[BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [BitOr](#bitor) &nbsp;&nbsp;&nbsp;&nbsp; [RandomNum](#randomnum)
-
-**Multi-valued**
-
-[Contains](#contains) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item)   &nbsp;&nbsp;&nbsp;&nbsp; [ItemOrNull](#itemornull) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)
-
-**Program Flow:**
-
-[Error](#error) &nbsp;&nbsp;&nbsp;&nbsp; [IIF](#iif)  &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
-
-
-**Text**
-
-[GUID](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [InStrRev](#instrrev) &nbsp;&nbsp;&nbsp;&nbsp; [LCase](#lcase) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Len](#len) &nbsp;&nbsp;&nbsp;&nbsp; [LTrim](#ltrim)  &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid)  &nbsp;&nbsp;&nbsp;&nbsp; [PadLeft](#padleft) &nbsp;&nbsp;&nbsp;&nbsp; [PadRight](#padright) &nbsp;&nbsp;&nbsp;&nbsp; [PCase](#pcase)   &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [ReplaceChars](#replacechars) &nbsp;&nbsp;&nbsp;&nbsp; [Right](#right) &nbsp;&nbsp;&nbsp;&nbsp; [RTrim](rtrim) &nbsp;&nbsp;&nbsp;&nbsp; [Trim](#trim) &nbsp;&nbsp;&nbsp;&nbsp; [UCase](#ucase) &nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
+List of functions | | | | |  
+--------- | --------- | --------- | --------- | --------- | ---------
+**Conversion** |  
+[CBool](#cbool) | [CDate](#cdate) | [CGuid](#cguid) | [ConvertFromBase64](#convertfrombase64)
+[ConvertToBase64](#converttobase64) | [ConvertFromUTF8Hex](#convertfromutf8hex) | [ConvertToUTF8Hex](#converttoutf8hex) | [CNum](#cnum)
+[CRef](#cref) | [CStr](#cstr) | [StringFromGuid](#StringFromGuid) | [StringFromSid](#stringfromsid)
+**Date / Time** |  
+[DateAdd](#dateadd) | [DateFromNum](#datefromnum) | [FormatDateTime](#formatdatetime) | [Now](#now)
+[NumFromDate](#numfromdate) |  
+**Directory** |  
+[DNComponent](#dncomponent) | [DNComponentRev](#dncomponentrev) | [EscapeDNComponent](#escapedncomponent)
+**Evaluation** |  
+[IsBitSet](#isbitset) | [IsDate](#isdate) | [IsEmpty](#isempty) | [IsGuid](#isguid)
+[IsNull](#isnull) | [IsNullOrEmpty](#isnullorempty) | [IsNumeric](#isnumeric) | [IsPresent](#ispresent) |
+[IsString](#isstring) |  
+**Math** |  
+[BitAnd](#bitand) | [BitOr](#bitor) | [RandomNum](#randomnum)
+**Multi-valued** |  
+[Contains](#contains) | [Count](#count) | [Item](#item) | [ItemOrNull](#itemornull)
+[Join](#join) | [RemoveDuplicates](#removeduplicates) | [Split](#split) |
+**Program Flow** |  
+[Error](#error) | [IIF](#iif)  | [Switch](#switch)
+**Text** |  
+[GUID](#guid) | [InStr](#instr) | [InStrRev](#instrrev) | [LCase](#lcase)
+[Left](#left) | [Len](#len) | [LTrim](#ltrim) | [Mid](#mid)
+[PadLeft](#padleft) | [PadRight](#padright) | [PCase](#pcase) | [Replace](#replace)
+[ReplaceChars](#replacechars) | [Right](#right) | [RTrim](#rtrim) | [Trim](#trim)
+[UCase](#ucase) | [Word](#word)
 
 ----------
 ### BitAnd
@@ -873,9 +865,16 @@ The PCase function converts the first character of each space delimited word in 
 **Syntax:**  
 `String PCase(string)`
 
+**Remarks:**
+
+- This function does not currently provide proper casing to convert a word that is entirely uppercase, such as an acronym.
+
 **Example:**  
 `PCase("TEsT")`  
 Returns "Test".
+
+`PCase(LCase("TEST"))`  
+Returns "Test"
 
 ----------
 ### RandomNum

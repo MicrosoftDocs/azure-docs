@@ -4,30 +4,30 @@
 	authors="rajeshramabathiran"
 	manager="dwrede"
 	editor=""
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/18/2016"
+	ms.date="05/31/2016"
 	ms.author="sameerch"/>
 
 
 # Integrate with an on-premises SAP server
 
->[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
+>[AZURE.NOTE] This version of the article applies to Logic apps 2014-12-01-preview schema version.
 
-Using the [SAP connector](app-service-logic-connector-sap.md), you can connect Azure App Services web, mobile, and logic apps to your existing SAP server. This allows you to invoke RFCs, BAPIs, tRFCs as well as send IDocs to the SAP server, even if it sits behind your on-premises firewall.
+Using the [SAP connector](app-service-logic-connector-sap.md), you can connect Azure App Services web, mobile, and Logic apps to your existing SAP server. This allows you to invoke RFCs, BAPIs, tRFCs as well as send IDocs to the SAP server, even if it sits behind your on-premises firewall.
 
 If you have an on-premises SAP server, use a hybrid listener to establish connectivity with the SAP connector as shown:
 
 ![Hybrid connectivity flow][1]
 
-While an SAP Connector in the cloud cannot directly connect to an SAP server behind a firewall on-premises, you can use the Hybrid listener to bridge the gap. You set this up by hosting a relay endpoint that allows the connector to securely establish connectivity to the SAP server.
+While an SAP connector in the cloud cannot directly connect to an SAP server behind a firewall on-premises, you can use the Hybrid listener to bridge the gap. You set this up by hosting a relay endpoint that allows the connector to securely establish connectivity to the SAP server.
 
 
 ## Different ways to integrate with SAP
@@ -42,13 +42,13 @@ The following actions are supported:
 The SAP specific client libraries are required on the client machine where the hybrid listener is installed and running. The precise details are in the [BizTalk Adapter Pack Installation Guide][9] under the section titled **For the SAP adapter**.
 
 
-## Create a new SAP Connector
+## Create a new SAP connector
 1. Sign in to the Azure portal.
 2. Select **New**.
 3. In the create blade, select **Compute** > **Azure Marketplace**.
 4. In the marketplace blade, select **API Apps**, and search for SAP in the search bar:  
 	![SAP Connector API App][2]
-5. Select the **SAP Connector** published by Microsoft.
+5. Select the **SAP connector** published by Microsoft.
 6. In the SAP connector blade, select **Create**.
 7. In the new blade that opens, enter the following:  
 	1. **Location** - Choose the geographic location where you would like the connector to deploy
@@ -103,10 +103,10 @@ In the connector blade, notice that the Hybrid connection status is *Connected*:
 ![Hybrid connection status - connected][8]
 
 
-## Using the SAP connector in Logic Apps
-Once the SAP connector is created, it can be used inside your Logic Apps workflow. To do this, create a new Logic App through **New** > **Logic Apps** > **Create**. Enter the metadata for the Logic App, including the resource group.
+## Using the SAP connector in Logic apps
+Once the SAP connector is created, it can be used inside your Logic apps workflow. To do this, create a new Logic app through **New** > **Logic apps** > **Create**. Enter the metadata for the Logic app, including the resource group.
 
-Select **Triggers and actions**. The Logic Apps workflow designer opens.
+Select **Triggers and actions**. The Logic apps workflow designer opens.
 
 Select the SAP connector from the right pane, and select an action from the Actions tab.
 

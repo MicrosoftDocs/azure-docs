@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="dragon119"
-   manager="masimms"
+   manager="christb"
    editor=""
    tags=""/>
 
@@ -14,12 +14,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="03/26/2016"
+   ms.date="07/14/2016"
    ms.author="masashin"/>
 
 # Data partitioning guidance
 
-![](media/best-practices-data-partitioning/pnp-logo.png)
+[AZURE.INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
 ## Overview
 
@@ -432,7 +432,7 @@ You can associate each data item with an identifier (a partition key) that speci
 
 Native Redis (not Azure Redis Cache) supports server-side partitioning based on Redis clustering. In this approach, you can divide the data evenly across servers by using a hashing mechanism. Each Redis server stores metadata that describes the range of hash keys that the partition holds, and also contains information about which hash keys are located in the partitions on other servers.
 
-Client applications simply send requests to any of the participating Redis servers (probably the closest one).The Redis server examines the client request. If it can be resolved locally, it performs the requested operation. Otherwise it forwards the request on to the appropriate server.
+Client applications simply send requests to any of the participating Redis servers (probably the closest one). The Redis server examines the client request. If it can be resolved locally, it performs the requested operation. Otherwise it forwards the request on to the appropriate server.
 
 This model is implemented by using Redis clustering, and is described in more detail on the [Redis cluster tutorial] page on the Redis website. Redis clustering is transparent to client applications. Additional Redis servers can be added to the cluster (and the data can be re-partitioned) without requiring that you reconfigure the clients.
 
@@ -513,7 +513,7 @@ When considering strategies for implementing data consistency, the following pat
 - The [sharding pattern] as described on the Microsoft website summarizes some common strategies for sharding data.
 - The [index table pattern] as described on the Microsoft website illustrates how to create secondary indexes over data. An application can quickly retrieve data with this approach, by using queries that do not reference the primary key of a collection.
 - The [materialized view pattern] as described on the Microsoft website describes how to generate pre-populated views that summarize data to support fast query operations. This approach can be useful in a partitioned data store if the partitions that contain the data being summarized are distributed across multiple sites.
-- The [Using Content Delivery Network for Azure] article on the Microsoft website provides additional guidance on configuring and using Content Delivery Network with Azure.
+- The [Using Azure Content Delivery Network] article on the Microsoft website provides additional guidance on configuring and using Content Delivery Network with Azure.
 
 ## More information
 
@@ -523,7 +523,7 @@ When considering strategies for implementing data consistency, the following pat
 - The page [Azure storage scalability and performance targets](https://msdn.microsoft.com/library/azure/dn249410.aspx) on the Microsoft website documents the current sizing and throughput limits of Azure Storage.
 - The page [Performing entity group transactions] on the Microsoft website provides detailed information about implementing transactional operations over entities that are stored in Azure table storage.
 - The article [Azure Storage table design guide] on the Microsoft website contains detailed information about partitioning data in Azure table storage.
-- The page [Using Content Delivery Network for Azure] on the Microsoft website describes how to replicate data that's held in Azure blob storage by using the Azure Content Delivery Network.
+- The page [Using Azure Content Delivery Network] on the Microsoft website describes how to replicate data that's held in Azure blob storage by using the Azure Content Delivery Network.
 - The page [Manage DocumentDB capacity needs] on the Microsoft website contains information about how Azure DocumentDB databases allocate resources.
 - The page [What is Azure Search?] on the Microsoft website provides a full description of the capabilities that are available in Azure Search.
 - The page [Service limits in Azure Search] on the Microsoft website contains information about the capacity of each instance of Azure Search.
@@ -554,7 +554,7 @@ When considering strategies for implementing data consistency, the following pat
 [Redis cluster tutorial]: http://redis.io/topics/cluster-tutorial
 [Running Redis on a CentOS Linux VM in Azure]: http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx
 [Scaling using the Elastic Database split-merge tool]: sql-database/sql-database-elastic-scale-overview-split-and-merge.md
-[Using Content Delivery Network for Azure]: cdn/cdn-how-to-use-cdn.md
+[Using Azure Content Delivery Network]: cdn/cdn-create-new-endpoint.md
 [Service Bus quotas]: service-bus/service-bus-quotas.md
 [Service limits in Azure Search]:  search/search-limits-quotas-capacity.md
 [Sharding pattern]: http://aka.ms/Sharding-Pattern

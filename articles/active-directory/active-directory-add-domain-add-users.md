@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeffsta"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="07/18/2016"
 	ms.author="curtand;jeffsta"/>
 
 # Assign users to a custom domain
@@ -56,8 +56,8 @@ This can also be done using [Microsoft PowerShell](https://msdn.microsoft.com/li
 
 ## Next steps
 
-- [Using custom domain names to simplify the sign-in experience for your users](active-directory-add-domain.md)
-- [Add company branding to your Sign In and Access Panel pages ](active-directory-add-company-branding.md)
-- [Add and verify a custom domain name in Azure Active Directory](active-directory-add-domain-add-verify-general.md)
-- [Change the DNS registrar for your custom domain name](active-directory-add-domain-change-registrar.md)
-- [Delete a custom domain in Azure Active Directory](active-directory-add-domain-delete-domain.md)
+-   [Using custom domain names to simplify the sign-in experience for your users](active-directory-add-domain.md)
+
+-   [Manage custom domain names](active-directory-add-manage-domain-names.md)
+
+-   [Learn about domain management concepts in Azure AD](active-directory-add-domain-concepts.md)

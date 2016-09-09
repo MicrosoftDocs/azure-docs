@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2016" 
+	ms.date="06/29/2016" 
 	ms.author="anwestg"/>
 
 # Azure App Service Web Apps Offerings for Enterprise Whitepaper #
@@ -83,7 +83,7 @@ Hardware maintenance and rotation is a key issue for businesses as release cycle
 
 App Service Web Apps provides a stable, reliable platform which has been proven to be able to handle a wide variety of business needs from small internal development and test workloads, to highly scaled high traffic websites. By using Web Apps, you are making use of the same enterprise class hosting platform that Microsoft as a company uses for high value web workloads. Web Apps, along with all services on the Azure platform, are built with security and compliance with regulatory requirements, such as ISO (ISO/IEC 27001:2005); SOC1 and SOC2 SSAE 16/ISAE 3402 Attestations, HIPAA BAA, PCI and Fedramp, at the very heart of each element and feature, for more information please see [http://aka.ms/azurecompliance](/support/trust-center/compliance/). 
 
-Microsoft Azure platform allows Role Based Authorization Controls enabling enterprise levels of control to resources within Web Apps. RBAC gives enterprises the power to implement their own access management policies for all of their assets in the Azure Environment, by assigning users to groups and in turn assigning the required permissions to those groups against the asset such as a web app. For more information on RBAC in Azure, see [http://aka.ms/azurerbac](../role-based-access-control-configure/). By utilizing Web Apps, you can be sure your web applications are deployed in a safe and secure environment and you have full control into which territory your assets are deployed. 
+Microsoft Azure platform allows Role Based Authorization Controls enabling enterprise levels of control to resources within Web Apps. RBAC gives enterprises the power to implement their own access management policies for all of their assets in the Azure Environment, by assigning users to groups and in turn assigning the required permissions to those groups against the asset such as a web app. For more information on RBAC in Azure, see [http://aka.ms/azurerbac](../active-directory/role-based-access-control-configure.md). By utilizing Web Apps, you can be sure your web applications are deployed in a safe and secure environment and you have full control into which territory your assets are deployed. 
 
 Azure App Service Environments [http://aka.ms/aseintro](http://aka.ms/aseintro) are a new premium service plan option for enterprise customers wishing to make use of Azure App Service and these provide a fully isolated and dedicated environment.  This enables enterprise customers to deploy applications that can take advantage of very high scale whilst also having full control over inbound and outbound network traffic, and ASEs enable applications to have high speed secure connections over virtual networks to on-premises resources.
 
@@ -116,7 +116,7 @@ When migration application from an on-premises environment, you might want to ke
 -	GAC based assemblies – Web Apps does not allow the deployment of assemblies to the Global Assembly Cache (GAC). Therefore, if the application being migrated makes use of this feature on-premises, consider moving the assemblies to the bin folder of the application.
 -	IIS5 Compatibility Mode – Web Apps does not support IIS5 Compatibility Mode, and as such each Web Apps instance and all web applications under the parent Web Apps instance run in the same worker process within a single application pool.
 -	Use of COM Libraries – Web Apps does not allow the registration of COM Components on the platform. Therefore if the application is making use of any COM Components, these would need to be rewritten in managed code and deployed with the application.
--	ISAPI Filters – ISAPI Filters can be supported on Web Apps. They will need to be deployed as part of the application and registered in the web application's web.config file. For more information, see [http://aka.ms/azurewebsitesxdt](../web-sites-transform-extend/). 
+-	ISAPI Filters – ISAPI Filters can be supported on Web Apps. They will need to be deployed as part of the application and registered in the web application's web.config file. For more information, see [http://aka.ms/azurewebsitesxdt](web-sites-transform-extend.md). 
 
 Once these topics have been considered, your web application should be ready for the Cloud. And don’t worry if some topics are not fully met, the migration tool will give best effort to migration. 
 

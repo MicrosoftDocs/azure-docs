@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="06/07/2016"
 	ms.author="nitinme"/>
 
 # Customize Windows-based HDInsight clusters using Script Action
@@ -30,6 +30,8 @@ hive-site.xml, etc.), or adding shared libraries (e.g., Hive, Oozie) into common
 in the cluster. These customizations can be done through Azure PowerShell, the Azure 
 HDInsight .NET SDK, or the Azure Portal. For more information, see 
 [Create Hadoop clusters in HDInsight][hdinsight-provision-cluster].
+
+[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell-cli-and-dotnet-sdk.md)]
 
 ## Script Action in the cluster creation process
 
@@ -140,9 +142,9 @@ This following PowerShell script demonstrates how to install Spark on Windows ba
         -Name $defaultStorageAccountName `
         -Location $location `
         -Type Standard_GRS
-	$defaultStorageAccountKey = Get-AzureRmStorageAccountKey `
+	$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
                                     -ResourceGroupName $resourceGroupName `
-                                    -Name $defaultStorageAccountName |  %{ $_.Key1 }
+                                    -Name $defaultStorageAccountName)[0].Value
 	$defaultStorageAccountContext = New-AzureStorageContext `
                                     -StorageAccountName $defaultStorageAccountName `
                                     -StorageAccountKey $storageAccountKey  
@@ -193,37 +195,40 @@ The following sample demonstrates how to install Spark on Windows based HDInsigh
 1. Create a C# console application in Visual Studio.
 2. From the Nuget Package Manager Console, run the following command.
 
-		Install-Package Microsoft.Azure.Management.HDInsight -Pre
-		Install-Package Microsoft.Azure.Common.Authentication -Pre
-		Install-Package Microsoft.Azure.Management.Resources -Pre
+		Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
+        Install-Package Microsoft.Azure.Management.ResourceManager -Pre
+        Install-Package Microsoft.Azure.Management.HDInsight
 
 2. Use the following using statements in the Program.cs file:
 
 		using System;
 		using System.Security;
-		using Microsoft.Azure.Management.HDInsight;
-		using Microsoft.Azure.Management.HDInsight.Models;
-		
-		using Microsoft.Azure;
-		using Microsoft.Azure.Common.Authentication;
-		using Microsoft.Azure.Common.Authentication.Factories;
-		using Microsoft.Azure.Common.Authentication.Models;
-		using Microsoft.Azure.Management.Resources;
+        using Microsoft.Azure;
+        using Microsoft.Azure.Management.HDInsight;
+        using Microsoft.Azure.Management.HDInsight.Models;
+        using Microsoft.Azure.Management.ResourceManager;
+        using Microsoft.IdentityModel.Clients.ActiveDirectory;
+        using Microsoft.Rest;
+        using Microsoft.Rest.Azure.Authentication;
 
 3. Place the code in the class with the following:
 
         private static HDInsightManagementClient _hdiManagementClient;
 
-        private static Guid SubscriptionId = new Guid("<YourAzureSubscriptionID>");
+        // Replace with your AAD tenant ID if necessary
+        private const string TenantId = UserTokenProvider.CommonTenantId; 
+        private const string SubscriptionId = "<Your Azure Subscription ID>";
+        // This is the GUID for the PowerShell client. Used for interactive logins in this example.
+        private const string ClientId = "1950a258-227b-4e31-a9cf-717495945fc2";
         private const string ResourceGroupName = "<ExistingAzureResourceGroupName>";
         private const string NewClusterName = "<NewAzureHDInsightClusterName>";
-        private const int NewClusterNumNodes = <NumberOfClusterNodes>;
+        private const int NewClusterNumWorkerNodes = 2;
         private const string NewClusterLocation = "East US";
         private const string NewClusterVersion = "3.2";
         private const string ExistingStorageName = "<ExistingAzureStorageAccountName>";
         private const string ExistingStorageKey = "<ExistingAzureStorageAccountKey>";
         private const string ExistingContainer = "<ExistingAzureBlobStorageContainer>";
-        private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
+        private const string NewClusterType = "Hadoop";
         private const OSType NewClusterOSType = OSType.Windows;
         private const string NewClusterUsername = "<HttpUserName>";
         private const string NewClusterPassword = "<HttpUserPassword>";
@@ -232,23 +237,21 @@ The following sample demonstrates how to install Spark on Windows based HDInsigh
         {
             System.Console.WriteLine("Running");
 
-            var tokenCreds = GetTokenCloudCredentials();
-            var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
-            
-            var resourceManagementClient = new ResourceManagementClient(subCloudCredentials);
-            resourceManagementClient.Providers.Register("Microsoft.HDInsight");
-
-            _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
+            // Authenticate and get a token
+            var authToken = Authenticate(TenantId, ClientId, SubscriptionId);
+            // Flag subscription for HDInsight, if it isn't already.
+            EnableHDInsight(authToken);
+            // Get an HDInsight management client
+            _hdiManagementClient = new HDInsightManagementClient(authToken);
 
             CreateCluster();
-
         }
 
         private static void CreateCluster()
         {
             var parameters = new ClusterCreateParameters
             {
-                ClusterSizeInNodes = NewClusterNumNodes,
+                ClusterSizeInNodes = NewClusterNumWorkerNodes,
                 Location = NewClusterLocation,
                 ClusterType = NewClusterType,
                 OSType = NewClusterOSType,
@@ -271,29 +274,38 @@ The following sample demonstrates how to install Spark on Windows based HDInsigh
             _hdiManagementClient.Clusters.Create(ResourceGroupName, NewClusterName, parameters);
         }
 
-
-        public static SubscriptionCloudCredentials GetTokenCloudCredentials(string username = null, SecureString password = null)
+        /// <summary>
+        /// Authenticate to an Azure subscription and retrieve an authentication token
+        /// </summary>
+        /// <param name="TenantId">The AAD tenant ID</param>
+        /// <param name="ClientId">The AAD client ID</param>
+        /// <param name="SubscriptionId">The Azure subscription ID</param>
+        /// <returns></returns>
+        static TokenCloudCredentials Authenticate(string TenantId, string ClientId, string SubscriptionId)
         {
-            var authFactory = new AuthenticationFactory();
-
-            var account = new AzureAccount { Type = AzureAccount.AccountType.User };
-
-            if (username != null && password != null)
-                account.Id = username;
-
-            var env = AzureEnvironment.PublicEnvironments[EnvironmentName.AzureCloud];
-
-            var accessToken =
-                authFactory.Authenticate(account, env, AuthenticationFactory.CommonAdTenant, password, ShowDialog.Auto)
-                    .AccessToken;
-
-            return new TokenCloudCredentials(accessToken);
+            var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + TenantId);
+            var tokenAuthResult = authContext.AcquireToken("https://management.core.windows.net/", 
+                ClientId, 
+                new Uri("urn:ietf:wg:oauth:2.0:oob"), 
+                PromptBehavior.Always, 
+                UserIdentifier.AnyUser);
+            return new TokenCloudCredentials(SubscriptionId, tokenAuthResult.AccessToken);
+        }
+        /// <summary>
+        /// Marks your subscription as one that can use HDInsight, if it has not already been marked as such.
+        /// </summary>
+        /// <remarks>This is essentially a one-time action; if you have already done something with HDInsight
+        /// on your subscription, then this isn't needed at all and will do nothing.</remarks>
+        /// <param name="authToken">An authentication token for your Azure subscription</param>
+        static void EnableHDInsight(TokenCloudCredentials authToken)
+        {
+            // Create a client for the Resource manager and set the subscription ID
+            var resourceManagementClient = new ResourceManagementClient(new TokenCredentials(authToken.Token));
+            resourceManagementClient.SubscriptionId = SubscriptionId;
+            // Register the HDInsight provider
+            var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
         }
 
-        public static SubscriptionCloudCredentials GetSubscriptionCloudCredentials(SubscriptionCloudCredentials creds, Guid subId)
-        {
-            return new TokenCloudCredentials(subId.ToString(), ((TokenCloudCredentials)creds).Token);
-        }
 
 4. Press **F5** to run the application.
 

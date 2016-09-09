@@ -2,7 +2,7 @@
 	pageTitle="Develop video player applications" 
 	description="The topic provides links to Player Frameworks and plugins that you can use to develop your own client applications that can consume streaming media from Media Services." 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor="" 
 	services="media-services" 
 	documentationCenter=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-  ms.date="02/03/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 

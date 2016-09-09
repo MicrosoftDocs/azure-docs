@@ -1,10 +1,10 @@
-<properties
+﻿<properties
    pageTitle="Azure Backup - Backup of Azure IaaS VMs with encrypted disks | Microsoft Azure"
    description="Learn how Azure Backup handles data encrypted using BitLocker or dmcrypt during IaaS VM backup. This article prepares you for the differences in backup and restore experiences when dealing with encrypted disks."
    services="backup"
    documentationCenter=""
-   authors="markgalioto"
-   manager="jwhit"
+   authors="pallavijoshi"
+   manager="vijayts"
    editor=""/>
 <tags
    ms.service="backup"
@@ -12,12 +12,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage-backup-recovery"
-   ms.date="03/14/2016"
-   ms.author="markgal; jimpark"/>
+   ms.date="07/01/2016"
+   ms.author="markgal; jimpark; trinadhk"/>
 
 # Dealing with encrypted disks during VM backup
 
-For enterprises looking to encrypt their VM data in Azure, the solution to use is Bitlocker on Windows or dmcrypt on Linux machines. Both of these are volume-level encryption solutions. This article deals with the specifics of setting up backup for such Azure VMs, and the impact on restore workflows because of encrypted data.
+For enterprises looking to encrypt their VM data in Azure, the solution is to use [Azure Disk Encryption](../azure-security-disk-encryption.md) or Bitlocker on Windows and dmcrypt on Linux machines. 
+
+> [AZURE.NOTE]  Azure Backup supports backup and restore of VMs encrypted using Azure Disk Encryption (ADE). <br>
+1. This is supported using PowerShell if VM is encrypted using BEK and KEK. <br>
+2. Backup and restore is not supported if VM is encrypted using BEK only. <br>
+Please refer Azure Backup [PowerShell documentation](backup-azure-vms-automation.md) to backup and restore VMs encrypted using ADE. 
+
+This article deals with Azure VMs encrypted using CloudLink.
 
 ## How backup works
 
@@ -36,13 +43,22 @@ There are many parts to this solution that need to be configured and managed cor
 
 | Function | Software used | Additional notes |
 | -------- | ------------- | ------- |
-| Encryption | Bitlocker or dmcrypt | Because the encryption happens in a *different* layer when compared to Azure Backup, it doesn't matter what encryption software is used. That said, this experience has been validated with only Bitlocker and dmcrypt.<br><br> In order to encrypt the data, a key is needed. The key also needs to be kept safe to ensure authorized access to data.  |
-| Key management | CloudLink SecureVM<br>or Azure KeyVault | The key is essential to encrypting or decrypting the data. Without the right key, the data cannot be retrieved. This becomes *incredibly* important with:<br><li>Key roll-overs<li>Long term retention<br><br>For example, it possible that the key used to backup data 7 years ago is not the same key used today. Without the key from 7 years ago, it will be impossible to use the data restored from that time.|
+| Encryption | Bitlocker or dmcrypt | Because the encryption happens in a *different* layer when compared to Azure Backup, it doesn't matter what encryption software is used. That said, this experience has been validated with only CloudLink using Bitlocker and dmcrypt.<br><br> In order to encrypt the data, a key is needed. The key also needs to be kept safe to ensure authorized access to data.  |
+| Key management | CloudLink SecureVM | The key is essential to encrypting or decrypting the data. Without the right key, the data cannot be retrieved. This becomes *incredibly* important with:<br><li>Key roll-overs<li>Long term retention<br><br>For example, it possible that the key used to backup data 7 years ago is not the same key used today. Without the key from 7 years ago, it will be impossible to use the data restored from that time.|
 | Data backup | Azure Backup | Use Azure Backup to back up your Azure IaaS VMs using the [Azure management portal](http://manage.windowsazure.com) or using PowerShell |
 | Data restore | Azure Backup | Use Azure Backup to restore disks or an entire VM from a recovery point. Data is not decrypted by Azure Backup as a part of the restore operation.|
 | Decryption | Bitlocker or dmcrypt | In order to read data out of a restored data disk or restored VM, the software needs the key from the Key Management software. Without the right key, the data cannot be decrypted. |
 
 > [AZURE.IMPORTANT]  Key management - including key rollover - is not a part of Azure Backup. This aspect needs to be managed independently but is very important to the overall backup/restore operation.
+
+### Supported Scenarios
+
+
+| &nbsp; | Backup Vault | Recovery Services Vault |
+| :-- | :-- | :-- |
+| Azure IaaS V1 VMs | Yes | No |
+| Azure IaaS V2 VMs | N/A | No |
+
 
 ## CloudLink SecureVM
 

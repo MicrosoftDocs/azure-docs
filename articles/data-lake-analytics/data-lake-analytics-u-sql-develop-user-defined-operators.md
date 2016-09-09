@@ -3,7 +3,7 @@
    description="Learn how to develop user defined operators to be used and reused in Data Lake Analytics jobs. " 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="mumian" 
+   authors="edmacauley" 
    manager="paulettm" 
    editor="cgronlun"/>
  
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="02/10/2016"
-   ms.author="jgao"/>
+   ms.date="05/16/2016"
+   ms.author="edmaca"/>
 
 
 # Develop U-SQL User defined operators for Azure Data Lake Analytics jobs

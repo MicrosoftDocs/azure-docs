@@ -1,19 +1,19 @@
 <properties 
    pageTitle="How to connect classic VNets to ARM VNets in Azure - Solution Guide"
    description="Learn how to create a VPN connection between classic VNets and new VNets"
-   services="virtual-network"
+   services="vpn-gateway"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="cherylmc"
    manager="carmonm"
    editor="tysonn" />
 <tags 
-   ms.service="virtual-network"
+   ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="cherylmc" />
 
 # Connecting classic VNets to new VNets
 

@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/29/2016"
+	ms.date="05/25/2016"
 	ms.author="erikje"/>
 
 # Tools and PaaS services for Azure Stack
 
-Azure Stack enables deploying Platform as a Service (PaaS) services from Microsoft and other 3rd party providers. You can also download the tools described below. If you want to be notified of new services and tools, follow #AzureStack on Twitter.
+Azure Stack enables deploying [Platform as a Service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) services from Microsoft and other 3rd party providers. You can also download the tools described below. If you want to be notified of new services and tools, follow #AzureStack on Twitter.
 
 ## Additional PaaS services
 In Technical Preview 1, three PaaS resource providers are now available.
 
-[Add a SQL Server resource provider to Azure Stack](azure-stack-sqlrp-deploy.md)
+[Add a SQL Server resource provider to Azure Stack](azure-stack-sql-rp-deploy-short.md)
 
-[Add a MySQL resource provider to Azure Stack](azure-stack-mysqlrp-deploy.md)
+[Add a MySQL resource provider to Azure Stack](azure-stack-mysql-rp-deploy-short.md)
 
 [Add a Web Apps resource provider to Azure Stack](azure-stack-webapps-deploy.md)
 

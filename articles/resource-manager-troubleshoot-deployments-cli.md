@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Troubleshooting deployments with Azure CLI | Microsoft Azure"
-   description="Describes how to use the Azure CLI to detect and fix issues from Resource Manager deployment."
+   pageTitle="View deployment operations with Azure CLI | Microsoft Azure"
+   description="Describes how to use the Azure CLI to detect issues from Resource Manager deployment."
    services="azure-resource-manager,virtual-machines"
    documentationCenter=""
    tags="top-support-issue"
    authors="tfitzmac"
    manager="timlt"
-   editor=""/>
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-multiple"
    ms.workload="infrastructure"
-   ms.date="03/21/2016"
+   ms.date="06/13/2016"
    ms.author="tomfitz"/>
 
-# Troubleshooting resource group deployments with Azure CLI
+# View deployment operations with Azure CLI
 
 > [AZURE.SELECTOR]
 - [Portal](resource-manager-troubleshoot-deployments-portal.md)
@@ -25,11 +25,11 @@
 - [Azure CLI](resource-manager-troubleshoot-deployments-cli.md)
 - [REST API](resource-manager-troubleshoot-deployments-rest.md)
 
-If you've received an error when deploying resources to Azure, you need to troubleshoot what went wrong. Azure CLI provides commands that enable you to find the errors and determine potential fixes.
+If you've received an error when deploying resources to Azure, you may want to see more details about the deployment operations that were executed. Azure CLI provides commands that enable you to find the errors and determine potential fixes.
 
-You can troubleshoot your deployment by looking at either the audit logs, or the deployment operations. This topic shows both methods.
+[AZURE.INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
 
-You can avoid some errors by validating your template and infrastructure prior to deployment. For more information, see [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy.md).
+You can avoid some errors by validating your template and infrastructure prior to deployment. You can also log additional request and response information during deployment that may be helpful later for troubleshooting. To learn about validating, and logging request and response information, see [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy-cli.md).
 
 ## Use audit logs to troubleshoot
 
@@ -119,5 +119,6 @@ To see errors for a deployment, use the following steps:
 
 ## Next steps
 
+- For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md).
 - To learn about using the audit logs to monitor other types of actions, see [Audit operations with Resource Manager](resource-group-audit.md).
 - To validate your deployment prior to executing it, see [Deploy a resource group with Azure Resource Manager template](resource-group-template-deploy.md).

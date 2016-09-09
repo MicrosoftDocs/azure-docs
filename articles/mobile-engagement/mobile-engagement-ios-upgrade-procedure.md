@@ -39,7 +39,7 @@ The method `application:didReceiveRemoteNotification:` needs to be replaced by `
 The following describes how to migrate an SDK integration from the Capptain service offered by Capptain SAS into an app powered by Azure Mobile Engagement.
 If you are migrating from an earlier version, please consult the Capptain web site to migrate to 1.16 first then apply the following procedure.
 
->[Azure.IMPORTANT] Capptain and Mobile Engagement are not the same services and the procedure given below only highlights how to migrate the client app. Migrating the SDK in the app will NOT migrate your data from the Capptain servers to the Mobile Engagement servers
+>[AZURE.IMPORTANT] Capptain and Mobile Engagement are not the same services and the procedure given below only highlights how to migrate the client app. Migrating the SDK in the app will NOT migrate your data from the Capptain servers to the Mobile Engagement servers
 
 ### Agent
 

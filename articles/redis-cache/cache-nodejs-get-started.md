@@ -4,7 +4,7 @@
 	services="redis-cache"
 	documentationCenter=""
 	authors="steved0x"
-	manager="erikre"
+	manager="douge"
 	editor="v-lincan"/>
 
 <tags
@@ -13,20 +13,21 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="03/09/2016"
+	ms.date="05/31/2016"
 	ms.author="sdanie"/>
 
 # How to use Azure Redis Cache with Node.js
 
 > [AZURE.SELECTOR]
-- [.Net](cache-dotnet-how-to-use-azure-redis-cache.md)
+- [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
+- [ASP.NET](cache-web-app-howto.md)
 - [Node.js](cache-nodejs-get-started.md)
 - [Java](cache-java-get-started.md)
 - [Python](cache-python-get-started.md)
 
 Azure Redis Cache gives you access to a secure, dedicated Redis cache, managed by Microsoft. Your cache is accessible from any application within Microsoft Azure.
 
-This topic shows you how to get started with Azure Redis Cache using Node.js. For another example of using Azure Redis Cache with Node.js, see [Build a Node.js Chat Application with Socket.IO on an Azure Website][].
+This topic shows you how to get started with Azure Redis Cache using Node.js. For another example of using Azure Redis Cache with Node.js, see [Build a Node.js Chat Application with Socket.IO on an Azure Website](../app-service-web/web-sites-nodejs-chat-app-socketio.md).
 
 
 ## Prerequisites
@@ -39,35 +40,34 @@ This tutorial uses [node_redis](https://github.com/mranney/node_redis), but you 
 
 ## Create a Redis cache on Azure
 
-In the [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=398536), click **New**, **Data + Storage**, and select **Redis Cache**.
+[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-  ![][1]
+## Retrieve the host name and access keys
 
-Enter a DNS hostname. It will have the form `<name>.redis.cache.windows.net`. Click **Create**.
-
-  ![][2]
+[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
 
-  Once you create the cache, [browse to it](cache-configure.md#configure-redis-cache-settings) to view the cache settings. Click the link under **Keys** and copy the primary key. You need this to authenticate requests.
+## Enable the non-SSL endpoint
 
-  ![][4]
+Some Redis clients don't support SSL, and by default the [non-SSL port is disabled for new Azure Redis Cache instances](cache-configure.md#access-ports). At the time of this writing, the [node_redis](https://github.com/mranney/node_redis) client doesn't support SSL. 
 
-  ## Add something to the cache and retrieve it
+[AZURE.INCLUDE [redis-cache-create](../../includes/redis-cache-non-ssl-port.md)]
 
-```js
-  var redis = require("redis");
 
-  // Add your cache name and access key.
-var client = redis.createClient(6380,'<name>.redis.cache.windows.net', {auth_pass: '<key>', tls: {servername: '<name>.redis.cache.windows.net'}});
+## Add something to the cache and retrieve it
 
-client.set("key1", "value", function(err, reply) {
-	    console.log(reply);
-	});
-
-client.get("key1",  function(err, reply) {
-	    console.log(reply);
-	});
-```
+	  var redis = require("redis");
+	
+	  // Add your cache name and access key.
+	var client = redis.createClient(6380,'<name>.redis.cache.windows.net', {auth_pass: '<key>', tls: {servername: '<name>.redis.cache.windows.net'}});
+	
+	client.set("key1", "value", function(err, reply) {
+		    console.log(reply);
+		});
+	
+	client.get("key1",  function(err, reply) {
+		    console.log(reply);
+		});
 
 Output:
 
@@ -81,10 +81,4 @@ Output:
 - Read the official [Redis documentation](http://redis.io/documentation).
 
 
-<!--Image references-->
-[1]: ./media/cache-nodejs-get-started/cache01.png
-[2]: ./media/cache-nodejs-get-started/cache02.png
-[3]: ./media/cache-nodejs-get-started/cache03.png
-[4]: ./media/cache-nodejs-get-started/cache04.png
 
-[Build a Node.js Chat Application with Socket.IO on an Azure Website]: ../app-service-web/web-sites-nodejs-chat-app-socketio.md

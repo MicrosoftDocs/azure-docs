@@ -44,7 +44,7 @@ Set storage account type / name.
 ```
 $stoname = 'sto' + $rgname;
 $stotype = 'Standard_LRS';
- New-AzureRmStorageAccount -ResourceGroupName $rgname -Name $stoname -Location $loc -Type $stotype;
+ New-AzureRmStorageAccount -ResourceGroupName $rgname -Name $stoname -Location $loc -SkuName $stotype -Kind "Storage";
 
 $stoaccount = Get-AzureRmStorageAccount -ResourceGroupName $rgname -Name $stoname;
 ```

@@ -14,10 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="07/06/2016"
 	ms.author="garye;raymondl"/>
 
 # Consume an Azure Machine Learning web service with a web app template
+
+>[AZURE.NOTE] This topic describes techniques applicable to a classic web service. 
 
 Once you've developed your predictive model and deployed it as an Azure web service using Machine Learning Studio, or using tools such as R or Python,
 you can access the operationalized model using a REST API.

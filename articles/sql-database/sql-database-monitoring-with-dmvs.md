@@ -3,7 +3,7 @@
    description="Learn how to detect and diagnose common performance problems by using dynamic management views to monitor Microsoft Azure SQL Database."
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="04/11/2016"
+   ms.date="07/05/2016"
    ms.author="carlrab"/>
 
 # Monitoring Azure SQL Database using dynamic management views

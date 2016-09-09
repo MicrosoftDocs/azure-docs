@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="01/29/2016"
+	ms.date="08/01/2016"
 	ms.author="erikje"/>
 
 # Provision a virtual machine

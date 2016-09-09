@@ -5,7 +5,7 @@
     keywords="what is Enterprise State Roaming, enterprise sync, windows cloud"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor="curtand"/>
 
 <tags
@@ -14,23 +14,24 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="06/07/2016"
 	ms.author="femila"/>
 
 # Enterprise State Roaming overview
 
 With Windows 10, [Azure Active Directory (Azure AD)](active-directory-whatis.md) users gain the ability to securely synchronize their user settings and application settings data to the cloud. Enterprise State Roaming provides users with a unified experience across their Windows devices and reduces the time needed for configuring a new device. Enterprise State Roaming operates similar to the standard [consumer settings sync](http://windows.microsoft.com/en-US/windows-8/sync-settings-pcs) that was first introduced in Windows 8. Additionally, Enterprise State Roaming offers:
 
-- **Separation of corporate and consumer data** – Organizations are in control of their data, and there is no mixing of corporate data in a consumer cloud account or consumer data in an enterprise cloud account. 
+- **Separation of corporate and consumer data** – Organizations are in control of their data, and there is no mixing of corporate data in a consumer cloud account or consumer data in an enterprise cloud account.
 - **Enhanced security** – Data is automatically encrypted before leaving the user’s Windows 10 device by using Azure Rights Management (Azure RMS), and data stays encrypted at rest in the cloud. All content stays encrypted at rest in the cloud, except for the namespaces, like settings names and Windows app names.  
-- **Management and monitoring services** – More control and visibility over who syncs settings in your organization and on which devices. 
-- **Geographic location of data in the cloud** – Data will be stored in an Azure region based on the country of the Azure AD domain. 
+- **Better management and monitoring** – Provides control and visibility over who syncs settings in your organization and on which devices through the Azure AD portal integration. 
+
+Enterprise State Roaming is available in multiple Azure regions. You can find the updated list of available regions on the [Azure Services by Regions](https://azure.microsoft.com/regions/#services) page under Azure Active Directory.
 
 
 
 | Article                                         | Description                                                                                                                                                                                             |
 |--------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Enable Enterprise State Roaming in Azure Active Directory](active-directory-windows-enterprise-state-roaming-enable.md) | Enterprise State Roaming is available to any organization with a Premium Azure Active Directory (Azure AD) subscription. For more details on how to get an Azure AD subscription, see the Azure AD product page. |
+| [Enable Enterprise State Roaming in Azure Active Directory](active-directory-windows-enterprise-state-roaming-enable.md) | Enterprise State Roaming is available to any organization with a Premium Azure Active Directory (Azure AD) subscription. For more details on how to get an Azure AD subscription, see the [Azure AD product](https://azure.microsoft.com/services/active-directory) page. |
 | [Settings and data roaming FAQ](active-directory-windows-enterprise-state-roaming-faqs.md)                    | This topic answers some questions IT administrators might have about settings and app data sync.                                                                                                        |
 | [Group policy and MDM settings for settings sync](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)  | Windows 10 provides Group Policy and mobile device management (MDM) policy settings to limit settings sync.                                                                                             |
 | [Windows 10 roaming settings reference](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)            | The following is a complete list of all the settings that will be roamed and/or backed-up in Windows 10.                                                                                                |

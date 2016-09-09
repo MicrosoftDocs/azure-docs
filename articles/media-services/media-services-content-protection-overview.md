@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/18/2016" 
+	ms.date="06/22/2016" 
 	ms.author="juliako"/>
 
 #Protecting Content Overview
@@ -32,27 +32,41 @@ Microsoft Azure Media Services enables you to secure your media from the time it
 
 >[AZURE.NOTE]To be able to use dynamic encryption, you must first get at least one streaming reserved unit on the streaming endpoint from which you want to stream encrypted content.
 
-##Concepts
-
-###Asset encryption options
+##Asset encryption options
 
 Depending on the type of content you want to upload, store, and deliver, Media Services provides various encryption options that you can choose from.
 
-**None** No encryption is used. This is the default value. Note that when using this option your content is not protected in transit or at rest in storage.
+###None 
+
+No encryption is used. This is the default value. When using this option your content is not protected in transit or at rest in storage.
 
 If you plan to deliver an MP4 using progressive download, use this option to upload your content.
 
-**StorageEncrypted** – Use this option to encrypt your clear content locally using AES 256 bit encryption and then upload it to Azure Storage where it is stored encrypted at rest. Assets protected with storage encryption are automatically unencrypted and placed in an encrypted file system prior to encoding, and optionally re-encrypted prior to uploading back as a new output asset. The primary use case for storage encryption is when you want to secure your high quality input media files with strong encryption at rest on disk.
+###StorageEncrypted 
+
+Use **StorageEncrypted** to encrypt your clear content locally using AES 256 bit encryption and then upload it to Azure Storage where it is stored encrypted at rest. Assets protected with storage encryption are automatically unencrypted and placed in an encrypted file system prior to encoding, and optionally re-encrypted prior to uploading back as a new output asset. The primary use case for storage encryption is when you want to secure your high quality input media files with strong encryption at rest on disk.
 
 In order to deliver a storage encrypted asset, you must configure the asset’s delivery policy so Media Services knows how you want to deliver your content. Before your asset can be streamed, the streaming server removes the storage encryption and streams your content using the specified delivery policy (for example, AES, common encryption, or no encryption).
 
-**CommonEncryptionProtected** - Use this option if you want to encrypt (or upload already encrypted) content with Common Encryption. Both PlayReady and Widewine are encrypted per the Common Encryption (CENC) specification and are supported by AMS.
+####Implementation details
 
-**EnvelopeEncryptionProtected** – Use this option if you want to protect (or upload already protected) HTTP Live Streaming (HLS) encrypted with Advanced Encryption Standard (AES). Note that if you are uploading HLS already encrypted with AES, it must have been encrypted by Transform Manager.
+The AMS storage encryption applies **AES-CTR** mode encryption to the entire file.  AES-CTR mode is a block cipher that can encrypt arbitrary length data without need for padding. It operates by encrypting a counter block with the AES algorithm and then XOR-ing the output of AES with the data to encrypt or decrypt.  The counter block used is constructed by copying the value of the InitializationVector to bytes 0 to 7 of the counter value and bytes 8 to 15 of the counter value are set to zero. Of the 16 byte counter block, bytes 8 to 15 (i.e. the least significant bytes) are used as a simple 64 bit unsigned integer that is incremented by one for each subsequent block of data processed and is kept in network byte order. Note that if this integer reaches the maximum value (0xFFFFFFFFFFFFFFFF) then incrementing it resets the block counter to zero (bytes 8 to 15) without affecting the other 64 bits of the counter (i.e. bytes 0 to 7).   In order to maintain the security of the AES-CTR mode encryption, the InitializationVector value for a given KID shall be unique for each file and files shall be less than 2^64 blocks in length.  This is to ensure that a counter value is never reused with a given key. For more information about the CTR mode, see [this wiki page](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (the wiki article uses the term "Nonce" instead of "InitializationVector").
+
+If you want to see how the basic algorithm works, view the AMS .NET implementation of the following methods:
+
+- [ApplyEncryptionTransform](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.BlobTransfer/BlobTransferBase.cs)
+- [AesCtr](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/FileEncryptionTransform.cs)
 
 
+###CommonEncryptionProtected 
 
-###Dynamic encryption
+Use **CommonEncryptionProtected** if you want to encrypt (or upload already encrypted) content with Common Encryption. Both PlayReady and Widewine are encrypted per the Common Encryption (CENC) specification and are supported by AMS.
+
+###EnvelopeEncryptionProtected
+
+Use **EnvelopeEncryptionProtected** if you want to protect (or upload already protected) HTTP Live Streaming (HLS) encrypted with Advanced Encryption Standard (AES). Note that if you are uploading HLS already encrypted with AES, it must have been encrypted by Transform Manager.
+
+##Dynamic encryption
 
 Microsoft Azure Media Services enables you to deliver your content encrypted  dynamically with Advanced Encryption Standard (AES) (using 128-bit encryption keys) and PlayReady and/or Widevine DRM.
 
@@ -66,11 +80,13 @@ When a stream is requested by a player, Media Services uses the specified key to
 
 >[AZURE.NOTE]To take advantage of dynamic encryption, you must first get at least one On-demand streaming unit for the streaming endpoint from which you plan to delivery your encrypted content. For more information, see [How to Scale Media Services](media-services-manage-origins.md#scale_streaming_endpoints).
 
-###Licenses and keys delivery service
+##Licenses and keys delivery service
 
 Media Services provides a service for delivering DRM (PlayReady and Widevine) licenses and AES clear keys to authorized clients. You can use the Azure Classic Portal, REST API, or Media Services SDK for .NET to configure authorization and authentication policies for your licenses and keys.
 
 Note if you are using the Portal, you can configure one AES policy (which will be applied to all the AES encrypted content) and one PlayReady policy (which will be applied to all the PlayReady encrypted content). Use Media Services SDK for .NET if you want more control over the configurations.
+
+##DRM licenses 
 
 ###PlayReady license 
 
@@ -84,16 +100,15 @@ AMS also enables you to delivery MPEG DASH encrypted with Widevine DRM. Both Pla
 
 Starting with the Media Services .NET SDK version 3.5.2, Media Services enables you to configure [Widevine license template](media-services-widevine-license-template-overview.md) and get Widevine licenses. You can also use the following AMS partners to help you deliver Widevine licenses: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
 
-###Token restriction
+##Token restriction
 
 The content key authorization policy could have one or more authorization restrictions: open or token restriction. The token restricted policy must be accompanied by a token issued by a Secure Token Service (STS). Media Services supports tokens in the Simple Web Tokens (SWT) format and JSON Web Token (JWT) format. Media Services does not provide Secure Token Services. You can create a custom STS or leverage Microsoft Azure ACS to issue tokens. The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration. The Media Services key delivery service will return the requested key (or license) to the client if the token is valid and the claims in the token match those configured for the key (or license).
 
 When configuring the token restricted policy, you must specify the primary verification key, issuer and audience parameters. The primary verification key contains the key that the token was signed with, issuer is the secure token service that issues the token. The audience (sometimes called scope) describes the intent of the token or the resource the token authorizes access to. The Media Services key delivery service validates that these values in the token match the values in the template.
 
-
 ##Common scenarios
 
-###Protect content in storage, deliver dynamically encrypted streaming media, use AMS key\license deliver service
+###Protect content in storage, deliver dynamically encrypted streaming media, use AMS key/license delivery service
 
 1. Ingest a high-quality mezzanine file into an asset. Apply storage encryption option to the asset.
 2. Configure streaming endpoints.
@@ -104,15 +119,16 @@ When configuring the token restricted policy, you must specify the primary verif
 1. Publish the asset by creating an OnDemand locator.
 1. Stream published content.
 
+For for more information see: [Protect with AES](media-services-protect-with-aes128.md) and [Protect with PlayReady and/or Widevine ](media-services-protect-with-drm.md).
+
+
 ###Use Media Service key and license delivery service with your own encryption and streaming services
 
 For more information, see [How to integrate Azure PlayReady License service with your own encryptor/streaming server](http://mingfeiy.com/integrate-azure-playready-license-service-encryptorstreaming-server).
 
-###Integrating with partners
+###Integrate with partners
 
 [Using castLabs to deliver DRM licenses to Azure Media Services](media-services-castlabs-integration.md)
-
-
 
 ##Media Services learning paths
 

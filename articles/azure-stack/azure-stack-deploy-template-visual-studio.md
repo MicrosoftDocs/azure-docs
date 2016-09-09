@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/29/2016"
+	ms.date="05/25/2016"
 	ms.author="erikje"/>
 
 # Deploy templates in Azure Stack using Visual Studio

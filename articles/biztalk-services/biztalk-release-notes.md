@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Release Notes for Azure BizTalk Services | Microsoft Azure BizTalk Services" 
-	description="" 
-	services="biztalk-services" 
-	documentationCenter="" 
-	authors="msftman" 
-	manager="erikre" 
+<properties
+	pageTitle="Release Notes for Azure BizTalk Services | Microsoft Azure BizTalk Services"
+	description="Lists the known issues for Azure BizTalk Services" 
+	services="biztalk-services"
+	documentationCenter=""
+	authors="msftman"
+	manager="erikre"
 	editor=""/>
 
-<tags 
-	ms.service="biztalk-services" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/29/2016" 
+<tags
+	ms.service="biztalk-services"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="02/29/2016"
 	ms.author="deonhe"/>
 
 # Release Notes for Azure BizTalk Services
@@ -52,7 +52,7 @@ Install the Visual Studio 2012 Update 3 RC 1 to fix the issue.
 
 ### Custom binding project reference
 Consider the following situations with a BizTalk Services project in a Visual Studio solution:  
-* In the same Visual Studio solution, there is a BizTalk Services project and a custom binding project. The BizTalk Service project has a reference to this custom binding project file. 
+* In the same Visual Studio solution, there is a BizTalk Services project and a custom binding project. The BizTalk Service project has a reference to this custom binding project file.
 * The BizTalk Service project has a reference to a custom binding/behavior DLL.
 
 You ‘Build’ the solution in Visual Studio successfully. Then, you ‘Rebuild’ or ‘Clean’ the solution. After that, when you rebuild or clean again, the following error occurs:  
@@ -156,7 +156,7 @@ Consider a scenario where you use thumbprint-based certificates in your BizTalk 
 
 **Workaround**: Update the certificate in the BizTalk Service project and redeploy the project.  
 
-**Scenario 2: Using name-based behaviors to identify certificates for securing message transfer from a bridge to a service endpoint** 
+**Scenario 2: Using name-based behaviors to identify certificates for securing message transfer from a bridge to a service endpoint**
 
 Consider a scenario where you use name-based behaviors to identify certificates in your BizTalk Service project. You update the certificate in the BizTalk Services Portal but do not update the BizTalk Service project accordingly. In such a scenario, the bridge might continue to process the messages because the older certificate data might still be in the channel cache. After that, message processing fails.  
 
@@ -197,6 +197,3 @@ Throughout this document, the term ‘pipelines’ and ‘bridges’ are used in
 ### Concepts  
 
 [BizTalk Services](https://msdn.microsoft.com/library/azure/hh689864.aspx)   
-
-
-

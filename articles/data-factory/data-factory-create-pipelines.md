@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Pipelines and Activities in Azure Data Factory | Microsoft Azure" 
-	description="Understand Azure Data Factory pipelines and learn how to create them to move and transform data to produce information that can be used to gain insights" 
+	pageTitle="Create/Schedule Pipelines, Chain Activities in Data Factory | Microsoft Azure" 
+	description="Learn to create a data pipeline in Azure Data Factory to move and transform data. Create a data driven workflow to produce ready to use information." 
+    keywords="data pipeline, data driven workflow"
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -12,19 +13,19 @@
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" y
-	ms.date="04/08/2016" 
+	ms.topic="article"
+	ms.date="06/27/2016" 
 	ms.author="spelluru"/>
 
-# Pipelines and Activities in Azure Data Factory
-This article will help you understand pipelines and activities in Azure Data Factory and how to leverage them to construct end-to-end data-driven workflows for your scenario or business. 
+# Pipelines and Activities in Azure Data Factory: Create/Schedule Pipelines and Chain Activities
+This article will help you understand data pipelines and activities in Azure Data Factory and use them to construct end-to-end data-driven workflows for your scenario or business, from personalized product recommendations to analyzing a marketing campaign.  
 
 > [AZURE.NOTE] This article assumes that you have gone through [Introduction to Azure Data Factory](data-factory-introduction.md) and [Creating Datasets](data-factory-create-datasets.md) articles prior to this. If you do not have hands-on-experience with creating data factories, going through [Build your first data factory](data-factory-build-your-first-pipeline.md) tutorial would help you understand this article better.  
 
-## What is a pipeline?
+## What is a data pipeline?
 **Pipeline is a logical grouping of Activities**. They are used to group activities into a unit that performs a task. To understand pipelines better, you need to understand an activity first. 
 
-### What is an activity?
+## What is an activity?
 Activities define the actions to perform on your data. Each activity takes zero or more [datasets](data-factory-create-datasets.md) as inputs and produces one or more datasets as output. **An activity is a unit of orchestration in Azure Data Factory.** 
 
 For example, you may use a Copy activity to orchestrate copying data from one dataset to another. Similarly you may use a HDInsight Hive activity to run a Hive query on an Azure HDInsight cluster to transform or analyze your data. Azure Data Factory provides a wide range of [data transformation, analysis](data-factory-data-transformation-activities.md), and [data movement activities](data-factory-data-movement-activities.md). You may also choose to create a custom .NET activity to run your own code. 
@@ -238,8 +239,12 @@ start | Start date-time for the pipeline. Must be in [ISO format](http://en.wiki
 end | End date-time for the pipeline. If specified must be in ISO format. For example: 2014-10-14T17:32:41Z <br/><br/>It is possible to specify a local time, for example an EST time. Here is an example: "2016-02-27T06:00:00**-05:00**", which is 6 AM EST.<br/><br/>To run the pipeline indefinitely, specify 9999-09-09 as the value for the end property. | No <br/><br/>If you specify a value for the start property, you must specify value for the end property.<br/><br/>See notes for the **start** property.
 isPaused | If set to true the pipeline will not get executed. Default value = false. You can use this property to enable or disable. | No 
 scheduler | “scheduler” property is used to define desired scheduling for the activity. Its sub-properties are the same as those under [availability property in a dataset](data-factory-create-datasets.md#Availability). | No |   
+| pipelineMode | The method for scheduling runs for the pipeline. Allowed values are: scheduled (default), onetime.<br/><br/>‘Scheduled’ indicates that the pipeline will run at a specified time interval according to its active period (start and end time). ‘Onetime’ indicates that the pipeline will run only once. Onetime pipelines once created cannot be modified/updated currently. See [Onetime pipeline](data-factory-scheduling-and-execution.md#onetime-pipeline) for details about onetime setting. | No | 
+| expirationTime | Duration of time after creation for which the pipeline is valid and should remain provisioned. The pipeline will be deleted automatically once it reaches the expiration time if it does not have any active, failed or pending runs. | No | 
+| datasets | List of datasets to be used by activities defined in the pipeline. This can be used to define datasets that are specific to this pipeline and not defined within the data factory. Datasets defined within this pipeline can only be used by this pipeline and cannot be shared. See [Scoped datasets](data-factory-create-datasets.md#scoped-datasets) for details.| No |  
+ 
 
-### Activity types
+## Activity types for data movement and data transformation
 Azure Data Factory provides a wide range of [Data movement](data-factory-data-movement-activities.md) and [Data transformation](data-factory-data-transformation-activities.md) activities.
 
 ### Policies
@@ -342,31 +347,3 @@ Once a pipeline is deployed, you can manage and monitor your pipelines, slices a
 - Read about the [data movement](data-factory-data-movement-activities.md) and [data transformation capabilities](data-factory-data-transformation-activities.md) in Azure Data Factory
 - Understand [management and monitoring in Azure Data Factory](data-factory-monitor-manage-pipelines.md).
 - [Build and deploy your fist pipeline](data-factory-build-your-first-pipeline.md). 
-
-
- 
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
- 
-
-
- 
-
- 
-
-
-

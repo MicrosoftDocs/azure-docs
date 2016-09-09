@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Introducing the Service Fabric Cluster Resource Manager | Microsoft Azure"
-   description="An introduction to the Service Fabric Cluster Resource Manager."
+   pageTitle="Throttling in the Service Fabric cluster resource manager | Microsoft Azure"
+   description="Learn to configure the throttles provided by the Service Fabric Cluster Resource Manager."
    services="service-fabric"
    documentationCenter=".net"
    authors="masnider"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/10/2016"
+   ms.date="05/20/2016"
    ms.author="masnider"/>
 
 

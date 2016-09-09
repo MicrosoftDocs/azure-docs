@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="07/12/2016"
 	ms.author="larryfr"/>
 
 # Quickstart tutorial for the R programming language for Azure Machine Learning
@@ -900,7 +900,7 @@ The following code extracts the lag values from the list of ccf objects, which a
 
 	df.correlations <- data.frame(do.call(rbind, lapply(cadairycorrelations, '[[', 1)))
 
-	c.names <- c("-1 lag", "0 lag", "+1 lag")
+	c.names <- c("correlation pair", "-1 lag", "0 lag", "+1 lag")
 	r.names  <- c("Corr Cot Cheese - Ice Cream",
 	              "Corr Cot Cheese - Milk Prod",
 	              "Corr Cot Cheese - Fat Price",

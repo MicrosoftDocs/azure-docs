@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="02/09/2016"
+   ms.date="05/09/2016"
    ms.author="viviali"/>
 
 # Azure AD B2B collaboration preview: Current preview limitations
@@ -25,11 +25,11 @@
 - Invitations to consumer email addresses (such as hotmail.com, Gmail.com, or comcast.net) are currently not supported.
 - External user access to on-premises applications not tested.
 - External users are not automatically cleaned up when the actual user is deleted from their directory.
-- Invitations to DLs are not supported.
+- Invitations to distribution lists are not supported.
 - Maximum of 2,000 records can be uploaded via CSV.
 
 ## Related articles
-Browse our other articles on Azure B2B collaboration:
+Browse our other articles on Azure AD B2B collaboration:
 
 - [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
 - [How it works](active-directory-b2b-how-it-works.md)
@@ -38,4 +38,3 @@ Browse our other articles on Azure B2B collaboration:
 - [External user token format](active-directory-b2b-references-external-user-token-format.md)
 - [External user object attribute changes](active-directory-b2b-references-external-user-object-attribute-changes.md)
 - [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-

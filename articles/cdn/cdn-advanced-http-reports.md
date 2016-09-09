@@ -1,8 +1,8 @@
 <properties
-	pageTitle="CDN - Advanced HTTP Reports"
+	pageTitle="Azure CDN Advanced HTTP Reports | Microsoft Azure"
 	description="Advanced HTTP reports in Microsoft Azure CDN. These reports provide detailed information on CDN activity."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/25/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 # Advanced HTTP reports in Microsoft Azure CDN
@@ -22,7 +22,7 @@
 
 This document explains advanced HTTP reporting in Microsoft Azure CDN. These reports provide detailed information on CDN activity.
 
-> [AZURE.NOTE] Advanced HTTP reports is a feature of the Premium CDN tier.  For a comparison of Standard and Premium CDN features, see [Azure CDN Overview](cdn-overview.md).
+[AZURE.INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## Accessing advanced HTTP reports
 
@@ -33,6 +33,8 @@ This document explains advanced HTTP reporting in Microsoft Azure CDN. These rep
 	The CDN management portal opens.
 
 2. Hover over the **Analytics** tab, then hover over the **Advanced HTTP Reports** flyout.  Click on **HTTP Large Platform**.
+
+	![CDN management portal - Advanced Reports menu](./media/cdn-advanced-http-reports/cdn-advanced-reports.png)
 
 	Report options are displayed.
 

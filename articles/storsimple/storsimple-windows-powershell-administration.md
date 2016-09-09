@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/29/2016"
+   ms.date="05/24/2016"
    ms.author="alkohli@microsoft.com" />
 
 # Use Windows PowerShell for StorSimple to administer your device
@@ -136,8 +136,8 @@ The display language is independent of the language that you set by using the **
 
 You can use HTTP or HTTPS to connect via Windows PowerShell remoting. Use the instructions in the following tutorials:
 
-- [Connect remotely using http](storsimple-remote-connect.md#connect-through-http)
-- [Connect remotely using https](storsimple-remote-connect.md#connect-through-https)
+- [Connect remotely using HTTP](storsimple-remote-connect.md#connect-through-http)
+- [Connect remotely using HTTPS](storsimple-remote-connect.md#connect-through-https)
 
 ## Connection security considerations
 
@@ -181,7 +181,7 @@ The following is a brief description of the types of Help for this Windows Power
 
 - To get online Help for any cmdlet, use the previous cmdlet with the `-Online` parameter: `Get-Help <cmdlet-name> -Online`
 
-- For full Help, you can use the –Full parameter, and for examples, use the `–Examples` parameter.
+- For full Help, you can use the `–Full` parameter, and for examples, use the `–Examples` parameter.
 
 #### To update Help
 

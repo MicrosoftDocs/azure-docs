@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Configure the upgrade of a Service Fabric application | Microsoft Azure"
    description="Learn how to configure the settings for upgrading a Service Fabric application by using Microsoft Visual Studio."
    services="service-fabric"
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="01/12/2016"
-   ms.author="cawaMS" />
+   ms.date="07/29/2016"
+   ms.author="cawa" />
 
 # Configure the upgrade of a Service Fabric application in Visual Studio
 

@@ -3,7 +3,7 @@
 	description="Publish a marketplace item in Azure Stack."
 	services="azure-stack"
 	documentationCenter=""
-	authors="ErikjeMS"
+	authors="rupisure"
 	manager="byronr"
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="01/29/2016"
-	ms.author="erikje"/>
+	ms.author="rupisure"/>
 
 # Publish a Marketplace item
 

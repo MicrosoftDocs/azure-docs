@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Add the Box API to your Logic Apps | Microsoft Azure"
-	description="Overview of the Box API with REST API parameters"
-	services=""
-	documentationCenter="" 
-	authors="MandiOhlinger"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+    pageTitle="Add the Box connector to your Logic Apps | Microsoft Azure"
+    description="Overview of the Box connector with REST API parameters"
+    services=""
+    documentationCenter="" 
+    authors="MandiOhlinger"
+    manager="erikre"
+    editor=""
+    tags="connectors"/>
 
 <tags
    ms.service="multiple"
@@ -14,15 +14,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="02/25/2016"
+   ms.date="05/18/2016"
    ms.author="mandia"/>
 
-# Get started with the Box API
-Connect to Box and create files, delete files, and more. The Box API can be used from:
+# Get started with the Box connector
+Connect to Box and create files, delete files, and more. The Box connector can be used from:
 
-- Logic apps 
+- Logic apps (discussed in this topic)
+- PowerApps (see the [PowerApps connections list](https://powerapps.microsoft.com/tutorials/connections-list/) for the complete list)
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Box connector](../app-service-logic/app-service-logic-connector-box.md).
+>[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
 With Box, you can:
 
@@ -39,13 +40,12 @@ Box includes the following trigger and actions.
 | --- | --- |
 |<ul><li>When a file is created</li><li>When a file is modified</li></ul> | <ul><li>Create file</li><li>When a file is created</li><li>Copy file</li><li>Delete file</li><li>Extract archive to folder</li><li>Get file content using id</li><li>Get file content using path</li><li>Get file metadata using id</li><li>Get file metadata using path</li><li>Update file</li><li>When a file is modified</li></ul>
 
-All APIs support data in JSON and XML formats.
+All connectors support data in JSON and XML formats.
 
 ## Create a connection to Box
-When you add this API to your logic apps, you must authorize logic apps to connect to your Box.
+When you add this connector to your logic apps, you must authorize logic apps to connect to your Box.
 
-1. Sign in to your Box account.
-2. Select **Authorize**, and allow your logic apps to connect and use your Box. 
+>[AZURE.INCLUDE [Steps to create a connection to box](../../includes/connectors-create-api-box.md)]
 
 After you create the connection, you enter the Box properties. The **REST API reference** in this topic describes these properties.
 

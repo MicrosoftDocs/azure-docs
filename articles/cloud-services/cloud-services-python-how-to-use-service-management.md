@@ -3,7 +3,7 @@
 	description="Learn how to programmatically perform common service management tasks from Python."
 	services="cloud-services"
 	documentationCenter="python"
-	authors="huguesv"
+	authors="lmazuel"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="11/03/2015"
-	ms.author="huvalo"/>
+	ms.date="06/22/2016"
+	ms.author="lmazuel"/>
 
 # How to use Service Management from Python
 
@@ -39,11 +39,11 @@ To connect to the Service Management endpoint, you need your Azure subscription 
 ### Management certificates on Windows/Mac/Linux (OpenSSL)
 You can use [OpenSSL](http://www.openssl.org/) to create your management certificate.  You actually need to create two certificates, one for the server (a `.cer` file) and one for the client (a `.pem` file). To create the `.pem` file, execute this:
 
-	`openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem`
+    openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
 
 To create the `.cer` certificate, execute this:
 
-	`openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
+    openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 
 For more information about Azure certificates, see [Certificates Overview for Azure Cloud Services](./cloud-services-certs-create.md). For a complete description of OpenSSL parameters, see the documentation at [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 

@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="Juliako" 
 	writer="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 
@@ -125,6 +125,7 @@ Once it is enabled, the following configurations get disabled: **Custom Host Nam
 
 ![Streaming Endpoint Enable CDN][streaming-endpoint-enable-cdn]
 
+>[AZURE.IMPORTANT] Azure Media Services integration with Azure CDN is implemented on **Azure CDN from Verizon**.  If you wish to use **Azure CDN from Akamai** for Azure Media Services, you must [configure the endpoint manually](../cdn/cdn-create-new-endpoint.md).  For more information about Azure CDN features, see the [CDN overview](../cdn/cdn-overview.md).
 
 ###Additional considerations
 

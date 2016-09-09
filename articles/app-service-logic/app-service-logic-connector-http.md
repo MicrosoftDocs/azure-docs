@@ -1,24 +1,26 @@
 <properties
    pageTitle="Using the HTTP Listener and Connector in Logic Apps | Microsoft Azure App Service "
    description="How to create and configure the HTTP listener and HTTP action Connector or API app and use it in a logic app in Azure App Service"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
    manager="erikre"
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="02/11/2016"
+   ms.date="04/19/2016"
    ms.author="prkumar"/>
 
 
 # Get started with the HTTP listener and HTTP action and add it to your Logic App
->[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
+
+> [AZURE.NOTE] We are ending support for this connector because its functionality is now included by default as the **manual trigger** when you create new Logic apps.  We recommend that you upgrade all your Logic apps that are using this connector.  
+> This version of the article applies to logic apps 2014-12-01-preview schema version.
 
 Connect directly to HTTP resources to listen for HTTP requests and configure HTTP web requests. There are some scenarios where you may need to work with direct HTTP connections, including:
 

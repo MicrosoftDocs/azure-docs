@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/03/2016"
+	ms.date="06/27/2016"
 	ms.author="andkjell"/>
 
 
 # Azure AD Connect sync: Synchronization Service Manager
 
-| [Operations](active-directory-aadconnectsync-service-manager-ui-operations.md) | [Connectors](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Metaverse Designer](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Metaverse Search](active-directory-aadconnectsync-service-manager-ui-mvsearch.md) |
-| --- | --- | --- | --- |
+[Operations](active-directory-aadconnectsync-service-manager-ui-operations.md) | [Connectors](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Metaverse Designer](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Metaverse Search](active-directory-aadconnectsync-service-manager-ui-mvsearch.md)
+--- | --- | --- | ---
 
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/connectors.png)
 
@@ -28,19 +28,19 @@ The Connectors tab is used to manage all systems the sync engine is connected to
 
 ## Connector actions
 
-| Action | Comment |
-| --- | --- |
-| Create | Do not use. For connecting to additional AD forests, use the installation wizard. |
-| Properties | Used for domain and OU filtering. |
-| Delete | Used to either delete the data in the connector space or to delete connection to a forest. |
-| Configure Run Profiles | With the exception of domain filtering, nothing to configure here. |
-| Run | Used to start a one-off run of a profile. |
-| Stop | Stops a Connector currently running a profile. |
-| Export Connector | Do not use. |
-| Import Connector | Do not use. |
-| Update Connector | Do not use. |
-| Refresh Schema | Refreshes the cached schema. It is preferred to use the option in the installation wizard instead since that will also update sync rules.
-| Search Connector Space | Used to find objects and to [Follow an object and its data through the system](#follow-an-object-and-its-data-through-the-system). |
+Action | Comment
+--- | ---
+Create | Do not use. For connecting to additional AD forests, use the installation wizard.
+Properties | Used for domain and OU filtering.
+[Delete](#delete) | Used to either delete the data in the connector space or to delete connection to a forest.
+[Configure Run Profiles](#configure-run-profiles) | With the exception of domain filtering, nothing to configure here. You can use this to see already configured run profiles.
+Run | Used to start a one-off run of a profile.
+Stop | Stops a Connector currently running a profile.
+Export Connector | Do not use.
+Import Connector | Do not use.
+Update Connector | Do not use.
+Refresh Schema | Refreshes the cached schema. It is preferred to use the option in the installation wizard instead since that will also update sync rules.
+[Search Connector Space](#search-connector-space) | Used to find objects and to [Follow an object and its data through the system](#follow-an-object-and-its-data-through-the-system).
 
 ### Delete
 The delete action is used for two different things.
@@ -51,6 +51,11 @@ The option **Delete connector space only** will remove all data, but keep all co
 The option **Delete Connector and connector space** will remove the data as well as all configuration. This is used when you do not want to connect to a forest anymore.
 
 Both options will sync all objects and update the metaverse objects. This is a long running operation.
+
+### Configure Run Profiles
+This option allows you to see the run profiles configured for a Connector.
+
+![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/configurerunprofiles.png)
 
 ### Search Connector Space
 The search connector space action is useful to find objects and troubleshoot data issues.

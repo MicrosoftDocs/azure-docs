@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,19 +12,22 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="01/15/2016"
+   ms.date="04/25/2016"
    ms.author="alkohli" />
 
 # Modify the DATA 0 network interface settings on your StorSimple device
 
 ## Overview
 
-Your Microsoft Azure StorSimple device has six network interfaces, from DATA 0 to DATA 5. The DATA 0 interface is always configured through the Windows PowerShell interface or the serial console, and is automatically cloud-enabled. The DATA 0 interface is first configured through the setup wizard during initial deployment of the StorSimple device. When the device is in an operational mode, you may need to reconfigure DATA 0 settings. This tutorial provides two methods to modify DATA 0 network settings, both through Windows PowerShell for StorSimple.
+Your Microsoft Azure StorSimple device has six network interfaces, from DATA 0 to DATA 5. The DATA 0 interface is always configured through the Windows PowerShell interface or the serial console, and is automatically cloud-enabled. Note that you cannot configure DATA 0 network interface through the Azure classic portal. 
+
+The DATA 0 interface is first configured through the setup wizard during initial deployment of the StorSimple device. When the device is in an operational mode, you may need to reconfigure DATA 0 settings. This tutorial provides two methods to modify DATA 0 network settings, both through Windows PowerShell for StorSimple.
 
 After reading this tutorial, you will be able to:
 
 - Modify DATA 0 network setting through the setup wizard
 - Modify DATA 0 network settings through the `Set-HcsNetInterface` cmdlet
+
 
 
 ## Modify DATA 0 network settings through setup wizard
@@ -44,7 +47,7 @@ You can reconfigure DATA 0 network settings by connecting to the Windows PowerSh
 
 
 ## Modify DATA 0 network settings through Set-HcsNetInterface cmdlet
-An alternate way to reconfigure DATA 0 network interface is through the use of  the `Set-HcsNetInterface` cmdlet. The cmdlet is executed from the Windows PowerShell interface of your StorSimple device. Perform the following steps to modify the DATA 0 settings: 
+An alternate way to reconfigure DATA 0 network interface is through the use of  the `Set-HcsNetInterface` cmdlet. The cmdlet is executed from the Windows PowerShell interface of your StorSimple device. When using this procedure, the controller fixed IPs can also be configured here. Perform the following steps to modify the DATA 0 settings: 
 
 #### To modify DATA 0 network settings through the Set-HcsNetInterface cmdlet
 
@@ -65,6 +68,8 @@ An alternate way to reconfigure DATA 0 network interface is through the use of  
 	- Fixed IPv4 address for Controller 0
 
 	- Fixed IPv4 address for Controller 1
+
+	For more information on the use of this cmdlet, go to [Windows PowerShell for StorSimple cmdlet reference](https://technet.microsoft.com/library/dn688161.aspx).
 
 ## Next steps
 

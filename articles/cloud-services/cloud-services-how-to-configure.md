@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to configure a cloud service | Microsoft Azure" 
+	pageTitle="How to configure a cloud service (classic portal) | Microsoft Azure" 
 	description="Learn how to configure cloud services in Azure. Learn to update the cloud service configuration and configure remote access to role instances." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/15/2016"
+	ms.date="07/27/2016"
 	ms.author="adegeo"/>
 
 

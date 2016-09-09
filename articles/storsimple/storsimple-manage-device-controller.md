@@ -1,4 +1,4 @@
-<properties 
+<properties
    pageTitle="Manage StorSimple device controllers | Microsoft Azure"
    description="Learn how to stop, restart, shut down, or reset your StorSimple device controllers."
    services="storsimple"
@@ -6,13 +6,13 @@
    authors="alkohli"
    manager="carmonm"
    editor="" />
-<tags 
+<tags
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/18/2016"
+   ms.date="07/26/2016"
    ms.author="alkohli" />
 
 # Manage your StorSimple device controllers
@@ -24,7 +24,7 @@ This tutorial describes the different operations that can be performed on your S
 This tutorial includes step-by-step instructions to manage the device controllers by using the:
 
 - **Controllers** section of the **Maintenance** page in the StorSimple Manager service
-- Windows PowerShell for StorSimple. 
+- Windows PowerShell for StorSimple.
 
 We recommend that you manage the device controllers via the StorSimple Manager service. If an action can only be performed by using Windows PowerShell for StorSimple, the tutorial makes a note of it.
 
@@ -41,13 +41,13 @@ A controller restart or shut down is not required as a part of normal system ope
 
 Restarting a device is not disruptive to connected initiators, assuming the passive controller is available. If a passive controller is not available or turned off, then restarting the active controller may result in the disruption of service and downtime.
 
-> [AZURE.IMPORTANT] 
+> [AZURE.IMPORTANT]
 
 > - **A running controller should never be physically removed as this would result in a loss of redundancy and an increased risk of downtime.**
 
 > - The following procedure applies only to the StorSimple physical device. For information about how to start, stop, and restart the virtual device, see [Work with the virtual device](storsimple-virtual-device-u1.md#work-with-the-storsimple-virtual-device).
 
-You can restart or shut down a single device controller by using the Azure classic portal of the StorSimple Manager service or Windows PowerShell for StorSimple 
+You can restart or shut down a single device controller by using the Azure classic portal of the StorSimple Manager service or Windows PowerShell for StorSimple
 
 To manage your device controllers from the Azure classic portal, perform the following steps.
 
@@ -66,23 +66,17 @@ To manage your device controllers from the Azure classic portal, perform the fol
 	>[AZURE.NOTE] If you cannot see **Manage Controllers**, then you need to install updates. For more information, see [Update your StorSimple device](storsimple-update-device.md).
 
 1. In the **Change Controller Settings** dialog box, do the following:
-
-
-	- From the **Select Controller** drop-down list, select the controller that you want to manage. The options are Controller 0 and Controller 1. These controllers are also identified as active or passive.
+    1. From the **Select Controller** drop-down list, select the controller that you want to manage. The options are Controller 0 and Controller 1. These controllers are also identified as active or passive.
 
 		>[AZURE.NOTE] A controller cannot be managed if it is unavailable or turned off, and it will not appear in the drop-down list.
-	
 
+    2. From the **Select Action** drop-down list, choose **Restart controller** or **Shut down controller**.
 
-	- From the **Select Action** drop-down list, choose **Restart controller** or **Shut down controller**.
-	
 		![Restart StorSimple device passive controller](./media/storsimple-manage-device-controller/IC766020.png)
- 
-
-	- Click the check icon ![Check Icon](./media/storsimple-manage-device-controller/IC740895.png).
+    3. Click the check icon ![Check Icon](./media/storsimple-manage-device-controller/IC740895.png).
 
 This will restart or shut down the controller. The table below summarizes the details of what happens depending on the selections you have made in the **Change Controller Settings** dialog box.  
-													
+
 
 |Selection #|If you choose to...|This will happen.|
 |---|---|---|
@@ -93,7 +87,7 @@ This will restart or shut down the controller. The table below summarizes the de
 
 
 #### To restart or shut down a controller in Windows PowerShell for StorSimple
-Perform the following steps to shut down or restart a single controller on your StorSimple device from the Azure classic portal. 
+Perform the following steps to shut down or restart a single controller on your StorSimple device from the Azure classic portal.
 
 
 1. Access the device by using the serial console or a telnet session from a remote computer. Connect to Controller 0 or Controller 1 by following the steps in [Use PuTTY to connect to the device serial console](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
@@ -101,16 +95,12 @@ Perform the following steps to shut down or restart a single controller on your 
 1. In the serial console menu, choose option 1, **Log in with full access**.
 
 1. In the banner message, make a note of the controller you are connected to (Controller 0 or Controller 1) and whether it is the active or the passive (standby) controller.
-	
-
-	- To shut down a single controller, at the prompt, type:
+    - To shut down a single controller, at the prompt, type:
 
 		`Stop-HcsController`
 
 		This will shut down the controller that you are connected to. If you stop the active controller, then it will fail over to the passive controller before it shuts down.
-
-
-	- To restart a controller, at the prompt, type:
+    - To restart a controller, at the prompt, type:
 
 		`Restart-HcsController`
 
@@ -119,7 +109,7 @@ Perform the following steps to shut down or restart a single controller on your 
 
 ## Shut down a StorSimple device
 
-This section explains how to shut down a running or a failed StorSimple device from a remote computer. A device is turned off after shutting down both the device controllers. A device shut down is done when the device is being physically moved, or is taken out of service. 
+This section explains how to shut down a running or a failed StorSimple device from a remote computer. A device is turned off after shutting down both the device controllers. A device shut down is done when the device is being physically moved, or is taken out of service.
 
 > [AZURE.IMPORTANT] Before you shut down the device, check the health of the device components. Navigate to **Devices > Maintenance > Hardware Status** and verify that the LED status of all the components is green. Only a healthy device will have a green status. If your device is being shut down to replace a malfunctioning component, you will see a failed (red) or a degraded (yellow) status for the respective component(s).
 
@@ -150,7 +140,10 @@ This section explains how to shut down a running or a failed StorSimple device f
 
 ## Reset the device to factory default settings
 
-This procedure contains the detailed steps required to reset your Microsoft Azure StorSimple device to factory default settings using the Windows PowerShell for StorSimple.
+> [AZURE.IMPORTANT] If you need to reset your device to factory default settings, contact Microsoft Support. The procedure described below should be used only in conjunction with Microsoft Support.
+
+This procedure describes how to reset your Microsoft Azure StorSimple device to factory default settings using Windows PowerShell for StorSimple.
+Resetting a device removes all data and settings from the entire cluster by default.
 
 Perform the following steps to reset your Microsoft Azure StorSimple device to factory default settings:
 
@@ -160,19 +153,19 @@ Perform the following steps to reset your Microsoft Azure StorSimple device to f
 
 1. In the serial console menu, choose option 1, **Log in with full access**.
 
-1. At the prompt, type the following command:
+1. At the prompt, type the following command to reset the entire cluster, removing all data, metadata, and controller settings:
 
 	`Reset-HcsFactoryDefault`
 
-	The system will reboot multiple times. You will be notified when the reset has successfully completed. Depending on the system model, it can take 45-60 minutes for an 8100 device and 60-90 minutes for an 8600 to finish this process.
+    To instead reset a single controller, use the  [Reset-HcsFactoryDefault](http://technet.microsoft.com/library/dn688132.aspx) cmdlet with the `-scope` parameter.)
 
-	> [AZURE.TIP] 
-	
-	> - Use the `Reset-HcsFactoryDefault –SkipFirmwareVersionCheck` command to skip the firmware version check if the factory reset cmdlet (as used above) reports the firmware mismatch error: Factory reset cannot continue due to a mismatch in the firmware versions. You must skip the firmware check (by using the `–SkipFirmwareCheck` option) when performing a factory reset on a device that was previously updated using Microsoft Update or a hotfix mechanism.
-	
-	> - The factory reset procedure may fail for StorSimple devices that are running Update 1 or 1.1 in the Government portal and have performed a successful single or dual controller replacement (with replacement controllers that were shipped with pre-Update 1 software). This happens when the factory reset image is validated for the presence of a SHA1 file on the controller that does not exist for pre-Update 1 software. If you see this factory reset failure, contact Microsoft Support to assist you with the next steps. This issue is not seen with replacement controllers that were shipped from the factory with Update 1 or later software.	
+    The system will reboot multiple times. You will be notified when the reset has successfully completed. Depending on the system model, it can take 45-60 minutes for an 8100 device and 60-90 minutes for an 8600 to finish this process.
 
-	> - For more information on how to use this cmdlet, go to the [cmdlet reference for Windows PowerShell for StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
+	> [AZURE.TIP]
+
+	> - If you're using Update 1.2 or earlier use the `–SkipFirmwareVersionCheck` parameter to skip the firmware version check (otherwise you'll see a firmware mismatch error: Factory reset cannot continue due to a mismatch in the firmware versions. ).
+
+	> - The factory reset procedure may fail for StorSimple devices that are running Update 1 or 1.1 in the Government portal and have performed a successful single or dual controller replacement (with replacement controllers that were shipped with pre-Update 1 software). This happens when the factory reset image is validated for the presence of a SHA1 file on the controller that does not exist for pre-Update 1 software. If you see this factory reset failure, contact Microsoft Support to assist you with the next steps. This issue is not seen with replacement controllers that were shipped from the factory with Update 1 or later software.
 
 
 ## Questions and answers about managing device controllers

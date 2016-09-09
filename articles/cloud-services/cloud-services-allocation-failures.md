@@ -3,8 +3,8 @@
 	description="Troubleshooting allocation failure when you deploy Cloud Services in Azure"
 	services="azure-service-management, cloud-services"
 	documentationCenter=""
-	authors="kenazk"
-	manager="drewm"
+	authors="simonxjx"
+	manager="felixwu"
 	editor=""
 	tags="top-support-issue"/>
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="11/04/2015"
-	ms.author="kenazk"/>
+	ms.date="07/14/2016"
+	ms.author="v-six"/>
 
 
 
@@ -24,7 +24,7 @@
 ## Summary
 When you deploy instances to a Cloud Service or add new web or worker role instances, Microsoft Azure allocates compute resources. You may occasionally receive errors when performing these operations even before you reach the Azure subscription limits. This article explains the causes of some of the common allocation failures and suggests possible remediation. The information may also be useful when you plan the deployment of your services.
 
-If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click on **Get Support**.
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ### Background – How allocation works
 The servers in Azure datacenters are partitioned into clusters. A new cloud service allocation request is attempted in multiple clusters. When the first instance is deployed to a cloud service(in either staging or production), that cloud service gets pinned to a cluster. Any further deployments for the cloud service will happen in the same cluster. In this article, we'll refer to this as "pinned to a cluster". Diagram 1 below illustrates the case of a normal allocation which is attempted in multiple clusters; Diagram 2 illustrates the case of an allocation that's pinned to Cluster 2 because that's where the existing Cloud Service CS_1 is hosted.
@@ -45,46 +45,40 @@ You may see the following error message:
 ### Common Issues
 Here are the common allocation scenarios that cause an allocation request to be pinned to a single cluster.
 
-- Deploying to Staging Slot - If a cloud service has a deployment in either slot, then the entire cloud service is pinned to a specific cluster.  This means that if a deployment already exists in the production slot, then a new staging deployment can only be allocated in the same cluster as the production slot. If the cluster is nearing capacity, the request may fail. 
- 
-- Scaling - Adding new instances to an existing cloud service must allocate in the same cluster.  Small scaling requests can usually be allocated, but not always. If the cluster is nearing capacity, the request may fail. 
-	
-- Affinity Group - A new deployment to an empty cloud service can be allocated by the fabric in any cluster in that region, unless the cloud service is pinned to an affinity group. Deployments to the same affinity group will be attempted on the same cluster. If the cluster is nearing capacity, the request may fail. 
-	
-- Affinity Group vNet - Older Virtual Networks were tied to affinity groups instead of regions, and cloud services in these Virtual Networks would be pinned to the affinity group cluster. Deployments to this type of virtual network will be attempted on the pinned cluster. If the cluster is nearing capacity, the request may fail. 
+- Deploying to Staging Slot - If a cloud service has a deployment in either slot, then the entire cloud service is pinned to a specific cluster.  This means that if a deployment already exists in the production slot, then a new staging deployment can only be allocated in the same cluster as the production slot. If the cluster is nearing capacity, the request may fail.
+
+- Scaling - Adding new instances to an existing cloud service must allocate in the same cluster.  Small scaling requests can usually be allocated, but not always. If the cluster is nearing capacity, the request may fail.
+
+- Affinity Group - A new deployment to an empty cloud service can be allocated by the fabric in any cluster in that region, unless the cloud service is pinned to an affinity group. Deployments to the same affinity group will be attempted on the same cluster. If the cluster is nearing capacity, the request may fail.
+
+- Affinity Group vNet - Older Virtual Networks were tied to affinity groups instead of regions, and cloud services in these Virtual Networks would be pinned to the affinity group cluster. Deployments to this type of virtual network will be attempted on the pinned cluster. If the cluster is nearing capacity, the request may fail.
 
 ## Solutions
 
 1. Redeploy to a new cloud service - This solution is likely to be most successful as it allows the platform to choose from all clusters in that region.
-	
+
 	- Deploy the workload to a new cloud service  
-	
+
 	- Update the CNAME or A record to point traffic to the new cloud service
-		
+
 	- Once zero traffic is going to the old site, you can delete the old cloud service. This solution should incur zero downtime.
 
-2. Delete both production and staging slots - This solution will preserve your existing DNS name, but will cause downtime to your application. 
-	
-	- Delete the production and staging slots of an existing cloud service so that the cloud service is empty, and then 
-	
-	- Create a new deployment in the existing cloud service. This will re-attempt to allocation on all clusters in the region. Ensure the cloud service is not tied to an affinity group. 
+2. Delete both production and staging slots - This solution will preserve your existing DNS name, but will cause downtime to your application.
+
+	- Delete the production and staging slots of an existing cloud service so that the cloud service is empty, and then
+
+	- Create a new deployment in the existing cloud service. This will re-attempt to allocation on all clusters in the region. Ensure the cloud service is not tied to an affinity group.
 
 3. Reserved IP -  This solution will preserve your existing IP address, but will cause downtime to your application.  
-	
-	- Create a ReservedIP for your existing deployment using Powershell 
+
+	- Create a ReservedIP for your existing deployment using Powershell
 
 	```
 	New-AzureReservedIP -ReservedIPName {new reserved IP name} -Location {location} -ServiceName {existing service name}
 	```
-		
+
 	- Follow #2 from above, making sure to specify the new ReservedIP in the service's CSCFG.
 
-4. Remove affinity group for new deployments - Affinity Groups are no longer recommended. Follow steps for #1 above to deploy a new cloud service. Ensure cloud service is not in an affinity group. 
+4. Remove affinity group for new deployments - Affinity Groups are no longer recommended. Follow steps for #1 above to deploy a new cloud service. Ensure cloud service is not in an affinity group.
 
-5. Convert to a Regional Virtual Network - See [How to migrate from Affinity Groups to a Regional Virtual Network (VNet)](https://azure.microsoft.com/documentation/articles/virtual-networks-migrate-to-regional-vnet/).
-
-## Additional resources
-### Contact Azure Customer Support
-
-If this article didn’t help to solve your Azure issue, browse the Azure forums on [MSDN and Stack Overflow](https://azure.microsoft.com/support/forums/).
-You can also file an Azure support incident about your issue. Go to the [Azure Support](https://azure.microsoft.com/support/options/) site and click Get Support. For information about using Azure Support, read the[ Microsoft Azure Support FAQ](https://azure.microsoft.com/support/faq/).
+5. Convert to a Regional Virtual Network - See [How to migrate from Affinity Groups to a Regional Virtual Network (VNet)](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).

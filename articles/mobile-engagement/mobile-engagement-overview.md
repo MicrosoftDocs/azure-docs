@@ -45,10 +45,8 @@ Microsoft has a longstanding commitment to privacy, which is an integral part of
 
 ###Next Steps:
 
-[Create an Azure Mobile Engagement application](mobile-engagement-create.md)
-
 [Best practices and process to create your Mobile Engagement](mobile-engagement-getting-started-best-practices.md)
 
-[Getting Started (Marketers)](mobile-engagement-define-your-mobile-engagement-strategy.md)
+[Getting Started](/documentation/services/mobile-engagement/)
 
-[Getting Started (Developers)](/documentation/services/mobile-engagement/)
+[Download demo apps with source code](https://aka.ms/azmedemoapps)

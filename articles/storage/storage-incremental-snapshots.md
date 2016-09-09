@@ -3,7 +3,7 @@
 	description="Create a custom solution for backup and recovery of your Azure virtual machine disks using incremental snapshots."
 	services="storage"
 	documentationCenter="na"
-	authors="ms-prkhad"
+	authors="aungoo-msft"
 	manager=""
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2016"
-	ms.author="tamram;prkhad"/>
+	ms.date="07/25/2016"
+	ms.author="tamram;aungoo-msft"/>
 
 
 # Back up Azure virtual machine disks with incremental snapshots

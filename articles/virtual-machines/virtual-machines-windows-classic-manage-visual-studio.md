@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="01/30/2016"
+   ms.date="05/08/2016"
    ms.author="tarcher" />
 
 # Create and manage Windows virtual machines in Visual Studio

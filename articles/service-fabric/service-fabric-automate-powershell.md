@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="07/15/2016"
 	ms.author="ryanwi"/>
 
 # Automate the application lifecycle using PowerShell
 
-Many aspects of the [Service Fabric application lifecycle](service-fabric-application-lifecycle.md) can be automated.  This article shows how to use PowerShell to automate common tasks for deploying, upgrading, removing, and testing Azure Service Fabric applications.  
+Many aspects of the [Service Fabric application lifecycle](service-fabric-application-lifecycle.md) can be automated.  This article shows how to use PowerShell to automate common tasks for deploying, upgrading, removing, and testing Azure Service Fabric applications.  Managed and HTTP APIs for app management are also available, see [app lifecycle](service-fabric-application-lifecycle.md) for more information.  
 
 ## Prerequisites
 Before you move on to the tasks in the article, be sure to:

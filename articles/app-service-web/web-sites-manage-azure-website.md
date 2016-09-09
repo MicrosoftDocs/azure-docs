@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/12/2016" 
-	ms.author="tdykstra"/>
+	ms.date="04/27/2016" 
+	ms.author="rachelap"/>
 
 # Manage a web app in Azure App Service
 
@@ -60,7 +60,6 @@ While your web app is running, you want to make sure it is available, and that i
 ### Monitoring
 
 - Through the Azure Portal, you can [add performance metrics](web-sites-monitor.md) such as CPU usage and number of client requests.
-- For deeper insight, use New Relic to monitor and manage performance. See [.NET web app in Azure App Service with New Relic application performance management](store-new-relic-web-sites-dotnet-application-performance-management.md).
 - [Scale your web app](web-sites-scale.md) in response to traffic. Depending on your tier, you can scale the number of VMs and/or the size of the VM instances. In the Standard and Premium tiers, you can also set up autoscaling, so your web app scales automatically, either on a fixed schedule, or in response to load.  
  
 ### Backups
@@ -90,12 +89,7 @@ If you use Visual Studio Team Services, you can set up continuous deployment fro
 - [Using Team Foundation Version Control (TFVC)](../cloud-services/cloud-services-continuous-delivery-use-vso.md) 
 - [Using Git](../cloud-services/cloud-services-continuous-delivery-use-vso-git.md)
  
-[AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
-
-[AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
- 
 <!-- Anchors. -->
-
 
 [Before you deploy your site to production]: #before-you-deploy-your-site-to-production
 [While your website is running]: #while-your-website-is-running

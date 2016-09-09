@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="12/01/2015" 
+	ms.date="07/21/2016" 
 	ms.author="donnam"/>
 
 # Get started with authentication in Mobile Services
@@ -47,7 +47,6 @@ This tutorial is based on the Mobile Services quickstart. You must also first co
 
 <ol start="6">
 <li><p>In Visual Studio or Xamarin Studio, run the client project on a device or simulator. Verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.</p>
-
    	<p>This happens because the app attempts to access Mobile Services as an unauthenticated user, but the <em>TodoItem</em> table now requires authentication.</p></li>
 </ol>
 
@@ -109,6 +108,6 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Get started with Mobile Services]: mobile-services-dotnet-backend-xamarin-android-get-started.md
 [Get started with authentication]: mobile-services-dotnet-backend-xamarin-android-get-started-users.md
 [Get started with push notifications]: mobile-services-dotnet-backend-xamarin-android-get-started-push.md
-[Authorize users with scripts]: ../mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
-[JavaScript and HTML]: ../mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
+[Authorize users with scripts]: mobile-services-dotnet-backend-service-side-authorization.md
+[JavaScript and HTML]: mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 

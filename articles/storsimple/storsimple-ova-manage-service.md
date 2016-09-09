@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/05/2016"
+   ms.date="05/19/2016"
    ms.author="alkohli" />
 
 # Deploy the StorSimple Manager service for StorSimple Virtual Array
@@ -38,7 +38,7 @@ The common tasks that can be performed through the StorSimple Manager page are:
 - Get the service registration key
 - Regenerate the service registration key
 
-This tutorial describes how to perform each of these tasks.
+This tutorial describes how to perform each of these tasks. The information contained in this article is applicable only to StorSimple Virtual Arrays. For more information on StorSimple 8000 series, go to [deploy a StorSimple Manager service](storsimple-manage-service.md).
 
 ## Create a service
 
@@ -51,6 +51,8 @@ Use the **Quick Create** option to create a StorSimple Manager service if you wa
 You can also choose to generate a default storage account when you create the service.
 
 A single service can manage multiple devices. However, a device cannot span multiple services. A large enterprise can have multiple service instances to work with different subscriptions, organizations, or even deployment locations.  
+
+> [AZURE.NOTE] You need separate instances of StorSimple Manager service to manage StorSimple 8000 series devices and StorSimple Virtual Arrays.
 
 Perform the following steps to create a service.
 

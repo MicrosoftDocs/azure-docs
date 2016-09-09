@@ -3,7 +3,7 @@
    description="Migration guidance for bringing your solution to Azure SQL Data Warehouse platform."
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jrowlandjones"
+   authors="barbkess"
    manager="barbkess"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/14/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+   ms.date="05/31/2016"
+   ms.author="barbkess;jrj;sonyama"/>
 
 # Migrate your solution to SQL Data Warehouse
 

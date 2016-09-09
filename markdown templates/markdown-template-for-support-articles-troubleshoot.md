@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Page title that displays in the browser tab and search results"
-   description="Article description that will be displayed on landing pages and in most search results"
+   pageTitle="42 characters followed by | Microsoft Azure to equal 60 characters. This title is displayed in search engines which will cut you off at 60 characters. Use keywords but don’t waste space"
+   description="Displayed in search engines under the title. You have more room here, use more keywords and a more descriptive explanation than the title"
    services="service-name"
    documentationCenter="dev-center-name"
    authors="GitHub-alias-of-only-one-author"
    manager="manager-alias"
    editor=""
-   tags="top-support-issue,comma-separates-additional-tags-if-required"/>
+   tags="top-support-issue"/>
 
 <tags
    ms.service="required"
@@ -17,74 +17,53 @@
    ms.date="mm/dd/yyyy"
    ms.author="Your MSFT alias or your full email address;semicolon separates two or more"/>
 
-# This is the title that will be displayed on the web page and the article index on ACOM
+# Title (Maximum 120 characters, target the primary keyword)
 
-To copy the markdown from this template, copy the article in your local repo, or click the Raw button in the GitHub UI and copy the markdown.
+_Use 2-3 secondary keywords in the description._
 
-  ![Alt text; do not leave blank. Describe image.][1]
+_Select one of the following disclaimers depending on your scenario. If your article is deployment model agnostic, ignore this._
 
-Intro paragraph: Lorem dolor amet, adipiscing elit. Phasellus interdum nulla risus, lacinia porta nisl imperdiet sed. Mauris dolor mauris, tempus sed lacinia nec, euismod non felis. Nunc semper porta ultrices. Maecenas neque nulla, condimentum vitae ipsum sit amet, dignissim aliquet nisi.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
-## Contact Azure Customer Support
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](http://azure.microsoft.com/support/forums/).
+[AZURE.INCLUDE [learn-about-deployment-models](../../learn-about-deployment-models-both-include.md)]
 
-Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](http://azure.microsoft.com/support/options/) and click on **Get Support**. For information about using Azure Support, read the [Microsoft Azure Support FAQ](http://azure.microsoft.com/support/faq/).
+[Opening paragraph]
+- _Briefly describe the specific issue(s) that this article will help troubleshoot, and the common root cause(s)._
+- _The opening paragraph is a good place to use different keywords from those in the title, but make sure to not make it very wordy. The sentences should flow well and be easy to understand._
+- _Exceptions (optional) - List the relevant scenarios that are not covered in this article. For example, ” Linux/OSS scenarios aren't covered in this article”._
 
-## First troubleshooting section
+These {errors}|{Issues} occur because {a very general reason}.
 
-Aenean sit amet leo nec purus placerat fermentum ac gravida odio. Aenean tellus lectus, faucibus in rhoncus in, faucibus sed urna.  volutpat mi id purus ultrices iaculis nec non neque. [Link text for link outside of azure.microsoft.com](http://weblogs.asp.net/scottgu). Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris [example link text for link to an article in a service folder](../articles/expressroute/expressroute-bandwidth-upgrade.md).
+_Here is an example of an opening paragraph._
 
-I get 10 times more traffic from [Google] [gog] than from [Yahoo] [yah] or [MSN] [msn].
+_When you try to connect to Azure SQL Database, the common connection errors you encounter are:_
+- _The login failed for the user. The password change failed._
+- _Password validation failed._
+- _Failed to authorize access to the specified subscription._
 
-> [AZURE.NOTE] Indented note text.  The word 'note' will be added during publication. Ut eu pretium lacus. Nullam purus est, iaculis sed est vel, euismod vehicula odio. Curabitur lacinia, erat tristique iaculis rutrum, erat sem sodales nisi, eu condimentum turpis nisi a purus.
+_These errors occur because you don’t have permission to access the data source._
 
-1. Aenean sit amet leo nec **Purus** placerat fermentum ac gravida odio.
+[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-2. Aenean tellus lectus, faucius in **Rhoncus** in, faucibus sed urna. Suspendisse volutpat mi id purus ultrices iaculis nec non neque.
+## Troubleshooting guidance (optional)
+- _Use this section when the guidance applies across the board._
+- _Don’t go into details. Keep it high level to serve as a guidance._
 
-  	![Alt text; do not leave blank. Collector car in racing red.][2]
+_Here is an example of a troubleshooting guidance._
 
-3. Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris. Sed dolor dui, condimentum et varius a, vehicula at nisl.
+_In general, as long as the error does not indicate "the requested VM size is not supported", you can always retry at a later time, as enough resource may have been freed up in the cluster to accommodate your request. If the problem is the requested VM size is not supported, try a different VM size; otherwise, the only option is to remove the pinning constraint._
 
-  	![Alt text; do not leave blank][3]
+## Troubleshooting steps
+_List the solutions in the order of usability and simplicity, meaning the simplest, the most effective and useful solution should go first._
+
+_Select one of the versions that apply to your situation._
+
+| <em>Version 1: Your article is deployment model agnostic</em> | <em>Version 2: Steps for Resource Manager and Classic are largely the same</em> | <em>Version 3: Steps for Resource Manager and Classic are mostly different. <br />In this case, use the <a href="https://github.com/Azure/azure-content-pr/blob/master/contributor-guide/custom-markdown-extensions.md#simple-selectors">Simple Selectors technique in Github</a>.</em> |
+|:------------------------------------------------------|:-----------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <p><h3>[Issue 1] \| [Error 1]</h3><h4>Cause</h4>[Cause details]</p><p><h4>Solution 1</h4><em>(the simplest and most effective)</em></p><ol><li>[Step 1]</li><li>[Step 2]</li></ol><p><h4>Solution 2</h4><em>(the less simple or effective)</em></p><ol><li>[Step 1]</li><li>[Step 2]</li></ol><p><h3>[Issue 2] \| [Error 2]</h3><h4>Cause</h4>[Cause details]</p><p><h4>Solution 1</h4><em>(the simplest and most effective)</em></p><ol><li>[Step 1]</li><li>[Step 2]</li></ol><p><h4>Solution 2</h4><em>(the simplest and most effective)</em></p><ol><li>[Step 1]</li><li>[Step 2]</li></ol><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | <p><h3>[Issue 1] \| [Error 1]</h3><h4>Cause</h4>[Cause details]</p><p><h4>Solution 1</h4><em>(the simplest and most effective)</em></p><ol><li>[Step 1]</li><li>If you use the classic deployment model, [do this].<br />If you use the Resource Manager deployment model, [do this].</li><li>[Step 3]</li></ol><p><h4>Solution 2</h4><em>(the less simple or effective)</em></p><ol><li>[Step 1]</li><li>If you use the classic deployment model, [do this].<br />If you use the Resource Manager deployment model, [do this].</li><li>[Step 3]</li></ol><p><h3>[Issue 2] \| [Error 2]</h3><h4>Cause</h4>[Cause details]</p><p><h4>Solution 1</h4><em>(the simplest and most effective)</em></p><ol><li>[Step 1]</li><li>If you use the classic deployment model, [do this].<br />If you use the Resource Manager deployment model, [do this].</li><li>[Step 3]</li></ol><p><h4>Solution 2</h4><em>(the simplest and most effective)</em></p><ol><li>[Step 1]</li><li>If you use the classic deployment model, [do this].<br />If you use the Resource Manager deployment model, [do this].</li><li>[Step 3]</li></ol>  | <img src="media/markdown-template-for-support-articles-troubleshoot/rm-classic.png" alt="ARM-Classic"><p><h3>[Issue 1] \| [Error 1]</h3><h4>Cause</h4>[Cause details]</p><p><h4>Solution 1</h4><em>(the simplest and most effective)</em></p><ol><li>[Step 1]</li><li>[Step 2]</li></ol><p><h4>Solution 2</h4><em>(the less simple or effective)</em></p><ol><li>[Step 1]</li><li>[Step 2]</li></ol><p><h3>[Issue 2] \| [Error 2]</h3><h4>Cause</h4>[Cause details]</p><p><h4>Solution 1</h4><em>(the simplest and most effective)</em></p><ol><li>[Step 1]</li><li>[Step 2]</li></ol><p><h4>Solution 2</h4><em>(the simplest and most effective)</em></p><ol><li>[Step 1]</li><li>[Step 2]</li></ol><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> |
 
 
-Suspendisse volutpat mi id purus ultrices iaculis nec non neque. Nullam dictum dolor at aliquam pharetra. Vivamus ac hendrerit mauris. Otrus informatus: [Link 1 to another azure.microsoft.com documentation topic](virtual-machines-windows-hero-tutorial.md)
-
-## Second troubleshooting section
-
-Ut eu pretium lacus. Nullam purus est, iaculis sed est vel, euismod vehicula odio.
-
-1. Maecenas sed condimentum nisi. Suspendisse potenti.
-
-  + Fusce
-  + Malesuada
-  + Sem
-
-2. Nullam in massa eu tellus tempus hendrerit.
-
-  	![Alt text; do not leave blank. Example of a Channel 9 video.][4]
-
-3. Quisque felis enim, fermentum ut aliquam nec, pellentesque pulvinar magna.
-
-<!-- Add more such troubleshooting sections as needed -->
-
-<!-- Add links to additional resources at the end -->
-## Additional resources
-
-Optional introduction here:
-[Link 1 to another azure.microsoft.com documentation topic](storage-whatis-account.md).
-[Link 2 to another azure.microsoft.com documentation topic](dotnet-sdk.md).
-
-<!-- The following sections will not appear in the content -->
-<!--Image references-->
-[1]: ./media/markdown-template-for-new-articles/octocats.png
-[2]: ./media/markdown-template-for-new-articles/pretty49.png
-[3]: ./media/markdown-template-for-new-articles/channel-9.png
-[4]: ./media/markdown-template-for-new-articles/copytemplate.png
-
-<!--Reference style links - using these makes the source content way more readable than using inline links-->
-[gog]: http://google.com/        
-[yah]: http://search.yahoo.com/  
-[msn]: http://search.msn.com/    
+## Next steps
+_Include this section if there are 1 -3 concrete, highly relevant next steps the user should take. Delete if there are no next steps. This is not a place for a list of links. If you include links to next steps, make sure to include text to explain why the next steps are relevant/ important._

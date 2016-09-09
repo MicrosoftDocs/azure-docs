@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/16/2016" 
+	ms.date="08/04/2016" 
 	ms.author="billmath"/>
 
 # Signing in using an alternate method with Azure Multi-Factor Authentication

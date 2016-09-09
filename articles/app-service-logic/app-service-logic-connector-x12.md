@@ -1,23 +1,25 @@
 <properties 
    pageTitle="Using the BizTalk X12 Connector in Logic Apps | Microsoft Azure App Service" 
    description="How to create and configure the BizTalk X12 Connector or API app and use it in a logic app in Azure App Service" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajeshramabathiran" 
    manager="erikre" 
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/10/2016"
+   ms.date="04/20/2016"
    ms.author="rajram"/>
 
 # Get started with the BizTalk X12 API App and add it to your Logic App
->[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version.
+
+
+[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 Use the BizTalk X12 service to receive and send messages per the X12 protocol in business to business communications. X12 is also commonly referred to as ASC X12 or Accredited Standards Committee X12 and is widely used across industries.
 

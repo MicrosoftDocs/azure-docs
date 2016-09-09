@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory B2C preview: Extensible policy framework | Microsoft Azure"
+	pageTitle="Azure Active Directory B2C: Extensible policy framework | Microsoft Azure"
 	description="A topic on the extensible policy framework of Azure Active Directory B2C and on how to create various policy types"
 	services="active-directory-b2c"
 	documentationCenter=""
@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/15/2016"
+	ms.date="07/24/2016"
 	ms.author="swkrish"/>
 
-# Azure Active Directory B2C preview: Extensible policy framework
-
-[AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
+# Azure Active Directory B2C: Extensible policy framework
 
 ## The basics
 
@@ -103,7 +101,7 @@ To enable sign-in on your application, you will need to create a sign-in policy.
 
 ## Create a sign-up or sign-in policy
 
-This policy handles both consumer sign-up & sign-in experiences with a single configuration. Consumers are led down the right path (sign-up or sign-in) depending on the context. It also describes the contents of tokens that the application will receive upon successful sign-ups or sign-ins.
+This policy handles both consumer sign-up & sign-in experiences with a single configuration. Consumers are led down the right path (sign-up or sign-in) depending on the context. It also describes the contents of tokens that the application will receive upon successful sign-ups or sign-ins.  A code sample for the sign-up or sign-in policy is [available here](active-directory-b2c-devquickstarts-web-dotnet-susi.md).
 
 1. [Follow these steps to navigate to the B2C features blade on the Azure portal](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
 2. Click **Sign-up or sign-in policies**.

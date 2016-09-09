@@ -3,7 +3,7 @@
    description="Introduce Azure Data Lake Analytics U-SQL catalog"
    services="data-lake-analytics"
    documentationCenter=""
-   authors="mumian"
+   authors="edmacauley"
    manager="paulettm"
    editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/11/2016"
-   ms.author="jgao"/>
+   ms.date="05/16/2016"
+   ms.author="edmaca"/>
 
 # Use U-SQL catalog
 
@@ -73,7 +73,7 @@ You can use Data Lake Tools for Visual Studio to manage the catalog.  For more i
 - U-SQL & development
     - [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
     - [Use U-SQL window functions for Azure Data Lake Aanlytics jobs](data-lake-analytics-use-window-functions.md)
-    - [Develop U-SQL user defined operators for Data Lake Analytics jobs](data-lake-analtyics-u-sql-user-defined-operators.md)
+    - [Develop U-SQL user defined operators for Data Lake Analytics jobs](data-lake-Analytics-u-sql-user-defined-operators.md)
 
 - Management
     - [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-use-portal.md)

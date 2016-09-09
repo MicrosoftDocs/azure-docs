@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="multiple"
-    ms.date="12/06/2015"
+    ms.date="07/29/2016"
     ms.author="cawa" />
 
 # Publish an application to a remote cluster by using Visual Studio
@@ -52,7 +52,7 @@ The following steps demonstrate how to publish an application by using the **Pub
 
     The file selected in the **Target profile** dropdown list box is where all of the settings, except **Manifest versions**, are saved. You can either reuse an existing profile or create a new one by choosing **<Manage Profiles…>** in the **Target profile** dropdown list box. When you choose a publish profile, its contents appear in the corresponding fields of the dialog box. To save your changes at any time, choose the **Save Profile** link.    
 
-2. In the **Connection endpoint** section, specify a local or remote Service Fabric cluster’s publishing endpoint. To add or change the connection endpoint, choose the **Select…** button. The **Select Service Fabric Cluster** dialog box shows the available Service Fabric cluster connection endpoints to which you can publish based on your Azure subscription(s). Note that if you are not already logged in to Visual Studio, you will be prompted to do so.
+2. In the **Connection endpoint** section, specify a local or remote Service Fabric cluster’s publishing endpoint. To add or change the connection endpoint, click on the **Connection Endpoint** dropdown list. The list shows the available Service Fabric cluster connection endpoints to which you can publish based on your Azure subscription(s). Note that if you are not already logged in to Visual Studio, you will be prompted to do so.
 
     Use the cluster selection dialog box to choose from the set of available subscriptions and clusters.
 

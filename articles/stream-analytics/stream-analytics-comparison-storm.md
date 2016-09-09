@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="02/04/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok"/>
 
 # Help choosing a streaming analytics platform: Apache Storm comparison to Azure Stream Analytics

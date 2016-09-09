@@ -19,6 +19,8 @@
 
 # Using Azure Key Vault to protect application secrets
 
+[AZURE.INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
+
 This article is [part of a series]. There is also a complete [sample application] that accompanies this series.
 
 ## Overview

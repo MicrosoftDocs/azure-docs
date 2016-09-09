@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="06/14/2016" 
 	ms.author="fashah;garye;bradsev" /> 
 
 #Explore data in Azure blob storage with Pandas
-
-## Introduction
 
 This document covers how to explore data that is stored in Azure blob container using [Pandas](http://pandas.pydata.org/) Python package.
 

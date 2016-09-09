@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="02/29/2016"
+   ms.date="05/17/2016"
    ms.author="alkohli" />
 
 # StorSimple system limits
@@ -26,6 +26,7 @@ StorSimple provides scalable and flexible storage for your datacenter. However, 
 | Maximum number of storage account credentials | 64 | |
 | Maximum number of volume containers | 64 | |
 | Maximum number of volumes | 255 | |
+| Maximum number of locally pinned volumes | 32 | |
 | Maximum number of schedules per bandwidth template | 168 | A schedule for every hour, every day of the week (24*7). |
 | Maximum size of a tiered volume on physical devices | 64 TB for 8100 and 8600 | 8100 and 8600 are physical devices. |
 | Maximum size of a tiered volume on virtual devices in Azure | 30 TB for 8010 <br></br> 64 TB for 8020 | 8010 and 8020 are virtual devices in Azure that use Standard Storage and Premium Storage respectively. |

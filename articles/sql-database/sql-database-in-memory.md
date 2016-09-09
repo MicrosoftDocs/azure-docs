@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/17/2016"
+	ms.date="06/08/2016"
 	ms.author="jodebrui"/>
 
 
@@ -107,7 +107,7 @@ You can create the AdventureWorksLT [V12] sample database by a few clicks in the
 
 2. Connect to the database with SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
 
-3. Copy the [In-Memory OLTP Transact-SQL script](http://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/T-SQL/In-Memory/sql_in-memory_oltp_sample.sql) to your clipboard.
+3. Copy the [In-Memory OLTP Transact-SQL script](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) to your clipboard.
  - The T-SQL script creates the necessary In-Memory objects in the AdventureWorksLT sample database you created in step 1.
 
 4. Paste the T-SQL script into SSMS, and the execute the script.
@@ -348,7 +348,7 @@ For real-time analytics on an OLTP workload, it is often best to use a NONcluste
  - Use that exact name.
  - Choose any Premium service tier.
 
-2. Copy the [sql_in-memory_analytics_sample](http://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/T-SQL/In-Memory/sql_in-memory_analytics_sample.sql) to your clipboard.
+2. Copy the [sql_in-memory_analytics_sample](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_analytics_sample.sql) to your clipboard.
  - The T-SQL script creates the necessary In-Memory objects in the AdventureWorksLT sample database you created in step 1.
  - The script creates the Dimension table, and two fact tables. The fact tables are populated with 3.5 million rows each.
  - The script might take 15 minutes to complete.
@@ -371,7 +371,7 @@ For real-time analytics on an OLTP workload, it is often best to use a NONcluste
 #### Crucial queries to compare the columnstore index
 
 
-[Here](http://raw.githubusercontent.com/Azure/azure-sql-database-samples/master/T-SQL/In-Memory/clustered_columnstore_sample_queries.sql) are several T-SQL query types you can run to see performance improvements. From Step 2 in the T-SQL script there is a pair of queries that are of direct interest. The two queries differ only on one line:
+[Here](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/clustered_columnstore_sample_queries.sql) are several T-SQL query types you can run to see performance improvements. From Step 2 in the T-SQL script there is a pair of queries that are of direct interest. The two queries differ only on one line:
 
 
 - `FROM FactResellerSalesXL_PageCompressed a`
@@ -460,7 +460,7 @@ GO
 The In-Memory OLTP features in Azure SQL Database became [active for preview on October 28, 2015](https://azure.microsoft.com/updates/public-preview-in-memory-oltp-and-real-time-operational-analytics-for-azure-sql-database/).
 
 
-During the Preview phase before General Availability (GA), In-Memory OLTP is supported only for:
+In the current preview, In-Memory OLTP is supported only for:
 
 - Databases that are at a *Premium* service tier.
 
@@ -491,7 +491,11 @@ If a database contains any of the following kinds of In-Memory OLTP objects or t
 #### Other relationships
 
 
-- Using In-Memory OLTP features with databases in elastic pools is not supported during Preview, but might be supported in the future:
+- Using In-Memory OLTP features with databases in elastic pools is not supported during Preview.
+ - To move a database that has or has had In-Memory OLTP objects to an elastic pool, follow these steps:
+  - 1. Drop any memory-optimized tables, table types, and natively compiled T-SQL modules in the database
+  - 2. Change the service tier of the database to standard (*there is currently an issue preventing the move of Premium databases that have had In-Memory OLTP objects in the past into an elastic pool; the Azure DB team is actively working on resolving the issue)
+  - 3. Move the database into the elastic pool
 
 - Using In-Memory OLTP with SQL Data Warehouse is not supported.
  - The columnstore index feature of In-Memory Analytics is supported in SQL Data Warehouse.
@@ -503,7 +507,7 @@ If a database contains any of the following kinds of In-Memory OLTP objects or t
  - [Transact-SQL Constructs Not Supported by In-Memory OLTP](http://msdn.microsoft.com/library/dn246937.aspx)
 
 
-## Further steps
+## Next steps
 
 
 - Try [Use In-Memory OLTP in an existing Azure SQL Application.](sql-database-in-memory-oltp-migration.md)

@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/28/2015"
+   ms.date="04/25/2016"
    ms.author="v-sharos" />
 
 # Use the MMC menu actions in StorSimple Snapshot Manager
@@ -27,9 +27,7 @@ In StorSimple Snapshot Manager, you will see the following actions listed on all
 - Export List 
 - Help 
 
-These actions are part of the Microsoft Management Console (MMC) and are not specific to StorSimple Snapshot Manager.
-
-This tutorial describes these actions and explains how to use each of them in StorSimple Snapshot Manager.
+These actions are part of the Microsoft Management Console (MMC) and are not specific to StorSimple Snapshot Manager. This tutorial describes these actions and explains how to use each of them in StorSimple Snapshot Manager.
 
 ## View
 

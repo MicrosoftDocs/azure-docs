@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="How to monitor Azure Redis Cache" 
+	pageTitle="How to monitor Azure Redis Cache | Microsoft Azure" 
 	description="Learn how to monitor the health and performance your Azure Redis Cache instances" 
 	services="redis-cache" 
 	documentationCenter="" 
 	authors="steved0x" 
-	manager="erikre" 
+	manager="douge" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2016" 
+	ms.date="06/15/2016" 
 	ms.author="sdanie"/>
 
 # How to monitor Azure Redis Cache
@@ -22,17 +22,17 @@ Azure Redis Cache provides several options for monitoring your cache instances. 
 
 When cache diagnostics are enabled, metrics for Azure Redis Cache instances are collected approximately every 30 seconds and stored so they can be displayed in the metrics charts and evaluated by alert rules.
 
-Cache metrics are collected using the Redis [INFO](http://redis.io/commands/info) command. For more information about the different INFO commands used for each cache metric, see [Available metrics and reporting intervals](#available-metrics-and-reporting-intervals).
+Cache metrics are collected using the Redis [INFO](http://redis.io/commands/info) command. For more information about the different INFO values used for each cache metric, see [Available metrics and reporting intervals](#available-metrics-and-reporting-intervals).
 
-To view cache metrics, [browse](cache-configure.md) to your cache instance in the [Azure Portal](https://portal.azure.com). Metrics for Azure Redis Cache instances are accessed on the **Redis Cache** blade.
+To view cache metrics, [browse](cache-configure.md) to your cache instance in the [Azure Portal](https://portal.azure.com). Metrics for Azure Redis Cache instances are accessed on the **Redis metrics** blade.
 
-![Monitor][redis-cache-monitor-overview]
+![Redis metrics][redis-cache-redis-metrics-blade]
 
->[AZURE.IMPORTANT] If the following message is displayed in the Azure Portal, follow the steps in the [Enable cache diagnostics](#enable-cache-diagnostics) section to enable cache diagnostics.
+>[AZURE.IMPORTANT] If the following message is displayed in the **Redis metrics** blade, follow the steps in the [Enable cache diagnostics](#enable-cache-diagnostics) section to enable cache diagnostics.
 >
 >`Monitoring may not be enabled. Click here to turn on Diagnostics.`
 
-The **Redis Cache** blade has **Monitoring** charts and **Usage** charts that display cache metrics. Each chart can be customized by adding or removing metrics and changing the reporting interval. The **Redis Cache** blade also has an **Operations** section that displays cache **Events** and **Alert rules**.
+The **Redis metrics** blade has **Monitoring** charts that display cache metrics. Each chart can be customized by adding or removing metrics and changing the reporting interval. For viewing and configuring operations and alerts, the **Redis Cache** blade has an **Operations** section that displays cache **Events** and **Alert rules**.
 
 ## Enable cache diagnostics
 
@@ -42,7 +42,7 @@ To enable and configure cache diagnostics, navigate to the **Redis Cache** blade
 
 ![Enable cache diagnostics][redis-cache-enable-diagnostics]
 
-Click one of the monitoring charts such as **Hits and Misses** to display the **Metric** blade and click **Diagnostic settings** to enable and configure the diagnostic settings for the cache service instance.
+Click the message to display the **Metric** blade and click **Diagnostic settings** to enable and configure the diagnostic settings for the cache service instance.
 
 ![Diagnostics settings][redis-cache-diagnostic-settings]
 
@@ -54,7 +54,7 @@ Click the arrow to the right of **Storage Account** to select a storage account 
 
 Once the diagnostic settings are configured, click **Save** to save the configuration. Note that it may take a few moments for the changes to take effect.
 
->[AZURE.IMPORTANT] Caches in the same region and subscription share the same diagnostics storage account, and when the configuration is changed it applies to all caches in the subscription that are in that region.
+>[AZURE.IMPORTANT] Caches in the same region and subscription share the same diagnostics storage settings, and when the configuration is changed (diagnostics enabled/disabled or changing the storage account) it applies to all caches in the subscription that are in that region.
 
 To view the stored metrics, examine the tables in your storage account with names that start with `WADMetrics`. For more information about accessing the stored metrics outside of the Azure Portal, see the [Access Redis Cache Monitoring data](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) sample.
 
@@ -70,68 +70,57 @@ Each metric includes two versions. One metric measures performance for the entir
 
 | Metric            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 |-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cache Hits        | The number of successful key lookups during the specified reporting interval. This value maps to the Redis INFO `keyspace_hits command`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| Cache Misses      | The number of failed key lookups during the specified reporting interval. This value maps to the Redis INFO `keyspace_misses` command. Cache misses do not necessarily mean there is an issue with the cache. For example, when using the cache-aside programming pattern, an application looks first in the cache for an item. If the item is not there (cache miss), the item is retrieved from the database and added to the cache for next time. Cache misses are normal behavior for the cache-aside programming pattern. If the number of cache misses is higher than expected, examine the application logic that populates and reads from the cache. If items are being evicted from the cache due to memory pressure then there may be some cache misses, but a better metric to monitor for memory pressure would be `Used Memory` or `Evicted Keys`. |
-| Connected Clients | The number of client connections to the cache during the specified reporting interval. This value maps to the Redis INFO `connected_clients` command. The connected clients limit is 10,000 and once it is reached subsequent connection attempts to the cache will fail. Note that even if there are no active client application, there may still be a few instances of connected clients due to internal processes and connections.                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| Evicted Keys      | The number of items evicted from the cache during the specified reporting interval due to the `maxmemory` limit. This value maps to the Redis INFO `evicted_keys` command.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| Expired Keys      | The number of items expired from the cache during the specified reporting interval. This value maps to the Redis INFO `expired_keys` command.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| Cache Hits        | The number of successful key lookups during the specified reporting interval. This maps to `keyspace_hits` from the Redis [INFO](http://redis.io/commands/info) command.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Cache Misses      | The number of failed key lookups during the specified reporting interval. This maps to `keyspace_misses` from the Redis INFO command. Cache misses do not necessarily mean there is an issue with the cache. For example, when using the cache-aside programming pattern, an application looks first in the cache for an item. If the item is not there (cache miss), the item is retrieved from the database and added to the cache for next time. Cache misses are normal behavior for the cache-aside programming pattern. If the number of cache misses is higher than expected, examine the application logic that populates and reads from the cache. If items are being evicted from the cache due to memory pressure then there may be some cache misses, but a better metric to monitor for memory pressure would be `Used Memory` or `Evicted Keys`. |
+| Connected Clients | The number of client connections to the cache during the specified reporting interval. This maps to `connected_clients` from the Redis INFO command. Once the [connection limit](cache-configure.md#default-redis-server-configuration) is reached subsequent connection attempts to the cache will fail. Note that even if there are no active client application, there may still be a few instances of connected clients due to internal processes and connections.                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| Evicted Keys      | The number of items evicted from the cache during the specified reporting interval due to the `maxmemory` limit. This maps to `evicted_keys` from the Redis INFO command.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| Expired Keys      | The number of items expired from the cache during the specified reporting interval. This value maps to `expired_keys` from the Redis INFO command.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | Gets              | The number of get operations from the cache during the specified reporting interval. This value is the sum of the following values from the Redis INFO all command: `cmdstat_get`, `cmdstat_hget`, `cmdstat_hgetall`, `cmdstat_hmget`, `cmdstat_mget`, `cmdstat_getbit`, and `cmdstat_getrange`, and is equivalent to the sum of cache hits and misses during the reporting interval.                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | Redis Server Load | The percentage of cycles in which the Redis server is busy processing and not waiting idle for messages. If this counter reaches 100 it means the Redis server has hit a performance ceiling and the CPU can't process work any faster. If you are seeing high Redis Server Load then you will see timeout exceptions in the client. In this case you should consider scaling up or partitioning your data into multiple caches.                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | Sets              | The number of set operations to the cache during the specified reporting interval. This value is the sum of the following values from the Redis INFO all command: `cmdstat_set`, `cmdstat_hset`, `cmdstat_hmset`, `cmdstat_hsetnx`, `cmdstat_lset`, `cmdstat_mset`, `cmdstat_msetnx`, `cmdstat_setbit`, `cmdstat_setex`, `cmdstat_setrange`, and `cmdstat_setnx`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| Total Operations  | The total number of commands processed by the cache server during the specified reporting interval. This value maps to the Redis INFO `total_commands_processed` command. Note that when Azure Redis Cache is used purely for pub/sub there will be no metrics for `Cache Hits`, `Cache Misses`, `Gets`, or `Sets`, but there will be `Total Operations` metrics that reflect the cache usage for pub/sub operations.                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Used Memory       | The amount of cache memory used for key/value pairs in the cache in MB during the specified reporting interval. This value maps to the Redis INFO `used_memory` command. This does not include metadata or fragmentation.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| Used Memory RSS   | The amount of cache memory used in MB during the specified reporting interval, including fragmentation and metadata. This value maps to the Redis INFO `used_memory_rss` command.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| Total Operations  | The total number of commands processed by the cache server during the specified reporting interval. This value maps to `total_commands_processed` from the Redis INFO command. Note that when Azure Redis Cache is used purely for pub/sub there will be no metrics for `Cache Hits`, `Cache Misses`, `Gets`, or `Sets`, but there will be `Total Operations` metrics that reflect the cache usage for pub/sub operations.                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Used Memory       | The amount of cache memory used for key/value pairs in the cache in MB during the specified reporting interval. This value maps to `used_memory` from the Redis INFO command. This does not include metadata or fragmentation.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Used Memory RSS   | The amount of cache memory used in MB during the specified reporting interval, including fragmentation and metadata. This value maps to `used_memory_rss` from the Redis INFO command.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | CPU               | The CPU utilization of the Azure Redis Cache server as a percentage during the specified reporting interval. This value maps to the operating system `\Processor(_Total)\% Processor Time` performance counter.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Cache Read        | The amount of data read from the cache in KB/s during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and is not Redis specific.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Cache Write       | The amount of data written to the cache in KB/s during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and is not Redis specific.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| Cache Read        | The amount of data read from the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and is not Redis specific. **This value corresponds to the network bandwidth used by this cache. If you want to set up alerts for server side network bandwidth limits, then create it using this `Cache Read` counter. See [this table](cache-faq.md#cache-performance) for the observed bandwidth limits for various cache pricing tiers and sizes.**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Cache Write       | The amount of data written to the cache in Megabytes per second (MB/s) during the specified reporting interval. This value is derived from the network interface cards that support the virtual machine that hosts the cache and is not Redis specific. This value corresponds to the network bandwidth of data sent to the cache from the client.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 
-## Monitoring charts
-
-The **Monitoring** section has **Hits and Misses**, **Gets and Sets**, **Connections**, and **Total Commands** charts.
-
-![Monitoring charts][redis-cache-monitoring-part]
-
-The **Monitoring** charts display the following metrics.
-
-| Monitoring chart | Cache metrics     |
-|------------------|-------------------|
-| Hits and Misses  | Cache Hits        |
-|                  | Cache Misses      |
-| Gets and Sets    | Gets              |
-|                  | Sets              |
-| Connections      | Connected Clients |
-| Total Commands   | Total Operations  |
-
-For information on viewing the metrics and customizing the individual charts in this section, see the following [How to view metrics and customize metrics charts](#how-to-view-metrics-and-customize-charts) section.
-
-## Usage charts
-
-The **Usage** section has **Redis Server Load**, **Memory Usage**, **Network Bandwith**, and **CPU Usage** charts, and also displays the **Pricing tier** for the cache instance.
-
-![Usage charts][redis-cache-usage-part]
-
-The **Pricing tier** displays the cache pricing tier, and can be used to [scale](cache-how-to-scale.md) the cache to a different pricing tier.
-
-The **Usage** charts display the following metrics.
-
-| Usage chart       | Cache metrics |
-|-------------------|---------------|
-| Redis Server Load | Server Load   |
-| Memory Usage      | Used Memory   |
-| Network Bandwidth | Cache Write   |
-| CPU Usage         | CPU           |
-
-For information on viewing the metrics and customizing the individual charts in this section, see the following [How to view metrics and customize metrics charts](#how-to-view-metrics-and-customize-charts) section.
 
 ## How to view metrics and customize charts
 
-You can view an overview of the metrics on the **Redis Cache** blade in the **Monitoring** and **Usage** charts as described in the previous sections. For a more detailed view of the metrics on a specific chart and to customize the chart, click the desired chart from the **Redis Cache** blade to display the **Metric** blade for that chart.
+You can view an overview of the metrics for your cache on the **Redis metrics** blade. To access the **Redis metrics** blade choose **All settings** > **Redis metrics**.
+
+![Redis metrics][redis-cache-redis-metrics]
+
+
+The **Redis metrics** blade contains the following charts.
+
+| Redis metrics chart | Displayed metrics     |
+|------------------|-------------------|
+| Cache Read and Cache Write | Cache Read |
+|                            | Cache Write |
+| Connected Clients      | Connected Clients |
+| Hits and Misses  | Cache Hits        |
+|                  | Cache Misses      |
+| Total Commands   | Total Operations  |
+| Gets and Sets    | Gets              |
+|                  | Sets              |
+| CPU Usage         | CPU           |
+| Memory Usage      | Used Memory   |
+|                   | Used Memory RSS |
+| Redis Server Load | Server Load   |
+| Key Count | Total Keys |
+|           | Evicted Keys |
+|           | Expired Keys |
+
+
+For a more detailed view of the metrics on a specific chart and to customize the chart, click the desired chart from the **Redis metrics** blade to display the **Metric** blade for that chart.
 
 ![Metric blade][redis-cache-metric-blade]
 
 Any alerts that are set on the metrics displayed by a chart are listed at the bottom of the **Metric** blade for that chart.
 
-To add or remove metrics or change the reporting interval, right-click the chart and choose **Edit Chart**. You can also edit charts directly from the **Redis Cache** blade by right-clicking the desired chart and choosing **Edit Chart**.
+To add or remove metrics or change the reporting interval, choose **Edit Chart**.
 
 To add or remove metrics from the chart, click the checkbox beside the name of the metric. To change the reporting interval, click the desired interval. To change the **Chart type**, click the desired style. Once the desired changes are made, click **Save**. 
 
@@ -172,7 +161,7 @@ For more information on the available performance counters, see [Available metri
 
 ## Operations and alerts
 
-The **Operations** section has **Events** and **Alert rules** sections.
+The **Operations** section on the **Redis Cache** blade has **Events** and **Alert rules** sections.
 
 ![Oeprations][redis-cache-operations-events]
 
@@ -223,9 +212,53 @@ When an alert rule is activated, an email is sent depending on the configuration
 An alert rule is considered to be resolved when the alert condition no longer evaluates to true. Once the alert rule condition is resolved, the alert icon is replaced with a check mark. For details on alert activations and resolutions, click the **Events** part on the **Redis Cache** blade to view the events on the **Events** blade.
 
 For more information about alerts in Azure, see [Receive alert notifications](../azure-portal/insights-receive-alert-notifications.md).
+
+## Metrics on the Redis Cache blade
+
+The **Redis Cache** blade displays the following categories of metrics.
+
+-	[Monitoring charts](#monitoring-charts)
+-	[Usage charts](#usage-charts)
+
+### Monitoring charts
+
+The **Monitoring** section has **Hits and Misses**, **Gets and Sets**, **Connections**, and **Total Commands** charts.
+
+![Monitoring charts][redis-cache-monitoring-part]
+
+The **Monitoring** charts display the following metrics.
+
+| Monitoring chart | Cache metrics     |
+|------------------|-------------------|
+| Hits and Misses  | Cache Hits        |
+|                  | Cache Misses      |
+| Gets and Sets    | Gets              |
+|                  | Sets              |
+| Connections      | Connected Clients |
+| Total Commands   | Total Operations  |
+
+For information on viewing the metrics and customizing the individual charts in this section, see the following [How to view metrics and customize metrics charts](#how-to-view-metrics-and-customize-charts) section.
+
+### Usage charts
+
+The **Usage** section has **Redis Server Load**, **Memory Usage**, **Network Bandwith**, and **CPU Usage** charts, and also displays the **Pricing tier** for the cache instance.
+
+![Usage charts][redis-cache-usage-part]
+
+The **Pricing tier** displays the cache pricing tier, and can be used to [scale](cache-how-to-scale.md) the cache to a different pricing tier.
+
+The **Usage** charts display the following metrics.
+
+| Usage chart       | Cache metrics |
+|-------------------|---------------|
+| Redis Server Load | Server Load   |
+| Memory Usage      | Used Memory   |
+| Network Bandwidth | Cache Write   |
+| CPU Usage         | CPU           |
+
+For information on viewing the metrics and customizing the individual charts in this section, see the following [How to view metrics and customize metrics charts](#how-to-view-metrics-and-customize-charts) section.
   
 <!-- IMAGES -->
-[redis-cache-monitor-overview]: ./media/cache-how-to-monitor/redis-cache-monitor-overview.png
 
 [redis-cache-enable-diagnostics]: ./media/cache-how-to-monitor/redis-cache-enable-diagnostics.png
 
@@ -258,6 +291,10 @@ For more information about alerts in Azure, see [Receive alert notifications](..
 [redis-cache-premium-point-summary]: ./media/cache-how-to-monitor/redis-cache-premium-point-summary.png
 
 [redis-cache-premium-point-shard]: ./media/cache-how-to-monitor/redis-cache-premium-point-shard.png
+
+[redis-cache-redis-metrics]: ./media/cache-how-to-monitor/redis-cache-redis-metrics.png
+
+[redis-cache-redis-metrics-blade]: ./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png
 
 
 

@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="03/15/2016" 
+	ms.date="06/08/2016" 
 	ms.author="heidist"/>
 
 #How to implement faceted navigation in Azure Search

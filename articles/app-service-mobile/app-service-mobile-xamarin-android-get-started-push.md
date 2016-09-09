@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Add push notifications to your Xamarin.Android app with Azure App Service"
+	pageTitle="Add push notifications to your Xamarin.Android app | Azure App Service"
 	description="Learn how to use Azure App Service and Azure Notification Hubs to send push notifications to your Xamarin.Android app"
 	services="app-service\mobile"
 	documentationCenter="xamarin"
 	authors="ggailey777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="02/04/2016"
+	ms.date="05/03/2016"
 	ms.author="glenga"/>
 
 # Add push notifications to your Xamarin.Android app

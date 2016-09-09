@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Publishing Apps with Azure AD Application Proxy | Microsoft Azure"
-	description="Covers how to publish on-premises applications using Azure AD Application Proxy."
+	pageTitle="Publish apps with Azure AD Application Proxy | Microsoft Azure"
+	description="Publish on-premises applications to the cloud with Azure AD Application Proxy."
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -12,105 +12,91 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.topic="get-started-article"
+	ms.date="07/19/2016"
 	ms.author="kgremban"/>
 
 
 # Publish applications using Azure AD Application Proxy
 
+Azure AD Application Proxy helps you support remote workers by publishing on-premises applications to be accessed over the internet. By this point, you should already have [enabled Application Proxy in the Azure classic portal](active-directory-application-proxy-enable.md). This article walks you through the steps to publish applications that are running on your local network and provide secure remote access from outside your network. After you complete this article, you'll be ready to configure the application with personalized information or security requirements.
+
 > [AZURE.NOTE] Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
-
-After you enable Microsoft Azure Active Directory (AD) Application Proxy, you can publish applications to make them accessible to your users outside your private network.
-
-This article walks you through the steps to publish applications that are running on your local network for which you want to enable secure remote access from outside your network.
-
-> [AZURE.NOTE] To verify that the Connector is running properly, the first application you publish should be any website accessible from within your private network to assure users can access it from the Internet, before publishing an actual application.
-
 
 ## Publish an app using the wizard
 
-1. Open a browser of your choice and go to the Azure classic portal.
-2. In the left pane of the Azure classic portal, click the **Active Directory** tab.
-3. Click the directory in which you enabled Application Proxy and for which you want to publish an application (for example, Wingtip Toys).
-4. Click the **Applications** tab, and then click the **Add** button at the bottom of the screen
+1. Sign in as an administrator in the [Azure classic portal](https://manage.windowsazure.com/).
+2. Go to Active Directory and select the directory where you enabled Application Proxy.
+
+	![Active Directory - icon](./media/active-directory-application-proxy-publish/ad_icon.png)
+
+3. Click the **Applications** tab, and then click the **Add** button at the bottom of the screen
 
 	![Add application](./media/active-directory-application-proxy-publish/aad_appproxy_selectdirectory.png)
 
-5. In the **What do you want to do?** dialog box, click **Publish an application that will be accessible outside your network**.
+4. Select **Publish an application that will be accessible from outside your network**.
 
-	![New application that will be accessible from outside your network](./media/active-directory-application-proxy-publish/aad_appproxy_addapp.png)
+	![Publish an application that will be accessible from outside your network](./media/active-directory-application-proxy-publish/aad_appproxy_addapp.png)
 
-6. Follow the instructions on the screen to provide the following information about your application:
+5. Provide the following information about your application:
 
-| **Property** | **Details** |
-|---|---|
-| External URL | This is the URL of the cloud service that is used to access the application from outside your private network. The URL is automatically generated based on the name you provided, with the suffix msappproxy.net. |
-| Preauthentication method | Set the type of preauthentication method you want the application to use: <br><br> a. Azure Active Directory – When a user tries to access an application, Application Proxy will redirect the user to log in with Azure AD which will authenticate the user, ensuring that the user has the necessary permissions for the directory and the application. <br><br> b. Pass through – preauthentication is not performed. |
-| External URL Protocol | By default, applications are published by using the HTTPS protocol. The service will automatically redirect users who type the URL with http. <br><br> To enable HTTP for an internal application, you have to set the preauthentication method to Passthrough and then you are able to change the External URL protocol from HTTPS to HTTP. Note that publishing applications by using HTTP may create security issues for your application and your users. <br><br> You can insert a custom domain rather than using the default suffix msappproxy.net. For more information, see [Working with custom domains](active-directory-application-proxy-custom-domains.md). |
-| Internal URL | This is the internal URL that the Application Proxy connector uses to access the application internally. This should be the URL of the published application that is used to access the application from inside your private network. This is a valid URL with no spaces or symbols. <br><br> You can specify a specific path on the backend server to publish, while the rest of the server is not published. This allows you to publish, for example, different sites located on the same SharePoint server with different names and access rules. <br><br> The path is specified in the internal URL field and will be visible in the external URL. The internal and external paths must be identical. |
+	- **Name**: The user-friendly name for your application. It must be unique within your directory.
+	- **Internal URL**: The address that the Application Proxy Connector uses to access the application from inside your private network. You can provide a specific path on the backend server to publish, while the rest of the server is unpublished. In this way, you can publish different sites on the same server, and give each one its own name and access rules.
 
-  ![Application properties](./media/active-directory-application-proxy-publish/aad_appproxy_appproperties.png)
+		> [AZURE.TIP] If you publish a path, make sure that it includes all the necessary images, scripts, and style sheets for your application. For example, if your app is at https://yourapp/app and uses images located at https://yourapp/media, then you should publish https://yourapp/ as the path.
 
-  To finish the wizard, click the check mark at the bottom of the screen. The application is now defined in Azure AD.
+	- **Preauthentication Method**: How Application Proxy verifies users before giving them access to your application. Choose one of the options from the drop-down menu.
+
+		- Azure Active Directory: Application Proxy redirects users to sign in with Azure AD, which authenticates their permissions for the directory and application.
+		- Passthrough: Users don't have to authenticate to access the application.
+
+	![Application properties](./media/active-directory-application-proxy-publish/aad_appproxy_appproperties.png)  
+
+6. To finish the wizard, click the check mark at the bottom of the screen. The application is now defined in Azure AD.
 
 
 ## Assign users and groups to the application
 
-1. For apps that are preauthenticated, you must assign users and groups that will have access to the app.
-  For apps that are passthrough, access is available for all users. However, in order for a user to see the app in their application list, you must assign the app to that user.
+In order for your users to access your published application, you need to assign them either individually or in groups. (Remember to assign yourself access, too.) This requires that each user have a license for Azure Basic or higher. You can assign licenses individually or to groups. See [Assigning users to an application](active-directory-applications-guiding-developers-assigning-users.md) for more details. 
 
-2. After finishing the Add App wizard, the App Proxy Quick Start page is displayed. To assign users, click **Assign users**.
+For apps that require preauthentication, this grants permissions to use the app. For apps that don't require preauthentication, users can still be assigned to the app so that it appears in their application list, such as MyApps.
 
-	![Application Proxy quick start screenshot -- assign users](./media/active-directory-application-proxy-publish/quickstart.png)
+1. After finishing the Add App wizard, you see the Quick Start page for your application. To manage who has access to the app, select **Users and groups**.
 
-3. Select each user or group you want to assign to this app and click **Assign**.
+	![Application Proxy quick start assign users - screenshot](./media/active-directory-application-proxy-publish/aad_appproxy_usersgroups.png)
 
-> [AZURE.NOTE] For Integrated Windows Authentication apps, you can assign only users and groups that are synced from your on-prem Active Directory. Users logging in using a Microsoft account and guests cannot be assigned for apps published with Azure Active Directory Application Proxy. Make sure the users you assign log in with their credentials that are part of the same domain as the app you are publishing.
+2. Search for specific groups in your directory, or show all your users. To display the search results, click the check mark.
 
+  	![Search for groups or users - screenshot](./media/active-directory-application-proxy-publish/aad_appproxy_search.png)
 
-## Advanced configuration
+2. Select each user or group you want to assign to this app and click **Assign**. You are asked to confirm this action.
 
-1. You can modify published apps or configure advanced options, such as SSO to on-prem applications, from the Configure page.
+> [AZURE.NOTE] For Integrated Windows Authentication apps, you can assign only users and groups that are synced from your on-premises Active Directory. Users who sign in with a Microsoft account and guests cannot be assigned for apps published with Azure Active Directory Application Proxy. Make sure your users sign in with credentials that are part of the same domain as the app you are publishing.
 
-	![Advanced configuration](./media/active-directory-application-proxy-publish/advancedconfig.png)
+## Test your published application
 
-2. Select the app and click **Configure**. The following options are available:
+Once you have published your application, you can test it out by navigating to the URL that you published. Make sure that you can access it, that it renders correctly, and that everythign works as expected. If you have trouble or get an error message, try the [troubleshooting guide](active-directory-application-proxy-troubleshoot.md).
 
-**Setting** | **Details**
----|---
-Name | Provide a descriptive name for your application
-External URL | This is the URL of the cloud service that is used to access the application from outside your private network. The URL is automatically generated based on the name you provided, with the suffix msappproxy.net.
-Preauthentication method | Set the type of preauthentication method you want the application to use: <br><br> a. Azure Active Directory – When a user tries to access an application, Application Proxy will redirect the user to log in with Azure AD which will authenticate the user, ensuring that the user has the necessary permissions for the directory and the application. <br><br> b. Pass through – preauthentication is not performed.
-External URL Protocol | By default, applications are published by using the HTTPS protocol. The service will automatically redirect users who type the URL with http. <br><br> To enable HTTP for an internal application, you have to set the preauthentication method to Passthrough and then you are able to change the External URL protocol from HTTPS to HTTP. Note that publishing applications by using HTTP may create security issues for your application and your users. <br><br> You can insert a custom domain rather than using the default suffix msappproxy.net. For more information, see [Working with custom domains](active-directory-application-proxy-custom-domains.md).
-Internal URL | This is the internal URL that the Application Proxy connector uses to access the application internally. This should be the URL of the published application that is used to access the application from inside your private network. This is a valid URL with no spaces or symbols. <br><br> You can specify a specific path on the backend server to publish, while the rest of the server is not published. This allows you to publish, for example, different sites located on the same SharePoint server with different names and access rules. <br><br> The path is specified in the internal URL field and will be visible in the external URL. The internal and external paths must be identical.
-Translate URL in headers | For applications (such as some SharePoint configurations) that necessitate that the HTTP host headers are not translated, set this to **No**. This will disable header translation for both request and response headers.
-Internal authentication method | If you use Application Proxy for preauthentication, you can set an internal authentication method to enable your users to benefit from single sign-on (SSO) to this application. <br><br> Select **Integrated Windows Authentication (IWA)** if your application uses IWA and you can configure Kerberos Constrained Delegation (KCD) to enable SSO for this application. Applications that use IWA must be configured using KCD, otherwise Application Proxy will not be able to publish these applications. <br><br> Select **None** if your application does not use IWA. <br><br> For more information, see [Single sign-on with App Proxy](active-directory-application-proxy-sso-using-kcd.md).
-Internal Application SPN | This is the Service-Principal-Name (SPN) of the internal application as configured in the on-prem Application Proxy. The SPN is used by the Application Proxy Connector to fetch Kerberos tokens for the application using Kerberos Constrained Delegation (KCD). <br><br> For more information, see [Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md).
+## Configure your application
+
+You can modify published apps or set up advanced options on the Configure page. On this page, you can customize your app by changing the name or uploading a logo. You can also manage access rules like the preauthentication method or multi-factor authentication.
+
+![Advanced configuration](./media/active-directory-application-proxy-publish/aad_appproxy_configure.png)
+
 
 After you publish applications using Azure Active Directory Application Proxy, they appear in the Applications list in Azure AD, and you can manage them there.
 
-If you disable Application Proxy services after you have published applications, the applications are not deleted, but will no longer be accessible from outside your private network.
+If you disable Application Proxy services after you have published applications, they are no longer accessible from outside your private network. This does not delete the applications.
 
-To view an application and make sure it is accessible, double-click the name of the application. If the Application Proxy service is disabled and the application is not available, a warning message appears at the top of the screen.
+To view an application and make sure that it is accessible, double-click the name of the application. If the Application Proxy service is disabled and the application is not available, a warning message appears at the top of the screen.
 
 To delete an application, select an application in the list and then click **Delete**.
 
-## See also
-There's a lot more you can do with Application Proxy:
+## Next steps
 
-- [Enable Application Proxy](active-directory-application-proxy-enable.md)
 - [Publish applications using your own domain name](active-directory-application-proxy-custom-domains.md)
 - [Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)
 - [Enable conditional access](active-directory-application-proxy-conditional-access.md)
 - [Working with claims aware applications](active-directory-application-proxy-claims-aware-apps.md)
-- [Troubleshoot issues you're having with Application Proxy](active-directory-application-proxy-troubleshoot.md)
 
-## Learn more about Application Proxy
-- [Take a look at our online help](active-directory-application-proxy-enable.md)
-- [Check out the Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
-- [Watch our videos on Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
-
-## Additional resources
-- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-- [About Kerberos constrained delegation](http://technet.microsoft.com/library/cc995228.aspx)
+For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)

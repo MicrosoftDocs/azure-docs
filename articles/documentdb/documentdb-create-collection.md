@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/30/2016" 
+	ms.date="05/16/2016" 
 	ms.author="mimig"/>
 
 # How to create a DocumentDB collection using the Azure portal
@@ -44,9 +44,9 @@ Not sure what a collection is? See [What is a DocumentDB collection?](#what-is-a
 
 	If you are going to create a partitioned collection, skip to step 7 as you do not need to select a pricing tier.  
 
-7. Select a **Partitioning mode** for the collection, either **Single Partition** or **Partitioned**. A single partition has a reserved storage capacity of 10GB, and can have throughput levels from 400-10,000 request units/second. A partitioned collection can scale to handle 250GB of storage over multiple partitions, and can have throughput levels from 10,100-250,000 request units/second.
+7. Select a **Partitioning mode** for the collection, either **Single Partition** or **Partitioned**. A single partition has a reserved storage capacity of 10GB, and can have throughput levels from 400-10,000 request units/second. A partitioned collection can scale to handle 250GB of storage over multiple partitions, and can have throughput levels from 10,100-250,000 request units/second. For information about requesting increases to these default allocations after creating a collection, see [Request increased DocumentDB account limits](documentdb-increase-limits.md).
 
-8. Select the **Throughput** for the partitioned collection. One Request Unit (RU) corresponds to the throughput of a read of a 1KB document. For more information about request units, see [Request units](documentdb-request-units.md).
+8. Select the **Throughput** for the partitioned collection. One Request Unit (RU) corresponds to the throughput of a read of a 1KB document. For more information about request units, see [Request units](documentdb-request-units.md). 
 
 9. If you are creating a partitioned collection, select the **Partition Key** for the collection. Selecting the correct partition key is important in creating a performant collection. For more information on selecting a partition key, see [Partitioning data in DocumentDB](documentdb-partition-data.md).
 

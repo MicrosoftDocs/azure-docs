@@ -3,9 +3,9 @@
 	description="Use an Azure Resource Manager template to deploy a web app that contains a project from a GitHub repository." 
 	services="app-service" 
 	documentationCenter="" 
-	authors="tfitzmac" 
+	authors="cephalin" 
 	manager="wpickett" 
-	editor="jimbe"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/09/2016" 
-	ms.author="tomfitz"/>
+	ms.date="04/27/2016" 
+	ms.author="cephalin"/>
 
 # Deploy a web app linked to a GitHub repository
 
@@ -75,31 +75,32 @@ is linked to a particular GitHub repository. The GitHub repository is defined wi
 Instead of hard-coding the repository URL, you can add a parameter for the repository URL and use that value for the **RepoUrl** property.
 
     {
-      "apiVersion":"2015-04-01",
-      "name":"[parameters('siteName')]",
-      "type":"Microsoft.Web/sites",
-      "location":"[parameters('siteLocation')]",
-      "dependsOn":[
-         "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
+      "apiVersion": "2015-08-01",
+      "name": "[parameters('siteName')]",
+      "type": "Microsoft.Web/sites",
+      "location": "[resourceGroup().location]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
       ],
-      "properties":{
-        "serverFarmId":"[parameters('hostingPlanName')]"
+      "properties": {
+        "serverFarmId": "[parameters('hostingPlanName')]"
       },
-       "resources":[
-         {
-           "apiVersion":"2015-04-01",
-           "name":"web",
-           "type":"sourcecontrols",
-           "dependsOn":[
-             "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]"
-           ],
-           "properties":{
-             "RepoUrl":"https://github.com/davidebbo-test/Mvc52Application.git",
-             "branch":"master"
-           }
-         }
-       ]
-     }
+      "resources": [
+        {
+          "apiVersion": "2015-08-01",
+          "name": "web",
+          "type": "sourcecontrols",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]"
+          ],
+          "properties": {
+            "RepoUrl": "[parameters('repoURL')]",
+            "branch": "[parameters('branch')]",
+            "IsManualIntegration": true
+          }
+        }
+      ]
+    }
 
 ## Commands to run deployment
 

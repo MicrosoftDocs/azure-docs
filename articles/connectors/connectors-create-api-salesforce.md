@@ -1,273 +1,282 @@
 <properties
-pageTitle="Add the Salesforce API in PowerApps Enterprise and your Logic Apps | Microsoft Azure"
-description="Overview of the Salesforce API with REST API parameters"
-services=""	
-documentationCenter="" 	
+pageTitle="Learn to use the Salesforce Connector in your logic apps| Microsoft Azure"
+description="Create logic apps with Azure App service. The Salesforce Connector provides an API to work with Salesforce objects."
+services="logic-apps"	
+documentationCenter=".net,nodejs,java" 	
 authors="msftman"	
 manager="erikre"	
 editor=""
-tags="connectors"/>
+tags="connectors" />
 
 <tags
-ms.service="multiple"
-ms.devlang="na"
+ms.service="logic-apps"
+ms.devlang="multiple"
 ms.topic="article"
 ms.tgt_pltfrm="na"
-ms.workload="na"
-ms.date="03/16/2016"
+ms.workload="integration"
+ms.date="07/22/2016"
 ms.author="deonhe"/>
 
-# Get started with the Salesforce API
-Connect to Salesforce and create objects, get objects, and more. The Salesforce API can be be used from:
+# Get started with the Salesforce connector
 
-- Logic apps 
-- PowerApps
+The Salesforce Connector provides an API to work with Salesforce objects.
 
-> [AZURE.SELECTOR]
-- [Logic apps](../articles/connectors/connectors-create-api-salesforce.md)
-- [PowerApps Enterprise](../articles/power-apps/powerapps-create-api-salesforce.md)
+To use [any connector](./apis-list.md), you first need to create a logic app. You can get started by [creating a logic app now](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-&nbsp; 
+## Connect to Salesforce connector
 
->[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version. For the 2014-12-01-preview schema version, click [Salesforce connector](../app-service-logic/app-service-logic-connector-salesforce.md).
+Before your logic app can access any service, you first need to create a *connection* to the service. A [connection](./connectors-overview.md) provides connectivity between a logic app and another service.  
 
-With Salesforce, you can:
+### Create a connection to Salesforce connector
 
-- Build your business flow based on the data you get from SalesForce. 
-- Use triggers for when an object is created or updated.
-- Use actions to create an object, delete an object, and more. These actions get a response, and then make the output available for other actions. For example, when a new object is created in Salesforce, you can send an email using Office 365.
-- Add the Salesforce API to PowerApps Enterprise. Then, your users can use this API within their apps. 
+>[AZURE.INCLUDE [Steps to create a connection to Salesforce Connector](../../includes/connectors-create-api-salesforce.md)]
 
-For information on how to add an API in PowerApps Enterprise, go to [Register an API in PowerApps](../power-apps/powerapps-register-from-available-apis.md). 
+## Use a Salesforce connector trigger
 
-To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
+A trigger is an event that can be used to start the workflow defined in a logic app. [Learn more about triggers](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-## Triggers and actions
-The Salesforce API includes the following trigger and actions. 
+>[AZURE.INCLUDE [Steps to create a Salesforce trigger](../../includes/connectors-create-api-salesforce-trigger.md)]
 
-| Triggers | Actions|
-| --- | --- |
-|<ul><li>When an object is created</li><li>When an object is modified</li></ul> | <ul><li>Create object</li><li>Get objects</li><li>When an object is created</li><li>When an object is modified</li><li>Delete object</li><li>Get object</li><li>Get object types (SObjects)</li><li>Update object</li></ul>
+## Add a condition 
+>[AZURE.INCLUDE [Steps to create a Salesforce condition](../../includes/connectors-create-api-salesforce-condition.md)]
 
-All APIs support data in JSON and XML formats. 
+## Use a Salesforce connector action
 
-## Create a connection to Salesforce 
+An action is an operation carried out by the workflow defined in a logic app. [Learn more about actions](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-When you add this API to your logic apps, you must authorize logic apps to connect to your Salesforce.
+>[AZURE.INCLUDE [Steps to create a Salesforce action](../../includes/connectors-create-api-salesforce-action.md)]
 
-1. Sign in to your Salesforce account.
-2. Allow your logic apps to connect and use your Salesforce account. 
+## Technical details
 
-After you create the connection, you enter the Salesforce properties, like the table name. The **REST API reference** in this topic describes these properties.
+Here are the details about the triggers, actions and responses that this connection supports:
 
->[AZURE.TIP] You can use this same connection in other logic apps.
+## Salesforce connector triggers
 
-## Swaggers REST API reference
-Applies to version: 1.0.
+Salesforce Connector has the following trigger(s):  
+
+|Trigger | Description|
+|--- | ---|
+|[When an object is created](connectors-create-api-salesforceconnector.md#when-an-object-is-created)|This operation triggers a flow when an object is created.|
+|[When an object is modified](connectors-create-api-salesforceconnector.md#when-an-object-is-modified)|This operation triggers a flow when an object is modified.|
+
+
+## Salesforce connector actions
+
+Salesforce Connector has the following actions:
+
+
+|Action|Description|
+|--- | ---|
+|[Get objects](connectors-create-api-salesforceconnector.md#get-objects)|Thie operation gets objects of a certain object type like 'Lead'.|
+|[Create object](connectors-create-api-salesforceconnector.md#create-object)|This operation creates an object.|
+|[Get object](connectors-create-api-salesforceconnector.md#get-object)|This operation gets an object.|
+|[Delete object](connectors-create-api-salesforceconnector.md#delete-object)|This operation deletes an object.|
+|[Update object](connectors-create-api-salesforceconnector.md#update-object)|This operation updates an object.|
+|[Get object types](connectors-create-api-salesforceconnector.md#get-object-types)|This operation lists the available object types.|
+### Action details
+
+Here are the details for the actions and triggers for this connector, along with their responses:
+
+
+
+### Get objects
+Thie operation gets objects of a certain object type like 'Lead'. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|table*|Object type|Salesforce object type like 'Lead'|
+|$filter|Filter Query|An ODATA filter query to restrict the number of entries|
+|$orderby|Order By|An ODATA orderBy query for specifying the order of entries|
+|$skip|Skip Count|Number of entries to skip (default = 0)|
+|$top|Maximum Get Count|Maximum number of entries to retrieve (default = 256)|
+
+An * indicates that a property is required
+
+#### Output details
+
+ItemsList
+
+
+| Property Name | Data Type |
+|---|---|
+|value|array|
+
+
 
 
 ### Create object
-Creates a Salesforce object.  
-```POST: /datasets/default/tables/{table}/items``` 
+This operation creates an object. 
 
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|none|Salesforce SObject type (example: 'Lead')|
-|item| |yes|body|none|Salesforce object to create|
 
-### Response
-|Name|Description|
+|Property Name| Display Name|Description|
+| ---|---|---|
+|table*|Object type|Object type like 'Lead'|
+|item*|Object|Object to create|
+
+An * indicates that a property is required
+
+#### Output details
+
+Item
+
+
+| Property Name | Data Type |
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|ItemInternalId|string|
+
 
 
 
 ### Get object
-Retrieves a Salesforce object.  
-```GET: /datasets/default/tables/{table}/items/{id}```
+This operation gets an object. 
 
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|none|Salesforce SObject type (example: 'Lead')|
-|id|string|yes|path|none|Unique identifier of Salesforce object to retrieve|
 
-### Response
+|Property Name| Display Name|Description|
+| ---|---|---|
+|table*|Object type|Salesforce object type like 'Lead'|
+|id*|Object id|Identifier of object to get|
 
-|Name|Description|
+An * indicates that a property is required
+
+#### Output details
+
+Item
+
+
+| Property Name | Data Type |
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|ItemInternalId|string|
+
 
 
 
 ### Delete object
-Deletes a Salesforce object.  
-```DELETE: /datasets/default/tables/{table}/items/{id}```
+This operation deletes an object. 
 
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|none|Salesforce SObject type (example: 'Lead')|
-|id|string|yes|path|none|Unique identifier of Salesforce object to delete|
 
-### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
+|Property Name| Display Name|Description|
+| ---|---|---|
+|table*|Object type|Object type like 'Lead'|
+|id*|Object id|Identifier of object to delete|
+
+An * indicates that a property is required
+
 
 
 
 ### Update object
-Updates a Salesforce object.  
-```PATCH: /datasets/default/tables/{table}/items/{id}```
+This operation updates an object. 
 
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|none|Salesforce SObject type (example: 'Lead')|
-|id|string|yes|path|none|Unique identifier of the Salesforce object to update|
-|item| |yes|body|none|Salesforce object with changed properties|
 
-### Response
-|Name|Description|
+|Property Name| Display Name|Description|
+| ---|---|---|
+|table*|Object type|Object type like 'Lead'|
+|id*|Object id|Identifier of object to update|
+|item*|Object|Object with changed properties|
+
+An * indicates that a property is required
+
+#### Output details
+
+Item
+
+
+| Property Name | Data Type |
 |---|---|
-|200|OK|
-|default|Operation Failed.|
+|ItemInternalId|string|
+
 
 
 
 ### When an object is created
-Triggers a flow when an object is created in Salesforce.  
-```GET: /datasets/default/tables/{table}/onnewitems```
+This operation triggers a flow when an object is created. 
 
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|none|Salesforce SObject type (example: 'Lead')|
-|$skip|integer|no|query|none|Number of entries to skip (default = 0)|
-|$top|integer|no|query|none|Maximum number of entries to retrieve (default = 256)|
-|$filter|string|no|query|none|An ODATA filter query to restrict the number of entries|
-|$orderby|string|no|query|none|An ODATA orderBy query for specifying the order of entries|
 
-### Response
+|Property Name| Display Name|Description|
+| ---|---|---|
+|table*|Object type|Object type like 'Lead'|
+|$filter|Filter Query|An ODATA filter query to restrict the number of entries|
+|$orderby|Order By|An ODATA orderBy query for specifying the order of entries|
+|$skip|Skip Count|Number of entries to skip (default = 0)|
+|$top|Maximum Get Count|Maximum number of entries to retrieve (default = 256)|
+
+An * indicates that a property is required
+
+#### Output details
+
+ItemsList
+
+
+| Property Name | Data Type |
+|---|---|
+|value|array|
+
+
+
+
+### When an object is modified
+This operation triggers a flow when an object is modified. 
+
+
+|Property Name| Display Name|Description|
+| ---|---|---|
+|table*|Object type|Object type like 'Lead'|
+|$filter|Filter Query|An ODATA filter query to restrict the number of entries|
+|$orderby|Order By|An ODATA orderBy query for specifying the order of entries|
+|$skip|Skip Count|Number of entries to skip (default = 0)|
+|$top|Maximum Get Count|Maximum number of entries to retrieve (default = 256)|
+
+An * indicates that a property is required
+
+#### Output details
+
+ItemsList
+
+
+| Property Name | Data Type |
+|---|---|
+|value|array|
+
+
+
+
+### Get object types
+This operation lists the available object types. 
+
+
+There are no parameters for this call
+
+#### Output details
+
+TablesList
+
+
+| Property Name | Data Type | 
+|---|---|
+|value|array|
+
+
+
+## HTTP responses
+
+The actions and triggers above can return one or more of the following HTTP status codes: 
+
 |Name|Description|
 |---|---|
 |200|OK|
+|202|Accepted|
+|400|Bad Request|
+|401|Unauthorized|
+|403|Forbidden|
+|404|Not Found|
+|500|Internal Server Error. Unknown error occurred.|
 |default|Operation Failed.|
 
 
 
-### When an object is modified 
-Triggers a flow when an object is modified in Salesforce.  
-```GET: /datasets/default/tables/{table}/onupdateditems```
-
-| Name| Data Type|Required|Located In|Default Value|Description|
-| ---|---|---|---|---|---|
-|table|string|yes|path|none|Salesforce SObject type (example: 'Lead')|
-|$skip|integer|no|query|none|Number of entries to skip (default = 0)|
-|$top|integer|no|query|none|Maximum number of entries to retrieve (default = 256)|
-|$filter|string|no|query|none|An ODATA filter query to restrict the number of entries|
-|$orderby|string|no|query|none|An ODATA orderBy query for specifying the order of entries|
-
-### Response
-|Name|Description|
-|---|---|
-|200|OK|
-|default|Operation Failed.|
 
 
 
-## Object definitions 
-
-#### DataSetsMetadata
-
-| Name | Data Type | Required|
-|---|---|---|
-|tabular|not defined|no|
-|blob|not defined|no|
-
-
-#### TabularDataSetsMetadata
-
-| Name | Data Type | Required|
-|---|---|---|
-|source|string|no|
-|displayName|string|no|
-|urlEncoding|string|no|
-|tableDisplayName|string|no|
-|tablePluralName|string|no|
-
-
-#### BlobDataSetsMetadata
-
-| Name | Data Type | Required|
-|---|---|---|
-|source|string|no|
-|displayName|string|no|
-|urlEncoding|string|no|
-
-
-#### TableMetadata
-
-| Name | Data Type | Required|
-|---|---|---|
-|name|string|no|
-|title|string|no|
-|x-ms-permission|string|no|
-|schema|not defined|no|
-
-
-#### DataSetsList
-
-| Name | Data Type | Required|
-|---|---|---|
-|value|array|no|
-
-
-#### DataSet
-
-| Name | Data Type | Required|
-|---|---|---|
-|Name|string|
-|DisplayName|string|no|
-
-
-#### Table
-
-| Name | Data Type | Required|
-|---|---|---|
-|Name|string|no|
-|DisplayName|string|no|
-
-
-#### Item
-
-| Name | Data Type | Required|
-|---|---|---|
-|ItemInternalId|string|no|
-
-
-#### ItemsList
-
-| Name | Data Type | Required|
-|---|---|---|
-|value|array|no|
-
-
-#### TablesList
-
-| Name | Data Type | Required|
-|---|---|---|
-|value|array|no|
-
-
-## Next Steps
-
-[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
-
-Go back to the [APIs list](apis-list.md).
-
-
-[5]: https://developer.salesforce.com
-[6]: ./media/connectors-create-api-salesforce/salesforce-developer-homepage.png
-[7]: ./media/connectors-create-api-salesforce/salesforce-create-app.png
-[8]: ./media/connectors-create-api-salesforce/salesforce-new-app.png
+## Next steps
+[Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)

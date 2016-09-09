@@ -133,7 +133,7 @@ Now you'll need the Primary Access Key from your Storage Account, which you note
 ![](./media/app-insights-export-power-bi/140.png)
 
 
-Be sure to set the Date Format to YYYY-MM-DD (with dashes).
+**Be sure to set the Date Format to YYYY-MM-DD (with dashes).**
 
 The Path Prefix Pattern specifies where Stream Analytics finds the input files in the storage. You need to set it to correspond to how Continuous Export stores the data. Set it like this:
 
@@ -259,6 +259,12 @@ Now you can use this dataset in reports and dashboards in [Power BI](https://pow
 
 
 ![In Power BI, select your dataset and fields.](./media/app-insights-export-power-bi/210.png)
+
+
+### No data?
+
+* Check that you [set the date format](#set-path-prefix-pattern) correctly to YYYY-MM-DD (with dashes).
+
 
 ### Video
 

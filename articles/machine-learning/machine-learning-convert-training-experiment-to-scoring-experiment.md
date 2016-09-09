@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/03/2016"
+	ms.date="05/02/2016"
 	ms.author="garye"/>
 
 # Convert a Machine Learning training experiment to a predictive experiment
@@ -54,7 +54,7 @@ When you convert this training experiment to a predictive experiment, some of th
 
 - **Prep** - Depending on the data that will be submitted for scoring, these modules may or may not be necessary to process the incoming data.
 
-	For instance, in this example the sample dataset may have missing values and it includes columns that are not needed to train the model. So a [Clean Missing Data][clean-missing-data] module was included to deal with missing values, and a [Project Columns][project-columns] module was included to exclude those extra columns from the data flow. If you know that the data that will be submitted for scoring through the web service will not have missing values, then you can remove the [Clean Missing Data][clean-missing-data] module. However, since the [Project Columns][project-columns] module helps define the set of features being scored, that module needs to remain.
+	For instance, in this example the sample dataset may have missing values and it includes columns that are not needed to train the model. So a [Clean Missing Data][clean-missing-data] module was included to deal with missing values, and a [Select Columns in Dataset][select-columns] module was included to exclude those extra columns from the data flow. If you know that the data that will be submitted for scoring through the web service will not have missing values, then you can remove the [Clean Missing Data][clean-missing-data] module. However, since the [Select Columns in Dataset][select-columns] module helps define the set of features being scored, that module needs to remain.
 
 - **Train** - Once the model has been successfully trained, you save it as a single trained model module. You then replace these individual modules with the saved trained model.
 
@@ -78,7 +78,7 @@ The input data provided through the web service will now pass directly into the 
 
 Similarly, by default **Set Up Web Service** puts the Web service output module at the bottom of your data flow. In this example, the web service will return to the user the output of the [Score Model][score-model] module which includes the complete input data vector plus the scoring results.
 
-However, if you would prefer to return something different - for example, only the scoring results and not the entire vector of input data - then you can insert a [Project Columns][project-columns] module to exclude all columns except the scoring results. You then move the **Web service output** module to the output of the [Project Columns][project-columns] module:
+However, if you would prefer to return something different - for example, only the scoring results and not the entire vector of input data - then you can insert a [Select Columns in Dataset][select-columns] module to exclude all columns except the scoring results. You then move the **Web service output** module to the output of the [Select Columns in Dataset][select-columns] module:
 
 ![Moving the web service output][figure5]
 
@@ -94,7 +94,7 @@ Our predictive experiment now looks like this:
 
 In some cases, you may want to allow the user of your web service to change the behavior of modules when the service is accessed. *Web Service Parameters* allow you to do this.
 
-A common example is setting up the [Reader][reader] module so that the user of the deployed web service can specify a different data source when the web service is accessed. Or configuring the [Writer][writer] module so that a different destination can be specified.
+A common example is setting up the [Import Data][import-data] module so that the user of the deployed web service can specify a different data source when the web service is accessed. Or configuring the [Export Data][export-data] module so that a different destination can be specified.
 
 You can define Web Service Parameters and associate them with one or more module parameters, and you can specify whether they are required or optional. The user of the web service can then provide values for these parameters when the service is accessed and the module actions will be modified accordingly.
 
@@ -125,9 +125,9 @@ For more information on the complete deployment process, see [Deploy an Azure Ma
 <!-- Module References -->
 [clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-[writer]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
+[export-data]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/

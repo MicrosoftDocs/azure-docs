@@ -4,7 +4,7 @@
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
-	manager="dwrede" 
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
+ 	ms.date="07/12/2016"  
 	ms.author="juliako"/>
 
 #Media Services development with .NET
@@ -58,7 +58,7 @@ The project is modified and references to the Media Services .NET SDK Extensions
 
 4. To promote a cleaner development environment, consider enabling NuGet Package Restore. For more information, see [NuGet Package Restore"](http://docs.nuget.org/consume/package-restore).
 
-3. Add a reference to **System.Configuratio**n assembly. This assembly contains the System.Configuration.**ConfigurationManager** class that is used to access configuration files (for example, App.config).
+3. Add a reference to **System.Configuration** assembly. This assembly contains the System.Configuration.**ConfigurationManager** class that is used to access configuration files (for example, App.config).
 
 To add references using the Manage References dialog, do the following:
 
@@ -75,7 +75,7 @@ The Manage References dialog appears.
 To obtain the **account name** and **account key** information, open the **Azure Classic Portal**, select your media services account and click the **MANAGE KEYS** button.
 
 
-<configuration>
+	<configuration>
 	...
 	  <appSettings>
 	    <add key="MediaServicesAccountName" value="Media-Services-Account-Name" />

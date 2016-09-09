@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/08/2016"
+   ms.date="07/19/2016"
    ms.author="seanmck"/>
 
 # Manage application parameters for multiple environments
@@ -24,7 +24,7 @@ As a simple example, consider `InstanceCount` for a stateless service. When you 
 
 ## Specifying environment-specific parameters
 
-The solution to this configuration issue is a set of parameterized default services and application parameter files that fill in those parameter values for a given environment.
+The solution to this configuration issue is a set of parameterized default services and application parameter files that fill in those parameter values for a given environment. Default services and application parameters are configured in the application and service manifests. The schema definition for the ServiceManifest.xml and ApplicationManifest.xml files is installed with the Service Fabric SDK and tools to *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
 ### Default services
 
@@ -33,10 +33,13 @@ Service Fabric applications are made up of a collection of service instances. Wh
     <DefaultServices>
         <Service Name="Stateful1">
             <StatefulService
-                ServiceTypeName="Stateful1Type" TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]" MinReplicaSetSize="[Stateful1_MinReplicaSetSize]">
+                ServiceTypeName="Stateful1Type"
+                TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]"
+                MinReplicaSetSize="[Stateful1_MinReplicaSetSize]">
 
                 <UniformInt64Partition
-                    PartitionCount="[Stateful1_PartitionCount]" LowKey="-9223372036854775808"
+                    PartitionCount="[Stateful1_PartitionCount]"
+                    LowKey="-9223372036854775808"
                     HighKey="9223372036854775807"
                 />
         </StatefulService>
@@ -116,9 +119,11 @@ You can choose from the list of available parameter files when you publish your 
 
 ### Deploy from PowerShell
 
-The `DeployCreate-FabricApplication.ps1` PowerShell script accepts a parameter file as a parameter.
+The `Deploy-FabricApplication.ps1` PowerShell script included in the application project template accepts a publish profile as a parameter and the PublishProfile contains a reference to the application parameters file.
 
-    ./DeployCreate-FabricApplication -ApplicationPackagePath <app_package_path> -ApplicationDefinitionFilePath <app_instance_definition_path>
+  ```PowerShell
+    ./Deploy-FabricApplication -ApplicationPackagePath <app_package_path> -PublishProfileFile <publishprofile_path>
+  ```
 
 ## Next steps
 

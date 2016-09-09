@@ -54,7 +54,7 @@ Make sure you have the latest production version of the Azure Resource Manager (
 
 ### Step 1
 
-		PS C:\> Login-AzureRmAccount
+		Login-AzureRmAccount
 
 You will be prompted to Authenticate with your credentials.<BR>
 
@@ -62,20 +62,20 @@ You will be prompted to Authenticate with your credentials.<BR>
 
 Check the subscriptions for the account 
 
-		PS C:\> Get-AzureRmSubscription 
+		Get-AzureRmSubscription 
 
 ### Step 3 
 
 Choose which of your Azure subscriptions to use. <BR>
 
-		PS C:\> Select-AzureRmSubscription -SubscriptionId 'GUID of subscription'
+		Select-AzureRmSubscription -SubscriptionId 'GUID of subscription'
 
 ### Step 4
 
 Create a new resource group (skip this step if using an existing resource group)
 
 
-    	PS C:\> New-AzureRmResourceGroup -Name NRP-RG -location "West US"
+    	New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 
 
 ## Create a virtual network and a public IP address for the front-end IP pool
@@ -160,7 +160,7 @@ You need to create Network Interfaces (or modify existing ones) and associate th
 
 ### Step 1 
 
-Get the Virtual Network and Virtual Network Subnet, where the NICs ned to be created.
+Get the Virtual Network and Virtual Network Subnet, where the NICs need to be created.
 
 	$vnet = Get-AzureRmVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG
 	$backendSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name LB-Subnet-BE -VirtualNetwork $vnet 
@@ -182,7 +182,7 @@ Create a NIC named *lb-nic2-be*, and associate it with the second NAT rule, and 
 Check the NICs.
 
 
-	PS C:\> $backendnic1
+	$backendnic1
 
 Expected output:
 
@@ -249,7 +249,7 @@ Load the load balancer resource into a variable (if you haven't done that yet). 
 
 Load the backend configuration to a variable. 
 
-	PS C:\> $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
+	$backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
 
 #### Step 3 
 
@@ -261,13 +261,13 @@ Load the already created network interface into a variable. the variable name us
 
 Change the backend configuration on the network interface.
 
-	PS C:\> $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
+	$nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
 
 #### Step 5 
 
 Save the network interface object.
 
-	PS C:\> Set-AzureRmNetworkInterface -NetworkInterface $nic
+	Set-AzureRmNetworkInterface -NetworkInterface $nic
 
 After a network interface is added to the load balancer backend pool, it  starts receiving network traffic based on the load balancing rules for that load balancer resource.
 

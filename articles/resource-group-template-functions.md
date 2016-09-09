@@ -4,8 +4,8 @@
    services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+   manager="timlt"
+   editor="tysonn"/>
 
 <tags
    ms.service="azure-resource-manager"
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/22/2016"
+   ms.date="08/11/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager template functions
 
-This topic describes all of the functions you can use in an Azure Resource Manager template.
+This topic describes all the functions you can use in an Azure Resource Manager template.
 
-Template functions and their parameters are case-insensitive. For example, Resource Manager resolves **variables('var1')** and **VARIABLES('VAR1')** as the same. When evaluated, unless the function expressly modifies case (such as toUpper or toLower), the function will preserve the case. Certain resource types may have case requirements irrespective of how functions are evaluated.
+Template functions and their parameters are case-insensitive. For example, Resource Manager resolves **variables('var1')** and **VARIABLES('VAR1')** as the same. When evaluated, unless the function expressly modifies case (such as toUpper or toLower), the function preserves the case. Certain resource types may have case requirements irrespective of how functions are evaluated.
 
 ## Numeric functions
 
@@ -30,7 +30,6 @@ Resource Manager provides the following functions for working with integers:
 - [copyIndex](#copyindex)
 - [div](#div)
 - [int](#int)
-- [length](#length)
 - [mod](#mod)
 - [mul](#mul)
 - [sub](#sub)
@@ -45,9 +44,32 @@ Returns the sum of the two provided integers.
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
-| operand1                           |   Yes    | First operand to use.
-| operand2                           |   Yes    | Second operand to use.
+| operand1                           |   Yes    | First integer to add.
+| operand2                           |   Yes    | Second integer to add.
 
+The following example adds two parameters.
+
+    "parameters": {
+      "first": {
+        "type": "int",
+        "metadata": {
+          "description": "First integer to add"
+        }
+      },
+      "second": {
+        "type": "int",
+        "metadata": {
+          "description": "Second integer to add"
+        }
+      }
+    },
+    ...
+    "outputs": {
+      "addResult": {
+        "type": "int",
+        "value": "[add(parameters('first'), parameters('second'))]"
+      }
+    }
 
 <a id="copyindex" />
 ### copyIndex
@@ -56,7 +78,25 @@ Returns the sum of the two provided integers.
 
 Returns the current index of an iteration loop. 
 
-This function is always used with a **copy** object. For examples of using **copyIndex**, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| offset                           |   No    | The amount to add to current iteration value.
+
+This function is always used with a **copy** object. For a complete description of how you use **copyIndex**, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
+
+The following example shows a copy loop and the index value included in the name. 
+
+    "resources": [ 
+      { 
+        "name": "[concat('examplecopy-', copyIndex())]", 
+        "type": "Microsoft.Web/sites", 
+        "copy": { 
+          "name": "websitescopy", 
+          "count": "[parameters('count')]" 
+        }, 
+        ...
+      }
+    ]
 
 
 <a id="div" />
@@ -68,9 +108,32 @@ Returns the integer division of the two provided integers.
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
-| operand1                           |   Yes    | Number being divided.
-| operand2                           |   Yes    | Number which is used to divide, has to be different from 0.
+| operand1                           |   Yes    | Integer being divided.
+| operand2                           |   Yes    | Integer that is used to divide. Cannot be 0.
 
+The following example divides one parameter by another parameter.
+
+    "parameters": {
+      "first": {
+        "type": "int",
+        "metadata": {
+          "description": "Integer being divided"
+        }
+      },
+      "second": {
+        "type": "int",
+        "metadata": {
+          "description": "Integer used to divide"
+        }
+      }
+    },
+    ...
+    "outputs": {
+      "divResult": {
+        "type": "int",
+        "value": "[div(parameters('first'), parameters('second'))]"
+      }
+    }
 
 <a id="int" />
 ### int
@@ -93,30 +156,6 @@ The following example converts the user-provided parameter value to Integer.
     }
 
 
-<a id="length" />
-### length
-
-**length(array or string)**
-
-Returns the number of elements in an array or the number of characters in a string. You can use this function with an array to specify the number of iterations when creating resources. In the following example, the parameter **siteNames** would refer to an array of names to use when creating the web sites.
-
-    "copy": {
-        "name": "websitescopy",
-        "count": "[length(parameters('siteNames'))]"
-    }
-
-For more information about using this function with an array, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
-
-Or, you can use with a string:
-
-    "parameters": {
-        "appName": { "type": "string" }
-    },
-    "variables": { 
-        "nameLength": "[length(parameters('appName'))]"
-    }
-
-
 <a id="mod" />
 ### mod
 
@@ -126,10 +165,32 @@ Returns the remainder of the integer division using the two provided integers.
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
-| operand1                           |   Yes    | Number being divided.
-| operand2                           |   Yes    | Number which is used to divide, has to be different from 0.
+| operand1                           |   Yes    | Integer being divided.
+| operand2                           |   Yes    | Integer that is used to divide, has to be different from 0.
 
+The following example returns the remainder of dividing one parameter by another parameter.
 
+    "parameters": {
+      "first": {
+        "type": "int",
+        "metadata": {
+          "description": "Integer being divided"
+        }
+      },
+      "second": {
+        "type": "int",
+        "metadata": {
+          "description": "Integer used to divide"
+        }
+      }
+    },
+    ...
+    "outputs": {
+      "modResult": {
+        "type": "int",
+        "value": "[mod(parameters('first'), parameters('second'))]"
+      }
+    }
 
 <a id="mul" />
 ### mul
@@ -140,9 +201,32 @@ Returns the multiplication of the two provided integers.
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
-| operand1                           |   Yes    | First operand to use.
-| operand2                           |   Yes    | Second operand to use.
+| operand1                           |   Yes    | First integer to multiply.
+| operand2                           |   Yes    | Second integer to multiply.
 
+The following example multiplies one parameter by another parameter.
+
+    "parameters": {
+      "first": {
+        "type": "int",
+        "metadata": {
+          "description": "First integer to multiply"
+        }
+      },
+      "second": {
+        "type": "int",
+        "metadata": {
+          "description": "Second integer to multiply"
+        }
+      }
+    },
+    ...
+    "outputs": {
+      "mulResult": {
+        "type": "int",
+        "value": "[mul(parameters('first'), parameters('second'))]"
+      }
+    }
 
 <a id="sub" />
 ### sub
@@ -153,9 +237,32 @@ Returns the subtraction of the two provided integers.
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
-| operand1                           |   Yes    | Number which is to be subtracted from.
-| operand2                           |   Yes    | Number to be subtracted.
+| operand1                           |   Yes    | Integer that is subtracted from.
+| operand2                           |   Yes    | Integer that is subtracted.
 
+The following example subtracts one parameter from another parameter.
+
+    "parameters": {
+      "first": {
+        "type": "int",
+        "metadata": {
+          "description": "Integer subtracted from"
+        }
+      },
+      "second": {
+        "type": "int",
+        "metadata": {
+          "description": "Integer to subtract"
+        }
+      }
+    },
+    ...
+    "outputs": {
+      "subResult": {
+        "type": "int",
+        "value": "[sub(parameters('first'), parameters('second'))]"
+      }
+    }
 
 ## String functions
 
@@ -163,18 +270,20 @@ Resource Manager provides the following functions for working with strings:
 
 - [base64](#base64)
 - [concat](#concat)
+- [length](#lengthstring)
 - [padLeft](#padleft)
 - [replace](#replace)
+- [skip](#skipstring)
 - [split](#split)
 - [string](#string)
 - [substring](#substring)
+- [take](#takestring)
 - [toLower](#tolower)
 - [toUpper](#toupper)
 - [trim](#trim)
 - [uniqueString](#uniquestring)
 - [uri](#uri)
 
-To get the number of characters in a string or array, see [length](#length).
 
 <a id="base64" />
 ### base64
@@ -187,7 +296,7 @@ Returns the base64 representation of the input string.
 | :--------------------------------: | :------: | :----------
 | inputString                        |   Yes    | The string value to return as a base64 representation.
 
-The following example show how to use the base64 function.
+The following example shows how to use the base64 function.
 
     "variables": {
       "usernameAndPassword": "[concat('parameters('username'), ':', parameters('password'))]",
@@ -195,11 +304,18 @@ The following example show how to use the base64 function.
     }
 
 <a id="concat" />
-### concat
+### concat - string
 
-**concat (arg1, arg2, arg3, ...)**
+**concat (string1, string2, string3, ...)**
 
-Combines multiple values and returns the concatenated result. This function can take any number of arguments, and can accept either strings or arrays for the parameters.
+Combines multiple string values and returns the concatenated string. 
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| string1                        |   Yes    | A string value to concatenate.
+| additional strings             |   No     | String values to concatenate.
+
+This function can take any number of arguments, and can accept either strings or arrays for the parameters. For an example of concatenating arrays, see [concat - array](#concatarray).
 
 The following example shows how to combine multiple string values to return a concatenated string.
 
@@ -210,33 +326,42 @@ The following example shows how to combine multiple string values to return a co
         }
     }
 
-The next example shows how to combine two arrays.
+
+<a id="lengthstring" />
+### length - string
+
+**length(string)**
+
+Returns the number of characters in a string.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| string                        |   Yes    | The string value to use for getting the number of characters.
+
+For an example of using length with an array, see [length - array](#length).
+
+The following example returns the number of characters in a string. 
 
     "parameters": {
-        "firstarray": {
-            type: "array"
-        }
-        "secondarray": {
-            type: "array"
-        }
-     },
-     "variables": {
-         "combinedarray": "[concat(parameters('firstarray'), parameters('secondarray'))]
-     }
+        "appName": { "type": "string" }
+    },
+    "variables": { 
+        "nameLength": "[length(parameters('appName'))]"
+    }
         
 
 <a id="padleft" />
 ### padLeft
 
-**padLeft(stringToPad, totalLength, paddingCharacter)**
+**padLeft(valueToPad, totalLength, paddingCharacter)**
 
 Returns a right-aligned string by adding characters to the left until reaching the total specified length.
   
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
-| stringToPad                        |   Yes    | The string to right-align.
+| valueToPad                         |   Yes    | The string or int to right-align.
 | totalLength                        |   Yes    | The total number of characters in the returned string.
-| paddingCharacter                   |   Yes    | The character to use for left-padding until the total length is reached.
+| paddingCharacter                   |   No     | The character to use for left-padding until the total length is reached. The default value is a space.
 
 The following example shows how to pad the user-provided parameter value by adding the zero character until the string reaches 10 characters. If the original parameter value is longer than 10 characters, no characters are added.
 
@@ -256,7 +381,7 @@ Returns a new string with all instances of one character in the specified string
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
-| originalString                     |   Yes    | The string that will have all instances of one character replaced by another character.
+| originalString                     |   Yes    | The string that has all instances of one character replaced by another character.
 | oldCharacter                       |   Yes    | The character to be removed from the original string.
 | newCharacter                       |   Yes    | The character to add in place of the removed character.
 
@@ -269,17 +394,57 @@ The following example shows how to remove all dashes from the user-provided stri
         "newidentifier": "[replace(parameters('identifier'),'-','')]"
     }
 
-<a id="split" />
-### split
+<a id="skipstring" />
+### skip - string
+**skip(originalValue, numberToSkip)**
 
-**split(inputString, delimiter)**
-**split(inputString, [delimiters])**
-
-Returns an array of strings that contains the substrings of the input string that are delimited by the sent delimiters.
+Returns a string with all the characters after the specified number in the string.
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
-| inputString                        |   Yes    | The string to to be splitted.
+| originalValue                      |   Yes    | The string to use for skipping.
+| numberToSkip                       |   Yes    | The number of characters to skip. If this value is 0 or less, all the characters in the string are returned. If it is larger than the length of the string, an empty string is returned. 
+
+For an example of using skip with an array, see [skip - array](#skip).
+
+The following example skips the specified number of characters in the string.
+
+    "parameters": {
+      "first": {
+        "type": "string",
+        "metadata": {
+          "description": "Value to use for skipping"
+        }
+      },
+      "second": {
+        "type": "int",
+        "metadata": {
+          "description": "Number of characters to skip"
+        }
+      }
+    },
+    "resources": [
+    ],
+    "outputs": {
+      "return": {
+        "type": "string",
+        "value": "[skip(parameters('first'),parameters('second'))]"
+      }
+    }
+
+
+<a id="split" />
+### split
+
+**split(inputString, delimiterString)**
+
+**split(inputString, delimiterArray)**
+
+Returns an array of strings that contains the substrings of the input string that are delimited by the specified delimiters.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| inputString                        |   Yes    | The string to split.
 | delimiter                          |   Yes    | The delimiter to use, can be a single string or an array of strings.
 
 The following example splits the input string with a comma.
@@ -291,24 +456,54 @@ The following example splits the input string with a comma.
         "stringPieces": "[split(parameters('inputString'), ',')]"
     }
 
+The next example splits the input string with either a comma or a semi-colon.
+
+    "variables": {
+      "stringToSplit": "test1,test2;test3",
+      "delimiters": [ ",", ";" ]
+    },
+    "resources": [ ],
+    "outputs": {
+      "exampleOutput": {
+        "value": "[split(variables('stringToSplit'), variables('delimiters'))]",
+        "type": "array"
+      }
+    }
+
 <a id="string" />
 ### string
 
 **string(valueToConvert)**
 
-Converts the specified value to String.
+Converts the specified value to a string.
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
-| valueToConvert                     |   Yes    | The value to convert to String. The type of value can only be Boolean, Integer or String.
+| valueToConvert                     |   Yes    | The value to convert to string. Any type of value can be converted, including objects and arrays.
 
-The following example converts the user-provided parameter value to String.
+The following example converts the user-provided parameter values to strings.
 
     "parameters": {
-        "appId": { "type": "int" }
+      "jsonObject": {
+        "type": "object",
+        "defaultValue": {
+          "valueA": 10,
+          "valueB": "Example Text"
+        }
+      },
+      "jsonArray": {
+        "type": "array",
+        "defaultValue": [ "a", "b", "c" ]
+      },
+      "jsonInt": {
+        "type": "int",
+        "defaultValue": 5
+      }
     },
     "variables": { 
-        "stringValue": "[string(parameters('appId'))]"
+      "objectString": "[string(parameters('jsonObject'))]",
+      "arrayString": "[string(parameters('jsonArray'))]",
+      "intString": "[string(parameters('jsonInt'))]"
     }
 
 <a id="substring" />
@@ -331,6 +526,44 @@ The following example extracts the first three characters from a parameter.
     },
     "variables": { 
         "prefix": "[substring(parameters('inputString'), 0, 3)]"
+    }
+
+<a id="takestring" />
+### take - string
+**take(originalValue, numberToTake)**
+
+Returns a string with the specified number of characters from the start of the string.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| originalValue                      |   Yes    | The string to take the characters from.
+| numberToTake                       |   Yes    | The number of characters to take. If this value is 0 or less, an empty string is returned. If it is larger than the length of the given string, all the characters in the string are returned.
+
+For an example of using take with an array, see [take - array](#take).
+
+The following example takes the specified number of characters from the string.
+
+    "parameters": {
+      "first": {
+        "type": "string",
+        "metadata": {
+          "description": "Value to use for taking"
+        }
+      },
+      "second": {
+        "type": "int",
+        "metadata": {
+          "description": "Number of characters to take"
+        }
+      }
+    },
+    "resources": [
+    ],
+    "outputs": {
+      "return": {
+        "type": "string",
+        "value": "[take(parameters('first'), parameters('second'))]"
+      }
     }
 
 <a id="tolower" />
@@ -396,18 +629,22 @@ The following example trims the white-space characters from the user-provided pa
 <a id="uniquestring" />
 ### uniqueString
 
-**uniqueString (stringForCreatingUniqueString, ...)**
+**uniqueString (baseString, ...)**
 
-Performs a 64-bit hash of the provided strings to create a unique string. This function is helpful when you need to create a unique name for a resource. You provide parameter values that represent the level of uniqueness for the result. You can specify whether the name is unique for your subscription, resource group, or deployment. 
+Creates a unique string based on the values provided as parameters. 
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
-| stringForCreatingUniqueString      |   Yes    | The base string used in the hash function to create a unique string.
-| additional parameters as needed    | No       | You can add as many strings as needed to create the value that specifies the level for uniqueness.
+| baseString      |   Yes    | The string used in the hash function to create a unique string.
+| additional parameters as needed    | No       | You can add as many strings as needed to create the value that specifies the level of uniqueness.
 
-The returned value is not a completely random string, but rather the result of a hash function. The returned value is 13 characters long. It is not guaranteed to be globally unique. You may want to combine the value with a prefix from your naming convention to create a more friendly name.
+This function is helpful when you need to create a unique name for a resource. You provide parameter values that represent the level of uniqueness for the result. You can specify whether the name is unique for your subscription, resource group, or deployment. 
 
-The following examples show how to use uniqueString to create a unique value for a different commonly-used levels.
+The returned value is not a random string, but rather the result of a hash function. The returned value is 13 characters long. It is not guaranteed to be globally unique. You may want to combine the value with a prefix from your naming convention to create a name that is easier to recognize. The following example shows the format of the returned value. Of course, the actual value will vary by the provided parameters.
+
+    tcvhiyu5h2o5o
+
+The following examples show how to use uniqueString to create a unique value for commonly used levels.
 
 Unique based on subscription
 
@@ -428,6 +665,8 @@ The following example shows how to create a unique name for a storage account ba
         "type": "Microsoft.Storage/storageAccounts", 
         ...
 
+
+
 <a id="uri" />
 ### uri
 
@@ -440,7 +679,7 @@ Creates an absolute URI by combining the baseUri and the relativeUri string.
 | baseUri                            |   Yes    | The base uri string.
 | relativeUri                        |   Yes    | The relative uri string to add to the base uri string.
 
-The value for the **baseUri** parameter can include a specific file, but only the base path is used when constructing the URI. For example, passing **http://contoso.com/resources/azuredeploy.json** as the baseUri parameter will result in a base URI of **http://contoso.com/resources/**.
+The value for the **baseUri** parameter can include a specific file, but only the base path is used when constructing the URI. For example, passing **http://contoso.com/resources/azuredeploy.json** as the baseUri parameter results in a base URI of **http://contoso.com/resources/**.
 
 The following example shows how to construct a link to a nested template based on the value of the parent template.
 
@@ -450,11 +689,141 @@ The following example shows how to construct a link to a nested template based o
 
 Resource Manager provides several functions for working with array values.
 
-To combine multiple arrays into a single array, use [concat](#concat).
+- [concat](#concatarray)
+- [length](#length)
+- [skip](#skip)
+- [take](#take)
 
-To get the number of elements in an array, use [length](#length).
+To get an array of string values delimited by a value, see [split](#split).
 
-To divide a string value into an array of string values, use [split](#split).
+<a id="concatarray" />
+### concat - array
+
+**concat (array1, array2, array3, ...)**
+
+Combines multiple arrays and returns the concatenated array. 
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| array1                        |   Yes    | An array to concatenate.
+| additional arrays             |   No     | Arrays to concatenate.
+
+This function can take any number of arguments, and can accept either strings or arrays for the parameters. For an example of concatenating string values, see [concat - string](#concat).
+
+The following example shows how to combine two arrays.
+
+    "parameters": {
+        "firstarray": {
+            type: "array"
+        }
+        "secondarray": {
+            type: "array"
+        }
+     },
+     "variables": {
+         "combinedarray": "[concat(parameters('firstarray'), parameters('secondarray'))]
+     }
+        
+
+<a id="length" />
+### length - array
+
+**length(array)**
+
+Returns the number of elements in an array.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| array                        |   Yes    | The array to use for getting the number of elements.
+
+You can use this function with an array to specify the number of iterations when creating resources. In the following example, the parameter **siteNames** would refer to an array of names to use when creating the web sites.
+
+    "copy": {
+        "name": "websitescopy",
+        "count": "[length(parameters('siteNames'))]"
+    }
+
+For more information about using this function with an array, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md). 
+
+For an example of using length with a string value, see [length - string](#lengthstring).
+
+<a id="skip" />
+### skip - array
+**skip(originalValue, numberToSkip)**
+
+Returns an array with all the elements after the specified number in the array.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| originalValue                      |   Yes    | The array to use for skipping.
+| numberToSkip                       |   Yes    | The number of elements to skip. If this value is 0 or less, all the elements in the array are returned. If it is larger than the length of the array, an empty array is returned. 
+
+For an example of using skip with a string, see [skip - string](#skipstring).
+
+The following example skips the specified number of elements in the array.
+
+    "parameters": {
+      "first": {
+        "type": "array",
+        "metadata": {
+          "description": "Values to use for skipping"
+        },
+        "defaultValue": [ "one", "two", "three" ]
+      },
+      "second": {
+        "type": "int",
+        "metadata": {
+          "description": "Number of elements to skip"
+        }
+      }
+    },
+    "resources": [
+    ],
+    "outputs": {
+      "return": {
+        "type": "array",
+        "value": "[skip(parameters('first'), parameters('second'))]"
+      }
+    }
+
+<a id="take" />
+### take - array
+**take(originalValue, numberToTake)**
+
+Returns an array with the specified number of elements from the start of the array.
+
+| Parameter                          | Required | Description
+| :--------------------------------: | :------: | :----------
+| originalValue                      |   Yes    | The array to take the elements from.
+| numberToTake                       |   Yes    | The number of elements to take. If this value is 0 or less, an empty array is returned. If it is larger than the length of the given array, all the elements in the array are returned.
+
+For an example of using take with a string, see [take - string](#takestring).
+
+The following example takes the specified number of elements from the array.
+
+    "parameters": {
+      "first": {
+        "type": "array",
+        "metadata": {
+          "description": "Values to use for taking"
+        },
+        "defaultValue": [ "one", "two", "three" ]
+      },
+      "second": {
+        "type": "int",
+        "metadata": {
+          "description": "Number of elements to take"
+        }
+      }
+    },
+    "resources": [
+    ],
+    "outputs": {
+      "return": {
+        "type": "array",
+        "value": "[take(parameters('first'),parameters('second'))]"
+      }
+    }
 
 ## Deployment value functions
 
@@ -473,7 +842,9 @@ To get values from resources, resource groups, or subscriptions, see [Resource f
 
 Returns information about the current deployment operation.
 
-This function returns the object that is passed during deployment. The properties in the returned object will differ based on whether the deployment object is passed as a link or as an in-line object. When the deployment object is passed in-line, such as when using the **-TemplateFile** parameter in Azure PowerShell to point to a local file, the returned object is in the following format:
+This function returns the object that is passed during deployment. The properties in the returned object differ based on whether the deployment object is passed as a link or as an in-line object. 
+
+When the deployment object is passed in-line, such as when using the **-TemplateFile** parameter in Azure PowerShell to point to a local file, the returned object has the following format:
 
     {
         "name": "",
@@ -481,6 +852,8 @@ This function returns the object that is passed during deployment. The propertie
             "template": {
                 "$schema": "",
                 "contentVersion": "",
+                "parameters": {},
+                "variables": {},
                 "resources": [
                 ],
                 "outputs": {}
@@ -497,9 +870,17 @@ When the object is passed as a link, such as when using the **-TemplateUri** par
         "name": "",
         "properties": {
             "templateLink": {
-                "uri": "",
-                "contentVersion": ""
+                "uri": ""
             },
+            "template": {
+                "$schema": "",
+                "contentVersion": "",
+                "parameters": {},
+                "variables": {},
+                "resources": [],
+                "outputs": {}
+            },
+            "parameters": {},
             "mode": "",
             "provisioningState": ""
         }
@@ -510,7 +891,6 @@ The following example shows how to use deployment() to link to another template 
     "variables": {  
         "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"  
     }  
-
 
 <a id="parameters" />
 ### parameters
@@ -550,14 +930,24 @@ Returns the value of variable. The specified variable name must be defined in th
 | :--------------------------------: | :------: | :----------
 | variable Name                      |   Yes    | The name of the variable to return.
 
+The following example uses a variable value.
 
+    "variables": {
+      "storageName": "[concat('storage', uniqueString(resourceGroup().id))]"
+    },
+    "resources": [
+      {
+        "type": "Microsoft.Storage/storageAccounts",
+        "name": "[variables('storageName')]",
+        ...
+      }
+    ],
 
 ## Resource functions
 
 Resource Manager provides the following functions for getting resource values:
 
-- [listkeys](#listkeys)
-- [list*](#list)
+- [listKeys and list{Value}](#listkeys)
 - [providers](#providers)
 - [reference](#reference)
 - [resourceGroup](#resourcegroup)
@@ -567,52 +957,69 @@ Resource Manager provides the following functions for getting resource values:
 To get values from parameters, variables, or the current deployment, see [Deployment value functions](#deployment-value-functions).
 
 <a id="listkeys" />
-### listKeys
+<a id="list" />
+### listKeys and list{Value}
 
 **listKeys (resourceName or resourceIdentifier, apiVersion)**
 
-Returns the keys for any resource type that supports the listKeys operation. The resourceId can be specified by using the [resourceId function](./#resourceid) or by using the format **providerNamespace/resourceType/resourceName**. You can use the function to get the primaryKey and secondaryKey.
+**list{Value} (resourceName or resourceIdentifier, apiVersion)**
+
+Returns the values for any resource type that supports the list operation. The most common usage is **listKeys**. 
   
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
 | resourceName or resourceIdentifier |   Yes    | Unique identifier for the resource.
 | apiVersion                         |   Yes    | API version of resource runtime state.
 
-The following example shows how to return the keys from a storage account in the outputs section.
+Any operation that starts with **list** can be used a function in your template. The available operations include not only **listKeys**, but also operations like **list**, **listAdminKeys**, and **listStatus**. To determine which resource types have a list operation, use the following PowerShell command.
+
+    Get-AzureRmProviderOperation -OperationSearchString *  | where {$_.Operation -like "*list*"} | FT Operation
+
+Or, retrieve the list with Azure CLI. The following example retrieves all the operations for **apiapps**, and uses the JSON utility [jq](http://stedolan.github.io/jq/download/) to filter only the list operations.
+
+    azure provider operations show --operationSearchString */apiapps/* --json | jq ".[] | select (.operation | contains(\"list\"))"
+
+The resourceId can be specified by using the [resourceId function](./#resourceid) or by using the format **{providerNamespace}/{resourceType}/{resourceName}**.
+
+The following example shows how to return the primary and secondary keys from a storage account in the outputs section.
 
     "outputs": { 
-      "exampleOutput": { 
-        "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2015-05-01-preview')]", 
+      "listKeysOutput": { 
+        "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2016-01-01')]", 
         "type" : "object" 
       } 
     } 
 
-<a id="list" />
-### list*
+The returned object from listKeys has the following format:
 
-**list* (resourceName or resourceIdentifier, apiVersion)**
-
-Any operation that starts with **list** can be used a function in your template. This includes **listKeys**, as shown above, but also operations like **list**, **listAdminKeys**, and **listStatus**. When calling the function, use the actual name of the function not list*. To determine which resource types have a list operation, use the following PowerShell command.
-
-    PS C:\> Get-AzureRmProviderOperation -OperationSearchString *  | where {$_.Operation -like "*list*"} | FT Operation
-
-Or, retrieve the list with Azure CLI. The following example retrieves all of the operations for **apiapps**, and uses the JSON utility [jq](http://stedolan.github.io/jq/download/) to filter only the list operations.
-
-    azure provider operations show --operationSearchString */apiapps/* --json | jq ".[] | select (.operation | contains(\"list\"))"
+    {
+      "keys": [
+        {
+          "keyName": "key1",
+          "permissions": "Full",
+          "value": "{value}"
+        },
+        {
+          "keyName": "key2",
+          "permissions": "Full",
+          "value": "{value}"
+        }
+      ]
+    }
 
 <a id="providers" />
 ### providers
 
 **providers (providerNamespace, [resourceType])**
 
-Return information about a resource provider and its supported resource types. If not type is provided, all of the supported types are returned.
+Returns information about a resource provider and its supported resource types. If you do not provide a resource type, the function returns all the supported types for the resource provider.
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
 | providerNamespace                  |   Yes    | Namespace of the provider
 | resourceType                       |   No     | The type of resource within the specified namespace.
 
-Each supported type is returned in the following format:
+Each supported type is returned in the following format. Array ordering is not guaranteed.
 
     {
         "resourceType": "",
@@ -634,12 +1041,12 @@ The following example shows how to use the provider function:
 
 **reference (resourceName or resourceIdentifier, [apiVersion])**
 
-Enables an expression to derive its value from another resource's runtime state.
+Returns an object representing another resource's runtime state.
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
 | resourceName or resourceIdentifier |   Yes    | Name or unique identifier of a resource.
-| apiVersion                         |   No     | API version of the specified resource. You must include this parameter when the resource is not provisioned within same template.
+| apiVersion                         |   No     | API version of the specified resource. Include this parameter when the resource is not provisioned within same template.
 
 The **reference** function derives its value from a runtime state, and therefore cannot be used in the variables section. It can be used in outputs section of a template.
 
@@ -659,25 +1066,16 @@ The following example references a storage account that is not deployed in this 
 
     "outputs": {
 		"ExistingStorage": {
-			"value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2015-06-15')]",
+			"value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01')]",
 			"type" : "object"
 		}
 	}
 
-You can retrieve a particular value from the returned object, such as the blob endpoint URI, as shown below.
+You can retrieve a particular value from the returned object, such as the blob endpoint URI, as shown in the following example.
 
     "outputs": {
 		"BlobUri": {
-			"value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2015-06-15').primaryEndpoints.blob]",
-			"type" : "string"
-		}
-	}
-
-If you do now wish to directly specify the API version in your template, you can use the [providers](#providers) function and retrieve one the values, such as the latest version as shown below.
-
-    "outputs": {
-		"BlobUri": {
-			"value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0]).primaryEndpoints.blob]",
+			"value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01').primaryEndpoints.blob]",
 			"type" : "string"
 		}
 	}
@@ -686,22 +1084,31 @@ The following example references a storage account in a different resource group
 
     "outputs": {
 		"BlobUri": {
-			"value": "[reference(resourceId(parameters('relatedGroup'), 'Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2015-06-15').primaryEndpoints.blob]",
+			"value": "[reference(resourceId(parameters('relatedGroup'), 'Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01').primaryEndpoints.blob]",
 			"type" : "string"
 		}
 	}
+
+The properties on the returned object vary by the resource type.
 
 <a id="resourcegroup" />
 ### resourceGroup
 
 **resourceGroup()**
 
-Returns a structured object that represents the current resource group. The object will be in the following format:
+Returns an object that represents the current resource group. 
+
+The returned object is in the following format:
 
     {
       "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
       "name": "{resourceGroupName}",
       "location": "{resourceGroupLocation}",
+      "tags": {
+      },
+      "properties": {
+        "provisioningState": "{status}"
+      }
     }
 
 The following example uses the resource group location to assign the location for a web site.
@@ -719,23 +1126,26 @@ The following example uses the resource group location to assign the location fo
 <a id="resourceid" />
 ### resourceId
 
-**resourceId ([resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
+**resourceId ([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
 
-Returns the unique identifier of a resource. You use this function when the resource name is ambiguous or not provisioned within the same template. The identifier is returned in the following format:
-
-    /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/{resourceProviderNamespace}/{resourceType}/{resourceName}
+Returns the unique identifier of a resource. 
       
 | Parameter         | Required | Description
 | :---------------: | :------: | :----------
-| resourceGroupName |   No     | Optional resource group name. Default value is current resource group. Specify this value when you retrieving a resource in another resource group.
+| subscriptionId    |   No     | Default value is the current subscription. Specify this value when you need to retrieve a resource in another subscription.
+| resourceGroupName |   No     | Default value is current resource group. Specify this value when you need to retrieve a resource in another resource group.
 | resourceType      |   Yes    | Type of resource including resource provider namespace.
 | resourceName1     |   Yes    | Name of resource.
 | resourceName2     |   No     | Next resource name segment if resource is nested.
 
+You use this function when the resource name is ambiguous or not provisioned within the same template. The identifier is returned in the following format:
+
+    /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/{resourceProviderNamespace}/{resourceType}/{resourceName}
+
 The following example shows how to retrieve the resource ids for a web site and a database. The web site exists in a resource group named **myWebsitesGroup** and the database exists in the current resource group for this template.
 
     [resourceId('myWebsitesGroup', 'Microsoft.Web/sites', parameters('siteName'))]
-    [resourceId('Microsoft.SQL/servers/databases', parameters('serverName'),parameters('databaseName'))]
+    [resourceId('Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]
     
 Often, you need to use this function when using a storage account or virtual network in an alternate resource group. The storage account or virtual network may be used across multiple resource groups; therefore, you do not want to delete them when deleting a single resource group. The following example shows how a resource from an external resource group can easily be used:
 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/02/2016"
+	ms.date="05/27/2016"
 	ms.author="roalexan" />
 
 
@@ -162,15 +162,15 @@ Rename it to **SimpleFeatureHashingExperiment**. Expand **Saved Datasets** and d
 
 ![simple-feature-hashing-experiment](./media/machine-learning-manage-web-service-endpoints-using-api-management/simple-feature-hashing-experiment.png)
 
-Expand **Data Transformation** and **Manipulation** and drag **Project Columns** onto your experiment. Connect **Book Reviews from Amazon** to **Project Columns**.
+Expand **Data Transformation** and **Manipulation** and drag **Select Columns in Dataset** onto your experiment. Connect **Book Reviews from Amazon** to **Select Columns in Dataset**.
 
-![project-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/project-columns.png)
+![select-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/project-columns.png)
 
-Click **Project Columns** and then click **Launch column selector** and select **Col2**. Click the checkmark to apply these changes.
+Click **Select Columns in Dataset** and then click **Launch column selector** and select **Col2**. Click the checkmark to apply these changes.
 
 ![select-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/select-columns.png)
 
-Expand **Text Analytics** and drag **Feature Hashing** onto the experiment. Connect **Project Columns** to **Feature Hashing**.
+Expand **Text Analytics** and drag **Feature Hashing** onto the experiment. Connect **Select Columns in Dataset** to **Feature Hashing**.
 
 ![connect-project-columns](./media/machine-learning-manage-web-service-endpoints-using-api-management/connect-project-columns.png)
 

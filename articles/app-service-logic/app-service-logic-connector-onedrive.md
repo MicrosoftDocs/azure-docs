@@ -1,100 +1,27 @@
 <properties
 	pageTitle="Using the OneDrive Connector in Logic Apps | Microsoft Azure App Service"
 	description="How to create and configure the OneDrive Connector or API app and use it in a logic app in Azure App Service"
-	authors="rajeshramabathiran"
+	authors="msftman"
 	manager="erikre"
 	editor=""
-	services="app-service\logic"
+	services="logic-apps"
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/16/2016"
-	ms.author="rajram"/>
+	ms.date="04/19/2016"
+    ms.author="deonhe"/>
 
-# Get started with the OneDrive Connector and add it to your Logic App
->[AZURE.NOTE] This version of the article applies to logic apps 2014-12-01-preview schema version. For the 2015-08-01-preview schema version, click [OneDrive API](../connectors/connectors-create-api-onedrive.md).
+# We've improved the OneDrive connector 
 
-Connect to your OneDrive to upload, download, and delete files. Logic apps can trigger based on a variety of data sources and offer connectors to get and process data as a part of the flow. You can add the OneDrive Connector to your business workflow and process data as part of this workflow within a Logic App. 
+We've removed the content (which targeted Logic apps version 2014-12-01-preview) from this page because this connector has been upgraded and is now only supported on the new [Logic Apps schema version 2015-08-01-preview](./app-service-logic-schema-2015-08-01.md) and later. 
 
-## Creating a OneDrive connector for your Logic App ##
-To use the OneDrive connector, you need to first create an instance of the OneDrive connector API app. This can be done from either the logic app designer directly or outside it. Creating an instance outside the designer can be done as follows:
 
-1.	Open the Azure Marketplace from the homepage of Azure Portal.
-2.	Under "Everything", search for “OneDrive connector”.
-3.	Configure the OneDrive connector as follows:
+## Next steps    
 
-	![][1]
-	- **Name** - give a name for your OneDrive Connector
-	- **App Service plan** - select or create a App Service plan
-	- **Pricing tier** - choose a pricing tier for the connector
-	- **Resource group** - select or create a resource group where the connector should reside
-	- **Subscription** - choose a subscription you want this connector to be created in
-	- **Location** - choose the geographic location where you would like the connector to be deployed
-
-4. Click on Create. A new OneDrive Connector will be created.
-5. Once the API app instance is created, you can create a logic App in the same resource group to use the OneDrive connector.
-
-## Using the OneDrive Connector in your Logic App ##
-Once your API app is created, you can now use the OneDrive connector as an action for your Logic App. To do this, you need to:
-
-1.	Create a new Logic App and choose the same resource group which has the OneDrive connector. Follow instructions to [Create a new Logic App].
-
-2.	Open “Triggers and Actions” within the created Logic App to open the Logic Apps Designer and configure your flow.
-
-3.	The OneDrive connector would appear in the “API Apps in this resource group” section in the gallery on the right hand side.
-
-	![][2]
-4.	You can drop the OneDrive Connector API app into the editor by clicking on the “OneDrive Connector”. Click on the Authorize button. Provide your Microsoft credentials (if not automatically signed in). Click “Yes” to allow access.
-
-	![][3]
-	![][4]
-
-5.	You can now use the OneDrive connector in the flow. Currently, triggers are not available within the OneDrive connector. The Actions available are - Get File, Upload a File, Delete File and List Files.
-
-	![][5]
-
-6.	Lets walk through an "Upload File" experience. You can use the OneDrive action "upload File" to upload a file to your OneDrive account.
-
-	![][6]
-
-	Configure the input properties for "Upload File" action as follows:
-
- - **File Path** - Specify the file path of the file to be uploaded
- - **Content** - Specifies the content of the file to be uploaded
- - **Content Transfer Encoding** - Specify none or base64
- - **Overwrite** - Specify "true" to overwrite the file if it already exists. This is an advanced property
-
-7. One these are configured, the "Upload a File" Action is configured and can be used in your flow. Similarly, other actions can be configured as well.
-
-8. To use the connector outside of a logic App, the REST APIs exposed by the connector can be leveraged. You can view this API Definitions using Browse->Api App->OneDrive Connector. Now click on the API Definition lens under the Summary Section to view all the APIs exposed by this connector.
-
-	![][7]
-
-9. Details of the APIs can be found at [OneDrive API Definition].
-
-## Do more with your Connector
-Now that the connector is created, you can add it to a business workflow using a Logic App. See [What are Logic Apps?](app-service-logic-what-are-logic-apps.md).
-
->[AZURE.NOTE] If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic), where you can immediately create a short-lived starter logic app in App Service. No credit cards required; no commitments.
-
-View the Swagger REST API reference at [Connectors and API Apps Reference](http://go.microsoft.com/fwlink/p/?LinkId=529766).
-
-You can also review performance statistics and control security to the connector. See [Manage and Monitor your built-in API Apps and Connectors](app-service-logic-monitor-your-connectors.md).
-
-<!-- Image reference -->
-[1]: ./media/app-service-logic-connector-onedrive/img1.PNG
-[2]: ./media/app-service-logic-connector-onedrive/img2.PNG
-[3]: ./media/app-service-logic-connector-onedrive/img3.PNG
-[4]: ./media/app-service-logic-connector-onedrive/img4.PNG
-[5]: ./media/app-service-logic-connector-onedrive/img5.PNG
-[6]: ./media/app-service-logic-connector-onedrive/img6.PNG
-[7]: ./media/app-service-logic-connector-onedrive/img7.PNG
-
-<!-- Links -->
-[Create a new Logic App]: app-service-logic-create-a-logic-app.md
-[OneDrive API Definition]: https://msdn.microsoft.com/library/dn974227.aspx
+- [Learn more about the this new connector](../connectors/connectors-create-api-onedrive.md)
+- See [the full list](../connectors/apis-list.md) of all connectors that run on the new Logic Apps schema version 2015-08-01-preview  

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/28/2016" 
+	ms.date="05/27/2016" 
 	ms.author="bradsev" />
 
 
@@ -49,12 +49,12 @@ The [Partition and Sample][partition-and-sample] module can be used to assign fo
 
 
 ## Define Metric
-The [Sweep Parameters][sweep-parameters] module provides support for empirically choosing the best set of parameters for a given algorithm and dataset. The properties pane of this module includes, in addition to other information regarding training the model, the metric to be used for determining the best parameter set. It has two different drop down lists for classification and regression algorithms, respectively. If the algorithm under consideration is a classification algorithm the regression metric is ignored and vice versa. In this specific example, we chose **Accuracy** as the metric.   
+The [Tune Model Hyperparameters][tune-model-hyperparameters] module provides support for empirically choosing the best set of parameters for a given algorithm and dataset. The properties pane of this module includes, in addition to other information regarding training the model, the metric to be used for determining the best parameter set. It has two different drop down lists for classification and regression algorithms, respectively. If the algorithm under consideration is a classification algorithm the regression metric is ignored and vice versa. In this specific example, we chose **Accuracy** as the metric.   
  
 ![image5](./media/machine-learning-algorithm-parameters-optimize/fig5.png)
 
 ## Train, evaluate and compare  
-The same [Sweep Parameters][sweep-parameters] module trains all the models corresponding to the parameter set, evaluates various metrics and then outputs the best trained model based on the metric chosen by the user. This module has two mandatory inputs
+The same [Tune Model Hyperparameters][tune-model-hyperparameters] module trains all the models corresponding to the parameter set, evaluates various metrics and then outputs the best trained model based on the metric chosen by the user. This module has two mandatory inputs
 
 * the untrained learner 
 * the dataset 
@@ -69,5 +69,5 @@ We can see the exact parameters chosen by visualizing the right output port. Thi
 
 <!-- Module References -->
 [partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/
-[sweep-parameters]: https://msdn.microsoft.com/library/azure/038d91b6-c2f2-42a1-9215-1f2c20ed1b40/
+[tune-model-hyperparameters]: https://msdn.microsoft.com/library/azure/038d91b6-c2f2-42a1-9215-1f2c20ed1b40/
  

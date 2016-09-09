@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Automatic scaling and Virtual Machine Scale Sets | Microsoft Azure"
-	description="Learn about using diagnostics and autoscale resources to autoscale virtual machines in a scale set."
-	services="virtual-machine-scale-sets"
-    documentationCenter=""
+	pageTitle="Automatic scaling and virtual machine scale sets | Microsoft Azure"
+	description="Learn about using diagnostics and autoscale resources to automatically scale virtual machines in a scale set."
+    services="virtual-machine-scale-sets"
+	documentationCenter=""
 	authors="davidmu1"
 	manager="timlt"
 	editor=""
@@ -10,14 +10,14 @@
 
 <tags
 	ms.service="virtual-machine-scale-sets"
-	ms.workload="na"
+	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="06/10/2016"
 	ms.author="davidmu"/>
 
-# Automatic scaling and Virtual Machine Scale Sets
+# Automatic scaling and virtual machine scale sets
 
 Automatic scaling of virtual machines in a scale set is the creation or deletion of machines in the set as needed by an application to match performance requirements and satisfy service level agreements (SLAs). As the volume of work grows, an application may require additional resources to enable it to effectively perform tasks.
 
@@ -37,20 +37,20 @@ In the template, you specify the capacity element:
       "capacity": 3
     },
 
-Capacity identifies the number of virtual machines in the set. You can manually change the capacity by deploying a template with a different value. If you deploy a template to just change the capacity, you include only the SKU element with the updated capacity.
+Capacity identifies the number of virtual machines in the set. You can manually change the capacity by deploying a template with a different value. If you are deploying a template to just change the capacity, you can include only the SKU element with the updated capacity.
 
 Automatically change the capacity of your scale set by using a combination of the autoscaleSettings resource provided by Azure Resource Manager and the Azure Diagnostics extension installed on the machines in the scale set.
 
 ### Configure the Azure Diagnostics extension
 
-Automatic scaling can only be done if metrics collection is successful on each virtual machine in the scale set. The Azure Diagnostics Extension provides the monitoring and diagnostics capabilities that meets the metrics collection needs of the autoscale resource. You can install the extension as part of the Resource Manager template. [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md) provides more information about using the extension.
+Automatic scaling can only be done if metrics collection is successful on each virtual machine in the scale set. The Azure Diagnostics Extension provides the monitoring and diagnostics capabilities that meets the metrics collection needs of the autoscale resource. You can install the extension as part of the Resource Manager template.
 
 This example shows the variables that are used in the template to configure the diagnostics extension:
 
 	"diagnosticsStorageAccountName": "[concat(parameters('resourcePrefix'), 'saa')]",
 	"accountid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/', resourceGroup().name,'/providers/', 'Microsoft.Storage/storageAccounts/', variables('diagnosticsStorageAccountName'))]",
 	"wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB=\"4096\" xmlns=\"http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration\"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter=\"Error\"/> <WindowsEventLog scheduledTransferPeriod=\"PT1M\" > <DataSource name=\"Application!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"Security!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"System!*[System[(Level = 1 or Level = 2)]]\" /></WindowsEventLog>",
-	"wadperfcounter": "<PerformanceCounters scheduledTransferPeriod=\"PT1M\"><PerformanceCounterConfiguration counterSpecifier=\"\\Processor(_Total)\\Thread Count\" sampleRate=\"PT15S\" unit=\"Percent\"><annotation displayName=\"Thread Count\" locale=\"en-us\"/></PerformanceCounterConfiguration>",
+	"wadperfcounter": "<PerformanceCounters scheduledTransferPeriod=\"PT1M\"><PerformanceCounterConfiguration counterSpecifier=\"\\Processor(_Total)\\Thread Count\" sampleRate=\"PT15S\" unit=\"Percent\"><annotation displayName=\"Thread Count\" locale=\"en-us\"/></PerformanceCounterConfiguration></PerformanceCounters>",
 	"wadcfgxstart": "[concat(variables('wadlogs'),variables('wadperfcounter'),'<Metrics resourceId=\"')]",
 	"wadmetricsresourceid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name ,'/providers/','Microsoft.Compute/virtualMachineScaleSets/',parameters('vmssName'))]",
 	"wadcfgxend": "[concat('\"><MetricAggregation scheduledTransferPeriod=\"PT1H\"/><MetricAggregation scheduledTransferPeriod=\"PT1M\"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>')]"
@@ -84,7 +84,7 @@ This example shows the definition of the extension in the template:
 
 When the diagnostics extension runs, the data is collected in a table that is located in the storage account that you specify. In the WADPerformanceCounters table, you can find the collected data. For example, this is the thread count collected when the virtual machines were first created in a scale set:
 
-![Screenshot of the Windows Server performance counter data before added load](./media/virtual-machine-scale-sets-autoscale-overview/ThreadCountBefore2.png)
+![](./media/virtual-machine-scale-sets-autoscale-overview/ThreadCountBefore2.png)
 
 ### Configure the autoScaleSettings resource
 
@@ -176,11 +176,11 @@ Depending on the performance counter you are using, some of the elements in the 
 
 When a load is created on the virtual machines in the set that triggers a scaling action, the number of machines in the set is increased based on the value element in the template. For example, in a scale set where the capacity is set to 3 and the scale action value is set to 1:
 
-![Screenshot of the number of machines in a set before autoscaling](./media/virtual-machine-scale-sets-autoscale-overview/ResourceExplorerBefore.png)
+![](./media/virtual-machine-scale-sets-autoscale-overview/ResourceExplorerBefore.png)
 
 When the load is created that causes the average thread count to go above the threshold of 650:
 
-![Screenshot of the Windows Server performance counter data after added load](./media/virtual-machine-scale-sets-autoscale-overview/ThreadCountAfter.png)
+![](./media/virtual-machine-scale-sets-autoscale-overview/ThreadCountAfter.png)
 
 A scale out action is triggered that causes the capacity of the set to be increased by one:
 
@@ -192,19 +192,40 @@ A scale out action is triggered that causes the capacity of the set to be increa
 
 And a virtual machine is added to the scale set:
 
-![Screenshot of the number of machines in a set after autoscaling](./media/virtual-machine-scale-sets-autoscale-overview/ResourceExplorerAfter.png)
+![](./media/virtual-machine-scale-sets-autoscale-overview/ResourceExplorerAfter.png)
 
 After a cooldown period of five minutes, if the average number of threads on the machines stays over 600, another machine is added to the set. If the average thread count stays below 550, the capacity of the scale set is reduced by one and a machine is removed from the set.
 
+## Set up scaling using Azure PowerShell
+
+Azure PowerShell can be used to set up automatic scaling for a scale set. Here is an example using PowerShell to create the rules that were described earlier in this article:
+
+    $rule1 = New-AutoscaleRule -MetricName "\Processor(_Total)\Thread Count" -MetricResourceId "/subscriptions/{subscription-id}/resourceGroups/myrg1/providers/Microsoft.Compute/virtualMachineScaleSets/myvmss1" -Operator GreaterThan -MetricStatistic Average -Threshold 650 -TimeGrain 00:01:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Increase -ScaleActionScaleType ChangeCount -ScaleActionValue "1"  
+ 
+    $rule2 = New-AutoscaleRule -MetricName "\Processor(_Total)\% Processor Time" -MetricResourceId "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/rainvmss/providers/Microsoft.Compute/virtualMachineScaleSets/rainvmss1" -Operator LessThan -MetricStatistic Average -Threshold 10 -TimeGrain 00:01:00 -ScaleActionCooldown 00:10:00 -ScaleActionDirection Decrease -ScaleActionScaleType ChangeCount -ScaleActionValue "2" 
+ 
+    $profile1 = New-AutoscaleProfile -DefaultCapacity "2" -MaximumCapacity "10" -MinimumCapacity "2" -Rules $rule1, $rule2 -Name "ScalePuppy" 
+ 
+    Add-AutoscaleSetting -Location "East US" -Name 'MyScaleVMSSSetting' -ResourceGroup rainvmss -TargetResourceId "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/rainvmss/providers/Microsoft.Compute/virtualMachineScaleSets/rainvmss1" -AutoscaleProfiles $profile1 
+
+## Set up scaling using Azure CLI
+
+(Information not available yet)
+
 ## Investigate scaling actions
 
-- [Azure portal](https://portal.azure.com/) - You can currently get a limited amount of information using the portal.
-- [Azure Resource Explorer](https://resources.azure.com/) - This is the best tool to explore the current state of your scale set.
-- [Azure PowerShell](https://azure.microsoft.com/blog/azps-1-0/) - Cmdlets such as **Get-AzureRmResource** or **Get-Autoscalesetting** can be used to get information about your scale set.
-- [Azure CLI](../xplat-cli-azure-resource-manager.md) - Use the **azure resource show** command to get information about your set.
+- [Azure portal]() - You can currently get a limited amount of information using the portal.
+- [Azure Resource Explorer]() - This is the best tool to explore the current state of your scale set. Follow this path and you should see the instance view of the scale set that you created:
+subscriptions > {your subscription} > resourceGroups > {your resource group} > providers > Microsoft.Compute > virtualMachineScaleSets > {your scale set} > virtualMachines
+- Azure PowerShell - Use this command to get some information:
+
+        Get-AzureRmResource -name vmsstest1 -ResourceGroupName vmsstestrg1 -ResourceType Microsoft.Compute/virtualMachineScaleSets -ApiVersion 2015-06-15
+        Get-Autoscalesetting -ResourceGroup rainvmss -DetailedOutput
+        
 - Connect to the jumpbox virtual machine just like you would any other machine and then you can remotely access the virtual machines in the scale set to monitor individual processes.
 
 ## Next Steps
 
-1. Get started creating your first scale set by using the information in [Create a Windows Virtual Machine Scale Set](virtual-machine-scale-sets-windows-create.md).
-2. Take a look at [Autoscale Windows Virtual Machine Scale Sets](virtual-machine-scale-sets-windows-autoscale.md) or [Autoscale Linux Virtual Machine Scale Sets](virtual-machine-scale-sets-linux-autoscale.md) to see an example of how to create a scale set with automatic scaling configured.
+- Take a look at [Automatically scale machines in a Virtual Machine Scale Set](virtual-machine-scale-sets-windows-autoscale.md) to see an example of how to create a scale set with automatic scaling configured.
+- Find examples of Azure Insights monitoring features in [Azure Insights PowerShell quick start samples](../azure-portal/insights-powershell-samples.md)
+- Learn about notification features in [Use autoscale actions to send email and webhook alert notifications in Azure Insights](../azure-portal/insights-autoscale-to-webhook-email.md) and [Use audit logs to send email and webhook alert notifications in Azure Insights](../azure-portal/insights-auditlog-to-webhook-email.md)

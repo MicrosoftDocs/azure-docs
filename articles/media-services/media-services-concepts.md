@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/25/2016" 
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 #Azure Media Services Concepts 
@@ -139,7 +139,7 @@ A channel supports up to three concurrently running programs so you can create m
 For more information, see: 
 
 - [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md)
-- [Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders](media-services-manage-channels-overview.md)
+- [Working with Channels that Receive Multi-bitrate Live Stream from On-premises Encoders](media-services-live-streaming-with-onprem-encoders.md)
 - [Quotas and limitations](media-services-quotas-and-limitations.md).  
 
 ##Protecting content

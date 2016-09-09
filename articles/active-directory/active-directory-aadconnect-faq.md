@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/29/2016"
+	ms.date="08/08/2016"
 	ms.author="billmath"/>
 
 # Azure AD Connect FAQ
@@ -27,6 +27,11 @@ It is only supported to install Azure AD Connect using the installation wizard. 
 
 **Q: I have a forest where one domain cannot be contacted. How do I install Azure AD Connect?**  
 With the builds from February 2016, this is supported.
+
+**Q: Does the AD DS health agent work on server core?**  
+Yes. After installing the agent, you can complete the registration process using the following PowerShell commandlet: 
+
+`Register-AzureADConnectHealthADDSAgent -Credentials $cred`
 
 ## Network
 **Q: I have a firewall, network device, or something else that limits the maximum time connections can stay open on my network. How long should my client side timeout threshold be when using Azure AD Connect?**  
@@ -55,6 +60,8 @@ See these articles:
 
 - [User names in Office 365, Azure, or Intune don't match the on-premises UPN or alternate login ID](https://support.microsoft.com/en-us/kb/2523192)
 - [Changes aren't synced by the Azure Active Directory Sync tool after you change the UPN of a user account to use a different federated domain](https://support.microsoft.com/en-us/kb/2669550)
+
+You can also configure Azure AD to allow the sync engine to update the userPrincipalName as described in [Azure AD Connect sync service features](active-directory-aadconnectsyncservice-features.md).
 
 ## Custom configuration
 **Q: Where are the PowerShell cmdlets for Azure AD Connect documented?**  

@@ -14,63 +14,51 @@
 	ms.workload="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="01/26/2016" 
+	ms.date="07/19/2016" 
 	ms.author="betorres"
 />
 
 
 # Enabling and using Search Traffic Analytics
 
-Search traffic analytics is an Azure Search feature that lets you gain visibility into your search service and unlock insights about your users and their behavior. When you enable this feature, your search service data is copied to a storage account of your choosing. This data includes your search service logs and aggregated operational metrics.   
-Once there, you can process and manipulate the usage data in any way.
-
+Search traffic analytics is an Azure Search feature that lets you gain visibility into your search service and unlock insights about your users and their behavior. When you enable this feature, your search service data is copied to a storage account of your choosing. This data includes your search service logs and aggregated operational metrics which you can process and manipulate for further analysis.
 
 ## How to enable Search Traffic Analytics
+
+You will need a Storage account in the same region and subscription as your search service.
+
+> [AZURE.IMPORTANT] Standard charges apply for this storage account
+
+Once enabled, the data will start flowing into your storage account within 5-10 minutes into these 2 blob containers:
+
+    insights-logs-operationlogs: search traffic logs
+    insights-metrics-pt1m: aggregated metrics
+
 
 ### 1. Using the portal
 Open your Azure Search service in the [Azure Portal](http://portal.azure.com). Under Settings, you will find the Search traffic analytics option. 
 
 ![][1]
 
-Select this option and a new blade will open. Change the Status to **On**, select the Azure Storage account your data will be copied to, and choose the data you want to copy: Logs, Metrics or both. We recommend copying logs and metrics.
+Select this option and a new blade will open. Change the Status to **On**, select the Azure Storage account your data will be copied to, and choose the data you want to copy: Logs, Metrics or both. We recommend copying logs and metrics. 
+You have the option to set the retention policy for your data from 1 to 365 days. If you don't want to apply any retention policy and retain the data forever, set retention (days) to 0.
 
 ![][2]
 
-
-> [AZURE.IMPORTANT] The storage account needs to be in the same region and same subscription as your search service. 
-> 
-> Standard charges apply for this storage account
-
 ### 2. Using PowerShell
 
-You can also enable this feature by running the following PowerShell cmdlets.
+First, make sure you have the latest [Azure PowerShell cmdlets](https://github.com/Azure/azure-powershell/releases) installed.
+
+Then, get the Resource Ids for your Search Service and your Storage account. You can find them in the portal navigating to Settings -> Properties -> ResourceId.
+
+![][3]
 
 ```PowerShell
 Login-AzureRmAccount
-Set-AzureRmDiagnosticSetting -ResourceId <SearchService ResourceId> StorageAccountId <StorageAccount ResourceId> -Enabled $true
+$SearchServiceResourceId = "Your Search service resource id"
+$StorageAccountResourceId = "Your Storage account resource id"
+Set-AzureRmDiagnosticSetting -ResourceId $SearchServiceResourceId StorageAccountId $StorageAccountResourceId -Enabled $true
 ```
-
--   **SearchService ResourceId**:
-```
-/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Search/searchServices/<searchServiceName>
-```
-
- 
--  **StorageAccount ResourceId**:
-  You can find it in the portal in Settings -> Properties -> ResourceId 
-```
-New: /subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/Microsoft.Storage/storageAccounts/<storageAccountName>
-OR
-Classic: /subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.ClassicStorage/storageAccounts/<storageAccountName>
-```   
-
-----------
-
-Once enabled, the data will start flowing into your storage account within 5-10 minutes. You will find 2 new containers in your Blob Storage:
-
-    insights-logs-operationlogs: search traffic logs
-    insights-metrics-pt1m: aggregated metrics
-
 
 ## Understanding the data
 
@@ -83,8 +71,8 @@ Example path: `resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resour
 ### Logs
 
 The logs blobs contain your search service traffic logs.
-
 Each blob has one root object called **records** that contains an array of log objects
+Each blob has records on all the operation that took place during the same hour.
 
 ####Log schema
 
@@ -111,12 +99,16 @@ properties |object |see below |Object containing operation specific data
 
 ### Metrics
 
-The metrics blobs contain aggregated values for your search service.
-Each file has one root object called **records** that contains an array of metric objects
+The metrics blobs contain aggregated values for your search service. 
+Each file has one root object called **records** that contains an array of metric objects. This root object contains metrics for every minute for which data was available. 
 
 Available metrics:
 
-- Latency
+- SearchLatency: Time the search service needed to process search queries, aggregated per minute.
+- SearchQueriesPerSecond: Number of search queries received per second, aggregated per minute.
+- ThrottledSearchQueriesPercentage: Percentage of search queries that were throttled, aggregated per minute.
+
+> [AZURE.IMPORTANT] Throttling occurs when too many queries are sent, exhausting the service's provisioned resource capacity. Consider adding more replicas to your service.
 
 ####Metrics schema
 
@@ -132,6 +124,13 @@ Available metrics:
 |count |int |4 |The number of raw samples used to generate the metric |
 |timegrain |string |"PT1M" |The time grain of the metric in ISO 8601|
 
+All metrics are reported in one-minute intervals. This means that each of the metrics will expose the minimum, maximum and average values per minute.
+
+In the case of the SearchQueriesPerSecond metric, minimum will be the lowest value for search queries per second that was registered during that minute; same applies to the maximum value. Average, will be the the aggregate across the entire minute. 
+Think about this scenario: during one minute you can have 1 second of very high load, which will be you maximum for SearchQueriesPerSecond, followed by 58 seconds of mid load, and then one second with only one query, which will be the minimum.
+
+For ThrottledSearchQueriesPercentage, minimum, maximum, average and total will all be the same value, which is the percentage of search queries that were throttled, based on the total number of search queries during one minute.
+
 ## Analyzing your data
 
 The data is in your own storage account and we encourage you to explore this data in the manner that works best for your case.
@@ -142,7 +141,7 @@ As a starting point, we recommend using [Power BI](https://powerbi.microsoft.com
 
 [Power BI Content Pack](https://app.powerbi.com/getdata/services/azure-search): Create a Power BI dashboard and a set of Power BI reports that automatically show your data and provide visual insights about your search service. See the [content pack help page](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-search/).
 
-![][3]
+![][4]
 
 #### Power BI Desktop
 
@@ -151,17 +150,17 @@ As a starting point, we recommend using [Power BI](https://powerbi.microsoft.com
 1. Open a new PowerBI Desktop report
 2. Select Get Data -> More...
 
-	![][4]
+	![][5]
 
 3. Select Microsoft Azure Blob Storage and Connect
 
-	![][5]
+	![][6]
 
 4. Enter the Name and Account Key of your storage account
 5. Select "insight-logs-operationlogs" and "insights-metrics-pt1m", then click on Edit
 6. The Query Editor will open, make sure "insight-logs-operationlogs" is selected on the left. Now open the Advanced Editor by selecting View -> Advanced Editor
 
-	![][6]
+	![][7]
 
 7. Keep the first 2 lines and replace the rest with the following query:
 
@@ -228,8 +227,9 @@ Learn more about creating amazing reports. See [Getting started with Power BI De
 
 [1]: ./media/search-traffic-analytics/SettingsBlade.png
 [2]: ./media/search-traffic-analytics/DiagnosticsBlade.png
-[3]: ./media/search-traffic-analytics/Dashboard.png
-[4]: ./media/search-traffic-analytics/GetData.png
-[5]: ./media/search-traffic-analytics/BlobStorage.png
-[6]: ./media/search-traffic-analytics/QueryEditor.png
+[3]: ./media/search-traffic-analytics/ResourceId.png
+[4]: ./media/search-traffic-analytics/Dashboard.png
+[5]: ./media/search-traffic-analytics/GetData.png
+[6]: ./media/search-traffic-analytics/BlobStorage.png
+[7]: ./media/search-traffic-analytics/QueryEditor.png
 

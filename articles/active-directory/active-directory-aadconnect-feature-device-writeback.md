@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/16/2016"
+	ms.date="05/10/2016"
 	ms.author="billmath;andkjell"/>
 
 # Azure AD Connect: Enabling device writeback
@@ -31,7 +31,7 @@ This provides additional security and assurance that access to applications is g
 <li>Only one device registration configuration object can be added to the on-premises Active Directory forest. This feature is not compatible with a topology where the on-premises Active Directory is synchronized to multiple Azure AD directories.</li>
 
 ## Part 1: Install Azure AD Connect
-1. Install Azure AD Connect using Custom or Express settings. The recommendation is to start with having all users and groups successfully synchronized before you enable device writeback.
+1. Install Azure AD Connect using Custom or Express settings. Microsoft recommends to start with all users and groups successfully synchronized before you enable device writeback.
 
 ## Part 2: Prepare Active Directory
 Use the following steps to prepare for using device writeback.
@@ -52,7 +52,7 @@ Use the following steps to prepare for using device writeback.
 
 Enterprise admin credentials are required since changes to the configuration namespace are needed. A domain admin will not have enough permissions.
 
-![Powershell](./media/active-directory-aadconnect-feature-device-writeback/powershell.png)
+![Powershell for enabling device writeback](./media/active-directory-aadconnect-feature-device-writeback/powershell.png)
 
 Description:
 
@@ -70,11 +70,11 @@ Parameters:
 Use the following procedure to enable device writeback in Azure AD Connect.
 
 1.	Run the installation wizard again. Select **customize synchronization options** from the Additional Tasks page and click **Next**.
-![Custom Install](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback2.png)
+![Custom Install customize synchronization options](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback2.png)
 2.	In the Optional Features page, device writeback will no longer be grayed out. Please note that if the Azure AD Connect prep steps are not completed device writeback will be grayed out in the Optional features page. Check the box for device writeback and click **next**. If the checkbox is still disabled, see the [troubleshooting section](#the-writeback-checkbox-is-still-disabled).
-![Device Writeback](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback3.png)
+![Custom install Device Writeback optional features](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback3.png)
 3.	On the writeback page, you will see the supplied domain as the default Device writeback forest.
-![Custom Install](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback4.png)
+![Custom Install device writeback target forest](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback4.png)
 4.	Complete the installation of the Wizard with no additional configuration changes. If needed, refer to [Custom installation of Azure AD Connect.](active-directory-aadconnect-get-started-custom.md)
 
 ## Enable conditional access
@@ -85,10 +85,9 @@ Device writeback should now be working properly. Be aware that it can take up to
 
 1.	Launch Active Directory Administrative Center.
 2.	Expand RegisteredDevices, within the Domain that is being federated.
-![Custom Install](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback5.png)
+![Active Directory Admin Center Registered Devices](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback5.png)
 3.	Current registered devices will be listed there.
-
-![Custom Install](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback6.png)
+![Active Directory Admin Center Registered Devices List](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback6.png)
 
 ## Troubleshooting
 
@@ -105,30 +104,30 @@ First things first:
 	- Find the Connector with type Active Directory Domain Services and select it.
 	- Under **Actions**, select **Properties**.
 	- Go to **Connect to Active Directory Forest**. Verify that the domain and user name specified on this screen match the account provided to the script.
-![Connector account](./media/active-directory-aadconnect-feature-device-writeback/connectoraccount.png)
+![Connector account in Sync Service Manager](./media/active-directory-aadconnect-feature-device-writeback/connectoraccount.png)
 
 Verify configuration in Active Directory:
 - Verify that the Device Registration Service is located in the location below (CN=DeviceRegistrationService,CN=Device Registration Services,CN=Device Registration Configuration,CN=Services,CN=Configuration) under configuration naming context.
 
-![Troubleshoot1](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot1.png)
+![Troubleshoot, DeviceRegistrationService in configuration namespace](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot1.png)
 
 - Verify there is only one configuration object by searching the configuration namespace. If there is more than one, delete the duplicate.
 
-![Troubleshoot2](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot2.png)
+![Troubleshoot, search for the duplicate objects](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot2.png)
 
 - On the Device Registration Service object, make sure the attribute msDS-DeviceLocation is present and has a value. Lookup this location and make sure it is present with the objectType msDS-DeviceContainer.
 
-![Troubleshoot3](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot3.png)
+![Troubleshoot, msDS-DeviceLocation](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot3.png)
 
-![Troubleshoot4](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot4.png)
+![Troubleshoot, RegisteredDevices object class](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot4.png)
 
 - Verify the account used by the Active Directory Connector has required permissions on the Registered Devices container found by the previous step. This is the expected permissions on this container:
 
-![Troubleshoot5](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot5.png)
+![Troubleshoot, verify permissions on container](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot5.png)
 
 - Verify the Active Directory account has permissions on the CN=Device Registration Configuration,CN=Services,CN=Configuration object.
 
-![Troubleshoot6](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot6.png)
+![Troubleshoot, verify permissions on Device Registration Configuration](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot6.png)
 
 ## Additional Information
 - [Managing Risk With Conditional Access](active-directory-conditional-access.md)

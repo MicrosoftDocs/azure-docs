@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="02/15/2016"
+	ms.date="07/12/2016"
 	ms.author="raynew" />
 
 # Run the Hyper-V capacity planner tool for Site Recovery
@@ -139,8 +139,8 @@ Here are the important metrics. You can ignore metrics which aren't listed here.
 
 After you've finished capacity planning you can start deploying Site Recovery:
 
-- [Set up protection between an on-premises VMM site and Azure](site-recovery-vmm-to-azure.md)
-- [Set up protection between an on-premises Hyper-V site and Azure](site-recovery-hyper-v-site-to-azure.md)
-- [Set up protection between two on-premises VMM sites](site-recovery-vmm-to-vmm.md)
-- [Set up protection between two on-premises VMM sites with SAN](site-recovery-vmm-san.md)
-- [Set up protection with a single VMM server](site-recovery-single-vmm.md)
+- [Replicate Hyper-V VMs in VMM clouds to Azure](site-recovery-vmm-to-azure.md)
+- [Replicate Hyper-V VMs (without VMM) to Azure](site-recovery-hyper-v-site-to-azure.md)
+- [Replicate Hyper-V VMs between VMM sites](site-recovery-vmm-to-vmm.md)
+- [Replicate Hyper-V VMs between VMM sites with SAN](site-recovery-vmm-san.md)
+- [Replicate hyper-V VMs on single VMM server](site-recovery-single-vmm.md)

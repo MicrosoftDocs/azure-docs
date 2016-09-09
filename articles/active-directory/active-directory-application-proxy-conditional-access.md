@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="StevenPo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,20 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/09/2016"
+	ms.date="06/22/2016"
 	ms.author="kgremban"/>
 
 # Working with conditional access
-> [AZURE.NOTE] Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
 
-You can now enable access rules to grant conditional access to users and groups accessing applications published using Application Proxy. This enables you to:
+You can configure access rules to grant conditional access to applications published using Application Proxy. This enables you to:
 
-- Require mutli-factor authentication per application
+- Require multi-factor authentication per application
 - Require multi-factor authentication only when users are not at work
 - Block users from accessing the application when they are not at work
 
-These rules can be applied to all users and groups or only to specific users and groups.
-By default the rule will apply to all users who have access to the application. However the rule can also be restricted to users that are members of specified security groups.  
+These rules can be applied to all users and groups or only to specific users and groups. By default the rule will apply to all users who have access to the application. However the rule can also be restricted to users that are members of specified security groups.  
 
 Access rules are evaluated when a user accesses a federated application that uses OAuth 2.0, OpenID Connect, SAML or WS-Federation. In addition, access rules are evaluated with OAuth 2.0 and OpenID Connect when a refresh token is used to acquire an access token.
 
@@ -34,9 +32,8 @@ Access rules are evaluated when a user accesses a federated application that use
 
 - Subscription to Azure Active Directory Premium
 - A federated or managed Azure Active Directory tenant
-- Federated tenants require that multi-factor authentication (MFA) be enabled
-
-![Configure access rules - require multi-factor authentication](./media/active-directory-application-proxy-conditional-access/application-proxy-conditional-access.png)
+- Federated tenants require that multi-factor authentication (MFA) be enabled  
+	![Configure access rules - require multi-factor authentication](./media/active-directory-application-proxy-conditional-access/application-proxy-conditional-access.png)
 
 ## Configure per-application multi-factor authentication
 1. Sign in as an administrator in the Azure classic portal.
@@ -64,21 +61,10 @@ In addition to setting this flag, the federated tenant AD FS instance must be co
 
 
 ## See also
-There's a lot more you can do with Application Proxy:
 
-- [Publish applications with Application Proxy](active-directory-application-proxy-publish.md)
-- [Publish applications using your own domain name](active-directory-application-proxy-custom-domains.md)
-- [Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)
 - [Working with claims aware applications](active-directory-application-proxy-claims-aware-apps.md)
-- [Troubleshoot issues you're having with Application Proxy](active-directory-application-proxy-troubleshoot.md)
+- [Publish applications with Application Proxy](active-directory-application-proxy-publish.md)
+- [Enable single-sign on](active-directory-application-proxy-sso-using-kcd.md)
+- [Publish applications using your own domain name](active-directory-application-proxy-custom-domains.md)
 
-## Learn more about Application Proxy
-- [Take a look at our online help](active-directory-application-proxy-enable.md)
-- [Check out the Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)
-- [Watch our videos on Channel 9!](http://channel9.msdn.com/events/Ignite/2015/BRK3864)
-
-
-## Additional Resources
-- [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-- [Sign up for Azure as an organization](sign-up-organization.md)
-- [Azure Identity](fundamentals-identity.md)
+For the latest news and updates, check out the [Application Proxy blog](http://blogs.technet.com/b/applicationproxyblog/)

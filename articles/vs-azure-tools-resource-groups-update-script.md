@@ -3,8 +3,8 @@
 	description="Describes the steps needed to manually update the PowerShell script that comes with an Azure Resource Group deployment project."
 	services="visual-studio-online"
 	documentationCenter="na"
-	authors="TomArcher"
-	manager="douge"
+	authors="tfitzmac"
+	manager="timlt"
 	editor="" />
 
  <tags
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="02/04/2016"
-	ms.author="tarcher" />
+	ms.date="08/01/2016"
+	ms.author="tomfitz" />
 
 # Update the Azure Resource Group project PowerShell script
 

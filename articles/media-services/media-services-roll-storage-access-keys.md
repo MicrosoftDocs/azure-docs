@@ -3,8 +3,8 @@
 	description="This articles give you guidance on how to update Media Services after rolling storage access keys." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="Juliako,milangada,cenkdin" 
-	manager="dwrede" 
+	authors="Juliako"
+	manager="erikre" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="02/03/2016"  
-	ms.author="juliako"/>
+	ms.date="06/22/2016" 
+	ms.author="milangada;cenkdin;juliako"/>
 
 #How To: Update Media Services after Rolling Storage Access Keys
 
@@ -41,41 +41,41 @@ Update Media Services to use the secondary storage access key. You can use one o
 
 - Use Media Services management REST API.
 
-The following code example shows how to construct the https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/Key request in order to synchronize the specified storage key with Media Services. In this case, the secondary storage key value is used. For more information, see [How to: Use Media Services Management REST API](http://msdn.microsoft.com/library/azure/dn167656.aspx).
+The following code example shows how to construct the https://endpoint/*subscriptionId*/services/mediaservices/Accounts/*accountName*/StorageAccounts/*storageAccountName*/Key request in order to synchronize the specified storage key with Media Services. In this case, the secondary storage key value is used. For more information, see [How to: Use Media Services Management REST API](http://msdn.microsoft.com/library/azure/dn167656.aspx).
  
-		public void UpdateMediaServicesWithStorageAccountKey(string mediaServicesAccount, string storageAccountName, string storageAccountKey)
-		{
-		    var clientCert = GetCertificate(CertThumbprint);
-		
-		    HttpWebRequest request = (HttpWebRequest)WebRequest.Create(string.Format("{0}/{1}/services/mediaservices/Accounts/{2}/StorageAccounts/{3}/Key",
-		        Endpoint, SubscriptionId, mediaServicesAccount, storageAccountName));
-		    request.Method = "PUT";
-		    request.ContentType = "application/json; charset=utf-8";
-		    request.Headers.Add("x-ms-version", "2011-10-01");
-		    request.Headers.Add("Accept-Encoding: gzip, deflate");
-		    request.ClientCertificates.Add(clientCert);
-		
-		
-		    using (var streamWriter = new StreamWriter(request.GetRequestStream()))
-		    {
-		        streamWriter.Write("\"");
-		        streamWriter.Write(storageAccountKey);
-		        streamWriter.Write("\"");
-		        streamWriter.Flush();
-		    }
-		
-		    using (var response = (HttpWebResponse)request.GetResponse())
-		    {
-		        string jsonResponse;
-		        Stream receiveStream = response.GetResponseStream();
-		        Encoding encode = Encoding.GetEncoding("utf-8");
-		        if (receiveStream != null)
-		        {
-		            var readStream = new StreamReader(receiveStream, encode);
-		            jsonResponse = readStream.ReadToEnd();
-		        }
-		    }
-		}
+	public void UpdateMediaServicesWithStorageAccountKey(string mediaServicesAccount, string storageAccountName, string storageAccountKey)
+	{
+	    var clientCert = GetCertificate(CertThumbprint);
+	
+	    HttpWebRequest request = (HttpWebRequest)WebRequest.Create(string.Format("{0}/{1}/services/mediaservices/Accounts/{2}/StorageAccounts/{3}/Key",
+	        Endpoint, SubscriptionId, mediaServicesAccount, storageAccountName));
+	    request.Method = "PUT";
+	    request.ContentType = "application/json; charset=utf-8";
+	    request.Headers.Add("x-ms-version", "2011-10-01");
+	    request.Headers.Add("Accept-Encoding: gzip, deflate");
+	    request.ClientCertificates.Add(clientCert);
+	
+	
+	    using (var streamWriter = new StreamWriter(request.GetRequestStream()))
+	    {
+	        streamWriter.Write("\"");
+	        streamWriter.Write(storageAccountKey);
+	        streamWriter.Write("\"");
+	        streamWriter.Flush();
+	    }
+	
+	    using (var response = (HttpWebResponse)request.GetResponse())
+	    {
+	        string jsonResponse;
+	        Stream receiveStream = response.GetResponseStream();
+	        Encoding encode = Encoding.GetEncoding("utf-8");
+	        if (receiveStream != null)
+	        {
+	            var readStream = new StreamReader(receiveStream, encode);
+	            jsonResponse = readStream.ReadToEnd();
+	        }
+	    }
+	}
 
 After this step, update existing locators (that have dependency on the old storage key) as shown in the following step.
 

@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="02/22/2016"
+	ms.date="07/27/2016"
 	ms.author="jeffstok"/>
 
 # Data connection: Learn about data stream inputs from events to Stream Analytics
@@ -41,7 +41,7 @@ It is important to note that the default timestamp of events coming from Event H
 
 Each Stream Analytics Event Hub input should be configured to have its own consumer group. When a job contains a self-join or multiple inputs, some input may be read by more than one reader downstream, which impacts the number of readers in a single consumer group. To avoid exceeding Event Hub limit of 5 readers per consumer group per partition, it is a best practice to designate a consumer group for each Stream Analytics job. Note that there is also a limit of 20 consumer groups per Event Hub. For details, see the [Event Hubs Programming Guide](../event-hubs/event-hubs-programming-guide.md).
 
-## Configure Event Hub as an input data stream
+### Configure Event Hub as an input data stream
 
 The table below explains each property in the Event Hub input tab with its description:
 
@@ -79,11 +79,13 @@ FROM Input
 Azure Iot Hub is a highly scalable publish-subscribe event ingestor optimized for IoT scenarios.
 It is important to note that the default timestamp of events coming from IoT Hubs in Stream Analytics is the timestamp that the event arrived in IoT Hub which is EventEnqueuedUtcTime. To process the data as a stream using a timestamp in the event payload, the [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) keyword must be used.
 
+> [AZURE.NOTE] Only messages sent with a DeviceClient property can be processed.
+
 ### Consumer groups
 
 Each Stream Analytics IoT Hub input should be configured to have its own consumer group. When a job contains a self-join or multiple inputs, some input may be read by more than one reader downstream, which impacts the number of readers in a single consumer group. To avoid exceeding IoT Hub limit of 5 readers per consumer group per partition, it is a best practice to designate a consumer group for each Stream Analytics job.
 
-## Configure IoT Hub as an data stream input
+### Configure IoT Hub as an data stream input
 
 The table below explains each property in the IoT Hub input tab with its description:
 
@@ -117,6 +119,8 @@ When your data is coming from an IoT Hub source, you can access to few metadata 
 For scenarios with large amounts of unstructured data to store in the cloud, Blob storage offers a cost-effective and scalable solution. Data in [Blob storage](https://azure.microsoft.com/services/storage/blobs/) is generally considered data “at rest” but it can be processed as a data stream by Stream Analytics. One common scenario for Blob storage inputs with Stream Analytics is log processing, where telemetry is captured from a system and needs to be parsed and processed to extract meaningful data.
 
 It is important to note that the default timestamp of Blob storage events in Stream Analytics is the timestamp that the blob was last modified which *isBlobLastModifiedUtcTime*. To process the data as a stream using a timestamp in the event payload, the [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) keyword must be used.
+
+Also note that CSV formatted inputs **require** a header row to define fields for the data set. Further header row fields must all be **unique**.
 
 > [AZURE.NOTE] Stream Analytics does not support adding content to an existing blob. Stream Analytics will only view a blob once and any changes done after this read will not be processed. The best practice is to upload all the data once and not add any additional events to the blob store.
 

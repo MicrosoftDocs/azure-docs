@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="03/16/2016"
+   ms.date="05/24/2016"
    ms.author="andkjell"/>
 
 # Generic SQL Connector technical reference
@@ -34,12 +34,12 @@ The Generic SQL Connector enable you to integrate the synchronization service wi
 
 From a high level perspective, the following features supported by the current release of the connector:
 
-| Feature | Support |
-| --- | --- |
-| Connected data source | The Connector is supported with all 64-bit ODBC drivers. It has been tested with the following: <li>Microsoft SQL Server & SQL Azure</li><li>IBM DB2 10.x</li><li>IBM DB2 9.x</li><li>Oracle 10 & 11g</li><li>MySQL 5.x</li>
-| Scenarios	| <li>Object Lifecycle Management</li><li>Password Management</li> |
-| Operations | <li>Full Import and Delta Import, Export</li><li>For Export: Add, Delete, Update, and Replace</li><li>Set Password, Change Password</li>
-| Schema | <li>Dynamic discovery of objects and attributes</li>
+Feature | Support
+--- | ---
+Connected data source | The Connector is supported with all 64-bit ODBC drivers. It has been tested with the following: <li>Microsoft SQL Server & SQL Azure</li><li>IBM DB2 10.x</li><li>IBM DB2 9.x</li><li>Oracle 10 & 11g</li><li>MySQL 5.x</li>
+Scenarios	| <li>Object Lifecycle Management</li><li>Password Management</li>
+Operations | <li>Full Import and Delta Import, Export</li><li>For Export: Add, Delete, Update, and Replace</li><li>Set Password, Change Password</li>
+Schema | <li>Dynamic discovery of objects and attributes</li>
 
 ### Prerequisites
 

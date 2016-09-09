@@ -4,7 +4,7 @@
    services="cloud-services"
    documentationCenter=".net"
    authors="sbtron"
-   manager=""
+   manager="timlt"
    editor="tysonn" />
 <tags
    ms.service="cloud-services"

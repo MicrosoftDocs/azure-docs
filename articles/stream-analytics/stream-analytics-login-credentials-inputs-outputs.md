@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/04/2016" 
+	ms.date="07/27/2016" 
 	ms.author="jeffstok"/>
 
 #Rotate login credentials for inputs and outputs in Stream Analytics Jobs
@@ -34,7 +34,7 @@ This part is applicable to the following inputs/outputs:
 
 For other inputs/outputs, proceed with Part 2.
 
-###Blog storage/Table storage
+###Blob storage/Table storage
 1.  Go to the Storage extention on the Azure Management Portal:  
 ![graphic1][graphic1]
 2.  Locate the storage used by your job and go into it:  

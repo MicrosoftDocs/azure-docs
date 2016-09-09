@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Partitioned messaging entities | Microsoft Azure"
-   description="Describes how to partition messaging entities by using multiple message brokers."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" /> 
+    pageTitle="Partitioned messaging entities | Microsoft Azure"
+    description="Describes how to partition messaging entities by using multiple message brokers."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" /> 
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/28/2015"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="07/01/2016"
+    ms.author="sethm;hillaryc" />
 
 # Partitioned messaging entities
 
@@ -23,9 +23,9 @@ For more details about Service Bus internals, see the [Service Bus architecture]
 
 ## Partitioned queues and topics
 
-Each partitioned queue or topic consists of multiple fragments. Each fragment is stored in a different messaging store and handled by a different message broker. When a message is sent to a partitioned queue or topic, Service Bus assigns the message to one of the fragments. The selection is done randomly by Service Bus or by a partition key that the sender can specify.
+Each partitioned queue or topic consists of multiple fragments. Each fragment is stored in a different messaging store and handled by a different message broker. When a message is sent to a partitioned queue or topic, Service Bus assigns the message to one of the fragments. The selection is done randomly by Service Bus or by using a partition key that the sender can specify.
 
-When a client wants to receive a message from a partitioned queue, or from a subscription of a partitioned topic, Service Bus queries all fragments for messages, then returns the first message that is returned from any of the messaging stores to the receiver. Service Bus caches the other messages and returns them when it receives additional receive requests. A receiving client is not aware of the partitioning; the client-facing behavior of a partitioned queue or topic (for example, read, complete, defer, deadletter, prefetching) is identical to the behavior of a regular entity.
+When a client wants to receive a message from a partitioned queue, or from a subscription of a partitioned topic, Service Bus queries all fragments for messages, then returns the first message that is obtained from any of the messaging stores to the receiver. Service Bus caches the other messages and returns them when it receives additional receive requests. A receiving client is not aware of the partitioning; the client-facing behavior of a partitioned queue or topic (for example, read, complete, defer, deadletter, prefetching) is identical to the behavior of a regular entity.
 
 There is no additional cost when sending a message to, or receiving a message from, a partitioned queue or topic.
 
@@ -111,21 +111,30 @@ committableTransaction.Commit();
 
 Azure Service Bus supports automatic message forwarding from, to, or between partitioned entities. To enable automatic message forwarding, set the [QueueDescription.ForwardTo][] property on the source queue or subscription. If the message specifies a partition key ([SessionId][], [PartitionKey][], or [MessageId][]), that partition key is used for the destination entity.
 
+## Considerations and guidelines
+
+- **High consistency features**: If an entity uses features such as sessions, duplicate detection, or explicit control of partitioning key, then the messaging operations are always routed to specific fragments. If any of the fragments experience high traffic or the underlying store is unhealthy, those operations fail and availability is reduced. Overall, the consistency is still much higher than non-partitioned entities; only a subset of traffic is experiencing issues, as opposed to all the traffic.
+- **Management**: Operations such as Create, Update and Delete must be performed on all the fragments of the entity. If any fragment is unhealthy it could result in failures for these operations. For the Get operation, information such as message counts must be aggregated from all fragments. If any fragment is unhealthy, the entity availability status is reported as limited.
+- **Low volume message scenarios**: For such scenarios, especially when using the HTTP protocol, you may have to perform multiple receive operations in order to obtain all the messages. For receive requests, the front end performs a receive on all the fragments and caches all the responses received. A subsequent receive request on the same connection would benefit from this caching and receive latencies will be lower. However, if you have multiple connections or use HTTP, that establishes a new connection for each request. As such, there is no guarantee that it would land on the same node. If all existing messages are locked and cached in another front end, the receive operation returns **null**. Messages eventually expire and you can receive them again. HTTP keep-alive is recommended.
+- **Browse/Peek messages**: PeekBatch does not always return the number of messages specified in the [MessageCount property](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.messagecount.aspx). There are two common reasons for this. One reason is that the aggregated size of the collection of messages exceeds the maximum size of 256KB. Another reason is that if the queue or topic has the [EnablePartitioning property](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx) set to **true**, a partition may not have enough messages to complete the requested number of messages. In general, if an application wants to receive a specific number of messages, it should call [PeekBatch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.peekbatch.aspx) repeatedly until it gets that number of messages, or there are no more messages to peek. For more information, including code samples, see [QueueClient.PeekBatch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.peekbatch.aspx) or [SubscriptionClient.PeekBatch](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.peekbatch.aspx).
+
+## Latest added features
+
+- Add or remove rule is now supported with partitioned entities. Different from non-partitioned entities, these operations are not supported under transactions. 
+- AMQP is now supported for sending and receiving messages to and from a partitioned entity.
+- AMQP is now supported for the following operations: [Batch Send](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.sendbatch.aspx), [Batch Receive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.receivebatch.aspx), [Receive by Sequence Number](https://msdn.microsoft.com/library/azure/hh330765.aspx), [Peek](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.peek.aspx), [Renew Lock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.renewmessagelock.aspx), [Schedule Message](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.schedulemessageasync.aspx), [Cancel Scheduled Message](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.cancelscheduledmessageasync.aspx), [Add Rule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.ruledescription.aspx), [Remove Rule](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.ruledescription.aspx), [Session Renew Lock](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.renewlock.aspx), [Set Session State](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.setstate.aspx), [Get Session State](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.getstate.aspx), [Peek Session Messages](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagesession.peek.aspx), and [Enumerate Sessions](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.queueclient.getmessagesessionsasync.aspx).
+
 ## Partitioned entities limitations
 
 In its current implementation, Service Bus imposes the following limitations on partitioned queues and topics:
 
--   Partitioned queues and topics are available via SBMP or HTTP/HTTPS, as well as with AMQP.
-
 -   Partitioned queues and topics do not support sending messages that belong to different sessions in a single transaction.
-
 -   Service Bus currently allows up to 100 partitioned queues or topics per namespace. Each partitioned queue or topic counts towards the quota of 10,000 entities per namespace.
-
 -   Partitioned queues and topics are not supported on Service Bus for Windows Server versions 1.0 and 1.1.
 
 ## Next steps
 
-See the discussion of [AMQP 1.0 support for Service Bus partitioned queues and topics][] to learn more about paritioning messaging entities. 
+See the discussion of [AMQP 1.0 support for Service Bus partitioned queues and topics][] to learn more about partitioning messaging entities. 
 
   [Service Bus architecture]: service-bus-architecture.md
   [Azure classic portal]: http://manage.windowsazure.com

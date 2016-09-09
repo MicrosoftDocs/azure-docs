@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="02/22/2016" 
+	ms.date="07/12/2016" 
 	ms.author="raynew"/>
 
 # Remove servers and disable protection
@@ -31,7 +31,7 @@ Post any comments or questions at the bottom of this article, or on the [Azure R
 You unregister a VMM server from a vault by deleting the server on the **Servers** tab in the Azure Site Recovery portal. Note that:
 
 -  **Connected VMM server**: We recommend you unregister the VMM server when it's connected to Azure. This ensures that settings on the on-premise VMM server, and the VMM servers associated with it (VMM servers that contain clouds that are mapped to clouds on the server you want to delete) are cleaned up properly. We recommend you only remove an unconnected server if there's a permanent issue with connectivity.
-- **Unconnected VMM server**: If the VMM server isn’t connected when you delete it you’ll need to run a script manually to perform the cleanup. The script is available in the [Microsoft gallery](https://gallery.technet.microsoft.com/scriptcenter/Cleanup-Script-for-Windows-95101439). Note the VMM ID of the server in order to complete the manual cleanup process.
+- **Unconnected VMM server**: If the VMM server isn’t connected when you delete it you’ll need to run a script manually to perform the cleanup. The script is available in the [Microsoft gallery](http://aka.ms/asr-cleanup-script-vmm). Note the VMM ID of the server in order to complete the manual cleanup process.
 - **VMM server in cluster**: If you need to unregister a VMM server that’s deployed in a cluster do the following:
 
 	- If the server's connected, delete the connected VMM server on the **Servers** tab. To uninstall the Provider on the server, log in on every cluster node and uninstall it from the Control Panel. Run the cleanup script referenced in the previous section on all passive nodes in the cluster to delete registration entries.

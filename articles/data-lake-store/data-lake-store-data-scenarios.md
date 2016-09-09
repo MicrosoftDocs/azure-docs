@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="03/09/2016"
+   ms.date="06/14/2016"
    ms.author="nitinme"/>
 
-# Data scenarios involving Azure Data Lake Store
+# Using Azure Data Lake Store for big data requirements
 
 There are four key stages in big data processing:
 
@@ -24,7 +24,6 @@ There are four key stages in big data processing:
 * Processing the data
 * Downloading the data
 * Visualizing the data
-
 
 In this article, we look at these stages with respect to Azure Data Lake Store to understand the options and tools available to meet your big data needs.
 
@@ -81,15 +80,27 @@ Most HDInsight cluster types (Hadoop, HBase, Storm) support Data Lake Store as a
 * [AdlCopy Service](data-lake-store-copy-data-azure-storage-blob.md)
 * [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store)
 
+### Data stored in on-premise or IaaS Hadoop clusters
+
+Large amounts of data may be stored in existing Hadoop clusters, locally on machines using HDFS. The Hadoop clusters may be in an on-premise deployment or may be within an IaaS cluster on Azure. There could be requirements to copy such data to Azure Data Lake Store for a one-off approach or in a recurring fashion. There are various options that you can use to achieve this. Below is a list of alternatives and the associated trade-offs.
+
+| Approach  | Details | Advantages   | Considerations  |
+|-----------|---------|--------------|-----------------|
+| Use Azure Data Factory (ADF) to copy data directly from Hadoop clusters to Azure Data Lake Store | [ADF supports HDFS as a data source](../data-factory/data-factory-hdfs-connector.md) | ADF provides out-of-the-box support for HDFS and first class end-to-end management and monitoring | Requires Data Management Gateway to be deployed on-premise or in the IaaS cluster |
+| Export data from Hadoop as files. Then copy the files to Azure Data Lake Store using appropriate mechanism.                                   | You can copy files to Azure Data Lake Store using: <ul><li>[Azure PowerShell for Windows OS](data-lake-store-get-started-powershell.md)</li><li>[Azure Cross-platform CLI for non-Windows OS](data-lake-store-get-started-cli.md)</li><li>Custom app using any Data Lake Store SDK</li></ul> | Quick to get started. Can do customized uploads                                                   | Multi-step process that involves multiple technologies. Management and monitoring will grow to be a challenge over time given the customized nature of the tools |
+| Use Distcp to copy data from Hadoop to Azure Storage. Then copy data from Azure Storage to Data Lake Store using appropriate mechanism. | You can copy data from Azure Storage to Data Lake Store using: <ul><li>[Azure Data Factory](../data-factory/data-factory-data-movement-activities.md)</li><li>[AdlCopy tool](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[Apache DistCp running on HDInsight clusters](data-lake-store-copy-data-wasb-distcp.md)</li></ul>| You can use open-source tools. | Multi-step process that involves multiple technologies |
+
 ### Really large datasets
 
-For uploading datasets that range in several terabytes, using the methods described above can sometimes be slow and costly. In such cases, you can use the following options.
+For uploading datasets that range in several terabytes, using the methods described above can sometimes be slow and costly. In such cases, you can use the options below.
 
-* **"Offline" upload of data**. You can use [Azure Import/Export service](../storage/storage-import-export-service.md) to ship hard disk drives with your data to an Azure data center and your data is then uploaded to an Azure Storage Blob. You can then use [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store) or [AdlCopy tool](data-lake-store-copy-data-azure-storage-blob.md) to move data from Azure Storage Blobs to Data Lake Store.
+* **Using Azure ExpressRoute**. Azure ExpressRoute lets you create private connections between Azure datacenters and infrastructure on your premises. This provides a reliable option for transferring large amounts of data. For more information, see [Azure ExpressRoute documentation](../expressroute/expressroute-introduction.md).
+
+
+* **"Offline" upload of data**. If using Azure ExpressRoute is not feasible for any reason, you can use [Azure Import/Export service](../storage/storage-import-export-service.md) to ship hard disk drives with your data to an Azure data center. Your data is first uploaded to Azure Storage Blobs. You can then use [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md#sample-copy-data-from-azure-blob-to-azure-data-lake-store) or [AdlCopy tool](data-lake-store-copy-data-azure-storage-blob.md) to copy data from Azure Storage Blobs to Data Lake Store.
 
 	>[AZURE.NOTE] While using the Import/Export service, the file sizes on the disks that you ship to Azure data center should not be greater than 200 GB.
 
-* **Using Azure ExpressRoute**. Azure ExpressRoute lets you create private connections between Azure datacenters and infrastructure on your premises. This provides a reliable option for transferring large amounts of data. For more information, see [Azure ExpressRoute documentation](../expressroute/expressroute-introduction.md).
 
 ## Process data stored in Data Lake Store
 
@@ -132,4 +143,4 @@ You can use a mix of services to create visual representations of data stored in
 ![Visualize data in Data Lake Store](./media/data-lake-store-data-scenarios/visualize-data.png "Visualize data in Data Lake Store")
 
 * You can start by using [Azure Data Factory to move data from Data Lake Store to Azure SQL Data Warehouse](../data-factory/data-factory-data-movement-activities.md#supported-data-stores)
-* After that, you can [integrate Power BI with Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi) to create visual representation of the data.
+* After that, you can [integrate Power BI with Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) to create visual representation of the data.

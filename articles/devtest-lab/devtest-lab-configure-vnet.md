@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Configure a virtual network for a DevTest Lab  | Microsoft Azure"
-	description="Learn how to configure an existing virtual network and subnet, and use them in a VM"
+	pageTitle="Configure a virtual network for a lab  | Microsoft Azure"
+	description="Learn how to configure an existing virtual network and subnet, and use them in a VM with DevTest Labs"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,42 +13,42 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/15/2016"
+	ms.date="06/01/2016"
 	ms.author="tarcher"/>
 
-# Configure a virtual network for a DevTest Lab
+# Configure a virtual network for a lab
 
 ## Overview
 
-As explained in the article, [Add a VM with artifacts to an Azure DevTest Lab](devtest-lab-add-vm-with-artifacts.md), when you create a VM in a lab, 
+As explained in the article, [Add a VM with artifacts to a lab](devtest-lab-add-vm-with-artifacts.md), when you create a VM in a lab, 
 you can specify a configured virtual network (and subnet) for that VM. One scenario for doing this is if you want to be able to access your corpnet resources 
 from your VMs using the virtual network that has been set up with ExpressRoute or site-to-site VPN. The following sections 
 illustrate how to add your existing virtual network into the lab's Virtual Network settings so that it will be available 
 to choose when creating your VMs.
 
-## Configure a virtual network for a DevTest Lab using the Azure portal
-The following steps walk you through adding an existing virtual network (and subnet) to a DevTest Lab so that it can be used when creating a VM in the same lab. 
+## Configure a virtual network for a lab using the Azure portal
+The following steps walk you through adding an existing virtual network (and subnet) to a lab so that it can be used when creating a VM in the same lab. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Tap **Browse**, and then tap **DevTest Labs** from the list.
+1. Select **Browse**, and then select **DevTest Labs** from the list.
 
-1. From the list of labs, tap the desired lab. 
+1. From the list of labs, select the desired lab. 
 
 1. The selected lab's **Settings** blade will be displayed. 
 
-1. Tap **Virtual networks**.
+1. Select **Virtual networks**.
 
 	![Virtual networks can be configured from the lab's Settings blade](./media/devtest-lab-configure-vnet/lab-settings-vnet.png)
 	
 1. On the **Virtual networks** blade, you'll see a list of virtual networks you've configured for the current lab as well
 as the default virtual network that is created for your lab. 
 
-1. Tap **+ Add**.
+1. Select **+ Add**.
 
 	![Add an existing virtual network to your lab](./media/devtest-lab-configure-vnet/lab-settings-vnet-add.png)
 	
-1. On the **Virtual network** blade, tap **[Select virtual network]**.
+1. On the **Virtual network** blade, select **[Select virtual network]**.
 
 	![Select an existing virtual network](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet1.png)
 	
@@ -68,11 +68,11 @@ enabled.
 
 1. In the **MAX VMS PER USER** field, specify the maximum VMs per user for each subnet. If you want an unrestricted number of VMs, leave this field blank.
 
-1. Tap **Save**.
+1. Select **Save**.
 
 1. Now that the virtual network is configured, it can be selected when creating a new VM. 
-This is explained in the article, [Add a VM with artifacts to an Azure DevTest Lab](devtest-lab-add-vm-with-artifacts.md). 
+This is explained in the article, [Add a VM with artifacts to a lab](devtest-lab-add-vm-with-artifacts.md). 
 
 ## Next steps
 
-Once you have added the desired virtual network(s) to your lab, the next step is to [add a VM to your DevTest Lab](devtest-lab-add-vm-with-artifacts.md).
+Once you have added the desired virtual network(s) to your lab, the next step is to [add a VM to your lab](devtest-lab-add-vm-with-artifacts.md).

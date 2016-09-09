@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="03/27/2016" 
+	ms.date="07/06/2016" 
 	ms.author="raynew"/>
 
 # What workloads can you protect with Azure Site Recovery?

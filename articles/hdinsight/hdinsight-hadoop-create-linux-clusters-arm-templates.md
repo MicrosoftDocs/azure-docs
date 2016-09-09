@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/08/2016"
+   ms.date="07/25/2016"
    ms.author="jgao"/>
 
 # Create Linux-based Hadoop clusters in HDInsight using ARM templates
@@ -30,7 +30,9 @@ Learn how to create HDInsight clusters using Azure Resource Manager(ARM) templat
 Before you begin the instructions in this article, you must have the following:
 
 - [Azure subscription](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- [Azure PowerShell](hdinsight-administer-use-powershell.md#install-azure-powershell-10-and-greater) and/or [Azure CLI](../xplat-cli-install.md). 
+- Azure PowerShell and/or Azure CLI
+
+    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ## ARM templates
 
@@ -91,7 +93,7 @@ The following procedure creates Linux-based HDInsight cluster.
         New-AzureRmResourceGroup -Name $resourceGroupName -Location $Location
 
         # Create cluster and the dependent storage accounge
-        $parameters = @{clusterName="$hdinsightClusterName";clusterStorageAccountName="$defaultStorageAccountName"}
+        $parameters = @{clusterName="$hdinsightClusterName"}
 
         New-AzureRmResourceGroupDeployment `
             -Name $armDeploymentName `
@@ -274,7 +276,7 @@ The following Azure Resource Manger template creates a Linux-based Hadoop cluste
             "roles": [
                 {
                 "name": "headnode",
-                "targetInstanceCount": "1",
+                "targetInstanceCount": "2",
                 "hardwareProfile": {
                     "vmSize": "Large"
                 },

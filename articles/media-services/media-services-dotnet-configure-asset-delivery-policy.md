@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-  	ms.date="03/18/2016"
+	ms.date="06/22/2016"
 	ms.author="juliako"/>
 
 #Configure Asset Delivery Policies with .NET SDK
@@ -124,7 +124,7 @@ Azure Media Services also enables you to add Widevine encryption. The following 
         // For example: https://amsaccount1.keydelivery.mediaservices.windows.net/Widevine/?KID=268a6dcb-18c8-4648-8c95-f46429e4927c.  
         // The WidevineBaseLicenseAcquisitionUrl (used below) also tells Dynamaic Encryption 
         // to append /? KID =< keyId > to the end of the url when creating the manifest.
-        // As a result Widevine license aquisition URL will have KID appended twice, 
+        // As a result Widevine license acquisition URL will have KID appended twice, 
         // so we need to remove the KID that in the URL when we call GetKeyDeliveryUrl.
 
         Uri widevineUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.Widevine);

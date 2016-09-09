@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Troubleshoot Database on server is not currently available for Azure SQL Database"
-	description="Steps to identify and resolve connection errors for Azure SQL Database."
+	pageTitle="Database on server is not currently available, connect to SQL Database | Microsoft Azure"
+	description="Troubleshoot the database on server is not currently available error when an application connects to SQL Database."
 	services="sql-database"
 	documentationCenter=""
 	authors="dalechen"
 	manager="felixwu"
-	editor=""/>
+	editor=""
+	keywords="database on server is not currently available, connect to sql database"/>
 
 <tags
 	ms.service="sql-database"
@@ -13,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/29/2016"
+	ms.date="07/06/2016"
 	ms.author="daleche"/>
 
-# Troubleshoot "Database &lt;x&gt; on server &lt;y&gt; is not currently available. Please retry the connection later" error
+# Error "Database on server is not currently available" when connecting to sql database
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 When an application connects to an Azure SQL database, you receive the following error message:
@@ -31,10 +32,10 @@ This error occurs when the Azure database is being moved (or reconfigured) and y
 
 ## Steps to resolve transient connectivity issues
 1.	Check the [Microsoft Azure Service Dashboard](https://azure.microsoft.com/status) for any known outages that occurred during the time during which the errors were reported by the application.
-2. Applications that connect to a cloud service such as Azure SQL Database should expect periodic reconfiguration events and implement retry logic to handle these errors instead of surfacing these as application errors to users. Review the [Transient errors](sql-database-connectivity-issues.md) section and the [best practices and design guidelines](sql-database-connect-central-recommendations.md) for more information and general retry strategies. Then, see [code samples](sql-database-develop-quick-start-client-code-samples.md) for specifics.
+2. Applications that connect to a cloud service such as Azure SQL Database should expect periodic reconfiguration events and implement retry logic to handle these errors instead of surfacing these as application errors to users. Review the [Transient errors](sql-database-connectivity-issues.md) section and the best practices and design guidelines at [SQL Database Development Overview](sql-database-develop-overview.md) for more information and general retry strategies. Then, see code samples at [Connection Libraries for SQL Database and SQL Server](sql-database-libraries.md) for specifics.
 3.	As a database approaches its resource limits, it can seem to be a transient connectivity issue. See [Troubleshooting Performance Issues](sql-database-troubleshoot-performance.md).
 4.	If connectivity problems continue, or if the duration for which your application encounters the error exceeds 60 seconds or if you see multiple occurrences of the error in a given day, file an Azure support request by selecting **Get Support** on the [Azure Support](https://azure.microsoft.com/support/options) site.
 
 ## Next steps
 - If you receive a different error, evaluate the [error message](sql-database-develop-error-messages.md) for clues about the cause.
-- If the issue is persistent, visit the guidance in [Troubleshoot common connection issues to SQL Azure Database](sql-database-troubleshoot-common-connection-issues.md).
+- If the issue is persistent, visit the guidance in [Troubleshoot common connection issues to Azure SQL Database](sql-database-troubleshoot-common-connection-issues.md).

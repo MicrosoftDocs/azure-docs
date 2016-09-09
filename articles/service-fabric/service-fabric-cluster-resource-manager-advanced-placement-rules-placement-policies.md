@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/10/2016"
+   ms.date="05/20/2016"
    ms.author="masnider"/>
 
 # Placement policies for service fabric services
-There are many different additional rules that you may end up caring about if your Service Fabric cluster is spanned across a geographic distance, say multiple datacenters or Azure regions, or if your environment spans multiple areas of geopolitical control (or some other case where you have legal or policy boundaries you care about). Most of these could be configured via node properties and placement constraints (which we talked about earlier), but some are more complicated. In any case, we provide these shortcuts – just like placement constraints, placement policies can be configured on a per-service basis.
+There are many different additional rules that you may end up caring about if your Service Fabric cluster is spanned across a geographic distance, say multiple datacenters or Azure regions, or if your environment spans multiple areas of geopolitical control (or some other case where you have legal or policy boundaries you care about, or the distances involved have actual performance/latency impact). Most of these could be configured via node properties and placement constraints, but some are more complicated. In any case, we provide these shortcuts – just like placement constraints, placement policies can be configured on a per-named service instance basis.
 
 ## Specifying invalid domains
-The InvalidDomain placement policy allows you to specify that a particular Fault Domain is invalid for this workload. This policy  ensures that a particular service never runs in a particular area, for example for geopolitical or corporate policy reasons. Multiple invalid domains can be specified
+The InvalidDomain placement policy allows you to specify that a particular Fault Domain is invalid for this workload. This policy  ensures that a particular service never runs in a particular area, for example for geopolitical or corporate policy reasons. Multiple invalid domains may be specified
 
 ![Invalid Domain Example][Image1]
 

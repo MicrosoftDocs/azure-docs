@@ -12,10 +12,10 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="03/16/2016"
+    ms.date="06/27/2016"
     ms.author="sethm" />
 
-# Paired Namespace implementation details and cost implications
+# Paired namespace implementation details and cost implications
 
 The [PairNamespaceAsync][] method, using a [SendAvailabilityPairedNamespaceOptions][] instance, performs visible tasks on your behalf. Because there are cost considerations when using the feature, it is useful to understand those tasks so that you expect the behavior when it happens. The API engages the following automatic behavior on your behalf:
 
