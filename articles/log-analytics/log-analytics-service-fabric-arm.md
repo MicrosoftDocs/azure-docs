@@ -37,10 +37,10 @@ This template does the following:
 3. Enables the Service Fabric solution in your Log Analytics workspace.
 
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-oms%2F%2Fazuredeploy.json) 
-Once you select the deploy button above, you should arrive on this page on the Azure portal, go ahead and edit the parameters listed:
-<insert image>
 
-Be sure to create a new resource group if you have input a new Log Analytics workspace name:
+
+Once you select the deploy button above, you should arrive on this page on the Azure portal, go ahead and edit the parameters listed. Be sure to create a new resource group if you input a new Log Analytics workspace name:
+<insert image>
 <insert image> 
 
 Accept the legal terms and hit "Create" to start the deployment. Once the deployment is completed, you should be able to see the new workspace and cluster created, and the WADServiceFabric*Event, WADWindowsEventLogs and WADETWEvent tables added:
