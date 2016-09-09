@@ -49,11 +49,11 @@ Output asset|foo_redacted.mp4|Video with blurring applied
 
 ####Input example:
 
-<iframe height="420" src="//aka.ms/ampembed?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fed99001d-72ee-4f91-9fc0-cd530d0adbbc%2FDancing.mp4&amp;format=video%2Fmp4&amp;autoplay=false" frameborder="no" width="750" name="azuremediaplayer" scrolling="no" align="center" autoplay="allowfullscreen"></iframe>
+[view this video](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fed99001d-72ee-4f91-9fc0-cd530d0adbbc%2FDancing.mp4)
 
 ####Output example:
 
-<iframe height="420" src="//aka.ms/ampembed?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc6608001-e5da-429b-9ec8-d69d8f3bfc79%2Fdance_redacted.mp4&amp;format=video%2Fmp4&amp;autoplay=false" frameborder="no" width="750" name="azuremediaplayer" scrolling="no" align="center" allowfullscreen=""></iframe>
+[view this video](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc6608001-e5da-429b-9ec8-d69d8f3bfc79%2Fdance_redacted.mp4)
 
 ###Analyze mode
 
@@ -122,7 +122,7 @@ Output asset|foo_redacted.mp4|Video with blurring applied based on annotations
 
 This is the output from an IDList with one ID selected.
 
-<iframe height="420" src="//aka.ms/ampembed?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4&amp;format=video%2Fmp4&amp;autoplay=false" frameborder="no" width="720" name="azuremediaplayer" scrolling="no" align="center" allowfullscreen=""></iframe>
+[view this video](http://ampdemo.azureedge.net/?url=http%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
 
 ##Attribute descriptions
 
