@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/07/2016"
+   ms.date="09/09/2016"
    ms.author="seanmck"/>
 
 # Use Visual Studio to simplify writing and managing your Service Fabric applications
@@ -34,22 +34,25 @@ In Visual Studio, pressing **F5** will also deploy your application and attach t
 
 ### Application Debug Mode
 
-By default, Visual Studio will remove existing instances of your application type when you stop debugging or (if you deployed the app without attaching the debugger), when you redeploy the application. In that case, all of the application's data will be removed. While debugging locally, you may want to keep data that you've already created when testing a new version of the application. The Visual Studio Service Fabric Tools provide a property called **Application Debug Mode**, which controls whether the **F5** should uninstall the application or keep the application after a debug session ends.
+By default, Visual Studio will remove existing instances of your application type when you stop debugging or (if you deployed the app without attaching the debugger), when you redeploy the application. In that case, all of the application's data will be removed. While debugging locally, you may want to keep data that you've already created when testing a new version of the application, you just want to keep the application running or you want subsequent debug sessions to upgrade the application. Visual Studio Service Fabric Tools provide a property called **Application Debug Mode**, which controls whether the **F5** should uninstall the application, keep the application running after a debug session ends or enable the application to be upgraded on subsequent debugging sessions, rather than removed and redeployed.
 
 #### To set the Application Debug Mode property
 
 1. On the application project's shortcut menu, choose **Properties** (or press the **F4** key).
-2. In the **Properties** window, set the **Application Debug Mode** property to either **Remove** or **Auto Upgrade**.
+2. In the **Properties** window, set the **Application Debug Mode** property.
 
     ![Set Application Debug Mode Property][debugmodeproperty]
 
-Setting this property value to **Auto Upgrade** will leave the application running on the local cluster. The next **F5** will treat the deployment as an upgrade by using unmonitored auto mode to quickly upgrade the application to a newer version with a date string appended. The upgrade process preserves any data that you entered in a previous debug session.
+These are the **Application Debug Mode** options available.
+1. **Auto Upgrade**: The application will continue to run when the debug session ends. The next **F5** will treat the deployment as an upgrade by using unmonitored auto mode to quickly upgrade the application to a newer version with a date string appended. The upgrade process preserves any data that you entered in a previous debug session.
+2. **Keep Application**: The application will keep running in the cluster when the debug seesion ends. On the next **F5** the application will be removed and the newly build application will be deployed to the cluster.
+3. **Remove Applcation** will cause the application to be removed when the debug session ends.
 
-![Example of new application version with date1 appended][preservedate]
+For **Auto Upgrade** data is preserved by leveraging the application upgrade capabilities of Service Fabric, but it is tuned to optimize for performance rather than safety. For more information about upgrading applications and how you might perform an upgrade in a real enviornment, refer to [Service Fabric application upgrade](service-fabric-application-upgrade.md).
 
-Data is preserved by leveraging the application upgrade capabilities of Service Fabric, but it is tuned to optimize for performance rather than safety. For more information about upgrading applications and how you might perform an upgrade in a real enviornment, refer to [Service Fabric application upgrade](service-fabric-application-upgrade.md).
+![Example of new application version with date appended][preservedata]
 
->[AZURE.NOTE] This property doesn't exist prior to version 1.1 of the Service Fabric Tools for Visual Studio. Prior to 1.1, please use the **Preserve Data On Start** property to achieve the same behavior.
+>[AZURE.NOTE] This property doesn't exist prior to version 1.1 of the Service Fabric Tools for Visual Studio. Prior to 1.1, please use the **Preserve Data On Start** property to achieve the same behavior. The "Keep Application" option was introduced in version 1.2 of the Service Fabric Tools for Visual Studio.
 
 ## Add a service to your Service Fabric application
 
@@ -93,5 +96,4 @@ You can perform basic cluster management operations from within Visual Studio us
 [newservice]:./media/service-fabric-manage-application-in-visual-studio/newservice.png
 [newserviceapplicationmanifest]:./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
 [preservedata]:./media/service-fabric-manage-application-in-visual-studio/preservedata.png
-[preservedate]:./media/service-fabric-manage-application-in-visual-studio/preservedate.png
 [debugmodeproperty]:./media/service-fabric-manage-application-in-visual-studio/debugmodeproperty.png
