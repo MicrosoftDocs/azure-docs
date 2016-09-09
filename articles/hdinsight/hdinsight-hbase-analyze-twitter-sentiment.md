@@ -146,11 +146,12 @@ You need to create an application to get tweets, calculate tweet sentiment score
 		Install-Package Microsoft.HBase.Client -version 0.4.1.0
 		Install-Package TweetinviAPI -version 0.9.12.2
 
-		> [AZURE.NOTE] There is an issue with the latest TweetinviAPI (version 1.0.0.0). If you have the latest installed, use the following command to uninstall before installing the version 0.9.12.2:
-		>
-		> Unintall-Package TweetinivAPI -Force 
+	These commands install the [HBase .NET SDK](https://www.nuget.org/packages/Microsoft.HBase.Client/) package, which is the client library to access the HBase cluster, and the [Tweetinvi API](https://www.nuget.org/packages/TweetinviAPI/) package, which is used to access the Twitter API.
 
-    These commands install the [HBase .NET SDK](https://www.nuget.org/packages/Microsoft.HBase.Client/) package, which is the client library to access the HBase cluster, and the [Tweetinvi API](https://www.nuget.org/packages/TweetinviAPI/) package, which is used to access the Twitter API.
+	> [AZURE.NOTE] There is an issue with the latest TweetinviAPI (version 1.0.0.0). If you have the latest installed, use the following command to uninstall before installing the version 0.9.12.2:
+	>
+	> Unintall-Package TweetinivAPI -Force 
+	
 3. From **Solution Explorer**, add **System.Configuration** to the reference.
 4. Add a new class file to the project called **HBaseWriter.cs**, and then replace the code with the following:
 
