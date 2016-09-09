@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/26/2016"
+   ms.date="09/08/2016"
    ms.author="roshar"/>
 
 # Implementing a Hybrid Network Architecture with Azure and On-premises VPN
@@ -459,6 +459,7 @@ The script references the following parameter files to create a VNet and a VPN g
 
 - **[virtualNetwork.parameters.json][vnet-parameters]**. This file defines the VNet settings, such as the name, address space, subnets, and the addresses of any DNS servers required:
 
+   <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-hybrid-network-vpn/parameters/virtualNetwork.parameters.json#L4-L24 -->
 	```json
     "parameters": {
       "virtualNetworkSettings": {
@@ -491,6 +492,7 @@ The script references the following parameter files to create a VNet and a VPN g
 
 - **[virtualNetworkGateway.parameters.json][virtualNetworkGateway-parameters]**. This file contains the parameters used to create the Azure VPN gateway:
 
+    <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-hybrid-network-vpn/parameters/virtualNetworkGateway.parameters.json#L4-L33 -->
 	```json
     "parameters": {
       "virtualNetworkSettings": {
@@ -659,10 +661,10 @@ To run the script that deploys the solution:
 [vpn-appliance-ipsec]: ../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec-parameters
 [expressroute]: ./guidance-hybrid-network-expressroute.md
 [naming conventions]: ./guidance-naming-conventions.md
-[solution-script]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-hybrid-network-vpn/Deploy-ReferenceArchitecture.ps1
-[solution-script-bash]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-hybrid-network-vpn/deploy-reference-architecture.sh
-[vnet-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-hybrid-network-vpn/parameters/virtualNetwork.parameters.json
-[virtualNetworkGateway-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-hybrid-network-vpn/parameters/virtualNetworkGateway.parameters.json
+[solution-script]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-vpn/Deploy-ReferenceArchitecture.ps1
+[solution-script-bash]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-vpn/deploy-reference-architecture.sh
+[vnet-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-vpn/parameters/virtualNetwork.parameters.json
+[virtualNetworkGateway-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-vpn/parameters/virtualNetworkGateway.parameters.json
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [azure-cli]: https://azure.microsoft.com/documentation/articles/xplat-cli-install/
 [0]: ./media/guidance-hybrid-network-vpn/arch-diagram.png "Structure of a hybrid network spanning the on-premises and cloud infrastructures"
