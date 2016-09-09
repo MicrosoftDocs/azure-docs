@@ -40,4 +40,6 @@ If you cancel your subscription, your data will be stored for 90 days as per [Mi
 
 5. Click ![checkbutton](./media/billing-how-to-cancel-azure-subscription/checkbutton.png) to close the dialog window and return to your subscription page.
 
+	> [AZURE.NOTE] If you have cancelled your Pay As You Go subscription accidentally, you can follow the instructions outlined [here] (https://azure.microsoft.com/en-us/documentation/articles/billing-subscription-become-disable/) to reactivate it.
+
 > [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
