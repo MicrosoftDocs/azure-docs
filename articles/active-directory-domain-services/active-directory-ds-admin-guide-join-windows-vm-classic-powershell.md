@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/09/2016"
 	ms.author="maheshu"/>
 
 
@@ -146,3 +146,10 @@ Here is the full sample script to create the Windows virtual machine and automat
     $dns = New-AzureDns -Name 'contoso100-dc1' -IPAddress '10.0.0.4'
 
     New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname -Location "Central US" -DnsSettings $dns
+
+
+
+## Related Content
+- [Azure AD Domain Services - Getting Started guide](./active-directory-ds-getting-started.md)
+
+- [Administer an Azure AD Domain Services managed domain](./active-directory-ds-admin-guide-administer-domain.md)
