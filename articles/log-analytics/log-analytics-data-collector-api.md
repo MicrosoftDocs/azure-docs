@@ -87,7 +87,7 @@ The samples in the next sections have sample code to help you create an authoriz
 
 ## Request body
 
-The body of the message must be in JSON. It must include one or more record with the property name and value pairs in this format:
+The body of the message must be in JSON. It must include one or more records with the property name and value pairs in this format:
 
 ```
 {
