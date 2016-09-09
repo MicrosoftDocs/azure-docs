@@ -98,7 +98,7 @@ Now, let's deploy some code to Azure using Git.
 
         git clone <github_sample_url>
 
-    ![Clone the app sample code for your first web app in Azure](./media/app-service-web-get-started/2-clone-sample.png)
+    ![Clone the app sample code for your first web app in Azure](./media/app-service-web-get-started/html-git-clone.png)
 
     For *&lt;github_sample_url>*, use one of the following URLs, depending on the framework that you like:
 
@@ -121,7 +121,7 @@ Now, let's deploy some code to Azure using Git.
 
         git push azure master
 
-    ![Push code to your first web app in Azure](./media/app-service-web-get-started/5-push-code.png)    
+    ![Push code to your first web app in Azure](./media/app-service-web-get-started/html-git-push.png)    
 
     If you used one of the language frameworks, you'll see different output. This is because `git push` not only puts code in Azure, but also triggers deployment tasks
     in the deployment engine. If you have any package.json
