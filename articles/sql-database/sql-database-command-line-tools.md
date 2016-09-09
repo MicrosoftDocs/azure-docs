@@ -24,7 +24,7 @@
 - [Transact-SQL (SSMS)](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
-This topic shows the PowerShell cmdlets that are used to perform many Azure SQL Database tasks. 
+This topic shows the PowerShell cmdlets that are used to perform many Azure SQL Database tasks. For a complete list, see [Azure SQL Databse Cmdlets](https://msdn.microsoft.com/library/mt574084(v=azure.200).aspx)
 
 [AZURE.INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
@@ -57,7 +57,7 @@ $creds = New-Object –TypeName System.Management.Automation.PSCredential –Arg
     
 
 $sqlServer = New-AzureRmSqlServer -ServerName $sqlServerName `
- -SqlAdministratorCredentials $creds -Location $sqlServerLocation ` 
+ -SqlAdministratorCredentials $creds -Location $sqlServerLocation `
  -ResourceGroupName $resourceGroupName -ServerVersion $sqlServerVersion
 ```
 
