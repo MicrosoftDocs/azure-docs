@@ -269,7 +269,7 @@ When you edit the templates, create objects that follow the naming conventions d
 The script references the parameters in the following files:
 
 - **[virtualNetwork.parameters.json][vnet-parameters]**. This file defines the VNet settings, such as the name, address space, subnets, and the addresses of any DNS servers required:
-
+   <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-hybrid-network-er/parameters/virtualNetwork.parameters.json#L4-L24 -->
 	```json
     "parameters": {
       "virtualNetworkSettings": {
@@ -301,7 +301,7 @@ The script references the parameters in the following files:
 	You can also use the `dnsServers` array to specify the addresses of DNS servers required by your application.
 
 - **[virtualNetworkGateway.parameters.json][virtualNetworkGateway-parameters]**. This file contains the parameters used to create the Azure VPN gateway:
-
+    <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-hybrid-network-er/parameters/virtualNetworkGateway.parameters.json#L4-L30 -->
 	```json
     "parameters": {
       "virtualNetworkSettings": {
@@ -341,22 +341,26 @@ The script references the parameters in the following files:
 	- The `expressRouteCircuit` object specifies the name of the ExpressRoute circuit to use to create the connection. This should be the name of a circuit defined in the [expressRoureCircuit.parameters.json][er-circuit-parameters] file described below.
 
 - **[expressRouteCircuit.parameters.json][er-circuit-parameters]**. This file contains the details of the ExpressRoute circuit. Set the parameters in this file to the values appropriate to your provider:
-
+    <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-hybrid-network-er/parameters/expressRouteCircuit.parameters.json#L4-L21 -->
 	```json
 	"parameters": {
-      ...,
-      "expressRouteCircuitSettings": {
-        "value": {
-          "name": "ra-hybrid-er-erc",
-          "skuTier": "Premium",
-          "skuFamily": "UnlimitedData",
-          "serviceProviderName": "Equinix",
-          "peeringLocation": "Silicon Valley",
-          "bandwidthInMbps": 50,
-          "allowClassicOperations": false
-        }
-      }
-    }
+		"deploymentContext": {
+		"value": {
+			"parentTemplateUniqueString": ""
+		}
+		},
+		"expressRouteCircuitSettings": {
+		"value": {
+			"name": "ra-hybrid-er-erc",
+			"skuTier": "Premium",
+			"skuFamily": "UnlimitedData",
+			"serviceProviderName": "Equinix",
+			"peeringLocation": "Silicon Valley",
+			"bandwidthInMbps": 50,
+			"allowClassicOperations": false
+		}
+		}
+	}
 	```
 
 ## Solution Deployment
@@ -465,11 +469,11 @@ To run the script that deploys the solution:
 [highly-available-network-architecture]: ./guidance-hybrid-network-expressroute-vpn-failover.md
 [arm-templates]: ../resource-group-authoring-templates.md
 [naming-conventions]: ./guidance-naming-conventions.md
-[solution-script]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-hybrid-network-er/Deploy-ReferenceArchitecture.ps1
-[solution-script-bash]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-hybrid-network-er/deploy-reference-architecture.sh
-[vnet-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-hybrid-network-er/parameters/virtualNetwork.parameters.json
-[virtualNetworkGateway-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-hybrid-network-er/parameters/virtualNetworkGateway.parameters.json
-[er-circuit-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-hybrid-network-er/parameters/expressRouteCircuit.parameters.json
+[solution-script]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-er/Deploy-ReferenceArchitecture.ps1
+[solution-script-bash]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-er/deploy-reference-architecture.sh
+[vnet-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-er/parameters/virtualNetwork.parameters.json
+[virtualNetworkGateway-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-er/parameters/virtualNetworkGateway.parameters.json
+[er-circuit-parameters]: https://github.com/mspnp/reference-architectures/tree/master/guidance-hybrid-network-er/parameters/expressRouteCircuit.parameters.json
 [azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 [azure-cli]: https://azure.microsoft.com/documentation/articles/xplat-cli-install/
 [0]: ./media/guidance-hybrid-network-expressroute/figure1.png "Hybrid network architecture using Azure ExpressRoute"
