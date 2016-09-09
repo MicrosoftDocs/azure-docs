@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="09/09/2016"
    ms.author="gwallace"/>
 
 # Configure an application gateway for SSL offload by using Azure Resource Manager
@@ -158,6 +158,12 @@ This sample configures application gateway setting "poolsetting01" to load-balan
 This sample configures the front-end IP port named "frontendport01" for the public IP endpoint.
 
 ### Step 5
+
+The following certificate types are supported for use with Application Gateway
+
+- Wildcard certificates
+- CA certificates
+- Self-signed certificates (Self-signed certificates are to be used for testing purposes)
 
 	$cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFile <full path for certificate file> -Password ‘<password>’
 

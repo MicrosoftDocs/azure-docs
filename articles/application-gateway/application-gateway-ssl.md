@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="09/09/2016"
    ms.author="gwallace"/>
 
 # Configure an application gateway for SSL offload by using the classic deployment model
@@ -33,9 +33,11 @@ Azure Application Gateway can be configured to terminate the Secure Sockets Laye
 
 The following certificate types are supported for use with Application Gateway
 
+The following certificate types are supported for use with Application Gateway
+
 - Wildcard certificates
 - CA certificates
-- Self signed certificates **Self signed certificates should only be used for testing purposes**
+- Self-signed certificates (Self-signed certificates are to be used for testing purposes)
 
 To configure SSL offload on an application gateway, do the following steps in the order listed:
 

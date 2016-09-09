@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/06/2016"
+   ms.date="09/09/2016"
    ms.author="gwallace" />
 
 # Create an application gateway by using the portal
@@ -134,7 +134,7 @@ The following certificate types are supported for use with Application Gateway
 
 - Wildcard certificates
 - CA certificates
-- Self-signed certificates **Self signed certificates should only be used for testing purposes**
+- Self-signed certificates (Self-signed certificates are to be used for testing purposes)
 
 Once complete click **OK** to review the settings for the Application Gateway.
 
