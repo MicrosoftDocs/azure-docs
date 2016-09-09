@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Resize | Microsoft Azure"
-	description="Resize."
+	pageTitle="Resize a Windows VM | Microsoft Azure"
+	description="Resize a Windows virtual machine created in the Resource Manager deployment model, using Azure Powershell."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="drewm"
+	authors="Drewm3"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>

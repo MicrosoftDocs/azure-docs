@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Resize | Microsoft Azure"
-	description="Resize."
+	pageTitle="Resize a classic Windows VM | Microsoft Azure"
+	description="Resize a Windows virtual machine created in the classic deployment model, using Azure Powershell."
 	services="virtual-machines-windows"
 	documentationCenter=""
-	authors="drewm"
+	authors="Drewm3"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -18,7 +18,7 @@
 	ms.author="drewm"/>
 
 
-# Resize a Windows VM create in the classic deployment model
+# Resize a Windows VM created in the classic deployment model
 
 This article shows you how to resize a Windows VM, created in the classic deployment model using Azure Powershell.
 
@@ -37,7 +37,7 @@ You must configure Azure PowerShell to work with classic Azure resources. Follow
 4.	Click **Sign in**. 
 
 
-## Resize in same hardware cluster
+## Resize in the same hardware cluster
 
 To resize a VM to a size available in the hardware cluster hosting the VM, perform the following steps.
 
@@ -49,7 +49,7 @@ To resize a VM to a size available in the hardware cluster hosting the VM, perfo
 
 	Get-AzureVM -ServiceName <cloudServiceName> -Name <vmName> | Set-AzureVMSize -InstanceSize <newVMSize> | Update-AzureVM
 
-## Resize to new hardware cluster
+## Resize on a new hardware cluster
 
 To resize a VM to a size not available in the hardware cluster hosting the VM, the cloud service and all VMs in the cloud service must be recreated. Each cloud service is hosted on a single hardware cluster so all VMs in the cloud service must be a size that is supported on a hardware cluster. The following steps will describe how to resize a VM by deleting and then recreating the cloud service.
 
