@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/02/2016"
+	ms.date="09/09/2016"
 	ms.author="kgremban"/>
 
 
-# Publish applications on separate networks and locations using Connector groups
+# Publish applications on separate networks and locations using Connector groups - Public Preview
 
 > [AZURE.SELECTOR]
 - [Azure portal](active-directory-application-proxy-connectors-azure-portal.md)
@@ -39,11 +39,13 @@ To group your connectors, you have to make sure you [installed multiple connecto
 ## Step 1: Create connector groups
 You can create as many connector groups as you want. Connector group creation is accomplished in the [Azure portal](https://portal.azure.com).
 
-1. Select **Azure Active Directory** to go to the management dashboard for your directory. From there, select **Enterprise applications** > **Application proxy** > **Connector Groups**. The New Connector Group blade appears.
+1. Select **Azure Active Directory** to go to the management dashboard for your directory. From there, select **Enterprise applications** > **Application proxy**.
 
-2. Give your new connector group a name, then use the dropdown menu to select which connectors belong in this group.
+2. Select the **Connector Groups** button. The New Connector Group blade appears.
 
-3. Select **Save** when your connector Group is complete.
+3. Give your new connector group a name, then use the dropdown menu to select which connectors belong in this group.
+
+4. Select **Save** when your connector Group is complete.
 
 ## Step 2: Assign applications to your connector groups
 The last step is to set each application to the connector group that will serve it.
