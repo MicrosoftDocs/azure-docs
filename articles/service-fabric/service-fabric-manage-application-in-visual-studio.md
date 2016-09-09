@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="09/09/2016"
-   ms.author="seanmck"/>
+   ms.author="seanmck;mikhegn"/>
 
 # Use Visual Studio to simplify writing and managing your Service Fabric applications
 
