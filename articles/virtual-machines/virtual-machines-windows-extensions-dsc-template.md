@@ -193,6 +193,7 @@ In the Resource Manager template, the following instructs the VM to download the
 Any settings in the previous format (containing the public properties ModulesUrl, ConfigurationFunction, SasToken, or Properties) will automatically adapt to the current format and run just as they did before.
 
 The previous settings schema looked like the following:
+
 ```json
 "settings": {
     "WMFVersion": "latest",
