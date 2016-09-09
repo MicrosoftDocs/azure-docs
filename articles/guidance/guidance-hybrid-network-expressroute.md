@@ -301,7 +301,7 @@ The script references the parameters in the following files:
 
 	You can also use the `dnsServers` array to specify the addresses of DNS servers required by your application.
 
-- **[virtualNetworkGateway.parameters.json][virtualNetworkGateway-parameters]**. This file contains the parameters used to create the Azure VPN gateway:
+- **[virtualNetworkGateway.parameters.json][virtualnetworkgateway-parameters]**. This file contains the parameters used to create the Azure VPN gateway:
     <!-- source: https://github.com/mspnp/reference-architectures/blob/master/guidance-hybrid-network-er/parameters/virtualNetworkGateway.parameters.json#L4-L30 -->
 	```json
     "parameters": {
