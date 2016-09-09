@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/02/2016"
+   ms.date="09/09/2016"
    ms.author="chackdan"/>
 
 
@@ -75,9 +75,9 @@ This privilege is expressed in the following values:
 
 - Gold - The infrastructure Jobs can be paused for a duration of 2 hours per UD
 
-- Silver - The infrastructure Jobs can be paused for a duration of 30 minutes per UD
+- Silver - The infrastructure Jobs can be paused for a duration of 30 minutes per UD (This is currently not enabled for use. once enabled this will be available on all standard VMs of single core and above).
 
-- Bronze - No privileges.
+- Bronze - No privileges. This is he default.
 
 ## The reliability characteristics of the cluster
 

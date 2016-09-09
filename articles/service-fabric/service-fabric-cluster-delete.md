@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Delete a cluster and its’ resources | Microsoft Azure"
+   pageTitle="Delete an azure cluster and its’ resources | Microsoft Azure"
    description="Learn how to completely delete a Service Fabric cluster either deleting the resource group containing the cluster or by selectively deleting resources."
    services="service-fabric"
    documentationCenter=".net"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/04/2016"
+   ms.date="09/09/2016"
    ms.author="chackdan"/>
 
-# Delete a Service Fabric cluster and the resources it uses
+# Delete a Service Fabric cluster on Azure and the resources it uses
 
 A Service Fabric cluster is made up of many other Azure resources in addition to the cluster resource itself. So in order to completely delete a Service Fabric cluster you also need to delete all the resources it is made of. You have two options to do this: either delete the resource group that the cluster is in (which deletes the cluster resource and any other resources in the resource group) or specifically delete the cluster resource and it's associated resources (but not other resources in the resource group).
 

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/02/2016"
+   ms.date="09/09/2016"
    ms.author="chackdan"/>
 
 
@@ -71,13 +71,10 @@ Here are the configurations that you can change on a live cluster.
 
 ### Certificates
 
-You can update the primary or secondary certificates easily from the Azure portal (as shown below) or by issuing a PUT command on the servicefabric.cluster resource.
+You can add new or delete certificates for the cluster and client via the portal easily. Refer to [this document for detailed instructions](service-fabric-cluster-security-update-certs-azure.md)
 
 ![Screenshot that shows certificate thumbprints in the Azure portal.][CertificateUpgrade]
 
->[AZURE.NOTE] Before you identify a certificate that you want to use for the cluster resources, you must complete the following steps, or the new certificate will not be used:
-1. Upload the new certificate to Azure Key Vault. Refer to [Service Fabric security](service-fabric-cluster-security.md) for instructions. Start with step 2 in that document.
-2. Update all of the virtual machines (VMs) that make up your cluster so that the certificate gets deployed on them. To do that, refer to the [Azure Key Vault Team Blog](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
 
 ### Application ports
 
@@ -87,7 +84,7 @@ To open a new port on all VMs in a node type, do the following:
 
 1. Add a new probe to the appropriate load balancer.
 
-    If you deployed your cluster by using the portal, the load balancers will be named "loadBalancer-0", "loadBalancer-1", and so on, one for each node type. Since the load balancer names are unique only within a resource group, it is best if you search for them under a specific resource group.
+    If you deployed your cluster by using the portal, the load balancers will be named "LB-name of the Resource group-nodetyename", one for each node type. Since the load balancer names are unique only within a resource group, it is best if you search for them under a specific resource group.
 
     ![Screenshot that shows adding a probe to a load balancer in the portal.][AddingProbes]
 
@@ -122,6 +119,6 @@ If you must upgrade the OS image on the virtual machines of the cluster, you mus
 - Learn about [application upgrades](service-fabric-application-upgrade.md)
 
 <!--Image references-->
-[CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade.png
-[AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes.png
+[CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade2.PNG
+[AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes2.PNG
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
