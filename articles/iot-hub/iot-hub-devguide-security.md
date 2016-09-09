@@ -98,7 +98,32 @@ When using SASL PLAIN, a client connecting to an IoT hub can use a single token 
 
 You can scope hub-level security policies by creating tokens with a restricted resource URI. For example, the endpoint to send device-to-cloud messages from a device is **/devices/{deviceId}/messages/events**. You can also use a hub-level shared access policy with **DeviceConnect** permissions to sign a token whose resourceURI is **/devices/{deviceId}**. This approach creates a token that is only usable to send devices on behalf of device **deviceId**.
 
-This mechanism is similar to the [Event Hubs publisher policy][lnk-event-hubs-publisher-policy], and enables you to implement custom authentication methods. For more information, see the security section of [Design your solution][lnk-guidance-security].
+This mechanism is similar to the [Event Hubs publisher policy][lnk-event-hubs-publisher-policy], and enables you to implement custom authentication methods.
+
+## Custom device authentication
+
+You can use the IoT Hub [device identity registry][lnk-identity-registry] to configure per-device security credentials and access control using [tokens][lnk-sas-tokens]. However, if an IoT solution already has a significant investment in a custom device identity registry and/or authentication scheme, you can integrate this existing infrastructure with IoT Hub by creating a *token service*. In this way, you can use other IoT features in your solution.
+
+A token service is a custom cloud service. It uses an IoT Hub *shared access policy* with **DeviceConnect** permissions to create *device-scoped* tokens. These tokens enable a device to connect to your IoT hub.
+
+  ![Steps of the token service pattern][img-tokenservice]
+
+These are the main steps of the token service pattern:
+
+1. Create an IoT Hub shared access policy with **DeviceConnect** permissions for your IoT hub. You can create this policy in the [Azure portal][lnk-management-portal] or programmatically. The token service uses this policy to sign the tokens it creates.
+2. When a device needs to access your IoT hub, it requests a signed token from your token service. The device can authenticate with your custom device identity registry/authentication scheme to determine the device identity that the token service uses to create the token.
+3. The token service returns a token. The token is created by using `/devices/{deviceId}` as `resourceURI`, with `deviceId` as the device being authenticated. The token service uses the shared access policy to construct the token.
+4. The device uses the token directly with the IoT hub.
+
+> [AZURE.NOTE] You can use the .NET class [SharedAccessSignatureBuilder][lnk-dotnet-sas] or the Java class [IotHubServiceSasToken][lnk-java-sas] to create a token in your token service.
+
+The token service can set the token expiration as desired. When the token expires, the IoT hub severs the device connection. Then, the device must request a new token from the token service. If you use a short expiry time, this increases the load on both the device and the token service.
+
+For a device to connect to your hub, you must still add it to the IoT Hub device identity registry — even though the device is using a token and not a device key to connect. Therefore, you can continue to use per-device access control by enabling or disabling device identities in the [IoT Hub identity registry][lnk-identity-registry] when the device authenticates with a token. This mitigates the risks of using tokens with long expiry times.
+
+### Comparison with a custom gateway
+
+The token service pattern is the recommended way to implement a custom identity registry/authentication scheme with IoT Hub. It is recommended because IoT Hub continues to handle most of the solution traffic. However, there are cases where the custom authentication scheme is so intertwined with the protocol that a service processing all the traffic (*custom gateway*) is required. An example of this is [Transport Layer Security (TLS) and pre-shared keys (PSKs)][lnk-tls-psk]. For more information, see the [protocol gateway][lnk-protocols] topic.
 
 ## Reference
 
@@ -136,6 +161,8 @@ If you would like to try out some of the concepts described in this article, you
 
 <!-- links and images -->
 
+[img-tokenservice]: ./media/iot-hub-devguide-security/tokenservice.png
+
 [lnk-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
@@ -151,3 +178,7 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-management-portal]: https://portal.azure.com
 [lnk-sasl-plain]: http://tools.ietf.org/html/rfc4616
 [lnk-identity-registry]: iot-hub-devguide-identity-registry.md
+[lnk-dotnet-sas]: https://msdn.microsoft.com/library/microsoft.azure.devices.common.security.sharedaccesssignaturebuilder.aspx
+[lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
+[lnk-tls-psk]: https://tools.ietf.org/html/rfc4279
+[lnk-protocols]: iot-hub-protocol-gateway.md

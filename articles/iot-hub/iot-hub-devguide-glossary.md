@@ -16,12 +16,18 @@
  ms.date="09/30/2016" 
  ms.author="dobett"/>
 
-# Send and receive messages with IoT Hub
+# Glossary of IoT Hub terms
 
-## Overview
-
-## Guidance
-
-## Reference
-
-## Next steps
+Cloud-to-device (C2D)
+Device-to-cloud (D2C)
+Device identity registry
+Device
+Field gateway
+Protocol gateway
+IoT Hub
+Device twin
+Job
+Direct method
+HTTP
+AMQP
+MQTT
