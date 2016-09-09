@@ -67,7 +67,7 @@ Here are the detailed steps for uploading your public certificates into your int
 
 9. In about a minute, you will see a notification that indicates that the certificate upload is complete.
 
-10. Select the **Certificates tile**. This refreshes the page and you should see the newly added certificate.  
+10. Select the **Certificates tile**. You should see the newly added certificate.  
 	![See the new certificate](./media/app-service-logic-enterprise-integration-certificates/certificate-4.png)  
 
 ### Private certificates
