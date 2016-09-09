@@ -34,7 +34,7 @@ When an actor is activated, the following occurs:
 When an actor is deactivated, the following occurs:
 
 - When an actor is not used for some period of time, it is removed from the Active Actors table.
-- The `OnDeactivateAsync` method (which can be overridden in the actor implementation) is called. This clears all the timers for the actor.
+- The `OnDeactivateAsync` method (which can be overridden in the actor implementation) is called. This clears all the timers for the actor. Actor operations like state changes should not be called from this method.
 
 > [AZURE.TIP] The Fabric Actors runtime emits some [events related to actor activation and deactivation](service-fabric-reliable-actors-diagnostics.md#actor-activation-and-deactivation-events). They are useful in diagnostics and performance monitoring.
 
