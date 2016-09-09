@@ -130,6 +130,12 @@ To use **https**, a certificate is required. The private key of the certificate 
 Click **HTTPS**, click the **folder** icon next to the **Upload PFX certificate** textbox.
 Navigate to the .pfx certificate file on your file system. Once it is selected, give the certificate a friendly name and type the password for the .pfx file.
 
+The following certificate types are supported for use with Application Gateway
+
+- Wildcard certificates
+- CA certificates
+- Self signed certificates **Self signed certificates should only be used for testing purposes**
+
 Once complete click **OK** to review the settings for the Application Gateway.
 
 ![Listener Configuration section on Settings blade][9]

@@ -31,6 +31,12 @@ Azure Application Gateway can be configured to terminate the Secure Sockets Laye
 2. Verify that you have a working virtual network with a valid subnet. Make sure that no virtual machines or cloud deployments are using the subnet. The application gateway must be by itself in a virtual network subnet.
 3. The servers that you configure to use the application gateway must exist or have their endpoints created either in the virtual network or with a public IP/VIP assigned.
 
+The following certificate types are supported for use with Application Gateway
+
+- Wildcard certificates
+- CA certificates
+- Self signed certificates **Self signed certificates should only be used for testing purposes**
+
 To configure SSL offload on an application gateway, do the following steps in the order listed:
 
 1. [Create a new application gateway](#create-a-new-application-gateway)
@@ -45,57 +51,27 @@ To configure SSL offload on an application gateway, do the following steps in th
 
 To create the gateway, use the **New-AzureApplicationGateway** cmdlet, replacing the values with your own. Billing for the gateway does not start at this point. Billing begins in a later step, when the gateway is successfully started.
 
-This sample shows the cmdlet on the first line, followed by the output.
-
-	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
-
-	VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway
-	VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
-	Name       HTTP Status Code     Operation ID                             Error
-	----       ----------------     ------------                             ----
-	Successful OK                   55ef0460-825d-2981-ad20-b9a8af41b399
+	New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
 To validate that the gateway was created, you can use the **Get-AzureApplicationGateway** cmdlet.
 
 In the sample, *Description*, *InstanceCount*, and *GatewaySize* are optional parameters. The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. Small and Large are other available values. *VirtualIPs* and *DnsName* are shown as blank because the gateway has not started yet. These are created once the gateway is in the running state.
 
-This sample shows the cmdlet on the first line, followed by the output.
-
-	PS C:\> Get-AzureApplicationGateway AppGwTest
-
-	VERBOSE: 4:39:39 PM - Begin Operation:
-	Get-AzureApplicationGateway VERBOSE: 4:39:40 PM - Completed
-	Operation: Get-AzureApplicationGateway
-	Name: AppGwTest
-	Description:
-	VnetName: testvnet1
-	Subnets: {Subnet-1}
-	InstanceCount: 2
-	GatewaySize: Medium
-	State: Stopped
-	VirtualIPs:
-	DnsName:
-
+	Get-AzureApplicationGateway AppGwTest
 
 ## Upload SSL certificates
 
 Use **Add-AzureApplicationGatewaySslCertificate** to upload the server certificate in *pfx* format to the application gateway. The certificate name is a user-chosen name and must be unique within the application gateway. This certificate is referred to by this name in all certificate management operations on the application gateway.
 
-This sample shows the cmdlet on the first line, followed by the output. Replace the values in the sample with your own.
+This following sample shows the cmdlet, replace the values in the sample with your own.
 
-	PS C:\> Add-AzureApplicationGatewaySslCertificate  -Name AppGwTest -CertificateName GWCert -Password <password> -CertificateFile <full path to pfx file>
-
-	VERBOSE: 5:05:23 PM - Begin Operation: Get-AzureApplicationGatewaySslCertificate
-	VERBOSE: 5:06:29 PM - Completed Operation: Get-AzureApplicationGatewaySslCertificate
-	Name       HTTP Status Code     Operation ID                             Error
-	----       ----------------     ------------                             ----
-	Successful OK                   21fdc5a0-3bf7-2c12-ad98-192e0dd078ef
+	Add-AzureApplicationGatewaySslCertificate  -Name AppGwTest -CertificateName GWCert -Password <password> -CertificateFile <full path to pfx file>
 
 Next, validate the certificate upload. Use the **Get-AzureApplicationGatewayCertificate** cmdlet.
 
 This sample shows the cmdlet on the first line, followed by the output.
 
-	PS C:\> Get-AzureApplicationGatewaySslCertificate AppGwTest
+	Get-AzureApplicationGatewaySslCertificate AppGwTest
 
 	VERBOSE: 5:07:54 PM - Begin Operation: Get-AzureApplicationGatewaySslCertificate
 	VERBOSE: 5:07:55 PM - Completed Operation: Get-AzureApplicationGatewaySslCertificate
@@ -131,7 +107,6 @@ You can construct your configuration either by creating a configuration object o
 To construct your configuration by using a configuration XML file, use the following sample.
 
 **Configuration XML sample**
-
 
 	<?xml version="1.0" encoding="utf-8"?>
 	<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">

@@ -26,7 +26,7 @@ Requests for http://contoso.com will be routed to ContosoServerPool, and http://
 Similarly two sub-domains of the same parent domain can be hosted on the same application gateway deployment. Examples of this could include http://blog.contoso.com and http://app.contoso.com hosted on a single application gateway deployment.
 
 
-##Host headers and Server Name Indication (SNI)
+## Host headers and Server Name Indication (SNI)
 There are three common mechanisms for enabling multiple site hosting on the same infrastructure. 
 
 1. Host multiple web applications each on a unique IP address.
@@ -35,7 +35,6 @@ There are three common mechanisms for enabling multiple site hosting on the same
 
 Currently an application gateway gets a single public IP address on which it listens for traffic. Therefore supporting multiple applications, each with its own IP address, is currently not supported. Application Gateway supports hosting multiple application each listening on different ports but this would require the applications to accept traffic on non-standard ports and is often not a desired configuration. Application Gateway relies on HTTP 1.1 host headers to host more than one website on the same public IP address and port. The sites hosted on application gateway can also support SSL offload with Server Name Indication (SNI) TLS extension. This means that the client browser and backend web farm must support HTTP/1.1 and TLS extension as defined in RFC 6066.
 
-  
 
 ## Listener configuration element
 
@@ -119,6 +118,6 @@ There is no change required in routing rule. Routing rule 'Basic' should continu
 	}
 	]
 	
-## Next steps 
+## Next steps
 
 After learning about multiple site hosting, go to [create an application gateway using multiple site hosting](application-gateway-create-multisite-azureresourcemanager-powershell.md) to create an application gateway with ability to support more than one web application.

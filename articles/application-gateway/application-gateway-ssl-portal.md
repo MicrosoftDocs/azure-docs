@@ -32,6 +32,12 @@ The following scenario goes through configuring SSL offload on an existing appli
 
 To configure SSL offload with an application gateway a certificate is required. This certificate is loaded on the application gateway and used to encrypt and decrypt the traffic sent via SSL. The certificate needs to be in Personal Information Exchange (pfx) format. This file format allows for the private key to be exported which is required by the application gateway to perform the encryption and decryption of traffic.
 
+The following certificate types are supported for use with Application Gateway
+
+- Wildcard certificates
+- CA certificates
+- Self signed certificates **Self signed certificates should only be used for testing purposes**
+
 ## Add an HTTPS listener
 
 The HTTPS listener looks for traffic based on its configuration and helps route the traffic to the backend pools.
@@ -51,9 +57,13 @@ Click Listeners and click the Add button to add a new listener.
 Fill out the required information for the listener and upload the .pfx certificate, when complete click OK.
 
 **Name** - This is a friendly name of the listener.
+
 **Frontend IP configuration** - This is the frontend IP configuration that is used for the listener.
+
 **Frontend port (Name/Port)** - A friendly name for the port used on the front end of the application gateway and the actual port used.
+
 **Protocol** - A switch to determine if https or http is used for the front end.
+
 **Certificate (Name/Password)** - If SSL offload is used, a .pfx certificate is required for this setting and a friendly name and password are required.
 
 ![add listener blade][2]

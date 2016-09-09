@@ -31,6 +31,12 @@
 2. You create a virtual network and a subnet for the application gateway. Make sure that no virtual machines or cloud deployments are using the subnet. Application Gateway must be by itself in a virtual network subnet.
 3. The servers you configure to use the application gateway must exist or have their endpoints created either in the virtual network or with a public IP/VIP assigned.
 
+The following certificate types are supported for use with Application Gateway
+
+- Wildcard certificates
+- CA certificates
+- Self signed certificates **Self signed certificates should only be used for testing purposes**
+
 ## What is required to create an application gateway?
 
 
@@ -69,8 +75,6 @@ Make sure that you switch PowerShell mode to use the Azure Resource Manager cmdl
 ### Step 1
 
 	Login-AzureRmAccount
-
-
 
 ### Step 2
 
