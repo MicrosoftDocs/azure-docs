@@ -20,7 +20,7 @@
 
 ##Overview
 
-**Azure Media Redactor** is an [Azure Media Analytics](media-services-analytics-overview.md) media processor (MP) that offers scalable face redaction in the cloud. This processor enables you to blur faces of selected individuals. You may want to use the face reduction service in public safety and news media scenarios. A  few minutes of footage that contains multiple faces can take hours to redact manually, but with this service the face reduction process will require just a few simple steps. For more information, see [this](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
+**Azure Media Redactor** is an [Azure Media Analytics](media-services-analytics-overview.md) media processor (MP) that offers scalable face redaction in the cloud. Face reduction enables you to modify your video in order to blur faces of selected individuals. You may want to use the face reduction service in public safety and news media scenarios. A  few minutes of footage that contains multiple faces can take hours to redact manually, but with this service the face reduction process will require just a few simple steps. For more information, see [this](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
 
 This topic gives details about  **Azure Media Redactor** and shows how to use it with Media Services SDK for .NET.
 
