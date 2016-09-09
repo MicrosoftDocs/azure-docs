@@ -62,16 +62,18 @@ To resolve this issue, use one of the following methods:
 
 ## The subscription has been cancelled by the Account Administrator
 
+>[AZURE.NOTE] This method currently only applies to Pay As You Go subscriptions. For other subscription types, you'll need to [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
 If you are the account administrator, you can reactivate your Pay As You Go subscription by following the steps below:
 
 - Select the cancelled subscription.
-- Click on either of the **Reactivate** links on the subscription detail page. 
+- Click on either of the **Reactivate** links on the subscription detail page.
 
-	>[AZURE.NOTE] This method currently only applies to Pay As You Go subscriptions. For other subscription types, you'll need to [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+![reactivate-sub](./media/billing-how-to-cancel-azure-subscription/reactivate-sub.png)
 
 ## How to re-enable non-Pay As You Go subscriptions:
 
-To re-enable a disabled subscription, you must create a support ticket: sign into the [Azure portal](https://portal.azure.com/), select **Help + support**>**New support request**.
+To reactivate a disabled subscription, you must create a support ticket: sign into the [Azure portal](https://portal.azure.com/), select **Help + support**>**New support request**.
 
 ![helpandsupportbutton](./media/billing-how-to-create-billing-support-ticket/helpandsupport.png)
 
