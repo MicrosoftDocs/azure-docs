@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2016"
+	ms.date="09/09/2016"
 	ms.author="sstein"/>
 
 # Manage Azure SQL Database with PowerShell
@@ -24,84 +24,129 @@
 - [Transact-SQL (SSMS)](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
-This topic provides PowerShell commands to perform many Azure SQL Database tasks.
+This topic shows the PowerShell cmdlets that are used to perform many Azure SQL Database tasks. 
 
 [AZURE.INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
 
+
 ## Create a resource group
 
-Create the resource group that will contain the server. You can edit the next command to use any valid location.
+Create a resource group for our SQL Database and related Azure resources with the [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt759837.aspx) cmdlet.
 
-For a list of valid SQL Database server locations, run the following cmdlet:
+```
+$resourceGroupName = "resourcegroup1"
+$resourceGroupLocation = "northcentralus"
+New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocation
+```
 
-	$AzureSQLLocations = (Get-AzureRmResourceProvider -ListAvailable | Where-Object {$_.ProviderNamespace -eq 'Microsoft.Sql'}).Locations
+## Create a SQL Database server
 
-If you already have a resource group, you can skip to the next section ("Create a server"), or you can edit and run the following command to create a new resource group:
+Create a SQL Database server with the [New-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603715.aspx) cmdlet. Replace *server1* with the name for your server. Server names must be unique across all Azure SQL Database servers, so if the server name is already taken, you will get an error message. This command may take several minutes to complete. The resource group must already exist in your subscription.
 
-	New-AzureRmResourceGroup -Name "resourcegroupJapanWest" -Location "Japan West"
+```
+$resourceGroupName = "resourcegroup1"
 
-## Create a server
+$sqlServerName = "server1"
+$sqlServerVersion = "12.0"
+$sqlServerLocation = "northcentralus"
+$serverAdmin = "loginname"
+$serverPassword = "password" 
+$securePassword = ConvertTo-SecureString –String $serverPassword –AsPlainText -Force
+$creds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
+    
 
-To create a new version 12 server, use the [New-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603715.aspx) cmdlet. Replace *server12* with the name for your server. If the server name is already taken, you will get an error message. Also worth noting is that this command may take several minutes to complete. The server details and PowerShell prompt appear after the server is successfully created. You can edit the command to use any valid location.
+$sqlServer = New-AzureRmSqlServer -ServerName $sqlServerName `
+ -SqlAdministratorCredentials $creds -Location $sqlServerLocation ` 
+ -ResourceGroupName $resourceGroupName -ServerVersion $sqlServerVersion
+```
 
-	New-AzureRmSqlServer -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -Location "Japan West" -ServerVersion "12.0"
 
-When you run this command, you are prompted for your user name and password. Don't enter your Azure credentials here. Instead, enter the user name and password that will be the administrator credentials you want to create for the new server.
+## Create a SQL Database server firewall rule
 
-## Create a server firewall rule
+Create a firewall rule to access the server with the [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860.aspx) cmdlet. Run the following command, replacing the start and end IP addresses with valid values for your client. The resource group, and server must already exist in your subscription.
 
-To create a firewall rule to access the server, use the [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860.aspx) command. Run the following command, replacing the start and end IP addresses with valid values for your client.
+```
+$resourceGroupName = "resourcegroup1"
+$sqlServerName = "server1"
 
-If your server needs to allow access to other Azure services, add the **-AllowAllAzureIPs** switch. This adds a special firewall rule, and allows all Azure traffic access to the server.
+$firewallRuleName = "firewallrule1"
+$firewallStartIp = "0.0.0.0"
+$firewallEndIp = "255.255.255.255"
 
-	New-AzureRmSqlServerFirewallRule -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -FirewallRuleName "clientFirewallRule1" -StartIpAddress "192.168.0.198" -EndIpAddress "192.168.0.199"
+New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroupName `
+ -ServerName $sqlServerName -FirewallRuleName $firewallRuleName `
+ -StartIpAddress $firewallStartIp -EndIpAddress $firewallEndIp
+```
+
+To allow other Azure services access to your server, create a firewall rule and set both the `-StartIpAddress` and `-EndIpAddress` to **0.0.0.0**. This special firewall rule allows all Azure traffic to access the server.
 
 For more information, see [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx).
 
-## Create a SQL database
 
-To create a database, use the [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) command. You need a server to create a database. The following example creates a SQL database named TestDB12. The database is created as a Standard S1 database.
+## Create a SQL database (blank)
 
-	New-AzureRmSqlDatabase -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -DatabaseName "TestDB12" -Edition Standard -RequestedServiceObjectiveName "S1"
+Create a database with the [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339.aspx) cmdlet. The resource group, and server must already exist in your subscription. 
+
+```
+$resourceGroupName = "resourcegroup1"
+$sqlServerName = "server1"
+
+$databaseName = "database1"
+$databaseEdition = "Standard"
+$databaseServiceLevel = "S0"
+
+$currentDatabase = New-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName `
+ -ServerName $sqlServerName -DatabaseName $databaseName `
+ -Edition $databaseEdition -RequestedServiceObjectiveName $databaseServiceLevel
+```
 
 
 ## Change the performance level of a SQL database
 
-You can scale your database up or down with the [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) command. The following example scales up a SQL database named TestDB12 from its current performance level to a Standard S3 level.
+Scale your database up or down with the [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433.aspx) cmdlet. The resource group, server, and database must already exist in your subscription. Set the `-RequestedServiceObjectiveName` to a single space (like the following snippet) for Basic tier. Set it to *S0*, *S1*, *P1*, *P6*, etc... like the preceding example for other tiers.
 
-	Set-AzureRmSqlDatabase -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -DatabaseName "TestDB12" -Edition Standard -RequestedServiceObjectiveName "S3"
+```
+$resourceGroupName = "resourcegroup1"
+$sqlServerName = "server1"
+
+$databaseName = "database1"
+$databaseEdition = "Basic"
+$databaseServiceLevel = " "
+
+Set-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName `
+ -ServerName $sqlServerName -DatabaseName $databaseName `
+ -Edition $databaseEdition -RequestedServiceObjectiveName $databaseServiceLevel
+```
 
 
 ## Delete a SQL database
 
-You can delete a SQL database with the [Remove-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619368.aspx) command. The following example deletes a SQL database named TestDB12.
+Delete a SQL database with the [Remove-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619368.aspx) cmdlet. The resource group, server, and database must already exist in your subscription.
 
-	Remove-AzureRmSqlDatabase -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -DatabaseName "TestDB12"
+```
+$resourceGroupName = "resourcegroup1"
+$sqlServerName = "server1"
+$databaseName = "database1"
 
-## Delete a server
+Remove-AzureRmSqlDatabase -DatabaseName $databaseName `
+ -ServerName $sqlServerName -ResourceGroupName $resourceGroupName
+```
 
-You can also delete a server with the [Remove-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603488.aspx) command. The following example deletes a server named server12.
+## Delete a SQL Database server
 
+Delete a server with the [Remove-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603488.aspx) cmdlet.
 
->[AZURE.NOTE]  The delete operation is asynchronous, and may take some time. Verify that the operation is finished before performing any additional operations that depend on the server being completely deleted (for example, creating a new server with the same name).
+```
+$resourceGroupName = "sstein0909161040"
+$sqlServerName = "sstein0909161040"
 
-
-	Remove-AzureRmSqlServer -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12"
-
-
-
-
-## Next steps
-
-Combine commands and automate. For example, to create a server, firewall rule, and database, replace everything within the quotes, including the < and > characters, with your values:
+Remove-AzureRmSqlServer -ServerName $sqlServerName -ResourceGroupName $resourceGroupName
+```
 
 
-    New-AzureRmResourceGroup -Name "<resourceGroupName>" -Location "<Location>"
-    New-AzureRmSqlServer -ResourceGroupName "<resourceGroupName>" -ServerName "<serverName>" -Location "<Location>" -ServerVersion "12.0"
-    New-AzureRmSqlServerFirewallRule -ResourceGroupName "<resourceGroupName>" -ServerName "<serverName>" -FirewallRuleName "<firewallRuleName>" -StartIpAddress "<192.168.0.198>" -EndIpAddress "<192.168.0.199>"
-    New-AzureRmSqlDatabase -ResourceGroupName "<resourceGroupName>" -ServerName "<serverName>" -DatabaseName "<databaseName>" -Edition <Standard> -RequestedServiceObjectiveName "<S1>"
 
 ## Related information
 
 - [Azure SQL Database Cmdlets](https://msdn.microsoft.com/library/azure/mt574084.aspx)
+- [Azure Cmdlet Reference](https://msdn.microsoft.com/library/azure/dn708514.aspx)
