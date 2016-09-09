@@ -23,7 +23,7 @@ The System Update Management solution in OMS allows you to manage system updates
 ## Prerequisites
 
 -   Windows agents must either be configured to communicate with a Windows Server Update Services (WSUS) server or have access to Microsoft Update.<br>  
-    > [AZURE.NOTE] The Windows agent cannot be managed concurrently by System Center Configuration Manager.  The System Center Configuration Manager client will need to be removed before adding this solution to your workspace.  
+    >[AZURE.NOTE] The Windows agent cannot be managed concurrently by System Center Configuration Manager.  The System Center Configuration Manager client will need to be removed before adding this solution to your workspace.  
 -	Linux agents must have access to an update repository.
 
 ## Configuration
@@ -82,8 +82,8 @@ For more information on how solution management packs are updated, see [Connect 
 
 The following table describes the connected sources that are supported by this solution.
 
-----------|----------|----------|
 Connected Source | Supported | Description|
+----------|----------|----------|
 Windows agents | Yes | The solution collects information about system updates from Windows agents and initiates installation of required updates.|
 Linux agents | Yes | The solution collects information about system updates from Linux agents.|
 Operations Manager management group | Yes | The solution collects information about system updates from agents in a connected management group.<br>A direct connection from the Operations Manager agent to Log Analytics is not required. Data is forwarded from the management group to the OMS repository.|
@@ -95,7 +95,8 @@ A scan of each managed computer is performed twice per day. When an update is in
 
 ## Using the solution
 
-When you add the System Update Management solution to your OMS workspace, the **System Update Management** tile will be added to your OMS dashboard. This tile displays a count and graphical representation of the number of computers in your environment currently requiring system updates.<br> ![System Update Management Summary Tile](./media/oms-solution-system-update-management/system-update-update-management-summary-tile.png)
+When you add the System Update Management solution to your OMS workspace, the **System Update Management** tile will be added to your OMS dashboard. This tile displays a count and graphical representation of the number of computers in your environment currently requiring system updates.<br><br>
+![System Update Management Summary Tile](./media/oms-solution-system-update-management/system-update-update-management-summary-tile.png)  
 
 ## Viewing Update Assessments
 Click on the **System Update Management** tile to open the **System Update Management** dashboard. The dashboard includes the columns in the following table. Each column lists up to ten items matching that column's criteria for the specified scope and time range. You can run a log search that returns all records by clicking **See all** at the bottom of the column or by clicking the column header.
@@ -109,9 +110,9 @@ Critical or Security Updates older than 30 days| Identifies number of computers 
 Critical or Security Updates | Lists classifications of updates that computers are missing sorted by the number of computers missing updates in the category. Click a classification to run a log search returning all update records for that classification.|
 Update Runs||
 Update Runs | Number of currently scheduled update runs and the duration until the next scheduled run.  Click on the tile to view schedules, currently running, and completed updates or to schedule a new run.|  
-
-![System Update Management Dashboard Example 1](./media/oms-solution-system-update-management/system-update-update-management-dashboard-1.png)<br>
-
+<br><br>  
+![System Update Management Dashboard Example 1](./media/oms-solution-system-update-management/system-update-update-management-dashboard-1.png)<br>  
+<br>  
 ![System Update Management Dashboard Example 2](./media/oms-solution-system-update-management/system-update-update-management-dashboard-2.png)
 
 ## Installing updates
@@ -122,7 +123,7 @@ Updates are installed by runbooks in Azure Automation.  You cannot currently vie
 
 ### Viewing update runs
 
-Click the **Update Runs** tile to view the list of existing Update Runs.  They are grouped by status – **Scheduled**, **Running**, and **Completed**.<br> ![Update Runs Schedule Page](./media/oms-solution-system-update-management/system-update-updaterun-schedule-page.png)
+Click the **Update Runs** tile to view the list of existing Update Runs.  They are grouped by status – **Scheduled**, **Running**, and **Completed**.<br><br> ![Update Runs Schedule Page](./media/oms-solution-system-update-management/system-update-updaterun-schedule-page.png)<br>  
 
 The properties displayed for each Update Run are described in the following table.
 
@@ -139,13 +140,12 @@ Click on an Update Run to view its detail screen which includes the columns in t
 
 Column | Description|
 ----------|----------|
-Computer Results||
+**Computer Results**||
 Completed Successfully | Lists the number of computers in the Update Run by status.  Click on a status to run a log search returning all update records with that status for the Update Run.|
 Computer Installation Status| Lists the computers involved in the Update Run and the percentage of updates that successfully installed. Click on one of the entries to run a log search returning all missing and critical updates.|
-Update Instance Results||
+**Update Instance Results**||
 Instance Installation Status | Lists classifications of updates that computers are missing sorted by the number of computers missing updates in the category. Click a computer to run a log search returning all update records for that computer.|  
-
-![Overview of Update Run Results](./media/oms-solution-system-update-management/system-update-la-updaterunresults.page.png)
+<br><br> ![Overview of Update Run Results](./media/oms-solution-system-update-management/system-update-la-updaterunresults.page.png)
 
 ### Creating an Update Run
 
@@ -158,14 +158,13 @@ Time Zone | Time zone to use for the start time.|
 Start Time | Date and time to start the update run.|
 Duration | Number of minutes the Update Run is allowed to run.  If all updates are not installed within this duration, then the remaining updates must wait until the next Update Run.|
 Computers | Names of computers or computer groups to include in the Update Run.  Select one or more entries from the drop down list.|
-
-![New Update Run Page](./media/oms-solution-system-update-management/system-update-newupdaterun-page.png)
+<br><br> ![New Update Run Page](./media/oms-solution-system-update-management/system-update-newupdaterun-page.png)
 
 ### Time range
 
 By default, the scope of the data analyzed in the System Update Assessment solution is from all connected management groups generated within the last 1 day. 
 
-To change the time range of the data, select **Data based on** at the top of the dashboard. You can select records created or updated within the last 7 days, 1 day, or 6 hours. Or you can select **Custom** and specify a custom date range.<br> ![Custom Time Range Option](./media/oms-solution-system-update-management/system-update-la-time-range-scope-databasedon.png)
+To change the time range of the data, select **Data based on** at the top of the dashboard. You can select records created or updated within the last 7 days, 1 day, or 6 hours. Or you can select **Custom** and specify a custom date range.<br><br> ![Custom Time Range Option](./media/oms-solution-system-update-management/system-update-la-time-range-scope-databasedon.png)  
 
 ## Log Analytics records
 
@@ -178,55 +177,39 @@ A record with a type of **Update** is created for each update that is either ins
 Property | Description|
 ----------|----------|
 Type | *Update*|
-SourceSystem | The source that approved installation of the update.<br><br>
-Possible values are:<br>
--	Microsoft Update 
--	Windows Update 
--	SCCM|
+SourceSystem | The source that approved installation of the update.<br>Possible values are:<br>- Microsoft Update<br>-	Windows Update<br>-	SCCM|
 Approved | Specifies whether the update has been approved for installation.|
-Classification | Classification of the update.<br><br>
-Possible values are:<br> 
--	Applications
--	Critical Updates
--	Definition Updates
--	Feature Packs
--	Security Updates
--	Service Packs
--	Update Rollups
--	Updates|
+Classification | Classification of the update.<br>Possible values are:<br>-	Applications<br>- Critical Updates<br>- Definition Updates<br>- Feature Packs<br>- Security Updates<br>- Service Packs<br>- Update Rollups<br>- Updates|
 Computer | Name of the computer.|
 InstallTimeAvailable | Specifies whether the installation time is available from other agents that installed the same update.|
 InstallTimePredictionSeconds | Estimated installation time in seconds based on other agents that installed the same update.|
 KBID | ID of the KB article that describes the update.|
 ManagementGroupName | Name of the management group for SCOM agents.  For other agents, this is AOI-<workspace ID>.|
 MSRCBulletinID | ID of the Microsoft security bulletin describing the update.|
-MSRCSeverity | Severity of the Microsoft security bulletin.<br><br>
-Possible values are:<br> 
--	Critical
--	Important
--	Moderate|
+MSRCSeverity | Severity of the Microsoft security bulletin.<br>Possible values are:<br>- Critical<br>- Important<br>- Moderate|
 Optional | Specifies whether the update is optional.|
 Product | Name of the product the update is for.  Click **View** to open the article in a browser.|
 PublishDate | Date and time that the update was installed.|
-RebootBehavior | Specifies if the update forces a reboot.<br><br>
-Possible values are:<br>
--	canrequestreboot
--	neverreboots|
+RebootBehavior | Specifies if the update forces a reboot.<br>Possible values are:<br>- canrequestreboot<br>- neverreboots|
 RevisionNumber | Revision number of the update.|
 SourceComputerId | GUID to uniquely identify the computer.|
 TimeGenerated | Date and time that the record was last updated.|
 Title | Title of the update.|
 UpdateID | GUID to uniquely identify the update.|
 UpdateState | Specifies whether the update is installed on this computer.<br><br>
-Possible values are:<br>
--	Installed - The update is installed on this computer. 
--	Needed - The update is not installed and is needed on this computer.|  
+Possible values are:<br>- Installed - The update is installed on this computer.<br>- Needed - The update is not installed and is needed on this computer.|  
 
-When you perform any log search that returns records with a type of **Update** you can select the **Updates** view which displays a set of tiles summarizing the updates returned by the search. You can click on the entries in the **Missing and applied updates** and **Required and optional updates** tiles to scope the view to that set of updates. Select the **List** or **Table** view to return the individual records.<br> ![Log Search Update View with Record Type Update](./media/oms-solution-system-update-management/system-update-la-view-updates.png)
+When you perform any log search that returns records with a type of **Update** you can select the **Updates** view which displays a set of tiles summarizing the updates returned by the search. You can click on the entries in the **Missing and applied updates** and **Required and optional updates** tiles to scope the view to that set of updates. Select the **List** or **Table** view to return the individual records.<br> 
 
-In the **Table** view, you can click on the **KBID** for any record to open a browser with the KB article. This allows you to quickly read about the details of the particular update.<br> ![Log Search Table View With Tiles Record Type Updates](./media/oms-solution-system-update-management/system-update-la-view-table.png)
+![Log Search Update View with Record Type Update](./media/oms-solution-system-update-management/system-update-la-view-updates.png)  
 
-In the **List** view, you click the **View** link next to the KBID to open the KB article.<br>![Log Search List View With Tiles Record Type Updates](./media/oms-solution-system-update-management/system-update-la-view-list.png)
+In the **Table** view, you can click on the **KBID** for any record to open a browser with the KB article. This allows you to quickly read about the details of the particular update.<br> 
+
+![Log Search Table View With Tiles Record Type Updates](./media/oms-solution-system-update-management/system-update-la-view-table.png)
+
+In the **List** view, you click the **View** link next to the KBID to open the KB article.<br>
+
+![Log Search List View With Tiles Record Type Updates](./media/oms-solution-system-update-management/system-update-la-view-list.png)
 
 
 ###UpdateSummary records
@@ -241,16 +224,7 @@ Computer | Name of the computer.|
 CriticalUpdatesMissing | Number of critical updates missing on the computer.|
 ManagementGroupName | Name of the management group for SCOM agents. For other agents, this is AOI-<workspace ID>.|
 NETRuntimeVersion | Version of the .NET runtime installed on the computer.|
-OldestMissingSecurityUpdateBucket | Bucket to categorize the time since the oldest missing security update on this computer was published.<br><br>
-Possible values are:<br> 
--	Older
--	180 days ago
--	150 days ago
--	120 days ago
--	90 days ago
--	60 days ago
--	30 days go
--	Recent|
+OldestMissingSecurityUpdateBucket | Bucket to categorize the time since the oldest missing security update on this computer was published.<br>Possible values are:<br>- Older<br>-	180 days ago<br>- 150 days ago<br>-	120 days ago<br>- 90 days ago<br>- 60 days ago<br>-	30 days go<br>-	Recent|
 OldestMissingSecurityUpdateInDays | Number of days since the oldest missing security update on this computer was published.|
 OsVersion | Version of the operating system installed on the computer.|
 OtherUpdatesMissing | Number of other updates missing on the computer.|
@@ -259,11 +233,7 @@ SourceComputerId | GUID to uniquely identify the computer.|
 TimeGenerated | Date and time that the record was last updated.|
 TotalUpdatesMissing |Total number of updates missing on the computer.|
 WindowsUpdateAgentVersion | Version number of the Windows Update agent on the computer.|
-WindowsUpdateSetting | Setting for how the computer will install important updates.<br><br>
-Possible values are:<br> 
--	Disabled
--	Notify before installation
--	Scheduled installation|
+WindowsUpdateSetting | Setting for how the computer will install important updates.<br>Possible values are:<br>- Disabled<br>- Notify before installation<br>- Scheduled installation|
 WSUSServer | URL of WSUS server if the computer is configured to use one.|  
 
 ## Sample log searches
