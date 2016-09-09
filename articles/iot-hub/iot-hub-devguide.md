@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="08/11/2016" 
+ ms.date="09/02/2016" 
  ms.author="dobett"/>
 
 # Azure IoT Hub developer guide
@@ -49,7 +49,7 @@ The following is a description of the endpoints:
     - *Receive cloud-to-device messages*. A device uses this endpoint to receive targeted cloud-to-device messages. For more information, see [Cloud to device messaging](#c2d).
     - *Initiate file uploads*. A device uses this endpoint to receive an Azure Storage SAS URI from IoT Hub to upload a file. For more information, see [File uploads](#fileupload). 
 
-    These endpoints are exposed using HTTP 1.1, [MQTT v3.1.1][lnk-mqtt], and [AMQP 1.0][lnk-amqp] protocols. Note that AMQP is also available over [WebSockets][lnk-websockets] on port 443.
+    These endpoints are exposed using [MQTT v3.1.1][lnk-mqtt], HTTP 1.1, and [AMQP 1.0][lnk-amqp] protocols. Note that AMQP is also available over [WebSockets][lnk-websockets] on port 443.
 * **Service endpoints**. Each IoT hub exposes a set of endpoints your application back end can use to communicate with your devices. These endpoints are currently only exposed using the [AMQP][lnk-amqp] protocol.
     - *Receive device-to-cloud messages*. This endpoint is compatible with [Azure Event Hubs][lnk-event-hubs]. A back-end service can use it to read all the device-to-cloud messages sent by your devices. For more information, see [Device to cloud messaging](#d2c).
     - *Send cloud-to-device messages and receive delivery acknowledgments*. These endpoints enable your application back end to send reliable cloud-to-device messages, and to receive the corresponding delivery or expiration acknowledgments. For more information, see [Cloud to device messaging](#c2d).
@@ -108,7 +108,7 @@ Device identities are represented as JSON documents with the following propertie
 | status | required | An access indicator. Can be **Enabled** or **Disabled**. If **Enabled**, the device is allowed to connect. If **Disabled**, this device cannot access any device-facing endpoint. |
 | statusReason | optional | A 128 character-long string that stores the reason for the device identity status. All UTF-8 characters are allowed. |
 | statusUpdateTime | read-only | A temporal indicator, showing the date and time of the last status update. |
-| connectionState | read-only | A field indicating connection status: either **Connected** or **Disconnected**. This field represents the IoT Hub view of the device connection status. **Important**: This field should be used only for development/debugging purposes. The connection state is updated only for devices using AMQP or MQTT. Also, it is based on protocol-level pings (MQTT pings, or AMQP pings), and it can have a maximum delay of only 5 minutes. For these reasons, there can be false positives, such as devices reported as connected but that are actually disconnected. |
+| connectionState | read-only | A field indicating connection status: either **Connected** or **Disconnected**. This field represents the IoT Hub view of the device connection status. **Important**: This field should be used only for development/debugging purposes. The connection state is updated only for devices using MQTT or AMQP. Also, it is based on protocol-level pings (MQTT pings, or AMQP pings), and it can have a maximum delay of only 5 minutes. For these reasons, there can be false positives, such as devices reported as connected but that are actually disconnected. |
 | connectionStateUpdatedTime | read-only | A temporal indicator, showing the date and last time the connection state was updated. |
 | lastActivityTime  | read-only | A temporal indicator, showing the date and last time the device connected, received, or sent a message. |
 
@@ -202,7 +202,7 @@ For more information about how to construct and use security tokens, see [IoT Hu
 
 #### Protocol specifics
 
-Each supported protocol, such as AMQP, MQTT, and HTTP, transports tokens in different ways.
+Each supported protocol, such as MQTT, AMQP, and HTTP, transports tokens in different ways.
 
 
 HTTP implements authentication by including a valid token in the **Authorization** request header.
@@ -283,17 +283,23 @@ This is the set of system properties in IoT Hub messages.
 
 ### Choose your communication protocol <a id="amqpvshttp"></a>
 
-Iot Hub supports [AMQP][lnk-amqp], AMQP over WebSockets, MQTT, and HTTP/1 protocols for device-side communications. Consider the following regarding their uses.
+Iot Hub supports MQTT, [AMQP][lnk-amqp], AMQP over WebSockets, and HTTP/1 protocols for device-side communications. The following table provides the high-level recommendations for your choice of protocol:
 
-* **Cloud-to-device pattern**. HTTP/1 does not have an efficient way to implement server push. As such, when you are using HTTP/1, devices poll IoT Hub for cloud-to-device messages. This approach is very inefficient for both the device and IoT Hub. Under current HTTP/1 guidelines, each device polls every 25 minutes or more. On the other hand, AMQP and MQTT support server push when receiving cloud-to-device messages. They enable immediate pushes of messages from IoT Hub to the device. If delivery latency is a concern, AMQP or MQTT is the best protocol to use. For rarely connected devices, HTTP/1 works as well.
+| Protocol | When you should choose this protocol |
+| -------- | ------------------------------------ |
+| MQTT     | Use on all devices that do not require the use of WebSockets. |
+| AMQPS    | Use on field and cloud gateways to take advantage of connection multiplexing across devices. <br/> Use when you need to connect on port 443. |
+| HTTPS    | Use for devices that cannot support other protocols. |
+
+You should consider the following points when you choose your protocol for device-side communications:
+
+* **Cloud-to-device pattern**. HTTP/1 does not have an efficient way to implement server push. As such, when you are using HTTP/1, devices poll IoT Hub for cloud-to-device messages. This approach is very inefficient for both the device and IoT Hub. Under current HTTP/1 guidelines, each device should poll for messages every 25 minutes or more. On the other hand, MQTT and AMQP support server push when receiving cloud-to-device messages. They enable immediate pushes of messages from IoT Hub to the device. If delivery latency is a concern, AMQP or MQTT are the best protocols to use. For rarely connected devices, HTTP/1 works as well.
 * **Field gateways**. When using HTTP/1 and MQTT, you cannot connect multiple devices (each with its own per-device credentials) using the same TLS connection. Thus, for [Field gateway scenarios][lnk-azure-gateway-guidance], these protocols are suboptimal because they require one TLS connection between the field gateway and IoT Hub for each device connected to the field gateway.
-* **Low resource devices**. MQTT and HTTP/1 libraries have a smaller footprint than the AMQP libraries. As such, if the device has few resources (for example, less than 1 MB RAM), these protocols might be the only protocol implementation available.
-* **Network traversal**. MQTT standard listens on port 8883 which could cause problems in networks that are closed to non-HTTP protocols. Both HTTP and AMQP (over WebSockets) are available to be used in this scenario.
-* **Payload size**. AMQP and MQTT are binary protocols, which are significantly more compact than HTTP/1.
+* **Low resource devices**. The MQTT and HTTP/1 libraries have a smaller footprint than the AMQP libraries. As such, if the device has limited resources (for example, less than 1 MB RAM), these protocols might be the only protocol implementation available.
+* **Network traversal**. The MQTT standard listens on port 8883 which could cause problems in networks that are closed to non-HTTP protocols. Both HTTP and AMQP (over WebSockets) are available to be used in this scenario.
+* **Payload size**. AMQP and MQTT are binary protocols, which result in significantly more compact payloads than HTTP/1.
 
-Generally, you should use AMQP (or AMQP over WebSockets) whenever possible, and only use MQTT when resource constraints prevent the use of AMQP. Only use HTTP/1 if both network traversal and network configuration prevent the use of MQTT and AMQP. Moreover, when using HTTP/1, each device should poll for cloud-to-device messages every 25 minutes or more.
-
-> [AZURE.NOTE] During development, it is acceptable to poll more frequently than every 25 minutes.
+> [AZURE.NOTE] When using HTTP/1, each device should poll for cloud-to-device messages every 25 minutes or more. However, during development, it is acceptable to poll more frequently than every 25 minutes.
 
 <a id="mqtt-support">
 #### Notes on MQTT support

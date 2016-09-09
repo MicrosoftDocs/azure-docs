@@ -4,17 +4,21 @@
 
 To use [EventProcessorHost][], you must have an [Azure Storage account][]:
 
-1. Log on to the [Azure classic portal][], and click **NEW** at the bottom of the screen.
+1. Log on to the [Azure portal][], and click **New** at the top left of the screen.
 
-2. Click **Data Services**, then **Storage**, then **Quick Create**, and then type a name for your storage account. Select your desired region, and then click **Create Storage Account**.
+2. Click **Data + Storage**, then click **Storage account**.
 
-    ![][11]
+    ![][1]
 
-3. Click the newly created storage account, and then click **Manage Access Keys**:
+3. In the **Create storage account** blade, type a name for the storage account. Choose an Azure subscription, resource group, and location in which to create the resource. Then click **Create**.
 
-    ![][12]
+    ![][2]
 
-    Copy the primary access key to use later in this tutorial.
+4. In the list of storage accounts, click the newly-created storage account.
+
+5. In the storage account blade, click **Access keys**. Copy the value of **key1** to use later in this tutorial.
+
+	![][3]
 
 4. In Visual Studio, create a new Visual C# Desktop App project using the **Console  Application** project template. Name the project **Receiver**.
 
@@ -121,15 +125,16 @@ To use [EventProcessorHost][], you must have an [Azure Storage account][]:
 [Event Hubs Overview]: event-hubs-overview.md
 [Event Hubs Programming Guide]: event-hubs-programming-guide.md
 [Scaled out event processing]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[Azure Storage account]: ../storage/storage-create-storage-account-classic-portal.md
+[Azure Storage account]: ../storage/storage-create-storage-account.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[Azure classic portal]: http://manage.windowsazure.com
+[Azure portal]: https://portal.azure.com
 
 <!-- Images -->
 
-[11]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp2.png
-[12]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp3.png
-[13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
-[14]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp1.png
-[15]: ./media/service-bus-event-hubs-getstarted/create-receiver-csharp2.png
+[1]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage1.png
+[2]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage2.png
+[3]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage3.png
+[13]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-eph-csharp1.png
+[14]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp1.png
+[15]: ./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp2.png
 

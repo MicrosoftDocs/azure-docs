@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Public and Private Agent Pools ACS | Microsoft Azure"
+   pageTitle="Public and Private DC/OS Agent Pools ACS | Microsoft Azure"
    description="How the public and private agent pools work with an Azure Container Service cluster."
    services="container-service"
    documentationCenter=""
@@ -18,9 +18,9 @@
    ms.date="08/16/2016"
    ms.author="adegeo"/>
 
-# Agent Pools
+# DC/OS Agent Pools for Azure Container Service
 
-Azure Container Service divides agents into multiple pools. And while each virtual machine in a pool is identical, each pool has its own subnet. Therefore, each pool can be marked as either public or private, affecting accessibility between machines in your container service.
+DC/OS Azure Container Service divides agents into public or private pools. A deployment can be made to either pool, affecting accessibility between machines in your container service. The machines can be exposed to the internet (public) or kept internal (private). This article gives a brief overview of why there are a public and private pool.
 
 ### Private agents
 
@@ -32,8 +32,10 @@ Public agent nodes run DC/OS apps and services through a publicly accessible net
 
 ## Using agent pools
 
-By default, **Marathon** deploys any new application to the *private* agent nodes. You have to explicitly deploy the application to the *public* node. Unfortunately deploying to the public node is not as straight forward as checking a box. During the creation of a new application, go to the **Optional** tab and enter **slave_public** for the **Accepted Resource Roles**. This process is documented [here](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) and in the [DC\OS](https://dcos.io/docs/1.7/administration/installing/custom/create-public-agent/) documentation.
+By default, **Marathon** deploys any new application to the *private* agent nodes. You have to explicitly deploy the application to the *public* node during the creation of the application. Select the **Optional** tab and enter **slave_public** for the **Accepted Resource Roles** value. This process is documented [here](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) and in the [DC\OS](https://dcos.io/docs/1.7/administration/installing/custom/create-public-agent/) documentation.
 
 ## Next steps
 
 Read more information about [managing your DC/OS containers](container-service-mesos-marathon-ui.md).
+
+Learn how to [open the firewall](container-service-enable-public-access.md) provided by Azure to allow public access to your DC/OS container.

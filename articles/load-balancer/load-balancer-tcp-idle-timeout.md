@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="sdwheeler"
    manager="carmonm"
-   editor="tysonn" />
+   editor="" />
 <tags
    ms.service="load-balancer"
    ms.devlang="na"
@@ -17,33 +17,29 @@
 
 # How to change TCP idle timeout settings for load balancer
 
-In its default configuration, Azure Load Balancer has an ‘idle timeout’ setting of 4 minutes.
+In its default configuration, Azure Load Balancer has an 'idle timeout' setting of 4 minutes.
 
-This means that if you have a period of inactivity on your tcp or http sessions for more than the timeout value, there is no guarantee to have the connection maintained between the client and your service.
+This means that if you have a period of inactivity that is longer than the timeout value, there is no guarantee that the tcp or http session between the client and your still exist.
 
-When the connection is closed, your client application will get an error message like “The underlying connection was closed: A connection that was expected to be kept alive was closed by the server”.
+When the connection is closed, your client application will get an error message like "The underlying connection was closed: A connection that was expected to be kept alive was closed by the server".
 
-A common practice to keep the connection active for a longer period is to use TCP Keep-alive (You can find .NET examples [here](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx)).
+A common practice to keep the connection active for a longer period is to use TCP Keep-alive (You can find .NET examples [here](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx)). Packets are sent when no activity is detected on the connection. This network activity ensures that the idle timeout value is never reached and the connection is maintained for a long period.
 
-Packets are sent when no activity is detected on the connection. By keeping on-going network activity, the idle timeout value is never hit and the connection is maintained for a long period.
+To avoid losing the connection you must configure the TCP Keep-alive with an interval less than the idle timeout setting or increase the idle timeout value.
 
-The idea is to configure the TCP Keep-alive with an interval shorter than the default timeout setting to avoid having the connection dropped or increase the idle timeout value for the TCP connection session stay connected.
-
-While TCP Keep-alive works well for scenarios where battery is not a constraint, it is generally not a valid option for mobile applications. Using TCP Keep-alive from a mobile application will likely drain the device battery faster.
+While TCP Keep-alive works well for scenarios where battery is not a constraint, it is generally not recommended for mobile applications. Using TCP Keep-alive from a mobile application will likely drain the device battery faster.
 
 To support such scenarios, we have added support for a configurable idle timeout. You can now set it for a duration between 4 and 30 minutes. This setting works for inbound connections only.
 
 ![tcptimeout](./media/load-balancer-tcp-idle-timeout/image1.png)
 
-
 ## How to change idle timeout settings in Virtual Machines and cloud services
 
->[AZURE.NOTE] Keep in mind some commands will only exist in the latest Azure PowerShell package. If the PowerShell command doesn't exist, download a latest PowerShell package.
-
+>[AZURE.NOTE] To support the configuration of this setting, ensure that you have installed the latest Azure PowerShell package.
 
 ### Configure TCP timeout for your Instance-Level Public IP to 15 minutes
 
-    Set-AzurePublicIP –PublicIPName webip –VM MyVM -IdleTimeoutInMinutes 15
+    Set-AzurePublicIP -PublicIPName webip -VM MyVM -IdleTimeoutInMinutes 15
 
 IdleTimeoutInMinutes is optional. If not set, the default timeout is 4 minutes.
 
@@ -57,7 +53,7 @@ In order to change the timeout setting for an endpoint
 
 Retrieve your idle timeout configuration
 
-    PS C:\> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
+    PS C:\> Get-AzureVM -ServiceName "MyService" -Name "MyVM" | Get-AzureEndpoint
     VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
     LBSetName : MyLoadBalancedSet
     LocalPort : 80
