@@ -21,6 +21,7 @@
 
 ## Overview
 Enterprise integration uses certificates to secure B2B communications. You can use two types of certificates in your enterprise integration apps:
+
 - Public certificates, which must be purchased from a certification authority (CA)
 - Private certificates, which you can issue yourself. These certificates are sometimes referred to as self-signed certificates.
 
