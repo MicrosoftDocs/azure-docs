@@ -19,7 +19,10 @@
 
 # Manage NSGs using the preview portal
 
-[AZURE.INCLUDE [virtual-network-manage-arm-selectors-include.md](../../includes/virtual-network-manage-nsg-arm-selectors-include.md)]
+> [AZURE.SELECTOR]
+[Portal](..\articles\virtual-network\virtual-network-manage-nsg-arm-portal.md)
+[PowerShell](..\articles\virtual-network\virtual-network-manage-nsg-arm-ps.md)
+[Azure CLI](..\articles\virtual-network\virtual-network-manage-nsg-arm-cli.md)
 
 [AZURE.INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
