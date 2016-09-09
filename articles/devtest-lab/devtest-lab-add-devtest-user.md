@@ -96,7 +96,7 @@ In the following example, simply modify the parameter values under the **Values 
 You can retrieve the `subscriptionId`, `labResourceGroup`, and `labName` values from the lab blade in the Azure portal.
 
 > [AZURE.NOTE]
-> The sample script assumes that the specified user has been added as a guest to the Active Directory, and will fail if that is not the case. To add users to lab who are not in the Active Directory, use the Azure portal to assign them a role as illustrated in the section, [Add an owner or user at the lab level](#add-an-owner-or-user-at-the-lab-level).   
+> The sample script assumes that the specified user has been added as a guest to the Active Directory, and will fail if that is not the case. To add a user not in the Active Directory to a lab, use the Azure portal to assign the user to a role as illustrated in the section, [Add an owner or user at the lab level](#add-an-owner-or-user-at-the-lab-level).   
 
 	# Add an external user in DevTest Labs user role to a lab
 	# Ensure that guest users can be added to the Azure Active directory:
