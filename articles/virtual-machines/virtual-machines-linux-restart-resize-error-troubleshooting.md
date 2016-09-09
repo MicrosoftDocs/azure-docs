@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="vm-linux"
    ms.devlang="na"
    ms.workload="required"
-   ms.date="06/16/2016"
+   ms.date="09/09/2016"
    ms.author="delhan"/>
 
 # Troubleshoot Resource Manager deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure
