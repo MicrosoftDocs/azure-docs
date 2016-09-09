@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="09/07/2016"
 	ms.author="andkjell"/>
 
 
@@ -29,7 +29,7 @@ The **Synchronization Service Manager** UI is used to configure more advanced as
 You start the **Synchronization Service Manager** UI from the start menu. It is named **Synchronization Service** and can be found in the **Azure AD Connect** group.  
 ![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/startmenu.png)
 
-Click on the links at the top of this topic to learn more about the different tabs in the UI.
+Click the links at the top of this topic to learn more about the different tabs in the UI.
 
 ## Next steps
 Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.

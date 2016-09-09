@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/14/2016"
+   ms.date="09/08/2016"
    ms.author="terrylan"/>
 
 # Azure security best practices and patterns
@@ -28,11 +28,11 @@ We currently have the following Azure security best practices and patterns artic
 - [Azure boundary security best practices](../best-practices-network-security.md)
 - [Implementing a secure hybrid network architecture in Azure](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
 
-Azure provides a secure platform on which you can build your solutions. We also provide you a great deal of services and technologies that you can use to make the services you build on Azure more secure. Because of the many options available to you, many of you have voiced an interest in what Microsoft might recommend as best practices and patterns for improving security for their Azure deployments.
+Azure provides a secure platform on which you can build your solutions. We also provide services and technologies to make your solutions on Azure more secure. Because of the many options available to you, many of you have voiced an interest in what Microsoft recommends as best practices and patterns for improving security.
 
-We understand your interest and to that end we’ve created a collection of documents that describe things you can do, given the right context, that we believe will be helpful in improving the security of Azure deployments.
+We understand your interest and have created a collection of documents that describe things you can do, given the right context, to improve the security of Azure deployments.
 
-In these best practices and patterns articles we discuss a collection of best practices and useful patterns for specific topics. These best practices and patterns are derived from our experiences with these technologies and the experiences of customers like yourself.
+In these best practices and patterns articles, we discuss a collection of best practices and useful patterns for specific topics. These best practices and patterns are derived from our experiences with these technologies and the experiences of customers like yourself.
 
 For each best practice we strive to explain:
 

@@ -61,7 +61,7 @@ The [scheduler](active-directory-aadconnectsync-feature-scheduler.md) runs every
 ![Inbound rule scoping filter](./media/active-directory-aadconnectsync-change-the-configuration/scopingfilter.png)  
 This section is used to define which objects the rule should apply to. If left empty, the rule would apply to all user objects. But that would include conference rooms, service accounts, and other non-people user objects.
 4. On the **Join rules**, leave it empty.
-5. On the **Transformations** page, change the FlowType to **Expression**. Select the Target Attribute **giveName**, and in Source enter `PCase([givenName])`.
+5. On the **Transformations** page, change the FlowType to **Expression**. Select the Target Attribute **givenName**, and in Source enter `PCase([givenName])`.
 ![Inbound rule transformations](./media/active-directory-aadconnectsync-change-the-configuration/transformations.png)  
 The sync engine is case-sensitive both on the function name and the name of the attribute. If you type something wrong, you see a warning when you add the rule. The editor allows you to save and continue, so you would have to reopen the rule and correct the rule.
 6. Click **Add** to save the rule.
