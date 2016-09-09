@@ -3,7 +3,7 @@
 	description="This topic demonstrates how to reduct faces with Azure Media Analytics."
 	services="media-services"
 	documentationCenter=""
-	authors="juliako;rli"
+	authors="juliako"
 	manager="erikre"
 	editor=""/>
 
