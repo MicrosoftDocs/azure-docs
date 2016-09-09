@@ -384,7 +384,7 @@ To run the script that deploys the solution:
 
 2. Download the [Deploy-ReferenceArchitecture.ps1][solution-script] PowerShell script or [deploy-reference-architecture.sh][solution-script-bash] bash script, as appropriate, to the Scripts folder.
 
-3. Download the [virtualNetwork.parameters.json][virtualnetwork-parameters], [virtualNetworkGateway.parameters.json][virtualnetworkgateway-parameters] and [expressRouteCircuit.parameters.json][er-circuit-parameters] files to Parameters folder:
+3. Download the [virtualNetwork.parameters.json][vnet-parameters], [virtualNetworkGateway.parameters.json][virtualnetworkgateway-parameters] and [expressRouteCircuit.parameters.json][er-circuit-parameters] files to Parameters folder:
 
 4. Edit the Deploy-ReferenceArchitecture.ps1 or deploy-reference-architecture.sh file in the Scripts folder, and change the following line to specify the resource group that should be created or used to hold the VM and resources created by the script:
 
