@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Working with Azure AD Application Proxy Connectors | Microsoft Azure"
-	description="Covers how to create and manage groups of Connectors in Azure AD Application Proxy."
+	pageTitle="Working with Azure AD Application Proxy connectors | Microsoft Azure"
+	description="Covers how to create and manage groups of connectors in Azure AD Application Proxy."
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
@@ -17,7 +17,7 @@
 	ms.author="kgremban"/>
 
 
-# Publish applications on separate networks and locations using Connector groups - Public Preview
+# Publish applications on separate networks and locations using connector groups - Public Preview
 
 > [AZURE.SELECTOR]
 - [Azure portal](active-directory-application-proxy-connectors-azure-portal.md)
@@ -26,8 +26,8 @@
 
 Connector groups are useful for various scenarios, including:
 
-- Sites with multiple interconnected datacenters. In this case, you want to keep as much traffic within the datacenter as possible because cross-datacenter links are expensive and slow. You can deploy Connectors in each datacenter to serve only the applications that reside within the datacenter. This approach minimizes cross-datacenter links and provides an entirely transparent experience to your users.
-- Managing applications installed on isolated networks that are not part of the main corporate network. You can use Connector groups to install dedicated connectors on isolated networks to also isolate applications to the network.
+- Sites with multiple interconnected datacenters. In this case, you want to keep as much traffic within the datacenter as possible because cross-datacenter links are expensive and slow. You can deploy connectors in each datacenter to serve only the applications that reside within the datacenter. This approach minimizes cross-datacenter links and provides an entirely transparent experience to your users.
+- Managing applications installed on isolated networks that are not part of the main corporate network. You can use connector groups to install dedicated connectors on isolated networks to also isolate applications to the network.
 - For applications installed on IaaS for cloud access, connector groups provide a common service to secure the access to all the apps. Connector groups don't create additional dependency on your corporate network, or fragment the app experience. Connectors can be installed on every cloud datacenter and serve only applications that reside in this network. You can install several connectors to achieve high availability.
 - Support for multi-forest environments in which specific connectors can be deployed per forest and set to serve specific applications.
 - Connector groups can be used in Disaster Recovery sites to either detect failover or as backup for the main site.

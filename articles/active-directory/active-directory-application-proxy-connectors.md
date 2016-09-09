@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Working with Azure AD Application Proxy Connectors | Microsoft Azure"
-	description="Covers how to create and manage groups of Connectors in Azure AD Application Proxy."
+	pageTitle="Working with Azure AD Application Proxy connectors | Microsoft Azure"
+	description="Covers how to create and manage groups of connectors in Azure AD Application Proxy."
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/02/2016"
+	ms.date="09/09/2016"
 	ms.author="kgremban"/>
 
 
