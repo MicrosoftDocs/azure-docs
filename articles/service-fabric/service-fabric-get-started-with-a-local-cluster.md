@@ -217,12 +217,12 @@ In order to change the cluster mode to a 1 Node cluster, either use the Service 
 	```
 
     Cluster setup takes a few moments. After setup is finished, you should see output similar to:
-
+    
     ![Cluster setup output][cluster-setup-success-1-node]
 
-or use the Service Fabric Local Cluster Manager:
+If you are using the Service Fabric Local Cluster Manager:
 
-    ![Switch cluster mode][switch-cluster-mode]
+![Switch cluster mode][switch-cluster-mode]
 
 > [AZURE.WARNING] When changing cluster mode, the current cluster is being removed from your system and a new cluster is being created. This also means that whatever data you must have stored in the cluster, will be deleted when you change cluster mode.
 
