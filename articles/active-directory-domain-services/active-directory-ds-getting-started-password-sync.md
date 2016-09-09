@@ -45,7 +45,7 @@ Here are instructions you need to provide end users, so they can change their pa
 
 2. Select the **profile** tab on this page.
 
-3. Click on the **Change password** tile on this page.
+3. Click the **Change password** tile on this page.
 
     ![Create a virtual network for Azure AD Domain Services.](./media/active-directory-domain-services-getting-started/user-change-password.png)
 
