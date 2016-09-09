@@ -98,7 +98,7 @@ Now, let's deploy some code to Azure using Git.
 
         git clone https://github.com/Azure-Samples/app-service-web-dotnet-get-started.git
 
-    ![Clone the app sample code for your first web app in Azure](./media/app-service-web-get-started-languages/2-clone-sample.png)
+    ![Clone the app sample code for your first web app in Azure](./media/app-service-web-get-started-languages/dotnet-git-clone.png)
 
 2. Change to the repository of your sample app. For example, 
 
@@ -112,7 +112,7 @@ Now, let's deploy some code to Azure using Git.
 
         git push azure master
 
-    ![Push code to your first web app in Azure](./media/app-service-web-get-started-languages/5-push-code.png)    
+    ![Push code to your first web app in Azure](./media/app-service-web-get-started-languages/dotnet-git-push.png)    
 
     `git push` not only puts code in Azure, but also restores the required packages and builds the ASP.NET binaries. 
 

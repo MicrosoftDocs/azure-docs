@@ -98,7 +98,7 @@ Now, let's deploy a Java app to Azure using Git.
 
         git clone https://github.com/Azure-Samples/app-service-web-java-get-started.git
 
-    ![Clone the app sample code for your first web app in Azure](./media/app-service-web-get-started-languages/2-clone-sample.png)
+    ![Clone the app sample code for your first web app in Azure](./media/app-service-web-get-started-languages/java-git-clone.png)
 
 2. Change to the repository of your sample app. For example, 
 
@@ -112,7 +112,7 @@ Now, let's deploy a Java app to Azure using Git.
 
         git push azure master
 
-    ![Push code to your first web app in Azure](./media/app-service-web-get-started-languages/5-push-code.png)    
+    ![Push code to your first web app in Azure](./media/app-service-web-get-started-languages/java-git-push.png)    
 
 That's it! Your Java app is now running live in Azure. In your browser, navigate to http://*&lt;appname>*.azurewebsites.net to see it in action. 
 
