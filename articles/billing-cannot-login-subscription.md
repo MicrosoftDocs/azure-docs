@@ -30,7 +30,7 @@ This article guides you through some of the most common methods to resolve login
 |---|---|---|
 | Azure portal |A central place where you can provision and manage your Azure resources   | [https://portal.azure.com](https://portal.azure.com)  |
 | Azure classic portal  | The old Azure portal |[https://manage.windowsazure.com](https://manage.windowsazure.com)   |
-| Azure Account Center | A central place where you can track your Azure usage and manage your subscription. |[https://account.windowsazure.com/Subscriptions](https://account.windowsazure.com/Subscriptions)   ||
+| Azure Account Center | A central place where you can track your Azure usage and manage your subscription |[https://account.windowsazure.com/Subscriptions](https://account.windowsazure.com/Subscriptions)   ||
 
 ## Symptom: The page hangs in the loading status
 
