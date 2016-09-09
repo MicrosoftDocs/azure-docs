@@ -69,11 +69,11 @@ This issue can occur if you're using more than one user account in an Internet b
 To resolve the issue, try one of the following methods:
 
 - Sign out of the portal,  and then sign back in with the account you want to use.
--	Clear the cache and delete Internet cookies. To do this in Internet Explorer, click **Tools** ![toolsbutton](./media/billing-cannot-login-subscription/toolsbutton.png) > **Internet Options** > **Delete**, make sure that the check boxes for temporary files, cookies, password, and browsing history are selected, and then click Delete.
+-	Clear the cache and delete Internet cookies. To do this in Internet Explorer, click **Tools** ![tools button](./media/billing-cannot-login-subscription/toolsbutton.png) > **Internet Options** > **Delete**, make sure that the check boxes for temporary files, cookies, password, and browsing history are selected, and then click Delete.
 
--	Reset the Internet Explorer settings to revert any personal settings that you’ve made. To do this, click **Tools** ![toolsbutton](./media/billing-cannot-login-subscription/toolsbutton.png)> **Internet Options** > **Advanced** >select the **Delete personal settings** box > **Reset**.
+-	Reset the Internet Explorer settings to revert any personal settings that you’ve made. To do this, click **Tools** ![tools button](./media/billing-cannot-login-subscription/toolsbutton.png)> **Internet Options** > **Advanced** >select the **Delete personal settings** box > **Reset**.
 
--	Browse to the Azure portal in InPrivate Browsing mode. To do this, click **Tools** ![toolsbutton](./media/billing-cannot-login-subscription/toolsbutton.png) > **Safety** > **InPrivate Browsing**.
+-	Browse to the Azure portal in InPrivate Browsing mode. To do this, click **Tools** ![tools button](./media/billing-cannot-login-subscription/toolsbutton.png) > **Safety** > **InPrivate Browsing**.
 
 ## Microsoft account vs Organizational account
 
@@ -81,4 +81,4 @@ Your Microsoft account is the email address you use, along with your password, t
 
 If your account is associated with an Organizational account, then please select the correct login option as shown below. For more information on using an Organizational account, see [Sign up for Azure as an organization](./active-directory/sign-up-organization.md):
 
-![signin page](./media/billing-cannot-login-subscription/signin.png)
+![sign in page](./media/billing-cannot-login-subscription/signin.png)
