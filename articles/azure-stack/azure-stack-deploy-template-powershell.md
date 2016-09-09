@@ -24,68 +24,11 @@ ARM templates deploy and provision all of the resources for your application in 
 
 > [AZURE.NOTE] If you work on the Client VM, you’ll need to first **uninstall** the existing Azure PowerShell module and then [download](http://aka.ms/azStackPsh) the latest Azure PowerShell SDK. 
 
-## Turn off IE enhanced security and enable cookies
-
-Before authenticating PowerShell, you must allow cookies and JavaScript in the Internet Explorer profile you use to sign in to Azure Active Directory for both administrator and user sign-ins. These configurations should be set on any Windows Server machine being used to execute Azure PowerShell against Azure Stack. In most cases this will be the ClientVM.
-
-**To turn off IE enhanced security:**
-
-1. Sign in to the **ClientVM.AzureStack.local** virtual machine as an **azurestack\administrator**, and then open Server Manager.
-
-2. Turn off **IE Enhanced Security Configuration** for both admins and users.
-
-3. Sign out of the **ClientVM.AzureStack.local** virtual machine.
-
-**To enable cookies:**
-
-1. Sign in to the **ClientVM.AzureStack.local** virtual machine as an **azurestack\azurestackuser**.
-
-2. On the Windows Start screen, click **All apps** &gt; **Windows accessories** &gt; **Internet Explorer**.
-
-2. If prompted, check **Use recommended security**, and then click **OK**.
-
-3. In Internet Explorer, click the **Tools (gear) icon** &gt; **Internet options** &gt; **Privacy** tab.
-
-4. Click **Advanced**, make sure that both **Accept** buttons are selected, click **OK**, and then click **OK** again.
-
-
-## Authenticate PowerShell with Microsoft Azure Stack (required)
-
-1. [Turn off IE enhanced security and enable cookies](azure-stack-sql-rp-deploy-long.md#turn-off-ie-enhanced-security-and-enable-cookies).
-
-2.  Run the following PowerShell cmdlet to configure the environment, and authenticate a user.
-
-    - Replace *DIRECTORY_TENANT_NAME* with the fully qualified name of your directory tenant. Typically a directory tenant name will look like mydirectorytenant.onmicrosoft.com.
-	- Replace *SUBSCRIPTION_NAME* with the default provider subscription name.
-	- If you're using China Azure AD, please use "chinacloudapi.cn" to replace "windows.net" in the following cmdlets. You also also need to add "https://*.microsoftonline.cn" and "https://*.microsoftonline-p.cn" to your trusted website list.
-
-```PowerShell
-
-# Add the Microsoft Azure Stack environment
-		
-		$AadTenantId="DIRECTORY_TENANT_NAME"
-
-# Configure the environment with the Add-AzureRmEnvironment cmdlet
-		Add-AzureRmEnvironment -Name 'Azure Stack' `
-    		-ActiveDirectoryEndpoint "https://login.windows.net/$AadTenantId/" `
-    		-ActiveDirectoryServiceEndpointResourceId "https://azurestack.local-api/"`
-    		-ResourceManagerEndpoint "https://api.azurestack.local/" `
-    		-GalleryEndpoint "https://gallery.azurestack.local/" `
-    		-GraphEndpoint "https://graph.windows.net/"
-
-		# Authenticate a user to the environment (you will be prompted during authentication)
-		$privateEnv = Get-AzureRmEnvironment 'Azure Stack'
-		$privateAzure = Add-AzureRmAccount -Environment $privateEnv -Verbose
-		Select-AzureRmProfile -Profile $privateAzure
-
-		# Select an existing subscription where the deployment will take place
-		Get-AzureRmSubscription -SubscriptionName "SUBSCRIPTION_NAME"  | Select-AzureRmSubscription
-```
-
-
 ## Run AzureRM PowerShell cmdlets
 
 In this example, you'll run the following script to deploy a virtual machine to Azure Stack POC using an ARM template.
+
+Before proceeding, ensure you have installed and configured PowerShell.  
 
 The VHD used in this example template is a default marketplace image (WindowsServer-2012-R2-Datacenter). If you want to target another VHD, you must first add an image to the Platform Image Repository as described in [Add an image to the Platform Image Repository](azure-stack-add-image-pir.md).
 

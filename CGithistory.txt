@@ -1,0 +1,177 @@
+    1  dir
+    2  cd dir
+    3  cd ..
+    4  cd ..
+    5  dir
+    6  cd storage
+    7  dir
+    8  cd Documentation/
+    9  dir
+   10  cd azure
+   11  dir
+   12  git clone https://github.com/heathl17/azure-content-pr
+   13  git pull upstream master
+   14  cd azure-content-pr/
+   15  git pull upstream master
+   16  git config
+   17  git config -l
+   18  dir
+   19  cd ..
+   20  cd ..
+   21  cd storage
+   22  dir
+   23  cd documentation
+   24  dir
+   25  cd azure
+   26  cd azure-content-pr/
+   27  dir
+   28  git config
+   29  git config -list
+   30  git config --list
+   31  git branch --set-upstream-to=https://github.com/azure/azure-content-pr
+   32  history
+   33  cd ..
+   34  cd..
+   35  dir
+   36  dir
+   37  cd c/
+   38  dir
+   39  cd storage
+   40  dir
+   41  cd documentation
+   42  dir
+   43  cd azure
+   44  git clone https://github.com/azure/azure-content-pr
+   45  git config -list
+   46  git config --list
+   47  cd azure-content-pr
+   48  git config --list
+   49  git config -u
+   50  git branch -u
+   51  git branch --set-upstream-to=https://github.com/Azure/azure-content-pr master
+   52  git remote --verbose
+   53  git remote add upstream http://github.com/azure/azure-content-pr.git
+   54  git pull upstream master
+   55  git branch --list
+   56  git branch -a
+   57  git branch release-azure-stack-tp2
+   58  git checkout release-azure-stack-tp2
+   59  git checkout -b "Whats-new-doc"
+   60  git add azure-stack-whats-new.md
+   61  cd articles
+   62  cd azure-stack
+   63  git add azure-stack-whats-new.md
+   64  git commit -m "outline doc for what's new"
+   65  git push origin Whats-new-doc
+   66  git config --list
+   67  cd ..
+   68  cd ..
+   69  cd ..
+   70  git clone https://github.com/HeathL17/azure-content-pr
+   71  dir
+   72  cd azure-content-pr/
+   73  dir
+   74  cd articles/
+   75  cd azure-stack/
+   76  git config --list
+   77  git remoate add upstream https://github.com/azure/azure-content-pr.git
+   78  git remote add upstream https://github.com/azure/azure-content-pr.git
+   79  git pull upstream master
+   80  git config --list
+   81  git branch -a
+   82  git checkout release-azure-stack-tp2
+   83  git branch -b whats-new-doc
+   84  git checkout -b "whats-new-doc"
+   85  git add azure-stack-whats-new.md
+   86  git commit "added framework doc"
+   87  git commit -m "added framework doc"
+   88  git push origin whats-new-doc
+   89  history
+   90  git remote --verbose
+   91  git commit -m "updated lists"
+   92  git commit -a -m "updated lists"
+   93  git push origin whats-new-doc
+   94  git commit -a -m "storage updates"
+   95  git push origin whats-new-doc
+   96  git commit -a -m "storage updates"
+   97  git push origin whats-new-doc
+   98  git commit -a -m "storage updates"
+   99  git push origin whats-new-doc
+  100  dir
+  101  cd c/storage/
+  102  dir
+  103  cd ..
+  104  dir
+  105  cd storage
+  106  dir
+  107  cd Documentation/
+  108  dir
+  109  cd azure/azure-content-pr
+  110  cd articles
+  111  dir
+  112  cd azure-stack
+  113  dir
+  114  commit -a -m "Update after saving"
+  115  git commit -a -m "Update after saving"
+  116  git push origin whats-new-doc
+  117  cd c/
+  118  dir
+  119  cd storage
+  120  dir
+  121  cd documentation
+  122  dir
+  123  cd azure
+  124  dir
+  125  cd azure-content-pr
+  126  cd articles/azure-stack
+  127  dir
+  128  git commit -a -m "Updated role terms"
+  129  git push origin whats-new-doc
+  130  git push origin TP2-Whats-New
+  131  cd c/storage/documentation/Azure/azure-content-pr/articles/azure-stack
+  132  git checkout TP2-whats-new
+  133  git commit -a -m "updated top table"
+  134  git push origin Updated-docs-TP2
+  135  git push origin updated-docs-TP2
+  136  git checkout TP2-whats-new
+  137  git commit -a -m "Incorporated Sneha's feedback"
+  138  git push origin TP2-Whats-New
+  139  git push origin TP2-whats-new
+  140  git push origin TP2-Whats-New
+  141  git push origin TP2-Whats-New
+  142  git branch --list
+  143  history
+  144  git branch -a
+  145  git commit -a -m "Incorporated CFR Feedback"
+  146  git push origin TP2-Whats-New
+  147  git push origin TP2-whats-new
+  148  git commit -a -m "Incorporated CFR Feedback"
+  149  git push origin TP2-whats-new
+  150  git branch --list
+  151  git checkout updated-docs-TP2
+  152  git push origin updated-docs-TP2
+  153  git commit -a -m "Updated terms to SErvice Admin pending further clarification"
+  154  git push origin updated-docs-TP2
+  155  git branch -a
+  156  cd /
+  157  cd c/storage/Documentation/
+  158  dior
+  159  cd Azure/
+  160  dir
+  161  cd azure-content-pr/
+  162  git branch
+  163  git checkout master
+  164  git branch -l
+  165  git branch -a
+  166  git checkout release-azure-stack-tp2
+  167  version
+  168  help
+  169  git --version
+  170  git show-ref
+  171  cd c/
+  172  dir
+  173  cd storage/documentation/azure/azure-content-pr
+  174  git config -l
+  175  git history > C:\Githistory.txt
+  176  history
+  177  history > c:\githistory.txt
