@@ -17,11 +17,11 @@
 
 # Integrating with Operations Management Suite (OMS)
 
-Operations Management Suite is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure.  In addition to using the standard features of OMS, you can integrate it with other management applications and services to provide a hybrid management environment, to provide custom management scenarios unique to your environment, or to provide a custom management experience for your customers.  This article provides an overview of your different options for integrating with OMS and links to articles providing detailed technical information. 
+Operations Management Suite is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure.  In addition to using the standard features of OMS, you can integrate it with other management applications and services to provide a hybrid management environment, to provide custom management scenarios unique to your environment, or to provide a custom management experience for your customers.  This article provides an overview of your different options for integrating with OMS services and links to articles providing detailed technical information. 
 
 
 
-## Log Analytics repository
+## Log Analytics
 Management data collected by Log Analytics is stored in a repository which is hosted in Azure.  All data stored in the repository is available in log searches which provide quick analysis across extremely large amounts of data.  Your integration requirements may be to populate the repository with new data making it available for analysis, or to extract data in the repository to provide a new visualization or to integrate with another management tool.
 
 Each piece of data in the repository is stored as a record.  When you populate the repository, you should provide users with the record type that your solution uses and a description of its properties.  When you retrieve data, you need this information about the data you’re working with.
@@ -60,12 +60,9 @@ There are multiple methods for retrieving data from the OMS repository.  You may
 
 #### Log searches
 
-All data stored in the OMS repository is available through log searches.  Users may perform their own ad hoc analysis in the OMS console or create a dashboard with a visualization for a particular log search.  Solutions can contain custom views with visualizations based on predefined searches.  
+All data stored in the OMS repository is available through log searches.  Users may perform their own ad hoc analysis in the OMS console or create a dashboard with a visualization for a particular log search.  Solutions can contain custom views with visualizations based on predefined searches.  You can use the Log Search API to access data in the OMS repository from an external application or management tool.  
 
 - [Log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md)
-
-You can use the Log Search API to access data in the OMS repository from an external application or management tool.  You define a log search for the 
-
 - [Log Analytics log search REST API](../log-analytics/log-analytics-log-search-api.md)
 - [Log Analytics cmdlets](https://msdn.microsoft.com/library/mt188224.aspx)
 
