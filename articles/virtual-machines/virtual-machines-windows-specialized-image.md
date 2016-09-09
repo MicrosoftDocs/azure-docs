@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2016"
+	ms.date="09/08/2016"
 	ms.author="cynthn"/>
 
 # Create a copy of a specialized Windows Azure VM in the Azure Resource Manager deployment model
@@ -69,7 +69,7 @@ You can also download the template using [Azure PowerShell](https://msdn.microso
 
 You need the URLs of the source and destination storage accounts. The URLs look like: https://<storageaccount>.blob.core.windows.net/<containerName>. If you already know the storage account and container name, you can just replace the information between the brackets to create your URL. 
 
-You can also use the Azure portal or Azure Powershell to get the URL:
+You can use the Azure portal or Azure Powershell to get the URL:
 
 - **Portal**: Click **More services** > **Storage accounts** > <storage account> **Blobs** and your source VHD file is probably in the **vhds** container. Click **Properties** for the container, and copy the text labeled **URL**. You'll need the URLs of both the source and destination containers. 
 
@@ -98,15 +98,19 @@ If you only want to copy a specific VHD in a container with multiple files, you 
  	AzCopy /Source:<URL_of_the_source_blob_container> /Dest:<URL_of_the_destination_blob_container> /SourceKey:<Access_key_for_the_source_storage> /DestKey:<Access_key_for_the_destination_storage> /Pattern:<File_name_of_the_VHD_you_are_copying.vhd>
 
 
+	
+## Get the URI of the copied VHD file
+
+	
 ## Update the azuredeploy.json template file 
 
 Now we need to edit the azuredeploy.json file to use copied VHD in the destination storage account. To edit the .json file, it is really easy to make the updates using Visual Studio and the Azure SDK and Tools. But, you can also edit the .json file using your favorite .json editor and a lint tool to validate the changes.
 
-Change default value of the storage account and the diagnostic storage account parameters. Append **diag** or some other identifier to the `<destinationStorageAccountName>`  as the name to use for the storage diagnostics account and replace the storage account name entirely. 
+In the **Parameters** section of the .json file, change default value of the storage account and the diagnostic storage account parameters. Append **diag** or some other identifier to the `<destinationStorageAccountName>`  as the name to use for the storage diagnostics account and replace the storage account name entirely. 
 
 ```none
 "storageAccounts_demomigrate2320diagnostics_name": {
-    "defaultValue": "<destinationStorageAccount>diagnostics",
+    "defaultValue": "<destinationStorageAccount>diag",
     "type": "String"
         },
 "storageAccounts_demomigrate2320_name": {
@@ -145,7 +149,7 @@ Because we are using an existing VHD to create the VM, we need to remove the Ima
  },
 ```
 
-Change the operating system disk option in the VM resource from **FromImage** to **Attach**. Also, make sure that there is a line for `"osType": "Windows",`.
+Change the operating system disk "createOption" in the VM resource from **FromImage** to **Attach**. If there are other data disks that you copied and want to attach, the "createOption" to "Attach". Also, make sure that there is a line for `"osType": "Windows",`. Replace the value of the URI of each of the disks that you are attaching with the URI if the copied VHD file.
 
 ```none
 "osDisk": {
@@ -153,7 +157,7 @@ Change the operating system disk option in the VM resource from **FromImage** to
     "name": "[parameters('virtualMachines_demomigrate_name')]",
     "createOption": "Attach",
     "vhd": {
-        "uri": "[concat('https', '://', parameters('storageAccounts_demomigrate2320_name'), '.blob.core.windows.net', concat('/vhds/', parameters('virtualMachines_demomigrate_name'),'201651414373.vhd'))]"
+        "uri": "<URLoftheCopiedVHD.vhd>"
     },
     "caching": "ReadWrite"
 },
