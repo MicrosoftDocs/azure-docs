@@ -24,7 +24,7 @@
 - [Transact-SQL (SSMS)](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
-This topic shows the PowerShell cmdlets that are used to perform many Azure SQL Database tasks. For a complete list, see [Azure SQL Databse Cmdlets](https://msdn.microsoft.com/library/mt574084(v=azure.200).aspx)
+This topic shows the PowerShell cmdlets that are used to perform many Azure SQL Database tasks. For a complete list, see [Azure SQL Database Cmdlets](https://msdn.microsoft.com/library/mt574084(v=azure.200).aspx)
 
 [AZURE.INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
