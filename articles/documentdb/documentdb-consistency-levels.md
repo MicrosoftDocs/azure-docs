@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2016"
+	ms.date="08/24/2016"
 	ms.author="mimig"/>
 
 # Consistency levels in DocumentDB
@@ -83,14 +83,14 @@ The following table captures various consistency guarantees corresponding to the
 
 ## Configuring the default consistency level
 
-1.  In the [Azure portal](https://portal.azure.com/), in the Jumpbar, click **DocumentDB Accounts**.
+1.  In the [Azure portal](https://portal.azure.com/), in the Jumpbar, click **DocumentDB (NoSQL)**.
 
-2. In the **DocumentDB Accounts** blade, select the database account to modify.
+2. In the **DocumentDB (NoSQL)** blade, select the database account to modify.
 
-3. In the account blade, click **Default Consistency**.
+3. In the account blade, click **Default consistency**.
 
 
-4. In the **Default Consistency** blade, select the new consistency level and click **OK**.
+4. In the **Default Consistency** blade, select the new consistency level and click **Save**.
 
 	![Screen shot highlighting the Settings icon and Default Consistency entry](./media/documentdb-consistency-levels/database-consistency-level-1.png)
 

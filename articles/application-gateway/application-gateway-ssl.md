@@ -29,7 +29,7 @@ Azure Application Gateway can be configured to terminate the Secure Sockets Laye
 
 1. Install the latest version of the Azure PowerShell cmdlets by using the Web Platform Installer. You can download and install the latest version from the **Windows PowerShell** section of the [Downloads page](https://azure.microsoft.com/downloads/).
 2. Verify that you have a working virtual network with a valid subnet. Make sure that no virtual machines or cloud deployments are using the subnet. The application gateway must be by itself in a virtual network subnet.
-3. The servers that you =configure to use the application gateway must exist or have their endpoints created either in the virtual network or with a public IP/VIP assigned.
+3. The servers that you configure to use the application gateway must exist or have their endpoints created either in the virtual network or with a public IP/VIP assigned.
 
 To configure SSL offload on an application gateway, do the following steps in the order listed:
 
@@ -105,7 +105,7 @@ This sample shows the cmdlet on the first line, followed by the output.
 	ThumbprintAlgo : sha1RSA
 	State..........: Provisioned
 
->[AZURE.NOTE] The certificate password has to be in between 4 to 12 characters, letters, or numbers. Special characters are not accepted.
+>[AZURE.NOTE] The certificate password has to be between 4 to 12 characters, letters, or numbers. Special characters are not accepted.
 
 ## Configure the gateway
 
@@ -133,7 +133,7 @@ To construct your configuration by using a configuration XML file, use the follo
 **Configuration XML sample**
 
 
-	    <?xml version="1.0" encoding="utf-8"?>
+	<?xml version="1.0" encoding="utf-8"?>
 	<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
 	    <FrontendIPConfigurations />
 	    <FrontendPorts>

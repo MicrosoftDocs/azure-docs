@@ -229,7 +229,7 @@ More details here -
 [10]: ./media/notification-hubs-diagnosing/VSTestNotification.png
  
 <!-- LINKS -->
-[Notification Hubs Overview]: notification-hubs-overview.md
+[Notification Hubs Overview]: notification-hubs-push-notification-overview.md
 [Getting Started Tutorials]: notification-hubs-windows-store-dotnet-get-started.md
 [Template guidance]: https://msdn.microsoft.com/library/dn530748.aspx 
 [APNS guidance]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW4

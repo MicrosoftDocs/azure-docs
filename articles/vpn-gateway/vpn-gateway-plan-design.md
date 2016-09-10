@@ -82,7 +82,7 @@ The following list outlines the common workflow for cloud connectivity:
 
 ### <a name="topologies"></a>Connection topologies
 
-Start by looking at the diagrams in the [Connection topologies](vpn-gateway-topology.md) article. The article contains basic diagrams, the deployment models for each topology (Resource Manager or classic), and which deployment tools you can use to deploy your configuration. 
+Start by looking at the diagrams in the [About VPN Gateway](vpn-gateway-about-vpngateways.md) article. The article contains basic diagrams, the deployment models for each topology (Resource Manager or classic), and which deployment tools you can use to deploy your configuration.   
 
 ### <a name="designbasics"></a>Design basics
 

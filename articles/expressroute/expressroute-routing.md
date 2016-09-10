@@ -78,15 +78,15 @@ Routing exchange will be over eBGP protocol. EBGP sessions are established betwe
 
 ## Autonomous System numbers
 
-Microsoft will use AS 12076 for Azure public, Azure private and Microsoft peering. We have reserved ASNs from 65515 to 65520 for internal use. Both 16 and 32 bit AS numbers are supported.
+Microsoft will use AS 12076 for Azure public, Azure private and Microsoft peering. We have reserved ASNs from 65515 to 65520 for internal use. Both 16 and 32 bit AS numbers are supported. On the peering side (customer or provider), the AS can be a public ASN if it can be verified to be owned by you, or a private ASN number for the private peering, and requires a public ASN for the public and Microsoft peerings. 
 
-There are no requirements around data transfer symmetry. The forward and return paths may traverse different router pairs. Identical routes must be advertised from either sides across multiple circuit pairs belonging you. Route metrics are not required to be identical.
+There are no requirements around data transfer symmetry on the primary and secondary paths of any given circuit. The forward and return paths may traverse different router pairs. Identical routes must be advertised from either primary or secondary sides across any given circuit pairs belonging to  you. Route metrics are not required to be identical.
 
 ## Route aggregation and prefix limits
 
 We support up to 4000 prefixes advertised to us through the Azure private peering. This can be increased up to 10,000 prefixes if the ExpressRoute premium add-on is enabled. We accept up to 200 prefixes per BGP session for Azure public and Microsoft peering. 
 
-The BGP session will be dropped if the number of prefixes exceeds the limit. We will accept default routes on the private peering link only. Provider must filter out default route and private IP addresses (RFC 1918) from the Azure public and Microsoft peering paths. 
+The BGP session will be dropped if the number of prefixes exceeds the limit. We will accept default routes on the private peering link only. Provider or customer must filter out default route and private IP addresses (RFC 1918) from their BGP advertisements to Azure public and Microsoft peering paths. 
 
 ## Transit routing and cross-region routing
 
