@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Face redaction with Azure Media Analytics"
-	description="This topic demonstrates how to reduct faces with Azure Media Analytics."
+	description="This topic demonstrates how to redact faces with Azure Media Analytics."
 	services="media-services"
 	documentationCenter=""
 	authors="juliako"
