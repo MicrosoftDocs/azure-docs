@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Face reduction with Azure Media Analytics"
+	pageTitle="Face redaction with Azure Media Analytics"
 	description="This topic demonstrates how to reduct faces with Azure Media Analytics."
 	services="media-services"
 	documentationCenter=""
@@ -16,11 +16,11 @@
 	ms.date="09/08/2016"   
 	ms.author="juliako;"/>
  
-#Face reduction with Azure Media Analytics
+#Face redaction with Azure Media Analytics
 
 ##Overview
 
-**Azure Media Redactor** is an [Azure Media Analytics](media-services-analytics-overview.md) media processor (MP) that offers scalable face redaction in the cloud. Face reduction enables you to modify your video in order to blur faces of selected individuals. You may want to use the face reduction service in public safety and news media scenarios. A  few minutes of footage that contains multiple faces can take hours to redact manually, but with this service the face reduction process will require just a few simple steps. For more information, see [this](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
+**Azure Media Redactor** is an [Azure Media Analytics](media-services-analytics-overview.md) media processor (MP) that offers scalable face redaction in the cloud. Face redaction enables you to modify your video in order to blur faces of selected individuals. You may want to use the face redaction service in public safety and news media scenarios. A  few minutes of footage that contains multiple faces can take hours to redact manually, but with this service the face redaction process will require just a few simple steps. For more information, see [this](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
 
 This topic gives details about  **Azure Media Redactor** and shows how to use it with Media Services SDK for .NET.
 
@@ -28,7 +28,7 @@ The **Azure Media Redactor** MP is currently in Preview.
 
 ## Face redaction modes
 
-Facial redaction works by detecting faces in every frame of video and tracking the face object both forwards and backwards in time, so that the same individual can be blurred from other angles as well. The automated redaction process us very complex and does not always produce 100% of desired output, for this reason  Media Analytics provies you with a couple of ways to modify the final output.
+Facial redaction works by detecting faces in every frame of video and tracking the face object both forwards and backwards in time, so that the same individual can be blurred from other angles as well. The automated redaction process us very complex and does not always produce 100% of desired output, for this reason  Media Analytics provides you with a couple of ways to modify the final output.
 
 In addition to a fully automatic mode, there is a two-pass workflow which allows the selection/de-selection of found faces via a list of IDs. Also, to make arbitrary per frame adjustments the MP uses a metadata file in JSON format. This workflow is split into **Analyze** and **Redact** modes. You can combine the two modes in a single pass that runs both tasks in one job; this mode is called **Combined**.
 
@@ -39,7 +39,7 @@ This will produce a redacted mp4 automatically without any manual input.
 Stage|File Name|Notes
 ---|---|---
 Input asset|foo.bar|Video in WMV, MOV, or MP4 format
-Input config|Job configuration preset|{'version':'1.0', 'options': {'Mode':'combined'}}
+Input config|Job configuration preset|{'version':'1.0', 'options': {'mode':'combined'}}
 Output asset|foo_redacted.mp4|Video with blurring applied
 
 ####Input example:
@@ -104,13 +104,14 @@ The second pass of the workflow takes a larger number of inputs that must be com
 
 This includes a list of IDs to blur, the original video, and the annotations JSON. This mode uses the annotations to apply blurring on the input video.
 
+The output from the Analyze pass does not include the original video. The video will need to be uploaded into the input asset for the Redact mode task and selected as the primary file.
 
 Stage|File Name|Notes
 ---|---|---
 Input asset|foo.bar|Video in WMV, MPV, or MP4 format. Same video as in step 1.
 Input asset|foo_annotations.json|annotations metadata file from phase one, with optional modifications.
 Input asset|foo_IDList.txt (Optional)|Optional new line separated list of face IDs to redact. If left blank, this will blur all faces.
-Input config|Job configuration preset|{'version':'1.0', 'options': {'Mode':'redact'}}
+Input config|Job configuration preset|{'version':'1.0', 'options': {'mode':'redact'}}
 Output asset|foo_redacted.mp4|Video with blurring applied based on annotations
 
 ####Example Output
@@ -127,16 +128,14 @@ The detected and tracked faces are returned with coordinates  indicating the loc
 
 For detailed explanations for the attributes, see [Detect Face and Emotion with Azure Media Analytics](media-services-face-and-emotion-detection.md) topic.
 
-
-
 ## Sample code
 
 The following program shows how to:
 
 1. Create an asset and upload a media file into the asset.
-1. Creates a job with a face reduction task based on a configuration file that contains the following json preset. 
+1. Creates a job with a face redaction task based on a configuration file that contains the following json preset. 
 					
-		{'version':'1.0', 'options': {'Mode':'combined'}}
+		{'version':'1.0', 'options': {'mode':'combined'}}
 
 1. Downloads the output JSON files. 
 		 
@@ -148,7 +147,7 @@ The following program shows how to:
 		using System.Threading;
 		using System.Threading.Tasks;
 		
-		namespace FaceReduction
+		namespace FaceRedaction
 		{
 		    class Program
 		    {
@@ -172,23 +171,23 @@ The following program shows how to:
 		            // Used the cached credentials to create CloudMediaContext.
 		            _context = new CloudMediaContext(_cachedCredentials);
 		
-		            // Run the FaceReduction job.
-		            var asset = RunFaceReductionJob(@"C:\supportFiles\FaceReduction\SomeFootage.mp4",
-		                                        @"C:\supportFiles\FaceReduction\config.json");
+		            // Run the FaceRedaction job.
+		            var asset = RunFaceRedactionJob(@"C:\supportFiles\FaceRedaction\SomeFootage.mp4",
+		                                        @"C:\supportFiles\FaceRedaction\config.json");
 		
 		            // Download the job output asset.
-		            DownloadAsset(asset, @"C:\supportFiles\FaceReduction\Output");
+		            DownloadAsset(asset, @"C:\supportFiles\FaceRedaction\Output");
 		        }
 		
-		        static IAsset RunFaceReductionJob(string inputMediaFilePath, string configurationFile)
+		        static IAsset RunFaceRedactionJob(string inputMediaFilePath, string configurationFile)
 		        {
 		            // Create an asset and upload the input media file to storage.
 		            IAsset asset = CreateAssetAndUploadSingleFile(inputMediaFilePath,
-		                "My Face Reduction Input Asset",
+		                "My Face Redaction Input Asset",
 		                AssetCreationOptions.None);
 		
 		            // Declare a new job.
-		            IJob job = _context.Jobs.Create("My Face Reduction Job");
+		            IJob job = _context.Jobs.Create("My Face Redaction Job");
 		
 		            // Get a reference to Azure Media Redactor.
 		            string MediaProcessorName = "Azure Media Redactor";
@@ -199,7 +198,7 @@ The following program shows how to:
 		            string configuration = File.ReadAllText(configurationFile);
 		
 		            // Create a task with the encoding details, using a string preset.
-		            ITask task = job.Tasks.AddNew("My Face Reduction Task",
+		            ITask task = job.Tasks.AddNew("My Face Redaction Task",
 		                processor,
 		                configuration,
 		                TaskOptions.None);
@@ -208,7 +207,7 @@ The following program shows how to:
 		            task.InputAssets.Add(asset);
 		
 		            // Add an output asset to contain the results of the job.
-		            task.OutputAssets.AddNew("My Face Reduction Output Asset", AssetCreationOptions.None);
+		            task.OutputAssets.AddNew("My Face Redaction Output Asset", AssetCreationOptions.None);
 		
 		            // Use the following event handler to check job progress.  
 		            job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
