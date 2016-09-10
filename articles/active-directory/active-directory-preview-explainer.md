@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2016"
+	ms.date="09/12/2016"
 	ms.author="curtand"/>
 
 
@@ -34,7 +34,7 @@ The preview experience reads and writes to the same Azure Active Directory tenan
 
 The preview experience uses the same authorization logic as existing Active Directory clients. Users are authorized to make changes to directory resources based on their directory role, such as global administrator, user administrator, password administrator. Having a role on Azure resources or an Azure subscription does not authorize a user to manage directory resources. For more information Azure AD management roles, see [Assigning administrator roles in Azure Active Directory](active-directory-assign-admin-roles.md). 
 
-The preview experience is optimized for global administrators. If you use preview experience while signed in as a user that is not a global administrator, you may have a degraded experience. For example, you might be able to select a button that lets you begin a task that you can't complete in the directory. We are improving this experience soon.
+The preview experience is optimized for global administrators. If you use the preview experience while signed in as a user that is not a global administrator, you may have a degraded experience. For example, you might be able to select a button that lets you begin a task that you can't complete in the directory. We are improving this experience soon.
  
 ## Tell us what you think
 
