@@ -20,15 +20,15 @@
 
 ##Overview
 
-**Azure Media Redactor** is an [Azure Media Analytics](media-services-analytics-overview.md) media processor (MP) that offers scalable face redaction in the cloud. Face redaction enables you to modify your video in order to blur faces of selected individuals. You may want to use the face redaction service in public safety and news media scenarios. A  few minutes of footage that contains multiple faces can take hours to redact manually, but with this service the face redaction process will require just a few simple steps. For more information, see [this](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
+**Azure Media Redactor** is an [Azure Media Analytics](media-services-analytics-overview.md) media processor (MP) that offers scalable face redaction in the cloud. Face redaction enables you to modify your video in order to blur faces of selected individuals. You may want to use the face redaction service in public safety and news media scenarios. A few minutes of footage that contains multiple faces can take hours to redact manually, but with this service the face redaction process will require just a few simple steps. For  more information, see [this](https://azure.microsoft.com/blog/azure-media-redactor/) blog.
 
-This topic gives details about  **Azure Media Redactor** and shows how to use it with Media Services SDK for .NET.
+This topic gives details about **Azure Media Redactor** and shows how to use it with Media Services SDK for .NET.
 
 The **Azure Media Redactor** MP is currently in Preview.
 
 ## Face redaction modes
 
-Facial redaction works by detecting faces in every frame of video and tracking the face object both forwards and backwards in time, so that the same individual can be blurred from other angles as well. The automated redaction process us very complex and does not always produce 100% of desired output, for this reason  Media Analytics provides you with a couple of ways to modify the final output.
+Facial redaction works by detecting faces in every frame of video and tracking the face object both forwards and backwards in time, so that the same individual can be blurred from other angles as well. The automated redaction process us very complex and does not always produce 100% of desired output, for this reason Media Analytics provides you with a couple of ways to modify the final output.
 
 In addition to a fully automatic mode, there is a two-pass workflow which allows the selection/de-selection of found faces via a list of IDs. Also, to make arbitrary per frame adjustments the MP uses a metadata file in JSON format. This workflow is split into **Analyze** and **Redact** modes. You can combine the two modes in a single pass that runs both tasks in one job; this mode is called **Combined**.
 
@@ -52,7 +52,7 @@ Output asset|foo_redacted.mp4|Video with blurring applied
 
 ###Analyze mode
 
-The **analyze** pass of the two pass workflow will take a video input and produce a JSON file of face locations, and jpg images of each detected face.
+The **analyze** pass of the two-pass workflow takes a video input and produces a JSON file of face locations, and jpg images of each detected face.
 
 Stage|File Name|Notes
 ---|---|----
@@ -104,13 +104,13 @@ The second pass of the workflow takes a larger number of inputs that must be com
 
 This includes a list of IDs to blur, the original video, and the annotations JSON. This mode uses the annotations to apply blurring on the input video.
 
-The output from the Analyze pass does not include the original video. The video will need to be uploaded into the input asset for the Redact mode task and selected as the primary file.
+The output from the Analyze pass does not include the original video. The video needs to be uploaded into the input asset for the Redact mode task and selected as the primary file.
 
 Stage|File Name|Notes
 ---|---|---
 Input asset|foo.bar|Video in WMV, MPV, or MP4 format. Same video as in step 1.
 Input asset|foo_annotations.json|annotations metadata file from phase one, with optional modifications.
-Input asset|foo_IDList.txt (Optional)|Optional new line separated list of face IDs to redact. If left blank, this will blur all faces.
+Input asset|foo_IDList.txt (Optional)|Optional new line separated list of face IDs to redact. If left blank, this blurs all faces.
 Input config|Job configuration preset|{'version':'1.0', 'options': {'mode':'redact'}}
 Output asset|foo_redacted.mp4|Video with blurring applied based on annotations
 
@@ -124,7 +124,7 @@ This is the output from an IDList with one ID selected.
 
 The Redaction MP provides high precision face location detection and tracking that can detect up to 64 human faces in a video frame. Frontal faces provide the best results, while side faces and small faces (less than or equal to 24x24 pixels) are challenging.
 
-The detected and tracked faces are returned with coordinates  indicating the location of faces, as well as a face ID number indicating the tracking of that individual. Face ID numbers are prone to reset under circumstances when the frontal face is lost or overlapped in the frame, resulting in some individuals getting assigned multiple IDs.
+The detected and tracked faces are returned with coordinates indicating the location of faces, as well as a face ID number indicating the tracking of that individual. Face ID numbers are prone to reset under circumstances when the frontal face is lost or overlapped in the frame, resulting in some individuals getting assigned multiple IDs.
 
 For detailed explanations for the attributes, see [Detect Face and Emotion with Azure Media Analytics](media-services-face-and-emotion-detection.md) topic.
 
