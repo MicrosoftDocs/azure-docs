@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Add or change work information for a user in Azure Active Directory | Microsoft Azure"
+	pageTitle="Add or change work information for a user in Azure Active Directory preview | Microsoft Azure"
 	description="Explains how to add phone numbers, department names, and other work information for a user in Azure Active Directory"
 	services="active-directory"
 	documentationCenter=""
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/07/2016"
+	ms.date="09/12/2016"
 	ms.author="curtand"/>
 
 # Add or change work information for a user in Azure Active Directory preview
 
-This article explains how to add or change work information such as phone numbers or a department name for a user in Azure Active Directory (Azure AD). For information about adding new users in your organization, see [Add new users to Azure Active Directory](active-directory-users-create-external-azure-portal.md).
+This article explains how to add or change work information such as phone numbers or a department name for a user in Azure Active Directory (Azure AD) preview. [What's in the preview?](active-directory-preview-explainer.md) For information about adding new users in your organization, see [Add new users to Azure Active Directory](active-directory-users-create-external-azure-portal.md).
 
 ## How to change work information
 

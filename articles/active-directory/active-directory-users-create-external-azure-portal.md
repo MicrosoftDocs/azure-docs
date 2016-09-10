@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Add users from other directories or partner companies in Azure Active Directory | Microsoft Azure"
+	pageTitle="Add users from other directories or partner companies in Azure Active Directory preview | Microsoft Azure"
 	description="Explains how to add users or change user information in Azure Active Directory, including external and guest users."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/07/2016"
+	ms.date="09/12/2016"
 	ms.author="curtand"/>
 
 # Add users from other directories or partner companies in Azure Active Directory preview
@@ -22,7 +22,7 @@
 - [Azure portal](active-directory-users-create-external-azure-portal.md)
 - [Azure classic portal](active-directory-create-users-external.md)
 
-This article explains how to add users either from other directories in Azure Active Directory (Azure AD) or from partner companies. For information about adding new users in your organization, and adding users who have Microsoft accounts, see [Add new users to Azure Active Directory](active-directory-users-create-azure-portal.md). Added users don't have administrator permissions by default, but you can assign roles to them at any time.
+This article explains how to add users either from other directories in Azure Active Directory (Azure AD) preview or from partner companies. [What's in the preview?](active-directory-preview-explainer.md) For information about adding new users in your organization, and adding users who have Microsoft accounts, see [Add new users to Azure Active Directory](active-directory-users-create-azure-portal.md). Added users don't have administrator permissions by default, but you can assign roles to them at any time.
 
 ## Add a user
 

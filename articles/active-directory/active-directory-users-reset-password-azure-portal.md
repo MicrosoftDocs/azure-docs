@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Reset the password for a user in Azure Active Directory | Microsoft Azure"
+	pageTitle="Reset the password for a user in Azure Active Directory preview | Microsoft Azure"
 	description="Explains how to reset the password for a user in Azure Active Directory"
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/07/2016"
+	ms.date="09/12/2016"
 	ms.author="curtand"/>
 
 # Reset the password for a user in Azure Active Directory preview
@@ -22,7 +22,7 @@
 - [Azure portal](active-directory-users-reset-password-azure-portal.md)
 - [Azure classic portal](active-directory-create-users-reset-password.md)
 
-This article explains how to delete a user from a directory in Azure Active Directory (Azure AD). For information about adding new users in your organization, see [Add new users to Azure Active Directory](active-directory-users-create-azure-portal.md).
+This article explains how to delete a user from a directory in Azure Active Directory (Azure AD) preview. [What's in the preview?](active-directory-preview-explainer.md) For information about adding new users in your organization, see [Add new users to Azure Active Directory](active-directory-users-create-azure-portal.md).
 
 ## Rest the password for a user
 
