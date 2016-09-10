@@ -66,7 +66,7 @@ You need the following to complete this tutorial:
 4. In the **Create App Service** dialog, click **Add an account** (and then **Add an account** in the dropdown) to log in to your Azure account.
 
 5. Once logged in configure your web app. Create a resource group and a new App Service plan by clicking the respective **New** button. Click 
-**Explore additional services** to continue.
+**Explore additional Azure services** to continue.
 
 	![](./media/web-sites-dotnet-lob-application-azure-ad/2-create-app-service.png)
 
