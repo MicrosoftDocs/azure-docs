@@ -67,7 +67,7 @@ The resulting shared access signature URI for the new container should be simila
 
 The shared access signature created with this example is valid for one day. The signature grants full access (i.e. read, write, delete, list) to blobs within the container.
 
-For more information on shared access signatures, see [Shared Access Signatures: Understanding the SAS Model](storage-dotnet-shared-access-signature-part-1.md).
+For more information on shared access signatures, see [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 
 
 ## Start and initialize the storage emulator
