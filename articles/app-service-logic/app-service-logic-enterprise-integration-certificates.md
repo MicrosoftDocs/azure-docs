@@ -22,7 +22,7 @@
 ## Overview
 Enterprise integration uses certificates to secure B2B communications. You can use two types of certificates in your enterprise integration apps:
 
-- Public certificates, which must be purchased from a certification authority (CA)
+- Public certificates, which must be purchased from a certification authority (CA).
 - Private certificates, which you can issue yourself. These certificates are sometimes referred to as self-signed certificates.
 
 ## What are certificates?
@@ -30,6 +30,7 @@ Certificates are digital documents that verify the identity of the participants 
 
 ## Why use certificates?
 Sometimes B2B communications must be kept confidential. Enterprise integration uses certificates to secure these communications in two ways:
+
 - By encrypting the contents of messages
 - By digitally signing messages  
 
@@ -111,7 +112,7 @@ Following are the detailed steps for uploading your private certificates into yo
 ![Add certificate](./media/app-service-logic-enterprise-integration-certificates/privatecertificate-1.png)  
 10. In about a minute, you will see a notification that indicates that the certificate upload is complete.
 
-11. Select the **Certificates tile**. You should see the newly added certificate.
+11. Select the **Certificates** tile. You should see the newly added certificate.
 ![See the new certificate](./media/app-service-logic-enterprise-integration-certificates/privatecertificate-2.png)  
 After you upload a certificate, it's available to help you to secure your B2B messages when you define their properties in [agreements](./app-service-logic-enterprise-integration-agreements.md).  
 
