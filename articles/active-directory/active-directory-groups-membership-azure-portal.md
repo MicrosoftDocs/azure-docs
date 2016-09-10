@@ -19,7 +19,7 @@
 
 # Manage the groups your group is a member of in Azure Active Directory preview
 
-Groups can contain other groups in Azure Active Directory. Here's how to manage those memberships.
+Groups can contain other groups in Azure Active Directory preview. [What's in the preview?](active-directory-preview-explainer.md) Here's how to manage those memberships.
 
 ## How do I find the groups my group is a member of?
 

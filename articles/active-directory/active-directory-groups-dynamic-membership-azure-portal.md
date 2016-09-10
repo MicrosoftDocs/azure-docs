@@ -20,7 +20,7 @@
 
 # Using attributes to create advanced rules for group membership in Azure Active Directory preview
 
-The Azure portal provides you with the ability to create advanced rules to enable more complex attribute-based dynamic memberships for Azure Active Directory (Azure AD) groups. This article details the rule attributes and syntax to create these advanced rules.
+The Azure portal provides you with the ability to create advanced rules to enable more complex attribute-based dynamic memberships for Azure Active Directory (Azure AD) preview groups. [What's in the preview?](active-directory-preview-explainer.md) This article details the rule attributes and syntax to create these advanced rules.
 
 ## To create the advanced rule
 

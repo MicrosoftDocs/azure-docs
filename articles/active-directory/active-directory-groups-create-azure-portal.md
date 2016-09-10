@@ -19,7 +19,7 @@
 
 # Create a new group in Azure Active Directory preview
 
-This article explains how to create and populate a new group in the Azure Active Directory (Azure AD) preview. Use a group to perform management tasks such as assigning licenses or permissions to a number of users or devices at once.
+This article explains how to create and populate a new group in the Azure Active Directory (Azure AD) preview. [What's in the preview?](active-directory-preview-explainer.md) Use a group to perform management tasks such as assigning licenses or permissions to a number of users or devices at once.
 
 ## How do I create a group?
 

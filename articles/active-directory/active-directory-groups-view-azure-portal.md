@@ -19,7 +19,7 @@
 
 # View all existing groups in Azure Active Directory preview
 
-This article explains how to view all groups in Azure Active Directory (Azure AD). One of the features of Azure Active Directory (Azure AD) user management is the ability to create groups that you can populate with your users. You use a group to perform management tasks such as assigning licenses or permissions to a number of users at once.
+This article explains how to view all groups in Azure Active Directory (Azure AD) preview. [What's in the preview?](active-directory-preview-explainer.md) One of the features of Azure Active Directory (Azure AD) user management is the ability to create groups that you can populate with your users. You use a group to perform management tasks such as assigning licenses or permissions to a number of users at once.
 
 ## How do I see all the groups?
 

@@ -19,7 +19,7 @@
 
 # Manage the members for a group in Azure Active Directory preview
 
-This article explains how to manage the members for a group in Azure Active Directory (Azure AD).
+This article explains how to manage the members for a group in Azure Active Directory (Azure AD) preview. [What's in the preview?](active-directory-preview-explainer.md)
 
 ## How do I find the members and manage them?
 

@@ -19,7 +19,7 @@
 
 # Manage the settings for a group in Azure Active Directory preview
 
-This article explains how to change the settings for a group in Azure Active Directory (Azure AD).
+This article explains how to change the settings for a group in Azure Active Directory (Azure AD) preview. [What's in the preview?](active-directory-preview-explainer.md)
 
 ## How do I find and change the settings?
 
