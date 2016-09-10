@@ -18,7 +18,7 @@
 
 # Managing custom domain names in your Azure Active Directory preview
 
-A domain name is an important part of the identifier for many directory resources: it is part of a user name or email address for a user, part of the address for a group, and can be part of the app ID URI for an application. A resource in Azure Active Directory (Azure AD) can include a domain name that is already verified to be owned by the directory that contains the resource. Only a global administrator can perform domain management tasks in Azure AD.
+A domain name is an important part of the identifier for many directory resources: it is part of a user name or email address for a user, part of the address for a group, and can be part of the app ID URI for an application. A resource in Azure Active Directory (Azure AD) preview can include a domain name that is already verified to be owned by the directory that contains the resource. [What's in the preview?](active-directory-preview-explainer.md) Only a global administrator can perform domain management tasks in Azure AD.
 
 ## Set the primary domain name for your Azure AD directory
 
