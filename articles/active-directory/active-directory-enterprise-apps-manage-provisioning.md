@@ -66,7 +66,7 @@ Supported customizations during the first preview include:
 
 * Enabling and disabling mappings for specific objects, such as the Azure AD user object to the SaaS app's user object.
 
-* Editing which attributes flow from the Azure AD user object to the app's user object. For more information on attribute mapping, see {Understanding attribute mapping types](active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-types).
+* Editing which attributes flow from the Azure AD user object to the app's user object. For more information on attribute mapping, see [Understanding attribute mapping types](active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-types).
 
 * Filter what provisioning actions Azure AD should perform on the target application, which is a new feature in the new Azure portal. Instead of having Azure AD fully-synchronize objects, you can limit the actions performed. For example, by only selecting **Update**, Azure AD will only update existing user accounts in an application and not create new ones. By only selecting **Create**, Azure will only create new user accounts but not update existing ones. This feature will allow admins to create different mappings for account creation and update workflows. The full ability to create multiple mappings per app is planned for the next preview.
 
