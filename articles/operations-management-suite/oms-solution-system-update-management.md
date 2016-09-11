@@ -22,8 +22,10 @@ The System Update Management solution in OMS allows you to manage system updates
 
 ## Prerequisites
 
--   Windows agents must either be configured to communicate with a Windows Server Update Services (WSUS) server or have access to Microsoft Update.<br>  
+-   Windows agents must either be configured to communicate with a Windows Server Update Services (WSUS) server or have access to Microsoft Update.  
+
     >[AZURE.NOTE] The Windows agent cannot be managed concurrently by System Center Configuration Manager.  The System Center Configuration Manager client will need to be removed before adding this solution to your workspace.  
+  
 -	Linux agents must have access to an update repository.
 
 ## Configuration
