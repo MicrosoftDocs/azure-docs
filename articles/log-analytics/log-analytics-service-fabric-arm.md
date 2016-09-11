@@ -73,9 +73,19 @@ To view Perf Data from your nodes:
 ![Service Fabric](./media/log-analytics-service-fabric/7.png)
 
 3. In Log Search, use the following queries to delve into key metrics about your nodes:
-	a. 
-	b.
-	c.
+	a. Compare the average CPU Utlization across all your nodes in the last 1 hour to see which nodes are having issues and at what time interval the node was facing this problem: ***italic*** Type=Perf ObjectName=Processor CounterName="%Processor Time"|measure avg(CounterValue) by Computer Interval 1HOUR. 
+	You should see an interactive graph with a line chart for each node.
+	<insert image>
+
+	b. View similar line charts for available memory on each node using this query - Type=Perf ObjectName=Memory CounterName="Available MBytes Memory" | measure avg(CounterValue) by Computer Interval 1HOUR.
+	<insert image>
+	
+	To view a listing of all your nodes, showing the exact average value for each node, you can use this query: Type=Perf (ObjectName=Memory) (CounterName="Available MBytes") | measure avg(CounterValue) by Computer 
+	<insert image>
+	
+
+	c.<Add one more scenario they could find useful>
+
 
 ##Adding an existing storage account to Log Analytics
 This template simply adds your existing storage accounts to a new or existing Log Analytics workspace.
@@ -116,4 +126,4 @@ The following table shows data collection methods and other details about how da
 
 ## Next steps
 
-- Use [Log Searches in Log Analytics](log-analytics-log-searches.md) to view detailed Service Fabric event data.
+- Use [Log Searches in Log Analytics](log-analytics-log-searches.md) to view detailed Service Fabric event data. 
