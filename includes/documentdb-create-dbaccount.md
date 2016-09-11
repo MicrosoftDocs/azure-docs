@@ -9,7 +9,7 @@
 
 	- In the **ID** box, enter a name to identify the DocumentDB account.  When the **ID** is validated, a green check mark appears in the **ID** box. The **ID** value becomes the host name within the URI. The **ID** may contain only lowercase letters, numbers, and the '-' character, and must be between 3 and 50 characters. Note that *documents.azure.com* is appended to the endpoint name you choose, the result of which becomes your DocumentDB account endpoint.
 
-    - In the **NoSQL API** box, select DocumentDB or MongoDB. Only select **MongoDB** if the app that communicates with this database was written for MongoDB and uses MongoDB APIs; otherwise, select **DocumentDB**. 
+    - In the **NoSQL API** box, select **DocumentDB**.  
 
 	- For **Subscription**, select the Azure subscription that you want to use for the DocumentDB account. If your account has only one subscription, that account is selected by default.
 
