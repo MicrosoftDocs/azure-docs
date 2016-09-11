@@ -63,19 +63,19 @@ This is where all details about the application's domain and URLs are input into
 
 * **Relay State** -  The relay state is an optional parameter that can help tell the application where to redirect the user after authentication is completed. Typically the value is a valid URL at the application, however some applications use this field differently (see the app's single sign on documentation for details). The ability to set the relay state is a new feature that is unique to the new Azure portal.
 
-##User Attributes
+###User Attributes
 This is where admins can view and edit the attributes that are sent in the SAML token that Azure AD issues to the application each time users sign in.
 
 For the first preview release, the only editable attribute supported is the **User Identifier** attribute. The value of this attribute is the field in Azure AD that uniquely identifies each user within the application. For example, if the app was deployed using the "Email address" as the username and unique identifier, then the value would be set to the "user.mail" field in Azure AD.
 
 Editing of additional attributes will be supported in a subsequent preview. 
 
-##SAML Signing Certificate
+###SAML Signing Certificate
 This section shows the details of the certificate that Azure AD uses to sign the SAML tokens that are issued to the application each time the user authenticates. It allows the properties of the current certificate to be inspected, including the expiration date.
 
 The ability to rollover the certificate and manage additional certificate options will be supported in a subsequent preview release. Note that full management of certificates can still be performed in the [Azure classic portal](https://azure.microsoft.com/en-us/documentation/articles/active-directory-sso-certs/).
 
-##Application Configuration
+###Application Configuration
 The final section provides the documentation and/or controls required to configure the application itself to use Azure Active Directory as an identity provider.
 
 The **Configure Application** fly-out menu provides new concise, embedded instructions for configuring the application. This is another new feature unique to the new Azure portal.
