@@ -38,8 +38,8 @@ Before you can create your first function, you need to have an active Azure acco
 	+ **[Resource Group](../azure-portal/resource-group-portal.md/)**: Select **Create new** and enter a name for your new resource group. You can also choose an existing resource group, however you may not be able to create a dynamic App Service plan for your function app.
 	+ **[App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)**: Choose either *dynamic* or *classic*. 
 		+ **Dynamic**: The default plan type for Azure Functions. When you choose a dynamic plan, you must also choose the **Location** and set the **Memory Allocation** (in MB). For information about how memory allocation affects costs, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/). 
-		+ **Classic**: A classic App Service plan requires you to create a new **App Service plan/location** or select an existing one. These settings determine the [location, features, cost and compute resources](https://azure.microsoft.com/pricing/details/app-service/) associated with your app.  
-	+ **Storage account**: Each function app requires a storage account. You can either choose an existing storage account or create a new one. 
+		+ **Classic**: A classic App Service plan requires you to create an **App Service plan/location** or select an existing one. These settings determine the [location, features, cost and compute resources](https://azure.microsoft.com/pricing/details/app-service/) associated with your app.  
+	+ **Storage account**: Each function app requires a storage account. You can either choose an existing storage account or create one. 
 
 	![Create new function app in the Azure portal](./media/functions-create-first-azure-function-azure-portal/function-app-create-flow.png)
 
@@ -65,13 +65,13 @@ Since the Azure Functions quickstarts contain functional code, you can immediate
 
 	![](./media/functions-create-first-azure-function-azure-portal/function-app-develop-tab-testing.png)
 
-2. Scroll down to the **Request body** text box, change the value of the *name* property to your name, and click **Run**. You will see that execution is triggered by a test HTTP request, information is written to the streaming logs, and the "hello" response is displayed in the **Output**. 
+2. Scroll down to the **Request body** text box, change the value of the *name* property to your name, and click **Run**. You see that execution is triggered by a test HTTP request, information is written to the streaming logs, and the "hello" response is displayed in the **Output**. 
 
 3. To trigger execution of the same function from another browser window or tab, copy the **Function URL** value from the **Develop** tab and paste it in a browser address bar, then append the query string value `&name=yourname` and press enter. The same information is written to the logs and the browser displays the "hello" response as before.
 
 ##Next steps
 
-This quickstart demonstrates a very simple execution of a basic HTTP-triggered function. See these topics for more information about leveraging the power of Azure Functions in your apps.
+This quickstart demonstrates a very simple execution of a basic HTTP-triggered function. See these topics for more information about using the power of Azure Functions in your apps.
 
 + [Azure Functions developer reference](functions-reference.md)  
 Programmer reference for coding functions and defining triggers and bindings.
@@ -80,6 +80,6 @@ Describes various tools and techniques for testing your functions.
 + [How to scale Azure Functions](functions-scale.md)  
 Discusses service plans available with Azure Functions, including the Dynamic service plan, and how to choose the right plan. 
 + [What is Azure App Service?](../app-service/app-service-value-prop-what-is.md)  
-Azure Functions leverages the Azure App Service platform for core functionality like deployments, environment variables, and diagnostics. 
+Azure Functions uses the Azure App Service platform for core functionality like deployments, environment variables, and diagnostics. 
 
 [AZURE.INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
