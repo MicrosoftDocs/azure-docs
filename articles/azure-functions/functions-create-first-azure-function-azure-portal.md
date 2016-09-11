@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Create an Azure Function from the Azure Portal | Microsoft Azure"
+   pageTitle="Create a function from the Azure Portal | Microsoft Azure"
    description="Build your first Azure Function, a serverless application, in less than two minutes."
    services="functions"
    documentationCenter="na"
@@ -18,7 +18,7 @@
    ms.date="09/08/2016"
    ms.author="glenga"/>
 
-#Create an Azure Function from the Azure portal
+#Create a function from the Azure portal
 
 ##Overview
 Azure Functions is an event-driven, compute-on-demand experience that extends the existing Azure application platform with capabilities to implement code triggered by events occurring in other Azure services, SaaS products, and on-premises systems. With Azure Functions, your applications scale based on demand and you pay only for the resources you consume. Azure Functions enables you to create scheduled or triggered units of code implemented in a variety of programming languages. To learn more about Azure Functions, see the [Azure Functions Overview](functions-overview.md).
