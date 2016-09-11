@@ -169,9 +169,13 @@ Once the pipeline executes successfully and "RawCarEventsTable" dataset is marke
 [Azure Data Factory DotNet activity visual studio solution for preparing sample data](http://go.microsoft.com/fwlink/?LinkId=717077) 
 
 
-## Prepare 
+## Partition the dataset
 
 The raw semi-structured vehicle signals and diagnostic dataset are partitioned in the data preparation step into a YEAR/MONTH format. This partitioning promotes more efficient querying and scalable long-term storage by enabling fault-over from one blob account to the next as the first account fills up. 
+
+>[AZURE.ALERT] This step in the solution is applicable only to batch processing.
+
+Input and output data data management:
 
 - The **output data** (labeled *PartitionedCarEventsTable*) is to be kept for a long period of time as the foundational/"rawest" form of data in the customer's "Data Lake". 
 - The **input data** to this pipeline would typically be discarded as the output data has full fidelity to the input - it's just stored (partitioned) better for subsequent use.
@@ -186,9 +190,8 @@ The raw data is partitioned using a Hive HDInsight activity in "PartitionCarEven
 
 *Figure 12 - PartitionCarEventsPipeline*
 
->[AZURE.ALERT] This step in the solution is applicable only to batch processing.
-
 The following Hive script, named "partitioncarevents.hql", is used for partitioning and is located in the "\demo\src\connectedcar\scripts" folder of the downloaded zip. 
+
 
 	SET hive.exec.dynamic.partition=true;
 	SET hive.exec.dynamic.partition.mode = nonstrict;
