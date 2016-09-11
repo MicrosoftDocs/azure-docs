@@ -173,7 +173,7 @@ Once the pipeline executes successfully and "RawCarEventsTable" dataset is marke
 
 The raw semi-structured vehicle signals and diagnostic dataset are partitioned in the data preparation step into a YEAR/MONTH format. This partitioning promotes more efficient querying and scalable long-term storage by enabling fault-over from one blob account to the next as the first account fills up. 
 
->[AZURE.ALERT] This step in the solution is applicable only to batch processing.
+>[AZURE.NOTE] This step in the solution is applicable only to batch processing.
 
 Input and output data data management:
 
