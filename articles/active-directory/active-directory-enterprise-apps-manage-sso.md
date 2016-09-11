@@ -18,11 +18,11 @@
 
 #Preview: Managing single sign-on for enterprise apps in the new Azure portal
 
-This article describes how to use the new [Azure management portal](https://portal.azure.com) to manage single sign-on settings for applications, particularly ones that have been added from the [Azure Active Directory application gallery](https://azure.microsoft.com/en-us/documentation/articles/active-directory-appssoaccess-whatis/#get-started-with-the-azure-ad-application-gallery). The management experience for single sign-on in the new Azure portal is currently in public preview, and this article describes the new features as well as a few temporary limitations that will be in place only during the preview period. 
+This article describes how to use the new [Azure management portal](https://portal.azure.com) to manage single sign-on settings for applications, particularly ones that have been added from the [Azure Active Directory application gallery](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). The management experience for single sign-on in the new Azure portal is currently in public preview, and this article describes the new features as well as a few temporary limitations that will be in place only during the preview period. 
 
 ##Finding your apps in the new portal
 
-As of September 2016, all applications that have been configured for single sign-on in a directory, by a directory administrator using the [Azure Active Directory application gallery](https://azure.microsoft.com/en-us/documentation/articles/active-directory-appssoaccess-whatis/#get-started-with-the-azure-ad-application-gallery) inside the [Azure classic portal](https://manage.windowsazure.com), can now be viewed and managed in the new Azure portal.
+As of September 2016, all applications that have been configured for single sign-on in a directory, by a directory administrator using the [Azure Active Directory application gallery](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery) inside the [Azure classic portal](https://manage.windowsazure.com), can now be viewed and managed in the new Azure portal.
 
 These applications can be found in the **Enterprise Applications** section of the new Azure portal, which can be accessed through the **More Services** menu in the left navigation area. Enterprise apps are apps that have been deployed and are being used by users within your organization.
 
@@ -45,7 +45,7 @@ The **Single sign-on** blade begins with a **Mode** menu, which allows the singl
 
 * **Linked sign on** - Formerly known as "Existing single sign-on", this option allows administrators to place a link to this application in their user's Azure AD Access Panel or Office 3645 application launcher.
 
-For more information about these modes, see [How does single sign-on with Azure Active Directory work](https://azure.microsoft.com/en-us/documentation/articles/active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work.)
+For more information about these modes, see [How does single sign-on with Azure Active Directory work](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 
 ##SAML-based sign on
@@ -73,7 +73,7 @@ Editing of additional attributes will be supported in a subsequent preview.
 ###SAML Signing Certificate
 This section shows the details of the certificate that Azure AD uses to sign the SAML tokens that are issued to the application each time the user authenticates. It allows the properties of the current certificate to be inspected, including the expiration date.
 
-The ability to rollover the certificate and manage additional certificate options will be supported in a subsequent preview release. Note that full management of certificates can still be performed in the [Azure classic portal](https://azure.microsoft.com/en-us/documentation/articles/active-directory-sso-certs/).
+The ability to rollover the certificate and manage additional certificate options will be supported in a subsequent preview release. Note that full management of certificates can still be performed in the [Azure classic portal](active-directory-sso-certs.md).
 
 ###Application Configuration
 The final section provides the documentation and/or controls required to configure the application itself to use Azure Active Directory as an identity provider.
@@ -86,13 +86,13 @@ The **Configure Application** fly-out menu provides new concise, embedded instru
 
 
 ##Password-based sign on
-If supported for the application, selecting the password-based SSO mode and selecting **Save** instantly configures it to do password-based SSO. For more information about deploying password-based SSO, see [How does single sign-on with Azure Active Directory work](https://azure.microsoft.com/en-us/documentation/articles/active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
+If supported for the application, selecting the password-based SSO mode and selecting **Save** instantly configures it to do password-based SSO. For more information about deploying password-based SSO, see [How does single sign-on with Azure Active Directory work](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ![Password-based sign on][4]
 
 
 ##Linked sign on
-If supported for the application, selecting the linked SSO mode allows you to enter the URL that you want the Azure AD Access Panel or Office 365 to redirect to when users click on this app. For more information about linked SSO (formerly known as "existing SSO"), see [How does single sign-on with Azure Active Directory work](https://azure.microsoft.com/en-us/documentation/articles/active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work).
+If supported for the application, selecting the linked SSO mode allows you to enter the URL that you want the Azure AD Access Panel or Office 365 to redirect to when users click on this app. For more information about linked SSO (formerly known as "existing SSO"), see [How does single sign-on with Azure Active Directory work](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
 ![Linked sign-on][5]
 
