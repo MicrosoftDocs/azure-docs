@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/08/2016" 
+	ms.date="09/11/2016" 
 	ms.author="bradsev" />
 
 
@@ -169,10 +169,12 @@ Once the pipeline executes successfully and "RawCarEventsTable" dataset is marke
 [Azure Data Factory DotNet activity visual studio solution for preparing sample data](http://go.microsoft.com/fwlink/?LinkId=717077) 
 
 
-## Prepare
->[AZURE.ALERT] This step in the solution is applicable only to batch processing. 
+## Prepare 
 
-The raw semi-structured vehicle signals and diagnostic dataset are partitioned in the data preparation step into a YEAR/MONTH format. This partitioning promotes more efficient querying and scalable long-term storage by enabling fault-over from one blob account to the next as the first account fills up. The output data (labeled *PartitionedCarEventsTable*) is to be kept for a long period of time as the foundational/"rawest" form of data in the customer's "Data Lake". The input data to this pipeline would typically be discarded as the output data has full fidelity to the input - it's just stored (partitioned) better for subsequent use.
+The raw semi-structured vehicle signals and diagnostic dataset are partitioned in the data preparation step into a YEAR/MONTH format. This partitioning promotes more efficient querying and scalable long-term storage by enabling fault-over from one blob account to the next as the first account fills up. 
+
+- The **output data** (labeled *PartitionedCarEventsTable*) is to be kept for a long period of time as the foundational/"rawest" form of data in the customer's "Data Lake". 
+- The **input data** to this pipeline would typically be discarded as the output data has full fidelity to the input - it's just stored (partitioned) better for subsequent use.
 
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig11-vehicle-telematics-partition-car-events-workflow.png)
 
@@ -183,6 +185,8 @@ The raw data is partitioned using a Hive HDInsight activity in "PartitionCarEven
 ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig12-vehicle-telematics-partition-car-events-pipeline.png)
 
 *Figure 12 - PartitionCarEventsPipeline*
+
+>[AZURE.ALERT] This step in the solution is applicable only to batch processing.
 
 The following Hive script, named "partitioncarevents.hql", is used for partitioning and is located in the "\demo\src\connectedcar\scripts" folder of the downloaded zip. 
 
@@ -397,7 +401,7 @@ This pattern is also applicable to scenarios in which you want to integrate a Li
 
 Click [RealtimeDashboardApp download](http://go.microsoft.com/fwlink/?LinkId=717078) to download the RealtimeDashboardApp Visual Studio solution for customizations. 
 
-**To execute the Real-time Dashboard Application **
+**To execute the Real-time Dashboard Application**
 
 1.	Click the PowerBI node on the diagram view and click the Download Real-time Dashboard Application" link on the properties pane. ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig17-vehicle-telematics-powerbi-dashboard-setup.png) *Figure 17 – PowerBI dashboard setup instructions*
 2.	Extract and save locally ![](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig18-vehicle-telematics-realtimedashboardapp-folder.png) *Figure 18 – RealtimeDashboardApp folder*
@@ -406,7 +410,7 @@ Click [RealtimeDashboardApp download](http://go.microsoft.com/fwlink/?LinkId=717
 
 *Figure 19 – RealtimeDashboardApp: Sign in to PowerBI*
 
->[AZURE.NOTE] Note: If you want to flush the PowerBI dataset, execute the RealtimeDashboardApp with the "flushdata" parameter: 
+>[AZURE.NOTE] If you want to flush the PowerBI dataset, execute the RealtimeDashboardApp with the "flushdata" parameter: 
 
 	RealtimeDashboardApp.exe -flushdata
 

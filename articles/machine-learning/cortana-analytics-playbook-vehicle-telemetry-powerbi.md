@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/08/2016" 
+	ms.date="09/11/2016" 
 	ms.author="bradsev" />
 
 
@@ -328,12 +328,14 @@ The dashboard should look as follows when all the three reports are created and 
 
 Congratulations! You have successfully created the real-time dashboard. As you continue to execute CarEventGenerator.exe and RealtimeDashboardApp.exe, you should see live updates on the dashboard. 
 It should take about 10 to 15 minutes to complete the following steps.
+
  
 ##  Setup Power BI batch processing dashboard
 
 >[AZURE.NOTE] It takes about two hours (from the successful completion of the deployment) for the end to end batch processing pipeline to finish execution and process a year worth of generated data. So wait for the processing to finish before proceeding with the next steps. 
 
 **Download the PowerBI designer file**
+
 -	A pre-configured PowerBI designer file is included as part of the deployment
 -	Click the PowerBI node on the diagram view and click 'Download the PowerBI designer' file link on the properties pane ![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/9.5-download-powerbi-designer.png)
 
@@ -404,20 +406,22 @@ Page 6: Contoso Logo
 ![Connected Cars PowerBI.com](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard2.png)
  
 
-**From Page 3**, pin the following  
+**From Page 3**, pin the following:  
+
 1.	Count of VIN  
 	![Connected Cars PowerBI.com](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard3.png) 
 
 2.	Aggressively driven vehicles by model – Waterfall chart  
 	![Vehicle Telemetry - Pin Charts 4](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard4.png)
 
-**From Page 5**, pin the following  
+**From Page 5**, pin the following: 
+ 
 1.	Count of vin    
 	![Vehicle Telemetry - Pin Charts 5](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard5.png)  
 2.	Fuel efficient vehicles by model: Clustered column chart  
 	![Vehicle Telemetry - Pin Charts 6](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard6.png)
 
-**From Page 4**, pin the following  
+**From Page 4**, pin the following:  
 
 1.	Count of vin  
 	![Vehicle Telemetry - Pin Charts 7](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard7.png) 
@@ -425,7 +429,7 @@ Page 6: Contoso Logo
 2.	Recalled vehicles by city, model: Treemap  
 	![Vehicle Telemetry - Pin Charts 8](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard8.png)  
 
-**From Page 6**, pin the following  
+**From Page 6**, pin the following:  
 
 1.	Contoso Motors logo  
 	![Vehicle Telemetry - Pin Charts 9](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/vehicle-telemetry-dashboard9.png)
