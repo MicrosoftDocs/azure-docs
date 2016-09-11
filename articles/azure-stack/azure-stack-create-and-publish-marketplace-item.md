@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Publish a marketplace item in Azure Stack | Microsoft Azure"
-	description="Publish a marketplace item in Azure Stack."
+	pageTitle="Create and publish a marketplace item in Azure Stack | Microsoft Azure"
+	description="Create and publish a marketplace item in Azure Stack."
 	services="azure-stack"
 	documentationCenter=""
 	authors="rupisure"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="01/29/2016"
+	ms.date="09/09/2016"
 	ms.author="rupisure"/>
 
 # Create and publish a marketplace item
 
-## Create a marketplace itepum
+## Create a marketplace item
 
 1. [Download](http://www.aka.ms/azurestackmarketplaceitem) the Azure Gallery Packaging Tool and Sample Marketplace Item.
 
@@ -39,7 +39,9 @@
 
 6. Save your Azure Resource Manager template in the ``/Contoso.TodoList/DeploymentTemplates/`` folder.
 
-7. Choose the icons and text for your Marketplace item. Add icons to the **Icons** folder and text to the **resources** file in the **Strings** folder. Use the Small, Medium, Large, and Wide naming convention for icons. (Note: all four icons are required) See [marketplace item UI reference](## Reference: marketplace item UI) for detailed description.
+7. Choose the icons and text for your Marketplace item. Add icons to the **Icons** folder and text to the **resources** file in the **Strings** folder. Use the Small, Medium, Large, and Wide naming convention for icons. See [marketplace item UI reference](## Reference: marketplace item UI) for detailed description.
+
+>[AZURE.NOTE] All four icon sizes (large, medium, small, wide are required for building the marketplace item correctly)
 
 8. In the **manifest.json** file, change the **name** to the name of your Marketplace item and **publisher** to your name or company.
 
@@ -64,7 +66,8 @@
 12. Open a command prompt and run the following command to package the folders into an azpkg file:
 
     	AzureGalleryPackager.exe package –m <path to manifest.json> -o <output location for the package>
-    Note: The full path to output package must exist. For example, if the output path is C:\MarketPlaceItem\yourpackage.azpkg, the folder C:\MarketPlaceItem must exist.
+   
+    >[AZURE.NOTE] The full path to output package must exist. For example, if the output path is C:\MarketPlaceItem\yourpackage.azpkg, the folder C:\MarketPlaceItem must exist.
 
 ## Publish a marketplace item
 
@@ -74,7 +77,7 @@
 
 3.  Use the Add-AzureRMGalleryItem PowerShell cmdlet to publish the marketplace item to your Azure Stack. For example:
 
-		Add-AzureRMGalleryItem -SubscriptionId $SubscriptionId -GalleryItemUri https://sample.blob.core.windows.net/gallerypackages/Microsoft.SimpleTemplate.1.0.0.azpkg  -Apiversion "2015-04-01" –Verbose
+		Add-AzureRMGalleryItem -SubscriptionId (Get-AzureRmSubscription -SubscriptionName 'Default Provider Subscription').SubscriptionId -GalleryItemUri https://sample.blob.core.windows.net/gallerypackages/Microsoft.SimpleTemplate.1.0.0.azpkg  -Apiversion "2015-04-01" –Verbose
 
 	| Parameter | Description |
 	|-----------|-------------|
@@ -82,13 +85,15 @@
 	| GalleryItemUri | The blob uri for your gallery package that has already been uploaded to storage |
 	| Apiversion | Set as "2015-04-01" |
 
-4. Navigate to the portal. You can now see the marketplace item in the portal -- as an admin or as a tenant. Note: it may take several minutes for the package to appear.
+4. Navigate to the portal. You can now see the marketplace item in the portal -- as an admin or as a tenant. 
+
+>[AZURE.NOTE] It may take several minutes for the package to appear.
 
 5. Your marketplace item has now been saved to the Azure Stack marketplace. You may choose to delete it from your blob storage location. 
 
 6. You can remove a marketplace item by using the Remove-AzureRMGalleryItem cmdlet. Example:
 
-		Remove-AzureRMGalleryItem -SubscriptionId $SubscriptionId -Name Microsoft.SimpleTemplate.1.0.0 -Apiversion "2015-04-01" –Verbose
+		Remove-AzureRMGalleryItem -SubscriptionId (Get-AzureRmSubscription -SubscriptionName 'Default Provider Subscription').SubscriptionId -Name Microsoft.SimpleTemplate.1.0.0 -Apiversion "2015-04-01" –Verbose
 
 >[AZURE.NOTE] The marketplace UI may error after you remove an item. To fix this, click **Settings** in the portal. Then, select **Discard modifications** under Portal customization.
 
@@ -120,6 +125,7 @@ Following is the list of icons used in the marketplace.
 
 | NAME          | WIDTH | HEIGHT | NOTES                             |
 |---------------|-------|--------|-----------------------------------|
+| Wide          | 255px | 115px  | Always required.                  |
 | Large         | 115px | 115px  | Always required.                  |
 | Medium        | 90px  | 90px   | Always required.                  |
 | Small         | 40px  | 40px   | Always required.                  |
