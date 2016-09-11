@@ -18,13 +18,13 @@
 
 #Preview: Managing user account provisioning for enterprise apps in the new Azure portal
 
-This article describes how to use the new [Azure management portal](https://portal.azure.com) to manage automatic user account provisioning and de-provisioning for applications that support it, particularly ones that have been added from the "featured" category of the [Azure Active Directory application gallery](https://azure.microsoft.com/en-us/documentation/articles/active-directory-appssoaccess-whatis/#get-started-with-the-azure-ad-application-gallery). This management experience in the new Azure portal is currently in public preview, and this article describes the new features as well as a few temporary limitations that will be in place during the preview period. 
+This article describes how to use the new [Azure management portal](https://portal.azure.com) to manage automatic user account provisioning and de-provisioning for applications that support it, particularly ones that have been added from the "featured" category of the [Azure Active Directory application gallery](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). This management experience in the new Azure portal is currently in public preview, and this article describes the new features as well as a few temporary limitations that will be in place during the preview period. 
 
-To learn more about automatic user account provisioning and how it works, see [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](https://azure.microsoft.com/en-us/documentation/articles/active-directory-saas-app-provisioning/).
+To learn more about automatic user account provisioning and how it works, see [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](active-directory-saas-app-provisioning.md).
 
 ##Finding your apps in the new portal
 
-As of September 2016, all applications that have been configured for single sign-on in a directory, by a directory administrator using the [Azure Active Directory application gallery](https://azure.microsoft.com/en-us/documentation/articles/active-directory-appssoaccess-whatis/#get-started-with-the-azure-ad-application-gallery) inside the [Azure classic portal](https://manage.windowsazure.com), can now be viewed and managed in the new Azure portal.
+As of September 2016, all applications that have been configured for single sign-on in a directory, by a directory administrator using the [Azure Active Directory application gallery](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery) inside the [Azure classic portal](https://manage.windowsazure.com), can now be viewed and managed in the new Azure portal.
 
 These applications can be found in the **Enterprise Applications** section of the new Azure portal, which can be accessed through the **More Services** menu in the left navigation area. Enterprise apps are apps that have been deployed and are being used by users within your organization.
 
