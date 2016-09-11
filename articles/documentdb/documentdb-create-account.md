@@ -17,7 +17,7 @@
 	ms.date="09/11/2016"
 	ms.author="mimig"/>
 
-# How to create a DocumentDB account using the Azure portal
+# How to create a DocumentDB NoSQL account using the Azure portal
 
 > [AZURE.SELECTOR]
 - [Azure Portal](documentdb-create-account.md)
@@ -36,19 +36,33 @@ Are you new to DocumentDB? Watch [this](https://azure.microsoft.com/documentatio
 
 ## Next steps
 
-Now that you have a DocumentDB acct, the next step is to build the DocumentDB database. You can create a database by using one of the following:
+Now that you have a DocumentDB account, the next step is to create a DocumentDB database or connect to your migrated MongoDB database. 
+
+### To create a new DocumentDB database
+
+You can create a new database by using one of the following:
 
 - The Azure portal, as described in [Create a DocumentDB database using the Azure portal](documentdb-create-database.md).
 - The C# .NET samples in the [DatabaseManagement](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples/DatabaseManagement) project of the [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) repository on GitHub.
-- The all-inclusive tutorials: [.NET](documentdb-get-started.md), [.NET MVC](documentdb-dotnet-application.md), [Java](documentdb-java-application.md), [Node.js](documentdb-nodejs-application.md), or [Python](documentdb-python-application.md).
+- The all-inclusive tutorials, which include sample data: [.NET](documentdb-get-started.md), [.NET MVC](documentdb-dotnet-application.md), [Java](documentdb-java-application.md), [Node.js](documentdb-nodejs-application.md), or [Python](documentdb-python-application.md).
 - The [DocumentDB SDKs](documentdb-sdk-dotnet.md). DocumentDB has .NET, Java, Python, Node.js, and JavaScript API SDKs.
-
 
 After creating your database, you need to [add one or more collections](documentdb-create-collection.md) to the database, then [add documents](documentdb-view-json-document-explorer.md) to the collections.
 
 After you have documents in a collection, you can use [DocumentDB SQL](documentdb-sql-query.md) to [execute queries](documentdb-sql-query.md#executing-queries) against your documents by using the [Query Explorer](documentdb-query-collections-query-explorer.md) in the portal, the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx), or one of the [SDKs](documentdb-sdk-dotnet.md).
 
+### To connect to a migrated a MongoDB database
+
+You can migrate and connect to a MongoDB database by doing the following:
+
+- Migrate your existing MongoDB database to DocumentDB by using the [Database Migration Tool](documentdb-import-data.md).
+- [Connect to your migrated MongoDB database](documentdb-connect-mongodb-account.md).
+
+After creating or migrating your database, you can now [work with your data in MongoChef](documentdb-mongodb-mongochef.md), [create a sample app](documentdb-mongodb-samples.md), or learn more about [using MongoDB APIs with Azure DocumentDB](documentdb-mongodb-guidelines.md). 
+
+### Learn more
+
 To learn more about DocumentDB, explore these resources:
 
 -	[Learning path for DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
--	[DocumentDB resource model and concepts](documentdb-resources.md)
+-	[DocumentDB hierarchical resource model and concepts](documentdb-resources.md)
