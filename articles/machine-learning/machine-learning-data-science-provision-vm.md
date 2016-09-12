@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2016" 
+	ms.date="09/12/2016" 
 	ms.author="bradsev" />
 
 
@@ -42,7 +42,7 @@ Before you can create a Microsoft Data Science Virtual Machine, you must have th
 
 - **An Azure subscription**: To obtain one, see [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-*   **An Azure storage account**: To create one, see [Create an Azure storage account](storage-create-storage-account.md#create-a-storage-account) Alternatively, the storage account can be created as part of the process of creating the VM if you do not want to use an existing account.
+*   **An Azure storage account**: To create one, see [Create an Azure storage account](storage-create-storage-account.md#create-a-storage-account) Alternatively, if you do not want to use an existing account, the storage account can be created as part of the process of creating the VM.
 
 
 ## Create your Microsoft Data Science Virtual Machine
@@ -68,7 +68,7 @@ Here are the steps to create an instance of the Microsoft Data Science Virtual M
 
      **c. Settings**
 
-   - **Disk Type**: Choose Premium if you prefer a solid state drive (SSD), else choose “Standard”.
+   - **Disk Type**: If you prefer a solid-state drive (SSD), choose **Premium**, else choose **Standard**.
    - **Storage Account**: You can create a new Azure storage account in your subscription or use an existing one in the same *Location* that was chosen on the Basics step of the wizard.
    - **Other parameters**: In most cases you will just use the default values. You can hover over the informational link for help on the specific fields in case you want to consider the use of non-default values.
 
