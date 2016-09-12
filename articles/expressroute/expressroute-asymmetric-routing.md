@@ -36,7 +36,9 @@ Each router along the way, from source to destination, computes the best path to
 
 ## Stateful devices
 
-Routers look at the IP header of a packet for routing purposes. Some devices look even deeper inside the packet. Typically, these devices look at Layer4 (Transmission Control Protocol, or TCP; or User Datagram Protocol, or UDP), or even Layer7 (Application Layer) headers. These kinds of devices are either security devices or bandwidth-optimization devices. A firewall is a common example of a stateful device. A firewall allows or denies a packet to pass through its interfaces based on various fields such as protocol, TCP/UDP port, and URL headers. This level of packet inspection puts a heavy processing load on the device. To improve performance, the firewall inspects the first packet of a flow. If it allows the packet to proceed, it keeps the flow information in its state table. All subsequent packets related to this flow are allowed based on the initial determination. A packet that is part of an existing flow might arrive at the firewall. If the firewall has no prior state information about it, the firewall drops the packet.
+Routers look at the IP header of a packet for routing purposes. Some devices look even deeper inside the packet. Typically, these devices look at Layer4 (Transmission Control Protocol, or TCP; or User Datagram Protocol, or UDP), or even Layer7 (Application Layer) headers. These kinds of devices are either security devices or bandwidth-optimization devices. 
+
+A firewall is a common example of a stateful device. A firewall allows or denies a packet to pass through its interfaces based on various fields such as protocol, TCP/UDP port, and URL headers. This level of packet inspection puts a heavy processing load on the device. To improve performance, the firewall inspects the first packet of a flow. If it allows the packet to proceed, it keeps the flow information in its state table. All subsequent packets related to this flow are allowed based on the initial determination. A packet that is part of an existing flow might arrive at the firewall. If the firewall has no prior state information about it, the firewall drops the packet.
 
 ## Asymmetric routing with ExpressRoute
 
@@ -66,10 +68,10 @@ If you want to use ExpressRoute for authentication, make sure that you are adver
 
 ### Source-based NAT
 
-Another way of solving asymmetric routing issues is by using Source NAT (SNAT). For example, you have not advertised the public IP address of an on-premises Simple Mail Transfer Protocol (SMTP) server over ExpressRoute because you intend to use the Internet for this type of communication. A request that originates with Microsoft and then goes to your on-premises SMTP server traverses the Internet. You SNAT the incoming request to an internal IP address. Reverse traffic from the SMTP server goes to the edge firewall (which you use for NAT) instead of through ExpressRoute. The return traffic goes back via the Internet.
+Another way of solving asymmetric routing issues is by using SNAT. For example, you have not advertised the public IP address of an on-premises Simple Mail Transfer Protocol (SMTP) server over ExpressRoute because you intend to use the Internet for this type of communication. A request that originates with Microsoft and then goes to your on-premises SMTP server traverses the Internet. You SNAT the incoming request to an internal IP address. Reverse traffic from the SMTP server goes to the edge firewall (which you use for NAT) instead of through ExpressRoute. The return traffic goes back via the Internet.
 
 
-![Source-based NAT (SNAT) network configuration](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
+![Source-based NAT network configuration](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
 
 ## Asymmetric routing detection
 
