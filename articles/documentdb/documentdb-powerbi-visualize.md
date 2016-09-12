@@ -14,10 +14,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/11/2016"
 	ms.author="hawong"/>
 
 # Power BI tutorial for DocumentDB: Visualize data using the Power BI connector
+
 [PowerBI.com](https://powerbi.microsoft.com/) is an online service where you can create and share dashboards and reports with data that's important to you and your organization.  Power BI Desktop is a dedicated report authoring tool that enables you to retrieve data from various data sources, merge and transform the data, create powerful reports and visualizations, and publish the reports to Power BI.  With the latest version of Power BI Desktop, you can now connect to your DocumentDB account via the DocumentDB connector for Power BI.   
 
 In this Power BI tutorial, we will walk through the steps to connect to a DocumentDB account in Power BI Desktop, navigate to a collection where we want to extract the data using the Navigator, transform JSON data into tabular format using Power BI Desktop Query Editor, and build and publish a report to PowerBI.com.
@@ -191,6 +192,32 @@ To share your report, you must have an account in PowerBI.com.
 2. Click **Publish**.  You will be prompted to enter the user name and password for your PowerBI.com account.
 3. Once the credential has been authenticated, the report is published to your PowerBI.com account.
 4. You can then share your report in PowerBI.com.
+
+## Publish data in PowerBI.com
+
+1.	Create a report in Power BI Desktop as described in the previous sections of this article.
+2. When you publish a report in your PowerBI.com tenant,  there are two items created associated with the published report in PowerBI.com, a dataset and a report. For example, after you published a report called VolcanoDB to PowerBI.com, you will see VolcanoDB in the Reports and Datasets sections respectively in your PowerBI.com tenant.
+3. To create a dashboard, click on the VolcanoDB report in the Reports section. Once the report opens, you can then ‘pin’ the charts element to a dashboard.  You can also do adhoc modifications to report. However, it's recommended that you use Power BI Desktop to perform the modifications and republish the report to PowerBI.com.
+
+## Refresh data in PowerBI.com
+
+There are two ways to refresh data, ad-hoc and scheduled.
+
+For an adhoc refresh, simply click on the eclipses (…) by the dataset, e.g. VolcanoDB. You should see a list of actions including **Refresh Now**.   Click **Refresh Now** to refresh the data.
+
+For a scheduled refresh, do the following.
+
+1. Click **Schedule Refresh** in the action list. 
+
+    The **Settings** page appears. You should see a set of settings for the dataset as shown below. 
+2. Expand **Data source credentials**. 
+3. Click on **Edit credentials**. 
+
+    The Configure popup appears. 
+
+4. Enter the key to connect to the DocumentDB account for that data set, then click **Sign in**. 
+5. Expand **Schedule Refresh** and set up the schedule you want to refresh the dataset.   
+6. Click **Apply** and you are done setting the dataset to refresh on a particular schedule.
 
 ## Next steps
 - To learn more about Power BI, click [here](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/)
