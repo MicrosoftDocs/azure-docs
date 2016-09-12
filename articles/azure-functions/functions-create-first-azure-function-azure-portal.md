@@ -45,7 +45,7 @@ Before you can create your first function, you need to have an active Azure acco
 
 3. Click **Create** to provision and deploy the new function app.  
 
-Now that the function app is provisioned, you can create your first function in the app.
+Now that the function app is provisioned, you can create your first function.
 
 ## Create a function
 
