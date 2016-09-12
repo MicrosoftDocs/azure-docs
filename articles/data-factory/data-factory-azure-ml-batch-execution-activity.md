@@ -27,7 +27,7 @@
 
 1. **Create a training experiment**. You do this step by using the Azure ML Studio. The ML studio is a collaborative visual development environment that you use to train and test a predictive analytics model using training data.
 2. **Convert it to a predictive experiment**. Once your model has been trained with existing data and you are ready to use it to score new data, you prepare and streamline your experiment for scoring.
-3. **Deploy it as a web service**. You can publish your scoring experiment as an Azure web service. Users can send data to your model via this web service end point and receive result predictions fro the model.  
+3. **Deploy it as a web service**. You can publish your scoring experiment as an Azure web service. You can send data to your model via this web service end point and receive result predictions fro the model.  
 
 Azure Data Factory enables you to easily create pipelines that use a published [Azure Machine Learning][azure-machine-learning] web service for predictive analytics. Using the **Batch Execution Activity** in an Azure Data Factory pipeline, you can invoke an Azure ML web service to make predictions on the data in batch. See [Invoking an Azure ML web service using the Batch Execution Activity](#invoking-an-azure-ml-web-service-using-the-batch-execution-activity) section for details.
 
