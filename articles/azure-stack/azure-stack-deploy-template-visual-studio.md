@@ -30,7 +30,7 @@ Resource Manager templates deploy and provision all the resources for your appli
 
 4.  In the **Select Azure Template** dialog box, click **Windows Virtual Machine**, and then click **OK**.
 
-  You can see a list of the templates available in your new project by expanding the **Templates** node in the **Solution Explorer** pane.
+  In your new project, you can see a list of the templates available by expanding the **Templates** node in the **Solution Explorer** pane.
 
 5.  In the **Solution Explorer** pane, right-click the name of your project, click **Deploy**, then click **New Deployment**.
 
