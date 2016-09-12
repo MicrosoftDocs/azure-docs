@@ -59,10 +59,11 @@ a new concept using "service principals" for the new Azure Resource Manager mode
 SAP CAL isn't adapted yet for the new ARM model and still requires the "classic" model and the former
 Azure portal to work with management certificates.
 
-![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic4.jpg)
+![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic4b.jpg)
 
 Here one can see the former Azure portal. The upload of a management certificate gives SAP CAL the permissions 
-to create virtual machines within a customer subscription.
+to create virtual machines within a customer subscription. Under the "SUBSCRIPTIONS" tab one can find the
+subscription ID that has to be entered in the SAP CAL portal.
 
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic5.jpg)
 
