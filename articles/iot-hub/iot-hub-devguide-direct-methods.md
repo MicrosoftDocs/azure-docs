@@ -3,7 +3,7 @@
  description="Azure IoT Hub developer guide - use direct methods to invoke code on your devices"
  services="iot-hub"
  documentationCenter=".net"
- authors="?????"
+ authors="nberdy"
  manager="timlt"
  editor=""/>
 
@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="09/30/2016" 
- ms.author="????"/>
+ ms.author="nberdy"/>
 
 # Invoke a direct method on a device
 

@@ -3,7 +3,7 @@
  description="Azure IoT Hub developer guide - use device twins to synchronize state and configuration data between IoT Hub and your devices"
  services="iot-hub"
  documentationCenter=".net"
- authors="??????"
+ authors="fsautomata"
  manager="timlt"
  editor=""/>
 
@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="09/30/2016" 
- ms.author="??????"/>
+ ms.author="elioda"/>
 
 # Use device twins to synchronize state and configurations
 

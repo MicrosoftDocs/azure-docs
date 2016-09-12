@@ -317,7 +317,6 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-c2d]: iot-hub-devguide-messaging.md#cloud-to-device-messages
 [lnk-protocols]: iot-hub-devguide-messaging.md#communication-protocols
 [lnk-message-format]: iot-hub-devguide-messaging.md#message-format
-[lnk-d2c-configuration]: device-to-cloud-configuration optionsiot-hub-devguide-messaging.md#
 [lnk-d2c-configuration]: iot-hub-devguide-messaging.md#device-to-cloud-configuration-options
 [lnk-device-properties]: iot-hub-devguide-identity-register.md#device-identity-properties
 [lnk-ttl]: iot-hub-devguide-messaging.md#message-expiration-time-to-live
