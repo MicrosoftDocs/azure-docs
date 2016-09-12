@@ -268,7 +268,7 @@ If your data is already serialized, you can use:
         description='my description'
     )
 
-The Python client library are able to serialize a Pandas DataFrame to the following formats (constants for these are in the `azureml.DataTypeIds` class):
+The Python client library is able to serialize a Pandas DataFrame to the following formats (constants for these are in the `azureml.DataTypeIds` class):
 
  - PlainText
  - GenericCSV
