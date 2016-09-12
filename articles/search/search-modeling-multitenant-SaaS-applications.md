@@ -36,7 +36,7 @@ Adding and removing partitions and replicas at will allow the capacity of the se
 
 
 ### Service and Index Limits in Azure Search
-There are a few different [pricing tiers](https://azure.microsoft.com/pricing/details/search/) in Azure Search, each of the tiers has different [limits and quotas](https://azure.microsoft.com/documentation/articles/search-limits-quotas-capacity/). Some of these limits are at the service-level, some are at the index-level, and some are at the partition-level.
+There are a few different [pricing tiers](https://azure.microsoft.com/pricing/details/search/) in Azure Search, each of the tiers has different [limits and quotas](search-limits-quotas-capacity.md). Some of these limits are at the service-level, some are at the index-level, and some are at the partition-level.
 
 
 |                                  | Basic     | Standard1   | Standard2   | Standard3   | Standard3 HD  |
@@ -121,4 +121,4 @@ To have a single index behave differently for different client endpoints, a fiel
 This method can be used to achieve functionality of separate user accounts, separate permission levels, and even completely separate applications.
 
 ## Summary
-Azure Search is a compelling choice for many applications with its [robust capabilities](http://aka.ms/whatisazsearch) and the benefits of a [managed service](https://azure.microsoft.com/support/legal/sla/search/v1_0/). For multitenant applications, Azure Search offers a few strategies for achieving tenant isolation while accommodating a variety of architectures. Azure Search offers a number of [pricing tiers](https://azure.microsoft.com/pricing/details/search/) and a comprehensive range of service [limits](https://azure.microsoft.com/documentation/articles/search-limits-quotas-capacity/) to fit application workloads of all sizes.
+Azure Search is a compelling choice for many applications with its [robust capabilities](http://aka.ms/whatisazsearch) and the benefits of a [managed service](https://azure.microsoft.com/support/legal/sla/search/v1_0/). For multitenant applications, Azure Search offers a few strategies for achieving tenant isolation while accommodating a variety of architectures. Azure Search offers a number of [pricing tiers](https://azure.microsoft.com/pricing/details/search/) and a comprehensive range of service [limits](search-limits-quotas-capacity.md) to fit application workloads of all sizes.
