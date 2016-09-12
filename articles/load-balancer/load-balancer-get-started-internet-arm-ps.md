@@ -33,7 +33,7 @@ The following procedures show how to create an Internet-facing load balancer by 
 
 You must create and configure the following objects to deploy a load balancer:
 
-- Front-end IP configuration: contains public IP addresses for incoming network traffic.
+- Front-end IP configuration: contains public IP (PIP) addresses for incoming network traffic.
 - Back-end address pool: contains network interfaces (NICs) for the virtual machines to receive network traffic from the load balancer.
 - Load-balancing rules: contains rules that map a public port on the load balancer to a port in the back-end address pool.
 - Inbound NAT rules: contains rules that map a public port on the load balancer to a port for a specific virtual machine in the back-end address pool.
@@ -96,7 +96,6 @@ This example creates the following items:
 - A load balancer rule to balance all incoming traffic on port 80 to port 80 on the addresses in the back-end pool
 - A probe rule to check the health status on a page named **HealthProbe.aspx**
 - A load balancer that uses all these objects
-
 
 1. Create the NAT rules.
 
