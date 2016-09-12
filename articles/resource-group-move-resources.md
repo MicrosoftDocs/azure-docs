@@ -187,11 +187,11 @@ To move resources to a new resource group in the same subscription, select the r
 
 ![move resources](./media/resource-group-move-resources/edit-rg-icon.png)
 
-To move resources to a new subscription, select the resource group containing those resources, and then select the edit subscripiton icon.
+To move resources to a new subscription, select the resource group containing those resources, and then select the edit subscription icon.
 
 ![move resources](./media/resource-group-move-resources/change-subscription.png)
 
-Select the resources to move and the destination resource group. Acknowledge that you need to update scripts for these resources and select **OK**. If you selected the edit subscripiton icon in the previous step, you must also select the destination subscripiton.
+Select the resources to move and the destination resource group. Acknowledge that you need to update scripts for these resources and select **OK**. If you selected the edit subscription icon in the previous step, you must also select the destination subscription.
 
 ![select destination](./media/resource-group-move-resources/select-destination.png)
 
