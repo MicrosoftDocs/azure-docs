@@ -337,11 +337,12 @@ It should take about 10 to 15 minutes to complete the following steps.
 **Download the PowerBI designer file**
 
 -	A pre-configured PowerBI designer file is included as part of the deployment
--	Click the PowerBI node on the diagram view and click 'Download the PowerBI designer' file link on the properties pane ![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/9.5-download-powerbi-designer.png)
+-	Click the PowerBI node on the diagram view and click **Download the PowerBI designer file** link on the properties pane ![](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/9.5-download-powerbi-designer.png)
 
 -	Save locally
 
 **Configure PowerBI reports**
+
 -	Open the designer file ‘VehicleTelemetryAnalytics - Desktop Report.pbix’ using PowerBI Desktop. If you do not already have, install the PowerBI Desktop from [PowerBI Desktop install](http://www.microsoft.com/download/details.aspx?id=45331). 
 
 -	Click the **Edit Queries**.
