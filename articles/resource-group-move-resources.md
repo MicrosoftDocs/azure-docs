@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2016" 
+	ms.date="09/12/2016" 
 	ms.author="tomfitz"/>
 
 # Move resources to new resource group or subscription
@@ -139,7 +139,7 @@ When moving resources from one resource group to another resource group **within
 When moving resources to a **new subscription**, the following restrictions apply:
 
 - All classic resources in the subscription must be moved in the same operation.
-- The target subscription must not contain any other resources.
+- The target subscription must not contain any other classic resources.
 - The move can only be requested through a separate REST API for classic moves. The standard Resource Manager move commands do not work when moving classic resources to a new subscription.
 
 To move classic resources to a new resource group **within the same subscription**, use the [portal](#use-portal), [Azure PowerShell](#use-powershell), [Azure CLI](#use-azure-cli), or [REST API](#use-rest-api).
@@ -183,11 +183,15 @@ With request body:
 
 ## Use portal
 
-To move a resource, select the resource and then select the **Move** button.
+To move resources to a new resource group in the same subscription, select the resource group containing those resources, and then select the **Move** button.
 
 ![move resources](./media/resource-group-move-resources/edit-rg-icon.png)
 
-You specify the destination subscription and resource group when moving the resource. If other resources must be moved with the resource, they are listed.
+To move resources to a new subscription, select the resource group containing those resources, and then select the edit subscripiton icon.
+
+![move resources](./media/resource-group-move-resources/change-subscription.png)
+
+Select the resources to move and the destination resource group. Acknowledge that you need to update scripts for these resources and select **OK**. If you selected the edit subscripiton icon in the previous step, you must also select the destination subscripiton.
 
 ![select destination](./media/resource-group-move-resources/select-destination.png)
 
