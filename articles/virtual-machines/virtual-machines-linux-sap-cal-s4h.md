@@ -19,3 +19,9 @@ tags="azure-resource-manager"
 
 
 # Deploying S/4 HANA or BW/4 HANA on Microsoft Azure 
+
+
+![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic-1b.jpg)
+
+
+
