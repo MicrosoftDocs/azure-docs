@@ -28,7 +28,7 @@ This article describes how to use the Service Fabric solution in Log Analytics t
 
 The Service Fabric solution uses Azure Diagnostics data from your Service Fabric VMs, by collecting this data from your Azure WAD tables. Log Analytics then reads Service Fabric framework events, including **Reliable Service Events**, **Actor Events**, **Operational Events**, and **Custom ETW events**. With the solution dashboard, you are able to view notable issues and relevant events in your Service Fabric environment.
 
-In order to get started with the solution, you will need to connect your Service Fabric cluster to a Log Analytics workspace. Use any of the following Azure resource manager templates depending on what scenario best fits yours:
+To get started with the solution, you will need to connect your Service Fabric cluster to a Log Analytics workspace. Use any of the following Azure resource manager templates depending on what scenario best fits yours:
 
 ##Deploy a new Service Fabric Cluster connected to a Log Analytics workspace.
 This template does the following:
@@ -68,7 +68,7 @@ Following the same steps above, input the necessary parameters, and kick off a d
 
 ###Viewing Performance Data
 </br>
-In order to view Perf Data from your nodes:
+To view Perf Data from your nodes:
 </br>
 1. Launch the Log Analytics workspace from the Azure portal.
 
