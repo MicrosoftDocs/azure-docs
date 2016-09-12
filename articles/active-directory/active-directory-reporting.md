@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Active Directory reporting - preview | Microsoft Azure"
-   description="Lists the various available reports in Azure Active Directory reporting"
+   description="Lists the various available reports for Azure Active Directory reporting"
    services="active-directory"
    documentationCenter=""
    authors="markusvi"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/17/2016"
+   ms.date="09/12/2016"
    ms.author="markvi"/>
 
 # Azure Active Directory reporting - preview
@@ -88,7 +88,7 @@ Your entry point to this data is the top 3 applications in your organization wit
 
 The app usage graph weekly aggregations of sign ins for your top 3 applications in a given time period. The default for the time period is 30 days.
 
-![Reporting](./media/active-directory-reporting/top3apps.png "Reporting")
+![Reporting](./media/active-directory-reporting/78.png "Reporting")
 
 If you want to, you can set the focus on a specific application. 
 
@@ -102,9 +102,9 @@ When you click on a day in the app usage graph, you get a detailed list of the s
 
 
 
-The Usage option gives you a complete overview of all sign-in events to your applications.
+The **Sign-ins** option gives you a complete overview of all sign-in events to your applications.
 
-![Reporting](./media/active-directory-reporting/sign-ins_from_left_nav.png "Reporting")
+![Reporting](./media/active-directory-reporting/85.png "Reporting")
 
 By using the column chooser, you can select the data fields you want to display.
 
@@ -120,10 +120,10 @@ You can filter sign-ins by a time interval to limit the amount of displayed data
 
 
 Another method to filter the entries of the sign-in activities is to search for specific entries.
-The search method enables you to scope your sign-ins around specific users, groups or applications.
+The search method enables you to scope your sign-ins around specific **users**, **groups** or **applications**.
 
 
-![Reporting](./media/active-directory-reporting/sign_ins_search.png "Reporting")
+![Reporting](./media/active-directory-reporting/84.png "Reporting")
 
 
 
