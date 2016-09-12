@@ -134,7 +134,7 @@ Visual Studio Application Insights provides tools for filtering and searching lo
 3. Upload your project and run it to generate log data.
 4. In the [Azure Portal](https://portal.azure.com/), browse to your new Application Insights resource, and open **Search**. You'll see your log data, along with request, usage and other telemetry. Some telemetry might take a few minutes to arrive: click Refresh. [Learn more](../application-insights/app-insights-diagnostic-search.md)
 
-[Learn more about performance tracking with Application Insights](../azure-portal/insights-perf-analytics.md)
+[Learn more about performance tracking with Application Insights](../application-insights/app-insights-azure-web-apps.md)
 
 ##<a name="streamlogs"></a> How to: Stream logs
 

@@ -162,7 +162,6 @@ If you would like to try out some of the concepts described in this article, you
 <!-- links and images -->
 
 [img-tokenservice]: ./media/iot-hub-devguide-security/tokenservice.png
-
 [lnk-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
