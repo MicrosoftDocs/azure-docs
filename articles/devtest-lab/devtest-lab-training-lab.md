@@ -51,8 +51,8 @@ In this article, you learn about various Azure DevTest Labs features that can be
 
     Learn more:
 
-    -    [Configure Azure Marketplace images](devtest-lab-configure-marketplace-images.md) - Learn how you can whitelist Azure market place images and pick the ones that you need for the training. 
-    -    [Create a custom image](devtest-lab-create-template.md) - Create a custom image by baking in all the software that you need for the training so that trainees can quickly create a VM using the custom image.
+    -    [Configure Azure Marketplace images](devtest-lab-configure-marketplace-images.md) - Learn how you can whitelist Azure Marketplace images, making available for selection only the images you want for the training. 
+    -    [Create a custom image](devtest-lab-create-template.md) - Create a custom image by pre-installing the software you need for the training so that trainees can quickly create a VM using the custom image.
 
 3. **Create reusable templates for training machines** 
 
