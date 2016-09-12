@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Face redaction with Azure Media Analytics"
-	description="This topic demonstrates how to redact faces with Azure Media Analytics."
+	pageTitle="Face redaction with Azure media analytics | Microsoft Azure"
+	description="This topic demonstrates how to redact faces with Azure media analytics."
 	services="media-services"
 	documentationCenter=""
 	authors="juliako"
@@ -16,7 +16,7 @@
 	ms.date="09/08/2016"   
 	ms.author="juliako;"/>
  
-#Face redaction with Azure Media Analytics
+#Face redaction with Azure media analytics
 
 ##Overview
 
@@ -57,7 +57,7 @@ The **analyze** pass of the two-pass workflow takes a video input and produces a
 Stage|File Name|Notes
 ---|---|----
 Input asset|foo.bar|Video in WMV, MPV, or MP4 format
-Input config|Job configuration preset|{'version':'1.0', 'options': {'Mode':'analyze'}}
+Input config|Job configuration preset|{'version':'1.0', 'options': {'mode':'analyze'}}
 Output asset|foo_annotations.json|Annotation data of face locations in JSON format. This can be edited by the user to modify the blurring bounding boxes. See sample below.
 Output asset|foo_thumb%06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg]|A cropped jpg of each detected face, where the number indicates the labelId of the face
 
