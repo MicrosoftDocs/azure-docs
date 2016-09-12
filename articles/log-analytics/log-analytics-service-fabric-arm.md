@@ -26,26 +26,27 @@
 
 This article describes how to use the Service Fabric solution in Log Analytics to help identify and troubleshoot issues across your Service Fabric cluster.
 
-The Service Fabric solution uses Azure Diagnostics data from your Service Fabric VMs, by collecting this data from your Azure WAD tables. Log Analytics then reads Service Fabric framework events, including **Reliable Service Events**, **Actor Events**, **Operational Events**, and **Custom ETW events**. The Service Fabric solution dashboard shows you notable issues and relevant events in your Service Fabric environment.
+The Service Fabric solution uses Azure Diagnostics data from your Service Fabric VMs, by collecting this data from your Azure WAD tables. Log Analytics then reads Service Fabric framework events, including **Reliable Service Events**, **Actor Events**, **Operational Events**, and **Custom ETW events**. With the solution dashboard, you are able to view notable issues and relevant events in your Service Fabric environment.
 
-You can use the following Azure resource manager templates depending on what scenario best fits yours:
+In order to get started with the solution, you will need to connect your Service Fabric cluster to a Log Analytics workspace. Use any of the following Azure resource manager templates depending on what scenario best fits yours:
 
 ##Deploy a new Service Fabric Cluster connected to a Log Analytics workspace.
 This template does the following:
 
-1. Deploys an Azure Service Fabric cluster already connected to a Log Analytics workspace. You can create a new workspace while deploying the template, or input the name of an already existing Log Analytics workspace.
+
+1. Deploys an Azure Service Fabric cluster already connected to a Log Analytics workspace. You have the option to create a new workspace while deploying the template, or input the name of an already existing Log Analytics workspace.
 2. Adds the diagnostic storage account to the Log Analytics workspace. 
 3. Enables the Service Fabric solution in your Log Analytics workspace.
 
 [![Deploy to Azure](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-oms%2F%2Fazuredeploy.json) 
 
 
-Once you select the deploy button above, you arrive on the Azure portal, go ahead and edit the parameters listed. Be sure to create a new resource group if you input a new Log Analytics workspace name:
+Once you select the deploy button above, you will arrive on the Azure portal with parameters for you to edit. Be sure to create a new resource group if you input a new Log Analytics workspace name:
 ![Service Fabric](./media/log-analytics-service-fabric/2.png)
 
 ![Service Fabric](./media/log-analytics-service-fabric/3.png)
 
-Accept the legal terms and hit "Create" to start the deployment. Once the deployment is completed, you should be able to see the new workspace and cluster created, and the WADServiceFabric*Event, WADWindowsEventLogs and WADETWEvent tables added:
+Accept the legal terms and hit "Create" to start the deployment. Once the deployment is completed, you should see the new workspace and cluster created, and the WADServiceFabric*Event, WADWindowsEventLogs and WADETWEvent tables added:
 
 ![Service Fabric](./media/log-analytics-service-fabric/4.png)
 
@@ -53,9 +54,9 @@ Accept the legal terms and hit "Create" to start the deployment. Once the deploy
 This template does the following:
 
 1. Deploys an Azure Service Fabric cluster already connected to a Log Analytics workspace. Again, you can create a new workspace or use an existing one.
-2. It also adds the diagnostic storage accounts to the Log Analytics workspace.
+2. Adds the diagnostic storage accounts to the Log Analytics workspace.
 3. Enables the Service Fabric solution in the Log Analytics workspace.
-4. Installs the MMA agent extension in each VM scale set in your Service Fabric cluster. With the MMA agent installed, you're able to view the VM's performance metrics. In order to view these metrics, be sure to add performance counters in Settings > Data > Windows Performance Counters. 
+4. Installs the MMA agent extension in each VM scale set in your Service Fabric cluster. With the MMA agent installed, you are able to view performance metrics about your nodes.
 
 
 [![Deploy to Azure](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-vmss-oms%2F%2Fazuredeploy.json) 
@@ -65,15 +66,19 @@ Following the same steps above, input the necessary parameters, and kick off a d
 
 ![Service Fabric](./media/log-analytics-service-fabric/5.png)
 
-To view Perf Data from your nodes:
+###Viewing Performance Data
+</br>
+In order to view Perf Data from your nodes:
+</br>
 1. Launch the Log Analytics workspace from the Azure portal.
 
 ![Service Fabric](./media/log-analytics-service-fabric/6.png)
 
-2. Go to Settings on the left pane, and select Data, and then Windows Performance Counters. Select "Add the selected performance counters":
+2. Go to Settings on the left pane, and select Data >> Windows Performance Counters >> "Add the selected performance counters":
 ![Service Fabric](./media/log-analytics-service-fabric/7.png)
 
 3. In Log Search, use the following queries to delve into key metrics about your nodes:
+</br>
 	a. Compare the average CPU Utilization across all your nodes in the last one hour to see which nodes are having issues and at what time interval a node had a spike:
 	
 	``` Type=Perf ObjectName=Processor CounterName="%Processor Time"|measure avg(CounterValue) by Computer Interval 1HOUR. ```
@@ -97,11 +102,12 @@ To view Perf Data from your nodes:
 	
 	![Service Fabric](./media/log-analytics-service-fabric/12.png)
 	
-	You can read more information about performance metrics in Log Analytics [here.] (https://blogs.technet.microsoft.com/msoms/tag/metrics/)
+	Read more information about performance metrics in Log Analytics [here.] (https://blogs.technet.microsoft.com/msoms/tag/metrics/)
 
 
 ##Adding an existing storage account to Log Analytics
 This template simply adds your existing storage accounts to a new or existing Log Analytics workspace.
+</br>
 [![Deploy to Azure](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Foms-storageaccount%2F%2Fazuredeploy.json) 
 
 >[AZURE.NOTE] In selecting a Resource Group, if you're working with an already existing Log Analytics workspace, select "Use Existing" and search for the resource group containing the OMS workspace. Create a new one if otherwise.
