@@ -1,6 +1,6 @@
 ﻿<properties
 	pageTitle="Deploy templates with PowerShell in Azure Stack | Microsoft Azure"
-	description="Learn how to deploy a virtual machine using a template and PowerShell."
+	description="Learn how to deploy a virtual machine using a Resource Manager template and PowerShell."
 	services="azure-stack"
 	documentationCenter=""
 	authors="heathl17"
