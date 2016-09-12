@@ -24,9 +24,9 @@ Resource Manager evaluates the dependencies between resources, and deploys them 
 
 ## dependsOn
 
-Within your template, the dependsOn element provides the ability to define one resource as a dependent on one or more resources. It's value can be a comma separated list of resource names. 
+Within your template, the dependsOn element enables you to define one resource as a dependent on one or more resources. Its value can be a comma-separated list of resource names. 
 
-The following example shows a virtual machine scale set that is dependent on a load balancer, virtual network, and a loop that creates multiple storage accounts. These other resources are not shown below, but they would need to exist elsewhere in the template.
+The following example shows a virtual machine scale set that depends on a load balancer, virtual network, and a loop that creates multiple storage accounts. These other resources are not shown in the following example, but they would need to exist elsewhere in the template.
 
     {
       "type": "Microsoft.Compute/virtualMachineScaleSets",
@@ -44,12 +44,10 @@ The following example shows a virtual machine scale set that is dependent on a l
       ...
     }
 
-If you need to define a dependency between a resource and resources that are created through a copy loop (as shown above), you can set the dependsOn element to name of the loop. For an example, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
+To define a dependency between a resource and resources that are created through a copy loop, set the dependsOn element to name of the loop. For an example, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
 
-While you may be inclined to use dependsOn to map dependencies between your resources, it's important to understand why you're doing it because it can impact the performance of your deployment. 
-For example, if you're doing this because you want to document how resources are interconnected, dependsOn is not the right approach. The lifecycle of dependsOn is just for deployment and is 
-not available post-deployment. Once deployed there is no way to query these dependencies. By using dependsOn you run the risk of impacting performance where you may inadvertently distract the 
-deployment engine from using parallelism where it might have otherwise. To document and provide query capabililty over the relationships between resources, you should instead use [resource linking](resource-group-link-resources.md).
+While you may be inclined to use dependsOn to map dependencies between your resources, it's important to understand why you're doing it because it can impact the performance of your deployment. For example, if you're doing this because you want to document how resources are interconnected, dependsOn is not the right approach. The lifecycle of dependsOn is just for deployment and is 
+not available post-deployment. Once deployed there is no way to query these dependencies. By using dependsOn you run the risk of impacting performance where you may inadvertently distract the deployment engine from using parallelism where it might have otherwise. To document relationships between resources, instead use [resource linking](resource-group-link-resources.md).
 
 ## Child resources
 
