@@ -1,60 +1,60 @@
-<properties 
-	pageTitle="Move data to and from File System | Azure Data Factory" 
-	description="Learn how to move data to/from on-premises File System using Azure Data Factory." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+<properties
+	pageTitle="Move data to and from a file system | Azure Data Factory"
+	description="Learn how to move data to and from an on-premises file system by using Azure Data Factory."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
-<tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/01/2016" 
+<tags
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2016"
 	ms.author="spelluru"/>
 
-# Move data to and from On-premises file system using Azure Data Factory
+# Move data to and from an on-premises file system by using Azure Data Factory
 
-This article outlines how you can use data factory copy activity to move data to and from on-premises file system. See [Supported sources and sinks](data-factory-data-movement-activities.md#supported-data-stores) for a list of data stores that can be used as sources or sinks with the on-premises file system.  This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with copy activity and supported data store combinations.
+This article outlines how you can use Azure Data Factory Copy Activity to move data to and from an on-premises file system. See [Supported sources and sinks](data-factory-data-movement-activities.md#supported-data-stores) for a list of data stores that can be used as sources or sinks with the on-premises file system. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with Copy Activity and supported data store combinations.
 
-Data factory supports connecting to and from on-premises File System via the Data Management Gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step by step instructions on setting up the gateway. 
+Data Factory supports connecting to and from an on-premises file system via Data Management Gateway. To learn about Data Management Gateway and for step-by-step instructions on setting up the gateway, see [Move data between on-premises sources and the cloud with Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md).
 
-> [AZURE.NOTE] 
-> Apart from the Data Management Gateway no other binaries need to be installed to communicate to and from on-premises File System.
-> 
-> See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) for tips on troubleshooting connection/gateway related issues. 
+> [AZURE.NOTE]
+> Apart from Data Management Gateway, no other binary files need to be installed to communicate to and from an on-premises file system.
+>
+> See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) for tips on troubleshooting connection/gateway-related issues.
 
-## Linux file share 
+## Linux file share
 
-Perform the following two steps to use a Linux file share with the File Server Linked Service:
+Perform the following two steps to use a Linux file share with the File Server linked service:
 
-- Install [Samba](https://www.samba.org/) on your Linux Server.
-- Install and configure Data Management Gateway on a Windows server. Installing gateway on a Linux server is not supported. 
- 
-## Copy data wizard
-The easiest way to create a pipeline that copies data to/from on-premises file system is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
+- Install [Samba](https://www.samba.org/) on your Linux server.
+- Install and configure Data Management Gateway on a Windows server. Installing Data Management Gateway on a Linux server is not supported.
 
-The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from on-premises file system and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.
+## Copy Wizard
+The easiest way to create a pipeline that copies data to and from an on-premises file system is to use the Copy Wizard. For a quick walkthrough, see [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md).
+
+The following examples provide sample JSON definitions that you can use to create a pipeline by using the [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from an on-premises file system and Azure Blob storage. However, you can copy data *directly* from any of the sources to any of the sinks listed in [Supported sources and sinks](data-factory-data-movement-activities.md#supported-data-stores) by using Copy Activity in Azure Data Factory.
 
 
-## Sample: Copy data from on-premises file system to Azure Blob
+## Sample: Copy data from an on-premises file system to Azure Blob storage
 
-This sample shows how to copy data from an on-premises file system to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.
- 
-The sample has the following data factory entities:
+This sample shows how to copy data from an on-premises file system to Azure Blob storage.
+
+The sample has the following Data Factory entities:
 
 - A linked service of type [OnPremisesFileServer](data-factory-onprem-file-system-connector.md#onpremisesfileserver-linked-service-properties).
-- A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties)
+- A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
 - An input [dataset](data-factory-create-datasets.md) of type [FileShare](data-factory-onprem-file-system-connector.md#on-premises-file-system-dataset-type-properties).
 - An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-- The [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [FileSystemSource](data-factory-onprem-file-system-connector.md#file-share-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties). 
+- The [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [FileSystemSource](data-factory-onprem-file-system-connector.md#file-share-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
-The following sample copies time-series data from on-premises file system to Azure blob every hour. The JSON properties used in these samples are described in sections following the samples. 
+The following sample copies time-series data from an on-premises file system to Azure Blob storage every hour. The JSON properties that are used in these samples are described in the sections after the samples.
 
-As a first step, set up the data management gateway as per instructions in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article. 
+As a first step, set up Data Management Gateway as per the instructions in [Move data between on-premises sources and the cloud with Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md).
 
 **On-premises File Server linked service:**
 
@@ -71,7 +71,7 @@ As a first step, set up the data management gateway as per instructions in the [
 	  }
 	}
 
-We recommend using the **encryptedCredential** property instead of using the **userid** and **password** properties. See [File System Linked Service](#onpremisesfileserver-linked-service-properties) for details about this linked service. 
+We recommend using the **encryptedCredential** property instead the **userid** and **password** properties. See [File Server linked service](#onpremisesfileserver-linked-service-properties) for details about this linked service.
 
 **Azure Blob storage linked service:**
 
@@ -87,9 +87,9 @@ We recommend using the **encryptedCredential** property instead of using the **u
 
 **On-premises File System input dataset:**
 
-Data is picked up from a new file every hour. The folderPath and fileName are determined based on the start time of the slice.  
+Data is picked up from a new file every hour. The folderPath and fileName properties are determined based on the start time of the slice.  
 
-Setting "external": "true" informs Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
+Setting "external": "true" informs the Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
 
 	{
 	  "name": "OnpremisesFileSystemInput",
@@ -149,9 +149,9 @@ Setting "external": "true" informs Data Factory service that the dataset is exte
 	  }
 	}
 
-**Azure Blob output dataset:**
+**Azure Blob storage output dataset:**
 
-Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time. 
+Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses the year, month, day, and hour parts of the start time.
 
 	{
 	  "name": "AzureBlobOutput",
@@ -209,8 +209,8 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 
 **Copy activity:**
 
-The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **FileSystemSource** and **sink** type is set to **BlobSink**. 
-	
+The pipeline contains a copy activity that is configured to use the input and output datasets, and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **FileSystemSource**, and **sink** type is set to **BlobSink**.
+
 	{  
 	    "name":"SamplePipeline",
 	    "properties":{  
@@ -255,7 +255,7 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
 	   }
 	}
 
-##Sample: Copy data from Azure SQL to on-premises file system 
+## Sample: Copy data from Azure SQL Database to an on-premises file system
 
 The following sample shows:
 
@@ -263,9 +263,9 @@ The following sample shows:
 - A linked service of type OnPremisesFileServer.
 - An input dataset of type AzureSqlTable.
 - An output dataset of type FileShare.
-- A pipeline with Copy activity that uses SqlSource and FileSystemSink.
+- A pipeline with a copy activity that uses SqlSource and FileSystemSink.
 
-The sample copies time-series data from an Azure SQL table to an On-premises file system every hour. The JSON properties used in these samples are described in sections following the samples. 
+The sample copies time-series data from an Azure SQL table to an On-premises file system every hour. The JSON properties used in these samples are described in sections following the samples.
 
 **Azure SQL linked service:**
 
@@ -294,11 +294,11 @@ The sample copies time-series data from an Azure SQL table to an On-premises fil
 	  }
 	}
 
-We recommend using the **encryptedCredential** property instead of using the **userid** and **password** properties. See [File System Linked Service](#onpremisesfileserver-linked-service-properties) for details about this linked service. 
+We recommend using the **encryptedCredential** property instead of using the **userid** and **password** properties. See [File System Linked Service](#onpremisesfileserver-linked-service-properties) for details about this linked service.
 
 **Azure SQL input dataset:**
 
-The sample assumes you have created a table “MyTable” in Azure SQL and it contains a column called “timestampcolumn” for time series data. 
+The sample assumes you have created a table “MyTable” in Azure SQL and it contains a column called “timestampcolumn” for time series data.
 
 Setting “external”: ”true” informs Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
 
@@ -327,7 +327,7 @@ Setting “external”: ”true” informs Data Factory service that the dataset
 
 **On-premises File System output dataset:**
 
-Data is copied to a new file every hour. The folderPath and fileName for the blob are determined based on the start time of the slice. 
+Data is copied to a new file every hour. The folderPath and fileName for the blob are determined based on the start time of the slice.
 
 	{
 	  "name": "OnpremisesFileSystemOutput",
@@ -390,7 +390,7 @@ Data is copied to a new file every hour. The folderPath and fileName for the blo
 **Pipeline with a Copy activity:**
 The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **SqlSource** and **sink** type is set to **FileSystemSink**. The SQL query specified for the **SqlReaderQuery** property selects the data in the past hour to copy.
 
-	
+
 	{  
 	    "name":"SamplePipeline",
 	    "properties":{  
@@ -438,20 +438,20 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
 
 ## OnPremisesFileServer linked service properties
 
-You can link an On-premises File System to an Azure Data Factory with On-Premises File Server Linked Service. The following table provides description for JSON elements specific to On-Premises File Server Linked Service. 
+You can link an On-premises File System to an Azure Data Factory with On-Premises File Server Linked Service. The following table provides description for JSON elements specific to On-Premises File Server Linked Service.
 
 Property | Description | Required
 -------- | ----------- | --------
-type | The type property should be set to **OnPremisesFileServer** | Yes 
+type | The type property should be set to **OnPremisesFileServer** | Yes
 host | Root path of the folder you want to copy. Use escape character ‘ \ ’ for special characters in the string. See [Sample linked service and dataset definitions](#sample-linked-service-and-dataset-definitions) for examples. | Yes
 userid | Specify the ID of the user who has access to the server | No (if you choose encryptedCredential)
-password | Specify the password for the user (userid) | No (if you choose encryptedCredential 
+password | Specify the password for the user (userid) | No (if you choose encryptedCredential
 encryptedCredential | Specify the encrypted credentials that you can get by running the New-AzureRmDataFactoryEncryptValue cmdlet. | No (if you choose to specify userid and password in plain text)
 gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises file server | Yes
 
 See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) for details about setting credentials for an on-premises File System data source.
 
-### Sample linked service and dataset definitions 
+### Sample linked service and dataset definitions
 Scenario | Host in linked service definition | folderPath in dataset definition
 -------- | --------------------------------- | --------------------- |
 Local folder on Data Management Gateway machine: <br/><br/>Examples: D:\\\* or D:\folder\subfolder\\* | D:\\\\ (for gateway version 2.0 and above) <br/><br/> localhost (for gateway version below 2.0) | .\\\\ or folder\\\\subfolder (for gateway version 2.0 and above) <br/><br/>D:\\\\ or D:\\\\folder\\\\subfolder (for gateway version below 2.0)
@@ -459,12 +459,12 @@ Remote shared folder: <br/><br/>Examples: \\\\myserver\\share\\\* or \\\\myserve
 
 To find the **version** of gateway:
 1. Launch [Data Management Gateway Configuration Manager](data-factory-data-management-gateway.md#data-management-gateway-configuration-manager) on your machine.
-2. Switch to the **Help** tab. 
+2. Switch to the **Help** tab.
 
-> [AZURE.NOTE] We recommend that you [upgrade your gateway to version 2.0 or above](data-factory-data-management-gateway.md#update-data-management-gateway) to take advantage of latest features and fixes. 
+> [AZURE.NOTE] We recommend that you [upgrade your gateway to version 2.0 or above](data-factory-data-management-gateway.md#update-data-management-gateway) to take advantage of latest features and fixes.
 
 **Example: Using username and password in plain text**
-	
+
 	{
 	  "Name": "OnPremisesFileServerLinkedService",
 	  "properties": {
@@ -477,7 +477,7 @@ To find the **version** of gateway:
 	    }
 	  }
 	}
-	
+
 **Example: Using encryptedcredential**
 
 	{
@@ -494,7 +494,7 @@ To find the **version** of gateway:
 
 ## On-premises file system dataset type properties
 
-For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types. 
+For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types.
 
 The typeProperties section is different for each type of dataset and provides information about the location, format etc., of the data in the data store. The typeProperties section for dataset of type **FileShare** dataset has the following properties.
 
@@ -511,14 +511,14 @@ fileFilter | Specify a filter to be used to select a subset of files in the fold
 
 ### Using partitionedBy property
 
-As mentioned in the previous section, you can specify a dynamic folderPath, filename for time series data with partitionedBy. You can do so with the Data Factory macros and the system variable SliceStart, SliceEnd that indicate the logical time period for a given data slice. 
+As mentioned in the previous section, you can specify a dynamic folderPath, filename for time series data with partitionedBy. You can do so with the Data Factory macros and the system variable SliceStart, SliceEnd that indicate the logical time period for a given data slice.
 
 To understand more details on time series datasets, scheduling, and slices, see [Creating Datasets](data-factory-create-datasets.md), [Scheduling & Execution](data-factory-scheduling-and-execution.md), and [Creating Pipelines](data-factory-create-pipelines.md) articles.
 
 #### Sample 1:
 
 	"folderPath": "wikidatagateway/wikisampledataout/{Slice}",
-	"partitionedBy": 
+	"partitionedBy":
 	[
 	    { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } },
 	],
@@ -529,12 +529,12 @@ In this example {Slice} is replaced with the value of Data Factory system variab
 
 	"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
 	"fileName": "{Hour}.csv",
-	"partitionedBy": 
+	"partitionedBy":
 	 [
 	    { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-	    { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
-	    { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
-	    { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
+	    { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
+	    { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
+	    { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
 	],
 
 In this example, year, month, day, and time of SliceStart are extracted into separate variables that are used by folderPath and fileName properties.
@@ -548,7 +548,7 @@ In this example, year, month, day, and time of SliceStart are extracted into sep
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
-| recursive | Indicates whether the data is read recursively from the sub folders or only from the specified folder. | True, False (default)| No | 
+| recursive | Indicates whether the data is read recursively from the sub folders or only from the specified folder. | True, False (default)| No |
 
 The **FileSystemSink** supports the following properties:
 
@@ -557,7 +557,7 @@ The **FileSystemSink** supports the following properties:
 | copyBehavior | Defines the copy behavior when the source is BlobSource or FileSystem. | **PreserveHierarchy:** preserves the file hierarchy in the target folder, that is, relative path of source file to source folder is same as the relative path of target file to target folder.<br/><br/>**FlattenHierarchy:** all files from the source folder are created in the first level of target folder. The target files are created with auto generated name.<br/><br/>**MergeFiles:** merges all files from the source folder to one file. If the File/Blob Name is specified, the merged file name would be the specified name; otherwise, would be auto-generated file name. | No |
 
 ### recursive and copyBehavior examples
-This section describes the resulting behavior of the Copy operation for different combinations of recursive and copyBehavior values. 
+This section describes the resulting behavior of the Copy operation for different combinations of recursive and copyBehavior values.
 
 recursive | copyBehavior | Resulting behavior
 --------- | ------------ | --------
@@ -573,12 +573,5 @@ false | mergeFiles | For a source folder Folder1 with the following structure:<b
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-## Performance and Tuning 
+## Performance and Tuning
 See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.
-
-
-
-
-
-
- 
