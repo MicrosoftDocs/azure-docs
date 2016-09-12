@@ -183,9 +183,11 @@ Let's also try a random forest model. Random forests train a multitude of decisi
 
 To deploy the decision tree code from the previous section, you need to sign in to Azure Machine Learning Studio. You need your workspace ID and an authorization token to sigh in. To find these values and initialize the AzureML variables with them:
 
-- Select **Settings** on the left-hand menu. Note your **WORKSPACE ID**. ![](./media/machine-learning-data-science-linux-dsvm-walkthrough/workspace-id.png)
-- Select **Authorization Tokens** from the overhead menu and note your **Primary Authorization Token**.![](./media/machine-learning-data-science-linux-dsvm-walkthrough/workspace-token.png)
-- Load the **AzureML** package and then set values of the variables with your token and workspace ID in your R session on the DSVM:
+Select **Settings** on the left-hand menu. Note your **WORKSPACE ID**. ![](./media/machine-learning-data-science-linux-dsvm-walkthrough/workspace-id.png)
+
+Select **Authorization Tokens** from the overhead menu and note your **Primary Authorization Token**.![](./media/machine-learning-data-science-linux-dsvm-walkthrough/workspace-token.png)
+
+Load the **AzureML** package and then set values of the variables with your token and workspace ID in your R session on the DSVM:
 
 
     require(AzureML)
