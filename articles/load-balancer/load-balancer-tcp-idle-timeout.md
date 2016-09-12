@@ -29,7 +29,7 @@ To avoid losing the connection, you must configure the TCP keep-alive with an in
 
 Although a TCP keep-alive works well for scenarios where a battery is not a constraint, we generally don't recommend it for mobile applications. Using a TCP keep-alive from a mobile application will likely drain the device battery faster.
 
-To support such scenarios, we've added support for a configurable idle timeout. You can now set it for a duration between 4 and 30 minutes. This setting works for inbound connections only.
+To support such scenarios, we've added support for a configurable idle timeout. You can now set it for a duration of 4 to 30 minutes. This setting works for inbound connections only.
 
 ![TCP timeout](./media/load-balancer-tcp-idle-timeout/image1.png)
 
