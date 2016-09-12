@@ -43,7 +43,7 @@ The table below provides information on regions and geopolitical boundaries for 
 
 |**Geopolitical region**|**Azure regions**|**ExpressRoute locations**|
 |---|---|---|---|
-|**US Government cloud**|US Gov Iowa, US Gov Virginia|Chicago, Dallas+, New York, Washington DC|
+|**US Government cloud**|US Gov Iowa, US Gov Virginia|Chicago, Dallas, New York, Washington DC|
 |**China**|China North, China East|Beijing, Shanghai|
 |**Germany**|Germany Central, Germany East|Berlin, Frankfurt|
 
@@ -94,7 +94,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **Location**  |**Service Providers** |
 |---------------|--------------------|
 | **Chicago** | AT&T NetBond, Equinix, Level 3 Communications, Verizon |
-| **Dallas** |  Equinix+, Verizon+ |
+| **Dallas** |  Equinix, Verizon+ |
 | **New York** | Equinix, Level 3 Communications+, Verizon |
 | **Washington DC** | AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
