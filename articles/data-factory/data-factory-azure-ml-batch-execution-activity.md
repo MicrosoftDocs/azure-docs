@@ -378,7 +378,7 @@ Use the **webServiceInputs** property when the Azure ML web service takes multip
 				"inputs": [{
 					"name": "trainingDataset"
 				}, {
-					"name": "scoringData"
+					"name": "scoringDataset"
 				}],
 				"outputs": [{
 					"name": "outputDataset"
