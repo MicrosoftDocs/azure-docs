@@ -59,7 +59,7 @@ Make sure you have the latest production version of the Azure Resource Manager m
 
         Select-AzureRmSubscription -SubscriptionId 'GUID of subscription'
 
-4. Create a new resource group. (Skip this step if you're using an existing resource group.)
+4. Create a resource group. (Skip this step if you're using an existing resource group.)
 
         New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 
@@ -235,7 +235,7 @@ For guidance on creating a virtual machine and assigning a NIC, see option 5 in 
 
 ## Remove a load balancer
 
-Use the command `Remove-AzureLoadBalancer` to delete a previously created load balancer named **NRP-LB**  in a resource group called **NRP-RG**.
+Use the command `Remove-AzureLoadBalancer` to delete a previously created load balancer named **NRP-LB** in a resource group called **NRP-RG**.
 
     Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 
