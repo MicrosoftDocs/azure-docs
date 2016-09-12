@@ -38,6 +38,8 @@ versions supported. Known feature shortcomings include the following:
 -   Certain Azure storage account types are not yet available, for example,
     Standard\_RAGRS, and Standard\_GRS.
 
+-   Premium\_LRS storage account can be provisioned however it currently does not offer any performance limits or guarantees.
+
 -   Azure Files functionality is not yet available
 
 -   Get Page Ranges API does not support retrieving the pages that
