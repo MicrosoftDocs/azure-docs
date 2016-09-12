@@ -24,11 +24,11 @@
 - [ARM](log-analytics-service-fabric-arm.md)
 - [PowerShell](log-analytics-service-fabric.md)
 
-This article describes how to use the Service Fabric solution in Log Analytics to help identify and troubleshoot issues across your Service Fabric cluster, by getting visibility into how your Service Fabric nodes are performing, and how your applications and micro-services are running.
+This article describes how to use the Service Fabric solution in Log Analytics to help identify and troubleshoot issues across your Service Fabric cluster.
 
 The Service Fabric solution uses Azure Diagnostics data from your Service Fabric VMs, by collecting this data from your Azure WAD tables. Log Analytics then reads Service Fabric framework events, including **Reliable Service Events**, **Actor Events**, **Operational Events**, and **Custom ETW events**. The Service Fabric solution dashboard shows you notable issues and relevant events in your Service Fabric environment.
 
-You can leverage the following ARM templates depending on what scenario best fits yours:
+You can use the following Azure resource manager templates depending on what scenario best fits yours:
 
 ##Deploy a new Service Fabric Cluster connected to a Log Analytics workspace.
 This template does the following:
@@ -40,7 +40,7 @@ This template does the following:
 [![Deploy to Azure](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-oms%2F%2Fazuredeploy.json) 
 
 
-Once you select the deploy button above, you will arrive on the Azure portal, go ahead and edit the parameters listed. Be sure to create a new resource group if you input a new Log Analytics workspace name:
+Once you select the deploy button above, you arrive on the Azure portal, go ahead and edit the parameters listed. Be sure to create a new resource group if you input a new Log Analytics workspace name:
 ![Service Fabric](./media/log-analytics-service-fabric/2.png)
 
 ![Service Fabric](./media/log-analytics-service-fabric/3.png)
@@ -52,10 +52,10 @@ Accept the legal terms and hit "Create" to start the deployment. Once the deploy
 ##Deploy a new Service Fabric Cluster connected to a Log Analytics workspace with the VM Extension installed.
 This template does the following:
 
-1. Deploys an Azure Service Fabric cluster already connected to a Log Analytics workspace. Again, you can create a new workspace or use an exsiting one.
+1. Deploys an Azure Service Fabric cluster already connected to a Log Analytics workspace. Again, you can create a new workspace or use an existing one.
 2. It also adds the diagnostic storage accounts to the Log Analytics workspace.
 3. Enables the Service Fabric solution in the Log Analytics workspace.
-4. Installs the MMA agent extension in each VM scale set in your Service Fabric cluster. With the MMA agent installed, you're able to view the VM's performance metrics. Be sure to add performance counters in Settings > Data > Windows Performance Counters in order to view these metrics. 
+4. Installs the MMA agent extension in each VM scale set in your Service Fabric cluster. With the MMA agent installed, you're able to view the VM's performance metrics. In order to view these metrics, be sure to add performance counters in Settings > Data > Windows Performance Counters. 
 
 
 [![Deploy to Azure](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-vmss-oms%2F%2Fazuredeploy.json) 
@@ -74,7 +74,7 @@ To view Perf Data from your nodes:
 ![Service Fabric](./media/log-analytics-service-fabric/7.png)
 
 3. In Log Search, use the following queries to delve into key metrics about your nodes:
-	a. Compare the average CPU Utlization across all your nodes in the last 1 hour to see which nodes are having issues and at what time interval a node had a spike due to one these issues:
+	a. Compare the average CPU Utilization across all your nodes in the last one hour to see which nodes are having issues and at what time interval a node had a spike:
 	
 	``` Type=Perf ObjectName=Processor CounterName="%Processor Time"|measure avg(CounterValue) by Computer Interval 1HOUR. ```
 	
@@ -91,7 +91,7 @@ To view Perf Data from your nodes:
 	![Service Fabric](./media/log-analytics-service-fabric/11.png)
 	
 
-	c. In the case that you want to drill down into a specific node by examining the hourly average, minimum, maximum and 75-percentile CPU usage, you're able to do this by using this query (replace Compuer field): 
+	c. In the case that you want to drill down into a specific node by examining the hourly average, minimum, maximum and 75-percentile CPU usage, you're able to do this by using this query (replace Computer field): 
 	
 	```Type=Perf CounterName="% Processor Time" InstanceName=_Total Computer="BaconDC01.BaconLand.com"| measure min(CounterValue), avg(CounterValue), percentile75(CounterValue), max(CounterValue) by Computer Interval 1HOUR```
 	
@@ -112,7 +112,7 @@ After this template has been deployed, you will be able to see the storage accou
 
 ## View Service Fabric events
 
-Once the delployments are completed and the Service Fabric solution has been enabled in your workspace, select the **Service Fabric** tile in the Log Analytics portal to launch the Service Fabric dashboard. The dashboard includes the columns in the following table. Each column lists the top ten events by count matching that column's criteria for the specified time range. You can run a log search that provides the entire list by clicking **See all** at the right bottom of each column, or by clicking the column header.
+Once the deployments are completed and the Service Fabric solution has been enabled in your workspace, select the **Service Fabric** tile in the Log Analytics portal to launch the Service Fabric dashboard. The dashboard includes the columns in the following table. Each column lists the top ten events by count matching that column's criteria for the specified time range. You can run a log search that provides the entire list by clicking **See all** at the right bottom of each column, or by clicking the column header.
 
 | **Service Fabric event** | **description** |
 | --- | --- |
