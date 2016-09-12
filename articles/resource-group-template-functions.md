@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/11/2016"
+   ms.date="09/12/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager template functions
@@ -1089,7 +1089,7 @@ The following example references a storage account in a different resource group
 		}
 	}
 
-The properties on the returned object vary by the resource type.
+The properties on the object returned from the **reference** function vary by resource type. To see the values on the resource type you wish to work with, create a template that does not deploy any new resources but only returns the result of the reference function in the outputs section. You see the property names and values, and can then add those properties into other templates that need to dynamically retrieve the values during deployment. 
 
 <a id="resourcegroup" />
 ### resourceGroup
