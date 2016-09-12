@@ -4,7 +4,7 @@
    services="data-catalog"
    documentationCenter=""
    authors="spelluru"
-   manager="paulettm"
+   manager="jhubbard"
    editor=""
    tags=""/>
 <tags
