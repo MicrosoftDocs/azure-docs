@@ -44,7 +44,7 @@ In this article, you learn about various Azure DevTest Labs features that can be
 
     Learn more by clicking on the links in the following table:
 
-	| Task                                                            | What you'll learn                                                    |
+	| Task                                                            | What you learn                                                    |
 |-----------------------------------------------------------------|----------------------------------------------------------------------|
 | [Create a lab in Azure DevTest Labs](devtest-lab-create-lab.md) | Learn how to create a lab in Azure DevTest Labs in the Azure portal. |
 
