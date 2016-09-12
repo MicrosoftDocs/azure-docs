@@ -65,6 +65,8 @@ In this scenario, the Azure Machine Learning Web service makes predictions using
 > If the web service takes multiple inputs, use the **webServiceInputs** property instead of using **webServiceInput**. 
 >  
 > Datasets that are referenced by the **webServiceInput**/**webServiceInputs** and **webServiceOutputs** properties (in **typeProperties**) must also be included in the Activity **inputs** and **outputs**.
+> 
+> The names of inputs specified in the pipeline definition must exactly match the names of inputs of Azure ML web service.
 
 
 	{
@@ -363,7 +365,7 @@ In the above JSON example:
 ### Other scenarios
 
 #### Web service requires multiples inputs
-Use the **webServiceInputs** property when the Azure ML web service takes multiple inputs. 
+Use the **webServiceInputs** property when the Azure ML web service takes multiple inputs. The names of inputs specified in the pipeline definition must exactly match the names of inputs of Azure ML web service. 
 
 	{
 		"name": "PredictivePipeline",
