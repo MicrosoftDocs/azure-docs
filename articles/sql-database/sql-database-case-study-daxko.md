@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure SQL Database Daxko Azure Case Study | Microsoft Azure"
-   description="Learn about how Daxko uses SQL Database to accelerate development and enhance customer services and performance"
+   pageTitle="Azure SQL Database Azure Case Study - Daxko/CSI | Microsoft Azure"
+   description="Learn about how Daxko/CSI uses SQL Database to accelerate its development cycle and to enhance its customer services and performance"
    services="sql-database"
    documentationCenter=""
    authors="carlrabeler"
@@ -32,7 +32,7 @@ Azure has also helped CSI Software accelerate and improve the development and qu
 
 ## Offloading to the cloud
 
-BBefore moving to the cloud, CSI Software had successfully built up its own multitenant infrastructure in a local datacenter in Houston. As the company expanded, it faced increasing growing pains from purchasing, provisioning, and maintaining all of the hardware and software needed to support its customers. IT staffing to handle operations became another bottleneck that led to a slowdown in provisioning new resources and rolling out new services to customers.
+Before moving to the cloud, CSI Software had successfully built up its own multitenant infrastructure in a local datacenter in Houston. As the company expanded, it faced increasing growing pains from purchasing, provisioning, and maintaining all of the hardware and software needed to support its customers. IT staffing to handle operations became another bottleneck that led to a slowdown in provisioning new resources and rolling out new services to customers.
 
 CSI Software looked into cloud options for eliminating that overhead, so that it could focus on its code, instead of its operations. The company discovered that many of the top cloud providers only offer infrastructure-as-a-service (IaaS) solutions that still require a large IT staff to manage the IaaS stack. In the end, CSI Software determined that the Azure PaaS solution was the best fit for its needs. Molina explains, “Azure gets the hardware and system software out of the way, so we can focus on our software offerings, while reducing our IT overhead.”
 

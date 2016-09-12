@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure SQL Database Umbraco Azure Case Study | Microsoft Azure"
-   description="Learn about how Umbraco uses SQL Database to quickly provision and scale"
+   pageTitle="Azure SQL Database Azure Case Study - Umbraco | Microsoft Azure"
+   description="Learn about how Umbraco uses SQL Database to quickly provision and scale services for thousands of tenants in the cloud"
    services="sql-database"
    documentationCenter=""
    authors="carlrabeler"
@@ -23,7 +23,7 @@ Umbraco is a popular open-source content-management system (CMS) that can run an
 “We have quite a large community of developers who use the system, with more than 100,000 developers on our forums and more than 350,000 sites that are live, running Umbraco.”
 — Morten Christensen, Technical Lead, Umbraco
 
-> [AZURE.VIDEO Azure-SQL-Database-Case-Study-Umbraco]
+> [AZURE.VIDEO azure-sql-database-case-study-umbraco]
 
 To simplify customer deployments, Umbraco added Umbraco-as-a-Service (UaaS): a software-as-a-service (SaaS) offering that eliminates the need for on-premises deployments, provides built-in scaling, and removes management overhead by enabling developers to focus on product innovation rather than solution management. Umbraco is able to provide all those benefits by relying on the flexible platform-as-a-service (PaaS) model offered by Microsoft Azure.
 

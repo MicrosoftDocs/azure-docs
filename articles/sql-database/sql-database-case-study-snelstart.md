@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure SQL Database Umbraco Azure Case Study | Microsoft Azure"
-   description="Learn about how SnelStart uses SQL Database to automate and scale"
+   pageTitle="Azure SQL Database Azure Case Study - Snelstart | Microsoft Azure"
+   description="Learn about how SnelStart uses SQL Database to rapidly expanded its business services at a rate of 1,000 new Azure SQL Databases per month"
    services="sql-database"
    documentationCenter=""
    authors="carlrabeler"
@@ -12,7 +12,7 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="sqldb-case-study"
+   ms.workload="NA"
    ms.date="09/08/2016"
    ms.author="carlrab"/>
 
@@ -20,7 +20,7 @@
 
 SnelStart makes popular financial- and business-management software for small- and medium-sized businesses (SMBs) in the Netherlands. Its 55,000 customers are serviced by a staff of 110 employees, including an IT staff of 35. By moving from desktop software to a software-as-a-service (SaaS) offering built on Azure, SnelStart made the most of built-in services, automating management using familiar environment in C#, and optimizing performance and scalability by neither over- or under-provisioning businesses using elastic database pools. Using Azure provides SnelStart the fluidity of moving customers between on-premises and the cloud.
 
-> [AZURE.VIDEO Azure-SQL-Database-Case-Study-SnelStart]
+> [AZURE.VIDEO azure-sql-database-case-study-snelstart]
 
 ##Why SnelStart extended services from the desktop to the cloud
 
