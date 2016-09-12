@@ -106,7 +106,7 @@ contains a link to a user guide which describes all the default credentials to w
 
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic15.jpg)
 
-Another option is to login to hte client Windows VM and start e.g. the pre-configured SAP GUI.
+Another option is to login to the client Windows VM and start e.g. the pre-configured SAP GUI.
 
 
 
