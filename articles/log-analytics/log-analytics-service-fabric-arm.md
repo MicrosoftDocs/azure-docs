@@ -73,18 +73,30 @@ To view Perf Data from your nodes:
 ![Service Fabric](./media/log-analytics-service-fabric/7.png)
 
 3. In Log Search, use the following queries to delve into key metrics about your nodes:
-	a. Compare the average CPU Utlization across all your nodes in the last 1 hour to see which nodes are having issues and at what time interval the node was facing this problem: ***italic*** Type=Perf ObjectName=Processor CounterName="%Processor Time"|measure avg(CounterValue) by Computer Interval 1HOUR. 
-	You should see an interactive graph with a line chart for each node.
-	<insert image>
-
-	b. View similar line charts for available memory on each node using this query - Type=Perf ObjectName=Memory CounterName="Available MBytes Memory" | measure avg(CounterValue) by Computer Interval 1HOUR.
-	<insert image>
+	a. Compare the average CPU Utlization across all your nodes in the last 1 hour to see which nodes are having issues and at what time interval a node had a spike due to one these issues:
 	
-	To view a listing of all your nodes, showing the exact average value for each node, you can use this query: Type=Perf (ObjectName=Memory) (CounterName="Available MBytes") | measure avg(CounterValue) by Computer 
-	<insert image>
+	``` Type=Perf ObjectName=Processor CounterName="%Processor Time"|measure avg(CounterValue) by Computer Interval 1HOUR. ```
+	
+	![Service Fabric](./media/log-analytics-service-fabric/10.png)
+
+	b. View similar line charts for available memory on each node with this query:
+	
+	```Type=Perf ObjectName=Memory CounterName="Available MBytes Memory" | measure avg(CounterValue) by Computer Interval 1HOUR.```
+	
+	To view a listing of all your nodes, showing the exact average value for Available MBytes for each node, use this query: 
+	
+	```Type=Perf (ObjectName=Memory) (CounterName="Available MBytes") | measure avg(CounterValue) by Computer ```
+	
+	![Service Fabric](./media/log-analytics-service-fabric/11.png)
 	
 
-	c.<Add one more scenario they could find useful>
+	c. In the case that you want to drill down into a specific node by examining the hourly average, minimum, maximum and 75-percentile CPU usage, you're able to do this by using this query (replace Compuer field): 
+	
+	```Type=Perf CounterName="% Processor Time" InstanceName=_Total Computer="BaconDC01.BaconLand.com"| measure min(CounterValue), avg(CounterValue), percentile75(CounterValue), max(CounterValue) by Computer Interval 1HOUR```
+	
+	![Service Fabric](./media/log-analytics-service-fabric/12.png)
+	
+	For more information on performance metrics in Log Analytics here, check out these blog posts: https://blogs.technet.microsoft.com/msoms/tag/metrics/ 
 
 
 ##Adding an existing storage account to Log Analytics
