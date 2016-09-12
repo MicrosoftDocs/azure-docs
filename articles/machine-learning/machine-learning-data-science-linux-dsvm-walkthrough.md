@@ -237,7 +237,7 @@ The remaining sections show how to use some of the tools installed on the Linux 
 - Python
 - Jupyterhub
 - Rattle
-- PostgresSQL & Squirrel SQL
+- PostgreSQL & Squirrel SQL
 - SQL Server Data Warehouse
 
 
@@ -407,7 +407,7 @@ Once you're finished building models, select the **Log** tab to view the R code 
 >[AZURE.NOTE] There is a bug in current release of Rattle. To modify the script or use it to repeat your steps later, you must insert a # character in front of *Export this log ... * in the text of the log. 
 
 
-## PostgresSQL & Squirrel SQL
+## PostgreSQL & Squirrel SQL
 
 The DSVM comes with PostgreSQL installed. PostgreSQL is a sophisticated, open-source relational database. This section shows how to load our spam dataset into PostgreSQL and then query it.
 
