@@ -16,7 +16,7 @@
 
 # Design patterns for multitenant SaaS applications and Azure Search
 
-A multitenant application is one that provides the same services and capabilities to any number of tenants who cannot see or share the data of any other tenant. This document will discuss tenant isolation strategies for multitenant applications built with Azure Search.
+A multitenant application is one that provides the same services and capabilities to any number of tenants who cannot see or share the data of any other tenant. This document discusses tenant isolation strategies for multitenant applications built with Azure Search.
 
 ## Azure Search Concepts
 As a search-as-a-service solution, Azure Search allows developers to add rich search experiences to applications without managing any infrastructure or becoming an expert in search. Data is uploaded to the service and then stored in the cloud. Using simple requests to the Azure Search API, the data can then be modified and searched. An overview of the service can be found in [this article](http://aka.ms/whatisazsearch). Before discussing design patterns, it is important to understand some concepts in Azure Search.
@@ -70,7 +70,7 @@ Multitenant applications must effectively distribute resources among the tenants
 Azure Search offers a few boundaries that can be used to isolate tenants’ data and workload.
 
 ### Modeling multitenancy
-In the case of a multitenant scenario, the application developer will consume one or more search services and divide their tenants among services, indexes, or both. Azure Search has a few common patterns when modeling a multitenant scenario:
+In the case of a multitenant scenario, the application developer consumes one or more search services and divide their tenants among services, indexes, or both. Azure Search has a few common patterns when modeling a multitenant scenario:
 1. _Index per tenant:_ Each tenant has its own index within a search service that is shared with other tenants.
 1. _Service per tenant:_ Each tenant has its own dedicated Azure Search service, offering highest level of data and workload separation.
 1. _Mix of both:_ Larger, more-active tenants are assigned dedicated services while smaller tenants are assigned individual indexes within shared services.
@@ -106,9 +106,9 @@ The challenges in scaling this pattern arise when individual tenants outgrow the
 ### Mixed
 Another pattern for modeling multitenancy is mixing both index-per-tenant and service-per-tenant strategies.
 
-By mixing the two patterns, an applications largest tenants can occupy dedicated services while the long tail of less active, smaller tenants can occupy indexes in a shared service. This model ensures that the largest tenants have consistently high performance from the service while helping to protect the smaller tenants from any noisy neighbors.
+By mixing the two patterns, an application's largest tenants can occupy dedicated services while the long tail of less active, smaller tenants can occupy indexes in a shared service. This model ensures that the largest tenants have consistently high performance from the service while helping to protect the smaller tenants from any noisy neighbors.
 
-However, implementing this strategy relies foresight in predicting which tenants will require a dedicated service versus an index in a shared service. Application complexity will increase with the need to manage both of these multitenancy models.
+However, implementing this strategy relies foresight in predicting which tenants will require a dedicated service versus an index in a shared service. Application complexity increases with the need to manage both of these multitenancy models.
 
 ### Even finer granularity
 The above design patterns to model multitenant scenarios in Azure Search assume a uniform scope where each tenant is a whole instance of an application. However, applications can sometimes handle many smaller scopes.
