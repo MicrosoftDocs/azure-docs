@@ -24,7 +24,7 @@ To create a lab, you need:
 
 - An Azure subscription. To learn about Azure purchase options, see [How to buy Azure](https://azure.microsoft.com/pricing/purchase-options/) or [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/). You must be the owner of the subscription to create the lab.
 
-## Create a lab
+## Steps to create a lab in Azure DevTest Labs
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
