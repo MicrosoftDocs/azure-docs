@@ -81,9 +81,9 @@ the server locally:
 1. Log in to the [Azure portal]
 2. Navigate to your Mobile App backend.
 3. Select **Resource explorer** in the **DEVELOPMENT TOOLS** menu.
-4. Click on **Go** to open the resource explorer for your Mobile App backend in a new tab or window.
+4. Click **Go** to open the resource explorer for your Mobile App backend in a new tab or window.
 5. Expand the **config** > **authsettings** node for your app.
-6. Click on the **Edit** button to enable editing of the resource.
+6. Click the **Edit** button to enable editing of the resource.
 7. Find the **allowedExternalRedirectUrls** element, which should be null. Change it to the following:
 
          "allowedExternalRedirectUrls": [
@@ -99,9 +99,9 @@ You also need to add the same loopback URLs to the CORS whitelist settings:
 
 1. Navigate back to the [Azure portal].
 2. Navigate to your Mobile App backend.
-3. Click on **CORS** in the **API** menu.
-4. Enter each URL in the empty **Allowed Origins** text box.  A new text box will be created.
-5. Click on **SAVE**
+3. Click **CORS** in the **API** menu.
+4. Enter each URL in the empty **Allowed Origins** text box.  A new text box is created.
+5. Click **SAVE**
     
 After the backend updates, you will be able to use the new loopback URLs in your app.
 
