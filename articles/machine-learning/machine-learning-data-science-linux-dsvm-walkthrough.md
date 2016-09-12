@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter="" 
 	authors="bradsev" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -42,7 +42,7 @@ The [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) dataset is a re
 
 >[AZURE.NOTE] This walkthrough was created on a D2 v2-sized Linux Data Science Virtual Machine. This size DSVM is capable of handling the procedures in this walkthrough.
 
-If you need more storage space, you can create additional disks and attach them to your VM. These disks use persistent Azure storage, so their data is preserved even when the server is reprovisioned due to resizing or is shut down. To add a disk and attach it to your VM, follow the instructions in [Add a disk to a Linux VM](../virtual-machines/virtual-machines-linux-add-disk.md). These steps use the Azure Command-Line Interface (Azure CLI), which is already installed on the DSVM. So these procedures can be done entirely from the VM itself.
+If you need more storage space, you can create additional disks and attach them to your VM. These disks use persistent Azure storage, so their data is preserved even when the server is reprovisioned due to resizing or is shut down. To add a disk and attach it to your VM, follow the instructions in [Add a disk to a Linux VM](../virtual-machines/virtual-machines-linux-add-disk.md). These steps use the Azure Command-Line Interface (Azure CLI), which is already installed on the DSVM. So these procedures can be done entirely from the VM itself. Another option to increase storage is to use [Azure files](../storage/storage-how-to-use-files-linux.md).
 
 To download the data, open a terminal window and run this command:
 
@@ -75,7 +75,7 @@ To get copies of the code samples used in this walkthrough, clone the **Azure-Ma
 
     git clone https://github.com/Azure/Azure-MachineLearning-DataScience.git
 
-Start a new R session with the R interactive console.
+Open a terminal window and start a new R session with the R interactive console.
 
 >[AZURE.NOTE] You can also use RStudio for the following procedures. To install RStudio, execute this command at a terminal: `./Desktop/DSVM\ tools/installRStudio.sh`
 
@@ -126,7 +126,10 @@ These examples should enable you to make similar plots of the other columns to e
 
 ## Train and test a machine learning model
 
-Now let's train a couple of machine learning models to classify the emails in the dataset as containing either span or ham. We train a decision tree model and a random forest model in this section and then test their accuracy of their predictions.
+Now let's train a couple of machine learning models to classify the emails in the dataset as containing either span or ham. We train a decision tree model and a random forest model in this section and then test their accuracy of their predictions. 
+
+>[AZURE.NOTE] The rpart (Recursive Partitioning and Regression Trees) package used in the following code is already installed on the Data Science VM.
+
 
 First, let's split the dataset into training and test sets:
 
@@ -184,6 +187,7 @@ To deploy the decision tree code from the previous section, you need to sign in 
 - Select **Authorization Tokens** from the overhead menu and note your **Primary Authorization Token**.![](./media/machine-learning-data-science-linux-dsvm-walkthrough/workspace-token.png)
 - Load the **AzureML** package and then set values of the variables with your token and workspace ID in your R session on the DSVM:
 
+
     require(AzureML)
     wsAuth = "<authorization-token>"
     wsID = "<workspace-id>"
@@ -225,7 +229,7 @@ To try it out on the first 10 rows of the test set:
 
 ## Use other tools available on the Data Science VM
 
-The remaining sections show how to use some of the tools installed on the Linus Data Science VM.Here is the list of tools discussed:
+The remaining sections show how to use some of the tools installed on the Linux Data Science VM.Here is the list of tools discussed:
 
 - XGBoost
 - Python
