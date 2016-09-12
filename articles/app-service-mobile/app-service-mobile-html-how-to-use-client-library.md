@@ -55,8 +55,8 @@ import * as WindowsAzure from 'azure-mobile-apps-client';
 
 ##<a name="auth"></a>How to: Authenticate Users
 
-Azure App Service supports authenticating and authorizing app users using a variety of external identity
-providers: Facebook, Google, Microsoft Account, and Twitter.   You can set permissions on tables to restrict
+Azure App Service supports authenticating and authorizing app users using various external identity
+providers: Facebook, Google, Microsoft Account, and Twitter. You can set permissions on tables to restrict
 access for specific operations to only authenticated users. You can also use the identity of authenticated
 users to implement authorization rules in server scripts. For more information, see the [Get started with authentication] tutorial.
 
@@ -68,13 +68,17 @@ deeper integration with device-specific capabilities such as single-sign-on as i
 
 ###<a name="configure-external-redirect-urls"></a>How to: Configure your Mobile App Service for External Redirect URLs.
 
-Several types of JavaScript applications use a loopback capability to handle OAuth UI flows, such as when running your service locally, using live reload in the Ionic Framework, or when redirecting to App Service for authentication. This can cause problems because, by default, App Service authentication is only configured to allow access from your Mobile App backend. 
+Several types of JavaScript applications use a loopback capability to handle OAuth UI flows.  These include:
 
-Use the following steps to change the App Service settings to enable authentication from your localhost:
+* Running your service locally
+* Using Live Reload with the Ionic Framework
+* Redirecting to App Service for authentication. 
 
-1. Log into the [Azure Portal], navigate to your Mobile App backend, then click **Tools** > **Resource explorer** > **Go** to open a new resource explorer window for your Mobile App backend (site).
+This can cause problems because, by default, App Service authentication is only configured to allow access from your Mobile App backend. Use the following steps to change the App Service settings to enable authentication when running the server on your local host:
 
-2. Expand the **config** node for your app, then click  **authsettings** > **Edit**, find the **allowedExternalRedirectUrls** element, which should be null, and change it to the following:
+1. Log in to the [Azure portal], navigate to your Mobile App backend, then click **Tools** > **Resource explorer** > **Go** to open a new resource explorer window for your Mobile App backend (site).
+
+2. Expand the **config** node for your app, then click **authsettings** > **Edit**, find the **allowedExternalRedirectUrls** element, which should be null, and change it to the following:
 
          "allowedExternalRedirectUrls": [
              "http://localhost:3000",
@@ -87,7 +91,7 @@ Use the following steps to change the App Service settings to enable authenticat
 
     You still need to add the same loopback URLs to the CORS whitelist settings:
 
-4. Back in the [Azure Portal] in your mobile app backend, click  **All Settings** > **CORS**, add the loopback URLs to whitelist, then click  **Save**.
+4. Back in the [Azure portal] in your mobile app backend, click **All Settings** > **CORS**, add the loopback URLs to whitelist, then click **Save**.
 
 After the backend updates, you will be able to use the new loopback URLs in your app.
 
@@ -96,6 +100,7 @@ After the backend updates, you will be able to use the new loopback URLs in your
 [Get started with authentication]: app-service-mobile-cordova-get-started-users.md
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
+[Azure portal]: https://portal.azure.com/
 [JavaScript SDK for Azure Mobile Apps]: https://www.npmjs.com/package/azure-mobile-apps-client
 [Query object documentation]: https://msdn.microsoft.com/en-us/library/azure/jj613353.aspx
 
