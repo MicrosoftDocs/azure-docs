@@ -87,8 +87,8 @@ master password for the solution.
 
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic11.jpg)
 
-After some time - depends on the size and complexity of the solution (an estimation is given by SAP CAL) 
-- it's shown as "active" and ready for use. It is very simple.
+After some time depending on the size and complexity of the solution (an estimation is given by SAP CAL) 
+it's shown as "active" and ready for use. It is very simple.
 
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic12.jpg)
 
