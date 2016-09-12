@@ -28,16 +28,16 @@ To test a deployment with the CLI, download the files azuredeploy.json and azure
 ## Deploy Template
 Navigate to the folder where these files were downloaded and run the following command to deploy the template:
 		
-		azure group create "cliRG" "local" –f azuredeploy.json –d "testDeploy" –e azuredeploy.parameters.json
+    azure group create "cliRG" "local" –f azuredeploy.json –d "testDeploy" –e azuredeploy.parameters.json
 	
-	This deploys the template to the resource group cliRG in the Azure Stack POC’s default location.	
+This deploys the template to the resource group cliRG in the Azure Stack POC’s default location.	
 
 ## Validate Template Deployment
 To see this resource group and storage account, use the following commands:
 
-		azure group list
+	azure group list
 
-		azure storage account list
+	azure storage account list
 
 ## Next steps
 

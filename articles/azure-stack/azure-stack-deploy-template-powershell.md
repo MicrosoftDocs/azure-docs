@@ -18,9 +18,7 @@
 
 # Deploy templates in Azure Stack using PowerShell
 
-Use PowerShell to deploy Azure Resource Manager (ARM) templates to the Azure Stack POC.
-
-ARM templates deploy and provision all of the resources for your application in a single, coordinated operation.
+Use PowerShell to deploy Azure Resource Manager (ARM) templates to the Azure Stack POC.  ARM templates deploy and provision all of the resources for your application in a single, coordinated operation.
 
 ## Run AzureRM PowerShell cmdlets
 
