@@ -14,8 +14,8 @@ by:
 2.  Sign in to the Azure Stack portal as an administrator (using the
     credentials you provided during deployment)
 
-3.  On the default dashboard ñ find **region management** list and click
-    on the region you wish to explore ñ for example **(local**).
+3.  On the default dashboard ‚Äì find **region management** list and click
+    on the region you wish to explore ‚Äì for example **(local**).
 
     ![](media/azure-stack-manage-storage-accounts/image1.png)
 
@@ -23,8 +23,8 @@ by:
 
     ![](media/azure-stack-manage-storage-accounts/image2.png)
 
-5.  Now, on the storage Resource Provider Admin blade ñ scroll down to
-    the ìStorage accountsî tab and click on it.
+5.  Now, on the storage Resource Provider Admin blade ‚Äì scroll down to
+    the ‚ÄúStorage accounts‚Äù tab and click on it.
 
     ![](media/azure-stack-manage-storage-accounts/image3.png)
     
@@ -33,27 +33,27 @@ by:
     ![](media/azure-stack-manage-storage-accounts/image4.png)
 
 By default, the first 10 accounts are displayed. You can choose to fetch
-more by clicking on ìload moreî link at the bottom of the list <br>
+more by clicking on ‚Äúload more‚Äù link at the bottom of the list <br>
 OR <br>
-If you are interested in a particular storage account ñ you can **filter
+If you are interested in a particular storage account ‚Äì you can **filter
 and fetch the relevant accounts** only.<br>
 To do so -
 
 1. Click on the filter button at the top of the blade.
 
 2. On the filter blade, it allows you to specify **account name**,
-    **subscription ID** or **status** to fine tune the list of storage
+    **subscription ID** or **status** to fine-tune the list of storage
     accounts to be displayed. Use them as appropriate.
 
 3. Click update. The list should refresh accordingly.
 
     ![](media/azure-stack-manage-storage-accounts/image5.png)
 
-4. To reset the filter ñ click on the filter button, clear out the
+4. To reset the filter ‚Äì click on the filter button, clear out the
     selections and update.
 
 The search text box, on the top of the storage accounts list blade, lets
-you to highlight the selected text in the list of accounts. This is
+you highlight the selected text in the list of accounts. This is
 really handy in the case when the full name or id is not easily
 available.<br>
 You can use free text here to help find the account you are interested
@@ -82,19 +82,19 @@ In AzureStack there is a very simple way to do so.
 
 2.  Locate that particular account in the list. You may need to filter.
 
-3.  Check the ëStateí of the account. It should say ìdeletedî.
+3.  Check the ‚ÄòState‚Äô of the account. It should say ‚Äúdeleted‚Äù.
 
 4.  Click on the account that opens the account details blade.
 
-5.  On top of this blade ñ locate the ìrecoverî button and click on it.
+5.  On top of this blade ‚Äì locate the ‚Äúrecover‚Äù button and click on it.
 
-6.  Confirm by pressing ìyesî
+6.  Confirm by pressing ‚Äúyes‚Äù
 
     ![](media/azure-stack-manage-storage-accounts/image8.png)
 
-7.  The recovery is now in processÖwait for indication that it was
+7.  The recovery is now in process‚Ä¶wait for indication that it was
     successful.
-    You can also click on the ìbellî icon at the top of the portal to
+    You can also click on the ‚Äúbell‚Äù icon at the top of the portal to
     view progress indications.
 
     ![](media/azure-stack-manage-storage-accounts/image9.png)
@@ -104,7 +104,7 @@ In AzureStack there is a very simple way to do so.
 
 ##**Some Gotchas**##
 
--   Your deleted account shows state as ìout of retentionî.
+-   Your deleted account shows state as ‚Äúout of retention‚Äù.
 
 This means that the deleted account has exceeded the retention period
 and may not be recoverable anymore.
@@ -112,19 +112,19 @@ and may not be recoverable anymore.
 -   Your deleted account does not show in the accounts list.
 
 This could mean that the deleted account has already been garbage
-collected. In this case it cannot be recovered anymore. See ìreclaim
-capacityî below.
+collected. In this case it cannot be recovered anymore. See ‚Äúreclaim
+capacity‚Äù below.
 
 ##**Set Retention Period**##
 
 Retention period setting allows an admin to specify a time period in
 days (between 0 and 9999 days) during which any deleted account can
 potentially be recovered. The default retention period is set to 15
-days. Setting the value to ì0î means that any deleted account will
+days. Setting the value to ‚Äú0‚Äù means that any deleted account will
 immediately be out of retention and marked for periodic garbage
 collection.
 
-To change the retention period ñ
+To change the retention period ‚Äì
 
 1.  In an internet browser, navigate to
     [https://portal.azurestack.local](https://portal.azurestack.local/).
@@ -132,8 +132,8 @@ To change the retention period ñ
 2.  Sign in to the Azure Stack portal as an administrator (using the
     credentials you provided during deployment)
 
-3.  On the default dashboard ñ find **region management** list and click
-    on the region you wish to explore ñ for example **(local**).
+3.  On the default dashboard ‚Äì find **region management** list and click
+    on the region you wish to explore ‚Äì for example **(local**).
 
 4.  Select **Storage** from the **Resource Providers** list.
 
@@ -155,9 +155,9 @@ account will continue to consume capacity until it comes out of the
 retention period. Now as an admin you may need a way to reclaim this
 deleted accounts space even though the retention period has not yet
 expired. Currently you can use a cmdline to explicitly override the
-retention period and immediately reclaim capacity. To do so ñ
+retention period and immediately reclaim capacity. To do so ‚Äì
 
-1.  Assuming you have Azurepowershell installed and configured. If not
+1.  Assuming you have Azure-PowerShell installed and configured. If not
     please follow the instructions here: To install the latest Azure
     PowerShell version and associate it with your Azure subscription,
     see [How to install and configure Azure
