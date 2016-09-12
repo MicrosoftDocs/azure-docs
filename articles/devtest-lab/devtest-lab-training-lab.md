@@ -40,7 +40,7 @@ In this article, you learn about various Azure DevTest Labs features that can be
 
 1. **Create the lab** 
 
-    You can configure a training lab in Azure DevTest Labs by creating a lab and providing isolated training VMs to each trainee in the **DevTest Labs User** role. Users in the Azure DevTest Labs User role can see only the VMs they created; they cannot access the VMs created by other trainees.  
+    You can configure a training lab in Azure DevTest Labs by creating a lab and providing isolated training VMs to each trainee in the DevTest Labs User role. Users in the Azure DevTest Labs User role can see only the VMs they created; they cannot access the VMs created by other trainees.  
 
     Learn more:
     -    [Create a lab in Azure DevTest Labs](devtest-lab-create-lab.md) - Learn how to create a lab in Azure DevTest Labs in the Azure portal.
@@ -72,8 +72,8 @@ In this article, you learn about various Azure DevTest Labs features that can be
 
     Learn more:
 
-    -    [Define lab policies](devtest-lab-set-lab-policy.md)
-    -    [Delete all the lab VMs using a PowerShell script](devtest-lab-faq.md#how-can-i-automate-the-process-of-deleting-all-the-vms-in-my-lab)
+    -    [Define lab policies](devtest-lab-set-lab-policy.md) - Control costs by setting policies in the lab.
+    -    [Delete all the lab VMs using a PowerShell script](devtest-lab-faq.md#how-can-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) - Delete all the labs in one operation when the training is complete. 
 
 5. **Share the lab with each trainee**
 
@@ -81,9 +81,9 @@ In this article, you learn about various Azure DevTest Labs features that can be
 
     Learn more:
 
-    -    [Add a trainee to a lab in Azure DevTest Labs](devtest-lab-add-devtest-user.md)
-    -    [Add trainees to the lab using a PowerShell script](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell)
-    -    [Get a link to the lab](devtest-lab-faq.md#how-do-i-share-a-direct-link-to-my-lab)
+    -    [Add a trainee to a lab in Azure DevTest Labs](devtest-lab-add-devtest-user.md) - Use the Azure portal to add trainees to your training lab.
+    -    [Add trainees to the lab using a PowerShell script](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell) - Use PowerShell to automate adding trainees to your training lab.
+    -    [Get a link to the lab](devtest-lab-faq.md#how-do-i-share-a-direct-link-to-my-lab) - Learn how a lab can be directly accessed via a hyperlink.
 
 6. **Reuse the lab again and again** 
 
@@ -91,7 +91,7 @@ In this article, you learn about various Azure DevTest Labs features that can be
 
     Learn more:
 
-    -    [Create a lab using a Resource Manager template](devtest-lab-faq.md#how-do-i-create-a-lab-from-an-azure-resource-manager-template)
+    -    [Create a lab using a Resource Manager template](devtest-lab-faq.md#how-do-i-create-a-lab-from-an-azure-resource-manager-template) - Create Azure DevTest Labs using Resource Manager templates.
 
 
 [AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]  
