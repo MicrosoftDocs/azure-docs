@@ -3,6 +3,7 @@
 	description="Learn how to perform automatic backups and database restores with Azure DocumentDB."
 	keywords="TBD"
 	services="documentdb"
+	documentationCenter=""
 	authors="syamkmsft"
 	manager="jhubbard"
 	editor="monicar"/>
