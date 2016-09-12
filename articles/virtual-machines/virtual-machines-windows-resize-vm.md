@@ -34,12 +34,15 @@ To resize a VM not in an availability set, perform the following steps.
 	
 2.	If the desired size is listed, run the following commands to resize the VM.
 
+		```powershell
 		$vm = Get-AzureRmVM -ResourceGroupName <resourceGroupName> -VMName <vmName>
 		$vm.HardwareProfile.VmSize = "<newVMsize>"
 		Update-AzureRmVM -VM $vm -ResourceGroupName <resourceGroupName>
+		```
 	
 3.	Otherwise, if the desired size is not listed, run the following commands to deallocate the VM, resize it, and then restart the VM.
 
+		```powershell
 		$rgname = "<resourceGroupName>"
 		$vmname = "<vmName>"
 		Stop-AzureRmVM -ResourceGroupName $rgname -VMName $vmname -Force
@@ -47,8 +50,9 @@ To resize a VM not in an availability set, perform the following steps.
 		$vm.HardwareProfile.VmSize = "<newVMSize>"
 		Update-AzureRmVM -VM $vm -ResourceGroupName $rgname
 		Start-AzureRmVM -ResourceGroupName $rgname -Name $vmname
+		```
 
-Warning, deallocating the VM also releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected. 
+> [AZURE.WARNING] Deallocating the VM also releases any dynamic IP addresses assigned to the VM. The OS and data disks are not affected. 
 
 ## Resize a Windows VM in an availability set
 
@@ -56,13 +60,17 @@ If the new size for a VM in an availability set is not available on the hardware
 
 1.	Run the following PowerShell command. This command lists the VM sizes that are available on the hardware cluster where the VM is hosted.
 
+		```powershell
 		Get-AzureRmVMSize -ResourceGroupName <resource-group-name> -VMName <vm-name>
+		```
 
 2.	If the desired size is listed, run the following commands to resize the VM.
 
+		```powershell
 		$vm = Get-AzureRmVM -ResourceGroupName <resource-group-name> -VMName <vm-name>
 		$vm.HardwareProfile.VmSize = "<new-vm-size>"
 		Update-AzureRmVM -VM $vm -ResourceGroupName <resource-group-name>
+		```
 	
 3.	Otherwise, if the desired size is not listed, continue with the following steps to deallocate all VMs in the availability set, resize VMs, and restart them.
 4.	Run the following commands to stop all VMs in the availability set.
