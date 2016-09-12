@@ -17,32 +17,33 @@
 	ms.author="helaw"/>
 
 # Install PowerShell and connect
-In this guide, we'll walk through teh steps required to connect to Azure Stack with PowerShell.  Once complete, you can use these steps to manage and deploy resources.
+In this guide, we'll walk through the steps for connecting to Azure Stack with PowerShell.  Once complete, you can use these steps to manage and deploy resources.
 
 ## Install Azure Stack PowerShell commandlets
 
-1.	Open a PowerShell Console on MAS-CON01.  
-2.	You will be installing the AzureRM modules from the PSGallery. To see more details on this, run Get-PSRepository:
+You will be installing the AzureRM modules from the PowerShell Gallery.  To begin, open a PowerShell Console on MAS-CON01 and run the following command:
 
-    ![Screenshot result of running Get-PSRepository with PSGallery listed](./media/azure-stack-connect-powershell/image1.png)
+    Get-PSRepository
 
-3.	Execute the following command:
+This will result in a list of PowerShell repositories availabe.
+
+![Screenshot result of running 4Get-PSRepository with PSGallery listed](./media/azure-stack-connect-powershell/image1.png)
+
+Next, execute the following command to install the AzureRM module.
     
     Install-Module -Name AzureRM -RequiredVersion 1.2.6 -Scope CurrentUser
 
-> [AZURE.NOTE] *-Scope CurrentUser* is optional.  If you want more than the current user to have access to the modules, use an elevated command prompt and leave off the Scope parameter
+> [AZURE.NOTE] *-Scope CurrentUser* is optional.  If you want more than the current user to have access to the modules, use an elevated command prompt and leave off the *Scope* parameter
 
-4.	This command will execute, run for a bit, and install the AzureRM modules from the PSGallery
-5.	To confirm the install of the AzureRM modules, execute the following command(s):
-    Get-Module -ListAvailable | where {$_.Name -match "AzureRM"}
-    Get-Command -Module AzureRM.AzureStackAdmin
+Finally, to confirm the installation of AzureRM modules, execute the following command(s):
+    
+	Get-Module -ListAvailable | where {$_.Name -match "AzureRM"}
+	Get-Command -Module AzureRM.AzureStackAdmin
 
-> [AZURE.NOTE] If you do not see them listed, Restart the MAS-CON01 VM.  Once the machine has restarted, check for the modules again
-
-The AzureRM modules have now been Installed and can now be used by the CurrentUser
+> [AZURE.NOTE] If you do not see AzureRM commands listed, restart the MAS-CON01 VM.  Once the machine has restarted, check for the modules using the steps above again.
 
 ## Connect to Azure Stack
-In the following steps, we'll add an Azure Environment.  This step configures PowerShell to work with Azure Stack.  
+In the following steps, we'll add an Azure Environment.  This step configures PowerShell for use with Azure Stack.  
 
 Before running the PowerShell below, updated the password and username strings (*MySecret* and *MYACCOUNT@MYDIR.onmicrosoft.com*) with values for your environment.
         
@@ -86,7 +87,12 @@ Before running the PowerShell below, updated the password and username strings (
     Write-Verbose "Using account: $(ConvertTo-Json $azureAccount.Context)" -Verbose
 
 ## Retrieve a list of subscriptions
-In this section, we'll verify PowerShell cmdlets are running against Azure Stack by retrieving and selecting a subscription for use.  
+In this section, you'll verify PowerShell cmdlets are running against Azure Stack by retrieving and selecting a subscription for use.
+
+First, we'll retrieve a list of subscriptions:
+
+    $Subscription = Get-AzureRMSubsciptions -name "Default Provider Subscription"
+
 
         
 
