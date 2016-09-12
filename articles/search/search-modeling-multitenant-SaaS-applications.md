@@ -14,7 +14,6 @@
 	ms.date="09/14/2016"
 	ms.author="ashmaka"/>
 
-
 # Design patterns for multitenant SaaS applications and Azure Search
 
 A multitenant application is one that provides the same services and capabilities to any number of tenants who cannot see or share the data of any other tenant. This document will discuss tenant isolation strategies for multitenant applications built with Azure Search.
