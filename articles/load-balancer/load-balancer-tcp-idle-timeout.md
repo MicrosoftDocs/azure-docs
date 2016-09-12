@@ -79,7 +79,7 @@ If endpoints are part of a load-balanced endpoint set, the TCP timeout must be s
 
 ### Change timeout settings for cloud services
 
-You can leverage the Azure SDK for .NET 2.4 to update your cloud service.
+You can use the Azure SDK for .NET 2.4 to update your cloud service.
 
 You make endpoint settings for cloud services in the .csdef file. Updating the TCP timeout for deployment of a cloud service requires a deployment upgrade. An exception is if the TCP timeout is specified only for a public IP. Public IP settings are in the .cscfg file, and you can update them through deployment update and upgrade.
 
@@ -104,7 +104,7 @@ The .cscfg changes for the timeout setting on public IPs are:
       </AddressAssignments>
     </NetworkConfiguration>
 
-## Rest API example
+## REST API example
 
 You can configure the TCP idle timeout by using the service management API.
 Make sure to add the x-ms-version header  is set to version 2014-06-01 or later.
