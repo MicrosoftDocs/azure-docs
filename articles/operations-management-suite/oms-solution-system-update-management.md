@@ -244,16 +244,16 @@ The following table provides sample log searches for alert records collected by 
 
 Query | Description|
 ----------|----------|
-All computers with missing updates | ```Type=Update UpdateState=Needed Optional=false | select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate```|
-Missing updates for computer "COMPUTER01.contoso.com" (replace with your own computer name) | ```Type=Update UpdateState=Needed Optional=false Computer="COMPUTER01.contoso.com" | select Computer,Title,KBID,Product,UpdateSeverity,PublishedDate```|
-All computers with missing critical or security updates | `Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates")`|
-Critical or security updates needed by machines where updates are manually applied | ```Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") Computer IN {Type=UpdateSummary WindowsUpdateSetting=Manual | Distinct Computer} | Distinct KBID```|
-Error events for machines that have missing critical or security required updates | ```Type=Event EventLevelName=error Computer IN {Type=Update (Classification="Security Updates" OR Classification="Critical Updates") UpdateState=Needed Optional=false | Distinct Computer}```|
-All computers with missing update rollups | ```Type=Update Optional=false Classification="Update Rollups" UpdateState=Needed | select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate```|
-Distinct missing updates across all computers | ```Type=Update UpdateState=Needed Optional=false | Distinct Title```|
-WSUS computer membership | ```Type=UpdateSummary | measure count() by WSUSServer```|
-Automatic update configuration | ```Type=UpdateSummary | measure count() by WindowsUpdateSetting```|
-Computers with automatic update disabled | `Type=UpdateSummary WindowsUpdateSetting=Manual`|  
+All computers with missing updates | Type=Update UpdateState=Needed Optional=false &#124; select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate|
+Missing updates for computer "COMPUTER01.contoso.com" (replace with your own computer name) | Type=Update UpdateState=Needed Optional=false Computer="COMPUTER01.contoso.com" &#124; select Computer,Title,KBID,Product,UpdateSeverity,PublishedDate|
+All computers with missing critical or security updates | Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates")|
+Critical or security updates needed by machines where updates are manually applied | Type=Update UpdateState=Needed Optional=false (Classification="Security Updates" OR Classification="Critical Updates") Computer IN {Type=UpdateSummary WindowsUpdateSetting=Manual &#124; Distinct Computer} &#124; Distinct KBID|
+Error events for machines that have missing critical or security required updates | Type=Event EventLevelName=error Computer IN {Type=Update (Classification="Security Updates" OR Classification="Critical Updates") UpdateState=Needed Optional=false &#124; Distinct Computer}|
+All computers with missing update rollups | Type=Update Optional=false Classification="Update Rollups" UpdateState=Needed &#124; select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate|
+Distinct missing updates across all computers | Type=Update UpdateState=Needed Optional=false &#124; Distinct Title|
+WSUS computer membership | Type=UpdateSummary &#124; measure count() by WSUSServer|
+Automatic update configuration | Type=UpdateSummary &#124; measure count() by WindowsUpdateSetting|
+Computers with automatic update disabled | Type=UpdateSummary WindowsUpdateSetting=Manual|  
 
 
 
