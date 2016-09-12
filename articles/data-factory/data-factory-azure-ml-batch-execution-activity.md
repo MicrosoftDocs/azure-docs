@@ -61,7 +61,10 @@ You use Azure Data Factory to orchestrate data movement and processing, and then
 ### Scenario: Experiments using Web service inputs/outputs that refer to data in Azure Blob Storage
 In this scenario, the Azure Machine Learning Web service makes predictions using data from a file in an Azure blob storage and stores the prediction results in the blob storage. The following JSON defines a Data Factory pipeline with an AzureMLBatchExecution activity. The activity has the dataset **DecisionTreeInputBlob** as input and **DecisionTreeResultBlob** as the output. The **DecisionTreeInputBlob** is passed as an input to the web service by using the **webServiceInput** JSON property. The **DecisionTreeResultBlob** is passed as an output to the Web service by using the **webServiceOutputs** JSON property.  
 
-> [AZURE.NOTE] Datasets that are referenced by the **webServiceInput** and **webServiceOutputs** properties (in **typeProperties**) must also be included in the Activity **inputs** and **outputs**.
+> [AZURE.IMPORTANT] 
+> If the web service takes multiple inputs, use the **webServiceInputs** property instead of using **webServiceInput**. 
+>  
+> Datasets that are referenced by the **webServiceInput**/**webServiceInputs** and **webServiceOutputs** properties (in **typeProperties**) must also be included in the Activity **inputs** and **outputs**.
 
 
 	{
@@ -358,6 +361,47 @@ In the above JSON example:
 - Both **start** and **end** datetimes must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional. If you do not specify value for the **end** property, it is calculated as "**start + 48 hours.**" To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property. See [JSON Scripting Reference](https://msdn.microsoft.com/library/dn835050.aspx) for details about JSON properties.
 
 ### Other scenarios
+
+#### Web service requires multiples inputs
+Use the **webServiceInputs** property when the Azure ML web service takes multiple inputs. 
+
+	{
+		"name": "PredictivePipeline",
+		"properties": {
+			"description": "use AzureML model",
+			"activities": [{
+				"name": "MLActivity",
+				"type": "AzureMLBatchExecution",
+				"description": "prediction analysis on batch input",
+				"inputs": [{
+					"name": "trainingDataset"
+				}, {
+					"name": "scoringData"
+				}],
+				"outputs": [{
+					"name": "outputDataset"
+				}],
+				"linkedServiceName": "MyAzureMLLinkedService",
+				"typeProperties": {
+					"webServiceInputs": {
+						"trainingData": "trainingDataset",
+						"scoringData": "scoringDataset"
+					},
+					"webServiceOutputs": {
+						"output1": "outputDataset"
+					}
+				},
+				"policy": {
+					"concurrency": 3,
+					"executionPriorityOrder": "NewestFirst",
+					"retry": 1,
+					"timeout": "02:00:00"
+				}
+			}],
+			"start": "2015-02-13T00:00:00Z",
+			"end": "2015-02-14T00:00:00Z"
+		}
+	}
 
 #### Web Service does not require an input
 
