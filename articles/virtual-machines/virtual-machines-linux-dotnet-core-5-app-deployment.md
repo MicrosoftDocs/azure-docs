@@ -19,7 +19,7 @@
 
 # Automating Application Deployment with Virtual Machine Extensions
 
-Once all Azure infrastructural requirements have been identified and translated into a deployment template, the actual application deployment needs to be addressed. Application deployment here is referring to installing the actual application binaries onto Azure resources. For the Music Store sample, .Net Core, NGINX, and Supervisor need to be installed and configured on each virtual machine. The Music Store binaries then need to be copied and installed onto the virtual machine, and the Music Store database pre-created.
+Once all Azure infrastructural requirements have been identified and translated into a deployment template, the actual application deployment needs to be addressed. Application deployment here is referring to installing the actual application binaries onto Azure resources. For the Music Store sample, .Net Core, NGINX, and Supervisor need to be installed and configured on each virtual machine. The Music Store binaries need to be installed onto the virtual machine, and the Music Store database pre-created.
 
 This document details how Virtual Machine extensions can automate application deployment and configuration to Azure virtual machines. All dependencies and unique configurations are highlighted. For the best experience, pre-deploy an instance of the solution to your Azure subscription and work along with the Azure Resource Manager template. The complete template can be found here – [Music Store Deployment on Ubuntu]( https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json).
 
@@ -76,7 +76,7 @@ sudo service supervisor start
 
 VM Extensions can be run against a virtual machine at build time by including the extension resource in the Azure Resource Manager template. The extension can be added with the Visual Studio Add Resource wizard, or by inserting valid JSON into the template. The custom script extension can be seen in the Music Store template on line [**365**]( https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L365) of the sample template. Notice that the VM extension JSON is nested inside the Virtual Machine resource.
 
-Notice in the below JSON that the script is stored in GitHub. This script could also be stored in Azure Blob storage. Also, Azure Resource Managerthe templates allow the script execution string to constructed such that template parameters values can be used as parameters for script execution. In this case data is provided when deploying the templates, and these values can then be used when executing the script.
+Notice in the below JSON that the script is stored in GitHub. This script could also be stored in Azure Blob storage. Also, Azure Resource Manager templates allow the script execution string to constructed such that template parameters values can be used as parameters for script execution. In this case data is provided when deploying the templates, and these values can then be used when executing the script.
 
 
 ```none
