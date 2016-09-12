@@ -11,7 +11,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="09/06/2016"
+	ms.date="09/14/2016"
 	ms.author="ashmaka"/>
 
 
