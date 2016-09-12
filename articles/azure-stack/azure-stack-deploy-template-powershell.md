@@ -18,11 +18,11 @@
 
 # Deploy templates in Azure Stack using PowerShell
 
-Use PowerShell to deploy Azure Resource Manager templates to the Azure Stack POC.  ARM templates deploy and provision all resources for your application in a single, coordinated operation.
+Use PowerShell to deploy Azure Resource Manager templates to the Azure Stack POC.  Resource Manager templates deploy and provision all resources for your application in a single, coordinated operation.
 
 ## Run AzureRM PowerShell cmdlets
 
-In this example, you'll run the following script to deploy a virtual machine to Azure Stack POC using an ARM template.  Before proceeding, ensure you have [installed and configured PowerShell](azure-stack-connect-powershell.md)  
+In this example, you run a script to deploy a virtual machine to Azure Stack POC using a Resource Manager template.  Before proceeding, ensure you have [installed and configured PowerShell](azure-stack-connect-powershell.md)  
 
 The VHD used in this example template is a default marketplace image (WindowsServer-2012-R2-Datacenter). If you want to target another VHD, you must first add an image to the Platform Image Repository as described in [Add an image to the Platform Image Repository](azure-stack-add-image-pir.md).
 
@@ -30,7 +30,7 @@ The VHD used in this example template is a default marketplace image (WindowsSer
 
 2.  In PowerShell, run the following deployment script.
 
-  Replace *username* and *password* with your username and password. On subsequent uses, increment the value for the *$myNum* parameter. If you don’t do this, your previous virtual machine deployment will be overwritten.
+  Replace *username* and *password* with your username and password. On subsequent uses, increment the value for the *$myNum* parameter to prevent overwriting your deployment.
 
 ```PowerShell
 		# Set Deployment Variables
