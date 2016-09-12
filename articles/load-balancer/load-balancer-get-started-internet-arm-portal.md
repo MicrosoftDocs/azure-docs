@@ -104,6 +104,10 @@ You can get more information about load balancer components with Azure Resource 
 
     ![Adding an inbound NAT rule](./media/load-balancer-get-started-internet-arm-portal/6-load-balancer-inbound-nat-rules.png)
 
+## Remove a Load Balancer
+
+To delete a load balancer, select the load balancer you want to remove. In the *Load Balancer* blade, click on **Delete** located at the stop of the blade. Then select **Yes** when prompted.
+
 ## Next steps
 
 [Get started configuring an internal load balancer](load-balancer-get-started-ilb-arm-cli.md)
