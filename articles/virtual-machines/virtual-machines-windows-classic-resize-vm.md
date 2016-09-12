@@ -43,7 +43,7 @@ To resize a VM to a size available in the hardware cluster hosting the VM, perfo
 
 1. Run the following PowerShell command to list the VM sizes available in the hardware cluster hosting the cloud service which contains the VM.
 
-		Get-AzureService | where {$_.ServiceName -eq "<cloudServiceName>"} 
+		````Get-AzureService | where {$_.ServiceName -eq "<cloudServiceName>"}````
 
 2. Run the following commands to resize the VM.
 
@@ -55,7 +55,7 @@ To resize a VM to a size not available in the hardware cluster hosting the VM, t
 
 1.	Run the following PowerShell command to list the VM sizes available in the region. 
 
-		Get-AzureLocation | where {$_.Name -eq "<locationName>"}
+		```Get-AzureLocation | where {$_.Name -eq "<locationName>"}````
 
 2.	Make note of all configuration settings for each VM in the cloud service which contains the VM to be resized. 
 3.	Delete all VMs in the cloud service selecting the option to retain the disks for each VM.
