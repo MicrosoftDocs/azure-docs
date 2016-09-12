@@ -18,9 +18,7 @@
 
 # Deploy templates in Azure Stack using the command line
 
-Use the command line to deploy Azure Resource Manager templates to the Azure Stack POC.
-
-ARM templates deploy and provision all of the resources for your application in a single, coordinated operation.
+Use the command line to deploy Azure Resource Manager templates to the Azure Stack POC. Azure Resource Manager templates deploy and provision all of the resources for your application in a single, coordinated operation.
 
 ## Download Template        
 To test a deployment with the CLI, download the files azuredeploy.json and azuredeploy.parameters.json from the [create storage account example template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-create-storage-account).
@@ -30,7 +28,7 @@ Navigate to the folder where these files were downloaded and run the following c
 		
     azure group create "cliRG" "local" –f azuredeploy.json –d "testDeploy" –e azuredeploy.parameters.json
 	
-This deploys the template to the resource group cliRG in the Azure Stack POC’s default location.	
+This command deploys the template to the resource group "cliRG" in the Azure Stack POC’s default location.	
 
 ## Validate Template Deployment
 To see this resource group and storage account, use the following commands:
