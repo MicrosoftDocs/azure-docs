@@ -18,7 +18,7 @@
 
 # Install and Configure Azure CLI
 
-Use 
+In this guide, we'll guide you through using Alzure CLI to manage and deploy azure r Azure CLI  to manage resources across many client platforms.  
 
 ## Install Azure CLI
 Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of open-source shell-based commands for creating and managing resources in Microsoft Azure Stack.
@@ -42,7 +42,7 @@ Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of ope
 
 		azure login -e AzureStack -u “<username>”
   
-	If you're getting certificate validation issues, disable certificate validation by running the command `set 		NODE_TLS_REJECT_UNAUTHORIZED=0`
+	>[AZURE.NOTE]If you're getting certificate validation issues, disable certificate validation by running the command `set 		NODE_TLS_REJECT_UNAUTHORIZED=0`
 
 3. Set the Azure configuration mode to ARM by using the following command.
 
