@@ -43,7 +43,7 @@ In this article, you learn about various Azure DevTest Labs features that can be
     You can configure a training lab in Azure DevTest Labs by creating a lab and providing isolated training VMs to each trainee in the **DevTest Labs User** role. Users in the Azure DevTest Labs User role can see only the VMs they created; they cannot access the VMs created by other trainees.  
 
     Learn more:
-    -    [Create a lab in DevTest Labs](devtest-lab-create-lab.md)
+    -    [Create a lab in Azure DevTest Labs](devtest-lab-create-lab.md) - Learn how to create a lab in Azure DevTest Labs in the Azure portal.
 
 2. **Create training VMs in minutes using ready-made marketplace images and custom images** 
     
@@ -51,9 +51,8 @@ In this article, you learn about various Azure DevTest Labs features that can be
 
     Learn more:
 
-    -    [Configure marketplace images](devtest-lab-configure-marketplace-images.md)
-    -    [Create a custom image](devtest-lab-create-template.md)
-
+    -    [Configure Azure Marketplace images](devtest-lab-configure-marketplace-images.md) - Learn how you can whitelist Azure market place images and pick the ones that you need for the training. 
+    -    [Create a custom image](devtest-lab-create-template.md) - Create a custom image by baking in all the software that you need for the training so that trainees can quickly create a VM using the custom image.
 
 3. **Create reusable templates for training machines** 
 
@@ -61,7 +60,7 @@ In this article, you learn about various Azure DevTest Labs features that can be
 
     Learn more:
 
-    -    [Manage DevTest Labs formulas to create VMs](devtest-lab-manage-formulas.md)
+    -    [Manage DevTest Labs formulas to create VMs](devtest-lab-manage-formulas.md) - Learn how you can create a formula by picking up an image, VM size (combination of CPU and RAM), and a virtual network. 
 
 4. **Control costs**
 
