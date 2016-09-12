@@ -13,10 +13,12 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/12/2016"
+   ms.date="09/11/2016"
    ms.author="markvi"/>
 
 # Azure Active Directory reporting - preview
+
+*This documentation is part of the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
 
 With Azure Active Directory reporting, you get all the information you need to determine how your environment is doing.
 
@@ -221,3 +223,7 @@ You can filter an audit report by a time interval to limit the amount of display
 Another method to filter the entries of a audit log is to search for specific entries.
  
 ![Auditing](./media/active-directory-reporting/237.png "Auditing")
+
+## Next Steps
+
+See the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).
