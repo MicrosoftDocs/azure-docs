@@ -18,14 +18,19 @@
 
 
 # Copy Activity performance and tuning guide
-Azure Data Factory Copy Activity provides first-class secure, reliable and high-performance solution, which enables customers to copy dozens of terabytes of data every day among a variety of cloud and on-premises data stores for advanced analytics and business intelligence application consumption. With single copy activity run, specially you can achieve:
+Copy Activity in Azure Data Factory provides a first-class secure, reliable and high-performance solution, which enables customers to copy dozens of terabytes of data every day among various cloud and on-premises data stores for advanced analytics and business intelligence application consumption.
+
+With single copy activity run, specially you can achieve:
+
 - Ingest data into **Azure SQL Data Warehouse** at **1.25 GBps** from Azure Blob using PolyBase
 - Ingest data into **Azure Blob storage** at **1 GBps** from Azure Blob
 - Ingest data into **Azure Data Lake Store** at **1 GBps** from Azure Blob
 
-This article describes
+
+This article describes:
+
 - [Performance reference numbers](#performance-reference) for typical supported source and sink data stores to help you plan your project;
-- Features including [Parallel copy](#parallel-copy), [Cloud data movement units](#cloud-data-movement-units) and [Staged Copy](#staged-copy) which could help boost the copy throughput in various scenarios;
+- Features that could help boost the copy throughput in different scenarios, including [Parallel copy](#parallel-copy), [Cloud data movement units](#cloud-data-movement-units), and [Staged Copy](#staged-copy);
 - [Guidance](#performance-tuning-steps) on how to tune the performance for a given scenario and the considerations on the key factors that may affect the copy performance.
 
 > [AZURE.NOTE] If you are not familiar with Copy Activity in general, see [Move data by using Copy Activity](data-factory-data-movement-activities.md) before reading this article.
@@ -137,7 +142,7 @@ By default, Data Factory uses a single cloud DMU to perform a single Copy Activi
 
 The **allowed values** for the **cloudDataMovementUnits** property are 1 (default), 2, 4, and 8. The **actual number of cloud DMUs** that the copy operation uses at run time is equal to or less than the configured value, depending on your data pattern. 
 
-> [AZURE.NOTE] If you need more cloud DMUs for a higher throughput, contact [Azure support](https://azure.microsoft.com/support/). Setting of 8 and above currently work only when you copy multiple files from Blob storage to Blob storage or to a Data Lake Store instance that is greater than or equal to 16 MB individually.
+> [AZURE.NOTE] If you need more cloud DMUs for a higher throughput, contact [Azure support](https://azure.microsoft.com/support/). Setting of 8 and above currently work only when you copy multiple files from Blob storage to Blob storage, Data Lake Store or Azure SQL Database, and the file size is greater than or equal to 16 MB individually.
 
 To better use these two properties, and to enhance your data movement throughput, see the [sample use cases](#case-study-use-parallel-copy). You don't need to configure **parallelCopies** to take advantage of the default behavior. If you do configure and **parallelCopies** is too small, multiple cloud DMUs might not be fully utilized.  
 
