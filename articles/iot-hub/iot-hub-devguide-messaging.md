@@ -247,6 +247,20 @@ Consider the following points when you choose your protocol for device-side comm
 
 > [AZURE.NOTE] When using HTTP/1, each device should poll for cloud-to-device messages every 25 minutes or more. However, during development, it is acceptable to poll more frequently than every 25 minutes.
 
+### Port numbers
+
+Devices can communicate with IoT Hub in Azure using various protocols. Typically, the choice of protocol is driven by the specific requirements of the solution. The following table lists the outbound ports that must be open for a device to be able to use a specific protocol:
+
+| Protocol | Port(s) |
+| -------- | ------- |
+| MQTT     | 8883    |
+| AMQP     | 5671    |
+| AMQP over WebSockets | 443    |
+| HTTPS    | 443     |
+| LWM2M (Device management) | 5684 |
+
+Once you have created an IoT hub in an Azure region, the hub keeps the same IP address for the lifetime of that hub. However, to maintain quality of service, if Microsoft moves the IoT hub to a different scale unit then it is assigned a new IP address.
+
 ### Notes on MQTT support
 
 IoT Hub implements the MQTT v3.1.1 protocol with the following limitations and specific behavior:
@@ -303,7 +317,6 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-c2d]: iot-hub-devguide-messaging.md#cloud-to-device-messages
 [lnk-protocols]: iot-hub-devguide-messaging.md#communication-protocols
 [lnk-message-format]: iot-hub-devguide-messaging.md#message-format
-[lnk-d2c-configuration]: device-to-cloud-configuration optionsiot-hub-devguide-messaging.md#
 [lnk-d2c-configuration]: iot-hub-devguide-messaging.md#device-to-cloud-configuration-options
 [lnk-device-properties]: iot-hub-devguide-identity-register.md#device-identity-properties
 [lnk-ttl]: iot-hub-devguide-messaging.md#message-expiration-time-to-live

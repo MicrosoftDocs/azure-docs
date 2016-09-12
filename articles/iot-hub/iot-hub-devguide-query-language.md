@@ -3,7 +3,7 @@
  description="Azure IoT Hub developer guide - description of query language used to retrieve information about twins, methods, and jobs from your IoT hub"
  services="iot-hub"
  documentationCenter=".net"
- authors="?????"
+ authors="fsautomata"
  manager="timlt"
  editor=""/>
 
@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="09/30/2016" 
- ms.author="??????"/>
+ ms.author="elioda"/>
 
 # Reference - query language for twins, methods, and jobs
 

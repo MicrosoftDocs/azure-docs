@@ -72,7 +72,7 @@ To create a connection string that includes a shared access signature, specify t
 
 Each service endpoint is optional, although the connection string must contain at least one.
 
-Using HTTPS with a SAS is recommended as a best practice. For more information about shared access signatures, see [Shared Access Signatures: Understanding the SAS Model](storage-dotnet-shared-access-signature-part-1.md).
+Using HTTPS with a SAS is recommended as a best practice. For more information about shared access signatures, see [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 
 >[AZURE.NOTE] If you are specifying a SAS in a connection string in a configuration file, you may need to encode special characters in the URL.
 
