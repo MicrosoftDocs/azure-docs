@@ -1,5 +1,5 @@
 ﻿<properties
-   pageTitle="Azure Virtual Machine DotNet Core Tutorial 2"
+   pageTitle="Deploying Compute Resources with Azure Resource Manager Templates"
    description="Azure Virtual Machine DotNet Core Tutorial"
    services="virtual-machines-linux"
    documentationCenter="virtual-machines"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="08/29/2016"
+   ms.date="09/12/2016"
    ms.author="nepeters"/>
 
 # Deploying Compute Resources with Azure Resource Manager Templates
@@ -211,7 +211,7 @@ From the Azure portal, the network interface looks like the following image. The
 
 The complete virtual machine networking configuration looks like the following diagram.
 
-<center>![](./media/virtual-machines-linux-dotnet-core/network-config.png)</center>
+![](./media/virtual-machines-linux-dotnet-core/network-config.png)
 
 For more information on Azure Virtual Networks, see [Azure Virtual Network documentation](https://azure.microsoft.com/documentation/services/virtual-network/).
 

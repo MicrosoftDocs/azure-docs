@@ -1,5 +1,5 @@
 ﻿<properties
-   pageTitle="Azure Virtual Machine DotNet Core Tutorial 3"
+   pageTitle="Access and Security in Azure Resource Manager Templates"
    description="Azure Virtual Machine DotNet Core Tutorial"
    services="virtual-machines-linux"
    documentationCenter="virtual-machines"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="08/29/2016"
+   ms.date="09/12/2016"
    ms.author="nepeters"/>
 
 # Access and Security in Azure Resource Manager Templates
