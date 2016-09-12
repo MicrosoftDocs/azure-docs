@@ -33,11 +33,11 @@ To support such scenarios, we've added support for a configurable idle timeout. 
 
 ![TCP timeout](./media/load-balancer-tcp-idle-timeout/image1.png)
 
-## How to change idle timeout settings in virtual machines and cloud services
+The following sections describe how to change idle timeout settings in virtual machines and cloud services.
 
 >[AZURE.NOTE] To support the configuration of these settings, ensure that you have installed the latest Azure PowerShell package.
 
-### Configure the TCP timeout for your instance-level public IP to 15 minutes
+## Configure the TCP timeout for your instance-level public IP to 15 minutes
 
     Set-AzurePublicIP -PublicIPName webip -VM MyVM -IdleTimeoutInMinutes 15
 
@@ -45,7 +45,7 @@ To support such scenarios, we've added support for a configurable idle timeout. 
 
 >[AZURE.NOTE] The acceptable timeout range is 4 to 30 minutes.
 
-### Set the idle timeout when creating an Azure endpoint on a virtual machine
+## Set the idle timeout when creating an Azure endpoint on a virtual machine
 
 Change the timeout setting for an endpoint:
 
@@ -71,13 +71,13 @@ Retrieve your idle timeout configuration:
     InternalLoadBalancerName :
     IdleTimeoutInMinutes : 15
 
-### Set the TCP timeout on a load-balanced endpoint set
+## Set the TCP timeout on a load-balanced endpoint set
 
 If endpoints are part of a load-balanced endpoint set, the TCP timeout must be set on the load-balanced endpoint set:
 
     Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 -IdleTimeoutInMinutes 15
 
-### Change timeout settings for cloud services
+## Change timeout settings for cloud services
 
 You can use the Azure SDK for .NET 2.4 to update your cloud service.
 
