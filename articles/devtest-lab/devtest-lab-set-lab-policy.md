@@ -13,17 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2016"
+	ms.date="09/12/2016"
 	ms.author="tarcher"/>
 
 # Define lab policies in Azure DevTest Labs
 
 > [AZURE.VIDEO how-to-set-vm-policies-in-a-devtest-lab]
 
-Azure DevTest Labs enables you to specify key policies that govern how your lab and its VMs are used. 
-You can define the rules for the maximum number of VMs created per user and per lab, and various auto-shutdown and auto-start options. 
+Azure DevTest Labs enables you to specify key policies that help you to control cost and minimize waste in your labs. These lab policies include the maximum number of VMs created per user and per lab, and various auto-shutdown and auto-start options. 
 
-## Accessing a lab's policies
+## Accessing a lab's policies in Azure DevTest Labs
+
+The following steps guide you through setting up policies for a lab in Azure DevTest Labs:
 
 To view (and change) the policies for a lab, follow these steps:
 
