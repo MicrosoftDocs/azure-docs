@@ -44,9 +44,9 @@ Are you new to DocumentDB? Watch [this](https://azure.microsoft.com/documentatio
 	- In the **ID** box, enter a name to identify the DocumentDB account.  When the **ID** is validated, a green check mark appears in the **ID** box. The **ID** value becomes the host name within the URI. The **ID** may contain only lowercase letters, numbers, and the '-' character, and must be between 3 and 50 characters. Note that *documents.azure.com* is appended to the endpoint name you choose, the result of which becomes your DocumentDB account endpoint.
 
     - In the **NoSQL API** box, select the programming model to use:
-        - **DocumentDB**: The DocumentDB API is available via .NET, Java, Node.js, Python and JavaScript SDKs, as well as HTTP REST, and offers programmatic access to all the DocumentDB functionality. 
+        - **DocumentDB**: The DocumentDB API is available via .NET, Java, Node.js, Python and JavaScript [SDKs](documentdb-sdk-dotnet.md), as well as HTTP [REST](https://msdn.microsoft.com/library/azure/dn781481.aspx), and offers programmatic access to all the DocumentDB functionality. 
        
-        - **MongoDB**: DocumentDB also offers protocol-level support for **MongoDB** API. When you choose the MongoDB API option, you can use existing MongoDB SDKs and tools to talk to DocumentDB. You can move your existing MongoDB apps to use DocumentDB, with no code changes needed, and take advantage of a fully managed database as a service, with limitless scale, global replication, and other capabilities.
+        - **MongoDB**: DocumentDB also offers [protocol-level support](documentdb-protocol-mongodb.md) for **MongoDB** APIs. When you choose the MongoDB API option, you can use existing MongoDB SDKs and [tools](documentdb-mongodb-mongochef.md) to talk to DocumentDB. You can [move](documentdb-import-data.md) your existing MongoDB apps to use DocumentDB, with [no code changes needed](documentdb-connect-mongodb-account.md), and take advantage of a fully managed database as a service, with limitless scale, global replication, and other capabilities.
 
 	- For **Subscription**, select the Azure subscription that you want to use for the DocumentDB account. If your account has only one subscription, that account is selected by default.
 
