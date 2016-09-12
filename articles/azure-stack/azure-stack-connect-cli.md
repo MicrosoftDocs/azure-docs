@@ -18,7 +18,7 @@
 
 # Install and Configure Azure CLI
 
-In this document, we guide you through using Azure CLI to manage resources across Windows, Linux, and Mac client platforms.  
+In this document, we guide you through using Azure CLI to manage resources on Windows, Linux, and Mac client platforms.  
 
 ## Install Azure CLI
 Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of open-source shell-based commands for creating and managing resources in Microsoft Azure Stack.
