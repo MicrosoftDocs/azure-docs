@@ -1,6 +1,6 @@
 <properties
-    pageTitle="Preview of user provisioning management for enterprise apps in the Azure portal | Microsoft Azure"
-    description="Learn how to manage user account provisioning for enterprise apps using the new Azure portal"
+    pageTitle="User provisioning management for enterprise apps in the Azure Active Directory preview | Microsoft Azure"
+    description="Learn how to manage user account provisioning for enterprise apps using the Azure Active Directory preview"
     services="active-directory"
     documentationCenter=""
     authors="asmalser"
@@ -18,7 +18,7 @@
 
 #Preview: Managing user account provisioning for enterprise apps in the new Azure portal
 
-This article describes how to use the new [Azure management portal](https://portal.azure.com) to manage automatic user account provisioning and de-provisioning for applications that support it, particularly ones that have been added from the "featured" category of the [Azure Active Directory application gallery](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). This management experience in the new Azure portal is currently in public preview, and this article describes the new features as well as a few temporary limitations that will be in place during the preview period. 
+This article describes how to use the [Azure portal](https://portal.azure.com) to manage automatic user account provisioning and de-provisioning for applications that support it, particularly ones that have been added from the "featured" category of the [Azure Active Directory application gallery](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). This management experience in the new Azure portal is currently in public preview, and this article describes the new features as well as a few temporary limitations that are in place during the preview period. [What's in the preview?](active-directory-preview-explainer.md)
 
 To learn more about automatic user account provisioning and how it works, see [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](active-directory-saas-app-provisioning.md).
 
@@ -51,14 +51,14 @@ The **Provisioning** blade begins with a **Mode** menu, which shows what provisi
 Selecting the **Automatic** option displays a screen that is divided in four sections:
 
 ###Admin Credentials
-This is where the credentials required for Azure AD to connect to the application's user management API are entered. The input required will vary depending on the application. To learn about the credential types and requirements for specific applications, see the [configuration tutorial for that specific application](active-directory-saas-app-provisioning.md#list-of-apps-that-support-automated-user-provisioning).
+This is where the credentials required for Azure AD to connect to the application's user management API are entered. The input required varies depending on the application. To learn about the credential types and requirements for specific applications, see the [configuration tutorial for that specific application](active-directory-saas-app-provisioning.md#list-of-apps-that-support-automated-user-provisioning).
 
 Selecting the **Test Connection** button allows you to test the credentials by having Azure AD attempt to connect to the app's provisioning app using the supplied credentials.
 
 ###Mappings
-This is where admins can view and edit what user attributes flow between Azure AD and the target application, when user accounts are provisioned or updated. 
+This is where admins can view and edit what user attributes flow between Azure AD and the target application, when user accounts are provisioned or updated.
 
-There is a preconfigured set of mappings between Azure AD user objects and each SaaS app’s user objects. Some apps manage other types of objects, such as Groups or Contacts. Selecting one of these mappings in the table shows the mapping editor to the right, where they can be viewed and customized. 
+There is a preconfigured set of mappings between Azure AD user objects and each SaaS app’s user objects. Some apps manage other types of objects, such as Groups or Contacts. Selecting one of these mappings in the table shows the mapping editor to the right, where they can be viewed and customized.
 
 ![Application resource blade][2]
 
@@ -68,8 +68,7 @@ Supported customizations during the first preview include:
 
 * Editing which attributes flow from the Azure AD user object to the app's user object. For more information on attribute mapping, see [Understanding attribute mapping types](active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-types).
 
-* Filter what provisioning actions Azure AD should perform on the target application, which is a new feature in the new Azure portal. Instead of having Azure AD fully-synchronize objects, you can limit the actions performed. For example, by only selecting **Update**, Azure AD will only update existing user accounts in an application and not create new ones. By only selecting **Create**, Azure will only create new user accounts but not update existing ones. This feature will allow admins to create different mappings for account creation and update workflows. The full ability to create multiple mappings per app is planned for the next preview.
-
+* Filter what provisioning actions Azure AD should perform on the target application, which is a new feature in the Azure portal. Instead of having Azure AD fully-synchronize objects, you can limit the actions performed. For example, by only selecting **Update**, Azure AD only updates existing user accounts in an application and does not create new ones. By only selecting **Create**, Azure only creates new user accounts but does not update existing ones. This feature allows admins to create different mappings for account creation and update workflows. The full ability to create multiple mappings per app is planned for later in the preview period.
 
 ###Settings
 This section allows admins to start and stop the Azure AD provisioning service for the selected application, as well as optionally clear the provisioning cache and restart the service.
@@ -88,4 +87,3 @@ Links are provided to the **Provisioning activity report**, which provides a log
 [0]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-blade.PNG
 [1]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning.PNG
 [2]: ./media/active-directory-enterprise-apps-manage-provisioning/enterprise-apps-provisioning-mapping.PNG
-
