@@ -17,7 +17,7 @@
   ms.date="08/31/2016"
   ms.author="sewhee" />
 
-# <a name="get-started"></a>Create an Internet-facing load balancer in Resource Manager by using PowerShell
+# <a name="get-started"></a>Get started creating an Internet-facing load balancer in Resource Manager by using PowerShell
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
@@ -27,15 +27,15 @@
 
 [AZURE.INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
-## Deploy the solution by using Azure PowerShell
+## Deploying the solution by using Azure PowerShell
 
-The following steps show how to create an Internet-facing load balancer by using Azure Resource Manager with PowerShell. With Azure Resource Manager, each resource is created and configured individually, then put together to create a resource.
+The following procedures show how to create an Internet-facing load balancer by using Azure Resource Manager with PowerShell. With Azure Resource Manager, each resource is created and configured individually, and then put together to create a resource.
 
 You must create and configure the following objects to deploy a load balancer:
 
 - Front-end IP configuration: contains public IP addresses for incoming network traffic.
 - Back-end address pool: contains network interfaces (NICs) for the virtual machines to receive network traffic from the load balancer.
-- Load balancing rules: contains rules that map a public port on the load balancer to a port in the back-end address pool.
+- Load-balancing rules: contains rules that map a public port on the load balancer to a port in the back-end address pool.
 - Inbound NAT rules: contains rules that map a public port on the load balancer to a port for a specific virtual machine in the back-end address pool.
 - Probes: contains health probes used to check availability of virtual machine instances in the back-end address pool.
 
@@ -87,7 +87,7 @@ Make sure you have the latest production version of the Azure Resource Manager m
 
         $beaddresspool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name LB-backend
 
-## Create load balancer rules, NAT rules, a probe, and a load balancer
+## Create NAT rules, a load balancer rule, a probe, and a load balancer
 
 This example creates the following items:
 
@@ -95,7 +95,7 @@ This example creates the following items:
 - A NAT rule to translate all incoming traffic on port 3442 to port 3389
 - A load balancer rule to balance all incoming traffic on port 80 to port 80 on the addresses in the back-end pool
 - A probe rule to check the health status on a page named **HealthProbe.aspx**
-- A load balancer that uses all the objects above
+- A load balancer that uses all these objects
 
 
 1. Create the NAT rules.
@@ -189,15 +189,15 @@ Create network interfaces (or modify existing ones) and then associate them to N
 
 5. Use the `Add-AzureRmVMNetworkInterface` cmdlet to assign the NICs to different VMs.
 
-## Create virtual machines
+## Create a virtual machine
 
-For guidance on creating a virtual machine and assigning a NIC, see option 5 in [Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell](../virtual-machines/virtual-machines-windows-create-powershell.md#Example).
+For guidance on creating a virtual machine and assigning a NIC, see option 5 in [Create and preconfigure a Windows virtual machine with Resource Manager and Azure PowerShell](../virtual-machines/virtual-machines-windows-create-powershell.md#Example).
 
 ## Add the network interface to the load balancer
 
 1. Retrieve the load balancer from Azure.
 
-    Load the load balancer resource into a variable (if you haven't done that yet). The variable is called $lb. Use the same names from the load balancer resource created earlier.
+    Load the load balancer resource into a variable (if you haven't done that yet). The variable is called **$lb**. Use the same names from the load balancer resource that you created earlier.
 
         $lb= get-azurermloadbalancer –name NRP-LB -resourcegroupname NRP-RG
 
@@ -205,7 +205,7 @@ For guidance on creating a virtual machine and assigning a NIC, see option 5 in 
 
         $backend=Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
 
-3. Load the already created network interface into a variable. the variable name is $nic. The network interface name is the same one from the earlier example.
+3. Load the already created network interface into a variable. The variable name is **$nic**. The network interface name is the same one from the earlier example.
 
         $nic =get-azurermnetworkinterface –name lb-nic1-be -resourcegroupname NRP-RG
 
@@ -217,15 +217,15 @@ For guidance on creating a virtual machine and assigning a NIC, see option 5 in 
 
         Set-AzureRmNetworkInterface -NetworkInterface $nic
 
-    After a network interface is added to the load balancer back-end pool, it starts receiving network traffic based on the load balancing rules for that load balancer resource.
+    After a network interface is added to the load balancer back-end pool, it starts receiving network traffic based on the load-balancing rules for that load balancer resource.
 
 ## Update an existing load balancer
 
-1. By using the load balancer from the earlier example, assign a load balancer object to variable $slb by using Get-AzureLoadBalancer.
+1. By using the load balancer from the earlier example, assign a load balancer object to the variable **$slb** by using `Get-AzureLoadBalancer`.
 
         $slb = get-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 
-2. In the following example, you add an inbound NAT rule by using port 81 in the front-end pool and port 8181 for the back-end pool to an existing load balancer.
+2. In the following example, you add an inbound NAT rule--by using port 81 in the front-end pool and port 8181 for the back-end pool--to an existing load balancer.
 
         $slb | Add-AzureRmLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol TCP
 
@@ -235,11 +235,11 @@ For guidance on creating a virtual machine and assigning a NIC, see option 5 in 
 
 ## Remove a load balancer
 
-Use the command `Remove-AzureLoadBalancer` to delete a previously created load balancer named NRP-LB  in a resource group called NRP-RG.
+Use the command `Remove-AzureLoadBalancer` to delete a previously created load balancer named **NRP-LB**  in a resource group called **NRP-RG**.
 
     Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 
->[AZURE.NOTE] You can use the optional switch -Force to avoid the prompt for deletion.
+>[AZURE.NOTE] You can use the optional switch **-Force** to avoid the prompt for deletion.
 
 ## Next steps
 
