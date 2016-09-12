@@ -97,6 +97,8 @@ This example creates the following items:
 - A probe rule to check the health status on a page named **HealthProbe.aspx**
 - A load balancer that uses all these objects
 
+Use these steps:
+
 1. Create the NAT rules.
 
         $inboundNATRule1= New-AzureRmLoadBalancerInboundNatRuleConfig -Name RDP1 -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3441 -BackendPort 3389
