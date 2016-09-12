@@ -26,6 +26,8 @@ To create a lab, you need:
 
 ## Steps to create a lab in Azure DevTest Labs
 
+The following steps illustrate how to use the Azure portal to create a lab in Azure DevTest Labs. 
+
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Select **More services**, and then select **DevTest Labs** from the list.
