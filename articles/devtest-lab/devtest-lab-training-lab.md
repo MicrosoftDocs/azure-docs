@@ -40,15 +40,14 @@ In this article, you learn about various Azure DevTest Labs features that can be
 
 1. **Create the lab** 
 
-    You can create an isolated training lab in Azure DevTest Labs by creating a lab and providing isolated training machines to each trainee by adding them to the DevTest Labs user role. A person in the Azure DevTest Labs user role can see only the VMs created themselves and cannot access the VMs created by other trainees.  
+    You can configure a training lab in Azure DevTest Labs by creating a lab and providing isolated training VMs to each trainee in the **DevTest Labs User** role. Users in the Azure DevTest Labs User role can see only the VMs they created; they cannot access the VMs created by other trainees.  
 
     Learn more:
-
     -    [Create a lab in DevTest Labs](devtest-lab-create-lab.md)
 
-2. **Create training VMs in minutes using custom images or ready-made marketplace images** 
+2. **Create training VMs in minutes using ready-made marketplace images and custom images** 
     
-    You can pick ready-made images from a wide variety of images in the Azure Marketplace and make them available for all the trainees in the lab. If the ready-made images don't meet your requirements, you can create a custom image by creating a lab VM using a ready-made image from Azure Marketplace, installing all the software that you need for the training, and finally, saving the VM as custom image in the lab. 
+    You can pick ready-made images from a wide variety of images in the Azure Marketplace and make them available for the trainees in the lab. If the ready-made images don't meet your requirements, you can create a custom image by creating a lab VM using a ready-made image from Azure Marketplace, installing all the software that you need for the training, and saving the VM as custom image in the lab. 
 
     Learn more:
 
@@ -58,7 +57,7 @@ In this article, you learn about various Azure DevTest Labs features that can be
 
 3. **Create reusable templates for training machines** 
 
-    You can use formulas in the lab to create templates for training machines. You can create a formula in the lab by picking an image, a VM size (a combination of CPU and RAM), and a virtual network. Each trainee can see the formula in the lab and use it to create a VM. 
+    A formula in Azure DevTest Labs is a list of default property values used to create a VM. You can create a formula in the lab by picking an image, a VM size (a combination of CPU and RAM), and a virtual network. Each trainee can see the formula in the lab and use it to create a VM. 
 
     Learn more:
 
@@ -66,9 +65,9 @@ In this article, you learn about various Azure DevTest Labs features that can be
 
 4. **Control costs**
 
-    Azure DevTest Labs allows you to set a policy in the lab to set the maximum number of VMs that can be created by a trainee in the lab. 
+    Azure DevTest Labs allows you to set a policy in the lab to specify the maximum number of VMs that can be created by a trainee in the lab. 
 
-    If you are conducting multi-day training and want to stop all the VMs at a particular time of the day and then automatically retart them the following day, you can easily accomplish it by setting auto-shutdown and auto-start policies in the lab. 
+    If you are conducting multi-day training and want to stop all the VMs at a particular time of the day and then automatically retart them the following day, you can easily accomplish that by setting auto-shutdown and auto-start policies in the lab. 
 
     Finally, when training is complete you can delete all the VMs at once by running a single PowerShell script. 
 
@@ -79,7 +78,7 @@ In this article, you learn about various Azure DevTest Labs features that can be
 
 5. **Share the lab with each trainee**
 
-    If you're worried that trainees will get lost in the Azure portal and won't find the lab that you have created, you don’t have to worry. Labs can be directly accessed using a link. Your trainees don't even have to have an Azure account, as long as they have a [Microsoft account](devtest-lab-faq.md#what-is-a-microsoft-account) such as a live.com or hotmail.com account. You can share the lab link with all the trainees in an email and then they can click the link and go directly to the lab. 
+	Labs can be directly accessed using a link that you share with your trainees. Your trainees don't even have to have an Azure account, as long as they have a [Microsoft account](devtest-lab-faq.md#what-is-a-microsoft-account).  
 
     Learn more:
 
