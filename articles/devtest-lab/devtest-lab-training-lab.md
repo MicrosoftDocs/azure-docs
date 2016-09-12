@@ -40,7 +40,7 @@ In this article, you learn about various Azure DevTest Labs features that can be
 
 1. **Create the lab** 
 
-    You can configure a training lab in Azure DevTest Labs by creating a lab and providing isolated training VMs to each trainee in the DevTest Labs User role. Users in the Azure DevTest Labs User role can see only the VMs they created; they cannot access the VMs created by other trainees.  
+    Labs are the starting point in Azure DevTest Labs. Once you create a lab, you can perform tasks such as add users (trainees) to the lab, set policies to control costs, define VM images that can create quickly, and more.   
 
     Learn more by clicking on the links in the following table:
 
@@ -86,7 +86,7 @@ In this article, you learn about various Azure DevTest Labs features that can be
 
 5. **Share the lab with each trainee**
 
-	Labs can be directly accessed using a link that you share with your trainees. Your trainees don't even have to have an Azure account, as long as they have a [Microsoft account](devtest-lab-faq.md#what-is-a-microsoft-account).  
+	Labs can be directly accessed using a link that you share with your trainees. Your trainees don't even have to have an Azure account, as long as they have a [Microsoft account](devtest-lab-faq.md#what-is-a-microsoft-account). Trainees cannot see VMs created by other trainees.  
 
     Learn more by clicking on the links in the following table:
 
