@@ -18,7 +18,7 @@
 
 # Install and Configure Azure CLI
 
-In this guide, we'll guide you through using Alzure CLI to manage and deploy azure r Azure CLI  to manage resources across many client platforms.  
+In this guide, we'll guide you through using Azure CLI  to manage resources across Windows, Linux, and Mac client platforms.  
 
 ## Install Azure CLI
 Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of open-source shell-based commands for creating and managing resources in Microsoft Azure Stack.
@@ -34,6 +34,8 @@ Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of ope
 
 
 ## Connect to Azure Stack
+In the following steps, you'll configure Azure CLI to connect to Azure Stack, login, and retrieve subscription information.
+
 1.  Use the following command to add the Azure Stack environment:
 
 		azure account env add AzureStack --resource-manager-endpoint-url "https://api.azurestack.local" --management-endpoint-url "https://api.azurestack.local" --active-directory-endpoint-url  "https://login.windows.net" --portal-url "https://portal.azurestack.local" --gallery-endpoint-url "https://portal.azurestack.local" --active-directory-resource-id "https://azurestack.local-api/" --active-directory-graph-resource-id "https://graph.windows.net/"
@@ -47,7 +49,10 @@ Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of ope
 3. Set the Azure configuration mode to ARM by using the following command.
 
         azure config mode arm
-        
+
+4. Retrieve a list of subscriptions.
+
+        azure account list     
 
 ## Next steps
 
