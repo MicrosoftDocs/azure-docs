@@ -119,6 +119,25 @@ Set-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName `
  -Edition $databaseEdition -RequestedServiceObjectiveName $databaseServiceLevel
 ```
 
+## Copy a SQL database to the same server
+
+Copy a SQL database to the same server with the [New-AzureRmSqlDatabaseCopy](https://msdn.microsoft.com/library/azure/mt603644.aspx) cmdlet. Set the `-CopyServerName` and `-CopyResourceGroupName` to the same values as your source database server and resource group.
+
+```
+$resourceGroupName = "resourcegroup1"
+$sqlServerName = "server1"
+$databaseName = "database1"
+
+$copyDatabaseName = "database1_copy"
+$copyServerName = $sqlServerName
+$copyResourceGroupName = $resourceGroupName
+
+New-AzureRmSqlDatabaseCopy -DatabaseName $databaseName `
+ -ServerName $sqlServerName -ResourceGroupName $resourceGroupName `
+ -CopyDatabaseName $copyDatabaseName -CopyServerName $sqlServerName `
+ -CopyResourceGroupName $copyResourceGroupName
+```
+
 
 ## Delete a SQL database
 
@@ -138,8 +157,8 @@ Remove-AzureRmSqlDatabase -DatabaseName $databaseName `
 Delete a server with the [Remove-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603488.aspx) cmdlet.
 
 ```
-$resourceGroupName = "sstein0909161040"
-$sqlServerName = "sstein0909161040"
+$resourceGroupName = "resourcegroup1"
+$sqlServerName = "server1"
 
 Remove-AzureRmSqlServer -ServerName $sqlServerName -ResourceGroupName $resourceGroupName
 ```
