@@ -96,7 +96,7 @@ To view Perf Data from your nodes:
 	
 	![Service Fabric](./media/log-analytics-service-fabric/12.png)
 	
-	For more information on performance metrics in Log Analytics here, check out these blog posts: https://blogs.technet.microsoft.com/msoms/tag/metrics/ 
+	You can read more information about performance metrics in Log Analytics [here.] (https://blogs.technet.microsoft.com/msoms/tag/metrics/)
 
 
 ##Adding an existing storage account to Log Analytics
