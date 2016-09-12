@@ -23,9 +23,11 @@ In this guide, we'll walk through teh steps required to connect to Azure Stack w
 
 1.	Open a PowerShell Console on MAS-CON01.  
 2.	You will be installing the AzureRM modules from the PSGallery. To see more details on this, run Get-PSRepository:
-<Insert screentshot>
+
+    ![Screenshot result of running Get-PSRepository with PSGallery listed](./media/azure-stack-connect-powershell/image1.png)
 
 3.	Execute the following command:
+    
     Install-Module -Name AzureRM -RequiredVersion 1.2.6 -Scope CurrentUser
 
 > [AZURE.NOTE] *-Scope CurrentUser* is optional.  If you want more than the current user to have access to the modules, use an elevated command prompt and leave off the Scope parameter
