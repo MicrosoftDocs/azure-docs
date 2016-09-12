@@ -4,7 +4,7 @@
     services="event-hubs"
     documentationCenter=".net"
     authors="shvija"
-    manager="joe.sherman"
+    manager="timlt"
     editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
     ms.date="09/14/2016"
-    ms.author="shvija"/>
+    ms.author="ShubhaVijayasarathy"/>
 
 # Create an Event Hubs namespace with Event Hub and enable Archive using an Azure Resource Manager template
 
