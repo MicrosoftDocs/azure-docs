@@ -20,7 +20,7 @@
 
 > [AZURE.VIDEO how-to-set-security-in-your-devtest-lab]
 
-Azure DevTest Labs access is controlled by [Azure Role-Based Access Control (RBAC)](https://azure.microsoft.com/search/?q=role%20based%20access%20control). In this article, you learn the following:
+Access in Azure DevTest Labs is controlled by [Azure Role-Based Access Control (RBAC)](https://azure.microsoft.com/search/?q=role%20based%20access%20control). In this article, you learn the following:
 
 - [Actions that can be performed in each role](#actions-that-can-be-performed-in-each-role)
 - [Add an owner or user at the lab level](#add-an-owner-or-user-at-the-lab-level)
