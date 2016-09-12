@@ -17,6 +17,7 @@
 	ms.author="nini"/>
 
 
+
 # Service Fabric Solution in Log Analytics
 
 > [AZURE.SELECTOR]
