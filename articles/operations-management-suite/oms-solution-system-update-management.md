@@ -251,8 +251,8 @@ Critical or security updates needed by machines where updates are manually appli
 Error events for machines that have missing critical or security required updates | Type=Event EventLevelName=error Computer IN {Type=Update (Classification="Security Updates" OR Classification="Critical Updates") UpdateState=Needed Optional=false &#124; Distinct Computer}|
 All computers with missing update rollups | Type=Update Optional=false Classification="Update Rollups" UpdateState=Needed &#124; select Computer,Title,KBID,Classification,UpdateSeverity,PublishedDate|
 Distinct missing updates across all computers | Type=Update UpdateState=Needed Optional=false &#124; Distinct Title|
-WSUS computer membership | Type=UpdateSummary &#124; measure count() by WSUSServer|
-Automatic update configuration | Type=UpdateSummary &#124; measure count() by WindowsUpdateSetting|
+WSUS computer membership | Type=UpdateSummary ⎮ measure count() by WSUSServer|
+Automatic update configuration | Type=UpdateSummary ⎮ measure count() by WindowsUpdateSetting|
 Computers with automatic update disabled | Type=UpdateSummary WindowsUpdateSetting=Manual|  
 
 
