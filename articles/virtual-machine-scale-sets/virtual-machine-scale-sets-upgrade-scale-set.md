@@ -44,9 +44,9 @@ The basic sequence for changing the OS version/sku of a platform image or the UR
 * Do a manualUpgrade call on the VMs in the scale set. This is only relevant if the upgradePolicy property of your Scale Set is set to “Manual”. If it is set to “Automatic”, all the VMs will upgraded at once and there will be downtime.
 
 
-With this all this in mind, let’s review how you could update the version of a scale set in PowerShell, and using the REST API. These examples cover the case of a platform image, but hopefully I’ve provided enough information for you to adapt this to a custom image.
+With this all this in mind, let’s review how you could update the version of a scale set in PowerShell, and using the REST API. These examples cover the case of a platform image, but hopefully we have provided enough information for you to adapt this process to a custom image.
 
-PowerShell
+## PowerShell
 
 This example updates a Windows VM Scale Set to a new version “4.0.20160229”. After updating the model, it does an update one VM instance at a time.
 
@@ -77,7 +77,7 @@ $vmss.virtualMachineProfile.storageProfile.osDisk.image.uri= $newURI
 ```
 
 
-Using the REST API
+## Using the REST API
 
 Here are a couple of Python examples which use the Azure REST API to roll out an OS version update. In both cases they make use of the lightweight [azurerm](https://pypi.python.org/pypi/azurerm) library of Azure REST API wrapper functions to do a GET on the scale set to get the model, and then a PUT with an updated model. They also look at VM instances views to identify the VMs by update domain.
 
