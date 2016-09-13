@@ -21,11 +21,8 @@
 ## Overview
 Enterprise integration uses certificates to secure B2B communications. You can use two types of certificates in your enterprise integration apps:
 - Public certificates, which must be purchased from a certification authority (CA)
-<<<<<<< HEAD
-- Private certificates, which you can issue yourself. These are sometimes referred to as self-signed certificates.
-=======
 - Private certificates, which you can issue yourself. These certificates are sometimes referred to as self-signed certificates.
->>>>>>> 4dee47defd576df761a7d4bbbe9ebf02b06bd53d
+
 
 ## What are certificates?
 Certificates are digital documents that are used to verify the identity of the participants in electronic communications and to secure the electronic communications as well. 
@@ -61,6 +58,8 @@ Here are the detailed steps to upload your public certificates into your integra
 
 ### Private certificate
 
+You can upload private certificates into your integration account as well by performing the following steps:  
+
 1. [Upload your private key to key Vault](../key-vault/key-vault-get-started.md "Learn about Key Vault")  
 
 	> [AZURE.TIP] You must authorize the Logic Apps service to perform operations on Key Valut. You can grant access to the Logic Apps service principal by using this PowerShell command: `Set-AzureRmKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`  
@@ -68,11 +67,6 @@ Here are the detailed steps to upload your public certificates into your integra
 2. Create a private certificate  
 3. Upload the private certificate into your integration account  
 
-<<<<<<< HEAD
-=======
-2. Create a private certificate 3. Upload the private certificate into the integration account  
-
->>>>>>> origin/master
 After you have done the steps above, you can use the private certificate to create agreements.
 
 Here are the detailed steps to upload your private certificates into your integration account after you log in to the Azure portal:
