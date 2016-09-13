@@ -27,12 +27,12 @@ After you have created an edge node, you can connect to the edge node using SSH,
 
 ## Add an edge node to an existing cluster
 
-In this section, you will use a Resource Manager template to add an edge node to an existing HDInsight cluster.  The Resource Manager template can be found in [GitHub](https://github.com/hdinsight/Iaas-Applications/tree/master/EmptyNode). The Resource Manager template calls a script action scrtip located at https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/EmptyNode/scripts/EmptyNodeSetup.sh. The script doesn't perform any actions.  This is to demonstrate calling scrip action from a resource manager template.
+In this section, you use a Resource Manager template to add an edge node to an existing HDInsight cluster.  The Resource Manager template can be found in [GitHub](https://github.com/hdinsight/Iaas-Applications/tree/master/EmptyNode). The Resource Manager template calls a script action script located at https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/EmptyNode/scripts/EmptyNodeSetup.sh. The script doesn't perform any actions.  This is to demonstrate calling script action from a Resource Manager template.
 
 **To add an empty edge node to an existing cluster**
 
 1. Create an HDInsight cluster if you don't have one yet.  See [Hadoop tutorial: Get started using Linux-based Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
-2. Click the following image to sign in to Azure and open the an Azure Resource Manager template in the Azure Portal. 
+2. Click the following image to sign in to Azure and open the Azure Resource Manager template in the Azure portal. 
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2FIaas-Applications%2Fmaster%2FEmptyNode%2Fazuredeploy.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
@@ -40,7 +40,7 @@ In this section, you will use a Resource Manager template to add an edge node to
 
 	- CLUSTERNAME: Enter the name of an existing HDInsight cluster.
 	- EDGENODESIZE: Select one of the VM sizes.
-	- EDGENODEPREFIX: The default values is **new**.  Using the default value, the edge node name will be **new-edgenode**.  You can customize the prefix from the portal. You can also customize the full name from the template.
+	- EDGENODEPREFIX: The default value is **new**.  Using the default value, the edge node name is **new-edgenode**.  You can customize the prefix from the portal. You can also customize the full name from the template.
 
 
 4. Click **OK** to save the changes.
@@ -50,12 +50,12 @@ In this section, you will use a Resource Manager template to add an edge node to
 
 ## Add an edge node when creating a cluster
 
-In this section, you will use a Resource Manager template to create HDInsight cluster with an edge node.  The Resource Manager template can be found in a public [Azure Blob storage container](http://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight-with-edge-node.json). The Resource Manager template calls a script action scrtip located at https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/EmptyNode/scripts/EmptyNodeSetup.sh. The script doesn't perform any actions.  This is to demonstrate calling scrip action from a resource manager template.
+In this section, you use a Resource Manager template to create HDInsight cluster with an edge node.  The Resource Manager template can be found in a public [Azure Blob storage container](http://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight-with-edge-node.json). The Resource Manager template calls a script action script located at https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/EmptyNode/scripts/EmptyNodeSetup.sh. The script doesn't perform any actions.  This is to demonstrate calling script action from a Resource Manager template.
 
 **To add an empty edge node to an existing cluster**
 
 1. Create an HDInsight cluster if you don't have one yet.  See [Hadoop tutorial: Get started using Linux-based Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
-2. Click the following image to sign in to Azure and open the an Azure Resource Manager template in the Azure Portal. 
+2. Click the following image to sign in to Azure and open the Azure Resource Manager template in the Azure portal. 
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hadoop-cluster-in-hdinsight-with-edge-node.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
@@ -70,7 +70,7 @@ In this section, you will use a Resource Manager template to create HDInsight cl
 	- CLUSTERTYPE: The default value is **hadoop**.
 	- CLUSTERWORKERNODECOUNT: The default value is 2.
 	- EDGENODESIZE: Select one of the VM sizes.
-	- EDGENODEPREFIX: The default values is **new**.  Using the default value, the edge node name will be **new-edgenode**.  You can customize the prefix from the portal. You can also customize the full name from the template.
+	- EDGENODEPREFIX: The default value is **new**.  Using the default value, the edge node name is **new-edgenode**.  You can customize the prefix from the portal. You can also customize the full name from the template.
 
 4. Click **OK** to save the changes.
 5. In **Resource group**, enter a new resource group name.
@@ -101,7 +101,7 @@ The edge node appears as an application on the Azure portal.  The portal gives y
 In this article, you have learned how to add an edge node and how to access the edge node. To learn more, see the following articles:
 
 - [Install HDInsight applications](hdinsight-apps-install-applications.md): Learn how to install an HDInsight application to your clusters.
-- [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md): learn how to deploy an un-published HDInsight application to HDInsight.
+- [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md): learn how to deploy an unpublished HDInsight application to HDInsight.
 - [Publish HDInsight applications](hdinsight-apps-publish-applications.md): Learn how to publish your custom HDInsight applications to Azure Marketplace.
 - [MSDN: Install an HDInsight application](https://msdn.microsoft.com/library/mt706515.aspx): Learn how to define HDInsight applications.
 - [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md): learn how to use Script Action to install additional applications.
