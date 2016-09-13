@@ -1,5 +1,5 @@
 <properties
- pageTitle="Use cloud-to-device methods"
+ pageTitle="Use cloud-to-device methods | Microsoft Azure"
  description="This tutorial shows you how to use cloud-to-device methods"
  services="iot-hub"
  documentationCenter=""
