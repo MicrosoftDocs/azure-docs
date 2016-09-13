@@ -25,7 +25,7 @@ The attributes are grouped by the related Azure AD app.
 A common question is *what is the list of minimum attributes to synchronize*. The default and recommended approach is to keep the default attributes so a full GAL (Global Address List) can be constructed in the cloud and to get all features in Office 365 workloads. In some cases, there are some attributes that your organization does not want synchronized to the cloud since these attributes contain sensitive or PII (Personally identifiable information) data, like in this example:  
 ![bad attributes](./media/active-directory-aadconnectsync-attributes-synchronized/badextensionattribute.png)
 
-In this case, start with the list of attributes in this topic and identify those that would contain sensitive or PII data and cannot be synchronized. Then deselect those attributes during installation using [Azure AD app and attribute filtering](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering).
+In this case, start with the list of attributes in this topic and identify those attributes that would contain sensitive or PII data and cannot be synchronized. Then deselect those attributes during installation using [Azure AD app and attribute filtering](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering).
 
 >[AZURE.WARNING] When deselecting attributes, you should be cautious and only deselect those attributes absolutely not possible to synchronize. Unselecting other attributes might have a negative impact on features.
 
@@ -396,7 +396,7 @@ This group is a set of attributes that can be used if the Azure AD directory is 
 | userPrincipalName| X|  |  | UPN is the login ID for the user. Most often the same as [mail] value.|
 
 ## Windows 10
-A Windows 10 domain-joined computer(device) synchronize some attributes to Azure AD. For more information on the scenarios, see [Connect domain-joined devices to Azure AD for Windows 10 experiences](active-directory-azureadjoin-devices-group-policy.md). These attributes always synchronize and Windows 10 does not appear as an app you can unselect. A Windows 10 domain-joined computer is identified by having the attribute userCertificate populated.
+A Windows 10 domain-joined computer(device) synchronizes some attributes to Azure AD. For more information on the scenarios, see [Connect domain-joined devices to Azure AD for Windows 10 experiences](active-directory-azureadjoin-devices-group-policy.md). These attributes always synchronize and Windows 10 does not appear as an app you can unselect. A Windows 10 domain-joined computer is identified by having the attribute userCertificate populated.
 
 | Attribute Name| Device| Comment |
 | --- | :-: | --- |
@@ -414,8 +414,8 @@ These attributes for **user** are in addition to the other apps you have selecte
 
 | Attribute Name| User| Comment |
 | --- | :-: | --- |
-| domainFQDN| X| Also called dnsDomainName. For example contoso.com.|
-| domainNetBios| X| Also called netBiosName. For example CONTOSO.|
+| domainFQDN| X| Also called dnsDomainName. For example, contoso.com.|
+| domainNetBios| X| Also called netBiosName. For example, CONTOSO.|
 
 ## Exchange hybrid writeback
 These attributes are written back from Azure AD to on-premises Active Directory when you select to enable **Exchange hybrid**. Depending on your Exchange version, fewer attributes might be synchronized.
@@ -432,7 +432,7 @@ These attributes are written back from Azure AD to on-premises Active Directory 
 | proxyAddresses| X| X| X| Only the x500 address from Exchange Online is inserted.|
 
 ## Device writeback
-Device objects are created in Active Directory. These can be devices joined to Azure AD or domain-joined Windows 10 computers.
+Device objects are created in Active Directory. These objects can be devices joined to Azure AD or domain-joined Windows 10 computers.
 
 | Attribute Name| Device| Comment |
 | --- | :-: | --- |
