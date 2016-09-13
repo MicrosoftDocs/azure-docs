@@ -18,20 +18,20 @@
 
 
 # Copy Activity performance and tuning guide
-Copy Activity in Azure Data Factory provides a first-class secure, reliable and high-performance solution, which enables customers to copy dozens of terabytes of data every day among various cloud and on-premises data stores for advanced analytics and business intelligence application consumption.
+Azure Data Factory Copy Activity delivers a first-class secure, reliable, and high-performance data loading solution, enabling you to copy tens of terabytes of data every day across a rich variety of cloud and on-premises data stores. Blazing-fast data loading performance is key to ensure you can focus on the core “big data” problem: building advanced analytics solutions and getting deep insights from all that data.
 
-With single copy activity run, specially you can achieve:
+Azure provides a set of enterprise-grade data storage and data warehouse solutions, and Copy Activity offers a highly optimized data loading experience that is easy to configure and set up. With just a single copy activity, you can achieve:
 
-- Ingest data into **Azure SQL Data Warehouse** at **1.25 GBps** from Azure Blob using PolyBase
-- Ingest data into **Azure Blob storage** at **1 GBps** from Azure Blob
-- Ingest data into **Azure Data Lake Store** at **1 GBps** from Azure Blob
+- Loading data into **Azure SQL Data Warehouse** at **1.2 GBps**
+- Loading data into **Azure Blob storage** at **1.0 GBps**
+- Loading data into **Azure Data Lake Store** at **1.0 GBps**
 
 
 This article describes:
 
-- [Performance reference numbers](#performance-reference) for typical supported source and sink data stores to help you plan your project;
-- Features that could help boost the copy throughput in different scenarios, including [Parallel copy](#parallel-copy), [Cloud data movement units](#cloud-data-movement-units), and [Staged Copy](#staged-copy);
-- [Guidance](#performance-tuning-steps) on how to tune the performance for a given scenario and the considerations on the key factors that may affect the copy performance.
+- [Performance reference numbers](#performance-reference) for supported source and sink data stores to help you plan your project;
+- Features that can boost the copy throughput in different scenarios, including [parallel copy](#parallel-copy), [cloud data movement units](#cloud-data-movement-units), and [staged Copy](#staged-copy);
+- [Performance tuning guidance](#performance-tuning-steps) on how to tune the performance and the key factors that can impact copy performance.
 
 > [AZURE.NOTE] If you are not familiar with Copy Activity in general, see [Move data by using Copy Activity](data-factory-data-movement-activities.md) before reading this article.
 
@@ -42,10 +42,10 @@ This article describes:
 Points to note:
 
 - Throughput is calculated by using the following formula: [size of data read from source]/[Copy Activity run duration].
-- We used the [TPC-H](http://www.tpc.org/tpch/) data set to calculate numbers in the preceding table.
+- The performance reference numbers in the table above was measured using [TPC-H](http://www.tpc.org/tpch/) data set in a single copy activity run.
 - To copy between cloud data stores, set **cloudDataMovementUnits** to 1 and 4 (or 8) for comparison. **parallelCopies** is not specified. See the [Parallel copy](#parallel-copy) section for details about these features.
 - In Azure data stores, the source and sink are in the same Azure region.
-- For hybrid (on-premises to cloud, or cloud to on-premises) data movement, a single instance of Data Management Gateway on a machine that was separate from the on-premises data store. The configuration is listed in the next table. When a single activity was running on Gateway, the copy operation consumed only a small portion of the test machine's CPU or memory resource, and a small portion of its network bandwidth.
+- For hybrid (on-premises to cloud, or cloud to on-premises) data movement, a single instance of Data Management Gateway was running on a machine that was separate from the on-premises data store. The configuration is listed in the next table. When a single activity was running on Gateway, the copy operation consumed only a small portion of the test machine's CPU or memory resource, and a small portion of its network bandwidth.
 	<table>
 	<tr>
 		<td>CPU</td>
@@ -227,7 +227,7 @@ We suggest that you take these steps to tune the performance of your Data Factor
 	- Performance features:
 		- [Parallel copy](#parallel-copy)
 		- [Cloud data movement units](#cloud-data-movement-units)
-		- [Staged Copy](#staged-copy)   
+		- [Staged copy](#staged-copy)   
 	- [Source](#considerations-for-the-source)
 	- [Sink](#considerations-for-the-sink)
 	- [Serialization and deserialization](#considerations-for-serialization-and-deserialization)
