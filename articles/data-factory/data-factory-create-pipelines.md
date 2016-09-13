@@ -227,7 +227,7 @@ Following table describe the properties within the activity and pipeline JSON de
 
 Tag | Description | Required
 --- | ----------- | --------
-name | Name of the activity or the pipeline. Specify a name that represents the action that the activity or pipeline is configured to do<br/><ul><li>Maximum number of characters: 260</li><li>Must start with a letter number, or a underscore (_)</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> | Yes
+name | Name of the activity or the pipeline. Specify a name that represents the action that the activity or pipeline is configured to do<br/><ul><li>Maximum number of characters: 260</li><li>Must start with a letter number, or an underscore (_)</li><li>Following characters are not allowed: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\\”</li></ul> | Yes
 description | Text describing what the activity or pipeline is used for | Yes
 type | Specifies the type of the activity. See the [Data Movement Activities](data-factory-data-movement-activities.md) and [Data Transformation Activities](data-factory-data-transformation-activities.md) articles for different types of activities. | Yes
 inputs | Input tables used by the activity<br/><br/>// one input table<br/>"inputs":  [ { "name": "inputtable1"  } ],<br/><br/>// two input tables <br/>"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ], | Yes
@@ -288,7 +288,7 @@ A pipeline is active only between its start time and end time. It is not execute
 See [Scheduling and Execution](data-factory-scheduling-and-execution.md) to understand how scheduling and execution works in Azure Data Factory.
 
 ### Parallel processing of slices
-Set **concurrency** in the activity JSON definition to a value higher than 1 so that multiple slices are processed in parallel by multiple instances of the activity at runtime. This feature is really helpful when processing back-filled slices from the past. 
+Set **concurrency** in the activity JSON definition to a value higher than 1 so that multiple slices are processed in parallel by multiple instances of the activity at runtime. This feature is helpful when processing back-filled slices from the past. 
 
 
 ## Authoring and managing a pipeline
