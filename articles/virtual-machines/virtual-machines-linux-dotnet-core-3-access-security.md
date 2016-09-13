@@ -102,20 +102,7 @@ The network security group declaration starts on line [**74**](https://github.co
           "direction": "Inbound"
         }
       },
-      {
-        "name": "ssh",
-        "properties": {
-          "description": "http endpoint",
-          "protocol": "Tcp",
-          "sourcePortRange": "*",
-          "destinationPortRange": "22",
-          "sourceAddressPrefix": "*",
-          "destinationAddressPrefix": "*",
-          "access": "Allow",
-          "priority": 200,
-          "direction": "Inbound"
-        }
-      }
+      ........<truncated> 
     ]
   }
 },

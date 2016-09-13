@@ -53,24 +53,6 @@ The virtual machine resource is declared beginning on line [**301**](https://git
         "availabilitySet": {
           "id": "[resourceId('Microsoft.Compute/availabilitySets', variables('availabilitySetName'))]"
         },
-        "hardwareProfile": {
-          "vmSize": "[variables('vmSize')]"
-        },
-        "osProfile": {
-          "computerName": "[concat(parameters('vmName'),copyindex())]",
-          "adminUsername": "[parameters('adminUsername')]",
-          "linuxConfiguration": {
-            "disablePasswordAuthentication": "true",
-            "ssh": {
-              "publicKeys": [
-                {
-                  "path": "[variables('sshKeyPath')]",
-                  "keyData": "[parameters('sshKeyData')]"
-                }
-              ]
-            }
-          }
-        },
       ........<truncated>  
     }
 ```
