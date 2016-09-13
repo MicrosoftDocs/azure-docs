@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/08/2016"   
+	ms.date="09/12/2016"   
 	ms.author="juliako;"/>
  
 #Face redaction with Azure media analytics
@@ -133,11 +133,11 @@ For detailed explanations for the attributes, see [Detect Face and Emotion with 
 The following program shows how to:
 
 1. Create an asset and upload a media file into the asset.
-1. Creates a job with a face redaction task based on a configuration file that contains the following json preset. 
+1. Create a job with a face redaction task based on a configuration file that contains the following json preset. 
 					
 		{'version':'1.0', 'options': {'mode':'combined'}}
 
-1. Downloads the output JSON files. 
+1. Download the output JSON files. 
 		 
         using System;
 		using System.Configuration;
