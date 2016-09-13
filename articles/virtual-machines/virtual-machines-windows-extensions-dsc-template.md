@@ -90,7 +90,7 @@ A VMSS node has a "properties" section with the "VirtualMachineProfile", "extens
 
 ## Detailed Settings Information
 
-This is the schema for the settings portion of the Azure DSC extension in an ARM template.
+This is the schema for the settings portion of the Azure DSC extension in an Azure Resource Manager template.
 
 ```json
 
