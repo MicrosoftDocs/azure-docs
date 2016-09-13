@@ -81,7 +81,7 @@ $vmss.virtualMachineProfile.storageProfile.osDisk.image.uri= $newURI
 
 Here are a couple of Python examples which use the Azure REST API to roll out an OS version update. In both cases they make use of the lightweight [azurerm](https://pypi.python.org/pypi/azurerm) library of Azure REST API wrapper functions to do a GET on the scale set to get the model, and then a PUT with an updated model. They also look at VM instances views to identify the VMs by update domain.
 
-vmssupgrade
+### vmssupgrade
 
 vmssupgrade is Python script to roll out an OS upgrade to a running VM Scale Set, one update domain at a time. You can find it here: https://github.com/gbowerman/vmsstools
 
@@ -89,11 +89,11 @@ vmssupgrade is Python script to roll out an OS upgrade to a running VM Scale Set
 
 This script lets you choose specific VMs to update, or specify an update domain, and supports changing a platform image version OR changing the URI of a custom image.
 
-vmsseditor
+### vmsseditor
 
 This is a general purpose editor for VM Scale Sets, which shows VM status as a heatmap where one row represents one UD. Among other things you can update the model for a VMSS with a new version, sku or custom image URI, and then pick Fault Domains to upgrade (i.e. all the VMs in that UD are then upgraded to the new model), or a rolling upgrade based ont he batch size of your choice. vmsseditor can be found in the following github repo: https://github.com/gbowerman/vmssdashboard
 
-E.g. here I’ve just updated the model of a scale set to Ubuntu 14.04-2LTS version 14.04.201507060 (note this is an old screenshot, many more options have since been added to this tool).
+For example, here I’ve just updated the model of a scale set to Ubuntu 14.04-2LTS version 14.04.201507060 (note this is an old screenshot, many more options have since been added to this tool).
 
 ![vmsseditor screenshot 1](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor1.png)
 
