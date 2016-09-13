@@ -2,7 +2,7 @@
 	pageTitle="Submit Hadoop jobs in HDInsight | Microsoft Azure"
 	description="Learn how to submit Hadoop jobs to Azure HDInsight Hadoop."
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	services="hdinsight"
 	documentationCenter=""
 	tags="azure-portal"
