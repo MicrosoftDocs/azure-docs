@@ -268,7 +268,7 @@ IoT Hub implements the MQTT v3.1.1 protocol with the following limitations and s
   * **QoS 2 is not supported**. When a device client publishes a message with **QoS 2**, IoT Hub closes the network connection. When a device client subscribes to a topic with **QoS 2**, IoT Hub grants maximum QoS level 1 in the **SUBACK** packet.
   * **Retain messages do not persist**. If a device client publishes a message with the RETAIN flag set to 1, IoT Hub adds the **x-opt-retain** application property to the message. In this case, IoT Hub does not persist the retain message, but instead passes it to the back-end application.
 
-For more information, see [IoT Hub MQTT support][lnk-mqtt-support].
+For more information, see [IoT Hub MQTT support][lnk-devguide-mqtt].
 
 As a final consideration, you should review the [Azure IoT protocol gateway][lnk-azure-protocol-gateway] that enables you to deploy a high-performance custom protocol gateway that interfaces directly with IoT Hub. The Azure IoT protocol gateway enables you to customize the device protocol to accommodate brownfield MQTT deployments or other custom protocols. This approach does require, however, that you self-host and operate a custom protocol gateway.
 
@@ -280,11 +280,18 @@ Other reference topics in the Developer Guide include:
 - [Throttling and quotas][lnk-quotas] describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
 - [IoT Hub device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service applications that interact with IoT Hub.
 - [Query language for twins, methods, and jobs][lnk-query] describes the query language you can use to retrieve information from IoT Hub about your device twins, methods and jobs.
+- [IoT Hub MQTT support][lnk-devguide-mqtt] provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps
 
-Now you have learned about sending and receiving messages with IoT Hub, you may be interested in the following Developer Guide topics:
+Now you have learned how to send and receive messages with IoT Hub, you may be interested in the following Developer Guide topics:
 
+- [Upload files from a device][lnk-devguide-upload]
+- [Manage device identities in IoT Hub][lnk-devguide-identities]
+- [Control access to IoT Hub][lnk-devguide-security]
+- [Use device twins to synchronize state and configurations][lnk-devguide-device-twins]
+- [Invoke a direct method on a device][lnk-devguide-directmethods]
+- [Schedule jobs on multiple devices][lnk-devguide-jobs]
 
 If you would like to try out some of the concepts described in this article, you may be interested in the following IoT Hub tutorials:
 
@@ -293,7 +300,7 @@ If you would like to try out some of the concepts described in this article, you
 
 [img-lifecycle]: ./media/iot-hub-devguide-messaging/lifecycle.png
 [lnk-resource-provider-apis]: https://msdn.microsoft.com/library/mt548492.aspx
-[lnk-azure-gateway-guidance]: iot-hub-guidance.md#field-gateways
+[lnk-azure-gateway-guidance]: iot-hub-devguide-endpoints.md#field-gateways
 [lnk-guidance-scale]: iot-hub-scaling.md
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
 [lnk-getstarted-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
@@ -304,23 +311,29 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-management-portal]: https://portal.azure.com
 [lnk-servicebus]: http://azure.microsoft.com/documentation/services/service-bus/
 [lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
-[lnk-mqtt-support]: iot-hub-mqtt-support.md
 [lnk-sdks]: iot-hub-sdks-summary.md
 [lnk-portal]: iot-hub-manage-through-portal.md
-[lnk-devguide-security]: iot-hub-devguide-security.md
 
 [lnk-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-query]: iot-hub-devguide-query-language.md
+[lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 [lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
 [lnk-c2d]: iot-hub-devguide-messaging.md#cloud-to-device-messages
 [lnk-protocols]: iot-hub-devguide-messaging.md#communication-protocols
 [lnk-message-format]: iot-hub-devguide-messaging.md#message-format
 [lnk-d2c-configuration]: iot-hub-devguide-messaging.md#device-to-cloud-configuration-options
-[lnk-device-properties]: iot-hub-devguide-identity-register.md#device-identity-properties
+[lnk-device-properties]: iot-hub-devguide-identity-registry.md#device-identity-properties
 [lnk-ttl]: iot-hub-devguide-messaging.md#message-expiration-time-to-live
 [lnk-c2d-configuration]: iot-hub-devguide-messaging.md#cloud-to-device-configuration-options
 [lnk-lifecycle]: iot-hub-devguide-messaging.md#message-lifecycle
 [lnk-feedback]: iot-hub-devguide-messaging.md#message-feedback
 [lnk-antispoofing]: iot-hub-devguide-messaging.md#anti-spoofing-properties
+
+[lnk-devguide-upload]: iot-hub-devguide-file-upload.md
+[lnk-devguide-identities]: iot-hub-devguide-identity-registry.md
+[lnk-devguide-security]: iot-hub-devguide-security.md
+[lnk-devguide-device-twins]: iot-hub-devguide-device-twins.md
+[lnk-devguide-directmethods]: iot-hub-devguide-direct-methods.md
+[lnk-devguide-jobs]: iot-hub-devguide-jobs.md

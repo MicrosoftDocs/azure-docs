@@ -26,18 +26,21 @@ Azure IoT Hub provides you with:
 * Reliable device-to-cloud and cloud-to-device hyper-scale messaging.
 * Easy device connectivity with device libraries for the most popular languages and platforms.
 
-This developer guide includes the following articles:
+# Next steps
+
+This IoT Hub developer guide includes the following articles:
 
 - [Send and receive messages with IoT Hub][devguide-messaging] describes the messaging features (device-to-cloud and cloud-to-device) that IoT Hub exposes.
 - [Upload files from a device][devguide-upload] describes how you can upload files from a device.
 - [Manage device identities in IoT Hub][devguide-identities] describes what information each IoT hub's device identity registry stores, and how you can access and modify it.
-- [Control access to IoT Hub][devguide-security] describes the security model used to grant access to IoT Hub functionality for both devices and cloud components
+- [Control access to IoT Hub][devguide-security] describes the security model used to grant access to IoT Hub functionality for both devices and cloud components.
 - [Use device twins to synchronize state and configurations][devguide-device-twins] describes the *device twin* concept and the functionality it exposes.
 - [Invoke a direct method on a device][devguide-directmethods] describes how to invoke methods on a device.
 - [Schedule jobs on multiple devices][devguide-jobs] describes how you can schedule jobs on multiple devices.
 - [Reference - IoT Hub endpoints][devguide-endpoints] describes the various endpoints that each IoT hub exposes for runtime and management operations.
-- [Reference - quotas and throttling][devguide-quotas]
 - [Reference - query language for twins, methods, and jobs][devguide-query]
+- [Reference - quotas and throttling][devguide-quotas]
+- [Reference - IoT Hub MQTT support][devguide-mqtt]
 - [Glossary][devguide-glossary]
 
 
@@ -52,5 +55,6 @@ This developer guide includes the following articles:
 [devguide-endpoints]: iot-hub-devguide-endpoints.md
 [devguide-quotas]: iot-hub-devguide-quotas-throttling.md
 [devguide-query]: iot-hub-devguide-query-language.md
+[devguide-mqtt]: iot-hub-mqtt-support.md
 [devguide-glossary]: iot-hub-devguide-glossary.md
 

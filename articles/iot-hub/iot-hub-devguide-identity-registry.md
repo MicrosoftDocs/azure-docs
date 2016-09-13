@@ -120,11 +120,16 @@ Other reference topics in the Developer Guide include:
 - [Throttling and quotas][lnk-quotas] describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
 - [IoT Hub device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service applications that interact with IoT Hub.
 - [Query language for twins, methods, and jobs][lnk-query] describes the query language you can use to retrieve information from IoT Hub about your device twins, methods and jobs.
+- [IoT Hub MQTT support][lnk-devguide-mqtt] provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps
 
-Now you have learned about using the IoT Hub device identity registry, you may be interested in the following Developer Guide topics:
+Now you have learned how to use the IoT Hub device identity registry, you may be interested in the following Developer Guide topics:
 
+- [Control access to IoT Hub][lnk-devguide-security]
+- [Use device twins to synchronize state and configurations][lnk-devguide-device-twins]
+- [Invoke a direct method on a device][lnk-devguide-directmethods]
+- [Schedule jobs on multiple devices][lnk-devguide-jobs]
 
 If you would like to try out some of the concepts described in this article, you may be interested in the following IoT Hub tutorials:
 
@@ -135,10 +140,16 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-query]: iot-hub-devguide-query-language.md
+[lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 [lnk-resource-provider-apis]: https://msdn.microsoft.com/library/mt548492.aspx
-[lnk-guidance-provisioning]: iot-hub-guidance.md#provisioning
-[lnk-guidance-heartbeat]: iot-hub-guidance.md#heartbeat
+[lnk-guidance-provisioning]: iot-hub-devguide-identity-registry.md#device-provisioning
+[lnk-guidance-heartbeat]: iot-hub-devguide-identity-registry.md#device-heartbeat
 [lnk-rfc7232]: https://tools.ietf.org/html/rfc7232
 [lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
 [lnk-export]: iot-hub-devguide-identity-registry.md#import-and-export-device-identities
 [lnk-devguide-opmon]: iot-hub-operations-monitoring.md
+
+[lnk-devguide-security]: iot-hub-devguide-security.md
+[lnk-devguide-device-twins]: iot-hub-devguide-device-twins.md
+[lnk-devguide-directmethods]: iot-hub-devguide-direct-methods.md
+[lnk-devguide-jobs]: iot-hub-devguide-jobs.md

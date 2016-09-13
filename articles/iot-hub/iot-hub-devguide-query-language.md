@@ -23,3 +23,14 @@
 ## Reference sections
 
 ## Next steps
+
+Other reference topics in this IoT Hub developer guide include:
+
+- [IoT Hub endpoints][lnk-devguide-endpoints]
+- [Quotas and throttling][lnk-devguide-quotas]
+- [IoT Hub MQTT support][lnk-devguide-mqtt]
+
+
+[lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
+[lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md
+[lnk-devguide-mqtt]: iot-hub-mqtt-support.md
