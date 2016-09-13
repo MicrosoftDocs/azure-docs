@@ -12,7 +12,7 @@ In this tutorial, you perform the following steps:
 3.	Create input and output **datasets**. An input dataset represents the input for an activity in the pipeline and an output dataset represents the output for the activity.
 3.	Create the **pipeline**. A pipeline can have one or more activities (Examples: Copy Activity, HDInsight Hive Activity). This sample uses the HDInsight Hive activity that runs a Hive script. The script first creates an external table that references the raw web log data stored in Azure blob storage and then partitions the raw data by year and month.
  
-![Diagram view in Data Factory tutorial](./media/data-factory-build-your-first-pipeline/data-factory-tutorial-diagram-view.png)
+![Diagram view in Data Factory tutorial](./media/data-factory-tutorial-prerequisites/data-factory-tutorial-diagram-view.png)
 
 
 In this tutorial, the adfgetstarted (container) => inputdata (folder) contains one file named input.log. This log file has entries from three months: January, February, and March of 2014. Here are the sample rows for each month in the input file. 
