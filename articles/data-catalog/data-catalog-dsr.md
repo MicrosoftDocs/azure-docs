@@ -1,10 +1,10 @@
-<properties
+﻿<properties
    pageTitle="Azure Data Catalog supported data sources | Microsoft Azure"
    description="Specification of the currently supported data sources."
    services="data-catalog"
    documentationCenter=""
-   authors="spelluru"
-   manager="jhubbard"
+   authors="trhabe"
+   manager="jstrauss"
    editor=""
    tags=""/>
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/25/2016"
+   ms.date="01/15/2016"
    ms.author="trhabe"/>
 
 # Azure Data Catalog supported data sources
@@ -73,8 +73,8 @@ Users of the Azure Data Catalog can publish metadata using a public API, a click
     <tr>
       <td>Azure Storage Table</td>
       <td>✓</td>
-      <td></td>
-      <td></td>
+      <td>✓</td>
+      <td>✓</td>
       <td>
         <font size="2"></font>
       </td>
@@ -858,6 +858,19 @@ If you need support for additional sources, please submit a feature request usin
       </td>
     </tr>
     <tr>
+      <td>Power Query</td>
+      <td>Table</td>
+      <td>Data Mashup</td>
+      <td>
+        <font size=2>
+            protocol: power-query
+            <br>authentication: {oauth}
+            <br>address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        </font>
+      </td>
+    </tr>
+    <tr>
       <td>Salesforce</td>
       <td>Table</td>
       <td>Object</td>
@@ -931,6 +944,22 @@ If you need support for additional sources, please submit a feature request usin
     </tr>
     <tr>
       <td>SQL Data Warehouse</td>
+      <td>TableValuedFunction</td>
+      <td>Table-valued Function</td>
+      <td>
+        <font size=2>
+            protocol: tds
+            <br>authentication: {protocol, windows}
+            <br>address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        </font>
+      </td>
+    </tr>
+    <tr>
+      <td>SQL Data Warehouse</td>
       <td>Container</td>
       <td>Database</td>
       <td>
@@ -977,6 +1006,22 @@ If you need support for additional sources, please submit a feature request usin
     </tr>
     <tr>
       <td>SQL Server</td>
+      <td>TableValuedFunction</td>
+      <td>Table-valued Function</td>
+      <td>
+        <font size=2>
+            protocol: tds
+            <br>authentication: {protocol, windows}
+            <br>address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        </font>
+      </td>
+    </tr>
+    <tr>
+      <td>SQL Server</td>
       <td>Container</td>
       <td>Database</td>
       <td>
@@ -992,7 +1037,7 @@ If you need support for additional sources, please submit a feature request usin
     <tr>
       <td>SQL Server</td>
       <td>Table</td>
-      <td>Table, View, Table-valued Function</td>
+      <td>Table, View</td>
       <td>
         <font size=2>
             protocol: tds
