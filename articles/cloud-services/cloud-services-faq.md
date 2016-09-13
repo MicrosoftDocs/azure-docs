@@ -54,11 +54,11 @@ When the virtual machine instance recycles, all local changes are lost. Use a [s
 
 ### I cannot find my management certificates in the portal
 
-[Management certificates](,,\azure-api-management-certs.md) are only avialable in the Azure Classic Portal. The current Azure portal does not use management certificates. 
+[Management certificates](..\azure-api-management-certs.md) are only avialable in the Azure Classic Portal. The current Azure portal does not use management certificates. 
 
 ### How can I disable a management certificate?
 
-[Management certificates](,,\azure-api-management-certs.md) cannot be disabled. You delete them through the Azure Classic Portal when you do not want them to be used anymore.
+[Management certificates](..\azure-api-management-certs.md) cannot be disabled. You delete them through the Azure Classic Portal when you do not want them to be used anymore.
 
 ### How do I create an SSL certificate for a specific IP address?
 
