@@ -178,7 +178,7 @@ Once you have established an SSH tunnel, use the following steps to use the Solr
     
     3. Use the following command to get the fully qualified hostname:
 
-        hostname -f
+            hostname -f
 
         This will return a name similar to the following:
 
