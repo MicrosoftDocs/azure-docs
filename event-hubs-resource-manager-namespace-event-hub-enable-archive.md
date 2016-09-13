@@ -3,7 +3,7 @@
     description="Create an Event Hubs namespace with Event Hub and enable Archive using Azure Resource Manager template"
     services="event-hubs"
     documentationCenter=".net"
-    authors="shvija"
+    authors="Shubha Vijayasarathy"
     manager="timlt"
     editor=""/>
 
@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
-    ms.date="09/14/2016"
+    ms.date="09/13/2016"
     ms.author="ShubhaVijayasarathy"/>
 
 # Create an Event Hubs namespace with Event Hub and enable Archive using an Azure Resource Manager template
@@ -33,7 +33,7 @@ For the complete template, see the [Event Hub and enable Archive template][] on 
 
 With this template, you will deploy an Event Hubs namespace with an Event Hub and will enable Archive.
 
-[Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) is an event processing service used to provide event and telemetry ingress to Azure at massive scale, with low latency and high reliability. Event Hubs Archive will enable you to automatically deliver the streaming data in your Event Hubs to Azure Blob storage of your choive within a specified time or size interval of your choosing.Lean more on [Azure Event Hubs Archive][]
+[Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) is an event processing service used to provide event and telemetry ingress to Azure at massive scale, with low latency and high reliability. Event Hubs Archive will enable you to automatically deliver the streaming data in your Event Hubs to Azure Blob storage of your choive within a specified time or size interval of your choosing.
 
 To run the deployment automatically, click the following button:
 
