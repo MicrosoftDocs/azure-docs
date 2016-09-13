@@ -274,7 +274,7 @@ When you are satisfied, export the changes to Azure AD.
 
 1. Select **Connectors** and in the **Connectors** list, select the Azure AD Connector. From **Actions**, select **Run**.
 2. In the **Run profiles**, select **Export**.
-3. If your configuration changes delete many objects, then you see an error on the export when the number is more than the configured threshold (by default 500). If you see this, then you need to temporarily disable the feature
+3. If your configuration changes delete many objects, then you see an error on the export when the number is more than the configured threshold (by default 500). If you see this error, then you need to temporarily disable the feature
 [prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md).
 
 Now it is time to enable the scheduler again.
