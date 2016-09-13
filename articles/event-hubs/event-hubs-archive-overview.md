@@ -20,7 +20,7 @@
 
 Azure Event Hubs Archive enables you to automatically deliver the streaming data in your Event Hubs to a Blob storage account of your choice with added flexibility to specify a time or size interval of your choosing. Setting up Archive is quick, there are no administrative costs to run it, and it scales automatically with your Event Hubs Throughput Units. Event Hubs Archive is the easiest way to load streaming data into Azure and allows you to focus on data processing rather than data capture.
 
-Azure Event Hubs Archive enables you to process real-time and batch based pipelines on the same stream. This enables you to build solutions that can grow with your needs over time. Whether your building batch based systems today with an eye towards future real-time processing, or you want to add an efficient cold path to an existing real-time solution Event Hubs Archive makes working with streaming data easier.
+Azure Event Hubs Archive enables you to process real-time and batch-based pipelines on the same stream. This enables you to build solutions that can grow with your needs over time. Whether you're building batch-based systems today with an eye towards future real-time processing, or you want to add an efficient cold path to an existing real-time solution Event Hubs Archive makes working with streaming data easier.
 
 ## How Event Hubs Archive works
 
@@ -68,7 +68,7 @@ The files produced by Event Hubs Archive have the following Avro schema:
 
 ![][3]
 
-An easy way to explorer Avro files is using the [Avro Tools][] jar from Apache. After downloading this jar, you can see the schema of a specific avro file by running this command:
+An easy way to explorer Avro files is using the [Avro Tools][] jar from Apache. After downloading this jar, you can see the schema of a specific Avro file by running this command:
 
 ```
 java -jar avro-tools-1.8.1.jar getschema \<name of archive file\>
@@ -97,7 +97,7 @@ You can also use Avro Tools to convert the file to JSON format and perform other
 
 To perform more advanced processing download and install Avro for your choice of platform. At the time of writing there are implementations available for C, C++, C\#, Java, NodeJS, Perl, PHP, Python, and Ruby.
 
-Apache Avro has excellent Getting Started guides for [Java][] and [Python][]. Or you can read our Getting Started with Event Hubs Archvie article.
+Apache Avro has excellent Getting Started guides for [Java][] and [Python][]. Or you can read our [Getting Started with Event Hubs Archive](event-hubs-archive-python.md) article.
 
 ## How Event Hubs Archive is charged
 
