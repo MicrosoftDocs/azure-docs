@@ -21,7 +21,7 @@ The following table describes and links to the reference page of each of the maj
 
 To install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](../powershell-install-configure.md). 
 
-For more information about [Azure Resource Manager cmdlets](https://msdn.microsoft.com/library/mt125356(v=azure.200).aspx), see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
+For more information about [Azure Resource Manager cmdlets](https://msdn.microsoft.com/library/mt125356\(v=azure.200\).aspx), see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 |Cmdlet|Cmdlet Description|
 |---|---|
