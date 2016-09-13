@@ -26,17 +26,17 @@ marketplace UI with the creation of a Marketplace item. A Windows
 Server 2012 R2 image is included by default in the Azure Stack Technical
 Preview. 
 
-> [AZURE.NOTE] VM images with Marketplace items can be deployed by selecting **New** in the UI and then selecting the item from those listed in the **Virtual Machines** category. 
+> [AZURE.NOTE] VM images with Marketplace items can be deployed by selecting **New** in the UI then the **Virtual Machines** category. The VM image items are listed. 
 
 
 
 ##Add a VM image to the Marketplace with PowerShell
 
-If the VM image VHD is available locally on the Console VM (or another externally connected device) and you wish to create an item in the Marketplace, follow the below steps: 
+If the VM image VHD is available locally on the Console VM (or another externally connected device), use the following steps:
 
 1. To begin, prepare a Windows or Linux operating system virtual hard disk image in VHD format (not VHDX). 
-    -   If you are uploading a Windows VM image, the article [*Upload a Windows VM image to Azure for Resource Manager deployments*](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-upload-image/) contains image preparation instructions in the **Prepare the VHD for      upload** section.
-    -   If you are uploading a Linux image, follow the instructions to
+    -   For Windows images, the article [*Upload a Windows VM image to Azure for Resource Manager deployments*](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-upload-image/) contains image preparation instructions in the **Prepare the VHD for      upload** section.
+    -   For Linux images, follow the steps to
         prepare the image or use an existing Azure Stack Linux image in
         the [Deploy Linux virtual machines on Azure
         Stack](https://azure.microsoft.com/en-us/documentation/articles/azure-stack-linux/)
@@ -57,9 +57,15 @@ If the VM image VHD is available locally on the Console VM (or another externall
 	Add-VMImage -publisher "Canonical" -offer "UbuntuServer" -sku "14.04.3-LTS" -version "1.0.0" -osType Linux -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' -tenantID <myaadtenant>.onmicrosoft.com 
 	```
 
-	> [AZURE.NOTE] The cmdlet will request credentials for adding the VM image. Provide the administrator AAD credentials, like serviceadmin@&lt;myaadtenant&gt;.onmicrosoft.com, to the prompt.  
+	> [AZURE.NOTE] The cmdlet requests credentials for adding the VM image. Provide the administrator AAD credentials, like serviceadmin@&lt;myaadtenant&gt;.onmicrosoft.com, to the prompt.  
 
-5. The command will authenticate to your Azure Stack environment, upload the local VHD to a newly created temporary storage account, add the VM image into the VM image repository, and create a Marketplace item for the VM image. To verify that the command ran successfully, navigate to the Marketplace in the portal and verify that the VM image is available in the Virtual Machines category.
+5. The command executes the following:
+	- Authenticates to the Azure Stack environment
+	- Uploads the local VHD to a newly created temporary storage account
+	- Adds the VM image into the VM image repository
+	- Creates a Marketplace item. 
+
+To verify that the command ran successfully, navigate to the Marketplace in the portal and verify that the VM image is available in the Virtual Machines category.
 
 > ![VM image added successfully](/articles/azure-stack/media/azure-stack-add-vm-image/image5.PNG)
 
@@ -129,7 +135,7 @@ A description of command parameters is below:
 
 ![Set blob access to public](/articles/azure-stack/media/azure-stack-add-vm-image/image2.png)
 
-1.  Login to Azure Stack as an administrator. Navigate to Region
+1.  Log in to Azure Stack as an administrator. Navigate to Region
     Management -&gt; Under RPs, select the **Compute** Resource Provider
     -&gt; select VM Images and then select **Add.**
 
