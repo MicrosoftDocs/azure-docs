@@ -56,8 +56,6 @@ Prerequisites
 
 5.  Click **Access keys** in the left blade and copy the name of the storage account and the value of **key1**. Save these to Notepad or some other temporary location.
 
-## Create an Event Hub using the Azure portal
-
 [AZURE.INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
 ## Create a Python script to send events to your Event Hub
