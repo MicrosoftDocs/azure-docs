@@ -48,7 +48,7 @@ If the VM image VHD is available locally on the Console VM (or another externall
 	Import-Module .\Add-VMImage.psm1
 	```
 
-4. Add the VM image by invoking the Add-VMImage cmdlet.  
+4. Add the VM image by invoking the Add-VMImage cmdlet. Make sure you run this from the **same directory** where the module was imported. 
 	-  Include the Publisher, Offer, Sku, and Version for the VM image. These parameters are used by Azure Resource Manager templates that reference the VM image. 
 	-  Specify the osType as Windows or Linux
 	-  Include your Azure Active Directory Tenant ID in the form &lt;myaadtenant&gt;.onmicrosoft.com
@@ -74,40 +74,40 @@ A description of command parameters is below:
 
 | Parameter | Description |
 |----------| ------------ |
-|**tenantID** | This your Azure Active Directory tenant ID in the form &lt;AADTenantID.onmicrosoft.com&gt; |
+|**tenantID** | Your Azure Active Directory tenant ID in the form &lt;AADTenantID.onmicrosoft.com&gt; |
 |**publisher** | The Publisher name segment of the VM Image that tenants will use when deploying the image. An example is ‘Microsoft’. Do not include a space or other special characters in this field.|
-|**offer** | The Offer name segment of the VM Image that tenants will use when deploying the image. An example is ‘WindowsServer’. Do not include a space or other special characters in this field. |
-| **sku** | The SKU name segment of the VM Image that tenants will use when deploying the image. An example is ‘Datacenter2016’. Do not include a space or other special characters in this field. |
-|**version** | The Version of the VM Image that tenants will use when deploying the image. This version is in the format \#.\#.\#. An example is ‘1.0.0’. Do not include a space or other special characters in this field.|
+|**offer** | The Offer name segment of the VM Image that tenants use when deploying the VM image. An example is ‘WindowsServer’. Do not include a space or other special characters in this field. |
+| **sku** | The SKU name segment of the VM Image that tenants use when deploying the VM image. An example is ‘Datacenter2016’. Do not include a space or other special characters in this field. |
+|**version** | The Version of the VM Image that tenants use when deploying the VM image. This version is in the format \#.\#.\#. An example is ‘1.0.0’. Do not include a space or other special characters in this field.|
 | **osType** | The OS Type of the image must be either ‘Windows’ or ‘Linux’. |
-|**osDiskLocalPath** | This is the local path to the OS Disk VHD that you are uploading as a VM Image into Azure Stack. |
-|**dataDiskLocalPaths**| This is an optional array of the local paths for data disks that can be uploaded as part of the VM Image.|
+|**osDiskLocalPath** | The local path to the OS Disk VHD that you are uploading as a VM Image into Azure Stack. |
+|**dataDiskLocalPaths**| An optional array of the local paths for data disks that can be uploaded as part of the VM Image.|
 |**CreateGalleryItem**| Boolean flag for whether to create an item in the Marketplace. The default is set to true.|
 |**title**| The display name of Marketplace item. The default is set to be the Publisher-Offer-Sku of the VM image.|
 |**description**| The description of the Marketplace item. |
-|**osDiskBlobURI**| Optionally, this script will also accept a blob storage URI for the osDisk.|
+|**osDiskBlobURI**| Optionally, this script also accepts a blob storage URI for the osDisk.|
 |**dataDiskBlobURIs**| Optionally, this script can also accept an array of blob storage URIs for adding data disks to the image.|
 
 
 
 ##Add a VM Image through the portal
 
-> [AZURE.NOTE] This method will require the separate creation of a Marketplace item. 
+> [AZURE.NOTE] This method requires creating the Marketplace item separately. 
 
-1.  Adding the image will require that it can be referenced by a blob
-    storage URI. To begin, prepare a Windows or Linux operating system
+1.  Adding the image requires that it can be referenced by a blob
+    storage URI. Prepare a Windows or Linux operating system
     virtual hard disk image in VHD format (not VHDX) and upload the
     image to a storage account in Azure or in Azure Stack. If your image
     is already uploaded to blob storage in Azure or Azure Stack, you can
-    skip this.
+    skip this step.
 
     Follow the steps from [*Upload a Windows VM image to Azure for
     Resource Manager
     deployments*](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-upload-image/) article
-    up through the step ‘**Upload the VM image to your storage
-    account’,** but first make a note of the following:
+    through the step ‘**Upload the VM image to your storage
+    account’,** while noting:
 
-    -   If you are uploading a Linux image, follow the instructions to
+    -   For a Linux image, follow the instructions to
         prepare the image or use an existing Azure Stack Linux image in
         the [Deploy Linux virtual machines on Azure
         Stack](https://azure.microsoft.com/en-us/documentation/articles/azure-stack-linux/)
@@ -115,14 +115,12 @@ A description of command parameters is below:
 
     -   Uploading to Azure Stack blob storage is preferred over Azure
         blob storage as the time required to push the VM image into the
-        Azure Stack image repository will be less. While following the
-        steps above, make sure to substitute the [Authenticate
+        Azure Stack image repository will be less. While following the upload instructions, make sure to substitute the [Authenticate
         PowerShell with Microsoft Azure
         Stack](https://azure.microsoft.com/en-us/documentation/articles/azure-stack-deploy-template-powershell/1)
         step for the ‘Login to Azure’ step.
 
-    -   Make a note of the blob URI where you upload the image. It will
-        have the following format:
+    -   Make a note of the blob URI where you upload the image. It has the following format:
         *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;.vhd*
 
 2.  Set the storage account blob container access where the VM image VHD
