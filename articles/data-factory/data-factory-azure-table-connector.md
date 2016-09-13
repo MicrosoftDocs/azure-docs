@@ -196,7 +196,7 @@ The following sample shows:
 4.	The [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) and [AzureTableSink](#azure-table-copy-activity-type-properties). 
 
 
-The sample copies time-series data from an Azure blob to a an Azure table hourly. The JSON properties used in these samples are described in sections following the samples.
+The sample copies time-series data from an Azure blob to an Azure table hourly. The JSON properties used in these samples are described in sections following the samples.
 
 **Azure storage (for both Azure Table & Blob) linked service:**
 
@@ -210,7 +210,7 @@ The sample copies time-series data from an Azure blob to a an Azure table hourly
 	  }
 	}
 
-Azure Data Factory supports two types of Azure Storage linked services: **AzureStorage** and **AzureStorageSas**. For the first one, you specify the connection string that includes the account key and for the later one, you specify the Shared Access Signature (SAS) Uri.   See [Linked Services](#linked-services) section for details. 
+Azure Data Factory supports two types of Azure Storage linked services: **AzureStorage** and **AzureStorageSas**. For the first one, you specify the connection string that includes the account key and for the later one, you specify the Shared Access Signature (SAS) Uri. See [Linked Services](#linked-services) section for details. 
 
 **Azure Blob input dataset:**
 
@@ -356,7 +356,7 @@ There are two types of linked services you can use to link an Azure blob storage
 
 ## Azure Table Dataset type properties
 
-For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).  
+For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
 
 The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The **typeProperties** section for the dataset of type **AzureTable** has the following properties.
 
@@ -365,10 +365,10 @@ The typeProperties section is different for each type of dataset and provides in
 | tableName | Name of the table in the Azure Table Database instance that linked service refers to. | Yes. When a tableName is specified without an azureTableSourceQuery, all records from the table are copied to the destination. If an azureTableSourceQuery is also specified, records from the table that satisfies the query are copied to the destination. |
 
 ### Schema by Data Factory
-For schema-free data stores such as Azure Table, the Data Factory service infers the schema in one of the following ways:  
+For schema-free data stores such as Azure Table, the Data Factory service infers the schema in one of the following ways:
 
 1.	If you specify the structure of data by using the **structure** property in the dataset definition, the Data Factory service honors this structure as the schema. In this case, if a row does not contain a value for a column, a null value is provided for it.
-2.	If you do not specify the structure of data by using the **structure** property in the dataset definition, Data Factory infers the schema by using the first row in the data. In this case, if the first row does not contain the full schema, some columns are missed in the result of copy operation.
+2. If you don't specify the structure of data by using the **structure** property in the dataset definition, Data Factory infers the schema by using the first row in the data. In this case, if the first row does not contain the full schema, some columns are missed in the result of copy operation.
 
 Therefore, for schema-free data sources, the best practice is to specify the structure of data using the **structure** property.
 
@@ -382,7 +382,7 @@ Properties available in the typeProperties section of the activity on the other 
 
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | -------- 
-azureTableSourceQuery | Use the custom query to read data. | Azure table query string. See examples in the next section. | No. When a tableName is specified without an azureTableSourceQuery, all records from the table are copied to the destination. If an azureTableSourceQuery is also specified, records from the table that satisfies the query are copied to the destination.  
+azureTableSourceQuery | Use the custom query to read data. | Azure table query string. See examples in the next section. | No. When a tableName is specified without an azureTableSourceQuery, all records from the table are copied to the destination. If an azureTableSourceQuery is also specified, records from the table that satisfies the query are copied to the destination.
 azureTableSourceIgnoreTableNotFound | Indicate whether swallow the exception of table not exist. | TRUE<br/>FALSE | No |
 
 ### azureTableSourceQuery examples
@@ -404,7 +404,7 @@ Property | Description | Allowed values | Required
 azureTableDefaultPartitionKeyValue | Default partition key value that can be used by the sink. | A string value. | No 
 azureTablePartitionKeyName | Specify name of the column whose values are used as partition keys. If not specified, AzureTableDefaultPartitionKeyValue is used as the partition key. | A column name. | No |
 azureTableRowKeyName | Specify name of the column whose column values are used as row key. If not specified, use a GUID for each row. | A column name. | No  
-azureTableInsertType | The mode to insert data into Azure table.<br/><br/>This property controls whether existing rows in the output table with matching partition and row keys have their values replaced or merged. <br/><br/>See [Insert or Merge Entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) and [Insert or Replace Entity](https://msdn.microsoft.com/library/azure/hh452242.aspx) topics to learn about how these settings (merge and replace) work. <br/><br> This setting applies at the row level, not the table level, and neither option deletes rows in the output table that do not exist in the input. | merge (default)<br/>replace | No 
+azureTableInsertType | The mode to insert data into Azure table.<br/><br/>This property controls whether existing rows in the output table with matching partition and row keys have their values replaced or merged. <br/><br/>To learn about how these settings (merge and replace) work, see [Insert or Merge Entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) and [Insert or Replace Entity](https://msdn.microsoft.com/library/azure/hh452242.aspx) topics. <br/><br> This setting applies at the row level, not the table level, and neither option deletes rows in the output table that do not exist in the input. | merge (default)<br/>replace | No 
 writeBatchSize | Inserts data into the Azure table when the writeBatchSize or writeBatchTimeout is hit. | Integer (number of rows)| No (default: 10000) 
 writeBatchTimeout | Inserts data into the Azure table when the writeBatchSize or writeBatchTimeout is hit | timespan<br/><br/>Example: “00:20:00” (20 minutes) | No (Default to storage client default timeout value 90 sec)
 
@@ -432,7 +432,7 @@ The EmpID is specified as the partition key.
 
 ### Type Mapping for Azure Table
 
-As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article, Copy activity performs automatic type conversions from automatic type conversions from source types to sink types with the following two step approach.
+As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article, Copy activity performs automatic type conversions from automatic type conversions from source types to sink types with the following two-step approach.
 
 1. Convert from native source types to .NET type
 2. Convert from .NET type to native sink type
@@ -441,20 +441,20 @@ When moving data to & from Azure Table, the following [mappings defined by Azure
 
 | OData Data Type | .NET Type | Details |
 | --------------- | --------- | ------- |
-| Edm.Binary | byte[] | An array of bytes up to 64 KB in size. |
+| Edm.Binary | byte[] | An array of bytes up to 64 KB. |
 | Edm.Boolean | bool | A Boolean value. |
 | Edm.DateTime | DateTime | A 64-bit value expressed as Coordinated Universal Time (UTC). The supported DateTime range begins from 12:00 midnight, January 1, 1601 A.D. (C.E.), UTC. The range ends at December 31, 9999. |
 | Edm.Double | double | A 64-bit floating point value. |
 | Edm.Guid | Guid | A 128-bit globally unique identifier. |
 | Edm.Int32 | Int32 or int | A 32-bit integer. |
-| Edm.Int64 | Int64 or long |  A 64-bit integer. |
-| Edm.String | String | A UTF-16-encoded value. String values may be up to 64 KB in size. |
+| Edm.Int64 | Int64 or long | A 64-bit integer. |
+| Edm.String | String | A UTF-16-encoded value. String values may be up to 64 KB. |
 
 ### Type Conversion Sample
 
 The following sample is for copying data from an Azure Blob to Azure Table with type conversions. 
 
-Suppose the Blob dataset is in CSV format and contains 3 columns. One of them is a datetime column with a custom datetime format using abbreviated French names for day of the week. 
+Suppose the Blob dataset is in CSV format and contains three columns. One of them is a datetime column with a custom datetime format using abbreviated French names for day of the week. 
 
 Define the Blob Source dataset as follows along with type definitions for the columns.
 	
@@ -522,14 +522,14 @@ Next, define the Azure Table dataset as follows. You do not need to specify “s
 	  }
 	}
 
-In this case, Data Factory automatically does the type conversions including the Datetime field with the custom datetime format using the "fr-fr" culture when moving data from Blob to Azure Table.
+In this case, Data Factory automatically does type conversions including the Datetime field with the custom datetime format using the "fr-fr" culture when moving data from Blob to Azure Table.
 
 
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 ## Performance and Tuning  
-See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.
+To learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it, see [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md).
 
 
 
