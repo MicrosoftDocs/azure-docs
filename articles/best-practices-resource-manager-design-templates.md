@@ -143,7 +143,7 @@ You might initially think a template should give consumers the utmost flexibilit
 
 ### Free-form configurations
 
-On the surface, free-form configurations sound ideal. They allow you to select a VM type and provide an arbitrary number of nodes and attached disks for those nodes — and do so as parameters to a template. However, this approach is not ideal for a number of scenarios.
+On the surface, free-form configurations sound ideal. They allow you to select a VM type and provide an arbitrary number of nodes and attached disks for those nodes — and do so as parameters to a template. However, this approach is not ideal for some scenarios.
 
 In [Sizes for virtual machines](./virtual-machines/virtual-machines-windows-sizes.md), the different VM types and available sizes are identified, and each of the number of durable disks (2, 4, 8, 16, or 32) that can be attached. Each attached disk provides 500 IOPS and multiples of these disks can be pooled for a multiplier of that number of IOPS. For example, 16 disks can be pooled to provide 8,000 IOPS. Pooling is done with configuration in the operating system, using Microsoft Windows Storage Spaces or redundant array of inexpensive disks (RAID) in Linux.
 
@@ -216,15 +216,13 @@ An example file is shown below in its entirety.
 
 ### Main template
 
-The main template (the azuredeploy.json file) is called by an end user and is the template through which a set of user-defined parameters are presented.
+The main template receives parameters from a user, uses that information to populate complex object variables, and executes the linked templates.
 
 ![Main template](./media/best-practices-resource-manager-design-templates/main-template.png)
 
 **The main template receives parameters from a user**
 
-The role of this template is to receive parameters from a user, use that information to populate a set of complex object variables, then execute the appropriate set of related templates using template linking.
-
-One parameter that is provided is a known configuration type also known as the t-shirt size parameter because of its standardized values such as small, medium, or large. In practice you can use this parameter in multiple ways. For details, see "Known configuration resources template" later in this document.
+One parameter that is provided is a known configuration type also known as the t-shirt size parameter because of its standardized values such as small, medium, or large. In practice, you can use this parameter in multiple ways. For details, see "Known configuration resources template" later in this document.
 
 Some resources are deployed regardless of the known configuration specified by a user parameter. These resources are provisioned using a single shared resource template and are shared by other templates, so the shared resource template is run first.
 
@@ -260,7 +258,7 @@ Whether a given resource is optional may not be driven by the template consumer 
 
 ### Known configuration resources template
 
-In the main template, a parameter can be exposed to allow the template consumer to specify a desired known configuration to deploy. In many cases, this known configuration uses a t-shirt size approach with a set of fixed configuration sizes such as sandbox, small, medium, and large.
+In the main template, a parameter can be exposed to allow the template consumer to specify a desired known configuration to deploy. Often, this known configuration uses a t-shirt size approach with a set of fixed configuration sizes such as sandbox, small, medium, and large.
 
 ![Known configuration resources](./media/best-practices-resource-manager-design-templates/known-config.png)
 
@@ -275,13 +273,13 @@ As with the shared resource template, variables are passed to the known configur
 
 ### Member resources template
 
-Within a known configuration, one or more member node types are often included. For example, with Hadoop you would have master nodes and data nodes. If you are installing MongoDB, you would have data nodes and an arbiter. If you are deploying DataStax, you would have data nodes as well as a VM with OpsCenter installed.
+Within a known configuration, one or more member node types are often included. For example, with Hadoop you have master nodes and data nodes. If you are installing MongoDB, you have data nodes and an arbiter. If you are deploying DataStax, you have data nodes and a VM with OpsCenter installed.
 
 ![Members resources](./media/best-practices-resource-manager-design-templates/member-resources.png)
 
 **Member resources template**
 
-Each type of nodes can have different sizes of VMs, numbers of attached disks, scripts to install and set up the nodes, port configurations for the VM(s), number of instances, and other details. So each node type gets its own member resource template, which contains the details for deploying and configuring an infrastructure as well as executing scripts to deploy and configure software within the VM.
+Each type of nodes can have different sizes of VMs, numbers of attached disks, scripts to install and set up the nodes, port configurations for the VMs, number of instances, and other details. So each node type gets its own member resource template, which contains the details for deploying and configuring an infrastructure as well as executing scripts to deploy and configure software within the VM.
 
 For VMs, typically two types of scripts are used, widely reusable and custom scripts.
 
@@ -315,7 +313,7 @@ You create Shared Resources Template named shared-resources.json
 
 You create an Optional Resource Template to enable the deployment of a jumpbox, named jumpbox_enabled.json
 
-Redis uses just a single node type, so you'll create a single Member Resource Template named node-resources.json.
+Redis uses just a single node type, so you create a single Member Resource Template named node-resources.json.
 
 With Redis, you want to install each individual node, and then set up the cluster.  You have scripts to accommodate the installation and set up, redis-cluster-install.sh and redis-cluster-setup.sh.
 
@@ -335,7 +333,7 @@ The topology would resemble this illustration.
 
 ### Configuring state
 
-For the nodes in the cluster, there are two steps to configuring the state, both represented by Purpose Specific Scripts.  "redis-cluster-install.sh" performs an installation of Redis and "redis-cluster-setup.sh" sets up the cluster.
+For the nodes in the cluster, there are two steps to configuring the state, both represented by Purpose Specific Scripts.  "redis-cluster-install.sh" installs Redis and "redis-cluster-setup.sh" sets up the cluster.
 
 ### Supporting Different Size Deployments
 
