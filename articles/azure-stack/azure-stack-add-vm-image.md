@@ -61,7 +61,7 @@ If the VM image VHD is available locally on the Console VM (or another externall
 
 5. The command will authenticate to your Azure Stack environment, upload the local VHD to a newly created temporary storage account, add the VM image into the VM image repository, and create a Marketplace item for the VM image. To verify that the command ran successfully, navigate to the Marketplace in the portal and verify that the VM image is available in the Virtual Machines category.
 
-> ![VM image added successfully](/articles/azure-stack/media/azure-stack-add-vm-image/image5.png)
+> ![VM image added successfully](/articles/azure-stack/media/azure-stack-add-vm-image/image5.PNG)
 
 A description of command parameters is below:
 
