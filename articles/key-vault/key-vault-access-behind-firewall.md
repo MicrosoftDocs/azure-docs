@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="09/13/2016"
-	ms.author="amitbapat"/>
+	ms.author="ambapat"/>
 
 # Accessing Key Vault behind firewall
 #### Q: My key vault client application needs to be behind a firewall, what ports/hosts/IP addresses should I open to enable access to key vault?
