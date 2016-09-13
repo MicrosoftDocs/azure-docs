@@ -48,7 +48,7 @@ If the VM image VHD is available locally on the Console VM (or another externall
 	Import-Module .\Add-VMImage.psm1
 	```
 
-4. Add the VM image by invoking the Add-VMImage cmdlet. Make sure you run this from the **same directory** where the module was imported. 
+4. Add the VM image by invoking the Add-VMImage cmdlet. Make sure you run the command from the **same directory** where the module was imported. 
 	-  Include the Publisher, Offer, Sku, and Version for the VM image. These parameters are used by Azure Resource Manager templates that reference the VM image. 
 	-  Specify the osType as Windows or Linux
 	-  Include your Azure Active Directory Tenant ID in the form &lt;myaadtenant&gt;.onmicrosoft.com
@@ -75,7 +75,7 @@ A description of command parameters is below:
 | Parameter | Description |
 |----------| ------------ |
 |**tenantID** | Your Azure Active Directory tenant ID in the form &lt;AADTenantID.onmicrosoft.com&gt; |
-|**publisher** | The Publisher name segment of the VM Image that tenants will use when deploying the image. An example is ‘Microsoft’. Do not include a space or other special characters in this field.|
+|**publisher** | The Publisher name segment of the VM Image that tenants use when deploying the image. An example is ‘Microsoft’. Do not include a space or other special characters in this field.|
 |**offer** | The Offer name segment of the VM Image that tenants use when deploying the VM image. An example is ‘WindowsServer’. Do not include a space or other special characters in this field. |
 | **sku** | The SKU name segment of the VM Image that tenants use when deploying the VM image. An example is ‘Datacenter2016’. Do not include a space or other special characters in this field. |
 |**version** | The Version of the VM Image that tenants use when deploying the VM image. This version is in the format \#.\#.\#. An example is ‘1.0.0’. Do not include a space or other special characters in this field.|
@@ -124,10 +124,9 @@ A description of command parameters is below:
         *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;.vhd*
 
 2.  Set the storage account blob container access where the VM image VHD
-    was uploaded to ‘Blob’ by navigating to the container in the blob
-    storage account and selecting **Access Policy**. This will make the
-    blob anonymously accessible, but if you do not wish to do this, you
-    can instead generate a Shared Access Signature for the container.
+    was uploaded to ‘Blob’ by navigating to the storage account blob container and selecting **Access Policy**. This makes the
+    blob anonymously accessible, but if you do not wish to do to make it publically accessible, you
+    can instead generate a Shared Access Signature for the container and include it as part of the blob URI.
 
 ![Navigate to storage account blobs](/articles/azure-stack/media/azure-stack-add-vm-image/image1.png)
 
@@ -148,7 +147,7 @@ A description of command parameters is below:
 
     ![](/articles/azure-stack/media/azure-stack-add-vm-image/image4.png)
 
-3.  The VM Image status will change to ‘Succeeded’ when the image is
+3.  The VM Image status changes to ‘Succeeded’ when the image is
     successfully added.
 
 4.  All tenants can now consume the VM Image by specifying the
