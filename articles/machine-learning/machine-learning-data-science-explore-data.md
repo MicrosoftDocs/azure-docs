@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="09/13/2016" 
 	ms.author="bradsev" /> 
 
 #Explore data in the Team Data Science Process
 
-This document covers how to explore data in four different environments typically used in the Team Data Science Process:
+This document covers how to explore data in four different storage environments that are typically used in the Data Science Process:
 
 - **Azure blob container** data is explored using the [Pandas](http://pandas.pydata.org/) Python package.
 - **SQL Server data** data is explored by using SQL and by using a programming language like Python.

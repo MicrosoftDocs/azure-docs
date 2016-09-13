@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
-	ms.author="fashah;garye;bradsev" /> 
+	ms.date="09/13/2016" 
+	ms.author="bradsev" /> 
 
 #Explore data in SQL Server Virtual Machine on Azure
 

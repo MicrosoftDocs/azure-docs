@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
-	ms.author="ginathan;bradsev" />
+	ms.date="09/13/2016"
+	ms.author="bradsev" />
 
 # The Team Data Science Process in action - Using Azure HDInsight Hadoop Clusters on a 1 TB dataset
 
