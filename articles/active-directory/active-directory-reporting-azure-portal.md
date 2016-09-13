@@ -42,15 +42,15 @@ With the information provided by the user sign-in report, you find answers to qu
 
 Your entry point to this data is the user sign-in graph in the **Overview** section under **Users and groups**.
 
- ![Reporting](./media/active-directory-reporting/05.png "Reporting")
+ ![Reporting](./media/active-directory-reporting-azure-portal/05.png "Reporting")
 
 The user sign-in graph shows weekly aggregations of sign ins for all users in a given time period. The default for the time period is 30 days.
 
-![Reporting](./media/active-directory-reporting/02.png "Reporting")
+![Reporting](./media/active-directory-reporting-azure-portal/02.png "Reporting")
 
 When you click on a day in the sign-in graph, you get a detailed list of the sign-in activities.
 
-![Reporting](./media/active-directory-reporting/03.png "Reporting")
+![Reporting](./media/active-directory-reporting-azure-portal/03.png "Reporting")
 
 Each row in the sign-in activities list gives you the detailed information about the selected sign-in such as:
 
@@ -77,32 +77,32 @@ With an application-centric view of your sign-in data, you can answer questions 
 
 Your entry point to this data is the top 3 applications in your organization within the last 30 days report in the **Overview** section under **Enterprise applications**.
 
- ![Reporting](./media/active-directory-reporting/06.png "Reporting")
+ ![Reporting](./media/active-directory-reporting-azure-portal/06.png "Reporting")
 
 
 The app usage graph weekly aggregations of sign ins for your top 3 applications in a given time period. The default for the time period is 30 days.
 
-![Reporting](./media/active-directory-reporting/78.png "Reporting")
+![Reporting](./media/active-directory-reporting-azure-portal/78.png "Reporting")
 
 If you want to, you can set the focus on a specific application.
 
-![Reporting](./media/active-directory-reporting/single_spp_usage_graph.png "Reporting")
+![Reporting](./media/active-directory-reporting-azure-portal/single_spp_usage_graph.png "Reporting")
 
 
 When you click on a day in the app usage graph, you get a detailed list of the sign-in activities.
 
 
-![Reporting](./media/active-directory-reporting/top_app_sign_ins.png "Reporting")
+![Reporting](./media/active-directory-reporting-azure-portal/top_app_sign_ins.png "Reporting")
 
 
 
 The **Sign-ins** option gives you a complete overview of all sign-in events to your applications.
 
-![Reporting](./media/active-directory-reporting/85.png "Reporting")
+![Reporting](./media/active-directory-reporting-azure-portal/85.png "Reporting")
 
 By using the column chooser, you can select the data fields you want to display.
 
-![Reporting](./media/active-directory-reporting/column_chooser.png "Reporting")
+![Reporting](./media/active-directory-reporting-azure-portal/column_chooser.png "Reporting")
 
 
 
@@ -110,14 +110,14 @@ By using the column chooser, you can select the data fields you want to display.
 
 You can filter sign-ins by a time interval to limit the amount of displayed data.
 
-![Reporting](./media/active-directory-reporting/927.png "Reporting")
+![Reporting](./media/active-directory-reporting-azure-portal/927.png "Reporting")
 
 
 Another method to filter the entries of the sign-in activities is to search for specific entries.
 The search method enables you to scope your sign-ins around specific **users**, **groups** or **applications**.
 
 
-![Reporting](./media/active-directory-reporting/84.png "Reporting")
+![Reporting](./media/active-directory-reporting-azure-portal/84.png "Reporting")
 
 ## System activities
 
@@ -138,18 +138,18 @@ For a complete list of audit report activities, see the [list of audit report ev
 Your entry point to all auditing data is **Audit logs** in the **Activity** section of **Azure Active Directory**.
 
 
-![Auditing](./media/active-directory-reporting/61.png "Auditing")
+![Auditing](./media/active-directory-reporting-azure-portal/61.png "Auditing")
 
 
 An audit log has a list view that shows the actors (who), the activities (what) and the targets.
 
 
-![Auditing](./media/active-directory-reporting/345.png "Auditing")
+![Auditing](./media/active-directory-reporting-azure-portal/345.png "Auditing")
 
 
 By clicking an item in the list view, you can get more details about it.
 
-![Auditing](./media/active-directory-reporting/873.png "Auditing")
+![Auditing](./media/active-directory-reporting-azure-portal/873.png "Auditing")
 
 
 
@@ -179,7 +179,7 @@ With user and group-based audit reports, you can get answers to questions such a
 If you just want to review auditing data that is related to users and groups, you can find a filtered view under **Audit logs** in the **Activity** section of **Users and Groups**.
 
 
-![Auditing](./media/active-directory-reporting/93.png "Auditing")
+![Auditing](./media/active-directory-reporting-azure-portal/93.png "Auditing")
 
 
 ### Application audit logs
@@ -200,18 +200,18 @@ With application-based audit reports, you can get answers to questions such as:
 If you just want to review auditing data that is related to applications, you can find a filtered view under **Audit logs** in the **Activity** section of **Enterprise applications**.
 
 
-![Auditing](./media/active-directory-reporting/134.png "Auditing")
+![Auditing](./media/active-directory-reporting-azure-portal/134.png "Auditing")
 
 
 ### Filtering audit logs
 
 You can filter an audit report by a time interval to limit the amount of displayed data.
 
-![Auditing](./media/active-directory-reporting/324.png "Auditing")
+![Auditing](./media/active-directory-reporting-azure-portal/324.png "Auditing")
 
 Another method to filter the entries of a audit log is to search for specific entries.
 
-![Auditing](./media/active-directory-reporting/237.png "Auditing")
+![Auditing](./media/active-directory-reporting-azure-portal/237.png "Auditing")
 
 ## Next steps
 
