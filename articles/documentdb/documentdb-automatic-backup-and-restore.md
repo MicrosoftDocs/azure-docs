@@ -57,7 +57,7 @@ While we periodically take snapshots of your data for automatic backup, for comp
 
 In case you accidentally delete your data, you can file a support ticket or call support to restore the data from the last automatic backup. For a specific snapshot of your backup to be restored, we require that the data was at least available with us for the duration of the backup cycle for that snapshot.
 
-Note that unlike the 99.99% high availability SLA that DocumentDB offers, currently there are no SLAs for RPO or RTO for your backups. Also, the time it takes to restore your data depends on the amount of data you have. We currently take backups of your data approximately every four hours; however this is subject to change.
+Note that unlike the 99.99% high availability SLA that DocumentDB offers, currently there are no SLAs for recovery point objectives (RPOs) or rentention time objectives (RTOs) for your backups. Also, the time it takes to restore your data depends on the amount of data you have. We currently take backups of your data approximately every four hours; however this is subject to change.
 
 ## Next steps
 
