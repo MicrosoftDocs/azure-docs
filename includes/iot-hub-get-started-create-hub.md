@@ -41,4 +41,4 @@ Create an IoT hub for your simulated device to connect to. The following steps s
 [lnk-resource-groups]: ../articles/azure-portal/resource-group-portal.md
 [lnk-portal]: https://portal.azure.com/
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
-[lnk-access-control]: ../articles/iot-hub/iot-hub-devguide.md#accesscontrol
+[lnk-access-control]: ../articles/iot-hub/iot-hub-devguide-security.md

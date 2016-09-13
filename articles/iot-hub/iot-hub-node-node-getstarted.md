@@ -261,8 +261,7 @@ You are now ready to run the applications.
     ```
     node ReadDeviceToCloudMessages.js 
     ```
-
-    ![][7]
+[7]
 
 2. At a command-prompt in the **simulateddevice** folder, run the following command to begin sending telemetry data to your IoT hub:
 
@@ -289,7 +288,6 @@ To continue getting started with IoT Hub and to explore other IoT scenarios see:
 To learn how to extend your your IoT solution and process device-to-cloud messages at scale, see the [Process device-to-cloud messages][lnk-process-d2c-tutorial] tutorial.
 
 <!-- Images. -->
-[6]: ./media/iot-hub-node-node-getstarted/create-iot-hub6.png
 [7]: ./media/iot-hub-node-node-getstarted/runapp1.png
 [8]: ./media/iot-hub-node-node-getstarted/runapp2.png
 [43]: ./media/iot-hub-csharp-csharp-getstarted/usage.png
@@ -298,7 +296,7 @@ To learn how to extend your your IoT solution and process device-to-cloud messag
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
-[lnk-devguide-identity]: iot-hub-devguide.md#identityregistry
+[lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
 [lnk-event-hubs-overview]: ../event-hubs/event-hubs-overview.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md

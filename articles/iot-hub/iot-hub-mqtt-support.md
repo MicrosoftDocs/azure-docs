@@ -114,7 +114,7 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-sample-python]: https://github.com/Azure/azure-iot-sdks/tree/master/python/device/samples
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/readme.md
 [lnk-sas-tokens]: iot-hub-sas-tokens.md#using-sas-tokens-as-a-device
-[lnk-mqtt-devguide]: iot-hub-devguide.md#mqtt-support
+[lnk-mqtt-devguide]: iot-hub-devguide-messaging.md#notes-on-mqtt-support
 
 [lnk-devices]: iot-hub-tested-configurations.md
 [lnk-protocols]: iot-hub-protocol-gateway.md

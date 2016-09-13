@@ -51,11 +51,10 @@ Follow these links to learn more about Azure IoT Hub:
 - [Get started with IoT Hubs (Tutorial)][lnk-get-started]
 - [What is Azure IoT Hub?][]
 
-[Azure resiliency technical guidance]: ../resiliency/resiliency-technical-guidance.md
 [Disaster recovery and high availability for Azure applications]: ../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md
-[Failsafe: Guidance for Resilient Cloud Architectures]: https://msdn.microsoft.com/library/azure/jj853352.aspx
+[Azure Business Continuity Technical Guidance]: https://azure.microsoft.com/documentation/articles/resiliency-technical-guidance/
 [Azure Traffic Manager]: https://azure.microsoft.com/documentation/services/traffic-manager/
-[IoT Hub Developer Guide - identity registry]: iot-hub-devguide.md#identityregistry
+[IoT Hub Developer Guide - identity registry]: iot-hub-devguide-identity-registry.md
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [What is Azure IoT Hub?]: iot-hub-what-is-iot-hub.md
