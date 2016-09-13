@@ -35,13 +35,13 @@ Note: VM Scale Sets which are deployed as part of a [Service Fabric](https://azu
 
 The basic sequence for changing the OS version/sku of a platform image or the URI of a custom image looks like this:
 
-> Get the VMSS model.
+* Get the VMSS model.
 
-> Change the version, sku or URI value in the model.
+* Change the version, sku or URI value in the model.
 
-> Update the model.
+* Update the model.
 
-> Do a manualUpgrade call on the VMs in the scale set. This is only relevant if the upgradePolicy property of your Scale Set is set to “Manual”. If it is set to “Automatic”, all the VMs will upgraded at once and there will be downtime.
+* Do a manualUpgrade call on the VMs in the scale set. This is only relevant if the upgradePolicy property of your Scale Set is set to “Manual”. If it is set to “Automatic”, all the VMs will upgraded at once and there will be downtime.
 
 
 With this all this in mind, let’s review how you could update the version of a scale set in PowerShell, and using the REST API. These examples cover the case of a platform image, but hopefully I’ve provided enough information for you to adapt this to a custom image.
