@@ -61,7 +61,7 @@ This article answers some of the most common questions about Azure Billing and S
 - [How do I remove a credit card that I no longer use as an Azure payment method?](#how-do-i-remove-a-credit-card-that-i-no-longer-use-as-an-azure-payment-method)
 - [How can I update or change my credit card information?](#how-can-i-update-or-change-my-credit-card-information)
 - [How can I edit my payment information for my Azure subscriptions?](#how-can-i-edit-my-payment-information-for-my-azure-subscriptions)
-- [Why am I seeing a message that I need to use an international credit card?](why-am-i-seeing-a-message-that-i-need-to-use-an-international-credit-card)
+- [Why am I seeing a message that I need to use an international credit card?](#why-am-i-seeing-a-message-that-i-need-to-use-an-international-credit-card)
 
 ## Azure pricing
 
