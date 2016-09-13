@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Data science on the Linux Data Science Virtual Machine | Microsoft Azure" 
-	description="How to perform several common data science tasks with the Linux Linux Data Science VM." 
+	description="How to perform several common data science tasks with the Linux Data Science VM." 
 	services="machine-learning"
 	documentationCenter="" 
 	authors="bradsev" 
@@ -36,7 +36,7 @@ Before you can use a Linux Data Science Virtual Machine, you must have the follo
 - An **AzureML account**. If you don't already have one, sign up for new one at the [AzureML homepage](https://studio.azureml.net/). There is a free usage tier to help you get started.
 
 
-## Download the spambase dataset and add headers
+## Download the spambase dataset
 
 The [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) dataset is a relatively small set of data that contains only 4601 examples. This is a convenient size to use when demonstrating that some of the key features of the Data Science VM as it keeps the resource requirements modest.
 
@@ -124,7 +124,7 @@ Then split it by spam vs ham:
 These examples should enable you to make similar plots of the other columns to explore the data contained in them.
 
 
-## Train and test a machine learning model
+## Train and test an ML model
 
 Now let's train a couple of machine learning models to classify the emails in the dataset as containing either span or ham. We train a decision tree model and a random forest model in this section and then test their accuracy of their predictions. 
 
@@ -146,7 +146,7 @@ And then create a decision tree to classify the emails.
 
 Here is the result:
 
-![](./media/machine-learning-data-science-linux-dsvm-walkthrough/decision-tree.png)
+![1](./media/machine-learning-data-science-linux-dsvm-walkthrough/decision-tree.png)
 
 To determine how well it performs on the training set, use the following code:
 
@@ -177,15 +177,15 @@ Let's also try a random forest model. Random forests train a multitude of decisi
     accuracy
 
 
-## Deploy a model to Azure Machine Learning
+## Deploy a model to Azure ML
 
 [Azure Machine Learning Studio](https://studio.azureml.net/) (AzureML) is a cloud service that makes it easy to build and deploy predictive analytics models. One of the nice features of AzureML is its ability to publish any R function as a web service. The AzureML R package makes deployment easy to do right from our R session on the DSVM. 
 
 To deploy the decision tree code from the previous section, you need to sign in to Azure Machine Learning Studio. You need your workspace ID and an authorization token to sigh in. To find these values and initialize the AzureML variables with them:
 
-Select **Settings** on the left-hand menu. Note your **WORKSPACE ID**. ![](./media/machine-learning-data-science-linux-dsvm-walkthrough/workspace-id.png)
+Select **Settings** on the left-hand menu. Note your **WORKSPACE ID**. ![2](./media/machine-learning-data-science-linux-dsvm-walkthrough/workspace-id.png)
 
-Select **Authorization Tokens** from the overhead menu and note your **Primary Authorization Token**.![](./media/machine-learning-data-science-linux-dsvm-walkthrough/workspace-token.png)
+Select **Authorization Tokens** from the overhead menu and note your **Primary Authorization Token**.![3](./media/machine-learning-data-science-linux-dsvm-walkthrough/workspace-token.png)
 
 Load the **AzureML** package and then set values of the variables with your token and workspace ID in your R session on the DSVM:
 
@@ -229,7 +229,7 @@ To try it out on the first 10 rows of the test set:
     consumeDataframe(spamWebService$endpoints[[1]]$PrimaryKey, spamWebService$endpoints[[1]]$ApiLocation, smallTestSet[1:10, 1:3])
 
 
-## Use other tools available on the Data Science VM
+## Use other tools available
 
 The remaining sections show how to use some of the tools installed on the Linux Data Science VM.Here is the list of tools discussed:
 
@@ -522,9 +522,9 @@ And query with sqlcmd:
 
 You could also query with Squirrel SQL. Follow similar steps for PostgreSQL, using the Microsoft MSSQL Server JDBC Driver, which can be found in ***/usr/share/java/jdbcdrivers/sqljdbc42.jar***.
 
-## What's next?
+## Next steps
 
 For an overview of topics that walk you through the tasks that comprise the Data Science process in Azure, see [Team Data Science Process](http://aka.ms/datascienceprocess).
 
-[Team Data Science Process walkthroughs](data-science-process-walkthroughs.md) describe other end-to-end walkthroughs that demonstrate the steps in the Team Data Science Process for specific scenarios. The walkthroughs also illustrate how to combine cloud and on-premises tools and services into a workflow or pipeline to create an intelligent application.
+For a description of other end-to-end walkthroughs that demonstrate the steps in the Team Data Science Process for specific scenarios, see [Team Data Science Process walkthroughs](data-science-process-walkthroughs.md). The walkthroughs also illustrate how to combine cloud and on-premises tools and services into a workflow or pipeline to create an intelligent application.
 
