@@ -46,10 +46,9 @@ Get the available subscriptions by using the following command.
 
 	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Set your Azure subscription for the current session. Replace everything within the quotes, including the < and > characters, with the correct names.
+Set your Azure subscription for the current session. Replace everything within the quotes, including the < and > characters, with the correct name.
 
-	$subscr="<subscription name>"
-	Get-AzureRmSubscription –SubscriptionName $subscr | Select-AzureRmSubscription
+	Select-AzureRmSubscription –SubscriptionName "<subscription name>"
 
 >[AZURE.NOTE] Registration is a one-time step, but you must do it once before attempting migration. Without registering, you see the following error message: 
 
@@ -71,10 +70,9 @@ Get the available subscriptions by using the following command.
 
 	Get-AzureSubscription | Sort SubscriptionName | Select SubscriptionName
 
-Set your Azure subscription for the current session. Replace everything within the quotes, including the < and > characters, with the correct names.
+Set your Azure subscription for the current session. Replace everything within the quotes, including the < and > characters, with the correct name.
 
-	$subscr="<subscription name>"
-	Get-AzureSubscription –SubscriptionName $subscr | Select-AzureSubscription
+	Select-AzureSubscription –SubscriptionName "<subscription name>"
 
 ## Step 4: Make sure you have enough Azure Resource Manager Virtual Machine cores in the Azure region of your current deployment or VNET
 
