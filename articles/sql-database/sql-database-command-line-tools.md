@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2016"
+	ms.date="09/13/2016"
 	ms.author="sstein"/>
 
 # Manage Azure SQL Database with PowerShell
@@ -26,9 +26,6 @@
 
 This topic shows the PowerShell cmdlets that are used to perform many Azure SQL Database tasks. For a complete list, see [Azure SQL Database Cmdlets](https://msdn.microsoft.com/library/mt574084(v=azure.200).aspx)
 
-[AZURE.INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
-
-
 
 ## Create a resource group
 
@@ -39,6 +36,9 @@ $resourceGroupName = "resourcegroup1"
 $resourceGroupLocation = "northcentralus"
 New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocation
 ```
+
+For more information, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
+For a sample script, see [Create a SQL database PowerShell script](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script).
 
 ## Create a SQL Database server
 
@@ -60,6 +60,8 @@ $sqlServer = New-AzureRmSqlServer -ServerName $sqlServerName `
  -SqlAdministratorCredentials $creds -Location $sqlServerLocation `
  -ResourceGroupName $resourceGroupName -ServerVersion $sqlServerVersion
 ```
+
+For a sample script, see [Create a SQL database PowerShell script](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script).
 
 
 ## Create a SQL Database server firewall rule
@@ -83,6 +85,8 @@ To allow other Azure services access to your server, create a firewall rule and 
 
 For more information, see [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx).
 
+For a sample script, see [Create a SQL database PowerShell script](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script).
+
 
 ## Create a SQL database (blank)
 
@@ -101,6 +105,8 @@ $currentDatabase = New-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName 
  -Edition $databaseEdition -RequestedServiceObjectiveName $databaseServiceLevel
 ```
 
+For a sample script, see [Create a SQL database PowerShell script](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script).
+
 
 ## Change the performance level of a SQL database
 
@@ -118,6 +124,8 @@ Set-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName `
  -ServerName $sqlServerName -DatabaseName $databaseName `
  -Edition $databaseEdition -RequestedServiceObjectiveName $databaseServiceLevel
 ```
+
+For a sample script, see [Sample PowerShell script to change the service tier and performance level of your SQL database](sql-database-scale-up-powershell.md#sample-powershell-script-to-change-the-service-tier-and-performance-level-of-your-sql-database).
 
 ## Copy a SQL database to the same server
 
@@ -138,6 +146,7 @@ New-AzureRmSqlDatabaseCopy -DatabaseName $databaseName `
  -CopyResourceGroupName $copyResourceGroupName
 ```
 
+For a sample script, see [Copy a SQL database PowerShell script](sql-database-copy-powershell.md#example-powershell-script).
 
 ## Delete a SQL database
 
