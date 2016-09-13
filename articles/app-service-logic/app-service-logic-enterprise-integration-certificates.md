@@ -23,6 +23,7 @@ Enterprise integration uses certificates to secure B2B communications. You can u
 - Public certificates, which must be purchased from a certification authority (CA)
 - Private certificates, which you can issue yourself. These certificates are sometimes referred to as self-signed certificates.
 
+
 ## What are certificates?
 Certificates are digital documents that are used to verify the identity of the participants in electronic communications and to secure the electronic communications as well. 
 
@@ -36,7 +37,7 @@ Sometimes, B2B communications need to be kept confidential. Enterprise integrati
 ### Public certificate
 To use a **public certificate** in your Logic apps with B2B capabilities, you first need to upload it into your integration account. On the other hand, to use a **self-signed certificate**, it must first be uploaded to [key Vault](../key-vault/key-vault-get-started.md "Learn about Key Vault"). 
 
-After you upload a certificate, it will be available for you to secure your B2B messages when you define their properties in [agreements](./app-service-logic-enterprise-integration-agreements.md) you create.  
+After you upload a certificate, it will be available for you to secure your B2B messages when you define their properties in [agreements](./app-service-logic-enterprise-integration-agreements.md).
 
 Here are the detailed steps to upload your public certificates into your integration account after you log in to the Azure portal:   
 1. Select **Browse**  
@@ -56,6 +57,7 @@ Here are the detailed steps to upload your public certificates into your integra
 ![](./media/app-service-logic-enterprise-integration-certificates/certificate-4.png)  
 
 ### Private certificate
+
 You can upload private certificates into your integration account as well by performing the following steps:  
 
 1. [Upload your private key to key Vault](../key-vault/key-vault-get-started.md "Learn about Key Vault")  
@@ -67,7 +69,8 @@ You can upload private certificates into your integration account as well by per
 
 After you have done the steps above, you can use the private certificate to create agreements.
 
-Here are the detailed steps to upload your private certificates into your integration account after you log in to the Azure portal:   
+Here are the detailed steps to upload your private certificates into your integration account after you log in to the Azure portal:
+   
 1. Select **Browse**  
 ![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)    
 2. Enter **integration** in the filter search box and select **Integration Accounts** from the results list     
