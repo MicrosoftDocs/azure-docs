@@ -42,8 +42,11 @@ From the Azure portal:
 9. Add schema file larger than 2 MB  
 
 a. Upload the schema to storage and copy the URI  
-![](./media/app-service-logic-enterprise-integration-schemas/schema-blob.png)  
+
+![](./media/app-service-logic-enterprise-integration-schemas/schema-blob.png) 
+
 b. Select Large file in Add Schema and provide the URI in the Content URI  
+
 ![](./media/app-service-logic-enterprise-integration-schemas/schema-largefile.png)  
 
 ## How to use schemas
