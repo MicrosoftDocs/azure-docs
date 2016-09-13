@@ -4,7 +4,7 @@ description="Learn how to export Application Insight logs to blob storage, and t
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
