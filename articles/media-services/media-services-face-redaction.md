@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/08/2016"   
+	ms.date="09/12/2016"   
 	ms.author="juliako;"/>
  
 #Face redaction with Azure media analytics
@@ -28,7 +28,7 @@ The **Azure Media Redactor** MP is currently in Preview.
 
 ## Face redaction modes
 
-Facial redaction works by detecting faces in every frame of video and tracking the face object both forwards and backwards in time, so that the same individual can be blurred from other angles as well. The automated redaction process us very complex and does not always produce 100% of desired output, for this reason Media Analytics provides you with a couple of ways to modify the final output.
+Facial redaction works by detecting faces in every frame of video and tracking the face object both forwards and backwards in time, so that the same individual can be blurred from other angles as well. The automated redaction process is very complex and does not always produce 100% of desired output, for this reason Media Analytics provides you with a couple of ways to modify the final output.
 
 In addition to a fully automatic mode, there is a two-pass workflow which allows the selection/de-selection of found faces via a list of IDs. Also, to make arbitrary per frame adjustments the MP uses a metadata file in JSON format. This workflow is split into **Analyze** and **Redact** modes. You can combine the two modes in a single pass that runs both tasks in one job; this mode is called **Combined**.
 
@@ -133,11 +133,11 @@ For detailed explanations for the attributes, see [Detect Face and Emotion with 
 The following program shows how to:
 
 1. Create an asset and upload a media file into the asset.
-1. Creates a job with a face redaction task based on a configuration file that contains the following json preset. 
+1. Create a job with a face redaction task based on a configuration file that contains the following json preset. 
 					
 		{'version':'1.0', 'options': {'mode':'combined'}}
 
-1. Downloads the output JSON files. 
+1. Download the output JSON files. 
 		 
         using System;
 		using System.Configuration;
