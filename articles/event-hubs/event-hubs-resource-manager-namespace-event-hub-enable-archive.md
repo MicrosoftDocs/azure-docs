@@ -286,4 +286,4 @@ Now that you've created and deployed resources using Azure Resource Manager, lea
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
   [Event Hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-event-hubs-create-event-hub-and-enable-archive/
-  [Azure Event Hubs Archive]: https://azure.microsoft.com/en-us/documentation/articles/guidance-naming-conventions/
+  [Azure Resources Naming Conventions]: https://azure.microsoft.com/en-us/documentation/articles/guidance-naming-conventions/
