@@ -145,7 +145,7 @@ If you then submitted this next entry, with all values formatted as strings, the
 
 ![Sample record 2](media/log-analytics-data-collector-api/record-02.png)
 
-But, if you then made this next submission, Log Analytics creates the new properties **boolean_d** and **string_d**. These values can't be converted:
+But, if you then made this next submission, Log Analytics would create the new properties **boolean_d** and **string_d**. These values can't be converted:
 
 ![Sample record 3](media/log-analytics-data-collector-api/record-03.png)
 
@@ -184,11 +184,11 @@ To query data submitted by the Log Analytics HTTP Data Collector API, search for
 
 In the next sections, you'll find samples of how to submit data to the Log Analytics HTTP Data Collector API by using different programming languages.
 
-For each sample, do these steps to set the variables for the authorization header.
+For each sample, do these steps to set the variables for the authorization header:
 
-1. In the Operations Management Suite portal, choose the **Settings** tile, and then choose the **Connected Sources** tab.
-2. To the right of **Workspace ID**, choose the copy icon, and then paste the ID as the value of the **Customer ID** variable.
-3. To the right of **Primary Key**, choose the copy icon, and then paste the ID as the value of the **Shared Key** variable.
+1. In the Operations Management Suite portal, select the **Settings** tile, and then select the **Connected Sources** tab.
+2. To the right of **Workspace ID**, select the copy icon, and then paste the ID as the value of the **Customer ID** variable.
+3. To the right of **Primary Key**, select the copy icon, and then paste the ID as the value of the **Shared Key** variable.
 
 Alternatively, you can change the variables for the log type and JSON data.
 
@@ -288,7 +288,7 @@ namespace OIAPIExample
 {
     class ApiExample
     {
-// An example JSON object, with key value pairs
+// An example JSON object, with key/value pairs
         static string json = @"[{""DemoField1"":""DemoValue1"",""DemoField2"":""DemoValue2""},{""DemoField1"":""DemoValue3"",""DemoField2"":""DemoValue4""}]";
 
 // Update customerId to your Operations Management Suite workspace ID
