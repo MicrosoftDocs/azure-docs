@@ -62,14 +62,8 @@ To further explore the capabilities of IoT Hub, see:
 - [Using the Azure Portal to manage IoT Hub][lnk-portal]
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
-[IoT Hub Quotas and Throttles]: iot-hub-devguide.md#throttling
+[IoT Hub quotas and throttles]: iot-hub-devguide-quotas-throttling.md
 
-[lnk-design]: iot-hub-guidance.md
-[lnk-mqtt]: iot-hub-mqtt-support.md
-[lnk-devices]: iot-hub-tested-configurations.md
-[lnk-protocols]: iot-hub-protocol-gateway.md
-[lnk-compare]: iot-hub-compare-event-hubs.md
-[lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md

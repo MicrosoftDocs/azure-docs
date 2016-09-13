@@ -146,18 +146,21 @@ Other reference topics in the Developer Guide include:
 - [Throttling and quotas][lnk-quotas] describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
 - [IoT Hub device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service applications that interact with IoT Hub.
 - [Query language for twins, methods, and jobs][lnk-query] describes the query language you can use to retrieve information from IoT Hub about your device twins, methods and jobs.
+- [IoT Hub MQTT support][lnk-devguide-mqtt] provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps
 
-Now you have learned about sending and receiving messages with IoT Hub, you may be interested in the following Developer Guide topics:
+Now you have learned how to control access IoT Hub, you may be interested in the following Developer Guide topics:
 
-- [Related topic 1][lnk-topic1]
-- [Related topic 2][lnk-topic2]
+- [Use device twins to synchronize state and configurations][lnk-devguide-device-twins]
+- [Invoke a direct method on a device][lnk-devguide-directmethods]
+- [Schedule jobs on multiple devices][lnk-devguide-jobs]
 
 If you would like to try out some of the concepts described in this article, you may be interested in the following IoT Hub tutorials:
 
-- [Related tutorial 1][lnk-tutorial1]
-- [Related tutorial 2][lnk-tutorial2]
+- [Get started with Azure IoT Hub][lnk-getstarted-tutorial]
+- [How to send cloud-to-device messages with IoT Hub][lnk-c2d-tutorial]
+- [How to process IoT Hub device-to-cloud messages][lnk-d2c-tutorial]
 
 <!-- links and images -->
 
@@ -166,10 +169,11 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-query]: iot-hub-devguide-query-language.md
+[lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 
 [lnk-resource-provider-apis]: https://msdn.microsoft.com/library/mt548492.aspx
 [lnk-sas-tokens]: iot-hub-sas-tokens.md
-[lnk-guidance-security]: iot-hub-guidance.md#customauth
+[lnk-guidance-security]: iot-hub-devguide-security.md#custom-device-authentication
 [lnk-amqp]: https://www.amqp.org/
 [lnk-azure-resource-manager]: https://azure.microsoft.com/documentation/articles/resource-group-overview/
 [lnk-cbs]: https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc
@@ -181,3 +185,11 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-java-sas]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/com/microsoft/azure/iot/service/auth/IotHubServiceSasToken.html
 [lnk-tls-psk]: https://tools.ietf.org/html/rfc4279
 [lnk-protocols]: iot-hub-protocol-gateway.md
+
+[lnk-devguide-device-twins]: iot-hub-devguide-device-twins.md
+[lnk-devguide-directmethods]: iot-hub-devguide-direct-methods.md
+[lnk-devguide-jobs]: iot-hub-devguide-jobs.md
+
+[lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
+[lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
+[lnk-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
