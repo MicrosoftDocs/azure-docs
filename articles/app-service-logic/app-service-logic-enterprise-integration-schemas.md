@@ -37,15 +37,15 @@ From the Azure portal:
 ![](./media/app-service-logic-enterprise-integration-schemas/schema-31.png)  
 7. To add schema file larger than 2 MB (Max 8MB)  
 
-    a. Upload the schema to storage and copy the URI  
+   a. Upload the schema to storage and copy the URI  
 
-    ![](./media/app-service-logic-enterprise-integration-schemas/schema-blob.png) 
+   ![](./media/app-service-logic-enterprise-integration-schemas/schema-blob.png) 
 
-    b. Select Large file in Add Schema and provide the URI in the Content URI  
+   b. Select Large file in Add Schema and provide the URI in the Content URI  
 
-    ![](./media/app-service-logic-enterprise-integration-schemas/schema-largefile.png)  
+   ![](./media/app-service-logic-enterprise-integration-schemas/schema-largefile.png)  
 
-8. Select the **Schemas** tile. This refreshes the tile and you should see the number of schemas increase, reflecting the new schema has been added successfully. After you select the **Schemas** tile, you will also see the newly added schema is displayed in the Schemas blade, on the right.     
+8. You should see the newly added schema      
 ![](./media/app-service-logic-enterprise-integration-schemas/schema-41.png) 
 
 ## How to use schemas
