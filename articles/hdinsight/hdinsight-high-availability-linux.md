@@ -43,7 +43,7 @@ HDInsight clusters provide a secondary head node, which allows master services a
 
 Head nodes (and other nodes in HDInsight,) have a numeric value as part of the hostname of the node. For example, `hn0-CLUSTERNAME` or `hn4-CLUSTERNAME`. 
 
-> [AZURE.IMPORTANT] Do not associate the numeric value with whether a node is primary or secondary; the number may change as nodes are taken offline and new replacement nodes are brought online.
+> [AZURE.IMPORTANT] Do not associate the numeric value with whether a node is primary or secondary; the numeric value is only present to provide a unique name for each node.
 
 ###Nimbus Nodes
 
