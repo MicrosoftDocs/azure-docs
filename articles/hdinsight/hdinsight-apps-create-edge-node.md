@@ -14,21 +14,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/12/2016"
+	ms.date="09/13/2016"
 	ms.author="jgao"/>
 
 # Add an empty edge node to HDInsight cluster
 
-Learn how to add an empty edge node to an HDInsight cluster. An empty edge node is a virtual machine with the same client tools installed and configured as for the headnode. You can use edge node for accessing the cluster, testing your client applications, and hosting your client applications. The empty edge node makes it easier to access the cluster, it also isolates itself from the cluster for protecting the cluster.
+Learn how to add an empty edge node to an HDInsight cluster. An empty edge node is a virtual machine with the same client tools installed and configured as in the headnodes. You can use the edge node for accessing the cluster, testing your client applications, and hosting your client applications. 
 
-You can add an empty edge node to an existing HDInsight cluster, to a new cluster when you create the cluster.  You can optionally call a script action to perform additional configuration. See [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md). 
+You can add an empty edge node to an existing HDInsight cluster, to a new cluster when you create the cluster.  You can optionally call a [script action](hdinsight-hadoop-customize-cluster-linux.md) to perform additional configuration.  
 
 After you have created an edge node, you can connect to the edge node using SSH, and run client tools to access the Hadoop cluster in HDInsight.
 
 ## Add an edge node to an existing cluster
 
-In this section, you will use a Resource Manager template to add an edge node to an existing HDInsight cluster.  The Resource Manager template can be found in [GitHub](https://github.com/hdinsight/Iaas-Applications/tree/master/EmptyNode). The Resource Manager template calls a script action scrtip located at https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/EmptyNode/scripts/EmptyNodeSetup.sh. The script doesn't perform any actions.  This is to demonstrate calling scrip action.
-
+In this section, you will use a Resource Manager template to add an edge node to an existing HDInsight cluster.  The Resource Manager template can be found in [GitHub](https://github.com/hdinsight/Iaas-Applications/tree/master/EmptyNode). The Resource Manager template calls a script action scrtip located at https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/EmptyNode/scripts/EmptyNodeSetup.sh. The script doesn't perform any actions.  This is to demonstrate calling scrip action from a resource manager template.
 
 **To add an empty edge node to an existing cluster**
 
@@ -39,9 +38,9 @@ In this section, you will use a Resource Manager template to add an edge node to
 
 3. Configure the following properties:
 
-		- CLUSTERNAME: Enter the name of an existing HDInsight cluster.
-		- EDGENODESIZE: Select one of the VM sizes.
-		- EDGENODEPREFIX: The default values is **new**.  Using the default value, the edge node name will be **new-edgenode**.  You can customize the prefix from the portal. You can also customize the full name from the template.
+	- CLUSTERNAME: Enter the name of an existing HDInsight cluster.
+	- EDGENODESIZE: Select one of the VM sizes.
+	- EDGENODEPREFIX: The default values is **new**.  Using the default value, the edge node name will be **new-edgenode**.  You can customize the prefix from the portal. You can also customize the full name from the template.
 
 
 4. Click **OK** to save the changes.
@@ -51,6 +50,8 @@ In this section, you will use a Resource Manager template to add an edge node to
 
 ## Add an edge node when creating a cluster
 
+In this section, you will use a Resource Manager template to create HDInsight cluster with an edge node.  The Resource Manager template can be found in a public [Azure Blob storage container](http://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hadoop-cluster-in-hdinsight-with-edge-node.json). The Resource Manager template calls a script action scrtip located at https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/EmptyNode/scripts/EmptyNodeSetup.sh. The script doesn't perform any actions.  This is to demonstrate calling scrip action from a resource manager template.
+
 **To add an empty edge node to an existing cluster**
 
 1. Create an HDInsight cluster if you don't have one yet.  See [Hadoop tutorial: Get started using Linux-based Hadoop in HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md).
@@ -59,18 +60,17 @@ In this section, you will use a Resource Manager template to add an edge node to
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hadoop-cluster-in-hdinsight-with-edge-node.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 3. Configure the following properties:
-
 		
-		- CLUSTERNAME: Enter a name for the new cluster to create.
-		- CLUSTERLOGINUSERNAME: Enter the Hadoop HTTP user name.  The default name is **admin**.
-		- CLUSTERLOGINPASSWORD: Enter the Hadoop HTTP user password.
-		- SSHUSERNAME: Enter the SSH user name. The default name is **sshuser**.
-		- SSHPASSWORD: Enter the SSH user password.
-		- LOCATION: Enter the location of the resource group name, the cluster, and the default storage account.
-		- CLUSTERTYPE: The default value is **hadoop**.
-		- CLUSTERWORKERNODECOUNT: The default value is 2.
-		- EDGENODESIZE: Select one of the VM sizes.
-		- EDGENODEPREFIX: The default values is **new**.  Using the default value, the edge node name will be **new-edgenode**.  You can customize the prefix from the portal. You can also customize the full name from the template.
+	- CLUSTERNAME: Enter a name for the new cluster to create.
+	- CLUSTERLOGINUSERNAME: Enter the Hadoop HTTP user name.  The default name is **admin**.
+	- CLUSTERLOGINPASSWORD: Enter the Hadoop HTTP user password.
+	- SSHUSERNAME: Enter the SSH user name. The default name is **sshuser**.
+	- SSHPASSWORD: Enter the SSH user password.
+	- LOCATION: Enter the location of the resource group name, the cluster, and the default storage account.
+	- CLUSTERTYPE: The default value is **hadoop**.
+	- CLUSTERWORKERNODECOUNT: The default value is 2.
+	- EDGENODESIZE: Select one of the VM sizes.
+	- EDGENODEPREFIX: The default values is **new**.  Using the default value, the edge node name will be **new-edgenode**.  You can customize the prefix from the portal. You can also customize the full name from the template.
 
 4. Click **OK** to save the changes.
 5. In **Resource group**, enter a new resource group name.
@@ -80,6 +80,9 @@ In this section, you will use a Resource Manager template to add an edge node to
 
 ## Access an edge node
 
+The edge node appears as an application on the Azure portal.  The portal gives you the information to access the edge node using SSH.
+
+**To access an edge node**
 1. Sign on to the Azure portal.
 2. Open the HDInsight cluster with an edge node.
 3. Click **Applications** from the cluster blade. You shall see the edge node.  The default name is **new-edgenode**.
