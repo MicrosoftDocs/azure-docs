@@ -18,7 +18,7 @@
 
 # Azure Data Catalog supported data sources
 
-Users of the Azure Data Catalog can publish metadata using a public API, a click-once registration tool, or by manually entering information directly to the Data Catalog web portal. The below grid summarizes all sources supported by the catalog today, and the publishing capabilities for each.  Also listed are the external data tools that each source can launch from our portal "open-in" experience. Further below is a second grid that has a more technical specification of each data sources connection properties.
+Users of the Azure Data Catalog can publish metadata using a public API, a click-once registration tool, or by manually entering information directly to the Data Catalog web portal. The following grid summarizes all sources supported by the catalog today, and the publishing capabilities for each.  Also listed are the external data tools that each source can launch from our portal "open-in" experience. The second grid in the article has more technical specification of each data sources connection properties.
 
 
 ## List of supported data sources
@@ -409,13 +409,13 @@ Users of the Azure Data Catalog can publish metadata using a public API, a click
 
 </table>
 
-If you need support for additional sources, please submit a feature request using the [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+If you need support for additional sources, submit a feature request using the [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 
 <br>
 <br>
 ## Data source reference specification
-> [AZURE.NOTE] "DSL Structure" column in the table below only lists connection properties for "address" property bag which are used by Azure Data Catalog (i.e. "address" property bag can contain other connection properties of the data source which Azure Data Catalog persists, but does not use.)
+> [AZURE.NOTE] "DSL Structure" column in the following table only lists connection properties for "address" property bag that are used by Azure Data Catalog (i.e. "address" property bag can contain other connection properties of the data source which Azure Data Catalog persists, but does not use.)
 <table>
     <tr>
        <td><b>Source Type</b></td>
