@@ -241,19 +241,20 @@ Other reference topics in the Developer Guide include:
 
 - [IoT Hub device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service applications that interact with IoT Hub.
 - [Query language for twins, methods, and jobs][lnk-query] describes the query language you can use to retrieve information from IoT Hub about your device twins, methods and jobs.
+- [IoT Hub MQTT support][lnk-devguide-mqtt] provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps
 // TODO (create tutorial stubs, link)
 
-Now you have learned about sending and receiving messages with IoT Hub, you may be interested in the following Developer Guide topics:
+Now you have learned about device twins, you may be interested in the following Developer Guide topics:
 
-- [Related topic 1][lnk-topic1]
-- [Related topic 2][lnk-topic2]
+- [Invoke a direct method on a device][lnk-devguide-directmethods]
+- [Schedule jobs on multiple devices][lnk-devguide-jobs]
 
 If you would like to try out some of the concepts described in this article, you may be interested in the following IoT Hub tutorials:
 
-- [Related tutorial 1][lnk-tutorial1]
-- [Related tutorial 2][lnk-tutorial2]
+- [How to use the device twin][lnk-twin-tutorial]
+- [How to use twin properties][lnk-twin-properties]
 
 <!-- links and images -->
 
@@ -261,6 +262,7 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-query]: iot-hub-devguide-query-language.md
+<<<<<<< HEAD
 [lnk-jobs]: iot-hub-devguide-jobs.md
 [lnk-identity]: iot-hub-devguide-identity-registry.md
 [lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
@@ -270,3 +272,11 @@ If you would like to try out some of the concepts described in this article, you
 
 [ISO8601]: https://en.wikipedia.org/wiki/ISO_8601
 [RFC7232]: https://tools.ietf.org/html/rfc7232
+=======
+[lnk-devguide-mqtt]: iot-hub-mqtt-support.md
+
+[lnk-devguide-directmethods]: iot-hub-devguide-direct-methods.md
+[lnk-devguide-jobs]: iot-hub-devguide-jobs.md
+[lnk-twin-tutorial]: iot-hub-device-management-device-twin.md
+[lnk-twin-properties]: iot-hub-twin-properties.md
+>>>>>>> 8ad9d33ae42b9930a46ff0d964006d7eff9a578e

@@ -76,6 +76,14 @@ In an IoT solution, a *field gateway* sits between your devices and your IoT Hub
 
 You can use the [Azure IoT Gateway SDK][lnk-gateway-sdk] to implement a field gateway. This SDK offers specific functionality such as the ability to multiplex the communication from multiple devices onto the same connection to IoT Hub.
 
+## Next steps
+
+Other reference topics in this IoT Hub developer guide include:
+
+- [Query language for twins, methods, and jobs][lnk-devguide-query]
+- [Quotas and throttling][lnk-devguide-quotas]
+- [IoT Hub MQTT support][lnk-devguide-mqtt]
+
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 [lnk-eventprocessorhost]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx
 
@@ -99,3 +107,7 @@ You can use the [Azure IoT Gateway SDK][lnk-gateway-sdk] to implement a field ga
 [lnk-device-identities]: iot-hub-devguide-identity-registry.md
 [lnk-upload]: iot-hub-devguide-file-upload.md
 [lnk-c2d]: iot-hub-devguide-messaging.md#cloud-to-device-messages
+
+[lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md
+[lnk-devguide-query]: iot-hub-devguide-query-language.md
+[lnk-devguide-mqtt]: iot-hub-mqtt-support.md

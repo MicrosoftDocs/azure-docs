@@ -95,13 +95,19 @@ Other reference topics in the Developer Guide include:
 - [Throttling and quotas][lnk-quotas] describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
 - [IoT Hub device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service applications that interact with IoT Hub.
 - [Query language for twins, methods, and jobs][lnk-query] describes the query language you can use to retrieve information from IoT Hub about your device twins, methods and jobs.
+- [IoT Hub MQTT support][lnk-devguide-mqtt] provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps
 
-Now you have learned about sending and receiving messages with IoT Hub, you may be interested in the following Developer Guide topics:
+Now you have learned how to upload files from devices using IoT Hub, you may be interested in the following Developer Guide topics:
 
+- [Manage device identities in IoT Hub][lnk-devguide-identities]
+- [Control access to IoT Hub][lnk-devguide-security]
+- [Use device twins to synchronize state and configurations][lnk-devguide-device-twins]
+- [Invoke a direct method on a device][lnk-devguide-directmethods]
+- [Schedule jobs on multiple devices][lnk-devguide-jobs]
 
-If you would like to try out some of the concepts described in this article, you may be interested in the following IoT Hub tutorials:
+If you would like to try out some of the concepts described in this article, you may be interested in the following IoT Hub tutorial:
 
 - [How to upload files from devices to the cloud with IoT Hub][lnk-fileupload-tutorial]
 
@@ -110,6 +116,7 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-query]: iot-hub-devguide-query-language.md
+[lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 [lnk-management-portal]: https://portal.azure.com
 [lnk-fileupload-tutorial]: iot-hub-csharp-csharp-file-upload.md
 [lnk-associate-storage]: iot-hub-devguide-file-upload.md#associate-an-azure-storage-account-with-iot-hub
@@ -117,3 +124,9 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-notify]: iot-hub-devguide-file-upload.md#notify-iot-hub-of-a-completed-file-upload
 [lnk-service-notification]: iot-hub-devguide-file-upload.md#file-upload-notifications
 [lnk-lifecycle]: iot-hub-devguide-messaging.md#message-lifecycle
+
+[lnk-devguide-identities]: iot-hub-devguide-identity-registry.md
+[lnk-devguide-security]: iot-hub-devguide-security.md
+[lnk-devguide-device-twins]: iot-hub-devguide-device-twins.md
+[lnk-devguide-directmethods]: iot-hub-devguide-direct-methods.md
+[lnk-devguide-jobs]: iot-hub-devguide-jobs.md

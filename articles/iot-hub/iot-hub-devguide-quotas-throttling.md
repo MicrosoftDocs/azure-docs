@@ -51,6 +51,18 @@ For an in-depth discussion of IoT Hub throttling behavior, see the blog post [Io
 
 >[AZURE.IMPORTANT] Identity registry operations are intended for run-time use in device management and provisioning scenarios. Reading or updating a large number of device identities is supported through [import and export jobs][lnk-importexport].
 
+## Next steps
+
+Other reference topics in this IoT Hub developer guide include:
+
+- [IoT Hub endpoints][lnk-devguide-endpoints]
+- [Query language for twins, methods, and jobs][lnk-devguide-query]
+- [IoT Hub MQTT support][lnk-devguide-mqtt]
+
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
 [lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/
 [lnk-importexport]: iot-hub-devguide-identity-registry.md#import-and-export-device-identities
+
+[lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
+[lnk-devguide-query]: iot-hub-devguide-query-language.md
+[lnk-devguide-mqtt]: iot-hub-mqtt-support.md

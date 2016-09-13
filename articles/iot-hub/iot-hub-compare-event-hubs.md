@@ -48,7 +48,7 @@ To further explore the capabilities of IoT Hub, see:
 - [Using the Azure Portal to manage IoT Hub][lnk-portal]
 
 [Azure Event Hubs]: ../event-hubs/event-hubs-what-is-event-hubs.md
-[Security section of the IoT Hub developer guide]: iot-hub-devguide.md#security
+[Security section of the IoT Hub developer guide]: iot-hub-devguide-security.md
 [Event Hub - security]: ../event-hubs/event-hubs-authentication-and-security-model-overview.md
 [Event Hub publisher policies]: ../event-hubs/event-hubs-overview.md#common-publisher-tasks
 [Azure Service Bus quotas]: ../service-bus/service-bus-quotas.md
