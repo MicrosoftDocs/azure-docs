@@ -12,7 +12,7 @@ In this tutorial, you perform the following steps:
 3.	Create input and output **datasets**. An input dataset represents the input for an activity in the pipeline and an output dataset represents the output for the activity.
 3.	Create the **pipeline**. A pipeline can have one or more activities (Examples: Copy Activity, HDInsight Hive Activity). This sample uses the HDInsight Hive activity that runs a Hive script. The script first creates an external table that references the raw web log data stored in Azure blob storage and then partitions the raw data by year and month.
  
-![Diagram view in Data Factory tutorial](./media/data-factory-build-your-first-pipeline/data-factory-tutorial-diagram-view.png)
+![Diagram view in Data Factory tutorial](../articles/media/data-factory-build-your-first-pipeline/data-factory-tutorial-diagram-view.png)
 
 
 In this tutorial, the adfgetstarted (container) => inputdata (folder) contains one file named input.log. This log file has entries from three months: January, February, and March of 2014. Here are the sample rows for each month in the input file. 
@@ -164,7 +164,7 @@ This section provides instructions on using **AzCopy** tool to copy files to Azu
 	 
 2. To prepare the Azure storage for the tutorial:
 	1. Download the [latest version of **AzCopy**](http://aka.ms/downloadazcopy), or the [latest preview version](http://aka.ms/downloadazcopypr). See [How to use AzCopy](../storage/storage-use-azcopy.md) article for instructions on using the utility.
-	2. After AzCopy has been installed, add it to the system path by running the following command at the command prompt. 
+	2. Add AzCopy location to the system path by running the following command at the command prompt. 
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
 
@@ -188,5 +188,3 @@ This section provides instructions on using **AzCopy** tool to copy files to Azu
 	
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/script /DestKey:<storagekey>  /Pattern:partitionweblogs.hql
 
-
-Now, you are ready to start the tutorial.
