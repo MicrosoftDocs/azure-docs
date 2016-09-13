@@ -3,7 +3,7 @@
     description="Create an Event Hubs namespace with Event Hub and enable Archive using Azure Resource Manager template"
     services="event-hubs"
     documentationCenter=".net"
-    authors="Shubha Vijayasarathy"
+    authors="ShubhaVijayasarathy"
     manager="timlt"
     editor=""/>
 
