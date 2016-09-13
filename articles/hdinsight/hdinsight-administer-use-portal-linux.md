@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="mumian"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -87,7 +87,6 @@ see [What version of Hadoop is in Azure HDInsight](hdinsight-component-versionin
 
 	- **Audit logs**:
     - **Quick Start**:  Displays information that will help you get started using HDInsight.
-	- **Cluster Login**: Change the cluster HTTP user name and password.
 	- **Scale Cluster**: Increase and decrease the number of cluster worker nodes.
     - **Secure Shell**: Shows the instructions to connect to the cluster using Secure Shell (SSH) connection.
     - **HDInsight Partner**: Add/remove the current HDInsight Partner.
@@ -203,6 +202,8 @@ For the pricing information, see [HDInsight pricing](https://azure.microsoft.com
 An HDInsight cluster can have two user accounts. The HDInsight cluster user account (A.K.A. HTTP user account) and the SSH user account are created during the creation process. You can the Ambari web UI to change the cluster user account username and password, and script actions to change the SSH user account
 
 ###Change the cluster user password
+
+You can use the Ambari Web UI to change the Cluster user password. To log into Ambari, you must use the existing cluster username and password.
 
 > [AZURE.NOTE] If you change the cluster user (admin) password, this may cause script actions ran against this cluster to fail. If you have any persisted script actions that target worker nodes, these may fail when you add nodes to the cluster through resize operations. For more information on script actions, see [Customize HDInsight clusters using script actions](hdinsight-hadoop-customize-cluster-linux.md).
 

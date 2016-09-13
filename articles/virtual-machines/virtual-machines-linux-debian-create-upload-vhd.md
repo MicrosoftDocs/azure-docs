@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="08/24/2016"
 	ms.author="szark"/>
 
 
@@ -36,14 +36,14 @@ This section assumes that you have already installed a Debian Linux operating sy
 
 ## Use Azure-Manage to create Debian VHDs
 
-There are tools available for generating Debian VHDs for Azure, such as the [azure-manage](https://gitlab.credativ.com/de/azure-manage) scripts from [credativ](http://www.credativ.com/). This is the recommended approach versus creating an image from scratch. For example, to create a Debian 8 VHD run the following commands to download azure-manage (and dependencies) and run the azure_build_image script:
+There are tools available for generating Debian VHDs for Azure, such as the [azure-manage](https://github.com/credativ/azure-manage) scripts from [credativ](http://www.credativ.com/). This is the recommended approach versus creating an image from scratch. For example, to create a Debian 8 VHD run the following commands to download azure-manage (and dependencies) and run the azure_build_image script:
 
 	# sudo apt-get update
 	# sudo apt-get install git qemu-utils mbr kpartx debootstrap
 
 	# sudo apt-get install python3-pip
 	# sudo pip3 install azure-storage azure-servicemanagement-legacy pytest pyyaml
-	# git clone https://gitlab.credativ.com/de/azure-manage.git
+	# git clone https://github.com/credativ/azure-manage.git
 	# cd azure-manage
 	# sudo pip3 install .
 
@@ -60,7 +60,7 @@ There are tools available for generating Debian VHDs for Azure, such as the [azu
 
 4. Edit the `/etc/default/grub` file and modify the **GRUB_CMDLINE_LINUX** parameter as follows to include additional kernel parameters for Azure.
 
-        GRUB_CMDLINE_LINUX="console=tty0 console=ttyS0,115200 earlyprintk=ttyS0,115200 rootdelay=30"
+        GRUB_CMDLINE_LINUX="console=tty0 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=30"
 
 5. Rebuild the grub and run:
 

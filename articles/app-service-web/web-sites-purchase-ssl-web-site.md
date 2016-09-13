@@ -166,27 +166,28 @@ In this Step, you will learn how to assign this newly purchased certificate to y
 1.	In your browser, open the **[Azure Portal.](https://portal.azure.com/)**
 2.	Click the **App Service** option on the left side of the page.
 3.	Click the name of your app to which you want to assign this certificate. 
-4.	In the **Settings**, Click **Custom domains and SSL.**
-5.	In the **certificates section**, click **Import Certificate** and select the Certificate that you just purchased
+4.	In the **Settings**, Click **SSL certificates**
+5.	Click **Import App Service Certificate** and select the Certificate that you just purchased
 
-    ![insert image of Import Certificate](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.jpg)
+    ![insert image of Import Certificate](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.png)
 
-6. In the **ssl bindings** section of the **SSL Settings** tab, use the dropdowns to select the domain name to secure with SSL, and the certificate to use. You may also select whether to use **[Server Name Indication (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** or IP based SSL.
+6. In the **ssl bindings** section Click on **Add bindings**
+7. In the **Add SSL Binding** blade use the dropdowns to select the domain name to secure with SSL, and the certificate to use. You may also select whether to use **[Server Name Indication (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** or IP based SSL.
 
-    ![insert image of SSL Bindings](./media/app-service-web-purchase-ssl-web-site/SSLBindings.jpg)
+    ![insert image of SSL Bindings](./media/app-service-web-purchase-ssl-web-site/SSLBindings.png)
 
        •    IP based SSL associates a certificate with a domain name by mapping the dedicated public IP address of the server to the domain name. This requires each domain name (contoso.com, fabricam.com, etc.) associated with your service to have a dedicated IP address. This is the traditional          method of associating SSL certificates with a web server.
        •	SNI based SSL is an extension to SSL and **[Transport Layer Security](http://en.wikipedia.org/wiki/Transport_Layer_Security)** (TLS) that allows multiple domains to share the same IP address, with separate security certificates for each domain. Most modern browsers (including Internet Explorer, Chrome, Firefox and Opera) support SNI, however older browsers may not support SNI. For more information on SNI, see the **[Server Name Indication](http://en.wikipedia.org/wiki/Server_Name_Indication)** article on Wikipedia.
        
-7. Click *Save* to save the changes and enable SSL.
+7. Click **Add Binding** to save the changes and enable SSL.
 
 
 
 If you selected **IP based SSL** and your custom domain is configured using an A record, you must perform the following additional steps:
 
-* After you have configured an IP based SSL binding, a dedicated IP address is assigned to your app. You can find this IP address on the **Dashboard** page of your app, in the **quick glance** section. It will be listed as **Virtual IP Address:**
+* After you have configured an IP based SSL binding, a dedicated IP address is assigned to your app. You can find this IP address on the **Custom domain** page under settings of your app, right above the **Hostnames** section. It will be listed as **External IP Address**
     
-    ![insert image of IP SSL](./media/app-service-web-purchase-ssl-web-site/IPSSL.jpg)
+    ![insert image of IP SSL](./media/app-service-web-purchase-ssl-web-site/virtual-ip-address.png)
 
     Note that this IP address will be different than the virtual IP address used previously to configure the A record for your domain. If you are configured to use SNI based SSL, or are not configured to use SSL, no address will be listed for this entry.
     

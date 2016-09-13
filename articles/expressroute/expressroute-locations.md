@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/28/2016"
+   ms.date="09/07/2016"
    ms.author="cherylmc" />
 
 # ExpressRoute partners and peering locations
@@ -31,7 +31,7 @@ You will have access to Azure services across all regions within a geopolitical 
 |---|---|---|
 |**North America**|East US, West US, East US 2, Central US, South Central US, North Central US, Canada Central, Canada East|Atlanta, Chicago, Dallas, Las Vegas+, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto|
 |**South America**|Brazil South|Sao Paulo|
-|**Europe**|North Europe, West Europe|Amsterdam, Dublin, London, Newport(Wales)+, Paris|
+|**Europe**|North Europe, West Europe, UK West, UK South|Amsterdam, Dublin, London, Newport(Wales)+, Paris|
 |**Asia**|East Asia, Southeast Asia|Hong Kong, Singapore|
 |**Japan**|Japan West, Japan East|Osaka, Tokyo|
 |**Australia**|Australia Southeast, Australia East|Melbourne, Sydney|
@@ -43,7 +43,7 @@ The table below provides information on regions and geopolitical boundaries for 
 
 |**Geopolitical region**|**Azure regions**|**ExpressRoute locations**|
 |---|---|---|---|
-|**US Government cloud**|US Gov Iowa, US Gov Virginia|Chicago, Dallas+, New York, Washington DC|
+|**US Government cloud**|US Gov Iowa, US Gov Virginia|Chicago, Dallas, New York, Washington DC|
 |**China**|China North, China East|Beijing, Shanghai|
 |**Germany**|Germany Central, Germany East|Berlin, Frankfurt|
 
@@ -76,20 +76,20 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |  Supported | Supported | Osaka, Tokyo |
 | **[InterCloud]( https://www.intercloud.com/)** | Supported | Supported | Amsterdam, London, Singapore, Washington DC |
 | **Internet Solutions - Cloud Connect** | Supported | Supported | Amsterdam, London |
-| **Interxion** | Supported | Supported | Amsterdam, London, Paris |
+| **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/colocated-hybrid-cloud/microsoft-azure/)**  | Supported | Supported | Amsterdam, London, Paris |
 | **Jisc** | Coming soon | Coming soon | London+ | 
 | **[Level 3 Communications]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Supported | Supported | Amsterdam, Chicago, Dallas, Las Vegas+, London, Seattle, Silicon Valley, Washington DC |
-| **Megaport** | Supported | Supported | Dallas, Hong Kong, Las Vegas+, Los Angeles, Melbourne, New York, Seattle, Singapore, Sydney, Washington DC |
+| **Megaport** | Supported | Supported | Dallas, Hong Kong, Las Vegas, Los Angeles, Melbourne, New York, Seattle, Singapore, Sydney, Washington DC |
 | **MTN** | Supported | Supported | London |
 | **NEXTDC** | Supported | Supported | Melbourne, Sydney |
-| **NTT Communications** | Supported | Supported | London, Osaka, Tokyo |
-| **[Orange]( http://www.orange-business.com/en/products/business-vpn-galerie)** | Supported | Supported | Amsterdam, Hong Kong, London, Silicon Valley, Singapore, Washington DC |
+| **NTT Communications** | Supported | Supported | London, Los Angeles, Osaka, Tokyo |
+| **[Orange]( http://www.orange-business.com/en/products/business-vpn-galerie)** | Supported | Supported | Amsterdam, Hong Kong, London, Silicon Valley, Singapore, Sydney, Washington DC |
 | **PCCW Global Limited** | Supported | Supported | Hong Kong |
 | **[SingTel]( http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |  Supported | Supported | Singapore |
 | **Softbank** | Supported | Supported | Osaka, Tokyo | 
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | Supported | Supported | Amsterdam, Chennai, Hong Kong, London, Mumbai, Silicon Valley, Singapore, Washington DC |
-| **[TeleCity Group]( http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Supported | Supported | Amsterdam, London |
-| **Telefonica** | Coming soon | Coming soon | Sao Paulo+ |
+| **[TeleCity Group]( http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | Supported | Supported | Amsterdam, Dublin, London |
+| **Telefonica** | Supported | Coming soon | Sao Paulo |
 | **Telenor** | Supported | Supported | Amsterdam, London |
 | **[Telstra Corporation]( http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | Supported | Coming Soon | Melbourne, Sydney |
 | **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** | Supported | Supported | Amsterdam, Hong Kong, London, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
@@ -105,8 +105,8 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **Service provider**  |**Microsoft Azure** | **Office 365** | **Locations** |
 |-----------------------|--------------------|----------------|---------------|
 | **[AT&T NetBond]( https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Supported | Supported | Chicago, Washington DC |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Supported | Supported | Chicago, Dallas+, New York, Washington DC |
-| **[Level 3 Communications]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Supported | Coming soon | Chicago, New York+, Washington DC |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Supported | Supported | Chicago, Dallas, New York, Washington DC |
+| **[Level 3 Communications]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Supported | Supported | Chicago, New York+, Washington DC |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Supported | Supported | Chicago, Dallas+, New York, Washington DC |
 
 #### China
@@ -133,7 +133,7 @@ If your connectivity provider is not listed in previous sections, you can still 
 
 	- [Equinix Cloud Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
 	- [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
-	- [InterXion](http://www.interxion.com/)
+	- [Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/colocated-hybrid-cloud/microsoft-azure/)
 	- [NextDC](http://www.nextdc.com/)
 	- [CoreSite](http://www.coresite.com/)
 	- [Cologix](http://www.cologix.com/)

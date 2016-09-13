@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/09/2016" 
+	ms.date="08/24/2016" 
 	ms.author="sdanie"/>
 
 # How to authorize developer accounts using Azure Active Directory in Azure API Management
@@ -211,7 +211,6 @@ Your user is now logged into the developer portal for your API Management servic
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
 [Get started with Azure API Management]: api-management-get-started.md
-[Get started with advanced API configuration]: api-management-get-started-advanced.md
 [API Management policy reference]: api-management-policy-reference.md
 [Caching policies]: api-management-policy-reference.md#caching-policies
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance

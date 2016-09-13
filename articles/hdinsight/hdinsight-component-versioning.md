@@ -3,7 +3,7 @@
 	description="HDInsight supports multiple deployable Hadoop cluster components and versions. See the Hadoop and HortonWorks Data Platform (HDP) distribution versions supported."
 	services="hdinsight"
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	authors="mumian"
 	tags="azure-portal"
 	documentationCenter=""/>

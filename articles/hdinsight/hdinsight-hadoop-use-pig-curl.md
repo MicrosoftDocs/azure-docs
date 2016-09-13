@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="06/06/2016"
+   ms.date="08/23/2016"
    ms.author="larryfr"/>
 
 #Run Pig jobs with Hadoop on HDInsight by using Curl

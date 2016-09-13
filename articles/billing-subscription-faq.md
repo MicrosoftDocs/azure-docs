@@ -14,12 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2016"
+	ms.date="09/07/2016"
 	ms.author="genli"/>
 
 #  Azure Billing and Subscription FAQ
 
 This article answers some of the most common questions about Azure Billing and Subscription.
+
+> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
 ## Account Administration
 
@@ -32,6 +34,7 @@ This article answers some of the most common questions about Azure Billing and S
 
 - [How do I get a copy of my invoice?](#how-do-i-get-a-copy-of-my-invoice)
 - [I do not see an invoice for the last billing period. Why?](#i-do-not-see-an-invoice-for-the-last-billing-period-why)
+- [How do I make a payment?](#how-do-i-make-a-payment)
 
 ## Free Trial
 
@@ -134,7 +137,7 @@ For both single- and multi-instance configurations, Azure sends email communicat
 
 >[AZURE.NOTE] For more information specific to Virtual Machines see the article [Planned maintenance for Azure virtual machines](virtual-machines/virtual-machines-linux-planned-maintenance.md).
 
-#### Unplanned maintenance 
+#### Unplanned maintenance
 
 In the event of an unplanned service disruption on the Azure Platform, status updates will be made on our [service dashboard](http://status.azure.com/)  and customers will also receive notice in the [Azure classic portal](https://manage.windowsazure.com/).
 
@@ -294,9 +297,9 @@ You can sign up for a trial subscription [here](http://azure.microsoft.com/prici
 
 ### What resources are available when using a Free Trial?
 
-You receive $200 USD of Azure credits with the Free Trial to use over 30 days. The choice is now yours on how you use your Azure credits. See the [Free Trial offer page](https://azure.microsoft.com/offers/ms-azr-0044p/) for more details. 
+You receive $200 USD of Azure credits with the Free Trial to use over 30 days. The choice is now yours on how you use your Azure credits. See the [Free Trial offer page](https://azure.microsoft.com/offers/ms-azr-0044p/) for more details.
 
-You can sign up for a trial subscription [here](http://azure.microsoft.com/pricing/free-trial/). 
+You can sign up for a trial subscription [here](http://azure.microsoft.com/pricing/free-trial/).
 
 Also see the [Free Trial FAQ](https://azure.microsoft.com/pricing/free-trial-faq/).
 
@@ -313,3 +316,11 @@ Free Trial subscriptions are not eligible for quota increases. If you have a Fre
 ### Where can I get more details on Free Trial?
 
 Visit the [Free Trial offer page](https://azure.microsoft.com/offers/ms-azr-0044p/) and read the [Official Free Trial FAQ](https://azure.microsoft.com/pricing/free-trial-faq/).
+
+> [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+
+### How do I make a payment?
+
+If you have set up a credit card or a debit card as your payment method, the payment will be made automatically.
+
+If you are set up to use an [invoice method of payment](https://azure.microsoft.com/pricing/invoicing/), send your payment to the location listed at the bottom of your invoice. For more help, [contact support](billing-how-to-create-billing-support-ticket.md).

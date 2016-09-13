@@ -4,8 +4,8 @@
 	services="azure-resource-manager"
 	documentationCenter=""
 	authors="tfitzmac"
-	manager="wpickett"
-	editor=""/>
+	manager="timlt"
+	editor="tysonn"/>
 
 <tags
 	ms.service="azure-resource-manager"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="AzurePortal"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2016"
+	ms.date="08/16/2016"
 	ms.author="tomfitz"/>
 
 
@@ -88,105 +88,7 @@ Currently, Resource Manager does not support processing an object for the tag na
 
 ## PowerShell
 
-Tags exist directly on resources and resource groups. To see the existing tags, simply get a resource or resource group with **Get-AzureRmResource** or 
-**Get-AzureRmResourceGroup**. Let's start with a resource group.
-
-    Get-AzureRmResourceGroup -Name tag-demo-group
-
-This cmdlet returns several bits of metadata on the resource group including what tags have been applied, if any.
-
-    ResourceGroupName : tag-demo-group
-    Location          : westus
-    ProvisioningState : Succeeded
-    Tags              :
-                    Name         Value
-                    ===========  ==========
-                    Dept         Finance
-                    Environment  Production
-
-When getting metadata for a resource, the tags are not directly displayed. 
-
-    Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName tag-demo-group
-
-You see in the results that the tags are only displayed as Hashtable object.
-
-    Name              : tfsqlserver
-    ResourceId        : /subscriptions/{guid}/resourceGroups/tag-demo-group/providers/Microsoft.Sql/servers/tfsqlserver
-    ResourceName      : tfsqlserver
-    ResourceType      : Microsoft.Sql/servers
-    Kind              : v12.0
-    ResourceGroupName : tag-demo-group
-    Location          : westus
-    SubscriptionId    : {guid}
-    Tags              : {System.Collections.Hashtable}
-
-You can view the actual tags by retrieving the **Tags** property.
-
-    (Get-AzureRmResource -ResourceName tfsqlserver -ResourceGroupName tag-demo-group).Tags | %{ $_.Name + ": " + $_.Value }
-   
-Which returns formatted results:
-    
-    Dept: Finance
-    Environment: Production
-
-Instead of viewing the tags for a particular resource group or resource, you often want to retrieve all the resources or resource groups with a particular tag and value. To get resource groups with a specific tag, use **Find-AzureRmResourceGroup** cmdlet with the **-Tag** parameter.
-
-    Find-AzureRmResourceGroup -Tag @{ Name="Dept"; Value="Finance" } | %{ $_.Name }
-    
-Which returns the names of the resource groups with that tag value.
-   
-    tag-demo-group
-    web-demo-group
-
-To get all the resources with a particular tag and value, use the **Find-AzureRmResource** cmdlet.
-
-    Find-AzureRmResource -TagName Dept -TagValue Finance | %{ $_.ResourceName }
-    
-Which returns the names of resources with that tag value.
-    
-    tfsqlserver
-    tfsqldatabase
-
-To add a tag to a resource group that has no existing tags, simply use the **Set-AzureRmResourceGroup** command and specify a tag object.
-
-    Set-AzureRmResourceGroup -Name test-group -Tag @( @{ Name="Dept"; Value="IT" }, @{ Name="Environment"; Value="Test"} )
-
-Which returns the resource group with its new tag values.
-
-    ResourceGroupName : test-group
-    Location          : southcentralus
-    ProvisioningState : Succeeded
-    Tags              :
-                    Name          Value
-                    =======       =====
-                    Dept          IT
-                    Environment   Test
-                    
-You can add tags to a resource that has no existing tags by using the **Set-AzureRmResource** command 
-
-    Set-AzureRmResource -Tag @( @{ Name="Dept"; Value="IT" }, @{ Name="Environment"; Value="Test"} ) -ResourceId /subscriptions/{guid}/resourceGroups/test-group/providers/Microsoft.Web/sites/examplemobileapp
-
-Tags are updated as a whole. To add one tag to a resource that has other tags, use an array with all the tags you want to keep. First, select the existing tags, add one to that set, and reapply all the tags.
-
-    $tags = (Get-AzureRmResourceGroup -Name tag-demo).Tags
-    $tags += @{Name="status";Value="approved"}
-    Set-AzureRmResourceGroup -Name test-group -Tag $tags
-
-To remove one or more tags, simply save the array without the ones you want to remove.
-
-The process is the same for resources except you use the **Get-AzureRmResource** and **Set-AzureRmResource** cmdlets. 
-
-To get a list of all tags within a subscription using PowerShell, use the **Get-AzureRmTag** cmdlet.
-
-    Get-AzureRmTag
-    Name                      Count
-    ----                      ------
-    env                       8
-    project                   1
-
-You may see tags that start with "hidden-" and "link:". These tags are internal tags, which you should ignore and avoid changing.
-
-Use the **New-AzureRmTag** cmdlet to add new tags to the taxonomy. These tags are included in the autocomplete even though they haven't been applied to any resources or resource groups, yet. To remove a tag name/value, first remove the tag from any resources it may be used with and then use the **Remove-AzureRmTag** cmdlet to remove it from the taxonomy.
+[AZURE.INCLUDE [resource-manager-tag-resources](../includes/resource-manager-tag-resources-powershell.md)]
 
 ## Azure CLI
 
