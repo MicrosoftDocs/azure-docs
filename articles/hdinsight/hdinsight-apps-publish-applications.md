@@ -79,7 +79,7 @@ Create a zip file that contains all required files for installing your HDInsight
 
 - All required scripts.
 
-> [AZURE.NOTE] The application files (including web appliation files if there is any) can be located on any publicly accessible endpoint.
+> [AZURE.NOTE] The application files (including web application files if there is any) can be located on any publicly accessible endpoint.
 
 ## Publish application
 
