@@ -30,7 +30,7 @@ Preview.
 
 
 
-##Add a VM image available in the Marketplace with PowerShell
+##Add a VM image to the Marketplace with PowerShell
 
 If the VM image VHD is available locally on the Console VM (or another externally connected device) and you wish to create an item in the Marketplace, follow the below steps: 
 
