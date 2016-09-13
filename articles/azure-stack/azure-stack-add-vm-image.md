@@ -63,49 +63,26 @@ Add-VMImage -publisher "Canonical" -offer "UbuntuServer" -sku "14.04.3-LTS" -ver
 
 A description of command parameters is below:
 
-**tenantID** : This your Azure Active Directory tenant ID in the form
-&lt;AADTenantID.onmicrosoft.com&gt;
 
-**publisher** : The Publisher name segment of the VM Image that tenants will
-use when deploying the image. An example is ‘Microsoft’. Do not include
-a space or other special characters in this field.
-
-**offer** : The Offer name segment of the VM Image that tenants will use
-when deploying the image. An example is ‘WindowsServer’. Do not include
-a space or other special characters in this field.
-
-**sku** : The SKU name segment of the VM Image that tenants will use when
-deploying the image. An example is ‘Datacenter2016’. Do not include a
-space or other special characters in this field.
-
-**version** : The Version of the VM Image that tenants will use when
-deploying the image. This version is in the format \#.\#.\#. An example
-is ‘1.0.0’. Do not include a space or other special characters in this
-field.
-
-**osType** : The OS Type of the image must be either ‘Windows’ or ‘Linux’.
-
-**osDiskLocalPath** : This is the local path to the OS Disk VHD that you are
-uploading as a VM Image into Azure Stack.
-
-**dataDiskLocalPaths**: This is an optional array of the local paths for
-data disks that can be uploaded as part of the VM Image.
-
-**CreateGalleryItem**: Boolean flag for whether to create an item in the Marketplace. The default is set to true.
-
-**title**: The display name of Marketplace item. The default is set to be the Publisher-Offer-Sku of the VM image. 
-
-**description**: The description of the Marketplace item. 
-
-**osDiskBlobURI**: Optionally, this script will also accept a blob storage
-URI for the osDisk.
-
-**dataDiskBlobURIs**: Optionally, this script can also accept an array of
-blob storage URIs for adding data disks to the image.
+| Parameter | Description |
+|----------| ------------ |
+|**tenantID** | This your Azure Active Directory tenant ID in the form &lt;AADTenantID.onmicrosoft.com&gt; |
+|**publisher** | The Publisher name segment of the VM Image that tenants will use when deploying the image. An example is ‘Microsoft’. Do not include a space or other special characters in this field.|
+|**offer** | The Offer name segment of the VM Image that tenants will use when deploying the image. An example is ‘WindowsServer’. Do not include a space or other special characters in this field. |
+| **sku** | The SKU name segment of the VM Image that tenants will use when deploying the image. An example is ‘Datacenter2016’. Do not include a space or other special characters in this field. |
+|**version** | The Version of the VM Image that tenants will use when deploying the image. This version is in the format \#.\#.\#. An example is ‘1.0.0’. Do not include a space or other special characters in this field.|
+| **osType** | The OS Type of the image must be either ‘Windows’ or ‘Linux’. |
+|**osDiskLocalPath** | This is the local path to the OS Disk VHD that you are uploading as a VM Image into Azure Stack. |
+|**dataDiskLocalPaths**| This is an optional array of the local paths for data disks that can be uploaded as part of the VM Image.|
+|**CreateGalleryItem**| Boolean flag for whether to create an item in the Marketplace. The default is set to true.|
+|**title**| The display name of Marketplace item. The default is set to be the Publisher-Offer-Sku of the VM image.|
+|**description**| The description of the Marketplace item. |
+|**osDiskBlobURI**| Optionally, this script will also accept a blob storage URI for the osDisk.|
+|**dataDiskBlobURIs**| Optionally, this script can also accept an array of blob storage URIs for adding data disks to the image.|
 
 
 
-##Add a VM Image with the UI 
+##Add a VM Image through the portal
 
 > [AZURE.NOTE] This method will require the separate creation of a Marketplace item. 
 
