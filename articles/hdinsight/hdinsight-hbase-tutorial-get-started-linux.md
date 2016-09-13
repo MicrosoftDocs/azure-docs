@@ -247,7 +247,7 @@ SSH can also be used to tunnel local requests, such as web requests, to the HDIn
 4. From the Basic options for your PuTTY session screen, enter the following values:
 
 	- **Host Name**: the SSH address of your HDInsight server in the Host name (or IP address) field. The SSH address is your cluster name, then **-ssh.azurehdinsight.net**. For example, *mycluster-ssh.azurehdinsight.net*.
-	- **Port**: 22. The ssh port on the head node 0 is 22.  
+	- **Port**: 22. The ssh port on the primary headnode is 22.  
 5. In the **Category** section to the left of the dialog, expand **Connection**, expand **SSH**, and then click **Tunnels**.
 6. Provide the following information on the Options controlling SSH port forwarding form:
 

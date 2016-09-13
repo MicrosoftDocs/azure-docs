@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/05/2016"
+    ms.date="09/13/2016"
     ms.author="larryfr"/>
 
 # Script action development with HDInsight
@@ -167,6 +167,11 @@ This makes the following helpers available for use in your script:
 | `test_is_headnode` | If ran on a cluster head node, returns 1; otherwise, 0. |
 | `test_is_datanode` | If the current node is a data (worker) node, returns a 1; otherwise, 0. |
 | `test_is_first_datanode` | If the current node is the first data (worker) node (named workernode0,) returns a 1; otherwise, 0. |
+| `get_headnodes` | Returns the fully qualified domain name of the headnodes in the cluster. Names are comma delimited. An empty string is returned on error. |
+| `get_primary_headnode` | Gets the fully qualified domain name of the primary headnode. An empty string is returned on error. |
+| `get_secondary_headnode` | Gets the fully qualified domain name of the secondary headnode. An empty string is returned on error. |
+| `get_primary_headnode_number` | Gets the numeric suffix of the primary headnode. An empty string is returned on error. |
+| `get_secondary_headnode_number` | Gets the numeric suffix of the secondary headnode. An empty string is returned on error. |
 
 ## <a name="commonusage"></a>Common usage patterns
 
