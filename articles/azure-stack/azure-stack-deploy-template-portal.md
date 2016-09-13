@@ -3,7 +3,7 @@
 	description="Learn how to use the Azure Stack portal to deploy templates."
 	services="azure-stack"
 	documentationCenter=""
-	authors="ErikjeMS"
+	authors="helaw"
 	manager="byronr"
 	editor=""/>
 
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/25/2016"
+	ms.date="09/26/2016"
 	ms.author="erikje"/>
 
 # Deploy templates using the Azure Stack portal
 
-Use the portal to deploy Azure Resource Manager (ARM) templates to the Azure Stack POC.
+Use the portal to deploy Azure Resource Manager templates to the Azure Stack POC.
 
-ARM templates deploy and provision all of the resources for your application in a single, coordinated operation.
+Resource Manager templates deploy and provision all of the resources for your application in a single, coordinated operation.
 
-1.  Log in to the portal as a tenant, click **New**, click **Custom**, and then click **Template deployment**.
+1.  Log in to the portal, click **New**, click **Custom**, and then click **Template deployment**.
 
 2.  Click **Edit template**, copy and paste your JSON template code into the blade, and then click **Save**.
 
