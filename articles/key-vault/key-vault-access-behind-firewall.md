@@ -34,8 +34,8 @@ All traffic to key vault for all the 3 functions (authentication, management and
 
 Key Vault client application will need to access Azure Active Directory endpoints for authentication. The endpoint used depends on the AAD tenant configuration and the type of principal -- user principal, service principal and the type of account, e.g. Microsoft Account or Org ID.  
 
-| **Principal Type** | **Endpoint:port** |
-|-|-|
+| Principal Type | Endpoint:port |
+|----------------|---------------|
 | User using Microsoft Account<br> (e.g. user@hotmail.com) | **Global:**<br> login.microsoftonline.com:443<br><br>   **Azure China:**<br> login.chinacloudapi.cn:443<br><br>   **Azure US Government:**<br> login-us.microsoftonline.com:443<br><br>   **Azure Germany:**<br> login.microsoftonline.de:443<br><br>   and <br>login.live.com:443   |
 | User/Service principal using Org ID with AAD<br> (e.g. user@contoso.com) | **Global:**<br> login.microsoftonline.com:443<br><br>   **Azure China:**<br> login.chinacloudapi.cn:443<br><br>   **Azure US Government:**<br> login-us.microsoftonline.com:443<br><br>   **Azure Germany:**<br> login.microsoftonline.de:443 |
 | User/Service principal using Org ID+ADFS<br> or other federated endpoint<br> (e.g. user@contoso.com) | All the above endpoints for Org ID plus ADFS or<br> other federated endpoints |
@@ -46,8 +46,8 @@ Key Vault client application will need to access Azure Active Directory endpoint
 
 For Key Vault Management (CRUD and setting access policy), the key vault client application needs to access Azure Resource Manager endpoint.  
 
-| **Type of operation** | **Endpoint:port** |
-|-|-|
+| Type of operation | Endpoint:port |
+|----------------|---------------|
 | Key Vault Control Plane operations<br> via Azure Resource Manager | **Global:**<br> management.azure.com:443<br><br>   **Azure China:**<br> management.chinacloudapi.cn:443<br><br>   **Azure US Government:**<br> management.usgovcloudapi.net:443<br><br>   **Azure Germany:**<br> management.microsoftazure.de:443 |
 | Azure Active Directory Graph API | **Global:**<br> graph.windows.net:443<br><br>   **Azure China:**<br> graph.chinacloudapi.cn:443<br><br>   **Azure US Government:**<br> graph.windows.net:443<br><br>   **Azure Germany:**<br> graph.cloudapi.de:443 |
 
@@ -55,8 +55,8 @@ For Key Vault Management (CRUD and setting access policy), the key vault client 
 
 For all key vault object (keys and secrets) management and cryptographic operations, key vault client needs to access the key vault end point. Depending on the location of your Key Vault, the endpoint DNS suffix is different. The Key Vault end point is of the format: <vault-name>.<region-specific-dns-suffix> as described in the table below.  
 
-| **Type of operation** | **Endpoint:port** |
-|-|-|
+| Type of operation | Endpoint:port |
+|----------------|---------------|
 | Key Vault operations like cryptographic operations on keys, <br>Created/read/update/delete keys and secrets, set/get tags<br> and other attributes on key vault objects (keys/secrets)     | **Global:**<br> <vault-name>.vault.azure.net:443<br><br>   **Azure China:**<br> <vault-name>.vault.azure.cn:443<br><br>   **Azure US Government:**<br> <vault-name>.vault.usgovcloudapi.net:443<br><br>   **Azure Germany:**<br> <vault-name>.vault.microsoftazure.de:443 |
 
 ##### IP Address Ranges:
