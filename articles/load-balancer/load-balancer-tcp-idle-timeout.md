@@ -19,7 +19,7 @@
 
 In its default configuration, Azure Load Balancer has an idle timeout setting of 4 minutes.
 
-This means that if a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session between the client and your still exists.
+This means that if a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session between the client and your cloud service still exists.
 
 When the connection is closed, your client application will get an error message like "The underlying connection was closed: A connection that was expected to be kept alive was closed by the server."
 
@@ -107,7 +107,7 @@ The .cscfg changes for the timeout setting on public IPs are:
 ## REST API example
 
 You can configure the TCP idle timeout by using the service management API.
-Make sure to add the x-ms-version header  is set to version 2014-06-01 or later.
+Make sure that the x-ms-version header is set to version 2014-06-01 or later.
 
 Update the configuration of the specified load-balanced input endpoints on all virtual machines in a deployment.
 
