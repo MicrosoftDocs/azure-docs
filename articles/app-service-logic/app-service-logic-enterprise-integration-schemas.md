@@ -39,7 +39,12 @@ From the Azure portal:
 ![](./media/app-service-logic-enterprise-integration-schemas/schema-4.png)  
 8. Select the **Schemas** tile. This refreshes the tile and you should see the number of schemas increase, reflecting the new schema has been added successfully. After you select the **Schemas** tile, you will also see the newly added schema is displayed in the Schemas blade, on the right.     
 ![](./media/app-service-logic-enterprise-integration-schemas/schema-5.png)  
+9. Add schema file larger than 2 MB  
 
+	a. Upload the schema to storage and copy the URI  
+	![](./media/app-service-logic-enterprise-integration-schemas/schema-blob.png)  
+	b. Select Large file in Add Schema and provide the URI in the Content URI  
+	![](./media/app-service-logic-enterprise-integration-schemas/schema-largefile.png)  
 
 ## How to use schemas
 - Schemas are used to validate messages that are exchanged in a B2B scenario.  
@@ -60,7 +65,7 @@ From the Azure portal:
 2. Select the schema you wish to delete from the Schemas blade that opens up  
 3. Select the **Delete** link from the menu bar on the Shemas blade
 ![](./media/app-service-logic-enterprise-integration-schemas/delete-1.png)  
-4. If you really wish to delete the schema you selected, choose **Yes** on the Delete schema dialog to confirm your choice
+4. If you really wish to delete the schema you selected, choose **Yes** on the Delete schema dialog to confirm your choice  
 ![](./media/app-service-logic-enterprise-integration-schemas/delete-2.png)  
 5. Finally, notice that the list of schemas in the Schemas blade refreshes and the schema you deleted is no longer listed  
 ![](./media/app-service-logic-enterprise-integration-schemas/delete-3.png)    
