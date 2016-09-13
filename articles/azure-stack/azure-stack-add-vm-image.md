@@ -43,17 +43,19 @@ If the VM image VHD is available locally on the Console VM (or another externall
         article
 2. Clone the [*Azure Stack Tools repository*](https://aka.ms/azurestackaddvmimage) and navigate to the AddVMImage folder.
 3. Open PowerShell and in the AddVMImage directory execute:
-```powershell
-Import-Module .\Add-VMImage.psm1
-```
+
+	```powershell
+	Import-Module .\Add-VMImage.psm1
+	```
+
 4. Add the VM image by invoking the Add-VMImage cmdlet.  
 	-  Include the Publisher, Offer, Sku, and Version for the VM image. These parameters are used by Azure Resource Manager templates that reference the VM image. 
 	-  Specify the osType as Windows or Linux
 	-  Include your Azure Active Directory Tenant ID in the form &lt;myaadtenant&gt;.onmicrosoft.com
 	- An example invocation of the script is the following:
-```powershell
-Add-VMImage -publisher "Canonical" -offer "UbuntuServer" -sku "14.04.3-LTS" -version "1.0.0" -osType Linux -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' -tenantID <myaadtenant>.onmicrosoft.com 
-```
+	```powershell
+	Add-VMImage -publisher "Canonical" -offer "UbuntuServer" -sku "14.04.3-LTS" -version "1.0.0" -osType Linux -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' -tenantID <myaadtenant>.onmicrosoft.com 
+	```
 
 > [AZURE.NOTE] The cmdlet will request credentials for adding the VM image. Provide the administrator AAD credentials, like serviceadmin@&lt;myaadtenant&gt;.onmicrosoft.com, to the prompt.  
 
