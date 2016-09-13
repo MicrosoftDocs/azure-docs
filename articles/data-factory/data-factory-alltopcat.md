@@ -4,7 +4,7 @@
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
-	manager="paulettm"
+	manager="jhubbard"
 	editor=""/>
 
 <tags

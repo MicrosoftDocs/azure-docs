@@ -2,7 +2,7 @@
 	pageTitle="Run Hive queries using HDInsight .NET SDK | Microsoft Azure"
 	description="Learn how to submit Hadoop jobs to Azure HDInsight Hadoop using HDInsight .NET SDK."
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	services="hdinsight"
 	documentationCenter=""
 	tags="azure-portal"

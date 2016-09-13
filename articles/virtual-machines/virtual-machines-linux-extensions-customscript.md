@@ -27,26 +27,30 @@ This article gives an overview of writing Azure Resource Manager templates with 
 
 Define the following extension resource in the Resource section of the template
 
-   {
-     "type": "Microsoft.Compute/virtualMachines/extensions",
-     "name": "MyCustomScriptExtension",
-     "apiVersion": "2015-05-01-preview",
-     "location": "[parameters('location')]",
-     "dependsOn": ["[concat('Microsoft.Compute/virtualMachines/',parameters('vmName'))]"],
-     "properties": {
-        "publisher": "Microsoft.OSTCExtensions",
-        "type": "CustomScriptForLinux",
-        "typeHandlerVersion": "1.2",
-        "autoUpgradeMinorVersion": true
-        "settings": {
-           "fileUris": [
-             "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-ubuntu/mongo-install-ubuntu.sh"
-           ],
-           "commandToExecute": "sh mongo-install-ubuntu.sh"
-         },
-         "protectedSettings": {}
-      }
-   }
+```json
+{
+  "type": "Microsoft.Compute/virtualMachines/extensions",
+  "name": "MyCustomScriptExtension",
+  "apiVersion": "2015-05-01-preview",
+  "location": "[parameters('location')]",
+  "dependsOn": [
+    "[concat('Microsoft.Compute/virtualMachines/',parameters('vmName'))]"
+  ],
+  "properties": {
+    "publisher": "Microsoft.OSTCExtensions",
+    "type": "CustomScriptForLinux",
+    "typeHandlerVersion": "1.2",
+    "autoUpgradeMinorVersion": true,
+    "settings": {
+      "fileUris": [
+        "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-ubuntu/mongo-install-ubuntu.sh"
+      ],
+      "commandToExecute": "sh mongo-install-ubuntu.sh"
+    },
+    "protectedSettings": {}
+  }
+}
+```
 
 In the example above, replace the file URL and the file name with your own settings.
 
