@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Add an empty edge node to HDInsight cluster | Microsoft Azure"
+	pageTitle="Use empty edge nodes in HDInsight | Microsoft Azure"
 	description="How to add an ampty edge node to HDInsight cluster that can be used as a client, and to test/host your HDInsight applications."
 	services="hdinsight"
 	editor="cgronlun"
@@ -17,7 +17,7 @@
 	ms.date="09/13/2016"
 	ms.author="jgao"/>
 
-# Add an empty edge node to HDInsight cluster
+# Use empty edge nodes in HDInsight
 
 Learn how to add an empty edge node to an HDInsight cluster. An empty edge node is a virtual machine with the same client tools installed and configured as in the headnodes. You can use the edge node for accessing the cluster, testing your client applications, and hosting your client applications. 
 
@@ -83,7 +83,7 @@ In this section, you use a Resource Manager template to create HDInsight cluster
 The edge node appears as an application on the Azure portal.  The portal gives you the information to access the edge node using SSH.
 
 **To access an edge node**
-1. Sign on to the Azure portal.
+1. Sign on to the [Azure portal](https://portal.azure.com).
 2. Open the HDInsight cluster with an edge node.
 3. Click **Applications** from the cluster blade. You shall see the edge node.  The default name is **new-edgenode**.
 4. Click the edge node. You shall see the SSH endpoint.
@@ -95,6 +95,15 @@ The edge node appears as an application on the Azure portal.  The portal gives y
 
 		show tables;
 
+## Delete an edge node
+
+You can delete an edge node from the Azure porta.
+**To access an edge node**
+1. Sign on to the [Azure portal](https://portal.azure.com).
+2. Open the HDInsight cluster with an edge node.
+3. Click **Applications** from the cluster blade. You shall see a list of edge nodes.  
+4. Right-click the edge node you want to delete, and then click **Delete**.
+5. Click **Yes** to confirm.
 
 ## Next steps
 
