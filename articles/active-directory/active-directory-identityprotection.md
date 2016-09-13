@@ -21,17 +21,6 @@
 
 Azure Active Directory Identity Protection is a security service that provides a consolidated view into risk events and potential vulnerabilities affecting your organization’s identities. Microsoft has been securing cloud-based identities for over a decade, and with Azure AD Identity Protection, Microsoft is making these same protection systems available to enterprise customers. Identity Protection leverages existing Azure AD’s anomaly detection capabilities (available through Azure AD’s Anomalous Activity Reports), and introduces new risk event types that can detect anomalies in real-time.
 
-## Limitations of the current preview
-
-Azure Active Directory Identity Protection has the following limitations in conjunction with federated domains:
-
-- For User Risk security policy to work for federated domains
-
-	- [Password writeback](active-directory-passwords-getting-started.md) must be enabled for the federated domain, so that password change in the cloud can be written back on-premises.
-
-	- An Azure AD Premium license must be assigned to the end-user.
-
-- Risk events are only detected for apps federating with Azure Active Directory
 
 
 ##Getting Started
