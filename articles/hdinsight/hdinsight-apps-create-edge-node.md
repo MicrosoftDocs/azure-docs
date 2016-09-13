@@ -19,7 +19,7 @@
 
 # Use empty edge nodes in HDInsight
 
-Learn how to add an empty edge node to an HDInsight cluster. An empty edge node is a virtual machine with the same client tools installed and configured as in the headnodes. You can use the edge node for accessing the cluster, testing your client applications, and hosting your client applications. 
+Learn how to add an empty edge node to a Linux-based HDInsight cluster. An empty edge node is a Linux virtual machine with the same client tools installed and configured as in the headnodes. You can use the edge node for accessing the cluster, testing your client applications, and hosting your client applications. 
 
 You can add an empty edge node to an existing HDInsight cluster, to a new cluster when you create the cluster.  You can optionally call a [script action](hdinsight-hadoop-customize-cluster-linux.md) to perform additional configuration.  
 
@@ -44,7 +44,7 @@ In this section, you use a Resource Manager template to add an edge node to an e
 
 
 4. Click **OK** to save the changes.
-5. In **Resource group**, enter a new resource group name.
+5. In **Resource group**, select a Resource Group.
 6. Click **Review legal terms**, and then click **Purchase**.
 7. Select **Pin to dashboard**, and then click **Create**.
 
@@ -66,14 +66,14 @@ In this section, you use a Resource Manager template to create HDInsight cluster
 	- CLUSTERLOGINPASSWORD: Enter the Hadoop HTTP user password.
 	- SSHUSERNAME: Enter the SSH user name. The default name is **sshuser**.
 	- SSHPASSWORD: Enter the SSH user password.
-	- LOCATION: Enter the location of the resource group name, the cluster, and the default storage account.
+	- LOCATION: Enter the location of the Resource Group name, the cluster, and the default storage account.
 	- CLUSTERTYPE: The default value is **hadoop**.
 	- CLUSTERWORKERNODECOUNT: The default value is 2.
 	- EDGENODESIZE: Select one of the VM sizes.
 	- EDGENODEPREFIX: The default value is **new**.  Using the default value, the edge node name is **new-edgenode**.  You can customize the prefix from the portal. You can also customize the full name from the template.
 
 4. Click **OK** to save the changes.
-5. In **Resource group**, enter a new resource group name.
+5. In **Resource group**, enter a new Resource Group name.
 6. Click **Review legal terms**, and then click **Purchase**.
 7. Select **Pin to dashboard**, and then click **Create**. 
 
@@ -97,8 +97,10 @@ The edge node appears as an application on the Azure portal.  The portal gives y
 
 ## Delete an edge node
 
-You can delete an edge node from the Azure porta.
+You can delete an edge node from the Azure portal.
+
 **To access an edge node**
+
 1. Sign on to the [Azure portal](https://portal.azure.com).
 2. Open the HDInsight cluster with an edge node.
 3. Click **Applications** from the cluster blade. You shall see a list of edge nodes.  
