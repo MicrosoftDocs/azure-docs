@@ -62,11 +62,11 @@ You use Azure Data Factory to orchestrate data movement and processing, and then
 In this scenario, the Azure Machine Learning Web service makes predictions using data from a file in an Azure blob storage and stores the prediction results in the blob storage. The following JSON defines a Data Factory pipeline with an AzureMLBatchExecution activity. The activity has the dataset **DecisionTreeInputBlob** as input and **DecisionTreeResultBlob** as the output. The **DecisionTreeInputBlob** is passed as an input to the web service by using the **webServiceInput** JSON property. The **DecisionTreeResultBlob** is passed as an output to the Web service by using the **webServiceOutputs** JSON property.  
 
 > [AZURE.IMPORTANT] 
-> If the web service takes multiple inputs, use the **webServiceInputs** property instead of using **webServiceInput**. 
+> If the web service takes multiple inputs, use the **webServiceInputs** property instead of using **webServiceInput**. See the [Web service requires multiple inputs](#web-service-requires-multiple-inputs) section for an example of using the webServiceInputs property.
 >  
 > Datasets that are referenced by the **webServiceInput**/**webServiceInputs** and **webServiceOutputs** properties (in **typeProperties**) must also be included in the Activity **inputs** and **outputs**.
 > 
-> The names of inputs specified in the pipeline definition must exactly match the names of inputs of Azure ML web service.
+> In your Azure ML experiment, web service input and output ports and global parameters have default names ("input1", "input2") that you can customize. The names you use for webServiceInputs, webServiceOutputs, and globalParameters settings must exactly match the names in the experiments. You can view the sample request payload on the Batch Execution Help page for your Azure ML endpoint to verify the expected mapping. 
 
 
 	{
@@ -104,8 +104,8 @@ In this scenario, the Azure Machine Learning Web service makes predictions using
 	        }
 	      }
 	    ],
-	    "start": "2015-02-13T00:00:00Z",
-	    "end": "2015-02-14T00:00:00Z"
+	    "start": "2016-02-13T00:00:00Z",
+	    "end": "2016-02-14T00:00:00Z"
 	  }
 	}
 
@@ -263,8 +263,8 @@ We recommend that you go through the [Build your first pipeline with Data Factor
 		        }
 		      }
 		    ],
-		    "start": "2015-02-13T00:00:00Z",
-		    "end": "2015-02-14T00:00:00Z"
+		    "start": "2016-02-13T00:00:00Z",
+		    "end": "2016-02-14T00:00:00Z"
 		  }
 		}
 
@@ -352,8 +352,8 @@ When using the reader module in an Azure Machine Learning experiment, you can sp
 	        },
 	      }
 	    ],
-	    "start": "2015-02-13T00:00:00Z",
-	    "end": "2015-02-14T00:00:00Z"
+	    "start": "2016-02-13T00:00:00Z",
+	    "end": "2016-02-14T00:00:00Z"
 	  }
 	}
  
@@ -364,8 +364,11 @@ In the above JSON example:
 
 ### Other scenarios
 
-#### Web service requires multiples inputs
-Use the **webServiceInputs** property when the Azure ML web service takes multiple inputs. The names of inputs specified in the pipeline definition must exactly match the names of inputs of Azure ML web service. 
+#### Web service requires multiple inputs
+If the web service takes multiple inputs, use the **webServiceInputs** property instead of using **webServiceInput**. Datasets that are referenced by the **webServiceInputs** must also be included in the Activity **inputs**.
+ 
+In your Azure ML experiment, web service input and output ports and global parameters have default names ("input1", "input2") that you can customize. The names you use for webServiceInputs, webServiceOutputs, and globalParameters settings must exactly match the names in the experiments. You can view the sample request payload on the Batch Execution Help page for your Azure ML endpoint to verify the expected mapping.
+
 
 	{
 		"name": "PredictivePipeline",
@@ -376,9 +379,9 @@ Use the **webServiceInputs** property when the Azure ML web service takes multip
 				"type": "AzureMLBatchExecution",
 				"description": "prediction analysis on batch input",
 				"inputs": [{
-					"name": "trainingDataset"
+					"name": "inputDataset1"
 				}, {
-					"name": "scoringDataset"
+					"name": "inputDataset2"
 				}],
 				"outputs": [{
 					"name": "outputDataset"
@@ -386,8 +389,8 @@ Use the **webServiceInputs** property when the Azure ML web service takes multip
 				"linkedServiceName": "MyAzureMLLinkedService",
 				"typeProperties": {
 					"webServiceInputs": {
-						"trainingData": "trainingDataset",
-						"scoringData": "scoringDataset"
+						"input1": "inputDataset1",
+						"input2": "inputDataset2"
 					},
 					"webServiceOutputs": {
 						"output1": "outputDataset"
@@ -400,8 +403,8 @@ Use the **webServiceInputs** property when the Azure ML web service takes multip
 					"timeout": "02:00:00"
 				}
 			}],
-			"start": "2015-02-13T00:00:00Z",
-			"end": "2015-02-14T00:00:00Z"
+			"start": "2016-02-13T00:00:00Z",
+			"end": "2016-02-14T00:00:00Z"
 		}
 	}
 
@@ -728,8 +731,8 @@ The pipeline has two activities: **AzureMLBatchExecution** and **AzureMLUpdateRe
 	                "linkedServiceName": "updatableScoringEndpoint2"
 	            }
 	        ],
-	    	"start": "2015-02-13T00:00:00Z",
-	   		"end": "2015-02-14T00:00:00Z"
+	    	"start": "2016-02-13T00:00:00Z",
+	   		"end": "2016-02-14T00:00:00Z"
 	    }
 	}
 
@@ -784,8 +787,8 @@ If you want to continue using the AzureMLBatchScoring activity, continue reading
 	        }
 	      }
 	    ],
-	    "start": "2015-02-13T00:00:00Z",
-	    "end": "2015-02-14T00:00:00Z"
+	    "start": "2016-02-13T00:00:00Z",
+	    "end": "2016-02-14T00:00:00Z"
 	  }
 	}
 
