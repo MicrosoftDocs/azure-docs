@@ -22,13 +22,12 @@ This topic lists the attributes that are synchronized by Azure AD Connect sync.
 The attributes are grouped by the related Azure AD app.
 
 ## Attributes to synchronize
-A common question is *what is the list of minimum attributes to synchronize*. The default and recommended approach is to keep the default attributes so a full GAL (Global Address List) can be constructed in the cloud and to get all features in Office 365 workloads. In some cases, there are some attributes that your organization do not want synchronized to the cloud since these contain sensitive or PII (Personally identifiable information) data, like in the example below.
-
+A common question is *what is the list of minimum attributes to synchronize*. The default and recommended approach is to keep the default attributes so a full GAL (Global Address List) can be constructed in the cloud and to get all features in Office 365 workloads. In some cases, there are some attributes that your organization does not want synchronized to the cloud since these attributes contain sensitive or PII (Personally identifiable information) data, like in this example:  
 ![bad attributes](./media/active-directory-aadconnectsync-attributes-synchronized/badextensionattribute.png)
 
-In this case, start with the list of attributes below and identify those that would contain sensitive or PII data and cannot be synchronized. Then deselect those during installation using [Azure AD app and attribute filtering](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering).
+In this case, start with the list of attributes in this topic and identify those that would contain sensitive or PII data and cannot be synchronized. Then deselect those attributes during installation using [Azure AD app and attribute filtering](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering).
 
->[AZURE.WARNING] When deselecting attributes, you should be cautious and only deselect those absolutely not possible to synchronize. Unselecting other attributes might have a negative impact on features.
+>[AZURE.WARNING] When deselecting attributes, you should be cautious and only deselect those attributes absolutely not possible to synchronize. Unselecting other attributes might have a negative impact on features.
 
 ## Office 365 ProPlus
 
@@ -371,12 +370,12 @@ In this case, start with the list of attributes below and identify those that wo
 | userPrincipalName| X|  |  | UPN is the login ID for the user. Most often the same as [mail] value.|
 
 ## 3rd party applications
-This is a set of attributes used as the minimal attributes needed for a generic workload or application. It can be used for a workload not listed above or for a non-Microsoft app. It is explicitly used for the following:
+This group is a set of attributes used as the minimal attributes needed for a generic workload or application. It can be used for a workload not listed in another section or for a non-Microsoft app. It is explicitly used for the following:
 
-- Yammer (only User is actually consumed)
+- Yammer (only User is consumed)
 - [Hybrid Business-to-Business (B2B) cross-org collaboration scenarios offered by resources like SharePoint](http://go.microsoft.com/fwlink/?LinkId=747036)
 
-This is a set of attributes that can be used if the Azure AD directory is not used to support Office 365, Dynamics, or Intune. It has a small set of core attributes.
+This group is a set of attributes that can be used if the Azure AD directory is not used to support Office 365, Dynamics, or Intune. It has a small set of core attributes.
 
 | Attribute Name| User| Contact| Group| Comment |
 | --- | :-: | :-: | :-: | --- |
@@ -397,7 +396,7 @@ This is a set of attributes that can be used if the Azure AD directory is not us
 | userPrincipalName| X|  |  | UPN is the login ID for the user. Most often the same as [mail] value.|
 
 ## Windows 10
-Windows 10 domain-joined computers(devices) synchronize some attributes to Azure AD. For more information on the scenarios, see [Connect domain-joined devices to Azure AD for Windows 10 experiences](active-directory-azureadjoin-devices-group-policy.md). These attributes always synchronize and Windows 10 does not appear as an app you can unselect. A Windows 10 domain-joined computer is identified by having the attribute userCertificate populated.
+A Windows 10 domain-joined computer(device) synchronize some attributes to Azure AD. For more information on the scenarios, see [Connect domain-joined devices to Azure AD for Windows 10 experiences](active-directory-azureadjoin-devices-group-policy.md). These attributes always synchronize and Windows 10 does not appear as an app you can unselect. A Windows 10 domain-joined computer is identified by having the attribute userCertificate populated.
 
 | Attribute Name| Device| Comment |
 | --- | :-: | --- |
@@ -411,19 +410,19 @@ Windows 10 domain-joined computers(devices) synchronize some attributes to Azure
 | operatingSystemVersion | X| Also called deviceOSVersion.|
 | userCertificate | X| |
 
-These attributes for **user** is in addition to the other apps you have selected.  
+These attributes for **user** are in addition to the other apps you have selected.  
 
 | Attribute Name| User| Comment |
 | --- | :-: | --- |
-| domainFQDN| X| Also called dnsDomainName. E.g. contoso.com.|
-| domainNetBios| X| Also called netBiosName. E.g. CONTOSO.|
+| domainFQDN| X| Also called dnsDomainName. For example contoso.com.|
+| domainNetBios| X| Also called netBiosName. For example CONTOSO.|
 
 ## Exchange hybrid writeback
 These attributes are written back from Azure AD to on-premises Active Directory when you select to enable **Exchange hybrid**. Depending on your Exchange version, fewer attributes might be synchronized.
 
 | Attribute Name| User| Contact| Group| Comment |
 | --- | :-: | :-: | :-: | --- |
-| msDS-ExternalDirectoryObjectID| X|  |  | Derived from cloudAnchor in Azure AD. This is new in Exchange 2016.|
+| msDS-ExternalDirectoryObjectID| X|  |  | Derived from cloudAnchor in Azure AD. This attribute is new in Exchange 2016.|
 | msExchArchiveStatus| X|  |  | Online Archive: Enables customers to archive mail.|
 | msExchBlockedSendersHash| X|  |  | Filtering: Writes back on-premises filtering and online safe and blocked sender data from clients.|
 | msExchSafeRecipientsHash| X|  |  | Filtering: Writes back on-premises filtering and online safe and blocked sender data from clients.|
@@ -455,7 +454,7 @@ Device objects are created in Active Directory. These can be devices joined to A
 
 ## Notes
 
-- When using an Alternate ID, the on-premises attribute userPrincipalName will be synchronized with the Azure AD attribute onPremisesUserPrincipalName. The Alternate ID attribute, for example mail, is synchronized with the Azure AD attribute userPrincipalName.
+- When using an Alternate ID, the on-premises attribute userPrincipalName is synchronized with the Azure AD attribute onPremisesUserPrincipalName. The Alternate ID attribute, for example mail, is synchronized with the Azure AD attribute userPrincipalName.
 - In the lists above, the object type **User** also applies to the object type **iNetOrgPerson**.
 
 ## Next steps
