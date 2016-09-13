@@ -91,7 +91,7 @@ This script lets you choose specific VMs to update, or specify an update domain,
 
 ### vmsseditor
 
-This is a general purpose editor for VM Scale Sets, which shows VM status as a heatmap where one row represents one UD. Among other things you can update the model for a VMSS with a new version, sku or custom image URI, and then pick Fault Domains to upgrade (i.e. all the VMs in that UD are then upgraded to the new model), or a rolling upgrade based ont he batch size of your choice. vmsseditor can be found in the following github repo: https://github.com/gbowerman/vmssdashboard
+This is a general purpose editor for VM Scale Sets, which shows VM status as a heatmap where one row represents one update domain. Among other things you can update the model for a VMSS with a new version, sku or custom image URI, and then pick Fault Domains to upgrade (i.e. all the VMs in that update domain are then upgraded to the new model), or a rolling upgrade based on the batch size of your choice. vmsseditor can be found in the following github repo: https://github.com/gbowerman/vmssdashboard
 
 For example, here I’ve just updated the model of a scale set to Ubuntu 14.04-2LTS version 14.04.201507060 (note this is an old screenshot, many more options have since been added to this tool).
 
