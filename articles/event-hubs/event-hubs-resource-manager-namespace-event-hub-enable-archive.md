@@ -33,7 +33,7 @@ For the complete template, see the [Event Hub and enable Archive template][] on 
 
 With this template, you will deploy an Event Hubs namespace with an Event Hub and will enable Archive.
 
-[Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) is an event processing service used to provide event and telemetry ingress to Azure at massive scale, with low latency and high reliability. Event Hubs Archive will enable you to automatically deliver the streaming data in your Event Hubs to Azure Blob storage of your choive within a specified time or size interval of your choosing.Lean more on [Azure Event Hubs Archive][]
+[Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) is an event processing service used to provide event and telemetry ingress to Azure at massive scale, with low latency and high reliability. Event Hubs Archive will enable you to automatically deliver the streaming data in your Event Hubs to Azure Blob storage of your choive within a specified time or size interval of your choosing.
 
 To run the deployment automatically, click the following button:
 
@@ -287,3 +287,4 @@ Now that you've created and deployed resources using Azure Resource Manager, lea
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
   [Event Hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-event-hubs-create-event-hub-and-enable-archive/
   [Azure Resources Naming Conventions]: https://azure.microsoft.com/en-us/documentation/articles/guidance-naming-conventions/
+  [Event Hub and enable Archive template]:[https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-archive]
