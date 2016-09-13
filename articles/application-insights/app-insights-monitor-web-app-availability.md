@@ -72,7 +72,7 @@ Add more tests. For example, as well as testing your home page, you can make sur
 
 ## <a name="monitor"></a>3. See your web test results
 
-After 1-2 minutes, results appear in the 
+After 1-2 minutes, results appear in the Web Test blade.
 
 ![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
