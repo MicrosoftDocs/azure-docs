@@ -44,7 +44,7 @@ After you are done with retraining, you want to update the scoring web service (
 
 See [Updating Azure ML models using the Update Resource Activity](#updating-azure-ml-models-using-the-update-resource-activity) section for details. 
 
-## Invoking an Azure ML web service using the Batch Execution Activity
+## Invoking a web service using Batch Execution Activity
 
 You use Azure Data Factory to orchestrate data movement and processing, and then perform batch execution using Azure Machine Learning. Here are the top-level steps:
 
@@ -496,7 +496,7 @@ The **takeaways** are:
 - Additional datasets may be included in the Activity inputs and outputs properties, without being referenced in the Activity typeProperties. These datasets govern execution using slice dependencies but are otherwise ignored by the AzureMLBatchExecution Activity. 
 
 
-## Updating Azure ML models using the Update Resource Activity
+## Updating models using Update Resource Activity
 Over time, the predictive models in the Azure ML scoring experiments need to be retrained using new input datasets. After you are done with retraining, you want to update the scoring web service with the retrained ML model. The typical steps to enable retraining and updating Azure ML models via web services are: 
 
 1. Create an experiment in [Azure ML Studio](https://studio.azureml.net). 
