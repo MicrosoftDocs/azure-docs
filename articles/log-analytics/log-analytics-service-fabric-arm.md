@@ -30,7 +30,7 @@ The Service Fabric solution uses Azure Diagnostics data from your Service Fabric
 
 To get started with the solution, you will need to connect your Service Fabric cluster to a Log Analytics workspace. Use any of the following Azure resource manager templates depending on what scenario best fits yours:
 
-##Deploy a new Service Fabric Cluster connected to a Log Analytics workspace.
+##Deploy a Service Fabric Cluster connected to a Log Analytics workspace.
 This template does the following:
 
 
@@ -50,10 +50,10 @@ Accept the legal terms and hit "Create" to start the deployment. Once the deploy
 
 ![Service Fabric](./media/log-analytics-service-fabric/4.png)
 
-##Deploy a new Service Fabric Cluster connected to a Log Analytics workspace with the VM Extension installed.
+##Deploy a Service Fabric Cluster connected to an OMS workspace with VM Extension installed.
 This template does the following:
 
-1. Deploys an Azure Service Fabric cluster already connected to a Log Analytics workspace. Again, you can create a new workspace or use an existing one.
+1. Deploys an Azure Service Fabric cluster already connected to a Log Analytics workspace. You can create a new workspace or use an existing one.
 2. Adds the diagnostic storage accounts to the Log Analytics workspace.
 3. Enables the Service Fabric solution in the Log Analytics workspace.
 4. Installs the MMA agent extension in each VM scale set in your Service Fabric cluster. With the MMA agent installed, you are able to view performance metrics about your nodes.
