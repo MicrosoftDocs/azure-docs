@@ -3,7 +3,7 @@
 	description="Learn how Linux-based HDInsight clusters improve reliability and availability by using an additional head node. You will learn how this impacts Hadoop services such as Ambari and Hive, as well as how to individually connect to each head node using SSH."
 	services="hdinsight"
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	authors="Blackmist"
 	documentationCenter=""
 	tags="azure-portal"/>
