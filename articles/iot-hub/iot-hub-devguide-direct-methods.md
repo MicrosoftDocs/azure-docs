@@ -44,10 +44,9 @@ Now you have learned how to use direct methods, you may be interested in the fol
 
 - [Schedule jobs on multiple devices][lnk-devguide-jobs]
 
-If you would like to try out some of the concepts described in this article, you may be interested in the following IoT Hub tutorials:
+If you would like to try out some of the concepts described in this article, you may be interested in the following IoT Hub tutorial:
 
-- [Related tutorial 1][lnk-tutorial1]
-- [Related tutorial 2][lnk-tutorial2]
+- [Use cloud-to-device methods][lnk-methods-tutorial]
 
 <!-- links and images -->
 
@@ -58,3 +57,4 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
+[lnk-methods-tutorial]: iot-hub-c2d-methods.md

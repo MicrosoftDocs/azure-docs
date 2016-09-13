@@ -158,8 +158,9 @@ Now you have learned how to control access IoT Hub, you may be interested in the
 
 If you would like to try out some of the concepts described in this article, you may be interested in the following IoT Hub tutorials:
 
-- [Related tutorial 1][lnk-tutorial1]
-- [Related tutorial 2][lnk-tutorial2]
+- [Get started with Azure IoT Hub][lnk-getstarted-tutorial]
+- [How to send cloud-to-device messages with IoT Hub][lnk-c2d-tutorial]
+- [How to process IoT Hub device-to-cloud messages][lnk-d2c-tutorial]
 
 <!-- links and images -->
 
@@ -188,3 +189,7 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-devguide-device-twins]: iot-hub-devguide-device-twins.md
 [lnk-devguide-directmethods]: iot-hub-devguide-direct-methods.md
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
+
+[lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
+[lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
+[lnk-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md

@@ -40,10 +40,9 @@ Other reference topics in the Developer Guide include:
 
 ## Next steps
 
-If you would like to try out some of the concepts described in this article, you may be interested in the following IoT Hub tutorials:
+If you would like to try out some of the concepts described in this article, you may be interested in the following IoT Hub tutorial:
 
-- [Related tutorial 1][lnk-tutorial1]
-- [Related tutorial 2][lnk-tutorial2]
+- [Schedule and broadcast jobs][lnk-jobs-tutorial]
 
 <!-- links and images -->
 
@@ -52,4 +51,4 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-
+[lnk-jobs-tutorial]: iot-hub-schedule-jobs.md

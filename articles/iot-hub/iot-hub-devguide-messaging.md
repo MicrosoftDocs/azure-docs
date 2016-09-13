@@ -61,7 +61,7 @@ For details about how to use device-to-cloud messaging, see [IoT Hub APIs and SD
 
 Often, in addition to telemetry data points, devices also send messages and requests that require execution and handling from the application business logic layer. For example, critical alerts that must trigger a specific action in the back end, or device responses to commands sent from the back end.
 
-For more information about the best way to process this kind of message, see the [Tutorial: How to process IoT Hub device-to-cloud messages][lnk-guidance-d2c-processing] tutorial.
+For more information about the best way to process this kind of message, see the [Tutorial: How to process IoT Hub device-to-cloud messages][lnk-d2c-tutorial] tutorial.
 
 ### Device-to-cloud configuration options
 
@@ -123,7 +123,7 @@ A thread could fail to process a message without notifying IoT Hub. In this case
 
 A message can transition between the **Enqueued** and **Invisible** states for, at most, the number of times specified in the **max delivery count** property on IoT Hub. After that number of transitions, IoT Hub sets the state of the message to **Deadlettered**. Similarly, IoT Hub sets the state of a message to **Deadlettered** after its expiration time (see [Time to live][lnk-ttl]).
 
-For a tutorial on cloud-to-device messages, see [Tutorial: How to send cloud-to-device messages with IoT Hub][lnk-getstarted-c2d-tutorial]. For reference topics on how different APIs and SDKs expose the cloud-to-device functionality, see [IoT Hub APIs and SDKs][lnk-sdks].
+For a tutorial on cloud-to-device messages, see [Tutorial: How to send cloud-to-device messages with IoT Hub][lnk-c2d-tutorial]. For reference topics on how different APIs and SDKs expose the cloud-to-device functionality, see [IoT Hub APIs and SDKs][lnk-sdks].
 
 > [AZURE.NOTE] Typically, cloud-to-device messages complete whenever the loss of the message would not affect the application logic. For example, the message content has been successfully persisted in local storage, or an operation has been successfully executed. The message could also be carrying transient information, whose loss would not impact the functionality of the application. Sometimes, for long-running tasks, you can complete the cloud-to-device message after persisting the task description in local storage. Then you can notify the application back end with one or more device-to-cloud messages at various stages of progress of the task.
 
@@ -295,7 +295,9 @@ Now you have learned how to send and receive messages with IoT Hub, you may be i
 
 If you would like to try out some of the concepts described in this article, you may be interested in the following IoT Hub tutorials:
 
-
+- [Get started with Azure IoT Hub][lnk-getstarted-tutorial]
+- [How to send cloud-to-device messages with IoT Hub][lnk-c2d-tutorial]
+- [How to process IoT Hub device-to-cloud messages][lnk-d2c-tutorial]
 
 
 [img-lifecycle]: ./media/iot-hub-devguide-messaging/lifecycle.png
@@ -303,11 +305,9 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-azure-gateway-guidance]: iot-hub-devguide-endpoints.md#field-gateways
 [lnk-guidance-scale]: iot-hub-scaling.md
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
-[lnk-getstarted-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 [lnk-amqp]: https://www.amqp.org/
 [lnk-event-hubs]: http://azure.microsoft.com/documentation/services/event-hubs/
 [lnk-event-hubs-consuming-events]: ../event-hubs/event-hubs-programming-guide.md#event-consumers
-[lnk-guidance-d2c-processing]: iot-hub-csharp-csharp-process-d2c.md
 [lnk-management-portal]: https://portal.azure.com
 [lnk-servicebus]: http://azure.microsoft.com/documentation/services/service-bus/
 [lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
@@ -337,3 +337,7 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-devguide-device-twins]: iot-hub-devguide-device-twins.md
 [lnk-devguide-directmethods]: iot-hub-devguide-direct-methods.md
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
+
+[lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
+[lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
+[lnk-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md

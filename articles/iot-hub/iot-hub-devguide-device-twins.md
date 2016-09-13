@@ -47,8 +47,8 @@ Now you have learned about device twins, you may be interested in the following 
 
 If you would like to try out some of the concepts described in this article, you may be interested in the following IoT Hub tutorials:
 
-- [Related tutorial 1][lnk-tutorial1]
-- [Related tutorial 2][lnk-tutorial2]
+- [How to use the device twin][lnk-twin-tutorial]
+- [How to use twin properties][lnk-twin-properties]
 
 <!-- links and images -->
 
@@ -60,3 +60,5 @@ If you would like to try out some of the concepts described in this article, you
 
 [lnk-devguide-directmethods]: iot-hub-devguide-direct-methods.md
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
+[lnk-twin-tutorial]: iot-hub-device-management-device-twin.md
+[lnk-twin-properties]: iot-hub-twin-properties.md

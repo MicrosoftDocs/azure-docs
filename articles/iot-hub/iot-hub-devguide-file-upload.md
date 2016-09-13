@@ -107,7 +107,7 @@ Now you have learned how to upload files from devices using IoT Hub, you may be 
 - [Invoke a direct method on a device][lnk-devguide-directmethods]
 - [Schedule jobs on multiple devices][lnk-devguide-jobs]
 
-If you would like to try out some of the concepts described in this article, you may be interested in the following IoT Hub tutorials:
+If you would like to try out some of the concepts described in this article, you may be interested in the following IoT Hub tutorial:
 
 - [How to upload files from devices to the cloud with IoT Hub][lnk-fileupload-tutorial]
 

@@ -131,7 +131,9 @@ Now you have learned how to use the IoT Hub device identity registry, you may be
 - [Invoke a direct method on a device][lnk-devguide-directmethods]
 - [Schedule jobs on multiple devices][lnk-devguide-jobs]
 
-If you would like to try out some of the concepts described in this article, you may be interested in the following IoT Hub tutorials:
+If you would like to try out some of the concepts described in this article, you may be interested in the following IoT Hub tutorial:
+
+- [Get started with Azure IoT Hub][lnk-getstarted-tutorial]
 
 
 <!-- Links and images -->
@@ -153,3 +155,5 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-devguide-device-twins]: iot-hub-devguide-device-twins.md
 [lnk-devguide-directmethods]: iot-hub-devguide-direct-methods.md
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
+
+[lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
