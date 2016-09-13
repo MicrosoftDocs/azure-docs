@@ -1,6 +1,6 @@
 In this tutorial, you build your first Azure data factory with a data pipeline that processes data by running Hive script on an Azure HDInsight (Hadoop) cluster. 
 
-This article does not provide a conceptual overview of Azure Data Factory. For a conceptual overview of the service, see [Introduction to Azure Data Factory](data-factory-introduction.md).
+This article does not provide a conceptual overview of Azure Data Factory. For a conceptual overview of the service, see [Introduction to Azure Data Factory](../articles/data-factory/data-factory-introduction.md).
 
 ## What’s covered in this tutorial?	
 **Azure Data Factory** enables you to compose data **movement** and data **processing** tasks as data-driven workflows (also called data pipelines). You learn how to build your first data pipeline with a data processing (or data transformation) task. This task uses an Azure HDInsight cluster to transform and analyze web logs.  
@@ -35,7 +35,7 @@ Before you begin this tutorial, you must have the following prerequisites:
 
 1.	**Azure subscription** - If you don't have an Azure subscription, you can create a free trial account in just a couple of minutes. See the [Free Trial](https://azure.microsoft.com/pricing/free-trial/) article on how you can obtain a free trial account.
 
-2.	**Azure Storage** – You use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) article. After you have created the storage account, you need to obtain the account key used to access the storage. See [View, copy and regenerate storage access keys](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
+2.	**Azure Storage** – You use an Azure storage account for storing the data in this tutorial. If you don't have an Azure storage account, see the [Create a storage account](../articles/storage/storage-create-storage-account.md#create-a-storage-account) article. After you have created the storage account, you need to obtain the account key used to access the storage. See [View, copy and regenerate storage access keys](../articles/storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
 ## Upload files to Azure Storage for the tutorial
 Before starting the tutorial, you need to prepare the Azure storage with files needed for the tutorial.
@@ -163,7 +163,7 @@ Using notepad, create a file named **input.log** in the **c:\adfgetstarted** wit
 This section provides instructions on using **AzCopy** tool to copy files to Azure Blob Storage. You can use any tool of your choice (for example: [Microsoft Azure Storage Explorer](http://storageexplorer.com/), [CloudXPlorer by ClumsyLeaf Software](http://clumsyleaf.com/products/cloudxplorer) to do this task.   
 	 
 2. To prepare the Azure storage for the tutorial:
-	1. Download the [latest version of **AzCopy**](http://aka.ms/downloadazcopy), or the [latest preview version](http://aka.ms/downloadazcopypr). See [How to use AzCopy](../storage/storage-use-azcopy.md) article for instructions on using the utility.
+	1. Download the [latest version of **AzCopy**](http://aka.ms/downloadazcopy), or the [latest preview version](http://aka.ms/downloadazcopypr). See [How to use AzCopy](../articles/storage/storage-use-azcopy.md) article for instructions on using the utility.
 	2. Add AzCopy location to the system path by running the following command at the command prompt. 
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
