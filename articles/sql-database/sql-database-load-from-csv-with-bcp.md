@@ -1,7 +1,7 @@
 <properties
    pageTitle="Load data from CSV file into Azure SQL Databaase (bcp) | Microsoft Azure"
    description="For a small data size, uses bcp to import data into Azure SQL Database."
-   services="sql-data-warehouse"
+   services="sql-database"
    documentationCenter="NA"
    authors="CarlRabeler"
    manager="jhubbard"
