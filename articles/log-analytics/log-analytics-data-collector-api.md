@@ -36,8 +36,8 @@ The next two tables list the attributes that are required for each request to th
 ### Request URI parameters
 | Parameter | Description |
 |:--|:--|
-| CustomerID  | The unique identifier for the Microsoft Operations Management Suite workspace |
-| Resource    | The API resource name. /api/logs |
+| CustomerID  | The unique identifier for the Microsoft Operations Management Suite workspace. |
+| Resource    | The API resource name: /api/logs. |
 | API Version | The version of the API to use with this request. Currently, it's 2016-04-01. |
 
 ### Request headers
