@@ -18,9 +18,9 @@
 
 # Event Hubs Archive walkthrough - Python
 
-Event Hubs Archive is a new feature of Event Hubs that allows you to automatically deliver the stream data in your Event Hub to an Azure Blob Storage account of your choice. This makes it easy to perform batch processing on real-time streaming data. This article will walk through using Event Hubs Archive with Python. For more information about Event Hubs Archive, see the [overview article](event-hubs-archive-overview.md).
+Event Hubs Archive is a new feature of Event Hubs that allows you to automatically deliver the stream data in your Event Hub to an Azure Blob Storage account of your choice. This makes it easy to perform batch processing on real-time streaming data. This article describes how to use Event Hubs Archive with Python. For more information about Event Hubs Archive, see the [overview article](event-hubs-archive-overview.md).
 
-This sample uses the Azure Python SDK to demonstrate using the Archive feature. The sender.py sends simulated environmental telemetry to Event Hubs in JSON format. The Event Hub is configured to use the Archive feature to write this data to blob storage in batches. archivereader.py then reads these blobs and creates an append file per device and writes the data into .csv files.
+This sample uses the Azure Python SDK to demonstrate using the Archive feature. The sender.py sends simulated environmental telemetry to Event Hubs in JSON format. The Event Hub is configured to use the Archive feature to write this data to blob storage in batches. The archivereader.py then reads these blobs and creates an append file per device and writes the data into .csv files.
 
 What will be accomplished
 
@@ -48,25 +48,25 @@ Prerequisites
 
 2.  In the left navigation pane of the portal, click New, then click Data + Storage, and then click Storage Account.
 
-3.  Fill out the storage account blade and click Create
+3.  Fill out the storage account blade and click **Create**.
 
     ![][1]
 
-4.  After you see the Deployments Succeeded toast, click on the new storage account and in the Essentials blade click on Blobs. When the Blob service blade opens click on + Container at the top. Name the container *archive*, then close the Blob service blade.
+4.  After you see the **Deployments Succeeded** message, click on the new storage account and in the **Essentials** blade click on **Blobs**. When the **Blob service** blade opens, click on **+ Container** at the top. Name the container **archive**, then close the **Blob service** blade.
 
-5.  Click *Access keys* in the left blade and copy out the name of the storage account and the value of key1. Save these into notepad or some temporary location.
+5.  Click **Access keys** in the left blade and copy the name of the storage account and the value of **key1**. Save these to Notepad or some other temporary location.
 
 ## Create an Event Hub using the Azure portal
 
 [AZURE.INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
-## Create Python script to send events to your Event Hub
+## Create a Python script to send events to your Event Hub
 
 1.  Open your favorite Python editor, such as [Visual Studio Code][].
 
-2.  Create a script called sender.py this script is going to send 200 events to your Event Hub. They are simple environmental readings sent in JSON.
+2.  Create a script called **sender.py**. This script will send 200 events to your Event Hub. They are simple environmental readings sent in JSON.
 
-3.  Paste the following code into sender.py
+3.  Paste the following code into sender.py:
 
 	```
 	import uuid
@@ -87,15 +87,15 @@ Prerequisites
 	        sbs.send\_event('myhub', s)
 	    print y
 	```
-1.  Update the preceding code on line 7 to use your namespace name and key.
+4.  Update the preceding code to use your namespace name and key.
 
-## Create Python script to read your archive files
+## Create a Python script to read your archive files
 
-1.  Fill out the blade and click Create
+1.  Fill out the blade and click **Create**.
 
-2.  Create a script called archivereader.py this script will read the archive files and create a file per device to write the data only for that device to
+2.  Create a script called **archivereader.py**. This script will read the archive files and create a file per device to write the data only for that device.
 
-3.  Paste the following code into archivereader.py
+3.  Paste the following code into archivereader.py:
 
 	```
     import os
@@ -140,42 +140,41 @@ Prerequisites
 	startProcessing('YOUR STORAGE ACCOUNT NAME', 'YOUR KEY', 'archive')
     ```
 
-1.  Be sure to paste in the appropriate values for your storage account name and key in the call to `startProcessing`.
+4.  Be sure to paste in the appropriate values for your storage account name and key in the call to `startProcessing`.
 
 ## Run the scripts
 
-1.  Open a command prompt that has Python in its path and then run these commands to install Python prerequisite packages:
+1.  Open a command prompt that has Python in its path, and then run these commands to install Python prerequisite packages:
 
 	```
     pip install azure-storage
- 
 	pip install azure-servicebus
-
 	pip install avro
     ```
   
     If you have an earlier version of either azure-storage or azure you may need to use the `--upgrade` option
 
-    You may also need to run he following (not necessary on most systems):
+    You might also need to run he following (not necessary on most systems):
 
     ```
     pip install cryptography
     ```
 
-2.  Change directory to wherever you saved sender.py and archivereader.py and run this command:
+2.  Change your directory to wherever you saved sender.py and archivereader.py, and run this command:
 
     ```
     start python sender.py
     ```
     
-    This will start a new python process to run the sender.
+    This starts a new Python process to run the sender.
 
 3. Now wait a few minutes so the archive can run. Then type the following command into your original command window:
 
     ```
     python archivereader.py
     ```
-This archive processor will use the local directory to download all the blobs from the storage account / container. It will process any that are not empty and write the results as .csv files into the local directory.
+
+This archive processor uses the local directory to download all the blobs from the storage account/container. It will process any that are not empty and write the results as .csv files into the local directory.
 
 ## Next steps
 
