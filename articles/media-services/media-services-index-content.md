@@ -162,7 +162,7 @@ If not all input media files are indexed successfully, the indexing job will fai
 
 The following method uploads multiple media files as an asset, and creates a job to index all these files in a batch.
 
-A manifest file with the .lst extension is created and uploading into the asset. The manifest file contains the list of all the asset files. For more information, see [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/en-US/library/dn783454.aspx).
+A manifest file with the .lst extension is created and uploading into the asset. The manifest file contains the list of all the asset files. For more information, see [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/library/dn783454.aspx).
 
 	static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
 	{
