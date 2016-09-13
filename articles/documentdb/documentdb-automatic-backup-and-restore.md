@@ -4,7 +4,7 @@
 	keywords="backup and restore, automatic backup"
 	services="documentdb"
 	documentationCenter=""
-	authors="syamkmsft"
+	authors="mimig1"
 	manager="jhubbard"
 	editor="monicar"/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="multiple"
 	ms.topic="article"
 	ms.date="09/13/2016"
-	ms.author="syam.kumar"/>
+	ms.author="raprasa"/>
 
 # Automatic backup and restore with DocumentDB 
 
