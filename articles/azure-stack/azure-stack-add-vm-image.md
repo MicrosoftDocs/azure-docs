@@ -124,8 +124,8 @@ A description of command parameters is below:
         *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;.vhd*
 
 2.  Set the storage account blob container access where the VM image VHD
-    was uploaded to ‘Blob’ by navigating to the storage account blob container and selecting **Access Policy**. This makes the
-    blob anonymously accessible, but if you do not wish to do to make it publically accessible, you
+    was uploaded to ‘Blob’ by navigating to the storage account blob container and selecting **Access Policy**. This access policy makes the
+    blob anonymously accessible. If you do not wish to do to make the blob publically anonymously, you
     can instead generate a Shared Access Signature for the container and include it as part of the blob URI.
 
 ![Navigate to storage account blobs](/articles/azure-stack/media/azure-stack-add-vm-image/image1.png)
@@ -150,7 +150,7 @@ A description of command parameters is below:
 3.  The VM Image status changes to ‘Succeeded’ when the image is
     successfully added.
 
-4.  All tenants can now consume the VM Image by specifying the
+4.  Tenants can deploy the VM Image by specifying the
     Publisher, Offer, SKU, and Version of the added VM Image in an Azure
     Resource Manager template (just as in Azure). To make the VM image
     more readily available for tenant consumption in the UI, it is best
