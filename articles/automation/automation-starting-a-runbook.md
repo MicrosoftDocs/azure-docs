@@ -5,13 +5,14 @@
    documentationCenter=""
    authors="mgoedtel"
    manager="jwhit"
-   editor="tysonn" /><tags
+   editor="tysonn" />
+<tags
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/06/2016"
+   ms.date="09/12/2016"
    ms.author="magoedte;bwren"/>
 
 # Starting a runbook in Azure Automation
@@ -88,9 +89,9 @@ When you start a runbook from the Azure Portal or Windows PowerShell, the instru
 
 The Azure Automation web service will provide special functionality for parameters using certain data types as described in the following sections.
 
-### Named Values
+### Named values
 
-If the parameter is data type [object], then you can use the following JSON format to send it a list of named values: *{"Name1":Value1, "Name2":Value2, "Name3":Value3}*. These values must be simple types. The runbook will receive the parameter as a [PSCustomObject](https://msdn.microsoft.com/library/system.management.automation.pscustomobject(v=vs.85).aspx) with properties that correspond to each named value.
+If the parameter is data type [object], then you can use the following JSON format to send it a list of named values: *{"Name1":Value1, "Name2":Value2, "Name3":Value3}*. These values must be simple types. The runbook will receive the parameter as a [PSCustomObject](https://msdn.microsoft.com/library/system.management.automation.pscustomobject%28v=vs.85%29.aspx) with properties that correspond to each named value.
 
 Consider the following test runbook that accepts a parameter called user.
 
@@ -100,10 +101,11 @@ Workflow Test-Parameters
    param (
       [Parameter(Mandatory=$true)][object]$user
    )
-    if ($user.Show) {
-        foreach ($i in 1..$user.RepeatCount) {
-            $user.FirstName
-            $user.LastName
+    $userObject = $user | ConvertFrom-JSON
+	if ($userObject.Show) {
+        foreach ($i in 1..$userObject.RepeatCount) {
+            $userObject.FirstName
+            $userObject.LastName
         }
     }
 }
@@ -112,7 +114,7 @@ Workflow Test-Parameters
 The following text could be used for the user parameter.
 
 ```
-{"FirstName":"Joe","LastName":"Smith","RepeatCount":2,"Show":true}
+{FirstName:'Joe',LastName:'Smith',RepeatCount:'2',Show:'True'}
 ```
 
 This results in the following output.
@@ -188,6 +190,7 @@ Assuming the username in the credential was *jsmith*, this results in the follow
 jsmith
 ```
 
-## Next Steps
+## Next steps
 
--	The runbook architecture in current article provides a high-level description about hybrid runbooks.  To learn more, see [Child runbooks in Azure Automation](automation-child-runbooks.md)
+-	The runbook architecture in current article provides a high-level overview of runbooks managing resources in Azure and on-premise with the Hybrid Runbook Worker.  To learn about executing Automation runbooks in your datacenter, refer to [Hybrid Runbook Workers](automation-hybrid-runbook-worker.md).
+-	To learn more about the creating modular runbooks to be used by other runbooks for specific or common functions, refer to [Child Runbooks](automation-child-runbooks.md).
