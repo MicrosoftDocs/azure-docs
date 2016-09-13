@@ -74,7 +74,6 @@ The following is a list of links to online API reference documentation for Azure
 
 To further explore the capabilities of IoT Hub, see:
 
-- [Designing your solution][lnk-design]
 - [Exploring device management using the sample UI][lnk-dmui]
 - [Simulating a device with the Gateway SDK][lnk-gateway]
 - [Using the Azure Portal to manage IoT Hub][lnk-portal]
@@ -96,13 +95,12 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-dotnet-ref]: https://msdn.microsoft.com/library/mt488521.aspx
 [lnk-c-ref]: http://azure.github.io/azure-iot-sdks/c/api_reference/index.html
 [lnk-java-ref]: http://azure.github.io/azure-iot-sdks/java/device/api_reference/index.html
-[lnk-node-ref]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iot-device/1.0.13/index.html
+[lnk-node-ref]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iot-device/1.0.14/index.html
 [lnk-rest-ref]: https://msdn.microsoft.com/library/mt548492.aspx
 [lnk-java-service-ref]: http://azure.github.io/azure-iot-sdks/java/service/api_reference/index.html
-[lnk-node-service-ref]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iothub/1.0.15/index.html
+[lnk-node-service-ref]: http://azure.github.io/azure-iot-sdks/node/api_reference/azure-iothub/1.0.16/index.html
 [lnk-gateway-ref]: http://azure.github.io/azure-iot-gateway-sdk/api_reference/c/html/
 
-[lnk-design]: iot-hub-guidance.md
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md
