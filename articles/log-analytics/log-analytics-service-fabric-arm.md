@@ -70,20 +70,22 @@ Following the same steps above, input the necessary parameters, and kick off a d
 
 To view Perf Data from your nodes:
 </br>
-1. Launch the Log Analytics workspace from the Azure portal.
+- Launch the Log Analytics workspace from the Azure portal.
 
 ![Service Fabric](./media/log-analytics-service-fabric/6.png)
 
-2. Go to Settings on the left pane, and select Data >> Windows Performance Counters >> "Add the selected performance counters":
+- Go to Settings on the left pane, and select Data >> Windows Performance Counters >> "Add the selected performance counters":
 ![Service Fabric](./media/log-analytics-service-fabric/7.png)
 
-3. In Log Search, use the following queries to delve into key metrics about your nodes:
+- In Log Search, use the following queries to delve into key metrics about your nodes:
 </br>
+
 	a. Compare the average CPU Utilization across all your nodes in the last one hour to see which nodes are having issues and at what time interval a node had a spike:
 	
 	``` Type=Perf ObjectName=Processor CounterName="%Processor Time"|measure avg(CounterValue) by Computer Interval 1HOUR. ```
 	
 	![Service Fabric](./media/log-analytics-service-fabric/10.png)
+	
 
 	b. View similar line charts for available memory on each node with this query:
 	
