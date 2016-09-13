@@ -67,7 +67,7 @@ Following the same steps above, input the necessary parameters, and kick off a d
 ![Service Fabric](./media/log-analytics-service-fabric/5.png)
 
 ###Viewing Performance Data
-</br>
+
 To view Perf Data from your nodes:
 </br>
 1. Launch the Log Analytics workspace from the Azure portal.
@@ -106,8 +106,10 @@ To view Perf Data from your nodes:
 
 
 ##Adding an existing storage account to Log Analytics
+
 This template simply adds your existing storage accounts to a new or existing Log Analytics workspace.
 </br>
+
 [![Deploy to Azure](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Foms-storageaccount%2F%2Fazuredeploy.json) 
 
 >[AZURE.NOTE] In selecting a Resource Group, if you're working with an already existing Log Analytics workspace, select "Use Existing" and search for the resource group containing the OMS workspace. Create a new one if otherwise.
