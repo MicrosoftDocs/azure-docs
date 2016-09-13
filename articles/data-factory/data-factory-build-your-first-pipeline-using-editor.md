@@ -16,21 +16,16 @@
 	ms.date="08/16/2016"
 	ms.author="spelluru"/>
 
-# Build your first Azure data factory using Azure portal/Data Factory Editor
+# Tutorial: Build your first Azure data factory using Azure portal
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
-- [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
+- [Using Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
 - [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
 - [Using REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-In this article, you learn how to use the [Azure portal](https://portal.azure.com/) to create your first Azure data factory. 
-
-## Prerequisites
-
-1. Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the prerequisite steps before proceeding further.
-2. This article does not provide a conceptual overview of the Azure Data Factory service. We recommend that you go through [Introduction to Azure Data Factory](data-factory-introduction.md) article for a detailed overview of the service.  
+[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)] 
 
 ## Create data factory
 A data factory can have one or more pipelines. A pipeline can have one or more activities in it. For example, a Copy Activity to copy data from a source to a destination data store and a HDInsight Hive activity to run Hive script to transform input data to product output data. Let's start with creating the data factory in this step. 
