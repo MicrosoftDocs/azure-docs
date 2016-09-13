@@ -20,7 +20,8 @@
 This release provides new features for both tenants and administrators.
 
 ## Key Vault 
-[Key Vault](azure-stack-intro-key-vault.md) provides secure management of your keys and passwords for cloud apps.
+- [Key Vault](azure-stack-intro-key-vault.md) provides secure management of your keys and passwords for cloud apps.
+- Allows for auditing and monitoring of key usage by apps and VMs.
 
 ## Network   
    - [iDNS](azure-stack-what-is-idns.md) provides internal network name registration and DNS resolution without additional DNS infrastructure.
@@ -39,13 +40,13 @@ This release provides new features for both tenants and administrators.
  - You can deallocate and capture virtual machines, redeploy virtual machine extensions, and resize virtual machine disks.  
  - Export Resource Manager templates from portal.
 
-## Billing and Usage
+## Billing and usage
  - Billing and consumption APIs expose data on how your services are consumed.  
  - You can capture plans and offers in Resource Manager templates.
  - Delegated Providers enable resellers to offer your Azure Stack services to their customers.
  - Reclaim unused tenant resources on-demand.
 
-## Monitoring and Health
+## Monitoring and health
  - Azure Stack Regions are a logical unit of scale and management within Azure Stack. In this preview, you can view resource consumption of network, storage, and compute resources by region.
  - New monitoring capabilities available in the portal and APIs allow you to proactively view and manage alerts on your environment.  
  - System Health Tests automatically test your fabric to ensure services are working as expected.  
