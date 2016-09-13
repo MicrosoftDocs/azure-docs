@@ -106,7 +106,7 @@ Domain-based filtering configuration consists of these steps:
 ![Partitions](./media/active-directory-aadconnectsync-configure-filtering/connectorpartitions.png)  
 If you have changed your on-premises AD infrastructure and added or removed domains from the forest, then click the **Refresh** button to get an updated list. When you refresh, you are asked for credentials. Provide any credentials with read access to your on-premises Active Directory. It does not have to be the user that is pre-populated in the dialog box.  
 ![Refresh needed](./media/active-directory-aadconnectsync-configure-filtering/refreshneeded.png)  
-6. When you are done, close the **Properties** dialog by clicking **OK**. If you have removed domains from the forest a message pop-up saying a domain was removed and that configuration will be cleaned up.
+6. When you are done, close the **Properties** dialog by clicking **OK**. If you have removed domains from the forest, a message pop-up saying a domain was removed and that configuration will be cleaned up.
 7. Continue to adjust the [run profiles](#update-run-profiles).
 
 ### Update Run Profiles
@@ -182,9 +182,9 @@ Let us look at an example:
 ![Scope](./media/active-directory-aadconnectsync-configure-filtering/scope.png)
 This should be read as **(department = IT) OR (department = Sales AND c = US)**.
 
-In the samples and steps below you use the user object as an example, but you can use this for all object types.
+In the samples and steps below, you use the user object as an example, but you can use this for all object types.
 
-In the samples below, the precedence value start with 500. This value ensures these are evaluated after the out-of-box rules (lower precedence, higher numeric value).
+In the samples below, the precedence value start with 500. This value ensures these rules are evaluated after the out-of-box rules (lower precedence, higher numeric value).
 
 #### Negative filtering, "do not sync these"
 In the following example, you filter out (not synchronize) all users where **extensionAttribute15** have the value **NoSync**.
@@ -194,7 +194,7 @@ In the following example, you filter out (not synchronize) all users where **ext
 3. Make sure **Inbound** is selected and click **Add New Rule**.
 4. Give the rule a descriptive name, such as "*In from AD – User DoNotSyncFilter*". Select the correct forest, **User** as the **CS object type**, and **Person** as the **MV object type**. As **Link Type**, select **Join** and in precedence type a value currently not used by another Synchronization Rule (for example 500), and then click **Next**.  
 ![Inbound 1 description](./media/active-directory-aadconnectsync-configure-filtering/inbound1.png)  
-5. In **Scoping filter**, click **Add Group**, click **Add Clause** and in attribute select **ExtensionAttribute15**. Make sure the Operator is set to **EQUAL** and type the value **NoSync** in the Value box. Click **Next**.  
+5. In **Scoping filter**, click **Add Group**, click **Add Clause**, and in attribute select **ExtensionAttribute15**. Make sure the Operator is set to **EQUAL** and type the value **NoSync** in the Value box. Click **Next**.  
 ![Inbound 2 scope](./media/active-directory-aadconnectsync-configure-filtering/inbound2.png)  
 6. Leave the **Join** rules empty, and then click **Next**.
 7. Click **Add Transformation**, select the **FlowType** to **Constant**, select the Target Attribute **cloudFiltered** and in the Source text box, type **True**. Click **Add** to save the rule.  
@@ -202,18 +202,18 @@ In the following example, you filter out (not synchronize) all users where **ext
 8. To complete the configuration, [Apply and verify changes](#apply-and-verify-changes).
 
 #### Positive filtering, "only sync these"
-Expressing positive filtering can be more challenging since you have to also consider objects which are not obvious to be synchronized, such as conference rooms.
+Expressing positive filtering can be more challenging since you have to also consider objects that are not obvious to be synchronized, such as conference rooms.
 
-The positive filtering option requires two sync rules. One (or several) with the correct scope of objects to synchronize and a second catch-all sync rule that filter out all objects which have not yet been identified as an object which should be synchronized.
+The positive filtering option requires two sync rules. One (or several) with the correct scope of objects to synchronize and a second catch-all sync rule that filter out all objects that have not yet been identified as an object which should be synchronized.
 
-In the following example you only synchronize user objects where the department attribute has the value **Sales**.
+In the following example, you only synchronize user objects where the department attribute has the value **Sales**.
 
 1. Sign in to the server that is running Azure AD Connect sync by using an account that is a member of the **ADSyncAdmins** security group.
 2. Start **Synchronization Rules Editor** from the start menu.
 3. Make sure **Inbound** is selected and click **Add New Rule**.
 4. Give the rule a descriptive name, such as "*In from AD – User Sales sync*". Select the correct forest, **User** as the **CS object type**, and **Person** as the **MV object type**. As **Link Type**, select **Join** and in precedence type a value currently not used by another Synchronization Rule (for example 501), and then click **Next**.  
 ![Inbound 4 description](./media/active-directory-aadconnectsync-configure-filtering/inbound4.png)  
-5. In **Scoping filter**, click **Add Group**, click **Add Clause** and in attribute select **department**. Make sure the Operator is set to **EQUAL** and type the value **Sales** in the Value box. Click **Next**.  
+5. In **Scoping filter**, click **Add Group**, click **Add Clause**, and in attribute select **department**. Make sure the Operator is set to **EQUAL** and type the value **Sales** in the Value box. Click **Next**.  
 ![Inbound 5 scope](./media/active-directory-aadconnectsync-configure-filtering/inbound5.png)  
 6. Leave the **Join** rules empty, and then click **Next**.
 7. Click **Add Transformation**, select the **FlowType** to **Constant**, select the Target Attribute **cloudFiltered** and in the Source text box, type **False**. Click **Add** to save the rule.  
@@ -230,20 +230,20 @@ This is a special case where you set cloudFiltered explicitly to False.
 ![Inbound 3 transformation](./media/active-directory-aadconnectsync-configure-filtering/inbound3.png)  
 12. To complete the configuration, [Apply and verify changes](#apply-and-verify-changes).
 
-If you need to, then you can create more rules of the first type where you include more and more objects in our synchronization.
+If you need to, then you can create more rules of the first type where you include more objects in our synchronization.
 
 ### Outbound filtering
-In some cases it is necessary to do the filtering only after the objects have joined in the metaverse. It could, for example, be required to look at the mail attribute from the resource forest and the userPrincipalName attribute from the account forest to determine if an object should be synchronized. In these cases, you create the filtering on the outbound rule.
+In some cases, it is necessary to do the filtering only after the objects have joined in the metaverse. It could, for example, be required to look at the mail attribute from the resource forest and the userPrincipalName attribute from the account forest to determine if an object should be synchronized. In these cases, you create the filtering on the outbound rule.
 
 In this example, you change the filtering so only users where both mail and userPrincipalName end with @contoso.com are synchronized:
 
 1. Sign in to the server that is running Azure AD Connect sync by using an account that is a member of the **ADSyncAdmins** security group.
 2. Start **Synchronization Rules Editor** from the start menu.
-3. Under Rules Type click **Outbound**.
+3. Under **Rules Type**, click **Outbound**.
 4. Find the rule named **Out to AAD – User Join SOAInAD**. Click **Edit**.
 5. In the pop-up, answer **Yes** to create a copy of the rule.
 6. On the **Description** page, change precedence to an unused value, for example 50.
-7. Click **Scoping filter** on the left-hand navigation. Click **Add clause** and in Attribute select **mail**, in Operator select **ENDSWITH**, and in Value type **@contoso.com**. Click **Add clause** and in Attribute select **userPrincipalName**, in Operator select **ENDSWITH**, and in Value type **@contoso.com**.
+7. Click **Scoping filter** on the left-hand navigation. Click **Add clause**, in Attribute select **mail**, in Operator select **ENDSWITH**, and in Value type **@contoso.com**. Click **Add clause**, in Attribute select **userPrincipalName**, in Operator select **ENDSWITH**, and in Value type **@contoso.com**.
 8. Click **Save**.
 9. To complete the configuration, [Apply and verify changes](#apply-and-verify-changes).
 
@@ -268,7 +268,7 @@ After the synchronization, all changes are staged to be exported. Before you act
 The name of the Connector can be found in Synchronization Service. It has a name similar to "contoso.com – AAD" for Azure AD.
 3. Run: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`
 4. You now have a file in %temp% named export.csv that can be examined in Microsoft Excel. This file contains all changes that are about to be exported.
-5. Make necessary changes to the data or configuration and run these steps again (Import, Synchronize and Verify) until the changes that are about to be exported are expected.
+5. Make necessary changes to the data or configuration and run these steps again (Import, Synchronize, and Verify) until the changes that are about to be exported are expected.
 
 When you are satisfied, export the changes to Azure AD.
 
