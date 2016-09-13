@@ -146,7 +146,7 @@ The time interval at which the Archive starts archiving the data in Azure blob s
 	"minValue":60,
 	"maxValue":900,
 	"metadata":{
-		 "description":"the time window for the archival"
+		 "description":"the time window in seconds for the archival"
 	}
 }
 ```
@@ -162,7 +162,7 @@ The size interval at which the Archive starts archiving the data in Azure blob s
 	"minValue":10485760,
 	"maxValue":524288000,
 	"metadata":{
-		"description":"the size window for archival"
+		"description":"the size window in bytes for archival"
 	}
 }
 ```
@@ -175,7 +175,7 @@ The Archive will require a Storage Account resource id, to enable archive to you
  "destinationStorageAccountResourceId":{
 	"type":"string",
 	"metadata":{
-		"description":"Storage Account resource id where you want the blobs be archived"
+		"description":"Your existing storage Account resource id where you want the blobs be archived"
 	}
  }
 ```
@@ -188,7 +188,7 @@ The blob cotainer where you want your Event Data be archived.
  "blobContainerName":{
 	"type":"string",
 	"metadata":{
-		"description":"Storage Container that you want the blobs archived in"
+		"description":"Your existing storage Container that you want the blobs archived in"
 	}
 }
 ```
