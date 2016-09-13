@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="09/13/2016"
 	ms.author="guybo"/>
 
 # Virtual Machine Scale Sets Overview
@@ -31,7 +31,7 @@ Take a look at these videos for more about VM scale sets:
 
 ## Creating and managing VM scale sets
 
-You can create a VM Scale Set in the [Azure portal](https://portal.azure.com) by selecting _new_ and typing in "scale" in the search bar. You will see "Virtual machine scale set" in the result. From there you can fill in the required fields to customize and deploy your scale set. 
+You can create a VM Scale Set in the [Azure portal](https://portal.azure.com) by selecting _new_ and typing in "scale" in the search bar. You will see "Virtual machine scale set" in the results. From there you can fill in the required fields to customize and deploy your scale set. 
 
 VM scale sets can also be defined and deployed using JSON templates and [REST APIs](https://msdn.microsoft.com/library/mt589023.aspx) just like individual Azure Resource Manager VMs. Therefore, any standard Azure Resource Manager deployment methods can be used. For more information about templates, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
 
