@@ -45,7 +45,7 @@ From the Azure portal:
 
    ![](./media/app-service-logic-enterprise-integration-schemas/schema-largefile.png)  
 
-8. You should see the newly added schema      
+8. You should see the newly added schema  
 ![](./media/app-service-logic-enterprise-integration-schemas/schema-41.png) 
 
 ## How to use schemas
@@ -55,7 +55,7 @@ From the Azure portal:
 1. Select the **Schemas** tile  
 2. Select the schema you wish to edit from the Schemas blade that opens up
 3. Select the **Upload** link on the Schemas blade  
-![](./media/app-service-logic-enterprise-integration-schemas/edit-11.png)    
+![](./media/app-service-logic-enterprise-integration-schemas/edit-12.png)    
 4. Select the schema file you wish to upload by using the file picker dialog that opens up.
 5. Select **Open** in the file picker  
 ![](./media/app-service-logic-enterprise-integration-schemas/edit-31.png)  
@@ -65,7 +65,7 @@ From the Azure portal:
 1. Select the **Schemas** tile  
 2. Select the schema you wish to delete from the Schemas blade that opens up  
 3. Select the **Delete** link from the menu bar on the Shemas blade
-![](./media/app-service-logic-enterprise-integration-schemas/delete-11.png)  
+![](./media/app-service-logic-enterprise-integration-schemas/delete-12.png)  
 4. If you really wish to delete the schema you selected, choose **Yes** on the Delete schema dialog to confirm your choice  
 ![](./media/app-service-logic-enterprise-integration-schemas/delete-21.png)  
 5. Finally, notice that the list of schemas in the Schemas blade refreshes and the schema you deleted is no longer listed  
