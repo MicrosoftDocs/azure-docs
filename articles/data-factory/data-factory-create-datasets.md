@@ -22,7 +22,7 @@ This article describes datasets in Azure Data Factory and includes examples such
 
 When you create a dataset, you’re creating a pointer to the data that you want to process. Data is processed (input/output) in an activity and an activity is contained in a pipeline. An input dataset represents the input for an activity in the pipeline and an output dataset represents the output for the activity.
 
-Datasets identify data within different data stores, such as tables, files, folders, and documents. After you create a dataset, you can use it with activities in a pipeline. For example, a dataset can be an input/output dataset of a Copy Activity or an HDInsightHive Activity. The Azure Portal gives you a visual layout of all of your pipelines and data inputs and outputs. At a glance, you can see all the relationships and dependencies of your data pipelines across all of your sources so you always know where data is coming from and where it is going.
+Datasets identify data within different data stores, such as tables, files, folders, and documents. After you create a dataset, you can use it with activities in a pipeline. For example, a dataset can be an input/output dataset of a Copy Activity or an HDInsightHive Activity. The Azure portal gives you a visual layout of all of your pipelines and data inputs and outputs. At a glance, you can see all the relationships and dependencies of your data pipelines across all of your sources so you always know where data is coming from and where it is going.
 
 In Azure Data Factory you can get data from a dataset by using copy activity in a pipeline.
 
@@ -95,7 +95,7 @@ Note the following:
 
 - type is set to AzureSqlTable.
 - tableName type property (specific to AzureSqlTable type) is set to MyTable.
-- linkedServiceName refers to an linked service of type AzureSqlDatabase. See the definition of linked service below. 
+- linkedServiceName refers to a linked service of type AzureSqlDatabase. See the definition of linked service below. 
 - availability frequency is set to Day and interval is set to 1, which means that the slice is produced daily.  
 
 AzureSqlLinkedService is defined as follows:
@@ -123,7 +123,7 @@ As you can see, the linked service defines how to connect to an Azure SQL databa
 > [AZURE.IMPORTANT] Unless a dataset is being produced by Azure Data Factory, it should be marked as **external**. This would generally apply to input(s) of first activity in a pipeline.   
 
 ## <a name="Type"></a> Dataset Type
-The supported data sources and dataset types are aligned. See topics referenced in the [Data Movement Activities](data-factory-data-movement-activities.md#supported-data-stores) article for information on types and configuration of datasets. For example, if you are using data from an Azure SQL database, click Azure SQL Database in the list of  supported data stores to see detailed information on how to use Azure SQL Database as a source or sink data store.  
+The supported data sources and dataset types are aligned. See topics referenced in the [Data Movement Activities](data-factory-data-movement-activities.md#supported-data-stores) article for information on types and configuration of datasets. For example, if you are using data from an Azure SQL database, click Azure SQL Database in the list of supported data stores to see detailed information on how to use Azure SQL Database as a source or sink data store.  
 
 ## <a name="Structure"></a>Dataset Structure
 The **structure** section defines the schema of the dataset. It contains a collection of names and data types of columns.  In the following example, the dataset has three columns slicetimestamp, projectname, and pageviews and they are of type: String, String, and Decimal respectively.
@@ -136,7 +136,7 @@ The **structure** section defines the schema of the dataset. It contains a colle
 	]
 
 ## <a name="Availability"></a> Dataset Availability
-The **availability** section in a dataset defines the processing window (hourly, daily, weekly etc...) or the slicing model for the dataset. See [Scheduling and Execution](data-factory-scheduling-and-execution.md) article for more details on the dataset slicing and dependency model. 
+The **availability** section in a dataset defines the processing window (hourly, daily, weekly etc.,) or the slicing model for the dataset. See [Scheduling and Execution](data-factory-scheduling-and-execution.md) article for more details on the dataset slicing and dependency model. 
 
 The availability section below specifies that the dataset is either produced hourly in case of an output dataset (or) available hourly in case of input dataset. 
 
@@ -168,13 +168,13 @@ Daily slices that start at 6 AM instead of the default midnight.
 	}
 
 The **frequency** is set to **Month** and **interval** is set to **1** (once a month): 
-If you want the slice to be produced on 9th day of each month at 6 AM, set offset to "09.06:00:00". Remember that this is an UTC time. 
+If you want the slice to be produced on 9th day of each month at 6 AM, set offset to "09.06:00:00". Remember that this time is an UTC time. 
 
-For a 12 month (frequency = month; interval = 12) schedule, offset: 60.00:00:00 means every year on March 1st or 2nd (60 days from the beginning of the year if style =  StartOfInterval), depending on the year being leap year or not.
+For a 12 month (frequency = month; interval = 12) schedule, offset: 60.00:00:00 means every year on March 1st or 2nd (60 days from the beginning of the year if style = StartOfInterval), depending on the year being leap year or not.
 
 ## anchorDateTime example
 
-**Example:** 23 hours dataset slices that starts on 2007-04-19T08:00:00
+**Example:** 23 hours dataset slices that start on 2007-04-19T08:00:00
 
 	"availability":	
 	{	
@@ -253,7 +253,7 @@ Unless a dataset is being produced by Azure Data Factory, it should be marked as
 | maximumRetry | Number of times to check for the availability of the external data. The allowed maximum value is 10. | No | 3 | 
 
 ## Scoped datasets
-You can create datasets that are scoped to a pipeline by using the **datasets** property. These datasets can only used by activities within this pipeline but not by activities in other pipelines. The following example defines a pipeline with two datasets - InputDataset-rdc and OutputDataset-rdc - to be used within the pipeline.  
+You can create datasets that are scoped to a pipeline by using the **datasets** property. These datasets can only be used by activities within this pipeline but not by activities in other pipelines. The following example defines a pipeline with two datasets - InputDataset-rdc and OutputDataset-rdc - to be used within the pipeline.  
 
 > [AZURE.IMPORTANT] Scoped datasets are supported only with one-time pipelines (**pipelineMode** set to **OneTime**). See [Onetime pipeline](data-factory-scheduling-and-execution.md#onetime-pipeline) for details.
 
