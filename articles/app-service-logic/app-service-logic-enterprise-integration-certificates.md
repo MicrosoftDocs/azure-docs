@@ -68,9 +68,15 @@ Here are the detailed steps to upload your public certificates into your integra
 2. Create a private certificate  
 3. Upload the private certificate into your integration account  
 
+<<<<<<< HEAD
+=======
+2. Create a private certificate 3. Upload the private certificate into the integration account  
+
+>>>>>>> origin/master
 After you have done the steps above, you can use the private certificate to create agreements.
 
-Here are the detailed steps to upload your private certificates into your integration account after you log in to the Azure portal:   
+Here are the detailed steps to upload your private certificates into your integration account after you log in to the Azure portal:
+   
 1. Select **Browse**  
 ![](./media/app-service-logic-enterprise-integration-overview/overview-1.png)    
 2. Enter **integration** in the filter search box and select **Integration Accounts** from the results list     
