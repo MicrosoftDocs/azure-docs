@@ -19,7 +19,7 @@
 # Install PowerShell and connect
 In this guide, we walk through the steps for connecting to Azure Stack with PowerShell.  Once complete, you can use these steps to manage and deploy resources.
 
-## Install Azure Stack PowerShell commandlets
+## Install Azure Stack PowerShell cmdlets
 
 The AzureRM cmdlets are installed from the PowerShell Gallery.  To begin, open a PowerShell Console on MAS-CON01 and run the following command:
 

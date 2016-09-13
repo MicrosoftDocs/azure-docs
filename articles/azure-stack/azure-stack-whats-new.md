@@ -19,13 +19,6 @@
 # What's new in Azure Stack Technical Preview 2
 This release provides new features for both tenants and administrators.
 
-## App Services
-Build your apps on the latest platform with an updated App Service Resource Provider:
-   - Enable scale-up and scale-out, source control integration, and deployment slots.
-   - API App Service allows you to bring your APIs and apply enterprise security, access control, and scale.
-   - Mobile Apps service provides scalable API services — allowing you to build the cross-platform mobile apps.
-   - Web App updates enable new features like WebJobs and PHP 7 support.
-
 ## Key Vault 
 [Key Vault](azure-stack-intro-key-vault.md) provides secure management of your keys and passwords for cloud apps.
 
