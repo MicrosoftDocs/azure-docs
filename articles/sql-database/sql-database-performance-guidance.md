@@ -446,4 +446,5 @@ Some database applications contain read-heavy workloads. It is possible to utili
 ## Next steps
 
 - For more information on service tiers, see [servcie tiers](sql-database-service-tiers.md)
-- For more information on elastic pools, see [elastic pools](sql-database-elastic-pools.md)
+- For more information on elastic pools, see [elastic pools](sql-database-elastic-pool.md)
+- For information on performance and elastic pools, see [performance considerations for elastic pools](sql-database-elastic-pool-guidance.md)
