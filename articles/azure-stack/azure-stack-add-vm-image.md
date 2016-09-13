@@ -46,14 +46,15 @@ If the VM image VHD is available locally on the Console VM (or another externall
 ```powershell
 Import-Module .\Add-VMImage.psm1
 ```
-4. Add the VM image by invoking the Add-VMImage cmdlet. An example invocation of the script is the following:
-    ```powershell
-    Add-VMImage -publisher "Canonical" -offer "UbuntuServer" -sku "14.04.3-LTS" -version "1.0.0" -osType Linux -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' -tenantID &lt;myaadtenant&gt;.onmicrosoft.com 
-    ```
-    -  Include the Publisher, Offer, Sku, and Version for the VM image. These parameters are used by Azure Resource Manager templates that reference the VM image. 
-    -  Specify the osType as Windows or Linux
-    -  Include your Azure Active Directory Tenant ID in the form &lt;myaadtenant&gt;.onmicrosoft.com
-    
+4. Add the VM image by invoking the Add-VMImage cmdlet.  
+	-  Include the Publisher, Offer, Sku, and Version for the VM image. These parameters are used by Azure Resource Manager templates that reference the VM image. 
+	-  Specify the osType as Windows or Linux
+	-  Include your Azure Active Directory Tenant ID in the form &lt;myaadtenant&gt;.onmicrosoft.com
+	- An example invocation of the script is the following:
+```powershell
+Add-VMImage -publisher "Canonical" -offer "UbuntuServer" -sku "14.04.3-LTS" -version "1.0.0" -osType Linux -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' -tenantID <myaadtenant>.onmicrosoft.com 
+```
+
 > [AZURE.NOTE] The cmdlet will request credentials for adding the VM image. Provide the administrator AAD credentials, like serviceadmin@&lt;myaadtenant&gt;.onmicrosoft.com, to the prompt.  
 
 5. The command will authenticate to your Azure Stack environment, upload the local VHD to a newly created temporary storage account, add the VM image into the VM image repository, and create a Marketplace item for the VM image. To verify that the command ran successfully, navigate to the Marketplace in the portal and verify that the VM image is available in the Virtual Machines category.
