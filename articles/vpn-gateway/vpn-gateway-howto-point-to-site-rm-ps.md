@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="Configure a Point-to-Site VPN connection to virtual network using the Resource Manager deployment model | Microsoft Azure"
-   description="Securely connect to your Azure Virtual Network by creating a Point-to-Site VPN connection."
+   pageTitle="Configure a Point-to-Site VPN gateway connection to virtual network using the Resource Manager deployment model | Microsoft Azure"
+   description="Securely connect to your Azure Virtual Network by creating a Point-to-Site VPN gateway connection."
    services="vpn-gateway"
    documentationCenter="na"
    authors="cherylmc"
@@ -22,7 +22,7 @@
 - [PowerShell - Resource Manager](vpn-gateway-howto-point-to-site-rm-ps.md)
 - [Portal - Classic](vpn-gateway-point-to-site-create.md)
 
-A Point-to-Site (P2S) configuration allows you to create a secure connection from an individual client computer to a virtual network. A P2S connection is useful when you want to connect to your VNet from a remote location, such as from home or a conference, or when you only have a few clients that need to connect to a virtual network. 
+A Point-to-Site (P2S) configuration lets you create a secure connection from an individual client computer to a virtual network. A P2S connection is useful when you want to connect to your VNet from a remote location, such as from home or a conference, or when you only have a few clients that need to connect to a virtual network. 
 
 This article walks you through creating a VNet with a Point-to-Site connection in the **Resource Manager deployment model**. The steps require PowerShell. Currently, you cannot create this solution end-to-end in the Azure portal.
 
@@ -65,7 +65,7 @@ We use the following values for this configuration. We set the variables in sect
 
 - Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 	
-- Install the Azure Resource Manager PowerShell cmdlets (1.0.2 or later). See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets.
+- Install the Azure Resource Manager PowerShell cmdlets (1.0.2 or later). See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets. When working with PowerShell for this configuration, make sure that you are running as administrator. 
 
 ## <a name="declare"></a>Part 1 - Log in and set variables
 
@@ -176,15 +176,24 @@ Clients connecting to Azure using P2S must have both a client certificate and a 
 
 	![VPN client](./media/vpn-gateway-howto-point-to-site-rm-ps/vpn.png "VPN client")
 
-## <a name="cc"></a>Part 6 - Install the client certificate
-	
-Generate and install the client certificates (*.pfx) created from the root certificate on the client computers. You can use any method of installing that you are comfortable with.
+## <a name="cc"></a>Part 6 - Generate the client certificate
 
-If you are using a self-signed root certificate and are unfamiliar with how to generate a client certificate, you can refer to [this article](vpn-gateway-certificates-point-to-site.md). If you are working with an enterprise solution, make sure to issue the client certificates with the common name value format 'name@yourdomain.com', rather than the 'NetBIOS domain name\username' format.
+Next, generate the client certificates. You can either generate a unique certificate for each client that will connect, or you can use the same certificate on multiple clients. The advantage to generating unique client certificates is the ability to revoke a single certificate if needed. Otherwise, if everyone is using the same client certificate and you find that you need to revoke the certificate for one client, you will need to generate and install new certificates for all of the clients that use the certificate to authenticate.
 
-You can install a client certificate directly on a computer by double-clicking the .pfx file.
+- If you are using an enterprise certificate solution, generate a client certificate with the common name value format 'name@yourdomain.com', rather than the NetBIOS 'DOMAIN\username' format. 
 
-## Part 7 - Connect to Azure
+- If you are using a self-signed certificate, see [Working with self-signed root certificates for Point-to-Site configurations](vpn-gateway-certificates-point-to-site.md) to generate a client certificate.
+
+## Part 7 - Install the client certificate
+
+Install a client certificate on each computer that you want to connect to the virtual network. A client certificate is required for authentication. You can automate installing the client certificate, or you can install manually. The following steps walk you through exporting and installing the client certificate manually.
+
+1. To export a client certificate, you can use *certmgr.msc*. Right-click the client certificate that you want to export, click **all tasks**, and then click **export**.
+2. Export the client certificate with the private key. This is a *.pfx* file. Make sure to record or remember the password (key) that you set for this certificate.
+3. Copy the *.pfx* file to the client computer. On the client computer, double-click the *.pfx* file to install it. Enter the password when requested. Do not modify the installation location.
+
+
+## Part 8 - Connect to Azure
 
 1. To connect to your VNet, on the client computer, navigate to VPN connections and locate the VPN connection that you created. It is named the same name as your virtual network. Click **Connect**. A pop-up message may appear that refers to using the certificate. If this happens, click **Continue** to use elevated privileges. 
 
@@ -196,7 +205,7 @@ You can install a client certificate directly on a computer by double-clicking t
 
 	![VPN client 3](./media/vpn-gateway-howto-point-to-site-rm-ps/connected.png "VPN client connection 2")
 
-## Part 8 - Verify your connection
+## Part 9 - Verify your connection
 
 1. To verify that your VPN connection is active, open an elevated command prompt, and run *ipconfig/all*.
 

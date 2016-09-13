@@ -163,7 +163,7 @@ MBps = 10^6 bytes per second.
 
 | Size             | CPU cores | Memory: GiB | Local SSD disk size: GiB | Max data disks | Max cached disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth |
 |------------------|-----------|--------------|---------------------------|----------------|-------------------------------------------------|-------------------------------------------------|------------------------------|
-| Standard_DS1_v2  | 1         | 3.5          | 7                         | 2              | 4,000 / 32 (43)                        | 3,200 / 48                                 | 4 moderate                   |
+| Standard_DS1_v2  | 1         | 3.5          | 7                         | 2              | 4,000 / 32 (43)                        | 3,200 / 48                                 | 1 moderate                   |
 | Standard_DS2_v2  | 2         | 7            | 14                        | 4              | 8,000 / 64 (86)                        | 6,400 / 96                                 | 2 high                       |
 | Standard_DS3_v2  | 4         | 14           | 28                        | 8              | 16,000 / 128 (172)                     | 12,800 / 192                               | 4 high                       |
 | Standard_DS4_v2  | 8         | 28           | 56                        | 16             | 32,000 / 256 (344)                     | 25,600 / 384                               | 8 high                       |

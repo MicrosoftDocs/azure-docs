@@ -24,13 +24,7 @@ For more information about creating templates, please see [Authoring Azure Resou
 
 For the complete template, see the [Event Hub and consumer group template][] on GitHub.
 
->[AZURE.NOTE] The following Azure Resource Manager templates are available for download and deployment.
->
->-    [Create a Service Bus namespace with queue and authorization rule](service-bus-resource-manager-namespace-auth-rule.md)
->-    [Create a Service Bus namespace with queue](service-bus-resource-manager-namespace-queue.md)
->-    [Create a Service Bus namespace with topic and subscription](service-bus-resource-manager-namespace-topic.md)
->-    [Create a Service Bus namespace](service-bus-resource-manager-namespace.md)
->
+>[AZURE.NOTE]
 >To check for the latest templates, visit the [Azure Quickstart Templates][] gallery and search for Event Hubs.
 
 ## What will you deploy?
@@ -156,12 +150,10 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 
 Now that you've created and deployed resources using Azure Resource Manager, learn how to manage these resources by viewing these articles:
 
-- [Manage Azure Service Bus using Azure Automation](service-bus-automation-manage.md)
-- [Manage Event Hubs with PowerShell](service-bus-powershell-how-to-provision.md)
 - [Manage Event Hubs resources with the Service Bus Explorer](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
 
   [Authoring Azure Resource Manager templates]: ../resource-group-authoring-templates.md
-  [Azure Quickstart Templates]:  https://azure.microsoft.com/documentation/templates/?term=service+bus
+  [Azure Quickstart Templates]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs
   [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
   [Event Hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-event-hubs-create-event-hub-and-consumer-group/
