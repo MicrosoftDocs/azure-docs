@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="07/01/2016" 
+	ms.date="09/13/2016" 
 	ms.author="mimig"/>
 
 # Introduction to DocumentDB: A NoSQL JSON Database
@@ -34,9 +34,7 @@ Then, return to this article, where we'll dig in deeper and you'll learn the ans
 -	[How do I develop applications using DocumentDB?](#develop)
 -	[What are my next steps to build a DocumentDB application?](#next-steps)  
 
-## What is Azure DocumentDB?  
-
-Modern applications produce, consume and respond quickly to very large volumes of data. These applications evolve very rapidly and so does the underlying data schema. In response to this, developers have increasingly chosen schema-free NoSQL document databases as simple, fast, scalable solutions to store and process data while preserving the ability to quickly iterate over application data models and unstructured data feeds. However, many schema-free databases do not allow for complex queries and transactional processing, making advanced data management difficult. This is where DocumentDB comes in. Microsoft developed DocumentDB to fulfill these requirements when managing data for today's applications.
+## What is DocumentDB?  
 
 DocumentDB is a true schema-free NoSQL database service designed for modern mobile, web, gaming, and IoT applications. DocumentDB ensures that 99% of your reads are served under 10 milliseconds and 99% of your writes are served under 15 milliseconds. It also provides schema flexibility, and the ability to easily scale a database up and down on demand. It does not assume or require any schema for the JSON documents it indexes. By default, it automatically indexes all the documents in the database and does not expect or require any schema or creation of secondary indices. DocumentDB enables complex ad hoc queries using a SQL language, supports well defined consistency levels, and offers JavaScript language integrated, multi-document transaction processing using the familiar programming model of stored procedures, triggers, and UDFs. 
 
