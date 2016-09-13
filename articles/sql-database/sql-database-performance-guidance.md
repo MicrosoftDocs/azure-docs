@@ -14,55 +14,22 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="06/30/2016"
+	ms.date="09/13/2016"
 	ms.author="carlrab" />
 
 # Azure SQL Database performance guidance for single databases
 
 ## Overview
 
-Microsoft Azure SQL Database has three [service tiers](sql-database-service-tiers.md), Basic, Standard, and Premium. All strictly isolate the resource provided to your Azure SQL Database and guarantee predictable performance. The throughput guaranteed for your database rises from Basic through Standard and then to Premium.
+Microsoft Azure SQL Database has three [service tiers](sql-database-service-tiers.md), Basic, Standard, and Premium. All strictly isolate the resource provided to your Azure SQL Database and guarantee predictable performance. Performance is measured in DTUs. To get more information about DTUs, see [What is a DTU](sql-database-what-is-a-dtu.md). This article provides guidance to help you determine which service tier is right for your application and provides recommendations for tuning your application to get the most out of your Azure SQL Database.
 
->[AZURE.NOTE] The Business and Web service tiers were retired September 2015. For more information, see [Web and Business Edition Sunset FAQ](https://msdn.microsoft.com/library/azure/dn741330.aspx). For detailed information on upgrading existing Web and Business databases to the new service tiers, see [Upgrade SQL Database Web/Business Databases to New Service Tiers](sql-database-upgrade-server-portal.md).
+>[AZURE.NOTE] This article focuses on performance guidance for single databases in SQL Database. For performance guidance related to elastic pools, see [Price and performance considerations for elastic pools](sql-database-elastic-pool-guidance.md). Note, however, that many tuning recommendations in this article for a single database can be applied to databases within an elastic pool with similar performance benefits.
 
-This paper provides guidance to help you determine which service tier is right for your application and provides recommendations for tuning your application to get the most out of your Azure SQL Database.
+- **Basic** The Basic service tier is designed to provide good performance predictability for each database hour over hour. The DTU of a Basic database is designed to provide sufficient resources for small databases without multiple concurrent requests to performance nicely.
+- **Stsndard** The Standard service tier offers improved performance predictability and raises the bar for databases with multiple concurrent requests like workgroup and web applications. Using a Standard service tier database allows you to size your database application based on predictable performance minute over minute.
+- **Premium** The Premium service tier provides predictable performance second over second for each Premium database. Using the Premium service tier allows you to size your database application based on peak load for that database and removes cases where performance variance can cause small queries to take longer than expected in latency-sensitive operations. This model can greatly simplify the development and product validation cycles needed for applications that need to make strong statements about peak resource needs, performance variance, or query latency.
 
->[AZURE.NOTE] This article focuses on performance guidance for single databases in SQL Database. For performance guidance related to elastic database pools, see [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md). Note, however, that many tuning recommendations in this article for a single database can be applied to databases within an elastic pool with similar performance benefits.
-
-**Authors:** Conor Cunningham, Kun Cheng, Jan Engelsberg
-
-**Technical Reviewers:** Morgan Oslake, Joanne Marone, Keith Elmore, José Batista-Neto, Rohit Nayak
-
-## Azure SQL Database background
-
-To understand how the Basic, Standard, and Premium service tiers enhance the Azure SQL Database service, it helps to have a good overall understanding of Azure SQL Database. You can choose Azure SQL Database for several reasons. One reason is to avoid the lengthy cycle of purchasing and installing hardware. Azure SQL Database allows you to create and drop databases on-the-fly without waiting on a purchase order to be approved, machines to arrive, power and cooling to be upgraded, or installation to be done. Microsoft handles these challenges and greatly reduces the time required from idea to solution by pre-provisioning hardware based on aggregate demand in each of our data centers. This can save weeks or months for your business over buying and deploying hardware manually.
-
-Microsoft also includes many automatic management features in Azure SQL Database such as automatic HA and built-in management.
-
-### Automatic high-availability (HA)
- Azure SQL Database keeps at least three replicas for each user database and has logic to automatically commit each change synchronously to a quorum of the replicas. This guarantees that any single machine failure does not cause data loss. Furthermore, each replica is placed on different hardware racks so that loss of power or network switches does not impact your database. Finally, there is logic to automatically rebuild replicas if a machine is lost so that the system automatically preserves the desired health properties even if a machine becomes unhealthy. These mechanisms avoid the time-consuming process required today to install and configure high-availability solutions today. Having a pre-configured HA solution for your data removes another key headache from building a mission-critical database solution using traditional techniques.
-
-### Built-in management
- Azure SQL Database is run as a service. This means that there are defined uptime targets for each database, avoiding lengthy maintenance downtime windows. Microsoft provides a single-vendor solution for the service, meaning there is only one company to call if there ever are any issues that arise. Microsoft is also continuously updating the service, adding features, capacity, and finding ways to improve your experience in each update we do. Updates happen transparently and without downtime windows, meaning that they are integrated into our normal HA failover mechanism. This allows you to immediately take advantage of new features whenever we announce their availability instead of waiting for a server to be upgraded during some future downtime window.
-
-All of these capabilities are delivered in all service tiers, starting at a low entry price point of a few dollars per month. This is far lower than it would cost to buy and run your own server, meaning that even the smallest project can take advantage of Azure without spending a lot of money.
-
-## What is different in the service tiers?
-There are three service tiers: Basic, Standard, and Premium. Each service tier has one or more performance levels that provide power to run your databases in a predictable manner. The power is described in [Database Transaction Units (DTUs)](sql-database-technical-overview.md#understand-dtus).
-
-The Basic service tier is designed to provide good performance predictability for each database hour over hour. The DTU of a Basic database is designed to provide sufficient resources for small databases without multiple concurrent requests to performance nicely.
-
-The Standard service tier offers improved performance predictability and raises the bar for databases with multiple concurrent requests like workgroup and web applications. Using a Standard service tier database allows you to size your database application based on predictable performance minute over minute.
-
-The marquee capability with regards to performance of the Premium service tier is the predictable performance second over second for each Premium database. Using the Premium service tier allows you to size your database application based on peak load for that database and removes cases where performance variance can cause small queries to take longer than expected in latency-sensitive operations. This model can greatly simplify the development and product validation cycles needed for applications that need to make strong statements about peak resource needs, performance variance, or query latency.
-
-Similar to Standard, the Premium service tier offers the choice of different performance levels based on the desired isolation for a customer.
-
-The performance level settings in Standard and Premium allow you to pay only for the capacity you need and to dial capacity up or down as a workload changes. For example, if your database workload is busy during the back-to-school shopping season, you might increase the performance level for the database during that time period and reduce it after that peak time window ends. This allows you to minimize what you pay by optimizing your cloud environment to the seasonality of your business. This model also works well for software product release cycles. A test team might allocate capacity while doing test runs and release that capacity once the tests are completed. These capacity requests fit well with the model that you would pay for capacity as you need it and avoid spending on dedicated resources that are rarely used. This gives you a performance experience much closer to the traditional, dedicated hardware model that many Microsoft customers have used with SQL Server. This should allow a greater set of applications to run more easily on Azure SQL Database.
-
-For more information about the service tiers, performance levels, and DTUs, see [Azure SQL Database Service Tiers and Performance Levels](sql-database-service-tiers.md).
-
-
+The performance level settings in each service tier allows you to pay only for the capacity you need and to dial capacity [up or down](sql-database-scale-up.md) as a workload changes. For example, if your database workload is busy during the back-to-school shopping season, you might increase the performance level for the database during that time period and reduce it after that peak time window ends. This allows you to minimize what you pay by optimizing your cloud environment to the seasonality of your business. This model also works well for software product release cycles. A test team might allocate capacity while doing test runs and release that capacity once the tests are completed. These capacity requests fit well with the model that you would pay for capacity as you need it and avoid spending on dedicated resources that are rarely used. This gives you a performance experience much closer to the traditional, dedicated hardware model that many Microsoft customers have used with SQL Server. This should allow a greater set of applications to run more easily on Azure SQL Database.
 
 ## Reasons to use the service tiers
 
@@ -85,11 +52,9 @@ While each workload can differ, the purpose of the service tiers is to provide h
 
 The exact level you will need depends on the peak load requirements for each resource dimension. Some applications may use trivial amounts of one resource but have significant requirements in another.
 
-For more information about the service tiers, see [Azure SQL Database Service Tiers and Performance Levels](sql-database-service-tiers.md).
-
 ## Billing and pricing information
 
-Elastic database pools are billed per the following characteristics:
+Elastic pools are billed per the following characteristics:
 
 - An elastic pool is billed upon its creation, even when there are no databases in the pool.
 - An elastic pool is billed hourly. This is the same metering frequency as for performance levels of single databases.
@@ -106,38 +71,17 @@ Each service tier and performance level is associated with different limits and 
 
 [AZURE.INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
-The following sections provide more information on each area in the previous table.
-
-### Maximum database size
-
-**Maximum database size** is simply the limit on the size of the database in GB.
-
-### DTUs
-
-**DTUs** refers to Database Transaction Units. It is the unit of measure in SQL Database that represents the relative power of databases based on a real-world measure: the database transaction. This consists of a set of operations that are typical for an online transaction processing (OLTP) request, measured by how many transactions could be completed per second under fully loaded conditions. To get more information about DTUs, see [Understand DTUs](sql-database-technical-overview.md#understand-dtus). For more information on how DTUs were measured, see [Benchmark overview](sql-database-benchmark-overview.md).
-
-### Point-in-time restore
-
-**Point-in-time restore** is the ability to restore your database to a previous point in time. Your service tier determines how many days back in time you can go. For more information, see [Point-in-Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore).
-
-### Disaster recovery
-
-**Disaster recovery** refers to the ability to recover from an outage on your primary SQL database.
-
-*Geo-restore* is available to all service tiers at no extra cost. In the event of an outage, you can use the most recent geo-redundant backup to restore your database to any Azure region.
-
-[Active Geo-Replication](sql-database-geo-replication-overview.md) provides similar disaster recovery features but with a much lower Recovery Point Objective (RPO). For example, with Geo-restore, the RPO is less than one hour (in other words, the backup might be from up to one hour ago). But for Active Geo-Replication, the RPO is less than 5 seconds.
-
-For more information, see the [Business Continuity Overview](sql-database-business-continuity.md).
+The following sections provide more information on viewing usage related to these limits.
 
 ### Max In-Memory OLTP storage
-**Max In-Memory OLTP storage** refers to the maximum amount of storage available to the [In-Memory OLTP Preview](sql-database-in-memory.md) for Premium databases. This is also sometimes referred to as *XTP In-Memory storage*. You can use the Azure Classic Portal or the **sys.dm_db_resource_stats** view to monitor your In-Memory storage use. For more information on monitoring, see [Monitor In-Memory OLTP Storage](sql-database-in-memory-oltp-monitoring.md).
+
+You can use the **sys.dm_db_resource_stats** view to monitor your In-Memory storage use. For more information on monitoring, see [Monitor In-Memory OLTP Storage](sql-database-in-memory-oltp-monitoring.md).
 
 >[AZURE.NOTE] The In-Memory OLTP Preview is currently only supported for single databases and not for databases in elastic database pools.
 
 ### Max concurrent requests
 
-**Max concurrent requests** is the maximum number of concurrent user/application requests executing at the same time in the database. To see the number of concurrent requests, run the following Transact-SQL query on your SQL database:
+To see the number of concurrent requests, run the following Transact-SQL query on your SQL database:
 
 	SELECT COUNT(*) AS [Concurrent_Requests]
 	FROM sys.dm_exec_requests R
@@ -153,15 +97,15 @@ Note that this is just a snapshot at a single point in time. To get a better und
 
 ### Max concurrent logins
 
-**Max concurrent logins** represents the limit on the number of users or applications attempting to login to the database at the same time. Note that even if these clients use the same connection string, the service authenticates each login. So if ten users all simultaneously connected to the database with the same username and password, there would be ten concurrent logins. This limit only applies to the duration of the login and authentication. So if the same ten users connected sequentially to the database, the number of concurrent logins would never be higher than one.
+There is no query or DMV that can show you concurrent login counts or history. You can analyze your user and application patterns to get an idea of the frequency of logins. You could also run real-world loads in a test environment to make sure that you are not hitting this or other limits described in this topic.
+
+Note that even if these clients use the same connection string, the service authenticates each login. So if ten users all simultaneously connected to the database with the same username and password, there would be ten concurrent logins. This limit only applies to the duration of the login and authentication. So if the same ten users connected sequentially to the database, the number of concurrent logins would never be higher than one.
 
 >[AZURE.NOTE] This limit does not currently apply to databases in elastic database pools.
 
-There is no query or DMV that can show you concurrent login counts or history. You can analyze your user and application patterns to get an idea of the frequency of logins. You could also run real-world loads in a test environment to make sure that you are not hitting this or other limits described in this topic.
-
 ### Max sessions
 
-**Max sessions** is the maximum number of concurrent open connections to the database. When a user logs in, a session is established and remains active until they logout or the session times out. To see your current number of active sessions, run the following Transact-SQL query on you SQL database:
+To see your current number of active sessions, run the following Transact-SQL query on you SQL database:
 
 	SELECT COUNT(*) AS [Sessions]
 	FROM sys.dm_exec_connections
@@ -183,8 +127,6 @@ There are two views that enable you to monitor resource usage for a SQL database
 
 - [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
 - [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
-
->[AZURE.NOTE] It is also possible to use the Azure Classic Portal to view resource utilization. For an example, see [Service tiers - Monitoring performance](sql-database-service-tiers.md#monitoring-performance).
 
 ### Using sys.dm_db_resource_stats
 The [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) view exists in each SQL database and supplies recent resource utilization data relative to the service tier. Average percentages for CPU, data IO, log writes, and memory are recorded every 15 seconds and are maintained for one hour.
