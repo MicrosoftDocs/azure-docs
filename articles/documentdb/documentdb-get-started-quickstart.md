@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="08/29/2016"
+	ms.date="09/01/2016"
 	ms.author="anhoh"/>
 
 # NoSQL tutorial: Build a DocumentDB C# console application
@@ -25,7 +25,7 @@
 
 Welcome to the NoSQL tutorial for the Azure DocumentDB .NET SDK! After getting the QuickStart project or completing the tutorial, you'll have a console application that creates and queries DocumentDB resources.
 
-- **[QuickStart](#quickstart)**: Download the sample project, add your connection information, and have a DocumentDB app running in less than 5 minutes.
+- **[QuickStart](#quickstart)**: Download the sample project, add your connection information, and have a DocumentDB app running in less than 10 minutes.
 - **[Tutorial](#tutorial)**: Build the QuickStart app from scratch in 30 minutes.
 
 ## Prerequisites
@@ -36,7 +36,7 @@ Welcome to the NoSQL tutorial for the Azure DocumentDB .NET SDK! After getting t
 
 ## QuickStart
 
-1. Download the sample project from [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart/archive/master.zip).
+1. Download the sample project .zip from [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart/archive/master.zip) or clone the [documentdb-dotnet-getting-started-quickstart](https://github.com/Azure-Samples/documentdb-dotnet-getting-started-quickstart) repo.
 2. Use the Azure portal to [create a DocumentDB account](documentdb-create-account.md).
 3. In the App.config file, replace the EndpointUri and PrimaryKey values with the values retrieved from the [Azure portal](https://portal.azure.com/), by navigating to **DocumentDB (NoSQL)** blade, then clicking the **Account name**,  and then clicking **Keys** on the resource menu.
     ![Screen shot of the EndpointUri and PrimaryKey value to replace in App.config](./media/documentdb-get-started-quickstart/nosql-tutorial-documentdb-keys.png)

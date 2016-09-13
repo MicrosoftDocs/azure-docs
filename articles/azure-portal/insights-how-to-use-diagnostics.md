@@ -68,6 +68,6 @@ Note that at this time certain distributions of Linux are not supported, and, th
 * [Receive alert notifications](insights-receive-alert-notifications.md) whenever operational events happen or metrics cross a threshold.
 * [Monitor service metrics](insights-how-to-customize-monitoring.md) to make sure your service is available and responsive.
 * [Scale instance count automatically](insights-how-to-scale.md) to make sure your service scale based on demand.
-* [Monitor application performance](insights-perf-analytics.md) if you want to understand exactly how your code is performing in the cloud.
+* [Monitor application performance](../application-insights/app-insights-azure-web-apps.md) if you want to understand exactly how your code is performing in the cloud.
 * [View events and audit logs](insights-debugging-with-events.md) to learn everything that has happened in your service.
 * [Track service health](insights-service-health.md) to find out when Azure has experienced performance degradation or service interruptions.

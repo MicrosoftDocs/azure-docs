@@ -247,7 +247,7 @@ The VM comes with a few machine learning tools and algorithms that have been pre
 * **CNTK** (Computational Network Toolkit from Microsoft Research): A deep learning toolkit.
 * **Vowpal Wabbit**: A fast online learning algorithm.
 * **xgboost**: A tool that provides optimized, boosted tree algorithms.
-* **Python**: Anaconda Python comes bundled with machine learning algorithms with libraries like Scikit-learn. You can install other libraries running pip install.
+* **Python**: Anaconda Python comes bundled with machine learning algorithms with libraries like Scikit-learn. You can install other libraries by using the `pip install` command.
 * **R**: A rich library of machine learning functions is available for R. Some of the libraries that are pre-installed are lm, glm, randomForest, rpart. Other libraries can be installed by running:
 
 		install.packages(<lib name>)

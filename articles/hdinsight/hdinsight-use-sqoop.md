@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2016"
+	ms.date="09/02/2016"
 	ms.author="jgao"/>
 
 #Use Sqoop with Hadoop in HDInsight
@@ -72,15 +72,15 @@ mobile device data back to HDInsight by using the following path:
 
 ## Create cluster and SQL database
 
-This section shows you how to create a cluster and the SQL database schemas for running the tutorial using the Azure portal and an ARM template.  If you prefer to use Azure PowerShell, see [Appendix A](#appendix-a---a-powershell-sample).
+This section shows you how to create a cluster and the SQL database schemas for running the tutorial using the Azure portal and an Azure Resource Manager template.  If you prefer to use Azure PowerShell, see [Appendix A](#appendix-a---a-powershell-sample).
 
-1. Click the following image to open an ARM template in the Azure Portal.         
+1. Click the following image to open a resource manager template in the Azure Portal.         
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fusesqoop%2Fcreate-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
     
-    The ARM template is located in a public blob container, *https://hditutorialdata.blob.core.windows.net/usesqoop/create-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json*. 
+    The resource manager template is located in a public blob container, *https://hditutorialdata.blob.core.windows.net/usesqoop/create-linux-based-hadoop-cluster-in-hdinsight-and-sql-database.json*. 
     
-    The ARM template calls a bacpac package to deploy the table schemas to SQL database.  The bacpac package is also located in a public blob container, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. If you want to use a private container for the bacpac files, use the following values in the template:
+    The resource manager template calls a bacpac package to deploy the table schemas to SQL database.  The bacpac package is also located in a public blob container, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. If you want to use a private container for the bacpac files, use the following values in the template:
     
         "storageKeyType": "Primary",
         "storageKey": "<TheAzureStorageAccountKey>",

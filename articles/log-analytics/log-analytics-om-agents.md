@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/22/2016"
+	ms.date="09/08/2016"
 	ms.author="magoedte"/>
 
 # Connect Operations Manager to Log Analytics
@@ -28,7 +28,7 @@ Integrating with System Center Operations Manager adds value to your service ope
 
 The agents reporting to the Operations Manager management group collect data from your servers based on the Log Analytics data sources and solutions you have enabled in your OMS subscription.  Depending on the solution you have enabled, data from these solutions are either sent directly from an Operations Manager management server to the OMS web service, or because of the volume of data collected on the agent-managed system, are sent directly from the agent to OMS web service. The management server directly forwards the OMS data to the OMS web service, it is never written to the OperationsManager or OperationsManagerDW database.  When a management server loses connectivity with the OMS web service, it caches the data locally until communication is re-established with OMS.  If the management server is offline due to planned maintenance or unplanned outage, another management server in the management group will resume connectivity with OMS.  
 
-The following diagram shows the System Center Operations Manager and OMS relationship.
+The following diagram depicts the connection between the management servers and agents in a System Center Operations Manager management group and OMS, including the direction and ports.   
 
 ![oms-operations-manager-integration-diagram](./media/log-analytics-om-agents/oms-operations-manager-connection.png)
 

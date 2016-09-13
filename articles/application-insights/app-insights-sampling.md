@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Telemetry sampling in Application Insights" 
+	pageTitle="Telemetry sampling in Application Insights | Microsoft Azure" 
 	description="How to keep the volume of telemetry under control." 
 	services="application-insights" 
     documentationCenter="windows"
@@ -20,28 +20,31 @@
 *Application Insights is in preview.*
 
 
-Sampling is a feature in Application Insights that allows you to collect and store a reduced set of telemetry while maintaining a statistically correct analysis of application data.  It reduces traffic and helps avoid [throttling](app-insights-pricing.md#data-rate). The data is filtered in such a way that related items are allowed through, so that you can navigate between items when you're performing diagnostic investigations.
+Sampling is a feature in [Visual Studio Application Insights](app-insights-overview.md) is the recommended way to reduce telemetry traffic and storage while preserving  a statistically correct analysis of application data. The filter selects items that are related so that you can navigate between items when you are doing diagnostic investigations.
 When metric counts are presented to you in the portal, they are renormalized to take account of the sampling, to minimize any effect on the statistics.
 
-Sampling is currently in Beta, and may change in the future.
+Sampling reduces traffic, helps you keep within monthly data quotas, and helps you avoid throttling.
 
 ## In brief:
 
-* Sampling retains 1 in *n* records and discards the rest. For example, it might retain 1 in 5 events, a sampling rate of 20%.
-* Sampling happens automatically if your application sends a lot of telemetry. Automatic sampling only kicks in at high volumes, and only in ASP.NET web server apps.
-* You can also set sampling manually, either in the portal on the pricing page (to reduce the volume of telemetry retained, and keep within your monthly quota); or in the ASP.NET SDK in the .config file, to also reduce the network traffic.
-* The current sampling rate is a property of each record. In the Search window, open an event such as a request. Expand the full properties ellipsis "..." to find the "* count" property - named, for example, "request count" or "event count", depending on the type of telemetry. If it is > 1, then sampling is occurring. A count of 3 would mean that sampling is at 33%: each retained record stands for three originally generated records.
+* Sampling retains 1 in *n* records and discards the rest. For example, it might retain 1 in 5 events, a sampling rate of 20%. 
+* Sampling happens automatically if your application sends a lot of telemetry, in ASP.NET web server apps.
+* You can also set sampling manually, either in the portal on the pricing page; or in the ASP.NET SDK in the .config file, to also reduce the network traffic.
 * If you log custom events and you want to make sure that a set of events is either retained or discarded together, make sure that they have the same OperationId value.
+* The sampling divisor *n* is reported in each record in the property `itemCount`, which in Search appears under the friendly name "request count" or "event count". When sampling is not in operation, `itemCount==1`.
 * If you write Analytics queries, you should [take account of sampling](app-insights-analytics-tour.md#counting-sampled-data). In particular, instead of simply counting records, you should use `summarize sum(itemCount)`.
 
 
 ## Types of sampling
 
+
 There are three alternative sampling methods:
 
-* **Adaptive sampling** automatically adjusts the volume of telemetry sent from the SDK in your ASP.NET app. Default from SDK v 2.0.0-beta3.
-* **Fixed-rate sampling** reduces the volume of telemetry sent from both your ASP.NET server and from your users' browsers. You set the rate.
+* **Adaptive sampling** automatically adjusts the volume of telemetry sent from the SDK in your ASP.NET app. Default from SDK v 2.0.0-beta3. Currently available for ASP.NET server-side telemetry only. 
+* **Fixed-rate sampling** reduces the volume of telemetry sent from both your ASP.NET server and from your users' browsers. You set the rate. The client and server will synchronize their sampling so that, in Search, you can navigate between related page views and requests.
 * **Ingestion sampling** reduces the volume of telemetry retained by the Application Insights service, at a rate that you set. It doesn't reduce telemetry traffic, but helps you keep within your monthly quota. 
+
+If Adaptive or Fixed rate sampling are in operation, Ingestion sampling is disabled.
 
 ## Ingestion sampling
 
@@ -369,3 +372,9 @@ The client-side (JavaScript) SDK participates in fixed-rate sampling in conjunct
 *There are certain rare events I always want to see. How can I get them past the sampling module?*
 
  * Initialize a separate instance of TelemetryClient with a new TelemetryConfiguration (not the default Active one). Use that to send your rare events.
+
+
+
+## Next steps
+
+* [Filtering](app-insights-api-filtering-sampling.md) can provide more strict control of what your SDK sends.

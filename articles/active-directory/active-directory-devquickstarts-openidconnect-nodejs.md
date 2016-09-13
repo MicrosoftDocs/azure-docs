@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="08/15/2016"
 	ms.author="brandwe"/>
 
 # Web App Sign In & Sign Out with Azure AD
@@ -21,7 +21,7 @@
 
 Here we'll use Passport to:
 
-- Sign the user into the app using Azure AD and the v2.0 app model.
+- Sign the user into the app using Azure AD.
 - Display some information about the user.
 - Sign the user out of the app.
 
@@ -36,7 +36,7 @@ In order to do this, you'll need to:
 
 The code for this tutorial is maintained [on GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS).  To follow along, you can [download the app's skeleton as a .zip](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/skeleton.zip) or clone the skeleton:
 
-```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git```
+```git clone --branch skeleton https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
 
 The completed application is provided at the end of this tutorial as well.
 
@@ -205,7 +205,7 @@ app.configure(function() {
 
 // Our Auth routes (Section 3)
 
-// POST /auth/openid
+// GET /auth/openid
 //   Use passport.authenticate() as route middleware to authenticate the
 //   request.  The first step in OpenID authentication will involve redirecting
 //   the user to their OpenID provider.  After authenticating, the OpenID

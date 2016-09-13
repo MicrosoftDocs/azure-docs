@@ -1,28 +1,55 @@
 ## Create an Event Hub
 
-1. Log on to the [Azure classic portal][], and click **NEW** at the bottom of the screen.
+1. Log on to the [Azure portal][], and click **New** at the top left of the screen.
 
-2. Click on **App Services**, then **Service Bus**, then **Event Hub**, then **Quick Create**.
+2. Click **Data + Analytics**, then click **Event Hubs**.
 
-	![][1]
+	![][9]
 
-3. Type a name for your Event Hub, select your desired region, and then click **Create a new Event Hub**.
+3. In the **Create namespace** blade, enter a namespace name. The system immediately checks to see if the name is available.
+
+	![](./media/event-hubs-create-event-hub/create-event-hub1.png)
+
+4. After making sure the namespace name is available, choose the pricing tier (Basic or Standard). Also, choose an Azure subscription, resource group, and location in which to create the resource. 
+
+2. Click **Create** to create the namespace.
+
+6. In the Event Hubs namespace list, click the newly-created namespace.
 
 	![][2]
 
-4. If you didn't explicitly select an existing namespace in a given region, the portal creates a namespace for you (usually ***event hub name*-ns**). Click that namespace (in this example, **eventhub-ns**).
+7. In the namespace blade, click **Event Hubs**.
 
 	![][3]
 
-5. At the bottom of the page, click **Connection Information**. Click the copy button (shown in the following figure) to copy the **RootManageSharedAccessKey** connection string to the clipboard. Save this connection string to use later in the tutorial.
+8. At the top of the blade, click **Add Event Hub**.
 
 	![][4]
 
+3. Type a name for your Event Hub, then click **Create**.
+
+	![][5]
+
+4. In the list of Event Hubs, click the newly created Event Hub name. 
+
+	![][6]
+
+5. Back in the namespace blade (not the specific Event Hub blade), click **Shared access policies**, and then click **RootManageSharedAccessKey**.
+
+	![](./media/event-hubs-create-event-hub/create-event-hub7.png)
+
+5. Click the copy button to copy the **RootManageSharedAccessKey** connection string to the clipboard. Save this connection string to use later in the tutorial.
+
+	![][8]
+
 Your Event Hub is now created, and you have the connection strings you need to send and receive events.
 
-[1]: ./media/event-hubs-create-event-hub/create-event-hub1.png
 [2]: ./media/event-hubs-create-event-hub/create-event-hub2.png
 [3]: ./media/event-hubs-create-event-hub/create-event-hub3.png
-[4]: ./media/event-hubs-create-event-hub/create-conn-str1.png
+[4]: ./media/event-hubs-create-event-hub/create-event-hub4.png
+[5]: ./media/event-hubs-create-event-hub/create-event-hub5.png
+[6]: ./media/event-hubs-create-event-hub/create-event-hub6.png
+[8]: ./media/event-hubs-create-event-hub/create-event-hub8.png
+[9]: ./media/event-hubs-create-event-hub/create-event-hub9.png
 
-[Azure classic portal]: https://manage.windowsazure.com/
+[Azure portal]: https://portal.azure.com/

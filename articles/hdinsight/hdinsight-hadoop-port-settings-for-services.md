@@ -4,7 +4,7 @@ description="A list of ports used by Hadoop services running on HDInsight."
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
