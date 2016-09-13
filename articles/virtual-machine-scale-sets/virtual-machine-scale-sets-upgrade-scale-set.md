@@ -23,9 +23,13 @@
 This article describes how you can roll out an OS update to an Azure VM Scale Set without any downtime. In this context an OS update is either changing the version/sku of the OS, or changing the URI of a custom image. Updating without downtime means updating VMs one at a time, or in groups (such as one fault domain at a time), rather than all at once, so any VMs which are not being upgraded can keep running.
 
 To avoid ambiguity let’s distinguish 3 types of OS update you might want to do:
+
 1. Changing the version or sku of a platform image. E.g. changing Ubuntu 14.04.2-LTS version from 14.04.201506100 to 14.04.201507060, or changing the Ubuntu 15.10/latest sku to 16.04.0-LTS/latest etc.. Covered in this article.
+
 2. You built a new version of a custom image and want to change the URI which points to the image (properties->virtualMachineProfile->storageProfile->osDisk->image->uri). Covered in this article.
+
 3. Patching the OS from within a VM e.g. installing a security patch, using Windows Update etc. Supported but not covered in this article.
+
 The first 2 are supported requirements. For the third one, at least for now, you’d need to create a new scale set to do that. This article covers options 1. and 2.
 Note: VM Scale Sets which are deployed as part of a [Service Fabric](https://azure.microsoft.com/services/service-fabric/) cluster are not covered here.
 
