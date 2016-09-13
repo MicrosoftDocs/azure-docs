@@ -24,7 +24,7 @@ This article describes how you can roll out an OS update to an Azure VM Scale Se
 
 To avoid ambiguity let’s distinguish 3 types of OS update you might want to do:
 
-1. Changing the version or sku of a platform image. E.g. changing Ubuntu 14.04.2-LTS version from 14.04.201506100 to 14.04.201507060, or changing the Ubuntu 15.10/latest sku to 16.04.0-LTS/latest etc.. Covered in this article.
+1. Changing the version or sku of a platform image. E.g. changing Ubuntu 14.04.2-LTS version from 14.04.201506100 to 14.04.201507060, or changing the Ubuntu 15.10/latest sku to 16.04.0-LTS/latest etc. Covered in this article.
 
 2. You built a new version of a custom image and want to change the URI which points to the image (properties->virtualMachineProfile->storageProfile->osDisk->image->uri). Covered in this article.
 
@@ -39,7 +39,7 @@ The basic sequence for changing the OS version/sku of a platform image or the UR
 – Update the model.
 – Do a manualUpgrade call on the VMs in the scale set. This is only relevant if the upgradePolicy property of your Scale Set is set to “Manual”. If it is set to “Automatic”, all the VMs will upgraded at once and there will be downtime.
 
-With this all this in mind, let’s review how you could update the version of a scale set in PowerShell, and using the REST API. These examples cover the case of a platform image, but hopefully I’ve provided enough information for you to adapt this to a custom image..
+With this all this in mind, let’s review how you could update the version of a scale set in PowerShell, and using the REST API. These examples cover the case of a platform image, but hopefully I’ve provided enough information for you to adapt this to a custom image.
 
 PowerShell
 
