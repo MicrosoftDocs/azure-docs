@@ -27,13 +27,11 @@
 - [Using REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
-In this article, you learn how to use the Azure PowerShell to create your first Azure data factory. 
+[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)] 
 
-
-## Prerequisites
+## Additional prerequisites
 Apart from prerequisites listed in the Tutorial Overview topic, you need to install the following:
 
-- You **must** read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the prerequisite steps before proceeding further.
 - **Azure PowerShell**. Follow instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) article to install latest version of Azure PowerShell on your computer.
 - (optional) This article does not cover all the Data Factory cmdlets. See [Data Factory Cmdlet Reference](https://msdn.microsoft.com/library/dn820234.aspx) for comprehensive documentation on Data Factory cmdlets. 
 

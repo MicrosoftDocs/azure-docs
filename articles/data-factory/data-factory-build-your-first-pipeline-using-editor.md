@@ -18,7 +18,6 @@
 
 # Tutorial: Build your first Azure data factory using Azure portal
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
 - [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)

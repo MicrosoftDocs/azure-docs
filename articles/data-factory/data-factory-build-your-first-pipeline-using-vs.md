@@ -18,19 +18,15 @@
 
 # Build your Azure first data factory using Microsoft Visual Studio
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-build-your-first-pipeline.md)
-- [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
+- [Using Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
 - [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
 - [Using REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
+[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)] 
 
-In this article, you learn how to use the Microsoft Visual Studio to create your first Azure data factory. 
-
-## Prerequisites
-
-1. You **must** read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the prerequisite steps before proceeding further.
+## Additional prerequisites
 2. You must be an **administrator of the Azure subscription** to be able to publish Data Factory entities to Azure Data Factory. This is a limitation at this time.  
 3. You must have the following installed on your computer: 
 	- Visual Studio 2013 or Visual Studio 2015

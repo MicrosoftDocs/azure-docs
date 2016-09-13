@@ -18,27 +18,20 @@
 
 # Tutorial: Build your first Azure data factory using Azure Resource Manager template
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-build-your-first-pipeline.md)
-- [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
+- [Using Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
 - [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
 - [Using REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
-In this article, you learn how to use an Azure Resource Manager template to create your first Azure data factory. 
+[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)] 
 
-
-## Prerequisites
+## Additional prerequisites
 Apart from prerequisites listed in the Tutorial Overview topic, you need to install the following:
 
-- Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the prerequisite steps before proceeding further. 
 - **Install Azure PowerShell**. Follow instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) article to install latest version of Azure PowerShell on your computer.
-- This article does not provide a conceptual overview of the Azure Data Factory service. For a detailed overview of the service, read through [Introduction to Azure Data Factory](data-factory-introduction.md). 
 - See [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md) to learn about Azure Resource Manager templates. 
-
-> [AZURE.IMPORTANT]
-> Complete the prerequisite steps in [Tutorial Overview](data-factory-build-your-first-pipeline.md) to do the walkthrough in this article. 
 
 ## Create Resource Manager template
 
