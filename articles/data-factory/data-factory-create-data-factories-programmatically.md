@@ -18,37 +18,33 @@
 
 # Create, monitor, and manage Azure data factories using Data Factory .NET SDK
 ## Overview
-You can create, monitor, and manage Azure data factories programmatically using Data Factory .NET SDK. This article contains a walkthrough that you can follow to create a sample .NET console application that creates and monitors a data factory. See [Data Factory Class Library Reference][adf-class-library-reference] for details about Data Factory .NET SDK. 
-
-
+You can create, monitor, and manage Azure data factories programmatically using Data Factory .NET SDK. This article contains a walkthrough that you can follow to create a sample .NET console application that creates and monitors a data factory. See [Data Factory Class Library Reference](https://msdn.microsoft.com/library/mt415893.aspx) for details about Data Factory .NET SDK. 
 
 ## Prerequisites
 
 - Visual Studio 2012 or 2013 or 2015
-- Download and install [Azure .NET SDK][azure-developer-center]
+- Download and install [Azure .NET SDK](http://azure.microsoft.com/downloads/).
 - Add a native client application to Azure Active Directory. See [Integrating applications with Azure Active Directory](../active-directory/active-directory-integrating-applications.md) for steps to add the application. Note down the **CLIENT ID** and **REDIRECT URI** on the **CONFIGURE** page.
-- See [Get Azure subscription and tenant IDs](#get-azure-subscription-and-tenant-ids) for instructions on getting your Azure **subscription ID** and **tenant ID**. 
+- Get your Azure **subscription ID** and **tenant ID**. See [Get Azure subscription and tenant IDs](#get-azure-subscription-and-tenant-ids) for instructions. 
 - Download and install NuGet packages for Azure Data Factory. Instructions are in the walkthrough.  
 
 ## Walkthrough
 1. Using Visual Studio 2012 or 2013, create a C# .NET console application.
-	<ol type="a">
-		<li>Launch <b>Visual Studio 2012</b> or <b>Visual Studio 2013</b>.</li>
-		<li>Click <b>File</b>, point to <b>New</b>, and click <b>Project</b>.</li> 
-		<li>Expand <b>Templates</b>, and select <b>Visual C#</b>. In this walkthrough, you use C#, but you can use any .NET language.</li> 
-		<li>Select <b>Console Application</b> from the list of project types on the right.</li>
-		<li>Enter <b>DataFactoryAPITestApp</b> for the <b>Name</b>.</li> 
-		<li>Select <b>C:\ADFGetStarted</b> for the <b>Location</b>.</li>
-		<li>Click <b>OK</b> to create the project.</li>
-	</ol>
-2. Click <b>Tools</b>, point to <b>NuGet Package Manager</b>, and click <b>Package Manager Console</b>.
+	1. Launch **Visual Studio 2012/2013/2015**.
+	2. Click **File**, point to **New**, and click **Project**.
+	3. Expand **Templates**, and select **Visual C#**. In this walkthrough, you use C#, but you can use any .NET language.
+	4. Select **Console Application** from the list of project types on the right.
+	5. Enter **DataFactoryAPITestApp** for the **Name**.
+	6. Select **C:\ADFGetStarted** for the **Location**.
+	7. Click **OK** to create the project.
+2. Click **Tools**, point to **NuGet Package Manager**, and click **Package Manager Console**.
 3.	In the **Package Manager Console**, execute the following commands one-by-one. 
 
-		Install-Package Microsoft.Azure.Management.DataFactories
-		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
+			Install-Package Microsoft.Azure.Management.DataFactories
+			Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
 6. Add the following **appSetttings** section to the **App.config** file. These configuration values are used by the **GetAuthorizationHeader** method. 
 
-	Replace values for **AdfClientId**, **RedirectUri**, **SubscriptionId**, and **ActiveDirectoryTenantId** with your own values.  
+	> [AZURE.IMPORTANT] Replace values for **AdfClientId**, **RedirectUri**, **SubscriptionId**, and **ActiveDirectoryTenantId** with your own values.  
  
 		<appSettings>
 		    <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
@@ -450,7 +446,5 @@ Note down the **SubscriptionId** and **TenantId** values.
 [adf-getstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
- 
-[adf-class-library-reference]: http://go.microsoft.com/fwlink/?LinkID=521877
-[azure-developer-center]: http://azure.microsoft.com/downloads/
- 
+
+
