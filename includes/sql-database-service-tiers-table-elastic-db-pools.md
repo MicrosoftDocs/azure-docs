@@ -18,6 +18,7 @@
 |||
 
 * Max and Min eDTU’s per database may be set to any of the listed values as long as the pool DTU size selected is at least as great as the max eDTUs per DB 
+
 ** Elastic database share pool storage, so database storage is limited to the smaller of the remaining pool storage or max storage per database
 
 
@@ -40,6 +41,7 @@
 |||
 
 * Max and Min eDTU’s per database may be set to any of the listed values as long as the pool DTU size selected is at least as great as the max eDTUs per DB 
+
 ** Elastic database share pool storage, so database storage is limited to the smaller of the remaining pool storage or max storage per database
 
 ### Premium elastic pool limits
@@ -61,4 +63,5 @@
 |||
 
 * Max and Min eDTU’s per database may be set to any of the listed values as long as the pool DTU size selected is at least as great as the max eDTUs per DB 
+
 ** Elastic database share pool storage, so database storage is limited to the smaller of the remaining pool storage or max storage per database
