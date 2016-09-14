@@ -45,7 +45,8 @@ By taking advantage of Azure datacenters across the globe, GEP can easily extend
 GEP built SMART by GEP from the ground up on Azure. A critical motivation for GEP was the greater scalability, less downtime, and reduced maintenance costs that GEP could experience with Azure SQL Database compared to what GEP could achieve on-premises. However, once moved to the cloud, GEP discovered new development opportunities in the cloud, like rapid prototyping and lean engineering to better respond to customer needs. Developing in Azure let GEP do away with the software licensing headaches that its developers could run into on-premises. The core of SMART by GEP is Azure SQL Database, though GEP uses many other Azure services to easily and rapidly continue to improve SMART by GEP.
 
 ![Figure 1](./media/sql-database-case-study-gep/figure1.png)
- 
+Figure 1. SMART by GEP architecture
+
 ## Structured data
 
 At the heart of the SMART by GEP application are the Azure SQL Database instances that power the enterprise procurement-management solution. When GEP engineered SMART by GEP, it saw Azure SQL Database as a perfect fit for its architecture, one that would enable the company to achieve the highest degree of data protection and to meet its regulatory requirements. GEP makes use of the multiple layers of data protection that Azure SQL Database offers, including:
@@ -62,13 +63,13 @@ By using Azure SQL Database, GEP automatically has greater disaster-recovery cap
 
 Each SMART by GEP customer has two Azure SQL Database instances: one for online transaction processing (OLTP) and one for analysis (such as customer spend and report analysis). Azure SQL Database elastic database pools enable GEP to easily manage thousands of databases globally to handle unpredictable database-resource demands. Elastic pools provide a means for GEP to ensure that customer databases can scale as necessary, without over-provisioning or under-provisioning, while also allowing GEP to control costs. Moreover, because this is a PaaS service, GEP gets all the new Azure SQL Database features with automatic upgrades.
 
-## Unstructured and semi-structured Data
+## Unstructured and semi-structured data
 
 However, some SMART by GEP customer data needs less-rigidly structured storage. For this type of data, GEP employs Azure Blob storage, Azure Table Storage, and Azure Redis Cache. Azure Blob storage houses any attachments that SMART by GEP users upload into the application. It is also where SMART by GEP stores static content, such as cascading style sheets (CSS) and JavaScript files.
 
 GEP stores non-customer-facing data, like SMART by GEP log data, in Azure Table Storage, which gives GEP effectively unlimited cost-efficient storage and fast retrieval times without having to worry about setting up a schema for the data. GEP uses Azure Redis Cache for a master cache.
 
-## Authentication and Routing
+## Authentication and routing
 
 Azure Access Control Service (ACS) provides SMART by GEP users with a wide variety of options for signing into the software. Azure ACS can federate with any identity provider that exchanges authentication data using Security Assertion Markup Language (SAML), such as Active Directory Domain Services, Ping Identity, OneLogin, or SiteMinder. This helps GEP implement single sign-on (SSO) for customers without worrying about storing user credentials and maintaining customer-password policies.
 
@@ -84,8 +85,12 @@ To send the thousands of transactional emails generated on a daily basis by SMAR
 
 Finally, SMART by GEP uses Azure Virtual Machines—the Azure IaaS service—to host applications and services that did not make sense, at the time of engineering, to replace with software-as-a-service (SaaS) or PaaS solutions. For example, GEP hosts integration API services in virtual machines for business-to-business (B2B) integration with customers’ on-premises enterprise-resource-planning (ERP) systems like SAP, Oracle, PeopleSoft, JD Edwards, Microsoft Dynamics GP, and Lawson and with customer SaaS solutions to efficiently exchange procurement documents, such as invoices.
 
-“Building SMART by GEP in the Microsoft Azure cloud has completely removed the need for on-premises IT, not only for GEP but also for our customers’ procurement operations.” 
+-
+
+> “Building SMART by GEP in the Microsoft Azure cloud has completely removed the need for on-premises IT, not only for GEP but also for our customers’ procurement operations.” 
 - Dhananjay Nagalkar, VP of Technology Solutions
+
+-
 
 ## Expand customer satisfaction without expanding IT
 
