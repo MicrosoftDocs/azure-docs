@@ -208,7 +208,6 @@ To get hands on experience, you can access the following resources:
 
 To further explore the capabilities of IoT Hub, see:
 
-- [Designing your solution][lnk-design]
 - [Developer guide][lnk-devguide]
 - [Simulating a device with the Gateway SDK][lnk-gateway]
 - [Using the Azure Portal to manage IoT Hub][lnk-portal]
@@ -230,7 +229,6 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-github2]: https://github.com/Azure/azure-iot-sdks/tree/dmpreview/c/iotdm_client/lwm2m_objects
 [lnk-oma]:http://technical.openmobilealliance.org/Technical/technical-information/omna/lightweight-m2m-lwm2m-object-registry
 
-[lnk-design]: iot-hub-guidance.md
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 [lnk-portal]: iot-hub-manage-through-portal.md

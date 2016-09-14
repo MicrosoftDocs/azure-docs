@@ -433,7 +433,6 @@ If you want to gain a more advanced understanding of the Gateway SDK and experim
 
 To further explore the capabilities of IoT Hub, see:
 
-- [Designing your solution][lnk-design]
 - [Developer guide][lnk-devguide]
 - [Exploring device management using the sample UI][lnk-dmui]
 - [Using the Azure Portal to manage IoT Hub][lnk-portal]
@@ -453,7 +452,6 @@ To further explore the capabilities of IoT Hub, see:
 
 [lnk-manage-devices]: iot-hub-gateway-sdk-device-management.md
 
-[lnk-design]: iot-hub-guidance.md
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-portal]: iot-hub-manage-through-portal.md
