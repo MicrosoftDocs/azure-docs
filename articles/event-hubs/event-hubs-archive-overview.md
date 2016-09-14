@@ -58,7 +58,7 @@ Archives can be configured on existing Event Hubs that are in an Event Hubs name
 
 ![][2]
 
-You can also configure Event Hubs Archive via Azure Resource Manager templates.
+You can also configure Event Hubs Archive via Azure Resource Manager templates. For more information see [this article](event-hubs-resource-manager-namespace-event-hub-enable-archive.md).
 
 ## Exploring the archive and working with Avro
 
