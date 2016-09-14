@@ -269,7 +269,7 @@ Users of the Azure Data Catalog can publish metadata using a public API, a click
       <td>✓</td>
       <td>✓</td>
       <td><font size=2>PowerBI</font></td>
-      <td><font size=2></font></td>
+      <td><font size=2>Calculation Views and Analytic Views only; Attribute Views are not supported.</font></td>
     </tr>
 
     <tr>
