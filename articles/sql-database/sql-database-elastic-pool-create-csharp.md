@@ -13,7 +13,7 @@
     ms.topic="get-started-article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="09/13/2016"
+    ms.date="09/14/2016"
     ms.author="sstein"/>
 
 # Create a new elastic database pool with C&#x23;
@@ -64,18 +64,20 @@ The following sample creates a resource group, server, firewall rule, elastic po
 Replace the contents of **Program.cs** with the following, and update the `{variables}` with your app values (do not include the `{}`).
 
 
-    using Microsoft.Azure;
-    using Microsoft.Azure.Management.ResourceManager;
-    using Microsoft.Azure.Management.ResourceManager.Models;
-    using Microsoft.Azure.Management.Sql;
-    using Microsoft.Azure.Management.Sql.Models;
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    using System;
-    
-    namespace SqlElasticPoolConsoleApp
-    {
+```
+using Microsoft.Azure;
+using Microsoft.Azure.Management.ResourceManager;
+using Microsoft.Azure.Management.ResourceManager.Models;
+using Microsoft.Azure.Management.Sql;
+using Microsoft.Azure.Management.Sql.Models;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using System;
+
+namespace SqlElasticPoolConsoleApp
+{
     class Program
-       {
+        {
+
         // For details about these four (4) values, see
         // https://azure.microsoft.com/documentation/articles/resource-group-authenticate-service-principal/
         static string _subscriptionId = "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}";
@@ -104,9 +106,14 @@ Replace the contents of **Program.cs** with the following, and update the `{vari
         static string _startIpAddress = "{0.0.0.0}";
         static string _endIpAddress = "{255.255.255.255}";
 
-        static string _databaseName = "{dbfromcsarticle}";
-        static string _databaseEdition = DatabaseEditions.Basic;
-        static string _databasePerfLevel = ""; // "S0", "S1", and so on here for other tiers
+        static string _poolName = "{pool-name}";
+        static string _poolEdition = "{Standard}";
+        static int _poolDtus = {100};
+        static int _databaseMinDtus = {10};
+        static int _databaseMaxDtus = {100};
+
+        static string _databaseName = "{elasticdbfromcsarticle}";
+
 
 
         static void Main(string[] args)
@@ -124,6 +131,7 @@ Replace the contents of **Program.cs** with the following, and update the `{vari
             ResourceGroup rg = CreateOrUpdateResourceGroup(_resourceMgmtClient, _subscriptionId, _resourceGroupName, _resourceGrouplocation);
             Console.WriteLine("Resource group: " + rg.Id);
 
+
             Console.WriteLine("Server...");
             ServerGetResponse sgr = CreateOrUpdateServer(_sqlMgmtClient, _resourceGroupName, _serverlocation, _serverName, _serverAdmin, _serverAdminPassword);
             Console.WriteLine("Server: " + sgr.Server.Id);
@@ -132,8 +140,12 @@ Replace the contents of **Program.cs** with the following, and update the `{vari
             FirewallRuleGetResponse fwr = CreateOrUpdateFirewallRule(_sqlMgmtClient, _resourceGroupName, _serverName, _firewallRuleName, _startIpAddress, _endIpAddress);
             Console.WriteLine("Server firewall: " + fwr.FirewallRule.Id);
 
+            Console.WriteLine("Elastic pool...");
+            ElasticPoolCreateOrUpdateResponse epr = CreateOrUpdateElasticDatabasePool(_sqlMgmtClient, _resourceGroupName, _serverName, _poolName, _poolEdition, _poolDtus, _databaseMinDtus, _databaseMaxDtus);
+            Console.WriteLine("Elastic pool: " + epr.ElasticPool.Id);
+
             Console.WriteLine("Database...");
-            DatabaseCreateOrUpdateResponse dbr = CreateOrUpdateDatabase(_sqlMgmtClient, _resourceGroupName, _serverName, _databaseName, _databaseEdition, _databasePerfLevel);
+            DatabaseCreateOrUpdateResponse dbr = CreateOrUpdateDatabase(_sqlMgmtClient, _resourceGroupName, _serverName, _databaseName, _poolName);
             Console.WriteLine("Database: " + dbr.Database.Id);
 
 
@@ -185,7 +197,33 @@ Replace the contents of **Program.cs** with the following, and update the `{vari
 
 
 
-        static DatabaseCreateOrUpdateResponse CreateOrUpdateDatabase(SqlManagementClient sqlMgmtClient, string resourceGroupName, string serverName, string databaseName, string databaseEdition, string databasePerfLevel)
+        static ElasticPoolCreateOrUpdateResponse CreateOrUpdateElasticDatabasePool(SqlManagementClient sqlMgmtClient, string resourceGroupName, string serverName, string poolName, string poolEdition, int poolDtus, int databaseMinDtus, int databaseMaxDtus)
+        {
+            // Retrieve the server that will host this elastic pool
+            Server currentServer = sqlMgmtClient.Servers.Get(resourceGroupName, serverName).Server;
+
+            // Create elastic pool: configure create or update parameters and properties explicitly
+            ElasticPoolCreateOrUpdateParameters newPoolParameters = new ElasticPoolCreateOrUpdateParameters()
+            {
+                Location = currentServer.Location,
+                Properties = new ElasticPoolCreateOrUpdateProperties()
+                {
+                    Edition = poolEdition,
+                    Dtu = poolDtus,
+                    DatabaseDtuMin = databaseMinDtus,
+                    DatabaseDtuMax = databaseMaxDtus
+                }
+            };
+
+            // Create the pool
+            var newPoolResponse = sqlMgmtClient.ElasticPools.CreateOrUpdate(resourceGroupName, serverName, poolName, newPoolParameters);
+            return newPoolResponse;
+        }
+
+
+
+
+        static DatabaseCreateOrUpdateResponse CreateOrUpdateDatabase(SqlManagementClient sqlMgmtClient, string resourceGroupName, string serverName, string databaseName, string poolName)
         {
             // Retrieve the server that will host this database
             Server currentServer = sqlMgmtClient.Servers.Get(resourceGroupName, serverName).Server;
@@ -197,8 +235,7 @@ Replace the contents of **Program.cs** with the following, and update the `{vari
                 Properties = new DatabaseCreateOrUpdateProperties()
                 {
                     CreateMode = DatabaseCreateMode.Default,
-                    Edition = databaseEdition,
-                    RequestedServiceObjectiveName = databasePerfLevel
+                    ElasticPoolName = poolName
                 }
             };
             DatabaseCreateOrUpdateResponse dbResponse = sqlMgmtClient.Databases.CreateOrUpdate(resourceGroupName, serverName, databaseName, newDatabaseParameters);
@@ -213,8 +250,9 @@ Replace the contents of **Program.cs** with the following, and update the `{vari
             _token = authContext.AcquireToken("https://management.core.windows.net/", new ClientCredential(applicationId, applicationSecret));
             return _token;
         }
-      }
     }
+}
+```
 
 
 
