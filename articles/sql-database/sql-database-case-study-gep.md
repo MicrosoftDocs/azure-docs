@@ -36,7 +36,7 @@ Nagalkar knew that a cloud solution might be the answer to this dilemma. If GEP 
 
 Nagalkar and his team explored several cloud options, but most were infrastructure-as-a-service (IaaS)–based solutions that would have required GEP to invest heavily in IT resources to configure and manage the service. The Azure platform-as-a-service (PaaS) solution turned out to be a much better fit.
 
-> “With Azure, GEP doesn’t need to deal with database management, virtual-machine configuration, patching, or other infrastructure-management tasks,” stated Nagalkar. “Instead, we can focus our resources on what we do best: leveraging our expertise in procurement to write software that truly delivers results for our customers.” 
+“With Azure, GEP doesn’t need to deal with database management, virtual-machine configuration, patching, or other infrastructure-management tasks,” stated Nagalkar. “Instead, we can focus our resources on what we do best: leveraging our expertise in procurement to write software that truly delivers results for our customers.” 
 
 In fact, the move to Azure has enabled GEP to shrink its IT operations staff while simultaneously enabling greater functionality for customers.
 
