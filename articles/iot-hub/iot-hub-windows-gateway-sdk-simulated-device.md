@@ -67,13 +67,13 @@ In a text editor, open the file **samples\\simulated_device_cloud_upload\\src\\s
             [
                 {
                     "macAddress" : "01-01-01-01-01-01",
-                    "deviceId"   : "{Device ID}",
-                    "deviceKey"  : "{Device key}"
+                    "deviceId"   : "{Device ID 1}",
+                    "deviceKey"  : "{Device key 1}"
                 },
                 {
                     "macAddress" : "02-02-02-02-02-02",
-                    "deviceId"   : "{Device ID}",
-                    "deviceKey"  : "{Device key}"
+                    "deviceId"   : "{Device ID 2}",
+                    "deviceKey"  : "{Device key 2}"
                 }
             ]
         },

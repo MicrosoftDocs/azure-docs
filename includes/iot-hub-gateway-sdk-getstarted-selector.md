@@ -35,7 +35,7 @@ The SDK provides an abstraction layer that enables you to build gateways to run 
 
 ### Messages
 
-Although thinking about modules passing messages to each other is a convenient way to conceptualize how a gateway functions, it does not accurately reflect what happens. Modules use a broker to communicate with eachother, they publish messages to the broker (bus, pubsub, or any other messaging pattern) and then let the broker route the message to the modules connected to it.
+Although thinking about modules passing messages to each other is a convenient way to conceptualize how a gateway functions, it does not accurately reflect what happens. Modules use a broker to communicate with each other, they publish messages to the broker (bus, pubsub, or any other messaging pattern) and then let the broker route the message to the modules connected to it.
 
 A modules uses the **Broker_Publish** function to publish a message to the broker. The broker delivers messages to a module by invoking a callback function. A message consists of a set of key/value properties and content passed as a block of memory.
 

@@ -39,7 +39,7 @@ This module is the starting point for getting data from devices, through the gat
 
 2.  It places the simulated temperature data into the contents of a message.
 
-3.  It adds a property with a fake MAC address to the message that contains the simulated temperatue data.
+3.  It adds a property with a fake MAC address to the message that contains the simulated temperature data.
 
 4.  It makes the message available to the next module in the chain.
 
