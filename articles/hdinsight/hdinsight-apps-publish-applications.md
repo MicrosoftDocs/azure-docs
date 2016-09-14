@@ -79,7 +79,7 @@ Create a zip file that contains all required files for installing your HDInsight
 
 - All required scripts.
 
-> [AZURE.NOTE] The application files (including web appliation files if there is any) can be located on any publicly accessible endpoint.
+> [AZURE.NOTE] The application files (including web application files if there is any) can be located on any publicly accessible endpoint.
 
 ## Publish application
 
@@ -99,3 +99,5 @@ Follow the following steps to publish an HDInsight application:
 - [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md): learn how to deploy an un-published HDInsight application to HDInsight.
 - [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md): learn how to use Script Action to install additional applications.
 - [Create Linux-based Hadoop clusters in HDInsight using Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md): learn how to call Resource Manager templates to create HDInsight clusters.
+- [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md): learn how to use an empty edge node for accessing HDInsight cluster, testing HDInsight applications, and hosting HDInsight applications.
+
