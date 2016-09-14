@@ -30,11 +30,11 @@ As with many Azure services, the Batch service emits log events for certain reso
 
   To persist Batch diagnostic logs, you must create an Azure Storage account where Azure will store the logs. The Storage account you specify when you enable log collection is not the same as a "linked" storage account referred to in the [application packages](batch-application-packages.md) and [task output persistence](batch-task-output.md) articles. However, you can use the same Storage account you've linked for those purposes, if you like.
 
->[AZURE.WARNING] You are **charged** for the data stored in your Azure Storage account. This includes the diagnostic logs discussed in this article. Keep this in mind when designing your [log retention policy](../azure-portal/monitoring-archive-diagnostic-logs.md).
+  >[AZURE.WARNING] You are **charged** for the data stored in your Azure Storage account. This includes the diagnostic logs discussed in this article. Keep this in mind when designing your [log retention policy](../azure-portal/monitoring-archive-diagnostic-logs.md).
 
 ## Enable diagnostic logging
 
-Diagnostic logging is not enabled by default for your Batch account. You must explicitly enable diagnostic logging for each Batch account that you want to monitor:
+Diagnostic logging is not enabled by default for your Batch account. You must explicitly enable diagnostic logging for each Batch account you want to monitor:
 
 [How to enable collection of Diagnostic Logs](../azure-portal/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs)
 
@@ -42,9 +42,7 @@ We recommend that you read the full [Overview of Azure Diagnostic Logs](../azure
 
 ## Service Logs
 
-Azure Batch currently supports one log category, Service Logs. These logs contain events emitted by the Azure Batch service during the lifetime of a Batch resource like a pool or task.
-
-Each event emitted by Batch is stored in the specified Storage account in JSON format. For example, this is the body of a sample **pool create event**:
+Azure Batch Service Logs contain events emitted by the Azure Batch service during the lifetime of a Batch resource like a pool or task. Each event emitted by Batch is stored in the specified Storage account in JSON format. For example, this is the body of a sample **pool create event**:
 
 ```json
 {
