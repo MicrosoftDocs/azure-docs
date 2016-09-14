@@ -61,7 +61,7 @@ Click **Browse** > **choose Virtual Networks**
 
 	![Final link state 2](./media/virtual-networks-create-vnetpeering-arm-portal/figure08.png)
 
-10. NOTE: VNET peering is only established if both links are connected.
+    >AZURE.NOTE: VNET peering is only established if both links are connected.
 
 There are a few configurable properties for each link:
 
