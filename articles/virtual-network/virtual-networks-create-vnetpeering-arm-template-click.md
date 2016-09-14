@@ -14,8 +14,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/02/2016"
-   ms.author="narayanannamalai"/>
+   ms.date="09/14/2016"
+   ms.author="narayanannamalai;annahar"/>
 
 # Create VNet Peering using Resource Manager templates
 

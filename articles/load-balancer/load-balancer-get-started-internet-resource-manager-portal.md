@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/24/2016"
+   ms.date="09/14/2016"
    ms.author="annahar" />
 
 # Get started creating an Internet facing load balancer using the Azure portal
@@ -46,7 +46,7 @@ You need to create and configure the following objects to deploy a load balancer
 You can get more information about load balancer components with Azure Resource Manager at [Azure Resource Manager support for Load Balancer](load-balancer-arm.md).
 
 
-## Getting started creating an Internet-facing load balancer in the Azure portal
+## Set up a load balancer in Azure portal
 
 > [AZURE.IMPORTANT] This example assumes you have a virtual network called **myVNet**. Refer to [create virtual network](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) to do this. It also assumes there is a subnet within **myVNet** called **LB-Subnet-BE** and two VMs called **web1** and **web2** respectively within the same availability set called **myAvailSet** in **myVNet**. Refer to [this link](../virtual-machines/virtual-machines-windows-hero-tutorial.md) to create VMs.
 
@@ -66,7 +66,7 @@ You can get more information about load balancer components with Azure Resource 
 ![Updating resource group of load balancer](./media/load-balancer-get-started-internet-arm-portal/1-load-balancer.png)
 
 
-## Create a Back-End Address Pool
+## Create a back-end address pool
 
 1. Once your load balancer has successfully deployed, select it from within your resources. Under settings, select Backend Pools. Type a name for your backend pool. Then click on the **Add** button toward the top of the blade that shows up.
 

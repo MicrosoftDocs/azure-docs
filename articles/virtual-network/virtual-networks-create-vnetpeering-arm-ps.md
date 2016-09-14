@@ -14,8 +14,8 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/09/2016"
-   ms.author="narayanannamalai"/>
+   ms.date="09/14/2016"
+   ms.author="narayanannamalai; annahar"/>
 
 # Create VNet Peering using Powershell cmdlets
 
