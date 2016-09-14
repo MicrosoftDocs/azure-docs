@@ -46,6 +46,8 @@ To open the **SQL databases** blade, click **SQL databases**, and then click the
 
 To open the **SQL servers** blade, click **SQL servers**, and then click the server you want to work with, or click **+Add** to create a SQL server. For details, see [Create a SQL database in minutes by using the Azure portal](sql-database-get-started.md).
 
+![SQL servers](./media/sql-database-manage-portal/sql-servers.png)
+
 
 ## How do I create or view SQL elastic pools?
 
@@ -116,9 +118,6 @@ To monitor and improve performance characteristics of a SQL database, click **Pe
 To set up Geo-Replication for a SQL database, click **Geo-Replication** on the **SQL database** blade. For details, see [Configure Geo-Replication for Azure SQL Database with the Azure portal](sql-database-geo-replication-portal.md).
 
 
-![SQL database settings](./media/sql-database-manage-portal/commands.png)
-
-
 ## How do I failover to a geo-replicated SQL database?
 
 To failover to a geo-replicated secondary, click **Geo-Replication** on the **SQL database** blade, then click **Failover**. For details, see [Initiate a planned or unplanned failover for Azure SQL Database with the Azure portal](sql-database-geo-replication-failover-portal.md).
@@ -150,7 +149,10 @@ To restore a SQL database, click **Restore** on the **SQL database** blade. For 
 
 ## How do I create an Azure SQL database from a BACPAC file?
 
-To create a SQL database from a BACPAC file, click **Import** on the **SQL server** blade. For details, see [Import a BACPAC file to create an Azure SQL database](sql-database-import.md).
+To create a SQL database from a BACPAC file, click **Import database** on the **SQL server** blade. For details, see [Import a BACPAC file to create an Azure SQL database](sql-database-import.md).
+
+
+![SQL server](./media/sql-database-manage-portal/server-commands.png)
 
 
 ## How do I restore a deleted SQL database?
