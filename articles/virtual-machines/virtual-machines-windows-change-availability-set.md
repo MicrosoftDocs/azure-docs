@@ -21,7 +21,7 @@
 
 # Change Availability Set of Windows VM
 
-The following steps describe how to change the availability set of a VM using Azure PowerShell. The availability set configuration of a VM can only be defined at the time the VM is created so you must delete and then recreate the virtual machine to change the availability set configuration. 
+The following steps describe how to change the availability set of a VM using Azure PowerShell. A Vm can only be added to an availability set when the VM is created. In order to change the availability set, you need to delete and recreate the virtual machine. 
 
 # Change the availability set using PowerShell
 
@@ -51,7 +51,7 @@ The following steps describe how to change the availability set of a VM using Az
 	$vm.StorageProfile.OsDisk.Vhd.Uri
 	```
 
-	For each optional data disk gather data disk provile
+	Disk profiles for each data disk 
 	
 	```powershell
 	$vm.StorageProfile.DataDisks[<index>].Lun
@@ -64,7 +64,7 @@ The following steps describe how to change the availability set of a VM using Az
 	$vm.Extensions
 	```
 
-2. Delete the VM without deleting any of the disks or the network interface(s)
+2. Delete the VM without deleting any of the disks or the network interfaces.
 
 ```powershell
 Remove-AzureRmVM -ResourceGroupName <resourceGroupName> -Name <vmName> 
