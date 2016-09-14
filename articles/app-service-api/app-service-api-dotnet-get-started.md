@@ -62,9 +62,9 @@ The next tutorial in the series deploys the SPA front end to the cloud.
 
 	If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751). There, you can immediately create a short-lived starter app in App Service — **no credit card required**, and no commitments.
 
-* Visual Studio 2015 with the [Azure SDK for .NET](http://go.microsoft.com/fwlink/?linkid=518003) - The SDK installs Visual Studio 2015 automatically if you don't already have it.
+* Visual Studio 2015 with the [Azure SDK for .NET](https://azure.microsoft.com/en-us/downloads/archive-net-downloads/) - The SDK installs Visual Studio 2015 automatically if you don't already have it.
 
-    * In Visual Studio, click Help -> About Microsoft Visual Studio and ensure that you have "Azure App Service Tools v2.9.1" installed.
+    * In Visual Studio, click Help -> About Microsoft Visual Studio and ensure that you have "Azure App Service Tools v2.9.1" or higher installed.
 
 	![Azure App Tools vesion](./media/app-service-api-dotnet-get-started/apiversion.png)
 
