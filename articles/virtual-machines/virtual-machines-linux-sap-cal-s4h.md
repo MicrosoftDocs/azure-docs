@@ -1,5 +1,5 @@
 <properties 
-pageTitle="Deploying S/4 HANA or BW/4 HANA on Microsoft Azure" 
+pageTitle="Deploying S/4 HANA or BW/4 HANA on Microsoft Azure | Microsoft Azure" 
 description="Deploying S/4 HANA or BW/4 HANA on Microsoft Azure" 
 services="virtual-machines,virtual-network,storage" 
 documentationCenter="saponazure" 
@@ -26,7 +26,6 @@ works the same way from a process perspective. One just has to select a differen
 
 To start with SAP Cloud Appliance Library (SAP CAL) go [here](https://cal.sap.com/). There is a blog from SAP about the new [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience). 
 
-## Using the new simplified SAP CAL 3.0 UI to deploy S/4 HANA 
 
 The following screenshots show step-by-step how to deploy S/4 HANA on Microsoft Azure. The process works the same way for other solutions likeBW/4 HANA.
 
