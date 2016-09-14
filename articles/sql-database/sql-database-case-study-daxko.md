@@ -15,6 +15,8 @@
    ms.workload="NA"
    ms.date="09/08/2016"
    ms.author="carlrab"/>
+   
+![Logo](./media/sql-database-case-study-daxko/csidaxkologo.png)
 
 # Daxko/CSI used Azure to accelerate its development cycle and to enhance its customer services and performance
 
