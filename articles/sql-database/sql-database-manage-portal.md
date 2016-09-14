@@ -25,7 +25,7 @@
 - [SSMS](sql-database-manage-azure-ssms.md)
 - [PowerShell](sql-database-command-line-tools.md)
 
-The [Azure portal](https://portal.azure.com/) allows you to create, monitor and manage Azure SQL databases and servers. This article provides a quick description and links to the details of the more common tasks.
+The [Azure portal](https://portal.azure.com/) allows you to create, monitor, and manage Azure SQL databases and servers. This article provides a quick description and links to the details of the more common tasks.
 
 ## View your Azure SQL databases, servers, and pools
 
@@ -57,7 +57,7 @@ To open the **SQL elastic pools** blade, click **SQL elastic pools**, and then c
 
 ## How do I update or view SQL database settings?
 
-To view or update your database settings, click the the desired setting on the SQL database blade:
+To view or update your database settings, click the desired setting on the SQL database blade:
 
 
 ![SQL database settings](./media/sql-database-manage-portal/settings.png)
@@ -73,7 +73,7 @@ To view your databases server name, click **Overview** on the **SQL database** b
 
 ## How do I manage firewall rules to control access to my SQL server and database?
 
-To view, create, or update firewall rules, click **Set server firewall** on the **SQL database** blade. For details, see [Configure an Azure SQL Database server-level firewall rule using the Azure Portal](sql-database-configure-firewall-settings.md).
+To view, create, or update firewall rules, click **Set server firewall** on the **SQL database** blade. For details, see [Configure an Azure SQL Database server-level firewall rule using the Azure portal](sql-database-configure-firewall-settings.md).
 
 
 ![firewall rules](./media/sql-database-manage-portal/commands.png)
@@ -133,7 +133,7 @@ To copy a SQL database, click **Copy** on the **SQL database** blade. For detail
 
 ## How do I archive an Azure SQL database to a BACPAC file?
 
-To create a BACPAC of a SQL database, click **Export** on the **SQL database** blade. For details, see [Archive an Azure SQL database to a BACPAC file using the Azure Portal](sql-database-export-portal.md).
+To create a BACPAC of a SQL database, click **Export** on the **SQL database** blade. For details, see [Archive an Azure SQL database to a BACPAC file using the Azure portal](sql-database-export-portal.md).
 
 
 ![SQL database export](./media/sql-database-manage-portal/commands.png)
@@ -142,7 +142,7 @@ To create a BACPAC of a SQL database, click **Export** on the **SQL database** b
 
 ## How do I restore a SQL database to a previous point in time?
 
-To restore a SQL database, click **Restore** on the **SQL database** blade. For details, see [Restore an Azure SQL Database to a previous point in time with the Azure Portal](sql-database-point-in-time-restore-portal.md).
+To restore a SQL database, click **Restore** on the **SQL database** blade. For details, see [Restore an Azure SQL Database to a previous point in time with the Azure portal](sql-database-point-in-time-restore-portal.md).
 
 
 ![SQL database settings](./media/sql-database-manage-portal/commands.png)
@@ -155,7 +155,7 @@ To create a SQL database from a BACPAC file, click **Import** on the **SQL serve
 
 ## How do I restore a deleted SQL database?
 
-To restore a deleted SQL database, click **Deleted databases** on the **SQL server** blade (the SQL server that contained the database that was deleted). For details, see [Restore a deleted Azure SQL database using the Azure Portal](sql-database-restore-deleted-database-portal.md).
+To restore a deleted SQL database, click **Deleted databases** on the **SQL server** blade (the SQL server that contained the database that was deleted). For details, see [Restore a deleted Azure SQL database using the Azure portal](sql-database-restore-deleted-database-portal.md).
 
 ## How do I delete a SQL database?
 
