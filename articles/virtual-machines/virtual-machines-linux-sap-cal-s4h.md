@@ -54,8 +54,8 @@ active subscriptions for your user.
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic7b.jpg)
 
 Selecting one of the subscriptions and then choosing "Management Certificates" explains that there is
-a new concept using "service principals" for the new Azure Resource Manager model also called ARM.
-SAP CAL isn't adapted yet for the new ARM model and still requires the "classic" model and the former
+a new concept using "service principals" for the new Azure Resource Manager model.
+SAP CAL isn't adapted yet for this new model and still requires the "classic" model and the former
 Azure portal to work with management certificates.
 
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic4b.jpg)
