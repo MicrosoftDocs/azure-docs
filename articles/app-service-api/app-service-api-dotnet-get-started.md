@@ -63,6 +63,7 @@ The next tutorial in the series deploys the SPA front end to the cloud.
 	If you want to get started with Azure App Service before you sign up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751). There, you can immediately create a short-lived starter app in App Service — **no credit card required**, and no commitments.
 
 * Visual Studio 2015 with the [Azure SDK for .NET](http://go.microsoft.com/fwlink/?linkid=518003) - The SDK installs Visual Studio 2015 automatically if you don't already have it.
+
     * In Visual Studio, click Help -> About Microsoft Visual Studio and ensure that you have "Azure App Service Tools v2.9.1" installed.
 
 	![Azure App Tools vesion](./media/app-service-api-dotnet-get-started/apiversion.png)
@@ -79,9 +80,9 @@ The next tutorial in the series deploys the SPA front end to the cloud.
    1. You will need to trust each solution.
 	 	![Security Warning](./media/app-service-api-dotnet-get-started/securitywarning.png)
 
-3. Build the solution to restore the NuGet packages.
+3. Build the solution (CTRL + SHIFT + B)  to restore the NuGet packages.
 
-	If you want to see the application in operation before you deploy it, you can run it locally. Just make sure that all three projects are startup projects. You'll need to use Internet Explorer or Edge since those browsers permit cross-origin JavaScript calls to `http://localhost` URLs.
+	If you want to see the application in operation before you deploy it, you can run it locally. Make sure that ToDoListDataAPI is your startup project and run the solution. You should expect to see a HTTP 403 error in your browser.
 
 ## Use Swagger API metadata and UI
 
@@ -150,7 +151,7 @@ In this section of the tutorial, you look at the generated Swagger 2.0 metadata,
 
 4. Close the browser and stop Visual Studio debugging.
 
-5. In the ToDoListDataAPI project in **Solution Explorer**, open the *App_Start\SwaggerConfig.cs* file, then scroll down to the following code and uncomment it.
+5. In the ToDoListDataAPI project in **Solution Explorer**, open the *App_Start\SwaggerConfig.cs* file, then scroll down to line 174 and uncomment the following code.
 
 		/*
 		    })
@@ -372,7 +373,7 @@ The ToDoListAPI project already has the generated client code, but in the follow
 
 	![Code files for generated client](./media/app-service-api-dotnet-get-started/codegenfiles.png)
 
-6. In the ToDoListAPI project, open *Controllers\ToDoListController.cs* to see the code that calls the API by using the generated client.
+6. In the ToDoListAPI project, open *Controllers\ToDoListController.cs* to see the code at line 40  that calls the API by using the generated client.
 
 	The following snippet shows how the code instantiates the client object and calls the Get method.
 
@@ -447,7 +448,7 @@ If you called the middle tier API app now, it would try to call the data tier us
 
 2. In the API App's **Settings** blade, click **Application settings**.
 
-3. In the API App's **Application Settings** blade, scroll down to the **App settings** section and add the following key and value:
+3. In the API App's **Application Settings** blade, scroll down to the **App settings** section and add the following key and value. The value will be the URL of the first API App you published in this tutorial.
 
 	| **Key** | toDoListDataAPIURL |
 	|---|---|
