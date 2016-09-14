@@ -125,7 +125,7 @@ Since choosing Azure as its cloud partner, Umbraco has been able to provide UaaS
 
 - To learn more about Azure elastic database pools, see [elastic database pools](sql-database-elastic-pool.md).
 
-- To learn more about Azure Service Bus,see https://azure.microsoft.com/services/service-bus/.
+- To learn more about Azure Service Bus,see [Azure Service Bus](https://azure.microsoft.com/services/service-bus/).
 
 - To learn more about Web roles and worker roles, see [worker roles](../fundamentals-introduction-to-azure.md#compute).	
 
@@ -135,6 +135,6 @@ Since choosing Azure as its cloud partner, Umbraco has been able to provide UaaS
 
 - To learn more about monitoring ppols, see [monitoring pools](sql-database-elastic-pool-manage-portal.md).	
 
-- To learn more about Umbraco as a Service, see https://umbraco.com/cloud
+- To learn more about Umbraco as a Service, see [Umbraco](https://umbraco.com/cloud).
 
 ![Umbraco Logo](./media/sql-database-case-study-umbraco/umbracologo.png)
