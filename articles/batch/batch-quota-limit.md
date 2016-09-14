@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Batch service quotas and limits | Microsoft Azure"
-	description="Learn about quotas, limits, and constraints for using the Azure Batch service"
+	description="Learn about default Azure Batch quotas, limits, and constraints, and how to request quota increases"
 	services="batch"
 	documentationCenter=""
 	authors="mmacy"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2016"
+	ms.date="09/10/2016"
 	ms.author="marsma"/>
 
 # Quotas and limits for the Azure Batch service
@@ -46,13 +46,13 @@ Application package size (each)       | Approx. 195GB<sup>1</sup>
 
 View your Batch account quotas in the [Azure portal][portal].
 
-1. In the portal, click **Batch accounts** and then the name of your Batch account.
+1. Select **Batch accounts** in the portal, then select the Batch account you're interested in.
 
-2. On the account blade, click **All settings** > **Properties**.
+2. Select **Properties** on the Batch account's menu blade
+
+3. The Properties blade displays the **quotas** currently applied to the Batch account
 
 	![Batch account quotas][account_quotas]
-
-3. The **Properties** blade displays the quotas currently applied to the Batch account.
 
 ## Increase a quota
 

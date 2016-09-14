@@ -159,7 +159,7 @@ Currently, the supported aliases are:
 
 | Alias name | Description |
 | ---------- | ----------- |
-| {resourceType}/sku.name | Supported resource types are: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Web/serverFarms,<br /> Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft..CDN/profiles |
+| {resourceType}/sku.name | Supported resource types are: Microsoft.Compute/virtualMachines,<br />Microsoft.Storage/storageAccounts,<br />Microsoft.Web/serverFarms,<br /> Microsoft.Scheduler/jobcollections,<br />Microsoft.DocumentDB/databaseAccounts,<br />Microsoft.Cache/Redis,<br />Microsoft.CDN/profiles |
 | {resourceType}/sku.family | Supported resource type is Microsoft.Cache/Redis |
 | {resourceType}/sku.capacity | Supported resource type is Microsoft.Cache/Redis |
 | Microsoft.Compute/virtualMachines/imagePublisher |  |
@@ -454,6 +454,27 @@ The output of execution is stored in $policy object, and can used later during p
 
     New-AzureRmPolicyDefinition -Name regionPolicyDefinition -Description "Policy to allow resource creation only in certain 	regions" -Policy "path-to-policy-json-on-disk"
 
+### Create Policy Definition using Azure CLI
+
+You can create a new policy definition using the azure CLI with the policy definition command as shown below. The below examples creates a policy for allowing resources only in North Europe and West Europe.
+
+    azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy-string '{	
+      "if" : {
+        "not" : {
+          "field" : "location",
+          "in" : ["northeurope" , "westeurope"]
+    	}
+      },
+      "then" : {
+        "effect" : "deny"
+      }
+    }'    
+    
+
+It is possible to specify the path to a .json file containing the policy instead of specifying the policy inline as shown below.
+
+    azure policy definition create --name regionPolicyDefinition --description "Policy to allow resource creation only in certain regions" --policy "path-to-policy-json-on-disk"
+
 
 ## Applying a Policy
 
@@ -498,16 +519,44 @@ You can get, change or remove policy definitions through Get-AzureRmPolicyDefini
 
 Similarly, you can get, change or remove policy assignments through the Get-AzureRmPolicyAssignment, Set-AzureRmPolicyAssignment and Remove-AzureRmPolicyAssignment cmdlets respectively.
 
+### Policy Assignment using Azure CLI
+
+You can apply the policy created above through Azure CLI to the desired scope by using the policy assignment command as shown below:
+
+    azure policy assignment create --name regionPolicyAssignment --policy-definition-id /subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/<policy-name> --scope    /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
+        
+The scope here is the name of the resource group you specify. If the value of the parameter policy-definition-id is unknown, it is possible to obtain it through the Azure CLI as shown below: 
+
+    azure policy definition show <policy-name>
+
+If you want to remove the above policy assignment, you can do it as follows:
+
+    azure policy assignment remove --name regionPolicyAssignment --ccope /subscriptions/########-####-####-####-############/resourceGroups/<resource-group-name>
+
+You can get, change or remove policy definitions through policy definition show, set and delete commands respectively.
+
+Similarly, you can get, change or remove policy assignments through the policy assignment show and delete commands respectively.
+
 ##Policy Audit Events
 
-After you have applied your policy, you will begin to see policy-related events. You can either go to portal or use PowerShell to get this data. 
+After you have applied your policy, you will begin to see policy-related events. You can either go to portal, use PowerShell or the Azure CLI to get this data. 
 
-To view all events that related to deny effect, you can use the following command. 
+### Policy Audit Events using PowerShell
+
+To view all events that related to deny effect, you can use the following PowerShell command. 
 
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/deny/action"} 
 
 To view all events related to audit effect, you can use the following command. 
 
     Get-AzureRmLog | where {$_.OperationName -eq "Microsoft.Authorization/policies/audit/action"} 
-    
 
+### Policy Audit Events using Azure CLI
+
+To view all events from a resource group that related to deny effect, you can use the following CLI command. 
+
+    azure group log show ExampleGroup --json | jq ".[] | select(.operationName.value == \"Microsoft.Authorization/policies/deny/action\")"
+
+To view all events related to audit effect, you can use the following CLI command. 
+
+    azure group log show ExampleGroup --json | jq ".[] | select(.operationName.value == \"Microsoft.Authorization/policies/audit/action\")"

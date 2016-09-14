@@ -18,11 +18,11 @@
 
 # Move data From MySQL using Azure Data Factory
 
-This article outlines how you can use the Copy Activity in an Azure data factory to move data to from MySQL to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
+This article outlines how you can use the Copy Activity in an Azure data factory to move data to from MySQL to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with copy activity and supported data store combinations.
 
 Data Factory service supports connecting to on-premises MySQL sources using the Data Management Gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway. 
 
-**Note:** You need to leverage the gateway to connect to MySQL even if it is hosted in Azure IaaS VMs. If you are trying to connect to an instance of MySQL hosted in cloud, you can also install the gateway instance in the IaaS VM.
+> [AZURE.NOTE] You need to use the gateway to connect to MySQL even if it is hosted in Azure IaaS VMs. If you are trying to connect to an instance of MySQL hosted in cloud, you can also install the gateway instance in the IaaS VM.
 
 Data factory currently supports only moving data from MySQL to other data stores, but not for moving data from other data stores to MySQL.
 
@@ -34,10 +34,12 @@ For Data Management Gateway to connect to the MySQL Database, you need to instal
 ## Copy data wizard
 The easiest way to create a pipeline that copies data from a MySQL database to any of the supported sink data stores is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
 
-The following example provides sample JSON definitions that you can use to create a pipeline by using [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data from MySQL database to Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.   
+The following example provides sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data from MySQL database to Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.   
 
 ## Sample: Copy data from MySQL to Azure Blob
 This sample shows how to copy data from an on-premises MySQL database to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
+
+> [AZURE.IMPORTANT] This sample provides JSON snippets. It does not include step-by-step instructions for creating the data factory. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for step-by-step instructions. 
  
 The sample has the following data factory entities:
 
@@ -49,7 +51,7 @@ The sample has the following data factory entities:
 
 The sample copies data from a query result in MySQL database to a blob every hour. The JSON properties used in these samples are described in sections following the samples. 
 
-As a first step, please setup the data management gateway as per the instructions in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article. 
+As a first step, setup the data management gateway as per the instructions in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article. 
 
 **MySQL linked service**
 
@@ -85,7 +87,7 @@ As a first step, please setup the data management gateway as per the instruction
 
 The sample assumes you have created a table “MyTable” in MySQL and it contains a column called “timestampcolumn” for time series data.
 
-Setting “external”: ”true” and specifying externalData policy informs the Data Factory service that the table is external to the data factory and not produced by an activity in the data factory.
+Setting “external”: ”true” informs the Data Factory service that the table is external to the data factory and is not produced by an activity in the data factory.
 	
 	{
 	    "name": "MySqlDataSet",
@@ -173,7 +175,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 
 **Pipeline with Copy activity**
 
-The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **RelationalSource** and **sink** type is set to **BlobSink**. The SQL query specified for the **query** property selects the data in the past hour to copy.
+The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **RelationalSource** and **sink** type is set to **BlobSink**. The SQL query specified for the **query** property selects the data in the past hour to copy.
 	
 	{
 	    "name": "CopyMySqlToBlob",
@@ -240,7 +242,7 @@ See [Setting Credentials and Security](data-factory-move-data-between-onprem-and
 
 ## MySQL dataset type properties
 
-For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
+For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
 
 The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type **RelationalTable** (which includes MySQL dataset) has the following properties
 
@@ -250,11 +252,11 @@ The **typeProperties** section is different for each type of dataset and provide
 
 ## MySQL copy activity type properties
 
-For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc. are available for all types of activities. 
+For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, are policies are available for all types of activities. 
 
-Properties available in the typeProperties section of the activity on the other hand vary with each activity type and in case of Copy activity they vary depending on the types of sources and sinks.
+Properties available in the **typeProperties** section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
 
-In case of Copy Activity when source is of type **RelationalSource** (which includes MySQL) the following properties are available in typeProperties section:
+When source in copy activity is of type **RelationalSource** (which includes MySQL) the following properties are available in typeProperties section:
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
@@ -264,12 +266,12 @@ In case of Copy Activity when source is of type **RelationalSource** (which incl
 
 ### Type mapping for MySQL
 
-As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article, Copy activity performs automatic type conversions from source types to sink types with the following 2 step approach:
+As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article, Copy activity performs automatic type conversions from source types to sink types with the following two-step approach:
 
 1. Convert from native source types to .NET type
 2. Convert from .NET type to native sink type
 
-When moving data to MySQL the following mappings will be used from MySQL types to .NET types.
+When moving data to MySQL, the following mappings are used from MySQL types to .NET types.
 
 | MySQL Database type | .NET Framework type |
 | ------------------- | ------------------- | 
