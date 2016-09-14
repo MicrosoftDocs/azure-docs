@@ -35,9 +35,9 @@ Due to the restriction to non-production systems this guide will not cover topic
 backup, DR, high performance or special security considerations.
 
 The sample setup was done using two virtual machines to accomplish a distributed SAP NetWeaver
-installation via the Azure Resource Manager model ( ARM ) as SAP-Linux-Azure is only supported 
-on ARM and not the classic model. Links to further information about ARM can be found in the
-general information section at the end of this article.
+installation via the Azure Resource Manager model as SAP-Linux-Azure is only supported on
+on Azure Resource Manager and not the classic model. Links to further information about Azure
+Resource Manager can be found in the general information section at the end of this article.
 
 These were the two test VMs used for the sample installation :
 
@@ -74,8 +74,8 @@ This is a simple checklist of the key items related to a manual single-instance 
 for demo or prototyping pursposes via SAP SWPM doing a distributed SAP NW 7.5 install. The individual 
 items are explained and shown in form of screenshots in more detail throughout the article :
 
-* create an Azure virtual network which will include the two ARM test VMs 
-* deploy two Azure VMs with OS SLES 12 SP1 via Azure Resource Manager model ( ARM )
+* create an Azure virtual network which will include the two test VMs 
+* deploy two Azure VMs with OS SLES 12 SP1 via Azure Resource Manager model 
 * attach two standard storage disks to the app server VM ( e.g. 75GB and 500GB )
 * attach four disks to the HANA DB server VM - 2 standard storage disks like for the app server VM + 
   2 premium storage disks ( e.g. 2x512GB )
@@ -106,8 +106,8 @@ This is a simple checklist of the key items related to a manual single-instance 
 for demo or prototyping pursposes via SAP SWPM doing a distributed SAP NW 7.5 install. The individual 
 items are explained and shown in form of screenshots in more detail throughout the article :
 
-* create an Azure virtual network which will include the two ARM test VMs 
-* deploy two Azure VMs with OS SLES 12 SP1 via Azure Resource Manager model ( ARM )
+* create an Azure virtual network which will include the two test VMs 
+* deploy two Azure VMs with OS SLES 12 SP1 via Azure Resource Manager model 
 * attach two standard storage disks to the app server VM ( e.g. 75GB and 500GB )
 * attach four disks to the HANA DB server VM - 2 standard storage like for the app server VM + 
   2 premium storage disks ( e.g. 2x512GB )
@@ -584,7 +584,7 @@ the HANA DB instance with transaction "dbacockpit".
 * information about existing SAP templates for usage by customers :
 [Azure Quickstart Templates for SAP](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/)
 
-* general SAP Azure docu about running SAP on Azure with Linux OS in ARM mode :
+* general SAP Azure docu about running SAP on Azure with Linux OS in Azure Resource Manager model :
 [Using SAP on Linux virtual machines (VMs)](virtual-machines-linux-sap-get-started.md)
 
 * certified SAP HANA hardware directory which lists which Azure VM types are supported for production :
@@ -610,13 +610,13 @@ runs on bare-metal servers : 
 * Key Monitoring Metrics for SAP on Microsoft Azure :
 [SAP Note 2178632](https://launchpad.support.sap.com/#/notes/2178632/E)
 
-* Information about Azure Resource Manager - ARM :
+* Information about Azure Resource Manager :
 [Azure Resource Manager overview](../resource-group-overview.md)
 
 * Information about deploying Linux VMs via templates :
 [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](virtual-machines-linux-cli-deploy-templates.md)
 
-* Comparison of deployment models between ARM and classic :
+* Comparison of deployment models between Azure Resource Manager and classic :
 [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../resource-manager-deployment-model.md)
 
 * Download NetWeaver 7.5 for Linux/HANA from the SAP Service Marketplace :
