@@ -3,7 +3,7 @@
    description="How to deploy VMs in multiple datacenters on Azure for high availability and resiliency."
    services=""
    documentationCenter="na"
-   authors="mikewasson"
+   authors="MikeWasson"
    manager="roshar"
    editor=""
    tags=""/>
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="07/12/2016"
-   ms.author="mikewasson"/>
+   ms.author="mwasson"/>
 
 # Running VMs in multiple datacenters on Azure for high availability
 

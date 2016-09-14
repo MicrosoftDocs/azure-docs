@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure"
-   ms.date="05/26/2016"
+   ms.date="08/23/2016"
    ms.author="rasquill"/>
 
 # AzureLogCollector Extension

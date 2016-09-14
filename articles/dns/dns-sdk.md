@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/10/2016"
+   ms.date="08/16/2016"
    ms.author="cherylmc"/>
 
 
@@ -37,7 +37,7 @@ In order to use the DNS Client, you'll need to install the **Azure DNS Managemen
 
 ## Initialize the DNS management client
 
-The *DnsManagementClient* contains the methods and properties necessary for managing DNS zones and recordsets. For the client to be able to access your subscription, you'll need to setup the correct permissions and generate an AWT token. See [Authenticating Azure Resource Manager requests](https://msdn.microsoft.com/library/azure/dn790557.aspx) for more details.
+The *DnsManagementClient* contains the methods and properties necessary for managing DNS zones and recordsets. For the client to be able to access your subscription, you'll need to set up the correct permissions and generate an AWT token. See [Authenticating Azure Resource Manager requests](https://msdn.microsoft.com/library/azure/dn790557.aspx) for more details.
 
 	// get a token for the AAD application (see the article link above for code)
 	string jwt = GetAToken();
