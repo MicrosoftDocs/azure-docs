@@ -70,7 +70,7 @@ SnelStart is also developing an API that acts as a broker between customer data 
 
 ##How Azure services enable SaaS for SnelStart
 
-BBy using Azure, SnelStart can serve its customers and their accountants more seamlessly in the cloud. For example, both customers and accountants can share information by directly accessing SnelStart’s client API, hosted on Azure. Kuip states, “These reusable services are available to our customer-facing web apps, and they provide common infrastructure and functions to allow access to business administration for customers and to third-party software used by our customers. Examples include providing product-configuration capabilities, managing firewall rules, and managing long-running processes like backups.”
+By using Azure, SnelStart can serve its customers and their accountants more seamlessly in the cloud. For example, both customers and accountants can share information by directly accessing SnelStart’s client API, hosted on Azure. Kuip states, “These reusable services are available to our customer-facing web apps, and they provide common infrastructure and functions to allow access to business administration for customers and to third-party software used by our customers. Examples include providing product-configuration capabilities, managing firewall rules, and managing long-running processes like backups.”
 
 > Our goal is to provide 100-percent automation of business-administration services for our customers.” 
 
