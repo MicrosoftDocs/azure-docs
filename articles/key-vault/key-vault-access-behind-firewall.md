@@ -37,7 +37,7 @@ Key Vault client application will need to access Azure Active Directory endpoint
 | Principal Type | Endpoint:port |
 |----------------|---------------|
 | User using Microsoft Account<br> (e.g. user@hotmail.com) | **Global:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government:**<br> login-us.microsoftonline.com:443<br><br>**Azure Germany:**<br> login.microsoftonline.de:443<br><br>   and <br>login.live.com:443   |
-| User/Service principal using Org ID with AAD<br> (e.g. user@contoso.com) | **Global:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government:**<br> login-us.microsoftonline.com:443<br><br>**Azure Germany:**<br> login.microsoftonline.de:443 |
+| User/Service principal using Org ID with AAD (e.g. user@contoso.com) | **Global:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Government:**<br> login-us.microsoftonline.com:443<br><br>**Azure Germany:**<br> login.microsoftonline.de:443 |
 | User/Service principal using Org ID+ADFS<br> or other federated endpoint<br> (e.g. user@contoso.com) | All the above endpoints for Org ID plus ADFS or<br> other federated endpoints |
 
   There are other possible complex scenarios. Please refer to [Azure Active Directory Authentication Flow](/documentation/articles/active-directory-authentication-scenarios/), Integrating [Applications with Azure Active Directory](/documentation/articles/active-directory-integrating-applications/) and [Active Directory Authentication Protocols](https://msdn.microsoft.com/library/azure/dn151124.aspx) for additional information.  
@@ -57,7 +57,7 @@ For all key vault object (keys and secrets) management and cryptographic operati
 
 | Type of operation | Endpoint:port |
 |----------------|---------------|
-| Key Vault operations like cryptographic<br> operations on keys, Created/read/update/delete<br> keys and secrets, set/get tags and other attributes<br> on key vault objects (keys/secrets)     | **Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure China:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure US Government:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 |
+| Key Vault operations like cryptographic operations on keys, Created/read/update/delete keys and secrets, set/get tags and other attributes on key vault objects (keys/secrets)     | **Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure China:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure US Government:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 |
 
 ##### IP Address Ranges:
 Key Vault service in turn uses other Azure resources like PaaS infrastructure, hence it's not possible to provide a specific range of IP addresses that key vault service endpoints will have at any given time. However if your firewall only supports IP address ranges then please refer to the [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) document.   For authentication and identity (Azure Active Directory), your application must be able to connect to the endpoints described in [Authentication and identity Addresses](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
