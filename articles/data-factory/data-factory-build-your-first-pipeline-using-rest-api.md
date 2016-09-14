@@ -17,20 +17,17 @@
 	ms.date="08/16/2016"
 	ms.author="spelluru"/>
 
-# Build your first Azure data factory using Data Factory REST API
+# Tutorial: Build your first Azure data factory using Data Factory REST API
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-build-your-first-pipeline.md)
-- [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
-- [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
-- [Using REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+- [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
+- [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
+- [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-In this article, you learn how to use Data Factory REST API to create your first Azure data factory.
+[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)] 
 
-## Prerequisites
-
-- Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article. This article helps you understand the basic concepts of Azure Data Factory. 
+## Additional prerequisites
 - Install [Curl](https://curl.haxx.se/dlwiz/) on your machine. You use the CURL tool with REST commands to create a data factory. 
 - Follow instructions from [this article](../resource-group-create-service-principal-portal.md) to: 
 	1. Create a Web application named **ADFGetStartedApp** in Azure Active Directory.
