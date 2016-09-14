@@ -25,8 +25,7 @@ In this guide, we walk through the steps for connecting to Azure Stack with Powe
 
         Get-PSRepository
 
-
-        ![Screenshot result of running 4Get-PSRepository with PSGallery listed](./media/azure-stack-connect-powershell/image1.png)
+	  ![Screenshot result of running 4Get-PSRepository with PSGallery listed](./media/azure-stack-connect-powershell/image1.png)
 
 2.  Execute the following command to install the AzureRM module.
     
