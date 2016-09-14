@@ -35,6 +35,6 @@ $vault.Properties.AccessPolicies = @()
 Set-AzureRmResource -ResourceId $vaultResourceId -Properties $vault.Properties
 </pre>
 
-Since this vault was in tenant A before move original value of **$vault.Properties.TenantId**  is tenant A, while **(Get-AzureRmContext).Tenant.TenantId** is tenant B.
+Since this vault was in tenant A before move original value of **$vault.Properties.TenantId** is tenant A, while **(Get-AzureRmContext).Tenant.TenantId** is tenant B.
 
-Now that your vault is associated with the correct tenant Id, you'll need to remove all the existing access control entries using [Remove-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/en-us/library/mt619427.aspx) cmdlet. Then set new access policy entries with [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/en-us/library/mt603625.aspx).
+Now that your vault is associated with the correct tenant Id, you need to remove all the existing access control entries using [Remove-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/en-us/library/mt619427.aspx) cmdlet. Then set new access policy entries with [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/en-us/library/mt603625.aspx).
