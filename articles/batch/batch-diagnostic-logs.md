@@ -28,7 +28,7 @@ As with many Azure services, the Batch service emits log events for certain reso
 
 * [Azure Storage account](../storage/storage-create-storage-account.md#create-a-storage-account)
 
-  To persist Batch diagnostic logs, you must create an Azure Storage account where Azure will store the logs. The Storage account you specify when you enable log collection is not the same as a "linked" storage account referred to in the [application packages](batch-application-packages.md) and [task output persistence](batch-task-output.md) articles. However, you can use the same Storage account you've linked for those purposes, if you like.
+  To persist Batch diagnostic logs, you must create an Azure Storage account where Azure will store the logs. The Storage account you specify when you enable log collection is not the same as a linked storage account referred to in the [application packages](batch-application-packages.md) and [task output persistence](batch-task-output.md) articles.
 
   >[AZURE.WARNING] You are **charged** for the data stored in your Azure Storage account. This includes the diagnostic logs discussed in this article. Keep this in mind when designing your [log retention policy](../azure-portal/monitoring-archive-diagnostic-logs.md).
 
@@ -38,7 +38,7 @@ Diagnostic logging is not enabled by default for your Batch account. You must ex
 
 [How to enable collection of Diagnostic Logs](../azure-portal/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs)
 
-We recommend that you read the full [Overview of Azure Diagnostic Logs](../azure-portal/monitoring-overview-of-diagnostic-logs.md) article to gain an understanding of not only how to enable logging, but the log categories supported by the various Azure Services. For example, Azure Batch currently supports one log category: **Service Logs**.
+We recommend that you read the full [Overview of Azure Diagnostic Logs](../azure-portal/monitoring-overview-of-diagnostic-logs.md) article to gain an understanding of not only how to enable logging, but the log categories supported by the various Azure services. For example, Azure Batch currently supports one log category: **Service Logs**.
 
 ## Service Logs
 
@@ -72,7 +72,7 @@ Each event body resides in a .json file in the specified Azure Storage account. 
 
 The Batch service currently emits the following Service Log events. This list may not be exhaustive, since additional events may have been added since this article was last updated.
 
-| **Service log events** |
+| **Service Log events** |
 | ------------------ |
 | Pool create |
 | Pool delete start |
@@ -85,12 +85,7 @@ The Batch service currently emits the following Service Log events. This list ma
 
 ## Next steps
 
-### Consume diagnostic logs
-
 * Learn how to [stream Azure Diagnostic Logs to Event Hubs](../azure-portal/monitoring-stream-diagnostic-logs-to-event-hubs.md).
 
 * You can analyze your logs with [Operations Management Suite (OMS) Log Analytics](../log-analytics/log-analytics-azure-storage-json.md).
 
-### Persist job and task output
-
-Learn how to use the [Batch File Conventions](batch-task-output.md) library to persist you job and task output data to Azure Storage.
