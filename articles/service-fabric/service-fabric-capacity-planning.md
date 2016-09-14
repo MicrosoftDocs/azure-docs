@@ -4,7 +4,7 @@
    services="service-fabric"
    documentationCenter=".net"
    authors="mani-ramaswamy"
-   manager="coreysa"
+   manager="markfuss"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/18/2016"
+   ms.date="09/14/2016"
    ms.author="subramar"/>
 
 
@@ -32,7 +32,7 @@ For services that manage a lot of data on the VMs, capacity planning should focu
 
 Partitioning your service allows you to scale out your service's data (see [Partitioning Service Fabric](service-fabric-concepts-partitioning.md) for more details on partitioning). Each partition must fit within a single VM, but multiple (small) partitions can be placed on a single VM. So, having a larger number of small partitions gives you greater flexibility than having a small number of larger partitions. The trade-off is that having lots of partitions increases Service Fabric overhead and you cannot perform transacted operations across partitions. There is also more potential network traffic if your service code frequently needs to access pieces of data that live in different partitions. When designing your service, you should carefully consider these pros and cons to arrive at an effective partitioning strategy.
 
-Let's assume your application has a single stateful service that has a store size that you expect to grow to DB_Size GB in a year. You are willing to add more applications (and partitions) as you experience growth beyond that year.  To find the total DB_Size across all replicas, we have to also take in the replication factor (RF), which determines the number of replicas for your service (the total DB_Size across all replicas is the Replication Factor multiplied by DB_Size).  Node_Size represents the disk space/RAM per node you want to use for your service. For best performance, you will want the DB_Size to fit into memory across the cluster, and will want to put in a Node_Size that is around the RAM capacity of the VM you chose. By allocating a Node_Size that is larger than the RAM capacity, you are relying on the operating system paging. Thus, your performance may not be optimal, but it might still be sufficient for your service.
+Let's assume your application has a single stateful service that has a store size that you expect to grow to DB_Size GB in a year. You are willing to add more applications (and partitions) as you experience growth beyond that year.  To find the total DB_Size across all replicas, we have to also take in the replication factor (RF), which determines the number of replicas for your service (the total DB_Size across all replicas is the Replication Factor multiplied by DB_Size).  Node_Size represents the disk space/RAM per node you want to use for your service. For best performance, you will want the DB_Size to fit into memory across the cluster, and will want to put in a Node_Size that is around the RAM capacity of the VM you chose. By allocating a Node_Size that is larger than the RAM capacity, you are relying on the paging provided by the Service Fabric runtime. Thus, your performance may not be optimal if your entire data is considered to be hot (since then the data will be paged in/out). However, for many services where only a fraction of the data is hot, it will be more cost-effective.
 
 The number of nodes required for maximum performance can be computed as follows:
 

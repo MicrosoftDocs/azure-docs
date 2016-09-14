@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="05/18/2016"
+   ms.date="09/14/2016"
    ms.author="subramar"/>
 
 
@@ -33,7 +33,7 @@ This article describes the various parameters that apply during the upgrade of a
 | FailureAction | The action to be taken by Service Fabric if the upgrade fails. The application may be rolled back to the last version prior to the update (rollback), or the application upgrade may be stopped at the current upgrade domain and the upgrade mode changed to Manual. Allowed values are Rollback and Manual. |
 | HealthCheckWaitDurationSec | The time to wait (in seconds) after the upgrade has finished on the upgrade domain before Service Fabric evaluates the health of the application. This duration can also be considered as the time an application should be running before it can be considered healthy. If the health check passes, the upgrade process proceeds to the next upgrade domain.  If the health check fails, Service Fabric waits for an interval (the UpgradeHealthCheckInterval) before retrying the health check again until the HealthCheckRetryTimeout is reached. The default and recommended value is 0 seconds. |
 | HealthCheckRetryTimeoutSec | The duration (in seconds) that Service Fabric continues to perform health evaluation before declaring the upgrade as failed. The default is 600 seconds. This duration starts after HealthCheckWaitDuration is reached. Within this HealthCheckRetryTimeout, Service Fabric might perform multiple health checks of the application health. The default value is 10 minutes and should be customized appropriately for your application. |
-| HealthCheckStableDurationSec | The duration (in seconds) to wait in order to verify that the application is stable before moving to the next upgrade domain or completing the upgrade. This wait duration is used to prevent undetected changes of health right after the health check is performed. The default value is 0 seconds, and should be customized appropriately for your application. |
+| HealthCheckStableDurationSec | The duration (in seconds) to wait in order to verify that the application is stable before moving to the next upgrade domain or completing the upgrade. This wait duration is used to prevent undetected changes of health right after the health check is performed. The default value is 120 seconds, and should be customized appropriately for your application. |
 | UpgradeDomainTimeoutSec | Maximum time (in seconds) for upgrading a single upgrade domain. If this time-out is reached, the upgrade stops and takes the action specified by UpgradeFailureAction. The default value is never (Infinite) and should be customized appropriately for your application. |
 | UpgradeTimeout | A time-out (in seconds) that applies for the entire upgrade. If this time-out is reached, the upgrade stops and  UpgradeFailureAction is triggered. The default value is never (Infinite) and should be customized appropriately for your application. |
 | UpgradeHealthCheckInterval | The frequency that the health status is checked. This parameter is specified in the ClusterManager section of the _cluster_ _manifest_ .(This is not specified as part of the upgrade cmdlet.) The default value is 60 seconds.  |
