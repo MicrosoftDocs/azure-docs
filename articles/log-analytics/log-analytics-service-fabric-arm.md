@@ -21,14 +21,21 @@
 # Service Fabric Solution in Log Analytics
 
 > [AZURE.SELECTOR]
-- [ARM](log-analytics-service-fabric-arm.md)
+- [Resource Manager](log-analytics-service-fabric-arm.md)
 - [PowerShell](log-analytics-service-fabric.md)
 
 This article describes how to use the Service Fabric solution in Log Analytics to help identify and troubleshoot issues across your Service Fabric cluster.
 
 The Service Fabric solution uses Azure Diagnostics data from your Service Fabric VMs, by collecting this data from your Azure WAD tables. Log Analytics then reads Service Fabric framework events, including **Reliable Service Events**, **Actor Events**, **Operational Events**, and **Custom ETW events**. With the solution dashboard, you are able to view notable issues and relevant events in your Service Fabric environment.
 
-To get started with the solution, you will need to connect your Service Fabric cluster to a Log Analytics workspace. Use any of the following Azure resource manager templates depending on what scenario best fits yours:
+To get started with the solution, you will need to connect your Service Fabric cluster to a Log Analytics workspace. Here are three scenarios to consider:
+
+1. If you have not deployed your Service Fabric cluster, use the steps in ***Deploy a Service Fabric Cluster connected to a Log Analytics workspace*** to deploy a new cluster and have it confgiured to report to Log Analytics.
+
+2. If you need to collect performance counters from your hosts to use other OMS solutions such as Security on your Service Fabric Cluster, follow the steps in ***Deploy a Service Fabric Cluster connected to an OMS workspace with VM Extension installed.***
+
+3. If you have already deployed your Service Fabric cluster and want to connect it to Log Analytics, follow the steps in ***Adding an existing storage account to Log Analytics.***
+
 
 ##Deploy a Service Fabric Cluster connected to a Log Analytics workspace.
 This template does the following:
@@ -144,7 +151,7 @@ The following table shows data collection methods and other details about how da
 |Windows|![No](./media/log-analytics-malware/oms-bullet-red.png)|![No](./media/log-analytics-malware/oms-bullet-red.png)| ![Yes](./media/log-analytics-malware/oms-bullet-green.png)|            ![No](./media/log-analytics-malware/oms-bullet-red.png)|![No](./media/log-analytics-malware/oms-bullet-red.png)|10 minutes |
 
 
->[AZURE.NOTE] You can change the scope of these events in the Service Fabric solution by clicking **Data based on last 7 days** at the top of the dashboard. You can also show events generated within the last 7 days, 1 day, or 6 hours. Or, you can select **Custom** to specify a custom date range.
+>[AZURE.NOTE] You can change the scope of these events in the Service Fabric solution by clicking **Data based on last 7 days** at the top of the dashboard. You can also show events generated within the last 7 days, 1 day, or six hours. Or, you can select **Custom** to specify a custom date range.
 
 
 ## Next steps
