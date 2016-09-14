@@ -43,7 +43,7 @@ When the data schema is known to both the writer and reader of the stream, the d
 
 ## Install Avro Library
 
-The following are required before you install the libary:
+The following are required before you install the library:
 
 - <a href="http://www.microsoft.com/download/details.aspx?id=17851" target="_blank">Microsoft .NET Framework 4</a>
 - <a href="http://james.newtonking.com/json" target="_blank">Newtonsoft Json.NET</a> (6.0.4 or later)
