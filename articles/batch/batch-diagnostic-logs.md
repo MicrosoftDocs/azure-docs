@@ -74,14 +74,14 @@ The Batch service currently emits the following Service Log events. This list ma
 
 | **Service Log events** |
 | ------------------ |
-| Pool create |
-| Pool delete start |
-| Pool delete complete |
-| Pool resize start |
-| Pool resize complete |
-| Task start |
-| Task complete |
-| Task fail |
+| [Pool create][pool_create] |
+| [Pool delete start][pool_delete_start] |
+| [Pool delete complete][pool_delete_complete] |
+| [Pool resize start][pool_resize_start] |
+| [Pool resize complete][pool_resize_complete] |
+| [Task start][task_start] |
+| [Task complete][task_complete] |
+| [Task fail][task_fail] |
 
 ## Next steps
 
@@ -89,3 +89,11 @@ The Batch service currently emits the following Service Log events. This list ma
 
 * You can analyze your logs with [Operations Management Suite (OMS) Log Analytics](../log-analytics/log-analytics-azure-storage-json.md).
 
+[pool_create]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
+[pool_delete_start]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
+[pool_delete_complete]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
+[pool_resize_start]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
+[pool_resize_complete]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
+[task_start]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
+[task_complete]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
+[task_fail]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
