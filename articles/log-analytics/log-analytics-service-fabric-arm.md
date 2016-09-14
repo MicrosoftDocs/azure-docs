@@ -82,7 +82,7 @@ To view Perf Data from your nodes:
 
 	a. Compare the average CPU Utilization across all your nodes in the last one hour to see which nodes are having issues and at what time interval a node had a spike:
 	
-	``` Type=Perf ObjectName=Processor CounterName="%Processor Time"|measure avg(CounterValue) by Computer Interval 1HOUR. ```
+	``` Type=Perf ObjectName=Processor CounterName="% Processor Time"|measure avg(CounterValue) by Computer Interval 1HOUR. ```
 	
 	![Service Fabric](./media/log-analytics-service-fabric/10.png)
 	
