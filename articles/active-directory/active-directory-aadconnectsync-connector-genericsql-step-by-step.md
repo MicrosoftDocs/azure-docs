@@ -73,7 +73,7 @@ We now have the file we need and can start creating the Connector.
 ![Connector7](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector7.png)
 8. On the Global Parameters page, select **Watermark** as the delta strategy. Also type in the date/time format **yyyy-MM-dd HH:mm:ss**.
 ![Connector8](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector8.png)
-9. On the **Configure Partitions** page, select both object types.
+9. On the **Configure Partitions and Hierarchies** page, select both object types.
 ![Connector9](.\media\active-directory-aadconnectsync-connector-genericsql-step-by-step\connector9.png)
 10. On the **Select Object Types** and **Select Attributes**, select both object types and all attributes. On the **Configure Anchors** page, click **Finish**.
 
