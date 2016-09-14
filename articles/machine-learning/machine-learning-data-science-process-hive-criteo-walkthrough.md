@@ -49,7 +49,7 @@ There are missing values in both the numeric and categorical columns in this dat
 ## <a name="mltasks"></a>Examples of prediction tasks
 Two sample prediction problems are addressed in this walkthrough:
 
-1. **Binary classification**: Predicts whether or not a user clicked on an add:
+1. **Binary classification**: Predicts whether a user clicked an add:
 	- Class 0: No Click
 	- Class 1: Click
 
@@ -68,7 +68,7 @@ Set up your Azure Data Science environment for building predictive analytics sol
 
 	* You must link the storage account created in step 1 with your HDInsight cluster when it is created. This storage account is used for accessing data that can be processed within the cluster.
 
-	* You must enable Remote Access to the head node of the cluster after it is created. Remember the remote access credentials you specify here (different from those specified for the cluster at its creation): you will need them to complete the following procedures.
+	* You must enable Remote Access to the head node of the cluster after it is created. Remember the remote access credentials you specify here (different from those specified for the cluster at its creation): you need them to complete the following procedures.
 
 3. [Create an Azure ML workspace](machine-learning-create-workspace.md): This Azure Machine Learning workspace is used for building machine learning models after an initial data exploration and down sampling on the HDInsight cluster.
 
@@ -94,14 +94,14 @@ An alternative approach to access, explore, and model this data that does not re
 
 ## <a name="login"></a>Log in to the cluster headnode
 
-To log in to the headnode of the cluster, use the [Azure portal](https://ms.portal.azure.com) to locate the cluster. Click the HDInsight elephant icon on the left and then double click the name of your cluster. Navigate to the **Configuration** tab, double click the CONNECT icon on the bottom of the page, and enter your remote access credentials when prompted. This takes you to the headnode of the cluster.
+To log in to the headnode of the cluster, use the [Azure portal](https://ms.portal.azure.com) to locate the cluster. Click the HDInsight elephant icon on the left and then double-click the name of your cluster. Navigate to the **Configuration** tab, double-click the CONNECT icon on the bottom of the page, and enter your remote access credentials when prompted. This takes you to the headnode of the cluster.
 
 Here is what a typical first log in to the cluster headnode looks like:
 
 ![Log in to cluster](./media/machine-learning-data-science-process-hive-criteo-walkthrough/Yys9Vvm.png)
 
 
-On the left, we see the "Hadoop Command Line", which will be our workhorse for the data exploration. We also see two useful URLs - "Hadoop Yarn Status" and "Hadoop Name Node". The yarn status URL shows job progress and the name node URL gives details on the cluster configuration.
+On the left, we see the "Hadoop Command Line", which is our workhorse for the data exploration. We also see two useful URLs - "Hadoop Yarn Status" and "Hadoop Name Node". The yarn status URL shows job progress and the name node URL gives details on the cluster configuration.
 
 Now we are set up and ready to begin first part of the walkthrough: data exploration using Hive and getting data ready for Azure Machine Learning.
 
@@ -111,7 +111,7 @@ To create Hive tables for our Criteo dataset, open the ***Hadoop Command Line***
 
     cd %hive_home%\bin
 
->[AZURE.NOTE] Run all Hive commands in this walkthrough from the above Hive bin/ directory prompt. This will take care of any path issues automatically. We will use the terms "Hive directory prompt", "Hive bin/ directory prompt", and "Hadoop Command Line" interchangeably.
+>[AZURE.NOTE] Run all Hive commands in this walkthrough from the above Hive bin/ directory prompt. This takes care of any path issues automatically. We use the terms "Hive directory prompt", "Hive bin/ directory prompt", and "Hadoop Command Line" interchangeably.
 
 >[AZURE.NOTE]  To execute any Hive query, one can always use the following commands:
 
@@ -432,7 +432,7 @@ To build count tables on the count data, we use the data in the folder raw/count
 
 ## <a name="aml"></a> Build a model with Azure Machine Learning
 
-Our model building process in Azure Machine Learning will follow these steps:
+Our model building process in Azure Machine Learning follows these steps:
 
 1. [Get the data from Hive tables into Azure Machine Learning](#step1)
 2. [Create the experiment: clean the data, choose a learner, and featurize with count tables](#step2)
@@ -441,7 +441,7 @@ Our model building process in Azure Machine Learning will follow these steps:
 5. [Evaluate the model](#step5)
 6. [Publish the model as a web-service to be consumed](#step6)
 
-Now we are ready to build models in Azure Machine Learning studio. Our down sampled data is saved as Hive tables in the cluster. We will use the Azure Machine Learning **Import Data** module to read this data. The credentials to access the storage account of this cluster are provided in what follows.
+Now we are ready to build models in Azure Machine Learning studio. Our down sampled data is saved as Hive tables in the cluster. We use the Azure Machine Learning **Import Data** module to read this data. The credentials to access the storage account of this cluster are provided in what follows.
 
 ### <a name="step1"></a> Step 1: Get data from Hive tables into Azure Machine Learning using the Import Data module and select it for a machine learning experiment
 
@@ -451,7 +451,7 @@ This is what the **Import Data** looks like while getting data from the Hive tab
 
 ![Import Data gets data](./media/machine-learning-data-science-process-hive-criteo-walkthrough/i3zRaoj.png)
 
-For the **Import Data** module, the values of the parameters that are provided in the graphic are just examples of the sort of values you will need to provide. Here is some general guidance on how to fill out the parameter set for the **Import Data** module.
+For the **Import Data** module, the values of the parameters that are provided in the graphic are just examples of the sort of values you need to provide. Here is some general guidance on how to fill out the parameter set for the **Import Data** module.
 
 1. Choose "Hive query" for **Data Source**
 2. In the **Hive database query** box, a simple SELECT * FROM <your\_database\_name.your\_table\_name> - is enough.
@@ -478,7 +478,7 @@ To select the saved dataset for use in a machine learning experiment, locate the
 
 ### <a name="step2"></a> Step 2: Create a simple experiment in Azure Machine Learning to predict clicks / no clicks
 
-Our Azure ML experiment looks like the this:
+Our Azure ML experiment looks like this:
 
 ![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/xRpVfrY.png)
 
@@ -571,7 +571,7 @@ First, we need to choose a learner. We are going to use a two class boosted deci
 
 ![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/bH3ST2z.png)
 
-For our experiment, we going to choose the default values. We note that the defaults are usually meaningful and a good way to get quick baselines on performance. You can improve on performance by sweeping parameters if you choose to once you have a baseline.
+For our experiment, we are going to choose the default values. We note that the defaults are usually meaningful and a good way to get quick baselines on performance. You can improve on performance by sweeping parameters if you choose to once you have a baseline.
 
 #### Train the model
 
@@ -622,9 +622,7 @@ As a zeroth step, since the count table is large, we take a few lines of test da
 
 ![Create BDT input data](./media/machine-learning-data-science-process-hive-criteo-walkthrough/OEJMmst.png)
 
-Note: for the input data format, we will now use the OUTPUT of the **Count Featurizer** module. Once this experiment finishes running, save the output from the **Count Featurizer** module as a Dataset.
-
-**Important Note:** This Dataset will be used for the input data in the webservice.
+>[AZURE.NOTE] For the input data format, we now use the OUTPUT of the **Count Featurizer** module. Once this experiment finishes running, save the output from the **Count Featurizer** module as a Dataset. This Dataset is used for the input data in the webservice.
 
 #### Scoring experiment for publishing webservice
 
@@ -647,7 +645,7 @@ Once the webservice is published, we get redirected to a page that looks thus:
 
 We see two links for webservices on the left side:
 
-* The **REQUEST/RESPONSE** Service (or RRS) is meant for single predictions and is what we will utilize in this workshop.
+* The **REQUEST/RESPONSE** Service (or RRS) is meant for single predictions and is what we utilize in this workshop.
 * The **BATCH EXECUTION** Service (BES) is used for batch predictions and requires that the input data used to make predictions reside in Azure Blob Storage.
 
 Clicking on the link **REQUEST/RESPONSE** takes us to a page that gives us pre-canned code in C#, python, and R. This code can be conveniently used for making calls to the webservice. Note that the API key on this page needs to be used for authentication.
