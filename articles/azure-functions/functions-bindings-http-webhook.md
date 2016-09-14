@@ -242,10 +242,11 @@ type Response = {
     body: string
 }
 
-let Run(req: HttpRequestMessage) =
+let Run(req: HttpRequestMessage, log: TraceWriter) =
     async {
         let! content = req.Content.ReadAsStringAsync() |> Async.AwaitTask
         let data = content |> JsonConvert.DeserializeObject
+        log.Info(sprintf "GitHub WebHook triggered! %s" data?comment?body)
         return req.CreateResponse(
             HttpStatusCode.OK,
             { body = sprintf "New GitHub comment: %s" data?comment?body })
