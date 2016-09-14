@@ -100,7 +100,7 @@ Azure SQL Database isn’t just a boon to SpectrumNG customers, who enjoy the fa
 
 - To learn more about Web roles and worker roles, see [worker roles](../fundamentals-introduction-to-azure.md#compute).	
 
-- To learn more about Azure Service Bus,see https://azure.microsoft.com/en-us/services/service-bus/.
+- To learn more about Azure Service Bus,see [Azure Service Bus](https://azure.microsoft.com/en-us/services/service-bus/).
 
 - To learn more about auto-scale, see [scaling cloud services](../cloud-services/cloud-services-how-to-scale.md).
 
