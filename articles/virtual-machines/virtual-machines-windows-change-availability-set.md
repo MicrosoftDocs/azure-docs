@@ -21,9 +21,9 @@
 
 # Change Availability Set of Windows VM
 
-The following steps describe how to change the availability set of a VM using Azure PowerShell. A Vm can only be added to an availability set when the VM is created. In order to change the availability set, you need to delete and recreate the virtual machine. 
+The following steps describe how to change the availability set of a VM using Azure PowerShell. A VM can only be added to an availability set when it is created. In order to change the availability set, you need to delete and recreate the virtual machine. 
 
-# Change the availability set using PowerShell
+## Change the availability set using PowerShell
 
 1. Capture the following key details from the VM to be modified
 	Name of the VM
@@ -89,7 +89,7 @@ New-AzureRmVM -ResourceGroupName <resourceGroupName> -Location <location> -VM <v
  
 
 5.	Add data disks and extensions
-Data disks and extensions can be added back to the VM using the following instructions: [Attach Data Disk to VM](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-attach-disk-portal/) and [Extension Configuration Samples](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-extensions-configuration-samples/). 
+Data disks and extensions can be added back to the VM using the following instructions: [Attach Data Disk to VM](virtual-machines-windows-attach-disk-portal.md) and [Extension Configuration Samples](virtual-machines-windows-extensions-configuration-samples.md). 
 
 Data disks and extensions can be added to the VM using PowerShell or Azure CLI.
 
