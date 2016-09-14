@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/11/2016"
+	ms.date="09/15/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection 
 
-Azure Active Directory Identity Protection is a security service of the Azure AD Premium P2 edition that provides you with a consolidated view into risk events and potential vulnerabilities affecting your organization’s identities. Microsoft has been securing cloud-based identities for over a decade, and with Azure AD Identity Protection, Microsoft is making these same protection systems available to enterprise customers. Identity Protection leverages existing Azure AD’s anomaly detection capabilities (available through Azure AD’s Anomalous Activity Reports), and introduces new risk event types that can detect anomalies in real-time.
+Azure Active Directory Identity Protection is a feature of the Azure AD Premium P2 edition that provides you with a consolidated view into risk events and potential vulnerabilities affecting your organization’s identities. Microsoft has been securing cloud-based identities for over a decade, and with Azure AD Identity Protection, Microsoft is making these same protection systems available to enterprise customers. Identity Protection leverages existing Azure AD’s anomaly detection capabilities (available through Azure AD’s Anomalous Activity Reports), and introduces new risk event types that can detect anomalies in real-time.
 
 
 
@@ -85,7 +85,7 @@ The table below lists the various risk event types and the corresponding **Azure
 | Sign-ins from anonymous IP addresses	| Sign-ins from unknown sources |
 | Sign-ins from IP addresses with suspicious activity |	Sign-ins from IP addresses with suspicious activity |
 | Signs in from unfamiliar locations	| - |
-| Lockout events (not in public preview)	| - |
+| Lockout events	| - |
 
 The following Azure AD Anomalous Activity reports are not included as risk events in Azure AD Identity Protection, and will therefore not be available through Identity Protection. These reports are still available in the Azure Management Portal however they will be deprecated at some time in the future as they are being superseded by risk events in Identity Protection.
 
