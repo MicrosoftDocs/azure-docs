@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/13/2016" 
+	ms.date="09/12/2016" 
 	ms.author="spelluru"/>
 
 # Move data between on-premises sources and the cloud with Data Management Gateway
@@ -67,7 +67,7 @@ In this step, you use the Azure portal to create an Azure Data Factory instance 
 
 	![Create Gateway blade](./media/data-factory-move-data-between-onprem-and-cloud/OnPremCreateGatewayBlade.png)
 
-3. In the **Configure** blade, click **Install directly on this computer**. This downloads the installation package for the gateway, install, configure, and register the gateway on the computer.  
+3. In the **Configure** blade, click **Install directly on this computer**. This action downloads the installation package for the gateway, installs, configures, and registers the gateway on the computer.  
 
 	> [AZURE.NOTE] 
 	> Use Internet Explorer or a Microsoft ClickOnce compatible web browser.
@@ -116,7 +116,7 @@ In this step, you use the Azure portal to create an Azure Data Factory instance 
 	- Use **Test Connection** section to an on-premises data source using the gateway.
 	- Click **View Logs** to see the Data Management Gateway log in an Event Viewer window. 
 	- Click **Send Logs** to upload a zip file with logs of last seven days to Microsoft to facilitate troubleshooting of your issues. 
-10. In the Azure Portal, click **OK** on the **Configure** blade and then on the **New data gateway** blade.
+10. In the Azure portal, click **OK** on the **Configure** blade and then on the **New data gateway** blade.
 6. You should see **adftutorialgateway** under **Data Gateways** in the tree view on the left.  If you click it, you should see the associated JSON. 
 	
 
