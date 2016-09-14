@@ -376,6 +376,8 @@ You can create, monitor, and manage Azure data factories programmatically using 
 ## Log in without popup dialog box 
 The sample code in the walkthrough launches a dialog box for you to enter Azure credentials. If you need to sign in programmatically without using a dialog-box, see [Authenticating a service principal with Azure Resource Manager](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell). 
 
+> [AZURE.IMPORTANT] Add a Web application to Azure Active Directory and note down the client ID and client secret of the application to use in the following code.  
+
 ### Example
 
 Create GetAuthorizationHeaderNoPopup method.  
