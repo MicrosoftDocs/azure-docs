@@ -18,9 +18,9 @@
 
 # Getting started with Azure Active Directory Conditional Access
 
-Azure Active Directory Conditional Access for [SaaS](https://azure.microsoft.com/overview/what-is-saas/) apps and Azure AD connected apps lets you to configure conditional access based on group, location, and application sensitivity. 
+Azure Active Directory Conditional Access for [SaaS](https://azure.microsoft.com/overview/what-is-saas/) apps and Azure AD connected apps lets you configure conditional access based on group, location, and application sensitivity. 
 
-With conditional access based on application sensitivity, you can set multi-factor authentication (MFA) access rules per application, which provides the ability to block access for users who are not on a trusted network. You can apply MFA rules to all users that are assigned to the application, or only for users within specified security groups.  Users may be excluded from the MFA requirement if they are accessing the application from an IP address that is inside the organization’s network.
+With conditional access based on application sensitivity, you can set multi-factor authentication (MFA) access rules per application. MFA per application provides the ability to block access for users who are not on a trusted network. You can apply MFA rules to all users that are assigned to the application, or only for users within specified security groups.  Users may be excluded from the MFA requirement if they are accessing the application from an IP address that is inside the organization’s network.
 
 These capabilities will be available to customers that have purchased an Azure Active Directory Premium license.
 
@@ -53,7 +53,7 @@ This section gives a detailed description of the access rules supported in the A
 
 By default the policy will apply to all users that have access to the application. However, you can also restrict the policy to users that are members of the specified security groups. The **Add Group** button is used to select one or more groups from the group selection dialog that the access rule will apply to. This dialog can also be used to remove selected groups. When the rules are selected to apply to Groups, the access rules will only be enforced for users that belong to one of the specified security groups.
 
-Security groups can also be explicitly excluded from the policy by selecting the Except option and specifying one or more groups. Users that are a member of a group in the Except list will not be subject to the multi-factor authentication requirement, even if they are a member of a group that the access rule applies to.
+Security groups can also be explicitly excluded from the policy by selecting the **Except** option and specifying one or more groups. Users that are a member of a group in the **Except** list will not be subject to the multi-factor authentication requirement, even if they are a member of a group that the access rule applies to.
 The access rule shown below will require all users in the Managers group to use multi-factor authentication when accessing the application.
 
 ![Setting conditional access rules with MFA](./media/active-directory-conditional-access-azuread-connected-apps/conditionalaccess-saas-apps.png)
@@ -64,11 +64,11 @@ If a user has been configured using the per-user multi-factor authentication fea
 ### Access rule options
 The following options are supported:
 
-* **Require multi-factor authentication**: With this option the users to whom the access rules apply to will be required to complete multi-factor authentication before accessing the application that the policy applies to.
+* **Require multi-factor authentication**: The users to whom the access rules apply to, will be required to complete multi-factor authentication before accessing the application that the policy applies to.
 
-* **Require multi-factor authentication when not at work**: With this option a user that is coming from a trusted IP address will not be required to perform multi-factor authentication. The trusted IP address ranges can be configured on the multi-factor authentication settings page.
+* **Require multi-factor authentication when not at work**: A user that is coming from a trusted IP address will not be required to perform multi-factor authentication. The trusted IP address ranges can be configured on the multi-factor authentication settings page.
 
-* **Block access when not at work**: With this option a user that is not coming from a trusted IP address will be blocked. The trusted IP address ranges can be configured on the multi-factor authentication settings page.
+* **Block access when not at work**: A user that is not coming from a trusted IP address will be blocked. The trusted IP address ranges can be configured on the multi-factor authentication settings page.
 
 ### Setting rule status
 Access rule status allows turning the rules on or off. When the access rules are off, the multi-factor authentication requirement is not enforced.
@@ -87,7 +87,7 @@ The following example shows how to enable on-premises MFA by using the [Set-Msol
 
     Set-MsolDomainFederationSettings -DomainName contoso.com -SupportsMFA $true
 
-In addition to setting this flag, the federated tenant AD FS instance must be configured to perform multi-factor authentication. Follow the instructions for [deploying Azure Multi-Factor Authentication on-premises](articles/multi-factor-authentication/multi-factor-authentication-get-started-server.md).
+In addition to setting this flag, the federated tenant AD FS instance must be configured to perform multi-factor authentication. Follow the instructions for [deploying Azure Multi-Factor Authentication on-premises](multi-factor-authentication-get-started-server.md).
 
 ## Related Articles
 
