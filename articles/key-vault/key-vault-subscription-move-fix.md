@@ -25,7 +25,7 @@ When you create a new key vault in a subscription, it is automatically tied to t
 - remove all existing access policy entries
 - add new access policy entries that are associated with tenant B.
 
-For example, if you have key vault 'myvault' in a subscription that has been moved from tenant A to tenant B, here's how to change the tenant ID for this key vault.
+For example, if you have key vault 'myvault' in a subscription that has been moved from tenant A to tenant B, here's how to change the tenant ID for this key vault and remove old access policies.
 
 <pre>
 $vaultResourceId = (Get-AzureRmKeyVault -VaultName myvault).ResourceId
@@ -37,4 +37,4 @@ Set-AzureRmResource -ResourceId $vaultResourceId -Properties $vault.Properties
 
 Since this vault was in tenant A before move original value of **$vault.Properties.TenantId** is tenant A, while **(Get-AzureRmContext).Tenant.TenantId** is tenant B.
 
-Now that your vault is associated with the correct tenant Id, you need to remove all the existing access control entries using [Remove-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/mt619427.aspx) cmdlet. Then set new access policy entries with [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/mt603625.aspx).
+Now that your vault is associated with the correct tenant Id and removed old access policy entries, set new access policy entries with [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/mt603625.aspx).
