@@ -29,7 +29,7 @@ To create a VNet peering by using Resource Manager templates, please follow the 
 
 1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](../powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
 
-    >AZURE.NOTE: The PowerShell cmdlet for managing VNet peering is shipped with [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
+    > AZURE.NOTE: The PowerShell cmdlet for managing VNet peering is shipped with [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
 
 2. The text below shows the definition of a VNet peering link for VNet1 to VNet2, based on the scenario above. Copy the content below and save it to a file named VNetPeeringVNet1.json.
 
@@ -103,7 +103,7 @@ To create a VNet peering by using Resource Manager templates, please follow the 
 
         New-AzureRmResourceGroupDeployment -ResourceGroupName <resource group name> -TemplateFile <template file path> -DeploymentDebugLogLevel all
 
-    > [AZURE.NOTE] Please replace the resource group name and template file as appropriate.
+    > [AZURE.NOTE]: Please replace the resource group name and template file as appropriate.
 
     Below is an example based on the scenario above:
 
@@ -243,7 +243,8 @@ To create a VNet peering across subscriptions, please follow the steps below:
 
 1. In this scenario, you can deploy the sample template below to establish the VNet peering.  You'll need to set the AllowForwardedTraffic property to True, which allows the network virtual appliance in the peered VNet to send and receive traffic.
 
-	Here is the template for creating a VNet peering from HubVNet to VNet1. Please note AllowForwardedTraffic is set to false.
+	Here is the template for creating a VNet peering from HubVNet to VNet1.
+    > AZURE.NOTE: AllowForwardedTraffic is set to false.
 
         {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -272,7 +273,8 @@ To create a VNet peering across subscriptions, please follow the steps below:
         ]
         }
 
-2. Here is the template for creating a VNet peering from VNet1 to HubVnet. Please note AllowForwardedTraffic is set to true.
+2. Here is the template for creating a VNet peering from VNet1 to HubVnet.
+    > AZURE.NOTE: AllowForwardedTraffic is set to true.
 
         {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",

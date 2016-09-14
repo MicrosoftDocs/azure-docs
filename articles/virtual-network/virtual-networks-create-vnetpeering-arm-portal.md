@@ -61,7 +61,7 @@ Click **Browse** > **choose Virtual Networks**
 
 	![Final link state 2](./media/virtual-networks-create-vnetpeering-arm-portal/figure08.png)
 
-    >AZURE.NOTE: VNET peering is only established if both links are connected.
+    > AZURE.NOTE: VNET peering is only established if both links are connected.
 
 There are a few configurable properties for each link:
 
@@ -92,7 +92,7 @@ Each link in VNet peering has a set of above properties. From portal, you can cl
 
     ![RBAC2](./media/virtual-networks-create-vnetpeering-arm-portal/figure11.png)
 
-    NOTE: You can log off and log on both user sessions in browser to ensure the authorization is enabled successfully.
+    > AZURE.NOTE: You can log off and log on both user sessions in browser to ensure the authorization is enabled successfully.
 
 6. Login to the portal as UserA, navigate to the VNET3 blade, click Peering, check ‘I Know my resource ID” checkbox and type the resource ID for VNET5 in below format.
 
@@ -108,11 +108,13 @@ Each link in VNet peering has a set of above properties. From portal, you can cl
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-transit-include](../../includes/virtual-networks-create-vnetpeering-scenario-transit-include.md)]
 
-1. As a first step, VNET peering links from HubVnet to VNET1. Please note Allow Forwarded Traffic option is not selected for the link.
+1. As a first step, VNET peering links from HubVnet to VNET1.
+    > AZURE.NOTE: Allow Forwarded Traffic option is not selected for the link.
 
     ![Basic Peering](./media/virtual-networks-create-vnetpeering-arm-portal/figure14.png)
 
-2. As a next step, peering links from VNET1 to HubVnet can be created. Please note ‘Allow forwarded traffic’ option is selected.
+2. As a next step, peering links from VNET1 to HubVnet can be created.
+    > AZURE.NOTE: Allow forwarded traffic option is selected.
 
     ![Basic Peering](./media/virtual-networks-create-vnetpeering-arm-portal/figure15a.png)
 
