@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Create a copy of your Windows VM | Microsoft Azure"
-	description="Learn how to create a copy of your specialized Azure VM running Windows, in the Resource Manager deployment model."
+	description="Learn how to create a copy of VHD for your specialized Azure VM running Windows, in the Resource Manager deployment model."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,11 +14,10 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2016"
+	ms.date="09/13/2016"
 	ms.author="cynthn"/>
 
-# Create a copy of a specialized Windows Azure VM in the Azure Resource Manager deployment model
-
+# Create a copy of a specialized Windows Azure VM VHD in the Azure Resource Manager deployment model
 
 This article shows you how to create a copy of your **specialized** Azure virtual machine (VM) running Windows. A **specialized** VM maintains the user accounts and other state data from your original VM. We will use the AzCopy tool to copy the VHD and then we will create a new VM from the source VM template and attach the copy of the VHD.
 
@@ -101,119 +100,8 @@ If you only want to copy a specific VHD in a container with multiple files, you 
 	
 ## Get the URI of the copied VHD file
 
-	
-## Update the azuredeploy.json template file 
-
-Now we need to edit the azuredeploy.json file to use copied VHD in the destination storage account. To edit the .json file, it is really easy to make the updates using Visual Studio and the Azure SDK and Tools. But, you can also edit the .json file using your favorite .json editor and a lint tool to validate the changes.
-
-In the **Parameters** section of the .json file, change default value of the storage account and the diagnostic storage account parameters. Append **diag** or some other identifier to the `<destinationStorageAccountName>`  as the name to use for the storage diagnostics account and replace the storage account name entirely. 
-
-```none
-"storageAccounts_demomigrate2320diagnostics_name": {
-    "defaultValue": "<destinationStorageAccount>diag",
-    "type": "String"
-        },
-"storageAccounts_demomigrate2320_name": {
-    "defaultValue": "<destinationStorageAccount>",
-    "type": "String"
-},
-```
-
-> [AZURE.NOTE] The parameter name is inherited from the source VM, this is ok. Do not change it or you will have to update parameter name throughout the rest of the template.
-
-Since we already have a storage account, we need to remove the storage account resource. Remove the section that looks something like this:
-
-```none
-{
-    "comments": "Generalized from resource: '/subscriptions/d5b9d4b7-6fc1-46c5-bajy-38effaed19b2/resourceGroups/demomigrate/providers/Microsoft.Storage/storageAccounts/demomigrate2320'.",
-    "type": "Microsoft.Storage/storageAccounts",
-    "name": "[parameters('storageAccounts_demomigrate2320_name')]",
-    "apiVersion": "2015-06-15",
-    "location": "westus",
-    "tags": { },
-    "properties": {
-    "accountType": "Standard_LRS"
-    },
-    "dependsOn": [ ]
-}
-```
-
-Because we are using an existing VHD to create the VM, we need to remove the Image reference from the virtual machine resource. Remove the section that looks something like this: 
-
-```none
-"imageReference": {
-    "publisher": "MicrosoftWindowsServer",
-    "offer": "WindowsServer",
-    "sku": "Windows-Server-Technical-Preview",
-    "version": "latest"
- },
-```
-
-Change the operating system disk "createOption" in the VM resource from **FromImage** to **Attach**. If there are other data disks that you copied and want to attach, the "createOption" to "Attach". Also, make sure that there is a line for `"osType": "Windows",`. Replace the value of the URI of each of the disks that you are attaching with the URI if the copied VHD file.
-
-```none
-"osDisk": {
-    "osType": "Windows",
-    "name": "[parameters('virtualMachines_demomigrate_name')]",
-    "createOption": "Attach",
-    "vhd": {
-        "uri": "<URLoftheCopiedVHD.vhd>"
-    },
-    "caching": "ReadWrite"
-},
-```
-
-Because we are using an existing .vhd with a working operating system, we need to remove the OS profile from the VM resource.
-
-```none
-"osProfile": {
-    "computerName": "[parameters('virtualMachines_demomigrate_name')]",
-    "adminUsername": "neillocal",
-    "windowsConfiguration": {
-        "provisionVMAgent": true,
-        "enableAutomaticUpdates": true
-    },
-    "secrets": [ ]
-},
-```
-
-We also need to remove the dependency on the storage account from the VM resource, because we already have a storage account created. It should look something like this:
-
-```none
-"[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_demomigrate2320_name'))]",
-```
 
 
-## Portal: Create the VM from the template using the Azure portal
-
-1. Copy the entire contents of the edited azuredeploy.json file to your clipboard (CRTL + A and then CTRL + C).
-3. Go to the [Azure portal](https://portal.azure.com/).
-4. On the hub menu, select **New** and then type **template deployment**. Select **Template deployment** from the list.
-5. In the **Custom Deployment** blade, click **Edit template**.
-6. Select the existing content in the template and delete it to empty the file.
-7. Paste the contents of the azuredeploy.json file from your clipboard into the window (CTRL+V) and then click **Save**.
-8. In the**Custom deployment** blade, select **Edit parameters**.
-9. In the **Parameters** blade, enter the password for the administrator account that you used when you created the original VM into the **VIRTUALMACHINES_IISVM_ADMINPASSWORD** field and then click **OK**.
-10. In the **Custom deployments** blade, make sure the subscription name is the name of the destination subscription.
-11. In **Resource group** select **Existing** and select the name of the resource group. This should have the same name as the resource group that the original VM was in.
-12. Click **Review legal terms** and if everything looks okay, select **Purchase**.
-13. When you are finished, click **Create** and the deployment will start.
-
-
-
-## PowerShell: Deploy the VM using the template
-
-1. Replace the value of **$deployName** with the name of the deployment. Replace the value of **$templatePath** with the path and name of the template file. Replace the value of **$parameterFile** with the path and name of the parameters file. Create the variables. 
-
-	$location = "<locationName>"
-	$destRG="<destinationResourceGroupName>"
-	$deployName="<deploymentName>"
-	$templatePath = "<localPathtotheTemplateFile"
-	$parameterFile = "<localPathtotheParamerterFile>"
-
-2. Deploy the template. 
-
-	New-AzureRmResourceGroupDeployment -ResourceGroupName $destRG -TemplateFile $templatePath -TemplateParameterFile $parameterFile
 
 ## Troubleshooting
 
@@ -222,6 +110,4 @@ We also need to remove the dependency on the storage account from the VM resourc
 
 ## Next steps
 
-- If there were issues with the deployment, a next step would be to look at [Troubleshooting resource group deployments with Azure portal](../resource-manager-troubleshoot-deployments-portal.md)
-
-- To manage your new virtual machine with Azure PowerShell, see [Manage virtual machines using Azure Resource Manager and PowerShell](virtual-machines-windows-ps-manage.md).
+- Attach the VHD to a new VM.
