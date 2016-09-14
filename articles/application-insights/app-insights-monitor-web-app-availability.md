@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/10/2016"
+	ms.date="09/07/2016"
 	ms.author="awills"/>
 
 # Monitor availability and responsiveness of any web site
 
-After you've deployed your web application to any host, you can set up web tests to monitor its availability and responsiveness. [Visual Studio Application Insights](app-insights-overview.md) sends web requests at regular intervals from points around the world, and can alert you if your application responds slowly or not at all.
+After you've deployed your web app or web site to any server, you can set up web tests to monitor its availability and responsiveness. [Visual Studio Application Insights](app-insights-overview.md) sends web requests to your application at regular intervals from points around the world. It alerts you if your application doesn't respond, or responds slowly.
 
 ![Web test example](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
@@ -25,34 +25,31 @@ You can set up web tests for any HTTP or HTTPS endpoint that is accessible from 
 
 There are two types of web test:
 
-* [URL ping test](#set-up-a-url-ping-test): a simple test that you can create in the Azure portal.
+* [URL ping test](#create): a simple test that you can create in the Azure portal.
 * [Multi-step web test](#multi-step-web-tests): which you create in Visual Studio Ultimate or Visual Studio Enterprise and upload to the portal.
 
 You can create up to 10 web tests per application resource.
 
+## <a name="create"></a>1. Create a resource for your test reports
 
-## Set up a URL ping test
-
-### <a name="create"></a>1. Create a new resource?
-
-Skip this step if you've already [set up an Application Insights resource][start] for this application, and you want to see the availability data in the same place.
+Skip this step if you've already [set up an Application Insights resource][start] for this application, and you want to see the availability reports in the same place.
 
 Sign up to [Microsoft Azure](http://azure.com), go to the [Azure portal](https://portal.azure.com), and create an Application Insights resource.
 
 ![New > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
-The Overview blade for the new resource opens. To find this at any time in the [Azure portal](https://portal.azure.com), click **Browse**.
+Click **All resources** to open the Overview blade for the new resource.
 
-### <a name="setup"></a>2. Create a web test
+## <a name="setup"></a>2. Create a URL ping test
 
 In your Application Insights resource, look for the Availability tile. Click it to open the Web tests blade for your application, and add a web test.
 
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
-- **The URL** must be visible from the public internet. It can include a query string&#151;so, for example, you can exercise your database a little. If the URL resolves to a redirect, we will follow it up to 10 redirects.
-- **Parse dependent requests**: Images, scripts, style files, and other resources of the page are requested as part of the test. The test fails if all these resources cannot be successfully downloaded within the timeout for the whole test.
+- **The URL** must be visible from the public internet. It can include a query string&#151;so, for example, you can exercise your database a little. If the URL resolves to a redirect, we follow it up to 10 redirects.
+- **Parse dependent requests**: Images, scripts, style files, and other resources of the page are requested as part of the test, and the recorded response time includes these times. The test fails if all these resources cannot be successfully downloaded within the timeout for the whole test.
 - **Enable retries**:  When the test fails, it is retried after a short interval. A failure is reported only if three successive attempts fail. Subsequent tests are then performed at the usual test frequency. Retry is temporarily suspended until the next success. This rule is applied independently at each test location. (We recommend this setting. On average, about 80% of failures disappear on retry.)
-- **Test frequency**: Sets how often the test is run from each test location. With a frequency of 5 minutes and five test locations, your site is tested on average every minute.
+- **Test frequency**: Sets how often the test is run from each test location. With a frequency of five minutes and five test locations, your site is tested on average every minute.
 - **Test locations** are the places from where our servers send web requests to your URL. Choose more than one so that you can distinguish problems in your website from network issues. You can select up to 16 locations.
 
 - **Success criteria**:
@@ -68,14 +65,14 @@ In your Application Insights resource, look for the Availability tile. Click it 
 
     You can set up a [webhook](../azure-portal/insights-webhooks-alerts.md) that is called when an alert is raised. (But note that, at present, query parameters are not passed through as Properties.)
 
-#### Test more URLs
+### Test more URLs
 
 Add more tests. For example, as well as testing your home page, you can make sure your database is running by testing the URL for a search.
 
 
-### <a name="monitor"></a>3. View availability reports
+## <a name="monitor"></a>3. See your web test results
 
-After 1-2 minutes, click **Refresh** on the availability/web tests blade. (It doesn't refresh automatically.)
+After 1-2 minutes, results appear in the Web Test blade.
 
 ![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
@@ -83,15 +80,8 @@ Click any bar on the summary chart for a more detailed view of that time period.
 
 These charts combine results for all the web tests of this application.
 
-#### Components of your web page
 
-Images, style sheets, scripts, and other static components of the web page you're testing are requested as part of the test.  
-
-The recorded response time is the time taken for all the components to complete loading.
-
-If any component fails to load, the test is marked failed.
-
-## <a name="failures"></a>If you see failures...
+## <a name="failures"></a>If you see failures
 
 Click a red dot.
 
@@ -120,7 +110,7 @@ Click the result to evaluate it in the portal and see why it failed.
 Alternatively, you can download the result file and inspect it in Visual Studio.
 
 
-*Looks OK but reported as a failure?* Check all the images, scripts, style sheets and any other files loaded by the page. If any of them fails, the test is reported as failed, even if the main html page loads OK.
+*Looks OK but reported as a failure?* Check all the images, scripts, style sheets, and any other files loaded by the page. If any of them fails, the test is reported as failed, even if the main html page loads OK.
 
 
 
@@ -128,7 +118,7 @@ Alternatively, you can download the result file and inspect it in Visual Studio.
 
 You can monitor a scenario that involves a sequence of URLs. For example, if you are monitoring a sales website, you can test that adding items to the shopping cart works correctly.
 
-To create a multi-step test, you record the scenario by using Visual Studio, and then upload the recording to Application Insights. Application Insights will replay the scenario at intervals and verify the responses.
+To create a multi-step test, you record the scenario by using Visual Studio, and then upload the recording to Application Insights. Application Insights replays the scenario at intervals and verifies the responses.
 
 Note that you can't use coded functions in your tests: the scenario steps must be contained as a script in the .webtest file.
 
@@ -198,7 +188,7 @@ Web Test Plug-ins provide the way to do parameterize times.
 
     ![Choose Add Web Test Plugin and select a type.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugins.png)
 
-    In this example, we'll use two instances of the Date Time Plug-in. One instance is for "15 minutes ago" and another for "now."
+    In this example, we use two instances of the Date Time Plug-in. One instance is for "15 minutes ago" and another for "now."
 
 2. Open the properties of each plug-in. Give it a name and set it to use the current time. For one of them, set Add Minutes = -15.
 
@@ -208,18 +198,42 @@ Web Test Plug-ins provide the way to do parameterize times.
 
     ![In the test parameter, use {{plug-in name}}.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-name.png)
 
-Now, upload your test to the portal. It will use the dynamic values on every run of the test.
+Now, upload your test to the portal. It uses the dynamic values on every run of the test.
 
 ## Dealing with sign-in
 
 If your users sign in to your app, you have various options for simulating sign-in so that you can test pages behind the sign-in. The approach you use depends on the type of security provided by the app.
 
-In all cases, you should create an account just for the purpose of testing. If possible, restrict its permissions so that it's read-only.
+In all cases, you should create an account in your application just for the purpose of testing. If possible, restrict the permissions of this test account so that there's no possibility of the web tests affecting real users.
 
-* Simple username and password: Record a web test in the usual way. Delete cookies first.
-* SAML authentication. Use the SAML plugin that is available for web tests.
-* Client secret: If your app has a sign-in route that involves a client secret, use that route. Azure Active Directory provides a client secret sign-in. 
-* Open Authentication - for example, signing in with your Microsoft or Google account. Many apps that use OAuth provide the client secret alternative, so the first tactic is to investigate that. If your test has to sign in using OAuth, the general approach is:
+### Simple username and password
+
+Record a web test in the usual way. Delete cookies first.
+
+### SAML authentication
+
+Use the SAML plugin that is available for web tests.
+
+### Client secret
+
+If your app has a sign-in route that involves a client secret, use that route. Azure Active Directory (AAD) is an example of a service that provides a client secret sign-in. In AAD, the client secret is the App Key. 
+
+Here's a sample web test of an Azure web app using an app key:
+
+![Client secret sample](./media/app-insights-monitor-web-app-availability/110.png)
+
+1. Get token from AAD using client secret (AppKey).
+2. Extract bearer token from response.
+3. Call API using bearer token in the authorization header.
+
+Make sure that the web test is an actual client - that is, it has its own app in AAD - and use its clientId + appkey. Your service under test also has its own app in AAD: the appID URI of this app is reflected in the web test in the “resource” field. 
+
+### Open Authentication
+
+An example of open authentication is signing in with your Microsoft or Google account. Many apps that use OAuth provide the client secret alternative, so your first tactic should be to investigate that possibility. 
+
+If your test must sign in using OAuth, the general approach is:
+
  * Use a tool such as Fiddler to examine the traffic between your web browser, the authentication site, and your app. 
  * Perform two or more sign-ins using different machines or browsers, or at long intervals (to allow tokens to expire).
  * By comparing different sessions, identify the token passed back from the authenticating site, that is then passed to your app server after sign-in. 
@@ -254,7 +268,7 @@ When the test is complete, you are shown response times and success rates.
 
 * *Can I call code from my web test?*
 
-    No. The steps of the test must be in the .webtest file. And you can't call other web tests or use loops. But there are a number of plug-ins that you might find helpful.
+    No. The steps of the test must be in the .webtest file. And you can't call other web tests or use loops. But there are several plug-ins that you might find helpful.
 
 * *Is HTTPS supported?*
 

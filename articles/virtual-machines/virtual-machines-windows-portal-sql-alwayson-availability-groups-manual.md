@@ -4,7 +4,7 @@
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="MikeRayMSFT"
-	manager="jeffreyg"
+	manager="timlt"
 	editor="monicar"
 	tags="azure-service-management" />
 <tags

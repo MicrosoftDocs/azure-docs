@@ -30,7 +30,7 @@ Find all the documentation you need to create and manage Linux-based virtual mac
 - [Frequently asked question about Azure Virtual Machines created with the classic deployment model](virtual-machines-linux-classic-faq.md)
 - [About images for virtual machines](virtual-machines-linux-classic-about-images.md)
 - [Uploading your own Distro Image](virtual-machines-linux-classic-create-upload-vhd.md) (and also instructions using an [Azure-Endorsed Distribution](virtual-machines-linux-endorsed-distros.md))
-- [Log on to a Linux VM Using the Azure classic portal](virtual-machines-linux-classic-log-on.md)
+- [Log on to a Linux VM Using the Azure classic portal](virtual-machines-linux-mac-create-ssh-keys.md)
 
 ## Set up
 
@@ -39,7 +39,7 @@ Find all the documentation you need to create and manage Linux-based virtual mac
 
 ## Tutorials
 
-- [Install the LAMP Stack on a Linux virtual machine in Azure](virtual-machines-linux-install-lamp-stack.md)
+- [Install the LAMP Stack on a Linux virtual machine in Azure](virtual-machines-linux-create-lamp-stack.md)
 - [Ruby on Rails Web application on an Azure VM](virtual-machines-linux-classic-ruby-rails-web-app.md)
 - [How to: Install Apache Qpid Proton-C for AMQP and Service Bus](../service-bus/service-bus-amqp-apache.md)
 
@@ -71,7 +71,7 @@ Find all the documentation you need to create and manage Linux-based virtual mac
 
 
 ## Planning
-- [Azure infrastructure services implementation guidelines](virtual-machines-linux-infrastructure-service-guidelines.md)
+- [Azure infrastructure services implementation guidelines](virtual-machines-linux-infrastructure-subscription-accounts-guidelines.md)
 - [Selecting Linux Usernames](virtual-machines-linux-usernames.md)
 - [How to configure an availability set for virtual machines in the classic deployment model](virtual-machines-linux-classic-configure-availability.md)
 - [How to Schedule Planned Maintenance on Azure VMs](virtual-machines-linux-planned-maintenance-schedule.md)
@@ -87,7 +87,7 @@ Find all the documentation you need to create and manage Linux-based virtual mac
 
 ## Management
 
-- [SSH](virtual-machines-linux-ssh-from-linux.md)
+- [SSH](virtual-machines-linux-mac-create-ssh-keys.md)
 - [How to Reset a Password or SSH Properties for Linux](virtual-machines-linux-classic-reset-access.md)
 - [Using Root](virtual-machines-linux-use-root-privileges.md)
 

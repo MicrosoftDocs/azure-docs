@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2016"
+	ms.date="08/25/2016"
 	ms.author="anhoh"/>
 
 # Request increased DocumentDB account limits
@@ -35,15 +35,15 @@ The following table describes the DocumentDB quotas. The quotas that have an ast
 ##<a id="RequestQuotaIncrease"></a> Request a quota adjustment
 The following steps show how to request a quota adjustment.
 
-1. In the [Azure Portal](https://portal.azure.com), click **Browse**, and then click **Help + support**.
+1. In the [Azure portal](https://portal.azure.com), click **More Services**, and then click **Help + support**.
 
 	![Screenshot of launching help and support](media/documentdb-increase-limits/helpsupport.png)
 
-2. In the **Help + support** blade, click **Create support request**.
+2. In the **Help + support** blade, click **New support request**.
 
 	![Screenshot of creating a support ticket](media/documentdb-increase-limits/getsupport.png)
 
-3. In the **New support request** blade, click **Basics**. Next, set **Issue type** to **Quota**, **Subscription** to your subscription that hosts your DocumentDB account, **Quota type** to **DocumentDB**, and **Support plan** to **Quota SUPPORT - Included**. Finally, click **Next**.
+3. In the **New support request** blade, click **Basics**. Next, set **Issue type** to **Quota**, **Subscription** to your subscription that hosts your DocumentDB account, **Quota type** to **DocumentDB**, and **Support plan** to **Quota SUPPORT - Included**. Then, click **Next**.
 
 	![Screenshot of support ticket request type](media/documentdb-increase-limits/supportrequest1.png)
 
@@ -52,8 +52,6 @@ The following steps show how to request a quota adjustment.
 	![Screenshot of support ticket subscription picker](media/documentdb-increase-limits/supportrequest2.png)
 
 5. Finally, fill in your contact information in the **Contact information** blade and click **Create**.
-
-	![Screenshot of support ticket resource picker](media/documentdb-increase-limits/supportrequest3.png)
 
 Once the support ticket has been created, you should receive the support request number via email.  You can also view the support request by clicking **Manage support requests** in the **Help + support** blade.
 

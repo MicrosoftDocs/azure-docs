@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="08/11/2016"
 	ms.author="banders"/>
 
 # Wire Data solution in Log Analytics

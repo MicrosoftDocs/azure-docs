@@ -216,6 +216,8 @@ To specify values for the resource parameters that were defined in the template,
           }
         }
 
+    >[AZURE.NOTE] See more about [username and password requirements](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
+
 2. Save the parameters file.
 
 ## Step 3: Install Azure PowerShell

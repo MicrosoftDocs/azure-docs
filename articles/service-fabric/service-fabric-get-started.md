@@ -37,7 +37,6 @@ The Web Platform Installer offers two configurations for Service Fabric developm
 - [Install the Service Fabric runtime, SDK, and tools for Visual Studio 2015 (Requires Visual Studio 2015 Update 2 or later)][full-bundle-vs2015]
 - [Install the Service Fabric runtime and SDK only (no Visual Studio tools)][core-sdk]
 
-
 ## Enable PowerShell script execution
 
 Service Fabric uses Windows PowerShell scripts for creating a local development cluster and for deploying applications from Visual Studio. By default, Windows blocks these scripts from running. To enable them, you must modify your PowerShell execution policy. Open PowerShell as an administrator and enter the following command:

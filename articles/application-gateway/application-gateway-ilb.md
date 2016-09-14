@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="04/05/2016"
+   ms.date="08/19/2016"
    ms.author="gwallace"/>
 
 # Create an Application Gateway with an Internal Load Balancer (ILB)
@@ -22,7 +22,7 @@
 - [Resource Manager Powershell steps](application-gateway-ilb-arm.md)
 
 
-Application Gateway can be configured with an internet facing virtual IP or with an internal end-point not exposed to the internet, also known as Internal Load Balancer (ILB) endpoint. Configuring the gateway with an ILB is useful for internal line of business applications not exposed to internet. It's also useful for services/tiers within a multi-tier application which sit in a security boundary not exposed to internet, but still require round robin load distribution, session stickiness, or SSL termination. This article will walk you through the steps to configure an application gateway with an ILB.
+Application Gateway can be configured with an internet facing virtual IP or with an internal end-point not exposed to the internet, also known as Internal Load Balancer (ILB) endpoint. Configuring the gateway with an ILB is useful for internal line-of-business applications not exposed to internet. It's also useful for services/tiers within a multi-tier application, which sits in a security boundary not exposed to internet, but still require round robin load distribution, session stickiness, or SSL termination. This article walks you through the steps to configure an application gateway with an ILB.
 
 ## Before you begin
 
@@ -31,9 +31,9 @@ Application Gateway can be configured with an internet facing virtual IP or with
 3. Verify that you have backend servers either in the virtual network, or with a public IP/VIP assigned.
 
 
-To create a new application gateway, perform the following steps in the order listed. 
+To create an application gateway, perform the following steps in the order listed. 
 
-1. [Create a new application gateway](#create-a-new-application-gateway)
+1. [Create an application gateway](#create-a-new-application-gateway)
 2. [Configure the gateway](#configure-the-gateway)
 3. [Set the gateway configuration](#set-the-gateway-configuration)
 4. [Start the gateway](#start-the-gateway)
@@ -41,7 +41,7 @@ To create a new application gateway, perform the following steps in the order li
 
 
 
-## Create a new application gateway:
+## Create an application gateway:
 
 **To create the gateway**, use the `New-AzureApplicationGateway` cmdlet, replacing the values with your own. Note that billing for the gateway does not start at this point. Billing begins in a later step, when the gateway is successfully started.
 
@@ -55,7 +55,7 @@ To create a new application gateway, perform the following steps in the order li
 
 **To validate** that the gateway was created, you can use the `Get-AzureApplicationGateway` cmdlet. 
 
-In the sample, *Description*, *InstanceCount*, and *GatewaySize* are optional parameters. The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. Small and Large are other available values. *Vip* and *DnsName* are shown as blank because the gateway has not started yet. These will be created once the gateway is in the running state. 
+In the sample, *Description*, *InstanceCount*, and *GatewaySize* are optional parameters. The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. Small and Large are other available values. *Vip* and *DnsName* are shown as blank because the gateway has not started yet. These are created once the gateway is in the running state. 
 
 	PS C:\> Get-AzureApplicationGateway AppGwTest
 
@@ -80,7 +80,7 @@ An application gateway configuration consists of multiple values. The values can
 The values are:
 
 - **Backend server pool:** The list of IP addresses of the backend servers. The IP addresses listed should either belong to the VNet subnet, or should be a public IP/VIP. 
-- **Backend server pool settings:** Every pool has settings like port, protocol, and cookie based affinity. These settings are tied to a pool and are applied to all servers within the pool.
+- **Backend server pool settings:** Every pool has settings like port, protocol, and cookie-based affinity. These settings are tied to a pool and are applied to all servers within the pool.
 - **Frontend Port:** This port is the public port opened on the application gateway. Traffic hits this port, and then gets redirected to one of the backend servers.
 - **Listener:** The listener has a frontend port, a protocol (Http or Https, these are case-sensitive), and the SSL certificate name (if configuring SSL offload). 
 - **Rule:** The rule binds the listener and the backend server pool and defines which backend server pool the traffic should be directed to when it hits a particular listener. Currently, only the *basic* rule is supported. The *basic* rule is round-robin load distribution.
@@ -97,9 +97,9 @@ Note the following:
 
 - The Frontend IP *Type* should be set to 'Private'
 
-- The *StaticIPAddress* should be set to the desired internal IP on which the gateway will receive traffic. Note that the  *StaticIPAddress* element is optional. If not set, an available internal IP from the deployed subnet is chosen. 
+- The *StaticIPAddress* should be set to the desired internal IP on which the gateway receives traffic. Note that the *StaticIPAddress* element is optional. If not set, an available internal IP from the deployed subnet is chosen. 
 
-- The value of the *Name* element specified in *FrontendIPConfiguration* should be used in the  HTTPListener's *FrontendIP* element to refer to the FrontendIPConfiguration.
+- The value of the *Name* element specified in *FrontendIPConfiguration* should be used in the HTTPListener's *FrontendIP* element to refer to the FrontendIPConfiguration.
 
  **Configuration XML sample**
 
@@ -187,7 +187,7 @@ Once the gateway has been configured, use the `Start-AzureApplicationGateway` cm
 
 ## Verify the gateway status
 
-Use the `Get-AzureApplicationGateway` cmdlet to check the status of gateway. If *Start-AzureApplicationGateway* succeeded in the previous step, the State should be *Running*, and the Vip and DnsName should have valid entries. This sample shows the cmdlet on the first line, followed by the output. In this sample, the gatway is running, and is ready to take traffic. 
+Use the `Get-AzureApplicationGateway` cmdlet to check the status of gateway. If *Start-AzureApplicationGateway* succeeded in the previous step, the State should be *Running*, and the Vip and DnsName should have valid entries. This sample shows the cmdlet on the first line, followed by the output. In this sample, the gateway is running, and is ready to take traffic. 
 
 > [AZURE.NOTE] The application gateway is configured to accept traffic at the configured ILB endpoint of 10.0.0.10 in this example.
 
