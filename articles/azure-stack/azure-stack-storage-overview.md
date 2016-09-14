@@ -98,7 +98,7 @@ Storage Farm includes the following:
 -   Storage-related Service Fabric services (for example, blob end-point service
     off ACS cluster), and,
 
--   Storage-related services running on SOFS nodes (e.g. blob service)
+-   Storage-related services running on SOFS nodes (for example, blob service)
 
 ## IaaS and PaaS Storage Usage Scenarios
 
