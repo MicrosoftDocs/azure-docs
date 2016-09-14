@@ -20,9 +20,9 @@
 
 Umbraco is a popular open-source content-management system (CMS) that can run anything from small campaign or brochure sites to complex applications for Fortune 500 companies and global media websites. 
 
-“We have quite a large community of developers who use the system, with more than 100,000 developers on our forums and more than 350,000 sites that are live, running Umbraco.”
+> “We have quite a large community of developers who use the system, with more than 100,000 developers on our forums and more than 350,000 sites that are live, running Umbraco.”
 
-— Morten Christensen, Technical Lead, Umbraco
+> — Morten Christensen, Technical Lead, Umbraco
 
 > [AZURE.VIDEO azure-sql-database-case-study-umbraco]
 
@@ -91,9 +91,9 @@ Figure 3. UaaS deployment architecture on Microsoft Azure
 
 When the Umbraco developers initially made the decision to move to a SaaS model, they knew that they would need a cost-effective and scalable way to build out the service.
 
-“Elastic database pools are a perfect fit for our SaaS offering because we can dial capacity up and down as needed. Provisioning is easy, and with our setup, we can keep utilization at a maximum.”
+> “Elastic database pools are a perfect fit for our SaaS offering because we can dial capacity up and down as needed. Provisioning is easy, and with our setup, we can keep utilization at a maximum.”
 
-— Morten Christensen, Technical Lead, Umbraco
+> — Morten Christensen, Technical Lead, Umbraco
 
 “We wanted to spend our time on solving our customers’ problems, not managing infrastructure. We wanted to make it easy for our customers to get the most value,” says Niels Hartvig, founder of Umbraco. “We initially considered hosting the servers ourselves, but capacity planning would have been a nightmare.” Coincidentally, Umbraco does not employ any database administrators, which underscores a key value proposition for using UaaS.
 
