@@ -18,7 +18,7 @@
 
 # Azure Batch diagnostic logging
 
-As with many Azure services, the Batch service emits log events for certain resources during the lifetime of the resource. You can enable Azure Batch diagnostic logs to record events for resources like pools and tasks, and then use the logs for diagnostic evaluation and monitoring. Log and parse events like pool create, pool delete, task start, task complete, and others.
+As with many Azure services, the Batch service emits log events for certain resources during the lifetime of the resource. You can enable Azure Batch diagnostic logs to record events for resources like pools and tasks, and then use the logs for diagnostic evaluation and monitoring. Log events like pool create, pool delete, task start, task complete, and others.
 
 >[AZURE.NOTE] This article discusses logging events for Batch account resources themselves, not job and task output data. For details on storing the output data of your jobs and tasks, see [Persist Azure Batch job and task output](batch-task-output.md).
 
@@ -72,7 +72,7 @@ Each event body resides in a .json file in the specified Azure Storage account. 
 
 The Batch service currently emits the following Service Log events. This list may not be exhaustive, since additional events may have been added since this article was last updated.
 
-| Service log events |
+| **Service log events** |
 | ------------------ |
 | Pool create |
 | Pool delete start |
