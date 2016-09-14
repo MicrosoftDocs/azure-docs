@@ -25,6 +25,7 @@ SnelStart makes popular financial- and business-management software for small- a
 ##Why SnelStart extended services from the desktop to the cloud
 
 “Working with Azure means we can deliver software faster, quickly react to customer demands, and scale solutions when demands increase.”
+
 — Henry Been, Software Architect
 
 SnelStart ran a successful software business for years, using a traditional development model: code, package, ship, and repeat. Over time, the pace of change grew faster and faster. Regulations changed frequently, and customers needed easier ways to process financial records and collaborate with their accountants and government to keep up with those changes.
@@ -60,6 +61,7 @@ Azure SQL Data Warehouse also plays a role in the SnelStart security and managem
 The Azure platform model removed infrastructure overhead and enabled SnelStart to automate deployments using C# management libraries. As Kuip states, “We were able to grow our current operations with a very small staff while simultaneously increasing scalability, speed, and disaster recovery options for our clients. The shift to services development freed up resources to focus on new services and features, instead of just updating existing code to keep up with new regulations or tax codes.” He adds, “By automating management and using the SaaS offering, we are able to deliver more value for our clients without having to make large investments in operational staff.” For example, by using Azure and elastic database pools, SnelStart was able to add a variety of new features, including more robust customer-data integration with banks, new billing services, small-business background checks, and email services.
 
 "In just the first few months of 2016, we expanded our Azure SQL Database deployments from about 5,500 to more than 12,000, and we’re currently adding about 1,000 databases per month.”
+
 — Henry Been, Software Architect
 
 Database management is further automated by using the elastic jobs feature. As Kuip states, “We highly appreciate the automatic discovery of databases on a [server] instance of SQL DB.” This allows SnelStart to execute management operations across their dynamically growing customer base without additional overhead.
@@ -71,6 +73,7 @@ SnelStart is also developing an API that acts as a broker between customer data 
 BBy using Azure, SnelStart can serve its customers and their accountants more seamlessly in the cloud. For example, both customers and accountants can share information by directly accessing SnelStart’s client API, hosted on Azure. Kuip states, “These reusable services are available to our customer-facing web apps, and they provide common infrastructure and functions to allow access to business administration for customers and to third-party software used by our customers. Examples include providing product-configuration capabilities, managing firewall rules, and managing long-running processes like backups.”
 
 Our goal is to provide 100-percent automation of business-administration services for our customers.” 
+
 — Carlo Kuip, IT Architect
 
 In addition, SnelStart web services allow both customers and accountants to easily access data in Azure SQL Database elastic pools. This SaaS model, coupled with database elasticity and Azure Resource Manager, provides SnelStart with scalability features that complement every Azure deployment. The implementation is fully automated using C# management libraries.
