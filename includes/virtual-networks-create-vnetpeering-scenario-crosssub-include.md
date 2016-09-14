@@ -6,4 +6,4 @@ In this scenario you will create a peering between two VNets belonging to differ
 
 VNet peering relies on Role based access control (RBAC) for authorization. For cross-subscriptions scenario, you first need to grant sufficient permission to users who will create the peering link:
 
-> AZURE.NOTE: If the same user has the privilege over both subscriptions, then you can skip step1-4 below.
+> [AZURE.NOTE] If the same user has the privilege over both subscriptions, then you can skip step1-4 below.
