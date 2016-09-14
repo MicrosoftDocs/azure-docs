@@ -16,7 +16,7 @@
 	ms.date="09/13/2016"
 	ms.author="darosa;sethm"/>
 
-# Event Hubs Archive walkthrough - Python
+# Event Hubs Archive walkthrough: Python
 
 Event Hubs Archive is a new feature of Event Hubs that allows you to automatically deliver the stream data in your Event Hub to an Azure Blob Storage account of your choice. This makes it easy to perform batch processing on real-time streaming data. This article describes how to use Event Hubs Archive with Python. For more information about Event Hubs Archive, see the [overview article](event-hubs-archive-overview.md).
 
@@ -48,13 +48,13 @@ Prerequisites
 
 2.  In the left navigation pane of the portal, click New, then click Data + Storage, and then click Storage Account.
 
-3.  Fill out the storage account blade and click **Create**.
+3.  Complete the fields in the storage account blade and click **Create**.
 
     ![][1]
 
-4.  After you see the **Deployments Succeeded** message, click on the new storage account and in the **Essentials** blade click on **Blobs**. When the **Blob service** blade opens, click on **+ Container** at the top. Name the container **archive**, then close the **Blob service** blade.
+4.  After you see the **Deployments Succeeded** message, click on the new storage account and in the **Essentials** blade click **Blobs**. When the **Blob service** blade opens, click **+ Container** at the top. Name the container **archive**, then close the **Blob service** blade.
 
-5.  Click **Access keys** in the left blade and copy the name of the storage account and the value of **key1**. Save these to Notepad or some other temporary location.
+5.  Click **Access keys** in the left blade and copy the name of the storage account and the value of **key1**. Save these values to Notepad or some other temporary location.
 
 [AZURE.INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
@@ -85,7 +85,7 @@ Prerequisites
 	        sbs.send\_event('myhub', s)
 	    print y
 	```
-4.  Update the preceding code to use your namespace name and key.
+4.  Update the preceding code to use your namespace name and key values that you obtained when you created the Event Hubs namespace.
 
 ## Create a Python script to read your archive files
 
@@ -138,7 +138,7 @@ Prerequisites
 	startProcessing('YOUR STORAGE ACCOUNT NAME', 'YOUR KEY', 'archive')
     ```
 
-4.  Be sure to paste in the appropriate values for your storage account name and key in the call to `startProcessing`.
+4.  Be sure to paste the appropriate values for your storage account name and key in the call to `startProcessing`.
 
 ## Run the scripts
 
@@ -150,9 +150,9 @@ Prerequisites
 	pip install avro
     ```
   
-    If you have an earlier version of either azure-storage or azure you may need to use the `--upgrade` option
+    If you have an earlier version of either azure-storage or azure you may need to use the **--upgrade** option
 
-    You might also need to run he following (not necessary on most systems):
+    You might also need to run the following (not necessary on most systems):
 
     ```
     pip install cryptography
@@ -166,7 +166,7 @@ Prerequisites
     
     This starts a new Python process to run the sender.
 
-3. Now wait a few minutes so the archive can run. Then type the following command into your original command window:
+3. Now wait a few minutes for the archive can run. Then type the following command into your original command window:
 
     ```
     python archivereader.py
