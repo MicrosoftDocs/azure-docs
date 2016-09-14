@@ -29,11 +29,11 @@ Azure Storage provides a comprehensive set of security capabilities which togeth
 
 SSE works by encrypting the data when it is written to Azure Storage, and can be used  for block blobs, page blobs and append blobs. It works for the following:
 
-	- General purpose storage accounts and Blob storage accounts
-	- Standard storage and Primary storage 
-	- All redundancy levels (LRS, ZRS, GRS, RA-GRS)
-	- Azure Resource Manager storage accounts (but not classic) 
-	- All regions
+-   General purpose storage accounts and Blob storage accounts
+-   Standard storage and Primary storage 
+-   All redundancy levels (LRS, ZRS, GRS, RA-GRS)
+-   Azure Resource Manager storage accounts (but not classic) 
+-   All regions
 
 This screenshot shows where to find the Storage Service Encryption setting using the [Azure portal](https://azure.portal.com). On this screen, you would click Encryption to continue.
 
