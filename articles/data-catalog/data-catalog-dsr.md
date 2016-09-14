@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="09/13/2016"
+   ms.date="09/15/2016"
    ms.author="trhabe"/>
 
 # Azure Data Catalog supported data sources
