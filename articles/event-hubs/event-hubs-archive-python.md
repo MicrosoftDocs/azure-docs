@@ -166,7 +166,7 @@ Prerequisites
     
     This starts a new Python process to run the sender.
 
-3. Now wait a few minutes for the archive can run. Then type the following command into your original command window:
+3. Now wait a few minutes for the archive to run. Then type the following command into your original command window:
 
     ```
     python archivereader.py
