@@ -42,7 +42,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 
 			Install-Package Microsoft.Azure.Management.DataFactories
 			Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
-6. Add the following **appSetttings** section to the **App.config** file. These configuration values are used by the **GetAuthorizationHeader** method. 
+4. Add the following **appSetttings** section to the **App.config** file. These configuration values are used by the **GetAuthorizationHeader** method. 
 
 	> [AZURE.IMPORTANT] Replace values for **AdfClientId**, **RedirectUri**, **SubscriptionId**, and **ActiveDirectoryTenantId** with your own values.  
  
@@ -57,7 +57,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 		    <add key="SubscriptionId" value="your subscription ID" />
     		<add key="ActiveDirectoryTenantId" value="your tenant ID" />
 		</appSettings>
-6. Add the following **using** statements to the source file (Program.cs) in the project.
+5. Add the following **using** statements to the source file (Program.cs) in the project.
 
 		using System.Threading;
 		using System.Configuration;
@@ -126,7 +126,6 @@ You can create, monitor, and manage Azure data factories programmatically using 
 	The **FolderPath** for the input blob is set to **adftutorial/** where **adftutorial** is the name of the container in your blob storage. If this container does not exist in your Azure blob storage, create a container with this name: **adftutorial** and upload a text file to the container.
 	
 	The FolderPath for the output blob is set to: **adftutorial/apifactoryoutput/{Slice}** where **Slice** is dynamically calculated based on the value of **SliceStart** (start date-time of each slice.)  
-
  
         // create input and output datasets
         Console.WriteLine("Creating input and output datasets");
@@ -201,9 +200,9 @@ You can create, monitor, and manage Azure data factories programmatically using 
                 }
             });
 
-11. Add the following code that **creates and activates a pipeline** to the **Main** method. This pipeline has a **CopyActivity** that takes **BlobSource** as a source and **BlobSink** as a sink.
+10. Add the following code that **creates and activates a pipeline** to the **Main** method. This pipeline has a **CopyActivity** that takes **BlobSource** as a source and **BlobSink** as a sink.
 
-The Copy Activity performs the data movement in Azure Data Factory. The activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity. 
+	The Copy Activity performs the data movement in Azure Data Factory. The activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity. 
 
             // create a pipeline
         Console.WriteLine("Creating a pipeline");
@@ -259,9 +258,7 @@ The Copy Activity performs the data movement in Azure Data Factory. The activity
                 }
             });
 
-	
-
-12. Add the following helper method used by the **Main** method to the **Program** class. This method pops a dialog box that that lets you provide **user name** and **password** that you use to log in to Azure portal. 
+11. Add the following helper method used by the **Main** method to the **Program** class. This method pops a dialog box that that lets you provide **user name** and **password** that you use to log in to Azure portal. 
  
 		public static string GetAuthorizationHeader()
         {
@@ -331,7 +328,7 @@ The Copy Activity performs the data movement in Azure Data Factory. The activity
             }
         }
 
-14. **(optional)** Add the following code to get run details for a data slice to the **Main** method.
+13. **(optional)** Add the following code to get run details for a data slice to the **Main** method.
 
         Console.WriteLine("Getting run details of a data slice");
 
@@ -363,20 +360,18 @@ The Copy Activity performs the data movement in Azure Data Factory. The activity
         Console.WriteLine("\nPress any key to exit.");
         Console.ReadKey();
 
-15. In the Solution Explorer, expand the project (**DataFactoryAPITestApp**), right-click **References**, and click **Add Reference**. Select check box for `System.Configuration` assembly and click **OK**. 
-16. Build the console application. Click **Build** on the menu and click **Build Solution**. 
+14. In the Solution Explorer, expand the project (**DataFactoryAPITestApp**), right-click **References**, and click **Add Reference**. Select check box for `System.Configuration` assembly and click **OK**. 
+15. Build the console application. Click **Build** on the menu and click **Build Solution**. 
 16. Confirm that there is at least one file in the adftutorial container in your Azure blob storage. If not, create Emp.txt file in Notepad with the following content and upload it to the adftutorial container.
 
         John, Doe
-		Jane, Doe
-	 
+		Jane, Doe 
 17. Run the sample by clicking **Debug** -> **Start Debugging** on the menu. When you see the **Getting run details of a data slice**, wait for a few minutes, and press **ENTER**. 
 18. Use the Azure portal to verify that the data factory **APITutorialFactory** is created with the following artifacts: 
 	- Linked service: **LinkedService_AzureStorage** 
 	- Dataset: **DatasetBlobSource** and **DatasetBlobDestination**.
 	- Pipeline: **PipelineBlobSample** 
 18. Verify that an output file is created in the **apifactoryoutput** folder in the **adftutorial** container.
-
 
 ## Log in without popup dialog box 
 The sample code in the walkthrough launches a dialog box for you to enter Azure credentials. If you need to sign in programmatically without using a dialog-box, see [Authenticating a service principal with Azure Resource Manager](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell). 
@@ -440,11 +435,4 @@ If you do not have latest version of PowerShell installed on your machine, follo
 		Get-AzureRmSubscription -SubscriptionName NameOfAzureSubscription | Set-AzureRmContext 
 
 Note down the **SubscriptionId** and **TenantId** values.
-
-
-[data-factory-introduction]: data-factory-introduction.md
-[adf-getstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
-[use-custom-activities]: data-factory-use-custom-activities.md
-[developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
-
 
