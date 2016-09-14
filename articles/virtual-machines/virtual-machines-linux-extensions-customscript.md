@@ -23,9 +23,51 @@ The Custom Script extension executes scripts on Azure virtual machines. The scri
 
 This document details how to use the Custom Script Extension both from an Azure Resource Manager template and the Azure CLI, and details troubleshooting steps.
 
+## Azure CLI
+
+When using the Azure CLI to run the Custom Script Extension, create a configuration JSON file with the following contents.
+
+- commandToExecute: (required, string) the entry point script to execute
+- fileUris: (optional, string array) the URLs for files to be downloaded.
+- timestamp (optional, integer) use this field only to trigger a rerun of the script by changing value of this field.
+
+**Examples:**
+
+```none
+{
+  "fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],
+  "commandToExecute": "./hello.sh"
+}
+```
+
+```none
+"commandToExecute": "apt-get -y update && apt-get install -y apache2"
+```
+
+Next, run a command like the following. Replace the Resource Group name, Virtual Machine Name, and the location of the configuration file.
+
+```none
+azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config-path /scirpt-config.json
+```
+
+The output looks like the following text.
+
+```none
+info:    Executing command vm extension set
++ Looking up the VM "demovm"
++ Installing extension "CustomScript", VM: "demovm"
+info:    vm extension set command OK
+```
+
+Optionally, the command can be run using the `--public-config` option which allows the configuration to be specified during execution and without a separate configuration file.
+
+```none
+azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
+```
+
 ## Azure Resource Manager Template
 
-The Azure Custom Script Extension can be attached to a virtual machine deployment using a Resource Manager template. To do so add properly formatted JSON to the deployment template.
+The Azure Custom Script Extension can be run at Virtual Machine deployment time using a Resource Manager template. To do so, add properly formatted JSON to the deployment template.
 
 ```json
 {
@@ -46,7 +88,7 @@ The Azure Custom Script Extension can be attached to a virtual machine deploymen
         "autoUpgradeMinorVersion": true,
       "settings": {
         "fileUris": [
-          "https://raw.githubusercontent.com/neilpeterson/nepeters-azure-templates/master/ubuntu-docker-oms/support-scripts/oms.sh"
+          "https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"
         ],
         "commandToExecute": "sudo sh oms.sh"
       }
@@ -54,7 +96,7 @@ The Azure Custom Script Extension can be attached to a virtual machine deploymen
 }
 ```
 
-To provide parameterized data to the script, use the Azure Resource Manager Template concatenate function. In this example data is taken form template parameters, and used in the script execution command.
+To provide parameterized data to the script, use the Azure Resource Manager Template concatenate function. In this example data is taken from a template parameter and then used in the script execution command.
 
 ```json
 {
@@ -83,39 +125,6 @@ To provide parameterized data to the script, use the Azure Resource Manager Temp
 }
 ```
 See the .Net Core Music Store Demo a working example - [Music Store Demo](https://github.com/neilpeterson/nepeters-azure-templates/tree/master/dotnet-core-music-linux-vm-sql-db).
-
-## Azure CLI
-
-When using the Azure CLI to run the Custom Script Extension, first create a configuration JSON file with the following contents.
-
-- commandToExecute: (required, string) the entry point script to execute
-- fileUris: (optional, string array) the URLs for files to be downloaded.
-- timestamp (optional, integer) use this field only to trigger a rerun of the script by changing value of this field.
-
-**Examples:**
-
-```none
-{
-  "fileUris": "https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh",
-  "commandToExecute": "./hello.sh"
-}
-```
-
-```none
-"commandToExecute": "apt-get -y update && apt-get install -y apache2"
-```
-
-Next, run a command like the following. Replace the Resource Group name, Virtual Machine Name, and the location of the configuration file.
-
-```none
-azure vm extension set <resource-group> <vm-name> scripttst001 CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config-path /scirpt-config.json
-```
-
-The output looks like the following text.
-
-```none
-
-```
 
 ## Troubleshooting
 
@@ -151,4 +160,4 @@ info:    vm extension get command OK
 
 ## Next Steps
 
-For information on other VM Script Extensions, see [Azure Script Extension overview for Linux]().
+For information on other VM Script Extensions, see [Azure Script Extension overview for Linux](./virtual-machines-linux-extensions-features.md).
