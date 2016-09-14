@@ -133,7 +133,7 @@ Get started with each of the services by creating your first flow, logic app, fu
 - [Create your first Azure Function](../azure-functions/functions-create-first-azure-function.md)
 - [Deploy WebJobs using Visual Studio](../app-service-web/websites-dotnet-deploy-webjobs.md)
 
-## More resources
+Or, get more information on these integration services with the following links:
 
 - [Leveraging Azure Functions & Azure App Service for integration scenarios by Christopher Anderson](http://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
 - [Integrations Made Simple by Charles Lamanna](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
