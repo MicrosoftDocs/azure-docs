@@ -4,7 +4,7 @@
    services="mobile-engagement" 
    documentationCenter="" 
    authors="piyushjo" 
-   manager="dwrede" 
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/29/2016"
+   ms.date="08/19/2016"
    ms.author="piyushjo"/>
 
 
@@ -35,11 +35,11 @@ Targeting your audience by specific criteria with the "New Criteria" button is o
 - **App Info:** Custom App Info Tags can be created from “Settings” to track user behavior. **See also:** [UI Documentation -  Settings][Link 20]
 
 ## Example: 
-If you want to push an announcements only to the sub-set of your users that have performed an in-app purchase action.
+If you want to push an announcement only to the sub-set of your users that have performed an in-app purchase action.
 
-1. Go to your application settings page, select the "App info" menu and select "New app ino"
+1. Go to your application settings page, select the "App info" menu and select "New app info"
 2. Register a new Boolean app info called "inAppPurchase"
-3. Make your application set this app info to "true" when the user successfully perform an in-app purchase (by using the sendAppInfo("inAppPurchase", ...) function)
+3. Make your application set this app info to "true" when the user successfully performs an in-app purchase (by using the sendAppInfo("inAppPurchase", ...) function)
 4. If you don't want to do this from your application, you can do it from your backend by using the device API)
 5. Then, you just need to create your announcement, with a criterion limiting your audience to users having "inAppPurchase" set to "true")
  

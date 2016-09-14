@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2016" 
+	ms.date="08/23/2016" 
 	ms.author="genemi"/>
 
 
@@ -32,15 +32,15 @@ This topic presents a Transact-SQL code sample that:
 1. Creates a table with data to demonstrate with.
 
 2. Creates a session for an existing extended event, namely **sqlserver.sql_statement_starting**.
- - The event is limited to SQL statements that contain a particular Update string: **statement LIKE '%UPDATE tabEmployee%'**.
- - Chooses to send the output of the event to a target of type Ring Buffer, namely  **package0.ring_buffer**.
+	- The event is limited to SQL statements that contain a particular Update string: **statement LIKE '%UPDATE tabEmployee%'**.
+	- Chooses to send the output of the event to a target of type Ring Buffer, namely  **package0.ring_buffer**.
 
 3. Starts the event session.
 
 4. Issues a couple of simple SQL UPDATE statements.
 
 5. Issues an SQL SELECT to retrieve event output from the Ring Buffer.
- - **sys.dm_xe_database_session_targets** and other dynamic management views (DMVs) are joined.
+	- **sys.dm_xe_database_session_targets** and other dynamic management views (DMVs) are joined.
 
 6. Stops the event session.
 
@@ -59,17 +59,16 @@ This topic presents a Transact-SQL code sample that:
  - Optionally you can [create an **AdventureWorksLT** demonstration database](sql-database-get-started.md) in minutes.
 
 
-- SQL Server Management Studio (ssms.exe), its August 2015 Preview or a later version. 
+- SQL Server Management Studio (ssms.exe), ideally its latest monthly update version. 
 You can download the latest ssms.exe from:
- - [A link in topic.](http://msdn.microsoft.com/library/mt238290.aspx)
+ - Topic titled [Download SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
  - [A direct link to the download.](http://go.microsoft.com/fwlink/?linkid=616025)
- - Microsoft recommends that you update your ssms.exe periodically, perhaps monthly.
 
 
 ## Code sample
 
 
-With very minor modification, the following Ring Buffer code sample can be run on either Azure SQL Database or Microsoft SQL Server. The difference is the presence of the node '_database' in the name of some dynamic management views (DMVs) in the FROM clause in Step 5. For example:
+With very minor modification, the following Ring Buffer code sample can be run on either Azure SQL Database or Microsoft SQL Server. The difference is the presence of the node '_database' in the name of some dynamic management views (DMVs), used in the FROM clause in Step 5. For example:
 
 - sys.dm_xe**_database**_session_targets
 - sys.dm_xe_session_targets
@@ -240,7 +239,7 @@ We used ssms.exe to run the code sample.
 
 To view the results, we clicked the cell under the column header **target_data_XML**.
 
-Then in the results pane we clicked the cell under the column header **target_data_XML**. This created another file tab in ssms.exe in which the content of the result cell was displayed, as XML.
+Then in the results pane we clicked the cell under the column header **target_data_XML**. This click created another file tab in ssms.exe in which the content of the result cell was displayed, as XML.
 
 
 The output is shown in the following block. It looks long, but it is just two **<event>** elements.

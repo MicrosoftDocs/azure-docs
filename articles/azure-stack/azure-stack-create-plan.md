@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/02/2016"
+	ms.date="08/15/2016"
 	ms.author="erikje"/>
 
 # Create a plan in Azure Stack
@@ -57,7 +57,7 @@
 10. Click **Quota Settings**, keep all the default values and click **OK**, and then click **Create**.
 
 	![](media/azure-stack-create-plan/image08.png)
-	
+
 11. Click **Quota for Compute Provider Admin**, click **Create new quota**, and then type a name for the quota.
 
 	![](media/azure-stack-create-plan/image09.png)
@@ -65,7 +65,7 @@
 12. Click **Quota Settings**, keep all the default values and click **OK**, and then click **Create**.
 
 	![](media/azure-stack-create-plan/image10.png)
-	
+
 12. In the **Quotas** blade, click **OK**, and then in the **New Plan** blade, click **Create** to create the plan.
 
 	![](media/azure-stack-create-plan/image11.png)

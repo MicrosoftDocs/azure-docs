@@ -4,6 +4,7 @@
 	services="azure-stack"
 	documentationCenter=""
 	authors="helaw"
+	authors="heathl17"
 	manager="byronr"
 	editor=""/>
 

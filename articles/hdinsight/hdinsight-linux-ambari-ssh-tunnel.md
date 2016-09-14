@@ -4,7 +4,7 @@ description="Learn how to use an SSH tunnel to securely browse web resources hos
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags

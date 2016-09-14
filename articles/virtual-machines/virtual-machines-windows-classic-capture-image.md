@@ -32,6 +32,7 @@ These steps assume that you've already created an Azure virtual machine and conf
 
 - [Create a virtual machine from an image](virtual-machines-windows-classic-createportal.md)
 - [How to attach a data disk to a virtual machine](virtual-machines-windows-classic-attach-disk.md)
+- Make sure the server roles are supported with Sysprep. For more information, see [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
 > [AZURE.WARNING] This process deletes the original virtual machine after it's captured. 
 

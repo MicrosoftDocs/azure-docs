@@ -4,7 +4,7 @@
    services="automation"
    documentationCenter=""
    authors="mgoedtel"
-   manager="jwhit""
+   manager="jwhit"
    editor="tysonn" />
 <tags 
    ms.service="automation"

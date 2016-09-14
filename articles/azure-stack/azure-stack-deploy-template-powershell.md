@@ -18,6 +18,7 @@
 
 # Deploy templates in Azure Stack using PowerShell
 
+<<<<<<< HEAD
 Use PowerShell to deploy Azure Resource Manager templates to the Azure Stack POC.  Resource Manager templates deploy and provision all resources for your application in a single, coordinated operation.
 
 ## Run AzureRM PowerShell cmdlets
@@ -57,7 +58,7 @@ The VHD used in this example template is a default marketplace image (WindowsSer
 ```
 
 3.  Open the Azure Stack portal, click **Browse**, click **Virtual machines**, and look for your new virtual machine (*myDeployment001*).
-  
+
 ## Video example: hybrid virtual machine deployment
 
 [AZURE.VIDEO microsoft-azure-stack-tp1-poc-hybrid-vm-deployment]

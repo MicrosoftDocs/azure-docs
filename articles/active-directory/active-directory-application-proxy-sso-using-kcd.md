@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/19/2016"
+	ms.date="08/10/2016"
 	ms.author="kgremban"/>
 
 
@@ -23,7 +23,7 @@ Single sign-on is a key element of Azure AD Application Proxy. It provides the b
 
 1. A user signs in to the cloud  
 2. All security validations happen in the cloud (preauthentication)  
-3. When the request is sent to the on-prem application, the Application Proxy Connector impersonates the user so the backend application thinks that this is a regular user coming from a domain-joined device.
+3. When the request is sent to the on-prem application, the Application Proxy Connector impersonates the user. The backend application thinks this is a regular user coming from a domain-joined device.
 
 ![Access diagram from end user, through Application Proxy, to the corporate network](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_diagram.png)
 
@@ -57,7 +57,7 @@ Before you get started with SSO for Application Proxy, make sure your environmen
 
 - All your apps have Service Principal Names.
 
-- The server running the Connector and the server running the app are domain joined and part of the same domain. For more information on domain join, see [Join a Computer to a Domain](https://technet.microsoft.com/library/dd807102.aspx).
+- The server running the Connector and the server running the app are domain joined and part of the same domain or trusting domains. For more information on domain join, see [Join a Computer to a Domain](https://technet.microsoft.com/library/dd807102.aspx).
 
 - The server running the Connector has access to read the TokenGroupsGlobalAndUniversal for users. This is a default setting that might have been impacted by security hardening the environment. Get more help with this in [KB2009157](https://support.microsoft.com/en-us/kb/2009157).
 
@@ -69,7 +69,7 @@ The Active Directory configuration varies, depending on whether your Application
 
 1. In Active Directory, go to **Tools** > **Users and Computers**.
 2. Select the server running the Connector.
-3. Right click and select **Properties** > **Delegation**.
+3. Right-click and select **Properties** > **Delegation**.
 4. Select **Trust this computer for delegation to specified services only** and under **Services to which this account can present delegated credentials**, add the value for the SPN identity of the application server.
 5. This enables the Application Proxy Connector to impersonate users in AD against the applications defined in the list.
 
@@ -98,7 +98,7 @@ The Active Directory configuration varies, depending on whether your Application
   ![Advanced Application Configuration](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)  
 4. Enter the **Internal Application SPN** of the application server. In this example, the SPN for our published application is http/lob.contoso.com.  
 
->[AZURE.IMPORTANT] If your on-premises UPN and the UPN in Azure Active Directory are not identical, you will need to configure the [delegated login identity](#delegated-login-identity) in order for preauthentication to work. .
+>[AZURE.IMPORTANT] If your on-premises UPN and the UPN in Azure Active Directory are not identical, you will need to configure the [delegated login identity](#delegated-login-identity) in order for preauthentication to work.
 
 |  |  |
 | --- | --- |
@@ -107,7 +107,7 @@ The Active Directory configuration varies, depending on whether your Application
 
 
 ## SSO for non-Windows apps
-The Kerberos delegation flow in Azure AD Application Proxy starts when Azure AD authenticates the user in the cloud. Once the request arrives on-premises, the Azure AD Application Proxy Connector issues a Kerberos ticket on behalf of the user by interacting with the local Active Directory. This process is referred to as Kerberos Constrained Delegation (KCD). In the next phase, a request is sent to the backend application with this Kerberos ticket. There are number of protocols that define how to send such requests. Most non-Windows servers expect Negotiate/SPNego that is now supported on Azure AD Application Proxy.
+The Kerberos delegation flow in Azure AD Application Proxy starts when Azure AD authenticates the user in the cloud. Once the request arrives on-premises, the Azure AD Application Proxy Connector issues a Kerberos ticket on behalf of the user by interacting with the local Active Directory. This process is referred to as Kerberos Constrained Delegation (KCD). In the next phase, a request is sent to the backend application with this Kerberos ticket. There are a number of protocols that define how to send such requests. Most non-Windows servers expect Negotiate/SPNego that is now supported on Azure AD Application Proxy.
 
 ![Non-Windows SSO diagram](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_nonwindows_diagram.png)
 
