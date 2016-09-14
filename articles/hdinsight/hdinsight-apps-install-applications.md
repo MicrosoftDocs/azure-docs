@@ -27,7 +27,7 @@ Currently there is one published application:
 
 >[AZURE.NOTE] Datameer is currently only supported in Azure HDInsight version 3.2 clusters.
 
-The instructions provided in this article use Azure Portal. You can also export the Azure Resouce Manager template from the portal or obtain a copy of the Resouce Manager template from vendors, and use Azure PowerShell and Azure CLI to deploy the template.  See [Create Linux-based Hadoop clusters in HDInsight using Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+The instructions provided in this article use Azure portal. You can also export the Azure Resource Manager template from the portal or obtain a copy of the Resource Manager template from vendors, and use Azure PowerShell and Azure CLI to deploy the template.  See [Create Linux-based Hadoop clusters in HDInsight using Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
 ## Prerequisites
 
