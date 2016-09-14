@@ -17,11 +17,11 @@
 	ms.date="08/16/2016"
 	ms.author="spelluru"/>
 
-# Build your first Azure data factory using Data Factory REST API
+# Tutorial: Build your first Azure data factory using Data Factory REST API
 > [AZURE.SELECTOR]
 - [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
-- [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
 - [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
