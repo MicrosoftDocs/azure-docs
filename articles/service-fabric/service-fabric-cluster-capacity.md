@@ -77,7 +77,7 @@ This privilege is expressed in the following values:
 
 - Silver - The infrastructure Jobs can be paused for a duration of 30 minutes per UD (This is currently not enabled for use. Once enabled this will be available on all standard VMs of single core and above).
 
-- Bronze - No privileges. This is he default.
+- Bronze - No privileges. This is the default.
 
 ## The reliability characteristics of the cluster
 
@@ -95,7 +95,7 @@ The reliability tier can take the following values.
 
 >[AZURE.NOTE] The reliability tier you choose determines the minimum number of nodes your primary node type must have. The reliability tier has no bearing on the max size of the cluster. So you can have a 20 node cluster, that is running at Bronze reliability.
 
->[AZURE.NOTE] You can choose to update the reliability of your cluster from one tier to another. Doing this will trigger the cluster upgrades needed to change the system services replica set count. Wait for the upgrade in progress to complete before making any other changes to the cluster, like adding nodes etc.  You can monitor the progress of the upgrade on Service Fabric Explorer or by running [Get-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt126012.aspx)
+ You can choose to update the reliability of your cluster from one tier to another. Doing this will trigger the cluster upgrades needed to change the system services replica set count. Wait for the upgrade in progress to complete before making any other changes to the cluster, like adding nodes etc.  You can monitor the progress of the upgrade on Service Fabric Explorer or by running [Get-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt126012.aspx)
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Next steps

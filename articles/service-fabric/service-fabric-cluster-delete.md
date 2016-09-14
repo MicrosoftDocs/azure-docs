@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Delete an azure cluster and its’ resources | Microsoft Azure"
+   pageTitle="Delete an Azure cluster and its resources | Microsoft Azure"
    description="Learn how to completely delete a Service Fabric cluster either deleting the resource group containing the cluster or by selectively deleting resources."
    services="service-fabric"
    documentationCenter=".net"
