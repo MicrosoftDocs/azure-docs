@@ -66,7 +66,7 @@ Azure Batch Service Logs contain events emitted by the Azure Batch service durin
 }
 ```
 
-Each event body resides in a .json file in the specified Azure Storage account. If you wish to access the logs directly, you may wish to review the [schema of Diagnostic Logs in the storage account](../azure-portal/monitoring-archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
+Each event body resides in a .json file in the specified Azure Storage account. If you want to access the logs directly, you may wish to review the [schema of Diagnostic Logs in the storage account](../azure-portal/monitoring-archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
 
 ## Service Log events
 
