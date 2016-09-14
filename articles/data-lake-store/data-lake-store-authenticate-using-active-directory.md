@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Authenticate with Data Lake Store using Active Directory | Azure"
+   pageTitle="Authenticate with Data Lake Store using Active Directory | Microsoft Azure"
    description="Learn how to authenticate with Data Lake Store using Active Directory"
    services="data-lake-store"
    documentationCenter=""

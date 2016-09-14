@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Use Data Lake Store Java SDK to develop applications | Azure"
+   pageTitle="Use Data Lake Store Java SDK to develop applications | Microsoft Azure"
    description="Use Azure Data Lake Store Java SDK to develop applications"
    services="data-lake-store"
    documentationCenter=""
