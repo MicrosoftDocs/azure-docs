@@ -68,7 +68,7 @@ Each event emitted by Batch is stored in the specified Storage account in JSON f
 }
 ```
 
-Each event body resides in a .json file in the specified Azure Storage account. If you wish to access the logs directly, you may wish to review the [schema of Diagnostic Logs in the storage account](monitoring-archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
+Each event body resides in a .json file in the specified Azure Storage account. If you wish to access the logs directly, you may wish to review the [schema of Diagnostic Logs in the storage account](../azure-portal/monitoring-archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
 
 ## Service Log events
 
@@ -91,7 +91,7 @@ The Batch service currently emits the following Service Log events. This list ma
 
 * Learn how to [stream Azure Diagnostic Logs to Event Hubs](../azure-portal/monitoring-stream-diagnostic-logs-to-event-hubs.md).
 
-* You can analyze your logs with [Operations Management Suite (OMS) Log Analytics](./log-analytics/log-analytics-azure-storage-json.md).
+* You can analyze your logs with [Operations Management Suite (OMS) Log Analytics](../log-analytics/log-analytics-azure-storage-json.md).
 
 ### Persist job and task output
 
