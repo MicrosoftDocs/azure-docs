@@ -18,11 +18,11 @@
 
 # Build your Azure first data factory using Microsoft Visual Studio
 > [AZURE.SELECTOR]
-- [Using Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
-- [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
-- [Using REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+- [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
+- [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
+- [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 [AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)] 
 
