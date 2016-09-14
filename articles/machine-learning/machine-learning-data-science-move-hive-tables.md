@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
-	ms.author="hangzh;bradsev" />
+	ms.date="09/14/2016" 
+	ms.author="bradsev" />
 
  
 #Create and load data into Hive tables from Azure blob storage

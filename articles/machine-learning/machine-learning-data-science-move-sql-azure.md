@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016"
-	ms.author="fashah;bradsev" /> 
+	ms.date="09/14/2016"
+	ms.author="bradsev" /> 
 
 # Move data to an Azure SQL Database for Azure Machine Learning
 
