@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/28/2016" 
+	ms.date="09/14/2016" 
 	ms.author="spelluru"/>
 
 # Create, monitor, and manage Azure data factories using Data Factory .NET SDK
@@ -26,7 +26,9 @@ You can create, monitor, and manage Azure data factories programmatically using 
 
 - Visual Studio 2012 or 2013 or 2015
 - Download and install [Azure .NET SDK][azure-developer-center]
-- Download and install NuGet packages for Azure Data Factory. Instructions are in the walkthrough.
+- Add a native client application to Azure Active Directory. See [Integrating applications with Azure Active Directory](../active-directory/active-directory-integrating-applications.md) for steps to add the application. Note down the **CLIENT ID** and **REDIRECT URI** on the **CONFIGURE** page.
+- See [Get Azure subscription and tenant IDs](#get-azure-subscription-and-tenant-ids) for instructions on getting your Azure **subscription ID** and **tenant ID**. 
+- Download and install NuGet packages for Azure Data Factory. Instructions are in the walkthrough.  
 
 ## Walkthrough
 1. Using Visual Studio 2012 or 2013, create a C# .NET console application.
@@ -46,11 +48,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
 6. Add the following **appSetttings** section to the **App.config** file. These are used by the helper method: **GetAuthorizationHeader**. 
 
-	Replace values for **AdfClientId**, **RedirectUri**, **SubscriptionId** and **ActiveDirectoryTenantId** with your own values. 
-
-	You can get subscription ID and tenant ID values by running **Get-AzureAccount -Format-List** from Azure PowerShell (you may need to login first by using Add-AzureAccount) after you login using Login-AzureRmAccount. 
-
-	You can get the CLIENT ID and redirect URI for your AD application from the Azure portal.      
+	Replace values for **AdfClientId**, **RedirectUri**, **SubscriptionId** and **ActiveDirectoryTenantId** with your own values.  
  
 		<appSettings>
 		    <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
@@ -58,8 +56,8 @@ You can create, monitor, and manage Azure data factories programmatically using 
 		    <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
 
 		    <!-- Replace the following values with your own -->
-		    <add key="AdfClientId" value="Your AD application ID" />
-		    <add key="RedirectUri" value="Your AD application's redirect URI" />
+		    <add key="AdfClientId" value="Your AAD application ID" />
+		    <add key="RedirectUri" value="Your AAD application's redirect URI" />
 		    <add key="SubscriptionId" value="your subscription ID" />
     		<add key="ActiveDirectoryTenantId" value="your tenant ID" />
 		</appSettings>
@@ -430,6 +428,23 @@ Here is how you can create the Active Directory application, service principal, 
 
 
 Note down the application ID and the password (client secret) and use it in the code above. 
+
+## Get Azure subscription and tenant IDs
+If you do not have latest version of PowerShell installed on your machine, follow instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) article to install it.
+
+1. Start Azure PowerShell and run the following command
+2. Run the following command and enter the  user name and password that you use to sign in to the Azure portal.
+		Login-AzureRmAccount
+
+	If you have only one Azure subscription associated with this account, you do not need to perform the next two steps.  
+3. Run the following command to view all the subscriptions for this account.
+		Get-AzureRmSubscription
+4. Run the following command to select the subscription that you want to work with. Replace **NameOfAzureSubscription** with the name of your Azure subscription.
+
+		Get-AzureRmSubscription -SubscriptionName NameOfAzureSubscription | Set-AzureRmContext 
+
+Note down the **SubscriptionId** and **TenantId** values.
+
 
 [data-factory-introduction]: data-factory-introduction.md
 [adf-getstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
