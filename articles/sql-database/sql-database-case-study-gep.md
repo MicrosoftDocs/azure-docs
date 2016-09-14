@@ -36,7 +36,9 @@ Nagalkar knew that a cloud solution might be the answer to this dilemma. If GEP 
 
 Nagalkar and his team explored several cloud options, but most were infrastructure-as-a-service (IaaS)–based solutions that would have required GEP to invest heavily in IT resources to configure and manage the service. The Azure platform-as-a-service (PaaS) solution turned out to be a much better fit.
 
-“With Azure, GEP doesn’t need to deal with database management, virtual-machine configuration, patching, or other infrastructure-management tasks,” stated Nagalkar. “Instead, we can focus our resources on what we do best: leveraging our expertise in procurement to write software that truly delivers results for our customers.” In fact, the move to Azure has enabled GEP to shrink its IT operations staff while simultaneously enabling greater functionality for customers.
+> “With Azure, GEP doesn’t need to deal with database management, virtual-machine configuration, patching, or other infrastructure-management tasks,” stated Nagalkar. “Instead, we can focus our resources on what we do best: leveraging our expertise in procurement to write software that truly delivers results for our customers.” 
+
+In fact, the move to Azure has enabled GEP to shrink its IT operations staff while simultaneously enabling greater functionality for customers.
 
 By taking advantage of Azure datacenters across the globe, GEP can easily extend its reach across Europe and Asia. Those global datacenters enable GEP to scale with agility and to meet customer needs for locally stored data that reduces latency and meets regulatory requirements.
 
@@ -57,7 +59,7 @@ At the heart of the SMART by GEP application are the Azure SQL Database instance
 - Masking data in real time through policies.
 - Tracking database events through Azure SQL Database Auditing.
 
-“We can use all of these options without making any major code changes and with minimal impact on performance,” said Nagalkar.
+> “We can use all of these options without making any major code changes and with minimal impact on performance,” said Nagalkar.
 
 By using Azure SQL Database, GEP automatically has greater disaster-recovery capabilities than it could have economically engineered on premises due to the fault-tolerance features built in to Azure SQL Database. GEP uses the Active Geo-Replication capability in Azure SQL Database, coupled with multiple active, readable, and online secondary replicas (Always On Availability Groups) in different geographical regions, to form high-availability pairs. Replicating SMART by GEP data across regions means that, in the case of a region-wide disaster, GEP can easily recover customer data with a minimum recovery-point objective (RPO) and recovery-time objective (RTO).
 
@@ -85,12 +87,9 @@ To send the thousands of transactional emails generated on a daily basis by SMAR
 
 Finally, SMART by GEP uses Azure Virtual Machines—the Azure IaaS service—to host applications and services that did not make sense, at the time of engineering, to replace with software-as-a-service (SaaS) or PaaS solutions. For example, GEP hosts integration API services in virtual machines for business-to-business (B2B) integration with customers’ on-premises enterprise-resource-planning (ERP) systems like SAP, Oracle, PeopleSoft, JD Edwards, Microsoft Dynamics GP, and Lawson and with customer SaaS solutions to efficiently exchange procurement documents, such as invoices.
 
--
-
 > “Building SMART by GEP in the Microsoft Azure cloud has completely removed the need for on-premises IT, not only for GEP but also for our customers’ procurement operations.” 
-- Dhananjay Nagalkar, VP of Technology Solutions
 
--
+> — Dhananjay Nagalkar, VP of Technology Solutions
 
 ## Expand customer satisfaction without expanding IT
 
