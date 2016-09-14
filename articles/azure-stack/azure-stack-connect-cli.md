@@ -16,7 +16,7 @@
 	ms.date="09/26/2016"
 	ms.author="helaw"/>
 
-# Install and Configure Azure CLI
+# Install and configure Azure CLI
 
 In this document, we guide you through using Azure CLI to manage resources on Windows, Linux, and Mac client platforms.  
 
