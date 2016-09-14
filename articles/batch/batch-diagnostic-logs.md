@@ -83,17 +83,11 @@ The Batch service currently emits the following Service Log events. This list ma
 | Task complete |
 | Task fail |
 
-## Troubleshooting tips
-
-This section is intended to provide you with resources to use when troubleshooting Azure diagnostic logging issues. It won't necessarily solve all problems, but it may help you narrow down the cause and point you to help resources.
-
-* Use stuff
-
 ## Next steps
 
-*  See [Application deployment with Azure Batch application packages](batch-application-packages.md) to find out how to use this feature to manage and deploy the applications you execute on Batch compute nodes.
+* Learn how to use the [Batch File Conventions](batch-task-output.md) library to persist you job and task data to Azure Storage.
 
-* See [Query the Batch service efficiently](batch-efficient-list-queries.md) for more about reducing the number of items and the type of information that is returned for queries to Batch.
+* See [Application deployment with Azure Batch application packages](batch-application-packages.md) to find out how to use this feature to manage and deploy the applications you execute on Batch compute nodes.
 
 [batch_forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
