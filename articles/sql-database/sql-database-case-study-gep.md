@@ -97,8 +97,8 @@ Since migrating from on-premises datacenters to Azure, and building SMART by GEP
  
 ## More information
 
-- GEP home page: http://www.gep.com
-- Smart by GEP: http://www.smartbygep.com
+- GEP home page: [GEP](http://www.gep.com)
+- Smart by GEP: [Smart by GEP](http://www.smartbygep.com)
 
 ##GEP contributors
 
