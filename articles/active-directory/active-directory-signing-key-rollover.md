@@ -47,7 +47,7 @@ How your application handles key rollover depends on variables such as the type 
 * [Web applications / APIs protecting resources using any other libraries or manually implementing any of the supported protocols](#other)
 
 This guidance is **not** applicable for:
-* Applications added from Azure AD Application Gallery (including Custom) have separate guidance with regards to signing keys. [More information.](https://azure.microsoft.com/en-us/documentation/articles/active-directory-sso-certs/)
+* Applications added from Azure AD Application Gallery (including Custom) have separate guidance with regards to signing keys. [More information.](active-directory-sso-certs.md)
 * On-premises applications published via application proxy don't have to worry about signing keys.
 
 ### <a name="nativeclient"></a>Native client applications accessing resources
