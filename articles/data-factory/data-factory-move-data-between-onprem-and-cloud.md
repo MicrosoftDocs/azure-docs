@@ -130,10 +130,7 @@ In this step, you create two linked services: **AzureStorageLinkedService** and 
 3.	In the **JSON editor**, do the following: 
 	1. For the **gatewayName**, specify **adftutorialgateway**.	
 	2. If you are using Windows authentication:
-		1. In the **connectionString**: 
-			1. Set the **Integrated Security** to **true**.
-			2. Specify database **server name** and **database name**. 
-			2. Remove **User ID** and **Password**. 
+		1. In the **connectionString**, set the **Integrated Security** to **true**, specify database **server name** and **database name**, and remove **User ID** and **Password**. 
 		3. Specify user name and password for **userName** and **password** properties.  
 		
 				"typeProperties": {
@@ -295,51 +292,50 @@ In this step, you create a **pipeline** with one **Copy Activity** that uses **E
 
 	![Author and Deploy Tile](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png) 
 2.	Click **New pipeline** on the command bar. If you do not see the button, click **... (ellipsis)** to expand the command bar.
-2.	Replace the JSON in the right pane with the following text:   
-
-
-		{
-		  "name": "ADFTutorialPipelineOnPrem",
-		  "properties": {
-		    "description": "This pipeline has one Copy activity that copies data from an on-prem SQL to Azure blob",
-		    "activities": [
-		      {
-		        "name": "CopyFromSQLtoBlob",
-		        "description": "Copy data from on-prem SQL server to blob",
-		        "type": "Copy",
-		        "inputs": [
-		          {
-		            "name": "EmpOnPremSQLTable"
-		          }
-		        ],
-		        "outputs": [
-		          {
-		            "name": "OutputBlobTable"
-		          }
-		        ],
-		        "typeProperties": {
-		          "source": {
-		            "type": "SqlSource",
-		            "sqlReaderQuery": "select * from emp"
-		          },
-		          "sink": {
-		            "type": "BlobSink"
-		          }
-		        },
-		        "Policy": {
-		          "concurrency": 1,
-		          "executionPriorityOrder": "NewestFirst",
-		          "style": "StartOfInterval",
-		          "retry": 0,
-		          "timeout": "01:00:00"
-		        }
-		      }
-		    ],
-		    "start": "2016-07-05T00:00:00Z",
-		    "end": "2016-07-06T00:00:00Z",
-		    "isPaused": false
-		  }
-		}
+2.	Replace the JSON in the right pane with the following text:	
+	
+			{
+				"name": "ADFTutorialPipelineOnPrem",
+				"properties": {
+		    	"description": "This pipeline has one Copy activity that copies data from an on-prem SQL to Azure blob",
+		    	"activities": [
+		      	{
+		        	"name": "CopyFromSQLtoBlob",
+			        "description": "Copy data from on-prem SQL server to blob",
+		        	"type": "Copy",
+		        	"inputs": [
+		          	{
+		            	"name": "EmpOnPremSQLTable"
+		          	}
+		        	],
+		        	"outputs": [
+		          	{
+			            "name": "OutputBlobTable"
+			          }
+			        ],
+			        "typeProperties": {
+			          "source": {
+			            "type": "SqlSource",
+			            "sqlReaderQuery": "select * from emp"
+			          },
+			          "sink": {
+			            "type": "BlobSink"
+			          }
+			        },
+			        "Policy": {
+			          "concurrency": 1,
+			          "executionPriorityOrder": "NewestFirst",
+			          "style": "StartOfInterval",
+			          "retry": 0,
+			          "timeout": "01:00:00"
+			        }
+			      }
+			    ],
+			    "start": "2016-07-05T00:00:00Z",
+			    "end": "2016-07-06T00:00:00Z",
+			    "isPaused": false
+			  }
+			}
 
 	Note the following:
  
@@ -354,7 +350,8 @@ In this step, you create a **pipeline** with one **Copy Activity** that uses **E
 	
 	You are defining the time duration in which the data slices are processed based on the **Availability** properties that were defined for each Azure Data Factory table.
 	
-	In the example, there are 24 data slices as each data slice is produced hourly.
+	In the example, there are 24 data slices as each data slice is produced hourly.	 
+
 	
 2. Click **Deploy** on the command bar to deploy the dataset (table is a rectangular dataset). Confirm that you see a message on the title bar that says **PIPELINE DEPLOYED SUCCESSFULLY**.  
 5. Now, close the **Editor** blade by clicking **X**. Click **X** again to close the ADFTutorialDataFactory blade with the toolbar and tree view. If you see **your unsaved edits will be discarded** message, click **OK**.
@@ -387,21 +384,19 @@ In this step, you use the Azure portal to monitor what’s going on in an Azure 
 	![EmpOnPremSQLTable slices](./media/data-factory-move-data-between-onprem-and-cloud/OnPremSQLTableSlicesBlade.png)
 
 6. Notice that the data slices up to the current time have already been produced and they are **Ready**. It is because you have inserted the data in the SQL Server database and it is there all the time. Confirm that no slices show up in the **Problem slices** section at the bottom.
-
-
-	Both **Recently updated slices** and **Recently failed slices** lists are sorted by the **LAST UPDATE TIME**. The update time of a slice is changed in the following situations. 
-    
-
-	-  You update the status of the slice manually, for example, by using the **Set-AzureRmDataFactorySliceStatus** (or) by clicking **RUN** on the **SLICE** blade for the slice.
-	-  The slice changes status due to an execution (for example, a run started, a run ended and failed, a run ended and succeeded, etc.).
- 
-	Click the title of the lists or **... (ellipses)** to see the larger list of slices. Click **Filter** on the toolbar to filter the slices.  
 	
-	To view the data slices sorted by the slice start/end times instead, click **Data slices (by slice time)** tile.
+	Both **Recently updated slices** and **Recently failed slices** lists are sorted by the **LAST UPDATE TIME**. The update time of a slice is changed in the following situations.
 
+	You update the status of the slice manually, for example, by using the **Set-AzureRmDataFactorySliceStatus** (or) by clicking **RUN** on the **SLICE** blade for the slice.
+	
+	The slice changes status due to an execution (for example, a run started, a run ended and failed, a run ended and succeeded, etc.).
+
+	Click the title of the lists or **... (ellipses)** to see the larger list of slices. Click **Filter** on the toolbar to filter the slices.
+
+	To view the data slices sorted by the slice start/end times instead, click **Data slices (by slice time)** tile.
 7. Now, In the **Datasets** blade, click **OutputBlobTable**.
 
-	![OputputBlobTable slices][image-data-factory-output-blobtable-slices]
+	![OputputBlobTable slices](./media/data-factory-move-data-between-onprem-and-cloud/OutputBlobTableSlicesBlade.png)
 8. Confirm that you see slices up to the current time are produced and **Ready**. Wait until the statuses of slices up to the current time are set to **Ready**.
 9. Click any data slice from the list and you should see the **DATA SLICE** blade.
 
@@ -411,7 +406,7 @@ In this step, you use the Azure portal to monitor what’s going on in an Azure 
 
 10. Click the **activity run** from the list at the bottom to see **activity run details**.
 
-	![Activity Run Details blade][image-data-factory-activity-run-details]
+	![Activity Run Details blade](./media/data-factory-move-data-between-onprem-and-cloud/ActivityRunDetailsBlade.png)
 
 11. Click **X** to close all the blades until you 
 12. get back to the home blade for the **ADFTutorialOnPremDF**.
