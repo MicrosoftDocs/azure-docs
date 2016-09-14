@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Manage Azure SQL Database using the Azure Portal"
+	pageTitle="Manage Azure SQL Database using the Azure Portal | Microsoft Azure"
 	description="Learn how to use the Azure Portal to manage a relational database in the cloud using the Azure Portal."
 	services="sql-database"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
-	ms.date="09/13/2016"
+	ms.date="09/14/2016"
 	ms.author="sstein"/>
 
 
