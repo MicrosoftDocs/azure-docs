@@ -376,6 +376,8 @@ You can create, monitor, and manage Azure data factories programmatically using 
 ## Log in without popup dialog box 
 The sample code in the walkthrough launches a dialog box for you to enter Azure credentials. If you need to sign in programmatically without using a dialog-box, see [Authenticating a service principal with Azure Resource Manager](resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell). 
 
+> [AZURE.IMPORTANT] Add a Web application to Azure Active Directory and note down the client ID and client secret of the application.  
+
 ### Example
 
 Create GetAuthorizationHeaderNoPopup method.  
@@ -425,10 +427,12 @@ If you do not have latest version of PowerShell installed on your machine, follo
 
 1. Start Azure PowerShell and run the following command
 2. Run the following command and enter the user name and password that you use to sign in to the Azure portal.
+
 		Login-AzureRmAccount
 
 	If you have only one Azure subscription associated with this account, you do not need to perform the next two steps.  
 3. Run the following command to view all the subscriptions for this account.
+
 		Get-AzureRmSubscription
 4. Run the following command to select the subscription that you want to work with. Replace **NameOfAzureSubscription** with the name of your Azure subscription.
 
