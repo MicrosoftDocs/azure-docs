@@ -27,7 +27,7 @@ This document details how to use the Custom Script Extension both from an Azure 
 
 The Azure Custom Script Extension can be attached to a virtual machine deployment using an ARM template. To do so add properly formatted JSON to the deployment template.
 
-```none
+```json
 {
     "name": "scriptextensiondemo",
     "type": "extensions",
@@ -40,9 +40,9 @@ The Azure Custom Script Extension can be attached to a virtual machine deploymen
         "displayName": "scriptextensiondemo"
     },
     "properties": {
-        "publisher": "Microsoft.OSTCExtensions",
-        "type": "CustomScriptForLinux",
-        "typeHandlerVersion": "1.4",
+        "publisher": "Microsoft.Azure.Extensions",
+        "type": "CustomScript",
+        "typeHandlerVersion": "2.0",
         "autoUpgradeMinorVersion": true,
       "settings": {
         "fileUris": [
@@ -56,7 +56,7 @@ The Azure Custom Script Extension can be attached to a virtual machine deploymen
 
 To provide parameterized data to the script, use the Azure Resource Manager Template concatenate function. In this example data is taken form template parameters, and used in the script execution command.
 
-```none
+```json
 {
     "name": "scriptextensiondemo",
     "type": "extensions",
@@ -69,9 +69,9 @@ To provide parameterized data to the script, use the Azure Resource Manager Temp
         "displayName": "scriptextensiondemo"
     },
     "properties": {
-        "publisher": "Microsoft.OSTCExtensions",
-        "type": "CustomScriptForLinux",
-        "typeHandlerVersion": "1.4",
+        "publisher": "Microsoft.Azure.Extensions",
+        "type": "CustomScript",
+        "typeHandlerVersion": "2.0",
         "autoUpgradeMinorVersion": true,
       "settings": {
         "fileUris": [
@@ -105,13 +105,13 @@ When using the Azure CLI to run the Custom Script Extension, first create a conf
 "commandToExecute": "apt-get -y update && apt-get install -y apache2"
 ```
 
-Next, run a command similar to the following. Replace the Resource Group name, Virtual Machine Name, and the location of the configuration file.
+Next, run a command like the following. Replace the Resource Group name, Virtual Machine Name, and the location of the configuration file.
 
 ```none
 azure vm extension set <resource-group> <vm-name> scripttst001 CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config-path /scirpt-config.json
 ```
 
-The output will look similar to this.
+The output will look like this.
 
 ```none
 
@@ -119,7 +119,7 @@ The output will look similar to this.
 
 ## Troubleshooting
 
-When the Custom Script Extension runs, the script is created or downloaded into a directory similar to following. The command output is also saved into this directory in `stdout` and `stderr` file.
+When the Custom Script Extension runs, the script is created or downloaded into a directory like the following. The command output is also saved into this directory in `stdout` and `stderr` file.
 
 ```none
 /var/lib/azure/custom-script/download/0/
@@ -137,7 +137,7 @@ The execution state of the Custom Script Extension can also be retrieved with th
 azure vm extension get <resource-group> <vm-name>
 ```
 
-The output will look similar to this.
+The output will look like this.
 
 ```none
 info:    Executing command vm extension get
@@ -149,3 +149,6 @@ data:    Microsoft.OSTCExtensions    Microsoft.Insights.VMDiagnosticsSettings  2
 info:    vm extension get command OK
 ```
 
+## Next Steps
+
+For information on other VM Script Extensions, see [Azure Script Extension overview for Linux]().

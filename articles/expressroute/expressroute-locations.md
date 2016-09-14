@@ -29,7 +29,7 @@ You will have access to Azure services across all regions within a geopolitical 
 
 |**Geopolitical region**|**Azure regions**|**ExpressRoute locations**|
 |---|---|---|
-|**North America**|East US, West US, East US 2, Central US, South Central US, North Central US, Canada Central, Canada East|Atlanta, Chicago, Dallas, Las Vegas+, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto|
+|**North America**|East US, West US, East US 2, Central US, South Central US, North Central US, Canada Central, Canada East|Atlanta, Chicago, Dallas, Las Vegas, Los Angeles, New York, Seattle, Silicon Valley, Washington DC, Montreal+, Quebec City+, Toronto|
 |**South America**|Brazil South|Sao Paulo|
 |**Europe**|North Europe, West Europe, UK West, UK South|Amsterdam, Dublin, London, Newport(Wales)+, Paris|
 |**Asia**|East Asia, Southeast Asia|Hong Kong, Singapore|
@@ -43,9 +43,9 @@ The table below provides information on regions and geopolitical boundaries for 
 
 |**Geopolitical region**|**Azure regions**|**ExpressRoute locations**|
 |---|---|---|---|
-|**US Government cloud**|US Gov Iowa, US Gov Virginia|Chicago, Dallas+, New York, Washington DC|
+|**US Government cloud**|US Gov Iowa, US Gov Virginia|Chicago, Dallas, New York, Washington DC|
 |**China**|China North, China East|Beijing, Shanghai|
-|**Germany**|Germany Central, Germany East|Berlin, Frankfurt|
+|**Germany**|Germany Central, Germany East|Berlin+, Frankfurt|
 
 
 Connectivity across geopolitical regions is not supported on the standard ExpressRoute SKU. You will need to enable the ExpressRoute premium add-on to support global connectivity. Connectivity to national cloud environments is not supported. You can work with your connectivity provider if such a need arises.
@@ -105,7 +105,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **Service provider**  |**Microsoft Azure** | **Office 365** | **Locations** |
 |-----------------------|--------------------|----------------|---------------|
 | **[AT&T NetBond]( https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | Supported | Supported | Chicago, Washington DC |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Supported | Supported | Chicago, Dallas+, New York, Washington DC |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | Supported | Supported | Chicago, Dallas, New York, Washington DC |
 | **[Level 3 Communications]( http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | Supported | Supported | Chicago, New York+, Washington DC |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | Supported | Supported | Chicago, Dallas+, New York, Washington DC |
 
