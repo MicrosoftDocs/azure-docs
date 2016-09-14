@@ -110,14 +110,19 @@ In this section, you use a Resource Manager template to create HDInsight cluster
 
 ## Access an edge node
 
+The edge node ssh endpoint is <EdgeNodeName>.<ClusterName>-ssh.azurehdinsight.net:22.  For example, new-edgenode.myedgenode0914-ssh.azurehdinsight.net:22.
+
 The edge node appears as an application on the Azure portal.  The portal gives you the information to access the edge node using SSH.
 
-**To access an edge node**
+**To verify the edge node SSH endpoint**
 
 1. Sign on to the [Azure portal](https://portal.azure.com).
 2. Open the HDInsight cluster with an edge node.
 3. Click **Applications** from the cluster blade. You shall see the edge node.  The default name is **new-edgenode**.
 4. Click the edge node. You shall see the SSH endpoint.
+
+**To use Hive on the edge node**
+
 5. Use SSH to connect to the edge node.  See [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md) or [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 6. After you have connected to the edge node using SSH, use the following command to open the Hive console:
 
