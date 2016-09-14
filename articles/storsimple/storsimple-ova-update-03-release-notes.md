@@ -73,8 +73,8 @@ The following table provides a summary of known issues for the StorSimple Virtua
 
 Looking for an older release note? Go to: 
 
-    - [StorSimple Virtual Array Update 0.1 and 0.2 Release Notes](storsimple-ova-update-01-release-notes.md)
+- [StorSimple Virtual Array Update 0.1 and 0.2 Release Notes](storsimple-ova-update-01-release-notes.md)
 
-    - [StorSimple Virtual Array General Availability Release Notes](storsimple-ova-pp-release-notes.md)
+- [StorSimple Virtual Array General Availability Release Notes](storsimple-ova-pp-release-notes.md)
  
 
