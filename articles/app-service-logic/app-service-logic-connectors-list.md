@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/28/2016"
+	ms.date="09/01/2016"
 	ms.author="mandia"/>
 
 
@@ -35,9 +35,7 @@ Name | Description
 [Bing Translator](https://azure.microsoft.com/marketplace/partners/bing/microsofttranslator/) | Use Bing to translate text into another language.
 [HTTP](app-service-logic-connector-http.md) | The HTTP Listener opens an endpoint that acts as an HTTP server and listens to incoming HTTP or HTTPS requests. The HTTP action doesn't require an API App and is supported natively within Logic Apps.
 [Microsoft Office 365](app-service-logic-connector-office365.md) | The Office 365 Connector can send and receive emails, manage your calendar, and manage your contacts using your Office 365 account.
-[QuickBooks](app-service-logic-connector-quickbooks.md) | You can  complete different tasks including create, update, and query different entities from Intuit QuickBooks like customers, items, invoices, and so on.
 [Slack](app-service-logic-connector-slack.md) | Connect to Slack and post messages to Slack channels.
-[Wait](app-service-logic-connector-wait.md) | Use this connector to delay the execution of your app. You can delay the app for a specific duration or until an occurrence at a specific time.
 
 
 ## Enterprise Integration Connectors
@@ -61,9 +59,6 @@ Name  | Description
 [Informix](app-service-logic-connector-informix.md) | Connects to an IBM Informix database, on-premises and on an Azure virtual machine running a Windows operating system. Can map Web API and OData API operations to Informix Structured Query Language commands.<br/><br/>No triggers. Actions include table select, insert, update, delete, and custom statement.<br/><br/>When using on-premises, VPN or Azure ExpressRoute can be used. This connector also includes a Microsoft Client for DRDA to connect to an Informix server across a TCP/IP network.
 [Microsoft SQL Server](app-service-logic-connector-sql.md) | Connects to on-premises SQL Server or an Azure SQL Database. You can create, update, get, and delete entries on a SQL database table.
 MQ | Connects to IBM WebSphere MQ Server version 8, on-premises and on an Azure virtual machine running a Windows operating system. When using on-premises, VPN or Azure ExpressRoute can be used. The connector also includes the Microsoft Client for MQ.<br/><br/>No triggers. No actions.<br/><br/>**Note** Currently cannot be used with Logic Apps.
-[Oracle Database](app-service-logic-connector-oracle.md) | Connects to on-premises Oracle Database and  can create, update, get, and delete entries on a database table.
-[POP3](app-service-logic-connector-pop3.md) (Post Office Protocol)| Connect to a POP3 server to retrieve emails with attachments.
-[SAP](app-service-logic-connector-sap.md) | Connects to an on-premises SAP server and invokes RFCs, BAPIs and tRFCs, and send IDOCs.
 
 ## Connectors as Triggers
 Several connectors provide triggers for Logic Apps. These triggers are of two types:

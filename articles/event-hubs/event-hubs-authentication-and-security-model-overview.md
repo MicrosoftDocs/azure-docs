@@ -39,7 +39,7 @@ All tokens are signed with a SAS key. Typically, all tokens are signed with the 
 
 When creating an Event Hubs namespace, Azure Event Hubs generates a 256-bit SAS key named **RootManageSharedAccessKey**. This key grants send, listen, and manage rights to the namespace. You can create additional keys. It is recommended that you produce a key that grants send permissions to the specific Event Hub. For the remainder of this topic, it is assumed that you named this key `EventHubSendKey`.
 
-The following example creates a send-only key when creating the Event hub:
+The following example creates a send-only key when creating the Event Hub:
 
 ```
 // Create namespace manager.
@@ -101,53 +101,13 @@ The current version of Service Bus does not support SAS rules for individual sub
 
 In the absence of SAS authentication for individual consumer groups, you can use SAS keys to secure all consumer groups with a common key. This approach enables an application to consume data from any of the consumer groups of an Event Hub.
 
-### Create service identities, relying parties, and rules in ACS
-
-ACS supports multiple ways to create service identities, relying parties, and rules, but the easiest way to do this is by using the [SBAZTool](http://code.msdn.microsoft.com/Authorization-SBAzTool-6fd76d93). For example:
-
-1. Create a service identity for an **EventHubSender**. This operation returns the name of the service identity that was created and its key:
-
-	```
-	sbaztool.exe exe -n <namespace> -k <key>  makeid eventhubsender
-	```
-
-2. Grant **EventHubSender** "Send Claims" to the Event Hub:
-
-	```
-	sbaztool.exe -n <namespace> -k <key> grant Send /AuthTestEventHub eventhubsender
-	```
-
-3. Create a service identity for a receiver to Consumer Group 1:
-
-	```
-	sbaztool.exe exe -n <namespace> -k <key> makeid consumergroup1receiver
-	```
-
-4. Grant `consumergroup1receiver` "Listen Claims" to **ConsumerGroup1**:
-
-	```
-	sbaztool.exe -n <namespace> -k <key> grant Listen /AuthTestEventHub/ConsumerGroup1 consumergroup1receiver
-	```
-
-5. Create a service identity for a receiver to **Consumer Group 2**:
-
-	```
-	sbaztool.exe exe -n <namespace> -k <key>  makeid consumergroup2receiver
-	```
-
-6. Grant `consumergroup2receiver` "Listen Claims" to **ConsumerGroup2**:
-
-	```
-	sbaztool.exe -n <namespace> -k <key> grant Listen /AuthTestEventHub/ConsumerGroup2 consumergroup2receiver
-	```
-
 ## Next steps
 
 To learn more about Event Hubs, visit the following topics:
 
 - [Event Hubs overview]
-- A complete [sample application that uses Event Hubs].
 - A [queued messaging solution] using Service Bus queues.
+- A complete [sample application that uses Event Hubs].
 
 [Event Hubs overview]: event-hubs-overview.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
