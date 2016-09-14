@@ -19,7 +19,7 @@
 
 # Using the Azure Custom Script Extension with Linux Virtual Machines
 
-The Custom Script extension executes scripts on Azure virtual machines. The scripts can be provided to the script at runtime, or downloaded from Azure storage or other accessible internet location. These scripts can be used to configure the system and install software at deployment time using Azure Resource Manager templates. The Custom Script extenstion can also be run against existing virtual machines using the Azure CLI, PowerShell, or the Azure Virtual Machine REST API.
+The Custom Script extension executes scripts on Azure virtual machines. The scripts can be provided to the script at runtime, or downloaded from Azure storage or other accessible internet location. These scripts can be used to configure the system and install software at deployment time using Azure Resource Manager templates. The Custom Script extension can also be run against existing virtual machines using the Azure CLI, PowerShell, or the Azure Virtual Machine REST API.
 
 This document details how to use the Custom Script Extension both from an Azure Resource Manager template and the Azure CLI, and details troubleshooting steps.
 
@@ -59,7 +59,7 @@ info:    Executing command vm extension set
 info:    vm extension set command OK
 ```
 
-Optionally, the command can be run using the `--public-config` option which allows the configuration to be specified during execution and without a separate configuration file.
+Optionally, the command can be run using the `--public-config` option, which allows the configuration to be specified during execution and without a separate configuration file.
 
 ```none
 azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
