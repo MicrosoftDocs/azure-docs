@@ -18,9 +18,7 @@
 
 # Azure Batch diagnostic logging
 
-As with many Azure services, the Batch service emits log events for certain resources during the lifetime of the resource. You can enable Azure Batch Service Logs to record events for resources like pools and tasks, and then use the logs for diagnostic evaluation and monitoring. Log and parse events like pool create, pool delete, task start, task complete, and others.
-
-Read further to find out how to enable diagnostic logging, how to store the logs in an Azure Storage account
+As with many Azure services, the Batch service emits log events for certain resources during the lifetime of the resource. You can enable Azure Batch diagnostic logs to record events for resources like pools and tasks, and then use the logs for diagnostic evaluation and monitoring. Log and parse events like pool create, pool delete, task start, task complete, and others.
 
 >[AZURE.NOTE] This article discusses logging events for Batch account resources themselves, not job and task output data. For details on storing the output data of your jobs and tasks, see [Persist Azure Batch job and task output](batch-task-output.md).
 
@@ -28,7 +26,7 @@ Read further to find out how to enable diagnostic logging, how to store the logs
 
 * [Azure Batch account](batch-account-create-portal.md)
 
-* [Azure Storage account](../storage/storage-create-storage-account#create-a-storage-account)
+* [Azure Storage account](../storage/storage-create-storage-account.md#create-a-storage-account)
 
   To persist Batch Service Logs, you must create an Azure Storage account to which Azure will store the logs. The Storage account that you specify when you enable log collection is not the "linked" storage account referred to in the [application packages](batch-application-packages.md) and [task output persistence](batch-task-output.md) articles. However, you can use the same Storage account you've linked for those purposes, if you like.
 
@@ -46,11 +44,44 @@ We recommend that you read the [Overview of Azure Diagnostic Logs](../azure-port
 
 Azure Batch currently supports one log category, Service Logs. These logs contain events emitted by the Azure Batch service during the lifetime of a Batch resource (like a pool, or task).
 
-Each event emitted by Batch is stored in the specified Storage account in JSON format. For example, this is a pool created event:
+Each event emitted by Batch is stored in the specified Storage account in JSON format. For example, this is the body of a sample **pool create event**:
 
 ```json
-
+{
+	"poolId": "myPool1",
+	"displayName": "Production Pool",
+	"vmSize": "Small",
+	"cloudServiceConfiguration": {
+		"osFamily": "4",
+		"targetOsVersion": "*"
+	},
+	"networkConfiguration": {
+		"subnetId": " "
+	},
+	"resizeTimeout": "300000",
+	"targetDedicated": 2,
+	"maxTasksPerNode": 1,
+	"vmFillType": "Spread",
+	"enableAutoscale": false,
+	"enableInterNodeCommunication": false,
+	"isAutoPool": false
+}
 ```
+
+## Service Log events
+
+The Batch service currently emits the following Service Log events. This list may not be exhaustive, since additional events may have been added since this article was last updated.
+
+| Service log events |
+| ------------------ |
+| Pool create |
+| Pool delete start |
+| Pool delete complete |
+| Pool resize start |
+| Pool resize complete |
+| Task start |
+| Task complete |
+| Task fail |
 
 ## Troubleshooting tips
 
