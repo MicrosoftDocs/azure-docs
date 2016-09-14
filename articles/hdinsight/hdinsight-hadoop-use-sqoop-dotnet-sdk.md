@@ -2,7 +2,7 @@
 	pageTitle="Use Hadoop Sqoop in HDInsight | Microsoft Azure"
 	description="Learn how to use HDInsight .NET SDK to run Sqoop import and export between an Hadoop cluster and an Azure SQL database."
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	services="hdinsight"
 	documentationCenter=""
 	tags="azure-portal"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-   ms.date="06/28/2016"
+   ms.date="09/14/2016"
 	ms.author="jgao"/>
 
 #Run Sqoop jobs using .NET SDK for Hadoop in HDInsight

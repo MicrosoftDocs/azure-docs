@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="08/19/2016"
+	ms.date="09/02/2016"
 	ms.author="sethm"/>
 
 # Get started with Event Hubs

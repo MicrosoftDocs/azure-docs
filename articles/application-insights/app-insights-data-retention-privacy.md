@@ -196,7 +196,6 @@ Your action  | Data classes collected (see next table)
 [Install Status Monitor on IIS][redfield]|Dependencies<br/>ServerContext<br/>Inferred<br/>Perf counters
 [Add Application Insights SDK to a Java web app][java]|ServerContext<br/>Inferred<br/>Request<br/>Session<br/>users
 [Add JavaScript SDK to web page][client]|ClientContext <br/>Inferred<br/>Page<br/>ClientPerf<br/>Ajax
-[Add SDK to Windows Store app][windows]|DeviceContext<br/>Users<br/>Crash data
 [Define default properties][apiproperties]|**Properties** on all standard and custom events
 [Call TrackMetric][api]|Numeric values<br/>**Properties**
 [Call Track*][api]|Event name<br/>**Properties**
@@ -264,6 +263,5 @@ This product includes GeoLite2 data created by MaxMind, available from [http://w
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
-[windows]: app-insights-windows-get-started.md
 
  

@@ -526,7 +526,7 @@ In this step, you create datasets to represent input and output data.
 		        "linkedServiceName": "AzureStorageLinkedService",
 		        "typeProperties": {
 		            "fileName": "{slice}.txt",
-		            "folderPath": "adftutorial/customactivityoutput",
+		            "folderPath": "adftutorial/customactivityoutput/",
 		            "partitionedBy": [
 		                {
 		                    "name": "slice",
@@ -615,7 +615,7 @@ In this step, you create datasets to represent input and output data.
 
 	- **Concurrency** is set to **2** so that two slices are processed in parallel by 2 VMs in the Azure Batch pool.
 	- There is one activity in the activities section and it is of type: **DotNetActivity**.
-	- **AssemblyName** is set to the name of the DLL: **MyActivities.dll**.
+	- **AssemblyName** is set to the name of the DLL: **MyDotnetActivity.dll**.
 	- **EntryPoint** is set to **MyDotNetActivityNS.MyDotNetActivity**.
 	- **PackageLinkedService** is set to **AzureStorageLinkedService** that points to the blob storage that contains the custom activity zip file. If you are using different Azure Storage accounts for input/output files and the custom activity zip file, you create another Azure Storage linked service. This article assumes that you are using the same Azure Storage account..
 	- **PackageFile** is set to **customactivitycontainer/MyDotNetActivity.zip**. It is in the format: containerforthezip/nameofthezip.zip.

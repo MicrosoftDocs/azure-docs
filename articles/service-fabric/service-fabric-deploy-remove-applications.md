@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/10/2016"
+   ms.date="08/25/2016"
    ms.author="ryanwi"/>
 
 # Deploy and remove applications using PowerShell

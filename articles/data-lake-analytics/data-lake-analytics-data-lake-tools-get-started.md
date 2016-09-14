@@ -4,7 +4,7 @@
    services="data-lake-analytics"
    documentationCenter=""
    authors="edmacauley"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -34,14 +34,14 @@ U-SQL is a hyper-scalable, highly extensible language for preparing, transformin
 
     Once Data Lake Tools for Visual Studio is installed, you will see a "Data Lake Analytics" node in Server Explorer under the "Azure" node (you can open Server explorer by pressing Ctrl+Alt+S).
 
-- **Go through the following two sections in [Get Started with Azure Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md)**.
+- **Go through the following two sections in [Get Started with Azure Data Lake Analytics using Azure portal](data-lake-analytics-get-started-portal.md)**.
 
 	- [Create an Azure Data Lake Analytics account](data-lake-analytics-get-started-portal.md#create_adl_analytics_account).
 	- [Upload SearchLog.tsv to the default Data Lake Storage account](data-lake-analytics-get-started-portal.md#update-data-to-the-default-adl-storage-account).
 
     For your convenience, a PowerShell sample script for creating a Data Lake Analytic service and uploading source data file can be found in [Appx-A PowerShell sample for preparing the tutorial](data-lake-analytics-data-lake-tools-get-started.md#appx-a-powershell-sample-for-preparing-the-tutorial).
 
-	The Data Lake Tools doesn't support creating Data Lake Analytics accounts. So you have to create it using the Azure Portal, Azure PowerShell, .NET SDK or Azure CLI. To run a Data Lake Analytics job, you will need some data. Even though the Data Lake Tools supports uploading data, you will use the portal to upload the sample data to make this tutorial easier to follow.
+	The Data Lake Tools doesn't support creating Data Lake Analytics accounts. So you have to create it using the Azure portal, Azure PowerShell, .NET SDK or Azure CLI. To run a Data Lake Analytics job, you will need some data. Even though the Data Lake Tools supports uploading data, you will use the portal to upload the sample data to make this tutorial easier to follow.
 
 ## Connect to Azure
 
@@ -50,7 +50,7 @@ U-SQL is a hyper-scalable, highly extensible language for preparing, transformin
 1. Open Visual Studio.
 2. From the **View** menu, click **Server Explorer** to open Server Explorer. Or press **[CTRL]+[ALT]+S**.
 3. Right-click **Azure**, click "Connect to Microsoft Azure Subscription", and then follow instructions.
-4. From **Server Explorer**, expand **Azure**, and then expand **Data Lake Analytics**. You shall see a list of your Data Lake Analytics accounts if there are any. You cannot create Data Lake Analytics accounts from Visual Studio. To create an account, see [Get Started with Azure Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md) or [Get Started with Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md).
+4. From **Server Explorer**, expand **Azure**, and then expand **Data Lake Analytics**. You shall see a list of your Data Lake Analytics accounts if there are any. You cannot create Data Lake Analytics accounts from Visual Studio. To create an account, see [Get Started with Azure Data Lake Analytics using Azure portal](data-lake-analytics-get-started-portal.md) or [Get Started with Azure Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md).
 
 ## Upload source data files
 
@@ -155,7 +155,7 @@ The Data Lake Analytics jobs are written in the U-SQL language. To learn more ab
 
 	- **Insert Azure Path**
 
-		Rather than remembering Azure file path and type it manually when writing script, Data Lake Tools for Visual Studio provides an easy way: right click in the editor, click Insert Azure Path. Navigate to the file in the Azure Blob Browser dialog. Click **OK**. the file path will be inserted to your code.
+		Rather than remembering Azure file path and type it manually when writing script, Data Lake Tools for Visual Studio provides an easy way: right-click in the editor, click Insert Azure Path. Navigate to the file in the Azure Blob Browser dialog. Click **OK**. the file path will be inserted to your code.
 
 5. Specify the Data Lake Analytics account, Database, and Schema. You can select **(local)** to run the script locally for the testing purpose. For more information, see [Run U-SQL locally](#run-u-sql-locally).
 
@@ -163,8 +163,8 @@ The Data Lake Analytics jobs are written in the U-SQL language. To learn more ab
 
     For more information, see [Use U-SQL catalog](data-lake-analytics-use-u-sql-catalog.md).
 
-5. From **Solution Explorer**, right click **Script.usql**, and then click **Build Script**. Verify the result in the Output pane.
-6. From **Solution Explorer**, right click **Script.usql**, and then click **Submit Script**. Optionally, you can also click **Submit** from Script.usql pane.  See the previous screenshot.  Click the down arrow next to the Submit button to submit using the advance options:
+5. From **Solution Explorer**, right-click **Script.usql**, and then click **Build Script**. Verify the result in the Output pane.
+6. From **Solution Explorer**, right-click **Script.usql**, and then click **Submit Script**. Optionally, you can also click **Submit** from Script.usql pane.  See the previous screenshot.  Click the down arrow next to the Submit button to submit using the advance options:
 7. Specify **Job Name**, verify the **Analytics Account**, and then click **Submit**. Submission results and job link are available in the Data Lake Tools for Visual Studio Results window when the submission is completed.
 
 	![Submit U-SQL Visual Studio project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-advanced.png)
@@ -242,7 +242,7 @@ The following video demonstrates the U-SQL local run feature:
     For scripts ran on Data Lake serivce, the default storage account will be used as root folder and will be searched accordingly.
 
 ### Test U-SQL scripts locally
-For instructions on developing U-SQL scripts, see [Develop U-SQL scripts](#develop-and-test-u-sql-scripts). To build and run U-SQL scripts locally, select **(Local)** in the cluster drop down list, and then click **Submit**. Please make sure you have the right data referenced - either refer to the absolute path or put the data under the DataRoot folder.
+For instructions on developing U-SQL scripts, see [Develop U-SQL scripts](#develop-and-test-u-sql-scripts). To build and run U-SQL scripts locally, select **(Local)** in the cluster drop-down list, and then click **Submit**. Please make sure you have the right data referenced - either refer to the absolute path or put the data under the DataRoot folder.
 
 ![Submit U-SQL Visual Studio project locally](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-local-run.png)
 
@@ -279,9 +279,10 @@ The following procedure only works in Visual Studio 2015. In older Visual Studio
 
 To get started with Data Lake Analytics using different tools, see:
 
-- [Get started with Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md)
+- [Get started with Data Lake Analytics using Azure portal](data-lake-analytics-get-started-portal.md)
 - [Get started with Data Lake Analytics using Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 - [Get started with Data Lake Analytics using .NET SDK](data-lake-analytics-get-started-net-sdk.md)
+- [Debug C# code in U-SQL jobs](data-lake-analytics-debug-u-sql-jobs.md)
 
 To see more development topics:
 

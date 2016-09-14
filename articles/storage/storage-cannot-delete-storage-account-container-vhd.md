@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/20/2016"
+	ms.date="08/24/2016"
 	ms.author="genli"/>
 
 # Troubleshoot deleting Azure storage accounts, containers, or VHDs
@@ -50,7 +50,7 @@ To resolve the most common issues, try the following method:
 
 > [AZURE.WARNING] Be sure to back up anything you want to save before you delete the account. It is not possible to restore a deleted storage account or retrieve any of the content that it contained before deletion. This also holds true for any resources in the account: once you delete a VHD, blob, table, queue, or file, it is permanently deleted. Ensure that the resource is not in use.
 
-## Symptom
+## Common issues
 
 The following section lists common errors that you might receive when you try to delete the Azure storage accounts, containers, or VHDs.
 
@@ -90,21 +90,22 @@ After you delete a VM and then try to delete the blobs for the associated VHDs, 
 
 *Failed to delete blob 'path/XXXXXX-XXXXXX-os-1447379084699.vhd'. Error: 'There is currently a lease on the blob and no lease ID was specified in the request.*
 
-## More information
+## About the Stopped (deallocated) status
 
 VMs that were created in the classic deployment model and that have been retained will have the **Stopped (deallocated)** status on either the [Azure portal](https://portal.azure.com/) or [Azure classic portal](https://manage.windowsazure.com/).
 
 **Azure classic portal**:
 
-![Stopped (deallocated) status for VMs on Azure classic portal.](./media/storage-cannot-delete-storage-account-container-vhd/moreinfo1.png)
+![Stopped (Deallocated) status for VMs on Azure portal.](./media/storage-cannot-delete-storage-account-container-vhd/moreinfo2.png)
+
 
 **Azure portal**:
 
-![Stopped (Deallocated) status for VMs on Azure portal.](./media/storage-cannot-delete-storage-account-container-vhd/moreinfo2.png)
+![Stopped (deallocated) status for VMs on Azure classic portal.](./media/storage-cannot-delete-storage-account-container-vhd/moreinfo1.png)
 
 A “Stopped (deallocated)” status releases the computer resources, such as the CPU, memory, and network. The disks, however, are still retained so that the user can quickly re-create the VM if required. These disks are created on top of VHDs, which are backed by Azure storage. The storage account has these VHDs, and the disks have leases on those VHDs.
 
-## References
+## Next steps
 
 - [Delete a storage account](storage-create-storage-account.md#delete-a-storage-account)
 - [How to break the locked lease of blob storage in Microsoft Azure (PowerShell)](https://gallery.technet.microsoft.com/scriptcenter/How-to-break-the-locked-c2cd6492)

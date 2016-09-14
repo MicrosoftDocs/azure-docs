@@ -4,7 +4,7 @@
    	services="hdinsight"
    	documentationCenter=""
    	authors="Blackmist"
-   	manager="paulettm"
+   	manager="jhubbard"
    	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="06/13/2016"
+   	ms.date="08/30/2016"
    	ms.author="larryfr"/>
 
 #Create Linux-based clusters in HDInsight using the Azure CLI

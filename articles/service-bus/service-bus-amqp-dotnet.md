@@ -95,11 +95,9 @@ To facilitate interoperability with non-.NET clients, use only .NET types that c
 
 The following features of the Service Bus .NET API are not currently supported when using AMQP:
 
--   Transactions.
+-   Transactions
 
--   Send via transfer destination.
-
--   Scaled-out receive.
+-   Send via transfer destination
 
 There are also some small differences in the behavior of the Service Bus .NET API when using AMQP, compared to the default protocol:
 

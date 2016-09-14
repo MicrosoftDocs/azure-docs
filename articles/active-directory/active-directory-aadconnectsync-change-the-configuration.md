@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/23/2016"
+	ms.date="08/31/2016"
 	ms.author="andkjell"/>
 
 
@@ -61,7 +61,7 @@ The [scheduler](active-directory-aadconnectsync-feature-scheduler.md) runs every
 ![Inbound rule scoping filter](./media/active-directory-aadconnectsync-change-the-configuration/scopingfilter.png)  
 This section is used to define which objects the rule should apply to. If left empty, the rule would apply to all user objects. But that would include conference rooms, service accounts, and other non-people user objects.
 4. On the **Join rules**, leave it empty.
-5. On the **Transformations** page, change the FlowType to **Expression**. Select the Target Attribute **giveName**, and in Source enter `PCase([givenName])`.
+5. On the **Transformations** page, change the FlowType to **Expression**. Select the Target Attribute **givenName**, and in Source enter `PCase([givenName])`.
 ![Inbound rule transformations](./media/active-directory-aadconnectsync-change-the-configuration/transformations.png)  
 The sync engine is case-sensitive both on the function name and the name of the attribute. If you type something wrong, you see a warning when you add the rule. The editor allows you to save and continue, so you would have to reopen the rule and correct the rule.
 6. Click **Add** to save the rule.
@@ -134,7 +134,7 @@ Some attributes in Active Directory are multi-valued in the schema even though t
 In this expression in case the attribute has a value, we take the first item (Item) in the attribute, remove leading and trailing spaces (Trim), and then keep the first 448 characters (Left) in the string.
 
 ### Do not flow an attribute
-For background on the scenario for this section, see [Control the attribute flow process](#control-the-attribute-flow-process).
+For background on the scenario for this section, see [Control the attribute flow process](active-directory-aadconnectsync-understanding-declarative-provisioning.md#control-the-attribute-flow-process).
 
 There are two ways to not flow an attribute. The first is available in the installation wizard and allows you to [remove selected attributes](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering). This option works if you have never synchronized the attribute before. However, if you have started to synchronize this attribute and later remove it with this feature, then the sync engine stops managing the attribute and the existing values are left in Azure AD.
 
@@ -151,38 +151,12 @@ At Fabrikam, we have realized that some of the attributes we synchronize to the 
 - Verify that the intended changes are about to be exported by searching the connector space.
 ![Staged delete](./media/active-directory-aadconnectsync-change-the-configuration/deletetobeexported.png)
 
-## Advanced concept
-
-### Control the attribute flow process
-When multiple inbound sync rules are configured to contribute to the same metaverse attribute, then precedence is used to determine the winner. The sync rule with highest precedence (lowest numeric value) is going to contribute the value. The same happens for outbound rules. The sync rule with highest precedence wins and contribute the value to the connected directory.
-
-In some cases, rather than contribute a value, the sync rule should determine how other rules should behave. There are some special literals used for this case.
-
-For inbound Synchronization Rules, the literal **NULL** can be used to indicate that the flow has no value to contribute. Another rule with lower precedence can contribute a value. If no rule contributed a value, then the metaverse attribute is removed. For an outbound rule, if **NULL** is the final value after all sync rules have been processed, then the value is removed in the connected directory.
-
-The literal **AuthoritativeNull** is similar to **NULL** but with the difference that no lower precedence rules can contribute a value.
-
-An attribute flow can also use **IgnoreThisFlow**. It is similar to NULL in the sense that it indicates there is nothing to contribute. The difference is that it does not remove an already existing value in the target. It is like the attribute flow has never been there.
-
-Here is an example:
-
-In *Out to AD - User Exchange hybrid* the following flow can be found:  
-`IIF([cloudSOAExchMailbox] = True,[cloudMSExchSafeSendersHash],IgnoreThisFlow)`  
-This expression should be read as: if the user mailbox is located in Azure AD, then flow the attribute from Azure AD to AD. If not, do not flow anything back to Active Directory. In this case, it would keep the existing value in AD.
-
-### ImportedValue
-The function ImportedValue is different than all other functions since the attribute name must be enclosed in quotes rather than square brackets:  
-`ImportedValue("proxyAddresses")`.
-
-Usually during synchronization an attribute uses the expected value, even if it hasn’t been exported yet or an error was received during export (“top of the tower”). An inbound synchronization assumes that an attribute that hasn’t yet reached a connected directory eventually reaches it. In some cases, it is important to only synchronize a value that has been confirmed by the connected directory (“hologram and delta import tower”).
-
-An example of this function can be found in the out-of-box Synchronization Rule *In from AD – User Common from Exchange*. In Hybrid Exchange, the value added by Exchange online should only be synchronized when it has been confirmed that the value was exported successfully:  
-`proxyAddresses` <- `RemoveDuplicates(Trim(ImportedValue("proxyAddresses")))`
-
 ## Next steps
 
-Learn more about [Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) used for the attribute flows.
+- Read more about the configuration model in [Understanding Declarative Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
+- Read more about the expression language in [Understanding Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
 
-Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
+**Overview topics**
 
-Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+- [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
+- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
