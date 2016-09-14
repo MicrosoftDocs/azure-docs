@@ -32,7 +32,7 @@ You can build [guest executable services](service-fabric-deploy-existing-app.md)
 
 ## Participate in the preview
 
-The preview will be made publicly available on September 26 as announced [in this blog post](https://azure.microsoft.com/en-us/blog/service-fabric-on-linux-support-available-this-month/).
+The preview will be made publicly available on September 26 as announced [in this blog post](https://azure.microsoft.com/blog/service-fabric-on-linux-support-available-this-month/).
 
 Please note that Service Fabric on Linux will be conceptually equivalent to what is available on Windows (except for OS specifics and programming language support), so most of our [existing documentation](http://aka.ms/servicefabricdocs) applies and will help you get familiar with the technology.
 
