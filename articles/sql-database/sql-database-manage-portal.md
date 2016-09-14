@@ -133,7 +133,7 @@ To copy a SQL database, click **Copy** on the **SQL database** blade. For detail
 
 ## How do I archive an Azure SQL database to a BACPAC file?
 
-To create a BACPAC of a SQL database, click **Export** on the **SQL database** blade. For details, see [Archive an Azure SQL database to a BACPAC file using the Azure portal](sql-database-export-portal.md).
+To create a BACPAC of a SQL database, click **Export** on the **SQL database** blade. For details, see [Archive an Azure SQL database to a BACPAC file using the Azure portal](sql-database-export.md).
 
 
 ![SQL database export](./media/sql-database-manage-portal/commands.png)
@@ -168,3 +168,4 @@ To delete a SQL database, click **Delete** on the **SQL database** blade.
 ## Additional resources
 
 - [SQL Database](sql-database-technical-overview.md)
+- [Monitor and manage an elastic database pool with the Azure portal](sql-database-elastic-pool-manage-portal.md)
