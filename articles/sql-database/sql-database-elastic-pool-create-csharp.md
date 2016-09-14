@@ -16,7 +16,7 @@
     ms.date="09/14/2016"
     ms.author="sstein"/>
 
-# Create a new elastic database pool with C&#x23;
+# Create an elastic database pool with C&#x23;
 
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-elastic-pool-create-portal.md)
@@ -300,9 +300,6 @@ The following PowerShell script creates the Active Directory (AD) application an
     Write-Output "_tenantId:" (Get-AzureRmContext).Tenant.TenantId
     Write-Output "_applicationId:" $azureAdApplication.ApplicationId.Guid
     Write-Output "_applicationSecret:" $secret
-
-
-
 
 
   
