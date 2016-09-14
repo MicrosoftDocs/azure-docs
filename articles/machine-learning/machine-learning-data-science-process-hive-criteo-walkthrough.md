@@ -82,11 +82,11 @@ Click **Continue to Download** to read more about the dataset and its availabili
 
 The data resides in a public [Azure blob storage](../storage/storage-dotnet-how-to-use-blobs.md) location: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. The "wasb" refers to Azure Blob Storage location. 
 
-1. The data in this public blob storage consists of three sub-folders of unzipped data.
+1. The data in this public blob storage consists of three subfolders of unzipped data.
 
-	1. The sub-folder *raw/count/* contains the first 21 days of data - from day\_00 to day\_20
-	2. The sub-folder *raw/train/* consists of a single day of data, day\_21
-	3. The sub-folder *raw/test/* consists of two days of data, day\_22 and day\_23
+	1. The subfolder *raw/count/* contains the first 21 days of data - from day\_00 to day\_20
+	2. The subfolder *raw/train/* consists of a single day of data, day\_21
+	3. The subfolder *raw/test/* consists of two days of data, day\_22 and day\_23
 
 2. For those who want to start with the raw gzip data, these are also available in the main folder *raw/* as day_NN.gz, where NN goes from 00 to 23.
 
@@ -111,7 +111,7 @@ To create Hive tables for our Criteo dataset, open the ***Hadoop Command Line***
 
     cd %hive_home%\bin
 
->[AZURE.NOTE] Run all Hive commands in this walkthrough from the above Hive bin/ directory prompt. This takes care of any path issues automatically. We use the terms "Hive directory prompt", "Hive bin/ directory prompt", and "Hadoop Command Line" interchangeably.
+>[AZURE.NOTE] Run all Hive commands in this walkthrough from the Hive bin/ directory prompt. This takes care of any path issues automatically. We use the terms "Hive directory prompt", "Hive bin/ directory prompt", and "Hadoop Command Line" interchangeably.
 
 >[AZURE.NOTE]  To execute any Hive query, one can always use the following commands:
 
@@ -164,7 +164,7 @@ We note that all these tables are external as we simply point to Azure Blob Stor
 
 **There are two ways to execute ANY Hive query that we now mention.**
 
-1. **Using the Hive REPL command-line**: The first is to issue a "hive" command and copy and paste the above query at the Hive REPL command-line. To do this, do:
+1. **Using the Hive REPL command-line**: The first is to issue a "hive" command and copy and paste a query at the Hive REPL command-line. To do this, do:
 
 		cd %hive_home%\bin
 		hive
@@ -238,7 +238,7 @@ As usual, we may also call the script from the Hive bin/ directory prompt by iss
 
 Finally, we examine the number of test examples in the test dataset based on day\_23.
 
-The command to do this is similar to the above (refer to [sample&#95;hive&#95;count&#95;criteo&#95;test&#95;day&#95;23&#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_23_examples.hql)):
+The command to do this is similar to the one just shown (refer to [sample&#95;hive&#95;count&#95;criteo&#95;test&#95;day&#95;23&#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_23_examples.hql)):
 
 		SELECT COUNT(*) FROM criteo.criteo_test_day_23;
 
@@ -297,7 +297,7 @@ This yields the following:
 		65510   3446
 		Time taken: 317.851 seconds, Fetched: 20 row(s)
 
-The LATERAL VIEW - explode combination in Hive serves to produce a SQL-like output instead of the usual list. Note that in the above table, the first column corresponds to the bin center and the second to the bin frequency.
+The LATERAL VIEW - explode combination in Hive serves to produce a SQL-like output instead of the usual list. Note that in the this table, the first column corresponds to the bin center and the second to the bin frequency.
 
 ### Approximate percentiles of some numeric variables in the train dataset
 
@@ -426,7 +426,7 @@ There is a final important component before we move on to Azure Machine Learning
 
 As we saw, several categorical variables have a very high dimensionality. In our walkthrough, we present a powerful technique called [Learning With Counts](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) to encode these variables in an efficient, robust manner. More information on this technique is in the link provided.
 
-**Note:** In this walkthrough, we focus on using count tables to produce compact representations of high-dimensional categorical features. This is certainly not the only way to encode categorical features; for more information on other techniques, interested users can check out [one-hot-encoding](http://en.wikipedia.org/wiki/One-hot) and [feature hashing](http://en.wikipedia.org/wiki/Feature_hashing).
+**Note:** In this walkthrough, we focus on using count tables to produce compact representations of high-dimensional categorical features. This is not the only way to encode categorical features; for more information on other techniques, interested users can check out [one-hot-encoding](http://en.wikipedia.org/wiki/One-hot) and [feature hashing](http://en.wikipedia.org/wiki/Feature_hashing).
 
 To build count tables on the count data, we use the data in the folder raw/count. In the modeling section, we show users how to build these count tables for categorical features from scratch, or alternatively to use a pre-built count table for their explorations. In what follows, when we refer to "pre-built count tables", we mean using the count tables that we provide. Detailed instructions on how to access these tables are provided in the next section.
 
@@ -457,7 +457,7 @@ For the **Import Data** module, the values of the parameters that are provided i
 2. In the **Hive database query** box, a simple SELECT * FROM <your\_database\_name.your\_table\_name> - is enough.
 3. **Hcatalog server URI**: If your cluster is "abc", then this is simply: https://abc.azurehdinsight.net
 4. **Hadoop user account name**: The user name chosen at the time of commissioning the cluster. (NOT the Remote Access user name!)
-5. **Hadoop user account password**: The password for the above user name chosen at the time of commissioning the cluster. (NOT the Remote Access password!)
+5. **Hadoop user account password**: The password for the user name chosen at the time of commissioning the cluster. (NOT the Remote Access password!)
 6. **Location of output data**: Choose "Azure"
 7. **Azure storage account name**: The storage account associated with the cluster
 8. **Azure storage account key**: The key of the storage account associated with the cluster.
@@ -507,7 +507,7 @@ To build count features, we use the **Build Counting Transform** module that is 
 
 **Important Note** : In the **Count columns** box, we enter those columns that we wish to perform counts on. Typically, these are (as mentioned) high-dimensional categorical columns. At the start, we mentioned that the Criteo dataset has 26 categorical columns: from Col15 to Col40. Here, we count on all of them and give their indices (from 15 to 40 separated by commas as shown).
 
-To use the module in the MapReduce mode (appropriate for large datasets), we need access to an HDInsight Hadoop cluster (the one used for feature exploration above can be reused for this purpose as well) and its credentials. The figures above illustrate what the filled-in values look like (replace the values provided for illustration with those relevant for your own use-case).
+To use the module in the MapReduce mode (appropriate for large datasets), we need access to an HDInsight Hadoop cluster (the one used for feature exploration can be reused for this purpose as well) and its credentials. The  previous figures illustrate what the filled-in values look like (replace the values provided for illustration with those relevant for your own use-case).
 
 ![](./media/machine-learning-data-science-process-hive-criteo-walkthrough/05IqySf.png)
 
