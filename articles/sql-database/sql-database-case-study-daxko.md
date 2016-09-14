@@ -18,8 +18,6 @@
    
 # Daxko/CSI used Azure to accelerate its development cycle and to enhance its customer services and performance
 
-![Logo](./media/sql-database-case-study-daxko/csidaxkologo.png)
-
 Daxko/CSI Software faced a challenge: its customer base of fitness and recreation centers was growing rapidly, thanks to the success of its comprehensive enterprise-software solution, but keeping up with the IT-infrastructure needs for that growing customer base was testing the company’s IT staff. The company was increasingly constrained by rising operations overhead, particularly for managing its growing databases. Worse, that operations overhead was cutting into development resources for new initiatives, like new mobility features for the company’s software.
 
 According to David Molina, Director of Product Development at Daxko/CSI, Azure provided CSI Software with the platform-as-a-service (PaaS) model that it needed to simplify database management, increase scalability, and free up resources to focus on software instead of ops. “Azure SQL Database was a great option for us. Not having to worry about maintaining a SQL Server, a failover cluster, and all the other infrastructure needs was ideal for us.”
