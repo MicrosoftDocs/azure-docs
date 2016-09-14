@@ -98,17 +98,16 @@ Data disks and extensions can be added to the VM using PowerShell or Azure CLI.
 The following script provides an example of gathering the required information, deleting the original VM and then recreating it in a new availability set.
 
 ```powershell
-
-# set variables
+#set variables
 $rg = "demo-resource-group"
 $vmName = "demo-vm"
 $newAvailSetName = "demo-as"
 $outFile = "C:\temp\outfile.txt"
 
-# Get VM Details
+#Get VM Details
 $OriginalVM = get-azurermvm -ResourceGroupName $rg -Name $vmName
 
-# Ouptput VM details to file
+#Ouptput VM details to file
 "VM Name: " | Out-File -FilePath $outFile 
 $OriginalVM.Name | Out-File -FilePath $outFile -Append
 
@@ -132,32 +131,31 @@ if ($OriginalVM.StorageProfile.DataDisks) {
     $OriginalVM.StorageProfile.DataDisks | Out-File -FilePath $outFile -Append
 }
 
-# Remove the original VM
+#Remove the original VM
 Remove-AzureRmVM -ResourceGroupName $rg -Name $vmName
 
-# Create new availability set if it does not exist
+#Create new availability set if it does not exist
 $availSet = Get-AzureRmAvailabilitySet -ResourceGroupName $rg -Name $newAvailSetName -ErrorAction Ignore
 if (-Not $availSet) {
     $availset = New-AzureRmAvailabilitySet -ResourceGroupName $rg -Name $newAvailSetName -Location $OriginalVM.Location
 }
 
-# Create the basic configuration for the replacement VM
+#Create the basic configuration for the replacement VM
 $newVM = New-AzureRmVMConfig -VMName $OriginalVM.Name -VMSize $OriginalVM.HardwareProfile.VmSize -AvailabilitySetId $availSet.Id
 Set-AzureRmVMOSDisk -VM $NewVM -VhdUri $OriginalVM.StorageProfile.OsDisk.Vhd.Uri  -Name $OriginalVM.Name -CreateOption Attach -Windows
 
-# Add Data Disks
+#Add Data Disks
 foreach ($disk in $OriginalVM.StorageProfile.DataDisks ) { 
     Add-AzureRmVMDataDisk -VM $newVM -Name $disk.Name -VhdUri $disk.Vhd.Uri -Caching $disk.Caching -Lun $disk.Lun -CreateOption Attach -DiskSizeInGB $disk.DiskSizeGB
 }
 
-# Add NIC(s)
+#Add NIC(s)
 foreach ($nic in $OriginalVM.NetworkInterfaceIDs) {
     Add-AzureRmVMNetworkInterface -VM $NewVM -Id $nic
 }
 
-# Create the VM
+#Create the VM
 New-AzureRmVM -ResourceGroupName $rg -Location $OriginalVM.Location -VM $NewVM -DisableBginfoExtension
-
 ```
 
 ## Next steps
