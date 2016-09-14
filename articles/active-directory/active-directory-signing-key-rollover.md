@@ -45,8 +45,6 @@ How your application handles key rollover depends on variables such as the type 
 * [Web applications protecting resources and created with Visual Studio 2012](#vs2012)
 * [Web applications protecting resources and created with Visual Studio 2010, 2008 o using Windows Identity Foundation](#vs2010)
 * [Web applications / APIs protecting resources using any other libraries or manually implementing any of the supported protocols](#other)
-* [Applications added from the Azure AD Application Gallery (including Custom)](#appgallery)
-* [Applications added from the Azure AD Application Gallery (including Custom)](#appgallery)
 
 This guidance is **not** applicable for:
 * Applications added from Azure AD Application Gallery (including Custom) have separate guidance with regards to signing keys. [More information.](https://azure.microsoft.com/en-us/documentation/articles/active-directory-sso-certs/)
