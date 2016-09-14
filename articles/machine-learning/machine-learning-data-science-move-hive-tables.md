@@ -112,7 +112,7 @@ In the following example, the output of Hive query is written into a file `hiveq
 
 **Output Hive query results to an Azure blob**
 
-You can also output the Hive query results to an Azure blob, within the default container of the Hadoop cluster. The Hive query has to be like this:
+You can also output the Hive query results to an Azure blob, within the default container of the Hadoop cluster. The Hive query for this is as follows:
 
 	insert overwrite directory wasb:///<directory within the default container> <select clause from ...>
 
@@ -120,7 +120,7 @@ In the following example, the output of Hive query is written to a blob director
 
 ![Create workspace](./media/machine-learning-data-science-move-hive-tables/output-hive-results-2.png)
 
-If you open the default container of the Hadoop cluster using tools like Azure Storage Explorer, you can see the output of the Hive query as shown in the following figure. You can apply the filter (highlighted by red box) to only retrieve the blob with specified letters in names.
+If you open the default container of the Hadoop cluster using Azure Storage Explorer, you can see the output of the Hive query as shown in the following figure. You can apply the filter (highlighted by red box) to only retrieve the blob with specified letters in names.
 
 ![Create workspace](./media/machine-learning-data-science-move-hive-tables/output-hive-results-3.png)
 
@@ -199,7 +199,7 @@ When querying partitioned tables, it is recommended to add the partition conditi
 
 ### <a name="orc"></a>Store Hive data in ORC format
 
-You cannot directly load data from blob storage into Hive tables that is stored in the ORC format. Here are the steps that the you need to take in order to load data from Azure blobs to Hive tables stored in ORC format. 
+You cannot directly load data from blob storage into Hive tables that is stored in the ORC format. Here are the steps that the you need to take to load data from Azure blobs to Hive tables stored in ORC format. 
 
 Create an external table **STORED AS TEXTFILE** and load data from blob storage to the table.
 
