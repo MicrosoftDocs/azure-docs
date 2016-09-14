@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
-	ms.author="fashah;garye;bradsev" /> 
+	ms.date="09/13/2016" 
+	ms.author="bradsev" /> 
 
 #Explore data in Azure blob storage with Pandas
 
 This document covers how to explore data that is stored in Azure blob container using [Pandas](http://pandas.pydata.org/) Python package.
 
-The **menu** below links to topics that describe how to use tools to explore data from various storage environments. This task is a step in the Cortana Analytics Process (CAP).
+The following **menu** links to topics that describe how to use tools to explore data from various storage environments. This task is a step in the [Data Science Process]().
 
 [AZURE.INCLUDE [cap-explore-data-selector](../../includes/cap-explore-data-selector.md)]
 
@@ -28,13 +28,13 @@ The **menu** below links to topics that describe how to use tools to explore dat
 ## Prerequisites
 This article assumes that you have:
 
-* Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](../hdinsight-get-started.md#storage)
-* Stored your data in an Azure blob storage account.
+* Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](../storage/storage-create-storage-account.md)
+* Stored your data in an Azure blob storage account. If you need instructions, see [Moving data to and from Azure Storage](../storage/storage-moving-data.md)
 
-## Load the data into a Pandas data frame
-In order to do explore and manipulate a dataset, it must be downloaded from the blob source to a local file which can then be loaded in a Pandas data frame. Here are the steps to follow for this procedure:
+## Load the data into a Pandas DataFrame
+To explore and manipulate a dataset, it must first be downloaded from the blob source to a local file, which can then be loaded in a Pandas DataFrame. Here are the steps to follow for this procedure:
 
-1. Download the data from Azure blob with the following Python code sample using blob service. Replace the variable in the code below with your specific values: 
+1. Download the data from Azure blob with the following Python code sample using blob service. Replace the variable in the following code with your specific values: 
 
 	    from azure.storage.blob import BlobService
     	import tables
@@ -68,7 +68,7 @@ Here are a few examples of ways to explore data using Pandas:
 
 		print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
 
-2. **Inspect** the first or last few **rows** in the dataset as below:
+2. **Inspect** the first or last few **rows** in the following dataset:
 
 		dataframe_blobdata.head(10)
 		
