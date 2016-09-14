@@ -100,8 +100,8 @@ The immediate goal for SnelStart is to keep growing its satisfied customer base.
 
 - To learn more about Web roles and worker roles, see [worker roles](../fundamentals-introduction-to-azure.md#compute).	
 
-- To learn more about Azure SQL Data Warehouse,see https://azure.microsoft.com/en-us/documentation/services/sql-data-warehouse/
+- To learn more about Azure SQL Data Warehouse,see [SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/)
 
-- To learn more about SnelStart, see http://www.snelstart.nl.
+- To learn more about SnelStart, see [SnelStart](http://www.snelstart.nl).
 
 ![Logo](./media/sql-database-case-study-snelstart/snelstartlogo.png)
