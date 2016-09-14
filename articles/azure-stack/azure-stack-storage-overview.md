@@ -14,29 +14,29 @@ capabilities in Windows Server
 
 ACS delivers the following broad categories of functionality:
 
-1)  **Blobs** : page blobs, block blobs, and append blobs with
+1)  **Blobs**: page blobs, block blobs, and append blobs with
     [Azure-consistent
     blob](https://msdn.microsoft.com/en-us/library/azure/dd179355.aspx#Anchor_1)
     behavior
 
-2)  **Tables** : entities, partitions, and other table properties with
+2)  **Tables**: entities, partitions, and other table properties with
     [Azure-consistent
     table](https://msdn.microsoft.com/en-us/library/azure/dd179355.aspx#Anchor_3)
     behavior
 
-3)  **Queues** : reliable and persistent messages and queues with
+3)  **Queues**: reliable and persistent messages and queues with
     [Azure-consistent
     queue](https://msdn.microsoft.com/en-us/library/azure/dd179355.aspx#Anchor_2)
     behavior
 
-4)  **Accounts** : storage account resource management with
+4)  **Accounts**: storage account resource management with
     [Azure-consistent
     account](https://azure.microsoft.com/en-us/documentation/articles/storage-create-storage-account/)
     behavior for general-purpose storage accounts provisioned via [Azure
     Resource Manager deployment
     model](https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/)
 
-5)  **Administration** : management of tenant-facing and ACS-internal
+5)  **Administration**: management of tenant-facing and ACS-internal
     storage services (discussed in other articles)
 
 <span id="_Toc386544160" class="anchor"><span id="_Toc389466733" class="anchor"><span id="_Toc433223833" class="anchor"></span></span></span>
@@ -114,7 +114,7 @@ Infrastructure as a Service (IaaS) usage scenarios –
 4) Create a VM using a blank disk onto a new page blob
 
 Similarly, for Platform as a Service (PaaS) scenarios, ACS block blobs,
-append blobs, queues and tables work as in Azure.
+append blobs, queues, and tables work as in Azure.
 
 ## User Roles
 
