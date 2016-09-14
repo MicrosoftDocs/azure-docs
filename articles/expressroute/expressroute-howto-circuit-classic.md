@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/29/2016"
-   ms.author="ganesr"/>
+   ms.date="09/14/2016"
+   ms.author="ganesr;cherylmc"/>
 
 # Create and modify an ExpressRoute circuit
 
@@ -32,14 +32,16 @@ This article walks you through the steps to create an Azure ExpressRoute circuit
 
 ## Before you begin
 
+### 1. Review the prerequisites and workflow articles
+
 Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.  
 
 
-### 1. Install the latest versions of the Azure PowerShell modules 
+### 2. Install the latest versions of the Azure PowerShell modules 
 
 Follow the instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules.
 
-### 2. Log in to your Azure account and select a subscription
+### 3. Log in to your Azure account and select a subscription
 
 1. Run the following cmdlet using an elevated Windows PowerShell prompt:
 
