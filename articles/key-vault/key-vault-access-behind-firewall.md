@@ -20,6 +20,7 @@
 #### Q: My key vault client application needs to be behind a firewall, what ports/hosts/IP addresses should I open to enable access to key vault?
 
 To access a key vault your key vault client application needs to be able to access multiple end-points for various functionalities.
+
 - Authentication (via Azure Active Directory)
 - Management of Key Vault (which includes create/read/update/delete and also setting access policies) through Azure Resource Manager
 - Accessing and managing objects (keys and secrets) stored in key vault itself, goes through the key vault specific end point (e.g. [https://yourvaultname.vault.azure.net](https://yourvaultname.vault.azure.net)).  
