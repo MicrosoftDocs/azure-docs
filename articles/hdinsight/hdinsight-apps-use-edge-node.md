@@ -21,7 +21,37 @@
 
 Learn how to add an empty edge node to a Linux-based HDInsight cluster. An empty edge node is a Linux virtual machine with the same client tools installed and configured as in the headnodes. You can use the edge node for accessing the cluster, testing your client applications, and hosting your client applications. 
 
-You can add an empty edge node to an existing HDInsight cluster, to a new cluster when you create the cluster.  You can optionally call a [script action](hdinsight-hadoop-customize-cluster-linux.md) to perform additional configuration.  
+You can add an empty edge node to an existing HDInsight cluster, to a new cluster when you create the cluster. Adding an empty edge node is done using Azure Resource Manager template.  The following sample demonstrates how it is done using a template:
+
+    "resources": [
+		{
+			"name": "[concat(parameters('clusterName'),'/', variables('applicationName'))]",
+			"type": "Microsoft.HDInsight/clusters/applications",
+			"apiVersion": "[variables('clusterApiVersion')]",
+			"properties": {
+				"marketPlaceIdentifier": "EmptyNode",
+				"computeProfile": {
+					"roles": [{
+						"name": "edgenode",
+						"targetInstanceCount": 1,
+						"hardwareProfile": {
+							"vmSize": "[parameters('edgeNodeSize')]"
+						}
+					}]
+				},
+				"installScriptActions": [{
+					"name": "[concat('emptynode','-' ,uniquestring(variables('applicationName')))]",
+					"uri": "https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/EmptyNode/scripts/EmptyNodeSetup.sh",
+					"roles": ["edgenode"]
+				}],
+				"uninstallScriptActions": [],
+				"httpsEndpoints": [],
+				"applicationType": "CustomApplication"
+			}
+		}
+	],
+
+As shown in the sample, you can optionally call a [script action](hdinsight-hadoop-customize-cluster-linux.md) to perform additional configuration, such as installing [Apache Hue](hdinsight-hadoop-hue-linux.md) in the edge node.
 
 After you have created an edge node, you can connect to the edge node using SSH, and run client tools to access the Hadoop cluster in HDInsight.
 
@@ -83,6 +113,7 @@ In this section, you use a Resource Manager template to create HDInsight cluster
 The edge node appears as an application on the Azure portal.  The portal gives you the information to access the edge node using SSH.
 
 **To access an edge node**
+
 1. Sign on to the [Azure portal](https://portal.azure.com).
 2. Open the HDInsight cluster with an edge node.
 3. Click **Applications** from the cluster blade. You shall see the edge node.  The default name is **new-edgenode**.
