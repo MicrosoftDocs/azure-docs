@@ -19,13 +19,13 @@
 
 # Using the Azure Custom Script Extension with Linux Virtual Machines
 
-The Custom Script extension executes scripts on Azure virtual machines. The scripts can be provided to the script at runtime, or downloaded from Azure storage or other accessible internet location. These scripts can be used to configure the system and install software at deployment time using Azure Resource Manager templates, or run on existing virtual machines using the Azure CLI, PowerShell, or the Azure Virtual Machine REST API .
+The Custom Script extension executes scripts on Azure virtual machines. The scripts can be provided to the script at runtime, or downloaded from Azure storage or other accessible internet location. These scripts can be used to configure the system and install software at deployment time using Azure Resource Manager templates. The Custom Script extenstion can also be run against existing virtual machines using the Azure CLI, PowerShell, or the Azure Virtual Machine REST API.
 
-This document details how to use the Custom Script Extension both from an Azure Resource Manager template and the Azure CLI, and will detail troubleshooting steps.
+This document details how to use the Custom Script Extension both from an Azure Resource Manager template and the Azure CLI, and details troubleshooting steps.
 
 ## Azure Resource Manager Template
 
-The Azure Custom Script Extension can be attached to a virtual machine deployment using an ARM template. To do so add properly formatted JSON to the deployment template.
+The Azure Custom Script Extension can be attached to a virtual machine deployment using a Resource Manager template. To do so add properly formatted JSON to the deployment template.
 
 ```json
 {
@@ -89,8 +89,8 @@ See the .Net Core Music Store Demo a working example - [Music Store Demo](https:
 When using the Azure CLI to run the Custom Script Extension, first create a configuration JSON file with the following contents.
 
 - commandToExecute: (required, string) the entry point script to execute
-- fileUris: (optional, string array) the URLs for file(s) to be downloaded.
-- timestamp (optional, integer) use this field only to trigger a re-run of the script by changing value of this field.
+- fileUris: (optional, string array) the URLs for files to be downloaded.
+- timestamp (optional, integer) use this field only to trigger a rerun of the script by changing value of this field.
 
 **Examples:**
 
@@ -111,7 +111,7 @@ Next, run a command like the following. Replace the Resource Group name, Virtual
 azure vm extension set <resource-group> <vm-name> scripttst001 CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config-path /scirpt-config.json
 ```
 
-The output will look like this.
+The output looks like the following text.
 
 ```none
 
@@ -137,7 +137,7 @@ The execution state of the Custom Script Extension can also be retrieved with th
 azure vm extension get <resource-group> <vm-name>
 ```
 
-The output will look like this.
+The output looks like the following text.
 
 ```none
 info:    Executing command vm extension get
