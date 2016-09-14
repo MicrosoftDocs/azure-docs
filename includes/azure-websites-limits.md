@@ -29,7 +29,7 @@ SLA||<p>|99.9%|99.95%<sup>10</sup>|99.95%<sup>10</sup>
 
 <sup>1</sup>Apps and storage quotas are per App Service plan unless noted otherwise.  
 <sup>2</sup>The actual number of apps that you can host on these machines depends on the activity of the apps, the size of the machine instances, and the corresponding resource utilization.  
-<sup>3</sup>Dedicated instances can be of different sizes. See [App Service Pricing](https://azure.microsoft.com/pricing/details/data-transfers/pricing/details/app-service/) for more details. Additional instances are available by opening a support request.  
+<sup>3</sup>Dedicated instances can be of different sizes. See [App Service Pricing](https://azure.microsoft.com/pricing/details/data-transfers/pricing/details/app-service/) for more details.  
 <sup>4</sup>Premium tier allows up to 50 computes instances (subject to availability) and 500 GB of disk space when using App Service Environments, and 20 compute instances and 250 GB storage otherwise.  
 <sup>5</sup>The storage limit is the total content size across all apps in the
 same App Service plan. More storage options are available in [App Service Environment](../articles/app-service-web/app-service-web-configure-an-app-service-environment.md#storage) 

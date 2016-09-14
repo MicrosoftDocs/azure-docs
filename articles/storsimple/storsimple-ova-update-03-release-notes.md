@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/02/2016"
+   ms.date="09/14/2016"
    ms.author="alkohli" />
 
 # StorSimple Virtual Array Update 0.3 release notes
@@ -68,3 +68,13 @@ The following table provides a summary of known issues for the StorSimple Virtua
 ## Next step
 
 [Install Update 0.3](storsimple-ova-install-update-01.md) on your StorSimple Virtual Array.
+
+## References
+
+Looking for an older release note? Go to: 
+
+- [StorSimple Virtual Array Update 0.1 and 0.2 Release Notes](storsimple-ova-update-01-release-notes.md)
+
+- [StorSimple Virtual Array General Availability Release Notes](storsimple-ova-pp-release-notes.md)
+ 
+

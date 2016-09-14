@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/23/2016" 
+	ms.date="09/12/2016" 
 	ms.author="tomfitz"/>
 
 # Manage Azure resources through portal
@@ -94,7 +94,7 @@ When you select a resource, the resource blade presents default graphs and table
 
     ![dashboard](./media/resource-group-portal/create-dashboard.png)
 
-     To learn about working with dashboards, view the [Build Custom Dashboards in the Azure portal](https://channel9.msdn.com/Blogs/trevor-cloud/azure-portal-dashboards) video. To learn about sharing access to a published dashboard, see [Share Azure dashboards](azure-portal-dashboard-share-access.md).
+     To learn about working with dashboards, see [Creating and sharing dashboards in the Azure portal](azure-portal-dashboards.md).
 
 ## Manage resources
 

@@ -51,7 +51,7 @@ The following features are important to cloud-enabled mobile development:
   Discover more about our [authentication features].
 
 - **Data Access** - Azure Mobile Apps provides a mobile-friendly OData v3 data source linked to SQL Azure or
-  an on-premise SQL Server.  This service can be based on Entity Framework, allowing you to easily integrate
+  an on-premises SQL Server.  This service can be based on Entity Framework, allowing you to easily integrate
   with other NoSQL and SQL data providers, including [Azure Table Storage], MongoDB, [DocumentDB] and SaaS API
   providers like Office 365 and Salesforce.com.
 - **Offline Sync** - Our Client SDKs make it easy for you to build robust and responsive mobile applications
@@ -88,7 +88,7 @@ The following platform features are generally useful for mobile production sites
 
   Discover more about [deployment options].
 
-- **Virtual Networking** - App Service can connect to on-premise resources using virtual network, ExpressRoute or hybrid
+- **Virtual Networking** - App Service can connect to on-premises resources using virtual network, ExpressRoute or hybrid
   connections.
 
   Discover more about [hybrid connections], [virtual networks], and [ExpressRoute].

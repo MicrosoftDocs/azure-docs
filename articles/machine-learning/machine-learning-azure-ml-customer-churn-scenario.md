@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="jeannt"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags

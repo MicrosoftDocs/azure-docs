@@ -14,7 +14,7 @@
    ms.topic="campaign-page"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="na"
-   ms.date="05/30/2016"
+   ms.date="09/12/2016"
    ms.author="hermannd"/>
 
 # Running SAP NetWeaver on Microsoft Azure SUSE Linux VMs
@@ -134,9 +134,16 @@ For the official SAP-Azure certification, a new mechanism was introduced to calc
 of this. Former SAP kernel versions for Linux did not include this code change. Therefore, in certain situations (for example, Azure VM resizing), the SAP hardware key changed and the SAP license was no longer be valid. This is solved in the latest SAP Linux kernels. 
 For details please check SAP note 1928533.
 
-## SUSE sapconf package
+## SUSE sapconf package / tuned-adm
 
 SUSE provides a package called "sapconf" that manages a set of SAP-specific settings. For more details about what this package does, and how to install and use it, see [Using sapconf to prepare a SUSE Linux Enterprise Server to run SAP systems] (https://www.suse.com/communities/blog/using-sapconf-to-prepare-suse-linux-enterprise-server-to-run-sap-systems/) and [What is sapconf or how to prepare a SUSE Linux Enterprise Server for running SAP systems?] (http://scn.sap.com/community/linux/blog/2014/03/31/what-is-sapconf-or-how-to-prepare-a-suse-linux-enterprise-server-for-running-sap-systems).
+
+In the meantime there is a new tool which replaces sapconf - tuned-adm. One can find more details about this tool following the two links below.
+
+SLES documentation about tuned-adm profile sap-hana can be found [here](https://www.suse.com/documentation/sles-for-sap-12/book_s4s/data/sec_s4s_configure_sapconf.html) 
+
+Tuning Systems for SAP Workloads with tuned-adm - can be found [here](https://www.suse.com/documentation/sles-for-sap-12/pdfdoc/book_s4s/book_s4s.pdf) in chapter 6.2
+
 
 ## NFS share in distributed SAP installations
 
