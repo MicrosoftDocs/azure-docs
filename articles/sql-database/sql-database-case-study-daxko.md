@@ -16,9 +16,9 @@
    ms.date="09/08/2016"
    ms.author="carlrab"/>
    
-![Logo](./media/sql-database-case-study-daxko/csidaxkologo.png)
-
 # Daxko/CSI used Azure to accelerate its development cycle and to enhance its customer services and performance
+
+![Logo](./media/sql-database-case-study-daxko/csidaxkologo.png)
 
 Daxko/CSI Software faced a challenge: its customer base of fitness and recreation centers was growing rapidly, thanks to the success of its comprehensive enterprise-software solution, but keeping up with the IT-infrastructure needs for that growing customer base was testing the company’s IT staff. The company was increasingly constrained by rising operations overhead, particularly for managing its growing databases. Worse, that operations overhead was cutting into development resources for new initiatives, like new mobility features for the company’s software.
 
