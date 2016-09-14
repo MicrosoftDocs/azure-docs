@@ -30,7 +30,7 @@ The Service Fabric solution uses Azure Diagnostics data from your Service Fabric
 
 To get started with the solution, you will need to connect your Service Fabric cluster to a Log Analytics workspace. Here are three scenarios to consider:
 
-1. If you have not deployed your Service Fabric cluster, use the steps in ***Deploy a Service Fabric Cluster connected to a Log Analytics workspace*** to deploy a new cluster and have it confgiured to report to Log Analytics.
+1. If you have not deployed your Service Fabric cluster, use the steps in ***Deploy a Service Fabric Cluster connected to a Log Analytics workspace*** to deploy a new cluster and have it configured to report to Log Analytics.
 
 2. If you need to collect performance counters from your hosts to use other OMS solutions such as Security on your Service Fabric Cluster, follow the steps in ***Deploy a Service Fabric Cluster connected to an OMS workspace with VM Extension installed.***
 
