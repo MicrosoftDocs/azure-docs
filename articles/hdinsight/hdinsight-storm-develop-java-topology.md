@@ -19,13 +19,13 @@
 
 #Develop Java-based topologies for a basic word-count application with Apache Storm and Maven on HDInsight
 
-Leran how to create a Java-based topology for Apache Storm on HDInsight by using Maven. You will walk through the process of creating a basic word-count application using Maven and Java, where the topology is defined in Java. Then, you will learn how to define the topology using the Flux framework.
+Learn how to create a Java-based topology for Apache Storm on HDInsight by using Maven. You will walk through the process of creating a basic word-count application using Maven and Java, where the topology is defined in Java. Then, you will learn how to define the topology using the Flux framework.
 
 > [AZURE.NOTE] The Flux framework is available in Storm 0.10.0 or later. Storm 0.10.0 is available with HDInsight 3.3 and 3.4.
 
 After completing the steps in this document, you will have a basic topology that you can deploy to Apache Storm on HDInsight.
 
-> [AZURE.NOTE] A completed version of the topologies created in this document are available at [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
+> [AZURE.NOTE] A completed version of the topologies created in this document is available at [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
 
 ##Prerequisites
 
@@ -53,7 +53,7 @@ The following environment variables may be set when you install Java and the JDK
 
 ##Create a new Maven project
 
-From the command line, use the following code to create a new Maven project named **WordCount**:
+From the command-line, use the following code to create a new Maven project named **WordCount**:
 
 	mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupId=com.microsoft.example -DartifactId=WordCount -DinteractiveMode=false
 
@@ -186,7 +186,7 @@ A Java-based Storm topology consists of three components that you must author (o
 
 ###Create the spout
 
-To reduce requirements for setting up external data sources, the following spout simply emits random sentences. It is a modified version of a spout that is provided with the  ([Storm-Starter examples](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter)).
+To reduce requirements for setting up external data sources, the following spout simply emits random sentences. It is a modified version of a spout that is provided with the [Storm-Starter examples](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter).
 
 > [AZURE.NOTE] For an example of a spout that reads from an external data source, see one of the following examples:
 >
@@ -519,7 +519,7 @@ Storm uses Apache Log4j to log information. If you do not configure logging, the
 
 This configures a new logger for the __com.microsoft.example__ class, which includes the components in this example topology. The level is set to trace for this logger, which will capture any logging information emitted by components in this topology. If you look back through the code for this project, you'll notice that only the WordCount.java file implements logging; it will log the count of each word.
 
-The `<Root level="error">` secton configures the root level of logging (everything not in __com.microsoft.example__,) to only log error information.
+The `<Root level="error">` section configures the root level of logging (everything not in __com.microsoft.example__,) to only log error information.
 
 > [AZURE.IMPORTANT] While this greatly reduces the information logged when testing a topology in your development environment, it does not remove all the debug information produced when running on a cluster in production. To reduce that information, you must also set debugging to false in the configuration submitted to the cluster. See the WordCountTopology.java code in this document for an example. 
 
@@ -543,7 +543,7 @@ As it runs, the topology will display startup information. Then it begins to dis
     17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word dwarfs
     17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word snow
 
-By looking at the logging emitted by the WordCount bolt, we can see that 'and' has been emitted 113 times. The count will continue to go up as long as the topology runs because the same sentences are randomly emitted over and over and the count is never reset.
+By looking at the logging emitted by the WordCount bolt, we can see that 'and' has been emitted 113 times. The count will continue to go up as long as the topology runs because the spout continuously emits the same sentences.
 
 There will also be a 5 second interval between emission of words and counts. This occurs because the __WordCount__ component is configured to only emit information when a tick tuple arrives, and it requests that such tuples are only delivered every 5 seconds by default.
 
@@ -629,7 +629,7 @@ The YAML file defines the components to use for the topology, how data flows bet
             <version>2.3</version>
             <configuration>
                 <transformers>
-                    <!-- Keep us from getting a can't overwrite file error -->
+                    <!-- Keep us from getting a "can't overwrite file error" -->
                     <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer" />
                     <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
                     <!-- We're using Flux, so refer to it as main -->
