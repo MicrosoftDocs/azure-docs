@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Custom scripts on Linux VMs using templates | Microsoft Azure"
-   description="Automate Linux VM configuration tasks by using the Custom Script extension with Resource Manager templates"
+   pageTitle="Custom scripts on Linux VMs | Microsoft Azure"
+   description="Automate Linux VM configuration tasks by using the Custom Script Extension"
    services="virtual-machines-linux"
    documentationCenter=""
-   authors="kundanap"
+   authors="neilpeterson"
    manager="timlt"
    editor=""
    tags="azure-resource-manager"/>
@@ -14,44 +14,138 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="03/29/2016"
-   ms.author="kundanap"/>
+   ms.date="09/13/2016"
+   ms.author="nepeters"/>
 
-# Using the Custom Script extension for Linux VMs With Azure Resource Manager templates
+# Using the Azure Custom Script Extension with Linux Virtual Machines
 
-This article gives an overview of writing Azure Resource Manager templates with the Custom Script extension for bootstrapping workloads on a Linux VM.
+The Custom Script extension executes scripts on Azure virtual machines. The scripts can be provided to the script at runtime, or downloaded from Azure storage or other accessible internet location. These scripts can be used to configure the system and install software at deployment time using Azure Resource Manager templates, or run on existing virtual machines using the Azure CLI, PowerShell, or the Azure Virtual Machine REST API .
 
-[AZURE.INCLUDE [virtual-machines-common-extensions-customscript](../../includes/virtual-machines-common-extensions-customscript.md)]
+This document details how to use the Custom Script Extension both from an Azure Resource Manager template and the Azure CLI, and will detail troubleshooting steps.
 
-## Template example for a Linux VM
+## Azure Resource Manager Template
 
-Define the following extension resource in the Resource section of the template
+The Azure Custom Script Extension can be attached to a virtual machine deployment using an ARM template. To do so add properly formatted JSON to the deployment template.
 
-   {
-     "type": "Microsoft.Compute/virtualMachines/extensions",
-     "name": "MyCustomScriptExtension",
-     "apiVersion": "2015-05-01-preview",
-     "location": "[parameters('location')]",
-     "dependsOn": ["[concat('Microsoft.Compute/virtualMachines/',parameters('vmName'))]"],
-     "properties": {
+```none
+{
+    "name": "scriptextensiondemo",
+    "type": "extensions",
+    "location": "[resourceGroup().location]",
+    "apiVersion": "2015-06-15",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', parameters('scriptextensiondemoName'))]"
+    ],
+    "tags": {
+        "displayName": "scriptextensiondemo"
+    },
+    "properties": {
         "publisher": "Microsoft.OSTCExtensions",
         "type": "CustomScriptForLinux",
-        "typeHandlerVersion": "1.2",
-        "autoUpgradeMinorVersion": true
-        "settings": {
-           "fileUris": [
-             "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-ubuntu/mongo-install-ubuntu.sh"
-           ],
-           "commandToExecute": "sh mongo-install-ubuntu.sh"
-         },
-         "protectedSettings": {}
+        "typeHandlerVersion": "1.4",
+        "autoUpgradeMinorVersion": true,
+      "settings": {
+        "fileUris": [
+          "https://raw.githubusercontent.com/neilpeterson/nepeters-azure-templates/master/ubuntu-docker-oms/support-scripts/oms.sh"
+        ],
+        "commandToExecute": "sudo sh oms.sh"
       }
-   }
+    }
+}
+```
 
-In the example above, replace the file URL and the file name with your own settings.
+To provide parameterized data to the script, use the Azure Resource Manager Template concatenate function. In this example data is taken form template parameters, and used in the script execution command.
 
-After authoring the template, you can deploy it using the Azure CLI.
+```none
+{
+    "name": "scriptextensiondemo",
+    "type": "extensions",
+    "location": "[resourceGroup().location]",
+    "apiVersion": "2015-06-15",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', parameters('scriptextensiondemoName'))]"
+    ],
+    "tags": {
+        "displayName": "scriptextensiondemo"
+    },
+    "properties": {
+        "publisher": "Microsoft.OSTCExtensions",
+        "type": "CustomScriptForLinux",
+        "typeHandlerVersion": "1.4",
+        "autoUpgradeMinorVersion": true,
+      "settings": {
+        "fileUris": [
+          "https://raw.githubusercontent.com/neilpeterson/nepeters-azure-templates/master/ubuntu-docker-oms/support-scripts/oms.sh"
+        ],
+        "commandToExecute": "[concat('sudo sh oms.sh ', parameters('subscription-id'))]"
+      }
+    }
+}
+```
+See the .Net Core Music Store Demo a working example - [Music Store Demo](https://github.com/neilpeterson/nepeters-azure-templates/tree/master/dotnet-core-music-linux-vm-sql-db).
 
-Please refer to the example below for a complete sample of configuring applications on a VM using Custom Script extension.
+## Azure CLI
 
-* [Custom Script extension on a Linux VM](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
+When using the Azure CLI to run the Custom Script Extension, first create a configuration JSON file with the following contents.
+
+- commandToExecute: (required, string) the entry point script to execute
+- fileUris: (optional, string array) the URLs for file(s) to be downloaded.
+- timestamp (optional, integer) use this field only to trigger a re-run of the script by changing value of this field.
+
+**Examples:**
+
+```none
+{
+  "fileUris": "https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh",
+  "commandToExecute": "./hello.sh"
+}
+```
+
+```none
+"commandToExecute": "apt-get -y update && apt-get install -y apache2"
+```
+
+Next, run a command similar to the following. Replace the Resource Group name, Virtual Machine Name, and the location of the configuration file.
+
+```none
+azure vm extension set <resource-group> <vm-name> scripttst001 CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config-path /scirpt-config.json
+```
+
+The output will look similar to this.
+
+```none
+
+```
+
+## Troubleshooting
+
+When the Custom Script Extension runs, the script is created or downloaded into a directory similar to following. The command output is also saved into this directory in `stdout` and `stderr` file.
+
+```none
+/var/lib/azure/custom-script/download/0/
+```
+
+The Azure Script Extension produces a log, which can be found here.
+
+```none
+/var/log/azure/customscript/handler.log
+```
+
+The execution state of the Custom Script Extension can also be retrieved with the Azure CLI.
+
+```none
+azure vm extension get <resource-group> <vm-name>
+```
+
+The output will look similar to this.
+
+```none
+info:    Executing command vm extension get
++ Looking up the VM "scripttst001"
+data:    Publisher                   Name                                      Version  State
+data:    --------------------------  ----------------------------------------  -------  ---------
+data:    Microsoft.Azure.Extensions  CustomScript                              2.0      Succeeded
+data:    Microsoft.OSTCExtensions    Microsoft.Insights.VMDiagnosticsSettings  2.3      Succeeded
+info:    vm extension get command OK
+```
+
