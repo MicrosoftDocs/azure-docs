@@ -47,7 +47,9 @@ let Run(blob: string, output: byref<Item>) =
     output <- item
 ```
 
-Notice that `byref<>` is used for output arguments. There is no need to add the `[<Out>]` annotation.
+Your F# Azure Function will take one or more arguments. When we talk about Azure Functions arguments, we refer to _input_ arguments and _output_ arguments. An input argument is exactly what it sounds like: input to your F# Azure Function. An _output_ argument is mutable data or a `byref<>` argument that serves as a way to pass data back _out_ of your function.
+
+In the example above, `blob` is an input argument, and `output` is an output argument. Notice that we used `byref<>` for `output` (there's no need to add the `[<Out>]` annotation). Using a `byref<>` type allows your function to change which record or object the argument refers to.
 
 When an F# record is used as an input type, the record definition must be marked with `[<CLIMutable>]` in order to allow the Azure Functions framework to set the fields appropriately before passing the record to your function. Under the hood, `[<CLIMutable>]` generates setters for the record properties. For example:
 
@@ -189,7 +191,7 @@ When Azure Functions executes your code, it processes the source with `COMPILED`
 
 ## Package management
 
-To use NuGet packages in an F# function, add a `project.json` file to the the function's folder in the function app's file system. Here is an example `project.json` file that adds a reference to `Microsoft.ProjectOxford.Face` version 1.1.0:
+To use NuGet packages in an F# function, add a `project.json` file to the the function's folder in the function app's file system. Here is an example `project.json` file that adds a NuGet package reference to `Microsoft.ProjectOxford.Face` version 1.1.0:
 
 ```json
 {
@@ -280,6 +282,7 @@ The `#load` directive only works with `.fsx` (F# script) files, and not with `.f
 
 For more information, see the following resources:
 
+* [F# Guide](https://docs.microsoft.com/en-us/dotnet/articles/fsharp/index)
 * [Azure Functions developer reference](functions-reference.md)
 * [Azure Functions C# developer reference](functions-reference-csharp.md)
 * [Azure Functions NodeJS developer reference](functions-reference-node.md)

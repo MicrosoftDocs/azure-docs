@@ -76,7 +76,7 @@ Using the example function.json above, the DocumentDB input binding will retriev
 	let Run(myQueueItem: string, document: obj) =
 	    document?text <- "This has changed."
 
-You will need a `project.json` file that includes both `FSharp.Interop.Dynamic` and `Dynamitey`, such as this:
+You will need a `project.json` file that uses NuGet to reference the `FSharp.Interop.Dynamic` and `Dynamitey` assemblies, like this:
 
 	{
 	  "frameworks": {
@@ -88,6 +88,8 @@ You will need a `project.json` file that includes both `FSharp.Interop.Dynamic` 
 	    }
 	  }
 	}
+
+This will use NuGet to fetch your dependencies and will reference them in your script.
 
 #### Azure DocumentDB input code example for a Node.js queue trigger
  

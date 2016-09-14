@@ -584,7 +584,7 @@ public class Person
 
 #### Storage tables example: Create table entities in F#
 
-The following *function.json* and *run.csx* example shows how to write table entities in F#.
+The following *function.json* and *run.fsx* example shows how to write table entities in F#.
 
 ```json
 {

@@ -160,11 +160,11 @@ let Run(req: HttpRequestMessage) =
             try
                 return req.CreateResponse(HttpStatusCode.OK, "Hello " + data?name)
             with e ->
-            return req.CreateErrorResponse(HttpStatusCode.BadRequest, "Please pass a name on the query string or in the request body")
+                return req.CreateErrorResponse(HttpStatusCode.BadRequest, "Please pass a name on the query string or in the request body")
     } |> Async.StartAsTask
 ```
 
-You will need a `project.json` file that includes both `FSharp.Interop.Dynamic` and `Dynamitey`, such as this:
+You will need a `project.json` file that uses NuGet to reference the `FSharp.Interop.Dynamic` and `Dynamitey` assemblies, like this:
 
 ```json
 {
@@ -178,6 +178,8 @@ You will need a `project.json` file that includes both `FSharp.Interop.Dynamic` 
   }
 }
 ```
+
+This will use NuGet to fetch your dependencies and will reference them in your script.
 
 ## Example Node.js code for an HTTP trigger function 
 

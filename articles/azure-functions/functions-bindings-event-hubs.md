@@ -107,7 +107,7 @@ The *function.json* file for an Azure Event Hub output binding specifies the fol
 
 #### Azure Event Hub C# code example for output binding
  
-The following C# example function code demonstrates writing a event to an Event Hub event stream. This example represents the Event Hub output binding shown above applied to a C# timer trigger.  
+The following C# example function code demonstrates writing an event to an Event Hub event stream. This example represents the Event Hub output binding shown above applied to a C# timer trigger.  
  
 	using System;
 	
@@ -122,7 +122,7 @@ The following C# example function code demonstrates writing a event to an Event 
 
 #### Azure Event Hub F# code example for output binding
 
-The following F# example function code demonstrates writing a event to an Event Hub event stream. This example represents the Event Hub output binding shown above applied to a C# timer trigger.
+The following F# example function code demonstrates writing an event to an Event Hub event stream. This example represents the Event Hub output binding shown above applied to a C# timer trigger.
 
 	let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWriter) =
 	    let msg = sprintf "TimerTriggerFSharp1 executed at: %s" DateTime.Now.ToString()
