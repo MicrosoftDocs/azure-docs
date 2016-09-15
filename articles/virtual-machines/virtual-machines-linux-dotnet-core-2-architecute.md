@@ -63,7 +63,7 @@ Once deployed, the virtual machine properties can be seen in the Azure portal.
 
 ## Storage Account
 
-Storage accounts have many storage options and capabilities. For the context of Azure Virtual machines, a storage account will hold the virtual hard drives of the virtual machine and any additional data disks. The Music Store sample includes one storage account to hold the hard drive of each virtual machine in the deployment. 
+Storage accounts have many storage options and capabilities. For the context of Azure Virtual machines, a storage account will hold the virtual hard drives of the virtual machine and any additional data disks. The Music Store sample includes one storage account to hold the virtual hard drive of each virtual machine in the deployment. 
 
 Follow this link to see the JSON sample within the Resource Manager template – [Storage Account]( https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L115).
 
@@ -220,10 +220,6 @@ Follow this link to see the JSON sample within the Resource Manager template –
 From the Azure portal, the network interface looks like the following image. The internal IP address and the virtual machine association can be seen on the network interface resource.
 
 ![](./media/virtual-machines-linux-dotnet-core/nic.png)
-
-The complete virtual machine networking configuration looks like the following diagram.
-
-![](./media/virtual-machines-linux-dotnet-core/network-config.png)
 
 For more information on Azure Virtual Networks, see [Azure Virtual Network documentation](https://azure.microsoft.com/documentation/services/virtual-network/).
 

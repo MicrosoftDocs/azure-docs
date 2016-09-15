@@ -23,11 +23,12 @@ Availability and scale refer to uptime and the ability to meet demand. If an app
 
 This document details how the Music Store sample deployment is configured for availability and scale. All dependencies and unique configurations are highlighted. For the best experience, pre-deploy an instance of the solution to your Azure subscription and work along with the Azure Resource Manager template. The complete template can be found here – [Music Store Deployment on Ubuntu]( https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json).
 
-## Availability set
+## Availability Set
 
 An Availability Set logically spans Azure Virtual Machines across physical hosts and other infrastructural components such as power supplies and physical networking hardware. Availability sets ensure that during maintenance, device failure, or other down time, not all virtual machines are effected. An Availability Set can be added to an Azure Resource Manager template using the Visual Studio Add New Resource Wizard, or inserting valid JSON into a template.
 
-The availability set declaration starts on line [**391**](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L391) of the sample template.
+Follow this link to see the JSON sample within the Resource Manager template – [Availability Set](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L391).
+
 
 ```none
 {
@@ -46,11 +47,57 @@ The availability set declaration starts on line [**391**](https://github.com/nei
 },
 ```
 
-An availability set is associated with a virtual machine in the virtual machine resource declaration. The association between availability set and virtual machine can be seen on line [**319**](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L319) of the Music Store template.
+An Availability Set is declared as a property of a Virtual Machine resource. 
+
+Follow this link to see the JSON sample within the Resource Manager template – [Availability Set association with Virtual Machine](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L319).
+
 
 ```none
-"availabilitySet": {
-  "id": "[resourceId('Microsoft.Compute/availabilitySets', variables('availabilitySetName'))]"
+"properties": {
+  "availabilitySet": {
+    "id": "[resourceId('Microsoft.Compute/availabilitySets', variables('availabilitySetName'))]"
+  },
+  "hardwareProfile": {
+    "vmSize": "[variables('vmSize')]"
+  },
+  "osProfile": {
+    "computerName": "[concat(parameters('vmName'),copyindex())]",
+    "adminUsername": "[parameters('adminUsername')]",
+    "linuxConfiguration": {
+      "disablePasswordAuthentication": "true",
+      "ssh": {
+        "publicKeys": [
+          {
+            "path": "[variables('sshKeyPath')]",
+            "keyData": "[parameters('sshKeyData')]"
+          }
+        ]
+      }
+    }
+  },
+  "storageProfile": {
+    "imageReference": {
+      "publisher": "[variables('imagePublisher')]",
+      "offer": "[variables('imageOffer')]",
+      "sku": "[variables('ubuntuOSVersion')]",
+      "version": "latest"
+    },
+    "osDisk": {
+      "name": "osdisk",
+      "vhd": {
+        "uri": "[concat('http://', variables('vhdStorageName'), '.blob.core.windows.net/vhds/', 'osdisk', copyindex(), '.vhd')]"
+      },
+      "caching": "ReadWrite",
+      "createOption": "FromImage"
+    }
+  },
+  "networkProfile": {
+    "networkInterfaces": [
+      {
+        "id": "[resourceId('Microsoft.Network/networkInterfaces', concat(variables('networkInterfaceNamePrefix'), copyindex()))]"
+      }
+    ]
+  }
 },
 ```
 The availability set as seen from the Azure portal. Each virtual machine and details about the configuration are detailed here.
@@ -63,7 +110,7 @@ For in-depth information on Availability Sets, see [Manage availability of virtu
 
 Whereas an availability set provides application fault tolerance, a load balancer makes many instances of the application available on a single network address. Multiple instances of an application can be hosted on many virtual machines, each one connected to a load balancer. As the application is accessed, the load balancer routes the incoming request across the attached members. A Load Balancer can be added using the Visual Studio Add New Resource Wizard, or by inserting properly formatted JSON resource into the Azure Resource Manager template.
 
-The load Balancer declaration starts on line [**214**](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L214) of the sample template.
+Follow this link to see the JSON sample within the Resource Manager template – [Network Load Balancer](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L214).
 
 ```none
 {
@@ -78,7 +125,9 @@ The load Balancer declaration starts on line [**214**](https://github.com/neilpe
 }
 ```
 
-Because the sample application is exposed to the internet with a public IP address, this address is associated with the load balancer. The load balancer can be seen on line [**230**](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L230) of the sample template. 
+Because the sample application is exposed to the internet with a public IP address, this address is associated with the load balancer. 
+
+Follow this link to see the JSON sample within the Resource Manager template – [Network Load Balancer association with Public IP Address](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L230).
 
 ```none
 "frontendIPConfigurations": [
@@ -99,7 +148,10 @@ From the Azure portal, the network load balancer overview shows the association 
 
 ## Load Balancer Rule
 
-When using a load balancer, rules are configured that control how traffic is balanced across the intended resources. With the sample Music Store application, traffic arrives on port 80 of the public IP address and is distributed across port 80 of all virtual machines. The load balancer rule can be seen on line [**242**](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L242) of the sample template.
+When using a load balancer, rules are configured that control how traffic is balanced across the intended resources. With the sample Music Store application, traffic arrives on port 80 of the public IP address and is distributed across port 80 of all virtual machines. 
+
+Follow this link to see the JSON sample within the Resource Manager template – [Load Balancer Rule](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L242).
+
 
 ```none
 "loadBalancingRules": [
@@ -131,7 +183,10 @@ A view of the network load balancer rule from the portal.
 
 ## Load Balancer Probe
 
-The load balancer also needs to monitor each virtual machine so that requests are served only to running systems. This monitoring takes place by constant probing of a pre-defined port. The Music Store deployment is configured to probe port 80 on all included virtual machines. The load balancer probe can be seen on line [**263**](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L263) of the sample template. In the event port 80 is not available on a virtual machine, requests are not routed to the system.
+The load balancer also needs to monitor each virtual machine so that requests are served only to running systems. This monitoring takes place by constant probing of a pre-defined port. The Music Store deployment is configured to probe port 80 on all included virtual machines. 
+
+Follow this link to see the JSON sample within the Resource Manager template – [Load Balancer Probe](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L263).
+
 
 ```none
 "probes": [
@@ -155,7 +210,9 @@ The load balancer probe seen from the Azure portal.
 
 When using a Load Balancer, rules need to be put into place that provide non-load balanced access to each Virtual Machine. For instance, when creating an SSH connection with each virtual machine, this traffic should not be load balanced, rather a pre-determined path should be configured. pre-determined paths are configured using an Inbound NAT Rule resource. Using this resource, inbound communication can be mapped to individual Virtual Machines. 
 
-With the Music Store application, a port starting at 5000 is mapped to port 22 on each Virtual Machine for SSH access. The `copyindex()` function is used to increment the incoming port, such that the second Virtual Machine receives an incoming port of 5001, the third 5002, and so on. The inbound NAT rule can be seen on line [**276**](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L276) of the template.
+With the Music Store application, a port starting at 5000 is mapped to port 22 on each Virtual Machine for SSH access. The `copyindex()` function is used to increment the incoming port, such that the second Virtual Machine receives an incoming port of 5001, the third 5002, and so on.
+
+Follow this link to see the JSON sample within the Resource Manager template – [Inbound NAT Rules](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L276). 
 
 ```none
 {
@@ -208,7 +265,10 @@ In the Music Store Sample template, a parameter is defined that takes in an inst
 },
 ```
 
-On the Virtual Machine resource, the copy object can be seen on line [**305**](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L305). Here the loop is given a name and the number of instances parameter used to control the number of resulting copies.
+On the Virtual Machine resource, the loop is given a name and the number of instances parameter used to control the number of resulting copies.
+
+Follow this link to see the JSON sample within the Resource Manager template – [Virtual Machine Copy Function](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L305). 
+
 
 ```none
 "apiVersion": "2015-06-15",
@@ -220,7 +280,10 @@ On the Virtual Machine resource, the copy object can be seen on line [**305**](h
 },
 ```
 
-The current iteration of the copy function can be accessed with the `copyIndex()` function. The value of the copy index function can be used to name virtual machines and other resources. For instance, if two instances of a virtual machine are deployed, they need different names. The `copyIndex()` function can be used as part of the virtual machine name to create a unique name. An example of the `copyindex()` function used for naming purposes can be seen in the Virtual Machine resource. Here, the computer name is a concatenation of the `vmName` parameter, and the `copyIndex()` function. This example can be seen in more detail on line [**326**](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L326) of the Music Store demo template.
+The current iteration of the copy function can be accessed with the `copyIndex()` function. The value of the copy index function can be used to name virtual machines and other resources. For instance, if two instances of a virtual machine are deployed, they need different names. The `copyIndex()` function can be used as part of the virtual machine name to create a unique name. An example of the `copyindex()` function used for naming purposes can be seen in the Virtual Machine resource. Here, the computer name is a concatenation of the `vmName` parameter, and the `copyIndex()` function. 
+
+Follow this link to see the JSON sample within the Resource Manager template – [Copy Index Function](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L326). 
+
 
 ```none
 "osProfile": {

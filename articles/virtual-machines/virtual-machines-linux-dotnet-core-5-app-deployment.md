@@ -74,10 +74,11 @@ sudo service supervisor start
 
 ## VM Script Extension
 
-VM Extensions can be run against a virtual machine at build time by including the extension resource in the Azure Resource Manager template. The extension can be added with the Visual Studio Add Resource wizard, or by inserting valid JSON into the template. The custom script extension can be seen in the Music Store template on line [**365**]( https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L365) of the sample template. Notice that the VM extension JSON is nested inside the Virtual Machine resource.
+VM Extensions can be run against a virtual machine at build time by including the extension resource in the Azure Resource Manager template. The extension can be added with the Visual Studio Add Resource wizard, or by inserting valid JSON into the template. The Script Extension resource is nested inside of the Virtual Machine resource; this can be seen in the following example.
+
+Follow this link to see the JSON sample within the Resource Manager template – [VM Script Extension](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L365). 
 
 Notice in the below JSON that the script is stored in GitHub. This script could also be stored in Azure Blob storage. Also, Azure Resource Manager templates allow the script execution string to constructed such that template parameters values can be used as parameters for script execution. In this case data is provided when deploying the templates, and these values can then be used when executing the script.
-
 
 ```none
 {

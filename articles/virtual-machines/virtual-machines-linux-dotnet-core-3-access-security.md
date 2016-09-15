@@ -30,7 +30,8 @@ To provide public access to an Azure resource, a public IP address resource can 
 
 A Public IP Address can be added to an Azure Resource Manager template using the Visual Studio Add New Resource Wizard, or by inserting valid JSON into a template. 
 
-The public ip address declaration starts on line [**127**](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L127) of the sample Music Store template.
+Follow this link to see the JSON sample within the Resource Manager template – [Public IP Address](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L127).
+
 
 ```none
 {
@@ -50,7 +51,9 @@ The public ip address declaration starts on line [**127**](https://github.com/ne
 },
 ```
 
-In this example, the public IP address is associate with the Network Load Balancer. This association can be seen on line [**246**](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L246) of the Music Store template.
+A Public IP Address can be associated with a Virtual Network Adapter, or a Load Balancer. In this example, because the Music Store website will be load balanced across several virtual machines, the Public IP Address will be attached to the Load Balancer.
+
+Follow this link to see the JSON sample within the Resource Manager template – [Public IP Address association with Load Balancer](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L246).
 
 ```none
 "frontendIPConfigurations": [
@@ -75,7 +78,7 @@ For more information on Azure Public IP Addresses, see [IP addresses in Azure](.
 
 Once access has been established to Azure resources, this access should be limited. For Azure virtual machines, secure access is accomplished using a network security group. With the Music Store application sample, all access to the virtual machine is restricted except for over port 80 for http access, and port 22 for SSH access. A Network Security Group can be added to an Azure Resource Manager template using the Visual Studio Add New Resource Wizard, or by inserting valid JSON into a template.
 
-The network security group declaration starts on line [**74**](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L74) of the sample template.
+Follow this link to see the JSON sample within the Resource Manager template – [Network Security Group](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L74).
 
 ```none
 {
@@ -107,7 +110,11 @@ The network security group declaration starts on line [**74**](https://github.co
   }
 },
 ```
-In this example, the network security group is associate with the subnet object declared in the virtual network resource. The security group declaration can be seen on line [**164**](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L164) of the template.
+
+In this example, the network security group is associate with the subnet object declared in the Virtual Network resource. 
+
+Follow this link to see the JSON sample within the Resource Manager template – [Network Security Group associaton with Virtual Network](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L164).
+
 
 ```none
 {
