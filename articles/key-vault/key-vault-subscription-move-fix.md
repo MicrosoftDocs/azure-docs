@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Changing key vault tenant ID after subscription move | Microsoft Azure"
-	description="Learn how to switch tenant ID for a key vault after a subscription is moved to different tenant"
+	pageTitle="Change key vault tenant ID after subscription move | Microsoft Azure"
+	description="Learn how to switch tenant ID for a key vault after a subscription is moved to a different tenant"
 	services="key-vault"
 	documentationCenter=""
 	authors="amitbapat"

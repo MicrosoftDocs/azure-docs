@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Accessing Key Vault behind firewall | Microsoft Azure"
+	pageTitle="Access Key Vault behind firewall | Microsoft Azure"
 	description="Learn how to access Key Vault from an application behind a firewall"
 	services="key-vault"
 	documentationCenter=""
