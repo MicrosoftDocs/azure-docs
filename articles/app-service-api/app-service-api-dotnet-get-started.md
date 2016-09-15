@@ -211,7 +211,7 @@ In this section of the tutorial, you look at the generated Swagger 2.0 metadata,
 
 Swashbuckle works with any ASP.NET Web API project. If you want to add Swagger metadata generation to an existing project, just install the Swashbuckle package.
 
-**Note:** Swagger metadata includes a unique ID for each API operation. By default, Swashbuckle may generate duplicate Swagger operation IDs for your Web API controller methods. This happens if your controller has overloaded HTTP methods, such as `Get()` and `Get(id)`. For information about how to handle overloads, see [Customize Swashbuckle-generated API definitions](app-service-api-dotnet-swashbuckle-customize.md). If you create a Web API project in Visual Studio by using the Azure API App template, code that generates unique operation IDs is automatically added to the *SwaggerConfig.cs* file.  
+>[AZURE.NOTE] Swagger metadata includes a unique ID for each API operation. By default, Swashbuckle may generate duplicate Swagger operation IDs for your Web API controller methods. This happens if your controller has overloaded HTTP methods, such as `Get()` and `Get(id)`. For information about how to handle overloads, see [Customize Swashbuckle-generated API definitions](app-service-api-dotnet-swashbuckle-customize.md). If you create a Web API project in Visual Studio by using the Azure API App template, code that generates unique operation IDs is automatically added to the *SwaggerConfig.cs* file.  
 
 ## <a id="createapiapp"></a> Create an API app in Azure and deploy code to it
 
