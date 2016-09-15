@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/15/2016"
+	ms.date="09/26/2016"
 	ms.author="erikje"/>
 
 # Tools and PaaS services for Azure Stack
@@ -37,7 +37,7 @@ Explore the growing collection of [Azure Stack GitHub Templates](https://github.
 
 
 ### Marketplace item packaging tool and sample
-[Download and use the Packaging tool](http://www.aka.ms/azurestackmarketplaceitem) to create marketplace items for your own custom templates to add to the Azure Stack marketplace. Instructions on how to create a marketplace item and make it available to your tenants can be found in [Create Marketplace item](azure-stack-create-marketplace-item.md).
+[Download and use the Packaging tool](http://www.aka.ms/azurestackmarketplaceitem) to create marketplace items for your own custom templates to add to the Azure Stack marketplace. Instructions on how to create a marketplace item and make it available to your tenants can be found in [Create Marketplace item](azure-stack-create-and-publish-marketplace-item.md).
 
 ## Developer tools
 

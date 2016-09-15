@@ -280,8 +280,6 @@ The following example creates a case where the selected query plan contains a sc
 
 Azure SQL Database contains functionality to help hint database administrators on how to find and fix common missing index conditions. Dynamic management views (DMVs) built into Azure SQL Database look at query compilation where an index would significantly reduce the estimated cost to run a query. During query execution, SQL Database tracks how often each query plan is executed as well as the estimated gap between the executing query plan and the imagined one where that index existed. These DMVs allow a database administrator to quickly guess which physical database design changes might improve the overall workload cost for a given database and its real workload.
 
->[AZURE.NOTE] Before using the DMVs to find missing indexes, first review the section on [Query Performance Insight and SQL Database Advisor](#query-performance-insight-and-index-advisor).
-
 The following query can be used to evaluate potential missing indexes.
 
 	SELECT CONVERT (varchar, getdate(), 126) AS runtime,
