@@ -274,4 +274,4 @@ For more information on deploying Azure SQL Database, see [Azure SQL Database do
 
 <hr>
 
-[Step 2 - Access and Security of Applications in Azure](./virtual-machines-linux-dotnet-core-3-access-security.md)
+[Step 2 - Access and Security in Azure Resource Manager Templates](./virtual-machines-linux-dotnet-core-3-access-security.md)

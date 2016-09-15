@@ -311,4 +311,4 @@ For more information on the copy function, see [Create multiple instances of res
 
 <hr>
 
-[Step 4 - Automating the Deployment and Configuration of Application in Azure](./virtual-machines-linux-dotnet-core-5-app-deployment.md)
+[Step 4 - Application Deployment with Azure Resource Manager Templates](./virtual-machines-linux-dotnet-core-5-app-deployment.md)

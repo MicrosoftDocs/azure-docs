@@ -25,6 +25,8 @@ This four-part series details deploying and configuring Azure resource and appli
 
 The sample used in this series is a .Net Core application simulating a Music Store shopping experience. This application can be deployed to either a Linux or Windows virtual system, sample deployments have been created for both. The application includes a web application and a SQL database. Before reading the articles in this series, deploy the application using the deployment button found on this page. When fully deployed, the application / Azure architecture looks like the following diagram. 
 
+The Music Store Resource Manager template can be found here, [Music Store Linux Template]( https://github.com/neilpeterson/nepeters-azure-templates/tree/master/dotnet-core-music-linux-vm-sql-db)
+
 ![](./media/virtual-machines-linux-dotnet-core/music-store.png)
 
 Each of these components, including the associate template JSON is examined in the following four articles.
@@ -62,12 +64,12 @@ The Azure Resource Manager template requires the following parameter values.
 
 <hr>
 
-[Step 1 - Application Architecture and Azure Resources](./virtual-machines-linux-dotnet-core-2-architecute.md)
+[Step 1 - Application Architecture with Azure Resource Manager Templates](./virtual-machines-linux-dotnet-core-2-architecute.md)
 
-[Step 2 - Access and Security of Applications in Azure](./virtual-machines-linux-dotnet-core-3-access-security.md)
+[Step 2 - Access and Security in Azure Resource Manager Templates](./virtual-machines-linux-dotnet-core-3-access-security.md)
 
-[Step 3 - Availability and Scale in Azure](./virtual-machines-linux-dotnet-core-4-avalibility-scale.md)
+[Step 3 - Availability and Scale in Azure Resource Manager Templates](./virtual-machines-linux-dotnet-core-4-avalibility-scale.md)
 
-[Step 4 - Automating the Deployment and Configuration of Application in Azure](./virtual-machines-linux-dotnet-core-5-app-deployment.md)
+[Step 4 - Application Deployment with Azure Resource Manager Templates](./virtual-machines-linux-dotnet-core-5-app-deployment.md)
 
 
