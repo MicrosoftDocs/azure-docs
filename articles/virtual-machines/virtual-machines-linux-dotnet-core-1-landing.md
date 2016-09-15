@@ -21,15 +21,9 @@
 
 This four-part series details deploying and configuring Azure resource and applications using Azure Resource Manage templates. In this series, a sample template is deployed and the deployment template examined. The goal of this series is to educate on the relationship between Azure resources, and to provide hands on experience deploying fully integrated Azure Resource Manager templates. This document assumes a basic level of knowledge with Azure Resource Manager, before starting this tutorial familiarize yourself with basic Azure Resource Manager concepts.
 
-## Music Store Deployment
+## Music Store Application
 
-The sample used in this series is a .Net Core application simulating a Music Store shopping experience. Before reading the four included articles, deploy the template using the included deployment button.
-
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fneilpeterson%2Fazure-dotnet-core-tutorial%2Fmaster%2Fazure-dotnet-core-tutorial-linux%2Ftutorial-one%2Fazuredeploy.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
-</a>
-
-When fully deployed, the application / Azure architecture looks similar to the following diagram.
+The sample used in this series is a .Net Core application simulating a Music Store shopping experience. This application can be deployed to either a Linux or Windows virtual system, sample deployments have been created for both. The application includes a web application and a SQL database. Before reading the articles in this series, deploy the application using the deployment button found on this page. When fully deployed, the application / Azure architecture looks like the following diagram. 
 
 ![](./media/virtual-machines-linux-dotnet-core/music-store.png)
 
@@ -44,6 +38,25 @@ Each of these components, including the associate template JSON is examined in t
 - [**Application Deployment**](./virtual-machines-linux-dotnet-core-5-app-deployment.md) - When deploying applications onto Azure Virtual Machines, the method by which the application binaries are installed on the Virtual Machine must be considered. This document details automating application installation using Azure Virtual Machine Custom Script Extensions.
 
 The goal when developing Azure Resource Manager templates is to automate the deployment of Azure Infrastructure, and the installation and configuration of any applications being hosted on this Azure infrastructure. Working through these articles provides an example of this experience.
+
+## Deploy the Music Store Application
+
+The Music Store application can be deployed using this button.
+
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fneilpeterson%2Fazure-dotnet-core-tutorial%2Fmaster%2Fazure-dotnet-core-tutorial-linux%2Ftutorial-one%2Fazuredeploy.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
+</a>
+
+The Azure Resource Manager template requires the following parameter values.
+
+|Parameter Name |Description   |
+|---|---|
+|VMNAME | Virtual Machine name. Once deployed, this value will include an integer that will be incremented for each virtual machine in the deployment.  |
+|SSHKEYDATA   | SSH key data used to secure access to the Virtual Machine. For information on creating an SSH key air, see [Creating SSH keys for Linux VMs in Azure](./ virtual-machines-linux-mac-create-ssh-keys.md).  |
+|ADMINUSERNAME   | Admin user name that is used on the virtual machine and the Azure SQL Database.  |
+|SQLADMINPASSWORD | Password that is used on the Azure SQL Database.  |
+|NUMBEROFINSTANCES | The number of virtual machines that will be created. Each of these will host the Music Store web application. All traffic will be load balanced across these VMs. |
+|PUBLICIPADDRESSDNSNAME | Globally unique DNS name associated with the Public IP address. |
 
 ## Next Step
 
