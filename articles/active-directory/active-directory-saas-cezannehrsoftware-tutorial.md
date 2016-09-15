@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/14/2016"
+	ms.date="09/15/2016"
 	ms.author="jeedes"/>
 
 
@@ -143,7 +143,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	![Configure Single Sign-On On App side](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
 
-7. In the **Allow users to log in using the following Single Sign-On (SSO) Service** windows/panel check the **SAML 2.0** box and select the **Advanced Configuration** option beside it.
+7. In the **Allow users to log in using the following Single Sign-On (SSO) Service** panel check the **SAML 2.0** box and select the **Advanced Configuration** option beside it.
 
 	![Configure Single Sign-On On App side](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
 
@@ -163,9 +163,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	d. In the **Security Token Service Endpoint** textbox put the value of **Single Sign-on Service URL** from Azure AD application configuration wizard.
 
-	d. Enter 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name' in the **User ID Attribute Name**.
-
-	e. In the **User ID Attribute Name** textbox put the value of **Single sign-on service URL** from Azure AD application configuration wizard.
+	e. Enter 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name' in the **User ID Attribute Name**.
 
 	f. Click **Upload** icon to upload the downloaded certificate from Azure AD.
 
