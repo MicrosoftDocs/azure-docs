@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/25/2016" 
+	ms.date="09/14/2016" 
 	ms.author="nitinme"/>
 
 
@@ -33,7 +33,7 @@ You must have the following:
 
 Before we start building the application, let us understand the structure of the data and the kind of analysis we will do on the data. 
 
-In this article, we use the sample **HVAC.csv** data file that is available on all HDInsight clusters by default at **\HdiSamples\HdiSamples\SensorSampleData\hvac**. Download and open the CSV file to get a snapshot of the data.  
+In this article, we use the sample **HVAC.csv** data file that is available in the Azure Storage account that you associated with the HDInsight cluster. Within the storage account, the file is at **\HdiSamples\HdiSamples\SensorSampleData\hvac**. Download and open the CSV file to get a snapshot of the data.  
 
 ![HVAC data snapshot](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/hdispark.ml.show.data.png "Snapshot of the HVAC data")
 

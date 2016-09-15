@@ -13,41 +13,44 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="06/22/2016"
+	ms.date="09/06/2016"
 	ms.author="lmazuel"/>
 
 # How to use Service Management from Python
 
-This guide will show you how to programmatically perform common service management tasks from Python. The **ServiceManagementService** class in the [Azure SDK for Python](../python-how-to-install.md) supports programmatic access to much of the service management-related functionality that is available in the [Azure classic portal][management-portal] (such as **creating, updating, and deleting cloud services, deployments, data management services and virtual machines**). This functionality can be useful in building applications that need programmatic access to service management.
-
 > [AZURE.NOTE] Service Management API is being replaced with the new Resource Management API, currently available in a preview release.  See the [Azure Resource Management documentation](http://azure-sdk-for-python.readthedocs.org/) for details on using the new Resource Management API from Python.
 
+This guide shows you how to programmatically perform common service management tasks from Python. The **ServiceManagementService** class in the [Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python) supports programmatic access to much of the service management-related functionality that is available in the [Azure classic portal][management-portal] (such as **creating, updating, and deleting cloud services, deployments, data management services, and virtual machines**). This functionality can be useful in building applications that need programmatic access to service management.
 
 ## <a name="WhatIs"> </a>What is Service Management
 The Service Management API provides programmatic access to much of the service management functionality available through the [Azure classic portal][management-portal]. The Azure SDK for Python allows you to manage your cloud services and storage accounts.
 
-To use the Service Management API, you will need to [create an Azure account](https://azure.microsoft.com/pricing/free-trial/).
+To use the Service Management API, you need to [create an Azure account](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="Concepts"> </a>Concepts
 The Azure SDK for Python wraps the [Azure Service Management API][svc-mgmt-rest-api], which is a REST API. All API operations are performed over SSL and mutually authenticated using X.509 v3 certificates. The management service may be accessed from within a service running in Azure, or directly over the Internet from any application that can send an HTTPS request and receive an HTTPS response.
 
+## <a name="Installation"> </a>Installation
+
+All the features described in this article are available in the `azure-servicemanagement-legacy` package, which you can install using pip. For more details about installation (for example, if you are new to Python), consult this article: [Installing Python and the Azure SDK](../python-how-to-install.md)
+
 ## <a name="Connect"> </a>How to: Connect to service management
 To connect to the Service Management endpoint, you need your Azure subscription ID and a valid management certificate. You can obtain your subscription ID through the [Azure classic portal][management-portal].
 
-> [AZURE.NOTE] Since Azure SDK for Python v0.8.0, it is now possible to use certificates created with OpenSSL when running on Windows.  This requires Python 2.7.4 or later. We recommend users to use OpenSSL instead of .pfx, since support for .pfx certificates will likely be removed in the future.
+> [AZURE.NOTE] Since Azure SDK for Python v0.8.0, it is now possible to use certificates created with OpenSSL when running on Windows.  It requires Python 2.7.4 or later. We recommend users to use OpenSSL instead of .pfx, since support for .pfx certificates will likely be removed in the future.
 
 ### Management certificates on Windows/Mac/Linux (OpenSSL)
-You can use [OpenSSL](http://www.openssl.org/) to create your management certificate.  You actually need to create two certificates, one for the server (a `.cer` file) and one for the client (a `.pem` file). To create the `.pem` file, execute this:
+You can use [OpenSSL](http://www.openssl.org/) to create your management certificate.  You actually need to create two certificates, one for the server (a `.cer` file) and one for the client (a `.pem` file). To create the `.pem` file, execute:
 
     openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
 
-To create the `.cer` certificate, execute this:
+To create the `.cer` certificate, execute:
 
     openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 
 For more information about Azure certificates, see [Certificates Overview for Azure Cloud Services](./cloud-services-certs-create.md). For a complete description of OpenSSL parameters, see the documentation at [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
-After you have created these files, you will need to upload the `.cer` file to Azure via the "Upload" action of the "Settings" tab of the [Azure classic portal][management-portal], and you will need to make note of where you saved the `.pem` file.
+After you have created these files, you need to upload the `.cer` file to Azure via the "Upload" action of the "Settings" tab of the [Azure classic portal][management-portal], and you need to make note of where you saved the `.pem` file.
 
 After you have obtained your subscription ID, created a certificate, and uploaded the `.cer` file to Azure, you can connect to the Azure management endpoint by passing the subscription id and the path to the `.pem` file to **ServiceManagementService**:
 
@@ -59,7 +62,7 @@ After you have obtained your subscription ID, created a certificate, and uploade
 
 	sms = ServiceManagementService(subscription_id, certificate_path)
 
-In the example above, `sms` is a **ServiceManagementService** object. The **ServiceManagementService** class is the primary class used to manage Azure services.
+In the preceding example, `sms` is a **ServiceManagementService** object. The **ServiceManagementService** class is the primary class used to manage Azure services.
 
 ### Management certificates on Windows (MakeCert)
 
@@ -67,9 +70,9 @@ You can create a self-signed management certificate on your machine using `makec
 
     makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 
-The command will create the `.cer` file, and install it in the **Personal** certificate store. For more details, see [Certificates Overview for Azure Cloud Services](./cloud-services-certs-create.md).
+The command creates the `.cer` file, and installs it in the **Personal** certificate store. For more details, see [Certificates Overview for Azure Cloud Services](./cloud-services-certs-create.md).
 
-After you have created the certificate, you will need to upload the `.cer` file to Azure via the "Upload" action of the "Settings" tab of the [Azure classic portal][management-portal].
+After you have created the certificate, you need to upload the `.cer` file to Azure via the "Upload" action of the "Settings" tab of the [Azure classic portal][management-portal].
 
 After you have obtained your subscription ID, created a certificate, and uploaded the `.cer` file to Azure, you can connect to the Azure management endpoint by passing the subscription id and the location of the certificate in your **Personal** certificate store to **ServiceManagementService** (again, replace *AzureCertificate* with the name of your certificate):
 
@@ -81,7 +84,7 @@ After you have obtained your subscription ID, created a certificate, and uploade
 
 	sms = ServiceManagementService(subscription_id, certificate_path)
 
-In the example above, `sms` is a **ServiceManagementService** object. The **ServiceManagementService** class is the primary class used to manage Azure services.
+In the preceding example, `sms` is a **ServiceManagementService** object. The **ServiceManagementService** class is the primary class used to manage Azure services.
 
 ## <a name="ListAvailableLocations"> </a>How to: List available locations
 
@@ -96,7 +99,7 @@ To list the locations that are available for hosting services, use the **list\_l
 	for location in result:
 		print(location.name)
 
-When you create a cloud service or storage service you will need to provide a valid location. The **list\_locations** method will always return an up-to-date list of the currently available locations. As of this writing, the available locations are:
+When you create a cloud service or storage service you need to provide a valid location. The **list\_locations** method always returns an up-to-date list of the currently available locations. As of this writing, the available locations are:
 
 - West Europe
 - North Europe
@@ -115,7 +118,7 @@ When you create a cloud service or storage service you will need to provide a va
 
 ## <a name="CreateCloudService"> </a>How to: Create a cloud service
 
-When you create an application and run it in Azure, the code and configuration together are called an Azure [cloud service] (known as a *hosted service* in earlier Azure releases). The **create\_hosted\_service** method allows you to create a new hosted service by providing a hosted service name (which must be unique in Azure), a label (automatically encoded to base64), a description and a location.
+When you create an application and run it in Azure, the code and configuration together are called an Azure [cloud service] (known as a *hosted service* in earlier Azure releases). The **create\_hosted\_service** method allows you to create a new hosted service by providing a hosted service name (which must be unique in Azure), a label (automatically encoded to base64), a description, and a location.
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -155,7 +158,7 @@ You can delete a cloud service by passing the service name to the **delete\_host
 
 	sms.delete_hosted_service('myhostedservice')
 
-Note that before you can delete a service, all deployments for the the service must first be deleted. (See [How to: Delete a deployment](#DeleteDeployment) for details.)
+Before you can delete a service, all deployments for the service must first be deleted. (See [How to: Delete a deployment](#DeleteDeployment) for details.)
 
 ## <a name="DeleteDeployment"> </a>How to: Delete a deployment
 
@@ -187,7 +190,7 @@ A [storage service](../storage/storage-create-storage-account.md) gives you acce
 	operation_result = sms.get_operation_status(result.request_id)
 	print('Operation status: ' + operation_result.status)
 
-Note in the example above that the status of the **create\_storage\_account** operation can be retrieved by passing the result returned by **create\_storage\_account** to the **get\_operation\_status** method.  
+Note in the preceding example that the status of the **create\_storage\_account** operation can be retrieved by passing the result returned by **create\_storage\_account** to the **get\_operation\_status** method.  
 
 You can list your storage accounts and their properties with the **list\_storage\_accounts** method:
 
@@ -204,7 +207,7 @@ You can list your storage accounts and their properties with the **list\_storage
 
 ## <a name="DeleteStorageService"> </a>How to: Delete a storage service
 
-You can delete a storage service by passing the storage service name to the **delete\_storage\_account** method. Deleting a storage service will delete all data stored in the service (blobs, tables and queues).
+You can delete a storage service by passing the storage service name to the **delete\_storage\_account** method. Deleting a storage service deletes all data stored in the service (blobs, tables, and queues).
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -260,7 +263,7 @@ To add an operating system image to the image repository, use the **add\_os\_ima
 	operation_result = sms.get_operation_status(result.request_id)
 	print('Operation status: ' + operation_result.status)
 
-To list the operating system images that are available, use the **list\_os\_images** method. This includes all platform images and user images:
+To list the operating system images that are available, use the **list\_os\_images** method. It includes all platform images and user images:
 
 	result = sms.list_os_images()
 
@@ -372,7 +375,7 @@ To capture a VM image, you first call the **capture\_vm\_image** method:
 			image
 		)
 
-Next, to make sure that you have successfully captured the image, use the **list\_vm\_images** api and make sure your image is displayed in the results:
+Next, to make sure that you have successfully captured the image, use the **list\_vm\_images** api, and make sure your image is displayed in the results:
 
 	images = sms.list_vm_images()
 
