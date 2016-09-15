@@ -13,7 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
+<<<<<<< HEAD
 	ms.date="09/26/2016"
+=======
+>>>>>>> 534af1cc627a90203a02c5494574e678b46cd5cb
 	ms.author="erikje"/>
 
 # Tools and PaaS services for Azure Stack

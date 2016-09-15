@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Hybrid Identity: Directory integration tools comparison | Microsoft Azure"
-	description="This is page will provide you with comprehensive table that compares the various directory integration tools that can be used for directory integration."
+	description="This is page provides a comprehensive table that compares the various directory integration tools that can be used for directory integration."
 	services="active-directory"
 	documentationCenter=""
 	authors="billmath"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/12/2016"
+	ms.date="08/08/2016"
 	ms.author="billmath"/>
 
 # Hybrid Identity directory integration tools comparison
@@ -24,7 +24,7 @@ Over the years the directory integration tools have grown and evolved.  This doc
 
 >[AZURE.NOTE] Azure AD Connect incorporates the components and functionality previously released as Dirsync and AAD Sync. These tools are no longer being released individually, and all future improvements will be included in updates to Azure AD Connect, so that you always know where to get the most current functionality.
 >
->DirSync and Azure AD Sync are deprecated. More information can be found in [Upgrade Windows Azure Active Directory Sync (“DirSync”) and Azure Active Directory Sync (“Azure AD Sync”)](https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-dirsync-deprecated/?WT.mc_id=DirSyncDepACOM).
+>DirSync and Azure AD Sync are deprecated. More information can be found in [here](active-directory-aadconnect-dirsync-deprecated.md).
 
 
 Use the following key for each of the tables.

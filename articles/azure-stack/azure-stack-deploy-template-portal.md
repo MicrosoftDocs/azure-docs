@@ -3,7 +3,12 @@
 	description="Learn how to use the Azure Stack portal to deploy templates."
 	services="azure-stack"
 	documentationCenter=""
+<<<<<<< HEAD
 	authors="HeathL17"
+=======
+	authors="helaw"
+	authors="heathl17"
+>>>>>>> 534af1cc627a90203a02c5494574e678b46cd5cb
 	manager="byronr"
 	editor=""/>
 

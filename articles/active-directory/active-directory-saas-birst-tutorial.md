@@ -123,7 +123,8 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 	![Configure Single Sign-On](./media/active-directory-saas-birst-tutorial/tutorial_birst_04.png) 
 
 
-    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Birst Agile Business Analytics application using the following pattern: **“https://login.bws.birst.com/SAMLSSO/Service.aspx?birst.idpid=TENANTIDPID”**.
+    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Birst Agile Business Analytics application using the following pattern: **“https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID”**.
+    The URL is dependent on the datacenter that your Birst account is located. For US datacenter use **“https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID”** and for Europe datacenter use **“https://login.eu1.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID"**
 
 	b. Click **Next**.
 

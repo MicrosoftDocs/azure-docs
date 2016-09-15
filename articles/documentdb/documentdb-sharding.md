@@ -142,7 +142,7 @@ The samples are open source and we encourage you to submit pull requests with co
 
 Yes, DocumentDB supports [server-side partitioning](documentdb-partition-data.md). DocumentDB also supports client-side partitioning via client-side partition resolvers for more advanced use cases.
 
-** When should I use server-side vs. client-side partitioning?**
+**When should I use server-side vs. client-side partitioning?**
 For the majority of use cases, we recommend the use of server-side partitioning since it handles the administrative tasks of partitioning data and routing requests. However, if you need range partitioning or have a specialized use case for performance isolation between different values of partition keys, then client-side partitioning might be the best approach.
 
 **How do I add or remove a collection to my partitioning scheme?**

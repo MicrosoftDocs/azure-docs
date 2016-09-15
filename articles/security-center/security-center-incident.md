@@ -24,17 +24,17 @@ This document discusses how to use security alert capability in Security Center 
 
 ## What is a security incident?
 
-In Security Center, a security incident it is an aggregation of all alerts for a resource that align with [kill chain](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/) patterns. Incidents appear in the [Security Alerts](security-center-managing-and-responding-alerts.md) tile and blade. An Incident will reveal the list of related alerts, which enables you to obtain more information about each occurrence.
+In Security Center, a security incident is an aggregation of all alerts for a resource that align with [kill chain](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/) patterns. Incidents appear in the [Security Alerts](security-center-managing-and-responding-alerts.md) tile and blade. An Incident will reveal the list of related alerts, which enables you to obtain more information about each occurrence.
 
 ## Managing security incidents
 
-You can review your current security incidents by looking at the Security alerts tile. Access the Azure Portal and follow the steps below to see more details about each security incident:
+You can review your current security incidents by looking at the security alerts tile. Access the Azure Portal and follow the steps below to see more details about each security incident:
 
 1. On the Security Center dashboard, you will see the **Security alerts** tile.
 
     ![Security alerts tile in Security Center](./media/security-center-incident/security-center-incident-fig1.png)
 
-2.  Click on this tile to expand it and if a security incident is detected, it will appear under the security alerts graph as shown in this image.
+2.  Click on this tile to expand it and if a security incident is detected, it will appear under the security alerts graph as shown  below:
 
     ![Security incident](./media/security-center-incident/security-center-incident-fig2.png)
 
@@ -42,7 +42,7 @@ You can review your current security incidents by looking at the Security alerts
 
 	![Security incident](./media/security-center-incident/security-center-incident-fig3.png)
 
-4. 	On the **Security incident detected** blade you will see more details about this security incident, which includes the full description of the incident, the severity (which in this case is high), the current state of the incident (in this case it is still *active*) the attacked resource (in this case *VM1*), the remediation steps and in the bottom you have the alerts that were included in this incident. If you want to obtain more information on each alert, just click on it and another blade will open, as shown below.
+4. 	On the **incident** blade you will see more details about this security incident, which includes its full description, its severity (which in this case is high), its current state (in this case it is still *active*, which implies the user hasn't taken an action to *dismiss* it - this can be done by right clicking on the incident in the **Security alerts** blade), the attacked resource (in this case *VM1*), the remediation steps for the incident, and in the bottom pane you have the alerts that were included in this incident. If you want to obtain more information on each alert, just click on it and another blade will open, as shown below:
 
 	![Security incident](./media/security-center-incident/security-center-incident-fig4.png)
 

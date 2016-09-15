@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="08/22/2016"
 	ms.author="mahender"/>
 
 # How to configure your App Service application to use Microsoft Account login
@@ -24,7 +24,7 @@ This topic shows you how to configure Azure App Service to use Microsoft Account
 
 ## <a name="register-microsoft-account"> </a>Register your app with Microsoft Account
 
-1. Log on to the [Azure portal], and navigate to your application. Copy your **URL**. You will use this to configure your app with Microsoft Account.
+1. Log on to the [Azure portal], and navigate to your application. Copy your **URL**, which later you use to configure your app with Microsoft Account.
 
 2. Navigate to the [My Applications] page in the Microsoft Account Developer Center, and log on with your Microsoft account, if required.
 
