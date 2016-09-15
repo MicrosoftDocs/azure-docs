@@ -218,7 +218,7 @@ OR to specify the database account name parameter without a parameter file, and 
 
     azure group deployment create -f <PathToTemplate> -g <resourcegroupname> -n <deploymentname>
 
-Example input which shows the prompt and entry for a database account named new\_db_acct:
+Example input which shows the prompt and entry for a database account named samplearmacct:
 
     azure group deployment create -f azuredeploy.json -g new_res_group -n azuredeploy
     info:    Executing command group deployment create
@@ -290,9 +290,9 @@ If you encounter errors, see [Troubleshooting](#troubleshooting).
 
 After the command returns, the account will be in the **Creating** state for a few minutes, before it changes to the **Online** state in which it is ready for use. You can check on the status of the account in the [Azure portal](https://portal.azure.com), on the **DocumentDB Accounts** blade.
 
-## <a id="quick-create-documentdb-account"></a>Task: Create a Multi-Region DocumentDB account
+## <a id="create-multi-documentdb-account"></a>Task: Create a Multi-Region DocumentDB account
 
-DocumentDB has the capability to [distribute your data globally](documentdb-distribute-data-globally) across various [Azure regions](https://azure.microsoft.com/regions/#services). When creating a DocumentDB account, the regions in which you would like the service to exist can be specified. Use the instructions in this section to create a Multi Region DocumentDB account with Azure CLI and ARM Templates. There are 2 different ways to accomplish this:
+DocumentDB has the capability to [distribute your data globally](documentdb-distribute-data-globally) across various [Azure regions](https://azure.microsoft.com/regions/#services). When creating a DocumentDB account, the regions in which you would like the service to exist can be specified. Use the instructions in this section to create a Multi-Region DocumentDB account with Azure CLI and ARM Templates. There are 2 different ways to accomplish this:
 
 - [Executing Azure CLI command with ARM Templates](#create-multi-documentdb-account-cli-arm)
 - [Executing Azure CLI command directly](#create-multi-documentdb-account-cli)
@@ -384,7 +384,7 @@ OR to specify the database account name parameter without a parameter file, and 
 
     azure group deployment create -f <PathToTemplate> -g <resourcegroupname> -n <deploymentname>
 
-Example input which shows the prompt and entry for a database account named new\_db_acct:
+Example input which shows the prompt and entry for a database account named samplearmacct:
 
     azure group deployment create -f azuredeploy.json -g new_res_group -n azuredeploy
     info:    Executing command group deployment create
@@ -457,7 +457,7 @@ If you encounter errors, see [Troubleshooting](#troubleshooting).
 
 After the command returns, the account will be in the **Creating** state for a few minutes, before it changes to the **Online** state in which it is ready for use. You can check on the status of the account in the [Azure portal](https://portal.azure.com), on the **DocumentDB Accounts** blade.
 
-## <a id="quick-create-documentdb-account"></a>Task: Add Region to a DocumentDB account
+## <a id="add-region-documentdb-account"></a>Task: Add Region to a DocumentDB account
 
 DocumentDB has the capability to [distribute your data globally](documentdb-distribute-data-globally) across various [Azure regions](https://azure.microsoft.com/regions/#services). The instructions in this section describe how to add a region to an existing DocumentDB account with Azure CLI and ARM Templates. There are 2 different ways to accomplish this:
 
@@ -564,7 +564,7 @@ OR to specify the database account name parameter without a parameter file, and 
 
     azure group deployment create -f <PathToTemplate> -g <resourcegroupname> -n <deploymentname>
 
-Example input which shows the prompt and entry for a database account named new\_db_acct:
+Example input which shows the prompt and entry for a database account named samplearmacct:
 
     azure group deployment create -f azuredeploy.json -g new_res_group -n azuredeploy
     info:    Executing command group deployment create
@@ -638,7 +638,7 @@ If you encounter errors, see [Troubleshooting](#troubleshooting).
 
 After the command returns, the account will be in the **Creating** state for a few minutes, before it changes to the **Online** state in which it is ready for use. You can check on the status of the account in the [Azure portal](https://portal.azure.com), on the **DocumentDB Accounts** blade.
 
-## <a id="quick-create-documentdb-account"></a>Task: Remove Region from a DocumentDB account
+## <a id="remove-region-documentdb-account"></a>Task: Remove Region from a DocumentDB account
 
 DocumentDB has the capability to [distribute your data globally](documentdb-distribute-data-globally) across various [Azure regions](https://azure.microsoft.com/regions/#services). The instructions in this section describe how to remove a region from an existing DocumentDB account with Azure CLI and ARM Templates. There are 2 different ways to accomplish this:
 
@@ -722,7 +722,7 @@ OR to specify the database account name parameter without a parameter file, and 
 
     azure group deployment create -f <PathToTemplate> -g <resourcegroupname> -n <deploymentname>
 
-Example input which shows the prompt and entry for a database account named new\_db_acct:
+Example input which shows the prompt and entry for a database account named samplearmacct:
 
     azure group deployment create -f azuredeploy.json -g new_res_group -n azuredeploy
     info:    Executing command group deployment create
