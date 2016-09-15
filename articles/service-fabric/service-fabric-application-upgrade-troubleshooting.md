@@ -32,11 +32,11 @@ This information will be available as soon as Service Fabric detects the failure
 
 ### Identify the failure type
 
-In the output of **Get-ServiceFabricApplicationUpgrade**, **FailureTimestampUtc** identifies the timestamp (in UTC) at which an upgrade failure was detected by Service Fabric and  **FailureAction** was triggered. **FailureReason** identifies one of three potential high-level causes of the failure:
+In the output of **Get-ServiceFabricApplicationUpgrade**, **FailureTimestampUtc** identifies the timestamp (in UTC) at which an upgrade failure was detected by Service Fabric and **FailureAction** was triggered. **FailureReason** identifies one of three potential high-level causes of the failure:
 
 1. UpgradeDomainTimeout - Indicates that a particular upgrade domain took too long to complete and **UpgradeDomainTimeout** expired.
 2. OverallUpgradeTimeout - Indicates that the overall upgrade took too long to complete and **UpgradeTimeout** expired.
-3. HealthCheck - Indicates that after upgrading an udpate domain, the application remained unhealthy according to the specified health policies and **HealthCheckRetryTimeout** expired.
+3. HealthCheck - Indicates that after upgrading an update domain, the application remained unhealthy according to the specified health policies and **HealthCheckRetryTimeout** expired.
 
 These entries will only show up in the output when the upgrade fails and starts rolling back. Further information will be displayed depending on the type of the failure.
 
@@ -88,7 +88,7 @@ The current **UpgradeState** is *RollingBackCompleted*, so the original upgrade 
 
 ### Investigate health check failures
 
-Health check failures can be triggered by a variety of additional issues that can happen after all nodes in an upgrade domain finish upgrading and passing all safety checks. The output below is typical of an upgrade failure due to failed health checks. The **UnhealthyEvaluations** field captures a snapshot of all failing health checks at the time of the upgrade failure according the user-specified [health policy](service-fabric-health-introduction.md).
+Health check failures can be triggered by a variety of additional issues that can happen after all nodes in an upgrade domain finish upgrading and passing all safety checks. The output below is typical of an upgrade failure due to failed health checks. The **UnhealthyEvaluations** field captures a snapshot of all failing health checks at the time of the upgrade failure according to the user-specified [health policy](service-fabric-health-introduction.md).
 
 ~~~
 PS D:\temp> Get-ServiceFabricApplicationUpgrade fabric:/DemoApp
@@ -196,7 +196,7 @@ Possible Cause 2:
 
 Health policies are specified in terms of percentages of total services and not specific service instances. For example, before an upgrade, assume that an application has four service instances A, B, C, and D, where service D is unhealthy but with no significant impact on the application. We want to ignore the known unhealthy service D during upgrade and set the parameter *MaxPercentUnhealthyServices* to be 25%, assuming only A, B, and C need to be healthy.
 
-However, during the upgrade, D may become healthy while C becomes unhealthy. The upgrade would still finish successfully in this case since only 25% of the services are unhealthy, but it might result in unanticipated errors due to C being unexpectedly unhealthy instead of D. In this situation, D should be modeled as a different service type from A, B, and C. Since health policies can be specified on a per-service type basis, this would allow  different unhealthy percentage thresholds to be applied to different services based on their roles in the application.
+However, during the upgrade, D may become healthy while C becomes unhealthy. The upgrade would still finish successfully in this case since only 25% of the services are unhealthy, but it might result in unanticipated errors due to C being unexpectedly unhealthy instead of D. In this situation, D should be modeled as a different service type from A, B, and C. Since health policies can be specified on a per-service type basis, this would allow different unhealthy percentage thresholds to be applied to different services based on their roles in the application.
 
 ### I did not specify a health policy for application upgrade, but the upgrade still fails for some time-outs that I never specified
 
@@ -220,9 +220,9 @@ The upgrade time for an upgrade domain is limited by *UpgradeDomainTimeout*.  If
 
 ## Next steps
 
-[Uprading your Application Using Visual Studio](service-fabric-application-upgrade-tutorial.md) walks you through an application upgrade using Visual Studio.
+[Upgrading your Application Using Visual Studio](service-fabric-application-upgrade-tutorial.md) walks you through an application upgrade using Visual Studio.
 
-[Uprading your Application Using Powershell](service-fabric-application-upgrade-tutorial-powershell.md) walks you through an application upgrade using PowerShell.
+[Upgrading your Application Using Powershell](service-fabric-application-upgrade-tutorial-powershell.md) walks you through an application upgrade using PowerShell.
 
 Control how your application upgrades by using [Upgrade Parameters](service-fabric-application-upgrade-parameters.md).
 
@@ -230,5 +230,5 @@ Make your application upgrades compatible by learning how to use [Data Serializa
 
 Learn how to use advanced functionality while upgrading your application by referring to [Advanced Topics](service-fabric-application-upgrade-advanced.md).
 
-Fix common problems in application upgrades by referring to the steps in [Troubleshooting Application Upgrades ](service-fabric-application-upgrade-troubleshooting.md).
+Fix common problems in application upgrades by referring to the steps in [Troubleshooting Application Upgrades](service-fabric-application-upgrade-troubleshooting.md).
  
