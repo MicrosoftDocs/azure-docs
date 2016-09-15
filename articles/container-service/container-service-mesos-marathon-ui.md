@@ -60,7 +60,7 @@ Protocol        | TCP
 If you want to statically map the container port to a port on the agent, you need to use JSON Mode. To do so, switch the New Application wizard to **JSON Mode** by using the toggle. Then enter the following under the `portMappings` section of the application definition. This example binds port 80 of the container to port 80 of the DC/OS agent. You can switch this wizard out of JSON Mode after you make this change.
 
 ```none
-“hostPort”: 80,
+"hostPort": 80,
 ```
 
 ![New Application UI--port 80 example](media/dcos/dcos13.png)

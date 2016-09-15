@@ -4,7 +4,7 @@
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="mumian" 
-	manager="paulettm" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -143,28 +143,27 @@ You need to create an application to get tweets, calculate tweet sentiment score
 1. Open **Visual Studio**, and create a Visual C# console application called **TweetSentimentStreaming**. 
 2. From **Package Manager Console**, run the following commands:
 
-		Install-Package Microsoft.HBase.Client -version 0.4.1.0
-		Install-Package TweetinviAPI -version 0.9.12.2
+		Install-Package Microsoft.HBase.Client -version 0.4.2.0
+		Install-Package TweetinviAPI -version 1.0.0.0
 
 	These commands install the [HBase .NET SDK](https://www.nuget.org/packages/Microsoft.HBase.Client/) package, which is the client library to access the HBase cluster, and the [Tweetinvi API](https://www.nuget.org/packages/TweetinviAPI/) package, which is used to access the Twitter API.
 
-	> [AZURE.NOTE] There is an issue with the latest TweetinviAPI (version 1.0.0.0). If you have the latest installed, use the following command to uninstall before installing the version 0.9.12.2:
-	>
-	> Unintall-Package TweetinivAPI -Force 
-	
+	> [AZURE.NOTE] The sample used in this article has been tested using the version specified above.  You can remove the -version switch to install the latest version.
+
 3. From **Solution Explorer**, add **System.Configuration** to the reference.
 4. Add a new class file to the project called **HBaseWriter.cs**, and then replace the code with the following:
 
 		using System;
 		using System.Collections.Generic;
+		using System.IO;
 		using System.Linq;
 		using System.Text;
-		using System.IO;
 		using System.Threading;
 		using Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling;
 		using org.apache.hadoop.hbase.rest.protobuf.generated;
 		using Microsoft.HBase.Client;
-		using Tweetinvi.Core.Interfaces;
+		using Tweetinvi.Models;
+
         namespace TweetSentimentStreaming
         {
             class HBaseWriter
@@ -235,7 +234,7 @@ You need to create an application to get tweets, calculate tweet sentiment score
 					{
 						RequestOptions options = RequestOptions.GetDefaultOptions();
 						options.RetryPolicy = RetryPolicy.NoRetry;
-						var cellSet = client.GetCellsAsync(HBASETABLENAME, COUNT_ROW_KEY, options).Result;
+						var cellSet = client.GetCellsAsync(HBASETABLENAME, COUNT_ROW_KEY, null, null, options).Result;
 						if (cellSet.rows.Count != 0)
 						{
 							var countCol = cellSet.rows[0].values.Find(cell => Encoding.UTF8.GetString(cell.column) == COUNT_COLUMN_NAME);
@@ -245,9 +244,17 @@ You need to create an application to get tweets, calculate tweet sentiment score
 							}
 						}
 					}
-					catch (Exception ex)
+					catch(Exception ex)
 					{
-						return 0;
+						if (ex.InnerException.Message.Equals("The remote server returned an error: (404) Not Found.", StringComparison.OrdinalIgnoreCase))
+						{
+							return 0;
+						}
+						else
+						{
+							throw ex;
+						}
+						
 					}
 
 					return 0;
@@ -412,7 +419,7 @@ You need to create an application to get tweets, calculate tweet sentiment score
         using System;
         using System.Diagnostics;
         using Tweetinvi;
-        using Tweetinvi.Core.Parameters;
+        using Tweetinvi.Models;
 
         namespace TweetSentimentStreaming
         {

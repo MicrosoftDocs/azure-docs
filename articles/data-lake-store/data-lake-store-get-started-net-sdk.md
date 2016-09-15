@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/18/2016"
+   ms.date="09/13/2016"
    ms.author="nitinme"/>
 
 # Get started with Azure Data Lake Store using .NET SDK
@@ -33,7 +33,6 @@ Learn how to use the [Azure Data Lake Store .NET SDK](https://msdn.microsoft.com
 
 * Visual Studio 2013 or 2015. The instructions below use Visual Studio 2015.
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **Enable your Azure subscription** for Data Lake Store public preview. See [instructions](data-lake-store-get-started-portal.md#signup).
 * **Create an Azure Active Directory Application**. There are two ways you can authenticate using Azure Active Direcotry - **interactive** and **non-interactive**. There are different prerequisites based on how you want to authenticate.
 	* **For interactive authentication** (used in this article) - In Azure Active Directory, you must create a **Native Client application**. Once you have created the application, retrieve the following values related to the application.
 		- Get **client ID** and **redirect URI** for the application
