@@ -52,10 +52,21 @@ These keep reappearing most likely because of a tool you're using, such as Visua
 
 When the virtual machine instance recycles, all local changes are lost. Use a [startup task](cloud-services-startup-tasks.md) to install certificates to the virtual machine each time the role starts.
 
+### I cannot find my management certificates in the portal
 
+[Management certificates](..\azure-api-management-certs.md) are only avialable in the Azure Classic Portal. The current Azure portal does not use management certificates. 
+
+### How can I disable a management certificate?
+
+[Management certificates](..\azure-api-management-certs.md) cannot be disabled. You delete them through the Azure Classic Portal when you do not want them to be used anymore.
+
+### How do I create an SSL certificate for a specific IP address?
+
+Follow the directions in the [create a certificate tutorial](cloud-services-certs-create.md). Use the IP address as the DNS Name.
 
 ## Troubleshooting
 
 ### I can't reserve an IP in a multi-VIP cloud service
 
 First, make sure that the virtual machine instance that you're trying to reserve the IP for is turned on. Second, make sure that you're using Reserved IPs for bother the staging and production deployments. **Do not** change the settings while the deployment is upgrading.
+

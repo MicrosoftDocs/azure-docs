@@ -4,7 +4,7 @@
 	keywords="data stream, redis cache, service bus queue"
 	services="stream-analytics"
 	authors="ryancrawcour"
-	manager="paulettm"
+	manager="jhubbard"
     documentationCenter=""
 	/>
 

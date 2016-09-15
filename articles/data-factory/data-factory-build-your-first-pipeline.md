@@ -19,8 +19,7 @@
 
 # Tutorial: Build your first pipeline to process data using Hadoop cluster 
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-build-your-first-pipeline.md)
-- [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
+- [Using Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
