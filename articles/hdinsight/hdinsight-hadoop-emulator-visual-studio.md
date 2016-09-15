@@ -1,5 +1,5 @@
 <properties
-pageTitle="Use the Microsoft Azure Data Lake Tools for Visual Studio with the Hortonworks Sandbox"
+pageTitle="Use the Microsoft Azure Data Lake Tools for Visual Studio with the Hortonworks Sandbox | Microsoft Azure"
 description="Learn how to use the Azure Data Lake Tools for VIsual Studio with the Hortonworks sandbox (running in a local VM.) With these tools, you can create and run Hive and Pig jobs on the sandbox and view job output and history."
 services="hdinsight"
 documentationCenter=""
@@ -194,3 +194,8 @@ To create a new table, right-click a database, and then select __Create Table__.
 You can then create the table using a form. You can see the raw HiveQL that will be used to create the table at the bottom of this page.
 
 ![create table form](./media/hdinsight-hadoop-emulator-visual-studio/create-table-form.png)
+
+## Next steps
+
+* [Learning the ropes of the Hortonworks Sandbox](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
+* [Hadoop tutorial - Getting started with HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
