@@ -193,20 +193,20 @@ Before wrapping up, it's important to remember that the local cluster is real. A
 
 3. To shut down the cluster but keep the application data and traces, click **Stop Local Cluster** in the system tray app.
 
-4. To delete the cluster entirely, click **Remove Local Cluster** in the system tray app. Note that this option will result in another slow deployment the next time you press F5 in Visual Studio. Remove the local cluster only if you don't intend to use it for some time or if you need to reclaim resources.
+4. To delete the cluster entirely, click **Remove Local Cluster** in the system tray app. This option will result in another slow deployment the next time you press F5 in Visual Studio. Remove the local cluster only if you don't intend to use it for some time or if you need to reclaim resources.
 
 ## 1 Node and 5 Node cluster mode
 
-When working with the local cluster to devlop applications, you often find youself doing quick iterations of writing code, debugging, changind code, debugging etc.
+When working with the local cluster to develop applications, you often find yourself doing quick iterations of writing code, debugging, changing code, debugging etc.
 To help optimize this process, the local cluster can run in two modes: 1 Node or 5 Node. Both cluster modes have their benefits.
-5 Node cluster mode enables you to work with a real cluster, testing failover scenarios, working with more instances and replicas of your services etc.
+5 Node cluster mode enables you to work with a real cluster. You can test failover scenarios, work with more instances and replicas of your services.
 1 Node cluster mode is optimized to do quick deployment and registration of services, to help you quickly validate code using the Service Fabric runtime.
 
 Both 1 Node cluster mode and 5 Node cluster mode is not an emulator or simulator. It runs the same platform code that is found on multi-machine clusters.
 
 > [AZURE.NOTE] This feature is available in SDK version 5.2 and above.
 
-In order to change the cluster mode to a 1 Node cluster, either use the Service Fabric Local Cluster Manager or use PowerShell the following way:
+To change the cluster mode to a 1 Node cluster, either use the Service Fabric Local Cluster Manager or use PowerShell the following way:
 
 1. Launch a new PowerShell window as an administrator.
 
@@ -224,11 +224,11 @@ If you are using the Service Fabric Local Cluster Manager:
 
 ![Switch cluster mode][switch-cluster-mode]
 
-> [AZURE.WARNING] When changing cluster mode, the current cluster is being removed from your system and a new cluster is being created. This also means that whatever data you must have stored in the cluster, will be deleted when you change cluster mode.
+> [AZURE.WARNING] When changing cluster mode, the current cluster is being removed from your system and a new cluster is being created. The data you must have stored in the cluster, will be deleted when you change cluster mode.
 
 ## Next steps
 - Now that you have deployed and upgraded some pre-built applications, you can [try building your own in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
-- All of the actions performed on the local cluster in this article can be performed on an [Azure cluster](service-fabric-cluster-creation-via-portal.md) as well.
+- All the actions performed on the local cluster in this article can be performed on an [Azure cluster](service-fabric-cluster-creation-via-portal.md) as well.
 - The upgrade that we performed in this article was basic. See the [upgrade documentation](service-fabric-application-upgrade.md) to learn more about the power and flexibility of Service Fabric upgrades.
 
 <!-- Images -->
