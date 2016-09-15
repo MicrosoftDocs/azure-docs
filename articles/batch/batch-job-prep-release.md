@@ -50,7 +50,7 @@ You might want to keep a copy of log files that your tasks generate, or perhaps 
 
 ## Job preparation task
 
-Before execution of a job's tasks, Batch executes the job preparation task on each compute node that is scheduled to run a task. By default, the Batch service will wait for the job preparation task to be completed before running the tasks scheduled to execute on the node. However, you can configure the service not to wait. The job preparation task will run again on a compute node if the node restarts, but you can also disable this behavior.
+Before execution of a job's tasks, Batch executes the job preparation task on each compute node that is scheduled to run a task. By default, the Batch service waits for the job preparation task to be completed before running the tasks scheduled to execute on the node. However, you can configure the service not to wait. If the node restarts, the job preparation task runs again, but you can also disable this behavior.
 
 The job preparation task is executed only on nodes that are scheduled to run a task. This prevents the unnecessary execution of a preparation task in case a node is not assigned a task. This can occur when the number of tasks for a job is less than the number of nodes in a pool. It also applies when [concurrent task execution](batch-parallel-node-tasks.md) is enabled, which leaves some nodes idle if the task count is lower than the total possible concurrent tasks. By not running the job preparation task on idle nodes, you can spend less money on data transfer charges.
 
@@ -60,11 +60,11 @@ The job preparation task is executed only on nodes that are scheduled to run a t
 
 Once a job is marked as completed, the job release task is executed on each node in the pool that executed at least one task. You mark a job as completed by issuing a terminate request. The Batch service then sets the job state to *terminating*, terminates any active or running tasks associated with the job, and runs the job release task. The job then moves to the *completed* state.
 
-> [AZURE.NOTE] Job deletion also executes the job release task. However, if a job has already been terminated, the release task is not run a second time if the job is subsequently deleted.
+> [AZURE.NOTE] Job deletion also executes the job release task. However, if a job has already been terminated, the release task is not run a second time if the job is later deleted.
 
 ## Job prep and release tasks with Batch .NET
 
-To use a job preparation task, create and configure a [JobPreparationTask][net_job_prep] object and assign it to your job's [CloudJob.JobPreparationTask][net_job_prep_cloudjob] property. Similarly, initialize a [JobReleaseTask][net_job_release] and assign it to your job's [CloudJob.JobReleaseTask][net_job_prep_cloudjob] property to set the job's release task.
+To use a job preparation task, assign a [JobPreparationTask][net_job_prep] object to your job's [CloudJob.JobPreparationTask][net_job_prep_cloudjob] property. Similarly, initialize a [JobReleaseTask][net_job_release] and assign it to your job's [CloudJob.JobReleaseTask][net_job_prep_cloudjob] property to set the job's release task.
 
 In this code snippet, `myBatchClient` is an instance of [BatchClient][net_batch_client], and `myPool` is an existing pool within the Batch account.
 
