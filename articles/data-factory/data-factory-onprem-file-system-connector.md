@@ -56,7 +56,7 @@ The following sample copies time-series data from an on-premises file system to 
 
 As a first step, set up Data Management Gateway as per the instructions in [Move data between on-premises sources and the cloud with Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md).
 
-**On-premises File Server linked service:**
+**On-Premises File Server linked service:**
 
 	{
 	  "Name": "OnPremisesFileServerLinkedService",
@@ -89,7 +89,7 @@ We recommend using the **encryptedCredential** property instead the **userid** a
 
 Data is picked up from a new file every hour. The folderPath and fileName properties are determined based on the start time of the slice.  
 
-Setting "external": "true" informs the Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
+Setting `"external": "true"` informs Data Factory that the dataset is external to the data factory and is not produced by an activity in the data factory.
 
 	{
 	  "name": "OnpremisesFileSystemInput",
@@ -265,7 +265,7 @@ The following sample shows:
 - An output dataset of type FileShare.
 - A pipeline with a copy activity that uses SqlSource and FileSystemSink.
 
-The sample copies time-series data from an Azure SQL table to an On-premises file system every hour. The JSON properties used in these samples are described in sections following the samples.
+The sample copies time-series data from an Azure SQL table to an on-premises file system every hour. The JSON properties that are used in these samples are described in sections after the samples.
 
 **Azure SQL linked service:**
 
@@ -279,7 +279,7 @@ The sample copies time-series data from an Azure SQL table to an On-premises fil
 	  }
 	}
 
-**On-premises File Server linked service:**
+**On-Premises File Server linked service:**
 
 	{
 	  "Name": "OnPremisesFileServerLinkedService",
@@ -294,13 +294,13 @@ The sample copies time-series data from an Azure SQL table to an On-premises fil
 	  }
 	}
 
-We recommend using the **encryptedCredential** property instead of using the **userid** and **password** properties. See [File System Linked Service](#onpremisesfileserver-linked-service-properties) for details about this linked service.
+We recommend using the **encryptedCredential** property instead of using the **userid** and **password** properties. See [File System linked service](#onpremisesfileserver-linked-service-properties) for details about this linked service.
 
 **Azure SQL input dataset:**
 
-The sample assumes you have created a table “MyTable” in Azure SQL and it contains a column called “timestampcolumn” for time series data.
+The sample assumes that you've created a table “MyTable” in Azure SQL, and it contains a column called “timestampcolumn” for time-series data.
 
-Setting “external”: ”true” informs Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
+Setting ``“external”: ”true”`` informs Data Factory that the dataset is external to the data factory and is not produced by an activity in the data factory.
 
 	{
 	  "name": "AzureSqlInput",
@@ -387,8 +387,8 @@ Data is copied to a new file every hour. The folderPath and fileName for the blo
 	  }
 	}
 
-**Pipeline with a Copy activity:**
-The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **SqlSource** and **sink** type is set to **FileSystemSink**. The SQL query specified for the **SqlReaderQuery** property selects the data in the past hour to copy.
+**Pipeline with a copy activity:**
+The pipeline contains a copy activity that is configured to use the input and output datasets, and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **SqlSource**, and the **sink** type is set to **FileSystemSink**. The SQL query that is specified for the **SqlReaderQuery** property selects the data in the past hour to copy.
 
 
 	{  
@@ -436,32 +436,34 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
 	   }
 	}
 
-## OnPremisesFileServer linked service properties
+## On-Premises File Server linked service properties
 
-You can link an On-premises File System to an Azure Data Factory with On-Premises File Server Linked Service. The following table provides description for JSON elements specific to On-Premises File Server Linked Service.
+You can link an on-premises file system to an Azure data factory with the On-Premises File Server linked service. The following table provides descriptions for JSON elements that are specific to the On-Premises File Server linked service.
 
 Property | Description | Required
 -------- | ----------- | --------
-type | The type property should be set to **OnPremisesFileServer** | Yes
-host | Root path of the folder you want to copy. Use escape character ‘ \ ’ for special characters in the string. See [Sample linked service and dataset definitions](#sample-linked-service-and-dataset-definitions) for examples. | Yes
-userid | Specify the ID of the user who has access to the server | No (if you choose encryptedCredential)
-password | Specify the password for the user (userid) | No (if you choose encryptedCredential
+type | Ensure that the type property is set to **OnPremisesFileServer**. | Yes
+host | Specifies the root path of the folder that you want to copy. Use the escape character ‘ \ ’ for special characters in the string. See [Sample linked service and dataset definitions](#sample-linked-service-and-dataset-definitions) for examples. | Yes
+userid | Specify the ID of the user who has access to the server. | No (if you choose encryptedCredential)
+password | Specify the password for the user (userid). | No (if you choose encryptedCredential
 encryptedCredential | Specify the encrypted credentials that you can get by running the New-AzureRmDataFactoryEncryptValue cmdlet. | No (if you choose to specify userid and password in plain text)
-gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises file server | Yes
+gatewayName | Specifies the name of the gateway that Data Factory should use to connect to the on-premises file server. | Yes
 
 See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) for details about setting credentials for an on-premises File System data source.
 
 ### Sample linked service and dataset definitions
 Scenario | Host in linked service definition | folderPath in dataset definition
 -------- | --------------------------------- | --------------------- |
-Local folder on Data Management Gateway machine: <br/><br/>Examples: D:\\\* or D:\folder\subfolder\\* | D:\\\\ (for gateway version 2.0 and above) <br/><br/> localhost (for gateway version below 2.0) | .\\\\ or folder\\\\subfolder (for gateway version 2.0 and above) <br/><br/>D:\\\\ or D:\\\\folder\\\\subfolder (for gateway version below 2.0)
+Local folder on Data Management Gateway machine: <br/><br/>Examples: D:\\\* or D:\folder\subfolder\\* | D:\\\\ (for Data Management Gateway 2.0 and later versions) <br/><br/> localhost (for earlier versions than Data Management Gateway 2.0) | .\\\\ or folder\\\\subfolder (for Data Management Gateway 2.0 and later versions) <br/><br/>D:\\\\ or D:\\\\folder\\\\subfolder (for gateway version below 2.0)
 Remote shared folder: <br/><br/>Examples: \\\\myserver\\share\\\* or \\\\myserver\\share\\folder\\subfolder\\* | \\\\\\\\myserver\\\\share | .\\\\ or folder\\\\subfolder
 
-To find the **version** of gateway:
+
+**To find the version of a gateway:**
+
 1. Launch [Data Management Gateway Configuration Manager](data-factory-data-management-gateway.md#data-management-gateway-configuration-manager) on your machine.
 2. Switch to the **Help** tab.
 
-> [AZURE.NOTE] We recommend that you [upgrade your gateway to version 2.0 or above](data-factory-data-management-gateway.md#update-data-management-gateway) to take advantage of latest features and fixes.
+> [AZURE.NOTE] We recommend that you [upgrade your gateway to Data Management Gateway 2.0 or later](data-factory-data-management-gateway.md#update-data-management-gateway) to take advantage of the latest features and fixes.
 
 **Example: Using username and password in plain text**
 
@@ -494,26 +496,26 @@ To find the **version** of gateway:
 
 ## On-premises file system dataset type properties
 
-For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types.
+For a full list of sections and properties that are available for defining datasets, see [Creating datasets](data-factory-create-datasets.md). Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types.
 
-The typeProperties section is different for each type of dataset and provides information about the location, format etc., of the data in the data store. The typeProperties section for dataset of type **FileShare** dataset has the following properties.
+The typeProperties section is different for each type of dataset. It provides information such as the location and format of the data in the data store. The typeProperties section for the dataset of type **FileShare** has the following properties.
 
 Property | Description | Required
 -------- | ----------- | --------
-folderPath | Sub path to the folder. Use escape character ‘ \ ’ for special characters in the string. See [Sample linked service and dataset definitions](#sample-linked-service-and-dataset-definitions) for examples.<br/><br/>You can combine this property with **partitionBy** to have folder paths based on slice start/end date-times. | Yes
-fileName | Specify the name of the file in the **folderPath** if you want the table to refer to a specific file in the folder. If you do not specify any value for this property, the table points to all files in the folder.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file would be in the following this format: <br/><br/>Data.<Guid>.txt (Example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt | No
-partitionedBy | partitionedBy can be used to specify a dynamic folderPath, filename for time series data. For example, folderPath parameterized for every hour of data. | No
+folderPath | Specifies the subpath to the folder. Use the escape character ‘ \ ’ for special characters in the string. See [Sample linked service and dataset definitions](#sample-linked-service-and-dataset-definitions) for examples.<br/><br/>You can combine this property with **partitionBy** to have folder paths that are based on slice start/end date-times. | Yes
+fileName | Specify the name of the file in the **folderPath** if you want the table to refer to a specific file in the folder. If you do not specify any value for this property, the table points to all files in the folder.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file is in the following format: <br/><br/>Data.<Guid>.txt (Example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt | No
+partitionedBy | You can use partitionedBy to specify a dynamic folderPath/fileName for time-series data. An example is folderPath parameterized for every hour of data. | No
 Format | The following format types are supported: **TextFormat**, **AvroFormat**, **JsonFormat**, and **OrcFormat**. Set the **type** property under format to one of these values. See [Specifying TextFormat](#specifying-textformat), [Specifying AvroFormat](#specifying-avroformat), [Specifying JsonFormat](#specifying-jsonformat), and [Specifying OrcFormat](#specifying-orcformat) sections for details. If you want to copy files as-is between file-based stores (binary copy), you can skip the format section in both input and output dataset definitions. | No
-fileFilter | Specify a filter to be used to select a subset of files in the folderPath rather than all files. <br/><br/>Allowed values are: * (multiple characters) and ? (single character).<br/><br/>Examples 1: "fileFilter": "*.log"<br/>Example 2: "fileFilter": 2014-1-?.txt"<br/><br/>**Note**: fileFilter is applicable for an input FileShare dataset | No
-| compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, and **BZip2** and supported levels are: **Optimal** and **Fastest**. Currently, compression settings are not supported for data in **AvroFormat** or **OrcFormat**. See [Compression support](#compression-support) section for more details. | No |
+fileFilter | Specify a filter to be used to select a subset of files in the folderPath rather than all files. <br/><br/>Allowed values are: * (multiple characters) and ? (single character).<br/><br/>Example 1: "fileFilter": "*.log"<br/>Example 2: "fileFilter": 2014-1-?.txt"<br/><br/>Note that fileFilter is applicable for an input FileShare dataset. | No
+| compression | Specify the type and level of compression for the data. Supported types are **GZip**, **Deflate**, and **BZip2**. Supported levels are **Optimal** and **Fastest**. Currently, compression settings are not supported for data in **AvroFormat** or **OrcFormat**. See the [Compression support](#compression-support) section for more details. | No |
 
-> [AZURE.NOTE] filename and fileFilter cannot be used simultaneously.
+> [AZURE.NOTE] You cannot use fileName and fileFilter simultaneously.
 
 ### Using partitionedBy property
 
-As mentioned in the previous section, you can specify a dynamic folderPath, filename for time series data with partitionedBy. You can do so with the Data Factory macros and the system variable SliceStart, SliceEnd that indicate the logical time period for a given data slice.
+As mentioned in the previous section, you can specify a dynamic folderPath and fileName for time-series data with partitionedBy. You can do so with the Data Factory macros and the system variable SliceStart and SliceEnd, which indicate the logical time period for a given data slice.
 
-To understand more details on time series datasets, scheduling, and slices, see [Creating Datasets](data-factory-create-datasets.md), [Scheduling & Execution](data-factory-scheduling-and-execution.md), and [Creating Pipelines](data-factory-create-pipelines.md) articles.
+To understand more details on time-series datasets, scheduling, and slices, see [Creating datasets](data-factory-create-datasets.md), [Scheduling and execution](data-factory-scheduling-and-execution.md), and [Creating pipelines](data-factory-create-pipelines.md).
 
 #### Sample 1:
 
@@ -523,7 +525,7 @@ To understand more details on time series datasets, scheduling, and slices, see 
 	    { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } },
 	],
 
-In this example {Slice} is replaced with the value of Data Factory system variable SliceStart in the format (YYYYMMDDHH) specified. The SliceStart refers to start time of the slice. The folderPath is different for each slice. For example: wikidatagateway/wikisampledataout/2014100103 or wikidatagateway/wikisampledataout/2014100104.
+In this example, {Slice} is replaced with the value of the Data Factory system variable SliceStart in the format (YYYYMMDDHH). SliceStart refers to start time of the slice. The folderPath is different for each slice. For example: wikidatagateway/wikisampledataout/2014100103 or wikidatagateway/wikisampledataout/2014100104.
 
 #### Sample 2:
 
@@ -537,24 +539,24 @@ In this example {Slice} is replaced with the value of Data Factory system variab
 	    { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
 	],
 
-In this example, year, month, day, and time of SliceStart are extracted into separate variables that are used by folderPath and fileName properties.
+In this example, year, month, day, and time of SliceStart are extracted into separate variables that are used by the folderPath and fileName properties.
 
 [AZURE.INCLUDE [data-factory-file-format](../../includes/data-factory-file-format.md)]   
 [AZURE.INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
 
-## File Share copy activity type properties
+## File share Copy Activity type properties
 
 **FileSystemSource** supports the following properties:
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
-| recursive | Indicates whether the data is read recursively from the sub folders or only from the specified folder. | True, False (default)| No |
+| recursive | Indicates whether the data is read recursively from the subfolders or only from the specified folder. | True, False (default)| No |
 
-The **FileSystemSink** supports the following properties:
+**FileSystemSink** supports the following properties:
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
-| copyBehavior | Defines the copy behavior when the source is BlobSource or FileSystem. | **PreserveHierarchy:** preserves the file hierarchy in the target folder, that is, relative path of source file to source folder is same as the relative path of target file to target folder.<br/><br/>**FlattenHierarchy:** all files from the source folder are created in the first level of target folder. The target files are created with auto generated name.<br/><br/>**MergeFiles:** merges all files from the source folder to one file. If the File/Blob Name is specified, the merged file name would be the specified name; otherwise, would be auto-generated file name. | No |
+| copyBehavior | Defines the copy behavior when the source is BlobSource or FileSystem. | **PreserveHierarchy:** Preserves the file hierarchy in the target folder, that is, relative path of source file to source folder is same as the relative path of target file to target folder.<br/><br/>**FlattenHierarchy:** All files from the source folder are created in the first level of target folder. The target files are created with auto generated name.<br/><br/>**MergeFiles:** Merges all files from the source folder to one file. If the File/Blob Name is specified, the merged file name would be the specified name; otherwise, would be auto-generated file name. | No |
 
 ### recursive and copyBehavior examples
 This section describes the resulting behavior of the Copy operation for different combinations of recursive and copyBehavior values.
