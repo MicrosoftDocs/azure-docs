@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Connect to Azure Stack CLI | Microsoft Azure"
-	description="Learn how to use the cross-platform command line interface (CLI) to manage and deploy resources on Azure Stack"
+	description="Learn how to use the cross-platform command-line interface (CLI) to manage and deploy resources on Azure Stack"
 	services="azure-stack"
 	documentationCenter=""
 	authors="HeathL17"
@@ -18,10 +18,10 @@
 
 # Install and configure Azure CLI
 
-In this document, we guide you through using Azure CLI to manage resources on Windows, Linux, and Mac client platforms.  
+In this document, we guide you through the process of using Azure CLI to manage resources on Windows, Linux, and Mac client platforms.  
 
 ## Install Azure CLI
-Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of open-source shell-based commands for creating and managing resources in Microsoft Azure Stack.
+Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of open-source, shell-based commands for creating and managing resources in Microsoft Azure Stack.
 
   	[Download the Windows CLI](http://aka.ms/azstack-windows-cli)
 
@@ -30,23 +30,23 @@ Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of ope
   	[Download the Linux CLI](http://aka.ms/azstack-mac-cli)
 
 
-  	If you’re on Mac or Linux, you can also get the CLI by using the command `npm install -g azure-cli@0.10.4`</br>
+  If you’re on Mac or Linux, you can also get the CLI by using the command `npm install -g azure-cli@0.10.4`.
 
 
 ## Connect to Azure Stack
-In the following steps, you configure Azure CLI to connect to Azure Stack, login, and retrieve subscription information.
+In the following steps, you configure Azure CLI to connect to Azure Stack. Then you sign in and retrieve subscription information.
 
 1.  Use the following command to add the Azure Stack environment:
 
 		azure account env add AzureStack --resource-manager-endpoint-url "https://api.azurestack.local" --management-endpoint-url "https://api.azurestack.local" --active-directory-endpoint-url  "https://login.windows.net" --portal-url "https://portal.azurestack.local" --gallery-endpoint-url "https://portal.azurestack.local" --active-directory-resource-id "https://azurestack.local-api/" --active-directory-graph-resource-id "https://graph.windows.net/"
 
-2.  Log in using the following command (replace *username* with your username).
+2.  Sign in by using the following command (replace *username* with your user name):
 
 		azure login -e AzureStack -u “<username>”
-  
-	>[AZURE.NOTE]If you're getting certificate validation issues, disable certificate validation by running the command `set 		NODE_TLS_REJECT_UNAUTHORIZED=0`
 
-3. Set the Azure configuration mode to ARM by using the following command.
+	>[AZURE.NOTE]If you're getting certificate validation issues, disable certificate validation by running the command `set 		NODE_TLS_REJECT_UNAUTHORIZED=0`.
+
+3. Set the Azure configuration mode to Azure Resource Manager by using the following command:
 
         azure config mode arm
 
