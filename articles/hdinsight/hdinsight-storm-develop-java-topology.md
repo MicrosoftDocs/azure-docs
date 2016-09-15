@@ -675,7 +675,7 @@ The YAML file defines the components to use for the topology, how data flows bet
     
         mvn compile exec:java "-Dexec.args=--local -R /topology.yaml"
 
-    NOTE: If you are on a Linux/Unix/OS X system, and have [installed Storm in your development environment](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html), you can use the following commands instead:
+    > [AZURE.NOTE] If you are on a Linux/Unix/OS X system, and have [installed Storm in your development environment](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html), you can use the following commands instead:
 
         mvn compile package
         storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local -R /topology.yaml
