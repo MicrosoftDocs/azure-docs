@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/23/2016"
+   ms.date="09/13/2016"
    ms.author="erihur;genli"/>
 
 
@@ -129,7 +129,7 @@ This section has links to simple questions regarding compute instance sizes, SQL
 
 ## Understand detailed usage charges
 
-As part of our ongoing commitment to help customers easily manage their Azure use, we've enhanced the download usage file that reports on your Azure services usage and costs.  The download link contains two versions of the usage file: 
+As part of our ongoing commitment to help customers easily manage their Azure use, we've enhanced the download usage file that reports on your Azure services usage and costs.  The download link contains two versions of the usage file:
 
 - **Version 1** uses the pre-existing format
 
@@ -161,8 +161,8 @@ Depending on your usage, there can be thousands of rows of daily usage data. If 
 
  Name | Download |
  :----------:| :-------: |
-  Detailed Usage .csv Version 1|  [Sample File](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v1.csv)
-  Detailed Usage .csv Version 2 | [Sample File](https://azurepricing.blob.core.windows.net/sampleinvoices/Micorosft_Azure_Detailed_Usage_v2.csv)
+  Detailed Usage .csv Version 1|  [Sample File](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv1.xlsx)
+  Detailed Usage .csv Version 2 | [Sample File](https://azurepricing.blob.core.windows.net/supplemental/MOSPServices_csv2.xlsx)
 
 
 
@@ -206,11 +206,11 @@ In addition to some new fields and name changes to csv Version 2, there will be 
 ![additionalinfo_csv2](./media/billing-understand-your-bill/AdditionaInfo_csv2.png)
 
 - **Tags**:  This column contains the user specified resource tags. The tags can be used to group billing records. For example, you can use tags to distribute costs by department using the service. Learn more about [using tags to organize Azure Resources](./resource-group-using-tags.md). Services that support emitting tags are:  
-    
+
     - Virtual Machines
-    
+
     - Storage and
-   
+
     - Networking services provisioned using the [Azure Resource Manager API](https://msdn.microsoft.com/library/azure/dn790567.aspx)
 
 ![tags](./media/billing-understand-your-bill/tags.png)

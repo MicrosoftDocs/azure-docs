@@ -5,7 +5,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="cjgronlund"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags

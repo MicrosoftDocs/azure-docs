@@ -3,7 +3,7 @@
 	description="How to migrate to Azure Resource Manager development tools for HDInsight clusters"
 	services="hdinsight"
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	authors="nitinme"
 	documentationCenter=""/>
 

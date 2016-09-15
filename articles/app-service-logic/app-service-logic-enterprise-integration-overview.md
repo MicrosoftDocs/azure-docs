@@ -38,7 +38,7 @@ You can build and manage B2B apps using the Enterprise Integration Pack via the 
 You can also use [PowerShell](https://msdn.microsoft.com/library/azure/mt652195.aspx "Logic apps PowerShell topics") to manage your Logic apps. 
 
 Here is an overview of the steps you need to take before you can create apps in the Azure portal:
-![overviewimage](./media/app-service-logic-enterprise-integration-overview/overview-0.png)  
+![overview image](./media/app-service-logic-enterprise-integration-overview/overview-0.png)  
 
 ## What are some common scenarios?
 
@@ -66,6 +66,7 @@ Enterprise Integration supports these industry standards:
 - [Schemas](./app-service-logic-enterprise-integration-schemas.md "Learn about enterprise integration schemas")
 - [XML message validation](./app-service-logic-enterprise-integration-xml.md "Learn how to validate XML messages with Logic apps")
 - [XML transform](./app-service-logic-enterprise-integration-transform.md "Learn about enterprise integration maps")
+- [Enterprice Integration Connectors](../connectors/apis-list.md "Learn about enterprise integration pack connectors")
 
 
 

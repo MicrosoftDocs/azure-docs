@@ -22,7 +22,7 @@
 
 >[AZURE.NOTE] An Azure Support plan has a 6-month term and Microsoft requires continued monetary commitment for the duration of the term. Cancellation before the term expires does not forgive the remaining commitment or provide refunds any pre-paid amount. If you canceled your subscription by mistake and need to get it reactivated, you can [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) for assistance.
 
-If you cancel your subscription, all your services will be deleted immediately. Make sure you back up the data you want to save before you cancel.  
+If you cancel your subscription, your data will be stored for 90 days as per [Microsoft's retention policy](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31). Learn more from [Microsoft Trust Center](https://www.microsoft.com/en-us/TrustCenter/Privacy/You-are-in-control-of-your-data).
 
 1. Log on to the [Azure Account Center](https://account.windowsazure.com/subscriptions) as the Account Administrator.
 
@@ -39,5 +39,7 @@ If you cancel your subscription, all your services will be deleted immediately. 
 	![cancelbox](./media/billing-how-to-cancel-azure-subscription/cancelbox.png)
 
 5. Click ![checkbutton](./media/billing-how-to-cancel-azure-subscription/checkbutton.png) to close the dialog window and return to your subscription page.
+
+	> [AZURE.NOTE] If you have cancelled your Pay As You Go subscription accidentally, you can follow the instructions outlined [here] (https://azure.microsoft.com/en-us/documentation/articles/billing-subscription-become-disable/) to reactivate it.
 
 > [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
