@@ -22,7 +22,7 @@ Webhooks allow you to route an Azure alert notification to other systems for pos
 
 >[AZURE.NOTE] This feature is currently in preview, so expect variable quality and performance.
 
-You can set up a Azure Activity Log alert using the [Azure PowerShell Cmdlets](./insights-powershell-samples.md#create-alert-rules), [Cross-Platform CLI](./insights-cli-samples.md#work-with-alerts), or [Insights REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+You can set up an Activity Log alert using the [Azure PowerShell Cmdlets](./insights-powershell-samples.md#create-alert-rules), [Cross-Platform CLI](./insights-cli-samples.md#work-with-alerts), or [Insights REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
 ## Authenticating the webhook
 TThe webhook can authenticate using either of these methods:
@@ -31,7 +31,7 @@ TThe webhook can authenticate using either of these methods:
 2.	**Basic authorization** - The webhook URI is saved with a username and password, eg. `https://userid:password@mysamplealert/webcallback?someparamater=somevalue&foo=bar`
 
 ## Payload schema
-The POST operation contains the following JSON payload and schema for all Activity Log-based alerts. This schema is very similar to the one used by metric-based alerts.
+The POST operation contains the following JSON payload and schema for all Activity Log-based alerts. This schema is similar to the one used by metric-based alerts.
 
 ```
 {
@@ -86,7 +86,7 @@ The POST operation contains the following JSON payload and schema for all Activi
 |status	|Used for metric alerts. Always set to "activated" for Activity Log alerts.|
 |context|Context of the event.|
 |resourceProviderName|The resource provider of the impacted resource.|
-|conditionType	|Always "Event".|
+|conditionType	|Always "Event."|
 |name	|Name of the alert rule.|
 |id	|Resource ID of the alert.|
 |description|	Alert description as set during creation of the alert.|
@@ -96,10 +96,10 @@ The POST operation contains the following JSON payload and schema for all Activi
 |resourceGroupName|Name of the resource group for the impacted resource|
 |properties	|Set of `<Key, Value>` pairs (i.e. `Dictionary<String, String>`) that includes details about the event.|
 |event|Element containing metadata about the event.|
-|authorization|The RBAC properties of the event. These usually include the “action”, “role” and the “scope”.|
+|authorization|The RBAC properties of the event. These usually include the “action”, “role” and the “scope.”|
 |category	| Category of the event. Supported values include: Administrative, Alert, Security, ServiceHealth, Recommendation.|
 |caller|Email address of the user who performed the operation, UPN claim, or SPN claim based on availability. Can be null for certain system calls.|
-|correlationId|	Usually a GUID in string format. Events with correlationId belong to the same larger action and usually share the same correlationId.|
+|correlationId|	Usually a GUID in string format. Events with correlationId belong to the same larger action and usually share a correlationId.|
 |eventDescription	|Static text description of the event.|
 |eventDataId|Unique identifier for the event.|
 |eventSource	|Name of the Azure service or infrastructure that generated the event.|
@@ -109,11 +109,11 @@ The POST operation contains the following JSON payload and schema for all Activi
 |operationName|Name of the operation.|
 |properties	|Properties of the event.|
 |status|String. Status of the operation. Common values include: "Started", "In Progress", "Succeeded", "Failed", "Active", "Resolved".|
-|subStatus|	Usually includes the HTTP status code of the corresponding REST call. It might also include other strings describing a substatus. Common substatus values include: OK (HTTP Status Code: 200), Created (HTTP Status Code: 201), Accepted (HTTP Status Code: 202), No Content (HTTP Status Code: 204), Bad Request (HTTP Status Code: 400), Not Found (HTTP Status Code: 404), Conflict (HTTP Status Code: 409), Internal Server Error (HTTP Status Code: 500), Service Unavailable (HTTP Status Code:503), Gateway Timeout (HTTP Status Code: 504)|
+|subStatus|	Usually includes the HTTP status code of the corresponding REST call. It might also include other strings describing a substatus. Common substatus values include: OK (HTTP Status Code: 200), Created (HTTP Status Code: 201), Accepted (HTTP Status Code: 202), No Content (HTTP Status Code: 204), Bad Request (HTTP Status Code: 400), Not Found (HTTP Status Code: 404), Conflict (HTTP Status Code: 409), Internal Server Error (HTTP Status Code: 500), Service Unavailable (HTTP Status Code: 503), Gateway Timeout (HTTP Status Code: 504)|
 
 ## Next steps
 - [Learn more about the Activity Log](./monitoring-overview-activity-logs.md)
 - [Execute Azure Automation scripts (Runbooks) on Azure alerts](http://go.microsoft.com/fwlink/?LinkId=627081)
-- [Use Logic App to send an SMS via Twilio from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Note that this example is for metric alerts, but could be modified to work with an Activity Log alert.
-- [Use Logic App to send a Slack message from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Note that this example is for metric alerts, but could be modified to work with an Activity Log alert.
-- [Use Logic App to send a message to an Azure Queue from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). Note that this example is for metric alerts, but could be modified to work with an Activity Log alert.
+- [Use Logic App to send an SMS via Twilio from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). This example is for metric alerts, but could be modified to work with an Activity Log alert.
+- [Use Logic App to send a Slack message from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). This example is for metric alerts, but could be modified to work with an Activity Log alert.
+- [Use Logic App to send a message to an Azure Queue from an Azure alert](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). This example is for metric alerts, but could be modified to work with an Activity Log alert.
