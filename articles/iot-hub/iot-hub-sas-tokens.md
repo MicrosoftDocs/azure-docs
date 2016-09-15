@@ -18,7 +18,7 @@
 
 # Use IoT Hub security tokens and X.509 certificates
 
-IoT Hub uses security tokens to authenticate devices and services to avoid sending keys on the wire. Additionally, security tokens are limited in time validity and scope. [Azure IoT Hub SDKs][lnk-apis-sdks] automatically generate tokens without requiring any special configuration. Some scenarios, however, require the user to generate and use security tokens directly. These include the direct use of the AMQP, MQTT, or HTTP surfaces, or the implementation of the token service pattern, as explained in [IoT Hub guidance][lnk-guidance-security].
+IoT Hub uses security tokens to authenticate devices and services to avoid sending keys on the wire. Additionally, security tokens are limited in time validity and scope. [Azure IoT Hub SDKs][lnk-apis-sdks] automatically generate tokens without requiring any special configuration. Some scenarios, however, require the user to generate and use security tokens directly. These include the direct use of the MQTT, AMQP, or HTTP surfaces, or the implementation of the token service pattern, as explained in [IoT Hub guidance][lnk-guidance-security].
 
 IoT Hub also allows devices to authenticate with IoT Hub using X.509 certificates. IoT Hub supports X.509 based authentication for devices over the AMQP, AMQP over WebSockets and HTTP protocols.
 
@@ -27,7 +27,7 @@ This article describes:
 * The format of the security tokens and how to generate them.
 * The main use cases for using security tokens to authenticate both devices and back-end services.
 * Supported X.509 certificates for authentication of devices.
-* Process of registering a X.509 client certificate tied to a specific device.
+* Process of registering an X.509 client certificate tied to a specific device.
 * Runtime flow between device and IoT Hub using an X.509 client certificate for authentication.
 
 
@@ -50,7 +50,7 @@ These are the expected values:
 | {URL-encoded-resourceURI} | Lower case URL-encoding of the lower case resource URI |
 | {policyName} | The name of the shared access policy to which this token refers. Absent in the case of tokens referring to device-registry credentials. |
 
-**Note on prefix**: The URI prefix is computed by segment and not by character. For example `/a/b` is a prefix for `/a/b/c` but not for `/a/bc`.
+**Note on prefix**: The URI prefix is computed by segment and not by character. For example, `/a/b` is a prefix for `/a/b/c` but not for `/a/bc`.
 
 This is a Node function that computes the token from the inputs `resourceUri, signingKey, policyName, expiresInMins`. The next sections will detail how to initialize the different inputs for the different token use cases.
 
@@ -150,7 +150,7 @@ The two main scenarios for using shared access policies to access device functio
 
 Since the shared access policy can potentially grant access to connect as any device, it is important to use the correct resource URI when creating security tokens. This is especially important for token services, which have to scope the token to a specific device using the resource URI. This point is less relevant for protocol gateways as they are already mediating traffic for all devices.
 
-As an example, a token service using the precreated shared access policy called **device** would create a token with the following parameters:
+As an example, a token service using the pre-created shared access policy called **device** would create a token with the following parameters:
 
 * resource URI: `{IoT hub name}.azure-devices.net/devices/{device id}`,
 * signing key: one of the keys of the `device` policy,
@@ -184,10 +184,10 @@ These are the service functions exposed on the endpoints:
 | `{iot hub host name}/servicebound/feedback` | Receive feedback for cloud-to-device messages. |
 | `{iot hub host name}/devicebound` | Send cloud-to-device messages. |
 
-As an example, a service generating using the precreated shared access policy called **registryRead** would create a token with the following parameters:
+As an example, a service generating using the pre-created shared access policy called **registryRead** would create a token with the following parameters:
 
 * resource URI: `{IoT hub name}.azure-devices.net/devices`,
-* signing key: one of the keys of the `registryRead` plocy,
+* signing key: one of the keys of the `registryRead` policy,
 * policy name: `registryRead`,
 * any expiration time.
 
@@ -211,7 +211,7 @@ You can use any X.509 certificate to authenticate a device with IoT Hub. This in
 
 -   **CA-signed X.509 certificate**. You can also use an X.509 certificate generated and signed by a Certification Authority (CA) to identify a device and authenticate a device with IoT Hub.
 
-A device may either use a X.509 certificate or a security token for authentication, but not both.
+A device may either use an X.509 certificate or a security token for authentication, but not both.
 
 ## Register an X.509 client certificate for a device
 
@@ -223,7 +223,7 @@ The **RegistryManager** class provides a programmatic way to register a device. 
 
 > [AZURE.NOTE] IoT Hub does not require or store the entire X.509 client certificate, only the thumbprint.
 
-Here is a sample C\# code snippet to register a device using a X.509 client certificate:
+Here is a sample C\# code snippet to register a device using an X.509 client certificate:
 
 ```
 var device = new Device(deviceId)

@@ -20,6 +20,8 @@
 
 # Azure Functions Notification Hub output binding
 
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
+
 This article explains how to configure and code Azure Notification Hub bindings in Azure Functions. 
 
 [AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)] 

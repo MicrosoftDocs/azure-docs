@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/09/2016"
+	ms.date="08/24/2016"
 	ms.author="sdanie"/>
 
 # Protect your API with rate limits using Azure API Management
@@ -239,7 +239,6 @@ When the rate limit policy of 10 calls per minute is in effect, subsequent calls
 
 ## <a name="next-steps"> </a>Next steps
 
--	Check out the other topics in the [Get started with advanced API configuration][] tutorial.
 -	Watch a demo of setting rate limits and quotas in the following video.
 
 > [AZURE.VIDEO rate-limits-and-quotas]
@@ -290,7 +289,6 @@ When the rate limit policy of 10 calls per minute is in effect, subsequent calls
 [Publish the product]: #publish-product
 [Subscribe a developer account to the product]: #subscribe-account
 [Call an operation and test the rate limit]: #test-rate-limit
-[Get started with advanced API configuration]: api-management-get-started-advanced.md
 
 [Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota

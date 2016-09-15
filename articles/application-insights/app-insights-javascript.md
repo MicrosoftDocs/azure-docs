@@ -57,7 +57,7 @@ In Quick Start, get the script for web pages:
 
 ![On your app overview blade, choose Quick Start, Get code to monitor my web pages. Copy the script.](./media/app-insights-javascript/02-monitor-web-page.png)
 
-Insert the script just before the `<head>` tag of every page you want to track. If your website has a master page, you can put the script there. For example:
+Insert the script just before the `</head>` tag of every page you want to track. If your website has a master page, you can put the script there. For example:
 
 * In an ASP.NET MVC project, you'd put it in `View\Shared\_Layout.cshtml`
 * In a SharePoint site, on the control panel, open [Site Settings / Master Page](app-insights-sharepoint.md).
@@ -85,10 +85,10 @@ The [available parameters](https://github.com/Microsoft/ApplicationInsights-JS/b
     // Send telemetry immediately without batching.
     // Remember to remove this when no longer required, as it
     // can affect browser performance.
-    enableDebug: true,
+    enableDebug: boolean,
 
     // Don't log browser exceptions.
-    disableExceptionTracking: true,
+    disableExceptionTracking: boolean,
 
     // Don't log ajax calls.
     disableAjaxTracking: boolean,

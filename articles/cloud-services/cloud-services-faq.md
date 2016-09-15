@@ -17,9 +17,20 @@
 	ms.author="adegeo"/>
 
 # Cloud Services FAQ
-This article answers some frequently asked questions about Microsoft Azure Cloud SErvices. You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Azure pricing and support information. You can also consult the [Cloud Services VM Size page](cloud-services-sizes-specs.md) for size information.
+This article answers some frequently asked questions about Microsoft Azure Cloud Services. You can also visit the [Azure Support FAQ](http://go.microsoft.com/fwlink/?LinkID=185083) for general Azure pricing and support information. You can also consult the [Cloud Services VM Size page](cloud-services-sizes-specs.md) for size information.
 
 ## Certificates
+
+### Where should I install my certificate?
+
+- **My**  
+Application Certificate with private key (\*.pfx, \*.p12).
+
+- **CA**  
+All your intermediate certificates go in this store (Policy and Sub CAs).
+
+- **ROOT**  
+The root CA store, so your main root CA cert should go here.
 
 ### I can't remove expired certificate
 
@@ -35,25 +46,27 @@ These certificates are created whenever an extension is added to the cloud servi
 
 ### Certificates I have deleted keep reappearing
 
-These keep being deleted most likely because of a tool you're using, such as Visual Studio. Whenever you reconnect with a tool that is using a certificate, it will again be uploaded to Azure.
+These keep reappearing most likely because of a tool you're using, such as Visual Studio. Whenever you reconnect with a tool that is using a certificate, it will again be uploaded to Azure.
 
 ### My certificates keep disappearing
 
 When the virtual machine instance recycles, all local changes are lost. Use a [startup task](cloud-services-startup-tasks.md) to install certificates to the virtual machine each time the role starts.
 
-### Where should I install my certificate?
+### I cannot find my management certificates in the portal
 
-**My**  
-Application Certificate with private key (\*.pfx, \*.p12) .
+[Management certificates](..\azure-api-management-certs.md) are only avialable in the Azure Classic Portal. The current Azure portal does not use management certificates. 
 
-**CA**  
-All your intermediate certificates go in this store (Policy and Sub CAs).
+### How can I disable a management certificate?
 
-**ROOT**  
-The root CA store, so your main root CA cert should go here.
+[Management certificates](..\azure-api-management-certs.md) cannot be disabled. You delete them through the Azure Classic Portal when you do not want them to be used anymore.
+
+### How do I create an SSL certificate for a specific IP address?
+
+Follow the directions in the [create a certificate tutorial](cloud-services-certs-create.md). Use the IP address as the DNS Name.
 
 ## Troubleshooting
 
 ### I can't reserve an IP in a multi-VIP cloud service
 
 First, make sure that the virtual machine instance that you're trying to reserve the IP for is turned on. Second, make sure that you're using Reserved IPs for bother the staging and production deployments. **Do not** change the settings while the deployment is upgrading.
+

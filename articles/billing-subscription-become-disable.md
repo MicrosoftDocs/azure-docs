@@ -15,12 +15,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2016"
+	ms.date="08/24/2016"
 	ms.author="genli"/>
 
 # What do I do if my Azure subscription is disabled?
 
-> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) to get your issue resolved quickly.
+> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
 If your Azure subscription becomes disabled, you can use the steps in this article to re-enable it. Your Azure subscription can become disabled for the following reasons.
 
@@ -55,14 +55,25 @@ Pay your outstanding balance in full. To do this, see the article [Why have you 
 
 ## The bill exceeds your credit card limit
 
-To resolve this issue, use one of the following method:
+To resolve this issue, use one of the following methods:
 
 - [Switch to a different credit card](billing-how-to-change-credit-card.md).
 - If you are a business, you can [switch to the invoice method of payment](https://azure.microsoft.com/pricing/invoicing/).
 
-## How to re-enable your subscription
+## The subscription has been cancelled by the Account Administrator
 
-To re-enable a disabled subscription, you must create a support ticket: sign into the [Azure portal](https://portal.azure.com/), select **Help + support**>**New support request**.
+>[AZURE.NOTE] This method currently only applies to Pay As You Go subscriptions. For other subscription types, you'll need to [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
+If you are the account administrator, you can reactivate your Pay As You Go subscription by following the steps below:
+
+- Select the cancelled subscription.
+- Click on either of the **Reactivate** links on the subscription detail page.
+
+![reactivate-sub](./media/billing-how-to-cancel-azure-subscription/reactivate-sub.png)
+
+## How to re-enable non-Pay As You Go subscriptions:
+
+To reactivate a disabled subscription, you must create a support ticket: sign into the [Azure portal](https://portal.azure.com/), select **Help + support**>**New support request**.
 
 ![helpandsupportbutton](./media/billing-how-to-create-billing-support-ticket/helpandsupport.png)
 
@@ -73,4 +84,4 @@ If you cannot access the portal, submit a support request from the Azure Support
 
 For more information, see [How to Create a Support Ticket for Azure Billing and Subscription Issues](billing-how-to-create-billing-support-ticket.md).
 
-> [AZURE.NOTE] If you still have further questions, please [contact support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) to get your issue resolved quickly.
+> [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.

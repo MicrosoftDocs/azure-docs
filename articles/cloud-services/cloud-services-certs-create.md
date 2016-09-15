@@ -67,6 +67,9 @@ $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
 ```
 
+>[AZURE.NOTE] If you want to use the certificate with an IP address instead of a domain, use the IP address in the -DnsName parameter.
+
+
 If you want to use this [certificate with the management portal](../azure-api-management-certs.md), export it to a **.cer** file:
 
 ```powershell
@@ -81,7 +84,7 @@ There are many pages on the internet that cover how to do this with IIS. [Here](
 You can use Java to [create a certificate](../app-service-web/java-create-azure-website-using-java-sdk.md#create-a-certificate).
 
 ### Linux
-[This](../virtual-machines/virtual-machines-linux-ssh-from-linux.md) article describes how to create certificates with SSH.
+[This](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) article describes how to create certificates with SSH.
 
 ## Next steps
 

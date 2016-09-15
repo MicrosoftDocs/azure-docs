@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2016"
+   ms.date="08/23/2016"
    ms.author="alkohli" />
 
 # Turn your StorSimple device on or off 
@@ -189,39 +189,13 @@ A running StorSimple device may need to be shut down if it is being moved, taken
 
 ### Device with primary enclosure <a name="8100a"> 
 
-Currently there is no way to shut down a running StorSimple device from the Azure classic portal. The only way to shut it down is by using Windows PowerShell for StorSimple. To shut down the device in an orderly and controlled manner, access Windows PowerShell for StorSimple and follow the steps below.
+To shut down the device in an orderly and controlled manner, you can do it through the Azure classic portal or via the Windows PowerShell for StorSimple. 
 
 >[AZURE.IMPORTANT] Do not shut down a running device by using the power button on the back of the device.
 >
 >Before shutting down the device, make sure that all the device components are healthy. In the Azure classic portal, navigate to **Devices** > **Maintenance** > **Hardware Status**, and verify that status of all the components is green. This is true only for a healthy system. If the system is being shut down to replace a malfunctioning component, you will see a failed (red) or degraded (yellow) status for the respective component in the **Hardware Status**.
 
-You can connect to the Windows PowerShell for StorSimple through the device serial console or through Windows PowerShell remoting. After you access Windows PowerShell for StorSimple, perform the following steps to shut down a running device.
-
-#### To shut down a running device
-
-1. Connect to the serial console of the device.
-
-2. In the menu that appears, verify that the controller you are connected to is the **Standby** controller. If it is not the standby controller, disconnect from the controller, and connect to the other controller.
-
-3. In the serial console menu, choose **Option 1** to log on to the standby controller with full access.
-
-4. At the prompt, type: 
-
-    `Stop-HCSController`
-
-    This should shut down the current standby controller.
-
-    >[AZURE.IMPORTANT] Wait for the controller to shut down completely before you proceed to the next step.
-
-5. To verify that the shutdown has finished, check the back of the device. The controller fault LED should be solid red.
-
-6. Connect to the active controller through the serial console and follow the same steps to shut it down.
-
-7. After both the controllers have shut down completely, the status LEDs on both controllers should be blinking red.
-
-8. If you need to shut down the device completely at this time, flip the power switches on both Power and Cooling Modules (PCMs) to the OFF position.
-
-9. To verify that the device has completely shut down, check that all the lights at the back of the device are off.
+After you access the Windows PowerShell for StorSimple or the Azure classic portal, follow the steps in [shut down a StorSimple device](storsimple-manage-device-controller.md#shut-down-a-storsimple-device). 
 
 ### Device with EBOD enclosure <a name="8600a">
 
@@ -229,7 +203,7 @@ You can connect to the Windows PowerShell for StorSimple through the device seri
 
 #### To shut down a running device with EBOD enclosure
 
-1. Follow all the steps listed in [Device with primary enclosure only](#8100a).
+1. Follow all the steps listed in [shut down a StorSimple device](storsimple-manage-device-controller.md#shut-down-a-storsimple-device) for the primary enclosure.
 
 2. After the primary enclosure is shut down, shut down the EBOD by flipping off both Power and Cooling Module (PCM) switches.
 

@@ -5,7 +5,7 @@
 	documentationCenter=""
 	services="stream-analytics,documentdb"
 	authors="jeffstokes72"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
