@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/30/2016" 
+	ms.date="09/15/2016" 
 	ms.author="tomfitz"/>
 
 # Deploy resources with Resource Manager templates and Azure portal
@@ -35,7 +35,7 @@ the [classic portal](https://manage.windowsazure.com). For the status of each se
 
     ![create empty resource group](./media/resource-group-template-deploy-portal/create-empty-group.png)
 
-2. Give it a name and location, and, if necessary, select a subscription.
+2. Give it a name and location, and, if necessary, select a subscription. You need to provide a location for the resource group because the resource group stores metadata about the resources. For compliance reasons, you may want to specify where that metadata is stored. In general, we recommend that you specify a location where most of your resources will reside. Using the same location can simplify your template.
 
     ![set group values](./media/resource-group-template-deploy-portal/set-group-properties.png)
 
