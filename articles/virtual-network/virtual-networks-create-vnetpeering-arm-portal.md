@@ -108,13 +108,11 @@ Each link in VNet peering has a set of above properties. From portal, you can cl
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-scenario-transit-include](../../includes/virtual-networks-create-vnetpeering-scenario-transit-include.md)]
 
-1. As a first step, VNET peering links from HubVnet to VNET1.
-    > [AZURE.NOTE] Allow Forwarded Traffic option is not selected for the link.
+1. As a first step, VNET peering links from HubVnet to VNET1. Note that Allow Forwarded Traffic option is not selected for the link.
 
     ![Basic Peering](./media/virtual-networks-create-vnetpeering-arm-portal/figure14.png)
 
-2. As a next step, peering links from VNET1 to HubVnet can be created.
-    >> [AZURE.NOTE] Allow forwarded traffic option is selected.
+2. As a next step, peering links from VNET1 to HubVnet can be created. Note that Allow forwarded traffic option is selected.
 
     ![Basic Peering](./media/virtual-networks-create-vnetpeering-arm-portal/figure15a.png)
 
