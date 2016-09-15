@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/12/2016" 
+	ms.date="09/15/2016" 
 	ms.author="sdanie"/>
 
 # How to configure Virtual Network Support for a Premium Azure Redis Cache
@@ -23,7 +23,7 @@ The Azure Redis Cache premium tier includes clustering, persistence, and virtual
 
 >[AZURE.NOTE] Azure Redis Cache supports both classic and ARM VNets.
 
-For information on other premium cache features, see [How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md) and [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md).
+For information on other premium cache features, see [Introduction to the Azure Redis Cache Premium tier](cache-premium-tier-intro.md).
 
 ## Why VNet?
 [Azure Virtual Network (VNet)](https://azure.microsoft.com/services/virtual-network/) deployment provides enhanced security and isolation for your Azure Redis Cache, as well as subnets, access control policies, and other features to further restrict access to Azure Redis Cache.
@@ -150,9 +150,7 @@ For more information about ExpressRoute, see [ExpressRoute technical overview](.
 ## Next steps
 Learn how to use more premium cache features.
 
--	[How to configure persistence for a Premium Azure Redis Cache](cache-how-to-premium-persistence.md)
--	[How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md)
--	[Import and Export data in Azure Redis Cache](cache-how-to-import-export-data.md)
+-	[Introduction to the Azure Redis Cache Premium tier](cache-premium-tier-intro.md)
 
 
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2016" 
+	ms.date="09/15/2016" 
 	ms.author="sdanie"/>
 
 # Import and Export data in Azure Redis Cache
@@ -153,7 +153,11 @@ To resolve this, initiate the import or export operation before 15 minutes has e
 
 Import/Export works only with RDB files stored as page blobs. Other blob types are not supported at this time, including blob storage accounts with hot and cool tiers.
 
-    
+
+## Next steps
+Learn how to use more premium cache features.
+
+-	[Introduction to the Azure Redis Cache Premium tier](cache-premium-tier-intro.md)    
 
   
 <!-- IMAGES -->
