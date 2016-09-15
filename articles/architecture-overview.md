@@ -36,9 +36,9 @@ Microsoft created an architecture course supporting Microsoft certification exam
 
 Microsoft publishes a set of high level [solution architectures](http://aka.ms/azblueprints) showing how to build specific types of systems using Microsoft products. 
 
-Previously, Microsoft published a set of blueprints showing example architectures. Those have been replaced by the solution architectures mentioned previously and the blueprint link has been redirected to point to them. If you need access to the previous blueprints materials for some reason, please email [CnESymbols@microsoft.com](mailto:CnESymbols@microsoft.com with your request.   
+Previously, Microsoft published a set of blueprints showing example architectures. Those have been replaced by the solution architectures mentioned previously and the blueprint link has been redirected to point to them. If you need access to the previous blueprints materials for some reason, please email [CnESymbols@microsoft.com](mailto:CnESymbols@microsoft.com) with your request.   
 
-The blueprints and solution architectures diagrams both use parts of the [Cloud and Enterprise Symbol Set](#symbol-and-icon-sets).   
+The blueprints and solution architectures diagrams both use parts of the [Cloud and Enterprise Symbol Set](#Drawing-symbol-and-icon-sets).   
 
 ![Microsoft Architecture Blueprint 3D diagram](./media/architecture-overview/BluePrintThumb.jpg)
 
