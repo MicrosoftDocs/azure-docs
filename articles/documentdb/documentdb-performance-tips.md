@@ -93,23 +93,27 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     DocumentDB requests are made over HTTPS/REST by default and subject to the default connection limits per hostname or IP address. You may need to set this to a higher value (100-1000) so that the client library can utilize multiple simultaneous connections to DocumentDB. In the .NET SDK 1.8.0 and above, the default value for [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) is 50 and to change the value, you can set the [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/en-us/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) to a higher value.  
 
-4. **Turn server-side GC on**
+4. **Tuning parallel queries for partitioned collections**
+
+        IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000, MaxDegreeOfParallelism = 10, MaxBufferedItemCount = 10000  });
+
+5. **Turn server-side GC on**
     
     Reducing the frequency of garbage collection may help in some cases. In .NET, set [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) to true.
 
-5. **Implement backoff at RetryAfter intervals**
+6. **Implement backoff at RetryAfter intervals**
  
     During performance testing, you should increase load until a small rate of requests get throttled. If throttled, the client application should backoff on throttle for the server-specified retry interval. This ensures that you spend minimal amount of time waiting between retries. Retry policy support is included in Version 1.8.0 and above of the DocumentDB [.NET](documentdb-sdk-dotnet.md) and [Java](documentdb-sdk-java.md), and version 1.9.0 and above of the [Node.js](documentdb-sdk-nodejs.md) and [Python](documentdb-sdk-python.md). For more information see [Exceeding reserved throughput limits](documentdb-request-units.md#exceeding-reserved-throughput-limits) and [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
 
-6. **Scale out your client-workload**
+7. **Scale out your client-workload**
 
     If you are testing at high throughput levels (>50,000 RU/s), the client application may become the bottleneck due to the machine capping out on CPU or Network utilization. If you reach this point, you can continue to push the DocumentDB account further by scaling out your client applications across multiple servers.
 
-7. **Cache document URIs for lower read latency**
+8. **Cache document URIs for lower read latency**
 
     Cache document URIs whenever possible for the best read performance.
 <a id="tune-page-size"></a>
-8. **Tune the page size for queries/read feeds for better performance**
+9. **Tune the page size for queries/read feeds for better performance**
 
     When performing a bulk read of documents using read feed functionality (i.e. ReadDocumentFeedAsync) or when issuing a DocumentDB SQL query, the results are returned in a segmented fashion if the result set is too large. By default, results are returned in chunks of 100 items or 1 MB, whichever limit is hit first. 
 
@@ -119,7 +123,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     
         IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
 
-9. **Increase number of threads/tasks**
+10. **Increase number of threads/tasks**
 
 	See [Increase number of threads/tasks](increase-threads.md) in the Networking section.
 
