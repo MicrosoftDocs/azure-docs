@@ -18,13 +18,13 @@
 
 # Configure a webhook on an Azure Alert
 
-Webhooks allow you to route the Azure Alert notification to other systems for post-processing or custom actions. You can use a webhook on an alert to route it to services that send SMS, log bugs, notify a team via chat/messaging services, or do any number of other actions. This article will describe how to set a webhook on an Azure metric alert and what the payload for the HTTP POST to a webhook will be. For information on the setup and schema for an Azure Activity Log alert (alert on events), [see this page instead](./insights-auditlog-to-webhook-email.md).
+Webhooks allow you to route an Azure Alert notification to other systems for post-processing or custom actions. You can use a webhook on an alert to route it to services that send SMS, log bugs, notify a team via chat/messaging services, or do any number of other actions. This article describes how to set a webhook on an Azure metric alert and what the payload for the HTTP POST to a webhook looks like. For information on the setup and schema for an Azure Activity Log alert (alert on events), [see this page instead](./insights-auditlog-to-webhook-email.md).
 
-Azure alerts HTTP POST the alert contents in JSON format, schema defined below, to a webhook URI that you provide when creating the alert. This URI must be a valid HTTP or HTTPS endpoint.
+Azure alerts HTTP POST the alert contents in JSON format, schema defined below, to a webhook URI that you provide when creating the alert. This URI must be a valid HTTP or HTTPS endpoint. Azure posts one entry per request when an alert is activated.
 
 ## Configuring webhooks via the portal
 
-You can add or update the webhook URI in the Create/Update Alerts screen in the [Azure Portal](https://portal.azure.com/).
+You can add or update the webhook URI in the Create/Update Alerts screen in the [portal](https://portal.azure.com/).
 
 ![Add an alert Rule](./media/insights-webhooks-alerts/Alertwebhook.png)
 
@@ -39,7 +39,7 @@ The webhook can authenticate using either of these methods:
 
 ## Payload schema
 
-The POST operation will contain the following JSON payload and schema for all metric-based alerts.
+The POST operation contains the following JSON payload and schema for all metric-based alerts.
 
 ```
 {
@@ -75,31 +75,31 @@ The POST operation will contain the following JSON payload and schema for all me
 ```
 
 
-| Field | Mandatory? | Fixed Set of Value(s)? | Notes |
+| Field | Mandatory | Fixed Set of Values | Notes |
 | :-------------| :-------------   | :-------------   | :-------------   |
-|status|Y|“Activated”, “Resolved”|This is how you find out what kind of alert it is. Azure automatically sends activated and resolved alerts for the condition one sets.|
-|context| Y | | The alert context|
-|timestamp| Y | | The time at which the alert was triggered. The alert is triggered as soon as the metric is read from the diagnostics storage.|
+|status|Y|“Activated”, “Resolved”|Status for the alert based off of the conditions you have set.|
+|context| Y | | The alert context.|
+|timestamp| Y | | The time at which the alert was triggered.|
 |id | Y | | Every alert rule has a unique id.|
-|name|Y					|							|
-|description		|Y					|							|Description about the alert.|
-|conditionType		|Y					|“Metric”, “Event”			|Two types of alerts are supported. One based on metric and the other based on event. In the future we will support alerts for Events, so use this value to check if the alert is based on metric or event|
-|condition			|Y					|							|This will have the specific fields to check for based on the conditionType|
+|name               |Y  				|					| The alert name.|
+|description		|Y					|							|Description of the alert.|
+|conditionType		|Y					|“Metric”, “Event”			|Two types of alerts are supported. One based on a metric condition and the other based on an event in the Activity Log. Use this value to check if the alert is based on metric or event.|
+|condition			|Y					|							| The specific fields to check for based on the conditionType.|
 |metricName			|for Metric alerts	|							|The name of the metric that defines what the rule monitors.|
-|metricUnit			|for Metric alerts	|"Bytes", "BytesPerSecond" , "Count" , "CountPerSecond" , "Percent", "Seconds"|	 The unit allowed in the metric. Allowed values: https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx|
-|metricValue		|for Metric alerts	|							|The actual value of the metric that caused the alert|
-|threshold			|for Metric alerts	|							|The threshold value that activates the alert|
+|metricUnit			|for Metric alerts	|"Bytes", "BytesPerSecond", "Count", "CountPerSecond", "Percent", "Seconds"|	 The unit allowed in the metric. [Allowed values are listed here](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx).|
+|metricValue		|for Metric alerts	|							|The actual value of the metric that caused the alert.|
+|threshold			|for Metric alerts	|							|The threshold value at which the alert is activated.|
 |windowSize			|for Metric alerts	|							|The period of time that is used to monitor alert activity based on the threshold. Must be between 5 minutes and 1 day. ISO 8601 duration format.|
-|timeAggregation	|for Metric alerts	|"Average", "Last" , "Maximum" , "Minimum" , "None", "Total" |	How the data that is collected should be combined over time. The default value is Average. Allowed values: https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx|
-|operator			|for Metric alerts 	|							|The operator used to compare the data and the threshold.|
-|subscriptionId	 	|Y					|							|Azure subscription GUID|
-|resourceGroupName	|Y					|							|resource-group-name of the impacted resource|
-|resourceName	 	|Y					|							|resource name of the impacted resource|
-|resourceType	 	|Y					|							|resource type of the impacted resource|
-|resourceId	 		|Y					|							|resource id URI that uniquely identifies that resource|
-|resourceRegion	 	|Y					|							|region/location of the resource that's impacted|
-|portalLink	 		|Y					|							|direct azure portal link to the resource summary page|
-|properties			|N					|Optional					|Is a set of <Key, Value> pairs (i.e. Dictionary<String, String>) that includes details about the event. The properties field is optional. In a custom UI or Logic app based workflow, users can enter key/values that can be passed via the payload. The alternate way to pass custom properties back to the webhook is via the webhook uri itself (as query parameters)|
+|timeAggregation	|for Metric alerts	|"Average", "Last", "Maximum", "Minimum", "None", "Total" |	How the data that is collected should be combined over time. The default value is Average. [Allowed values are listed here](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx).|
+|operator			|for Metric alerts 	|							|The operator used to compare the current metric data to the set threshold.|
+|subscriptionId	 	|Y					|							|Azure subscription ID.|
+|resourceGroupName	|Y					|							|Name of the resource group for the impacted resource.|
+|resourceName	 	|Y					|							|Resource name of the impacted resource.|
+|resourceType	 	|Y					|							|Resource type of the impacted resource.|
+|resourceId	 		|Y					|							|Resource ID of the impacted resource.|
+|resourceRegion	 	|Y					|							|Region or location of the impacted resource.|
+|portalLink	 		|Y					|							|Direct link to the portal resource summary page.|
+|properties			|N					|Optional					|Set of `<Key, Value>` pairs (i.e. `Dictionary<String, String>`) that includes details about the event. The properties field is optional. In a custom UI or Logic app-based workflow, users can enter key/values that can be passed via the payload. The alternate way to pass custom properties back to the webhook is via the webhook uri itself (as query parameters)|
 
 
 >[AZURE.NOTE] The properties field can only be set using the [Insights REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx).
