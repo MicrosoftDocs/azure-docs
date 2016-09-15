@@ -56,7 +56,7 @@ configuration Main
 } 
 ```
 
-It is important to include *node localhost* as part of the configuration. If this statement is missing, the following will not work as the extension handler specifically looks for the node localhost statement. It is also important to include the typecast *[PsCredential]*, as this specific type triggers the extension to encrypt the credential. 
+It is important to include *node localhost* as part of the configuration. If this statement is missing, the following steps do not work as the extension handler specifically looks for the node localhost statement. It is also important to include the typecast *[PsCredential]*, as this specific type triggers the extension to encrypt the credential. 
 
 Publish this script to blob storage:
 
