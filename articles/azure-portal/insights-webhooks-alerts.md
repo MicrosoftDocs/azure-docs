@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configure webhooks on Azure Alerts | Microsoft Azure"
+	pageTitle="Configure webhooks on Azure metric alerts | Microsoft Azure"
 	description="Reroute Azure alerts to other non-Azure systems."
 	authors="kamathashwin"
 	manager=""
@@ -16,9 +16,9 @@
 	ms.date="09/15/2016"
 	ms.author="ashwink"/>
 
-# Configure a webhook on an Azure Alert
+# Configure a webhook on an Azure metric alert
 
-Webhooks allow you to route an Azure Alert notification to other systems for post-processing or custom actions. You can use a webhook on an alert to route it to services that send SMS, log bugs, notify a team via chat/messaging services, or do any number of other actions. This article describes how to set a webhook on an Azure metric alert and what the payload for the HTTP POST to a webhook looks like. For information on the setup and schema for an Azure Activity Log alert (alert on events), [see this page instead](./insights-auditlog-to-webhook-email.md).
+Webhooks allow you to route an Azure alert notification to other systems for post-processing or custom actions. You can use a webhook on an alert to route it to services that send SMS, log bugs, notify a team via chat/messaging services, or do any number of other actions. This article describes how to set a webhook on an Azure metric alert and what the payload for the HTTP POST to a webhook looks like. For information on the setup and schema for an Azure Activity Log alert (alert on events), [see this page instead](./insights-auditlog-to-webhook-email.md).
 
 Azure alerts HTTP POST the alert contents in JSON format, schema defined below, to a webhook URI that you provide when creating the alert. This URI must be a valid HTTP or HTTPS endpoint. Azure posts one entry per request when an alert is activated.
 
