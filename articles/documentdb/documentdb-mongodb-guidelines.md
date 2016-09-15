@@ -36,7 +36,7 @@ MongoDB Insert, Read, Update, Replace and Delete operations are fully supported.
 
 ## Query operations
 
-DocumentDB supports the full grammar of MongoDB Query with a few exceptions. Queries operating on the JSON compatible set of [BSON types](https://docs.mongodb.org/manual/reference/bson-types/) are supported in addition to support for the MongoDB date time  format. For queries requiring non-JSON type specific operators, DocumentDB supports GUID data types.
+DocumentDB supports the full grammar of MongoDB Query with only a few exceptions. Queries operating on the JSON compatible set of [BSON types](https://docs.mongodb.org/manual/reference/bson-types/) are supported in addition to support for the MongoDB date time  format. For queries requiring non-JSON type specific operators, DocumentDB supports GUID data types.
 
 ## Portal experience
 The Azure portal experience for MongoDB protocol enabled accounts is catered for MongoDB protocol enabled accounts.  We are looking to expand the experience, but we need your [feedback](mailto:askdocdb@microsoft.com?subject=DocumentDB%20Protocol%20Support%20for%20MongoDB%20Preview%20Portal%20Experience) regarding what portal features would be of most use to you.
@@ -80,13 +80,9 @@ Feature|Supported|Will be supported
 ---|---|---
 Aggregation|Count| 
 GeoSpatial| |-all-
-Query & Write|find, insert, update, delete, getLastError, getMore, findAndModify| |Eval, parallelCollectionScan, getPrevError, resetError
-QueryPlan Cache| | 
+Query & Write|find, insert, update, delete, getLastError, getMore, findAndModify| 
 Authentication|getnonce, logout, authenticate| 
-User Management| | 
-Role Management| | 
-Replication| | 
-Administration|createIndex, listIndexes, dropIndexes, connectionStatus, reIndex| |Other commands.  For indexes, no support for the Unique, expireAfterSeconds, storageEngine, weights, default_language, textIndexVersion, min, max, bucketSize
+Administration|createIndex, listIndexes, dropIndexes, connectionStatus, reIndex| 
 Diagnostic|listDatabases, collStats, dbStats| 
 
 ## Next steps
