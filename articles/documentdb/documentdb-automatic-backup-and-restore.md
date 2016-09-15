@@ -4,7 +4,7 @@
 	keywords="backup and restore, automatic backup"
 	services="documentdb"
 	documentationCenter=""
-	authors="mimig1"
+	authors="RahulPrasad16"
 	manager="jhubbard"
 	editor="monicar"/>
 
@@ -17,7 +17,7 @@
 	ms.date="09/13/2016"
 	ms.author="raprasa"/>
 
-# Automatic backup and restore with DocumentDB 
+# Automatic and online backup and restore with DocumentDB 
 
 Azure DocumentDB automatically takes backups of all your data at regular intervals. The automatic backups are taken without affecting the performance or availability of your NoSQL database operations. All your backups are stored separately in another storage service, and those backups are globally replicated for resiliency against regional disasters. The automatic backups are intended for scenarios when you accidentally delete your DocumentDB collection and later want to restore it.  
 
@@ -51,7 +51,7 @@ The following image illustrates periodic full backups of all DocumentDB entities
 
 ## Retention period for a given snapshot
 
-While we periodically take snapshots of your data for automatic backup, for compliance reasons, each snapshot of data is stored for at least 30 days and up to 90 days before we eventually purge it. Internally, this retention interval is configurable on a per database account basis. 
+While we periodically take snapshots of your data for automatic backup, for compliance reasons, each snapshot of data is stored for at least 30 days and up to 90 days before we eventually purge it. Internally, this retention interval is configurable on a per database account basis. If a collection or account is deleted, we keep the last backup of the collection or all the collections (account delete) for 90 days.
 
 ## Restoring your data from the backup
 
