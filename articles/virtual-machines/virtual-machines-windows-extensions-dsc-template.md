@@ -23,7 +23,7 @@ This article describes the Resource Manager template for the [Desired State Conf
 
 ## Template example for a Windows VM
 
-The snippet below goes into the Resource section of the template.
+The following snippet goes into the Resource section of the template.
 
 ```json
 			"name": "Microsoft.Powershell.DSC",
@@ -90,8 +90,7 @@ A VMSS node has a "properties" section with the "VirtualMachineProfile", "extens
 
 ## Detailed Settings Information
 
-This is the schema for the settings portion of the Azure DSC extension in an Azure Resource Manager template.
-
+The following schema is for the settings portion of the Azure DSC extension in an Azure Resource Manager template.
 ```json
 
 "settings": {
@@ -173,7 +172,7 @@ The following example derives from the "Getting Started" section of the [DSC Ext
 This example uses Resource Manager templates instead of cmdlets to deploy the extension. 
 Save the "IisInstall.ps1" configuration, place it in a .ZIP file, and upload the file in an accessible URL. This example uses Azure blob storage, but it is possible to download .ZIP files from any arbitrary location.
 
-In the Resource Manager template, the following instructs the VM to download the correct file and run the appropriate PowerShell function:
+In the Azure Resource Manager template, the following code instructs the VM to download the correct file and run the appropriate PowerShell function:
 
 ```json
 "settings": {
@@ -190,9 +189,9 @@ In the Resource Manager template, the following instructs the VM to download the
 ```
 
 ## Updating from the Previous Format
-Any settings in the previous format (containing the public properties ModulesUrl, ConfigurationFunction, SasToken, or Properties) will automatically adapt to the current format and run just as they did before.
+Any settings in the previous format (containing the public properties ModulesUrl, ConfigurationFunction, SasToken, or Properties) automatically adapt to the current format and run just as they did before.
 
-The previous settings schema looked like the following:
+The following schema is what the previous settings schema looked like:
 
 ```json
 "settings": {
@@ -228,8 +227,8 @@ Here's how the previous format adapts to the current format:
 | --- | --- |
 | settings.wmfVersion | settings.WMFVersion |
 | settings.configuration.url | settings.ModulesUrl |
-| settings.configuration.script | 1st part of settings.ConfigurationFunction (before '\\\\') |
-| settings.configuration.function | 2nd part of settings.ConfigurationFunction (after '\\\\') |
+| settings.configuration.script | First part of settings.ConfigurationFunction (before '\\\\') |
+| settings.configuration.function | Second part of settings.ConfigurationFunction (after '\\\\') |
 | settings.configurationArguments | settings.Properties |
 | settings.configurationData.url | protectedSettings.DataBlobUri (without SAS token) |
 | settings.privacy.dataEnabled | settings.Privacy.DataEnabled |
@@ -266,7 +265,7 @@ Solution: Check all your provided URLs. Make sure all URLs resolve to valid loca
 
 Problem: The ConfigurationArguments property cannot resolve to a Hashtable object. 
 
-Solution: Make your ConfigurationArguments property a Hashtable. Follow the format provided in the example above. Watch out for quotes, commas, and braces.
+Solution: Make your ConfigurationArguments property a Hashtable. Follow the format provided in the preceeding example. Watch out for quotes, commas, and braces.
 
 ### Duplicate ConfigurationArguments
 "Found duplicate arguments '{0}' in both public and protected configurationArguments"
