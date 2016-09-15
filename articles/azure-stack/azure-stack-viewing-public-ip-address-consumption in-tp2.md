@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Viewing Public IP Address Consumption in TP2 | Microsoft Azure"
-	description="Administrators can view the consumption of Public IP Addresses in a Region."
+	pageTitle="Viewing public IP address consumption in TP2 | Microsoft Azure"
+	description="Administrators can view the consumption of public IP addresses in a Region."
 	services="azure-stack"
 	documentationCenter=""
 	authors="ScottNapolitan"
@@ -16,92 +16,76 @@
 	ms.date="09/26/2016"
 	ms.author="scottnap"/>
 
-Viewing Public IP Address Consumption in Azure Stack TP2
-========================================================
+# View public IP address consumption in Azure Stack TP2
 
-As a Service Administrator, you can view the number of Public IP
-Addresses that have been allocated to tenants, the number of Public IP
-Addresses that are still available to be allocated to tenants and the
-percentage of Public IP Addresses that have been allocated of the total
-in that Location.
+As a service administrator, you can view the number of public IP addresses that have been allocated to tenants, the number of public IP addresses that are still available for allocation, and the percentage of public IP addresses that have been allocated in that location.
 
-The **Public IP Address Usage** tile shows the total number of Public IP
-Addresses consumed across all Public IP Address pools on the fabric,
-regardless of whether they are used for tenant IaaS VM instances, Fabric
-infrastructure services, or Public IP Address resources that were
-explicitly created by tenants. The purpose of this tile is to give the
-Azure Stack Administrator a sense of the overall number of Public IP
-Addresses consumed in this location, so that they can tell whether or
-not they are running low on this resource.
+The **Public IP Address Usage** tile shows the total number of public IP
+addresses that have been consumed across all public IP address pools on the fabric, whether
+they have been used for tenant IaaS VM instances, fabric
+infrastructure services, or public IP address resources that were explicitly created by tenants.
 
-The **Public IP Addresses** menu item under **Tenant resources** in the
-Settings blade lists only those Public IP Addresses that have been
-*explicitly created by tenants*. As such, the number of **Used** Public
-IP Addresses on the **Public IP Address Usage** tile will always be
+The purpose of this tile is to give Azure Stack administrators a sense of the overall number of public IP
+addresses that have been consumed in this location. This helps administrators determine whether or
+they are running low on this resource.
+
+On the **Settings** blade, the **Public IP Addresses** menu item under **Tenant resources** lists only those public IP addresses that have been
+*explicitly created by tenants*. As such, the number of **Used** public
+IP addresses on the **Public IP Address Usage** tile is always
 different (larger) than the number on the **Public IP Addresses** tile
-under Tenant resources.
+under **Tenant resources**.
 
-Understanding the Public IP Address Usage information
------------------------------------------------------
+## View the public IP address usage information
 
-To view the total number of Public IP addresses that have been consumed
-in the region
+To view the total number of public IP addresses that have been consumed
+in the region:
 
-1.  In the Azure Stack Portal, click on **Browse** and select **Resource
+1.  In the Azure Stack portal, click on **Browse**, and then select **Resource
     Providers**.
 
-2.  Select **Network** **Resource Provider Admin** from the list of
-    **Resource Providers**.
+2.  From the list of **Resource Providers**, select **Network Resource Provider Admin**.
 
-3.  Alternately you can click on **Browse** | **Locations** and select
-    the location you want to view from the list. Then select **Network**
-    from the **Resource Providers** tile.
+3.  Alternately you can click on **Browse | Locations** and select
+    the location that you want to view from the list. Then, on the **Resource Providers** tile, select **Network Resource Provider Admin**.
 
-4.  The Network Resource Provider landing blade will display the
+4.  The **Network Resource Provider** landing blade displays the
     **Public IP Address Usage** tile in the **Overview** section.
 
-![](media/azure-stack-viewing-public-ip-address-consumption in-tp2/image1.png)
+![Network Resource Provider blade](media/azure-stack-viewing-public-ip-address-consumption in-tp2/image1.png)
 
-1.  Keep in mind that the **Used** number represents the number of
-    Public IP Addresses from all Public IP Address pools in that
-    location that are assigned. The **Available** number represents the
-    number of Public IP Addresses from all Public IP Address pools that
-    have not been assigned and are still available. The % Used
-    represents the number of used or assigned addresses as a percentage
-    of the total number of Public IP Addresses in all Public IP Address
-    pools in that location.
+Keep in mind that the **Used** number represents the number of public IP addresses from all public IP address pools in that location that are assigned. The **Available** number represents the number of public IP addresses from all public IP address pools that have not been assigned and are still available. The **% Used** number represents the number of used or assigned addresses as a percentage of the total number of public IP addresses in all public IP address
+pools in that location.
 
-Public IP Addresses list – Tenant Resources
--------------------------------------------
+## View the public IP addresses that were created by tenant subscriptions
 
-If you want to look at a list of Public IP addresses that were
-explicitly created by tenant subscriptions in a Region, you can click on
-the **Public IP Addresses** menu item in the **Settings** blade of the
-**Network Resource Provider Admin**.
+To see a list of public IP addresses that were explicitly created by tenant subscriptions in a specific region, go to the **Settings** blade of the
+**Network Resource Provider Admin**, and then select **Public IP Addresses**.
 
-![](media/azure-stack-viewing-public-ip-address-consumption in-tp2/image2.png)
+![Settings blade of the Network Resource Provider Admin](media/azure-stack-viewing-public-ip-address-consumption in-tp2/image2.png)
 
-You may notice that some Public IP Addresses that have been dynamically
-allocated show up in the list but do not have an address associated with
+You might notice that some public IP addresses that have been dynamically
+allocated appear in the list but do not have an address associated with
 them yet. This is because the address resource has been created in the
-Network Resource Provider, but not in the Network Controller yet. The
+Network Resource Provider, but not in the Network Controller yet.
+
+The
 Network Controller does not assign an address to this resource until it
-is actually bound to an interface, either a Network Interface Card
-(NIC), a Load Balancer or a Virtual Network Gateway. When the Public IP
+is actually bound to an interface, a Network Interface Card
+(NIC), a load balancer, or a virtual network gateway. When the public IP
 address is bound to an interface, the Network Controller allocates an IP
-address to it and it will appear in the **Address** field.
+address to it, and it appears in the **Address** field.
 
-Public IP Address information summary table
--------------------------------------------
+## View the public IP address information summary table
 
-There are a number of different cases in which Public IP addresses are
-assigned that determine whether or not the address will appear in one
+
+There are a number of different cases in which public IP addresses are
+assigned that determine whether the address appears in one
 list or another.
 
- | **Public IP Address assignment case** | **Appears in Usage Summary** | **Appears in Tenant Public IP addresses list** |
+ | **Public IP address assignment case** | **Appears in usage summary** | **Appears in tenant public IP addresses list** |
  |---------------------------------------|:----------------------------:| :----------------------------------------------:|
- | Dynamic Public IP address not yet assigned to a NIC or Load Balancer (temporary) | No | Yes |
- | Dynamic Public IP address that has been assigned to a NIC or Load Balancer | Yes | Yes |
- | Static Public IP address that has been assigned to a tenant NIC or load balancer | Yes | Yes |
- | Static Public IP Address that has been assigned to a fabric infrastructure service endpoint | Yes | No |
- | Public IP Address implicitly created for IaaS VM instances used for Outbound NAT on the VNET. These are created behind the scenes whenever a tenant creates a VM instance so that VMs can send information out to the Internet. | Yes | No |
+ | Dynamic public IP address not yet assigned to an NIC or load balancer (temporary) | No | Yes |
+ | Dynamic public IP address assigned to an NIC or load balancer | Yes | Yes |
+ | Static public IP address assigned to a tenant NIC or load balancer | Yes | Yes |
+ | Static public IP address assigned to a fabric infrastructure service endpoint | Yes | No |
+ | Public IP address implicitly created for IaaS VM instances and used for Outbound NAT on the VNET. These are created behind the scenes whenever a tenant creates a VM instance so that VMs can send information out to the Internet. | Yes | No |
