@@ -18,7 +18,7 @@
 
 # Service Fabric on Linux
 
-The preview will be made publicly available on September 26 as announced [in this blog post](https://azure.microsoft.com/blog/service-fabric-on-linux-support-available-this-month/). The preview of Service Fabric on Linux enables you you to build, deploy, and manage highly available, highly scalable applications on Linux just as you would on Windows. In addition, the high-level Service Fabric frameworks (Reliable Services and Reliable Actors) are now available in Java on Linux.
+The preview will be made publicly available on September 26 as announced [in this blog post](https://azure.microsoft.com/blog/service-fabric-on-linux-support-available-this-month/). The preview of Service Fabric on Linux enables you to build, deploy, and manage highly available, highly scalable applications on Linux just as you would on Windows. In addition, the high-level Service Fabric frameworks (Reliable Services and Reliable Actors) are now available in Java on Linux.
 
 > [AZURE.VIDEO service-fabric-linux-preview]
 
@@ -30,7 +30,7 @@ You can build [guest executable services](service-fabric-deploy-existing-app.md)
 
 >[AZURE.NOTE] Reliable Collections are not supported in Linux yet.
 
-Service Fabric on Linux is conceptually equivalent to that on Windows (except for OS specifics and programming language support). Thus, most of our [existing documentation](http://aka.ms/servicefabricdocs) applies in helping you get familiar with the technology.
+Service Fabric on Linux is conceptually equivalent to Service Fabric on Windows (except for OS specifics and programming language support). Thus, most of our [existing documentation](http://aka.ms/servicefabricdocs) applies in helping you get familiar with the technology.
 
 ## Next steps
 
