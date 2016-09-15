@@ -36,7 +36,7 @@ Hyper-V Site deployment is same as that of VMM Deployment – only difference be
 ### Enable Protection
 Once you protect a virtual machine from portal or on-premises, an ASR job named *Enable Protection* will be initiated and can be monitored under the JOBS tab. 
 
-![Troubleshoot on-premises Hyper-V issues](media/site-recovery-understanding-site-to-azure-protection/image001.png)
+![Troubleshoot on-premises Hyper-V issues](media/site-recovery-understanding-site-to-azure-protection/image001.PNG)
 
 *Enable Protection* job checks for the prerequisites before invoking [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) which creates replication to Azure using inputs configured during protection. *Enable Protection* job starts the initial replication from on-premises by invoking [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) which sends the virtual machine's virtual disks to Azure.
 
