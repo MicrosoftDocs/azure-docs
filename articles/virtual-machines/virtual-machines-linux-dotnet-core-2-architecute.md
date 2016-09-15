@@ -29,7 +29,7 @@ The Music Store application includes a web application where customers can brows
 
 A virtual machine can be added to a template using the Visual Studio Add New Resource wizard, or by inserting valid JSON into the deployment template. When deploying a virtual machine, several related resources are also needed. If using Visual Studio to create the template, these resources are created for you. If manually constructing the template, these resources need to be inserted and configured.
 
-The virtual machine resource is declared beginning on line [**301**](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L301) of the sample template.
+Follow this link to see the JSON sample within the Resource Manager template – [Virtual Machine JSON]( https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L301).
 
 ```none
 {
@@ -63,7 +63,10 @@ Once deployed, the virtual machine properties can be seen in the Azure portal.
 
 ## Storage Account
 
-A storage account is used to hold the virtual hard drives for each virtual machine in the deployment. In the sample Music Store template, the storage account is declared on line [**115**](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L115) of the template.
+Storage accounts have many storage options and capabilities. For the context of Azure Virtual machines, a storage account will hold the virtual hard drives of the virtual machine and any additional data disks. The Music Store sample includes one storage account to hold the hard drive of each virtual machine in the deployment. 
+
+Follow this link to see the JSON sample within the Resource Manager template – [Storage Account]( https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L115).
+
 
 ```none
 {
@@ -80,7 +83,9 @@ A storage account is used to hold the virtual hard drives for each virtual machi
 },
 ```
 
-The storage account resource is then associated with the Virtual Machine resource on line [**347**](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L347) of the template.
+A storage account is associate with a virtual machine inside of the Resource Manager template declaration of the virtual machine. 
+
+Follow this link to see the JSON sample within the Resource Manager template – [Virtual Machine and Storage Account association](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L347).
 
 ```none
 "osDisk": {
@@ -105,9 +110,9 @@ For more information on Azure Storage, see [Azure Storage documentation](https:/
 
 ## Virtual Network
 
-If networking is required, a virtual network can be created. When deployed, all virtual machines are attached to the virtual network and can communicate with each other, and other azure services. A virtual network does not make the virtual machine accessible over the internet. Public connectivity requires a public IP address, which is detailed later in this series.
+If a virtual machine requires internal networking such as the ability to communicate with other virtual machines and Azure resources, an Azure Virtual Network will be required.  A virtual network does not make the virtual machine accessible over the internet. Public connectivity requires a public IP address, which is detailed later in this series.
 
-The virtual network is declared on line [**142**](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L142) of the sample Music Store template. A virtual network is divided up into subnets, which is also defined in the virtual network resource. The subnet declaration can be seen on line [**159**]( https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L159) of the Music Store template. 
+Follow this link to see the JSON sample within the Resource Manager template – [Virtual Network and Subnets](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L142).
 
 ```none
 {
@@ -148,34 +153,59 @@ From the Azure portal, the virtual network looks like the following image. Notic
 
 ## Network Interface
 
- A network interface is used to connect a virtual machine to the virtual network. In the Music Store sample template, the network interface is declared on line [**172**](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L172).
-
+ A network interface connects a virtual machine to a virtual network, more specificall to a subnet that has been defined in the virtual network. 
+ 
+ Follow this link to see the JSON sample within the Resource Manager template – [Network Interface](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L172).
+ 
 ```none
 {
-      "apiVersion": "2015-06-15",
-      "type": "Microsoft.Network/networkInterfaces",
-      "name": "[concat(variables('networkInterfaceNamePrefix'), copyindex())]",
-      "location": "[resourceGroup().location]",
-      "tags": {
-        "displayName": "network-interface"
-      },
-      "copy": {
-        "name": "nicLoop",
-        "count": "[parameters('numberOfInstances')]"
-      },
-     ........<truncated>
-    }
+  "apiVersion": "2015-06-15",
+  "type": "Microsoft.Network/networkInterfaces",
+  "name": "[concat(variables('networkInterfaceNamePrefix'), copyindex())]",
+  "location": "[resourceGroup().location]",
+  "tags": {
+    "displayName": "network-interface"
+  },
+  "copy": {
+    "name": "nicLoop",
+    "count": "[parameters('numberOfInstances')]"
+  },
+  "dependsOn": [
+    "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
+    "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]",
+    "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIpAddressName'))]",
+    "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'), '/inboundNatRules/', 'SSH-VM', copyIndex())]"
+  ],
+  "properties": {
+    "ipConfigurations": [
+      {
+        "name": "ipconfig1",
+        "properties": {
+          "privateIPAllocationMethod": "Dynamic",
+          "subnet": {
+            "id": "[variables('subnetRef')]"
+          },
+          "loadBalancerBackendAddressPools": [
+            {
+              "id": "[variables('lbPoolID')]"
+            }
+          ],
+          "loadBalancerInboundNatRules": [
+            {
+              "id": "[concat(variables('lbID'),'/inboundNatRules/SSH-VM', copyIndex())]"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
 ```
 
-The network interface is connected to a virtual network subnet, which can be seen on line [**196**]( https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L196) of the sample template. 
+Each virtual machine resource includes a network profile. The network interface is associated with the virtual machine in this profile.  
 
-```none
-"subnet": {
-  "id": "[variables('subnetRef')]"
-},
-```
+Follow this link to see the JSON sample within the Resource Manager template – [Virtual Machine Network Profile](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L356).
 
-The network interface resource is also connected to the Virtual Machine. This connection can be seen on line [**356**](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L356) of the template.
 
 ```none
 "networkProfile": {
@@ -203,7 +233,8 @@ In addition to a virtual machine hosting the Music Store website, an Azure SQL D
 
 An Azure SQL database can be added using the Visual Studio Add New Resource wizard, or by inserting valid JSON into a template. The SQL Server resource includes a user name and password that is granted administrative rights on the SQL instance. Also, a SQL firewall resource is added. By default, applications hosted in Azure are able to connect with the SQL instance. To allow external application such a SQL Server Management studio to connect to the SQL instance, the firewall needs to be configured. For the sake of the Music Store demo, the default configuration is fine. 
 
-The SQL Database server is declared beginning on line [**405**](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L405) of the sample template. 
+Follow this link to see the JSON sample within the Resource Manager template – [Azure SQL DB](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L405).
+
 
 ```none
 {
