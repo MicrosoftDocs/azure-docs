@@ -31,9 +31,12 @@ Learn how to use the [Azure Data Lake Store .NET SDK](https://msdn.microsoft.com
 
 ## Prerequisites
 
-* Visual Studio 2013 or 2015. The instructions below use Visual Studio 2015.
+* **Visual Studio 2013 or 2015**. The instructions below use Visual Studio 2015.
+
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **Enable your Azure subscription** for Data Lake Store public preview. See [instructions](data-lake-store-get-started-portal.md#signup).
+
+* **Azure Data Lake Store account**. For instructions on how to create an account, see [Get started with Azure Data Lake Store](data-lake-store-get-started-portal.md)
+
 * **Create an Azure Active Directory Application** if you want your application to automatically authenticate with Azure Active Directory.
 
 	* **For non-interactive, service principal authentication** - In Azure Active Directory, you must create a **Web application**. Once you have created the application, retrieve the following values related to the application.
@@ -81,7 +84,7 @@ Learn how to use the [Azure Data Lake Store .NET SDK](https://msdn.microsoft.com
         using Microsoft.Azure.Management.DataLake.Store;
         using Microsoft.Azure.Management.DataLake.StoreUploader;
 
-7. Declare the variables as shown below, and provide the values for Data Lake Store name and the resource group name. The Data Lake Store name you provide will be created by the application. The resource group you provide here should already exist. Also, make sure the local path and file name you provide here must exist on the computer. Add the following code snippet after the namespace declarations.
+7. Declare the variables as shown below, and provide the values for Data Lake Store name and the resource group name that already exist. Also, make sure the local path and file name you provide here must exist on the computer. Add the following code snippet after the namespace declarations.
 
         namespace SdkSample
         {
