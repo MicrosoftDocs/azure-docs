@@ -76,7 +76,7 @@ Using the example function.json above, the DocumentDB input binding will retriev
 	let Run(myQueueItem: string, document: obj) =
 	    document?text <- "This has changed."
 
-You will need a `project.json` file that uses NuGet to reference the `FSharp.Interop.Dynamic` and `Dynamitey` assemblies, like this:
+You will need a `project.json` file that uses NuGet to specify the `FSharp.Interop.Dynamic` and `Dynamitey` packages as package dependencies, like this:
 
 	{
 	  "frameworks": {
