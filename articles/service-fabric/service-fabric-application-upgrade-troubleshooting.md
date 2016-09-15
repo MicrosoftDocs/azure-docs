@@ -182,7 +182,7 @@ ServiceTypeHealthPolicyMap              :
 PS D:\temp>
 ~~~
 
-The upgrade continues from the upgrade domain where it was last suspended and use the same upgrade parameters and health policies as before. If needed, any of the upgrade parameters and health policies shown in the preceding output can be changed in the same command when the upgrade resumes. In this example, the upgrade was resumed in Monitored mode, with  the parameters and the health policies unchanged.
+The upgrade continues from the upgrade domain where it was last suspended and use the same upgrade parameters and health policies as before. If needed, any of the upgrade parameters and health policies shown in the preceding output can be changed in the same command when the upgrade resumes. In this example, the upgrade was resumed in Monitored mode, with the parameters and the health policies unchanged.
 
 ## Further troubleshooting
 
@@ -196,7 +196,7 @@ Possible Cause 2:
 
 Health policies are specified in terms of percentages of total services and not specific service instances. For example, before an upgrade, if an application has four service instances A, B, C, and D, where service D is unhealthy but with little impact to the application. We want to ignore the known unhealthy service D during upgrade and set the parameter *MaxPercentUnhealthyServices* to be 25%, assuming only A, B, and C need to be healthy.
 
-However, during the upgrade, D may become healthy while C becomes unhealthy. The upgrade would still finish successfully in this case since only 25% of the services are unhealthy, but it might result in unanticipated errors due to C being unexpectedly unhealthy instead of D. In this situation, D should be modeled as a different service type from A, B, and C. Since health policies are specified per service type, different unhealthy percentage thresholds can be applied to different services. 
+However, during the upgrade, D may become healthy while C becomes unhealthy. The upgrade would still succeed because only 25% of the services are unhealthy. However, it might result in unanticipated errors due to C being unexpectedly unhealthy instead of D. In this situation, D should be modeled as a different service type from A, B, and C. Since health policies are specified per service type, different unhealthy percentage thresholds can be applied to different services. 
 
 ### I did not specify a health policy for application upgrade, but the upgrade still fails for some time-outs that I never specified
 
@@ -208,7 +208,7 @@ You may have wondered about what happens when time-outs are set inconsistently. 
 
 ### My upgrades are taking too long
 
-The time for an upgrade to complete depends on the health checks and time-outs specified. Health checks and time-outs are are dependent on the time it takes to copy, deploy and stabilize the applicaiton. Being too aggressive with time-outs might mean more failed upgrades, so we recommend starting conservatively with longer time-outs.
+The time for an upgrade to complete depends on the health checks and time-outs specified. Health checks and time-outs depend on how long it takes to copy, deploy, and stabilize the application. Being too aggressive with time-outs might mean more failed upgrades, so we recommend starting conservatively with longer time-outs.
 
 Here's a quick refresher on how the time-outs interact with the upgrade times:
 
