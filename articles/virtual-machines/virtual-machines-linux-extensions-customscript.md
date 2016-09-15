@@ -19,7 +19,7 @@
 
 # Using the Azure Custom Script Extension with Linux Virtual Machines
 
-The Custom Script Extension executes scripts on Azure virtual machines. The scripts can be provided to the script at runtime, or downloaded from Azure storage or other accessible internet location. These scripts can be used to configure the system and install software at deployment time using Azure Resource Manager templates. The Custom Script extension can also be run against existing virtual machines using the Azure CLI, PowerShell, or the Azure Virtual Machine REST API.
+The Custom Script Extension executes scripts on Azure virtual machines. The scripts can be provided to the script at runtime, or downloaded from Azure storage or other accessible internet location. These scripts can be used to configure the system and install software at deployment time using Azure Resource Manager templates. The Custom Script Extension can also be run against existing virtual machines using the Azure CLI, PowerShell, or the Azure Virtual Machine REST API.
 
 This document details how to use the Custom Script Extension both from an Azure Resource Manager template and the Azure CLI, and details troubleshooting steps.
 
@@ -29,11 +29,15 @@ The Custom Script Extension configuration specifies things like script location 
 
 ### Public Configuration
 
+Parameters:
+
 - commandToExecute: (required, string) the entry point script to execute
 - fileUris: (optional, string array) the URLs for files to be downloaded.
 - timestamp (optional, integer) use this field only to trigger a rerun of the script by changing value of this field.
 
 **Examples:**
+
+A script is downloaded from GitHub and run.
 
 ```none
 {
@@ -42,15 +46,21 @@ The Custom Script Extension configuration specifies things like script location 
 }
 ```
 
+In this example commands are run without the need of a script.
+
 ```none
 "commandToExecute": "apt-get -y update && apt-get install -y apache2"
 ```
 
 ### Protected Configuration
 
-- commandToExecute: (optional, string) the entrypoint script to execute. Use this field instead if your command contains secrets such as passwords.
+**Parameters:**
+
+- commandToExecute: (optional, string) the entry point script to execute. Use this field instead if your command contains secrets such as passwords.
 - storageAccountName: (optional, string) the name of storage account. If you specify storage credentials, all fileUris must be URLs for Azure Blobs.
 - storageAccountKey: (optional, string) the access key of storage account.
+
+**Example:**
 
 ```json
 {
@@ -66,15 +76,6 @@ When using the Azure CLI to run the Custom Script Extension, create a configurat
 
 ```none
 azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config-path /scirpt-config.json
-```
-
-The output looks like the following text:
-
-```none
-info:    Executing command vm extension set
-+ Looking up the VM "demovm"
-+ Installing extension "CustomScript", VM: "demovm"
-info:    vm extension set command OK
 ```
 
 Optionally, the command can be run using the `--public-config` option, which allows the configuration to be specified during execution and without a separate configuration file.
