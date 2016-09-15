@@ -28,19 +28,19 @@ Job preparation and release tasks offer familiar Batch task features such as fil
 
 In the following sections, you'll learn how to use the [JobPreparationTask][net_job_prep] and [JobReleaseTask][net_job_release] classes found in the [Batch .NET][api_net] library.
 
-> [AZURE.TIP] Job preparation and release tasks are especially helpful in "shared pool" environments—those environments in which a pool of compute nodes persists between job runs, and is shared between many different jobs.
+> [AZURE.TIP] Job preparation and release tasks are especially helpful in "shared pool" environments, in which a pool of compute nodes persists between job runs and is used by many jobs.
 
 ## When to use job preparation and release tasks
 
-Any time you need to prepare nodes with job-specific configuration or data (and clean up or persist task result data) is a good time to use job preparation and release tasks. Examples of such situations are:
+Job preparation and job release tasks are a good fit for the following situations:
 
-**Transfer of common task data**
+**Download common task data**
 
 Batch jobs often require a common set of data as input for the job's tasks. For example, in daily risk analysis calculations, market data is job-specific, yet common to all tasks in the job. This market data, often several gigabytes in size, should be downloaded to each compute node only once so that any task that runs on the node can use it. Use a **job preparation task** to download this data to each node before the execution of the job's other tasks.
 
-**Job data deletion**
+**Delete job and task output**
 
-In a "shared pool" environment, where a pool's compute nodes are not decommissioned between jobs, you may need to delete job data between runs—to conserve disk space on the nodes, or perhaps to satisfy your organization's security policies. Use a **job release task** to delete data that was downloaded by a job preparation task, or generated during task execution.
+In a "shared pool" environment, where a pool's compute nodes are not decommissioned between jobs, you may need to delete job data between runs. You might need to conserve disk space on the nodes, or satisfy your organization's security policies. Use a **job release task** to delete data that was downloaded by a job preparation task, or generated during task execution.
 
 **Log retention**
 
@@ -162,7 +162,7 @@ Sample complete, hit ENTER to exit...
 
 >[AZURE.NOTE] Due to the variable creation and start time of nodes in a new pool (some nodes are ready for tasks before others), you may see different output. Specifically, because the tasks complete quickly, one of the pool's nodes may execute all of the job's tasks. If this occurs, you will notice that the job prep and release tasks do not exist for the node that executed no tasks.
 
-### Inspect job preparation and release tasks in the Azure Portal
+### Inspect job preparation and release tasks in the Azure portal
 
 When you run the sample application, you can use the [Azure portal][portal] to view the properties of the job and its tasks, or even download the shared text file that is modified by the job's tasks.
 
