@@ -14,7 +14,7 @@
 
 2. Click **Create** to create the namespace.
 
-6. In the Event Hubs namespace list, click the newly-created namespace.
+6. In the Event Hubs namespace list, click the newly-created namespace.      
 
 	![][2]
 
