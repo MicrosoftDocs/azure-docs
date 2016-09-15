@@ -23,9 +23,11 @@ The Custom Script extension executes scripts on Azure virtual machines. The scri
 
 This document details how to use the Custom Script Extension both from an Azure Resource Manager template and the Azure CLI, and details troubleshooting steps.
 
-## Azure CLI
+## Extension Configuration
 
-When using the Azure CLI to run the Custom Script Extension, create a configuration JSON file with the following contents.
+The Custom Script Extenson configuration specifies things like script location and the command to be run. This configuration can be stored in configuration files, specified on the command line, or in an Azure Resource Manager template. When using configuration files, two options are avaliable a public file, and a protected file. In the protected file configuration informatuion is encrypted and only decrypted inside of the virtual machine. The protected file is useful when the scritp execution copmmand includes secrets.
+
+### Public Configuration
 
 - commandToExecute: (required, string) the entry point script to execute
 - fileUris: (optional, string array) the URLs for files to be downloaded.
@@ -44,7 +46,23 @@ When using the Azure CLI to run the Custom Script Extension, create a configurat
 "commandToExecute": "apt-get -y update && apt-get install -y apache2"
 ```
 
-Next, run a command like the following. Replace the Resource Group name, Virtual Machine Name, and the location of the configuration file.
+### Protected Configuration
+
+- commandToExecute: (optional, string) the entrypoint script to execute. Use this field instead if your command contains secrets such as passwords.
+- storageAccountName: (optional, string) the name of storage account. If you specify storage credentials, all fileUris must be URLs for Azure Blobs.
+- storageAccountKey: (optional, string) the access key of storage account.
+
+```json
+{
+  "commandToExecute": "<command-to-execute>",
+  "storageAccountName": "<storage-account-name>",
+  "storageAccountKey": "<storage-account-key>"
+}
+```
+
+## Azure CLI
+
+When using the Azure CLI to run the Custom Script Extension, create a configuration file or specify the configuration on the command line.
 
 ```none
 azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config-path /scirpt-config.json
