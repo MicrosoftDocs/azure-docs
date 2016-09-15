@@ -39,9 +39,9 @@ For documentation on how to deploy scale sets from the CLI, see [this documentat
 
 For documentation on how to deploy scale sets from Powershell, see [this documentation](./virtual-machine-scale-sets-windows-create.md).
 
-For documentation on how to deploy scale sets from Visual Studio, see [this documentation](./virtual-machine-scale-sets-vs-create.md.).
+For documentation on how to deploy scale sets from Visual Studio, see [this documentation](./virtual-machine-scale-sets-vs-create.md).
 
-For general documentation, check out the [documentation overview page for scale sets](./virtual-machine-scale-sets-windows-create.md).
+For general documentation, check out the [documentation overview page for scale sets](./virtual-machine-scale-sets-overview.md).
 
 For general information, check out the [main landing page for scale sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
 
