@@ -59,15 +59,17 @@ If you have not previously used Azure CLI with Resource Manager, see [Using the 
 
         azure account set <YourSubscriptionNameOrId>
 
-3. Switch to Azure Resource Manager module. You will receive confirmation of the new mode.
+3. Switch to Azure Resource Manager module. You receive confirmation of the new mode.
 
         azure config mode arm
    
         info:     New mode is arm
 
-4. If you do not have an existing resource group, create a resource group. Provide the name of the resource group and location that you need for your solution. A summary of the new resource group is returned.
+4. If you do not have an existing resource group, create a resource group. Provide the name of the resource group and location that you need for your solution. You need to provide a location for the resource group because the resource group stores metadata about the resources. For compliance reasons, you may want to specify where that metadata is stored. In general, we recommend that you specify a location where most of your resources will reside. Using the same location can simplify your template.
 
         azure group create -n ExampleResourceGroup -l "West US"
+
+     A summary of the new resource group is returned.
    
         info:    Executing command group create
         + Getting resource group ExampleResourceGroup
@@ -85,7 +87,7 @@ If you have not previously used Azure CLI with Resource Manager, see [Using the 
 
         azure group template validate -f <PathToTemplate> -p "{\"ParameterName\":{\"value\":\"ParameterValue\"}}" -g ExampleResourceGroup
 
-5. To deploy resources to your resource group, run the following command and provide the necessary parameters. The parameters include a name for your deployment, the name of your resource group, the path or URL to the template you created, and any other parameters needed for your scenario. 
+5. To deploy resources to your resource group, run the following command and provide the necessary parameters. The parameters include a name for your deployment, the name of your resource group, the path or URL to the template, and any other parameters needed for your scenario. 
    
      You have the following three options for providing parameter values: 
 
