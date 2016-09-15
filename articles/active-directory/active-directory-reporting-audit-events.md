@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="dhanyahk"
-   manager="stevenpo"
+   manager="ilanaS"
    editor=""/>
 
 <tags
@@ -18,9 +18,9 @@
 
 # Azure Active Directory audit report events
 
-*This documentation is part of the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).*
+*This documentation is part of the [Azure Active Directory Reporting Guide] (active-directory-reporting-guide.md).*
 
-The Azure Active Directory Audit Report helps customers identify privileged actions that occurred in their Azure Active Directory. Privileged actions include elevation changes (for example, role creation or password resets), changing policy configurations (for example password policies), or changes to directory configuration (for example, changes to domain federation settings). The reports provide the audit record for the event name, the actor who performed the action, the target resource affected by the change, and the date and time (in UTC). Customers are able to retrieve the list of audit events for their Azure Active Directory via the [Azure Management Portal](https://manage.windowsazure.com/), as described in [View your access and usage reports](active-directory-view-access-usage-reports.md).
+The Azure Active Directory Audit Report helps customers identify privileged actions that occurred in their Azure Active Directory. Privileged actions include elevation changes (for example, role creation or password resets), changing policy configurations (for example password policies), or changes to directory configuration (for example, changes to domain federation settings). The reports provide the audit record for the event name, the actor who performed the action, the target resource affected by the change, and the date and time (in UTC). Customers are able to retrieve the list of audit events for their Azure Active Directory via the [Azure Portal](https://portal.azure.com/), as described in [View your Audit Logs](https://azure.microsoft.com/en-us/documentation/articles/active-directory-reporting-azure-portal).
 
 
 ## List of Audit Report Events
@@ -35,12 +35,12 @@ Set license properties               | Set the license properties for a user in 
 Reset user password                  | Reset the password for a user in the directory.
 Change user password                 | Changed the password for a user in the directory.
 Change user license                  | Changed the license assigned to a user in the directory. To see what licenses were updated, look at the [Update user](#update-user-attributes) properties below
-Update user                          | Updated a user in the directory. [See below](#quotupdate-userquot-attributes) for attributes that can be updated.
+Update user                          | Updated a user in the directory. [See below](#update-user-attributes) for attributes that can be updated.
 Set force change user password       | Set the property that forces a user to change their password on login.
 Update user credentials        | User changed the password  
 **Group events**                     |
 Add group                            | Created a group in the directory.
-Update group                         | Updated a group in the directory.To see what group properties were updated, refer to [Group Properties Audited](#update-group-attributes) in the section below
+Update group                         | Updated a group in the directory. To see what group properties were updated, refer to [Group Properties Audited](#update-group-attributes) in the section below
 Delete group                         | Deleted a group from the directory.
 Add member to group            | Added a member to a group in the directory.
 Remove member from group         | Removed a member from a group in the directory.
@@ -58,13 +58,20 @@ Add service principal                | Added a service principal to the director
 Remove service principal             | Removed a service principal from the directory.
 Add service principal credentials    | Added credentials to a service principal.
 Remove service principal credentials | Removed credentials from a service principal.
+Add delegation entry                 | Created an [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) in the directory.
+Set delegation entry                 | Updated an [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) in the directory.
+Remove delegation entry              | Deleted an [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) in the directory.
+**Role events**                      |
+Add role member to Role              | Added a user to a directory role.
+Remove role member from Role         | Removed a user from a directory role.
+Set Company contact information      | Set company-level contact preferences. This includes email addresses for marketing, as well as technical notifications about Microsoft Online Services.
 Add delegation entry                 | Created an [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) in the directory.
 Set delegation entry                 | Updated an [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) in the directory.
 Remove delegation entry              | Deleted an [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) in the directory.
 AddSevicePrincipalOwner 	     | Added owner to service principal.
 RemoveSevicePrincipalOwner 	 | Removed owner from service principal.
 AddApplication 	| Add application.
-UpdateApplication | Update application.To see what app settings were updated, refer to [Application Properties Audited](#update-application-attributes) in the section below
+UpdateApplication | Update application. To see what app settings were updated, refer to [Application Properties Audited](#update-application-attributes) in the section below
 DeleteApplication | Delete application.
 RestoreApplication|Restore application.
 AddApplicationOwner   | 	Add owner to application.
@@ -73,7 +80,7 @@ RemoveApplicationOwner    | 	Remove owner from application.
 Add role member to Role                 | Added a user to a directory role.
 Remove role member from Role            | Removed a user from a directory role.
 AddRoleDefinition 	            | Added role definition.
-UpdateRoleDefinition 	            | Updated role definition.To see what role settings were updated, refer to [Role  Definition Properties Audited](#update-role-definition-attributes) in the section below
+UpdateRoleDefinition 	            | Updated role definition. To see what role settings were updated, refer to [Role  Definition Properties Audited](#update-role-definition-attributes) in the section below
 DeleteRoleDefinition 	            | Deleted role definition.
 AddRoleAssignmentToRoleDefinition | Added role assignment to role definition.
 RemoveRoleAssignmentFromRoleDefinition | Removed role assignment from role definition.
@@ -86,7 +93,7 @@ AddDevice 	            | Added device.
 UpdateDevice 	        | Updated device. To see what device properties were updated, refer to [Device properties Audited](#update-device-attributes) in the section below
 DeleteDevice 	        | Deleted device.
 AddDeviceConfiguration      | Added device configuration.
-UpdateDeviceConfiguration   | Updated device configuration.To see what device configuration properties were updated, refer to [Device configuration properties Audited](#update-device-configuration-attributes) in the section below
+UpdateDeviceConfiguration   | Updated device configuration. To see what device configuration properties were updated, refer to [Device configuration properties Audited](#update-device-configuration-attributes) in the section below
 DeleteDeviceConfiguration   | Deleted device configuration.
 AddRegisteredOwner 	   | Added registered owner to device.
 AddRegisteredUsers 	   | Added registered users to device.
@@ -156,7 +163,7 @@ For customers interested in storing their audit events for longer retention peri
 
 Property      | Description
 ------------- | --------------------------------------------------------------
-Date and Time | The date and time that the audit event occured
+Date and Time | The date and time that the audit event occurred
 Actor         | The user or service principal that performed the action
 Action        | The action that was performed
 Target        | The user or service principal that the action was performed on
@@ -167,7 +174,7 @@ The "Update user" audit event includes additional information about what user at
 
 Attribute                           | Description
 -------------------------------     | -------------------------------------------------------------------------------------------------------------------------------------------------------
-AccountEnabled                      | The user is allowed to sign in.
+AccountEnabled                      | The user can sign in.
 AssignedLicense                     | All licenses that have been assigned to the user.
 AssignedPlan                        | Service plans resulting from the licenses assigned to the user.
 LicenseAssignmentDetail             | Details on licenses assigned to the user. For instance, if group-based licensing was involved, this would include the group that granted the license.
@@ -184,7 +191,7 @@ CreationType                        |Creation method of the user (Either by invi
 InviteTicket                        |List of invitation tickets for the user.
 InviteReplyUrl                      |List of urls to reply upon invitation acceptance.
 InviteResources                     |List of resources to which the user has been invited.
-LastDirSyncTime                     |Last time the object was updated as a result of synchronizing from the authoritative (customer, on-premise) directory.
+LastDirSyncTime                     |Last time the object was updated because of synchronizing from the authoritative (customer, on-premise) directory.
 MSExchRemoteRecipientType           |Maps to MSO recipient types. Refer to [MSO recipient types] https://msdn.microsoft.com/en-us/library/microsoft.office.interop.outlook.recipient.type.aspx for recipient types
 PreferredDataLocation               |The preferred location for the user's, group's, contact's, public folder's, or device's data.
 ProxyAddresses                      |The address by which an Exchange Server recipient object is recognized in a foreign mail system.
@@ -203,14 +210,14 @@ DisplayName               |The display name for an object
 DirSyncEnabled            |Indicates whether synchronization occurs from an authoritative (customer, on-premise) directory.
 GroupLicenseAssignment    |License assignment of a group
 GroupType                 |Type of Group, Unified (0)
-IsMembershipRuleLocked    |Indicates that the MembershipRule property is set by the self service group management service and cannot be changed by users. Applicable only to groups where GroupType includes GroupType.DynamicMembership
+IsMembershipRuleLocked    |Indicates that the MembershipRule property is set by the self-service group management service and cannot be changed by users. Applicable only to groups where GroupType includes GroupType.DynamicMembership
 IsPublic                  |Flag to indicate if the group is public/private.
-LastDirSyncTime           |Last time the object was updated as a result of synchronizing from the authoritative (customer, on-premise) directory.
+LastDirSyncTime           |Last time the object was updated as a result of synchronizing from the authoritative (customer, on premise) directory.
 Mail                      |Primary e-mail address
 MailEnabled               |Indicates whether this group has e-mail capability.
 MailNickname              |Moniker for an address book object, typically the portion of its email name preceding the "@" symbol.   
-MembershipRule            |A string expressing the criteria used by the self service group management service to determine which members should belong to this group. See also IsMembershipRuleLocked. Applicable only to groups where GroupType includes GroupType.DynamicMembership.
-MembershipRuleProcessingState| An enum value defined by the self service group management service defining the status of membership processing for this group. Applicable only to groups where GroupType includes GroupType.DynamicMembership.
+MembershipRule            |A string expressing the criteria used by the self-service group management service to determine which members should belong to this group. See also IsMembershipRuleLocked. Applicable only to groups where GroupType includes GroupType.DynamicMembership.
+MembershipRuleProcessingState| An enum value defined by the self-service group management service defining the status of membership processing for this group. Applicable only to groups where GroupType includes GroupType.DynamicMembership.
 ProxyAddresses            |The address by which an Exchange Server recipient object is recognized in a foreign mail system.
 RenewedDateTime           |Timestamp record of when a group was most recently renewed.   
 SecurityEnabled           |Indicates whether membership in the group may influence authorization decisions.
@@ -219,8 +226,8 @@ WellKnownObject           |Labels a directory object, designating it as one of a
 ## "Update Device" attributes
 Attribute                           | Description
 -------------------------------     | -------------------------------------------------------------------------------------------------------------------------------------------------------
-AccountEnabled | Indicates whether a security principal is allowed to authenticate.
-CloudAccountEnabled | Indicates whether a security principal is allowed to authenticate. Written by InTune when the device is mastered on-premise.
+AccountEnabled | Indicates whether a security principal can authenticate.
+CloudAccountEnabled | Indicates whether a security principal can authenticate. Written by InTune when the device is mastered on premise.
 CloudDeviceOSType | Type of the device based on the OS e.g. Windows RT, iOS. When set by a cloud service (such as Intune), this attribute becomes authoritative in the directory for DeviceOSType.
 CloudDeviceOSVersion | Version of the OS. When set by a cloud service (such as Intune), this attribute becomes authoritative in the directory for DeviceOSVersion.
 CloudDisplayName | Value of the displayName LDAP attribute. When set by a cloud service (such as Intune), this attribute becomes authoritative in the directory for displayName.
@@ -231,11 +238,11 @@ DeviceObjectVersion | This attribute is used to identify the schema version of t
 DeviceOSType |Type of the device based on the OS e.g. Windows RT, iOS. Written by the Registration Service and intended to be updated by the MDM management service or STS light management service.
 DeviceOSVersion |Version of the OS. Written by the Registration Service and intended to be updated by the MDM management service or STS light management service.
 DevicePhysicalIds |Multivalued attribute intended to store identifiers of the physical device. This may include BIOS IDs, TPM thumbprints, hardware specific IDs, etc.
-DirSyncEnabled | Indicates whether synchronization occurs from an authoritative (customer, on-premise) directory.
+DirSyncEnabled | Indicates whether synchronization occurs from an authoritative (customer, on premise) directory.
 DisplayName |The display name for an object
 IsCompliant | This attribute is used to manage the mobile device management status of the device.
 IsManaged |This attribute is used to indicate the device is managed by a cloud MDM.
-LastDirSyncTime |Last time the object was updated as a result of synchronizing from the authoritative (customer, on-premise) directory.
+LastDirSyncTime |Last time the object was updated because of synchronizing from the authoritative (customer, on premise) directory.
 
 ## "Update Device Configuration" attributes
 Attribute                           | Description
@@ -246,7 +253,7 @@ RegistrationQuota	|Policy used to limit the number of device registrations allow
 ## "Update Service principal Configuration" attributes
 Attribute                           | Description
 -------------------------------     | -------------------------------------------------------------------------------------------------------------------------------------------------------
-AccountEnabled |Indicates whether a security principal is allowed to authenticate.
+AccountEnabled |Indicates whether a security principal can authenticate.
 AppPrincipalId | External, application-defined identity for a security principal.
 DisplayName |The display name for an object
 ServicePrincipalName	| A service principal name, containing "name/authority" where name specifies an application class value and authority contains at least hostname[:port] or "name" that specifies an identifier for the service principal.
@@ -261,7 +268,7 @@ AppLogoUrl |The url for the application logo image stored in a CDN.
 AvailableToOtherTenants | True the application is multi-tenant application (i.e. can be used by other tenants).
 DisplayName | The display name for an Application Name
 Entitlement |List of application entitlements.
-ExternalUserAccountDelegationsAllowed |Flag indicating whether resource application is a trusted one and is allowed to create delegation entries for external user accounts.
+ExternalUserAccountDelegationsAllowed |Flag indicating whether resource application is a trusted one and can create delegation entries for external user accounts.
 GroupMembershipClaims |The group membership claims policy.
 PublicClient | True if the client cannot keep secret (i.e. non-confidential client in OAuth2.0)
 RecordConsentConditions | Types of consent conditions, as defined by the contract terms: None (0), SilentConsentForPartnerManagedApp(1). This value will be exposed in the Graph API schema and can only be set/changed by tenant admins.
@@ -304,8 +311,8 @@ Attribute                           | Description
 -------------------------------     | -------------------------------------------------------------------------------------------------------------------------------------------------------
 AllowedDataLocation     | A location in which the company's users are allowed to be provisioned.
 AuthorizedServiceInstance   | Names of service instances to which a plan may be deployed.
-DirSyncEnabled |Indicates whether synchronization occurs from an authoritative (customer, on-premise) directory.
-DirSyncStatus |Indicates whether synchronization of address book objects in this tenant context occurs from an authoritative (customer, on-premise) directory; an expansion of the DirSyncEnabled property on Company objects.
+DirSyncEnabled |Indicates whether synchronization occurs from an authoritative (customer, on premise) directory.
+DirSyncStatus |Indicates whether synchronization of address book objects in this tenant context occurs from an authoritative (customer, on premise) directory; an expansion of the DirSyncEnabled property on Company objects.
 DirSyncFeatures |Bit flag to keep track of set of enabled and disabled dirsync features for the tenant.
 DirectoryFeatures |Enabled/disabled directory features.
 DirSyncConfiguration |Contains all DirSync configuration specific to the current tenant.
