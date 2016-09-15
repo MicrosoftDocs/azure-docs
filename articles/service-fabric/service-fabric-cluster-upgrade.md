@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/02/2016"
+   ms.date="09/13/2016"
    ms.author="chackdan"/>
 
 
@@ -33,7 +33,7 @@ If the cluster health policies are not met, the upgrade is rolled back. Then an 
 
 - Notification that we had to roll back a cluster upgrade.
 - Suggested remedial actions, if any.
-- The number of days (n) until we will execute Phase 2.
+- The number of days (n) until we execute Phase 2.
 
 We try to execute the same upgrade a few more times in case any upgrades failed for infrastructure reasons. After the n days from the date the email was sent, we proceed to Phase 2.
 
@@ -41,13 +41,13 @@ If the cluster health policies are met, the upgrade is considered successful and
 
 ### Phase 2: An upgrade is performed by using default health policies only
 
-The health policies in this phase are set in such a way that the number of applications that were healthy at the beginning of the upgrade remains the same for the duration of the upgrade process. As in Phase 1, the Phase 2 upgrades proceed one upgrade domain at a time, and the applications that were running in the cluster continue to run without any downtime. The cluster health policies (a combination of node health and the health all of the applications running in the cluster) are adhered to for the duration of the upgrade.
+The health policies in this phase are set in such a way that the number of applications that were healthy at the beginning of the upgrade remains the same for the duration of the upgrade process. As in Phase 1, the Phase 2 upgrades proceed one upgrade domain at a time, and the applications that were running in the cluster continue to run without any downtime. The cluster health policies (a combination of node health and the health all the applications running in the cluster) are adhered to for the duration of the upgrade.
 
 If the cluster health policies in effect are not met, the upgrade is rolled back. Then an email is sent to the owner of the subscription. The email contains the following information:
 
 - Notification that we had to roll back a cluster upgrade.
 - Suggested remedial actions, if any.
-- The number of days (n) until we will execute Phase 3.
+- The number of days (n) until we execute Phase 3.
 
 We try to execute the same upgrade a few more times in case any upgrades failed for infrastructure reasons. A reminder email is sent a couple of days before n days are up. After the n days from the date the email was sent, we proceed to Phase 3. The emails we send you in Phase 2 must be taken seriously and remedial actions must be taken.
 
@@ -55,13 +55,13 @@ If the cluster health policies are met, the upgrade is considered successful and
 
 ### Phase 3: An upgrade is performed by using aggressive health policies
 
-These health policies in this phase are geared towards completion of the upgrade rather than the health of the applications. Very few cluster upgrades will end up in this phase. If your cluster gets to this phase, there is a good chance that your application will become unhealthy and/or lose availability.
+These health policies in this phase are geared towards completion of the upgrade rather than the health of the applications. Very few cluster upgrades will end up in this phase. If your cluster gets to this phase, there is a good chance that your application becomes unhealthy and/or lose availability.
 
 Similar to the other two phases, Phase 3 upgrades proceed one upgrade domain at a time.
 
 If the cluster health policies are not met, the upgrade is rolled back. We try to execute the same upgrade a few more times in case any upgrades failed for infrastructure reasons. After that, the cluster is pinned, so that it will no longer receive support and/or upgrades.
 
-An email with this information will be sent to the subscription owner, along with the remedial actions. We do not expect any clusters to get into a state where Phase 3 has failed.
+An email with this information is sent to the subscription owner, along with the remedial actions. We do not expect any clusters to get into a state where Phase 3 has failed.
 
 If the cluster health policies are met, the upgrade is considered successful and marked complete. This can happen during the initial upgrade or any of the upgrade reruns in this phase. There is no email confirmation of a successful run.
 
@@ -71,13 +71,10 @@ Here are the configurations that you can change on a live cluster.
 
 ### Certificates
 
-You can update the primary or secondary certificates easily from the Azure portal (as shown below) or by issuing a PUT command on the servicefabric.cluster resource.
+You can add new or delete certificates for the cluster and client via the portal easily. Refer to [this document for detailed instructions](service-fabric-cluster-security-update-certs-azure.md)
 
 ![Screenshot that shows certificate thumbprints in the Azure portal.][CertificateUpgrade]
 
->[AZURE.NOTE] Before you identify a certificate that you want to use for the cluster resources, you must complete the following steps, or the new certificate will not be used:
-1. Upload the new certificate to Azure Key Vault. Refer to [Service Fabric security](service-fabric-cluster-security.md) for instructions. Start with step 2 in that document.
-2. Update all of the virtual machines (VMs) that make up your cluster so that the certificate gets deployed on them. To do that, refer to the [Azure Key Vault Team Blog](http://blogs.technet.com/b/kv/archive/2015/07/14/vm_2d00_certificates.aspx).
 
 ### Application ports
 
@@ -87,7 +84,7 @@ To open a new port on all VMs in a node type, do the following:
 
 1. Add a new probe to the appropriate load balancer.
 
-    If you deployed your cluster by using the portal, the load balancers will be named "loadBalancer-0", "loadBalancer-1", and so on, one for each node type. Since the load balancer names are unique only within a resource group, it is best if you search for them under a specific resource group.
+    If you deployed your cluster by using the portal, the load balancers are named "LB-name of the Resource group-NodeTypename", one for each node type. Since the load balancer names are unique only within a resource group, it is best if you search for them under a specific resource group.
 
     ![Screenshot that shows adding a probe to a load balancer in the portal.][AddingProbes]
 
@@ -106,7 +103,7 @@ For each of the node types, you can add custom placement properties that you wan
 
 ### Capacity metrics
 
-For each of the node types, you can add custom capacity metrics that you want to use in your applications to report load. For details on the use of capacity metrics to report load, refer to the  Service Fabric Cluster Resource Manager Documents on [Describing Your Cluster](service-fabric-cluster-resource-manager-cluster-description.md) and [Metrics and Load](service-fabric-cluster-resource-manager-metrics.md).
+For each of the node types, you can add custom capacity metrics that you want to use in your applications to report load. For details on the use of capacity metrics to report load, refer to the Service Fabric Cluster Resource Manager Documents on [Describing Your Cluster](service-fabric-cluster-resource-manager-cluster-description.md) and [Metrics and Load](service-fabric-cluster-resource-manager-metrics.md).
 
 ### OS patches on the VMs that make up the cluster
 
@@ -122,6 +119,6 @@ If you must upgrade the OS image on the virtual machines of the cluster, you mus
 - Learn about [application upgrades](service-fabric-application-upgrade.md)
 
 <!--Image references-->
-[CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade.png
-[AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes.png
+[CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade2.png
+[AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes2.PNG
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
