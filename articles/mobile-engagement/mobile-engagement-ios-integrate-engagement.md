@@ -26,8 +26,7 @@
 
 This procedure describes the simplest way to activate Engagement's Analytics and Monitoring functions in your iOS application.
 
-> [AZURE.IMPORTANT]
-> The Engagement SDK requires iOS6+ and Xcode 8: the deployment target of your application must be at least iOS 6.
+The Engagement SDK requires iOS6+ and Xcode 8: the deployment target of your application must be at least iOS 6.
 
 > [AZURE.NOTE]
 > If you really depends on XCode 7 then you may use the [iOS Engagement SDK v3.2.4](https://aka.ms/r6oouh). There is a known bug on the Reach module of this previous version while running on iOS 10 devices see [the reach module integration](mobile-engagement-ios-integrate-engagement-reach.md) for more details. If you choose to use the SDK v3.2.4 then just skip the `UserNotifications.framework` import in the next step.
@@ -36,18 +35,19 @@ The following steps are enough to activate the report of logs needed to compute 
 
 ##Embed the Engagement SDK into your iOS project
 
-Download the iOS SDK from [here](http://aka.ms/qk2rnj).
-Add the Engagement SDK to your iOS project: in Xcode, right click on your project and select **"Add files to ..."** and choose the `EngagementSDK` folder.
+- Download the iOS SDK from [here](http://aka.ms/qk2rnj).
 
-Engagement requires additional frameworks to work: in the project explorer, open your project pane and select the correct target. Then, open the **"Build phases"** tab and in the **"Link Binary With Libraries"** menu, add these frameworks:
+- Add the Engagement SDK to your iOS project: in Xcode, right click on your project and select **"Add files to ..."** and choose the `EngagementSDK` folder.
 
-> -   `UserNotifications.framework` - set the link as `Optional`
-> -   `AdSupport.framework` - set the link as `Optional`
-> -   `SystemConfiguration.framework`
-> -   `CoreTelephony.framework`
-> -   `CFNetwork.framework`
-> -   `CoreLocation.framework`
-> -   `libxml2.dylib`
+- Engagement requires additional frameworks to work: in the project explorer, open your project pane and select the correct target. Then, open the **"Build phases"** tab and in the **"Link Binary With Libraries"** menu, add these frameworks:
+
+	-   `UserNotifications.framework` - set the link as `Optional`
+	-   `AdSupport.framework` - set the link as `Optional`
+	-   `SystemConfiguration.framework`
+	-   `CoreTelephony.framework`
+	-   `CFNetwork.framework`
+	-   `CoreLocation.framework`
+	-   `libxml2.dylib`
 
 > [AZURE.NOTE] The AdSupport framework can be removed. Engagement needs this framework to collect the IDFA. However, IDFA collection can be disabled \<ios-sdk-engagement-idfa\> to comply with the new Apple policy regarding this ID.
 

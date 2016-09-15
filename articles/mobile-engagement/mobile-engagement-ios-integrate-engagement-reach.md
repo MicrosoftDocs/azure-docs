@@ -18,10 +18,9 @@
 
 #How to Integrate Engagement Reach on iOS
 
-> [AZURE.IMPORTANT] You must follow the integration procedure described in the How to Integrate Engagement on iOS document before following this guide.
+You must follow the integration procedure described in the [How to Integrate Engagement on iOS document](mobile-engagement-ios-integrate-engagement.md) before following this guide.
 
-> [AZURE.NOTE]
-> This documentation requires XCode 8. If you really depends on XCode 7 then you may use the [iOS Engagement SDK v3.2.4](https://aka.ms/r6oouh). There is a known bug on this previous version while running on iOS 10 devices:  system notifications are not actioned. To fix this you will have to implement the deprecated API `application:didReceiveRemoteNotification:` in your app delegate as follow:
+This documentation requires XCode 8. If you really depends on XCode 7 then you may use the [iOS Engagement SDK v3.2.4](https://aka.ms/r6oouh). There is a known bug on this previous version while running on iOS 10 devices:  system notifications are not actioned. To fix this you will have to implement the deprecated API `application:didReceiveRemoteNotification:` in your app delegate as follow:
 
 	- (void)application:(UIApplication*)application
 	didReceiveRemoteNotification:(NSDictionary*)userInfo
@@ -30,7 +29,6 @@
 	}
 
 > [AZURE.IMPORTANT] **We do not recommend this workaround** as this behavior can change in any upcoming (even minor) iOS version upgrade because this iOS API is deprecated. You should switch to XCode 8 as soon as possible.
-
 
 ### Enable your app to receive Silent Push Notifications
 

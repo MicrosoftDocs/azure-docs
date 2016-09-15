@@ -51,8 +51,8 @@ For each new version of the SDK you must first replace (remove and re-import in 
 
 ### XCode 8
 XCode 8 is mandatory starting from version 4.0.0 of the SDK.
-> [AZURE.NOTE]
-> If you really depends on XCode 7 then you may use the [iOS Engagement SDK v3.2.4](https://aka.ms/r6oouh). There is a known bug on the reach module of this previous version while running on iOS 10 devices:  system notifications are not actioned. To fix this you will have to implement the deprecated API `application:didReceiveRemoteNotification:` in your app delegate as follow:
+
+> [AZURE.NOTE] If you really depends on XCode 7 then you may use the [iOS Engagement SDK v3.2.4](https://aka.ms/r6oouh). There is a known bug on the reach module of this previous version while running on iOS 10 devices:  system notifications are not actioned. To fix this you will have to implement the deprecated API `application:didReceiveRemoteNotification:` in your app delegate as follow:
 
 	- (void)application:(UIApplication*)application
 	didReceiveRemoteNotification:(NSDictionary*)userInfo
