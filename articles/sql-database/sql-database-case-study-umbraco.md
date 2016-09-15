@@ -18,6 +18,8 @@
 
 # Umbraco uses Azure SQL Database to quickly provision and scale services for thousands of tenants in the cloud
 
+![Umbraco Logo](./media/sql-database-case-study-umbraco/umbracologo.png)
+
 Umbraco is a popular open-source content-management system (CMS) that can run anything from small campaign or brochure sites to complex applications for Fortune 500 companies and global media websites. 
 
 > “We have quite a large community of developers who use the system, with more than 100,000 developers on our forums and more than 350,000 sites that are live, running Umbraco.”
@@ -137,4 +139,3 @@ Since choosing Azure as its cloud partner, Umbraco has been able to provide UaaS
 
 - To learn more about Umbraco as a Service, see [Umbraco](https://umbraco.com/cloud).
 
-![Umbraco Logo](./media/sql-database-case-study-umbraco/umbracologo.png)

@@ -18,6 +18,8 @@
 
 # With Azure, SnelStart has rapidly expanded its business services at a rate of 1,000 new Azure SQL Databases per month
 
+![Logo](./media/sql-database-case-study-snelstart/snelstartlogo.png)
+
 SnelStart makes popular financial- and business-management software for small- and medium-sized businesses (SMBs) in the Netherlands. Its 55,000 customers are serviced by a staff of 110 employees, including an IT staff of 35. By moving from desktop software to a software-as-a-service (SaaS) offering built on Azure, SnelStart made the most of built-in services, automating management using familiar environment in C#, and optimizing performance and scalability by neither over- or under-provisioning businesses using elastic database pools. Using Azure provides SnelStart the fluidity of moving customers between on-premises and the cloud.
 
 > [AZURE.VIDEO azure-sql-database-case-study-snelstart]
@@ -104,4 +106,4 @@ The immediate goal for SnelStart is to keep growing its satisfied customer base.
 
 - To learn more about SnelStart, see [SnelStart](http://www.snelstart.nl).
 
-![Logo](./media/sql-database-case-study-snelstart/snelstartlogo.png)
+
