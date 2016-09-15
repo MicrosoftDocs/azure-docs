@@ -162,11 +162,9 @@ Follow these links to learn more about managing Azure IoT Hub:
 - [Bulk manage IoT devices][lnk-bulk]
 - [Usage metrics][lnk-metrics]
 - [Operations monitoring][lnk-monitor]
-- [Manage access to IoT Hub][lnk-itpro]
 
 To further explore the capabilities of IoT Hub, see:
 
-- [Designing your solution][lnk-design]
 - [Developer guide][lnk-devguide]
 - [Exploring device management using the sample UI][lnk-dmui]
 - [Simulating a device with the Gateway SDK][lnk-gateway]
@@ -188,9 +186,7 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-bulk]: iot-hub-bulk-identity-mgmt.md
 [lnk-metrics]: iot-hub-metrics.md
 [lnk-monitor]: iot-hub-operations-monitoring.md
-[lnk-itpro]: iot-hub-itpro-info.md
 
-[lnk-design]: iot-hub-guidance.md
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md

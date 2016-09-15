@@ -26,7 +26,7 @@ Azure IoT Hub provides you with:
 * Reliable device-to-cloud and cloud-to-device hyper-scale messaging.
 * Easy device connectivity with device libraries for the most popular languages and platforms.
 
-# Next steps
+## Next steps
 
 This IoT Hub developer guide includes the following articles:
 
@@ -40,6 +40,7 @@ This IoT Hub developer guide includes the following articles:
 - [Reference - IoT Hub endpoints][devguide-endpoints] describes the various endpoints that each IoT hub exposes for runtime and management operations.
 - [Reference - query language for twins, methods, and jobs][devguide-query]
 - [Reference - quotas and throttling][devguide-quotas]
+- [Reference - Device and service SDKs][devguide-sdks]
 - [Reference - IoT Hub MQTT support][devguide-mqtt]
 - [Glossary][devguide-glossary]
 
@@ -55,6 +56,7 @@ This IoT Hub developer guide includes the following articles:
 [devguide-endpoints]: iot-hub-devguide-endpoints.md
 [devguide-quotas]: iot-hub-devguide-quotas-throttling.md
 [devguide-query]: iot-hub-devguide-query-language.md
+[devguide-sdks]: iot-hub-devguide-sdks.md
 [devguide-mqtt]: iot-hub-mqtt-support.md
 [devguide-glossary]: iot-hub-devguide-glossary.md
 
