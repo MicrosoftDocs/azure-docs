@@ -20,7 +20,7 @@
 
 # Create a scale set using the Azure Portal
 
-First, navigate to the [Azure portal](portal.azure.com) in a web browser. Click `New`, search for `scale set`, then select the `Virtual machine scale set` entry:
+First, navigate to the [Azure portal](https://portal.azure.com) in a web browser. Click `New`, search for `scale set`, then select the `Virtual machine scale set` entry:
 
 ![ScaleSetPortalOverview](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalOverview.PNG)
 
