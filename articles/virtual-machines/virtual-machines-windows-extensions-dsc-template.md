@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="na"
-   ms.date="08/29/2016"
+   ms.date="09/15/2016"
    ms.author="zachal"/>
 
 # Windows VMSS and Desired State Configuration with Azure Resource Manager templates
@@ -293,3 +293,13 @@ Problem: A defined property needs another property that is missing.
 Solutions: 
 - Provide the missing property.
 - Remove the property that needs the missing property.
+
+
+## Next Steps
+[Learn more about DSC and VMSS](virtual-machines-scale-sets-dsc.md)
+
+Find more details on [DSC's secure credential management](virtual-machines-windows-extensions-dsc-credentials.md). 
+
+For more information on the Azure DSC extension handler, see [Introduction to the Azure Desired State Configuration extension handler](virtual-machines-windows-extensions-dsc-overview.md). 
+
+For more information about PowerShell DSC, [visit the PowerShell documentation center](https://msdn.microsoft.com/powershell/dsc/overview). 
