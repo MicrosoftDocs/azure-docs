@@ -18,7 +18,7 @@
 
 
 
-# Upload files into a Media Services account using .NET
+# Upload files into a Media Services account using .NET | Microsoft Azure
 
  > [AZURE.SELECTOR]
  - [.NET](media-services-dotnet-upload-files.md)
@@ -318,8 +318,8 @@ The following example calls UploadFile function and specifies storage encryption
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
+##Next step
 
-##Next Steps
 Now that you have uploaded an asset to Media Services, go to the [How to Get a Media Processor][] topic.
 
 [How to Get a Media Processor]: media-services-get-media-processor.md
