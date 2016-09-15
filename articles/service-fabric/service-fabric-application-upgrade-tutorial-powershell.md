@@ -21,7 +21,7 @@
 
 # Service Fabric application upgrade using PowerShell
 
-The most frequently used and recommended upgrade approach is the monitored rolling upgrade.  Azure Service Fabric monitors the health of the application being upgraded based on a set of health policies. Once one update domain (UD) is completely upgraded, Service Fabric evaluates the application health and either proceeds to the next update domain or fails the upgrade depending on the health policies.
+The most frequently used and recommended upgrade approach is the monitored rolling upgrade.  Azure Service Fabric monitors the health of the application being upgraded based on a set of health policies. Once an update domain (UD) is upgraded, Service Fabric evaluates the application health and either proceeds to the next update domain or fails the upgrade depending on the health policies.
 
 A monitored application upgrade can be performed using the managed or native APIs, PowerShell, or REST. For instructions on performing an upgrade using Visual Studio, see [Upgrading your application using Visual Studio](service-fabric-application-upgrade-tutorial.md).
 
@@ -65,7 +65,7 @@ Now the *ApplicationManifest.xml* file (found under the **VisualObjects** projec
 ```
 
 
-Now, build the project by selecting just the **ActorService** project, and then right-clicking and selecting the **Build** option in Visual Studio. If you select **Rebuild all**, you should update the versions for all projects, since the code would have changed. Next, let's package the updated application by right-clicking on ***VisualObjectsApplication***, selecting the Service Fabric Menu, and choosing **Package**. This creates an application package that can be deployed.  Your updated application is ready to be deployed.
+Now, build the project by selecting just the **ActorService** project, and then right-clicking and selecting the **Build** option in Visual Studio. If you select **Rebuild all**, you should update the versions for all projects, since the code would have changed. Next, let's package the updated application by right-clicking on ***VisualObjectsApplication***, selecting the Service Fabric Menu, and choosing **Package**. This action creates an application package that can be deployed.  Your updated application is ready to be deployed.
 
 
 ## Step 3:  Decide on health policies and upgrade parameters
@@ -74,7 +74,7 @@ Familiarize yourself with the [application upgrade parameters](service-fabric-ap
 
 However, let's increase the *HealthCheckStableDuration* to 60 seconds (so that the services are healthy for at least 20 seconds before the upgrade proceeds to the next update domain).  Let's also set the *UpgradeDomainTimeout* to be 1200 seconds and the *UpgradeTimeout* to be 3000 seconds.
 
-Finally, let's also set the *UpgradeFailureAction* to rollback. This option requirest Service Fabric to roll back the application to the previous version if it encounters any issues during the upgrade. Thus, when starting the upgrade (in Step 4), the following parameters are specified:
+Finally, let's also set the *UpgradeFailureAction* to rollback. This option requires Service Fabric to roll back the application to the previous version if it encounters any issues during the upgrade. Thus, when starting the upgrade (in Step 4), the following parameters are specified:
 
 FailureAction = Rollback
 
@@ -121,7 +121,7 @@ Now, as the application upgrade proceeds, you can monitor it using Service Fabri
 
 In a few minutes, the status that you got by using the preceding PowerShell command, should state that all update domains were upgraded (completed). And you should find that the visual objects in your browser window have started rotating!
 
-You can try moving from version 2 to version 3 as an exercise, or even from version 2 to version 1 (yes, you can upgrade from version 2 to version 1). Play with time-outs and health policies to make yourself familiar with them. When you are deploying to an Azure cluster, the parameters need to be set appropriately. It is good to set the time-outs conservatively.
+You can try upgrading from version 2 to version 3, or from version 2 to version 1 as an exercise. Moving from version 2 to version 1 is also considered an upgrade. Play with time-outs and health policies to make yourself familiar with them. When you are deploying to an Azure cluster, the parameters need to be set appropriately. It is good to set the time-outs conservatively.
 
 
 ## Next steps

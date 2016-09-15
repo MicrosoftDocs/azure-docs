@@ -65,7 +65,7 @@ Now, as the application upgrade proceeds, you can monitor it with Service Fabric
 
 In a few minutes, all update domains should be upgraded (completed), and the Visual Studio output window should also state that the upgrade is completed. And you should find that *all* the visual objects in your browser window are now rotating!
 
-You may want to try changing the versions, and moving from version 2.0.0 to version 3.0.0 as an exercise, or even from version 2.0.0 back to version 1.0.0. Play with time-outs and health policies to make yourself familiar with them. When deploying to an Azure cluster, the parameters used may differ from those used when deploying to a local cluster. We recommend that you set the time-outs conservatively.
+You may want to try changing the versions, and moving from version 2.0.0 to version 3.0.0 as an exercise, or even from version 2.0.0 back to version 1.0.0. Play with time-outs and health policies to make yourself familiar with them. When deploying to an Azure cluster as opposed to a local cluster, the parameters used may have to differ. We recommend that you set the time-outs conservatively.
 
 
 ## Next steps
