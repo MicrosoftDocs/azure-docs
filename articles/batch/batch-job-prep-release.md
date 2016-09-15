@@ -104,7 +104,7 @@ await myBatchClient.JobOperations.TerminateJobAsy("JobPrepReleaseSampleJob");
 
 ## Code sample on GitHub
 
-Check out the [JobPrepRelease][job_prep_release_sample] sample project on GitHub to see job preparation and release tasks in action. This console application does the following:
+To see job preparation and release tasks in action, check out the [JobPrepRelease][job_prep_release_sample] sample project on GitHub. This console application does the following:
 
 1. Creates a pool with two "small" nodes.
 2. Creates a job with job preparation, release, and standard tasks.
