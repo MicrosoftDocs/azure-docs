@@ -25,7 +25,7 @@ The following steps describe how to change the availability set of a VM using Az
 
 ## Change the availability set using PowerShell
 
-1. Capture the following key details from the VM to be modified
+1. Capture the following key details from the VM to be modified.
 
 	Name of the VM
 	
@@ -69,29 +69,29 @@ The following steps describe how to change the availability set of a VM using Az
 
 2. Delete the VM without deleting any of the disks or the network interfaces.
 
-```powershell
+	```powershell
 	Remove-AzureRmVM -ResourceGroupName <resourceGroupName> -Name <vmName> 
-```
+	```
 
 3. Create the Availability Set if it does not already exist
 
-```powershell
+	```powershell
 	New-AzureRmAvailabilitySet -ResourceGroupName <resourceGroupName> -Name <availabilitySetName> -Location "<location>" 
-```
+	```
 
 4. Recreate the VM using the new availability set
 
-```powershell
-$vm2 = New-AzureRmVMConfig -VMName <VM-name> -VMSize <vm-size> -AvailabilitySetId <availability-set-id>
+	```powershell
+	$vm2 = New-AzureRmVMConfig -VMName <VM-name> -VMSize <vm-size> -AvailabilitySetId <availability-set-id>
 
-Set-AzureRmVMOSDisk -CreateOption "Attach" -VM <vmConfig> -VhdUri <osDiskURI> -Name <osDiskName> [-Windows | -Linux]
+	Set-AzureRmVMOSDisk -CreateOption "Attach" -VM <vmConfig> -VhdUri <osDiskURI> -Name <osDiskName> [-Windows | -Linux]
 
-Add-AzureRmVMNetworkInterface -VM <vmConfig> -Id  <nicId> 
+	Add-AzureRmVMNetworkInterface -VM <vmConfig> -Id  <nicId> 
 
-New-AzureRmVM -ResourceGroupName <resourceGroupName> -Location <location> -VM <vmConfig>
-``` 
+	New-AzureRmVM -ResourceGroupName <resourceGroupName> -Location <location> -VM <vmConfig>
+	``` 
 
-5.	Add data disks and extensions. For more information, see [Attach Data Disk to VM](virtual-machines-windows-attach-disk-portal.md) and [Extension Configuration Samples](virtual-machines-windows-extensions-configuration-samples.md). Data disks and extensions can be added to the VM using PowerShell or Azure CLI.
+5. Add data disks and extensions. For more information, see [Attach Data Disk to VM](virtual-machines-windows-attach-disk-portal.md) and [Extension Configuration Samples](virtual-machines-windows-extensions-configuration-samples.md). Data disks and extensions can be added to the VM using PowerShell or Azure CLI.
 
 ## Example Script
 
