@@ -41,8 +41,8 @@ Follow this link to see the JSON sample within the Resource Manager template –
     "displayName": "avalibility-set-front"
   },
   "properties": {
-    "platformUpdateDomainCount": 1,
-    "platformFaultDomainCount": 1
+    "platformUpdateDomainCount": 5,
+    "platformFaultDomainCount": 3
   }
 },
 ```

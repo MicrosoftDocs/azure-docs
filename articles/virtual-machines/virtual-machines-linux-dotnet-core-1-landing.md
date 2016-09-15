@@ -35,11 +35,11 @@ When fully deployed, the application / Azure architecture looks similar to the f
 
 Each of these components, including the associate template JSON is examined in the following four articles.
 
-- [**Application Architecture**](./virtual-machines-linux-dotnet-core-2-architecute.md) – Application components such as web sites and databases need to be hosted on Azure computer resources such as virtual machines and Azure SQL databases. This document details deploying compute resources with Azure templates.
+- [**Application Architecture**](./virtual-machines-linux-dotnet-core-2-architecute.md) – Application components such as web sites and databases need to be hosted on Azure computer resources such as virtual machines and Azure SQL databases. This document walks through mapping compute need, to Azure resources, and deploying these resources with an Azure Resource Manager template. 
 
 - [**Access and Security**](./virtual-machines-linux-dotnet-core-3-access-security.md) – When hosting applications in Azure, it is necessary to consider how the application is accessed, and how different application components access each other. This document details providing and securing internet access to an application and access between application components.
 
-- [**Availability and scale**](./virtual-machines-linux-dotnet-core-4-avalibility-scale.md) – Availability and scale refer to the applications ability to stay running during infrastructure downtime, and the ability to scale compute resources to meet application demand. This document details the components needed to deploy a load balanced and highly available application.
+- [**Availability and Scale**](./virtual-machines-linux-dotnet-core-4-avalibility-scale.md) – Availability and scale refer to the applications ability to stay running during infrastructure downtime, and the ability to scale compute resources to meet application demand. This document details the components needed to deploy a load balanced and highly available application.
 
 - [**Application Deployment**](./virtual-machines-linux-dotnet-core-5-app-deployment.md) - When deploying applications onto Azure Virtual Machines, the method by which the application binaries are installed on the Virtual Machine must be considered. This document details automating application installation using Azure Virtual Machine Custom Script Extensions.
 

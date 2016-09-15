@@ -17,7 +17,7 @@
    ms.date="09/12/2016"
    ms.author="nepeters"/>
 
-# Automating Application Deployment with Virtual Machine Extensions
+# Application Deployment with Azure Resource Manager Templates
 
 Once all Azure infrastructural requirements have been identified and translated into a deployment template, the actual application deployment needs to be addressed. Application deployment here is referring to installing the actual application binaries onto Azure resources. For the Music Store sample, .Net Core, NGINX, and Supervisor need to be installed and configured on each virtual machine. The Music Store binaries need to be installed onto the virtual machine, and the Music Store database pre-created.
 
@@ -74,7 +74,7 @@ sudo service supervisor start
 
 ## VM Script Extension
 
-VM Extensions can be run against a virtual machine at build time by including the extension resource in the Azure Resource Manager template. The extension can be added with the Visual Studio Add Resource wizard, or by inserting valid JSON into the template. The Script Extension resource is nested inside of the Virtual Machine resource; this can be seen in the following example.
+VM Extensions can be run against a virtual machine at build time by including the extension resource in the Azure Resource Manager template. The extension can be added with the Visual Studio Add Resource wizard, or by inserting valid JSON into the template. The Script Extension resource is nested inside the Virtual Machine resource; this can be seen in the following example.
 
 Follow this link to see the JSON sample within the Resource Manager template – [VM Script Extension](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L365). 
 

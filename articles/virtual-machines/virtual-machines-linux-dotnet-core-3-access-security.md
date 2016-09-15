@@ -51,7 +51,7 @@ Follow this link to see the JSON sample within the Resource Manager template –
 },
 ```
 
-A Public IP Address can be associated with a Virtual Network Adapter, or a Load Balancer. In this example, because the Music Store website will be load balanced across several virtual machines, the Public IP Address will be attached to the Load Balancer.
+A Public IP Address can be associated with a Virtual Network Adapter, or a Load Balancer. In this example, because the Music Store website is load balanced across several virtual machines, the Public IP Address is attached to the Load Balancer.
 
 Follow this link to see the JSON sample within the Resource Manager template – [Public IP Address association with Load Balancer](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L246).
 
@@ -113,7 +113,7 @@ Follow this link to see the JSON sample within the Resource Manager template –
 
 In this example, the network security group is associate with the subnet object declared in the Virtual Network resource. 
 
-Follow this link to see the JSON sample within the Resource Manager template – [Network Security Group associaton with Virtual Network](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L164).
+Follow this link to see the JSON sample within the Resource Manager template – [Network Security Group association with Virtual Network](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L164).
 
 
 ```none

@@ -17,7 +17,7 @@
    ms.date="09/12/2016"
    ms.author="nepeters"/>
 
-# Deploying Compute Resources with Azure Resource Manager Templates
+# Application Architecture with Azure Resource Manager Templates
 
 When developing an Azure Resource Manager deployment, compute requirements need to be mapped to Azure resources and services. If an application consists of several http endpoints, a database, and a data caching service, the Azure resources that host each of these components needs to be rationalized. For instance, the sample Music Store application includes a web application that is hosted on a virtual machine, and a SQL database, which is hosted in Azure SQL database. 
 
@@ -63,7 +63,7 @@ Once deployed, the virtual machine properties can be seen in the Azure portal.
 
 ## Storage Account
 
-Storage accounts have many storage options and capabilities. For the context of Azure Virtual machines, a storage account will hold the virtual hard drives of the virtual machine and any additional data disks. The Music Store sample includes one storage account to hold the virtual hard drive of each virtual machine in the deployment. 
+Storage accounts have many storage options and capabilities. For the context of Azure Virtual machines, a storage account holds the virtual hard drives of the virtual machine and any additional data disks. The Music Store sample includes one storage account to hold the virtual hard drive of each virtual machine in the deployment. 
 
 Follow this link to see the JSON sample within the Resource Manager template – [Storage Account]( https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L115).
 
@@ -83,7 +83,7 @@ Follow this link to see the JSON sample within the Resource Manager template –
 },
 ```
 
-A storage account is associate with a virtual machine inside of the Resource Manager template declaration of the virtual machine. 
+A storage account is associate with a virtual machine inside the Resource Manager template declaration of the virtual machine. 
 
 Follow this link to see the JSON sample within the Resource Manager template – [Virtual Machine and Storage Account association](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L347).
 
@@ -110,7 +110,7 @@ For more information on Azure Storage, see [Azure Storage documentation](https:/
 
 ## Virtual Network
 
-If a virtual machine requires internal networking such as the ability to communicate with other virtual machines and Azure resources, an Azure Virtual Network will be required.  A virtual network does not make the virtual machine accessible over the internet. Public connectivity requires a public IP address, which is detailed later in this series.
+If a virtual machine requires internal networking such as the ability to communicate with other virtual machines and Azure resources, an Azure Virtual Network is required.  A virtual network does not make the virtual machine accessible over the internet. Public connectivity requires a public IP address, which is detailed later in this series.
 
 Follow this link to see the JSON sample within the Resource Manager template – [Virtual Network and Subnets](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L142).
 
@@ -153,7 +153,7 @@ From the Azure portal, the virtual network looks like the following image. Notic
 
 ## Network Interface
 
- A network interface connects a virtual machine to a virtual network, more specificall to a subnet that has been defined in the virtual network. 
+ A network interface connects a virtual machine to a virtual network, more specifically to a subnet that has been defined in the virtual network. 
  
  Follow this link to see the JSON sample within the Resource Manager template – [Network Interface](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L172).
  
