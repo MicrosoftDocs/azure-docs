@@ -13,15 +13,13 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/23/2016"
+   ms.date="08/08/2016"
    ms.author="yurid"/>
 
 # Azure Security Center Data Security
 To help customers prevent, detect, and respond to threats, Azure Security Center collects and processes data about your Azure resources, including configuration information, metadata, event logs, crash dump files, and more. We make strong commitments to protect the privacy and security of this data. Microsoft adheres to strict compliance and security guidelines—from coding to operating a service. 
 
 This article explains how data is managed and safeguarded in Azure Security Center.
-
-> [AZURE.NOTE] The information in this document applies to the preview release of Azure Security Center.
 
 ## Data Sources
 Azure Security Center analyzes data from the following sources:

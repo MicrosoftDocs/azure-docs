@@ -3,8 +3,8 @@
 	description="By using Azure Backup and Recovery Services, you can back up and restore data and applications from Windows Servers, Windows client machines, System Center DPM servers and Azure virtual machines."
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
-	manager="jwhit"
+	authors="markgalioto"
+	manager="cfreeman"
 	editor="tysonn"
 	keywords="backup and restore; recovery services; backup solutions"/>
 

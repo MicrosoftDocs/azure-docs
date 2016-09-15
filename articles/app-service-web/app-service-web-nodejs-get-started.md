@@ -58,8 +58,9 @@ This tutorial shows how to create a simple [Node.js][NODEJS] application and dep
 
     In your browser, navigate to <http://localhost:3000> to make sure that you can see the Express home page. Once you've verified your app runs properly, use `Ctrl-C` to stop it.
     
-1. Log in to Azure like so (you need [Azure CLI](#prereq) for this):
+1. Change into ASM mode and log in to Azure (you need [Azure CLI](#prereq) for this):
 
+        azure config mode asm
         azure login
 
     Follow the prompt to continue the login in a browser with a Microsoft account that has your Azure subscription.

@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/01/2016"
+   ms.date="08/18/2016"
    ms.author="aglick"/>
 
 #Azure resiliency technical guidance: Recovery from on-premises to Azure
@@ -79,22 +79,23 @@ For more information, see [High availability and disaster recovery for SQL Serve
 
 ###Networking
 
-  1. Review the [Networking](#networking) section of this document.
+  1. Review the Networking section of this document.
   2. Use Virtual Network to securely connect on-premises to the cloud.
 
 ###Compute
 
-  1. Review the [Compute](#compute) section of this document.
+  1. Review the Compute section of this document.
   2. Relocate VMs between Hyper-V and Azure.
 
 ###Storage
-  1. Review the [Storage](#storage) section of this document.
+
+  1. Review the Storage section of this document.
   2. Take advantage of StorSimple services for using cloud storage.
   3. Use the Azure Backup service.
 
 ###Database
 
-  1. Review the [Database](#database) section of this document.
+  1. Review the Database section of this document.
   2. Consider using SQL Server on Azure VMs as the backup.
   3. Set up AlwaysOn Availability Groups.
   4. Configure certificate-based database mirroring.

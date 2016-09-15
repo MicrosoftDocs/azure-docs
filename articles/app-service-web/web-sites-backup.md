@@ -47,7 +47,7 @@ about scaling your App Service plan to use a higher tier, see [Scale up an app i
 * You need an Azure storage account and container in the same subscription as the app that 
 you want to back up. For more information on Azure storage accounts, see the 
 [links](#moreaboutstorage) at the end of this article.
-* You can back up up to 10GB of app and database content. You will get an error if the backup size exceeds this limit. 
+* Backups can be up to 10GB of app and database content. You will get an error if the backup size exceeds this limit. 
 
 <a name="manualbackup"></a>
 ## Create a manual backup

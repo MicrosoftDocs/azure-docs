@@ -240,7 +240,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
                   "protocol": "tcp",
                   "frontendPortRangeStart": 50000,
                   "frontendPortRangeEnd": 50500,
-                  "backendPort": 3389
+                  "backendPort": 22
                 }
               }
             ]

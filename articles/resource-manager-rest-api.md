@@ -17,6 +17,13 @@
    ms.author="navale;tomfitz;"/>
    
 # Resource Manager REST APIs
+
+> [AZURE.SELECTOR]
+- [Azure PowerShell](powershell-azure-resource-manager.md)
+- [Azure CLI](xplat-cli-azure-resource-manager.md)
+- [Portal](./azure-portal/resource-group-portal.md) 
+- [REST API](resource-manager-rest-api.md)
+
 Behind every call to Azure Resource Manager, behind every deployed template, behind every configured storage account there is one or 
 several calls to the Azure Resource Manager’s RESTful API. 
 This topic is devoted to those APIs and how you can call them without using any SDK at all. This can be very useful if you want full 

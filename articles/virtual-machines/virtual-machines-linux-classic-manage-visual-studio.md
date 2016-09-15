@@ -4,7 +4,7 @@
    services="visual-studio-online,virtual-machines-linux"
    documentationCenter="na"
    authors="TomArcher"
-   manager="douge"
+   manager="timlt"
    editor="" />
 <tags
    ms.service="virtual-machines-linux"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="na"
-   ms.date="05/08/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Create and manage Linux virtual machines in Visual Studio

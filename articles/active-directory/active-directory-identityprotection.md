@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
+	ms.date="09/11/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection 
@@ -22,19 +22,14 @@
 Azure Active Directory Identity Protection is a security service that provides a consolidated view into risk events and potential vulnerabilities affecting your organization’s identities. Microsoft has been securing cloud-based identities for over a decade, and with Azure AD Identity Protection, Microsoft is making these same protection systems available to enterprise customers. Identity Protection leverages existing Azure AD’s anomaly detection capabilities (available through Azure AD’s Anomalous Activity Reports), and introduces new risk event types that can detect anomalies in real-time.
 
 ## Limitations of the current preview
-This section lists limitations that apply to the current preview of Azure Active Directory Identity Protection.
 
-### Country or Region limitation
+Azure Active Directory Identity Protection has the following limitations in conjunction with federated domains:
 
-The preview of Azure Active Directory Identity Protection is currently available only for directories with a **Country or Region** value of **United States**. <br><br>
-![Remediation](./media/active-directory-identityprotection/222.png "Remediation")
+- For User Risk security policy to work for federated domains
 
+	- [Password writeback](active-directory-passwords-getting-started.md) must be enabled for the federated domain, so that password change in the cloud can be written back on-premises.
 
-### Identity Protection and federated domains
-
-The preview of Azure Active Directory Identity Protection has the following limitations in conjunction with federated domains:
-
-- Only Sign-in risk security policy works for federated domains. Currently, user risk security policy does not work for federated domains 
+	- An Azure AD Premium license must be assigned to the end-user.
 
 - Risk events are only detected for apps federating with Azure Active Directory
 
@@ -47,7 +42,7 @@ Discovering compromised identities is no easy task. Fortunately, Identity Protec
  
 Using this data, Identity Protection generates reports and alerts that enables you to investigate these risk events and take appropriate remediation or mitigation action.
  
-But Azure Active Directory Identity Protection more than a monitoring and reporting tool. Based on risk events, Identity Protection calculates a user risk level for each user, enabling you to configure risk-based policies to automatically protect the identities of your organization.  These risk-based policies, in addition to other conditional access controls provided by Azure Active Directory and EMS, can automatically block or offer adaptive remediation actions that include password resets and multi-factor authentication enforcement.  
+But Azure Active Directory Identity Protection is more than a monitoring and reporting tool. Based on risk events, Identity Protection calculates a user risk level for each user, enabling you to configure risk-based policies to automatically protect the identities of your organization.  These risk-based policies, in addition to other conditional access controls provided by Azure Active Directory and EMS, can automatically block or offer adaptive remediation actions that include password resets and multi-factor authentication enforcement.  
 
 ####Explore Identity Protection's capabilities 
 
@@ -501,6 +496,7 @@ For an overview of the related user experience, see:
 ## See also
 
  - [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+ - [Enabling Azure Active Directory Identity Protection](active-directory-identityprotection-enable.md)
  - [Types of risk events detected by Azure Active Directory Identity Protection](active-directory-identityprotection-risk-events-types.md)
  - [Vulnerabilities detected by Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md)
  - [Azure Active Directory Identity Protection notifications](active-directory-identityprotection-notifications.md)

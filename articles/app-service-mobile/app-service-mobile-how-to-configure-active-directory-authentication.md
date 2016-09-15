@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="05/04/2016"
+	ms.date="08/22/2016"
 	ms.author="mahender"/>
 
 # How to configure your App Service application to use Azure Active Directory login
@@ -65,7 +65,7 @@ You can also choose to provide configuration settings manually. This is the pref
 
 7. In the **SIGN-ON URL** box, paste the application URL you copied earlier. Enter that same URL in the **App ID URI** box. Then click to continue.
 
-8. Once the application has been added, click the **Configure** tab. Edit the **Reply URL** under **Single Sign-on** to be the the URL of your application appended with the path, _/.auth/login/aad/callback_. For example, `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Make sure that you are using the HTTPS scheme.
+8. Once the application has been added, click the **Configure** tab. Edit the **Reply URL** under **Single Sign-on** to be the URL of your application appended with the path, _/.auth/login/aad/callback_. For example, `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Make sure that you are using the HTTPS scheme.
 
     ![][3]
 

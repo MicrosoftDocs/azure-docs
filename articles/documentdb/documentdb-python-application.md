@@ -4,7 +4,7 @@
 	keywords="Application development, database tutorial, python flask, python web application, python web development, documentdb, azure, Microsoft azure"
     services="documentdb"
     documentationCenter="python"
-    authors="aliuy"
+    authors="AndrewHoh"
     manager="jhubbard"
     editor="cgronlun"/>
 
@@ -14,8 +14,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="python"
     ms.topic="hero-article"
-    ms.date="04/18/2016"
-    ms.author="andrl"/>
+    ms.date="08/25/2016"
+    ms.author="anhoh"/>
 
 # Python Flask Web Application Development with DocumentDB
 
@@ -185,7 +185,7 @@ def create():
     db = client.CreateDatabase({ 'id': config.DOCUMENTDB_DATABASE })
 
     # Create collection
-    collection = client.CreateCollection(db['_self'],{ 'id': config.DOCUMENTDB_COLLECTION }, { 'offerType': 'S1' })
+    collection = client.CreateCollection(db['_self'],{ 'id': config.DOCUMENTDB_COLLECTION })
 
     # Create document
     document = client.CreateDocument(collection['_self'],

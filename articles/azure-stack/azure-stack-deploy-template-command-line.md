@@ -3,7 +3,7 @@
 	description="Learn how to use the cross-platform command line interface (CLI) to deploy templates from inside the ClientVM or after using the VPN to connect to Azure Stack."
 	services="azure-stack"
 	documentationCenter=""
-	authors="HeathL17"
+	authors="heathl17"
 	manager="byronr"
 	editor=""/>
 
@@ -25,10 +25,10 @@ To test a deployment with the CLI, download the files azuredeploy.json and azure
 
 ## Deploy template
 Navigate to the folder where these files were downloaded and run the following command to deploy the template:
-		
+
     azure group create "cliRG" "local" –f azuredeploy.json –d "testDeploy" –e azuredeploy.parameters.json
-	
-This command deploys the template to the resource group "cliRG" in the Azure Stack POC’s default location.	
+
+This command deploys the template to the resource group "cliRG" in the Azure Stack POC’s default location.
 
 ## Validate template deployment
 To see this resource group and storage account, use the following commands:

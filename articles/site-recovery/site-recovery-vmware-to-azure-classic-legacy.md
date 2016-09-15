@@ -72,7 +72,10 @@ Migrate as follows:
 
 9. In **Configure Target Settings** specify whether you want to use the same settings for all machines and select the process server and Azure storage account. If you don't have a separate process server this will be the the IP address of the configuration server server.
 
+
 	![Add account](./media/site-recovery-vmware-to-azure-classic-legacy/legacy-migration3.png)
+
+	> [AZURE.NOTE] [Migration of storage accounts](../resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for storage accounts used for deploying Site Recovery.
 
 10. In **Specify Accounts**, select the account you created for the process server to access the machine to push the new version of the Mobility service.
 
@@ -728,6 +731,8 @@ Add machines as follows:
 
 1. After a machine has a **Protected** status you can configure its failover properties. In the protection group details select the machine and open the **Configure** tab.
 2. You can modify the name that will be given to the machine in Azure after failover and the Azure virtual machine size. You can also select the Azure network to which the machine will be connected after failover.
+
+	> [AZURE.NOTE] [Migration of networks](../resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for networks used for deploying Site Recovery.
 
 	![Set virtual machine properties](./media/site-recovery-vmware-to-azure-classic-legacy/vm-props.png)
 

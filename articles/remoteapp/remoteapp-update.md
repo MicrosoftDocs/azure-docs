@@ -13,10 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="compute"
-   ms.date="06/05/2016"
+   ms.date="08/15/2016"
    ms.author="elizapo"/>
 
 # Update a collection in Azure RemoteApp
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
 There will come a time, inevitably, when you need to update the apps or image in your Azure RemoteApp collection. If you are using one of the images included with your Azure RemoteApp subscription, in either a cloud or hybrid collection, any and all updates are handled by Azure RemoteApp itself, so you can rest easy.
 

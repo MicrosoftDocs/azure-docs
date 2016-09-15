@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/05/2016"
+	ms.date="09/06/2016"
 	ms.author="adegeo"/>
 
 
@@ -144,7 +144,7 @@ To create a cloud service with deployments of web roles or worker roles, you mus
     ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
 
 
-[TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796
+[TFSTutorialForCloudService]: cloud-services-continuous-delivery-use-vso.md
  
 ## Next steps
 

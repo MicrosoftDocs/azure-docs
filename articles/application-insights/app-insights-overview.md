@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Application Insights tutorial | Microsoft Azure" 
 	description="Track usage and performance of your live web application.  Detect, triage and diagnose problems. Continuously monitor and improve success with your users." 
 	services="application-insights" 
@@ -17,7 +17,7 @@
  
 # Application Insights - introduction
 
-[Visual Studio Application Insights](app-insights-get-started.md) is an extensible analytics service that monitors your live web application. With it you can detect and diagnose performance issues, and understand what users actually do with your app. It's designed for developers, to help you continuously improve  performance and usability. It works for apps on a wide variety of platforms including .NET, Node.js and J2EE, hosted on-premises or in the cloud. 
+Visual Studio Application Insights is an extensible analytics service that monitors your live web application. With it you can detect and diagnose performance issues, and understand what users actually do with your app. It's designed for developers, to help you continuously improve  performance and usability. It works for apps on a wide variety of platforms including .NET, Node.js and J2EE, hosted on-premises or in the cloud. 
 
 ![Chart user activity statistics, or drill into specific events.](./media/app-insights-overview/00-sample.png)
 
@@ -347,11 +347,11 @@ Get started at development time with:
  * [Troubleshooting][qna]
  * [MSDN Forum](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
-* Suggestions:
+ * [Get developer support](app-insights-get-dev-support.md)
+* Your suggestions:
  * [UserVoice](https://visualstudio.uservoice.com/forums/357324)
 * Blog:
  * [Application Insights blog](https://azure.microsoft.com/blog/tag/application-insights)
-
 
 
 
@@ -383,6 +383,5 @@ Get started at development time with:
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
-[windows]: app-insights-windows-get-started.md
 
  

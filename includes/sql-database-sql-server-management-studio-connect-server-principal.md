@@ -1,42 +1,45 @@
 
 
-## Connect to Azure SQL Database using a server-level principal login
+## Connect to Azure SQL Database using SQL Server Authentication
 
-Use the following steps to connect to Azure SQL Database with SSMS using a server-level principal login.
+The following steps show how to connect to an Azure SQL server and database with SSMS. If you don't have a server and database, see [Create a SQL database in minutes](../articles/sql-database/sql-database-get-started.md) to create one.
 
-1. Type "Microsoft SQL Server Management Studio" in the Windows search box, and then click the desktop app to start SSMS.
 
-2. In the Connect to Server window, enter the following information:
+1. Start SSMS by typing **Microsoft SQL Server Management Studio** in the Windows search box, and then click the desktop app.
+
+2. In the **Connect to Server** window, enter the following information (if SSMS is already running, click **Connect > Database Engine** to open the **Connect to Server** window):
 
  - **Server type**: The default is database engine; do not change this value.
- - **Server name**: Enter the name of the server that hosts your SQL database in the following format: *&lt;servername>*.**database.windows.net**
- - **Authentication type**: If you are just getting started, select SQL Authentication. If you have enabled Active Directory for your SQL Database logical server, you can select either Active Directory Password Authentication or Active Directory Integrated Authentication.
- - **User name**: If you selected either SQL Authentication or Active Directory Password Authentication, enter the name of a user with access to a database on the server.
- - **Password**: If you selected either SQL Authentication or Active Directory Password Authentication, enter the password for the specified user.
+ - **Server name**: Enter the fully qualified name of your Azure SQL Database server in the following format: *&lt;servername>*.**database.windows.net**
+ - **Authentication type**: This article shows you how to connect using **SQL Server Authentication**. For details on connecting with Azure Active Directory, see [Connect using Active Directory integrated authentication](../articles/sql-database/sql-database-aad-authentication.md#connect-using-active-directory-integrated-authentication), [Connect using Active Directory password authentication](../articles/sql-database/sql-database-aad-authentication.md#connect-using-active-directory-password-authentication), and [Connect using Active Directory Universal Authentication](../articles/sql-database/sql-database-ssms-mfa-authentication.md).
+ - **User name**: Enter the name of a user with access to a database on the server (for example, the *server admin* you set up when creating the server). 
+ - **Password**: Enter the password for the specified user (for example, the *password* you set up when creating the server).
    
-       ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-1.png)
+       ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-server-principal/connect.png)
 
 3. Click **Connect**.
  
-4. If your client's IP address does not have access to the SQL Database logical server, you will be prompted to sign in to an Azure account and create a server-level firewall rule. If you are an Azure subscription administrator, click **Sign in** to create a server-level firewall rule. If not, have an Azure administrator create a server-level firewall rule.
- 
-      ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-2.png)
- 
-1. If you are an Azure subscription administrator and need to sign in, when the sign in page appears, provide the credentials for your subscription and sign in.
+4. By default, new servers have no defined [firewall rules](../articles/sql-database/sql-database-firewall-configure.md) so clients are initially blocked from connecting. If your server does not yet have a firewall rule that allows your specific IP address to connect, SSMS prompts to create a server-level firewall rule for you.
 
-      ![sign in](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-3.png)
+    Click **Sign in** and create a server-level firewall rule. You must be an Azure administrator to create a server-level firewall rule.
  
-1. After your sign in to Azure is successful, review the proposed server-level firewall rule (you can modify it to allow a range of IP addresses) and then click **OK** to create the firewall rule and complete the connection to SQL Database.
+       ![SQL Server Management Studio: Connect to SQL Database server](./media/sql-database-sql-server-management-studio-connect-server-principal/newfirewallrule.png)
  
-      ![new server-level firewall](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-4.png)
- 
-5. If your credentials grant you access, Object Explorer opens and you can now perform administrative tasks or query data. 
+
+5. After successfully connecting to your Azure SQL database, **Object Explorer** opens and you can now access your database to [perform administrative tasks or query data](../articles/sql-database/sql-database-manage-azure-ssms.md).
  
      ![new server-level firewall](./media/sql-database-sql-server-management-studio-connect-server-principal/connect-server-principal-5.png)
  
      
 ## Troubleshoot connection failures
 
-The most common reason for connection failures are mistakes in the server name (remember, <*servername*> is the name of the logical server, not the database), the user name, or the password, as well as the server not allowing connections for security reasons. 
+The most common reasons for connection failures are mistakes in the server name, and network connectivity issues. Remember, <*servername*> is the name of the server, not the database, and you need to provide the fully qualified server name: `<servername>.database.windows.net`
+
+Also, verify the user name and password do not contain any typos or extra spaces (user names are not case-sensitive, but passwords are). 
+
+You can also explicitly set the protocol and port number with the server name like the following: `tcp:servername.database.windows.net,1433`
+
+Network connectivity issues can also cause connection errors and timeouts. Simply retrying to connect (when you know that the server name, credentials, and firewall rules are correct) can lead to success.
+
 
 

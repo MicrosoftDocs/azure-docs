@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="hero-article"
- ms.date="06/30/2016"
+ ms.date="08/10/2016"
  ms.author="krisragh"/>
 
 # Get started with Azure Scheduler in Azure portal
@@ -25,7 +25,7 @@ It's easy to create scheduled jobs in Azure Scheduler. In this tutorial, you'll 
 
 2.  Click **+New** > type _Scheduler_ in the search box >  select **Scheduler** in results > click **Create**.
 
-   ![][marketplace-create]
+     ![][marketplace-create]
 
 3.  Let’s create a job that simply hits http://www.microsoft.com/ with a GET request. In the **Scheduler Job** screen, enter the following information:
 
@@ -43,7 +43,7 @@ It's easy to create scheduled jobs in Azure Scheduler. In this tutorial, you'll 
 
     3.  **URL:** ` http://www.microsoft.com`  
 
-   ![][action-settings]
+      ![][action-settings]
 
 5.  Finally, let's define a schedule. The job could be defined as a one-time job, but let’s pick a recurrence schedule:
 
@@ -55,7 +55,7 @@ It's easy to create scheduled jobs in Azure Scheduler. In this tutorial, you'll 
 
     4. **End by**: Two days from today's date  
 
-   ![][recurrence-schedule]
+      ![][recurrence-schedule]
 
 6.  Click **Create**
 
@@ -73,7 +73,7 @@ Once a job is created, it appears in the main Azure dashboard. Click the job and
 
 5.  Users
 
-   ![][job-overview]
+    ![][job-overview]
 
 ### Properties
 
@@ -100,7 +100,7 @@ For service bus action types, you may change the namespace, topic/queue path, au
 
 This lets you reconfigure the schedule, if you'd like to change the schedule you created in the quick-create wizard.
 
-This is an opoprtunity to build [complex schedules and advanced recurrence in your job](scheduler-advanced-complexity.md)
+This is an opportunity to build [complex schedules and advanced recurrence in your job](scheduler-advanced-complexity.md)
 
 You may change the start date and time, recurrence schedule, and the end date and time (if the job is recurring.)
 
@@ -150,7 +150,7 @@ Azure Role-Based Access Control (RBAC) enables fine-grained access management fo
 
  [Scheduler high-availability and reliability](scheduler-high-availability-reliability.md)
 
- [Scheduler limits, lefaults, and error codes](scheduler-limits-defaults-errors.md)
+ [Scheduler limits, defaults, and error codes](scheduler-limits-defaults-errors.md)
 
  [Scheduler outbound authentication](scheduler-outbound-authentication.md)
 

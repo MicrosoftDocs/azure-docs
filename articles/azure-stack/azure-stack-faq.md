@@ -3,7 +3,7 @@
 	description="Azure Stack frequently asked questions."
 	services="azure-stack"
 	documentationCenter=""
-	authors="ErikjeMS"
+	authors="HeathL17"
 	manager="byronr"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2016"
-	ms.author="erikje"/>
+	ms.date="08/10/2016"
+	ms.author="helaw"/>
 
 # Frequently asked questions for Azure Stack
 
