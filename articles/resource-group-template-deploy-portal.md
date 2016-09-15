@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/30/2016" 
+	ms.date="09/15/2016" 
 	ms.author="tomfitz"/>
 
 # Deploy resources with Resource Manager templates and Azure portal
@@ -35,7 +35,7 @@ the [classic portal](https://manage.windowsazure.com). For the status of each se
 
     ![create empty resource group](./media/resource-group-template-deploy-portal/create-empty-group.png)
 
-2. Give it a name and location, and, if necessary, select a subscription.
+2. Give it a name and location, and, if necessary, select a subscription. You need to provide a location for the resource group because the resource group stores metadata about the resources. For compliance reasons, you may want to specify where that metadata is stored. In general, we recommend that you specify a location where most of your resources will reside. Using the same location can simplify your template.
 
     ![set group values](./media/resource-group-template-deploy-portal/set-group-properties.png)
 
@@ -51,7 +51,7 @@ After you create a resource group, you can deploy resources to it from the Marke
 
     ![search marketplace](./media/resource-group-template-deploy-portal/search-resource.png)
 
-3. Depending on the type of resource you have selected, you will have a collection of relevant properties to set before deployment. Those options are not shown here, as they vary based on resource type. For all types, you must select a destination resource group. The following image shows how to create a web app and deploy it to the resource group you created.
+3. Depending on the type of selected resource, you have a collection of relevant properties to set before deployment. Those options are not shown here, as they vary based on resource type. For all types, you must select a destination resource group. The following image shows how to create a web app and deploy it to the resource group you created.
 
     ![create resource group](./media/resource-group-template-deploy-portal/select-existing-group.png)
 
@@ -59,7 +59,7 @@ After you create a resource group, you can deploy resources to it from the Marke
 
     ![create new resource group](./media/resource-group-template-deploy-portal/select-new-group.png)
 
-4. Your deployment begins. The deployment could take a few minutes. When the deployment has finished, you will see a notification.
+4. Your deployment begins. The deployment could take a few minutes. When the deployment has finished, you see a notification.
 
     ![view notification](./media/resource-group-template-deploy-portal/view-notification.png)
 

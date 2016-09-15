@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2016"
+	ms.date="09/08/2016"
 	ms.author="iainfou"/>
 
 # Infrastructure naming guidelines
 
 [AZURE.INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)] 
 
-This article focuses on understanding how to approach naming conventions for all your various Azure resources in order to build a logical and easily identifiable set of resources across your environment.
+This article focuses on understanding how to approach naming conventions for all your various Azure resources to build a logical and easily identifiable set of resources across your environment.
 
 ## Implementation guidelines for naming conventions
 
@@ -31,7 +31,7 @@ Decisions:
 
 Tasks:
 
-- Define the affixes that you will use across your resources to maintain consistency.
+- Define the affixes to use across your resources to maintain consistency.
 - Define storage account names given the requirement for them to be globally unique.
 - Document the naming convention to be used and distribute to all parties involved to ensure consistency across deployments.
 
@@ -41,11 +41,11 @@ You should have a good naming convention in place before creating anything in Az
 
 You might choose to follow a specific set of naming conventions defined for your entire organization or for a specific Azure subscription or account. Although it is easy for individuals within organizations to establish implicit rules when working with Azure resources, when a team needs to work on a project on Azure, that model does not scale well.
 
-You should agree on a set of naming conventions up front. There are some considerations regarding naming conventions that cut across that sets of rules.
+Agree on a set of naming conventions up front. There are some considerations regarding naming conventions that cut across that sets of rules.
 
 ## Affixes
 
-As you look to define a naming convention, one decision comes as to whether the affix will be at:
+As you look to define a naming convention, one decision comes as to whether the affix is at:
 
 - The beginning of the name (prefix)
 - The end of the name (suffix)
@@ -70,11 +70,11 @@ When establishing your naming conventions, make sure that they clearly state whi
 
 ## Dates
 
-It is often important to determine the date of creation from the name of a resource. We recommend the YYYYMMDD date format. This format ensures that not only the full date is recorded, but also that two resources whose names differ only on the date will be sorted alphabetically and chronologically at the same time.
+It is often important to determine the date of creation from the name of a resource. We recommend the YYYYMMDD date format. This format ensures that not only the full date is recorded, but also that two resources whose names differ only on the date is sorted alphabetically and chronologically at the same time.
 
 ## Naming resources
 
-You should define each type of resource in the naming convention, which should have rules that define how to assign names to each resource that is created. These rules should apply to all types of resources, for example:
+Define each type of resource in the naming convention, which should have rules that define how to assign names to each resource that is created. These rules should apply to all types of resources, for example:
 
 - Subscriptions
 - Accounts
@@ -96,11 +96,11 @@ When you create a virtual machine (VM), Microsoft Azure requires a VM name of up
 
 In case a VM is created from a .vhd image file that already contains an operating system, the VM name in Azure can differ from the VM's operating system computer name. This situation can add a degree of difficulty to VM management, which we therefore do not recommend. Assign the Azure VM resource the same name as the computer name that you assign to the operating system of that VM.
 
-We recommend that the Azure VM name be the same as the underlying operating system computer name.
+We recommend that the Azure VM name is the same as the underlying operating system computer name.
 
 ## Storage account names
 
-Storage accounts have special rules governing their names. You can only use lowercase letters and numbers. See [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) for more information. Additionally, the storage account name, in combination with core.windows.net, should be a globally valid, unique DNS name. For instance, if the storage account is called mystorageaccount, the following resulting DNS names should be unique:
+Storage accounts have special rules governing their names. You can only use lowercase letters and numbers. See [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) for more information. Additionally, the storage account name, along with core.windows.net, should be a globally valid, unique DNS name. For instance, if the storage account is called mystorageaccount, the following resulting DNS names should be unique:
 
 - mystorageaccount.blob.core.windows.net
 - mystorageaccount.table.core.windows.net

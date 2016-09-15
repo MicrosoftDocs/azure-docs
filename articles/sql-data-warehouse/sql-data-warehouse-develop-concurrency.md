@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/25/2016"
+   ms.date="08/30/2016"
    ms.author="sonyama;barbkess;jrj"/>
 
 # Concurrency and workload management in SQL Data Warehouse
@@ -270,16 +270,16 @@ Removed as these two are not confirmed / supported under SQLDW
 
 ## Change a user resource class example
 
-1. **Create login:** Open a connection to your **master** database in SQL Data Warehouse and execute the following commands.
+1. **Create login:** Open a connection to your **master** database on the SQL server hosting your SQL Data Warehouse database and execute the following commands.
 
 	```sql
 	CREATE LOGIN newperson WITH PASSWORD = 'mypassword';
 	CREATE USER newperson for LOGIN newperson;
 	```
 
-	> [AZURE.NOTE] It is a good idea to create users for logins in the master database in both Azure SQL database and Azure SQL Data Warehouse. There are two server roles available at this level that require the login to have a user in **master** in order to grant membership. The roles are `Loginmanager` and `dbmanager`. In both Azure SQL database and SQL Data Warehouse, these roles grant rights to manage logins and to create databases. This is different from SQL Server. For more details, please refer to [Managing Databases and Logins in Azure SQL Database][].
+	> [AZURE.NOTE] It is a good idea to create a user in the master database for Azure SQL Data Warehouse users. Creating a user in master allows a user to login using tools like SSMS without specifying a database name.  It also allows them to use the object explorer to view all databases on a SQL server.  For more details about creating and managing users, see [Secure a database in SQL Data Warehouse][].
 
-2. **Create user account:** Open a connection to the **SQL Data Warehouse** database and execute the following command.
+2. **Create SQL Data Warehouse user:** Open a connection to the **SQL Data Warehouse** database and execute the following command.
 
 	```sql
 	CREATE USER newperson FOR LOGIN newperson;
@@ -311,9 +311,9 @@ You can use the `sys.dm_pdw_exec_requests` DMV to identify queries that are wait
 
 ```sql
 SELECT 	 r.[request_id]				 AS Request_ID
-	,r.[status]				 AS Request_Status
-	,r.[submit_time]			 AS Request_SubmitTime
-	,r.[start_time]				 AS Request_StartTime
+        ,r.[status]				 AS Request_Status
+        ,r.[submit_time]			 AS Request_SubmitTime
+        ,r.[start_time]				 AS Request_StartTime
         ,DATEDIFF(ms,[submit_time],[start_time]) AS Request_InitiateDuration_ms
         ,r.resource_class                         AS Request_resource_class
 FROM    sys.dm_pdw_exec_requests r;
@@ -331,8 +331,8 @@ AND     ro.[is_fixed_role]  = 0;
 The following query shows which role each user is assigned to.
 
 ```sql
-SELECT	r.name AS role_principal_name
-,		m.name AS member_principal_name
+SELECT	 r.name AS role_principal_name
+        ,m.name AS member_principal_name
 FROM	sys.database_role_members rm
 JOIN	sys.database_principals AS r			ON rm.role_principal_id		= r.principal_id
 JOIN	sys.database_principals AS m			ON rm.member_principal_id	= m.principal_id
@@ -422,6 +422,7 @@ For more information about managing database users and security, see [Secure a d
 <!--Article references-->
 [Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 [Rebuilding indexes to improve segment quality]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
+[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 
 <!--MSDN references-->
 [Managing Databases and Logins in Azure SQL Database]:https://msdn.microsoft.com/library/azure/ee336235.aspx

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/29/2016"
+	ms.date="08/30/2016"
 	ms.author="anhoh"/>
 
 # View, edit, create, and upload JSON documents using DocumentDB Document Explorer
@@ -27,15 +27,11 @@ Note that Document Explorer is not enabled on DocumentDB accounts with protocol 
 
 1. In the Azure portal, in the Jumpbar, click **DocumentDB (NoSQL)**. If **DocumentDB (NoSQL)** is not visible, click **More Services** and then click **DocumentDB (NoSQL)**.
 
-2. At the top of the **DocumentDB (NoSQL)** blade, click **Document Explorer**. 
+2. In the resource menu, click **Document Explorer**. 
  
 	![Screenshot of the Document Explorer command](./media/documentdb-view-JSON-document-explorer/documentexplorercommand.png)
 
- 	>[AZURE.NOTE] Query Explorer also appears on the database and collection blades.
-
     In the **Document Explorer** blade, the **Databases** and **Collections** drop-down lists are pre-populated depending on the context in which you launched Document Explorer. 
-
-	![Screenshot of the Document Explorer blade](./media/documentdb-view-JSON-document-explorer/documentexplorerinitial.png)
 
 ## Create a document
 

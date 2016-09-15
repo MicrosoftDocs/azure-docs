@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/26/2016"
+	ms.date="08/31/2016"
 	ms.author="andkjell"/>
 
 
@@ -38,7 +38,7 @@ To the top right, you have a button **Add new rule**. This button is used to cre
 At the bottom, you have buttons for acting on a selected sync rule. **Edit** and **Delete** do what you expect them to. **Export** produces a PowerShell script for recreating the sync rule. This procedure allows you to move a sync rule from one server to another.
 
 ## Create your first custom rule
-The most common change is changes to the attribute flows. The data in your source directory might not be how you want it in Azure AD. In the example in this section, you want to make sure the given name of a user is always in **Proper case**.
+The most common change is changes to the attribute flows. The data in your source directory might not be as in Azure AD. In the example in this section, you want to make sure the given name of a user is always in **Proper case**.
 
 ### Disable the scheduler
 The [scheduler](active-directory-aadconnectsync-feature-scheduler.md) runs every 30 minutes by default. You want to make sure it is not starting while you are making changes and troubleshoot your new rules. To temporarily disable the scheduler, start PowerShell, and run `Set-ADSyncScheduler -SyncCycleEnabled $false`
@@ -61,7 +61,7 @@ The [scheduler](active-directory-aadconnectsync-feature-scheduler.md) runs every
 ![Inbound rule scoping filter](./media/active-directory-aadconnectsync-change-the-configuration/scopingfilter.png)  
 This section is used to define which objects the rule should apply to. If left empty, the rule would apply to all user objects. But that would include conference rooms, service accounts, and other non-people user objects.
 4. On the **Join rules**, leave it empty.
-5. On the **Transformations** page, change the FlowType to **Expression**. Select the Target Attribute **giveName**, and in Source enter `PCase([givenName])`.
+5. On the **Transformations** page, change the FlowType to **Expression**. Select the Target Attribute **givenName**, and in Source enter `PCase([givenName])`.
 ![Inbound rule transformations](./media/active-directory-aadconnectsync-change-the-configuration/transformations.png)  
 The sync engine is case-sensitive both on the function name and the name of the attribute. If you type something wrong, you see a warning when you add the rule. The editor allows you to save and continue, so you would have to reopen the rule and correct the rule.
 6. Click **Add** to save the rule.
@@ -153,10 +153,10 @@ At Fabrikam, we have realized that some of the attributes we synchronize to the 
 
 ## Next steps
 
-Learn more about [Declarative Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md) and the options available in the sync rules.
+- Read more about the configuration model in [Understanding Declarative Provisioning](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
+- Read more about the expression language in [Understanding Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
 
-Learn more about [Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) used for the attribute flows.
+**Overview topics**
 
-Learn more about the [Azure AD Connect sync](active-directory-aadconnectsync-whatis.md) configuration.
-
-Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+- [Azure AD Connect sync: Understand and customize synchronization](active-directory-aadconnectsync-whatis.md)
+- [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)

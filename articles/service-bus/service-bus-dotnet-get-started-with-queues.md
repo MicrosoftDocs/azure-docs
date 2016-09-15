@@ -10,7 +10,7 @@
 <tags
     ms.service="service-bus"
     ms.devlang="tbd"
-    ms.topic="get-started-article"
+    ms.topic="hero-article"
     ms.tgt_pltfrm="dotnet"
     ms.workload="na"
     ms.date="08/23/2016"

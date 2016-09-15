@@ -12,34 +12,30 @@ articles/sql-database/sql-database-get-started-tutorial.md
 
 Use the following steps in the Azure portal to create an Azure SQL Database logical server.
 
-1. If not currently connected, connect to the [Azure portal](http://portal.azure.com).
-2. Click **New** , type **SQL Database** and then click **SQL Database (new logical server)**
+1. If you're not currently connected, connect to the [Azure portal](http://portal.azure.com).
+2. Click **New**, click **Data + Storage**, and then locate **SQL Database**.
 
-      ![new logocal server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-1.png)
+      ![SQL Database 1](./media/sql-database-get-started/sql-database-new-database-1.png)
 
-3. Click SQL Database (new logical server).
+3. Click **SQL Database** to open the SQL Database blade.
 
-      ![new logccal server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-2.png)
-   
-4. Click **Create** to open a template to create an empty logical server that can host single databases and elastic database pools.
-
-      ![new logical server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-3.png)
+      ![New logical server](./media/sql-database-get-started/sql-database-new-database-2.png)
 
 5. Provide the values for the following server properties:
 
  - Server name
  - Server admin login
  - Password
- - Subscription (only if have multiple subscriptions)
+ - Subscription (only if you have multiple subscriptions)
  - Resource group (new or existing)
  - Location
 
-        ![new logical server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-4.png)
+        ![New logical server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-4.png)
 
-6.  Click **Create** and in the notification area, you can see that deployment has started.
+6.  Click **Create**. In the notification area, you can see that deployment has started.
 
-       ![new logical server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-5.png)
+       ![New logical server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-5.png)
 
 7. Wait for deployment to finish before continuing to the next step.
 
-       ![new logical server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-6.png)
+       ![New logical server](./media/sql-database-create-new-server-portal/sql-database-create-new-server-portal-6.png)
