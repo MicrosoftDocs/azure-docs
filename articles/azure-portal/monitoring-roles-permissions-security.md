@@ -98,12 +98,12 @@ Monitoring data—particularly log files—can contain sensitive information, su
 2. Diagnostic Logs, which are logs emitted by a resource.
 3. Metrics, which are emitted by resources.
 
-All three of these data types can be stored in a storage account or streamed to Event Hub, which are both general-purpose Azure resources. Because these are general-purpose resources, creating, deleting, and accessing them is a privileged operation usually reserved for an administrator. We suggest that you use the following practices for monitoring-related resources to prevent misuse:
+All three of these data types can be stored in a storage account or streamed to Event Hub, both of which are general-purpose Azure resources. Because these are general-purpose resources, creating, deleting, and accessing them is a privileged operation usually reserved for an administrator. We suggest that you use the following practices for monitoring-related resources to prevent misuse:
 
 - Use a single, dedicated storage account for monitoring data. If you need to separate monitoring data into multiple storage accounts, never share usage of a storage account between monitoring and non-monitoring data, as this may inadvertently give those who only need access to monitoring data (eg. a third-party SIEM) access to non-monitoring data.
 - Use a single, dedicated Service Bus or Event Hub namespace across all diagnostic settings for the same reason as above.
-- Limit access to monitoring-related storage accounts or event hubs by keeping them in a separate resource group and [use scope](../active-directory/role-based-access-control-what-is.md#basics-of-access-management-in-azure) on your monitoring roles to limit access to only that resource group.
-- Never grant a user who only needs access to monitoring data the ListKeys permission for either storage accounts or event hubs at subscription scope. Instead, give these permissions to the user at a resource or resource group (if you have a dedicated monitoring resource group) scope.
+- Limit access to monitoring-related storage accounts or event hubs by keeping them in a separate resource group, and [use scope](../active-directory/role-based-access-control-what-is.md#basics-of-access-management-in-azure) on your monitoring roles to limit access to only that resource group.
+- Never grant the ListKeys permission for either storage accounts or event hubs at subscription scope when a user only needs access to monitoring data. Instead, give these permissions to the user at a resource or resource group (if you have a dedicated monitoring resource group) scope.
 
 ### Limiting access to monitoring-related storage accounts
 When a user or application needs access to monitoring data in a storage account, you should [generate an Account SAS](https://msdn.microsoft.com/library/azure/mt584140.aspx) on the storage account that contains monitoring data with service-level read-only access to blob storage. In PowerShell, this might look like:
@@ -113,7 +113,7 @@ $context = New-AzureStorageContext -ConnectionString "[connection string for you
 $token = New-AzureStorageAccountSASToken -ResourceType Service -Service Blob -Permission "rl" -Context $context
 ```
 
-You can then give the token to the entity which needs to read from that storage account, and it will be able to list and read from all blobs in that storage account.
+You can then give the token to the entity that needs to read from that storage account, and it can list and read from all blobs in that storage account.
 
 Alternatively, if you need to control this permission with RBAC, you can grant that entity the Microsoft.Storage/storageAccounts/listkeys/action permission on that particular storage account. This is necessary for users who need to be able to set a diagnostic setting or log profile to archive to a storage account. For example, you could create the following custom RBAC role for a user or application that only needs to read from one storage account:
 
@@ -130,10 +130,10 @@ $role.AssignableScopes.Add("/subscriptions/mySubscription/resourceGroups/myResou
 New-AzureRmRoleDefinition -Role $role 
 ```
 
-> [AZURE.WARNING] The ListKeys permission will enable the user to list the primary and secondary storage account keys. These keys grant the user all signed permissions (read, write, create blobs, delete blobs, etc) across all signed services (blob, queue, table, file) in that storage account. We recommend using an Account SAS described above when possible.
+> [AZURE.WARNING] The ListKeys permission enables the user to list the primary and secondary storage account keys. These keys grant the user all signed permissions (read, write, create blobs, delete blobs, etc.) across all signed services (blob, queue, table, file) in that storage account. We recommend using an Account SAS described above when possible.
 
 ### Limiting access to monitoring-related event hubs
-A similar pattern can be followed with event hubs, but first you will need to create a dedicated Listen authorization rule. If you want to grant access to an application that only needs to listen to monitoring-related event hubs, do the following:
+A similar pattern can be followed with event hubs, but first you need to create a dedicated Listen authorization rule. If you want to grant access to an application that only needs to listen to monitoring-related event hubs, do the following:
 
 1. Create a shared access policy on the event hub(s) that were created for streaming monitoring data with only Listen claims. This can be done in the portal. For example, you might call it “monitoringReadOnly.” If possible, you will want to give that key directly to the consumer and skip the next step.
 2. If the consumer needs to be able to get the key ad-hoc, grant the user the ListKeys action for that event hub. This is also necessary for users who need to be able to set a diagnostic setting or log profile to stream to event hubs. For example, you might create an RBAC rule:
