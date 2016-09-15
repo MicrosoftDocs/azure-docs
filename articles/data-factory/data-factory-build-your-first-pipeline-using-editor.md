@@ -26,7 +26,7 @@
 
 [AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)] 
 
-Now, let's use Azure Portal to create an Azure data factory. 
+Now, let's use Azure portal to create an Azure data factory. 
 
 ## Create data factory
 A data factory can have one or more pipelines. A pipeline can have one or more activities in it. For example, a Copy Activity to copy data from a source to a destination data store and a HDInsight Hive activity to run Hive script to transform input data. Let's start with creating the data factory in this step. 
@@ -139,7 +139,7 @@ In this step, you create datasets to represent the input and output data for Hiv
 
 ### Create input dataset
 
-1. In the **Data Factory Editor**, click **... More** on the command bar, click **New dataset**,  and select **Azure Blob storage**.
+1. In the **Data Factory Editor**, click **... More** on the command bar, click **New dataset**, and select **Azure Blob storage**.
 
 	![New dataset](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
 2. Copy and paste the following snippet to the Draft-1 window. In the JSON snippet, you are creating a dataset called **AzureBlobInput** that represents input data for an activity in the pipeline. In addition, you specify that the input data is located in the blob container called **adfgetstarted** and the folder called **inputdata**.
@@ -184,7 +184,7 @@ In this step, you create datasets to represent the input and output data for Hiv
 ### Create output dataset
 Now, you create the output dataset to represent the output data stored in the Azure Blob storage. 
 
-1. In the **Data Factory Editor**, click **... More** on the command bar, click **New dataset**,  and select **Azure Blob storage**.  
+1. In the **Data Factory Editor**, click **... More** on the command bar, click **New dataset**, and select **Azure Blob storage**.  
 2. Copy and paste the following snippet to the Draft-1 window. In the JSON snippet, you are creating a dataset called **AzureBlobOutput**, and specifying the structure of the data that is produced by the Hive script. In addition, you specify that the results are stored in the blob container called **adfgetstarted** and the folder called **partitioneddata**. The **availability** section specifies that the output dataset is produced on a monthly basis.
 	
 		{

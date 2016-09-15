@@ -130,10 +130,12 @@ In this section, you do the following:
 		  month(date)
 		FROM WebLogsRaw
 
-At runtime, the Hive Activity in the Data Factory pipeline passes values for the inputtable and partitionedtable parameters as shown in the following snippet. The storageaccountname is the name of your Azure storage account. 
+At runtime, the Hive Activity in the Data Factory pipeline passes values for the **inputtable** and **partitionedtable** parameters as shown in the following snippet:  
 
 		"inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
 		"partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
+
+The **storageaccountname** is the name of your Azure storage account.
  
 #### Create a sample input file
 Using notepad, create a file named **input.log** in the **c:\adfgetstarted** with the following content: 
@@ -170,9 +172,11 @@ This section provides instructions on using **AzCopy** tool to copy files to Azu
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
 
-	3. Navigate to the c:\adfgetstarted folder, and run the following command. This command uploads the **input.log** file to the storage account (**adfgetstarted** container and **inputdata** folder). Replace **StorageAccountName** with the name of your storage account, and **Storage Key** with the storage account key.
+	3. Navigate to the c:\adfgetstarted folder, and run the following command: 
 
 			AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/inputdata /DestKey:<storagekey>  /Pattern:input.log
+
+		This command uploads the **input.log** file to the storage account (**adfgetstarted** container and **inputdata** folder). Replace **StorageAccountName** with the name of your storage account, and **Storage Key** with the storage account key.
 
 		> [AZURE.NOTE] This command creates a container named **adfgetstarted** in your Azure Blob storage and copies the **input.log** file from your local drive to the **inputdata** folder in the container. 
 	
