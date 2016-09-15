@@ -51,11 +51,11 @@ The Azure Resource Manager template requires the following parameter values.
 
 |Parameter Name |Description   |
 |---|---|
-|VMNAME | Virtual Machine name. Once deployed, this value will include an integer that will be incremented for each virtual machine in the deployment.  |
+|VMNAME | Virtual Machine name. An integer is added to this value and is incremented for each virtual machine in the deployment.  |
 |SSHKEYDATA   | SSH key data used to secure access to the Virtual Machine. For information on creating an SSH key air, see [Creating SSH keys for Linux VMs in Azure](./ virtual-machines-linux-mac-create-ssh-keys.md).  |
 |ADMINUSERNAME   | Admin user name that is used on the virtual machine and the Azure SQL Database.  |
 |SQLADMINPASSWORD | Password that is used on the Azure SQL Database.  |
-|NUMBEROFINSTANCES | The number of virtual machines that will be created. Each of these will host the Music Store web application. All traffic will be load balanced across these VMs. |
+|NUMBEROFINSTANCES | The number of virtual machines to be created. Each of these virtual machines host the Music Store web application, and all traffic is load balanced across them. |
 |PUBLICIPADDRESSDNSNAME | Globally unique DNS name associated with the Public IP address. |
 
 ## Next Step
