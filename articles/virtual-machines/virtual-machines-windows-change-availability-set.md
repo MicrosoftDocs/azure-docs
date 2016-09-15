@@ -73,7 +73,7 @@ The following steps describe how to change the availability set of a VM using Az
 	Remove-AzureRmVM -ResourceGroupName <resourceGroupName> -Name <vmName> 
 	```
 
-3. Create the Availability Set if it does not already exist
+3. Create the availability set if it does not already exist
 
 	```powershell
 	New-AzureRmAvailabilitySet -ResourceGroupName <resourceGroupName> -Name <availabilitySetName> -Location "<location>" 
