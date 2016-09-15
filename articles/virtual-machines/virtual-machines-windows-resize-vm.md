@@ -75,6 +75,7 @@ Update-AzureRmVM -VM $vm -ResourceGroupName <resource-group-name>
 ```
 
 3. Otherwise, if the desired size is not listed, continue with the following steps to deallocate all VMs in the availability set, resize VMs, and restart them.
+
 4. Run the following commands to stop all VMs in the availability set.
 5. Run the following commands to resize and restart the target VM.
 6. Run the following command to get the list of sizes available in the new hardware cluster.
