@@ -143,6 +143,9 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\[Version Number]
 
 For more information about PowerShell DSC, [visit the PowerShell documentation center](https://msdn.microsoft.com/powershell/dsc/overview). 
 
+Examine the [Azure Resource Manager template for the DSC extension](virtual-machines-windows-extensions-dsc-template.md
+). 
+
 To find additional functionality you can manage with PowerShell DSC, [browse the PowerShell gallery](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0) for more DSC resources.
 
 For details on passing sensitive parameters into configurations, see [Manage credentials securely with the DSC extension handler](virtual-machines-windows-extensions-dsc-credentials.md).
