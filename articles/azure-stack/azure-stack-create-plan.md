@@ -30,11 +30,11 @@
 
     ![](media/azure-stack-create-plan/image01.png)
 
-4.  In the **New Plan** blade, fill in **Display Name** and **Resource Name**. The Display Name is the plan's friendly name. Only the admin can see the Resource Name. It's the name that admins use to work with the plan as an Azure Resource Manager resource.
+4.  In the **New Plan** blade, fill in **Display Name** and **Resource Name**. The Display Name is the plan's friendly name that tenants see. Only the admin can see the Resource Name. It's the name that admins use to work with the plan as an Azure Resource Manager resource.
 
     ![](media/azure-stack-create-plan/image02.png)
 
-5.  Create a new **Resource Group**, or select an existing one, as a container for the plan. By default, all plans and offers go into a resource group called OffersAndPlans.
+5.  Create a new **Resource Group**, or select an existing one, as a container for the plan (e.g. "OffersAndPlans")
 
     ![](media/azure-stack-create-plan/image02a.png)
 
@@ -42,35 +42,35 @@
 
     ![](media/azure-stack-create-plan/image03.png)
 
-7.  Click **Quotas**, click **Quota for Storage Provider Admin**, and then click **Create new quota**.
+7.  Click **Quotas**, click **Microsoft.Storage (local)**, and then either select the default quota or click **Create new quota** to customize the quota.
 
 	![](media/azure-stack-create-plan/image04.png)
 
-8.  Type a name for the quota, click **Quota Settings**, keep all the default values and click **OK**, and then click **Create**.
+8.  Type a name for the quota, click **Quota Settings**, set the quota values and click **OK**, and then click **Create**.
 
     ![](media/azure-stack-create-plan/image06.png)
 
-9. Click **Quota for Network Provider Admin**, click **Create new quota**, and then type a name for the quota.
+9. Click **Microsoft.Network (local)**, and then either select the default quota or click **Create new quota** to customize the quota.
 
 	![](media/azure-stack-create-plan/image07.png)
 
-10. Click **Quota Settings**, keep all the default values and click **OK**, and then click **Create**.
+10. Type a name for the quota, click **Quota Settings**, set the quota values and click **OK**, and then click **Create**.
 
 	![](media/azure-stack-create-plan/image08.png)
 
-11. Click **Quota for Compute Provider Admin**, click **Create new quota**, and then type a name for the quota.
+11. Click **Microsoft.Compute (local)**, and then either select the default quota or click **Create new quota** to customize the quota.
 
 	![](media/azure-stack-create-plan/image09.png)
 
-12. Click **Quota Settings**, keep all the default values and click **OK**, and then click **Create**.
+12.  Type a name for the quota, click **Quota Settings**, set the quota values and click **OK**, and then click **Create**.
 
 	![](media/azure-stack-create-plan/image10.png)
 
-12. In the **Quotas** blade, click **OK**, and then in the **New Plan** blade, click **Create** to create the plan.
+13. In the **Quotas** blade, click **OK**, and then in the **New Plan** blade, click **Create** to create the plan.
 
 	![](media/azure-stack-create-plan/image11.png)
 
-13. To see your new plan, click **All resources**, then search for the plan and click its name.
+14. To see your new plan, click **All resources**, then search for the plan and click its name.
 
     ![](media/azure-stack-create-plan/image12.png)
 
