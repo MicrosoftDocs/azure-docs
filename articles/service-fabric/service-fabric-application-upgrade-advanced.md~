@@ -53,7 +53,7 @@ Occasions when using a diff package would be a good choice:
 
 * A diff package is preferred when you have a deployment system that generates the build layout directly from your application build process. In this case, even though the code hasn't changed, newly built assemblies get a different checksum. Using a full application package would require you to update the version on all code packages. Using a diff package, you only provide the files that changed and the manifest files where the version has changed.
 
-When an application is upgraded using Visual Studio, the diff package is published automatically. To create a diff package manually, the application manifest, and the service manifests must be updated, but only the changed packages should be included in the final application package. 
+When an application is upgraded using Visual Studio, the diff package is published automatically. To create a diff package manually, the application and service manifests must be updated, but only the changed packages should be included in the final application package. 
 
 For example, let's start with the following application (version numbers provided for ease of understanding):
 
