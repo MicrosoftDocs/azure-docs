@@ -14,15 +14,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="06/03/2016"
+	ms.date="09/15/2016"
 	ms.author="markgal; jimpark"/>
 
 
 # First look: Protect Azure VMs with a recovery services vault
 
 > [AZURE.SELECTOR]
-- [First look: Protect VMs with a recovery services vault](backup-azure-vms-first-look-arm.md)
-- [First Look: Protect Azure VMs with a backup vault](backup-azure-vms-first-look.md)
+- [Protect VMs with a recovery services vault](backup-azure-vms-first-look-arm.md)
+- [Protect VMs with a backup vault](backup-azure-vms-first-look.md)
 
 This tutorial takes you through the steps for creating a recovery services vault and backing up an Azure virtual machine (VM). Recovery services vaults protect:
 
@@ -44,7 +44,7 @@ At a high level, here are the steps that you will complete.
 
 
 
-## Step 1 - Create a recovery services vault for a VM
+## Create a recovery services vault for a VM
 
 A recovery services vault is an entity that stores all the backups and recovery points that have been created over time. The recovery services vault also contains the backup policy applied to the protected VMs.
 
@@ -77,7 +77,7 @@ To create a recovery services vault:
 
 7. Click **Location** to select the geographic region for the vault. The vault **must** be in the same region as the virtual machines that you want to protect.
 
-    >[AZURE.IMPORTANT] If you are unsure of the location in which your VM exists, close out of the vault creation dialog, and go to the list of Virtual Machines in the portal. If you have virtual machines in multiple regions, you will need to create a recovery services vault in each region. Create the vault in the first location before going to the next location. There is no need to specify storage accounts to store the backup data--the recovery services vault and the Azure Backup service handle this automatically.
+    >[AZURE.IMPORTANT] If you are unsure of the location in which your VM exists, close out of the vault creation dialog, and go to the list of Virtual Machines in the portal. If you have virtual machines in multiple regions, create a recovery services vault in each region. Create the vault in the first location before going to the next location. There is no need to specify storage accounts to store the backup data--the recovery services vault and the Azure Backup service handle this automatically.
 
 8. Click **Create**. It can take a while for the recovery services vault to be created. Monitor the status notifications in the upper right-hand area in the portal. Once your vault is created, it appears in the list of recovery services vaults.
 
@@ -99,7 +99,7 @@ To edit the storage replication setting:
 
     After choosing the storage option for your vault, you are ready to associate the VM with the vault. To begin the association, you should discover and register the Azure virtual machines.
 
-## Step 2 - Select a backup goal, set policy and define items to protect
+## Select a backup goal, set policy and define items to protect
 
 Before registering a VM with a vault, run the discovery process to ensure that any new virtual machines that have been added to the subscription are identified. The process queries Azure for the list of virtual machines in the subscription, along with additional information like the cloud service name and the region. In the Azure portal, scenario refers to what you are going to put into the recovery services vault. Policy is the schedule for how often and when recovery points are taken. Policy also includes the retention range for the recovery points.
 
@@ -155,7 +155,7 @@ on the Hub menu, click **Browse**.
     ![Enable Backup](./media/backup-azure-vms-first-look-arm/enable-backup-settings-new.png)
 
 
-## Step 3 - Initial backup
+## Initial backup
 
 Once a backup policy has been deployed on the virtual machine, that does not mean the data has been backed up. By default, the first scheduled backup (as defined in the backup policy) is the initial backup. Until the initial backup occurs, the Last Backup Status on the **Backup Jobs** blade shows as **Warning(initial backup pending)**.
 
