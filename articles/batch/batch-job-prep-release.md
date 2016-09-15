@@ -20,7 +20,7 @@
 
  A Batch job often requires some form of setup before its tasks are executed, and post-job maintenance when its tasks are completed. You might need to download common task input data to your compute nodes, or upload task output data to Azure Storage after the job completes. You can use **job preparation** and **job release** tasks to perform these operations.
 
-# What are job preparation and release tasks?
+## What are job preparation and release tasks?
 
 Before a job's tasks run, the job preparation task runs on all compute nodes scheduled to run at least one task. Once the job is completed, the job release task runs on each node in the pool that executed at least one task. As with normal Batch tasks, you can specify a command line to be invoked when a job preparation or release task is run.
 
