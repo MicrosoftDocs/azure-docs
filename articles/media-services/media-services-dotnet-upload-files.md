@@ -29,6 +29,12 @@ In Media Services, you upload (or ingest) your digital files into an asset. The 
 
 The files in the asset are called **Asset Files**. The **AssetFile** instance and the actual media file are two distinct objects. The AssetFile instance contains metadata about the media file, while the media file contains the actual media content.
 
+>[AZURE.NOTE]The following considerations apply when choosing an asset file name:
+>
+>- Media Services uses the value of the IAssetFile.Name property when building URLs for the streaming content (for example, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) For this reason, percent-encoding is not allowed. The value of the **Name** property cannot have any of the following [percent-encoding-reserved characters](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Also, there can only be one '.' for the file name extension.
+>
+>- The length of the name should not be greater than 512 characters.
+
 When you create assets, you can specify the following encryption options. 
 
 - **None** - No encryption is used. This is the default value. Note that when using this option your content is not protected in transit or at rest in storage.
@@ -45,11 +51,6 @@ If you specify for your asset to be encrypted with a **CommonEncrypted** option,
 
 If you specify for your asset to be encrypted with a **StorageEncrypted** option, the Media Services SDK for .NET will create a **StorateEncrypted** **ContentKey** for your asset.
 
->[AZURE.NOTE]Considerations for choosing an asset file name:
->
->Media Services uses the value of the IAssetFile.Name property when building URLs for the streaming content (for example, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) For this reason, percent-encoding is not allowed. The value of the **Name** property cannot have any of the following [percent-encoding-reserved characters](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Also, there can only be one '.' for the file name extension.
->
->The length of the name should not be greater than 512 characters.
 
 This topic shows how to use Media Services .NET SDK as well as Media Services .NET SDK extensions to upload files into a Media Services asset.
 
