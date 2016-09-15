@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="09/15/2016"
+	ms.date="09/16/2016"
 	ms.author="marsma" />
 
 # Run job preparation and completion tasks on Azure Batch compute nodes
 
 Azure Batch jobs often require some form of setup prior to execution, as well as some sort of post-job maintenance after the job's tasks are completed. Batch provides the mechanisms for this preparation and maintenance in the form of optional job preparation and job release tasks.
 
-Before a job's tasks run, the **job preparation task** runs on all compute nodes scheduled to run tasks. Once the job is completed, the **job release task** runs on each node in the pool that executed at least one task. As with normal Batch tasks, you can specify a a command line to be invoked when a job preparation or release task is run. These special tasks offer familiar task features such as file download, elevated execution, custom environment variables, maximum execution duration, retry count, and file retention time.
+Before a job's tasks run, the **job preparation task** runs on all compute nodes scheduled to run tasks. Once the job is completed, the **job release task** runs on each node in the pool that executed at least one task. As with normal Batch tasks, you can specify a command line to be invoked when a job preparation or release task is run. These special tasks offer familiar task features such as file download, elevated execution, custom environment variables, maximum execution duration, retry count, and file retention time.
 
 In the following sections, you'll learn how to use the [JobPreparationTask][net_job_prep] and [JobReleaseTask][net_job_release] classes found in the [Batch .NET][api_net] library.
 
@@ -160,7 +160,7 @@ Sample complete, hit ENTER to exit...
 
 ### Inspect job preparation and release tasks in the Azure Portal
 
-When you run the above sample application, you can use the [Azure portal][portal] to view the properties of the job and its tasks, or even download the shared text file that is modified by the job's tasks.
+When you run the sample application, you can use the [Azure portal][portal] to view the properties of the job and its tasks, or even download the shared text file that is modified by the job's tasks.
 
 The screenshot below shows the **Preparation tasks blade** in the Azure portal after a run of the sample application. Navigate to the *JobPrepReleaseSampleJob* properties after your tasks have completed (but before deleting your job and pool) and click **Preparation tasks** or **Release tasks** to view their properties.
 
