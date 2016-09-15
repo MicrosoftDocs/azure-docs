@@ -51,7 +51,7 @@ After you create a resource group, you can deploy resources to it from the Marke
 
     ![search marketplace](./media/resource-group-template-deploy-portal/search-resource.png)
 
-3. Depending on the type of resource you have selected, you will have a collection of relevant properties to set before deployment. Those options are not shown here, as they vary based on resource type. For all types, you must select a destination resource group. The following image shows how to create a web app and deploy it to the resource group you created.
+3. Depending on the type of selected resource, you have a collection of relevant properties to set before deployment. Those options are not shown here, as they vary based on resource type. For all types, you must select a destination resource group. The following image shows how to create a web app and deploy it to the resource group you created.
 
     ![create resource group](./media/resource-group-template-deploy-portal/select-existing-group.png)
 
@@ -59,7 +59,7 @@ After you create a resource group, you can deploy resources to it from the Marke
 
     ![create new resource group](./media/resource-group-template-deploy-portal/select-new-group.png)
 
-4. Your deployment begins. The deployment could take a few minutes. When the deployment has finished, you will see a notification.
+4. Your deployment begins. The deployment could take a few minutes. When the deployment has finished, you see a notification.
 
     ![view notification](./media/resource-group-template-deploy-portal/view-notification.png)
 
