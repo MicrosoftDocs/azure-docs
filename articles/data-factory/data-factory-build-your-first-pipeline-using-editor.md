@@ -320,7 +320,14 @@ In this step, you create your first pipeline with a **HDInsightHive** activity. 
 10. When the slice is in **Ready** state, check the **partitioneddata** folder in the **adfgetstarted** container in your blob storage for the output data.  
  
 	![output data](./media/data-factory-build-your-first-pipeline-using-editor/three-ouptut-files.png)
+11. Click the slice to see details about it in a **Data slice** blade.
 
+	![Data slice details](./media/data-factory-build-your-first-pipeline-using-editor/data-slice-details.png)  
+12. Click on an activity run in the **Activity runs list** to see details about an activity run (Hive activity in our scenario) in a **Activity run details** window.   
+
+	![Activity run details](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-blade.png)	
+	
+	From the log files, you can see the Hive query that was executed and status information. These logs are useful for troubleshooting any issues.
 See [Monitor and manage pipelines using Azure portal blades](data-factory-monitor-manage-pipelines.md) article for more details. 
 
 > [AZURE.IMPORTANT] The input file gets deleted when the slice is processed successfully. Therefore, if you want to rerun the slice or do the tutorial again, upload the input file (input.log) to the inputdata folder of the adfgetstarted container.
@@ -328,13 +335,13 @@ See [Monitor and manage pipelines using Azure portal blades](data-factory-monito
 ### Monitor pipeline using Monitor & Manage App
 You can also use Monitor & Manage application to monitor your pipelines. For detailed information about using this application, see [Monitor and manage Azure Data Factory pipelines using Monitoring and Management App](data-factory-monitor-manage-app.md).
 
-1. Click Monitor & Manage tile.
+1. Click **Monitor & Manage** tile on the home page for your data factory.
 
 	![Monitor & Manage tile](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-tile.png) 
-2. You should see Monitor & Manage application. Change the **Start time** and **End time** to match start (04-01-2016 12:00 AM) and end times (04-02-2016 12:00 AM) of your pipeline, and click **Apply**.
+2. You should see **Monitor & Manage application**. Change the **Start time** and **End time** to match start (04-01-2016 12:00 AM) and end times (04-02-2016 12:00 AM) of your pipeline, and click **Apply**.
 
 	![Monitor & Manage App](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-app.png) 
-3. Select an activity window in the Activity Windows list to see details about it. 
+3. Select an activity window in the **Activity Windows** list to see details about it. 
 	![Activity window details](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-details.png)
 
 

@@ -268,10 +268,12 @@ When you publish the solution in the next step, the **partitionweblogs.hql** fil
 
 21. In the Configure data factory page, do the following: 
 	1. select **Create New Data Factory** option.
-	2. Enter **FirstDataFactoryUsingVS** for **Name**. 
+	2. Enter a unique **name** for the data factory. For example: **FirstDataFactoryUsingVS09152016**. The name must be globally unique.  
 	
-		> [AZURE.IMPORTANT] The name of the Azure Data Factory must be globally unique. If you receive the error **Data factory name “FirstDataFactoryUsingVS” is not available** when publishing, change the name (for example, yournameFirstDataFactoryUsingVS). See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
-	3. Select the right subscription for the **Subscription** field. 
+		> [AZURE.IMPORTANT] If you receive the error **Data factory name “FirstDataFactoryUsingVS” is not available** when publishing, change the name (for example, yournameFirstDataFactoryUsingVS). See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
+	3. Select the right subscription for the **Subscription** field.
+	 
+		> [AZURE.IMPORTANT] If you do not see any subscription, ensure that you logged in using an account that is an admin or co-admin of the subscription.  
 	4. Select the **resource group** for the data factory to be created. 
 	5. Select the **region** for the data factory. 
 	6. Click **Next** to switch to the **Publish Items** page. (Press **TAB** to move out of the Name field to if the **Next** button is disabled.) 
@@ -279,7 +281,8 @@ When you publish the solution in the next step, the **partitionweblogs.hql** fil
 24. Review the summary and click **Next** to start the deployment process and view the **Deployment Status**.
 25. In the **Deployment Status** page, you should see the status of the deployment process. Click Finish after the deployment is done. 
 
-Note the following: 
+ 
+Important points to note: 
 
 - If you receive the error: "**This subscription is not registered to use namespace Microsoft.DataFactory**", do one of the following and try publishing again: 
 
@@ -292,16 +295,17 @@ Note the following:
 			Get-AzureRmResourceProvider
 	- Login using the Azure subscription in to the [Azure portal](https://portal.azure.com) and navigate to a Data Factory blade (or) create a data factory in the Azure portal. This action automatically registers the provider for you.
 - 	The name of the data factory may be registered as a DNS name in the future and hence become publically visible.
-- 	To create Data Factory instances, you need to be a contributor/administrator of the Azure subscription
+- 	To create Data Factory instances, you need to be a admin or co-admin of the Azure subscription
 
  
 ## Monitor pipeline
 
 ### Monitor pipeline using Diagram View
 6. Log in to the [Azure portal](https://portal.azure.com/), do the following:
-	1. Click **Browse** and select **Data factories**.
+	1. Click **More services** and click **Data factories**.
 		![Browse data factories](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
-	2. Select **FirstDataFactoryUsingVS** from the list of data factories. 
+	2. Select the name of your data factory (for example: **FirstDataFactoryUsingVS09152016**) from the list of data factories. 
+		![Select your data factory](./media/data-factory-build-your-first-pipeline-using-vs/select-first-data-factory.png)
 7. In the home page for your data factory, click **Diagram**.
   
 	![Diagram tile](./media/data-factory-build-your-first-pipeline-using-vs/diagram-tile.png)
@@ -331,6 +335,14 @@ Note the following:
 10. When the slice is in **Ready** state, check the **partitioneddata** folder in the **adfgetstarted** container in your blob storage for the output data.  
  
 	![output data](./media/data-factory-build-your-first-pipeline-using-vs/three-ouptut-files.png)
+11. Click the slice to see details about it in a **Data slice** blade.
+
+	![Data slice details](./media/data-factory-build-your-first-pipeline-using-vs/data-slice-details.png)  
+12. Click on an activity run in the **Activity runs list** to see details about an activity run (Hive activity in our scenario) in a **Activity run details** window.   
+	![Activity run details](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-blade.png)	
+	
+	From the log files, you can see the Hive query that was executed and status information. These logs are useful for troubleshooting any issues.  
+ 
 
 See [Monitor datasets and pipeline](data-factory-monitor-manage-pipelines.md) for instructions on how to use the Azure portal to monitor the pipeline and datasets you have created in this tutorial.
 
