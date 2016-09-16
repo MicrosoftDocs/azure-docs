@@ -59,3 +59,12 @@ The following guidelines help you select a virtual network to use with Azure AD 
 ## Network connectivity
 
 - You can [connect a classic virtual network to an ARM-based virtual network](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md), to use Azure AD Domain Services in a virtual network created using Azure Resource Manager.
+
+
+<br>
+
+## Related Content
+
+- [Azure virtual network peering](../virtual-network/virtual-network-peering-overview.md)
+
+- [Configure a VNet-to-VNet connection for the classic deployment model](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
