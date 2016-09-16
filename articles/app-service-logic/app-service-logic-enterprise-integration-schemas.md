@@ -32,6 +32,9 @@ From the Azure portal:
 ![](./media/app-service-logic-enterprise-integration-overview/overview-31.png)  
 4. Select the **Schemas** tile  
 ![](./media/app-service-logic-enterprise-integration-schemas/schema-11.png)  
+
+#### To add schema file less than 2 MB  
+
 5. Select the **Add** button in the Schemas blade that opens  
 ![](./media/app-service-logic-enterprise-integration-schemas/schema-21.png)  
 6. Enter a **Name** for your schema, then to upload the schema file, select the folder icon on the right side of the **Schema** text box. After the upload process is completed, select the **OK** button.    
