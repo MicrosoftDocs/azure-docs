@@ -36,7 +36,7 @@ For more information on protecting Premium storage VMs, see [Back up and Restore
 
 >[AZURE.NOTE] This tutorial assumes you already have a VM in your Azure subscription and that you have taken measures to allow the backup service to access the VM.
 
-[AZURE.INCLUDE [learn-about-Azure-Backup-deployment-models](../../includes/backup-deployment-model.md)]
+[AZURE.INCLUDE [learn-about-Azure-Backup-deployment-models](../../includes/backup-deployment-models.md)]
 
 At a high level, here are the steps that you'll complete.  
 
