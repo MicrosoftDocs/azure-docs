@@ -14,9 +14,9 @@
 
 2. Click **Create** to create the namespace.
 
-6. In the Event Hubs namespace list, click the newly-created namespace.
+6. In the Event Hubs namespace list, click the newly-created namespace.      
 
-	![][2]
+	![](./media/event-hubs-create-event-hub/create-event-hub2.png)
 
 7. In the namespace blade, click **Event Hubs**.
 
@@ -44,7 +44,6 @@
 
 Your Event Hub is now created, and you have the connection strings you need to send and receive events.
 
-[2]: ./media/event-hubs-create-event-hub/create-event-hub2.png
 [3]: ./media/event-hubs-create-event-hub/create-event-hub3.png
 [4]: ./media/event-hubs-create-event-hub/create-event-hub4.png
 [5]: ./media/event-hubs-create-event-hub/create-event-hub5.png
