@@ -91,7 +91,7 @@ You can use a resource token (by creating DocumentDB users and permissions) when
 
 Likewise, DocumentDB read-only keys provide read access to all resources - except permission resources, of course - within a DocumentDB account and cannot be used to provide more granular access to specific DocumentDB resources.
 
-DocumentDB resource token provide a safe alternative that allows clients to read, write, and delete resources in your DocumentDB account according to the permissions you've granted, and without need for either a master or read only key.
+DocumentDB resource tokens provide a safe alternative that allows clients to read, write, and delete resources in your DocumentDB account according to the permissions you've granted, and without need for either a master or read only key.
 
 Here is a typical design pattern whereby resource tokens may be requested, generated and delivered to clients:
 
