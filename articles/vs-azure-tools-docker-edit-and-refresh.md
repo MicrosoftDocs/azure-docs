@@ -3,7 +3,7 @@
    description="Learn how to modify an app that is running in a local Docker container, refresh the container via Edit and Refresh and set debugging breakpoints"
    services="azure-container-service"
    documentationCenter="na"
-   authors="allclark"
+   authors="mlearned"
    manager="douge"
    editor="" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="07/22/2016"
-   ms.author="allclark" />
+   ms.author="mlearned" />
 
 # Debugging apps in a local Docker container
 
