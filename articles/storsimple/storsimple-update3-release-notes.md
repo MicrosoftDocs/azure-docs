@@ -41,8 +41,6 @@ The following key improvements and bug fixes have been made in Update 3.
 
 - **Performance enhancements** – Update 3 has improved read-write performance to the cloud.
 
-- **Support for new workloads** – Update 3 has enabled deployment of new workloads such as the use of a StorSimple as a backup target, and also for video surveillance.
-
 - **Migration-related improvements** – In this release, several bug fixes and improvements were done for the Migration feature from 5000/7000 series devices to 8000 series devices. For more information on how to use the migration feature, go to [Migration from 5000/7000 series device to 8000 series device](https://www.microsoft.com/en-us/download/details.aspx?id=47322). 
 
 - **Monitoring related fixes** - In this release, bugs related to monitoring charts, service dashboard, and device dashboard were fixed.

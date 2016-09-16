@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="08/30/2016" 
+ 	ms.date="09/15/2016" 
 	ms.author="juliako"/>
 
 
 
-# Upload files into a Media Services account using .NET
+# Upload files into a Media Services account using .NET | Microsoft Azure
 
  > [AZURE.SELECTOR]
  - [.NET](media-services-dotnet-upload-files.md)
@@ -28,6 +28,12 @@
 In Media Services, you upload (or ingest) your digital files into an asset. The **Asset** entity can contain video, audio, images, thumbnail collections, text tracks and closed caption files (and the metadata about these files.)  Once the files are uploaded, your content is stored securely in the cloud for further processing and streaming.
 
 The files in the asset are called **Asset Files**. The **AssetFile** instance and the actual media file are two distinct objects. The AssetFile instance contains metadata about the media file, while the media file contains the actual media content.
+
+>[AZURE.NOTE]The following considerations apply when choosing an asset file name:
+>
+>- Media Services uses the value of the IAssetFile.Name property when building URLs for the streaming content (for example, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) For this reason, percent-encoding is not allowed. The value of the **Name** property cannot have any of the following [percent-encoding-reserved characters](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Also, there can only be one '.' for the file name extension.
+>
+>- The length of the name should not be greater than 512 characters.
 
 When you create assets, you can specify the following encryption options. 
 
@@ -45,7 +51,6 @@ If you specify for your asset to be encrypted with a **CommonEncrypted** option,
 
 If you specify for your asset to be encrypted with a **StorageEncrypted** option, the Media Services SDK for .NET will create a **StorateEncrypted** **ContentKey** for your asset.
 
->[AZURE.NOTE]Media Services uses the value of the IAssetFile.Name property when building URLs for the streaming content (for example, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) For this reason, percent-encoding is not allowed. The value of the **Name** property cannot have any of the following [percent-encoding-reserved characters](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Also, there can only be one ‘.’ for the file name extension.
 
 This topic shows how to use Media Services .NET SDK as well as Media Services .NET SDK extensions to upload files into a Media Services asset.
 
@@ -313,8 +318,8 @@ The following example calls UploadFile function and specifies storage encryption
 [AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 
+##Next step
 
-##Next Steps
 Now that you have uploaded an asset to Media Services, go to the [How to Get a Media Processor][] topic.
 
 [How to Get a Media Processor]: media-services-get-media-processor.md
