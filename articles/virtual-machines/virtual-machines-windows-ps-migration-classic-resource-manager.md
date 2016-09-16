@@ -23,7 +23,7 @@ These steps show you how to use Azure PowerShell commands to migrate infrastruct
 
 If you want, you can also migrate resources by using the [Azure Command Line Interface (Azure CLI)](virtual-machines-linux-cli-migration-classic-resource-manager.md).
 
-For background on supported migration scenarios and the migration steps, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md) and [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md).
+For background on supported migration scenarios, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md). For detailed guidance and a migration walkthrough, see [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager-deep-dive.md).
 
 ## Step 1: Plan for migration
 
@@ -48,7 +48,7 @@ Sign in to your account for the Resource Manager model.
 
 	Login-AzureRmAccount
 
-Get the available subscriptions by using the following command.
+Get the available subscriptions by using the following command:
 
 	Get-AzureRMSubscription | Sort SubscriptionName | Select SubscriptionName
 
@@ -72,7 +72,7 @@ Now sign in to your account for the classic model.
 
 	Add-AzureAccount
 
-Get the available subscriptions by using the following command.
+Get the available subscriptions by using the following command:
 
 	Get-AzureSubscription | Sort SubscriptionName | Select SubscriptionName
 
@@ -82,7 +82,7 @@ Set your Azure subscription for the current session. Replace everything within t
 
 ## Step 4: Make sure you have enough Azure Resource Manager Virtual Machine cores in the Azure region of your current deployment or VNET
 
-You can use the following PowerShell command to check the current amount of cores you have in Azure Resource Manager. To learn more about core quotas, see [Limits and the Azure Resource Manager](../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager).
+You can use the following PowerShell command to check the current number of cores you have in Azure Resource Manager. To learn more about core quotas, see [Limits and the Azure Resource Manager](../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager).
 
 ```
 Get-AzureRmVMUsage -Location "<Your VNET or Deployment's Azure region"
@@ -98,7 +98,7 @@ Get the list of cloud services by using the following command, and then pick the
 
 	Get-AzureService | ft Servicename
 
-Get the deployment name for the cloud service by using the following commands.
+Get the deployment name for the cloud service by using the following commands:
 
 	$serviceName = "<service name>"
 	$deployment = Get-AzureDeployment -ServiceName $serviceName
@@ -132,7 +132,7 @@ Prepare the virtual machines in the cloud service for migration. You have two op
 
 		Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deploymentName -UseExistingVirtualNetwork -VirtualNetworkResourceGroupName $existingVnetRGName -VirtualNetworkName $vnetName -SubnetName $subnetName
 
-After the prepare operation succeeds with either of the preceding options, query the migration state of the VMs. Ensure that they are in the `Prepared` state.
+After the Prepare operation succeeds with either of the preceding options, query the migration state of the VMs. Ensure that they are in the `Prepared` state.
 
 	$vmName = "<vm-name>"
 	$vm = Get-AzureVM -ServiceName $serviceName -Name $vmName
@@ -179,16 +179,16 @@ Prepare each storage account for migration by using the following command:
 	$storageAccountName = "<storage account name>"
 	Move-AzureStorageAccount -Prepare -StorageAccountName $storageAccountName
 
-Check the configuration for the prepared storage account by using either Azure PowerShell or the Azure portal. If you are not ready for migration and you want to go back to the old state, use the following command.
+Check the configuration for the prepared storage account by using either Azure PowerShell or the Azure portal. If you are not ready for migration and you want to go back to the old state, use the following command:
 
 	Move-AzureStorageAccount -Abort -StorageAccountName $storageAccountName
 
-If the prepared configuration looks good, you can move forward and commit the resources by using the following command.
+If the prepared configuration looks good, you can move forward and commit the resources by using the following command:
 
 	Move-AzureStorageAccount -Commit -StorageAccountName $storageAccountName
 
 ## Next steps
 
--For more information and tips about migration, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md).
+-For more information about migration, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md).
 -To migrate additional network resources to Resource Manager using Azure PowerShell, use similar steps with Move-AzureNetworkSecurityGroup, Move-AzureReservedIP, and Move-AzureRouteTable.
-- For open-source scripts you can use to migrate Azure resources from classic to Resource Manager, see [Community tools for Azure Service Management to Azure Resource Manager migration](virtual-machines-windows-migration-scripts.md)
+- For open-source scripts you can use to migrate Azure resources from classic to Resource Manager, see [Community tools for migration to Azure Resource Manager migration](virtual-machines-windows-migration-scripts.md)
