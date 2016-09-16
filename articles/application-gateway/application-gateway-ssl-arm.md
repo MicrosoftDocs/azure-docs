@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
+   ms.date="09/09/2016"
    ms.author="gwallace"/>
 
 # Configure an application gateway for SSL offload by using Azure Resource Manager
@@ -44,14 +44,14 @@
 
 For SSL certificates configuration, the protocol in **HttpListener** should change to *Https* (case sensitive). The **SslCertificate** element is added to **HttpListener** with the variable value configured for the SSL certificate. The front-end port should be updated to 443.
 
-**To enable cookie-based affinity**: An application gateway can be configured to ensure that a request from a client session is always directed to the same VM in the web farm. This is done by injection of a session cookie that allows the gateway to direct traffic appropriately. To enable cookie-based affinity, set **CookieBasedAffinity** to *Enabled* in the **BackendHttpSettings** element.
+**To enable cookie-based affinity**: An application gateway can be configured to ensure that a request from a client session is always directed to the same VM in the web farm. This scenario is done by injection of a session cookie that allows the gateway to direct traffic appropriately. To enable cookie-based affinity, set **CookieBasedAffinity** to *Enabled* in the **BackendHttpSettings** element.
 
 
 ## Create an application gateway
 
-The difference between using the Azure Classic deployment model and Azure Resource Manager is the order in which you create an application gateway and the items that need to be configured.
+The difference between using the Azure Classic deployment model and Azure Resource Manager is the order that you create an application gateway and the items that need to be configured.
 
-With Resource Manager, all items that make an application gateway are configured individually and then put together to create an application gateway resource.
+With Resource Manager, all components of an application gateway are configured individually and then put together to create an application gateway resource.
 
 
 Here are the steps needed to create an application gateway:
@@ -69,8 +69,6 @@ Make sure that you switch PowerShell mode to use the Azure Resource Manager cmdl
 ### Step 1
 
 	Login-AzureRmAccount
-
-
 
 ### Step 2
 
@@ -106,24 +104,25 @@ The following example shows how to create a virtual network by using Resource Ma
 
 	$subnet = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 
-This assigns the address range 10.0.0.0/24 to a subnet variable to be used to create a virtual network.
+This sample assigns the address range 10.0.0.0/24 to a subnet variable to be used to create a virtual network.
 
 ### Step 2
+
 	$vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
 
-This creates a virtual network named "appgwvnet" in resource group "appgw-rg" for the West US region using the prefix 10.0.0.0/16 with subnet 10.0.0.0/24.
+This sample creates a virtual network named "appgwvnet" in resource group "appgw-rg" for the West US region using the prefix 10.0.0.0/16 with subnet 10.0.0.0/24.
 
 ### Step 3
 
 	$subnet = $vnet.Subnets[0]
 
-This assigns the subnet object to variable $subnet for the next steps.
+This sample assigns the subnet object to variable $subnet for the next steps.
 
 ## Create a public IP address for the front-end configuration
 
 	$publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name publicIP01 -location "West US" -AllocationMethod Dynamic
 
-This creates a public IP resource "publicIP01" in resource group "appgw-rg" for the West US region.
+This sample creates a public IP resource "publicIP01" in resource group "appgw-rg" for the West US region.
 
 
 ## Create an application gateway configuration object
@@ -132,56 +131,56 @@ This creates a public IP resource "publicIP01" in resource group "appgw-rg" for 
 
 	$gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
-This creates an application gateway IP configuration named "gatewayIP01". When Application Gateway starts, it picks up an IP address from the subnet configured and route network traffic to the IP addresses in the back-end IP pool. Keep in mind that each instance takes one IP address.
+This sample creates an application gateway IP configuration named "gatewayIP01". When Application Gateway starts, it picks up an IP address from the subnet configured and route network traffic to the IP addresses in the back-end IP pool. Keep in mind that each instance takes one IP address.
 
 ### Step 2
 
 	$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
-This configures the back-end IP address pool named "pool01" with IP addresses "134.170.185.46, 134.170.188.221,134.170.185.50." Those are the IP addresses that receive the network traffic that comes from the front-end IP endpoint. Replace the IP addresses from the example above with the IP addresses of your web application endpoints.
+This sample configures the back-end IP address pool named "pool01" with IP addresses "134.170.185.46, 134.170.188.221,134.170.185.50." Those values are the IP addresses that receive the network traffic that comes from the front-end IP endpoint. Replace the IP addresses from the preceding example with the IP addresses of your web application endpoints.
 
 ### Step 3
 
 	$poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Enabled
 
-This configures application gateway setting "poolsetting01" to load-balanced network traffic in the back-end pool.
+This sample configures application gateway setting "poolsetting01" to load-balanced network traffic in the back-end pool.
 
 ### Step 4
 
 	$fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 443
 
-This configures the front-end IP port named "frontendport01" for the public IP endpoint.
+This sample configures the front-end IP port named "frontendport01" for the public IP endpoint.
 
 ### Step 5
 
 	$cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFile <full path for certificate file> -Password ‘<password>’
 
-This configures the certificate used for SSL connection. The certificate needs to be in .pfx format, and the password must be between 4 to 12 characters.
+This sample configures the certificate used for SSL connection. The certificate needs to be in .pfx format, and the password must be between 4 to 12 characters.
 
 ### Step 6
 
 	$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
 
-This creates the front-end IP configuration named "fipconfig01" and associates the public IP address with the front-end IP configuration.
+This sample creates the front-end IP configuration named "fipconfig01" and associates the public IP address with the front-end IP configuration.
 
 ### Step 7
 
 	$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01  -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
 
 
-This creates the listener name "listener01" and associates the front-end port to the front-end IP configuration and certificate.
+This sample creates the listener name "listener01" and associates the front-end port to the front-end IP configuration and certificate.
 
 ### Step 8
 
 	$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 
-This creates the load balancer routing rule named "rule01" that configures the load balancer behavior.
+This sample creates the load balancer routing rule named "rule01" that configures the load balancer behavior.
 
 ### Step 9
 
 	$sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 
-This configures the instance size of the application gateway.
+This sample configures the instance size of the application gateway.
 
 >[AZURE.NOTE]  The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. You can choose between Standard_Small, Standard_Medium, and Standard_Large.
 
@@ -189,7 +188,7 @@ This configures the instance size of the application gateway.
 
 	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert
 
-This creates an application gateway with all configuration items from the steps above. In the example, the application gateway is called "appgwtest".
+This sample creates an application gateway with all configuration items from the preceding steps. In the example, the application gateway is called "appgwtest".
 
 ## Next steps
 

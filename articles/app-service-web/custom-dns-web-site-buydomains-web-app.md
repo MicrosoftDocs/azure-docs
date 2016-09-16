@@ -58,15 +58,14 @@ Use the following steps to buy domain names and assign to your web app.
 
 	a) "Auto renew" your domain every year
 	
-	b) Opt-in for "Privacy protection" which is included in the purchase price for FREE
+	b) Opt-in for "Privacy protection" which is included in the purchase price for FREE (Except for TLDs who's registry do not support Privacy. For example: .co.in, .co.uk etc.)  
 	
 	c) "Assign default hostnames" for WWW and root domain to the current Web App. 
 
   ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.5.png)
   
     > [AZURE.NOTE] Option C configures DNS bindings and Hostname bindings automatically for you.  This way, your Web App can be accessed using custom domain as soon as the purchase is complete (baring DNS propagation delays in few cases). In case, your Web App is behind Azure Traffic Manager, you will not see an option to assign root domain, as A-Records do not work with the Traffic Manager. 
-    >
-    >You can always assign the domains/sub-domains purchased through one Web App to another Web App and vice-versa. See step 8 for more details. 
+    You can always assign the domains/sub-domains purchased through one Web App to another Web App and vice-versa. See step 8 for more details. 
 	
 7. Click the **Select** on **Buy Domains** blade, then you will see the purchase information on **Purchase confirmation** blade. If you accept the legal terms and click **Buy**, your order will be submitted and you can monitor the purchasing process on **Notification**. Domain purchase can take few minutes to complete. 
 
