@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="08/25/2016"
+	ms.date="09/14/2016"
 	ms.author="markvi"/>
 
 
@@ -24,21 +24,19 @@ Securing access to company resources is important to every organization. With th
   
 ## Why conditional access?  
 
-The conditional access control capabilities in Azure Active Directory offers simple ways for companies to secure  resources in the cloud and on-premises. Conditional access policies can be used to help protect against the risk of stolen and phished credentials, by requiring multi-factor authentication, as well as helping to keep company data safe, by requiring an Intune managed device granting access to sensitive services. 
+Conditional access control capabilities in Azure Active Directory offers simple ways for companies to secure  resources in the cloud and on-premises. Conditional access policies can be used to help protect against the risk of stolen and phished credentials, by requiring multi-factor authentication, as well as helping to keep company data safe, by requiring an Intune-managed device granting access to sensitive services. 
 
 
 
 ## Licensing requirements
 
-Conditional access is a feature of [Azure AD Premium](http://www.microsoft.com/identity).  All users who access an application with conditional access policy applied, must have an Azure AD Premium license. You can learn more about usage with the [Unlicensed User report](https://aka.ms/utc5ix).
-
-
+Azure Active Directory Conditional access is a feature of [Azure AD Premium](http://www.microsoft.com/identity).  All users who access an application with conditional access policy applied, must have an Azure AD Premium license. You can learn more about usage with the [Unlicensed User report](https://aka.ms/utc5ix).
 
 
 
 ## How is conditional access control enforced?  
 
-With conditional access control, Azure Active Directory checks the specific conditions you choose when authenticating a user, before allowing access to an application. Once these access requirements  are met, the user is authenticated and allowed access to the application.  
+With conditional access control, Azure Active Directory checks the specific conditions you choose when authenticating a user, before allowing access to an application. Once these access requirements are met, the user is authenticated and allowed access to the application.  
    
 ![](./media/active-directory-conditional-access/conditionalaccess-overview.png) 
 
@@ -57,7 +55,7 @@ With conditional access control, Azure Active Directory checks the specific cond
 
 ## Controls
    
-- **Multi factor authentication (MFA)**: You can require strong authentication with MFA. MFA can be provided by Azure MFA or an on premise MFA provider, using ADFS. MFA authentication helps protect your resources from being accessed by an unauthorized user who has gain access to the username and password of a valid user. 
+- **Multi-factor authentication (MFA)**: You can require strong authentication with MFA. MFA can be provided by Azure MFA or an on premise MFA provider, using ADFS. MFA authentication helps protect your resources from being accessed by an unauthorized user who has gain access to the username and password of a valid user. 
 
 - **Block**: Access may be applied under conditions like user location. For example, blocking access when a user is not on a trusted network. 
 
@@ -90,7 +88,7 @@ For more information on how to setup automatic registration of domain joined dev
     - **iOS and Android devices** that are managed by Microsoft Intune.
 
 
-Users accessing applications that are protected by Device-based CA policy need to do this from devices that meet this policy. Access is denied if it is made from a device that doesn’t meet the policy.
+Users accessing applications that are protected by device-based CA policy need to do this from devices that meet this policy. Access is denied if it is made from a device that doesn’t meet the policy.
 
 For information on how to configure Device-based CA policy in Azure AD, see [How to configure Device-based Conditional Access policy for access control to Azure Active Directory connected applications](active-directory-conditional-access-policy-connected-applications.md).
 

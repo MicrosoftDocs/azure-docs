@@ -26,7 +26,7 @@
 
 If your credit card or debit card was declined when you try to sign up for Azure, you might have issues because of one of the reasons below.
 
-- [The accepted credit card and debit card providers vary based on your country](#credit-or-debit-card-details). In the drop-down list for choosing a credit card, you will only see the options that are valid in the country that you selected.
+- [The accepted credit card and debit card providers vary based on your country, so you may need to use an international card](#credit-or-debit-card-details). In the drop-down list for choosing a credit card, you will only see the options that are valid in the country that you selected. 
 
 - [Your credit or debit card information is inaccurate or incomplete](#credit-or-debit-card-details). You must update your payment info to proceed.
 
@@ -40,7 +40,11 @@ If your credit card or debit card was declined when you try to sign up for Azure
 
 Follow the steps below to make sure your credit or debit card information is valid:
 
-- The credit or debit card you’re using should be listed in the drop-down list for the country you choose. If it’s not listed, then it is not an available option for your country. See [supported countries and currencies](billing-countries-and-currencies.md).
+- The credit or debit card you’re using should be listed in the drop-down list for the country you choose. 
+	
+	- In some cases, although you’re paying for Azure services in your local/preferred currency, you are purchasing services through a non-local Microsoft entity and your credit card is being processed by a non-local bank. Please contact your bank or card issuer to confirm if your credit card is enabled for international transactions.
+	
+	- See [supported countries and currencies](billing-countries-and-currencies.md).
 
 - The name you enter must exactly match the name printed on the credit/debit card, without any additional symbols/characters.
 
