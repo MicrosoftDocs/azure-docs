@@ -63,7 +63,7 @@ You can get more information about load balancer components with Azure Resource 
 
 6. Under Resource Group, select **myRG**. Then select an appropriate **Location**, and then click **OK**. The load balancer will then start to deploy and will take a few minutes to successfully complete deployment.
 
-![Updating resource group of load balancer](./media/load-balancer-get-started-internet-arm-portal/1-load-balancer.png)
+![Updating resource group of load balancer](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
 
 
 ## Create a back-end address pool
@@ -72,7 +72,7 @@ You can get more information about load balancer components with Azure Resource 
 
 2. Click on **Add a virtual machine** in the **Add backend pool** blade.  Select **Choose an availability set** under **Availability set** and select **myAvailSet**. Next, select **Choose the virtual machines** under the Virtual Machines section in the blade and click on **web1** and **web2**, the two VMs created for load balancing. Ensure that both have blue check marks to the left as shown in the image below. Then, click **Select** in that blade followed by OK in the **Choose Virtual machines** blade and then **OK** in the **Add backend pool** blade.
 
-    ![Adding to the backend address pool - ](./media/load-balancer-get-started-internet-arm-portal/3-load-balancer-backend-02.png)
+    ![Adding to the backend address pool - ](./media/load-balancer-get-started-internet-portal/3-load-balancer-backend-02.png)
 
 3. Check to make sure your notifications drop down list has an update regarding saving the load balancer backend pool in addition to updating the network interface for both the VMs **web1** and **web2**.
 
@@ -88,13 +88,13 @@ You can get more information about load balancer components with Azure Resource 
 
     Hover your pointer over the ‘i’ icon to learn more about these individual configurations and how they can be changed to cater to your requirements.
 
-    ![Adding a probe](./media/load-balancer-get-started-internet-arm-portal/4-load-balancer-probes.png)
+    ![Adding a probe](./media/load-balancer-get-started-internet-portal/4-load-balancer-probes.png)
 
 2. Create a load balancer rule.
 
     Click on Load balancing rules in the Settings section of your load balancer. In the new blade, click on **Add**. Name your rule. Here, it is HTTP. Choose the frontend port and Backend port. Here, 80 is chosen for both. Choose **LB-backend** as your Backend pool and the previously created **HealthProbe** as the Probe. Other configurations can be set according to your requirements. Then click OK to save the load balancing rule.
 
-    ![Adding a load balancing rule](./media/load-balancer-get-started-internet-arm-portal/5-load-balancing-rules.png)
+    ![Adding a load balancing rule](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
 
 3. Create inbound NAT rules
 
@@ -102,7 +102,7 @@ You can get more information about load balancer components with Azure Resource 
 
     Once the first rule is created, repeat this step for the second inbound NAT rule called inboundNATrule2 from port 3442 to Target port 3389.
 
-    ![Adding an inbound NAT rule](./media/load-balancer-get-started-internet-arm-portal/6-load-balancer-inbound-nat-rules.png)
+    ![Adding an inbound NAT rule](./media/load-balancer-get-started-internet-portal/6-load-balancer-inbound-nat-rules.png)
 
 ## Remove a Load Balancer
 
