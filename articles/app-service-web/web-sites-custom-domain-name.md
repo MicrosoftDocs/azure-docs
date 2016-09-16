@@ -177,7 +177,7 @@ Your additional TXT record takes on the convention that maps from &lt;*subdomain
 <a name="cname"></a>
 ### Create a CNAME record
 
-If you use a CNAME record to map to your Azure app's default domain name, you don't need an additional CNAME record
+If you use a CNAME record to map to your Azure app's default domain name, you don't need an additional TXT record
 like you do with an A record. 
 
 >[AZURE.IMPORTANT] Do not create a CNAME record for your root domain (i.e. the "root record"). For more information, see 

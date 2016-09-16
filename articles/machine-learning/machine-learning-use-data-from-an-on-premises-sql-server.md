@@ -4,7 +4,7 @@ description="Use data from an on-premises SQL Server database to perform advance
 services="machine-learning"
 documentationCenter=""
 authors="garyericson"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags

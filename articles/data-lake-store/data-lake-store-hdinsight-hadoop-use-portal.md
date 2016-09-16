@@ -4,7 +4,7 @@
    services="data-lake-store,hdinsight" 
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags

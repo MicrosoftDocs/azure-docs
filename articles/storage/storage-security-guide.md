@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/03/2016"
+	ms.date="09/08/2016"
 	ms.author="robinsh"/>
 
 #Azure Storage security guide
@@ -60,7 +60,7 @@ This guide focuses on the Resource Manager model which is the recommended means 
 
 ###How to secure your storage account with Role-Based Access Control (RBAC)
 
-Let’s talk about what RBAC is, and how you can use it. Each Azure subscription has an Azure Active Directory. Users, groups, and applications from that directory can be granted access to manage resources in the Azure subscription that use the Resource Manager deployment model. This is referred to as Role-Based Access Control (RBAC). To manage this access, you can use the [Azure Portal](https://portal.azure.com/), the [Azure CLI tools](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md), or the [Azure Storage Resource Provider REST APIs](https://msdn.microsoft.com/library/azure/mt163683.aspx).
+Let’s talk about what RBAC is, and how you can use it. Each Azure subscription has an Azure Active Directory. Users, groups, and applications from that directory can be granted access to manage resources in the Azure subscription that use the Resource Manager deployment model. This is referred to as Role-Based Access Control (RBAC). To manage this access, you can use the [Azure portal](https://portal.azure.com/), the [Azure CLI tools](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md), or the [Azure Storage Resource Provider REST APIs](https://msdn.microsoft.com/library/azure/mt163683.aspx).
 
 With the Resource Manager model, you put the storage account in a resource group and control access to the management plane of that specific storage account using Azure Active Directory. For example, you can give specific users the ability to access the storage account keys, while other users can view information about the storage account, but cannot access the storage account keys.
 
@@ -138,7 +138,7 @@ Here are the main points that you need to know about using RBAC to access the ma
 
 Storage account keys are 512-bit strings created by Azure that, along with the storage account name, can be used to access the data objects stored in the storage account, e.g. blobs, entities within a table, queue messages, and files on an Azure Files share. Controlling access to the storage account keys controls access to the data plane for that storage account.
 
-Each storage account has two keys referred to as “Key 1” and “Key 2” in the [Azure Portal](http://portal.azure.com/) and in the PowerShell cmdlets. These can be regenerated manually using one of several methods, including, but not limited to using the [Azure Portal](https://portal.azure.com/), PowerShell, the Azure CLI, or programmatically using the .NET Storage Client Library or the Azure Storage Services REST API.
+Each storage account has two keys referred to as “Key 1” and “Key 2” in the [Azure portal](http://portal.azure.com/) and in the PowerShell cmdlets. These can be regenerated manually using one of several methods, including, but not limited to using the [Azure portal](https://portal.azure.com/), PowerShell, the Azure CLI, or programmatically using the .NET Storage Client Library or the Azure Storage Services REST API.
 
 There are any number of reasons to regenerate your storage account keys.
 
@@ -154,11 +154,11 @@ You don’t want to just regenerate the key you are using without some planning.
 
 Before you regenerate your keys, be sure you have a list of all of your applications that are dependent on the storage account, as well as any other services you are using in Azure. For example, if you are using Azure Media Services that are dependent on your storage account, you must re-sync the access keys with your media service after you regenerate the key. If you are using any applications such as a storage explorer, you will need to provide the new keys to those applications as well. Note that if you have VMs whose VHD files are stored in the storage account, they will not be affected by regenerating the storage account keys.
 
-You can regenerate your keys in the Azure Portal. Once keys are regenerated they can take up to 10 minutes to be synchronized across Storage Services.
+You can regenerate your keys in the Azure portal. Once keys are regenerated they can take up to 10 minutes to be synchronized across Storage Services.
 
 When you’re ready, here’s the general process detailing how you should change your key. In this case, the assumption is that you are currently using Key 1 and you are going to change everything to use Key 2 instead.
 
-1.  Regenerate Key 2 to ensure that it is secure. You can do this in the Azure Portal.
+1.  Regenerate Key 2 to ensure that it is secure. You can do this in the Azure portal.
 
 2.  In all of the applications where the storage key is stored, change the storage key to use Key 2’s new value. Test and publish the application.
 
@@ -206,7 +206,7 @@ One exception to note is that you can allow public access to your blobs by setti
 
 Storage account keys are 512-bit strings created by Azure that, along with the storage account name, can be used to access the data objects stored in the storage account.
 
-For example, you can read blobs, write to queues, create tables, and modify files. Many of these actions can be performed through the Azure Portal, or using one of many Storage Explorer applications. You can also write code to use the REST API or one of the Storage Client Libraries to perform these operations.
+For example, you can read blobs, write to queues, create tables, and modify files. Many of these actions can be performed through the Azure portal, or using one of many Storage Explorer applications. You can also write code to use the REST API or one of the Storage Client Libraries to perform these operations.
 
 As discussed in the section on the [Management Plane Security](#management-plane-security), access to the storage keys for a Classic storage account can be granted by giving full access to the Azure subscription. Access to the storage keys for a storage account using the Azure Resource Manager model can be controlled through Role-Based Access Control (RBAC).
 
@@ -366,19 +366,17 @@ While you can use Client-side Encryption to encrypt the data in transit (which i
 
 ###Storage Service Encryption (SSE)
 
-SSE is a new Azure Storage feature in public preview. This feature allows you to request that the storage service automatically encrypt the data when writing it to Azure Storage. When you read the data from Azure Storage, it will be decrypted by the storage service before being returned. This enables you to secure your data without having to modify code or add code to any applications.
+SSE allows you to request that the storage service automatically encrypt the data when writing it to Azure Storage. When you read the data from Azure Storage, it will be decrypted by the storage service before being returned. This enables you to secure your data without having to modify code or add code to any applications.
 
-This is a setting that applies to the whole storage account. You can enable and disable this feature by changing the value of the setting. To do this, you can use the Azure Portal, PowerShell, the Azure CLI, the Storage Resource Provider REST API, or the .NET Storage Client Library. By default, SSE is turned off.
+This is a setting that applies to the whole storage account. You can enable and disable this feature by changing the value of the setting. To do this, you can use the Azure portal, PowerShell, the Azure CLI, the Storage Resource Provider REST API, or the .NET Storage Client Library. By default, SSE is turned off.
 
 At this time, the keys used for the encryption are managed by Microsoft. We generate the keys originally, and manage the secure storage of the keys as well as the regular rotation as defined by internal Microsoft policy. In the future, you will get the ability to manage your own encryption keys, and provide a migration path from Microsoft-managed keys to customer-managed keys.
 
-This feature is available for Standard and Premium Storage accounts created using the Resource Manager deployment model and created after 3/30/2016 12:00 am PST. SSE applies only to block blobs, page blobs, and append blobs. The other types of data, including tables, queues, and files, will not be encrypted.
+This feature is available for Standard and Premium Storage accounts created using the Resource Manager deployment model. SSE applies only to block blobs, page blobs, and append blobs. The other types of data, including tables, queues, and files, will not be encrypted.
 
-Data is only encrypted when SSE is enabled and the data is written to Blob Storage. Enabling or disabling the SSE does not impact existing data. In other words, when you enable this encryption, it will not go back and encrypt data that already exists; nor will it decrypt the data that already exists when you disable SSE.
+Data is only encrypted when SSE is enabled and the data is written to Blob Storage. Enabling or disabling SSE does not impact existing data. In other words, when you enable this encryption, it will not go back and encrypt data that already exists; nor will it decrypt the data that already exists when you disable SSE.
 
-If you want to try this feature with a storage account created prior to the aforementioned date, or a Classic storage account, you can create a new storage account and use AzCopy to copy the data to the new account. This should not be required after the preview.
-
-As with most previews, this should not be used in production until the feature becomes Generally Available.
+If you want to use this feature with a Classic storage account, you can create a new Resource Manager storage account and use AzCopy to copy the data to the new account. 
 
 ###Client-side Encryption
 
@@ -461,7 +459,7 @@ Client-side encryption is more load on the client, and you have to account for t
 
 ####Storage Service Encryption (SSE)
 
-SSE is managed by Azure Storage, and is easily managed. Using SSE does not provide for the security of the data in transit, but it does encrypt the data as it is written to Azure Storage. There is no impact on the performance when using this feature.
+SSE is managed by Azure Storage. Using SSE does not provide for the security of the data in transit, but it does encrypt the data as it is written to Azure Storage. There is no impact on the performance when using this feature.
 
 You can only encrypt block blobs, append blobs, and page blobs using SSE. If you need to encrypt table data or queue data, you should consider using client-side encryption.
 
@@ -481,7 +479,7 @@ This can be really helpful if you are tightly guarding access to storage. For ex
 
 ####What do the logs look like?
 
-After you enable the storage account metrics and logging through the Azure Portal, analytics data will start to accumulate quickly. The logging and metrics for each service is separate; the logging is only written when there is activity in that storage account, while the metrics will be logged every minute, every hour, or every day, depending on how you configure it.
+After you enable the storage account metrics and logging through the Azure portal, analytics data will start to accumulate quickly. The logging and metrics for each service is separate; the logging is only written when there is activity in that storage account, while the metrics will be logged every minute, every hour, or every day, depending on how you configure it.
 
 The logs are stored in block blobs in a container named $logs in the storage account. This container is automatically created when Storage Analytics is enabled. Once this container is created, you can’t delete it, although you can delete its contents.
 
