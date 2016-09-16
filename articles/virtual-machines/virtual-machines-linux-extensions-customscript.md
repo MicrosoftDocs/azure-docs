@@ -19,21 +19,21 @@
 
 # Using the Azure Custom Script Extension with Linux Virtual Machines
 
-The Custom Script Extension executes scripts on Azure virtual machines. The scripts can be provided to the script at runtime, or downloaded from Azure storage or other accessible internet location. These scripts can be used to configure the system and install software at deployment time using Azure Resource Manager templates. The Custom Script Extension can also be run against existing virtual machines using the Azure CLI, PowerShell, or the Azure Virtual Machine REST API.
+The Custom Script Extension downloads and executes scripts on Azure virtual machines. The Custom Script extension is useful for post deployment configuration, software installation, or any other configuration / management task. Script can be downloaded from Azure storage or other accessible internet location, or provided to the extension run time. The Custom Script extension integrates with Azure Resource Manager templates, and can also be run using the Azure CLI, PowerShell, or the Azure Virtual Machine REST API.
 
-This document details how to use the Custom Script Extension both from an Azure Resource Manager template and the Azure CLI, and details troubleshooting steps.
+This document details how to use the Custom Script Extension from the Azure CLI, and an Azure Resource Manager template, and also details troubleshooting steps on Linux systems.
 
 ## Extension Configuration
 
-The Custom Script Extension configuration specifies things like script location and the command to be run. This configuration can be stored in configuration files, specified on the command line, or in an Azure Resource Manager template. Sensitive data can be stored in a protected configuration which is encrypted and only decrypted inside the virtual machine. The protected file is useful when the execution command includes secrets such as a password.
+The Custom Script Extension configuration specifies things like script location and the command to be run. This configuration can be stored in configuration files, specified on the command line, or in an Azure Resource Manager template. Sensitive data can be stored in a protected configuration, which is encrypted and only decrypted inside the virtual machine. The protected file is useful when the execution command includes secrets such as a password.
 
 ### Public Configuration
 
 Schema:
 
-- commandToExecute: (required, string) the entry point script to execute
-- fileUris: (optional, string array) the URLs for files to be downloaded.
-- timestamp (optional, integer) use this field only to trigger a rerun of the script by changing value of this field.
+- **commandToExecute**: (required, string) the entry point script to execute
+- **fileUris**: (optional, string array) the URLs for files to be downloaded.
+- **timestamp** (optional, integer) use this field only to trigger a rerun of the script by changing value of this field.
 
 ```none
 {
@@ -46,9 +46,9 @@ Schema:
 
 Schema:
 
-- commandToExecute: (optional, string) the entry point script to execute. Use this field instead if your command contains secrets such as passwords.
-- storageAccountName: (optional, string) the name of storage account. If you specify storage credentials, all fileUris must be URLs for Azure Blobs.
-- storageAccountKey: (optional, string) the access key of storage account.
+- **commandToExecute**: (optional, string) the entry point script to execute. Use this field instead if your command contains secrets such as passwords.
+- **storageAccountName**: (optional, string) the name of storage account. If you specify storage credentials, all fileUris must be URLs for Azure Blobs.
+- **storageAccountKey**: (optional, string) the access key of storage account.
 
 
 ```json
