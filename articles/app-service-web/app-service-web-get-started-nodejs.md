@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="09/09/2016" 
+	ms.date="09/16/2016" 
 	ms.author="cephalin"
 />
 	
@@ -134,14 +134,14 @@ the first time. For example, every time you want to push a new change that you'v
 
 ## Next steps
 
-Find the preferred development and deployment steps for your language framework:
+[Create, configure, and deploy a Node.js Express web app to Azure](app-service-web-nodejs-get-started.md). By following this tutorial, you will learn
+the basic skills you need to run any Node.js web app in Azure, such as:
 
-> [AZURE.SELECTOR]
-- [.NET](web-sites-dotnet-get-started.md)
-- [PHP](app-service-web-php-get-started.md)
-- [Node.js](app-service-web-nodejs-get-started.md)
-- [Python](web-sites-python-ptvs-django-mysql.md)
-- [Java](web-sites-java-get-started.md)
+- Create and configure apps in Azure from PowerShell/Bash.
+- Set Node.js version.
+- Use a start file that is not in the root application directory.
+- Automate with NPM.
+- Get error and output logs.
 
 Or, do more with your first web app. For example:
 

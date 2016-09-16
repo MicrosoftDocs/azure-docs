@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="09/09/2016" 
+	ms.date="09/16/2016" 
 	ms.author="cephalin"
 />
 	
@@ -27,7 +27,7 @@ and [API apps](../app-service-api/app-service-api-apps-why-best-platform.md).
 You will: 
 
 - Create a web app in Azure App Service.
-- Deploy sample Java code.
+- Deploy a sample Java app.
 - See your code running live in production.
 - Update your web app the same way you would [push Git commits](https://git-scm.com/docs/git-push).
 
@@ -35,6 +35,7 @@ You will:
 
 - [Install Git](http://www.git-scm.com/downloads). Verify that your installation is successful by running `git --version` from a new Windows command prompt, 
 PowerShell window, Linux shell, or OS X terminal.
+- Get an FTP/FTPS client, such as [FileZilla](https://filezilla-project.org/).
 - Get a Microsoft Azure account. If you don't have an account, you can 
 [sign up for a free trial](/pricing/free-trial/?WT.mc_id=A261C142F) or 
 [activate your Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
@@ -76,66 +77,64 @@ it for up to an hour--no credit card required, no commitments.
 
 ## Deploy a Java app to your web app
 
-Now, let's deploy a Java app to Azure using Git.
+Now, let's deploy a Java app to Azure using FTPS.
 
-5. In the web app blade, scroll down to **Deployment options** or search for it, then click it. 
+5. In the web app blade, scroll down to **Application settings** or search for it, then click it. 
 
-    ![](./media/app-service-web-get-started-languages/deploy-web-app-deployment-options.png)
+    ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
 
-6. Click **Choose Source** > **Local Git Repository** > **OK**.
+6. In **Java version**, select **Java 8** and click **Save**.
 
-7. Back in the web app blade, click **Deployment credentials**.
+    ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
+
+    When you get the notificiation **Successfully updated web app settings**, navigate to http://*&lt;appname>*.azurewebsites.net 
+    to see the default JSP servlet in action.
+
+7. Back in the web app blade, scroll down to **Deployment credentials** or search for it, then click it.
 
 8. Set your deployment credentials and click **Save**.
 
-7. Back in the web app blade, scroll down to **Properties** or search for it, then click it. Next to **Git URL**, click the **Copy** button.
+7. Back in the web app blade, click **Overview**. Next to **FTP/Deployment username** and **FTPS hostname**, click the **Copy** button
+to copy these values.
 
-    ![](./media/app-service-web-get-started-languages/deploy-web-app-properties.png)
+    ![](./media/app-service-web-get-started-languages/get-ftp-url.png)
 
-    You're now ready to deploy your Java app with Git.
+    You're now ready to deploy your Java app with FTPS.
 
-1. In your command-line terminal, change to a working directory (`CD`) and clone the sample app like this:
+8. In your FTP/FTPS client, log in to your Azure web app's FTP server using the values you copied in the last step. Use the deployment
+password that you created earlier.
 
-        git clone https://github.com/Azure-Samples/app-service-web-java-get-started.git
+    The following screenshot shows logging in using FileZilla.
 
-    ![Clone the app sample code for your first web app in Azure](./media/app-service-web-get-started-languages/java-git-clone.png)
+    ![](./media/app-service-web-get-started-languages/filezilla-login.png)
 
-2. Change to the repository of your sample app. For example, 
+    You may see security warnings for the unrecognized SSL certificate from Azure. Go ahead and continue.
 
-        cd app-service-web-java-get-started
+9. Click [this link](https://github.com/Azure-Samples/app-service-web-java-get-started/raw/master/webapps/ROOT.war) to download the WAR
+file to your local machine.
 
-3. Configure the Git remote for your Azure app its Git URL, which you copied from the Portal a few steps ago.
+9. In your FTP/FTPS client, navigate to **/site/wwwroot/webapps** in the remote site, and drag the downloaded WAR file on your local machine into 
+that remote directory.
 
-        git remote add azure <giturlfromportal>
+    ![](./media/app-service-web-get-started-languages/transfer-war-file.png)
 
-4. Deploy your Java app to Azure like you would push any code with Git:
+    Click OK to override the file in Azure.
 
-        git push azure master
-
-    ![Push code to your first web app in Azure](./media/app-service-web-get-started-languages/java-git-push.png)    
+    >[AZURE.NOTE] In accordance with Tomcat's default behavior, filename **ROOT.war** in /site/wwwroot/webapps gives you the root web app 
+    (http://*&lt;appname>*.azurewebsites.net), and filename ***&lt;anyname>*.war** gives you a named web app (http://*&lt;appname>*.azurewebsites.net/*&lt;anyname>*).
 
 That's it! Your Java app is now running live in Azure. In your browser, navigate to http://*&lt;appname>*.azurewebsites.net to see it in action. 
 
 ## Make updates to your app
 
-You can now use Git to push from your project (repository) root anytime to make an update to the live site. You do it the same way as when you deployed your code
-the first time. For example, every time you want to push a new change that you've tested locally, just run the following commands from your project 
-(repository) root:
-
-    git add .
-    git commit -m "<your_message>"
-    git push azure master
+Whenever you need to make an update, just upload the new WAR file to the same remote directory with your FTP/FTPS client.
 
 ## Next steps
 
-Find the preferred development and deployment steps for your language framework:
+[Create a Java web app from a template in the Azure Marketplace](app-service-web-java-get-started.md#marketplace). You can get your own fully-customizable Tomcat 
+container and get the familiar Manager UI. 
 
-> [AZURE.SELECTOR]
-- [.NET](web-sites-dotnet-get-started.md)
-- [PHP](app-service-web-php-get-started.md)
-- [Node.js](app-service-web-nodejs-get-started.md)
-- [Python](web-sites-python-ptvs-django-mysql.md)
-- [Java](web-sites-java-get-started.md)
+Debug your Azure web app, directly in [IntelliJ](app-service-web-debug-java-web-app-in-intellij.md) or [Eclipse](app-service-web-debug-java-web-app-in-eclipse.md).
 
 Or, do more with your first web app. For example:
 
