@@ -60,13 +60,15 @@ Set your Azure subscription for the current session. Replace everything within t
 
 >	*BadRequest : Subscription is not registered for migration.* 
 
-Register with the migration resource provider by using the following command.
+Register with the migration resource provider by using the following command:
 	
 	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
 
-Please wait five minutes for the registration to finish. You can check the status of the approval by using the following command. Make sure that RegistrationState is `Registered` before you proceed.
+Please wait five minutes for the registration to finish. You can check the status of the approval by using the following command:
 
 	Get-AzureRmResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
+
+Make sure that RegistrationState is `Registered` before you proceed. 
 
 Now sign in to your account for the classic model.
 
