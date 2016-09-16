@@ -27,15 +27,13 @@
 In this article, you use an Azure Resource Manager template to create your first Azure data factory.
 
 ## Prerequisites
-- Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the prerequisite steps before proceeding further.
+- Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the **prerequisite** steps.
 - Follow instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) article to install latest version of Azure PowerShell on your computer.
 - See [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md) to learn about Azure Resource Manager templates. 
 
 ## Create Resource Manager template
 
-Create a JSON file named **ADFTutorialARM.json** in **C:\ADFGetStarted** folder with the following content: 
-
-The template allows you to create the following Data Factory entities.
+In this section, you create the following Data Factory entities: 
 
 1. A **data factory** named **TutorialDataFactoryARM**. A data factory can have one or more pipelines. A pipeline can have one or more activities in it. For example, a Copy Activity to copy data from a source to a destination data store and a HDInsight Hive activity to run Hive script to transform input data. 
 2. Two **linked services**: **StorageLinkedService** and **HDInsightOnDemandLinkedService**. These linked services link your Azure Storage account and an on-demand Azure HDInsight cluster to your data factory. The Azure Storage account holds the input and output data for the pipeline in this sample. The HDInsight linked service is used to run Hive script specified in the activity of the pipeline in this sample. Identify what data store/compute services are used in your scenario and link those services to the data factory by creating linked services. 
@@ -43,8 +41,9 @@ The template allows you to create the following Data Factory entities.
 
 Click **Using Data Factory Editor** tab to switch to the article with details about JSON properties used in this template.
 
-> [AZURE.IMPORTANT] Change the values for **storageAccountName** and **storageAccountKey** variables. Change the **dataFactoryName** too because the name has to be unique.
+Create a JSON file named **ADFTutorialARM.json** in **C:\ADFGetStarted** folder with the following content:
 
+> [AZURE.IMPORTANT] Change the values for **storageAccountName** and **storageAccountKey** variables. Change the **dataFactoryName** too because the name has to be unique.
 
 	{
 	    "contentVersion": "1.0.0.0",
@@ -224,10 +223,10 @@ See [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md
 
 ## Create data factory
 
-1. Start **Azure PowerShell** and run the following command. 
-	- Run **Login-AzureRmAccount** and enter the user name and password that you use to sign in to the Azure portal.  
-	- Run the following command to select a subscription in which you want to create the data factory.
-			Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext
+1. Start **Azure PowerShell** and run the following command: 
+	- Run `Login-AzureRmAccount` and enter the user name and password that you use to sign in to the Azure portal.  
+	- Run `Get-AzureRmSubscription` to view all the subscriptions for this account.
+	- Run `Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext` to select the subscription that you want to work with. This subscription should be the same as the one you used in the Azure portal.
 1. Run the following command to deploy Data Factory entities using the Resource Manager template you created in Step 1. 
 
 		New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json

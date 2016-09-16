@@ -27,7 +27,7 @@
 In this article, you use the Microsoft Visual Studio to create your first Azure data factory.
 
 ## Prerequisites
-1. You **must** read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the prerequisite steps before proceeding further.
+1. Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the **prerequisite** steps.
 2. You must be an **administrator of the Azure subscription** to be able to publish Data Factory entities from Visual Studio to Azure Data Factory.
 3. You must have the following installed on your computer: 
 	- Visual Studio 2013 or Visual Studio 2015
@@ -296,7 +296,7 @@ Important points to note:
 			Get-AzureRmResourceProvider
 	- Login using the Azure subscription in to the [Azure portal](https://portal.azure.com) and navigate to a Data Factory blade (or) create a data factory in the Azure portal. This action automatically registers the provider for you.
 - 	The name of the data factory may be registered as a DNS name in the future and hence become publically visible.
-- 	To create Data Factory instances, you need to be a admin or co-admin of the Azure subscription
+- 	To create Data Factory instances, you need to be an admin or co-admin of the Azure subscription
 
  
 ## Monitor pipeline
@@ -339,7 +339,7 @@ Important points to note:
 11. Click the slice to see details about it in a **Data slice** blade.
 
 	![Data slice details](./media/data-factory-build-your-first-pipeline-using-vs/data-slice-details.png)  
-12. Click on an activity run in the **Activity runs list** to see details about an activity run (Hive activity in our scenario) in a **Activity run details** window.   
+12. Click an activity run in the **Activity runs list** to see details about an activity run (Hive activity in our scenario) in an **Activity run details** window.   
 	![Activity run details](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-blade.png)	
 	
 	From the log files, you can see the Hive query that was executed and status information. These logs are useful for troubleshooting any issues.  
