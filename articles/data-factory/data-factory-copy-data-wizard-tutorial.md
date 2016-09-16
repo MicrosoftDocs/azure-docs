@@ -89,7 +89,10 @@ In this step, you use the Azure portal to create an Azure data factory named **A
 	3. Click **Next**. 
 
 	![Copy Tool - Choose the input file or folder](./media/data-factory-copy-data-wizard-tutorial/copy-tool-choose-input-file-or-folder.png)
-7. On the **File format settings** page, select **default** values and click **Next**.
+7. On the **Choose the input file or folder** page, click **Next**. Do not select **Binary copy**. 
+
+	![Copy Tool - Choose the input file or folder](./media/data-factory-copy-data-wizard-tutorial/chose-input-file-folder.png) 
+8. On the **File format settings** page, select **default** values and click **Next**.
 
 	![Copy Tool - File format settings](./media/data-factory-copy-data-wizard-tutorial/copy-tool-file-format-settings.png)  
 8. On the Destination data store page, click **Azure SQL Database** tile, and click **Next**.
@@ -103,11 +106,12 @@ In this step, you use the Azure portal to create an Azure data factory named **A
 
 	![Copy Tool - Table mapping](./media/data-factory-copy-data-wizard-tutorial/copy-tool-table-mapping-page.png) 
 10. On the **Schema mapping** page, click **Next**.
+11. On the **Performance settings** page, click **Next**. 
 11. Review information in the **Summary** page, and click **Finish**. The wizard creates two linked services, two datasets (input and output), and one pipeline in the data factory (from where you launched the Copy Wizard). 
 12. On the **Deployment succeeded** page, click the link: **Click here to monitor copy pipeline**.
 
 	![Copy Tool - Deployment succeeded](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
-13. Use instructions from [Monitor and manage pipeline using Monitoring App](data-factory-monitor-manage-app.md) to learn about how to monitor the pipeline you created.
+13. Use instructions from [Monitor and manage pipeline using Monitoring App](data-factory-monitor-manage-app.md) to learn about how to monitor the pipeline you created. Click **Refresh** icon in the **ACTIVITY WINDOWS** list to see the slice. 
 
 	![Monitoring App](./media/data-factory-copy-data-wizard-tutorial/monitoring-app.png) 
  
