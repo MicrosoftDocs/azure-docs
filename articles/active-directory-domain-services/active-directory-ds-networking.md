@@ -54,8 +54,19 @@ The following guidelines help you select a virtual network to use with Azure AD 
 
 - You will not be able to move Domain Services to a different virtual network after you have enabled the service.
 
+<br>
 
 ## Network connectivity
+An Azure AD Domain Services managed domain can be enabled only within a single classic virtual network in Azure. ARM-based virtual networks are not supported.
+
+You need to connect virtual networks to use the managed domain in any of the following deployment scenarios:
+
+#### To use the managed domain in more than one Azure classic virtual network.
+
+    ![Classic virtual network connectivity](./media/active-directory-domain-services-design-guide/classic-vnet-connectivity.png)
+
+#### To use the managed domain in an ARM-based virtual network.
+
 
 - You can [connect a classic virtual network to an ARM-based virtual network](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md), to use Azure AD Domain Services in a virtual network created using Azure Resource Manager.
 
