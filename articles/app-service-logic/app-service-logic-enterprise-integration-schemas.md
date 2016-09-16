@@ -23,6 +23,7 @@ You use schemas to confirm that XML documents you receive are valid, meaning tha
 
 ## How to add a schema
 From the Azure portal:  
+
 1. Select **More Services**  
 ![](./media/app-service-logic-enterprise-integration-overview/overview-11.png)    
 2. Enter **integration** in the filter search box and select **Integration Accounts** from the results list     
@@ -37,35 +38,28 @@ From the Azure portal:
 ![](./media/app-service-logic-enterprise-integration-schemas/schema-31.png)  
 7. To add schema file larger than 2 MB (Max 8 MB)  
 
-	1. If blob security access level is **Public**
+* *If blob security access level is **Public***  
+![](./media/app-service-logic-enterprise-integration-schemas/blob-public.png)  
 
-	![](./media/app-service-logic-enterprise-integration-schemas/blob-public.png)  
+  * Upload the schema to storage and copy the URI  
+  ![](./media/app-service-logic-enterprise-integration-schemas/schema-blob.png)  
 
-	* Upload the schema to storage and copy the URI  
+  * Select Large file in Add Schema and provide the URI in the Content URI  
+  ![](./media/app-service-logic-enterprise-integration-schemas/schema-largefile.png)  
 
-	![](./media/app-service-logic-enterprise-integration-schemas/schema-blob.png)  
+* *If blob security access level is **No anaonymous access***  
+![](./media/app-service-logic-enterprise-integration-schemas/blob-1.png)  
 
-	* Select Large file in Add Schema and provide the URI in the Content URI  
+  * Upload the schema to storage  
+  ![](./media/app-service-logic-enterprise-integration-schemas/blob-3.png)
 
-	![](./media/app-service-logic-enterprise-integration-schemas/schema-largefile.png)  
+  * Generate a Shared Access Signature for the schema  
+  ![](./media/app-service-logic-enterprise-integration-schemas/blob-2.png)
 
-	2. If blob security access level is **No anaonymous access**
+  * Select Large file in Add Schema and provide the URI in the Content URI  
+  ![](./media/app-service-logic-enterprise-integration-schemas/schema-largefile.png)  
 
-	![](./media/app-service-logic-enterprise-integration-schemas/blob-1.png)  
-
-	* Upload the schema to storage 
-
-	![](./media/app-service-logic-enterprise-integration-schemas/blob-3.png)
-
-	* Generate a Shared Access Signature for the schema
-
-	![](./media/app-service-logic-enterprise-integration-schemas/blob-2.png)
-
-	* Select Large file in Add Schema and provide the URI in the Content URI  
-
-	![](./media/app-service-logic-enterprise-integration-schemas/schema-largefile.png)  
-
-8.You should see the newly added schema  
+8. You should see the newly added schema  
 ![](./media/app-service-logic-enterprise-integration-schemas/schema-41.png) 
 
 ## How to use schemas
