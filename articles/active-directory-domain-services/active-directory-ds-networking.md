@@ -32,7 +32,7 @@ The following guidelines help you select a virtual network to use with Azure AD 
 - If you plan to use an existing virtual network, ensure that it is a **regional virtual network**.
     - Virtual networks that use the legacy affinity groups mechanism cannot be used with Azure AD Domain Services.
 
-	- [Migrate legacy virtual networks to regional virtual networks](../virtual-network/virtual-networks-migrate-to-regional-vnet.md) to use Azure AD Domain Services.
+	- To use Azure AD Domain Services, [migrate legacy virtual networks to regional virtual networks](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
 
 ### Azure region for the virtual network
@@ -53,7 +53,6 @@ The following guidelines help you select a virtual network to use with Azure AD 
 - **Proximity to your Azure workloads**: Select the virtual network that currently hosts/will host virtual machines that need access to Azure AD Domain Services.
 
 - You will not be able to move Domain Services to a different virtual network after you have enabled the service.
-
 
 
 ## Network connectivity
