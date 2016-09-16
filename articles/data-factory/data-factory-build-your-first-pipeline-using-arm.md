@@ -24,13 +24,11 @@
 - [Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
 - [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
+In this article, you use an Azure Resource Manager template to create your first Azure data factory.
 
-[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)] 
-
-## Additional prerequisites
-Apart from prerequisites listed in the preceding prerequisites section, install the following:
-
-- **Install Azure PowerShell**. Follow instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) article to install latest version of Azure PowerShell on your computer.
+## Prerequisites
+- Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the prerequisite steps before proceeding further.
+- Follow instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) article to install latest version of Azure PowerShell on your computer.
 - See [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md) to learn about Azure Resource Manager templates. 
 
 ## Create Resource Manager template
@@ -247,7 +245,7 @@ See [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md
 8. In the Diagram View, double-click the dataset **AzureBlobOutput**. You see that the slice that is currently being processed.
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
-9. When processing is done, you see the slice in **Ready** state. Creation of an on-demand HDInsight cluster usually takes sometime (approximately 20 minutes). 
+9. When processing is done, you see the slice in **Ready** state. Creation of an on-demand HDInsight cluster usually takes sometime (approximately 20 minutes). Therefore, expect the pipeline to take **approximately 30 minutes** to process the slice.
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)	
 10. When the slice is in **Ready** state, check the **partitioneddata** folder in the **adfgetstarted** container in your blob storage for the output data.  

@@ -25,9 +25,10 @@
 - [Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
 - [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)] 
+In this article, you use Data Factory REST API to create your first Azure data factory.
 
-## Additional prerequisites
+## Prerequisites
+- Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article. This article helps you understand the basic concepts of Azure Data Factory.
 - Install [Curl](https://curl.haxx.se/dlwiz/) on your machine. You use the CURL tool with REST commands to create a data factory. 
 - Follow instructions from [this article](../resource-group-create-service-principal-portal.md) to: 
 	1. Create a Web application named **ADFGetStartedApp** in Azure Active Directory.
@@ -369,6 +370,10 @@ In this step, you use Data Factory REST API to monitor slices being produced by 
 	} else {
     	    (convertFrom-Json $results2).RemoteException
 	}
+
+
+> [AZURE.IMPORTANT] 
+> Creation of an on-demand HDInsight cluster usually takes sometime (approximately 20 minutes). Therefore, expect the pipeline to take **approximately 30 minutes** to process the slice.  
 
 Run the Invoke-Command and the next one until you see the slice in **Ready** state or **Failed** state. When the slice is in Ready state, check the **partitioneddata** folder in the **adfgetstarted** container in your blob storage for the output data.  The creation of an on-demand HDInsight cluster usually takes some time.
 
