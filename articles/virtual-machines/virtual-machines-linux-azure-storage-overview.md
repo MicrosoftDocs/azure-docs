@@ -15,3 +15,25 @@
   ms.workload="infrastructure"
   ms.date="09/16/2016"
   ms.author="v-livech"/>
+
+# Azure and Linux storage
+
+## Blob storage
+
+## File storage
+
+## Table storage
+
+## Queue storage
+
+## Premium storage
+
+## Scalability
+
+## Availability
+
+## Regions
+
+## Security
+
+## Cost savings
