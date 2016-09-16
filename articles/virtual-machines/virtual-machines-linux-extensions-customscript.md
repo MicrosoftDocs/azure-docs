@@ -25,42 +25,31 @@ This document details how to use the Custom Script Extension both from an Azure 
 
 ## Extension Configuration
 
-The Custom Script Extension configuration specifies things like script location and the command to be run. This configuration can be stored in configuration files, specified on the command line, or in an Azure Resource Manager template. When using configuration files, two options are available a public file, and a protected file. In the protected file, configuration information is encrypted and only decrypted inside the virtual machine. The protected file is useful when the script execution command includes secrets.
+The Custom Script Extension configuration specifies things like script location and the command to be run. This configuration can be stored in configuration files, specified on the command line, or in an Azure Resource Manager template. Sensitive data can be stored in a protected configuration which is encrypted and only decrypted inside the virtual machine. The protected file is useful when the execution command includes secrets such as a password.
 
 ### Public Configuration
 
-Parameters:
+Schema:
 
 - commandToExecute: (required, string) the entry point script to execute
 - fileUris: (optional, string array) the URLs for files to be downloaded.
 - timestamp (optional, integer) use this field only to trigger a rerun of the script by changing value of this field.
 
-**Examples:**
-
-A script is downloaded from GitHub and run.
-
 ```none
 {
-  "fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],
-  "commandToExecute": "./hello.sh"
+  "fileUris": ["<url>"],
+  "commandToExecute": "<command-to-execute>"
 }
-```
-
-In this example commands are run without the need of a script.
-
-```none
-"commandToExecute": "apt-get -y update && apt-get install -y apache2"
 ```
 
 ### Protected Configuration
 
-**Parameters:**
+Schema:
 
 - commandToExecute: (optional, string) the entry point script to execute. Use this field instead if your command contains secrets such as passwords.
 - storageAccountName: (optional, string) the name of storage account. If you specify storage credentials, all fileUris must be URLs for Azure Blobs.
 - storageAccountKey: (optional, string) the access key of storage account.
 
-**Example:**
 
 ```json
 {
@@ -82,6 +71,59 @@ Optionally, the command can be run using the `--public-config` option, which all
 
 ```none
 azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
+```
+
+### Azure CLI Examples
+
+**Example 1** - Public configuration with script file.
+
+```json
+{
+  "fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],
+  "commandToExecute": "./hello.sh"
+}
+```
+
+Azure CLI command.
+
+```none
+azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config-path /public.json
+```
+
+**Example 2** - Public configuration with no script file.
+
+```json
+{
+  "commandToExecute": "apt-get -y update && apt-get install -y apache2"
+}
+```
+
+Azure CLI command.
+
+```none
+azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config-path /public.json
+```
+
+**Example 3** - A public configuration files is used to specify the script file URI, and a protected configuration file is used to specify the command to be executed.
+
+```json
+{
+  "fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],
+}
+```
+
+protected configuration file.  
+
+```json
+{
+  "commandToExecute": "./hello.sh <password>"
+}
+```
+
+Azure CLI command.
+
+```none
+azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config-path ./public.json --private-config-path ./protected.json
 ```
 
 ## Azure Resource Manager Template
@@ -109,40 +151,12 @@ The Azure Custom Script Extension can be run at Virtual Machine deployment time 
         "fileUris": [
           "https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"
         ],
-        "commandToExecute": "sudo sh oms.sh"
+        "commandToExecute": "sh oms.sh"
       }
     }
 }
 ```
 
-To provide parameterized data to the script, use the Azure Resource Manager Template concatenate function. In this example data is taken from a template parameter and then used in the script execution command.
-
-```json
-{
-    "name": "scriptextensiondemo",
-    "type": "extensions",
-    "location": "[resourceGroup().location]",
-    "apiVersion": "2015-06-15",
-    "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', parameters('scriptextensiondemoName'))]"
-    ],
-    "tags": {
-        "displayName": "scriptextensiondemo"
-    },
-    "properties": {
-        "publisher": "Microsoft.Azure.Extensions",
-        "type": "CustomScript",
-        "typeHandlerVersion": "2.0",
-        "autoUpgradeMinorVersion": true,
-      "settings": {
-        "fileUris": [
-          "https://raw.githubusercontent.com/neilpeterson/nepeters-azure-templates/master/ubuntu-docker-oms/support-scripts/oms.sh"
-        ],
-        "commandToExecute": "[concat('sudo sh oms.sh ', parameters('subscription-id'))]"
-      }
-    }
-}
-```
 See the .Net Core Music Store Demo a working example - [Music Store Demo](https://github.com/neilpeterson/nepeters-azure-templates/tree/master/dotnet-core-music-linux-vm-sql-db).
 
 ## Troubleshooting
