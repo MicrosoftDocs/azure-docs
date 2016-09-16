@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2016"
+   ms.date="09/15/2016"
    ms.author="dkshir;chackdan"/>
 
 
@@ -23,13 +23,17 @@ Azure Service Fabric allows the creation of Service Fabric clusters on any virtu
 
 This article walks you through the steps for creating a cluster using the standalone package for Service Fabric on-premises, though it can be easily adapted for any other environment such as other cloud providers.
 
->[AZURE.NOTE] This standalone Windows Server package is currently in preview and is not supported for production workloads. [Click here](http://go.microsoft.com/fwlink/?LinkID=733084) if you would like to download a copy of the EULA now.
+>[AZURE.NOTE] This standalone Windows Server package may contain features that are currently in preview and is not supported for commercial use. To see that list of features that are in preview, scroll down to end of this document. [Click here](http://go.microsoft.com/fwlink/?LinkID=733084) if you would like to download a copy of the EULA now. 
 
 <a id="downloadpackage"></a>
 ## Download the Service Fabric standalone package
 
 
 [Download the standalone package for Service Fabric for Windows Server 2012 R2 and above](http://go.microsoft.com/fwlink/?LinkId=730690), which is named *Microsoft.Azure.ServiceFabric.WindowsServer.&lt;version&gt;.zip*.
+
+>[AZURE.NOTE] If you are using internet Explorer or Microsoft edge browsers to download this package you have to add [http://download.microsoft.com](http://download.microsoft.com) site to trusted sites in intranet prevents the Zones tag from being written into the files when the zip is downloaded 
+
+ ![TustedZone][TrustedZone]
 
 In the download package you will find the following files:
 
@@ -131,7 +135,23 @@ This script can be run on any machine that has administrator access to all the m
 >[AZURE.NOTE] The deployment logs are available locally on the VM/Machine that you ran the CreateServiceFabricCluster Powershell on. You will find them in a sub-folder called "DeploymentTraces" in the folder where you ran the Powershell command. Also to see whether Service Fabric was deployed correctly to a machine, you can find the installed files in the C:\ProgramData directory and the FabricHost.exe and Fabric.exe processes can be seen running in Task Manager.
 
 ### Step 3: Connect to the Cluster
+
+Refer to [this document](service-fabric-connect-to-secure-cluster.md) for instructions to connect to a secure cluster.
+
+To connect to a unsecure cluster, you just need to run the following powershell command
+
+```powershell
+
+Connect-ServiceFabricCluster -ConnectionEndpoint <*IPAddressofaMachine*>:<Client connection end point port>
+
+Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
+
+```
+### Step 4: Bring up Service Fabric Explorer
+
 Now you can connect to the cluster with Service Fabric Explorer either directly from one of the machines with http://localhost:19080/Explorer/index.html or remotely with http://<*IPAddressofaMachine*>:19080/Explorer/index.html
+
+
 
 ## Add and remove nodes to your cluster
 
@@ -147,7 +167,44 @@ This script can be run on any machine that has administrator access to all the m
 ```
 .\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json   -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab
 ```
+```
+## Telemetry that is collected
 
+As a default, the product collects telemetry on the service fabric usage to improve the product. The best practice analyzer that runs as a part of the setup, checks for connectivity to [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1). if it is not reachable, then the setup is failed, unless you opt out of telemetry. 
+
+1) The telemetry pipeline tries to upload the following data to [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1) once every day. It is a best effort upload, and had no impact on the cluster functionality. The telemetry is only sent from the node that runs the failover manager primary. No other nodes send out telemetry. 
+
+2)	The Telemetry consists of the following. 
+
+1. 	       Number of services,
+1. 	       Number of ServiceTypes
+1. 	       Number of Applications
+1. 	       Number of ApplicationUpgrades
+1. 	       Number of FailoverUnits
+1. 	       Number of InBuildFailoverUnits
+1. 	       Number of UnhealthyFailoverUnits
+1. 	       Number of Replicas
+1. 	       Number of InBuildReplicas
+1. 	       Number of StandByReplicas
+1. 	       Number of OfflineReplicas
+1. 	       CommonQueueLength
+1. 	       QueryQueueLength
+1. 	       FailoverUnitQueueLength
+1. 	       CommitQueueLength
+1. 	       Number of Nodes
+1. 	       IsContextComplete:True/False
+1. 	       ClusterId":    <=== this is a GUID randomly generated for each cluster
+1. 	       ServiceFabricVersion
+1. 			IP adress of the VM/Machine from which the telemetry is uploaded
+
+
+In order to disable telemetry add under the following to “properties” element in your cluster config:
+        "enableTelemetry": false
+
+```
+## Preview features included in this package
+
+The entire package is currently in preview. 
 
 ## Next steps
 - [Configuration settings for standalone Windows cluster](service-fabric-cluster-manifest.md)
@@ -155,3 +212,7 @@ This script can be run on any machine that has administrator access to all the m
 - [Create a standalone Service Fabric cluster with Azure VMs running Windows](service-fabric-cluster-creation-with-windows-azure-vms.md)
 - [Secure a standalone cluster on Windows using Windows security](service-fabric-windows-cluster-windows-security.md)
 - [Secure a standalone cluster on Windows using X509 certificates](service-fabric-windows-cluster-x509-security.md)
+
+
+<!--Image references-->
+[TrustedZone]: ./media/service-fabric-cluster-creation-for-windows-server/TrustedZone.png
