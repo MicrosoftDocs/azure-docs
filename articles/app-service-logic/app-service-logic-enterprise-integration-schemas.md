@@ -47,7 +47,7 @@ From the Azure portal:
   * Select Large file in Add Schema and provide the URI in the Content URI  
   ![](./media/app-service-logic-enterprise-integration-schemas/schema-largefile.png)  
 
-* *If blob security access level is **No anaonymous access***  
+* *If blob security access level is **No anonymous access***  
 ![](./media/app-service-logic-enterprise-integration-schemas/blob-1.png)  
 
   * Upload the schema to storage  
