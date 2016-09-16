@@ -26,7 +26,7 @@ Requests for http://contoso.com/video* are routed to VideoServerPool, and http:/
 
 ## UrlPathMap configuration element
 
-UrlPathMap element is used to specify Path patterns to back-end server pool mappings. This following is the snippet of urlPathMap element from template file.
+UrlPathMap element is used to specify Path patterns to back-end server pool mappings. The following code example is the snippet of urlPathMap element from template file.
 
 	"urlPathMaps": [
 	{

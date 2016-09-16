@@ -44,14 +44,14 @@
 
 For SSL certificates configuration, the protocol in **HttpListener** should change to *Https* (case sensitive). The **SslCertificate** element is added to **HttpListener** with the variable value configured for the SSL certificate. The front-end port should be updated to 443.
 
-**To enable cookie-based affinity**: An application gateway can be configured to ensure that a request from a client session is always directed to the same VM in the web farm. This is done by injection of a session cookie that allows the gateway to direct traffic appropriately. To enable cookie-based affinity, set **CookieBasedAffinity** to *Enabled* in the **BackendHttpSettings** element.
+**To enable cookie-based affinity**: An application gateway can be configured to ensure that a request from a client session is always directed to the same VM in the web farm. This scenario is done by injection of a session cookie that allows the gateway to direct traffic appropriately. To enable cookie-based affinity, set **CookieBasedAffinity** to *Enabled* in the **BackendHttpSettings** element.
 
 
 ## Create an application gateway
 
-The difference between using the Azure Classic deployment model and Azure Resource Manager is the order in which you create an application gateway and the items that need to be configured.
+The difference between using the Azure Classic deployment model and Azure Resource Manager is the order that you create an application gateway and the items that need to be configured.
 
-With Resource Manager, all items that make an application gateway are configured individually and then put together to create an application gateway resource.
+With Resource Manager, all components of an application gateway are configured individually and then put together to create an application gateway resource.
 
 
 Here are the steps needed to create an application gateway:
@@ -137,7 +137,7 @@ This sample creates an application gateway IP configuration named "gatewayIP01".
 
 	$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 
-This sample configures the back-end IP address pool named "pool01" with IP addresses "134.170.185.46, 134.170.188.221,134.170.185.50." Those are the IP addresses that receive the network traffic that comes from the front-end IP endpoint. Replace the IP addresses from the example above with the IP addresses of your web application endpoints.
+This sample configures the back-end IP address pool named "pool01" with IP addresses "134.170.185.46, 134.170.188.221,134.170.185.50." Those values are the IP addresses that receive the network traffic that comes from the front-end IP endpoint. Replace the IP addresses from the preceding example with the IP addresses of your web application endpoints.
 
 ### Step 3
 
@@ -188,7 +188,7 @@ This sample configures the instance size of the application gateway.
 
 	$appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslCertificates $cert
 
-This sample creates an application gateway with all configuration items from the steps above. In the example, the application gateway is called "appgwtest".
+This sample creates an application gateway with all configuration items from the preceding steps. In the example, the application gateway is called "appgwtest".
 
 ## Next steps
 

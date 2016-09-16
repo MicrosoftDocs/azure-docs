@@ -50,9 +50,9 @@ Click Listeners and click the Add button to add a listener.
 
 Fill out the required information for the listener and upload the .pfx certificate, when complete click OK.
 
-**Name** - This is a friendly name of the listener.
+**Name** - This value is a friendly name of the listener.
 
-**Frontend IP configuration** - This is the frontend IP configuration that is used for the listener.
+**Frontend IP configuration** - This value is the frontend IP configuration that is used for the listener.
 
 **Frontend port (Name/Port)** - A friendly name for the port used on the front end of the application gateway and the actual port used.
 

@@ -33,7 +33,7 @@ Azure Application Gateway can be configured to terminate the Secure Sockets Laye
 
 To configure SSL offload on an application gateway, do the following steps in the order listed:
 
-1. [Create a new application gateway](#create-a-new-application-gateway)
+1. [Create an application gateway](#create-an-application-gateway)
 2. [Upload SSL certificates](#upload-ssl-certificates)
 3. [Configure the gateway](#configure-the-gateway)
 4. [Set the gateway configuration](#set-the-gateway-configuration)
@@ -49,7 +49,7 @@ To create the gateway, use the **New-AzureApplicationGateway** cmdlet, replacing
 
 To validate that the gateway was created, you can use the **Get-AzureApplicationGateway** cmdlet.
 
-In the sample, *Description*, *InstanceCount*, and *GatewaySize* are optional parameters. The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. Small and Large are other available values. *VirtualIPs* and *DnsName* are shown as blank because the gateway has not started yet. These are created once the gateway is in the running state.
+In the sample, *Description*, *InstanceCount*, and *GatewaySize* are optional parameters. The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. Small and Large are other available values. *VirtualIPs* and *DnsName* are shown as blank because the gateway has not started yet. These values are created once the gateway is in the running state.
 
 	Get-AzureApplicationGateway AppGwTest
 
@@ -86,19 +86,19 @@ The values are:
 - **Back-end server pool:** The list of IP addresses of the back-end servers. The IP addresses listed should either belong to the virtual network subnet or should be a public IP/VIP.
 - **Back-end server pool settings:** Every pool has settings like port, protocol, and cookie-based affinity. These settings are tied to a pool and are applied to all servers within the pool.
 - **Front-end port:** This port is the public port that is opened on the application gateway. Traffic hits this port, and then gets redirected to one of the back-end servers.
-- **Listener:** The listener has a front-end port, a protocol (Http or Https, these are case-sensitive), and the SSL certificate name (if configuring SSL offload).
+- **Listener:** The listener has a front-end port, a protocol (Http or Https, these values are case-sensitive), and the SSL certificate name (if configuring SSL offload).
 - **Rule:** The rule binds the listener and the back-end server pool and defines which back-end server pool the traffic should be directed to when it hits a particular listener. Currently, only the *basic* rule is supported. The *basic* rule is round-robin load distribution.
 
 **Additional configuration notes**
 
-For SSL certificates configuration, the protocol in **HttpListener** should change to *Https* (case sensitive). The **SslCert** element is added to **HttpListener** with the value set to the same name as used in the upload of SSL certificates section above. The front-end port should be updated to 443.
+For SSL certificates configuration, the protocol in **HttpListener** should change to *Https* (case sensitive). The **SslCert** element is added to **HttpListener** with the value set to the same name as used in the upload of preceding SSL certificates section. The front-end port should be updated to 443.
 
-**To enable cookie-based affinity**: An application gateway can be configured to ensure that a request from a client session is always directed to the same VM in the web farm. This is done by injection of a session cookie that allows the gateway to direct traffic appropriately. To enable cookie-based affinity, set **CookieBasedAffinity** to *Enabled* in the **BackendHttpSettings** element.
+**To enable cookie-based affinity**: An application gateway can be configured to ensure that a request from a client session is always directed to the same VM in the web farm. This scenario is done by injection of a session cookie that allows the gateway to direct traffic appropriately. To enable cookie-based affinity, set **CookieBasedAffinity** to *Enabled* in the **BackendHttpSettings** element.
 
 
 
 You can construct your configuration either by creating a configuration object or by using a configuration XML file.
-To construct your configuration by using a configuration XML file, use the following sample.
+To construct your configuration by using a configuration XML file, use the following sample:
 
 **Configuration XML sample**
 
@@ -150,7 +150,7 @@ To construct your configuration by using a configuration XML file, use the follo
 
 ## Set the gateway configuration
 
-Next, you'll set the application gateway. You can use the **Set-AzureApplicationGatewayConfig** cmdlet with either a configuration object or with a configuration XML file.
+Next, you set the application gateway. You can use the **Set-AzureApplicationGatewayConfig** cmdlet with either a configuration object or with a configuration XML file.
 
 	Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
 

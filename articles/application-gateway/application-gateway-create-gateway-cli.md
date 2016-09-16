@@ -94,7 +94,7 @@ After the virtual network is created, a subnet is added for the application gate
 
 ## Create the application gateway
 
-Once the virtual network and subnet are created, the pre-requisites for the application gateway are complete. Additionally a previously exported .pfx certificate and the password for the certificate are required for the following step. 
+Once the virtual network and subnet are created, the pre-requisites for the application gateway are complete. Additionally a previously exported .pfx certificate and the password for the certificate are required for the following step:
 The IP addresses used for the backend are the IP addresses for your backend server. These values can be either private IPs in the virtual network, public ips, or fully qualified domain names for your backend servers.
 
     azure network application-gateway create -n AdatumAppGateway -l eastus -g AdatumAppGatewayRG -e AdatumAppGatewayVNET -m Appgatewaysubnet -r 134.170.185.46,134.170.188.221,134.170.185.50 -y c:\AdatumAppGateway\adatumcert.pfx -x P@ssw0rd -z 2 -a Standard_Medium -w Basic -j 443 -f Enabled -o 80 -i http -b https -u Standard
@@ -102,7 +102,7 @@ The IP addresses used for the backend are the IP addresses for your backend serv
 
 
 This example creates a basic application gateway with default settings for the listener, backend pool, backend http settings, and rules. It also configures SSL offload. You can modify these settings to suit your deployment once the provisioning is successful.
-If you already have your web application defined with the IP addresses for the backend pool defined in the preceding steps, once the application gateway is provisioned and started load balancing begins.
+If you already have your web application defined with the the backend pool in the preceding steps, once created, load balancing begins.
 
 ## Next steps
 
