@@ -29,17 +29,42 @@ From the Azure portal:
 ![](./media/app-service-logic-enterprise-integration-overview/overview-21.png)  
 3. Select the **integration account** to which you will add the schema    
 ![](./media/app-service-logic-enterprise-integration-overview/overview-31.png)  
-4.  Select the **Schemas** tile  
+4. Select the **Schemas** tile  
 ![](./media/app-service-logic-enterprise-integration-schemas/schema-11.png)  
 5. Select the **Add** button in the Schemas blade that opens  
 ![](./media/app-service-logic-enterprise-integration-schemas/schema-21.png)  
 6. Enter a **Name** for your schema, then to upload the schema file, select the folder icon on the right side of the **Schema** text box. After the upload process is completed, select the **OK** button.    
 ![](./media/app-service-logic-enterprise-integration-schemas/schema-31.png)  
 7. To add schema file larger than 2 MB (Max 8MB)  
-   * Upload the schema to storage and copy the URI  
-   ![](./media/app-service-logic-enterprise-integration-schemas/schema-blob.png)  
-   * Select Large file in Add Schema and provide the URI in the Content URI  
-   ![](./media/app-service-logic-enterprise-integration-schemas/schema-largefile.png)  
+
+	1. If blob security access level is **Public**
+
+	![](./media/app-service-logic-enterprise-integration-schemas/blob-public.png)  
+
+	* Upload the schema to storage and copy the URI  
+
+	![](./media/app-service-logic-enterprise-integration-schemas/schema-blob.png)  
+
+	* Select Large file in Add Schema and provide the URI in the Content URI  
+
+	![](./media/app-service-logic-enterprise-integration-schemas/schema-largefile.png)  
+
+	2. If blob security access level is **No anaonymous access**
+
+	![](./media/app-service-logic-enterprise-integration-schemas/blob-1.png)  
+
+	* Upload the schema to storage 
+
+	![](./media/app-service-logic-enterprise-integration-schemas/blob-3.png)
+
+	* Generate a Shared Access Signature for the schema
+
+	![](./media/app-service-logic-enterprise-integration-schemas/blob-2.png)
+
+	* Select Large file in Add Schema and provide the URI in the Content URI  
+
+	![](./media/app-service-logic-enterprise-integration-schemas/schema-largefile.png)  
+
 8.You should see the newly added schema  
 ![](./media/app-service-logic-enterprise-integration-schemas/schema-41.png) 
 
