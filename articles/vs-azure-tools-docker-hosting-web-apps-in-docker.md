@@ -3,7 +3,7 @@
    description="Learn how to use Visual Studio Tools for Docker to deploy an ASP.NET Core web app to a Docker container running on an Azure Docker Host Linux VM"   
    services="azure-container-service"
    documentationCenter=".net"
-   authors="allclark"
+   authors="mlearned"
    manager="douge"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="06/08/2016"
-   ms.author="allclark;stevelas"/>
+   ms.author="mlearned"/>
 
 # Deploy an ASP.NET container to a remote Docker host
 
