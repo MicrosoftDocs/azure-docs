@@ -29,12 +29,9 @@ You will:
 - Create a web app in Azure App Service.
 - Deploy a sample Java app.
 - See your code running live in production.
-- Update your web app the same way you would [push Git commits](https://git-scm.com/docs/git-push).
 
 ## Prerequisites
 
-- [Install Git](http://www.git-scm.com/downloads). Verify that your installation is successful by running `git --version` from a new Windows command prompt, 
-PowerShell window, Linux shell, or OS X terminal.
 - Get an FTP/FTPS client, such as [FileZilla](https://filezilla-project.org/).
 - Get a Microsoft Azure account. If you don't have an account, you can 
 [sign up for a free trial](/pricing/free-trial/?WT.mc_id=A261C142F) or 
@@ -118,7 +115,7 @@ that remote directory.
 
     ![](./media/app-service-web-get-started-languages/transfer-war-file.png)
 
-    Click OK to override the file in Azure.
+    Click **OK** to override the file in Azure.
 
     >[AZURE.NOTE] In accordance with Tomcat's default behavior, filename **ROOT.war** in /site/wwwroot/webapps gives you the root web app 
     (http://*&lt;appname>*.azurewebsites.net), and filename ***&lt;anyname>*.war** gives you a named web app (http://*&lt;appname>*.azurewebsites.net/*&lt;anyname>*).
