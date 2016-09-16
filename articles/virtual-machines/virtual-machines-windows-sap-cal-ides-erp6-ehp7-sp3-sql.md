@@ -47,25 +47,25 @@ standard Azure and Azure on China mainland that is operated by partner 21Vianet.
 Then one has to enter the Azure subscription ID that can be found on the Azure portal - also see
 further down how to get it. Afterwards an Azure management certificate needs to be downloaded.
 
-![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic4.jpg)
+![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic6.jpg)
 
 In the new Azure portal one finds the item "Subscriptions" on the left side. Click it to show all
 active subscriptions for your user.
 
-![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic5.jpg)
+![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic7.jpg)
 
 Selecting one of the subscriptions and then choosing "Management Certificates" explains that there is
 a new concept using "service principals" for the new Azure Resource Manager model.
 SAP CAL isn't adapted yet for this new model and still requires the "classic" model and the former
 Azure portal to work with management certificates.
 
-![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic6.jpg)
+![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic4.jpg)
 
 Here one can see the former Azure portal. The upload of a management certificate gives SAP CAL the permissions 
 to create virtual machines within a customer subscription. Under the "SUBSCRIPTIONS" tab one can find the
 subscription ID that has to be entered in the SAP CAL portal.
 
-![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic7.jpg)
+![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic5.jpg)
 
 On the second tab, it's then possible to upload the management certificate that was downloaded before
 from SAP CAL.
