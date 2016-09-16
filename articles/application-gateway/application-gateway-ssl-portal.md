@@ -32,12 +32,6 @@ The following scenario goes through configuring SSL offload on an existing appli
 
 To configure SSL offload with an application gateway, a certificate is required. This certificate is loaded on the application gateway and used to encrypt and decrypt the traffic sent via SSL. The certificate needs to be in Personal Information Exchange (pfx) format. This file format allows for the private key to be exported which is required by the application gateway to perform the encryption and decryption of traffic.
 
-The following certificate types are supported for use with Application Gateway
-
-- Wildcard certificates
-- CA certificates
-- Self-signed certificates (Self-signed certificates are to be used for testing purposes)
-
 ## Add an HTTPS listener
 
 The HTTPS listener looks for traffic based on its configuration and helps route the traffic to the backend pools.

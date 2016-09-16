@@ -31,14 +31,6 @@ Azure Application Gateway can be configured to terminate the Secure Sockets Laye
 2. Verify that you have a working virtual network with a valid subnet. Make sure that no virtual machines or cloud deployments are using the subnet. The application gateway must be by itself in a virtual network subnet.
 3. The servers that you configure to use the application gateway must exist or have their endpoints created either in the virtual network or with a public IP/VIP assigned.
 
-The following certificate types are supported for use with Application Gateway
-
-The following certificate types are supported for use with Application Gateway
-
-- Wildcard certificates
-- CA certificates
-- Self-signed certificates (Self-signed certificates are to be used for testing purposes)
-
 To configure SSL offload on an application gateway, do the following steps in the order listed:
 
 1. [Create a new application gateway](#create-a-new-application-gateway)
@@ -160,14 +152,7 @@ To construct your configuration by using a configuration XML file, use the follo
 
 Next, you'll set the application gateway. You can use the **Set-AzureApplicationGatewayConfig** cmdlet with either a configuration object or with a configuration XML file.
 
-
-	PS C:\> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
-
-	VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig
-	VERBOSE: 7:55:32 PM - Completed Operation: Set-AzureApplicationGatewayConfig
-	Name       HTTP Status Code     Operation ID                             Error
-	----       ----------------     ------------                             ----
-	Successful OK                   9b995a09-66fe-2944-8b67-9bb04fcccb9d
+	Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
 
 ## Start the gateway
 
@@ -176,15 +161,7 @@ Once the gateway has been configured, use the **Start-AzureApplicationGateway** 
 
 **Note:** The **Start-AzureApplicationGateway** cmdlet might take up to 15-20 minutes to finish.
 
-
-	PS C:\> Start-AzureApplicationGateway AppGwTest
-
-	VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway
-	VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
-	Name       HTTP Status Code     Operation ID                             Error
-	----       ----------------     ------------                             ----
-	Successful OK                   fc592db8-4c58-2c8e-9a1d-1c97880f0b9b
-
+	Start-AzureApplicationGateway AppGwTest
 
 ## Verify the gateway status
 
@@ -192,7 +169,7 @@ Use the **Get-AzureApplicationGateway** cmdlet to check the status of the gatewa
 
 This sample shows an application gateway that is up, running, and is ready to take traffic.
 
-	PS C:\> Get-AzureApplicationGateway AppGwTest
+	Get-AzureApplicationGateway AppGwTest
 
 	Name          : AppGwTest2
 	Description   :
