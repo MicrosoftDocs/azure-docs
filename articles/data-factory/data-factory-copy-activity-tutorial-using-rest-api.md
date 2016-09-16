@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/17/2016" 
+	ms.date="09/16/2016" 
 	ms.author="spelluru"/>
 
 # Tutorial: Create a pipeline with Copy Activity using REST API
@@ -27,8 +27,6 @@
 - [Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
 
 This tutorial shows you how to create and monitor an Azure data factory using the REST API. The pipeline in the data factory uses a Copy Activity to copy data from Azure Blob Storage to Azure SQL Database.
-
-The Copy Activity performs the data movement in Azure Data Factory. The activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity.   
 
 > [AZURE.NOTE] 
 > This article does not cover all the Data Factory REST API. See [Data Factory REST API Reference](https://msdn.microsoft.com/library/azure/dn906738.aspx) for comprehensive documentation on Data Factory cmdlets.
@@ -136,7 +134,7 @@ Create following JSON files in the folder where curl.exe is located.
 
 The JSON definition defines a dataset named **AzureBlobInput**, which represents input data for an activity in the pipeline. In addition, it specifies that the input data is located in the file **emp.txt** that is in blob container **adftutorial**. 
 
- Note the following: 
+ Note the following points: 
 
 - dataset **type** is set to **AzureBlob**.
 - **linkedServiceName** is set to **AzureStorageLinkedService**. 
@@ -192,7 +190,7 @@ To set **folderPath** and **fileName** dynamically based on the **SliceStart** t
 
 The JSON definition defines a dataset named **AzureSqlOutput**, which represents output data for an activity in the pipeline. In addition, it specifies that the results are stored in the table: **emp** in the database represented by the AzureSqlLinkedService. The **availability** section specifies that the output dataset is produced on an hourly (frequency: hour and interval: 1) basis.
 
-Note the following: 
+Note the following points: 
 
 - dataset **type** is set to **AzureSQLTable**.
 - **linkedServiceName** is set to **AzureSqlLinkedService**.
@@ -245,7 +243,7 @@ Note the following:
 	}
 
 
-Note the following:
+Note the following points:
 
 - In the activities section, there is only one activity whose **type** is set to **CopyActivity**.
 - Input for the activity is set to **AzureBlobInput** and output for the activity is set to **AzureSqlOutput**.
@@ -300,9 +298,9 @@ In this step, you create an Azure Data Factory named **ADFCopyTutorialDF**. A da
 
 		Write-Host $results
 
-Note the following:
+Note the following points:
  
-- The name of the Azure Data Factory must be globally unique. If you see the error in results: **Data factory name “ADFCopyTutorialDF” is not available**, do the following:  
+- The name of the Azure Data Factory must be globally unique. If you see the error in results: **Data factory name “ADFCopyTutorialDF” is not available**, do the following steps:  
 	1. Change the name (for example, yournameADFCopyTutorialDF) in the **datafactory.json** file.
 	2. In the first command where the **$cmd** variable is assigned a value, replace ADFCopyTutorialDF with the new name and run the command. 
 	3. Run the next two commands to invoke the REST API to create the data factory and print the results of the operation. 

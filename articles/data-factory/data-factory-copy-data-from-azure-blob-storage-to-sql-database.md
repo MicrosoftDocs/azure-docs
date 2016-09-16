@@ -62,7 +62,7 @@ You need the names of Azure SQL server, database, and user to do this tutorial. 
 5. Close all the blades by clicking **X**.
 
 ## Allow Azure services to access SQL server 
-Ensure that **Allow access to Azure services** setting turned **ON** for your Azure SQL server so that the Data Factory service can access your Azure SQL server. To verify and turn on this setting, do the following:
+Ensure that **Allow access to Azure services** setting turned **ON** for your Azure SQL server so that the Data Factory service can access your Azure SQL server. To verify and turn on this setting, do the following steps:
 
 1. Click **BROWSE** hub on the left and click **SQL servers**.
 2. Select **your server**, and click **SETTINGS** on the **SQL SERVER** blade.

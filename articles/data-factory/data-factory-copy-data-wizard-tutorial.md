@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" **
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/01/2016" 
+	ms.date="09/16/2016" 
 	ms.author="spelluru"/>
 
 # Tutorial: Create a pipeline with Copy Activity using Data Factory Copy Wizard
@@ -26,7 +26,7 @@
 - [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 - [Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
 
-In this tutorial, you use Data Factory Copy Wizard to create a pipeline with a Copy Activity in a data factory. First, you create a data factory by using the Azure portal. Then, you use use the Copy Wizard to create Data Factory linked services, datasets, and a pipeline with a Copy Activity that copies data from an Azure blob storage to an Azure SQL database. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity. 
+In this tutorial, you use Data Factory Copy Wizard to create a pipeline with a Copy Activity in a data factory. First, you create a data factory by using the Azure portal. Then, you use the Copy Wizard to create Data Factory linked services, datasets, and a pipeline with a Copy Activity that copies data from an Azure blob storage to an Azure SQL database. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity. 
 
 > [AZURE.IMPORTANT] Go through the [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) article and complete the **prerequisite** steps before performing this tutorial.
 
@@ -41,7 +41,7 @@ In this step, you use the Azure portal to create an Azure data factory named **A
 	1. Enter **ADFTutorialDataFactory** for the **name**. 
 	
   		![New data factory blade](./media/data-factory-copy-data-wizard-tutorial/getstarted-new-data-factory.png)
-	2. Click **RESOURCE GROUP NAME** and do the following:
+	2. Click **RESOURCE GROUP NAME** and do the following steps:
 		1. Click **Create a new resource group**.
 		2. In the **Create resource group** blade, enter **ADFTutorialResourceGroup** for the **name** of the resource group, and click **OK**. 
 
@@ -58,7 +58,7 @@ In this step, you use the Azure portal to create an Azure data factory named **A
 	> [AZURE.NOTE] The name of the data factory may be registered as a DNS name in the future and hence become publically visible.  
 
 9. Click **NOTIFICATIONS** hub on the left and look for notifications from the creation process. Click **X** to close the **NOTIFICATIONS** blade if it is open. 
-10. After the creation is complete, you see the **DATA FACTORY** blade as shown in the following image.
+10. After the creation is complete, you see the **DATA FACTORY** blade as shown in the following image:
 
     ![Data factory home page](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
@@ -104,7 +104,7 @@ In this step, you use the Azure portal to create an Azure data factory named **A
 	![Copy Tool - Table mapping](./media/data-factory-copy-data-wizard-tutorial/copy-tool-table-mapping-page.png) 
 10. On the **Schema mapping** page, click **Next**.
 11. Review information in the **Summary** page, and click **Finish**. The wizard creates two linked services, two datasets (input and output), and one pipeline in the data factory (from where you launched the Copy Wizard). 
-12. On the **Deployment succeeded** page, click **Click here to monitor copy pipeline**.
+12. On the **Deployment succeeded** page, click the link: **Click here to monitor copy pipeline**.
 
 	![Copy Tool - Deployment succeeded](./media/data-factory-copy-data-wizard-tutorial/copy-tool-deployment-succeeded.png)  
 13. Use instructions from [Monitor and manage pipeline using Monitoring App](data-factory-monitor-manage-app.md) to learn about how to monitor the pipeline you created.

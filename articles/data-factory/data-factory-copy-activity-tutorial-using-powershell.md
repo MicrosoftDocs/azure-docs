@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/01/2016" 
+	ms.date="09/16/2016" 
 	ms.author="spelluru"/>
 
 # Tutorial: Create a pipeline with Copy Activity using Azure PowerShell
@@ -26,7 +26,6 @@
 - [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 - [Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
 
-The [Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) tutorial shows you how to create and monitor an Azure data factory using the [Azure portal][azure-portal]. 
 In this tutorial, you create and monitor an Azure data factory by using Azure PowerShell cmdlets. The pipeline in the data factory you create in this tutorial uses a Copy Activity to copy data from an Azure blob to an Azure SQL database.
 
 The Copy Activity performs the data movement in Azure Data Factory. The activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity.   
@@ -38,9 +37,7 @@ The Copy Activity performs the data movement in Azure Data Factory. The activity
   
 
 ##Prerequisites
-Apart from prerequisites listed in the Tutorial Overview topic, you need to install the following:
-
-- **Azure PowerShell**. Follow instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) article to install Azure PowerShell on your computer.
+Apart from prerequisites listed in the Tutorial Overview topic, you need to install the **Azure PowerShell**. Follow instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) article to install Azure PowerShell on your computer.
 
 ##In this tutorial
 The following table lists the steps you perform as part of the tutorial and their descriptions. 
@@ -56,28 +53,28 @@ Step | Description
 ## Create data factory
 In this step, you use the Azure PowerShell to create an Azure data factory named **ADFTutorialDataFactoryPSH**.
 
-1. Launch **PowerShell** and run the following command. Keep Azure PowerShell open until the end of this tutorial. If you close and reopen, you need to run the commands again.
-	1. Run the following command and enter the user name and password that you use to sign in to the Azure portal.
+1. Launch **PowerShell**. Keep Azure PowerShell open until the end of this tutorial. If you close and reopen, you need to run the commands again.
+	1. Run the following command and enter the user name and password that you use to sign in to the Azure portal:
 	
 			Login-AzureRmAccount   
-	2. Run the following command to view all the subscriptions for this account.
+	2. Run the following command to view all the subscriptions for this account:
 
 			Get-AzureRmSubscription 
-	3. Run the following command to select the subscription that you want to work with. Replace **&lt;NameOfAzureSubscription**&gt; with the name of your Azure subscription. 
+	3. Run the following command to select the subscription that you want to work with. Replace **&lt;NameOfAzureSubscription**&gt; with the name of your Azure subscription:
 
 			Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
 
-3. Create an Azure resource group named: **ADFTutorialResourceGroup** by running the following command.
+3. Create an Azure resource group named: **ADFTutorialResourceGroup** by running the following command:
    
 		New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
 	Some of the steps in this tutorial assume that you use the resource group named **ADFTutorialResourceGroup**. If you use a different resource group, you need to use it in place of ADFTutorialResourceGroup in this tutorial. 
-4. Run the **New-AzureRmDataFactory** cmdlet to create a data factory named: **ADFTutorialDataFactoryPSH**.  
+4. Run the **New-AzureRmDataFactory** cmdlet to create a data factory named: **ADFTutorialDataFactoryPSH**:  
 
 		New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH –Location "West US"
 
 	
-Note the following:
+Note the following points:
  
 - The name of the Azure data factory must be globally unique. If you receive the following error, change the name (for example, yournameADFTutorialDataFactoryPSH). Use this name in place of ADFTutorialFactoryPSH while performing steps in this tutorial. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
 	
@@ -86,11 +83,11 @@ Note the following:
 - The name of the data factory may be registered as a DNS name in the future and hence become publically visible.
 - If you receive the error: "**This subscription is not registered to use namespace Microsoft.DataFactory**", do one of the following and try publishing again: 
 
-	- In Azure PowerShell, run the following command to register the Data Factory provider. 
+	- In Azure PowerShell, run the following command to register the Data Factory provider: 
 		
 			Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
 	
-		You can run the following command to confirm that the Data Factory provider is registered. 
+		Run the following command to confirm that the Data Factory provider is registered: 
 	
 			Get-AzureRmResourceProvider
 	- Login using the Azure subscription into the [Azure portal](https://portal.azure.com) and navigate to a Data Factory blade (or) create a data factory in the Azure portal. This action automatically registers the provider for you.
@@ -113,9 +110,9 @@ In this step, you create two linked services: **StorageLinkedService** and **Azu
 		  		}
 			}
 
-	Replace **accountname** and **accountkey** with name and key of your Azure storage account .
+	Replace **accountname** and **accountkey** with name and key of your Azure storage account.
 2.	In the **Azure PowerShell**, switch to the **ADFGetStartedPSH** folder. 
-3.	You can use the **New-AzureRmDataFactoryLinkedService** cmdlet to create a linked service. This cmdlet and other Data Factory cmdlets you use in this tutorial requires you to pass values for the **ResourceGroupName** and **DataFactoryName** parameters. Alternatively, you can use **Get-AzureRmDataFactory** to get a DataFactory object and pass the object without typing ResourceGroupName and DataFactoryName each time you run a cmdlet. Run the following command to assign the output of the **Get-AzureRmDataFactory** cmdlet to a variable: **$df**. 
+3.	You can use the **New-AzureRmDataFactoryLinkedService** cmdlet to create a linked service. This cmdlet and other Data Factory cmdlets you use in this tutorial requires you to pass values for the **ResourceGroupName** and **DataFactoryName** parameters. Alternatively, you can use **Get-AzureRmDataFactory** to get a DataFactory object and pass the object without typing ResourceGroupName and DataFactoryName each time you run a cmdlet. Run the following command to assign the output of the **Get-AzureRmDataFactory** cmdlet to a variable: **$df**: 
 
 		$df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH
 
@@ -130,7 +127,7 @@ In this step, you create two linked services: **StorageLinkedService** and **Azu
 	If you close the Azure PowerShell in the middle of the tutorial, you have run the Get-AzureRmDataFactory cmdlet next time you launch Azure PowerShell to complete the tutorial.
 
 ### Create a linked service for an Azure SQL Database
-1.	Create a JSON file named AzureSqlLinkedService.json with the following content.
+1.	Create a JSON file named AzureSqlLinkedService.json with the following content:
 
 			{
 				"name": "AzureSqlLinkedService",
@@ -144,11 +141,11 @@ In this step, you create two linked services: **StorageLinkedService** and **Azu
 
 	Replace **servername**, **databasename**, **username@servername**, and **password** with names of your Azure SQL server, database, user account, and password.
 
-2.	Run the following command to create a linked service. 
+2.	Run the following command to create a linked service: 
 	
 		New-AzureRmDataFactoryLinkedService $df -File .\AzureSqlLinkedService.json
 
-	Confirm that **Allow access to Azure services** setting is turned ON for your Azure SQL server. To verify and turn it on, do the following:
+	Confirm that **Allow access to Azure services** setting is turned ON for your Azure SQL server. To verify and turn it on, do the following steps:
 
 	1. Click **BROWSE** hub on the left and click **SQL servers**.
 	2. Select your server, and click **SETTINGS** on the SQL SERVER blade.
@@ -234,7 +231,7 @@ A table is a rectangular dataset and has a schema. In this step, you create a ta
 			  }
 			}
 	
-	Note the following: 
+	Note the following points: 
 	
 	- dataset **type** is set to **AzureBlob**.
 	- **linkedServiceName** is set to **StorageLinkedService**. 
@@ -296,7 +293,7 @@ In this step, you create an output dataset named **EmpSQLTable**. This dataset p
 			  }
 			}
 
-     Note the following: 
+     Note the following points: 
 	
 	* dataset **type** is set to **AzureSqlTable**.
 	* **linkedServiceName** is set to **AzureSqlLinkedService**.
@@ -356,7 +353,7 @@ In this step, you create a pipeline with a **Copy Activity** that uses **EmpTabl
 			  }
 			}
 
-	Note the following:
+	Note the following points:
 
 	- In the activities section, there is only one activity whose **type** is set to **Copy**.
 	- Input for the activity is set to **EmpTableFromBlob** and output for the activity is set to **EmpSQLTable**.
@@ -406,7 +403,7 @@ In this step, you use the Azure PowerShell to monitor what’s going on in an Az
 
 		Get-AzureRmDataFactoryRun $df -DatasetName EmpSQLTable -StartDateTime 2016-08-09T00:00:00
 
-	You should see output similar to the following:
+	You should see the output similar to the following sample output:
 
 		Id                  : 3404c187-c889-4f88-933b-2a2f5cd84e90_635614488000000000_635614524000000000_EmpSQLTable
 		ResourceGroupName   : ADFTutorialResourceGroup
