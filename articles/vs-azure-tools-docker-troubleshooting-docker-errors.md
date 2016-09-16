@@ -3,7 +3,7 @@
    description="Troubleshoot problems you encounter when using Visual Studio to create and deploy web apps to Docker on Windows by using Visual Studio."
    services="azure-container-service"
    documentationCenter="na"
-   authors="allclark"
+   authors="mlearned"
    manager="douge"
    editor="" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="08/18/2016"
-   ms.author="allclark" />
+   ms.author="mlearned" />
 
 # Troubleshooting Visual Studio Docker Development
 

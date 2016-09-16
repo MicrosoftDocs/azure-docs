@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/10/2016"
+   ms.date="09/16/2016"
    ms.author="ganesr"/>
 
 
@@ -78,7 +78,7 @@ Routing exchange will be over eBGP protocol. EBGP sessions are established betwe
 
 ## Autonomous System numbers
 
-Microsoft will use AS 12076 for Azure public, Azure private and Microsoft peering. We have reserved ASNs from 65515 to 65520 for internal use. Both 16 and 32 bit AS numbers are supported. On the peering side (customer or provider), the AS can be a public ASN if it can be verified to be owned by you, or a private ASN number for the private peering, and requires a public ASN for the public and Microsoft peerings. 
+Microsoft will use AS 12076 for Azure public, Azure private and Microsoft peering. We have reserved ASNs from 65515 to 65520 for internal use. Both 16 and 32 bit AS numbers are supported. On the peering side (customer or provider), the AS can be a public ASN if it can be verified to be owned by you, or a private ASN number.
 
 There are no requirements around data transfer symmetry on the primary and secondary paths of any given circuit. The forward and return paths may traverse different router pairs. Identical routes must be advertised from either primary or secondary sides across any given circuit pairs belonging to  you. Route metrics are not required to be identical.
 
