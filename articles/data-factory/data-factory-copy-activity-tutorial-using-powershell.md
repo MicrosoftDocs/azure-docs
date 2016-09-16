@@ -19,12 +19,12 @@
 # Tutorial: Create a pipeline with Copy Activity using Azure PowerShell
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Using Data Factory Editor](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Using PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Using Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [Using REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [Using .NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Using Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
+- [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
 
 The [Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) tutorial shows you how to create and monitor an Azure data factory using the [Azure portal][azure-portal]. 
 In this tutorial, you create and monitor an Azure data factory by using Azure PowerShell cmdlets. The pipeline in the data factory you create in this tutorial uses a Copy Activity to copy data from an Azure blob to an Azure SQL database.
@@ -32,7 +32,7 @@ In this tutorial, you create and monitor an Azure data factory by using Azure Po
 The Copy Activity performs the data movement in Azure Data Factory. The activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity.   
 
 > [AZURE.IMPORTANT] 
-> Go through the [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) article and complete the pre-requisite steps before performing this tutorial.
+> Go through the [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) article and complete the **prerequisite** steps before performing this tutorial.
 >   
 > This article does not cover all the Data Factory cmdlets. See [Data Factory Cmdlet Reference](https://msdn.microsoft.com/library/dn820234.aspx) for comprehensive documentation on Data Factory cmdlets.
   
@@ -137,7 +137,7 @@ In this step, you create two linked services: **StorageLinkedService** and **Azu
 				"properties": {
 					"type": "AzureSqlDatabase",
 					"typeProperties": {
-				      	"connectionString": "Server=tcp:<server>.database.windows.net,1433;Database=<databasename>;User ID=user@server;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+				      	"connectionString": "Server=tcp:<server>.database.windows.net,1433;Database=<databasename>;User ID=<user>@<server>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
 					}
 		  		}
 			}
@@ -248,7 +248,7 @@ A table is a rectangular dataset and has a schema. In this step, you create a ta
  
 	If you do not specify a **fileName** for an **output table**, the generated files in the **folderPath** are named in the following format: Data.<Guid\>.txt (example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
-	To set **folderPath** and **fileName** dynamically based on the **SliceStart** time, use the **partitionedBy** property. In the following example, folderPath uses Year, Month, and Day from the SliceStart (start time of the slice being processed) and fileName uses Hour from the SliceStart. For example, if a slice is being produced for 2014-10-20T08:00:00, the folderName is set to wikidatagateway/wikisampledataout/2014/10/20 and the fileName is set to 08.csv. 
+	To set **folderPath** and **fileName** dynamically based on the **SliceStart** time, use the **partitionedBy** property. In the following example, folderPath uses Year, Month, and Day from the SliceStart (start time of the slice being processed) and fileName uses Hour from the SliceStart. For example, if a slice is being produced for 2016-10-20T08:00:00, the folderName is set to wikidatagateway/wikisampledataout/2016/10/20 and the fileName is set to 08.csv. 
 
 			"folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
 	        "fileName": "{Hour}.csv",
@@ -362,7 +362,7 @@ In this step, you create a pipeline with a **Copy Activity** that uses **EmpTabl
 	- Input for the activity is set to **EmpTableFromBlob** and output for the activity is set to **EmpSQLTable**.
 	- In the **transformation** section, **BlobSource** is specified as the source type and **SqlSink** is specified as the sink type.
 
-	Replace the value of the **start** property with the current day and **end** value with the next day. Both start and end datetimes must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-10-14T16:32:41Z. The **end** time is optional, but we use it in this tutorial. 
+	Replace the value of the **start** property with the current day and **end** value with the next day. Both start and end datetimes must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2016-10-14T16:32:41Z. The **end** time is optional, but we use it in this tutorial. 
 	
 	If you do not specify value for the **end** property, it is calculated as "**start + 48 hours**". To run the pipeline indefinitely, specify **9/9/9999** as the value for the **end** property.
 	
@@ -384,39 +384,27 @@ In this step, you use the Azure PowerShell to monitor what’s going on in an Az
  
 2.	Run **Get-AzureRmDataFactorySlice** to get details about all slices of the **EmpSQLTable**, which is the output table of the pipeline.  
 
-		Get-AzureRmDataFactorySlice $df -DatasetName EmpSQLTable -StartDateTime 2015-03-03T00:00:00
+		Get-AzureRmDataFactorySlice $df -DatasetName EmpSQLTable -StartDateTime 2016-08-09T00:00:00
 
 	Replace year, month, and date part of the **StartDateTime** parameter with the current year, month, and date. This setting should match the **Start** value in the pipeline JSON. 
 
 	You should see 24 slices, one for each hour from 12 AM of the current day to 12 AM of the next day. 
 	
-	**First slice:**
+	**Sample output:**
 
 		ResourceGroupName : ADFTutorialResourceGroup
 		DataFactoryName   : ADFTutorialDataFactoryPSH
 		TableName         : EmpSQLTable
-		Start             : 3/3/2015 12:00:00 AM
-		End               : 3/3/2015 1:00:00 AM
+		Start             : 8/9/2016 12:00:00 AM
+		End               : 8/9/2016 1:00:00 AM
 		RetryCount        : 0
 		Status            : Waiting
 		LatencyStatus     :
 		LongRetryCount    : 0
 
-	**Last slice:**
+3.	Run **Get-AzureRmDataFactoryRun** to get the details of activity runs for a **specific** slice. Change the value of the **StartDateTime** parameter to match the **Start** time of the slice from the output. The value of the **StartDateTime** must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). 
 
-		ResourceGroupName : ADFTutorialResourceGroup
-		DataFactoryName   : ADFTutorialDataFactoryPSH
-		TableName         : EmpSQLTable
-		Start             : 3/4/2015 11:00:00 PM
-		End               : 3/4/2015 12:00:00 AM
-		RetryCount        : 0
-		Status            : Waiting
-		LatencyStatus     : 
-		LongRetryCount    : 0
-
-3.	Run **Get-AzureRmDataFactoryRun** to get the details of activity runs for a **specific** slice. Change the value of the **StartDateTime** parameter to match the **Start** time of the slice from the output. The value of the **StartDateTime** must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2014-03-03T22:00:00Z.
-
-		Get-AzureRmDataFactoryRun $df -DatasetName EmpSQLTable -StartDateTime 2015-03-03T22:00:00
+		Get-AzureRmDataFactoryRun $df -DatasetName EmpSQLTable -StartDateTime 2016-08-09T00:00:00
 
 	You should see output similar to the following:
 
@@ -424,13 +412,13 @@ In this step, you use the Azure PowerShell to monitor what’s going on in an Az
 		ResourceGroupName   : ADFTutorialResourceGroup
 		DataFactoryName     : ADFTutorialDataFactoryPSH
 		TableName           : EmpSQLTable
-		ProcessingStartTime : 3/3/2015 11:03:28 PM
-		ProcessingEndTime   : 3/3/2015 11:04:36 PM
+		ProcessingStartTime : 8/9/2016 11:03:28 PM
+		ProcessingEndTime   : 8/9/2016 11:04:36 PM
 		PercentComplete     : 100
-		DataSliceStart      : 3/8/2015 10:00:00 PM
-		DataSliceEnd        : 3/8/2015 11:00:00 PM
+		DataSliceStart      : 8/9/2016 10:00:00 PM
+		DataSliceEnd        : 8/9/2016 11:00:00 PM
 		Status              : Succeeded
-		Timestamp           : 3/8/2015 11:03:28 PM
+		Timestamp           : 8/9/2016 11:03:28 PM
 		RetryAttempt        : 0
 		Properties          : {}
 		ErrorMessage        :

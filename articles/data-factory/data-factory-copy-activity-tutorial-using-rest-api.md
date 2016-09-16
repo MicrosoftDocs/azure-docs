@@ -19,12 +19,12 @@
 # Tutorial: Create a pipeline with Copy Activity using REST API
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Using Data Factory Editor](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Using PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Using Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [Using REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [Using .NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Using Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
+- [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
 
 This tutorial shows you how to create and monitor an Azure data factory using the REST API. The pipeline in the data factory uses a Copy Activity to copy data from Azure Blob Storage to Azure SQL Database.
 
@@ -36,7 +36,7 @@ The Copy Activity performs the data movement in Azure Data Factory. The activity
 
 ## Prerequisites
 
-- Go through [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+- Go through [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) and complete the **prerequisite** steps.
 - Install [Curl](https://curl.haxx.se/dlwiz/) on your machine. You use the Curl tool with REST commands to create a data factory. 
 - Follow instructions from [this article](../resource-group-create-service-principal-portal.md) to: 
 	1. Create a Web application named **ADFCopyTutorialApp** in Azure Active Directory.

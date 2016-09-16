@@ -19,12 +19,12 @@
 # Tutorial: Create a pipeline with Copy Activity using Visual Studio
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Using Data Factory Editor](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Using PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Using Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [Using REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [Using .NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Using Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
+- [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
 
 In This tutorial you do the following using Visual Studio 2013:
 
@@ -35,9 +35,7 @@ In This tutorial you do the following using Visual Studio 2013:
 
 ## Prerequisites
 
-1. Read through [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) article.
-	
-	> [AZURE.IMPORTANT] Complete the prerequistes before proceeding further. 
+1. Read through [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) article and complete the **prerequiste** steps. 
 2. You must be an **administrator of the Azure subscription** to be able to publish Data Factory entities to Azure Data Factory.  
 3. You must have the following installed on your computer: 
 	- Visual Studio 2013 or Visual Studio 2015
