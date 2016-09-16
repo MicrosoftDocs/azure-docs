@@ -167,41 +167,7 @@ This script can be run on any machine that has administrator access to all the m
 ```
 .\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json   -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab
 ```
-```
-## Telemetry that is collected
 
-As a default, the product collects telemetry on the service fabric usage to improve the product. The best practice analyzer that runs as a part of the setup, checks for connectivity to [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1). if it is not reachable, then the setup is failed, unless you opt out of telemetry. 
-
-1) The telemetry pipeline tries to upload the following data to [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1) once every day. It is a best effort upload, and had no impact on the cluster functionality. The telemetry is only sent from the node that runs the failover manager primary. No other nodes send out telemetry. 
-
-2)	The Telemetry consists of the following. 
-
-1. 	       Number of services,
-1. 	       Number of ServiceTypes
-1. 	       Number of Applications
-1. 	       Number of ApplicationUpgrades
-1. 	       Number of FailoverUnits
-1. 	       Number of InBuildFailoverUnits
-1. 	       Number of UnhealthyFailoverUnits
-1. 	       Number of Replicas
-1. 	       Number of InBuildReplicas
-1. 	       Number of StandByReplicas
-1. 	       Number of OfflineReplicas
-1. 	       CommonQueueLength
-1. 	       QueryQueueLength
-1. 	       FailoverUnitQueueLength
-1. 	       CommitQueueLength
-1. 	       Number of Nodes
-1. 	       IsContextComplete:True/False
-1. 	       ClusterId":    <=== this is a GUID randomly generated for each cluster
-1. 	       ServiceFabricVersion
-1. 			IP adress of the VM/Machine from which the telemetry is uploaded
-
-
-In order to disable telemetry add under the following to “properties” element in your cluster config:
-        "enableTelemetry": false
-
-```
 ## Preview features included in this package
 
 The entire package is currently in preview. 
