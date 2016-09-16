@@ -20,7 +20,7 @@
 
 *This documentation is part of the [Azure Active Directory Reporting Guide] (active-directory-reporting-guide.md).*
 
-The Azure Active Directory Audit Report helps customers identify privileged actions that occurred in their Azure Active Directory. Privileged actions include elevation changes (for example, role creation or password resets), changing policy configurations (for example password policies), or changes to directory configuration (for example, changes to domain federation settings). The reports provide the audit record for the event name, the actor who performed the action, the target resource affected by the change, and the date and time (in UTC). Customers are able to retrieve the list of audit events for their Azure Active Directory via the [Azure Portal](https://portal.azure.com/), as described in [View your Audit Logs](https://azure.microsoft.com/en-us/documentation/articles/active-directory-reporting-azure-portal).
+The Azure Active Directory Audit Report helps customers identify privileged actions that occurred in their Azure Active Directory. Privileged actions include elevation changes (for example, role creation or password resets), changing policy configurations (for example password policies), or changes to directory configuration (for example, changes to domain federation settings). The reports provide the audit record for the event name, the actor who performed the action, the target resource affected by the change, and the date and time (in UTC). Customers are able to retrieve the list of audit events for their Azure Active Directory via the [Azure Portal](https://portal.azure.com/), as described in [View your Audit Logs](https://azure.microsoft.com/documentation/articles/active-directory-reporting-azure-portal).
 
 
 ## List of Audit Report Events
@@ -192,7 +192,7 @@ InviteTicket                        |List of invitation tickets for the user.
 InviteReplyUrl                      |List of urls to reply upon invitation acceptance.
 InviteResources                     |List of resources to which the user has been invited.
 LastDirSyncTime                     |Last time the object was updated because of synchronizing from the authoritative (customer, on-premise) directory.
-MSExchRemoteRecipientType           |Maps to MSO recipient types. Refer to [MSO recipient types] https://msdn.microsoft.com/en-us/library/microsoft.office.interop.outlook.recipient.type.aspx for recipient types
+MSExchRemoteRecipientType           |Maps to MSO recipient types. Refer to [MSO recipient types] https://msdn.microsoft.com/library/microsoft.office.interop.outlook.recipient.type.aspx for recipient types
 PreferredDataLocation               |The preferred location for the user's, group's, contact's, public folder's, or device's data.
 ProxyAddresses                      |The address by which an Exchange Server recipient object is recognized in a foreign mail system.
 StsRefreshTokensValidFrom           |Carries refresh token revocation information - any STS refresh tokens issued before this time are considered expired.
