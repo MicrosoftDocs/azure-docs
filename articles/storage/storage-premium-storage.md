@@ -187,7 +187,7 @@ Here are some important things you must know regarding Premium Storage scalabili
 </tbody>
 </table>
 
-- **Cache hits**: Cache-hits are not limited by the allocated IOPS/Throughput of the disk. For example, when you use a data disk with ReadOnly cache setting on a DS-series VM, DSv2-series or GS-series VM, Reads that are served from the cache are not subject to Premium Storage disk limits. Hence you could get very high throughput from a disk if the workload is predominantly Reads. Note that, cache is subject to separate IOPS / Throughput limits at VM level based on the VM size. DS-series VMs have roughly 4000 IOPS and 33 MB/sec per core for cache and local SSD IOs. GS-series VMs have a limit of 5000 IOPS and 50 MB/sec per core for cache and local SSD IOs.
+- **Cache hits**: Cache-hits are not limited by the allocated IOPS/Throughput of the disk. For example, when you use a data disk with ReadOnly cache setting on a Premium Storage supported VM, Reads that are served from the cache are not subject to Premium Storage disk limits. Hence you could get very high throughput from a disk if the workload is predominantly Reads. Note that, cache is subject to separate IOPS / Throughput limits at VM level based on the VM size. DS-series VMs have roughly 4000 IOPS and 33 MB/sec per core for cache and local SSD IOs. GS-series VMs have a limit of 5000 IOPS and 50 MB/sec per core for cache and local SSD IOs.
 
 ## Throttling
 You may see throttling if your application IOPS or throughput exceed the allocated limits for a Premium Storage disk or if your total disk traffic across all disks on the VM exceeds the disk bandwidth limit available for the VM. To avoid throttling, we recommend that you limit the number of pending I/O requests for disk based on the scalability and performance targets for the disk you have provisioned and based on the disk bandwidth available to the VM.  
@@ -410,11 +410,11 @@ This section shows how to create a Premium Storage account using the Azure porta
 
 #### II. Create an Azure virtual machine via Azure portal
 
-You must create a DS, DSv2 or GS series VM to be able to use Premium Storage. Follow the steps in [Create a Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md) to create a new DS, DSv2 or GS virtual machine.
+You must create a Premium Storage supported VM to be able to use Premium Storage. Follow the steps in [Create a Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md) to create a new DS, DSv2, GS, or Fs virtual machine.
 
 #### III. Attach a premium storage data disk via Azure portal
 
-1. Find the new or existing DS, DSv2 or GS VM in Azure portal.
+1. Find the new or existing DS, DSv2, GS, or Fs VM in Azure portal.
 2. In the VM **All Settings**, go to **Disks** and click on **Attach New**.
 3. Enter the name of your data disk and select the **Type** as **Premium**. Select the desired **Size** and **Host caching** setting.
 
@@ -424,7 +424,7 @@ See more detailed steps in [How to attach a data disk in Azure portal](../virtua
 
 #### IV. Change disk caching policy via Azure portal
 
-1. Find the new or existing DS, DSv2 or GS VM in Azure portal.
+1. Find the new or existing DS, DSv2, GS, or Fs VM in Azure portal.
 2. In the VM All Settings, go to Disks and click on the disk you wish to change.
 3. Change the Host caching option to the desired value, None or ReadOnly or ReadWrite
 
@@ -457,7 +457,7 @@ Next, create a new DS-Series VM and specify that you want Premium Storage by run
 
 #### III. Attach a premium storage data disk via Azure PowerShell
 
-If you want more disk space for your VM, attach a new data disk to an existing DS-series VM, DSv2-series VM or GS-series VM after it is created by running the following PowerShell cmdlets in the console window:
+If you want more disk space for your VM, attach a new data disk to an existing Premium Storage supported VM after it is created by running the following PowerShell cmdlets in the console window:
 
     	$storageAccount = "yourpremiumaccount"
     	$vmName ="yourVM"
