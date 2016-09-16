@@ -347,7 +347,7 @@ Consider the following JSON.
 	    "firstName": "William",
 	    "lastName": "Wakefield",
 	    "countOfBooks": 1,
-		"books": ["b1", "b4", "b5"],
+		"books": ["b1"],
 		"images": [
 			{"thumbnail": "http://....png"}
 		]
