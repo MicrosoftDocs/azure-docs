@@ -96,7 +96,6 @@ AAD is a service that does not require any VMs. For recommendations about buildi
 
 ### Networking recommendations
 
-**Does AAD work with Azure Resource Manager VNets? - https://blogs.technet.microsoft.com/markrenoden/2016/06/10/using-azure-active-directory-domain-services-with-arm-vnets/**
 
 ### Topology recommendations
 
