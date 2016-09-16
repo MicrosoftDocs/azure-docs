@@ -31,7 +31,7 @@
 		/Contoso.TodoList/Strings/
 		/Contoso.TodoList/DeploymentTemplates/
 
-3. [Create an Azure Resource Manager template](../resource-group-authoring-templates.md) or choose a template from GitHub. The Marketplace item uses this template to create a new resource.
+3. [Create an Azure Resource Manager template](../resource-group-authoring-templates.md) or choose a template from GitHub. The Marketplace item uses this template to create a resource.
 
 4. Test the template with the Microsoft Azure Stack APIs to make sure that the resource can be deployed successfully.
 
@@ -39,7 +39,7 @@
 
 6. Save your Azure Resource Manager template in the **/Contoso.TodoList/DeploymentTemplates/** folder.
 
-7. Choose the icons and text for your Marketplace item. Add icons to the **Icons** folder and text to the **resources** file in the **Strings** folder. Use the Small, Medium, Large, and Wide naming convention for icons. See [Marketplace item UI reference](## Reference: Marketplace item UI) for a detailed description.
+7. Choose the icons and text for your Marketplace item. Add icons to the **Icons** folder, and add text to the **resources** file in the **Strings** folder. Use the Small, Medium, Large, and Wide naming convention for icons. See [Marketplace item UI reference](## Reference: Marketplace item UI) for a detailed description.
 
 	>[AZURE.NOTE] All four icon sizes (small, medium, large, wide) are required for building the Marketplace item correctly.
 
@@ -73,7 +73,7 @@
 
 1. Use PowerShell or Azure Storage Explorer to upload your Marketplace item (.azpkg) to Azure Blob storage. You can upload to local Azure Stack storage or upload to Azure Storage. (It's a temporary location for the package.) Make sure that the blob is publicly accessible.
 
-2.  On the client virtual machine in the Microsoft Azure Stack environment, ensure that your PowerShell session is set up with your service administrator credentials. You can find instructions for how to authenticate PowerShell in Azure Stack in  [Deploy a template with PowerShell](azure-stack-deploy-template-powershell.md).
+2.  On the client virtual machine in the Microsoft Azure Stack environment, ensure that your PowerShell session is set up with your service administrator credentials. You can find instructions for how to authenticate PowerShell in Azure Stack in [Deploy a template with PowerShell](azure-stack-deploy-template-powershell.md).
 
 3.  Use the **Add-AzureRMGalleryItem** PowerShell cmdlet to publish the Marketplace item to Azure Stack. For example:
 
@@ -81,7 +81,7 @@
 
 	| Parameter | Description |
 	|-----------|-------------|
-	| SubscriptionID | Admin subscription ID. You can retrieve it by using PowerShell or, in the Azure Stack portal, by navigating to the provider subscription and copying the subscription ID. |
+	| SubscriptionID | Admin subscription ID. You can retrieve it by using PowerShell or, in the Azure Stack portal, by going to the provider subscription and copying the subscription ID. |
 	| GalleryItemUri | Blob URI for your gallery package that has already been uploaded to storage. |
 	| Apiversion | Set as **2015-04-01**. |
 
