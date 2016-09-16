@@ -33,9 +33,9 @@ The following screenshots show step-by-step how to deploy SAP IDES on Microsoft 
 
 ![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic1.jpg)
 
-The first picture shows all SAP CAL HANA-based solutions that are available on Microsoft Azure.
-Exemplarily the "SAP S/4 HANA on-premises edition" (solution at the bottom on the screenshot) 
-was chosen to go through the process.
+The first picture shows all solutions that are available on Microsoft Azure. The highlighted
+Windows-based SAP IDES solution that is only available on Azure was chosen to go through the 
+process.
 
 ![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic2.jpg)
 
@@ -92,22 +92,24 @@ it's shown as "active" and ready for use. It is very simple.
 
 ![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic12.jpg)
 
-Looking at some details of the solution one can see which kind of VMs were deployed. In this case three Azure
-VMs of different sizes and purpose were created.
+Looking at some details of the solution one can see which kind of VMs were deployed. In this case there is
+one single Azure VM of size D12 that was created by SAP CAL.
 
 ![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic13.jpg)
 
-On the Azure portal, the virtual machines can be found starting with the same instance name that was given
+On the Azure portal, the virtual machine can be found starting with the same instance name that was given
 in SAP CAL.
 
 ![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic14.jpg)
 
 Now it's possible to connect to the solution via the connect button in the SAP CAL portal. The little dialog
 contains a link to a user guide that describes all the default credentials to work with the solution.
+[Here](https://caldocs.hana.ondemand.com/caldocs/help/Getting_Started_Guide_IDES607MSSQL.pdf) is the link to
+the guide for the IDES solution.
 
 ![](./media/virtual-machines-windows-sap-cal-ides-erp6-ehp7-sp3-sql/ides-pic15.jpg)
 
-Another option is to login to the client Windows VM and start for example the pre-configured SAP GUI.
+Another option is to login to the Windows VM and start for example the pre-configured SAP GUI.
 
 
 
