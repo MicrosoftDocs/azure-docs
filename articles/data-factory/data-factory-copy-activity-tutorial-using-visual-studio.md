@@ -249,7 +249,7 @@ In this tutorial, you created an Azure data factory to copy data from an Azure b
 2.	Created **linked services**:
 	1. An **Azure Storage** linked service to link your Azure Storage account that holds input data. 	
 	2. An **Azure SQL** linked service to link your Azure SQL database that holds the output data. 
-3.	Created **datasets** which describe input data and output data for pipelines.
+3.	Created **datasets**, which describe input data and output data for pipelines.
 4.	Created a **pipeline** with a **Copy Activity** with **BlobSource** as source and **SqlSink** as sink. 
 
 

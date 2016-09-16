@@ -163,7 +163,7 @@ A table is a rectangular dataset and it is the only type of dataset that is supp
 ### Prepare Azure Blob Storage and Azure SQL Database for the tutorial
 Skip this step if you have gone through the tutorial from [Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) article. 
 
-You need to perform the following steps to prepare the Azure blob storage and Azure SQL database for this tutorial. 
+Perform the following steps to prepare the Azure blob storage and Azure SQL database for this tutorial. 
  
 * Create a blob container named **adftutorial** in the Azure blob storage that **StorageLinkedService** points to. 
 * Create and upload a text file, **emp.txt**, as a blob to the **adftutorial** container. 
@@ -239,7 +239,7 @@ A table is a rectangular dataset and has a schema. In this step, you create a ta
 	- **fileName** is set to **emp.txt**. If you do not specify the name of the blob, data from all blobs in the container is considered as an input data.  
 	- format **type** is set to **TextFormat**
 	- There are two fields in the text file – **FirstName** and **LastName** – separated by a comma character (**columnDelimiter**)	
-	- The **availability** is set to **hourly** (**frequency** is set to **hour** and **interval** is set to **1**). Therefore, Data Factory looks for input data every hour in the root folder in the blob container (**adftutorial**) you specified.
+	- The **availability** is set to **hourly** (**frequency** is set to **hour** and **interval** is set to **1**). Therefore, Data Factory looks for input data hourly in the root folder in the blob container (**adftutorial**).
 
 	if you don't specify a **fileName** for an **input** **table**, all files/blobs from the input folder (**folderPath**) are considered as inputs. If you specify a fileName in the JSON, only the specified file/blob is considered asn input. 
  
@@ -266,7 +266,7 @@ A table is a rectangular dataset and has a schema. In this step, you create a ta
 ### Create output dataset
 In this step, you create an output dataset named **EmpSQLTable**. This dataset points to a SQL table (**emp**) in the Azure SQL database represented by **AzureSqlLinkedService**. The pipeline copies data from the input blob to the **emp** table. 
 
-1.	Create a JSON file named **EmpSQLTable.json** in the **C:\ADFGetStartedPSH** folder with the following content.
+1.	Create a JSON file named **EmpSQLTable.json** in the **C:\ADFGetStartedPSH** folder with the following content:
 		
 			{
 			  "name": "EmpSQLTable",

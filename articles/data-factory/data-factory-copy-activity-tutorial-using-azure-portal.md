@@ -218,7 +218,7 @@ In this part of the step, you create an output dataset named **EmpSQLTable**. Th
      Note the following points: 
 	
 	* dataset **type** is set to **AzureSQLTable**.
-	* **linkedServiceName** is set to **AzureSqlLinkedService** (you had created this linked service in Step 2).
+	* **linkedServiceName** is set to **AzureSqlLinkedService** (you created this linked service in Step 2).
 	* **tablename** is set to **emp**.
 	* There are three columns – **ID**, **FirstName**, and **LastName** – in the emp table in the database. ID is an identity column, so you need to specify only **FirstName** and **LastName** here.
 	* The **availability** is set to **hourly** (**frequency** set to **hour** and **interval** set to **1**).  The Data Factory service generates an output data slice every hour in the **emp** table in the Azure SQL database.
@@ -332,7 +332,7 @@ In this step, you use the Azure portal to monitor what’s going on in an Azure 
 	![Datasets with EmpTableFromBlob selected][image-data-factory-get-started-datasets-emptable-selected]   
 5. Notice that the data slices up to the current time have already been produced and they are **Ready** because the **emp.txt** file exists all the time in the blob container: **adftutorial\input**. Confirm that no slices show up in the **Recently failed slices** section at the bottom.
 
-	Both **Recently updated slices** and **Recently failed slices** lists are sorted by the **LAST UPDATE TIME**. The update time of a slice is changed in the following situations. 
+	Both **Recently updated slices** and **Recently failed slices** lists are sorted by the **LAST UPDATE TIME**. The update time of a slice is changed in the following situations: 
     
 	Click the title of the lists or **... (ellipses)** to see the larger list of slices. Click **Filter** on the toolbar to filter the slices.  
 	
