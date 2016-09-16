@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Accessing Key Vault behind firewall | Microsoft Azure"
+	pageTitle="Access Key Vault behind firewall | Microsoft Azure"
 	description="Learn how to access Key Vault from an application behind a firewall"
 	services="key-vault"
 	documentationCenter=""
@@ -61,4 +61,9 @@ For all key vault object (keys and secrets) management and cryptographic operati
 | Key Vault operations like cryptographic operations on keys, Created/read/update/delete keys and secrets, set/get tags and other attributes on key vault objects (keys/secrets)     | **Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure China:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure US Government:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 |
 
 ## IP Address Ranges
+
 Key Vault service in turn uses other Azure resources like PaaS infrastructure, hence it's not possible to provide a specific range of IP addresses that key vault service endpoints will have at any given time. However if your firewall only supports IP address ranges then please refer to the [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) document.   For authentication and identity (Azure Active Directory), your application must be able to connect to the endpoints described in [Authentication and identity Addresses](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
+
+## Next Steps
+
+- If you have questions about Key Vault, visit the [Azure Key Vault Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)
