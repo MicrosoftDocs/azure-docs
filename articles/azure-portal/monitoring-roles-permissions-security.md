@@ -153,5 +153,5 @@ A similar pattern can be followed with event hubs, but first you need to create 
 
 
 ## Next steps
-- [Read about RBAC and permissions in ARM](../active-directory/role-based-access-control-what-is.md)
+- [Read about RBAC and permissions in Resource Manager](../active-directory/role-based-access-control-what-is.md)
 - [Read the overview of monitoring in Azure](monitoring-overview.md)
