@@ -19,15 +19,15 @@
 # Create or select a virtual network for Azure AD Domain Services
 
 ## Guidelines to select an Azure virtual network
-Refer to [Networking considerations for Azure AD Domain Services](active-directory-ds-networking.md). 
+Refer to [Networking considerations for Azure AD Domain Services](active-directory-ds-networking.md).
 
 
 ## Task 2: Create an Azure virtual network
 The next configuration task is to create an Azure virtual network in which you would like to enable Azure AD Domain Services. If you already have an existing virtual network you’d prefer to use, you can skip this step.
 
-> [AZURE.NOTE] Ensure that the Azure virtual network you create or choose to use with Azure AD Domain Services belongs to an Azure region that is supported by Azure AD Domain Services. See the [Azure services by region](https://azure.microsoft.com/regions/#services/) page to know the Azure regions in which Azure AD Domain Services are available.
+> [AZURE.NOTE] Ensure that the Azure virtual network you create or choose to use with Azure AD Domain Services belongs to an Azure region that is supported by Azure AD Domain Services. See the [Azure services by region](https://azure.microsoft.com/regions/#services/) page to know the Azure regions in which Azure AD Domain Services is available.
 
-You will need to note down the name of the virtual network so you select the right virtual network when enabling Azure AD Domain Services in a subsequent configuration step.
+Note down the name of the virtual network so you select the right virtual network when enabling Azure AD Domain Services in a subsequent configuration step.
 
 Perform the following configuration steps in order to create an Azure virtual network in which you’d like to enable Azure AD Domain Services.
 
@@ -41,15 +41,15 @@ Perform the following configuration steps in order to create an Azure virtual ne
 
 4. In the **Network Services** node, select **Virtual Network**.
 
-5. Click on **Quick Create** in order to create a virtual network.
+5. Click **Quick Create** to create a virtual network.
 
     ![Virtual network - quick create](./media/active-directory-domain-services-getting-started/virtual-network-quickcreate.png)
 
 6. Specify a **Name** for your virtual network. You may also choose to configure the **Address space** or **Maximum VM count** for this network. You can leave the DNS server setting set to 'None' for now. This setting will be updated after your enable Azure AD Domain Services.
 
-7. Ensure that you select a supported Azure region in the **Location** dropdown. See the [Azure services by region](https://azure.microsoft.com/regions/#services/) page to know the Azure regions in which Azure AD Domain Services are available. This is an important step. If you select a virtual network in an Azure region that is not supported by Azure AD Domain Services, you will not be able to enable the service in that virtual network.
+7. Ensure that you select a supported Azure region in the **Location** dropdown. See the [Azure services by region](https://azure.microsoft.com/regions/#services/) page to know the Azure regions in which Azure AD Domain Services is available. This step is important! If you select a virtual network in an unsupported Azure region, you will not be able to enable the service in that virtual network.
 
-8. Click the **Create a Virtual Network** button to create your virtual network.
+8. To create your virtual network, click the **Create a Virtual Network** button.
 
     ![Create a virtual network for Azure AD Domain Services.](./media/active-directory-domain-services-getting-started/create-vnet.png)
 

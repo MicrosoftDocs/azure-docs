@@ -25,30 +25,30 @@ The following guidelines help you select a virtual network to use with Azure AD 
 
 - You can enable Azure AD Domain Services in a classic Azure virtual network.
 
-- Azure AD Domain Services are **not supported in Azure Resource Manager (ARM-based) virtual networks**.
+- Azure AD Domain Services **cannot be enabled in Azure Resource Manager (ARM-based) virtual networks**.
 
-- You can connect an ARM-based virtual network to a classic virtual network in which Azure AD Domain Services is enabled. This enables you to use Azure AD Domain Services in the ARM-based virtual network.
+- You can connect an ARM-based virtual network to a classic virtual network in which Azure AD Domain Services is enabled. Thereafter, you can use Azure AD Domain Services in the ARM-based virtual network.
 
 - If you plan to use an existing virtual network, ensure that it is a **regional virtual network**.
     - Virtual networks that use the legacy affinity groups mechanism cannot be used with Azure AD Domain Services.
 
-	- You will need to [migrate legacy virtual networks to regional virtual networks](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
+	- You need to [migrate legacy virtual networks to regional virtual networks](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
 
 
 ### Azure region for the virtual network
 
-- Azure AD Domain Services are deployed in the same Azure region as the virtual network you choose to enable the service in.
+- Your Azure AD Domain Services managed domain is deployed in the same Azure region as the virtual network you choose to enable the service in.
 
 - Select a virtual network in an Azure region supported by Azure AD Domain Services.
 
-- See the [Azure services by region](https://azure.microsoft.com/regions/#services/) page to know the Azure regions in which Azure AD Domain Services are available.
+- See the [Azure services by region](https://azure.microsoft.com/regions/#services/) page to know the Azure regions in which Azure AD Domain Services is available.
 
 
 ### Requirements for the virtual network
 
 - **Custom/bring-your-own DNS servers**: Ensure that there are no custom DNS servers configured for the virtual network.
 
-- **Existing domains with the same domain name**: Ensure that you do not have an existing domain with the same domain name available on that virtual network. For instance, assume you have a domain called 'contoso.com' already available on the selected virtual network. Subsequently, you try to enable an Azure AD Domain Services managed domain with the same domain name (i.e. 'contoso.com') on that virtual network. You will encounter a failure when trying to enable Azure AD Domain Services. This is due to name conflicts for the domain name on that virtual network. In this situation, you must use a different name to set up your Azure AD Domain Services managed domain. Alternately, you can de-provision the existing domain and then proceed to enable Azure AD Domain Services.
+- **Existing domains with the same domain name**: Ensure that you do not have an existing domain with the same domain name available on that virtual network. For instance, assume you have a domain called 'contoso.com' already available on the selected virtual network. Later, you try to enable an Azure AD Domain Services managed domain with the same domain name (that is 'contoso.com') on that virtual network. You encounter a failure when trying to enable Azure AD Domain Services. This failure is due to name conflicts for the domain name on that virtual network. In this situation, you must use a different name to set up your Azure AD Domain Services managed domain. Alternately, you can de-provision the existing domain and then proceed to enable Azure AD Domain Services.
 
 - **Proximity to your Azure workloads**: Select the virtual network that currently hosts/will host virtual machines that need access to Azure AD Domain Services.
 
@@ -56,5 +56,5 @@ The following guidelines help you select a virtual network to use with Azure AD 
 
 
 
-#Network connectivity
-- Azure AD Domain Services are not supported with virtual networks created using the Azure Resource Manager. You can [connect a classic virtual network to an ARM-based virtual network](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md), in order to use Azure AD Domain Services in a virtual network created using Azure Resource Manager.
+## Network connectivity
+- You can [connect a classic virtual network to an ARM-based virtual network](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md), to use Azure AD Domain Services in a virtual network created using Azure Resource Manager.
