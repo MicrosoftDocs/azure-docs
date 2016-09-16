@@ -37,7 +37,7 @@ The following image illustrates shows how this can be achieved in Azure Machine 
 ![image1](./media/machine-learning-algorithm-parameters-optimize/fig1.png)
 
 ## Define the parameter space
-You can define the parameter set at the model initialization step. The parameter pane of all machine learning algorithms has two trainer modes – *Single Parameter* and *Parameter Range*. You need to choose Parameter Range mode (Fig. 1). In Parameter Range mode, you can enter multiple values for each parameter. You can enter comma-separated values in the text box.
+You can define the parameter set at the model initialization step. The parameter pane of all machine learning algorithms has two trainer modes – *Single Parameter* and *Parameter Range*. You need to choose Parameter Range mode. In Parameter Range mode, you can enter multiple values for each parameter. You can enter comma-separated values in the text box.
 
 ![image2](./media/machine-learning-algorithm-parameters-optimize/fig2.png)
 
@@ -52,7 +52,7 @@ The [Partition and Sample][partition-and-sample] module can be used to randomly 
 
 
 ## Define the metric
-The [Tune Model Hyperparameters][tune-model-hyperparameters] module provides support for empirically choosing the best set of parameters for a given algorithm and dataset. The Properties pane of this module includes, in addition to other information regarding training the model, the metric for determining the best parameter set. It has two different drop-down lists for classification and regression algorithms, respectively. If the algorithm under consideration is a classification algorithm, the regression metric is ignored and vice versa. In this specific example, the metric is **Accuracy**.   
+The [Tune Model Hyperparameters][tune-model-hyperparameters] module provides support for empirically choosing the best set of parameters for a given algorithm and dataset. in addition to other information regarding training the model, the Properties pane of this module includes the metric for determining the best parameter set. It has two different drop-down list boxes for classification and regression algorithms, respectively. If the algorithm under consideration is a classification algorithm, the regression metric is ignored and vice versa. In this specific example, the metric is **Accuracy**.   
 
 ![image5](./media/machine-learning-algorithm-parameters-optimize/fig5.png)
 
@@ -66,7 +66,7 @@ The module also has an optional dataset input. Connect the dataset with fold inf
 
 ![image6](./media/machine-learning-algorithm-parameters-optimize/fig6a.png)
 
-The model is then evaluated on the validation dataset. The left output port of the module shows different metrics as a function of parameter values. The right output port gives the trained model corresponding to the best performing model as per the metric chosen (**Accuracy** in this case).  
+The model is then evaluated on the validation dataset. The left output port of the module shows different metrics as functions of parameter values. The right output port gives the trained model corresponding to the best performing model as per the metric chosen (**Accuracy** in this case).  
 
 ![image7](./media/machine-learning-algorithm-parameters-optimize/fig6b.png)
 
