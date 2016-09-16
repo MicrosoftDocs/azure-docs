@@ -56,13 +56,15 @@ only additional application gateways are able to be added to the subnet.
 
 ## Log in to Azure
 
+Open the **Microsoft Azure Command Prompt**, and log in. 
+
     azure login
 
-A code is provided. Navigate to https://aka.ms/devicelogin in a browser to continue the login process.
+Once you type the preceding example, a code is provided. Navigate to https://aka.ms/devicelogin in a browser to continue the login process.
 
 ![cmd showing device login][1]
 
-In the browser, enter the code you received. You are redirected to a sign-in pageTitle
+In the browser, enter the code you received. You are redirected to a sign-in page.
 
 ![browser to enter code][2]
 
