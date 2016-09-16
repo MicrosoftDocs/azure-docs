@@ -17,10 +17,22 @@
 	ms.date="09/08/2016"
 	ms.author="cynthn"/>
 
-# Create a VM by attaching a VHD
+# Create a VM from a specialized VHD
 
 Specialized
 
+
+
+## Create a VM from a specialized VHD 
+
+The quickest way to create a VM from a specialized VHD is to use a [quick start template](https://azure.microsoft.com
+/documentation/templates/201-vm-from-specialized-vhd/). 
+
+To use this quick start template, you need to provice the following information:
+- osDiskVhdUriUri - Uri of the VHD. This is in the format: `https://<storageAccountName>.blob.core.windows.net/<containerName>/<vhdName>.vhd`.
+- osType - the operating system type, either Windows or Linux 
+- vmSize - [Size of the VM](virtual-machines-windows-sizes.md) 
+- vmName - the name you want to use for the new VM 
 
 
 ## Create variables
