@@ -29,7 +29,7 @@ Every app that uses the v2.0 endpoint will need to be registered at [apps.dev.mi
 - A **Redirect URI** that can be used to direct responses back to your app
 - A few other scenario-specific values.  For more detail, learn how to [register an app](active-directory-v2-app-registration.md).
 
-Once registered, the app communicates with Azure AD my sending requests to the Azure Active Directory v2.0 endpoint.  We provide open source frameworks & libraries that take care of the details of these requests, or you can implement the authentication logic yourself by crafting requests to these endpoints:
+Once registered, the app communicates with Azure AD by sending requests to the Azure Active Directory v2.0 endpoint.  We provide open source frameworks & libraries that take care of the details of these requests, or you can implement the authentication logic yourself by crafting requests to these endpoints:
 
 ```
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize
