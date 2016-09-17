@@ -20,7 +20,7 @@
 	
 	
 	
-# Sysprep the Windows virtual machine
+# Generalize a Windows virtual machine using Sysprep
 
 
 This section shows you how to generalize your Windows virtual machine for use as an image. Sysprep removes all your personal account information, among other things. For details about Sysprep, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx).
