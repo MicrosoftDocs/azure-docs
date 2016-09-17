@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2016"
+	ms.date="09/16/2016"
 	ms.author="robinsh"/>
 
 # Azure Storage Service Encryption for Data at Rest
@@ -126,7 +126,7 @@ A: No, SSE is only supported on Resource Manager storage accounts.
 
 A: You can create a new Resource Manager storage account and copy your data using [AzCopy](storage-use-azcopy.md) from your existing classic storage account to your newly created Resource Manager storage account. 
 
-Another option is to migrate your classic storage account to a Resource Manage storage account. For more information, see [Platform Supported Migration of IaaS Resources from Classic to Resource Manager](https://azure.microsoft.com/en-us/blog/iaas-migration-classic-resource-manager/).
+Another option is to migrate your classic storage account to a Resource Manage storage account. For more information, see [Platform Supported Migration of IaaS Resources from Classic to Resource Manager](https://azure.microsoft.com/blog/iaas-migration-classic-resource-manager/).
 
 **Q: I have an existing Resource Manager storage account. Can I enable SSE on it?**
 
