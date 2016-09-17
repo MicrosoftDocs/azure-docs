@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/02/2016"
+	ms.date="09/16/2016"
 	ms.author="cynthn"/>
 
 # Upload a Windows VM image to Azure for Resource Manager deployments
@@ -49,30 +49,18 @@ In Azure, you can only use [generation 1 virtual machines](http://blogs.technet.
 - If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.org/wiki/VMDK), convert it to a VHD by using the [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497). Read the blog [How to Convert a VMware VMDK to Hyper-V VHD](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx) for more information.
 
 
-## Prepare the VHD for upload
+## Prepare the VM for uploading
 
-Depending on how you intend to use the VHD, there are two paths for VHD prep. If you intend to use it as an image to create new VMs from, follow the [Sysprep the Windows virtual machine](#Sysprep-the-Windows-virtual-machine) steps below. If you intend to use the VHD as the OS disk for a new VM, follow the [Prepare the Windows VHD](#Prepare-the-Windows-VHD) steps below.
+You can upload both generalized and specialized VHDs to Azure. Generalized VHDs  ***************************
 
-### Sysprep the Windows virtual machine
-This section shows you how to generalize your Windows virtual machine for use as an image. Sysprep removes all your personal account information, among other things. For details about Sysprep, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx).
+### Generalized the VHD before uploading
 
-1. Sign in to the Windows virtual machine.
+If you intend to use it as an image to create new VMs from, follow the instructions in [Prepare a Windows VHD to upload to Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md) and then [Generalize a Windows virtual machine using Sysprep](virtual-machines-windows-generalize-vhd.md). 
 
-2. Open the Command Prompt window as an administrator. Change the directory to **%windir%\system32\sysprep**, and then run `sysprep.exe`.
+If you intend to use the VHD as the OS disk for a new VM, follow the [Prepare the Windows VHD](#Prepare-the-Windows-VHD) steps below.
 
-3. In the **System Preparation Tool** dialog box, do the following:
 
-	1. In **System Cleanup Action**, select **Enter System Out-of-Box Experience (OOBE)**, and make sure that the **Generalize** check box is selected.
-
-	2. In **Shutdown Options**, select **Shutdown**.
-
-	3. Click **OK**.
-
-	![Start Sysprep](./media/virtual-machines-windows-upload-image/sysprepgeneral.png)
-
-</br>
-
-### Prepare the Windows VHD
+### Prepare the specialized Windows VHD
 If you intend to use the VHD as-is to create a new VM instead of using it as an image to base a VM on, ensure the following steps are completed.
 
 - Remove any guest tools agent installed on the VM (i.e. VMware tools).
@@ -164,152 +152,9 @@ If successful, you get a response that looks similar to this:
 This command may take a while to complete, depending on your network connection and the size of your VHD file.
 
 
-
-
-## Create a virtual network
-
-Create the vNet and subNet of the [virtual network](../virtual-network/virtual-networks-overview.md).
-
-1. Replace the value of variables with your own information. Provide the address prefix for the subnet in CIDR format. Create the variables and the subnet.
-
-    	$rgName = "<resourceGroup>"
-		$location = "<location>"
-        $subnetName = "<subNetName>"
-        $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix <0.0.0.0/0>
-        
-2. Replace the value of **$vnetName** with a name for the virtual network. Provide the address prefix for the virtual network in CIDR format. Create the variable and the virtual network with the subnet.
-
-        $vnetName = "<vnetName>"
-        $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location -AddressPrefix <0.0.0.0/0> -Subnet $singleSubnet
-        
-            
-## Create a public IP address and network interface
-
-To enable communication with the virtual machine in the virtual network, you need a [public IP address](../virtual-network/virtual-network-ip-addresses-overview-arm.md) and a network interface.
-
-1. Replace the value of **$ipName** with a name for the public IP address. Create the variable and the public IP address.
-
-        $ipName = "<ipName>"
-        $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location -AllocationMethod Dynamic
-        
-2. Replace the value of **$nicName** with a name for the network interface. Create the variable and the network interface.
-
-        $nicName = "<nicName>"
-        $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
-
-		
-
-## Create the VM
-
-If you are creating a new VM using an image, follow the [Create from image](#Create-from-image) steps below. If you are creating a new VM using the VHD you uploaded as the OS disk, follow the [Create VM and attach disk](#Create-VM-and-attach-disk) steps below.
-
-### Create from image
-
-The following PowerShell script shows how to set up the virtual machine configurations and use the uploaded VM image as the source for the new installation.
-
->[AZURE.NOTE] The VM needs to be in the same storage account as the uploaded VHD file.
-
-</br>
-
-	
-	
-	# Create variables
-	# Enter a new user name and password to use as the local administrator account for the remotely accessing the VM
-	$cred = Get-Credential
-	
-	# Name of the storage account where the VHD file is and where the OS disk will be created
-	$storageAccName = "<storageAccountName>"
-	
-	# Name of the virtual machine
-	$vmName = "<vmName>"
-	
-	# Size of the virtual machine. See the VM sizes documentation for more information: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/
-    # Use "Get-Help New-AzureRmVMConfig" to know the available options for -VMsize
-	$vmSize = "<vmSize>"
-	
-	# Computer name for the VM
-	$computerName = "<computerName>"
-	
-	# Name of the disk that holds the OS
-	$osDiskName = "<osDiskName>"
-
-	# Get the storage account where the uploaded image is stored
-	$storageAcc = Get-AzureRmStorageAccount -ResourceGroupName $rgName -AccountName $storageAccName
-
-	# Set the VM name and size
-	$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
-
-	# Set the Windows operating system configuration and add the NIC
-	$vm = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName $computerName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-
-	$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
-
-	# Create the OS disk URI
-	$osDiskUri = '{0}vhds/{1}-{2}.vhd' -f $storageAcc.PrimaryEndpoints.Blob.ToString(), $vmName.ToLower(), $osDiskName
-
-	# Configure the OS disk to be created from the image (-CreateOption fromImage), and give the URL of the uploaded image VHD for the -SourceImageUri parameter
-	# You set this variable when you uploaded the VHD
-	$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption fromImage -SourceImageUri $urlOfUploadedImageVhd -Windows
-
-	# Create the new VM
-	New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
-
-### Create VM and attach disk
-
-The following PowerShell script shows how to set up the virtual machine configurations and attach the uploaded VHD as the OS disk for the new VM.
-
-</br>
-
-	
-	
-	# Create variables
-	# Enter a new user name and password to use as the local administrator account for the remotely accessing the VM
-	$cred = Get-Credential
-	
-	# Name of the storage account where the VHD file is and where the OS disk will be created
-	$storageAccName = "<storageAccountName>"
-	
-	# Name of the virtual machine
-	$vmName = "<vmName>"
-	
-	# Size of the virtual machine. See the VM sizes documentation for more information: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/
-    # Use "Get-Help New-AzureRmVMConfig" to know the available options for -VMsize
-	$vmSize = "<vmSize>"
-	
-	# Computer name for the VM
-	$computerName = "<computerName>"
-	
-	# Name of the disk that holds the OS
-	$osDiskName = "<osDiskName>"
-
-	# Get the storage account where the uploaded image is stored
-	$storageAcc = Get-AzureRmStorageAccount -ResourceGroupName $rgName -AccountName $storageAccName
-
-	# Set the VM name and size
-	$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
-
-	# Set the Windows operating system configuration and add the NIC
-	$vm = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName $computerName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-
-	$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
-
-	# Set the OS disk URI, this is the full URI for the VHD that you uploaded to the storage account
-	$osDiskUri = "https://<storageaccountname>.blob.core.windows.net/<container>/<vhd-name>.vhd"
-
-	# Configure the OS disk to be created using the specified OS disk (-CreateOption attach), and give the URL of the uploaded image VHD for the -SourceImageUri parameter
-	$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption attach -Windows
-
-	# Create the new VM
-	New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
-
-## View the newly created VM
-
-When complete, you should see the newly created VM in the [Azure portal](https://portal.azure.com) under **Browse** > **Virtual machines**, or by using the following PowerShell commands:
-
-	$vmList = Get-AzureRmVM -ResourceGroupName $rgName
-	$vmList.Name
-
-
 ## Next steps
 
-To manage your new virtual machine by using Azure PowerShell, read [Manage virtual machines using Azure Resource Manager and PowerShell](virtual-machines-windows-ps-manage.md).
+- Create a VM from a generalized VHD
+- Create a VM from a specialized VHD
+
+

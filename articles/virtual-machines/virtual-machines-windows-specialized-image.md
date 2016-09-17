@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Create VM from a specialized VHD | Microsoft Azure"
-	description="Learn how to create a virtual machine from a specialized specialized VHD running Windows, in the Resource Manager deployment model."
+	description="Learn how to create a virtual machine by attaching specialized specialized VHD running Windows, in the Resource Manager deployment model."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/13/2016"
+	ms.date="09/16/2016"
 	ms.author="cynthn"/>
 
 # Create a VM from a specialized VHD
@@ -23,7 +23,7 @@ Specialized
 
 
 
-## Create a VM from a specialized VHD 
+## Create a VM from a specialized VHD using a quick start template
 
 The quickest way to create a VM from a specialized VHD is to use a [quick start template](https://azure.microsoft.com
 /documentation/templates/201-vm-from-specialized-vhd/). 
@@ -35,80 +35,65 @@ To use this quick start template, you need to provice the following information:
 - vmName - the name you want to use for the new VM 
 
 
-## Create variables
 
-$sourceRG = "<sourceResourceGroupName>"
-$destinationRG = "<destinationResourceGroupName>"
+# Create the VM and attach the VHD using PowerShell
 
-$vm = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Compute/virtualMachines" -ResourceName "<vmName>"
-$storageAccount = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Storage/storageAccounts" -ResourceName "<storageAccountName>"
-
-$diagStorageAccount = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Storage/storageAccounts" -ResourceName "<diagnosticStorageAccountName>"
+The following PowerShell script shows how to set up the virtual machine configurations and attach the uploaded VHD as the OS disk for the new VM.
 
 
-$vNet = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Network/virtualNetworks" -ResourceName "<vNetName>"
-$nic = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Network/networkInterfaces" -ResourceName "<nicName>"
-$ip = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Network/publicIPAddresses" -ResourceName "<ipName>"
-$nsg = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Network/networkSecurityGroups" -ResourceName "<nsgName>"
+```powershell
+	# Create variables
+	# Enter a new user name and password to use as the local administrator account for the remotely accessing the VM
+	$cred = Get-Credential
+	
+	# Name of the storage account where the VHD file is and where the OS disk will be created
+	$storageAccName = "<storageAccountName>"
+	
+	# Name of the virtual machine
+	$vmName = "<vmName>"
+	
+	# Size of the virtual machine. See the VM sizes documentation for more information: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/
+    # Use "Get-Help New-AzureRmVMConfig" to know the available options for -VMsize
+	$vmSize = "<vmSize>"
+	
+	# Computer name for the VM
+	$computerName = "<computerName>"
+	
+	# Name of the disk that holds the OS
+	$osDiskName = "<osDiskName>"
 
+	# Get the storage account where the uploaded image is stored
+	$storageAcc = Get-AzureRmStorageAccount -ResourceGroupName $rgName -AccountName $storageAccName
 
+	# Set the VM name and size
+	$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
 
-## Create a VM by using the copied VHD
+	# Set the Windows operating system configuration and add the NIC
+	$vm = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName $computerName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 
-By using the VHD copied in the preceding steps, you can now use Azure PowerShell to create a Resource Manager-based Windows VM in a new virtual network. The VHD should be present in the same storage account as the new virtual machine that will be created.
+	$vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
 
+	# Set the OS disk URI, this is the full URI for the VHD that you uploaded to the storage account
+	$osDiskUri = "https://<storageaccountname>.blob.core.windows.net/<container>/<vhd-name>.vhd"
 
-Set up a virtual network and NIC for your new VM, similar to following script. Use values for the variables (represented by the **$** sign) as appropriate to your application.
+	# Configure the OS disk to be created using the specified OS disk (-CreateOption attach), and give the URL of the uploaded image VHD for the -SourceImageUri parameter
+	$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption "Attach" -Windows
 
-	$pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName -Location $location -AllocationMethod Dynamic
-
-	$subnetconfig = New-AzureRmVirtualNetworkSubnetConfig -Name $subnet1Name -AddressPrefix $vnetSubnetAddressPrefix
-
-	$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location -AddressPrefix $vnetAddressPrefix -Subnet $subnetconfig
-
-	$nic = New-AzureRmNetworkInterface -Name $nicname -ResourceGroupName $rgName -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
-
-
-Now set up the VM configurations, create a new VM and attach the copied VHD as the OS VHD.
-</br>
-
-	#Set the VM name and size
-	$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A2"
-
-	#Add the NIC
-	$vm = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id
-
-	#Add the OS disk by using the URL of the copied OS VHD
-	$osDiskName = $vmName + "osDisk"
-	$vm = Set-AzureRmVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption attach -Windows
-
-	#Add data disks by using the URLs of the copied data VHDs at the appropriate Logical Unit Number (Lun)
-	$dataDiskName = $vmName + "dataDisk"
-	$vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -VhdUri $dataDiskUri -Lun 0 -CreateOption attach
-
-The data and operating system disk URLs look something like this: `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd`. You can find this on the portal by browsing to the target storage container, clicking the operating system or data VHD that was copied, and then copying the contents of the URL.
-
-	#Create the new VM
+	# Create the new VM
 	New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
+	
+```
 
-If this command was successful, you'll see output like this:
+## View the newly created VM
 
-	RequestId IsSuccessStatusCode StatusCode ReasonPhrase
-	--------- ------------------- ---------- ------------
-	                         True         OK OK
-
-
-You should see the newly created VM either in the [Azure portal](https://portal.azure.com), under **Browse** > **Virtual machines**, or by using the following PowerShell commands:
+When complete, you should see the newly created VM in the [Azure portal](https://portal.azure.com) under **Browse** > **Virtual machines**, or by using the following PowerShell commands:
 
 	$vmList = Get-AzureRmVM -ResourceGroupName $rgName
 	$vmList.Name
 
-To sign in to your new virtual machine, browse to the VM in the [portal](https://portal.azure.com), click **Connect**, and open the Remote Desktop RDP file. Use the account credentials of your original virtual machine to sign in to your new virtual machine.
+## Next step
 
-
-
-
-
+- Connect to the virtual machine.
 
 
 

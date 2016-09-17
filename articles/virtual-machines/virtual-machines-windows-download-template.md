@@ -29,7 +29,7 @@ When you create a VM in Azure using the portal or PowerShell, a Resource Manager
 3. Select the original virtual machine in the list.
 5. Select **Automation script**.
 6. Select **Download** and save the .zip file to your local computer.
-7. Open the .zip file and extract the files to a folder. The .zip file should contain:
+7. Open the .zip file and extract the files to a folder. The .zip file will contain:
 	
 	- deploy.ps1
 	- deploy.sh 
