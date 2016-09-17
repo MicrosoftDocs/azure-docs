@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Build your first data factory (Resource Manager template) | Microsoft Azure"
-	description="In this tutorial, you will create a sample Azure Data Factory pipeline using an Azure Resource Manager template."
+	description="In this tutorial, you create a sample Azure Data Factory pipeline using an Azure Resource Manager template."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -18,27 +18,20 @@
 
 # Tutorial: Build your first Azure data factory using Azure Resource Manager template
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-build-your-first-pipeline.md)
-- [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
-- [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
-- [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
-- [Using Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
-- [Using REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
+- [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
+- [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
+- [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
-In this article, you learn how to use an Azure Resource Manager template to create your first Azure data factory. 
+[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)] 
 
+## Additional prerequisites
+Apart from prerequisites listed in the preceding prerequisites section, install the following:
 
-## Prerequisites
-Apart from prerequisites listed in the Tutorial Overview topic, you need to install the following:
-
-- Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the prerequisite steps before proceeding further. 
 - **Install Azure PowerShell**. Follow instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) article to install latest version of Azure PowerShell on your computer.
-- This article does not provide a conceptual overview of the Azure Data Factory service. For a detailed overview of the service, read through [Introduction to Azure Data Factory](data-factory-introduction.md). 
 - See [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md) to learn about Azure Resource Manager templates. 
-
-> [AZURE.IMPORTANT]
-> Complete the prerequisite steps in [Tutorial Overview](data-factory-build-your-first-pipeline.md) to do the walkthrough in this article. 
 
 ## Create Resource Manager template
 
@@ -46,8 +39,8 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFGetStarted** folder 
 
 The template allows you to create the following Data Factory entities.
 
-1. A **data factory** named **TutorialDataFactoryARM**. A data factory can have one or more pipelines. A pipeline can have one or more activities in it. For example, a Copy Activity to copy data from a source to a destination data store and a HDInsight Hive activity to run Hive script to transform input data to product output data. 
-2. Two **linked services**: **StorageLinkedService** and **HDInsightOnDemandLinkedService**. These linked services link your Azure Storage account and an on-demand Azure HDInsight cluster to your data factory. The Azure Storage account holds the input and output data for the pipeline in this sample. The HDInsight linked service is used to run Hive script specified in the activity of the pipeline in this sample. You need to identify what data store/compute services are used in your scenario and link those services to the data factory by creating linked services. 
+1. A **data factory** named **TutorialDataFactoryARM**. A data factory can have one or more pipelines. A pipeline can have one or more activities in it. For example, a Copy Activity to copy data from a source to a destination data store and a HDInsight Hive activity to run Hive script to transform input data. 
+2. Two **linked services**: **StorageLinkedService** and **HDInsightOnDemandLinkedService**. These linked services link your Azure Storage account and an on-demand Azure HDInsight cluster to your data factory. The Azure Storage account holds the input and output data for the pipeline in this sample. The HDInsight linked service is used to run Hive script specified in the activity of the pipeline in this sample. Identify what data store/compute services are used in your scenario and link those services to the data factory by creating linked services. 
 3. Two (input/output) **datasets**: **AzureBlobInput** and **AzureBlobOutput**. These datasets represent the input and output data for Hive processing. These datasets refer to the **StorageLinkedService** you have created earlier in this tutorial. The linked service points to an Azure Storage account and datasets specify container, folder, file name in the storage that holds input and output data.   
 
 Click **Using Data Factory Editor** tab to switch to the article with details about JSON properties used in this template.
@@ -234,7 +227,7 @@ See [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md
 ## Create data factory
 
 1. Start **Azure PowerShell** and run the following command. 
-	- Run **Login-AzureRmAccount** and enter the user name and password that you use to sign in to the Azure Portal.  
+	- Run **Login-AzureRmAccount** and enter the user name and password that you use to sign in to the Azure portal.  
 	- Run the following command to select a subscription in which you want to create the data factory.
 			Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext
 1. Run the following command to deploy Data Factory entities using the Resource Manager template you created in Step 1. 
@@ -243,7 +236,7 @@ See [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md
 
 ## Monitor pipeline
  
-1.	After logging in to the [Azure Portal](https://portal.azure.com/), Click **Browse** and select **Data factories**.
+1.	After logging in to the [Azure portal](https://portal.azure.com/), Click **Browse** and select **Data factories**.
 		![Browse->Data factories](./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png)
 2.	In the **Data Factories** blade, click the data factory (**TutorialFactoryARM**) you created.	
 2.	In the **Data Factory** blade for your data factory, click **Diagram**.
@@ -254,7 +247,7 @@ See [On-demand HDInsight Linked Service](data-factory-compute-linked-services.md
 8. In the Diagram View, double-click the dataset **AzureBlobOutput**. You see that the slice that is currently being processed.
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
-9. When processing is done, you will see the slice in **Ready** state. Creation of an on-demand HDInsight cluster usually takes sometime (approximately 20 minutes). 
+9. When processing is done, you see the slice in **Ready** state. Creation of an on-demand HDInsight cluster usually takes sometime (approximately 20 minutes). 
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)	
 10. When the slice is in **Ready** state, check the **partitioneddata** folder in the **adfgetstarted** container in your blob storage for the output data.  
@@ -266,7 +259,7 @@ You can also use Monitor and Manage App to monitor your data pipelines. See [Mon
 > [AZURE.IMPORTANT] The input file gets deleted when the slice is processed successfully. Therefore, if you want to rerun the slice or do the tutorial again, upload the input file (input.log) to the inputdata folder of the adfgetstarted container.
 
 ## Resource Manager template for creating a gateway
-Here is a sample Resource Manager template for creating a logical gateway in the back. You need to install a gateway on your on-premises computer or Azure IaaS VM and register the gateway with Data Factory service using a key. See [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) for details.
+Here is a sample Resource Manager template for creating a logical gateway in the back. Install a gateway on your on-premises computer or Azure IaaS VM and register the gateway with Data Factory service using a key. See [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) for details.
 
 	{
 	    "contentVersion": "1.0.0.0",
