@@ -109,14 +109,14 @@ When a reminder is triggered, the Reliable Actors runtime will invoke the  `Rece
 
 The Actors runtime saves the actor's state when the `ReceiveReminderAsync` call finishes. If an error occurs in saving the state, that actor object will be deactivated and a new instance will be activated. 
 
-To unregister a reminder, an actor calls the `UnregisterReminder` method, as shown in the example below.
+To unregister a reminder, an actor calls the `UnregisterReminderAsync` method, as shown in the example below.
 
 ```csharp
 IActorReminder reminder = GetReminder("Pay cell phone bill");
-Task reminderUnregistration = UnregisterReminder(reminder);
+Task reminderUnregistration = UnregisterReminderAsync(reminder);
 ```
 
-As shown above, the `UnregisterReminder` method accepts an `IActorReminder` interface. The actor base class supports a `GetReminder` method that can be used to retrieve the `IActorReminder` interface by passing in the reminder name. This is convenient because the actor does not need to persist the `IActorReminder` interface that was returned from the `RegisterReminder` method call.
+As shown above, the `UnregisterReminderAsync` method accepts an `IActorReminder` interface. The actor base class supports a `GetReminder` method that can be used to retrieve the `IActorReminder` interface by passing in the reminder name. This is convenient because the actor does not need to persist the `IActorReminder` interface that was returned from the `RegisterReminder` method call.
 
 ## Next Steps
  - [Actor events](service-fabric-reliable-actors-events.md)
