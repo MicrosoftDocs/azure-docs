@@ -1,9 +1,9 @@
 <properties
  pageTitle="Device management overview | Microsoft Azure"
- description="Overview of Azure IoT Hub device management: device twins, device queries, device jobs"
+ description="Overview of Azure IoT Hub device management"
  services="iot-hub"
  documentationCenter=""
- authors="juanjperez"
+ authors="bzurcher"
  manager="timlt"
  editor=""/>
 
@@ -13,106 +13,65 @@
  ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="04/29/2016"
- ms.author="juanpere"/>
+ ms.date="09/16/2016"
+ ms.author="bzurcher"/>
 
 # Overview of Azure IoT Hub device management (preview)
 
-Azure IoT Hub device management enables standards-based IoT device management for you to remotely manage, configure, and update your devices.
+A crucial part of creating a successful IoT solution is providing a strategy for how operators will handle the ongoing management of their device fleet.  IoT operators require tools and applications which are  both simple and reliable to allow them to focus on the more strategic aspects of their jobs.  Azure IoT Hub is the platform which provides the building blocks necessary to create IoT applications which facilitate the most important device management patterns.
 
-There are three main concepts for device management in Azure IoT:
+Devices are considered managed by Azure IoT Hub when they run a simple application called a device management agent that connects the device securely to the cloud.  The agent code will allow an operator from the application side to remotely attest device status as well as perform management operations such as applying network configuration changes or deploying firmware updates.
 
-1.  **Device twin:** the representation of the physical device in IoT Hub.
+## IoT Device Managment Principles
 
-2.  **Device queries**: enable you to find device twins and generate an aggregate understanding of multiple device twins. For example, you could run a query to find all device twins with a firmware version of 1.0.
+IoT brings with it a unique set of management challenges and the right solution will account for the following IoT device management principles:
 
-3.  **Device jobs**: an action to perform on one or more physical devices, such as firmware update, reboot, and factory reset.
+![][img-dm_principles]
 
-## Device twin
+- **Scale & Automation** - IoT requires simplistic tools which can automate routine tasks to allow a relatively small operations staff to manage up to millions of device.  Day-to-day, operators expect to handle device operations remotely, in bulk fashion, and to only be alerted when issues arise that require their direct attention.
 
-The device twin is the representation of a physical device in Azure IoT. The **Microsoft.Azure.Devices.Device** object is used to represent the device twin.
+- **Openness & Compatibility** - The IoT device ecosystem is extraordinarily diverse.  Management tools must be tailored to accommodate a multitude of device classes, platforms, and protocols.  From the most constrained embedded single-process chips to powerful and fully functional computers, operators must be empowered to support them all.
 
-![][img-twin]
+- **Context Awareness** -  IoT environments are dynamic and ever-changing.  Reliability of service is paramount.  Device management operations must factor in SLA maintenance windows, network/power states, in-use conditions, or device geolocation to assure maintenance downtime doesn't affect critical business operations or create dangerous conditions.
 
-The device twin has the following components:
+- **Service Many Roles** - Support for the unique workflows and processes of IoT operations roles are crucial.  The operations staff must also work harmoniously with certain constraints of internal IT departments as well and surface relevant device operations information to supervisors and other management roles.
 
-1.  **Device Fields:** Device fields are predefined properties used for both IoT Hub messaging and device management. These help IoT Hub identify and connect with physical devices. Device fields are not synchronized to the device and are stored exclusively in the device twin. Device fields include the device id and authentication information.
+## IoT Device Lifecycle and Managment Patterns
 
-2.  **Device Properties:** Device properties are a predefined dictionary of properties that describes the physical device. The physical device is the master of each device property and is the authoritative store of each corresponding value. An eventually consistent representation of these properties is stored in the device twin in the cloud. The coherence and freshness are subject to synchronization settings, described in [Tutorial: how to use the device twin][lnk-tutorial-twin]. Some examples of device properties include firmware version, battery level, and manufacturer name.
+Although IoT projects differ greatly, when it comes to managing devices there is a set of patterns which are common for all.  In Azure IoT, these patterns are identified within the IoT Device Lifecycle which is comprised of 5 distinct stages:
 
-3.  **Service Properties:** Service properties are **&lt;key,value&gt;** pairs that the developer adds to the service properties dictionary. These properties extend the data model for the device twin, enabling you to better characterize your device. Service properties are not synchronized to the device and are stored exclusively in the device twin in the cloud. One example of a service property is **&lt;NextServiceDate, 11/12/2017&gt;**, which could be used to find devices by their next date of service.
+![][img-device_lifecycle]
 
-4.  **Tags:** Tags are a subset of service properties which are arbitrary strings rather than dictionary properties. They can be used to annotate device twins or organize devices into groups. Tags are not synchronized to the device and are stored exclusively in the device twin. For example, if your device twin represents a physical truck, you could add a tag for each type of cargo in the truck – **apples**, **oranges**, and **bananas**.
+1. **Plan**  
+   Enable operators to create a device property scheme which allows them to easily and accurately query for and target a group of devices for bulk management operations.  
+   *Related Building Blocks*: Getting started with device twins, How to use twin properties
 
-## Device Queries
+2. **Provision**  
+   Securely authenticate new devices to the Azure IoT hub server and allow operators to immediately discover device capabilities and current state.  
+   *Related Building Blocks*: Getting started with IoT Hub (anchor URL to identity section), How to use twin properties
 
-In the previous section, you learned about the different components of the device twin. Now, we will explain how to find device twins in the IoT Hub device registry based on device properties, service properties or tags. An example of when you would use a query is to find devices that need to be updated. You can query for all devices with a specified firmware version and feed the result into a specific action (known in IoT Hub as a device job, which is explained in the following section).
+3. **Configure**  
+   Facilitate bulk configuration changes and firmware updates to assign the purpose of each device while maintaining both health and security.  
+   *Related Building Blocks*:  How to use twin properties (anchor URL to desired), C2D Methods, Schedule/Broadcast Jobs
 
-You can query using tags and properties:
+4. **Monitor**  
+    Monitor overall device fleet health and the status of ongoing update campaigns to alert operators to issues which might require their attention.  
+    *Related Building Blocks*: How to use twin properties (anchor URL to query state config)
 
--   To query for device twins using tags, you pass an array of strings and the query returns the set of devices which are tagged with all of those strings.
+5. **Retire**  
+    Replace or decommission devices after a failure, upgrade cycle, or at the end of service lifetime.  
+    *Related Building Blocks*: ???
 
--   To query for device twins using service properties or device properties, you use a JSON query expression. The example below shows how you could query for all devices with the device property with the key **FirmwareVersion** and value **1.0**. You can see that the **type** of the property is **device**, indicating we are querying based on device properties, not service properties:
 
-  ```
-  {                           
-      "filter": {                  
-        "property": {                
-          "name": "FirmwareVersion",   
-          "type": "device"             
-        },                           
-        "value": "1.0",              
-        "comparisonOperator": "eq",  
-        "type": "comparison"         
-      },                           
-      "project": null,             
-      "aggregate": null,           
-      "sort": null                 
-  }
-  ```
 
-## Device Jobs
+## Next Steps
 
-The next concept in device management is device jobs, which enable coordination of multi-step orchestrations on multiple devices.
-
-There are six types of device jobs that are provided by Azure IoT Hub device management at present (we will add additional jobs as customers need them):
-
-- **Firmware update**: Updates the firmware (or OS image) on the physical device.
-- **Reboot**: Reboots the physical device.
-- **Factory reset**: Reverts the firmware (or OS image) of the physical device to a factory provided backup image stored on the device.
-- **Configuration update**: Configures the IoT Hub client agent running on the physical device.
-- **Read device property**: Gets the most recent value of a device property on the physical device.
-- **Write device property:** Changes a device property on the physical device.
-
-For details on how to use each of these jobs, please see the [API documentation for C\# and node.js][lnk-apidocs].
-
-A job can operate on multiple devices. When you start a job, an associated child job is created for each of those devices. A child job operates on a single device. Each child job has a pointer to its parent job. The parent job is only a container for the child jobs, it does not implement any logic to distinguish between types of devices (such as updating an Intel Edison versus updating a Raspberry Pi). The following diagram illustrates the relationship between a parent job, its children, and the associated physical devices.
-
-![][img-jobs]
-
-You can query job history to understand the state of jobs that you have started. For some example queries, see [our query library][lnk-query-samples].
-
-## Device Implementation
-
-Now that we have covered the service-side concepts, let's discuss how to create a managed physical device. The Azure IoT Hub DM client library enables you to manage your IoT devices with Azure IoT Hub. “Manage” includes actions such as rebooting, factory resetting, and updating firmware.  Today, we provide a platform-independent C library, but we will add support for other languages soon.  
-
-The DM client library has two main responsibilities in device management:
-
-- Synchronize properties on the physical device with its corresponding device twin in IoT Hub
-- Choreograph device jobs sent by IoT Hub to the device
-
-To learn more about these responsibilities and the implementation on the physical device in [Introducing the Azure IoT Hub device management client library for C][lnk-library-c].
-
-## Next steps
-
-To implement client applications on a wide variety of device hardware platforms and operating systems, you can use the IoT device SDKs. The IoT device SDKs include libraries that facilitate sending telemetry to an IoT hub and receiving cloud-to-device commands. When you use the SDKs, you can choose from a number of network protocols to communicate with IoT Hub. To learn more, see the [information about device SDKs][lnk-device-sdks].
-
+Using the building blocks that Azure IoT Hub provides, developers can create IoT applications which fulfill the unique IoT operator requirements within in each device lifecycle stage.
 To continue learning about the Azure IoT Hub device management features, see the [Get started with Azure IoT Hub device management][lnk-get-started] tutorial.
 
 <!-- Images and links -->
-[img-twin]: media/iot-hub-device-management-overview/image1.png
-[img-jobs]: media/iot-hub-device-management-overview/image2.png
-[img-client]: media/iot-hub-device-management-overview/image3.png
+[img-dm_principles]: media/iot-hub-device-management-overview/image4.png
+[img-device_lifecycle]: media/iot-hub-device-management-overview/image5.png
 
 [lnk-lwm2m]: http://technical.openmobilealliance.org/Technical/technical-information/release-program/current-releases/oma-lightweightm2m-v1-0
 [lnk-library-c]: iot-hub-device-management-library.md
