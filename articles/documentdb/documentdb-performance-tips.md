@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2016" 
+	ms.date="09/19/2016" 
 	ms.author="mimig"/>
 
 # Performance tips for DocumentDB
@@ -95,7 +95,17 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 4. **Tuning parallel queries for partitioned collections**
 
-        IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000, MaxDegreeOfParallelism = 10, MaxBufferedItemCount = 10000  });
+    DocumentDB SDK version 1.9.0 and above supports parallel queries which lets one to query a partitioned collection in parallel (See the [documentation](https://azure.microsoft.com/en-us/documentation/articles/documentdb-partition-data/#working-with-the-sdks) and [code samples](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs)). They are designed to improve query latency and throughput. Parallel queries provide two parameters that users can tune to custom-fit there requirements, (i) MaxDegreeOfParallelism: to control the maximum number of partitions than can be queried in parallel, and (ii) MaxBufferedItemCount: to control the amount of pre-fetched results.
+    
+    (i) ***Tuning MaxDegreeOfParallelism***
+    Parallel query works by querying multiple partitions in parallel. However, data from an individual partitioned is fetched serially w.r.t. to the query. So, setting the MaxDegreeOfParallelism to the number of partitions has the maximum chance of achieving the most performant query, provided all other system conditions remain the same. If you don't know the number of partitions, you can set the MaxDegreeOfParallelism to a high number, and the system will choose the Minimum(number of partitions, user provided input) as the MaxDegreeOfParallelism. 
+    
+    It is important to note that, parallel query will benefit the most, if the data is evenly distributed across all partitions with respect to the query. if the partitioned collection is partitioned such a way that all/majority of the data returned by a query is concentrated in a few partitions (1 partition in worst case), then the performance of the query would be bottleneacked by those partitions. 
+    
+    (ii) ***Tuning MaxBufferedItemCount***
+    Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. The prefething helps in overall latency improvent of a query. MaxBufferedItemCount is the parameter to limit the amount of pre-fetched results. Setting MaxBufferedItemCount to the expected number of results returned (or a higher number) will allow the query to receive maximum benefot from pre-fetching. 
+    
+    Note that prefetching works the same way irrespective of the MaxDegreeOfParallelism, and there is a single buffer for the data from all partitions.  
 
 5. **Turn server-side GC on**
     
