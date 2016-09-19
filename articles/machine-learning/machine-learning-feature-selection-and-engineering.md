@@ -40,12 +40,12 @@ Engineering and selection make up the *data enhancement* step of machine learnin
 * **Feature engineering**: This process attempts to create additional relevant features from the existing raw features in the data and to increase predictive power to the learning algorithm.
 * **Feature selection**: This process selects the key subset of original data features to reduce the dimensionality of the training problem.
 
-This topic only covers the feature engineering and feature selection aspects of the data enhancement process. For additional information on the data pre-processing step, see [Pre-processing data in Azure Machine Learning Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/).
+This topic only covers the feature engineering and feature selection aspects of the data enhancement process. For more information on the data pre-processing step, see [Pre-processing data in Azure Machine Learning Studio](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/).
 
 
 ## Creating features from your data--feature engineering
 
-The training data consists of a matrix composed of examples (records or observations stored in rows), each of which has a set of features (variables or fields stored in columns). The features specified in the experimental design are expected to characterize the patterns in the data. Although many of the raw data fields can be directly included in the selected feature set used to train a model, it is often the case that additional engineered features need to be constructed from the features in the raw data to generate an enhanced training dataset.
+The training data consists of a matrix composed of examples (records or observations stored in rows), each of which has a set of features (variables or fields stored in columns). The features specified in the experimental design are expected to characterize the patterns in the data. Although many of the raw data fields can be directly included in the selected feature set used to train a model, additional engineered features often need to be constructed from the features in the raw data to generate an enhanced training dataset.
 
 What kind of features should be created to enhance the dataset when training a model? Engineered features that enhance the training provide information that better differentiates the patterns in the data. You expect the new features to provide additional information that is not clearly captured or easily apparent in the original or existing feature set, but this process is something of an art. Sound and productive decisions often require some domain expertise.
 
@@ -84,7 +84,7 @@ To achieve this task, a technique called *feature hashing* is applied to efficie
 In Azure Machine Learning, there is a [Feature Hashing][feature-hashing] module that creates these word or phrase features. The following figure shows an example of using this module. The input dataset contains two columns: the book rating ranging from 1 to 5 and the actual review content. The goal of this [Feature Hashing][feature-hashing] module is to retrieve new features that show the occurrence frequency of the corresponding words or phrases within the particular book review. To use this module, you need to complete the following steps:
 
 1. Select the column that contains the input text (**Col2** in this example).
-2. Set the *Hashing bitsize* to 8, which means 2^8=256 features are created. The word or phrase in the text is then hashed to 256 indices. The parameter *Hashing bitsize* ranges from 1 to 31. The words or phrases are less likely to be hashed into the same index if the parameter is set to  a larger number.
+2. Set the *Hashing bitsize* to 8, which means 2^8=256 features are created. The word or phrase in the text is then hashed to 256 indices. The parameter *Hashing bitsize* ranges from 1 to 31. If the parameter is set to a larger number, the words or phrases are less likely to be hashed into the same index.
 3. Set the parameter *N-grams* to 2. This retrieves the occurrence frequency of unigrams (a feature for every single word) and bigrams (a feature for every pair of adjacent words) from the input text. The parameter *N-grams* ranges from 0 to 10, which indicates the maximum number of sequential words to be included in a feature.  
 
 !["Feature Hashing" module](./media/machine-learning-feature-selection-and-engineering/feature-Hashing1.png)
