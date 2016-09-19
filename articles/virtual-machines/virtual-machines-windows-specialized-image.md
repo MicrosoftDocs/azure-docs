@@ -36,7 +36,7 @@ To use this quick start template, you need to provice the following information:
 
 
 
-# Create the VM and attach the VHD using PowerShell
+## Create the VM and attach the VHD using PowerShell
 
 The following PowerShell script shows how to set up the virtual machine configurations and attach the uploaded VHD as the OS disk for the new VM.
 
