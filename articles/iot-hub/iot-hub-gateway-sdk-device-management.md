@@ -47,7 +47,7 @@ The gateway software runs as a service on the Edison board. Two simulated device
 
 ### Device management client
 
-The [device management client][lnk-device-management] runs as a service on the Edison board. This enables you to run remote jobs on the Edison board such as [firmware updates][lnk-dm-jobs], reboots, and configuration updates as well as querying device properties. In this tutorial, the device management client receives and processes a request to perform a firmware update on the Edison board.
+The [device management client][lnk-device-management] runs as a service on the Edison board. This enables you to run remote jobs on the Edison board such as firmware updates, reboots, and configuration updates as well as querying device properties. In this tutorial, the device management client receives and processes a request to perform a firmware update on the Edison board.
 
 ### IoT Hub
 
@@ -386,8 +386,8 @@ If you want to gain a more advanced understanding of the Gateway SDK and experim
 To further explore the capabilities of IoT Hub, see:
 
 - [Developer guide][lnk-devguide]
-- [Exploring device management using the sample UI][lnk-dmui]
-- [Using the Azure Portal to manage IoT Hub][lnk-portal]
+- [Exploring device management using the sample UI][lnk-dm-sample-ui]
+- [Using the Azure Portal to manage IoT Hub][lnk-create-hub]
 
 
 
@@ -403,7 +403,6 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-setup-win64]: https://software.intel.com/get-started-edison-windows
 [lnk-setup-win32]: https://software.intel.com/get-started-edison-windows-32
-[lnk-setup-osx]: https://software.intel.com/get-started-edison-osx
 [lnk-setup-linux]: https://software.intel.com/get-started-edison-linux
 [lnk-serial-connection]: https://software.intel.com/setting-up-serial-terminal-intel-edison-board
 [lnk-inteledison-bsp]: http://www.intel.com/content/dam/support/us/en/documents/edison/sb/edisonbsp_ug_331188007.pdf
@@ -415,10 +414,6 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-nodejs]: https://nodejs.org/
 [lnk-azure-portal]: https://portal.azure.com
 [lnk-dm-sample-ui]: iot-hub-device-management-ui-sample.md
-[lnk-gateway-physical]: iot-hub-gateway-sdk-physical-device.md
 [lnk-gateway-scenario]: iot-hub-linux-gateway-sdk-simulated-device.md
-[lnk-dm-jobs]: iot-hub-device-management-device-jobs.md
 
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-dmui]: iot-hub-device-management-ui-sample.md
-[lnk-portal]: iot-hub-manage-through-portal.md

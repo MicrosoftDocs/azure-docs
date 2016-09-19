@@ -91,12 +91,12 @@ The following table lists the versions of HDInsight currently available, the cor
 HDInsight Version|HDP Version|VM OS|High Availability|Release Date|Available on Azure portal|Support Expiration Date|Deprecation Date
 ---|---|---|---|---|---|---|---
 HDI 3.4|HDP 2.4|Ubuntu 14.0.4 LTS|Yes|03/29/2016|Yes||
-HDI 3.3|HDP 2.3|Ubuntu 14.0.4 LTS or Windows Server 2012R2|Yes|12/02/2015|Yes||
-HDI 3.2|HDP 2.2|Ubuntu 12.04 LTS or Windows Server 2012R2|Yes|2/18/2015|Yes||
-HDI 3.1|HDP 2.1|Windows Server 2012R2|Yes|6/24/2014|Yes||
-HDI 3.0|HDP 2.0|Windows Server 2012R2|Yes|02/11/2014|Yes|09/17/2014|06/30/2015
-HDI 2.1|HDP 1.3|Windows Server 2012R2|Yes|10/28/2013|Yes|05/12/2014|05/31/2015
-HDI 1.6|HDP 1.1||No|10/28/2013|Yes|04/26/2014|05/31/2015
+HDI 3.3|HDP 2.3|Ubuntu 14.0.4 LTS or Windows Server 2012R2|Yes|12/02/2015|Yes|06/27/2016|07/31/2017
+HDI 3.2|HDP 2.2|Ubuntu 12.04 LTS or Windows Server 2012R2|Yes|2/18/2015|Yes|3/1/2016|04/01/2017
+HDI 3.1|HDP 2.1|Windows Server 2012R2|Yes|6/24/2014|No|05/18/2015|06/30/2016
+HDI 3.0|HDP 2.0|Windows Server 2012R2|Yes|02/11/2014|No|09/17/2014|06/30/2015
+HDI 2.1|HDP 1.3|Windows Server 2012R2|Yes|10/28/2013|No|05/12/2014|05/31/2015
+HDI 1.6|HDP 1.1||No|10/28/2013|No|04/26/2014|05/31/2015
 
 **Deployment of non-default clusters**
 

@@ -3,7 +3,7 @@
 	description="This topic shows how to configure different asset delivery policies with Azure Media Services .NET SDK." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,Mingfeiy" 
+	authors="Mingfeiy" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="08/31/2016"
-	ms.author="juliako"/>
+	ms.author="juliako;mingfeiy"/>
 
 #Configure Asset Delivery Policies with .NET SDK
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
