@@ -219,6 +219,7 @@ A summary of the supported StorSimple workloads is tabulated below.
 | Database                  | SQL                     | Yes*      | Update 2 and later   |
 | Video surveillance        | Video surveillance      | Yes       | Update 2 and later   |
 | Backup                    | Primary   target backup | Yes*      | Update   3 and later |
+| Backup                    | Secondary target backup | Yes*      | Update   3 and later |
 
 Yes* - Solution guidelines and best practices should be applied.
 
