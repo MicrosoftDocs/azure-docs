@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2016"
+	ms.date="09/19/2016"
 	ms.author="maheshu"/>
 
 # Networking considerations for Azure AD Domain Services
 
-## Select an Azure virtual network
+## How to select an Azure virtual network
 The following guidelines help you select a virtual network to use with Azure AD Domain Services.
 
 ### Type of Azure virtual network
@@ -30,6 +30,7 @@ The following guidelines help you select a virtual network to use with Azure AD 
 - You can connect an ARM-based virtual network to a classic virtual network in which Azure AD Domain Services is enabled. Thereafter, you can use Azure AD Domain Services in the ARM-based virtual network.
 
 - If you plan to use an existing virtual network, ensure that it is a **regional virtual network**.
+
     - Virtual networks that use the legacy affinity groups mechanism cannot be used with Azure AD Domain Services.
 
 	- To use Azure AD Domain Services, [migrate legacy virtual networks to regional virtual networks](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
@@ -46,15 +47,14 @@ The following guidelines help you select a virtual network to use with Azure AD 
 
 ### Requirements for the virtual network
 
+- **Proximity to your Azure workloads**: Select the virtual network that currently hosts/will host virtual machines that need access to Azure AD Domain Services.
+
 - **Custom/bring-your-own DNS servers**: Ensure that there are no custom DNS servers configured for the virtual network.
 
 - **Existing domains with the same domain name**: Ensure that you do not have an existing domain with the same domain name available on that virtual network. For instance, assume you have a domain called 'contoso.com' already available on the selected virtual network. Later, you try to enable an Azure AD Domain Services managed domain with the same domain name (that is 'contoso.com') on that virtual network. You encounter a failure when trying to enable Azure AD Domain Services. This failure is due to name conflicts for the domain name on that virtual network. In this situation, you must use a different name to set up your Azure AD Domain Services managed domain. Alternately, you can de-provision the existing domain and then proceed to enable Azure AD Domain Services.
 
-- **Proximity to your Azure workloads**: Select the virtual network that currently hosts/will host virtual machines that need access to Azure AD Domain Services.
-
 - You will not be able to move Domain Services to a different virtual network after you have enabled the service.
 
-<br>
 
 ## Network connectivity
 An Azure AD Domain Services managed domain can be enabled only within a single classic virtual network in Azure. ARM-based virtual networks are not supported.
@@ -72,9 +72,20 @@ You can connect an Azure Resource Manager (ARM) based virtual network to the Azu
 ![ARM to classic virtual network connectivity](./media/active-directory-domain-services-design-guide/classic-arm-vnet-connectivity.png)
 
 
+### Network connection options
 
-You can [connect a classic virtual network to an ARM-based virtual network](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md), to use Azure AD Domain Services in a virtual network created using Azure Resource Manager.
+- **VNet-to-VNet connections using site-to-site VPN connections**: Connecting a virtual network to another virtual network (VNet-to-VNet) is similar to connecting a virtual network to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE.
 
+	![VNet connectivity using VPN Gateway](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)
+
+    [More information](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
+
+
+- **VNet-to-VNet connections using virtual network peering**: VNet peering is a mechanism that connects two virtual networks in the same region through the Azure backbone network. Once peered, the two virtual networks appear as one for all connectivity purposes. They are still managed as separate resources, but virtual machines in these virtual networks can communicate with each other directly by using private IP addresses.
+
+    ![VNet connectivity using peering](./media/active-directory-domain-services-design-guide/vnet-peering.png)
+
+	[More information](../virtual-network/virtual-network-peering-overview.md)
 
 <br>
 
