@@ -10,7 +10,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/16/2016"
+	ms.date="09/19/2016"
 	ms.author="sstein"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -22,7 +22,7 @@
 
 > [AZURE.SELECTOR]
 - [Overview](sql-database-copy.md)
-- [Azure Portal](sql-database-copy-portal.md)
+- [Azure portal](sql-database-copy-portal.md)
 - [PowerShell](sql-database-copy-powershell.md)
 - [T-SQL](sql-database-copy-transact-sql.md)
 
@@ -36,19 +36,20 @@ To copy a SQL database you need the following:
 
 ## Copy your SQL database
 
-Open the SQL database blade for the database you want to copy:
+Open the SQL database page for the database you want to copy:
 
 1.	Go to the [Azure Portal](https://portal.azure.com).
-2.	Go to the database you want to copy: Browse > SQL databases
-3.	In the SQL database blade click **Copy** to open the **Copy** blade:
+2.	Click **More services** > **SQL databases**, and then click the desired database.
+3.	On the SQL database page, click **Copy**:
 
-    ![copy database][1]
+    ![SQL Database](./media/sql-database-copy-portal/sql-database-copy.png)
 
-1.  Enter a name for the database copy. A default name is provided but you can change it if you want to.
-2.  Select a **Target server**. The target server is where the database copy will be created. You can create a new server or select an existing server from the list.
+1.  On the **Copy** page, a default database name is provided. Type a different name if you want (all databases on a server must have unique names).
+2.  Select a **Target server**. The target server is where the database copy will be created. You can copy the database to the same server, or a different server. You can create a new server or select an existing server from the list. 
+3.  After selecting the **Target server**, the **Elastic database pool**, and **Pricing tier** options will be enabled. If the server has a pool, you can copy the database into it.
 3.  Click **OK** to start the copy process.
 
-    ![database name and server][2]
+    ![SQL Database](./media/sql-database-copy-portal/copy-page.png)
 
 
 ## Monitor the progress of the copy operation
@@ -62,7 +63,7 @@ Open the SQL database blade for the database you want to copy:
 
 ## Verify the database is live on the server
 
-- Click **BROWSE** > **SQL databases** and verify the new database is **Online**.
+- Click **More services** > **SQL databases** and verify the new database is **Online**.
 
 
 ## Resolve logins
