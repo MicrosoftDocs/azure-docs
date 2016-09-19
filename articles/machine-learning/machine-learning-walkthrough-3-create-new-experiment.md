@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016" 
+	ms.date="09/16/2016" 
 	ms.author="garye"/>
 
 
@@ -41,7 +41,8 @@ The next step in this walkthrough is to create a new experiment in Machine Learn
 3.	In the module palette to the left of the experiment canvas, expand **Saved Datasets**.
 4.	Find the dataset you created under **My Datasets** and drag it onto the canvas. You can also find the dataset by entering the name in the **Search** box above the palette.  
 
-##Prepare the data
+## Prepare the data
+
 You can view the first 100 rows of the data and some statistical information for the whole dataset by clicking the output port of the dataset (the small circle at the bottom) and selecting **Visualize**.  
 
 Because the data file didn't come with column headings, Studio has provided generic headings (Col1, Col2, *etc.*). Good headings aren't essential to creating a model, but they will make it easier to work with the data in the experiment. Also, when we eventually publish this model in a web service, the headings will help identify the columns to the user of the service.  
@@ -78,7 +79,8 @@ The dialog should look like this:
 
 > [AZURE.TIP] If you want to verify the column headings, run the experiment (click **RUN** below the experiment canvas). When it finishes running (a green checkmark will appear on [Edit Metadata][edit-metadata]), click the output port of the [Edit Metadata][edit-metadata] module, and select **Visualize**. You can view the output of any module in the same way to view the progress of the data through the experiment.
 
-##Create training and test datasets
+## Create training and test datasets
+
 The next step of the experiment is to generate separate datasets that we'll use for both training and testing our model.
 
 To do this, we use the [Split Data][split] module.  

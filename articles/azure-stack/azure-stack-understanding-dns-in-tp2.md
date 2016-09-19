@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Understanding DNS in Azure Stack TP2 | Microsoft Azure"
 	description="Understanding new DNS features and capabilities in Azure Stack TP2."
 	services="azure-stack"
@@ -90,7 +90,7 @@ the POC Fabric DNS server, namely 192.168.200.2.
 If you created a VM via the portal, you had to select **Custom
 DNS** in the virtual network or ethernet adapter settings.
 
-![](media/image1.png)
+![Screenshot of specifying a custom DNS server](media/image1.png)
 
 In TP2, you can select Azure DNS and do not need to specify custom DNS
 server entries.
@@ -103,3 +103,5 @@ get the DNS name resolution to work. The following image shows what this looked 
 
 In TP2, you no longer need to make these changes to your VM templates to
 allow your VMs to resolve Internet names. They should just work.
+
+﻿
