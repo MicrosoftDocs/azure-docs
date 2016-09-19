@@ -191,6 +191,6 @@ If the prepared configuration looks good, you can move forward and commit the re
 
 ## Next steps
 
--For more information about migration, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md).
--To migrate additional network resources to Resource Manager using Azure PowerShell, use similar steps with Move-AzureNetworkSecurityGroup, Move-AzureReservedIP, and Move-AzureRouteTable.
+- For more information about migration, see [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](virtual-machines-windows-migration-classic-resource-manager.md).
+- To migrate additional network resources to Resource Manager using Azure PowerShell, use similar steps with **Move-AzureNetworkSecurityGroup**, **Move-AzureReservedIP**, and **Move-AzureRouteTable**.
 - For open-source scripts you can use to migrate Azure resources from classic to Resource Manager, see [Community tools for migration to Azure Resource Manager migration](virtual-machines-windows-migration-scripts.md)
