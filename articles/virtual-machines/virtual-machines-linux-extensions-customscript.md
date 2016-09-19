@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="09/13/2016"
+   ms.date="09/19/2016"
    ms.author="nepeters"/>
 
 # Using the Azure Custom Script Extension with Linux Virtual Machines
