@@ -211,25 +211,25 @@ A summary of the supported StorSimple workloads is tabulated below.
 
 | Scenario                  | Workload                | Supported | Version              |
 |---------------------------|-------------------------|-----------|----------------------|
-| Collaboration             | File Sharing            | Yes       | All versions         |
-| Distributed Collaboration | File Sharing            | Yes       | All versions         |
+| Collaboration             | File sharing            | Yes       | All versions         |
+| Distributed collaboration | File sharing            | Yes       | All versions         |
 | Collaboration             | SharePoint              | Yes*      | Update 2 and later   |
-| Archival                  | Simple File Archiving   | Yes       | All versions         |
-| Virtualization            | VMs                     | Yes*      | Update 2 and later   |
+| Archival                  | Simple file archiving   | Yes       | All versions         |
+| Virtualization            | Virtual machines                     | Yes*      | Update 2 and later   |
 | Database                  | SQL                     | Yes*      | Update 2 and later   |
-| Video Surveillance        | Video Surveillance      | Yes       | Update 2 and later   |
-| Backup                    | Primary   Target Backup | Yes*      | Update   3 and later |
+| Video surveillance        | Video surveillance      | Yes       | Update 2 and later   |
+| Backup                    | Primary   target backup | Yes*      | Update   3 and later |
 
 Yes* - Solution guidelines and best practices should be applied.
 
 The following workloads are not supported by StorSimple 8000 series devices. If deployed on StorSimple, these workloads will result in an unsupported configuration.
 
--  Medical Imaging
+-  Medical imaging
 -  Exchange
 -  VDI
 -  Oracle
 -  SAP
--  Big Data
+-  Big data
 -  Content distribution
 -  Boot from SCSI
 
@@ -238,10 +238,10 @@ Following is a list of the StorSimple supported infrastructure components.
 | Scenario | Workload      | Supported | Version      |
 |----------|---------------|-----------|--------------|
 | General  | Express Route | Yes       | All versions |
-| General  | Data Core FC  | Yes       | All versions |
+| General  | DataCore FC   | Yes       | All versions |
 | General  | DFSR          | Yes*      | All versions |
 | General  | Indexing      | Yes       | All versions |
-| General  | Anti-Virus    | Yes       | All versions |
+| General  | Anti-virus    | Yes       | All versions |
 
 Yes* - Solution guidelines and best practices should be applied.
 
