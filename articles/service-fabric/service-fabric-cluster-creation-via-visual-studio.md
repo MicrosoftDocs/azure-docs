@@ -110,11 +110,11 @@ After you hit the Deploy button, Visual Studio will prompt you to confirm the te
 
 >[AZURE.NOTE] Starting with Azure SDK 2.9, Visual Studio supports reading passwords from **Azure Key Vault** during deployment. In the template parameters dialog notice that the `adminPassword` parameter text box has a little "key" icon on the right. This icon allows you to select an existing key vault secret as the administrative password for the cluster. Just make sure to first enable Azure Resource Manager access for template deployment in the Advanced Access Policies of your key vault. 
 
+You can monitor the progress of the deployment process in the Visual Studio output window. Once the template deployment is completed, your new cluster is ready to use!
+
 >[AZURE.NOTE] If PowerShell was never used to administer Azure from the machine that you are using now, you need to do a little housekeeping.
 >1. Enable PowerShell scripting by running the [`Set-ExecutionPolicy`](https://technet.microsoft.com/library/hh849812.aspx) command. For development machines, "unrestricted" policy is usually acceptable.
 >2. Decide whether to allow diagnostic data collection from Azure PowerShell commands, and run [`Enable-AzureRmDataCollection`](https://msdn.microsoft.com/library/mt619303.aspx) or [`Disable-AzureRmDataCollection`](https://msdn.microsoft.com/library/mt619236.aspx) as necessary. This will avoid unnecessary prompts during template deployment.
-
-You can monitor the progress of the deployment process in the Visual Studio output window. Once the template deployment is completed, your new cluster is ready to use!
 
 If there are any errors, go to the [Azure portal](https://portal.azure.com/) and open the resource group that you deployed to. Click **All settings**, then click **Deployments** on the settings blade. A failed resource-group deployment leaves detailed diagnostic information there.
 
