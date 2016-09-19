@@ -116,7 +116,7 @@ This is an example of this type of alert:
 
 #### Suspicious process executed
 
-Security Center will identify suspicious process in execution in the target virtual machine and will trigger an alert. The detection doesn’t look for the specific name, but by its parameter, therefore even if the attacker renames the executable, Security Center will still be able to detect.
+Security Center identifies suspicious process in execution in the target virtual machine and trigger an alert. The detection doesn’t look for the specific name, but by its parameter, therefore even if the attacker renames the executable, Security Center still be able to detect.
  
 This is an example of this type of alert:
 
@@ -163,11 +163,11 @@ This is an example of this type of alert:
 
 ## Resource analysis
 
-Security Center resource analysis focuses in PaaS services, such as the integration with [Azure SQL Db Threat Detection](../sql-database-threat-detection-get-started.md) feature. Based on the analysis’s results from these areas, Security Center will trigger a resource related alert.
+Security Center resource analysis focuses in PaaS services, such as the integration with [Azure SQL Db Threat Detection](../sql-database/sql-database-threat-detection-get-started.md) feature. Based on the analysis’s results from these areas, Security Center triggers a resource related alert.
 
 ### Potential SQL injection
 
-SQL injection is an attack in which malicious code is inserted into strings that are later passed to an instance of SQL Server for parsing and execution. Any procedure that constructs SQL statements should be reviewed for injection vulnerabilities because SQL Server will execute all syntactically valid queries that it receives. SQL Threat Detection uses machine learning, behavioral analysis and anomaly detection to determine suspicious events that might be taking place in your Azure SQL Databases. For example:
+SQL injection is an attack in which malicious code is inserted into strings that are later passed to an instance of SQL Server for parsing and execution. Any procedure that constructs SQL statements should be reviewed for injection vulnerabilities because SQL Server executes all syntactically valid queries that it receives. SQL Threat Detection uses machine learning, behavioral analysis and anomaly detection to determine suspicious events that might be taking place in your Azure SQL Databases. For example:
 
 - Attempted database access by a former employee 
 - SQL injection attacks 
@@ -179,13 +179,13 @@ This alert gives information that enables you to identify the attacked resource,
 
 ### Vulnerability to SQL Injection
 
-This alert will trigger when an application error has been detected on a database which may indicate a possible vulnerability to SQL injection attacks.
+This alert is triggered when an application error has been detected on a database which may indicate a possible vulnerability to SQL injection attacks.
 
 ![Potential SQL Injection alert](./media/security-center-alerts-type/security-center-alerts-type-fig12.png)
 
 ### Unusual access from unfamiliar location
 
-This alert will trigger when an access from an unfamiliar IP address was detected on server, which was not seen in the last period.
+This alert is triggered when an access from an unfamiliar IP address was detected on server, which was not seen in the last period.
 
 ![Unusual access alert](./media/security-center-alerts-type/security-center-alerts-type-fig13.png)
 
