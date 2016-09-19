@@ -428,7 +428,7 @@ See more detailed steps in [How to attach a data disk in Azure portal](../virtua
 2. In the VM All Settings, go to Disks and click on the disk you wish to change.
 3. Change the Host caching option to the desired value, None or ReadOnly or ReadWrite
 
->[AZURE.WARNING] Changing the cache setting of an Azure disk can result in a detach and re-attach of the target disk. If it is the operating system disk, the VM is restarted. Stop all applications that might be affected by this disruption before changing the disk cache setting. 
+>[AZURE.WARNING] Changing the cache setting of an Azure disk detaches and re-attaches the target disk. If it is the operating system disk, the VM is restarted. Stop all applications/services that might be affected by this disruption before changing the disk cache setting.
 
 ### Create an Azure virtual machine using Premium Storage via Azure PowerShell
 
@@ -475,7 +475,7 @@ To update the disk caching policy, note the LUN number of the data disk attached
 
 		Get-AzureVM "myservice" -name "MyVM" | Set-AzureDataDisk -LUN 2 -HostCaching ReadOnly | Update-AzureVM
 
->[AZURE.WARNING] Changing the cache setting of an Azure disk can result in a detach and re-attach of the target disk. If it is the operating system disk, the VM is restarted. Stop all applications that might be affected by this disruption before changing the disk cache setting. 
+>[AZURE.WARNING] Changing the cache setting of an Azure disk detaches and re-attaches the target disk. If it is the operating system disk, the VM is restarted. Stop all applications/services that might be affected by this disruption before changing the disk cache setting.
 
 ### Create an Azure virtual machine using Premium Storage via the Azure Command-Line Interface
 
@@ -514,7 +514,7 @@ Note that the caching policy options can be ReadOnly, None, or ReadWrite. For mo
 
 		azure vm disk attach --help
 
->[AZURE.WARNING] Changing the cache setting of an Azure disk can result in a detach and re-attach of the target disk. If it is the operating system disk, the VM is restarted. Stop all applications that might be affected by this disruption before changing the disk cache setting. 
+>[AZURE.WARNING] Changing the cache setting of an Azure disk detaches and re-attaches the target disk. If it is the operating system disk, the VM is restarted. Stop all applications/services that might be affected by this disruption before changing the disk cache setting.
 
 ## FAQs
 
