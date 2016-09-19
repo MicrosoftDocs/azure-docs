@@ -1,3 +1,24 @@
+<properties
+	pageTitle="Create VM from a specialized VHD | Microsoft Azure"
+	description="Learn how to create a virtual machine by attaching specialized specialized VHD running Windows, in the Resource Manager deployment model."
+	services="virtual-machines-windows"
+	documentationCenter=""
+	authors="cynthn"
+	manager="timlt"
+	editor=""
+	tags="azure-resource-manager"/>
+
+<tags
+	ms.service="virtual-machines-windows"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/16/2016"
+	ms.author="cynthn"/>
+
+# Create a VM from a generalized image
+
 
 ## Create a virtual network
 
@@ -6,16 +27,20 @@ Create the vNet and subNet of the [virtual network](../virtual-network/virtual-n
 
 1. Replace the value of variables with your own information. Provide the address prefix for the subnet in CIDR format. Create the variables and the subnet.
 
-    	$rgName = "<resourceGroup>"
-		$location = "<location>"
-        $subnetName = "<subNetName>"
-        $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix <0.0.0.0/0>
-        
+```powershell
+	$rgName = "<resourceGroup>"
+	$location = "<location>"
+	$subnetName = "<subNetName>"
+	$singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix <0.0.0.0/0>
+```
+      
 2. Replace the value of **$vnetName** with a name for the virtual network. Provide the address prefix for the virtual network in CIDR format. Create the variable and the virtual network with the subnet.
 
-        $vnetName = "<vnetName>"
-        $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location -AddressPrefix <0.0.0.0/0> -Subnet $singleSubnet
-        
+```powershell
+	$vnetName = "<vnetName>"
+	$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName 
+	$rgName -Location $location -AddressPrefix <0.0.0.0/0> -Subnet $singleSubnet
+```    
             
 ## Create a public IP address and network interface
 
@@ -23,14 +48,17 @@ To enable communication with the virtual machine in the virtual network, you nee
 
 1. Replace the value of **$ipName** with a name for the public IP address. Create the variable and the public IP address.
 
-        $ipName = "<ipName>"
-        $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
-        
+```powershell
+	$ipName = "<ipName>"
+	$pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+```       
+
 2. Replace the value of **$nicName** with a name for the network interface. Create the variable and the network interface.
 
-        $nicName = "<nicName>"
-        $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
-
+```powershell
+$nicName = "<nicName>"
+$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
+```
 
 ## Create the VM
 
@@ -40,9 +68,8 @@ The following PowerShell script shows how to set up the virtual machine configur
 
 </br>
 
-	
-	
-	
+
+```powershell
 	#Create variables
 	# Enter a new user name and password to use as the local administrator account for the remotely accessing the VM
 	$cred = Get-Credential
@@ -90,14 +117,15 @@ The following PowerShell script shows how to set up the virtual machine configur
 
 	#Create the new VM
 	New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
-
+```
 
 
 When complete, you should see the newly created VM in the [Azure portal](https://portal.azure.com) under **Browse** > **Virtual machines**, or by using the following PowerShell commands:
 
+```powershell
 	$vmList = Get-AzureRmVM -ResourceGroupName $rgName
 	$vmList.Name
-
+```
 
 ## Next steps
 

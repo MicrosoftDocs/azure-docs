@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2016"
+	ms.date="09/19/2016"
 	ms.author="cynthn"/>
 
 # Upload a Windows VM image to Azure for Resource Manager deployments
@@ -51,37 +51,34 @@ In Azure, you can only use [generation 1 virtual machines](http://blogs.technet.
 
 ## Prepare the VM for uploading
 
-You can upload both generalized and specialized VHDs to Azure. Generalized VHDs  ***************************
+You can upload both generalized and specialized VHDs to Azure. 
 
-### Generalized the VHD before uploading
-
-If you intend to use it as an image to create new VMs from, follow the instructions in [Prepare a Windows VHD to upload to Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md) and then [Generalize a Windows virtual machine using Sysprep](virtual-machines-windows-generalize-vhd.md). 
-
-If you intend to use the VHD as the OS disk for a new VM, follow the [Prepare the Windows VHD](#Prepare-the-Windows-VHD) steps below.
-
-
-### Prepare the specialized Windows VHD
-If you intend to use the VHD as-is to create a new VM instead of using it as an image to base a VM on, ensure the following steps are completed.
-
-- Remove any guest tools agent installed on the VM (i.e. VMware tools).
-- Ensure the VM is configured to pull its IP address and DNS settings via DHCP. This ensures that the server obtains an IP address within the VNet when it starts up. 
+- **Generalized VHD** - if you intend to use it as an image to create new VMs from, follow the instructions in [Prepare a Windows VHD to upload to Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md) and then [Generalize a Windows virtual machine using Sysprep](virtual-machines-windows-generalize-vhd.md). 
+ - **Specialized VHD** - if you intend to use the VHD as-is to create a new VM instead of using it as an image to base a VM on, ensure the following steps are completed. 
+	- Remove any guest tools agent installed on the VM (i.e. VMware tools).
+	- Ensure the VM is configured to pull its IP address and DNS settings via DHCP. This ensures that the server obtains an IP address within the VNet when it starts up. 
 
 ## Log in to Azure
 
 1. Open Azure PowerShell and sign in to your Azure account.
 
-		Login-AzureRmAccount
+```powershell
+	Login-AzureRmAccount
+```
 
 	A pop-up window opens for you to enter your Azure account credentials.
 
 2. Get the subscription IDs for your available subscriptions.
 
+```powershell
 		Get-AzureRmSubscription
+```
 
 3. Set the correct subscription using the subscription ID.		
 
-		Select-AzureRmSubscription -SubscriptionId "<subscriptionID>"
-
+```powershell
+	Select-AzureRmSubscription -SubscriptionId "<subscriptionID>"
+```
 	
 ## Get the storage account
 
@@ -89,7 +86,9 @@ You need a storage account in Azure house the uploaded VM image. You can either 
 
 Show the available storage accounts.
 
+```powershell
 		Get-AzureRmStorageAccount
+```
 
 If you want to use an existing storage account, proceed to the [Upload the VM image](#upload-the-vm-image-to-your-storage-account) section.
 
@@ -97,15 +96,21 @@ If you want to create a storage account, follow these steps:
 
 1. Make sure that you have a resource group for this storage account. Find out all the resource groups that are in your subscription by using:
 
+```powershell
 		Get-AzureRmResourceGroup
+```
 
 2. To create a resource group, use this command:
 
+```powershell
 		New-AzureRmResourceGroup -Name <resourceGroupName> -Location <location>
+```
 
 3. Create a storage account in this resource group by using the [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) cmdlet:
 
-		New-AzureRmStorageAccount -ResourceGroupName <resourceGroupName> -Name <storageAccountName> -Location "<location>" -SkuName "<skuName>" -Kind "Storage"
+```powershell
+	New-AzureRmStorageAccount -ResourceGroupName <resourceGroupName> -Name <storageAccountName> -Location "<location>" -SkuName "<skuName>" -Kind "Storage"
+```
 			
 Valid values for -SkuName are:
 
@@ -121,9 +126,11 @@ Valid values for -SkuName are:
 
 Use the [Add-AzureRmVhd](https://msdn.microsoft.com/library/mt603554.aspx) cmdlet to upload the image to a container in your storage account:
 
+```powershell
 		$rgName = "<resourceGroupName>"
 		$urlOfUploadedImageVhd = "<storageAccount>/<blobContainer>/<targetVHDName>.vhd"
 		Add-AzureRmVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd -LocalFilePath <localPathOfVHDFile>
+```
 
 Where:
 
@@ -138,16 +145,16 @@ Where:
 
 If successful, you get a response that looks similar to this:
 
-		C:\> Add-AzureRmVhd -ResourceGroupName testUpldRG -Destination https://testupldstore2.blob.core.windows.net/testblobs/WinServer12.vhd -LocalFilePath "C:\temp\WinServer12.vhd"
-		MD5 hash is being calculated for the file C:\temp\WinServer12.vhd.
-		MD5 hash calculation is completed.
-		Elapsed time for the operation: 00:03:35
-		Creating new page blob of size 53687091712...
-		Elapsed time for upload: 01:12:49
+	C:\> Add-AzureRmVhd -ResourceGroupName testUpldRG -Destination https://testupldstore2.blob.core.windows.net/testblobs/WinServer12.vhd -LocalFilePath "C:\temp\WinServer12.vhd"
+	MD5 hash is being calculated for the file C:\temp\WinServer12.vhd.
+	MD5 hash calculation is completed.
+	Elapsed time for the operation: 00:03:35
+	Creating new page blob of size 53687091712...
+	Elapsed time for upload: 01:12:49
 
-		LocalFilePath           DestinationUri
-		-------------           --------------
-		C:\temp\WinServer12.vhd https://testupldstore2.blob.core.windows.net/testblobs/WinServer12.vhd
+	LocalFilePath           DestinationUri
+	-------------           --------------
+	C:\temp\WinServer12.vhd https://testupldstore2.blob.core.windows.net/testblobs/WinServer12.vhd
 
 This command may take a while to complete, depending on your network connection and the size of your VHD file.
 

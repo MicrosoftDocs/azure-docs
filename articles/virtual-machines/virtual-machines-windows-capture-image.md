@@ -58,45 +58,56 @@ This section shows you how to generalize your Windows virtual machine so that it
 
 
 ## Log in to Azure PowerShell
-
 1. Open Azure PowerShell and sign in to your Azure account.
 
-		Login-AzureRmAccount
+```powershell
+	Login-AzureRmAccount
+```
 
 	A pop-up window opens for you to enter your Azure account credentials.
 
 2. Get the subscription IDs for your available subscriptions.
 
+```powershell
 		Get-AzureRmSubscription
+```
 
 3. Set the correct subscription using the subscription ID.		
 
-		Select-AzureRmSubscription -SubscriptionId "<subscriptionID>"
-
+```powershell
+	Select-AzureRmSubscription -SubscriptionId "<subscriptionID>"
+```
 
 ## Deallocate the VM and set the state to generalized		
 
 1. Deallocate the VM resources.
 
-		Stop-AzureRmVM -ResourceGroupName <resourceGroup> -Name <vmName>
+```powershell
+	Stop-AzureRmVM -ResourceGroupName <resourceGroup> -Name <vmName>
+```
 
 	The *Status* for the VM in the Azure portal changes from **Stopped** to **Stopped (deallocated)**.
 
 2. Set the status of the virtual machine to **Generalized**. 
 
-		Set-AzureRmVm -ResourceGroupName <resourceGroup> -Name <vmName> -Generalized
+```powershell
+	Set-AzureRmVm -ResourceGroupName <resourceGroup> -Name <vmName> -Generalized
+```
 
 3. Check the status of the VM. The **OSState/generalized** section for the VM should have the **DisplayStatus** set to **VM generalized**.  
-		
+
+```powershell
 		$vm = Get-AzureRmVM -ResourceGroupName <resourceGroup> -Name <vmName> -status
 		$vm.Statuses
+```
 
-		
 ## Create the image 
 
 1. Copy the virtual machine image to the destination storage container using this command. The image is created in the same storage account as the original virtual machine. The `-Path` variable saves a copy of the JSON template locally. The `-DestinationContainerName` variable is the name of the container that you want to hold your images. If the container doesn't exist, it is created for you.
 
-		Save-AzureRmVMImage -ResourceGroupName <resourceGroupName> -Name <vmName> -DestinationContainerName <destinationContainerName> -VHDNamePrefix <prefixTemplateName> -Path <pathtothelocalfile\Filename.json>
+```powershell
+	Save-AzureRmVMImage -ResourceGroupName <resourceGroupName> -Name <vmName> -DestinationContainerName <destinationContainerName> -VHDNamePrefix <prefixTemplateName> -Path <pathtothelocalfile\Filename.json>
+```
 
 	You can get the URL of your image from the JSON file template. Go to the **resources** > **storageProfile** > **osDisk** > **image** > **uri** section for the complete path of your image. The URL of the image looks like: `https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
 	
@@ -104,7 +115,9 @@ This section shows you how to generalize your Windows virtual machine so that it
 
 2. Create a variable for the path to the image. 
 
+```powershell
 		$imageURI = "<https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd>"
+```
 
 
 
