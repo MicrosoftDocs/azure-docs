@@ -24,13 +24,13 @@ Get the answers to common questions, patterns, and best practices for Azure API 
 
 -	[How can I ask the Microsoft Azure API Management team a question?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
 -	[What does it mean when a feature is in preview?](#what-does-it-mean-when-a-feature-is-in-preview)
--	[What supported options do I have to secure the connection between the API Management gateway and my back-end services?](#what-supported-options-do I-have-to-secure-the-connection-between-the-API-Management-gateway-and-my-back-end-services?)
+-	[What supported options do I have to secure the connection between the API Management gateway and my back-end services?](#what-supported-options-do-I-have-to-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services?)
 -	[How do I copy my API Management service instance to a new instance?](#how-do-i-copy-my-api-management-service-instance-to-a-new-instance)
 -	[Can I manage my API Management instance programmatically?](#can-i-manage-my-api-management-instance-programmatically)
 -	[How do I add a user to the Administrators group?](#how-do-i-add-a-user-to-the-administrators-group)
 -	[Why is the policy that I want to add unavailable in the policy editor?](#why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor)
 -	[How do I use API versioning in API Management?](#how-do-i-use-api-versioning-in-api-management)
--	[How do I set up multiple environments, for example, a test environment and a production environment, in a single API?](#how-do-I-set-up-multiple-environments-for example-a-test-environment-and-a-production-environment-in-a-single-API)
+-	[How do I set up multiple environments, for example, a test environment and a production environment, in a single API?](#how-do-I-set-up-multiple-environments-for-example-a-test-environment-and-a-production-environment-in-a-single-API)
 -	[Can I use SOAP with API Management?](#can-i-use-soap-with-api-management)
 -	[Is the API Management gateway IP address constant? Can I use it in firewall rules?](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
 -	[Can I configure an OAuth 2.0 authorization server with ADFS security?](#can-i-configure-an-oauth-20-authorization-server-with-adfs-security)
@@ -38,7 +38,7 @@ Get the answers to common questions, patterns, and best practices for Azure API 
 -	[Can I use an Azure Resource Manager template to create an API Management service instance?](#Can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance)
 -	[Can I use a self-signed SSL certificate for a back end?](#can-i-use-a-self-signed-ssl-certificate-for-a-back-end)
 -	[Why do I get an authentication failure when I try to clone a GIT repository?](#why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository)
--	[Does API Management work with Express Route?](#does-api-management-work-with-express-route)
+-	[Does API Management work with Azure ExpressRoute?](#does-api-management-work-with-azure-expressroute)
 -	[Can I move an API Management service from one subscription to another?](#can-i-move-an-api-management-service-from-one-subscription-to-another)
 
 
