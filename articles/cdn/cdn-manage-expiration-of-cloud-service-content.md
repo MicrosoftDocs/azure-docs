@@ -23,7 +23,7 @@
 
 A file's time-to-live in Azure CDN is determined by the `Cache-Control` HTTP header provided with the file by the origin server.  If the origin doesn't provide a `Cache-Control` header, the default TTL of 7 days is used.  This article describes how to set `Cache-Control` headers for Azure Web Apps, Azure Cloud Services, ASP.NET applications, and IIS sites.   
 
-# Setting Cache-Control Headers in configuration
+## Setting Cache-Control Headers in configuration
 
 For static content, such as images and style sheets, you can control the update frequency by modifying the **applicationHost.config** or **web.config** files for your web application.  The **system.webServer\staticContent\clientCache** element in the configuration file will set the `Cache-Control` header for your content. For **web.config**, the configuration settings will affect everything in the folder and all subfolders, unless overridden at the subfolder level.  For example, you can set a default time-to-live at the root to have all static content cached for 3 days, but have a subfolder that has more variable content with a cache setting of 6 hours.  For **applicationHost.config**, all applications on the site will be affected, but can be overridden in **web.config** files in the applications.
 
