@@ -65,12 +65,12 @@ ACS employs two Service Fabric clusters in an Azure Stack deployment.
 The Storage Resource Provider service is deployed on a Service Fabric
 cluster (“RP cluster”) that is also shared by other foundational
 resource provider services. The rest of ACS virtualized data path
-services--including the blob, table, and queue services--are hosted on
+services--including the Blob, Table, and Queue services--are hosted on
 a second Service Fabric cluster (“ACS cluster”).
 
-## ACS blob service and software-defined storage
+## Blob service and software-defined storage
 
-The ACS blob service back end, on the other hand, runs directly on the
+The Blob service back end, on the other hand, runs directly on the
 [Scale-Out File Server](https://technet.microsoft.com/en-us/library/hh831349.aspx)
 cluster nodes. In the Azure Stack solution architecture, Scale-Out File Server is
 based on the [Storage Spaces Direct](https://technet.microsoft.com/en-us/library/mt126109.aspx)-based,
@@ -90,10 +90,10 @@ ACS storage services in an Azure Stack deployment. Specifically, Storage Farm in
 
 - Storage fabric resources (for example, SMB shares)
 
-- Storage-related Service Fabric services (for example, blob endpoint service
+- Storage-related Service Fabric services (for example, Blob endpoint service
     off the ACS cluster)
 
-- Storage-related services that run on Scale-Out File Server nodes (for example, the blob service)
+- Storage-related services that run on Scale-Out File Server nodes (for example, the Blob service)
 
 ## IaaS and PaaS storage usage scenarios
 
