@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Move data to and from a file system | Azure Data Factory"
+	pageTitle="Move data to and from a file system | Microsoft Azure"
 	description="Learn how to move data to and from an on-premises file system by using Azure Data Factory."
 	services="data-factory"
 	documentationCenter=""
@@ -73,7 +73,7 @@ As a first step, set up Data Management Gateway as per the instructions in [Move
 
 We recommend using the **encryptedCredential** property instead the **userid** and **password** properties. See [File Server linked service](#onpremisesfileserver-linked-service-properties) for details about this linked service.
 
-**Azure Blob storage linked service:**
+**Azure Storage linked service:**
 
 	{
 	  "name": "StorageLinkedService",
@@ -85,7 +85,7 @@ We recommend using the **encryptedCredential** property instead the **userid** a
 	  }
 	}
 
-**On-premises File System input dataset:**
+**On-premises file system input dataset:**
 
 Data is picked up from a new file every hour. The folderPath and fileName properties are determined based on the start time of the slice.  
 
@@ -325,7 +325,7 @@ Setting ``“external”: ”true”`` informs Data Factory that the dataset is 
 	  }
 	}
 
-**On-premises File System output dataset:**
+**On-premises file system output dataset:**
 
 Data is copied to a new file every hour. The folderPath and fileName for the blob are determined based on the start time of the slice.
 
@@ -503,7 +503,7 @@ The typeProperties section is different for each type of dataset. It provides in
 Property | Description | Required
 -------- | ----------- | --------
 folderPath | Specifies the subpath to the folder. Use the escape character ‘ \ ’ for special characters in the string. See [Sample linked service and dataset definitions](#sample-linked-service-and-dataset-definitions) for examples.<br/><br/>You can combine this property with **partitionBy** to have folder paths that are based on slice start/end date-times. | Yes
-fileName | Specify the name of the file in the **folderPath** if you want the table to refer to a specific file in the folder. If you do not specify any value for this property, the table points to all files in the folder.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file is in the following format: <br/><br/>Data.<Guid>.txt (Example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt | No
+fileName | Specify the name of the file in the **folderPath** if you want the table to refer to a specific file in the folder. If you do not specify any value for this property, the table points to all files in the folder.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file is in the following format: <br/><br/>Data.<Guid>.txt (Example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) | No
 partitionedBy | You can use partitionedBy to specify a dynamic folderPath/fileName for time-series data. An example is folderPath parameterized for every hour of data. | No
 Format | The following format types are supported: **TextFormat**, **AvroFormat**, **JsonFormat**, and **OrcFormat**. Set the **type** property under format to one of these values. See [Specifying TextFormat](#specifying-textformat), [Specifying AvroFormat](#specifying-avroformat), [Specifying JsonFormat](#specifying-jsonformat), and [Specifying OrcFormat](#specifying-orcformat) sections for details. If you want to copy files as-is between file-based stores (binary copy), you can skip the format section in both input and output dataset definitions. | No
 fileFilter | Specify a filter to be used to select a subset of files in the folderPath rather than all files. <br/><br/>Allowed values are: * (multiple characters) and ? (single character).<br/><br/>Example 1: "fileFilter": "*.log"<br/>Example 2: "fileFilter": 2014-1-?.txt"<br/><br/>Note that fileFilter is applicable for an input FileShare dataset. | No
