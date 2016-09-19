@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="article"
- ms.date="09/15/2016"
+ ms.date="09/19/2016"
  ms.author="casoper"/>
 
 # How to manage expiration of Azure Web Apps/Cloud Services, ASP.NET, or IIS content in Azure CDN
@@ -21,7 +21,11 @@
 - [Azure Web Apps/Cloud Services, ASP.NET, or IIS](cdn-manage-expiration-of-cloud-service-content.md)
 - [Azure Storage blob service](cdn-manage-expiration-of-blob-content.md)
 
-A file's time-to-live in Azure CDN is determined by the `Cache-Control` HTTP header provided with the file by the origin server.  If the origin doesn't provide a `Cache-Control` header, the default TTL of 7 days is used.  This article describes how to set `Cache-Control` headers for Azure Web Apps, Azure Cloud Services, ASP.NET applications, and IIS sites.   
+Files from any publicly accessible origin web server can be cached in Azure CDN until its time-to-live (TTL) elapses.  The TTL is determined by the [*Cache-Control* header](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) in the HTTP response from the origin server.  This article describes how to set `Cache-Control` headers for Azure Web Apps, Azure Cloud Services, ASP.NET applications, and Internet Information Services sites, all of which are configured similarly.
+
+>[AZURE.TIP] You may choose to set no TTL on a file.  In this case, Azure CDN automatically applies a default TTL of seven days.
+>
+>For more information about how Azure CDN works to speed up access to files and other resources, see the [Azure CDN Overview](./cdn-overview.md).
 
 ## Setting Cache-Control Headers in configuration
 
