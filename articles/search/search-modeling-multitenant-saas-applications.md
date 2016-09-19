@@ -59,8 +59,9 @@ In Azure Search’s S3 pricing tier, there is an option for the High Density (HD
 The S3 HD tier is ideally suited for SaaS enabled applications which implement the index-per-tenant model described below.
 
 
-## Multitenant applications
+## Considerations for multitenant applications
 Multitenant applications must effectively distribute resources among the tenants while preserving some level of privacy between the various tenants. There are a few considerations when designing the architecture for such an application:
+
 * _Tenant isolation:_ Application developers need to take appropriate measures to ensure that no tenants have unauthorized or unwanted access to the data of other tenants. Beyond the perspective of data privacy, tenant isolation strategies require effective management of shared resources and protection from noisy neighbors.
 * _Cloud resource cost:_ As with any other application, software solutions must remain cost competitive as a component of a multitenant application.
 * _Ease of Operations:_ When developing a multitenant architecture, the impact on the application's operations and complexity is an important consideration. Azure Search has a [99.9% SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
@@ -69,7 +70,7 @@ Multitenant applications must effectively distribute resources among the tenants
 
 Azure Search offers a few boundaries that can be used to isolate tenants’ data and workload.
 
-### Modeling multitenancy
+## Modeling multitenancy with Azure Search
 In the case of a multitenant scenario, the application developer consumes one or more search services and divide their tenants among services, indexes, or both. Azure Search has a few common patterns when modeling a multitenant scenario:
 1. _Index per tenant:_ Each tenant has its own index within a search service that is shared with other tenants.
 1. _Service per tenant:_ Each tenant has its own dedicated Azure Search service, offering highest level of data and workload separation.
