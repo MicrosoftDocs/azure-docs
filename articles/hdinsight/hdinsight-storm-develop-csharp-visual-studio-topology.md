@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/14/2016"
+   ms.date="09/19/2016"
    ms.author="larryfr"/>
 
 # Develop C# topologies for Apache Storm on HDInsight using Hadoop tools for Visual Studio
@@ -23,7 +23,9 @@ Learn how to create a C# Storm topology by using the HDInsight tools for Visual 
 
 You will also learn how to create hybrid topologies that use C# and Java components.
 
-[AZURE.INCLUDE [windows-only](../../includes/hdinsight-windows-only.md)]
+> [AZURE.NOTE] While the steps in this document rely on a Windows development environment with Visual Studio, the compiled project can be submitted to either a Linux or Windows-based HDInsight cluster.
+>
+> To use a C# topology with a Linux-based cluster, you should update the Microsoft.SCP.Net.SDK NuGet package used by your project to version 0.10.0.6 or higher. 
 
 ##Prerequisites
 
@@ -35,15 +37,13 @@ You will also learn how to create hybrid topologies that use C# and Java compone
 
 	-	Visual Studio 2015 or [Visual Studio 2015 Community](https://go.microsoft.com/fwlink/?LinkId=532606)
 
--	Azure SDK 2.5.1 or later
+-	Azure SDK 2.9.5 or later
 
 -	HDInsight Tools for Visual Studio: See [Get started using HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md) to install and configure the HDInsight tools for Visual Studio.
 
     > [AZURE.NOTE] HDInsight Tools for Visual Studio are not supported on Visual Studio Express
 
 -	Apache Storm on HDInsight cluster: See [Getting started with Apache Storm on HDInsight](hdinsight-apache-storm-tutorial-get-started.md) for steps to create a cluster.
-
-	> [AZURE.NOTE] Currently, the HDInsight Tools for Visual Studio do not support submitting a Storm topology to Linux-based clusters.
 
 ##Templates
 
@@ -432,7 +432,27 @@ Recent releases of SCP.NET support package upgrade through NuGet. When a new upd
 
 ##Troubleshooting
 
-###Test a topology locally
+### Null pointer exceptions
+
+When using a C# topology with a Linux-based HDInsight cluster, components that use ConfigurationManager to read configuration settings at runtime may return null pointer exceptions. This happens because the configuration for the loaded domain is not from the assembly that contains your project.
+
+The configuration for your project is passed into the Storm topology as a key/value pair in the topology context, and can be retrieved from the dictionary object that is passed to your components when they are initialized.
+
+The following example demonstrates loading the configuration values from the topology context:
+
+    public myComponent (Context ctx, Dictionary<string, Object> parms)
+        {
+            // Save a copy of the context for this component instance
+            this.ctx = ctx;
+            // If it exists, load the configuration for the component
+            if(params.ContainsKey(Constants.USER_CONFIG))
+            {
+                this.configuration = parms[Constants.USER_CONFIG] as System.Configuration.Configuration;
+            }
+            ...
+        }
+
+### Test a topology locally
 
 Although it is easy to deploy a topology to a cluster, in some cases, you may need to test a topology locally. Use the following steps to run and test the example topology in this tutorial locally in your development environment.
 
