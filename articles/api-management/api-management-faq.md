@@ -24,13 +24,13 @@ Get the answers to common questions, patterns, and best practices for Azure API 
 
 -	[How can I ask the Microsoft Azure API Management team a question?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
 -	[What does it mean when a feature is in preview?](#what-does-it-mean-when-a-feature-is-in-preview)
--	[What supported options do I have to secure the connection between the API Management gateway and my backend services?](#what-supported-options-do-I-have-to-secure-the-connection-between-the-api-management-gateway-and-my-backend-services?)
+-	[What supported options do I have to secure the connection between the API Management gateway and my back-end services?](#what-supported-options-do-I-have-to-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services)
 -	[How do I copy my API Management service instance to a new instance?](#how-do-i-copy-my-api-management-service-instance-to-a-new-instance)
 -	[Can I manage my API Management instance programmatically?](#can-i-manage-my-api-management-instance-programmatically)
 -	[How do I add a user to the Administrators group?](#how-do-i-add-a-user-to-the-administrators-group)
 -	[Why is the policy that I want to add unavailable in the policy editor?](#why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor)
 -	[How do I use API versioning in API Management?](#how-do-i-use-api-versioning-in-api-management)
--	[How do I set up multiple environments in a single API?](#how-do-I-set-up-multiple-environments-in-a-single-API)
+-	[How do I set up multiple environments in a single API?](#how-do-i-set-up-multiple-environments-in-a-single-api)
 -	[Can I use SOAP with API Management?](#can-i-use-soap-with-api-management)
 -	[Is the API Management gateway IP address constant? Can I use it in firewall rules?](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
 -	[Can I configure an OAuth 2.0 authorization server with ADFS security?](#can-i-configure-an-oauth-20-authorization-server-with-adfs-security)
@@ -54,7 +54,7 @@ You can contact us by using one of these options:
 
 When a feature is in preview, it means that we're actively seeking feedback on how the feature is working for you. A feature in preview is functionally complete, but it's possible that we'll make a breaking change in response to customer feedback. We recommend that you don't depend on a feature that is in preview in your production environment. If you have any feedback on preview features, please let us know through one of the contact options in [How can I ask the Microsoft Azure API Management team a question?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
 
-### What supported options do I have to secure the connection between the API Management gateway and my backend services?
+### What supported options do I have to secure the connection between the API Management gateway and my back-end services?
 
 You have several options to secure the connection between the API Management gateway and your backend services. You can:
 
