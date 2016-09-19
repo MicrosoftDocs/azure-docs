@@ -40,7 +40,7 @@ having to specify custom DNS server entries.
 -   Recursive DNS service for resolution of Internet names from tenant VMs. Tenants no longer need to specify custom DNS entries to resolve Internet names (for example, www.bing.com).
 
 You can still bring your own DNS and use custom DNS servers
-if you wish. But now, if you just want to be able to resolve Internet DNS
+if you want. But now, if you just want to be able to resolve Internet DNS
 names and be able to connect to other virtual machines in the same
 virtual network, you don’t need to specify anything and it will just
 work.
@@ -61,7 +61,7 @@ which you create the public IP address.
 
 In the image above, Azure will create an “A” record in DNS for the DNS
 name label specified under the zone **westus.cloudapp.azure.com**. The
-prefix and the suffix together comprise a Fully Qualified Domain Name
+prefix and the suffix together compose a Fully Qualified Domain Name
 (FQDN) that can be resolved from anywhere on the public Internet.
 
 In TP2, Azure Stack only supports iDNS for internal name
@@ -90,7 +90,7 @@ the POC Fabric DNS server, namely 192.168.200.2.
 If you created a VM via the portal, you had to select **Custom
 DNS** in the virtual network or ethernet adapter settings.
 
-![](media/image1.png)
+![Screenshot of specifying a custom DNS server](media/image1.png)
 
 In TP2, you can select Azure DNS and do not need to specify custom DNS
 server entries.
