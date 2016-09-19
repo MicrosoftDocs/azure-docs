@@ -28,7 +28,7 @@ If you have been facing difficulties troubleshooting SSH or application access t
 
 ## Using Azure CLI
 
-Make sure you have the [latest Azure CLI installed](../xplat-cli-install.md) on your machine and you are in resource manager mode (`azure config mode arm`).
+Make sure you have the [latest Azure CLI installed](../xplat-cli-install.md) on your machine and you are in Resource Manager mode (`azure config mode arm`).
 
 Use the following Azure CLI command to redeploy your virtual machine:
 
@@ -47,4 +47,4 @@ azure vm list -g <resourcegroup>
 
 
 ## Next steps
-You can find specific help on [troubleshooting SSH connections](virtual-machines-linux-troubleshoot-ssh-connection.md) or [detailed SSH troubleshooting steps](virtual-machines-linux-detailed-troubleshoot-ssh-connection.md) if you are having issues connecting to your VM. You can also read [application troubleshooting issues](virtual-machines-linux-troubleshoot-app-connection.md) if you cannot access an application running on your VM.
+If you are having issues connecting to your VM, you can find specific help on [troubleshooting SSH connections](virtual-machines-linux-troubleshoot-ssh-connection.md) or [detailed SSH troubleshooting steps](virtual-machines-linux-detailed-troubleshoot-ssh-connection.md). If you cannot access an application running on your VM, you can also read [application troubleshooting issues](virtual-machines-linux-troubleshoot-app-connection.md).
