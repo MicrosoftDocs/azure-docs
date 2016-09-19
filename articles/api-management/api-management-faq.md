@@ -24,7 +24,7 @@ Get the answers to common questions, patterns, and best practices for Azure API 
 
 -	[How can I ask the Microsoft Azure API Management team a question?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
 -	[What does it mean when a feature is in preview?](#what-does-it-mean-when-a-feature-is-in-preview)
--	[What supported options do I have to secure the connection between the API Management gateway and my back-end services?](#what-supported-options-do-I-have-to-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services)
+-	[How can I secure the connection between the API Management gateway and my back-end services?](#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services)
 -	[How do I copy my API Management service instance to a new instance?](#how-do-i-copy-my-api-management-service-instance-to-a-new-instance)
 -	[Can I manage my API Management instance programmatically?](#can-i-manage-my-api-management-instance-programmatically)
 -	[How do I add a user to the Administrators group?](#how-do-i-add-a-user-to-the-administrators-group)
@@ -54,7 +54,7 @@ You can contact us by using one of these options:
 
 When a feature is in preview, it means that we're actively seeking feedback on how the feature is working for you. A feature in preview is functionally complete, but it's possible that we'll make a breaking change in response to customer feedback. We recommend that you don't depend on a feature that is in preview in your production environment. If you have any feedback on preview features, please let us know through one of the contact options in [How can I ask the Microsoft Azure API Management team a question?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
 
-### What supported options do I have to secure the connection between the API Management gateway and my back-end services?
+### How can I secure the connection between the API Management gateway and my back-end services?
 
 You have several options to secure the connection between the API Management gateway and your backend services. You can:
 
@@ -157,7 +157,7 @@ Yes. Here's how to use a self-signed Secure Sockets Layer (SSL) certificate for 
 2. Set the **skipCertificateChainValidation** property to **true**.
 3. If you no longer want to allow self-signed certificates, delete the Backend entity, or set the **skipCertificateChainValidation** property to **false**.
 
-### Why do I get an authentication failure when I try to clone the Git repository?
+### Why do I get an authentication failure when I try to clone a Git repository?
 
 If you use Git Credential Manager, or if you're trying to clone a Git repository by using Visual Studio, you might run into a known issue with the Windows credentials dialog box. The dialog box limits password length to 127 characters, and it truncates the Microsoft-generated password. We are working on shortening the password. For now, please use Git Bash to clone your Git repository.
 
