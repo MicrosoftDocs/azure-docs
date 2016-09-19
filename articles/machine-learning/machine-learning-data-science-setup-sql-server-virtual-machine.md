@@ -307,8 +307,8 @@ To create new SQL Server logins using the SQL Server Management Studio:
     designate this login as a SQL Server administrator. If so, on the
     **Server Roles** page, check **sysadmin**.
 
-    > [AZURE.IMPORTANT] Members of the sysadmin fixed server role have
-    complete control of the Database Engine. For security reasons, you should carefully
+    **Security Note:** Members of the sysadmin fixed server role have
+    complete control of the Database Engine. You should carefully
     restrict membership in this role.
 
     ![sysadmin][12]
