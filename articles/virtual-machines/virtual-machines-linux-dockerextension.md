@@ -126,9 +126,9 @@ data:    Diagnostics Instance View:
 info:    vm show command OK
 ```
 
-Near the top of the output, you see the `ProvisioningState` of the VM. When this shows `Succeeded`, the deployment has finished and you can SSH to the VM.
+Near the top of the output, you see the `ProvisioningState` of the VM. When this displays `Succeeded`, the deployment has finished and you can SSH to the VM.
 
-Towards the end of the output, you see the DNS name you provide in combination with the location specified under `FQDN`. This FQDN is what you use to SSH to the VM in the remaining steps.
+Towards the end of the output, `FQDN` displays the fully qualified domain name based on the DNS name you provided and the location you selected. This FQDN is what you use to SSH to the VM in the remaining steps.
 
 
 ## Deploy your first nginx container
@@ -163,11 +163,11 @@ To see your container in action, open up a web browser and enter the DNS name yo
 
 ![Running ngnix container](./media/virtual-machines-linux-dockerextension/nginxrunning.png)
 
-You may wish to configure the Docker daemon TCP port, security, or deploy containers using Docker Compose. See the [Azure Virtual Machine Extension for Docker GitHub project]( https://github.com/Azure/azure-docker-extension/) for more information.
+You may wish to configure the Docker daemon TCP port, security, or deploy containers using Docker Compose. For more information, see the [Azure Virtual Machine Extension for Docker GitHub project](https://github.com/Azure/azure-docker-extension/).
 
 ## Docker VM Extension JSON template reference
 
-This example used a quick-start template. To deploy the Azure Docker VM Extension with your own Resource Manager templates, add the following:
+This example used a quick-start template. To deploy the Azure Docker VM Extension with your own Resource Manager templates, add the following JSON:
 
 ```
 {
