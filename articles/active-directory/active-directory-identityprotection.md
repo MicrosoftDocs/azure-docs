@@ -2,7 +2,7 @@
 	pageTitle="Azure Active Directory Identity Protection | Microsoft Azure"
 	description="Learn how Azure AD Identity Protection enables you to limit the ability of an attacker to exploit a compromised identity or device and to secure an identity or a device that was previously suspected or known to be compromised."
 	services="active-directory"
-	keywords="azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy"
+	keywords="azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, conditional access policy"
 	documentationCenter=""
 	authors="markusvi"
 	manager="femila"
@@ -195,7 +195,7 @@ To remediate user risk events, you can:
 
 - Perform a secure password reset to remediate user risk events manually 
 
-- Configure a user risk security policy to mitigate or remediate user risk events automatically
+- Configure a user risk policy to mitigate or remediate user risk events automatically
 
 - Re-image the infected device  
 
@@ -234,39 +234,39 @@ The related dialog provides two different methods to reset a password:
 
 
 
-## User risk security policy
+## User risk policy
 
-A user risk security policy is a conditional access policy that evaluates the risk level to a specific user and applies remediation and mitigation actions based on predefined conditions and rules.
+A user risk policy is a conditional access policy that evaluates the risk level to a specific user and applies remediation and mitigation actions based on predefined conditions and rules.
 
 
-![User ridk policy](./media/active-directory-identityprotection/1009.png "User ridk policy")
+![User ridk policy](./media/active-directory-identityprotection/1009.png)
 
 
 Azure AD Identity Protection helps you manage the mitigation and remediation of users flagged for risk by enabling you to:
 
 - Set the users and groups the policy applies to: 
 
-	![User ridk policy](./media/active-directory-identityprotection/1010.png "User ridk policy")
+	![User risk policy](./media/active-directory-identityprotection/1010.png)
 
 
 - Set the user risk level threshold (low, medium, or high) that triggers the policy: 
 
-	![User ridk policy](./media/active-directory-identityprotection/1011.png "User ridk policy")
+	![User risk policy](./media/active-directory-identityprotection/1011.png)
 
 
 - Set the controls to be enforced when the policy triggers:
 
-	![User ridk policy](./media/active-directory-identityprotection/1012.png "User ridk policy")
+	![User risk policy](./media/active-directory-identityprotection/1012.png)
 
 
 - Switch the state of your policy:
 
-	![User ridk policy](./media/active-directory-identityprotection/403.png "MFA Registration")
+	![User risk policy](./media/active-directory-identityprotection/403.png)
 
 
 - Review and evaluate the impact of a change before activating it:
 
-	![User ridk policy](./media/active-directory-identityprotection/1013.png "User ridk policy")
+	![User risk policy](./media/active-directory-identityprotection/1013.png)
 
 
 Choosing a **High** threshold reduces the number of times a policy is triggered and minimizes the impact to users.
@@ -295,7 +295,7 @@ For an overview of the related user experience, see:
 
 1. On the **Azure AD Identity Protection** blade, in the **Configure** section, click **User risk policy**.
 
-	![User ridk policy](./media/active-directory-identityprotection/1009.png "User ridk policy")
+	![User risk policy](./media/active-directory-identityprotection/1009.png)
 
 
 
@@ -303,7 +303,7 @@ For an overview of the related user experience, see:
 
 
 ## Mitigating user risk events
-Administrators can set a user risk security policy to block users upon sign-in depending on the risk level. 
+Administrators can set a user risk policy to block users upon sign-in depending on the risk level. 
 
 Blocking a sign-in:
  
@@ -323,28 +323,28 @@ A mitigation is an action to limit the ability of an attacker to exploit a compr
 You can use conditional access in Azure AD Identity Protection to automatically mitigate sign-in risk events. Using these policies, you consider the risk level of the user or the sign-in to block risky sign-ins or require the user to perform multi-factor authentication. These actions may prevent an attacker from exploiting a stolen identity to cause damage, and may give you some time to secure the identity. 
 
 
-## Sign-in risk security policy
+## Sign-in risk policy
 
 A sign-in risk policy is a conditional access policy that evaluates the risk to a specific sign-in and applies mitigations based on predefined conditions and rules.
 
-![Sign-in risk policy](./media/active-directory-identityprotection/1014.png "Sign-in risk policy")
+![Sign-in risk policy](./media/active-directory-identityprotection/1014.png)
 
 
 Azure AD Identity Protection helps you manage the mitigation of risky sign-ins by enabling you to:
 
 - Set the users and groups the policy applies to: 
 
-	![Sign-in risk policy](./media/active-directory-identityprotection/1015.png "Sign-in risk policy")
+	![Sign-in risk policy](./media/active-directory-identityprotection/1015.png)
 
 
 - Set the sign-in risk level threshold (low, medium, or high) that triggers the policy: 
 
-	![Sign-in risk policy](./media/active-directory-identityprotection/1016.png "Sign-in risk policy")
+	![Sign-in risk policy](./media/active-directory-identityprotection/1016.png)
 
 
 - Set the controls to be enforced when the policy triggers::  
 
-	![Sign-in risk policy](./media/active-directory-identityprotection/1017.png "Sign-in risk policy")
+	![Sign-in risk policy](./media/active-directory-identityprotection/1017.png)
 
 
 - Switch the state of your policy:
@@ -353,7 +353,7 @@ Azure AD Identity Protection helps you manage the mitigation of risky sign-ins b
 
 - Review and evaluate the impact of a change before activating it: 
 
-	![Sign-in risk policy](./media/active-directory-identityprotection/1018.png "Sign-in risk policy")
+	![Sign-in risk policy](./media/active-directory-identityprotection/1018.png)
 
  
 Choosing a **High** threshold reduces the number of times a policy is triggered and minimizes the impact to users.  

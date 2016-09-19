@@ -27,14 +27,11 @@ With Azure Active Directory Identity Protection, you can configure policies to b
 
 As a first step to unblock a user, you need to determine the blocking reason. In Azure Active Directory Identity Protection, a user can be blocked either blocked by a sign-in risk policy or a user risk policy.
 
-        
-![Blocked sign-in](./media/active-directory-identityprotection-unblock-howto/130.png)
-
-![Blocked account](./media/active-directory-identityprotection-unblock-howto/104.png)
- 
-![Blocked account](./media/active-directory-identityprotection-unblock-howto/01.png)
 
 ![Blocked account](./media/active-directory-identityprotection-unblock-howto/02.png)
+![Blocked account](./media/active-directory-identityprotection-unblock-howto/104.png)
+
+
 
  is a feature of the Azure AD Premium P2 edition that provides you with a consolidated view into risk events and potential vulnerabilities affecting your organization’s identities. Microsoft has been securing cloud-based identities for over a decade, and with Azure AD Identity Protection, Microsoft is making these same protection systems available to enterprise customers. Identity Protection leverages existing Azure AD’s anomaly detection capabilities (available through Azure AD’s Anomalous Activity Reports), and introduces new risk event types that can detect anomalies in real-time.
 
