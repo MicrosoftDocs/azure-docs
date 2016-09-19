@@ -11,7 +11,7 @@
 	ms.workload="search"
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
-	ms.date="09/14/2016"
+	ms.date="09/20/2016"
 	ms.author="ashmaka"/>
 
 # Design patterns for multitenant SaaS applications and Azure Search
@@ -72,6 +72,7 @@ Azure Search offers a few boundaries that can be used to isolate tenants’ data
 
 ## Modeling multitenancy with Azure Search
 In the case of a multitenant scenario, the application developer consumes one or more search services and divide their tenants among services, indexes, or both. Azure Search has a few common patterns when modeling a multitenant scenario:
+
 1. _Index per tenant:_ Each tenant has its own index within a search service that is shared with other tenants.
 1. _Service per tenant:_ Each tenant has its own dedicated Azure Search service, offering highest level of data and workload separation.
 1. _Mix of both:_ Larger, more-active tenants are assigned dedicated services while smaller tenants are assigned individual indexes within shared services.
@@ -120,5 +121,7 @@ To have a single index behave differently for different client endpoints, a fiel
 
 This method can be used to achieve functionality of separate user accounts, separate permission levels, and even completely separate applications.
 
-## Summary
-Azure Search is a compelling choice for many applications with its [robust capabilities](http://aka.ms/whatisazsearch) and the benefits of a [managed service](https://azure.microsoft.com/support/legal/sla/search/v1_0/). For multitenant applications, Azure Search offers a few strategies for achieving tenant isolation while accommodating a variety of architectures. Azure Search offers a number of [pricing tiers](https://azure.microsoft.com/pricing/details/search/) and a comprehensive range of service [limits](search-limits-quotas-capacity.md) to fit application workloads of all sizes.
+## Next Steps
+Azure Search is a compelling choice for many applications, [read more about the service's robust capabilities](http://aka.ms/whatisazsearch). When evaluating the various design patterns for multitenant applications, consider the [various pricing tiers](https://azure.microsoft.com/pricing/details/search/) and the respective [service limits](search-limits-quotas-capacity.md) to best tailor Azure Search to fit application workloads and architectures of all sizes.
+
+Any questions about Azure Search and can be directed to <azuresearch_contact@microsoft.com>.
