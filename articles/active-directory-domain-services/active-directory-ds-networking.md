@@ -64,16 +64,16 @@ Connect Azure virtual networks to use the managed domain in any of the following
 #### To use the managed domain in more than one Azure classic virtual network.
 You can connect other Azure classic virtual networks to the Azure classic virtual network in which you have enabled Azure AD Domain Services. This connection enables you to use the managed domain with your workloads deployed in other virtual networks.
 
-    ![Classic virtual network connectivity](./media/active-directory-domain-services-design-guide/classic-vnet-connectivity.png)
+![Classic virtual network connectivity](./media/active-directory-domain-services-design-guide/classic-vnet-connectivity.png)
 
 #### To use the managed domain in an ARM-based virtual network.
 You can connect an Azure Resource Manager (ARM) based virtual network to the Azure classic virtual network in which you have enabled Azure AD Domain Services. This connection enables you to use the managed domain with your workloads deployed in the ARM-based virtual network.
 
-    ![ARM to classic virtual network connectivity](./media/active-directory-domain-services-design-guide/classic-vnet-connectivity.png)
+![ARM to classic virtual network connectivity](./media/active-directory-domain-services-design-guide/classic-arm-vnet-connectivity.png)
 
 
 
-- You can [connect a classic virtual network to an ARM-based virtual network](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md), to use Azure AD Domain Services in a virtual network created using Azure Resource Manager.
+You can [connect a classic virtual network to an ARM-based virtual network](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md), to use Azure AD Domain Services in a virtual network created using Azure Resource Manager.
 
 
 <br>
