@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="09/15/2016"
+   ms.date="09/19/2016"
    ms.author="v-sharos@microsoft.com"/>
 
 # StorSimple 8000 series: a hybrid cloud storage solution
@@ -207,10 +207,43 @@ Deduplication reduces the overall amount of data stored by eliminating redundanc
 
 ## StorSimple workload summary
 
-### Supported workloads
+A summary of the supported StorSimple workloads is tabulated below.
 
-### Unsupported workloads
+| Scenario                  | Workload                | Supported | Version              |
+|---------------------------|-------------------------|-----------|----------------------|
+| Collaboration             | File Sharing            | Yes       | All versions         |
+| Distributed Collaboration | File Sharing            | Yes       | All versions         |
+| Collaboration             | SharePoint              | Yes*      | Update 2 and later   |
+| Archival                  | Simple File Archiving   | Yes       | All versions         |
+| Virtualization            | VMs                     | Yes*      | Update 2 and later   |
+| Database                  | SQL                     | Yes*      | Update 2 and later   |
+| Video Surveillance        | Video Surveillance      | Yes       | Update 2 and later   |
+| Backup                    | Primary   Target Backup | Yes*      | Update   3 and later |
 
+Yes* - Solution guidelines and best practices should be applied.
+
+The following workloads are not supported by StorSimple 8000 series devices. If deployed on StorSimple, these workloads will result in an unsupported configuration.
+
+-  Medical Imaging
+-  Exchange
+-  VDI
+-  Oracle
+-  SAP
+-  Big Data
+-  Content distribution
+-  Boot from SCSI
+
+Following is a list of the StorSimple supported infrastructure components. 
+
+| Scenario | Workload      | Supported | Version      |
+|----------|---------------|-----------|--------------|
+| General  | Express Route | Yes       | All versions |
+| General  | Data Core FC  | Yes       | All versions |
+| General  | DFSR          | Yes*      | All versions |
+| General  | Indexing      | Yes       | All versions |
+| General  | Anti-Virus    | Yes       | All versions |
+
+Yes* - Solution guidelines and best practices should be applied.
 
 ## StorSimple terminology 
 
