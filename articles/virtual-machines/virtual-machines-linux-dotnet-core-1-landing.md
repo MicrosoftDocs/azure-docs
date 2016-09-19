@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="08/29/2016"
+   ms.date="09/21/2016"
    ms.author="nepeters"/>
 
 # Automating Application Deployments to Azure Virtual Machines
@@ -59,6 +59,8 @@ The Azure Resource Manager template requires the following parameter values.
 |SQLADMINPASSWORD | Password that is used on the Azure SQL Database.  |
 |NUMBEROFINSTANCES | The number of virtual machines to be created. Each of these virtual machines host the Music Store web application, and all traffic is load balanced across them. |
 |PUBLICIPADDRESSDNSNAME | Globally unique DNS name associated with the Public IP address. |
+
+When the template deployment has completed, browse to the public IP Address using any internet browser. The .Net Core Music site will be presented.
 
 ## Next Step
 

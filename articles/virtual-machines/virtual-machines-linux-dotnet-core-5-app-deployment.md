@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="09/12/2016"
+   ms.date="09/21/2016"
    ms.author="nepeters"/>
 
 # Application Deployment with Azure Resource Manager Templates
