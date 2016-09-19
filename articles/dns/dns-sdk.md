@@ -3,7 +3,7 @@
    description="How to create DNS zones and record sets in Azure DNS by using the .NET SDK." 
    services="dns" 
    documentationCenter="na" 
-   authors="jonatul" 
+   authors="jtuliani" 
    manager="carmonm" 
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
    ms.date="09/19/2016"
-   ms.author="jonatul"/>
+   ms.author="jtuliani"/>
 
 
 # Create DNS zones and record sets using the .NET SDK
