@@ -32,7 +32,7 @@ Typically, programmatic access to Azure resources is granted via a dedicated acc
 3. Use Azure RBAC to grant the service principal account 'DNS Zone Contributor' permissions to the resource group ([here's how](../active-directory/role-based-access-control-configure.md).)
 
 4. If using the Azure DNS SDK sample project, edit the 'program.cs' file as follows:
-	* Insert the correct values for the tenatId, clientId (also known as account ID), secret (service principal account password) and subscriptionId as used in step 1 above.
+	* Insert the correct values for the tenatId, clientId (also known as account ID), secret (service principal account password) and subscriptionId as used in step 1.
 	* Enter the resource group name chosen in step 2.
 	* Enter a DNS zone name of your choice.
 
@@ -69,13 +69,13 @@ The *DnsManagementClient* contains the methods and properties necessary for mana
 
 ## Create or update a DNS zone
 
-To create a DNS zone, first a "Zone" object is created to contain the DNS zone parameters. Because DNS zones are not linked to a specific region, the location is set to 'global'.   In this example, an [Azure Resource Manager 'tag'](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) is also added to the zone.
+To create a DNS zone, first a "Zone" object is created to contain the DNS zone parameters. Because DNS zones are not linked to a specific region, the location is set to 'global'. In this example, an [Azure Resource Manager 'tag'](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) is also added to the zone.
 
 To actually create or update the zone in Azure DNS, the zone object containing the zone parameters is passed to the *DnsManagementClient.Zones.CreateOrUpdateAsyc* method.
 
 >[AZURE.NOTE] DnsManagementClient supports three modes of operation: synchronous ('CreateOrUpdate'), asynchronous ('CreateOrUpdateAsync'), or asynchronous with access to the HTTP response ('CreateOrUpdateWithHttpMessagesAsync').  You can choose any of these modes, depending on your application needs.
 
-Azure DNS supports optimistic concurrency, called [Etags](dns-getstarted-create-dnszone.md). In this example, specifying "*" for the 'If-None-Match' header tells Azure DNS to create a DNS zone if one does not already exist.  The call will fail if a zone with the given name already exists in the given resource group.
+Azure DNS supports optimistic concurrency, called [Etags](dns-getstarted-create-dnszone.md). In this example, specifying "*" for the 'If-None-Match' header tells Azure DNS to create a DNS zone if one does not already exist.  The call fails if a zone with the given name already exists in the given resource group.
 
 	// Create zone parameters
 	var dnsZoneParams = new Zone("global"); // All DNS zones must have location = "global"
@@ -96,7 +96,7 @@ DNS records are managed as a record set. A record set is a set of records with t
 
 To create or update a record set, a "RecordSet" parameters object is created and passed to *DnsManagementClient.RecordSets.CreateOrUpdateAsync*. As with DNS zones, there are three modes of operation: synchronous ('CreateOrUpdate'), asynchronous ('CreateOrUpdateAsync'), or asynchronous with access to the HTTP response ('CreateOrUpdateWithHttpMessagesAsync').
 
-As with DNS zones, operations on record sets include support for optimistic concurrency.  In this example, since neither 'If-Match' nor 'If-None-Match' are specified, the record set is always created.  This overwrites any existing record set with the same name and record type in this DNS zone.
+As with DNS zones, operations on record sets include support for optimistic concurrency.  In this example, since neither 'If-Match' nor 'If-None-Match' are specified, the record set is always created.  This call overwrites any existing record set with the same name and record type in this DNS zone.
 
 	// Create record set parameters
 	var recordSetParams = new RecordSet();
@@ -122,7 +122,7 @@ The *DnsManagementClient.Zones.Get* and *DnsManagementClient.RecordSets.Get* met
 	
 ## Update an existing record set
 
-To update an existing DNS record set, first retrieve the record set, then update the record set contents, then submit the change.  In this case, specifying the 'Etag' from the retrieved record set in the 'If-Match' parameter means that the call fails if a concurrent operation has modified the record set in the meantime.
+To update an existing DNS record set, first retrieve the record set, then update the record set contents, then submit the change.  In this example, we specify the 'Etag' from the retrieved record set in the 'If-Match' parameter. The call fails if a concurrent operation has modified the record set in the meantime.
 
 	var recordSet = dnsClient.RecordSets.Get(resourceGroupName, zoneName, recordSetName, RecordType.A);
 
@@ -137,7 +137,7 @@ To update an existing DNS record set, first retrieve the record set, then update
 
 To list zones, use the *DnsManagementClient.Zones.List...* methods, which support listing either all zones in a given resource group or all zones in a given Azure subscription (across resource groups.) To list record sets, use *DnsManagementClient.RecordSets.List...* methods, which support either listing all record sets in a given zone or only those record sets of a specific type.
 
-Note when listing zones and record sets that results may be paginated.  The following example shows how to iterate through the pages of results. (An artificially small page size of '2' is used in order to force paging; in practice this parameter should be omitted and the default page size used.)
+Note when listing zones and record sets that results may be paginated.  The following example shows how to iterate through the pages of results. (An artificially small page size of '2' is used to force paging; in practice this parameter should be omitted and the default page size used.)
 
 	// Note: in this demo, we'll use a very small page size (2 record sets) to demonstrate paging
 	// In practice, to improve performance you would use a large page size or just use the system default
