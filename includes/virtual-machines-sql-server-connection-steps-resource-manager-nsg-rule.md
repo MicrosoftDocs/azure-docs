@@ -29,3 +29,5 @@ If you want to be able to connect to SQL Server over the internet, you have to c
 	![network security rule](./media/virtual-machines-sql-server-connection-steps/rm-network-security-rule.png)
 
 9. Click **OK** to save the rule for your VM.
+
+>[AZURE.NOTE] It is possible to have a second Network Security Group associated with your subnet (this is separate from the network security group on the VM). This is not done by default, but if you have a network security group on your subnet, you must open port 1433 on that network security group as well. If not, the most restrictive setting on the subnet will block traffic to port 1433 on your VM. 
