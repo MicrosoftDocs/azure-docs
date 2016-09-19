@@ -27,23 +27,23 @@ In this guide, we walk through the steps for connecting to Azure Stack with Powe
 
       ![Screenshot result of running 4Get-PSRepository with PSGallery listed](./media/azure-stack-connect-powershell/image1.png)
 
-2.  Run the following command to install the AzureRM module.
+2.  Run the following command to install the AzureRM module:
 
         Install-Module -Name AzureRM -RequiredVersion 1.2.6 -Scope CurrentUser
 
-    >[AZURE.NOTE] *-Scope CurrentUser* is optional. If you want more than the current user to have access to the modules, use an elevated command prompt and leave off the *Scope* parameter
+    >[AZURE.NOTE] *-Scope CurrentUser* is optional. If you want more than the current user to have access to the modules, use an elevated command prompt and leave off the *Scope* parameter.
 
 3.  To confirm the installation of AzureRM modules, execute the following commands:
 
 	    Get-Module -ListAvailable | where {$_.Name -match "AzureRM"}
 	    Get-Command -Module AzureRM.AzureStackAdmin
 
-	> [AZURE.NOTE] If you do not see AzureRM commands listed, restart the MAS-CON01 VM.  Once the machine has restarted, check for the modules using the preceding steps again.
+	> [AZURE.NOTE] If you do not see AzureRM commands listed, restart the MAS-CON01 VM.  Once the machine has restarted, check for the modules by using the preceding steps again.
 
 ## Connect to Azure Stack
 In the following steps, you add an Azure environment. This step configures PowerShell for use with Azure Stack.  
 
-Before running the following in PowerShell, update the password and user name strings (*MySecret* and *MYACCOUNT@MYDIR.onmicrosoft.com*) with values for your environment.
+Before you run the following in PowerShell, update the password and user name strings (*MySecret* and *MYACCOUNT@MYDIR.onmicrosoft.com*) with values for your environment.
 
     #Establish credentials for connection to Azure Stack
 	$password = ConvertTo-SecureString "MySecret" -AsPlainText -Force
@@ -80,7 +80,7 @@ Before running the following in PowerShell, update the password and user name st
     $azureEnvironment = Add-AzureRmEnvironment @azureEnvironmentParams
     $azureEnvironment = Get-AzureRmEnvironment $azureEnvironmentParams.Name
 
-    #Connect to Azure Stack using the environment and credential information from above
+    #Connect to Azure Stack by using the environment and credential information from above
     $azureAccount = Add-AzureRmAccount -Environment $azureEnvironment -Credential $Credential -TenantId $DirectoryTenantId -Verbose
     Write-Verbose "Using account: $(ConvertTo-Json $azureAccount.Context)" -Verbose
 
