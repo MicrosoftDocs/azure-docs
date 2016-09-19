@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/22/2016"
+   ms.date="09/16/2016"
    ms.author="jeffstok"/>
 
 
@@ -28,7 +28,7 @@ In this article you will learn how to install the community (free) version of RS
 ## Prerequisites
 
 * An Azure HDInsight cluster with R Server installed. For instructions, see [Get started with R Server on HDInsight clusters](hdinsight-hadoop-r-server-get-started.md).
-* An SSH client. For Linux and Unix distributions or Macintosh OS X, the `ssh` command is provided with the operating system. For Windows, we recommend [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). 
+* An SSH client. For Linux and Unix distributions or Macintosh OS X, the `ssh` command is provided with the operating system. For Windows, we recommend [Cygwin](http://www.redhat.com/services/custom/cygwin/) with the [OpenSSH option](https://www.youtube.com/watch?v=CwYSvvGaiWU), or [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).  
 
 
 ## Install RStudio on the cluster using a custom script
@@ -73,14 +73,14 @@ In this article you will learn how to install the community (free) version of RS
 
 7. Create an SSH tunnel to the cluster by mapping `localhost:8787` on the HDInsight cluster to the client machine. You must create an SSH tunnel before opening a new browser session.
 
-	* On a Linux client or a Windows client (using [Cygwin](http://www.redhat.com/services/custom/cygwin/)), open a terminal session and use the following command.
+	* On a Linux client or a Windows client with [Cygwin](http://www.redhat.com/services/custom/cygwin/) then open a terminal session and use the following command.
 
 			ssh -L localhost:8787:localhost:8787 USERNAME@R-Server.CLUSTERNAME-ssh.azurehdinsight.net
 			
 		Replace **USERNAME** with an SSH user for your HDInsight cluster, and replace **CLUSTERNAME** with the name of your HDInsight cluster
 		You can also use a SSH key rather than a password by adding `-i id_rsa_key`		
 
-	* On a Windows client create an SSH tunnel PuTTY.
+	* If using a Windows client with PuTTY then
 
 		1.  Open PuTTY, and enter your connection information. If you are not familiar with PuTTY, see [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md) for information on how to use it with HDInsight.
 		2.  In the **Category** section to the left of the dialog, expand **Connection**, expand **SSH**, and then select **Tunnels**.

@@ -24,16 +24,18 @@
 - [Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
 - [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-[AZURE.INCLUDE [data-factory-tutorial-prerequisites](../../includes/data-factory-tutorial-prerequisites.md)] 
+In this article, you use the Microsoft Visual Studio to create your first Azure data factory.
 
-## Additional prerequisites
-2. You must be an **administrator of the Azure subscription** to be able to publish Data Factory entities from Visual Studio to Azure Data Factory.   
+## Prerequisites
+1. Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the **prerequisite** steps.
+2. You must be an **administrator of the Azure subscription** to be able to publish Data Factory entities from Visual Studio to Azure Data Factory.
 3. You must have the following installed on your computer: 
 	- Visual Studio 2013 or Visual Studio 2015
 	- Download Azure SDK for Visual Studio 2013 or Visual Studio 2015. Navigate to [Azure Download Page](https://azure.microsoft.com/downloads/) and click **VS 2013** or **VS 2015** in the **.NET** section.
 	- Download the latest Azure Data Factory plugin for Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) or [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). If you are using Visual Studio 2013, you can also update the plugin by doing the following: On the menu, click **Tools** -> **Extensions and Updates** -> **Online** -> **Visual Studio Gallery** -> **Microsoft Azure Data Factory Tools for Visual Studio** -> **Update**. 
  
-The following walkthroughs show you how to create and deploy Data Factory entities.
+Now, let's use Visual Studio to create an Azure data factory. 
+
 
 ## Create Visual Studio project 
 1. Launch **Visual Studio 2013** or **Visual Studio 2015**. Click **File**, point to **New**, and click **Project**. You should see the **New Project** dialog box.  
@@ -267,10 +269,12 @@ When you publish the solution in the next step, the **partitionweblogs.hql** fil
 
 21. In the Configure data factory page, do the following: 
 	1. select **Create New Data Factory** option.
-	2. Enter **FirstDataFactoryUsingVS** for **Name**. 
+	2. Enter a unique **name** for the data factory. For example: **FirstDataFactoryUsingVS09152016**. The name must be globally unique.  
 	
-		> [AZURE.IMPORTANT] The name of the Azure Data Factory must be globally unique. If you receive the error **Data factory name “FirstDataFactoryUsingVS” is not available** when publishing, change the name (for example, yournameFirstDataFactoryUsingVS). See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
-	3. Select the right subscription for the **Subscription** field. 
+		> [AZURE.IMPORTANT] If you receive the error **Data factory name “FirstDataFactoryUsingVS” is not available** when publishing, change the name (for example, yournameFirstDataFactoryUsingVS). See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
+	3. Select the right subscription for the **Subscription** field.
+	 
+		> [AZURE.IMPORTANT] If you do not see any subscription, ensure that you logged in using an account that is an admin or co-admin of the subscription.  
 	4. Select the **resource group** for the data factory to be created. 
 	5. Select the **region** for the data factory. 
 	6. Click **Next** to switch to the **Publish Items** page. (Press **TAB** to move out of the Name field to if the **Next** button is disabled.) 
@@ -278,7 +282,8 @@ When you publish the solution in the next step, the **partitionweblogs.hql** fil
 24. Review the summary and click **Next** to start the deployment process and view the **Deployment Status**.
 25. In the **Deployment Status** page, you should see the status of the deployment process. Click Finish after the deployment is done. 
 
-Note the following: 
+ 
+Important points to note: 
 
 - If you receive the error: "**This subscription is not registered to use namespace Microsoft.DataFactory**", do one of the following and try publishing again: 
 
@@ -291,15 +296,17 @@ Note the following:
 			Get-AzureRmResourceProvider
 	- Login using the Azure subscription in to the [Azure portal](https://portal.azure.com) and navigate to a Data Factory blade (or) create a data factory in the Azure portal. This action automatically registers the provider for you.
 - 	The name of the data factory may be registered as a DNS name in the future and hence become publically visible.
-- 	To create Data Factory instances, you need to be a contributor/administrator of the Azure subscription
+- 	To create Data Factory instances, you need to be an admin or co-admin of the Azure subscription
 
  
 ## Monitor pipeline
 
+### Monitor pipeline using Diagram View
 6. Log in to the [Azure portal](https://portal.azure.com/), do the following:
-	1. Click **Browse** and select **Data factories**.
+	1. Click **More services** and click **Data factories**.
 		![Browse data factories](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png) 
-	2. Select **FirstDataFactoryUsingVS** from the list of data factories. 
+	2. Select the name of your data factory (for example: **FirstDataFactoryUsingVS09152016**) from the list of data factories. 
+		![Select your data factory](./media/data-factory-build-your-first-pipeline-using-vs/select-first-data-factory.png)
 7. In the home page for your data factory, click **Diagram**.
   
 	![Diagram tile](./media/data-factory-build-your-first-pipeline-using-vs/diagram-tile.png)
@@ -322,17 +329,36 @@ Note the following:
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
 9. When processing is done, you see the slice in **Ready** state.
-	>[AZURE.IMPORTANT] Creation of an on-demand HDInsight cluster usually takes sometime (approximately 20 minutes).  
+	>[AZURE.IMPORTANT] Creation of an on-demand HDInsight cluster usually takes sometime (approximately 20 minutes). Therefore, expect the pipeline to take **approximately 30 minutes** to process the slice.  
 
 	![Dataset](./media/data-factory-build-your-first-pipeline-using-vs/dataset-slice-ready.png)	
 	
 10. When the slice is in **Ready** state, check the **partitioneddata** folder in the **adfgetstarted** container in your blob storage for the output data.  
  
 	![output data](./media/data-factory-build-your-first-pipeline-using-vs/three-ouptut-files.png)
+11. Click the slice to see details about it in a **Data slice** blade.
+
+	![Data slice details](./media/data-factory-build-your-first-pipeline-using-vs/data-slice-details.png)  
+12. Click an activity run in the **Activity runs list** to see details about an activity run (Hive activity in our scenario) in an **Activity run details** window.   
+	![Activity run details](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-blade.png)	
+	
+	From the log files, you can see the Hive query that was executed and status information. These logs are useful for troubleshooting any issues.  
+ 
 
 See [Monitor datasets and pipeline](data-factory-monitor-manage-pipelines.md) for instructions on how to use the Azure portal to monitor the pipeline and datasets you have created in this tutorial.
 
-You can also Monitor and Manage App to monitor your data pipelines. See [Monitor and manage Azure Data Factory pipelines using Monitoring App](data-factory-monitor-manage-app.md) for details about using the application. 
+### Monitor pipeline using Monitor & Manage App
+You can also use Monitor & Manage application to monitor your pipelines. For detailed information about using this application, see [Monitor and manage Azure Data Factory pipelines using Monitoring and Management App](data-factory-monitor-manage-app.md).
+
+1. Click Monitor & Manage tile.
+
+	![Monitor & Manage tile](./media/data-factory-build-your-first-pipeline-using-vs/monitor-and-manage-tile.png) 
+2. You should see Monitor & Manage application. Change the **Start time** and **End time** to match start (04-01-2016 12:00 AM) and end times (04-02-2016 12:00 AM) of your pipeline, and click **Apply**.
+
+	![Monitor & Manage App](./media/data-factory-build-your-first-pipeline-using-vs/monitor-and-manage-app.png) 
+3. Select an activity window in the Activity Windows list to see details about it. 
+	![Activity window details](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-details.png)
+
 
 > [AZURE.IMPORTANT] The input file gets deleted when the slice is processed successfully. Therefore, if you want to rerun the slice or do the tutorial again, upload the input file (input.log) to the inputdata folder of the adfgetstarted container.
  

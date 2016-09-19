@@ -172,7 +172,7 @@ In the portal **Logs** window, output similar to the following is logged while e
 
 You can test a blob trigger function using [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 
-1. In the [Azure Portal] for your Functions app, create a new C# or Node blob trigger function. Set the path to monitor to the name of your blob container. For example:
+1. In the [Azure Portal] for your Functions app, create a new C#, F# or Node blob trigger function. Set the path to monitor to the name of your blob container. For example:
 
 		files
 

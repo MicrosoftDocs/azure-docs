@@ -1,9 +1,9 @@
 <properties
-	pageTitle="How to Scale Media Processing using the Azure Classic Portal"
+	pageTitle="How to Scale Media Processing using the Azure Classic Portal | Microsoft Azure"
 	description="Learn how to scale Media Services by specifying the number of On-Demand Streaming Reserved Units and Encoding Reserved Units that you would like your account to be provisioned with."
 	services="media-services"
 	documentationCenter=""
-	authors="juliako,milangada"
+	authors="milangada"
 	manager="erikre"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2016"
-	ms.author="juliako"/>
+	ms.date="09/15/2016"
+	ms.author="juliako;milanga"/>
 
 
 # How to Scale Media Processing using the Azure Classic Portal
@@ -85,7 +85,9 @@ For information about quotas and limitations and how to open a support ticket, s
 
 
 
-##Media Services learning paths
+## Next step
+
+Review Media Services learning paths.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
