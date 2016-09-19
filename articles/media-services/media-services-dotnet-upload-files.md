@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Upload files into a Media Services account using .NET" 
+	pageTitle="Upload files into a Media Services account using .NET  | Microsoft Azure" 
 	description="Learn how to get media content into Media Services by creating and uploading assets." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
- 	ms.date="09/15/2016" 
+ 	ms.date="09/19/2016" 
 	ms.author="juliako"/>
 
 
 
-# Upload files into a Media Services account using .NET | Microsoft Azure
+# Upload files into a Media Services account using .NET
 
  > [AZURE.SELECTOR]
  - [.NET](media-services-dotnet-upload-files.md)
@@ -33,7 +33,7 @@ The files in the asset are called **Asset Files**. The **AssetFile** instance an
 >
 >- Media Services uses the value of the IAssetFile.Name property when building URLs for the streaming content (for example, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) For this reason, percent-encoding is not allowed. The value of the **Name** property cannot have any of the following [percent-encoding-reserved characters](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Also, there can only be one '.' for the file name extension.
 >
->- The length of the name should not be greater than 512 characters.
+>- The length of the name should not be greater than 260 characters.
 
 When you create assets, you can specify the following encryption options. 
 
