@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/16/2016"
+   ms.date="09/19/2016"
    ms.author="telmos"/>
 
 # Implementing Azure Active Directory
@@ -64,52 +64,59 @@ The following diagram highlights the important components in this architecture (
 
 [![0]][0]
 
-NOTE: NEED TO INCLUDE AD CONNECT SYNC SERVER IN THIS DIAGRAM
-
 - **Azure Active Directory tenant**. This is an instance of AAD created by your organization. It acts as a simple directory service for cloud applications, and can also provide identity services.
 
 - **Cloud Office 365**, **Public Cloud**, **SaaS**, **Azure**. These are examples of cloud-based applications and services for which AAD can act as an identity broker.
 
 - **Web tier subnet**. This subnet holds VMs that implement a custom cloud-based application developed by your organization and for which AAD can act as an identity broker.
 
-- **On-premises web apps**. These are web apps hosted in your organizations on-premises network. AAD can provide remote access to these web apps through the **AAD application proxy**. Your organization must run a **web app connector** on-premises to expose the web app to AAD.
+- **On-premises web apps**. These are web apps hosted in your organizations on-premises network. AAD can provide remote access to these web apps through the **AAD application proxy** which runs in the cloud. Your organization must run a **web app connector** on-premises to expose the web app to AAD.
 
-	>[AZURE.NOTE] The web app connector opens an outbound network connection to the application proxy running in AAD. Remote users requests are routed back from AAD through this connection to the web apps. This mechanism removes the need to open inbound ports in the on-premises firewall, reducing the attack surface exposed by your organization.
+	>[AZURE.NOTE] The web app connector opens an outbound network connection to the AAD application proxy. Remote users requests are routed back from AAD through this connection to the web apps. This mechanism removes the need to open inbound ports in the on-premises firewall, reducing the attack surface exposed by your organization.
 
-- **On-premises AD FS server** and **on-premises AD DS server**. Your organization will likely already have an existing directory service such as AD DS, and may implement identity federation through AD FS. You can configure AAD to perform authentication through an on-premises AD FS server, which can, in turn, utilize the on-premises AD DS server.
+- **On-premises AD FS server** and **on-premises AD DS server**. Your organization will likely already have an existing directory service such as AD DS, and may implement identity federation through AD FS. If necessary, you can configure AAD to perform authentication through an on-premises AD FS server, which can, in turn, utilize the on-premises AD DS server.
 
-- **AD Connect agent**. This is a piece of software that runs on-premises and synchronizes the on-premises AD to AAD in the cloud. For example, you can provision or deprovision groups and users on-premises and these changes will be propagated to AAD. The AD Connect Agent communicates with an **AAD Connect Sync server** which passes information to the AAD tenant.
+- **AD Connect agent**. This is a piece of software that runs on-premises and synchronizes the on-premises AD to AAD in the cloud. For example, you can provision or deprovision groups and users on-premises and these changes will be propagated to AAD. The AD Connect Agent communicates with an **AAD Connect Sync server** which runs in the cloud. The AAD Connect Sync server passes information to the AAD tenant.
 
 	>[AZURE.NOTE] For security reasons, user's passwords are not stored directly in AAD. Rather, AAD holds a hash each password; this is sufficient to verify a user's password. If a user requires a password reset, this must be performed on-premises and the new hash sent to AAD. AAD Premium includes features that can automate this task to enable users to reset their own passwords.
 
 ## Recommendations
 
-**NOTE TO SELF. NEED TO BUILD AND VERIFY THE ABOVE ARCHITECTURE BEFORE CONTINUING WITH THIS SECTION**
-
-This section summarizes recommendations for implementing AAD, covering:
-
-- aaa
+This section summarizes recommendations for implementing AAD.
 
 ### VM recommendations
 
 AAD is a service that does not require any VMs. For recommendations about building the virtual machines for the web tier subnet, providing access to the web application, see [Running VMs for an N-tier architecture on Azure][implementing-a-multi-tier-architecture-on-Azure].
 
-### Networking recommendations
+### Security recommendations
 
+Use conditional access control to deny authentication requests from unexpected sources:
+
+- Trigger [Azure Multi-Factor Authentication (MFA)][azure-multifactor-authentication] if a user attempts to connect from a non-trusted location (such as across the Internet) rather than a trusted network.
+
+- Use the device platform type of the user (iOS, Android, Windows Mobile, Windows) to determine access policy to applications and features.
+
+- Record the enabled/disabled state of users' devices, and incorporate this information into the access policy checks. For example, if a user's phone is lost or stolen it should be recorded as disabled to prevent it from being used to gain access.
+
+- Control the level of access to a user based on group membership. Use [AAD dynamic membership rules][aad-dynamic-membership-rules] to simplify group administration. For a brief overview of how this works, see [Introduction to Dynamic Memberships for Groups][aad-dynamic-memberships].
+
+- Use conditional access risk policies with AAD Identity Protection to provide advanced protection based on unusual sign-in activities or other events.
+
+For more information, see [Azure Active Directory conditional access][aad-conditional-access].
 
 ### Topology recommendations
 
 **NOTE: DIAGRAMS FOR THIS SECTION TBD**
 
-If you are integrating an on-premises directory with AAD, use Azure AD Connect  to implement a topology that most closely matches the requirements of your organization. AAD supports the following topologies:
+If you are integrating an on-premises directory with AAD, configure AAD Connect Sync to implement a topology that most closely matches the requirements of your organization. AAD supports the following topologies:
 
-- **Single forest, single AAD directory**. In this topology you use AD Connect to synchronize passwords for identities in one or more domains in a single on-premises forest with a single AAD tenant:
+- **Single forest, single AAD directory**. In this topology you use AAD Connect to synchronize passwords for identities in one or more domains in a single on-premises forest with a single AAD tenant:
 
 	[![1]][1]
 
 	Don't use multiple AD Connect Sync servers to connect different domains in the same on-premises forest to the same AAD tenant unless you are running an AD Connect Sync server in staging mode (see Staging Server below).
 
-- **Multiple forests, single AAD directory**. Use this topology if you have more than one on-premises forest. You can consolidate identity information so that each unique user is represented once in the AAD directory, even if the same user exists in more than one forest. All forests use the same AD Connect sync server. The AD Connect sync server does not have to be part of any domain, but it must be reachable from all forests:
+- **Multiple forests, single AAD directory**. Use this topology if you have more than one on-premises forest. You can consolidate identity information so that each unique user is represented once in the AAD directory, even if the same user exists in more than one forest. All forests use the same AAD Connect sync server. The AAD Connect sync server does not have to be part of any domain, but it must be reachable from all forests:
 
 	[![2]][2]
 
@@ -119,7 +126,7 @@ If you are integrating an on-premises directory with AAD, use Azure AD Connect  
 
 	[![3]][3]
 
-	If the GALs in each forest are synchronized, then a user in one forest may be present in another as a contact. This can occur if, for example, your organization has implemented GALSync with Forefron Identity manager 2010 or Microsoft Identity Manager 2016. In this scenario, you can specify that users should be identified by their *Mail* attribute. You can also match identities using the *ObjectSID* and *msExchMasterAccountSID* attributes; this is useful if you have one or more resource forests with disabled accounts.
+	If the GALs in each forest are synchronized, then a user in one forest may be present in another as a contact. This can occur if, for example, your organization has implemented GALSync with Forefront Identity manager 2010 or Microsoft Identity Manager 2016. In this scenario, you can specify that users should be identified by their *Mail* attribute. You can also match identities using the *ObjectSID* and *msExchMasterAccountSID* attributes; this is useful if you have one or more resource forests with disabled accounts.
 
 	NOTE: MIGHT NEED TO REVISIT THIS ONE!
 
@@ -133,41 +140,71 @@ If you are integrating an on-premises directory with AAD, use Azure AD Connect  
 
 For more information, see [Topologies for Azure AD Connect][aad-topologies].
 
-DEFAULT CONFIGURATION AND RULES - https://azure.microsoft.com/documentation/articles/active-directory-aadconnectsync-understanding-default-configuration/
+## User sign-in considerations
 
-### Security recommendations
+By default, the AAD service assumes that users will log in by providing the same password that they use on-premises, and the AAD Connect Sync service configures password synchronization between the on-premises domain and AAD. For many organizations, this is appropriate, but you should consider your organization's existing policies and infrastructure. For example:
 
-Use dynamic membership groups - https://youtu.be/Tdiz2JqCl9Q
+- Your organization might already have AD FS or a 3rd party federation provider deployed.
 
+- The security policy of your organization might prohibit synchronizing password hashes to the cloud.
 
-## Availability considerations
+- You might require that users experience seamless SSO (without additional password prompts) when accessing cloud resources from domain joined machines on the corporate network.
 
-AAD is designed to provide high availability. It is geo-distributed and runs in multiple data centers spread around the world, with automated failover. If a data center becomes unavailable, AAD ensures that your directory data is available for instance access in at least two more regionally dispersed data centers.
+If you use AD FS on-premises to provide single sign-on, you can configure AAD to use your installation of AD FS to identify users. You can configure this option by performing a custom installation of AAD Connect:
 
->[AZURE.NOTE] The SLA for AAD Basic and Premium services guarantee at least 99.9% availability. There is no SLA for the Free tier of AAD. For more information, see [SLA for Azure Active Directory][sla-aad].
+[![7]][7]
+
+Select *Federation with AD FS* to install and configure AD FS with the AAD Connect agent. Select *Do not configure* if you already have a 3rd party federation server or another existing solution in place.
+
+For more information, see [Azure AD Connect User Sign on options][aad-user-sign-in].
+
+## Object synchronization considerations
+
+The default configuration of AAD Connect Sync synchronizes objects from your local AD directory based on the set of rules specified in the article [Azure AD Connect sync: Understanding the default configuration][aad-connect-sync-default-rules]. Only objects that satisfy these rules are synchronized, others are ignored. For example, User objects must have a unique *sourceAnchor* attribute and the *accounEnabled* attribute must be populated. User Objects that do not have a *sAMAccountName* attribute or that start with the text *AAD_* or *MSOL_* are not synchronized. AAD Connect Sync applies many other rules to User objects, as well as to Contact, Group, ForeignSecurityPrincipal, and Computer objects. If you need to modify the default set of rules, use the Synchronization Rules Editor installed with AAD Connect sync (also documented in [Azure AD Connect sync: Understanding the default configuration][aad-connect-sync-default-rules]).
+
+You can filter by domain or OU to limit the objects to be synchronized by performing a custom installation of the AAD Connect Sync agent:
+
+[![8]][8]
 
 ## Security considerations
 
-Track inconsistent access patterns - video 34:15
+Consider using AAD Premium P2 edition, which includes AAD Identity Protection. Identity Protection uses adaptive machine learning algorithms and heuristics to detect anomalies and risk events that may indicate that an identity has been compromised. For example, it can detect potentially anomalous activity such as irregular sign-in activities, sign-ins from unknown sources or from IP addresses with suspicious activity, or sign-ins from devices that may be infected. Using this data, Identity Protection generates reports and alerts that enables you to investigate these risk events and take appropriate remediation or mitigation action.
 
-MFA
+For more information, see [Azure Active Directory Identity Protection][aad-identity-protection].
+
+If you are using a premium version of AAD, you can enable password writeback from AAD to your on-premises directory by performing a custom installation of AAD Connect Sync:
+
+[![9]][9]
+
+This feature enables users to reset their own passwords from within the Azure portal, but should only be enabled after reviewing your organization's password security policy. For example, you can restrict which users can change their passwords, and you can tailor the password management experience. For more information, see [Customizing Password Management to fit your organization's needs][aad-password-management].
+
+## Availability considerations
+
+The AAD service is designed to provide high availability. There are no user-configurable availability options. It is geo-distributed and runs in multiple data centers spread around the world, with automated failover. If a data center becomes unavailable, AAD ensures that your directory data is available for instance access in at least two more regionally dispersed data centers.
+
+>[AZURE.NOTE] The SLA for AAD Basic and Premium services guarantee at least 99.9% availability. There is no SLA for the Free tier of AAD. For more information, see [SLA for Azure Active Directory][sla-aad].
 
 ## Scalability considerations
 
-You do not have to configure any options to implement scalability. AAD supports scalability based on replicas. AAD implements a single primary replica which handles write operations, and multiple read-only secondary replicas. AAD transparently redirects attempted writes made against secondary replicas to the primary replica. AAD provides eventual consistency; all changes made to the primary replica will be propagated to the secondary replicas. As most operations against AAD will be reads rather than writes, this architecture scales well.
+Scalability is addressed by the AAD service and the configuration of the AAD Connect Sync service and agent:
 
-For more information, see [Azure AD: Under the hood of our geo-redundant, highly available, distributed cloud directory][aad-scalability].
+- For the AAD service, you do not have to configure any options to implement scalability. The AAD service supports scalability based on replicas. AAD implements a single primary replica which handles write operations, and multiple read-only secondary replicas. AAD transparently redirects attempted writes made against secondary replicas to the primary replica. AAD provides eventual consistency; all changes made to the primary replica will be propagated to the secondary replicas. As most operations against AAD will be reads rather than writes, this architecture scales well.
+
+	For more information, see [Azure AD: Under the hood of our geo-redundant, highly available, distributed cloud directory][aad-scalability].
+
+- For the AAD Connect Sync service and agent, you should determine how many objects you are likely to synchronize from your local directory. If you have less then 100,000 objects you can use the default SQL Server Express LocalDB software provided with the AAD Connect agent. If you have a larger number of objects, you should install a production version of SQL Server and perform a custom installation of the AAD Connect Agent specifying that it should use an existing instance of SQL Server:
+
+	[![6]][6]
 
 ## Management considerations
 
 https://azure.microsoft.com/en-gb/documentation/articles/active-directory-aadconnectsync-operations/
 
-
 ## Monitoring considerations
 
-Video - 33:45
-
 Health - https://azure.microsoft.com/en-gb/documentation/articles/active-directory-aadconnect-health/
+
+Reporting - https://azure.microsoft.com/en-us/documentation/articles/active-directory-reporting-guide/
 
 ## Solution components
 
@@ -189,8 +226,16 @@ Health - https://azure.microsoft.com/en-gb/documentation/articles/active-directo
 [aad-explained]: https://youtu.be/tj_0d4tR6aM
 [adfs-multitenant]: ./guidance-multitenant-identity-adfs.md
 [sla-aad]: https://azure.microsoft.com/support/legal/sla/active-directory/v1_0/
+[azure-multifactor-authentication]: https://azure.microsoft.com/documentation/articles/multi-factor-authentication/
+[aad-conditional-access]: https://azure.microsoft.com/documentation/articles/active-directory-conditional-access/
+[aad-dynamic-membership-rules]: https://azure.microsoft.com/documentation/articles/active-directory-accessmanagement-groups-with-advanced-rules/
+[aad-dynamic-memberships]: https://youtu.be/Tdiz2JqCl9Q
+[aad-user-sign-in]: https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-user-signin/
 [aad-topologies]: https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-topologies/
 [aad-scalability]: https://blogs.technet.microsoft.com/enterprisemobility/2014/09/02/azure-ad-under-the-hood-of-our-geo-redundant-highly-available-distributed-cloud-directory/
+[aad-connect-sync-default-rules]: https://azure.microsoft.com/documentation/articles/active-directory-aadconnectsync-understanding-default-configuration/
+[aad-identity-protection]: https://azure.microsoft.com/documentation/articles/active-directory-identityprotection/
+[aad-password-management]: https://azure.microsoft.com/documentation/articles/active-directory-passwords-customize/
 
 [0]: ./media/guidance-ra-identity-aad/figure1.png "Cloud identity architecture using Azure Active Directory"
 [1]: ./media/guidance-ra-identity-aad/figure2.png "Single forest, single AAD directory topology"
@@ -198,3 +243,7 @@ Health - https://azure.microsoft.com/en-gb/documentation/articles/active-directo
 [3]: ./media/guidance-ra-identity-aad/figure4.png "Multiple forests, separate topologies"
 [4]: ./media/guidance-ra-identity-aad/figure5.png "Staging server topology"
 [5]: ./media/guidance-ra-identity-aad/figure6.png "Multiple AAD directories topology"
+[6]: ./media/guidance-ra-identity-aad/figure7.png "Selecting a custom installation of the AAD Connect agent with a specific instance of SQL Server"
+[7]: ./media/guidance-ra-identity-aad/figure8.png "Specifying the SSO method for user sign-in"
+[8]: ./media/guidance-ra-identity-aad/figure9.png "Specifying Domain and OU filtering options"
+[9]: ./media/guidance-ra-identity-aad/figure10.png "Enabling password writeback"
