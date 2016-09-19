@@ -24,18 +24,18 @@ Get the answers to common questions, patterns, and best practices for Azure API 
 
 -	[How can I ask the Microsoft Azure API Management team a question?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
 -	[What does it mean when a feature is in preview?](#what-does-it-mean-when-a-feature-is-in-preview)
--	[What supported options do I have to secure the connection between the API Management gateway and my back-end services?](#what-supported-options-do-I-have-to-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services?)
+-	[What supported options do I have to secure the connection between the API Management gateway and my backend services?](#what-supported-options-do-I-have-to-secure-the-connection-between-the-api-management-gateway-and-my-backend-services?)
 -	[How do I copy my API Management service instance to a new instance?](#how-do-i-copy-my-api-management-service-instance-to-a-new-instance)
 -	[Can I manage my API Management instance programmatically?](#can-i-manage-my-api-management-instance-programmatically)
 -	[How do I add a user to the Administrators group?](#how-do-i-add-a-user-to-the-administrators-group)
 -	[Why is the policy that I want to add unavailable in the policy editor?](#why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor)
 -	[How do I use API versioning in API Management?](#how-do-i-use-api-versioning-in-api-management)
--	[How do I set up multiple environments, for example, a test environment and a production environment, in a single API?](#how-do-I-set-up-multiple-environments-for-example-a-test-environment-and-a-production-environment-in-a-single-API)
+-	[How do I set up multiple environments in a single API?](#how-do-I-set-up-multiple-environments-in-a-single-API)
 -	[Can I use SOAP with API Management?](#can-i-use-soap-with-api-management)
 -	[Is the API Management gateway IP address constant? Can I use it in firewall rules?](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
 -	[Can I configure an OAuth 2.0 authorization server with ADFS security?](#can-i-configure-an-oauth-20-authorization-server-with-adfs-security)
 -	[What routing method does API Management use in deployments to multiple geographic locations?](#what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations)
--	[Can I use an Azure Resource Manager template to create an API Management service instance?](#Can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance)
+-	[Can I use an Azure Resource Manager template to create an API Management service instance?](#can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance)
 -	[Can I use a self-signed SSL certificate for a back end?](#can-i-use-a-self-signed-ssl-certificate-for-a-back-end)
 -	[Why do I get an authentication failure when I try to clone a GIT repository?](#why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository)
 -	[Does API Management work with Azure ExpressRoute?](#does-api-management-work-with-azure-expressroute)
@@ -54,9 +54,9 @@ You can contact us by using one of these options:
 
 When a feature is in preview, it means that we're actively seeking feedback on how the feature is working for you. A feature in preview is functionally complete, but it's possible that we'll make a breaking change in response to customer feedback. We recommend that you don't depend on a feature that is in preview in your production environment. If you have any feedback on preview features, please let us know through one of the contact options in [How can I ask the Microsoft Azure API Management team a question?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
 
-### What supported options do I have to secure the connection between the API Management gateway and my back-end services?
+### What supported options do I have to secure the connection between the API Management gateway and my backend services?
 
-You have several options if you want to secure the connection between the API Management gateway and your back-end services. You can:
+You have several options to secure the connection between the API Management gateway and your backend services. You can:
 
 -	Use HTTP basic authentication. For more information, see [Configure API settings](api-management-howto-create-apis.md#configure-api-settings).
 - Use SSL mutual authentication as described in [How to secure back-end services by using client certificate authentication in Azure API Management](api-management-howto-mutual-certificates.md).
@@ -108,9 +108,9 @@ You have a few options to use API versioning in API Management:
 -	You also can configure your API with a service URL that doesn't include a version segment, for example, https://my.api. Then, configure a version segment on each operation's [Rewrite URL](https://msdn.microsoft.com/library/azure/dn894083.aspx#RewriteURL) template. For example, you can have an operation with a [URL template](api-management-howto-add-operations.md#url-template) called /resource and a [Rewrite URL](api-management-howto-add-operations.md#rewrite-url-template) template called /v1/Resource. You can change the version segment value separately for each operation.
 -	If you'd like to keep a "default" version segment in the API's service URL, on selected operations, set a policy that uses the [Set backend service](https://msdn.microsoft.com/library/azure/dn894083.aspx#SetBackendService) policy to change the backend request path.
 
-### How do I set up multiple environments, for example, a test environment and a production environment, in a single API?
+### How do I set up multiple environments in a single API?
 
-To set up multiple environments in a single API, you have two options. You can:
+To set up multiple environments, for example, a test environment and a production environment, in a single API, you have two options. You can:
 
 -	Host different APIs on the same tenant
 -	Host the same APIs on different tenants
