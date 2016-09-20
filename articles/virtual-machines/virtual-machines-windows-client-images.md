@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Using Windows client images for dev / test | Microsoft Azure"
-   description="How to use Visual Studio subscription benefits to deploy Windows 7/8/10 in Azure for dev / test scenarios"
+   pageTitle="Using Windows client images for dev/test scenarios | Microsoft Azure"
+   description="How to use Visual Studio subscription benefits to deploy Windows 7/8/10 in Azure for dev/test scenarios"
    services="virtual-machines-windowse"
    documentationCenter=""
    authors="iainfoulds"
@@ -16,9 +16,9 @@
    ms.date="08/31/2016"
    ms.author="iainfou"/>
 
-# Using Windows client in Azure for dev/test
+# Using Windows client in Azure for dev/test scenarios
 
-You can use Windows 7, Windows 8, or Windows 10 in Azure for dev / test scenarios provided you have an appropriate Visual Studio (formerly MSDN) subscription. This article outlines the eligibility requirements for running Windows client in Azure and use of the Azure Gallery images.
+You can use Windows 7, Windows 8, or Windows 10 in Azure for dev/test scenarios provided you have an appropriate Visual Studio (formerly MSDN) subscription. This article outlines the eligibility requirements for running Windows client in Azure and use of the Azure Gallery images.
 
 
 ## Subscription eligibility
