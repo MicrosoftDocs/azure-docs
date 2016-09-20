@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory Domain Services preview: Administration Guide | Microsoft Azure"
+	pageTitle="Azure Active Directory Domain Services: Administration Guide | Microsoft Azure"
 	description="Join a Windows virtual machine to a managed domain using Azure PowerShell and the classic deployment model."
 	services="active-directory-ds"
 	documentationCenter=""
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/20/2016"
 	ms.author="maheshu"/>
 
 
-# Create Windows virtual machines with PowerShell and the classic deployment model
+# Join a Windows Server virtual machine to a managed domain using PowerShell
 
 > [AZURE.SELECTOR]
 - [Azure classic portal - Windows](active-directory-ds-admin-guide-join-windows-vm.md)
@@ -29,7 +29,7 @@
 
 These steps show you how to customize a set of Azure PowerShell commands that create and preconfigure a Windows-based Azure virtual machine by using a building block approach. These steps help you build a Windows-based Azure virtual machine and join it to an Azure AD Domain Services managed domain.
 
-These steps follow a fill-in-the-blanks approach for creating Azure PowerShell command sets. This approach can be useful if you are new to PowerShell or you just want to know what values to specify for successful configuration. Advanced PowerShell users can take the commands and substitute their own values for the variables (the lines beginning with "$").
+These steps follow a fill-in-the-blanks approach for creating Azure PowerShell command sets. This approach can be useful if you are new to PowerShell or you want to know what values to specify for successful configuration. Advanced PowerShell users can take the commands and substitute their own values for the variables (the lines beginning with "$").
 
 If you haven't done so already, use the instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) to install Azure PowerShell on your local computer. Then, open a Windows PowerShell command prompt.
 
@@ -111,7 +111,7 @@ Now, provision the domain-joined Windows VM.
 <br>
 
 ## Script to provision a Windows VM and automatically join it to an AAD Domain Services managed domain
-This PowerShell command set creates a virtual machine for a line of business server that:
+This PowerShell command set creates a virtual machine for a line-of-business server that:
 
 - Uses the Windows Server 2012 R2 Datacenter image.
 - Is an extra small virtual machine.
@@ -146,3 +146,10 @@ Here is the full sample script to create the Windows virtual machine and automat
     $dns = New-AzureDns -Name 'contoso100-dc1' -IPAddress '10.0.0.4'
 
     New-AzureVM –ServiceName $svcname -VMs $vm1 -VNetName $vnetname -Location "Central US" -DnsSettings $dns
+
+<br>
+
+## Related Content
+- [Azure AD Domain Services - Getting Started guide](./active-directory-ds-getting-started.md)
+
+- [Administer an Azure AD Domain Services managed domain](./active-directory-ds-admin-guide-administer-domain.md)
