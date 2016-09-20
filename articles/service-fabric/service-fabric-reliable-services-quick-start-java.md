@@ -95,11 +95,6 @@ In this tutorial, we will focus on the `runAsync()` entry point method. This is 
 
 ### RunAsync
 
-```java
-@Override
-protected CompletableFuture<?> runAsync() {
-}
-```
 
 The platform calls this method when an instance of a service is placed and ready to execute. For a stateless service, that simply means when the service instance is opened. A cancellation token is provided to coordinate when your service instance needs to be closed. In Service Fabric, this open/close cycle of a service instance can occur many times over the lifetime of the service as a whole. This can happen for various reasons, including:
 
@@ -121,8 +116,8 @@ Service types must be registered with the Service Fabric runtime. The service ty
 ```java
 public static void main(String[] args) throws Exception {
     try {
-        ServiceRuntime.registerStatelessServiceAsync("HelloWorldServiceType", (context) -> new HelloWorldService(), Duration.ofSeconds(10));
-        logger.log(Level.INFO, "Registered stateless service type EchoServer.EchoServiceType.");
+        ServiceRuntime.registerStatelessServiceAsync("HelloWorldType", (context) -> new HelloWorldService(), Duration.ofSeconds(10));
+        logger.log(Level.INFO, "Registered stateless service type HelloWorldType.");
         Thread.sleep(Long.MAX_VALUE);
     } 
     catch (Exception ex) {
