@@ -796,8 +796,7 @@ If you have a Network Security Group associated with the Virtual Machine or the 
 
 Here's how you can monitor the configuration settings, status, and health for your Site Recovery deployment:
 
-1. Click on the vault name to access the **Essentials** dashboard. In this dashboard you can Site Recovery jobs, replication status, recovery plans, server health, and events.  You can customize Essentials to show the tiles and layouts that are most useful to you, including the status of other Site Recovery and Backup vaults.
-
+1. Click on the vault name to access the **Essentials** dashboard. In this dashboard you can Site Recovery jobs, replication status, recovery plans, server health, and events.  You can customize Essentials to show the tiles and layouts that are most useful to you, including the status of other Site Recovery and Backup vaults.<br>
 ![Essentials](./media/site-recovery-vmware-to-azure/essentials.png)
 
 2. In the **Health** tile you can monitor site servers (VMM or configuration servers) that are experiencing issue, and the events raised by Site Recovery in the last 24 hours.
