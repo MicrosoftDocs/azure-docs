@@ -29,18 +29,20 @@ Here are the Fabric settings that you can customize:
 
 ### Section Name : Security
 
-|**Parameter**|**Allowed Values**|**Guidance or short Descriptions**|
-|-----------------------|--------------------------|
-|ClusterProtectionLevel|None or EncryptAndSign.| None (default) for unsecure clusters, EncryptAndSign for secure clusters. |
+|Parameter|Allowed Values|Guidance or short Descriptions|
 
+|-----------------------|--------------------------|--------------------------|
+
+|ClusterProtectionLevel|None or EncryptAndSign.| None (default) for unsecure clusters, EncryptAndSign for secure clusters. |
+<br/>
 ### Section Name : Hosting
 
-|**Parameter**|**Allowed Values**|**Short Description**|
-|-----------------------|--------------------------|
+|Parameter|Allowed Values|Short Description|
+|-----------------------|--------------------------|--------------------------|
 |ServiceTypeRegistrationTimeout|None or EncryptAndSign.| None (default) for unsecure cluters, EncryptAndSign for secure clusters. |
 |ServiceTypeDisableFailureThreshold|None or EncryptAndSign.| None (default) for unsecure cluters, EncryptAndSign for secure clusters. |
 |ActivationRetryBackoffInterval|None or EncryptAndSign.| None (default) for unsecure cluters, EncryptAndSign for secure clusters. |
-|ActivationMaxRetryInterval|None or EncryptAndSign.| None (default) for unsecure cluters, EncryptAndSign for secure clusters. |
+|ActivationMaxRetryInterval|Specify timespan in seconds| On every continuous activation failure the system will retry the activation for up to the ten times. This parameter specifies Wait time interval before retry after every activation failure |
 |ActivationMaxFailureCount|None or EncryptAndSign.| None (default) for unsecure cluters, EncryptAndSign for secure clusters. |
 
 
