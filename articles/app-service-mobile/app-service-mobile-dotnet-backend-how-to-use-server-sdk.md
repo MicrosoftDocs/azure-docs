@@ -24,8 +24,8 @@
 This topic shows you how to use the .NET backend server SDK in key Azure App Service Mobile Apps scenarios. The Azure Mobile Apps SDK 
 helps you work with mobile clients from your ASP.NET application.
 
->[AZURE.TIP] The [.NET server SDK for Azure Mobile Apps][2] is open source on GitHub. The repository contains the entire server SDK 
-unit test suite as well as some sample projects.
+>[AZURE.TIP] The [.NET server SDK for Azure Mobile Apps][2] is open source on GitHub. The repository contains all source code including
+the entire server SDK unit test suite and some sample projects.
 
 ## Reference documentation
 
@@ -34,18 +34,14 @@ The reference documentation for the server SDK is located here: [Azure Mobile Ap
 
 ## <a name="create-app"></a>How to: Create a .NET Mobile App backend
 
-If you are starting a new project, you can create an App Service application using either the [Azure portal] or Visual Studio. This section 
-will help you use one of these to create a new mobile application backend which hosts a simple todo list API. You can run this locally or 
-publish the project to your cloud-based App Service mobile app.
+If you are starting a new project, you can create an App Service application using either the [Azure portal] or Visual Studio. You can run
+the App Service application locally or publish the project to your cloud-based App Service mobile app.  
 
-If you are adding mobile capabilities to an existing project, see the [Download and initialize the SDK](#install-sdk) section below.
+If you are adding mobile capabilities to an existing project, see the [Download and initialize the SDK](#install-sdk) section.
 
 ### Create a .NET backend using the Azure portal
 
-You can create a new Mobile App backend right in the [Azure portal]. 
-
-You can either follow the steps below, or create a new client and server together by following the [Create a mobile app][3] tutorial. The tutorial 
-contains a simplified version of these instructions and is best for proof of concept projects; the tutorial can create only a Node.js backend.
+Either follow the [Quickstart tutorial][3] or follow these steps to create an App Service mobile backend:
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
 
@@ -54,40 +50,36 @@ compressed project files to your local computer, and open the solution in Visual
 
 ### Create a .NET backend using Visual Studio 2013 and Visual Studio 2015
 
-In order to create a Mobile Apps project in Visual Studio, you will need to install the [Azure SDK for .NET][4], version 2.8.1 or later. Once you 
-have installed the SDK, create a new ASP.NET application:
+You will need to install the [Azure SDK for .NET][4] (version 2.9.0 or later) to create an Azure Mobile Apps project in Visual Studio. Once you 
+have installed the SDK, create an ASP.NET application using the following steps:
 
 1. Open the **New Project** dialog (from *File* > **New** > **Project...**).
-
 2. Expand **Templates** > **Visual C#**, and select **Web**.
-
 3. Select **ASP.NET Web Application**.
-
 4. Fill in the project name. Then click **OK**.
-
-5. Under _ASP.NET 4.5.2 Templates_, select **Azure Mobile App**. Check **Host in the cloud** to create a new mobile app in the cloud to which you can 
-publish this project.
-
-6. Click **OK**. Your application will be created and appear in the Solution Explorer.
+5. Under _ASP.NET 4.5.2 Templates_, select **Azure Mobile App**. Check **Host in the cloud** to create a mobile backend in the cloud to which you can publish this project.
+6. Click **OK**.
 
 ## <a name="install-sdk"></a>How to: Download and initialize the SDK
 
-The SDK is available on [NuGet.org]. This package includes the base functionality required to get started using the SDK. To initialize the SDK, you need to perform actions on the **HttpConfiguration** object.
+The SDK is available on [NuGet.org]. This package includes the base functionality required to get started using the SDK. To initialize the SDK, you 
+need to perform actions on the **HttpConfiguration** object.
 
 ### Install the SDK
 
-To install the SDK, right-click on the server project in Visual Studio, select **Manage NuGet Packages**, search for the [Microsoft.Azure.Mobile.Server](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) package, then click **Install**.
+To install the SDK, right-click on the server project in Visual Studio, select **Manage NuGet Packages**, search for the [Microsoft.Azure.Mobile.Server] 
+package, then click **Install**.
 
 ###<a name="server-project-setup"></a> Initialize the server project
 
-A .NET backend server project is initialized similar to other ASP.NET projects, by including an OWIN startup class. Ensure that you have referenced the NuGet package `Microsoft.Owin.Host.SystemWeb`. To add this class in Visual Studio, right-click on your server project and select **Add** > **New Item**, then **Web** > **General** > **OWIN Startup class**.
-
-This will generate a class with the following attribute:
+A .NET backend server project is initialized similar to other ASP.NET projects, by including an OWIN startup class. Ensure that you have referenced 
+the NuGet package `Microsoft.Owin.Host.SystemWeb`. To add this class in Visual Studio, right-click on your server project and select **Add** > 
+**New Item**, then **Web** > **General** > **OWIN Startup class**  A class is generated with the following attribute:
 
     [assembly: OwinStartup(typeof(YourServiceName.YourStartupClassName))]
 
-In the `Configuration()` method of your OWIN startup class, set up the server project using an **HttpConfiguration** object which represents 
-the configuration options for the service. The following example initializes the server project with no added features:
+In the `Configuration()` method of your OWIN startup class, use a **HttpConfiguration** object to configure the Azure Mobile Apps environment.
+The following example initializes the server project with no added features:
 
 	// in OWIN startup class
 	public void Configuration(IAppBuilder app)
@@ -108,11 +100,6 @@ the following code adds the default routes to all API controllers that have the 
 	    .MapApiControllers()
 	    .ApplyTo(config);
 
-Note that `MapApiControllers` only maps controllers with the attribute `[MobileAppController]`. To map other controllers, use 
-the [MapHttpAttributeRoutes] method. 
-
-Many of the feature extension methods are available via additional NuGet packages you can include, which are described in the section below.
-
 The server quickstart from the Azure portal calls **UseDefaultConfiguration()**. This equivalent to the following setup:
 
 		new MobileAppConfiguration()
@@ -127,10 +114,19 @@ The server quickstart from the Azure portal calls **UseDefaultConfiguration()**.
 			.MapLegacyCrossDomainController()         // from the CrossDomain package
 			.ApplyTo(config);
 
+The extension methods used are:
+
+* `AddMobileAppHomeController()` provides the default Azure Mobile Apps home page.
+* `MapApiControllers()` provides custom API capabilities for WebAPI controllers decorated with the `[MobileAppController]` attribute.
+* `AddTables()` provides a mapping of the `/tables` endpoints to table controllers.
+* `AddTablesWithEntityFramework()` is a short-hand for mapping the `/tables` endpoints using Entity Framework based controllers.
+* `AddPushNotifications()` provides a simple method of registering devices for Notification Hubs.
+* `MapLegacyCrossDomainController()` provides standard CORS headers for local development.
 
 ### SDK extensions
 
-The following NuGet-based extension packages provide various mobile features that can be used by your application. You enable extensions during initialization by using the **MobileAppConfiguration** object.
+The following NuGet-based extension packages provide various mobile features that can be used by your application. You enable extensions during 
+initialization by using the **MobileAppConfiguration** object.
 
 - [Microsoft.Azure.Mobile.Server.Quickstart]
 	 Supports the basic Mobile Apps setup. Added to the configuration by calling the **UseDefaultConfiguration** extension method during initialization. This extension includes following extensions: Notifications, Authentication, Entity, Tables, Cross-domain and Home packages. This is equivalent to the quickstart server project that you download from the Azure portal.
@@ -542,8 +538,10 @@ Your locally-running server is now equipped to validate tokens which the client 
 [4]: https://azure.microsoft.com/downloads/
 [Azure portal]: https://portal.azure.com
 [NuGet.org]: http://www.nuget.org/
+[Microsoft.Azure.Mobile.Server]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/
 [Microsoft.Azure.Mobile.Server.Quickstart]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Quickstart/
 [Microsoft.Azure.Mobile.Server.Authentication]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 [MapHttpAttributeRoutes]: https://msdn.microsoft.com/library/dn479134(v=vs.118).aspx
+
