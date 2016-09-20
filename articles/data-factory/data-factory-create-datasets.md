@@ -64,11 +64,11 @@ The following table describes properties in the above JSON:
 | -------- | ----------- | -------- | ------- |
 | name | Name of the dataset. See [Azure Data Factory - Naming rules](data-factory-naming-rules.md) for naming rules. | Yes | NA |
 | type | Type of the dataset. Specify one of the types supported by Azure Data Factory (for example: AzureBlob, AzureSqlTable). <br/><br/>See [Dataset Type](#Type) for details. | Yes | NA |
-| structure | Schema of the dataset<br/><br/>See [Dataset Structure](#Structure) section for more details | No. | NA |
+| structure | Schema of the dataset<br/><br/>For details, see [Dataset Structure](#Structure) section. | No. | NA |
 | typeProperties | Properties corresponding to the selected type. See [Dataset Type](#Type) section for details on the supported types and their properties. | Yes | NA |
 | external | Boolean flag to specify whether a dataset is explicitly produced by a data factory pipeline or not.  | No | false | 
-| availability | Defines the processing window or the slicing model for the dataset production. <br/><br/>See [Dataset Availability](#Availability) topic for more details<br/><br/>See [Scheduling and Execution](data-factory-scheduling-and-execution.md) article for more details on the dataset slicing model | Yes | NA
-| policy | Defines the criteria or the condition that the dataset slices must fulfill. <br/><br/>See [Dataset Policy](#Policy) topic for more details | No | NA |
+| availability | Defines the processing window or the slicing model for the dataset production. <br/><br/>For details, see [Dataset Availability](#Availability) section. <br/><br/>For details on the dataset slicing model, see [Scheduling and Execution](data-factory-scheduling-and-execution.md) article. | Yes | NA
+| policy | Defines the criteria or the condition that the dataset slices must fulfill. <br/><br/>For details, see [Dataset Policy](#Policy) section. | No | NA |
 
 ## Dataset example
 In the following example, the dataset represents a table named **MyTable** in an **Azure SQL database**. 
@@ -90,7 +90,7 @@ In the following example, the dataset represents a table named **MyTable** in an
 	    }
 	}
 
-Note the following: 
+Note the following points: 
 
 - type is set to AzureSqlTable.
 - tableName type property (specific to AzureSqlTable type) is set to MyTable.
@@ -137,7 +137,7 @@ The **structure** section defines the schema of the dataset. It contains a colle
 ## <a name="Availability"></a> Dataset Availability
 The **availability** section in a dataset defines the processing window (hourly, daily, weekly etc.) or the slicing model for the dataset. See [Scheduling and Execution](data-factory-scheduling-and-execution.md) article for more details on the dataset slicing and dependency model. 
 
-The following availability section specifies that the output dataset is either produced hourly (or) input dataset is available hourly. 
+The following availability section specifies that the output dataset is either produced hourly (or) input dataset is available hourly:
 
 	"availability":	
 	{	
@@ -145,7 +145,7 @@ The following availability section specifies that the output dataset is either p
 		"interval": 1	
 	}
 
-The following table describes properties you can use in the availability section. 
+The following table describes properties you can use in the availability section: 
 
 | Property | Description | Required | Default |
 | -------- | ----------- | -------- | ------- |
@@ -166,10 +166,8 @@ Daily slices that start at 6 AM instead of the default midnight.
 		"offset": "06:00:00"
 	}
 
-The **frequency** is set to **Month** and **interval** is set to **1** (once a month): 
-If you want the slice to be produced on 9th day of each month at 6 AM, set offset to "09.06:00:00". Remember that this time is an UTC time. 
-
-For a 12 month (frequency = month; interval = 12) schedule, offset: 60.00:00:00 means every year on March 1st or 2nd (60 days from the beginning of the year if style = StartOfInterval), depending on the year being leap year or not.
+The **frequency** is set to **Day** and **interval** is set to **1** (once a day): 
+If you want the slice to be produced at 6 AM instead of at the default time: 12 AM. Remember that this time is an UTC time. 
 
 ## anchorDateTime example
 
@@ -242,17 +240,17 @@ The **policy** section in dataset definition defines the criteria or the conditi
 
 External datasets are the ones that are not produced by a running pipeline in the data factory. If the dataset is marked as **external**, the **ExternalData** policy may be defined to influence the behavior of the dataset slice availability. 
 
-Unless a dataset is being produced by Azure Data Factory, it should be marked as **external**. This generally applies to the inputs of first activity in a pipeline unless activity or pipeline chaining is being used. 
+Unless a dataset is being produced by Azure Data Factory, it should be marked as **external**. This setting generally applies to the inputs of first activity in a pipeline unless activity or pipeline chaining is being used. 
 
 | Name | Description | Required | Default Value  |
 | ---- | ----------- | -------- | -------------- |
 | dataDelay | Time to delay the check on the availability of the external data for the given slice. For example, if the data is supposed to be available hourly, the check to see the external data is available and the corresponding slice is Ready can be delayed by using dataDelay.<br/><br/>Only applies to the present time.  For example, if it is 1:00 PM right now and this value is 10 minutes, the validation starts at 1:10 PM.<br/><br/>This setting does not affect slices in the past (slices with Slice End Time + dataDelay < Now) are processed without any delay.<br/><br/>Time greater than 23:59 hours need to specified using the day.hours:minutes:seconds format. For example, to specify 24 hours, don't use 24:00:00; instead, use 1.00:00:00. If you use 24:00:00, it is treated as 24 days (24.00:00:00). For 1 day and 4 hours, specify 1:04:00:00. | No | 0 |
 | retryInterval | The wait time between a failure and the next retry attempt. Applies to present time; if the previous try failed, we wait this long after the last try. <br/><br/>If it is 1:00pm right now, we begin the first try. If the duration to complete the first validation check is 1 minute and the operation failed, the next retry is at 1:00 + 1min (duration) + 1min (retry interval) = 1:02pm. <br/><br/>For slices in the past, there is no delay. The retry happens immediately. | No | 00:01:00 (1 minute) | 
-| retryTimeout | The timeout for each retry attempt.<br/><br/>If this is set to 10 minutes, the validation needs to be completed within 10 minutes. If it takes longer than 10 minutes to perform the validation, the retry times out.<br/><br/>If all attempts for the validation times out, the slice is marked as TimedOut. | No | 00:10:00 (10 minutes) |
+| retryTimeout | The timeout for each retry attempt.<br/><br/>If this property is set to 10 minutes, the validation needs to be completed within 10 minutes. If it takes longer than 10 minutes to perform the validation, the retry times out.<br/><br/>If all attempts for the validation times out, the slice is marked as TimedOut. | No | 00:10:00 (10 minutes) |
 | maximumRetry | Number of times to check for the availability of the external data. The allowed maximum value is 10. | No | 3 | 
 
 ## Scoped datasets
-You can create datasets that are scoped to a pipeline by using the **datasets** property. These datasets can only be used by activities within this pipeline but not by activities in other pipelines. The following example defines a pipeline with two datasets - InputDataset-rdc and OutputDataset-rdc - to be used within the pipeline.  
+You can create datasets that are scoped to a pipeline by using the **datasets** property. These datasets can only be used by activities within this pipeline but not by activities in other pipelines. The following example defines a pipeline with two datasets - InputDataset-rdc and OutputDataset-rdc - to be used within the pipeline:  
 
 > [AZURE.IMPORTANT] Scoped datasets are supported only with one-time pipelines (**pipelineMode** set to **OneTime**). See [Onetime pipeline](data-factory-scheduling-and-execution.md#onetime-pipeline) for details.
 

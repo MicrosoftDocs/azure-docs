@@ -206,6 +206,7 @@ You can also see the following resources:
 
 - [Azure Functions developer reference](../azure-functions/functions-reference.md)
 - [Azure Functions C# developer reference](../azure-functions/functions-reference-csharp.md)
+- [Azure Functions F# developer reference](../azure-functions/functions-reference-fsharp.md)
 - [Azure Functions NodeJS developer reference](../azure-functions/functions-reference.md)
 - [Azure Functions triggers and bindings](../azure-functions/functions-triggers-bindings.md)
 - [How to monitor Azure Redis Cache](../redis-cache/cache-how-to-monitor.md)

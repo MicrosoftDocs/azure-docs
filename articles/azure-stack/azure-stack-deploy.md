@@ -21,10 +21,6 @@
 Before you deploy Azure Stack POC ([Proof of Concept](azure-stack-poc.md)), make sure your computer meets the following requirements.
 The Technical Preview 2 deployment requirements for the POC are the same as those required for Technical Preview 1. Therefore, you can use the same hardware that you used for the previous single-box preview.
 
-You might also find it helpful to watch this deployment tutorial video:
-
-[AZURE.VIDEO microsoft-azure-stack-tp1-poc-deployment-tutorial]
-
 ## Hardware
 
 | Component | Minimum  | Recommended |

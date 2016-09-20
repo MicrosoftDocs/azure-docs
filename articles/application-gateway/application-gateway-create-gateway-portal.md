@@ -14,14 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/06/2016"
+   ms.date="09/09/2016"
    ms.author="gwallace" />
 
 # Create an application gateway by using the portal
 
 Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. 
 Application provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others. 
-To find a complete list of supported features visit [Application Gateway Overview](application-gateway-introduction.md)
+To find a complete list of supported features, visit [Application Gateway Overview](application-gateway-introduction.md)
 
 > [AZURE.SELECTOR]
 - [Azure portal](application-gateway-create-gateway-portal.md)
@@ -86,7 +86,7 @@ Click **Choose a virtual network** to configure the virtual network.
 
 In the *Choose Virtual Network* blade, click **Create New**
 
-While not explained in this scenario, an existing Virtual Network could be selected at this point.  If an existing virtual network is used, it is important to know that the virtual network needs an empty subnet or a subnet of only application gateway resources in order to be used.
+While not explained in this scenario, an existing Virtual Network could be selected at this point.  If an existing virtual network is used, it is important to know that the virtual network needs an empty subnet or a subnet of only application gateway resources to be used.
 
 ![choose virtual network blade][4]
 

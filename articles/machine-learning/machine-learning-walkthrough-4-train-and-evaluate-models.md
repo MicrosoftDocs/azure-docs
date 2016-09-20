@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/16/2016"
 	ms.author="garye"/>
 
 
@@ -39,7 +39,8 @@ There are a number of models we could choose from. To see the models available, 
 
 > [AZURE.TIP] To get help deciding which Machine Learning algorithm best suits the particular problem you're trying to solve, see [How to choose algorithms for Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md).
 
-##Train the models
+## Train the models
+
 First, let's set up the boosted decision tree model:  
 
 1.	Find the [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] module in the module palette and drag it onto the canvas.
@@ -82,7 +83,8 @@ This portion of our experiment should now look something like this:
 
 ![Training the second model][2]  
 
-##Score and evaluate the models
+## Score and evaluate the models
+
 We'll use the testing data that was separated out by the [Split Data][split] module to score our trained models. We can then compare the results of the two models to see which generated better results.  
 
 1.	Find the [Score Model][score-model] module and drag it onto the canvas.
