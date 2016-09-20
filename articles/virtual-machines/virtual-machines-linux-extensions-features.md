@@ -21,17 +21,17 @@
 
 ## Azure VM Extensions
 
-Azure Virtual Machine extensions are small applications that provide post deployment host configuration and automation task on Azure Virtual Machines. For example, if a Virtual Machine requires software to be installed, anti-virus protection, or Docker configuration, a VM extension can be used to these tasks. Azure VM extensions can be run using the Azure PowerShell module, Azure CLI, and Azure Resource Manage templates and can bundled with the virtual machine deployment, or run against any existing system.
+Azure Virtual Machine extensions are small applications that provide post deployment host configuration and automation task on Azure Virtual Machines. For example, if a Virtual Machine requires software to be installed, anti-virus protection, or Docker configuration, a VM extension can be used to these tasks. Azure VM extensions can be run using PowerShell, the Azure CLI, and Azure Resource Manage templates and can be bundled with a new virtual machine deployment, or run against any existing system.
 
-This document will provide detail prerequisites for Azure Virtual Machine extension, and guidance on how to detect available VM extensions. 
+This document provides prerequisites for Azure Virtual Machine extension, and guidance on how to detect available VM extensions. 
 
 ## Azure VM Agent
 
-The Azure VM Agent manages interaction between an Azure Virtual Machine and the Azure Fabric Controller. The VM agent is responsible for many functional aspects of deploying and managing Azure Virtual Machines, including running VM Extensions. The Azure VM Agent is pre-installed on Azure Gallery Images. For information on support operating systems and installation instructions, see [Azure Linux Agent User Guide](./virtual-machines-linux-agent-user-guide).
+The Azure VM Agent manages interaction between an Azure Virtual Machine and the Azure Fabric Controller. The VM agent is responsible for many functional aspects of deploying and managing Azure Virtual Machines, including running VM Extensions. The Azure VM Agent is pre-installed on Azure Gallery Images. For information on support operating systems and installation instructions, see [Azure Linux Agent User Guide](./virtual-machines-linux-agent-user-guide.md).
 
 ## Discover VM Extensions
 
-Many different VM extensions are available for use with Azure Virtual Machines. To see a complete list run the following command with the Azure CLI.
+Many different VM extensions are available for use with Azure Virtual Machines. To see a complete list, run the following command with the Azure CLI.
 
 ```none
 azure vm extension-image list westus
@@ -41,8 +41,8 @@ azure vm extension-image list westus
 
 |Extension Name   |Description   |More Information   |
 |---|---|---|
-|Custom Script Extension for Linux  | Run scripts against an Azure Virtual Machine  |[Custom Script Extension for Liunx](./virtual-machines-linux-extensions-customscript)   |
-|Docker Extension |Installs the Docker daemon to support remote Docker commands.  | [Docker VM Extension](./virtual-machines-linux-dockerextension)  |
-|VM Access Extension | Regain access to Azure Virtual Machine  |[VM Access Extension](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
-|Azure Diagnostics Extension |Manage Azure Diagnostics |[Azure Diagnostics Extension](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
+|Custom Script Extension for Linux  | Run scripts against an Azure Virtual Machine  |[Custom Script Extension for Linux](./virtual-machines-linux-extensions-customscript.md)   |
+|Docker Extension |Installs the Docker daemon to support remote Docker commands.  | [Docker VM Extension](./virtual-machines-linux-dockerextension.md)  |
+|VM Access Extension | Regain access to Azure Virtual Machine  |[VM Access Extension](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess.md) |
+|Azure Diagnostics Extension |Manage Azure Diagnostics |[Azure Diagnostics Extension](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 
