@@ -22,7 +22,7 @@ Learn about Azure log integration, its key capabilities, and how it works.
 
 ## Overview
 
-Both Platform as a Service (PaaS) and Infrastructure as a Service (IaaS) hosted in Azure generate a large amount of data in security logs. These logs contain vital information that can provide intelligence and powerful insights into policy violations, internal and external threats, regulatory compliance issues, and anomalies in network, host, and user activity.
+Platform as a Service (PaaS) and Infrastructure as a Service (IaaS) hosted in Azure generate a large amount of data in security logs. These logs contain vital information that can provide intelligence and powerful insights into policy violations, internal and external threats, regulatory compliance issues, and anomalies in network, host, and user activity.
 
 Azure log integration enables you to integrate raw logs from your Azure resources into your on-premises Security Information and Event Management (SIEM) systems. Azure log integration collects Azure Diagnostics from your Windows *(WAD)* virtual machines, as well as diagnostics from partner solutions such as a Web Application Firewall (WAF). This integration provides a unified dashboard for all your assets, on-premises or in the cloud, so that you can aggregate, correlate, analyze, and alert for security events.
 
@@ -36,6 +36,8 @@ Azure produces extensive logging for every Azure service. These logs are categor
 - **Data plane logs**, which give visibility into the events raised as part of the usage of an Azure resource. Examples of this type of log are the Windows event System, Security, and Application logs in a virtual machine.
 
 Azure log integration currently supports integration of Azure Audit Logs, virtual machine logs, and Azure Security Center alerts.
+
+If you have questions about Azure Log Integration, please send an email to [AzSIEMteam@microsoft.com] (mailto:AzSIEMteam@microsoft.com)
 
 ## Next steps
 
