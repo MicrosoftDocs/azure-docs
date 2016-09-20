@@ -29,31 +29,36 @@ Here are the Fabric settings that you can customize:
 
 ### Section Name : Security
 
-|**Parameter**|** Allowed Values**|**Guidance or short Descriptions**|
+|**Parameter**|**Allowed Values**|**Guidance or short Descriptions**|
 |-----------------------|--------------------------|
-|ClusterProtectionLevel|None or EncryptAndSign.| None (default) for unsecure cluters, EncryptAndSign for secure clusters. |
+|ClusterProtectionLevel|None or EncryptAndSign.| None (default) for unsecure clusters, EncryptAndSign for secure clusters. |
 
 ### Section Name : Hosting
 
-|**Parameter**|** Allowed Values**|**Short Description**|
+|**Parameter**|**Allowed Values**|**Short Description**|
 |-----------------------|--------------------------|
 |ServiceTypeRegistrationTimeout|None or EncryptAndSign.| None (default) for unsecure cluters, EncryptAndSign for secure clusters. |
+|ServiceTypeDisableFailureThreshold|None or EncryptAndSign.| None (default) for unsecure cluters, EncryptAndSign for secure clusters. |
+|ActivationRetryBackoffInterval|None or EncryptAndSign.| None (default) for unsecure cluters, EncryptAndSign for secure clusters. |
+|ActivationMaxRetryInterval|None or EncryptAndSign.| None (default) for unsecure cluters, EncryptAndSign for secure clusters. |
+|ActivationMaxFailureCount|None or EncryptAndSign.| None (default) for unsecure cluters, EncryptAndSign for secure clusters. |
+
 
 ### Section Name : FailoverManager
 
-|**Parameter**|** Allowed Values**|**Short Description**|
+|**Parameter**|**Allowed Values**|**Short Description**|
 |-----------------------|--------------------------|
 |ServiceTypeRegistrationTimeout|None or EncryptAndSign.| None (default) for unsecure cluters, EncryptAndSign for secure clusters. |
 
 ### Section Name : Federation
 
-|**Parameter**|** Allowed Values**|**Short Description**|
+|**Parameter**|**Allowed Values**|**Short Description**|
 |-----------------------|--------------------------|
 |ServiceTypeRegistrationTimeout|None or EncryptAndSign.| None (default) for unsecure cluters, EncryptAndSign for secure clusters. |
 
 ### Section Name : ClusterManager
 
-|**Parameter**|** Allowed Values**|**Short Description**|
+|**Parameter**|**Allowed Values**|**Short Description**|
 |-----------------------|--------------------------|
 |ServiceTypeRegistrationTimeout|None or EncryptAndSign.| None (default) for unsecure cluters, EncryptAndSign for secure clusters. |
 
