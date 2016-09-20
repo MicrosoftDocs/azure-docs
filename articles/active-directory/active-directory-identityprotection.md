@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2016"
+	ms.date="09/20/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection 
@@ -482,16 +482,19 @@ For an overview of the related user experience, see:
 
 
 
-## See also
+## Next steps
 
  - [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
- - [Enabling Azure Active Directory Identity Protection](active-directory-identityprotection-enable.md)
  - [Types of risk events detected by Azure Active Directory Identity Protection](active-directory-identityprotection-risk-events-types.md)
  - [Vulnerabilities detected by Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md)
  - [Azure Active Directory Identity Protection notifications](active-directory-identityprotection-notifications.md)
  - [Azure Active Directory Identity Protection flows](active-directory-identityprotection-flows.md)
  - [Azure Active Directory Identity Protection playbook](active-directory-identityprotection-playbook.md)
  - [Azure Active Directory Identity Protection glossary](active-directory-identityprotection-glossary.md)
+
+ - [Enabling Azure Active Directory Identity Protection](active-directory-identityprotection-enable.md)
+ - [Azure Active Directory Identity Protection - How to unblock users](active-directory-identityprotection-unblock-howto.md)
+
  - [Get started with Azure Active Directory Identity Protection and Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 
 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/19/2016"
+	ms.date="09/20/2016"
 	ms.author="markvi"/>
 
 #Azure Active Directory Identity Protection - How to unblock users
@@ -70,6 +70,6 @@ To unblock an account at risk, you have the following options:
 
 ## Next steps
 
- Do you want to know more about Azure AD Identity Protection? Check our [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
+ Do you want to know more about Azure AD Identity Protection? Check out [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
  
 
