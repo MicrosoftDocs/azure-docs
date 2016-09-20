@@ -34,7 +34,7 @@ See the [getting started page](sql-database-get-started.md) to learn how to crea
 
 ## Step 3: Get Connection Details
 
-[AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)
+[AZURE.INCLUDE [sql-database-include-connection-string-details-20-portalshots](../../includes/sql-database-include-connection-string-details-20-portalshots.md)]
 
 ## Step 4: Run sample code
 
