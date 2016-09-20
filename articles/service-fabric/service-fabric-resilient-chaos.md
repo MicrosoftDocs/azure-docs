@@ -102,30 +102,34 @@ class Program
                 Console.WriteLine("An instance of Chaos is already running in the cluster.");
             }
 
-            Stopwatch stopWatch = new Stopwatch();
-            stopWatch.Start();
+                var filter = new ChaosReportFilter(startTimeUtc, DateTime.MaxValue);
 
-            var filter = new ChaosReportFilter(startTimeUtc, DateTime.MaxValue);
+                var eventSet = new HashSet<ChaosEvent>(new ChaosEventComparer());
 
-            HashSet<ChaosEvent> EventSet = new HashSet<ChaosEvent>(new ChaosEventComparer());
-
-            while (stopWatch.Elapsed < timeToRun)
-            {
-                var report = client.TestManager.GetChaosReportAsync(filter).GetAwaiter().GetResult();
-
-                foreach (var chaosEvent in report.History)
+                while (true)
                 {
-                    if (!EventSet.Contains(chaosEvent))
+                    var report = client.TestManager.GetChaosReportAsync(filter).GetAwaiter().GetResult();
+
+                    foreach (var chaosEvent in report.History)
                     {
-                        Console.WriteLine(chaosEvent);
-                        EventSet.Add(chaosEvent);
+                        if (!eventSet.Contains(chaosEvent))
+                        {
+                            Console.WriteLine(chaosEvent);
+                            eventSet.Add(chaosEvent);
+                        }
                     }
+
+                    var lastEvent = report.History.LastOrDefault();
+
+                    if (lastEvent is StoppedEvent)
+                    {
+                        break;
+                    }
+
+                    Task.Delay(TimeSpan.FromSeconds(1.0)).GetAwaiter().GetResult();
                 }
 
-                Task.Delay(TimeSpan.FromSeconds(1.0)).GetAwaiter().GetResult();
-            }
-
-            client.TestManager.StopChaosAsync().GetAwaiter().GetResult();
+                client.TestManager.StopChaosAsync().GetAwaiter().GetResult();
         }
     }
 }
@@ -145,10 +149,9 @@ $now = [System.DateTime]::UtcNow
 
 Start-ServiceFabricChaos -TimeToRunMinute $timeToRun -MaxConcurrentFaults $concurrentFaults -MaxClusterStabilizationTimeoutSec maxStabilizationTimeSecs -EnableMoveReplicaFaults -WaitTimeBetweenIterationsSec $waitTimeBetweenIterationsSec
 
-$stopwatch = [System.Diagnostics.Stopwatch]::StartNew()
-
-while($stopwatch."Elapsed" -le [System.TimeSpan]::FromMinutes($timeToRun+1))
+while($true)
 {
+    $stopped = false
     $report = Get-ServiceFabricChaosReport -StartTimeUtc $now -EndTimeUtc ([System.DateTime]::MaxValue)
 
     foreach ($e in $report.History) {
@@ -162,10 +165,19 @@ while($stopwatch."Elapsed" -le [System.TimeSpan]::FromMinutes($timeToRun+1))
             }
             else
             {
+                if($e -is [System.Fabric.Chaos.DataStructures.StoppedEvent])
+                {
+                    $stopped = $true
+                }
+
                 Write-Host $e
             }
         }
+    }
 
+    if($stopped -eq $true)
+    {
+        break
     }
 
     Start-Sleep -Seconds 1
