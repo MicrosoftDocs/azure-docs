@@ -3,33 +3,32 @@ Tenant can create VMs and include certificates retrieved from Key Vault
 =======================================================================
 
 In Azure Stack, VMs are deployed through Azure Resource Manager, and you
-can now store certificates in Azure Stacl Key Vault and then Azure Stack
-(Microsoft.Compute resource provider to be specific) will push them into
+can now store certificates in Azure Stack Key Vault. Then Azure Stack
+(Microsoft.Compute resource provider to be specific) pushes them into
 your VMs when the VMs are deployed. Certificates can be used in many
-scenarios: SSL, encryption, certificate based authentication are just
-some examples.
+scenarios, including SSL, encryption, and certificate based authentication.
 
 By using this method, you can keep the certificate safe. It's now not in
-the VM image, or in the applications configuration files or some other
-unsafe locations. By setting appropriate access policy for the key vault
+the VM image, or in the application's configuration files or some other
+unsafe location. By setting appropriate access policy for the key vault,
 you can also control who gets access to your certificate. Another
 benefit is that you can manage all your certificates in one place in
 Azure Stack Key Vault.
 
--   Here is a quick overview of the process
+Here is a quick overview of the process:
 
--   You need a certificate in .PFX format
+-   You need a certificate in the .pfx format.
 
--   Create a Key Vault (either using template, or use the simple script)
+-   Create a Key Vault (using either a template or the following sample script).
 
--   Make sure you have turned on the EnabledForDeployment switch
+-   Make sure you have turned on the EnabledForDeployment switch.
 
--   Upload the certificate as a secret
+-   Upload the certificate as a secret.
 
 Deploying VMs
 -------------
 
-Here's an example script, that creates a key vault, and then stores a
+This sample script creates a key vault, and then stores a
 certificate stored in the .pfx file in a local directory, to the Key
 Vault as a secret.
 
@@ -84,18 +83,17 @@ New-AzureKeyVault -VaultName \$vaultName -ResourceGroupName
 Set-AzureKeyVaultSecret -VaultName \$vaultName -Name \$secretName
 -SecretValue \$secret
 
-The first part of the script reads the .pfx file and then stores it as a
+The first part of the script reads the .pfx file, and then stores it as a
 JSON object with the file content base64 encoded. Then the JSON object
 is also base64 encoded.
 
-Next it creates a new resource group and then create a key vault. Note
+Next, it creates a new resource group and then creates a key vault. Note
 the last parameter to the New-AzureKeyVault command,
-'-EnabledForDeployment', which grants access to Azure (Microsoft.Compute
-resource provider, if you want to be very specific) to read secrets from
+'-EnabledForDeployment', which grants access to Azure (specifically to the Microsoft.Compute
+resource provider) to read secrets from
 the Key Vault for deployments.
 
-The last command simply stores the base64 encoded JSON object in the the
-Key Vault as a secret.
+The last command simply stores the base64 encoded JSON object in the Key Vault as a secret.
 
 Here's sample output from the above script:
 
@@ -210,35 +208,35 @@ https://contosovault.vault.azure.net:443/secrets/servicecert
 
                   /e3391a126b65414f93f6f9806743a1f7
 
-Now we are ready to deploy a VM template. Note down the URI of the
-secret from the output (as highlighted above in green).
+Now we are ready to deploy a VM template. Note the URI of the
+secret from the output (as highlighted in the preceding in green).
 
 You'll need a template located here. The parameters of special interest
-(besides the usual VM parameters) are the Vault Name, Vault Resource
-Group and the Secret URI (highlighted in green above). Of course you can
+(besides the usual VM parameters) are the vault name, vault resource
+group, and the secret URI. Of course, you can
 also download it from GitHub and modify as needed.
 
-When this VM is deployed, Azure will inject the certificate into the VM.
-On Windows, certificates in PFX file are added with the private key not
+When this VM is deployed, Azure injects the certificate into the VM.
+On Windows, certificates in the .pfx file are added with the private key not
 exportable. The certificate is added to the LocalMachine certificate
 location, with the certificate store that the user provided. On Linux,
 the certificate file is placed under the /var/lib/waagent directory,
 with the file name &lt;UppercaseThumbprint&gt;.crt for the X509
-certificate file and &lt;UppercaseThumbpring&gt;.prv for private key.
+certificate file, and &lt;UppercaseThumbprint&gt;.prv for the private key.
 Both of these files are .pem formatted.
 
-The application usually finds the certificate using the Thumbprint and
+The application usually finds the certificate by using the thumbprint, and
 doesn't need modification.
 
 Retiring certificates
 ---------------------
 
-In the above section we showed you how to push a new certificate to your
+In the preceding section, we showed you how to push a new certificate to your
 existing VMs. But your old certificate is still in the VM and cannot be
-removed. For added security you can change the attribute for old secret
-to 'Disabled' so that even if an old template tries to create a VM with
+removed. For added security, you can change the attribute for old secret
+to 'Disabled', so that even if an old template tries to create a VM with
 this old version of certificate, it will. Here's how you set a specific
-secret version disabled:
+secret version to be disabled:
 
 Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name
 servicecert -Version e3391a126b65414f93f6f9806743a1f7 -Enable 0
@@ -246,11 +244,11 @@ servicecert -Version e3391a126b65414f93f6f9806743a1f7 -Enable 0
 Conclusion
 ----------
 
-With this new scheme, the certificate can be kept separate from the VM
+With this new method, the certificate can be kept separate from the VM
 image or the application payload. So we have removed one point of
 exposure.
 
-The certificate can also be renewed and uploaded to the Key Vault
+The certificate can also be renewed and uploaded to Key Vault
 without having to re-build the VM image or the application deployment
 package. The application still needs to be supplied with the new URI for
 this new certificate version though.
@@ -259,6 +257,6 @@ By separating the certificate from the VM or the application payload, we
 have now reduced the number of personnel that will have direct access to
 the certificate. 
 
-As an added benefit, you now have one convenient place in key vault to
+As an added benefit, you now have one convenient place in Key Vault to
 manage all your certificates, including the all the versions that were
 deployed over time.
