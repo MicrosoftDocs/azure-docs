@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="08/26/2016"
+	ms.date="09/20/2016"
 	ms.author="anhoh"/>
 
 #<a name="DocumentDB-HDInsight"></a>Run a Hadoop job using DocumentDB and HDInsight
@@ -136,8 +136,6 @@ This tutorial uses Script Action from the Azure Portal to customize your HDInsig
 			<strong>No Parameters needed</strong>.</td></tr>
 	</table>
 
-	![Provide Hadoop HDInsight initial cluster details][image-customprovision-page2]
-
 10. Create either a new **Resource Group** or use an existing Resource Group under your Azure Subscription.
 
 11. Now, check **Pin to dashboard** to track its deployment and click **Create**!
@@ -181,7 +179,8 @@ This tutorial uses Script Action from the Azure Portal to customize your HDInsig
     <p>First, let's create a Hive table from our DocumentDB collection. Add the following code snippet to the PowerShell Script pane <strong>after</strong> the code snippet from #1. Make sure you include the optional DocumentDB.query parameter t trim our documents to just _ts and _rid.</p>
 
     > [AZURE.NOTE] **Naming DocumentDB.inputCollections was not a mistake.** Yes, we allow adding multiple collections as an input: </br>
-    '*DocumentDB.inputCollections*' = '*\<DocumentDB Input Collection Name 1\>*,*\<DocumentDB Input Collection Name 2\>*' </br> The collection names are separated without spaces, using only a single comma.
+
+		'*DocumentDB.inputCollections*' = '*\<DocumentDB Input Collection Name 1\>*,*\<DocumentDB Input Collection Name 2\>*' A1A</br> The collection names are separated without spaces, using only a single comma.
 
 
 		# Create a Hive table using data from DocumentDB. Pass DocumentDB the query to filter transferred data to _rid and _ts.
@@ -435,7 +434,6 @@ To learn more, see the following articles:
 [hdinsight-use-pig]: ../hdinsight/hdinsight-use-pig.md
 
 [image-customprovision-page1]: ./media/documentdb-run-hadoop-with-hdinsight/customprovision-page1.png
-[image-customprovision-page2]: ./media/documentdb-run-hadoop-with-hdinsight/customprovision-page3.png
 [image-hive-query-results]: ./media/documentdb-run-hadoop-with-hdinsight/hivequeryresults.PNG
 [image-mapreduce-query-results]: ./media/documentdb-run-hadoop-with-hdinsight/mapreducequeryresults.PNG
 [image-pig-query-results]: ./media/documentdb-run-hadoop-with-hdinsight/pigqueryresults.PNG
