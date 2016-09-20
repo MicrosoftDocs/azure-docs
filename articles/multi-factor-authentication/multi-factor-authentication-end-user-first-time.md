@@ -5,7 +5,7 @@
 	keywords="how to use azure directory, active directory in the cloud, active directory tutorial"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenp"
+	manager="femila"
 	editor="curtland"/>
 
 <tags

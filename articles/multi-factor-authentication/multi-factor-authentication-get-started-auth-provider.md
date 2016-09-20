@@ -1,10 +1,10 @@
-<properties 
+<properties
 	pageTitle="Getting started with Microsoft Azure Multi-Factor Auth Provider"
 	description="Learn how to create an Azure Multi-Factor Auth Provider."
 	services="multi-factor-authentication"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor="curtand"/>
 
 <tags

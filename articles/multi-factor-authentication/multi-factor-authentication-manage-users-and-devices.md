@@ -4,7 +4,7 @@
 	documentationCenter=""
 	services="multi-factor-authentication"
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor="curtand"/>
 
 <tags

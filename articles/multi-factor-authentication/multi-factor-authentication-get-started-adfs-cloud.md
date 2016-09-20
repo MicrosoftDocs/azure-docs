@@ -1,10 +1,10 @@
-<properties 
+<properties
 	pageTitle="Securing cloud resources with Azure Multi-Factor Authentication and AD FS"
 	description="This is the Azure Multi-Factor authentication page that describes how to get started with Azure MFA and AD FS in the cloud."
 	services="multi-factor-authentication"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor="curtland"/>
 
 <tags

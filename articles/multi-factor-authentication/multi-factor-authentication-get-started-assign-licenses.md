@@ -1,10 +1,10 @@
-<properties 
+<properties
 	pageTitle="Assigning Licenses for Microsoft Azure Multi-Factor Authentication"
 	description="Learn  how to assign user licenses for Microsoft Azure Multi-Factor Authentication."
 	services="multi-factor-authentication"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor="curtand"/>
 
 <tags

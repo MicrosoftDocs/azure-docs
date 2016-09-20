@@ -4,13 +4,13 @@
 	services="multi-factor-authentication"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenp"
+	manager="femila"
 	editor="curtland"/>
 
 <tags
 	ms.service="multi-factor-authentication"
 	ms.workload="identity"
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/04/2016"

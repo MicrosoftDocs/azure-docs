@@ -1,11 +1,11 @@
-<properties 
+<properties
 	pageTitle="Having trouble with Azure Multi-Factor Authentication | Microsoft Azure"
 	description="This document will provide users information on what to do if they run into an issue with Azure Multi-Factor Authentication."
 	services="multi-factor-authentication"
 	keywords = "multifactor authentication client, authentication problem, correlation ID"
 	documentationCenter=""
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor="curtland"/>
 
 <tags
