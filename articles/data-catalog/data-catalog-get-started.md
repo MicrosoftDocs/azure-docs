@@ -47,7 +47,7 @@ Azure AD provides an easy way for your business to manage identity and access, b
 
 ### Azure Active Directory policy configuration
 
-You may encounter a situation where you can sign in to the Azure Data Catalog portal, but when you attempt to sign in to the data source registration tool, you encounter an error message that prevents you from signing in. This may occur when you are on the company network or when you are connecting from outside the company network.
+You may encounter a situation where you can sign in to the Azure Data Catalog portal, but when you attempt to sign in to the data source registration tool, you encounter an error message that prevents you from signing in. This eror may occur when you are on the company network or when you are connecting from outside the company network.
 
 The registration tool uses *forms authentication* to validate user sign-ins against Azure Active Directory. For successful sign-in, an Azure Active Directory administrator must enable forms authentication in the *global authentication policy*.
 
@@ -87,7 +87,7 @@ You see the data catalog you created.
 4.  Click the catalog that you created. You see the **Data Catalog** blade in the portal.
 
 	![Azure Data Catalog--blade in portal ](media/data-catalog-get-started/data-catalog-blade-azure-portal.png)
-5. You can view properties of the data catalog as well as update them. For example, click **Pricing tier** and change the edition.
+5. You can view properties of the data catalog and update them. For example, click **Pricing tier** and change the edition.
 
 	![Azure Data Catalog--pricing tier](media/data-catalog-get-started/data-catalog-change-pricing-tier.png)
 
@@ -95,7 +95,7 @@ You see the data catalog you created.
 In this tutorial, you register data assets (tables) from the AdventureWorks2014 sample database for the SQL Server Database Engine, but you can use any supported data source if you would prefer to work with data that is familiar and relevant to your role. For a list of supported data sources, see [Supported data sources](data-catalog-dsr.md).
 
 ### Install the Adventure Works 2014 OLTP database
-The Adventure Works database supports standard online transaction-processing scenarios for a fictitious bicycle manufacturer (Adventure Works Cycles), which includes products, sales, and purchasing. In this tutorial you register information about products into Azure Data Catalog.
+The Adventure Works database supports standard online transaction-processing scenarios for a fictitious bicycle manufacturer (Adventure Works Cycles), which includes products, sales, and purchasing. In this tutorial, you register information about products into Azure Data Catalog.
 
 To install the Adventure Works sample database:
 
@@ -146,7 +146,7 @@ In this exercise, you use the registration tool to register data assets from the
     	![Azure Data Catalog tutorial--browse and select objects](media/data-catalog-get-started/data-catalog-server-hierarchy.png)
 	4. Select **Include a Preview** to include a snapshot preview of the data. The snapshot includes up to 20 records from each table, and it is copied into the catalog.
 	5. Select **Include Data Profile** to include a snapshot of the object statistics for the data profile (for example: minimum, maximum, and average values for a column, number of rows).
-	6. In the **Add tags** field, enter **adventure works, cycles**. This adds search tags for these data assets. Tags are a great way to help users find a registered data source.
+	6. In the **Add tags** field, enter **adventure works, cycles**. This action adds search tags for these data assets. Tags are a great way to help users find a registered data source.
 	7. Specify the name of an **expert** on this data (optional).
 
     	![Azure Data Catalog tutorial--objects to be registered](media/data-catalog-get-started/data-catalog-objects-register.png)
@@ -160,7 +160,7 @@ In this exercise, you use the registration tool to register data assets from the
     	![Objects in the Azure Data Catalog portal ](media/data-catalog-get-started/data-catalog-view-portal.png)
 
 
-In this exercise, you registered objects from the Adventure Works sample database so that they can be easily discovered by users across your organization. In the next exercise you learn how to discover registered data assets.
+In this exercise, you registered objects from the Adventure Works sample database so that they can be easily discovered by users across your organization. In the next exercise, you learn how to discover registered data assets.
 
 ## Discover data assets
 Discovery in Azure Data Catalog uses two primary mechanisms: searching and filtering.
@@ -228,7 +228,7 @@ You can broaden or narrow your search with Boolean operators.
 	![Azure Data Catalog--Boolean operator in search](media/data-catalog-get-started/data-catalog-search-boolean-operator.png)
 
 ### Grouping with parentheses
-By grouping with parentheses, you can group parts of the query to achieve logical isolation, especially in conjunction with Boolean operators.
+By grouping with parentheses, you can group parts of the query to achieve logical isolation, especially along with Boolean operators.
 
 1. In the search box, enter `name:product AND (tags:cycles AND objectType:table)` and press **ENTER**.
 2. Confirm that you see only the **Product** table in the search results.
@@ -260,7 +260,7 @@ In this exercise, you annotate a single data asset (ProductPhoto). You add a fri
 
 	The **Description** helps others discover and understand why and how to use the selected data asset. You can also add more tags and view columns. Now you can try searching and filtering to discover data assets by using the descriptive metadata you’ve added to the catalog.
 
-Note that you can also do the following on this page:
+You can also do the following on this page:
 
 - Add experts for the data asset. Click **Add** in the **Experts** area.
 - Add tags at the dataset level. Click **Add** in the **Tags** area. A tag can be a user tag or a glossary tag. The Standard Edition of Data Catalog includes a business glossary that helps catalog administrators define a central business taxonomy. Catalog users can then annotate data assets with glossary terms. For more information, see [How to set up the Business Glossary for Governed Tagging](data-catalog-how-to-business-glossary.md)
