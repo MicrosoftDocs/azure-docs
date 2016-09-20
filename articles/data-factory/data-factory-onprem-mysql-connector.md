@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/05/2016" 
+	ms.date="09/20/2016" 
 	ms.author="spelluru"/>
 
 # Move data From MySQL using Azure Data Factory
@@ -22,7 +22,7 @@ This article outlines how you can use the Copy Activity in an Azure data factory
 
 Data Factory service supports connecting to on-premises MySQL sources using the Data Management Gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway. 
 
-> [AZURE.NOTE] You need to use the gateway to connect to MySQL even if it is hosted in Azure IaaS VMs. If you are trying to connect to an instance of MySQL hosted in cloud, you can also install the gateway instance in the IaaS VM.
+> [AZURE.NOTE] Gateway is required even if the MySQL database is hosted in an Azure IaaS virtual machine (VM). You can install the gateway on the same VM as the data store or on a different VM as long as the gateway can connect to the database.  
 
 Data factory currently supports only moving data from MySQL to other data stores, but not for moving data from other data stores to MySQL.
 
@@ -34,7 +34,7 @@ For Data Management Gateway to connect to the MySQL Database, you need to instal
 ## Copy data wizard
 The easiest way to create a pipeline that copies data from a MySQL database to any of the supported sink data stores is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
 
-The following example provides sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data from MySQL database to Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.   
+The following example provides sample JSON definitions that you can use to create a pipeline. For a complete walkthrough with step-by-step instructions, see [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article. Data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.   
 
 ## Sample: Copy data from MySQL to Azure Blob
 This sample shows how to copy data from an on-premises MySQL database to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
@@ -49,9 +49,9 @@ The sample has the following data factory entities:
 4.	An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 4.	A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [RelationalSource](data-factory-onprem-mysql-connector.md#mysql-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
-The sample copies data from a query result in MySQL database to a blob every hour. The JSON properties used in these samples are described in sections following the samples. 
+The sample copies data from a query result in MySQL database to a blob hourly. The JSON properties used in these samples are described in sections following the samples. 
 
-As a first step, setup the data management gateway as per the instructions in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article. 
+As a first step, setup the data management gateway. The instructions are in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article. 
 
 **MySQL linked service**
 
