@@ -70,6 +70,6 @@ To unblock an account at risk, you have the following options:
 
 ## Next steps
 
- Do you want to know more about Azure AD Identity Protection? Check out [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
+ Do you want to know more about Azure AD Identity Protection? Check out [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
  
 
