@@ -3,8 +3,8 @@
     description="Learn how to use the queue storage service in Azure. Samples are written in C++."
     services="storage"
     documentationCenter=".net"
-    authors="robinsh"
-    manager="carmonm"
+    authors="dineshmurthy"
+    manager=""
     editor="tysonn"/>
 
 <tags
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/03/2016"
-    ms.author="dineshm"/>
+    ms.date="09/20/2016"
+    ms.author="dineshm;robinsh"/>
 
 # How to use Queue Storage from C++  
 
@@ -194,7 +194,7 @@ There are two ways you can customize message retrieval from a queue. First, you 
 	}
 
 ## How to: Get the queue length
-You can get an estimate of the number of messages in a queue. The **download_attributes** method asks the Queue service to retrieve the queue attributes, including the message count. The **approximate_message_count** method gets the approximate number of messages in the queue. 
+You can get an estimate of the number of messages in a queue. The **download_attributes** method asks the Queue service to retrieve the queue attributes, including the message count. The **approximate_message_count** method gets the approximate number of messages in the queue.
 
 	// Retrieve storage account from connection-string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);

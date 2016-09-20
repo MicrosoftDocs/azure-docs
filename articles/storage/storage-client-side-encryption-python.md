@@ -4,8 +4,8 @@
 	services="storage"
 	documentationCenter="python"
 	authors="rickle-msft"
-	manager="carmonm"
-	editor=""/>
+	manager=""
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="08/08/2016"
-	ms.author="t-rickle"/>
+	ms.date="09/20/2016"
+	ms.author="t-rickle;robinsh"/>
 
 
 # Client-Side Encryption with Python for Microsoft Azure Storage
