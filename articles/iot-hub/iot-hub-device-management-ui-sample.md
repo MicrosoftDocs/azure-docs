@@ -114,10 +114,7 @@ Refresh this screen after a few moments to see the changes to the status of the 
 You’ve now completed a guided exploration of the device management concepts as using the sample device management UI experience. If you want to gain a more advanced understanding of the device management APIs and experiment with some code examples, visit the following developer tutorials and resources:
 
 - [How to use the device twin][lnk-tutorial-twin]
-- [How to find device twins using queries][lnk-tutorial-queries]
-- [How to use device jobs to update device firmware][lnk-tutorial-jobs]
 - [Enable managed devices behind an IoT gateway][lnk-dm-gateway]
-- [Introducing the Azure IoT Hub device management client library][lnk-library-c]
 
 To further explore the capabilities of IoT Hub, see:
 
@@ -140,10 +137,7 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-dm-github]: https://github.com/Azure/azure-iot-device-management/
 
 [lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
-[lnk-tutorial-queries]: iot-hub-device-management-device-query.md
-[lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
 [lnk-dm-gateway]: iot-hub-gateway-device-management.md
-[lnk-library-c]: iot-hub-device-management-library.md
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md

@@ -26,7 +26,7 @@ Devices are considered to be managed by IoT Hub when they run a simple applicati
 
 IoT brings with it a unique set of management challenges and a solution must account for the following IoT device management principles:
 
-![][img-dm_principles]
+![][img-dm-principles]
 
 - **Scale and automation**: IoT requires simple tools that can automate routine tasks and enable a relatively small operations staff to manage millions of devices. Day-to-day, operators expect to handle device operations remotely, in bulk, and to only be alerted when issues arise that require their direct attention.
 
@@ -71,7 +71,7 @@ Using the building blocks that Azure IoT Hub provides, developers can create IoT
 To continue learning about the Azure IoT Hub device management features, see the [Get started with Azure IoT Hub device management][lnk-get-started] tutorial.
 
 <!-- Images and links -->
-[img-dm_principles]: media/iot-hub-device-management-overview/image4.png
+[img-dm-principles]: media/iot-hub-device-management-overview/image4.png
 [img-device_lifecycle]: media/iot-hub-device-management-overview/image5.png
 
 [lnk-get-started]: iot-hub-device-management-get-started.md
