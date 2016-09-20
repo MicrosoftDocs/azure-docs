@@ -17,13 +17,14 @@
    ms.author="motanv"/>
 
 # Resilient Chaos
+## Introduction
 Large-scale distributed systems like cloud infrastructures are inherently unreliable. Azure Service Fabric enables developers to write reliable services on top of an unreliable infrastructure. To write robust services, developers need to be able to induce faults against such unreliable infrastructure to test the stability of their services.
 
-The Fault Injection and Cluster Analysis Service (aka FAS) gives developers the ability to induce fault actions to test services in the presence of failures. However, targeted simulated faults get you only so far. To take the testing further, one can use Chaos. Chaos simulates continuous interleaved faults, both graceful and ungraceful, throughout the cluster over extended periods of time. Once Chaos is configured with the rate and the kind of faults, it can be started or stopped through either C# APIs or PowerShell, to generate faults in the cluster and your service. While Chaos is running, it produces different events that capture the state of the run at the moment. For example, an ExecutingFaultsEvent contains all the faults that are being executed in that iteration; a ValidationFailedEvent contains the details of a failure found during cluster validation. GetChaosReportAsync API can be invoked to get the report of Chaos runs.
-
-Chaos generates faults across the entire Service Fabric cluster and compresses faults seen in months or years into a few hours. The combination of interleaved faults with the high fault rate finds corner cases that are otherwise missed. This exercise of Chaos leads to a significant improvement in the code quality of the service.
+The Fault Injection and Cluster Analysis Service (aka FAS) gives developers the ability to induce fault actions to test services. However, targeted simulated faults get you only so far. To take the testing further, one can use Chaos. Chaos simulates continuous interleaved faults, both graceful and ungraceful, throughout the cluster over extended periods of time. Once Chaos is configured with the rate and the kind of faults, it can be started or stopped through either C# APIs or PowerShell, to generate faults in the cluster and your service. While Chaos is running, it produces different events that capture the state of the run at the moment. For example, an ExecutingFaultsEvent contains all the faults that are being executed in that iteration; a ValidationFailedEvent contains the details of a failure found during cluster validation. GetChaosReportAsync API can be invoked to get the report of Chaos runs.
 
 ## Faults induced in Chaos
+Chaos generates faults across the entire Service Fabric cluster and compresses faults seen in months or years into a few hours. The combination of interleaved faults with the high fault rate finds corner cases that are otherwise missed. This exercise of Chaos leads to a significant improvement in the code quality of the service. Chaos induces faults from the following categories:
+
  - Restart a node
  - Restart a deployed code package
  - Remove a replica
