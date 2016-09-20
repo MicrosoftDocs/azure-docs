@@ -173,7 +173,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 
 **Pipeline with Copy activity:**
 
-The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run hourly. In the pipeline JSON definition, the **source** type is set to **RelationalSource** and **sink** type is set to **BlobSink**. The SQL query specified for the **query** property selects the data from the DBA.Orders table in the database.
+The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run hourly. In the pipeline JSON definition, the **source** type is set to **RelationalSource** and **sink** type is set to **BlobSink**. The SQL query specified for the **query** property selects the data from the DBA.Orders table in the database.
 
 
 	{
@@ -240,7 +240,7 @@ See [Setting Credentials and Security](data-factory-move-data-between-onprem-and
 
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
 
-The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The **typeProperties** section for dataset of type **RelationalTable** (which includes Sybase dataset) has the following properties.
+The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The **typeProperties** section for dataset of type **RelationalTable** (which includes Sybase dataset) has the following properties:
 
 Property | Description | Required
 -------- | ----------- | --------
@@ -248,7 +248,7 @@ tableName | Name of the table in the Sybase Database instance that linked servic
 
 ## Sybase copy activity type properties 
 
-For a full list of sections & properties available for defining activities, please see [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities. 
+For a full list of sections & properties available for defining activities, see [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities. 
 
 Properties available in the typeProperties section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
 
