@@ -4,7 +4,7 @@
    services="service-fabric"
    documentationCenter=".net"
    authors="motanv"
-   manager="timlt"
+   manager="rsinha"
    editor="toddabel"/>
 
 <tags
@@ -15,6 +15,8 @@
    ms.workload="NA"
    ms.date="07/08/2016"
    ms.author="motanv"/>
+
+   >[AZURE.NOTE] ChaosTestScenario is being replaced by a more resilient, service-based Chaos. Please refer to the new article "Resilient Chaos through Fault Injection and Cluster Analysis Service" for more details.
 
 # Testability scenarios
 Large distributed systems like cloud infrastructures are inherently unreliable. Azure Service Fabric gives developers the ability to write services to run on top of unreliable infrastructures. In order to write high-quality services, developers need to be able to induce such unreliable infrastructure to test the stability of their services.
