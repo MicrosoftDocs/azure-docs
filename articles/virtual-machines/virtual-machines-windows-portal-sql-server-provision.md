@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/21/2016"
+	ms.date="09/20/2016"
 	ms.author="jroth" />
 
 # Provision a SQL Server virtual machine in the Azure Portal
@@ -125,6 +125,7 @@ On the **SQL Server settings** blade, configure specific settings and optimizati
 | [Automated Patching](#automated-patching) |
 | [Automated Backup](#automated-backup)             |
 | [Azure Key Vault Integration](#azure-key-vault-integration)             |
+| [R Services](#r-services) |
 
 ### Connectivity
 Under **SQL connectivity**, specify the type of access you want to the SQL Server instance on this VM. For the purposes of this tutorial, select **Public (internet)** to allow connections to SQL Server from machines or services on the internet. With this option selected, Azure automatically configures the firewall and the network security group to allow traffic on port 1433.  
@@ -141,6 +142,8 @@ If you would prefer to not enable connections to the Database Engine via the int
 - **Private (within Virtual Network)** to allow connections to SQL Server from machines or services in the same virtual network.
 
 In general, improve security by choosing the most restrictive connectivity that your scenario allows. But all the options are securable through Network Security Group rules and SQL/Windows Authentication.
+
+>[AZURE.NOTE] Virtual machine images for SQL Server Express or Developer editions do not automatically enable the TCP/IP protocol. This prevents remote connectivity even if you selected Public or Private in the portal. For Express and Developer editions, you must use SQL Server Configuration Manager to [manually enable the TCP/IP protocol](virtual-machines-windows-sql-connect.md#configure-sql-server-to-listen-on-the-tcp-protocol) after creating the VM.
 
 **Port** defaults to 1433. You can specify a different port number.
 For more information, see [Connect to a SQL Server Virtual Machine (Resource Manager) | Microsoft Azure](virtual-machines-windows-sql-connect.md).
@@ -178,7 +181,7 @@ By default, Azure optimizes the storage for 5000 IOPs, 200 MBs, and 1 TB of stor
 
 ![SQL Automated Patching](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-patching.png)
 
-For more information, see [Automated Patching for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-patching.md).
+For more information, see [Automated Patching for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-automated-patching.md).
 
 ### Automated backup
 Enable automatic database backups for all databases under **Automated backup**. Automated backup is disabled by default.
@@ -193,7 +196,7 @@ To encrypt the backup, click **Enable**. Then specify the **Password**. Azure cr
 
 ![SQL Automated Backup](./media/virtual-machines-windows-portal-sql-server-provision/azure-sql-arm-autobackup.png)
 
- For more information, see [Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-classic-sql-automated-backup.md).
+ For more information, see [Automated Backup for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
 
 ### Azure Key Vault integration
 To store security secrets in Azure for encryption, click **Azure key vault integration** and click **Enable**.
@@ -209,9 +212,16 @@ The following table lists the parameters required to configure Azure Key Vault I
 | **Principal secret**|Azure Active Directory service principal secret. This secret is also referred to as the Client Secret. | 9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=|
 |**Credential name**|**Credential name**: AKV Integration creates a credential within SQL Server, allowing the VM to have access to the key vault. Choose a name for this credential.| mycred1|
 
-For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs](virtual-machines-windows-classic-ps-sql-keyvault.md).
+For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs](virtual-machines-windows-ps-sql-keyvault.md).
 
 When you are finished configuring SQL Server settings, click **OK**.
+
+### R services
+For SQL Server 2016 Enterprise edition, you have the option to enable [SQL Server R Services](https://msdn.microsoft.com/library/mt604845.aspx). This enables you to use advanced analytics with SQL Server 2016. Click **Enable** on the **SQL Server Settings** blade.
+
+![Enable SQL Server R Services](./media/virtual-machines-windows-portal-sql-server-provision/azure-vm-sql-server-r-services.png)
+
+>[AZURE.NOTE] For SQL Server images that are not 2016 Enterprise edition, the option to enable R Services is disabled.
 
 ## 5. Review the summary
 On the **Summary** blade, review the summary and click **OK** to create SQL Server, resource group, and resources specified for this VM.
