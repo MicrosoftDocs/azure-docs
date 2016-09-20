@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="07/06/2016"
+	ms.date="09/20/2016"
 	ms.author="spelluru"/>
 
 # Get started with Azure Data Catalog
