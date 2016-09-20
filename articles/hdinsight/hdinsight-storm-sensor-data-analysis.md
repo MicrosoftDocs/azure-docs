@@ -61,7 +61,7 @@ This example consists of the following components:
 
 * **Storm on HDInsight**: Provides real-time processing of data from Event Hub.
 
-* **HBase on HDInsight**: Provides a persistent NoSQL data store for data after it has been procedd by Storm.
+* **HBase on HDInsight**: Provides a persistent NoSQL data store for data after it has been processed by Storm.
 
 * **Azure Virtual Network service**: Enables secure communications between the Storm on HDInsight and HBase on HDInsight clusters.
 
@@ -92,7 +92,7 @@ The following is a diagram of the topology.
 
 * **EventHub Spout**: The spout is provided as part of Apache Storm version 0.10.0 and higher.
 
-    > [AZURE.NOTE] The Event Hubs spout used in this example requires an Storm on HDInsight cluster version 3.3 or 3.4. For information on how to use Event Hubs with an older version of Storm on HDInsight, see [Process events from Azure Event Hubs with Storm on HDInsight](hdinsight-storm-develop-java-event-hub-topology.md).
+    > [AZURE.NOTE] The Event Hubs spout used in this example requires a Storm on HDInsight cluster version 3.3 or 3.4. For information on how to use Event Hubs with an older version of Storm on HDInsight, see [Process events from Azure Event Hubs with Storm on HDInsight](hdinsight-storm-develop-java-event-hub-topology.md).
 
 * **ParserBolt.java**: The data that is emitted by the spout is raw JSON, and occasionally more than one event is emitted at a time. This bolt demonstrates how to read the data emitted by the spout, and emit it to a new stream as a tuple that contains multiple fields.
 
@@ -242,7 +242,7 @@ In order to run the topology on HDInsight, and to enable the HBase bolt, you mus
 
 The Resource Manager template used in this document is located in a public blob container at __https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hbase-storm-cluster-in-vnet.json__.
 
-1. Click the following button to sign in to Azure and open the Resource Manager template in the Azure Portal.
+1. Click the following button to sign in to Azure and open the Resource Manager template in the Azure portal.
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
@@ -305,7 +305,7 @@ In order to store data in HBase, we must first create a table. You generally wan
 
     	scan 'SensorData'
 		
-	This should return information similar to the followig, indicating that there are 0 rows in the table.
+	This returns information similar to the following example, indicating that there are 0 rows in the table.
 	
 		ROW                   COLUMN+CELL                                       0 row(s) in 0.1900 seconds
 
@@ -335,7 +335,7 @@ This will download the __hbase-site.xml__ to the path specified.
 
     This will download a file named `storm-hbase-####.jar`, where #### is the version number of Storm for this cluster. Make a note of this number, as it is used later.
 
-2. Use the following command to install this component into the local Maven repository on your develoment environment. This enables Maven to find the package when compiling the project. Replace __####__ with the version number included in the file name.
+2. Use the following command to install this component into the local Maven repository on your development environment. This enables Maven to find the package when compiling the project. Replace __####__ with the version number included in the file name.
 
         mvn install:install-file -Dfile=storm-hbase-####.jar -DgroupId=org.apache.storm -DartifactId=storm-hbase -Dversion=#### -Dpackaging=jar
 
@@ -457,13 +457,13 @@ To delete the clusters, storage, and web app at one time, delete the resource gr
 
 ## Next steps
 
-You have now learned how to use Storm to read data from Event Hubs, store it into HBase, and send visualize the information on an external dashboard by using Socket.io and D3.js.
+You have now learned how to use Storm to read data from Event Hubs, store it into HBase, and visualize the information on an external dashboard by using Socket.io and D3.js.
 
-* For more examples of Storm topologies with HDinsight, see:
+* For more examples of Storm topologies with HDInsight, see:
 
     * [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md)
 
-* For more information about Apache Storm, see the  [Apache Storm](https://storm.incubator.apache.org/) site.
+* For more information about Apache Storm, see the [Apache Storm](https://storm.incubator.apache.org/) site.
 
 * For more information about HBase on HDInsight, see the [HBase with HDInsight Overview](hdinsight-hbase-overview.md).
 
