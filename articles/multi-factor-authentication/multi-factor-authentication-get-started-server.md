@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="Getting started with the Azure Multi-Factor Authentication Server" 
-	description="This is the Azure Multi-factor authentication page that describes how to get started with Azure MFA Server." 
+	pageTitle="Getting started with the Azure Multi-Factor Authentication Server"
+	description="This is the Azure Multi-factor authentication page that describes how to get started with Azure MFA Server."
 	services="multi-factor-authentication"
-	keywords="authentication server, azure multi factor authentication app activation page, authentication server download" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="femila" 
+	keywords="authentication server, azure multi factor authentication app activation page, authentication server download"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/15/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/15/2016"
+	ms.author="kgremban"/>
 
 # Getting started with the Azure Multi-Factor Authentication Server
 
@@ -73,7 +73,7 @@ Now that you have downloaded the server you can install it and configure it.  Be
 
 
 Azure Multi-Factor Authentication Server Requirements|Description|
-:------------- | :------------- | 
+:------------- | :------------- |
 Hardware|<li>200 MB of hard disk space</li><li>x32 or x64 capable processor</li><li>1 GB or greater RAM</li>
 Software|<li>Windows Server 2008 or greater if the host is a server OS</li><li>Windows 7 or greater if the host is a client OS</li><li>Microsoft .NET 4.0 Framework</li><li>IIS 7.0 or greater if installing the user portal or web service SDK</li>
 
@@ -122,7 +122,7 @@ The above steps show an express setup with the configuration wizard.  You can re
 
 ##Import users from Active Directory
 
-Now that the server is installed and configured you can quickly import users into the Azure MFA Server. 
+Now that the server is installed and configured you can quickly import users into the Azure MFA Server.
 
 ### To import users from Active Directory
 --------------------------------------------------------------------------------
@@ -164,10 +164,10 @@ When you use the Multi-Factor Authentication (MFA) Server on-premises, a user’
 - Email Address - optional
 - Phone Number - when doing a voice call or SMS authentication
 - Device token - when doing mobile app authentication
-- Authentication Mode 
-- Authentication Result 
-- MFA Server Name 
-- MFA Server IP 
+- Authentication Mode
+- Authentication Result
+- MFA Server Name
+- MFA Server IP
 - Client IP – if available
 
 
@@ -179,7 +179,7 @@ In addition to the fields above, the authentication result (success/denial) and 
 For additional information on advanced setup and configuration information use the table below.
 
 Method|Description
-:------------- | :------------- | 
+:------------- | :------------- |
 [User Portal](multi-factor-authentication-get-started-portal.md)|  Information on setup and configuring the User portal including deployment and user self-service.
 [Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md)|Information on setting up Azure Multi-Factor Authentication with AD FS.
 [RADIUS Authenticaton](multi-factor-authentication-get-started-server-radius.md)|  Information on setup and configuring the Azure MFA Server with RADIUS.
