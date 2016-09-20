@@ -3,7 +3,7 @@
     description="Overview of Informix connector with REST API parameters"
     services=""
     documentationCenter="" 
-    authors="PaulLarsen"
+    authors="MandiOhlinger"
     manager="erikre"
     editor=""
     tags="connectors"/>
