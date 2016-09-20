@@ -101,34 +101,34 @@ class Program
                 Console.WriteLine("An instance of Chaos is already running in the cluster.");
             }
 
-                var filter = new ChaosReportFilter(startTimeUtc, DateTime.MaxValue);
+            var filter = new ChaosReportFilter(startTimeUtc, DateTime.MaxValue);
 
-                var eventSet = new HashSet<ChaosEvent>(new ChaosEventComparer());
+            var eventSet = new HashSet<ChaosEvent>(new ChaosEventComparer());
 
-                while (true)
+            while (true)
+            {
+                var report = client.TestManager.GetChaosReportAsync(filter).GetAwaiter().GetResult();
+
+                foreach (var chaosEvent in report.History)
                 {
-                    var report = client.TestManager.GetChaosReportAsync(filter).GetAwaiter().GetResult();
-
-                    foreach (var chaosEvent in report.History)
+                    if (!eventSet.Contains(chaosEvent))
                     {
-                        if (!eventSet.Contains(chaosEvent))
-                        {
-                            Console.WriteLine(chaosEvent);
-                            eventSet.Add(chaosEvent);
-                        }
+                        Console.WriteLine(chaosEvent);
+                        eventSet.Add(chaosEvent);
                     }
-
-                    var lastEvent = report.History.LastOrDefault();
-
-                    if (lastEvent is StoppedEvent)
-                    {
-                        break;
-                    }
-
-                    Task.Delay(TimeSpan.FromSeconds(1.0)).GetAwaiter().GetResult();
                 }
 
-                client.TestManager.StopChaosAsync().GetAwaiter().GetResult();
+                var lastEvent = report.History.LastOrDefault();
+
+                if (lastEvent is StoppedEvent)
+                {
+                    break;
+                }
+
+                Task.Delay(TimeSpan.FromSeconds(1.0)).GetAwaiter().GetResult();
+            }
+
+            client.TestManager.StopChaosAsync().GetAwaiter().GetResult();
         }
     }
 }
