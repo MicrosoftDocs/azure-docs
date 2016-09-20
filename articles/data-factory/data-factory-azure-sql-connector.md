@@ -207,7 +207,7 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
 
 In the example, **sqlReaderQuery** is specified for the SqlSource. The Copy Activity runs this query against the Azure SQL Database source to get the data. Alternatively, you can specify a stored procedure by specifying the **sqlReaderStoredProcedureName** and **storedProcedureParameters** (if the stored procedure takes parameters).
 
-If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the columns defined in the structure section of the dataset JSON are used to build a query (`select column1, column2 from mytable`) to run against the Azure SQL Database. If the dataset definition does not have the structure, all columns are selected from the table. 
+If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the columns defined in the structure section of the dataset JSON are used to build a query to run against the Azure SQL Database. For example: `select column1, column2 from mytable`. If the dataset definition does not have the structure, all columns are selected from the table. 
 
 
 See the [Sql Source](#sqlsource) section and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) for the list of properties supported by SqlSource and BlobSink. 
@@ -405,7 +405,7 @@ The following table provides description for JSON elements specific to Azure SQL
 | type | The type property must be set to: AzureSqlDatabase | Yes |
 | connectionString | Specify information needed to connect to the Azure SQL Database instance for the connectionString property. | Yes |
 
-> [AZURE.NOTE] Configure [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) the database server to [allow Azure Services to access the server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Additionally, if you are copying data to Azure SQL from outside Azure including from on-premises data sources with data factory gateway, configure appropriate IP address range for the machine that is sending data to Azure SQL. 
+> [AZURE.NOTE] Configure [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) the database server to [allow Azure Services to access the server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Additionally, if you are copying data to Azure SQL Database from outside Azure including from on-premises data sources with data factory gateway, configure appropriate IP address range for the machine that is sending data to Azure SQL Database. 
 
 ## Azure SQL dataset type properties
 
@@ -478,8 +478,8 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
 | -------- | ----------- | -------------- | -------- |
 | writeBatchTimeout | Wait time for the batch insert operation to complete before it times out. | timespan<br/><br/> Example: “00:30:00” (30 minutes). | No | 
 | writeBatchSize | Inserts data into the SQL table when the buffer size reaches writeBatchSize. | Integer (number of rows)| No (default: 10000)
-| sqlWriterCleanupScript | Specify a query for Copy Activity to execute such that data of a specific slice is cleaned up. See [repeatability section](#repeatability-during-copy) for more details. | A query statement.  | No |
-| sliceIdentifierColumnName | Specify a column name for Copy Activity to fill with auto generated slice identifier, which is used to clean up data of a specific slice when rerun. See [repeatability section](#repeatability-during-copy) for more details. | Column name of a column with data type of binary(32). | No |
+| sqlWriterCleanupScript | Specify a query for Copy Activity to execute such that data of a specific slice is cleaned up. For more information, see [repeatability section](#repeatability-during-copy). | A query statement.  | No |
+| sliceIdentifierColumnName | Specify a column name for Copy Activity to fill with auto generated slice identifier, which is used to clean up data of a specific slice when rerun. For more information, see [repeatability section](#repeatability-during-copy). | Column name of a column with data type of binary(32). | No |
 | sqlWriterStoredProcedureName | Name of the stored procedure that upserts (updates/inserts) data into the target table. | Name of the stored procedure. | No |
 | storedProcedureParameters | Parameters for the stored procedure. | Name/value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No | 
 | sqlWriterTableType | Specify a table type name to be used in the stored procedure. Copy activity makes the data being moved available in a temp table with this table type. Stored procedure code can then merge the data being copied with existing data. | A table type name. | No |
@@ -567,7 +567,7 @@ Notice that the target table has an identity column.
 	}
 
 
-Notice that as your source and target table have different schema (target has an additional column with identity). In this scenario, you need to specify **structure** property in  the target dataset definition, which doesn’t include the identity column.
+Notice that as your source and target table have different schema (target has an additional column with identity). In this scenario, you need to specify **structure** property in the target dataset definition, which doesn’t include the identity column.
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)] 
 

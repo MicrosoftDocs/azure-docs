@@ -45,7 +45,7 @@ The sample defines the following Data Factory entities:
 4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 4. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [SqlDWSource](#azure-sql-data-warehouse-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
-The sample copies data belonging to a time series from a table in Azure SQL Data Warehouse database to a blob every hour. The JSON properties used in these samples are described in sections following the samples.
+The sample copies time-series (hourly, daily, etc.) data from a table in Azure SQL Data Warehouse database to a blob every hour. The JSON properties used in these samples are described in sections following the samples.
 
 **Azure SQL Data Warehouse linked service:**
 
@@ -386,7 +386,7 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
 	   }
 	}
 
-See the [Load data with Azure Data Factory](../sql-data-warehouse/sql-data-warehouse-get-started-load-with-azure-data-factory.md) article in the Azure SQL Data Warehouse documentation for a walkthrough. 
+For a walkthrough, see the [Load data with Azure Data Factory](../sql-data-warehouse/sql-data-warehouse-get-started-load-with-azure-data-factory.md) article in the Azure SQL Data Warehouse documentation.
 
 ## Azure SQL Data Warehouse linked service properties
 
@@ -420,7 +420,7 @@ Properties available in the typeProperties section of the activity on the other 
 
 ### SqlDWSource
 
-When source is of type **SqlDWSource** the following properties are available in **typeProperties** section:
+When source is of type **SqlDWSource**, the following properties are available in **typeProperties** section:
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
@@ -432,7 +432,7 @@ If the **sqlReaderQuery** is specified for the SqlDWSource, the Copy Activity ru
 
 Alternatively, you can specify a stored procedure by specifying the **sqlReaderStoredProcedureName** and **storedProcedureParameters** (if the stored procedure takes parameters). 
 
-If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the columns defined in the structure section of the dataset JSON are used to build a query (select column1, column2 from mytable) to run against the Azure SQL Data Warehouse. If the dataset definition does not have the structure, all columns are selected from the table.
+If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the columns defined in the structure section of the dataset JSON are used to build a query to run against the Azure SQL Data Warehouse. Example: `select column1, column2 from mytable`. If the dataset definition does not have the structure, all columns are selected from the table.
 
 #### SqlDWSource example
 
@@ -508,9 +508,9 @@ Set the **allowPolyBase** property to **true** as shown in the following example
     }
 
 ### Direct copy using PolyBase
-If your source data meets the criteria described in this section, you can directly copy from source data store to Azure SQL Data Warehouse using PolyBase referring to preceding sample configuration. Otherwise, you can use [Staged Copy using PolyBase](#staged-copy-using-polybase).
+If your source data meets the criteria described in this section, you can directly copy from source data store to Azure SQL Data Warehouse using PolyBase. Otherwise, you can use [Staged Copy using PolyBase](#staged-copy-using-polybase).
 
-If the requirements are not met, Azure Data Factory checks the settings and automatically fall back to the BULKINSERT mechanism for the data movement.
+If the requirements are not met, Azure Data Factory checks the settings and automatically falls back to the BULKINSERT mechanism for the data movement.
 
 1.	**Source linked service** is of type: **Azure Storage** and it is not configured to use SAS (Shared Access Signature) authentication. See [Azure Storage linked service](data-factory-azure-blob-connector.md#azure-storage-linked-service) for details.  
 2. The **input dataset** is of type: **Azure Blob** and the format type under type properties is **OrcFormat** or **TextFormat** with the following configurations:
@@ -539,7 +539,7 @@ If the requirements are not met, Azure Data Factory checks the settings and auto
 5.	There is no **columnMapping** being used in the associated in Copy activity. 
 
 ### Staged Copy using PolyBase
-When your source data doesn’t meet the criteria introduced in the previous section, you can enable copying data via an interim staging Azure blob storage, in which case Azure Data Factory performs transformations on the data to meet data format requirements of PolyBase, and then use PolyBase to load data into SQL Data Warehouse. See [Staged Copy](data-factory-copy-activity-performance.md#staged-copy) for details on how copying data via a staging Azure Blob works in general.
+When your source data doesn’t meet the criteria introduced in the previous section, you can enable copying data via an interim staging Azure blob storage. In this case, Azure Data Factory performs transformations on the data to meet data format requirements of PolyBase, and then use PolyBase to load data into SQL Data Warehouse. See [Staged Copy](data-factory-copy-activity-performance.md#staged-copy) for details on how copying data via a staging Azure Blob works in general.
 
 > [AZURE.IMPORTANT] If you are copying data from an on-prem data store into Azure SQL Data Warehouse using PolyBase and staging, install the JRE 8 (Java Runtime Environment) on your gateway machine, which is used to transform your source data into proper format. A 64-bit gateway requires 64-bit JRE and a 32-bit gateway requires 32-bit JRE. Download the appropriate version from [Java Downloads location](http://go.microsoft.com/fwlink/?LinkId=808605).
 
@@ -592,7 +592,7 @@ If you see the following error, it could be an issue with the value you specifie
 	Type=System.Data.SqlClient.SqlException,Message=Invalid object name 'stg.Account_test'.,Source=.Net SqlClient Data Provider
 
 #### Columns with default values
-Currently, PolyBase feature in Data Factory only accepts the same number of columns as in the target table. Say, you have a table with four columns and one of them is defined with a default value, the input data should still contain four columns. Providing a 3-column input dataset would yield an error similar to the following:
+Currently, PolyBase feature in Data Factory only accepts the same number of columns as in the target table. Say, you have a table with four columns and one of them is defined with a default value. The input data should still contain four columns. Providing a 3-column input dataset would yield an error similar to the following message:
 
 	All columns of the table must be specified in the INSERT BULK statement.
 
