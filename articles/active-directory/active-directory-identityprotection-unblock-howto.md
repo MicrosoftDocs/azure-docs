@@ -35,7 +35,7 @@ You can get the type of policy that has blocked a user from the heading in the d
 |User risk | ![Blocked account](./media/active-directory-identityprotection-unblock-howto/104.png) |
 
 
-A user is blocked by:
+A user that is blocked by:
 
 - A sign-in risk policy is also known as suspicious sign-in
 - A user risk policy is also known as an account at risk
