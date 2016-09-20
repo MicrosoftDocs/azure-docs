@@ -37,6 +37,8 @@ Azure produces extensive logging for every Azure service. These logs are categor
 
 Azure log integration currently supports integration of Azure Audit Logs, virtual machine logs, and Azure Security Center alerts.
 
+If you have questions about Azure Log Integration, please send an email to [AzSIEMteam@microsoft.com] (mailto:AzSIEMteam@microsoft.com)
+
 ## Next steps
 
 In this document, you were introduced to Azure log integration. To learn more about Azure log integration and the types of logs supported, see the following:
