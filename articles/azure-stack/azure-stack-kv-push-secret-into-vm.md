@@ -209,7 +209,7 @@ https://contosovault.vault.azure.net:443/secrets/servicecert
                   /e3391a126b65414f93f6f9806743a1f7
 
 Now we are ready to deploy a VM template. Note the URI of the
-secret from the output (as highlighted in the preceding in green).
+secret from the output (as highlighted in the preceding output in green).
 
 You'll need a template located here. The parameters of special interest
 (besides the usual VM parameters) are the vault name, the vault resource
