@@ -85,7 +85,7 @@ Following is a description of the command parameters.
 |**CreateGalleryItem**| Boolean flag that determines whether to create an item in Marketplace. The default is set to true.|
 |**title**| The display name of Marketplace item. The default is set to be the Publisher-Offer-Sku of the VM image.|
 |**description**| The description of the Marketplace item. |
-|**osDiskBlobURI**| Optionally, this script also accepts a Blob storage URI for  osDisk.|
+|**osDiskBlobURI**| Optionally, this script also accepts a Blob storage URI for osDisk.|
 |**dataDiskBlobURIs**| Optionally, this script also accepts an array of Blob storage URIs for adding data disks to the image.|
 
 
