@@ -4,7 +4,8 @@
     services="storage"
     documentationCenter="ios"
     authors="micurd"
-    manager="jahogg"/>
+    manager="jahogg"
+    editor="tysonn"/>
 
 <tags
     ms.service="storage"
@@ -12,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="Objective-C"
     ms.topic="article"
-    ms.date="07/27/2016"
-    ms.author="micurd"/>
+    ms.date="09/20/2016"
+    ms.author="micurd;tamram"/>
 
 # How to use Blob storage from iOS
 
