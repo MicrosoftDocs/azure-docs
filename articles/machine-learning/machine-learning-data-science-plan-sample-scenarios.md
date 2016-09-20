@@ -29,7 +29,9 @@ The **decision tree** for selecting the sample scenarios that is appropriate for
 Each of the following sections presents a sample scenario. For each scenario, a possible data science or advanced analytics flow and supporting Azure resources are listed.
 
 >[AZURE.NOTE] **For all of the following scenarios, you need to:**
+><br/>
 >* [Create a storage account](../storage/storage-create-storage-account.md)
+><br/>
 >* [Create an Azure Machine Learning workspace](machine-learning-create-workspace.md)
 
 
@@ -120,9 +122,8 @@ Each of the following sections presents a sample scenario. For each scenario, a 
     - Create database and target tables.
     - Use one of the bulk import methods to load the data from VM-local files.
 
-    Option \#2: Using IPython Notebook – not advisable for medium and larger
-        datasets
-        
+    Option \#2: Using IPython Notebook – not advisable for medium and larger datasets
+
     - Use ODBC connection string to access SQL Server on VM.
     - Create database and target tables.
     - Use one of the bulk import methods to load the data from VM-local files.
