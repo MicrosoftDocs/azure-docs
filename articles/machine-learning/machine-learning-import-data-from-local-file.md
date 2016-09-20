@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="09/16/2016"
 	ms.author="garye;bradsev" />
 
 
@@ -40,6 +40,7 @@ During upload, you will see a message that your file is being uploaded. Upload t
 If you know the file will take a long time, you can do other things inside Machine Learning Studio while you wait. However, closing the browser will cause the data upload to fail.
 
 Once your data is uploaded, it's stored in a dataset module and is available to any experiment in your workspace.
-You can find the dataset, along with all the pre-loaded sample datasets, in the **Saved Datasets** list in the module palette when you're editing an experiment. You can drag and drop the dataset in the experiment canvas when you want to use the data set for the further analytics and machine learning.
+When you're editing an experiment, you can find the datasets you've created in the **My Datasets** list under the **Saved Datasets** list in the module palette. You can drag and drop the dataset onto the experiment canvas when you want to use the data set for the further analytics and machine learning.
+
 
 
