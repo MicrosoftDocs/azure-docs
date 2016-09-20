@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Upload files into a Media Services account using .NET" 
+	pageTitle="Upload files into a Media Services account using .NET  | Microsoft Azure" 
 	description="Learn how to get media content into Media Services by creating and uploading assets." 
 	services="media-services" 
 	documentationCenter="" 
@@ -18,7 +18,7 @@
 
 
 
-# Upload files into a Media Services account using .NET | Microsoft Azure
+# Upload files into a Media Services account using .NET
 
  > [AZURE.SELECTOR]
  - [.NET](media-services-dotnet-upload-files.md)
