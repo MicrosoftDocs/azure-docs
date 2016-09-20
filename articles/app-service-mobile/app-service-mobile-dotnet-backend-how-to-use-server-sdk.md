@@ -86,7 +86,8 @@ This will generate a class with the following attribute:
 
     [assembly: OwinStartup(typeof(YourServiceName.YourStartupClassName))]
 
-In the `Configuration()` method of your OWIN startup class, set up the server project using an **HttpConfiguration** object which represents the configuration options for the service. The following example initialize the server project, with no added features:
+In the `Configuration()` method of your OWIN startup class, set up the server project using an **HttpConfiguration** object which represents 
+the configuration options for the service. The following example initializes the server project with no added features:
 
 	// in OWIN startup class
 	public void Configuration(IAppBuilder app)
@@ -100,13 +101,15 @@ In the `Configuration()` method of your OWIN startup class, set up the server pr
 	    app.UseWebApi(config);
 	}
 
-To enable individual features, you must call extension methods on the **MobileAppConfiguration** object before calling **ApplyTo**. For example, the following code adds the default routes to all API controllers that have the attribute `[MobileAppController]` during initialization:
+To enable individual features, you must call extension methods on the **MobileAppConfiguration** object before calling **ApplyTo**. For example, 
+the following code adds the default routes to all API controllers that have the attribute `[MobileAppController]` during initialization:
 
 	new MobileAppConfiguration()
 	    .MapApiControllers()
 	    .ApplyTo(config);
 
-Note that `MapApiControllers` only maps controllers with the attribute `[MobileAppController]`. To map other controllers, use the [MapHttpAttributeRoutes] method. 
+Note that `MapApiControllers` only maps controllers with the attribute `[MobileAppController]`. To map other controllers, use 
+the [MapHttpAttributeRoutes] method. 
 
 Many of the feature extension methods are available via additional NuGet packages you can include, which are described in the section below.
 
@@ -130,7 +133,7 @@ The server quickstart from the Azure portal calls **UseDefaultConfiguration()**.
 The following NuGet-based extension packages provide various mobile features that can be used by your application. You enable extensions during initialization by using the **MobileAppConfiguration** object.
 
 - [Microsoft.Azure.Mobile.Server.Quickstart]
-	 Supports the basic Mobile Apps setup. Added to the configuration by calling the **UseDefaultConfiguration** extension method during initialization. This extension includes following extensions: Notifications, Authentication, Entity, Tables, Crossdomain and Home packages. This is equivalent to the quickstart server project that you download from the Azure portal.
+	 Supports the basic Mobile Apps setup. Added to the configuration by calling the **UseDefaultConfiguration** extension method during initialization. This extension includes following extensions: Notifications, Authentication, Entity, Tables, Cross-domain and Home packages. This is equivalent to the quickstart server project that you download from the Azure portal.
 
 - [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/)
 	Implements the default *this mobile app is up and running page* for the web site root. Add to the configuration by calling the **AddMobileAppHomeController** extension method.
@@ -227,7 +230,9 @@ in the quickstart server project download from the Azure portal.
 
 ### How to: Adjust the table paging size
 
-By default, Azure Mobile Apps returns 50 records per request.  This ensures that the client does not tie up their UI thread nor the server for too long, ensuring a good user experience. You must increase the server side "allowed query size" and the client side page size to effect a change in the table paging size. To increase the paging size, adjust your table controller with this line:
+By default, Azure Mobile Apps returns 50 records per request.  This ensures that the client does not tie up their UI thread nor the server for 
+too long, ensuring a good user experience. You must increase the server side "allowed query size" and the client-side page size to effect a 
+change in the table paging size. To increase the paging size, adjust your table controller with this line:
 
     [EnableQuery(PageSize = 500)]
 
@@ -253,7 +258,7 @@ The custom API controller provides the most basic functionality to your Mobile A
 		      //...
 		}
 
-4. In App_Start/Startup.MobileApp.cs file, add a call to the  **MapApiControllers** extension method, as in the following example:
+4. In App_Start/Startup.MobileApp.cs file, add a call to the **MapApiControllers** extension method, as in the following example:
 
 		new MobileAppConfiguration()
 		    .MapApiControllers()
@@ -261,11 +266,13 @@ The custom API controller provides the most basic functionality to your Mobile A
 
 	Note that you do not need to call **MapApiControllers** if you instead call **UseDefaultConfiguration**, which initializes all features.
 
-Any controller that does not have **MobileAppControllerAttribute** applied can still be accessed by clients, but it may not be correctly consumed by clients using any Mobile App client SDK.
+Any controller that does not have **MobileAppControllerAttribute** applied can still be accessed by clients, but it may not be correctly 
+consumed by clients using any Mobile App client SDK.
 
 ## How to: Work with authentication
 
-Mobile Apps uses the facilities of App Service authentication and ASP.NET to simply the process of enabling authentication for your apps. This section shows you how to perform the following authentication-related tasks in your .NET backend server project:
+Mobile Apps uses the facilities of App Service authentication and ASP.NET to simply the process of enabling authentication for your apps. 
+This section shows you how to perform the following authentication-related tasks in your .NET backend server project:
 
 + [How to: Add authentication to a server project](#add-auth)
 + [How to: Use custom authentication for your application](#custom-auth)
@@ -274,7 +281,9 @@ Mobile Apps uses the facilities of App Service authentication and ASP.NET to sim
 
 ### <a name="add-auth"></a>How to: Add authentication to a server project
 
-You can add authentication to your server project by extending the **MobileAppConfiguration** object and configuring OWIN middleware. When you install the [Microsoft.Azure.Mobile.Server.Quickstart] package and call the **UseDefaultConfiguration** extension method, you can skip to step 3.
+You can add authentication to your server project by extending the **MobileAppConfiguration** object and configuring OWIN middleware. When 
+you install the [Microsoft.Azure.Mobile.Server.Quickstart] package and call the **UseDefaultConfiguration** extension method, you can skip 
+to step 3.
 
 1. In Visual Studio, install the [Microsoft.Azure.Mobile.Server.Authentication] package.
 
@@ -344,18 +353,23 @@ Replace the string "CustomAuth" above with the name of the controller hosting yo
 
 ###<a name="user-info"></a>How to: Retrieve authenticated user information
 
-When a user is authenticated by App Service, you can access the assigned user ID and other information in your .NET backend code. This is useful for making authorization decisions for a given user in the backend, such as whether a specific user can access a table row or other resource. The following code shows how to obtain the
-user ID for a logged-in user:
+When a user is authenticated by App Service, you can access the assigned user ID and other information in your .NET backend code. This is 
+useful for making authorization decisions for a given user in the backend, such as whether a specific user can access a table row or other 
+resource. The following code shows how to obtain the user ID for a logged-in user:
 
     // Get the SID of the current user.
     var claimsPrincipal = this.User as ClaimsPrincipal;
     string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-The SID is derived from the provider-specific user ID and is static for a given user and login provider. When a user accesses an endpoint anonymously, the User property returns null.
+The SID is derived from the provider-specific user ID and is static for a given user and login provider. When a user accesses an endpoint 
+anonymously, the User property returns null.
 
-App Service also lets you request specific claims from your login provider. This lets you request more information from the provider, such as by using the Facebook Graph APIs. You can specify claims in the provider blade in the portal. Some claims require additional configuration with the provider.
+App Service also lets you request specific claims from your login provider. This lets you request more information from the provider, such 
+as by using the Facebook Graph APIs. You can specify claims in the provider blade in the portal. Some claims require additional configuration 
+with the provider.
 
-The following code calls the **GetAppServiceIdentityAsync** extension method to get the login credentials, which include the access token needed to make requests against the Facebook Graph API:
+The following code calls the **GetAppServiceIdentityAsync** extension method to get the login credentials, which include the access token 
+needed to make requests against the Facebook Graph API:
 
     // Get the credentials for the logged-in user.
     var credentials =
@@ -379,7 +393,7 @@ The following code calls the **GetAppServiceIdentityAsync** extension method to 
         var fbInfo = await resp.Content.ReadAsStringAsync();
     }
 
-Note that you must add a using statement for `System.Security.Principal` to make the **GetAppServiceIdentityAsync** extension method  work.
+Note that you must add a using statement for `System.Security.Principal` to make the **GetAppServiceIdentityAsync** extension method work.
 
 ### <a name="authorize"></a>How to: Restrict data access for authorized users
 
@@ -436,7 +450,10 @@ At this point, you can use the Notification Hubs client to send push notificatio
 
 ##<a name="tags"></a>How to: Add tags to a device installation to enable targeted push
 
-Notification Hubs lets you send targeted notifications to specific registrations by using tags. One tag that gets created automatically is the installation ID, which is specific to an instance of the app on a given device. A registration with an installation ID is also called an *installation*. You can use the installation ID to manage installation, such as for adding tags. The installation ID can be accessed  from the **installationId** property on the **MobileServiceClient**.
+Notification Hubs lets you send targeted notifications to specific registrations by using tags. One tag that gets created automatically 
+is the installation ID, which is specific to an instance of the app on a given device. A registration with an installation ID is also 
+called an *installation*. You can use the installation ID to manage installation, such as for adding tags. The installation ID can be 
+accessed from the **installationId** property on the **MobileServiceClient**.
 
 The following example shows how to use an installation ID to add a tag to a specific installation in Notification Hubs:
 
@@ -475,13 +492,13 @@ Azure App Service provides several debugging and troubleshooting techniques for 
 
 - [Monitoring an Azure App Service](../app-service-web/web-sites-monitor.md)
 - [Enable Diagnostic Logging in Azure App Service](../app-service-web/web-sites-enable-diagnostic-log.md)
-- [Toubleshoot an Azure App Service in Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md)
+- [Troubleshoot an Azure App Service in Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md)
 
 ### Logging
 
 You can write to App Service diagnostic logs by using the standard ASP.NET trace writing. Before you can write to the logs, you must enable diagnostics in your Mobile App backend.
 
-To enable enable diagnostics and write to the logs:
+To enable diagnostics and write to the logs:
 
 1. Follow the steps in [How to enable diagnostics](../app-service-web/web-sites-enable-diagnostic-log.md#enablediag).
 
