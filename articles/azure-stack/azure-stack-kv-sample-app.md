@@ -18,10 +18,10 @@ HelloKeyVault is a console application that walks through the key scenarios that
   5. Decrypt the secret
   6. Set a secret
 
-That console application should run with no changes except that the appropriate configuration settings in App.Config will be updated per the following steps:
+That console application should run with no changes, except that the appropriate configuration settings in App.Config will be updated according to the following steps:
 
 1. Update the app configuration settings in HelloKeyVault\App.config with your vault URL, application principal ID, and secret. The information can optionally be generated using **scripts\GetAppConfigSettings.ps1**.
 2. Update the values of the mandatory variables in GetAppConfigSettings.ps1.
 3. Launch the Windows PowerShell window.
-4. Run the GetAppConfigSettings.ps1 script within the PowerShell window
+4. Run the GetAppConfigSettings.ps1 script within the PowerShell window.
 5. Copy the results of the script to the HelloKeyVault\App.config file.
