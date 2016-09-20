@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="07/05/2016"
+   ms.date="09/20/2016"
    ms.author="carlrab"/>
 
 # Monitoring Azure SQL Database using dynamic management views
