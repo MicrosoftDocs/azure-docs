@@ -60,7 +60,7 @@ The configuration for a Point-to-Site connection is broken down into four sectio
 2. In the lower left corner of the screen, click **New**. In the navigation pane, click **Network Services**, and then click **Virtual Network**. Click **Custom Create** to begin the configuration wizard.
 
 3. On the **Virtual Network Details** page, enter the following information, and then click the next arrow on the lower right.
-	- **Name**: Name your virtual network. For example, "VNet1". This is the name that you'll refer to when you deploy VMs to this VNet.
+	- **Name**: Name your virtual network. For example, 'VNet1'. This is the name that you'll refer to when you deploy VMs to this VNet.
 	- **Location**: The location is directly related to the physical location (region) where you want your resources (VMs) to reside. For example, if you want the VMs that you deploy to this virtual network to be physically located in East US, select that location. You can't change the region associated with your virtual network after you create it.
 
 4. On the **DNS Servers and VPN Connectivity** page, enter the following information, and then click the next arrow on the lower right.
@@ -102,7 +102,7 @@ In this section you will do the following:
 
 ### <a name="root"></a>Part 1: Obtain the .cer file for the root certificate
 
-If you are using an enterprise certificate system, obtain the .cer file for the root certificate that you want to use. In [Part 3](#createclientcert), you will generate the client certificates from the root certificate.
+If you are using an enterprise certificate system, obtain the .cer file for the root certificate that you want to use. In [Part 3](#createclientcert), you generate the client certificates from the root certificate.
 
 If you are not using an enterprise certificate solution, you'll need to generate a self-signed root certificate. For Windows 10 steps, you can refer to [Working with self-signed root certificates for Point-to-Site configurations](vpn-gateway-certificates-point-to-site.md). The article walks you through using makecert to generate a self-signed certificate, and then export the .cer file.
 
