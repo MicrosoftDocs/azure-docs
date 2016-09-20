@@ -68,7 +68,7 @@ defines | Specify parameters as key/value pairs for referencing within the Hive 
 
 Let’s consider an example of game logs analytics where you want to identify the time spent by users playing games launched by your company. 
 
-The following log is a sample game log, which is comma (,) separated and contains the following fields – ProfileID, SessionStart, Duration, SrcIPAddress, and GameType.
+The following log is a sample game log, which is comma (`,`) separated and contains the following fields – ProfileID, SessionStart, Duration, SrcIPAddress, and GameType.
 
 	1809,2014-05-04 12:04:25.3470000,14,221.117.223.75,CaptureFlag
 	1703,2014-05-04 06:05:06.0090000,16,12.49.178.247,KingHill
@@ -106,7 +106,7 @@ To execute this Hive script in a Data Factory pipeline, you need to do the follo
 1. Create a linked service to register [your own HDInsight compute cluster](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) or configure [on-demand HDInsight compute cluster](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Let’s call this linked service “HDInsightLinkedService”.
 2. Create a [linked service](data-factory-azure-blob-connector.md) to configure the connection to Azure Blob storage hosting the data. Let’s call this linked service “StorageLinkedService”
 3. Create [datasets](data-factory-create-datasets.md) pointing to the input and the output data. Let’s call the input dataset “HiveSampleIn” and the output dataset “HiveSampleOut”
-4. Copy the Hive query as a file to Azure Blob Storage configured in step #2. if the linked service for hosting the data is different from the one hosting this query file, create a separate Azure Storage linked service and refer to it in the activity. Use **scriptPath **to specify the path to hive query file and **scriptLinkedService** to specify the Azure storage that contains the script file. 
+4. Copy the Hive query as a file to Azure Blob Storage configured in step #2. if the storage for hosting the data is different from the one hosting this query file, create a separate Azure Storage linked service and refer to it in the activity. Use **scriptPath **to specify the path to hive query file and **scriptLinkedService** to specify the Azure storage that contains the script file. 
 
 	> [AZURE.NOTE] You can also provide the Hive script inline in the activity definition by using the **script** property. We do not recommend this approach as all special characters in the script within the JSON document needs to be escaped and may cause debugging issues. The best practice is to follow step #4.
 5.	Create a pipeline with the HDInsightHive activity. The activity processes/transforms the data.
@@ -147,8 +147,7 @@ To execute this Hive script in a Data Factory pipeline, you need to do the follo
 
 
 ## Specifying parameters for a Hive script  
-
-Consider the example where the game logs are ingested daily into Azure Blob Storage and stored in a folder partitioned with date and time. You want to parameterize the Hive script and pass the input folder location dynamically during runtime and also produce the output partitioned with date and time.
+In this example, game logs are ingested daily into Azure Blob Storage and are stored in a folder partitioned with date and time. You want to parameterize the Hive script and pass the input folder location dynamically during runtime and also produce the output partitioned with date and time.
 
 To use parameterized Hive script, do the following
 
