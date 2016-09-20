@@ -29,9 +29,8 @@ The **decision tree** for selecting the sample scenarios that is appropriate for
 Each of the following sections presents a sample scenario. For each scenario, a possible data science or advanced analytics flow and supporting Azure resources are listed.
 
 >[AZURE.NOTE] **For all of the following scenarios, you need to:**
-
-*   [Create a storage account](../storage/storage-create-storage-account.md)
-*   [Create an Azure Machine Learning workspace](machine-learning-create-workspace.md)
+>* [Create a storage account](../storage/storage-create-storage-account.md)
+>* [Create an Azure Machine Learning workspace](machine-learning-create-workspace.md)
 
 
 ## <a name="smalllocal"></a>Scenario \#1: Small to medium tabular dataset in a local files
@@ -116,14 +115,14 @@ Each of the following sections presents a sample scenario. For each scenario, a 
 
     Option \#1: Using SQL Server Management Studio.
 
-	- Login to SQL Server VM
+    - Login to SQL Server VM
     - Run SQL Server Management Studio.
     - Create database and target tables.
     - Use one of the bulk import methods to load the data from VM-local files.
 
     Option \#2: Using IPython Notebook – not advisable for medium and larger
         datasets
-
+        
     - Use ODBC connection string to access SQL Server on VM.
     - Create database and target tables.
     - Use one of the bulk import methods to load the data from VM-local files.
