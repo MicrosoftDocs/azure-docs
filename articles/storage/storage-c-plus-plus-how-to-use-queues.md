@@ -230,6 +230,7 @@ To delete a queue and all the messages contained in it, call the **delete_queue_
 	queue.delete_queue_if_exists();  
 
 ## Next steps
+
 Now that you've learned the basics of Queue storage, follow these links to learn more about Azure Storage.
 
 -	[How to use Blob Storage from C++](storage-c-plus-plus-how-to-use-blobs.md)
@@ -237,3 +238,4 @@ Now that you've learned the basics of Queue storage, follow these links to learn
 -	[List Azure Storage Resources in C++](storage-c-plus-plus-enumeration.md)
 -	[Storage Client Library for C++ Reference](http://azure.github.io/azure-storage-cpp)
 -	[Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
+
