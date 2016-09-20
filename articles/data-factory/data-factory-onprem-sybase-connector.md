@@ -36,7 +36,7 @@ For Data Management Gateway to connect to the Sybase Database, you need to insta
 ## Copy data wizard
 The easiest way to create a pipeline that copies data from a Sybase database to any of the supported sink data stores is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
 
-The following example provides sample JSON definitions that you can use to create a pipeline by using [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data from Sybase database to Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.   
+The following example provides sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data from Sybase database to Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.   
 
 ## Sample: Copy data from Sybase to Azure Blob
 This sample shows how to copy data from a Sybase database to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
@@ -248,7 +248,7 @@ tableName | Name of the table in the Sybase Database instance that linked servic
 
 ## Sybase copy activity type properties 
 
-For a full list of sections & properties available for defining activities, please see  [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities. 
+For a full list of sections & properties available for defining activities, please see [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities. 
 
 Properties available in the typeProperties section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
 
@@ -262,12 +262,12 @@ query | Use the custom query to read data. | SQL query string. For example: sele
 
 ## Type mapping for Sybase
 
-As mentioned in the [Data Movement Activities](data-factory-data-movement-activities.md)  article, the Copy activity performs automatic type conversions from source types to sink types with the following 2 step approach:
+As mentioned in the [Data Movement Activities](data-factory-data-movement-activities.md) article, the Copy activity performs automatic type conversions from source types to sink types with the following 2-step approach:
 
 1. Convert from native source types to .NET type
 2. Convert from .NET type to native sink type
 
-Sybase supports T-SQL and T-SQL types. For a mapping table from sql types to .NET type, see  [Azure SQL Connector](data-factory-azure-sql-connector.md) article.
+Sybase supports T-SQL and T-SQL types. For a mapping table from sql types to .NET type, see [Azure SQL Connector](data-factory-azure-sql-connector.md) article.
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
