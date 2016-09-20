@@ -28,23 +28,23 @@ The first prerequisite is to enable encrypted connections from Azure Search to t
 
 1. Verify the subject name of the certificate is the fully qualified domain name (FQDN) of the Azure VM. You can find the FQDN of the VM as the **DNS name/label** in the [Azure portal](https://portal.azure.com/).
 
-  For VMs created using the newer **Resource Manager** template, the FQDN is formatted as `<your-VM-name>.<region>.cloudapp.azure.com`. 
+    - For VMs created using the newer **Resource Manager** template, the FQDN is formatted as `<your-VM-name>.<region>.cloudapp.azure.com`. 
 
-  For older VMs created as a **Classic** VM, the FQDN is formatted as `<your-cloud-service-name.cloudapp.net>`. 
+    - For older VMs created as a **Classic** VM, the FQDN is formatted as `<your-cloud-service-name.cloudapp.net>`. 
 
 2. Configure SQL Server to use the certificate using the Registry Editor (regedit). 
 
-  > [AZURE.NOTE] Although SQL Server Configuration Manager is typically used for this task, you can't use it for this scenario. Configuration Manager won't find the imported certificate because the FQDN of the VM isn't the same as the FQDN as determined by the VM (where the domain is either the local computer itself, or the network domain to which it is joined). When the names don't match, you must use regedit to specify the certificate.
+    Although SQL Server Configuration Manager is typically used for this task, you can't use it for this scenario. It won't find the imported certificate because the FQDN of the VM on Azure doesn't match the FQDN as determined by the VM (it identifies the domain as either the local computer or the network domain to which it is joined). When names don't match, use regedit to specify the certificate.
 
-  a. In regedit, browse to this registry key: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\[MSSQL13.MSSQLSERVER]\MSSQLServer\SuperSocketNetLib\Certificate`. The `[MSSQL13.MSSQLSERVER]` part varies based on your SQL Server version and instance name. 
+    - In regedit, browse to this registry key: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SQL Server\[MSSQL13.MSSQLSERVER]\MSSQLServer\SuperSocketNetLib\Certificate`. The `[MSSQL13.MSSQLSERVER]` part varies based on version and instance name. 
 
-  b. Set the value of the **Certificate** key to the **thumbprint** of the SSL certificate you imported to the VM.
+    - Set the value of the **Certificate** key to the **thumbprint** of the SSL certificate you imported to the VM.
 
-  > [AZURE.IMPORTANT] There are several ways to get the thumbprint, some better than others. If you copy it from the **Certificates** snap-in in MMC, you will probably pick up an invisible leading character [as described in this support article](https://support.microsoft.com/kb/2023869/), which results in an error when you attempt a connection. Several workarounds exist for correcting this problem. The easiest is to backspace over and then retype the first character of the thumbprint to remove the leading character in the key value field in regedit. Alternatively, you can use a different tool to copy the thumbprint.
+    There are several ways to get the thumbprint, some better than others. If you copy it from the **Certificates** snap-in in MMC, you will probably pick up an invisible leading character [as described in this support article](https://support.microsoft.com/kb/2023869/), which results in an error when you attempt a connection. Several workarounds exist for correcting this problem. The easiest is to backspace over and then retype the first character of the thumbprint to remove the leading character in the key value field in regedit. Alternatively, you can use a different tool to copy the thumbprint.
 
 3. Grant permissions to the service account. 
 
-  Make sure the SQL Server service account is granted appropriate permission on the private key of the SSL certificate. If you overlook this step, SQL Server will not start. You can use the **Certificates** snap-in or **CertUtils** for this task.
+    Make sure the SQL Server service account is granted appropriate permission on the private key of the SSL certificate. If you overlook this step, SQL Server will not start. You can use the **Certificates** snap-in or **CertUtils** for this task.
 
 4. Restart the SQL Server service.
 
@@ -58,8 +58,7 @@ After you set up the encrypted connection required by Azure Search, there are ad
 
 In particular, review the connection scenarios in each article for "connecting over the internet".
 
-
-## Configure the Network Security Group (NSG) to allow connections from Azure Search
+## Configure the Network Security Group (NSG)
 
 It is not unusual to configure the NSG and corresponding Azure endpoint or Access Control List (ACL) to make your Azure VM accessible to other parties. Chances are you've done this before to allow your own application logic to connect to your SQL Azure VM. It's no different for an Azure Search connection to your SQL Azure VM. If you haven't done this yet, this section covers a few good security practices to keep in mind.
 
