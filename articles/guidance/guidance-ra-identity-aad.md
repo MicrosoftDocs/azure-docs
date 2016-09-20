@@ -29,7 +29,7 @@ You can use directory and identity services, such as those provided by AD Direct
 
 Azure provides two solutions for implementing directory and identity services in the cloud:
 
-1. You can use [Azure Active Directory (AAD)][azure-active-directory] to create a new AD domain in the cloud and link it to an on-premises AD domain. Then set up [Azure AD Connect][azure-ad-connect] on-premises to replicate identities held in the the on-premises repository to the cloud. Note that the directory in the cloud is **not** an extension of the on-premises system, rather it's a copy that contains the same identities. Changes made to these identities on-premises will be copied to the cloud, but changes made in the cloud **will not** be replicated back to the on-premises domain. Also, note that the same instance of AAD can be linked to more than one instance of AD DS; AAD will contain the identities of each AD repository to which it is linked.
+1. You can use [Azure Active Directory (AAD)][azure-active-directory] to create a new AD domain in the cloud and link it to an on-premises AD domain. Then set up [Azure AD Connect][azure-ad-connect] on-premises to replicate objects and identities held in the the on-premises repository to the cloud. Note that the directory in the cloud is **not** an extension of the on-premises system, rather it's a copy that contains the same objects and identities. Changes made to these items on-premises will be copied to the cloud, but changes made in the cloud **may not** be replicated back to the on-premises domain. Also, note that the same instance of AAD can be linked to more than one instance of AD DS; AAD will contain the data from each AD repository to which it is linked.
 
 	>[AZURE.NOTE] Azure Active Directory Premium edition enables write-back of user passwords, enabling your on-premises users to perform self-service password resets.
 
@@ -43,8 +43,6 @@ This architecture focuses on solution 1. For more information about the second s
 
 Typical use cases for this architecture include:
 
-- Situations where the on-premises network and Azure virtual network hosting cloud applications are not directly linked by using a VPN tunnel or ExpressRoute circuit.
-
 - Providing SSO for end users running SaaS and other applications in the cloud, using the same credentials that they specify for on-premises applications.
 
 - Publishing on-premises web applications through the cloud to provide access to remote users who belong to your organization.
@@ -52,6 +50,8 @@ Typical use cases for this architecture include:
 - Implementing self-service capabilities for end-users, such as resetting their passwords, and delegating group management. 
 
 	>[AZURE.NOTE] These capabilities can be controlled by an administrator through group policy.
+
+- Situations where the on-premises network and Azure virtual network hosting cloud applications are not directly linked by using a VPN tunnel or ExpressRoute circuit.
 
 You should note that AAD does not provide all the functionality of AD. For example, AAD currently only handles user authentication rather than computer authentication. Some applications and services, such as SQL Server, may require computer authentication in which case this solution is not appropriate. Additionally, AAD might not be suitable for systems where components could migrate across the on-premises/cloud boundary as this could require reconfiguration of AAD. 
 > [AZURE.NOTE] For a detailed explanation of how Azure Active Directory works, watch [Microsoft Active Directory Explained][aad-explained].
