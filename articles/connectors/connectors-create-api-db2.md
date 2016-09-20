@@ -3,7 +3,7 @@
     description="Overview of DB2 connector with REST API parameters"
     services=""
     documentationCenter="" 
-    authors="PaulLarsen"
+    authors="MandiOhlinger"
     manager="erikre"
     editor=""
     tags="connectors"/>
