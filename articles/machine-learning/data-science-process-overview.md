@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/19/2016"
-	ms.author="bradsev;gopitk" />
+	ms.author="bradsev" />
 
 
 # What is the Team Data Science Process (TDSP)?

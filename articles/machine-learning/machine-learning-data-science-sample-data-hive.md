@@ -3,7 +3,7 @@
 	description="Down sampling data in Azure HDInsight  (Hadopop) Hive Tables"
 	services="machine-learning,hdinsight"
 	documentationCenter=""
-	authors="bradsev,hangzh-msft"
+	authors="bradsev"
 	manager="jhubbard" 
 	editor="cgronlun"  />
 

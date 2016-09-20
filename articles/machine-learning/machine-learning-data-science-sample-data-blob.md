@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/19/2016" 
-	ms.author="sunliangms;fashah;garye;bradsev" /> 
+	ms.author="fashah;garye;bradsev" /> 
 
 #<a name="heading"></a>Sample data in Azure blob storage
 

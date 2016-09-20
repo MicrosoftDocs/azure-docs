@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/19/2016"
-	ms.author="bradsev;garye;gopitk" />
+	ms.author="bradsev;garye" />
 
 
 # Import data into Azure Machine Learning Studio from various online data sources with the Import Data module
