@@ -209,19 +209,19 @@ Deduplication reduces the overall amount of data stored by eliminating redundanc
 
 A summary of the supported StorSimple workloads is tabulated below.
 
-| Scenario                  | Workload                | Supported |  Restrictions                                 | Version              |
-|---------------------------|-------------------------|-----------|-----------------------------------------------|----------------------|
-| Collaboration             | File sharing            | Yes       |                                               | All versions         |
-| Collaboration             | Distributed file sharing| Yes       |                                               | All versions         |
-| Collaboration             | SharePoint              | Yes*      |Supported only with locally pinned volumes     | Update 2 and later   |
-| Archival                  | Simple file archiving   | Yes       |                        | All versions         |
-| Virtualization            | Virtual machines        | Yes*      |Supported only with locally pinned volumes     | Update 2 and later   |
-| Database                  | SQL                     | Yes*      |Supported only with locally pinned volumes     | Update 2 and later   |
-| Video surveillance        | Video surveillance      | Yes       |Supported only with dedicated StorSimple device| Update 2 and later   |
-| Backup                    | Primary   target backup | Yes*      |Supported only with dedicated StorSimple device| Update   3 and later |
-| Backup                    | Secondary target backup | Yes*      |Supported only with dedicated StorSimple device| Update   3 and later |
+| Scenario                  | Workload                | Supported |  Restrictions                                  | Version              |
+|---------------------------|-------------------------|-----------|------------------------------------------------|----------------------|
+| Collaboration             | File sharing            | Yes       |                                                | All versions         |
+| Collaboration             | Distributed file sharing| Yes       |                                                | All versions         |
+| Collaboration             | SharePoint              | Yes*      |Supported only with locally pinned volumes      | Update 2 and later   |
+| Archival                  | Simple file archiving   | Yes       |                                                | All versions         |
+| Virtualization            | Virtual machines        | Yes*      |Supported only with locally pinned volumes      | Update 2 and later   |
+| Database                  | SQL                     | Yes*      |Supported only with locally pinned volumes      | Update 2 and later   |
+| Video surveillance        | Video surveillance      | Yes*       |StorSimple device should be dedicated only to this workload| Update 2 and later   |
+| Backup                    | Primary   target backup | Yes*      |StorSimple device should be dedicated only to this workload| Update   3 and later |
+| Backup                    | Secondary target backup | Yes*      |StorSimple device should be dedicated only to this workload| Update   3 and later |
 
-Yes* - Solution guidelines and best practices should be applied.
+Yes* - Solution guidelines and restrictions should be applied.
 
 The following workloads are not supported by StorSimple 8000 series devices. If deployed on StorSimple, these workloads will result in an unsupported configuration.
 
@@ -244,7 +244,7 @@ Following is a list of the StorSimple supported infrastructure components.
 | General  | Indexing      | Yes       |For tiered volumes, only metadata indexing is supported (no data).<br>For locally pinned volumes, complete indexing is supported.| All versions |
 | General  | Anti-virus    | Yes       |For tiered volumes, only scan on open and close is supported.<br> For locally pinned volumes, full scan is supported.| All versions |
 
-Yes* - Solution guidelines and best practices should be applied.
+Yes* - Solution guidelines and restrictions should be applied.
 
 ## StorSimple terminology 
 
