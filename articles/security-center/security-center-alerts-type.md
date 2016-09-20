@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/19/2016"
+   ms.date="09/20/2016"
    ms.author="yurid"/>
 
 # Security Alerts by Type in Azure Security Center
@@ -26,6 +26,28 @@ This document helps you to understand the different types of security alerts ava
 Azure Security Center provides a variety of alerts that align with the stages of the cyber kill chain. The figure below provides some examples of various alerts as they relate to some of these stages.
 
 ![Kill chain](./media/security-center-alerts-type/security-center-alerts-type-fig1.png)
+
+
+**Target & Attack**
+
+- Inbound RDP/SSH attacks
+- Application and DDoS attacks (WAF partners)
+- Intrusion detection (NG Firewall partners)
+
+**Install & Exploit**
+
+- Known malware signatures (AM partners)
+- In-memory malware & exploit attempts
+- Suspicious process execution
+- Evasive maneuvers to avoid discovery
+- Lateral movement
+- Internal reconnaissance
+- Suspicious PowerShell activity
+
+**Post Breach**  
+
+- Communication to a known malicious IP (data exfiltration or command & control)
+- Using compromised resources to mount additional attacks (outbound port scanning RDP/SSH brute force attacks, and spam)
 
 Different types of attacks are associated with each stage and they target different subsystems. To address attacks during these stages, Security Center has three categories of alerts:
 
@@ -63,7 +85,7 @@ This is an example of this type of alert:
 
 ![Shellcode alert](./media/security-center-alerts-type/security-center-alerts-type-fig2.png) 
 
-#### Module hijacking discovered
+### Module hijacking discovered
 
 Windows relies on Dynamic Link Libraries (DLLs) to allow software to utilize common Windows system functionality. DLL Hijacking occurs when malware changes the DLL load order to load malicious payloads into memory, where arbitrary code can be executed. This alert indicates the crash dump analysis has detected a similarly named module is loaded from two different paths, where one of the loaded paths comes from a common Windows system binary location.
 
@@ -80,7 +102,7 @@ This is an example of this type of alert:
 
 ![Module hijacking alert](./media/security-center-alerts-type/security-center-alerts-type-fig3.png) 
 
-#### Masquerading Windows module detected
+### Masquerading Windows module detected
 
 Malware may use common names of Windows system binaries (e.g., SVCHOST.EXE) or modules (e.g., NTDLL.DLL) in order to “blend-in” and obscure the nature of the malicious software from system administrators. This alert indicates the crash dump analysis has detected that the crash dump file contains modules that use Windows system module names, but do not satisfy other criteria that are typical of Windows modules. Analyzing the on disk copy of the masquerading module may provide more information as to the legitimate or malicious nature of this module. Analysis may include:
 
@@ -100,7 +122,7 @@ This is an example of this type of alert:
 
 ![Masquerading Windows alert](./media/security-center-alerts-type/security-center-alerts-type-fig4.png) 
 
-#### Modified system binary discovered
+### Modified system binary discovered
 
 Malware may modify core system binaries in order to covertly access data or surreptitiously persist on a compromised system. This alert indicates the crash dump analysis has detected that core Windows OS binaries have been modified in memory or on disk.
 Legitimate software developers occasionally modify system modules in memory for non-malicious reasons, such as Detours or for application compatibility. To help differentiate between malicious and potentially legitimate modules, Azure Security Center checks whether or not the modified module conforms to a suspicious profile. The result of this check is indicated by the severity of the alert, alert description, and alert remediation steps.
@@ -114,21 +136,21 @@ This is an example of this type of alert:
 
 ![System binary alert](./media/security-center-alerts-type/security-center-alerts-type-fig5.png) 
 
-#### Suspicious process executed
+### Suspicious process executed
 
 Security Center identifies suspicious process in execution in the target virtual machine and trigger an alert. The detection doesn’t look for the specific name, but by its parameter, therefore even if the attacker renames the executable, Security Center still be able to detect.
  
 This is an example of this type of alert:
 
-![Suspicious process alert](./media/security-center-alerts-type/security-center-alerts-type-fig6.png)
+![Suspicious process alert](./media/security-center-alerts-type/security-center-alerts-type-fig6-new.png)
 
-#### Multiple domain accounts queried
+### Multiple domain accounts queried
 
 Security Center can detect multiple attempts to query domain accounts, which is something usually performed by attackers during network reconnaissance. Attackers can leverage this technique to query the domain to identify who are the users, what are the domain admin accounts, which computers are Domain Controllers and also potential domain trust relationship with other domains.
 
 This is an example of this type of alert:
 
-![Multiple domains account alert](./media/security-center-alerts-type/security-center-alerts-type-fig7.png)
+![Multiple domains account alert](./media/security-center-alerts-type/security-center-alerts-type-fig7-new.png)
 
 ## Network analysis
 
@@ -159,7 +181,7 @@ Anomalous network traffic originated from one virtual machine can lead Security 
  
 This is an example of this type of alert:
 
-![Outgoing DOS](./media/security-center-alerts-type/security-center-alerts-type-fig10.png)
+![Outgoing DOS](./media/security-center-alerts-type/security-center-alerts-type-fig10-new.png)
 
 ## Resource analysis
 
