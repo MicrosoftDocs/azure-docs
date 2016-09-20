@@ -127,7 +127,7 @@ step for the ‘Login to Azure’ step.
 1.  Sign in to Azure Stack as an administrator. Go to **Region
     Management**. Then, under **RPs**, select  **Compute Resource Provider** > **VM Images** > **Add.**
 
-    ![](/articles/azure-stack/media/azure-stack-add-vm-image/image3.png)
+    ![Start to add an image](/articles/azure-stack/media/azure-stack-add-vm-image/image3.png)
 
 2.  On the following blade, enter the publisher, offer, SKU, and version
     of the VM image. These name segments refer to the VM
@@ -136,7 +136,7 @@ step for the ‘Login to Azure’ step.
     image was uploaded in step 1. Click **Create** to begin creating the
     VM Image.
 
-    ![](/articles/azure-stack/media/azure-stack-add-vm-image/image4.png)
+    ![Begin to create the image](/articles/azure-stack/media/azure-stack-add-vm-image/image4.png)
 
 3.  The VM Image status changes to ‘Succeeded’ when the image is
     successfully added.
