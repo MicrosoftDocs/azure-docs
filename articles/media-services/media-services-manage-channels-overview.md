@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Overview of Live Steaming using Azure Media Services" 
+	pageTitle="Overview of Live Steaming using Azure Media Services | Microsoft Azure" 
 	description="This topic gives an overview of live steaming using Azure Media Services." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="06/22/2016"
+	ms.date="09/19/2016"
 	ms.author="juliako"/>
 
 #Overview of Live Steaming using Azure Media Services
