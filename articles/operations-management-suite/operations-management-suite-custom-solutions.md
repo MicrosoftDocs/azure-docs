@@ -174,12 +174,12 @@ For example, the lock resources for a contained view and a reference schedule wo
 
 
 
-## Common resources
+### Common resources
 
 Because custom solutions are implemented as Resource Manager templates, they can include any resource in Azure.  Since solutions are intended for management scenarios in OMS though, they will typically contain primarily OMS resources.  The following sections describe how to add resources that are commonly used in custom solutions.  
 
-### Views
-Many solutions will include one or more views to visualize data collected by the solution.  To include a view in a solution, you create a **resource** entry for it with its detailed configuration in JSON.  This is typically complex and not something that a typical solution author would be able to create from scratch.  The most common method is to create the view using the [View Designer](log-analytics-view-designer.md) and then [export it to a file](log-analytics-view-designer.md#).  The exported file will be in JSON format that can be pasted into the solution file.  
+#### Views
+Many solutions will include one or more views to visualize data collected by the solution.  To include a view in a solution, you create a **resource** entry for it with its detailed configuration in JSON.  This is typically complex and not something that a typical solution author would be able to create from scratch.  The most common method is to create the view using the [View Designer](../log-analytics/log-analytics-view-designer.md) and then [export it to a file](log-analytics-view-designer.md#).  The exported file will be in JSON format that can be pasted into the solution file.  
 
 The exported file will have the same root elements as the solution file.  You will need to copy the following sections from the exported view file to your solution file.
 
@@ -189,11 +189,11 @@ The exported file will have the same root elements as the solution file.  You wi
 
 
 
-### Automation runbooks and assets
+#### Automation runbooks and assets
 Runbooks in Azure Automation are often used in solutions to automate processes such as collecting and processing monitoring data.  In addition to runbooks, Automation accounts includes assets such as variables and schedules that support the runbooks used in the solution.
 
 
-#### Runbooks
+##### Runbooks
 Azure Automation runbooks have a type of **Microsoft.Automation/automationAccounts/runbooks** and have the properties in the following table.
 
 | Property | Description |
@@ -223,7 +223,7 @@ An example of a runbook resource is below.
       }
     }
 
-#### Schedules
+##### Schedules
 Azure Automation variables have a type of **Microsoft.Automation/automationAccounts/schedules** and have the properties in the following table.
 
 | Property | Description |
@@ -252,7 +252,7 @@ An example of a schedule resource is below.
       }
     }
 
-#### Variables
+##### Variables
 Azure Automation variables have a type of **Microsoft.Automation/automationAccounts/variables** and have the properties in the following table.
 
 | Property | Description |
