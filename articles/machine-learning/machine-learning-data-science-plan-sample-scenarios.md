@@ -123,7 +123,7 @@ Each of the following sections presents a sample scenario. For each scenario, a 
     - Use one of the bulk import methods to load the data from VM-local files.
 
     Option \#2: Using IPython Notebook – not advisable for medium and larger datasets
-    
+    <!-- -->    
     - Use ODBC connection string to access SQL Server on VM.
     - Create database and target tables.
     - Use one of the bulk import methods to load the data from VM-local files.
