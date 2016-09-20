@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure AD Domain Services: Networking guidelines | Microsoft Azure"
-	description="Networking for Azure Active Directory Domain Services (Preview)"
+	description="Networking considerations for Azure Active Directory Domain Services"
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/19/2016"
+	ms.date="09/20/2016"
 	ms.author="maheshu"/>
 
 # Networking considerations for Azure AD Domain Services
@@ -25,11 +25,11 @@ The following guidelines help you select a virtual network to use with Azure AD 
 
 - You can enable Azure AD Domain Services in a classic Azure virtual network.
 
-- Azure AD Domain Services **cannot be enabled in Azure Resource Manager (ARM-based) virtual networks**.
+- Azure AD Domain Services **cannot be enabled in virtual networks created using Azure Resource Manager**.
 
-- You can connect an ARM-based virtual network to a classic virtual network in which Azure AD Domain Services is enabled. Thereafter, you can use Azure AD Domain Services in the ARM-based virtual network.
+- You can connect a Resource Manager-based virtual network to a classic virtual network in which Azure AD Domain Services is enabled. Thereafter, you can use Azure AD Domain Services in the Resource Manager-based virtual network.
 
-- If you plan to use an existing virtual network, ensure that it is a **regional virtual network**.
+- **Regional Virtual Networks**: If you plan to use an existing virtual network, ensure that it is a regional virtual network.
 
     - Virtual networks that use the legacy affinity groups mechanism cannot be used with Azure AD Domain Services.
 
@@ -53,37 +53,38 @@ The following guidelines help you select a virtual network to use with Azure AD 
 
 - **Existing domains with the same domain name**: Ensure that you do not have an existing domain with the same domain name available on that virtual network. For instance, assume you have a domain called 'contoso.com' already available on the selected virtual network. Later, you try to enable an Azure AD Domain Services managed domain with the same domain name (that is 'contoso.com') on that virtual network. You encounter a failure when trying to enable Azure AD Domain Services. This failure is due to name conflicts for the domain name on that virtual network. In this situation, you must use a different name to set up your Azure AD Domain Services managed domain. Alternately, you can de-provision the existing domain and then proceed to enable Azure AD Domain Services.
 
-- You will not be able to move Domain Services to a different virtual network after you have enabled the service.
+> [AZURE.WARNING] You cannot move Domain Services to a different virtual network after you have enabled the service.
 
 
 ## Network connectivity
-An Azure AD Domain Services managed domain can be enabled only within a single classic virtual network in Azure. ARM-based virtual networks are not supported.
+An Azure AD Domain Services managed domain can be enabled only within a single classic virtual network in Azure. Virtual networks created using Azure Resource Manager are not supported.
 
+### Scenarios for connecting Azure networks
 Connect Azure virtual networks to use the managed domain in any of the following deployment scenarios:
 
-#### To use the managed domain in more than one Azure classic virtual network.
+#### Use the managed domain in more than one Azure classic virtual network
 You can connect other Azure classic virtual networks to the Azure classic virtual network in which you have enabled Azure AD Domain Services. This connection enables you to use the managed domain with your workloads deployed in other virtual networks.
 
 ![Classic virtual network connectivity](./media/active-directory-domain-services-design-guide/classic-vnet-connectivity.png)
 
-#### To use the managed domain in an ARM-based virtual network.
-You can connect an Azure Resource Manager (ARM) based virtual network to the Azure classic virtual network in which you have enabled Azure AD Domain Services. This connection enables you to use the managed domain with your workloads deployed in the ARM-based virtual network.
+#### Use the managed domain in an Resource Manager-based virtual network
+You can connect a Resource Manager-based virtual network to the Azure classic virtual network in which you have enabled Azure AD Domain Services. This connection enables you to use the managed domain with your workloads deployed in the Resource Manager-based virtual network.
 
-![ARM to classic virtual network connectivity](./media/active-directory-domain-services-design-guide/classic-arm-vnet-connectivity.png)
+![Resource Manager to classic virtual network connectivity](./media/active-directory-domain-services-design-guide/classic-arm-vnet-connectivity.png)
 
 
 ### Network connection options
 
 - **VNet-to-VNet connections using site-to-site VPN connections**: Connecting a virtual network to another virtual network (VNet-to-VNet) is similar to connecting a virtual network to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE.
 
-	![VNet connectivity using VPN Gateway](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)
+	![Virtual network connectivity using VPN Gateway](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)
 
     [More information](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 
 
-- **VNet-to-VNet connections using virtual network peering**: VNet peering is a mechanism that connects two virtual networks in the same region through the Azure backbone network. Once peered, the two virtual networks appear as one for all connectivity purposes. They are still managed as separate resources, but virtual machines in these virtual networks can communicate with each other directly by using private IP addresses.
+- **VNet-to-VNet connections using virtual network peering**: Virtual network peering is a mechanism that connects two virtual networks in the same region through the Azure backbone network. Once peered, the two virtual networks appear as one for all connectivity purposes. They are still managed as separate resources, but virtual machines in these virtual networks can communicate with each other directly by using private IP addresses.
 
-    ![VNet connectivity using peering](./media/active-directory-domain-services-design-guide/vnet-peering.png)
+    ![Virtual network connectivity using peering](./media/active-directory-domain-services-design-guide/vnet-peering.png)
 
 	[More information](../virtual-network/virtual-network-peering-overview.md)
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/16/2016"
+	ms.date="09/20/2016"
 	ms.author="maheshu"/>
 
 # Enable password synchronization to Azure AD Domain Services

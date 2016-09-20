@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2016"
+	ms.date="09/20/2016"
 	ms.author="maheshu"/>
 
 
-# Create Windows virtual machines with PowerShell and the classic deployment model
+# Join a Windows Server virtual machine to a managed domain using PowerShell
 
 > [AZURE.SELECTOR]
 - [Azure classic portal - Windows](active-directory-ds-admin-guide-join-windows-vm.md)

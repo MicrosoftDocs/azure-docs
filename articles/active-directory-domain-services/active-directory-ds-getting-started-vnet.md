@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure AD Domain Services: Create or select a virtual network | Microsoft Azure"
-	description="Getting started with Azure Active Directory Domain Services (Preview)"
+	description="Getting started with Azure Active Directory Domain Services"
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/16/2016"
+	ms.date="09/20/2016"
 	ms.author="maheshu"/>
 
 # Create or select a virtual network for Azure AD Domain Services
 
 ## Guidelines to select an Azure virtual network
-Refer to [Networking considerations for Azure AD Domain Services](active-directory-ds-networking.md).
+> [AZURE.NOTE] **Before you begin**: Refer to [Networking considerations for Azure AD Domain Services](active-directory-ds-networking.md).
 
 
 ## Task 2: Create an Azure virtual network
