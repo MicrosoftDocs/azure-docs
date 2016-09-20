@@ -47,7 +47,7 @@ In this procedure, you create an Azure Resource Group project with a **Web app +
 
     ![show nodes](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-items.png)
 
-    Since we chose the Web app + SQL template for this example, you see the following files. 
+    Since we chose the Web app + SQL template for this example, you see the following files: 
 
     |File name|Description|
     |---|---|
@@ -83,7 +83,7 @@ Notice that not only was the resource added, but also a parameter for the type s
 
 ![show outline](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/show-new-items.png)
 
-The **storageType** parameter is pre-defined with allowed types and a default type. You can leave these values or edit them for your scenario. If you do not want anyone to deploy a **Premium_LRS** storage account through this template, simply remove it from the allowed types. 
+The **storageType** parameter is pre-defined with allowed types and a default type. You can leave these values or edit them for your scenario. If you do not want anyone to deploy a **Premium_LRS** storage account through this template, remove it from the allowed types. 
 
     "storageType": {
       "type": "string",
@@ -139,13 +139,13 @@ You are now ready to deploy your project. When you deploy an Azure Resource Grou
 
     >[AZURE.NOTE] Visual Studio may ask you to install the Azure PowerShell cmdlets. You need the Azure PowerShell cmdlets to successfully deploy resource groups. If prompted, install them.
     
-1. The deployment may take a few minutes. In the **Output** windows, you see the status of the deployement. When the deployment has finished, the last message indicates a successful deployment with something similar to:
+1. The deployment may take a few minutes. In the **Output** windows, you see the status of the deployment. When the deployment has finished, the last message indicates a successful deployment with something similar to:
 
         ... 
         18:00:58 - Successfully deployed template 'c:\users\user\documents\visual studio 2015\projects\azureresourcegroup1\azureresourcegroup1a\templates\websitesqldatabase.json' to resource group 'AzureResourceGroup1'.
 
 
-1. In a browser, open the [Azure Portal](https://portal.azure.com/) and sign in to your account. To see the resource group, select **Resource groups** and the resource group you deployed to.
+1. In a browser, open the [Azure portal](https://portal.azure.com/) and sign in to your account. To see the resource group, select **Resource groups** and the resource group you deployed to.
 
     ![select group](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/select-group.png)
 
@@ -163,7 +163,7 @@ At this point, you have deployed the infrastructure for your app, but there is n
 web app and SQL Database tables during deployment. If you are deploying a Virtual Machine instead of a web app, you want to run some code on the machine as part of deployment. The process for 
 deploying code for a web app or for setting up a Virtual Machine is almost the same.
 
-1. Add a new project to your Visual Studio solution. Right-click the solution, and select **New** > **New Project**.
+1. Add a project to your Visual Studio solution. Right-click the solution, and select **New** > **New Project**.
 
     ![add project](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-project.png)
 
@@ -223,5 +223,5 @@ deploying code for a web app or for setting up a Virtual Machine is almost the s
 
 ## Next steps
 
-- To learn about managing your resources through the portal, see [Using the Azure Portal to manage your Azure resources](./azure-portal/resource-group-portal.md).
+- To learn about managing your resources through the portal, see [Using the Azure portal to manage your Azure resources](./azure-portal/resource-group-portal.md).
 - To learn more about templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
