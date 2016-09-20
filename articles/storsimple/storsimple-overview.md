@@ -236,13 +236,13 @@ The following workloads are not supported by StorSimple 8000 series devices. If 
 
 Following is a list of the StorSimple supported infrastructure components. 
 
-| Scenario | Workload      | Supported | Version      |
-|----------|---------------|-----------|--------------|
-| General  | Express Route | Yes       | All versions |
-| General  | DataCore FC   | Yes       | All versions |
-| General  | DFSR          | Yes*      | All versions |
-| General  | Indexing      | Yes       | All versions |
-| General  | Anti-virus    | Yes       | All versions |
+| Scenario | Workload      | Supported |  Restrictions                                 | Version      |
+|----------|---------------|-----------|-----------------------------------------------|--------------|
+| General  | Express Route | Yes       |                                                All versions |
+| General  | DataCore FC   | Yes       |Supported with DataCore SANsymphony            | All versions |
+| General  | DFSR          | Yes*      |Supported only with locally pinned volumes     | All versions |
+| General  | Indexing      | Yes       |For tiered volumes, only metadata indexing is supported (no data).<br>For locally pinned volumes, complete indexing is supported.| All versions |
+| General  | Anti-virus    | Yes       |For tiered volumes, only scan on open and close is supported.<br> For locally pinned volumes, full scan is supported.| All versions |
 
 Yes* - Solution guidelines and best practices should be applied.
 
