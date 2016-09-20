@@ -21,17 +21,22 @@
 
 [AZURE.INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
 
-This topic shows you how to use the .NET backend server SDK in key Azure App Service Mobile Apps scenarios. The Azure Mobile Apps SDK helps you work with mobile clients from your ASP.NET application.
+This topic shows you how to use the .NET backend server SDK in key Azure App Service Mobile Apps scenarios. The Azure Mobile Apps SDK 
+helps you work with mobile clients from your ASP.NET application.
 
->[AZURE.TIP] The [.NET server SDK for Azure Mobile Apps](https://github.com/Azure/azure-mobile-apps-net-server) is open source on GitHub. The repository contains the entire server SDK unit test suite as well as some sample projects.
+>[AZURE.TIP] The [.NET server SDK for Azure Mobile Apps][2] is open source on GitHub. The repository contains the entire server SDK 
+unit test suite as well as some sample projects.
 
 ## Reference documentation
 
-The reference documentation for the server SDK is located here: [Azure Mobile Apps .NET Reference](https://msdn.microsoft.com/library/azure/dn961176.aspx).
+The reference documentation for the server SDK is located here: [Azure Mobile Apps .NET Reference][1].
+
 
 ## <a name="create-app"></a>How to: Create a .NET Mobile App backend
 
-If you are starting a new project, you can create an App Service application using either the [Azure portal] or Visual Studio. This section will help you use one of these to create a new mobile application backend which hosts a simple todo list API. You can run this locally or publish the project to your cloud-based App Service mobile app.
+If you are starting a new project, you can create an App Service application using either the [Azure portal] or Visual Studio. This section 
+will help you use one of these to create a new mobile application backend which hosts a simple todo list API. You can run this locally or 
+publish the project to your cloud-based App Service mobile app.
 
 If you are adding mobile capabilities to an existing project, see the [Download and initialize the SDK](#install-sdk) section below.
 
@@ -39,15 +44,18 @@ If you are adding mobile capabilities to an existing project, see the [Download 
 
 You can create a new Mobile App backend right in the [Azure portal]. 
 
-You can either follow the steps below, or create a new client and server together by following the [Create a mobile app](app-service-mobile-ios-get-started.md) tutorial. The tutorial contains a simplified version of these instructions and is best for proof of concept projects; the tutorial can create only a Node.js backend.
+You can either follow the steps below, or create a new client and server together by following the [Create a mobile app][3] tutorial. The tutorial 
+contains a simplified version of these instructions and is best for proof of concept projects; the tutorial can create only a Node.js backend.
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
 
-Back in the _Get started_ blade, under **Create a table API**, choose **C#** as your **Backend language**. Click **Download**, extract the compressed project files to your local computer, and open the solution in Visual Studio.
+Back in the _Get started_ blade, under **Create a table API**, choose **C#** as your **Backend language**. Click **Download**, extract the 
+compressed project files to your local computer, and open the solution in Visual Studio.
 
 ### Create a .NET backend using Visual Studio 2013 and Visual Studio 2015
 
-In order to create a Mobile Apps project in Visual Studio, you will need to install the [Azure SDK for .NET](https://azure.microsoft.com/downloads/), version 2.8.1 or later. Once you have installed the SDK, create a new ASP.NET application:
+In order to create a Mobile Apps project in Visual Studio, you will need to install the [Azure SDK for .NET][4], version 2.8.1 or later. Once you 
+have installed the SDK, create a new ASP.NET application:
 
 1. Open the **New Project** dialog (from *File* > **New** > **Project...**).
 
@@ -57,7 +65,8 @@ In order to create a Mobile Apps project in Visual Studio, you will need to inst
 
 4. Fill in the project name. Then click **OK**.
 
-5. Under _ASP.NET 4.5.2 Templates_, select **Azure Mobile App**. Check **Host in the cloud** to create a new mobile app in the cloud to which you can publish this project.
+5. Under _ASP.NET 4.5.2 Templates_, select **Azure Mobile App**. Check **Host in the cloud** to create a new mobile app in the cloud to which you can 
+publish this project.
 
 6. Click **OK**. Your application will be created and appear in the Solution Explorer.
 
@@ -65,7 +74,7 @@ In order to create a Mobile Apps project in Visual Studio, you will need to inst
 
 The SDK is available on [NuGet.org]. This package includes the base functionality required to get started using the SDK. To initialize the SDK, you need to perform actions on the **HttpConfiguration** object.
 
-###Install the SDK
+### Install the SDK
 
 To install the SDK, right-click on the server project in Visual Studio, select **Manage NuGet Packages**, search for the [Microsoft.Azure.Mobile.Server](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) package, then click **Install**.
 
@@ -170,23 +179,51 @@ This section shows you how to publish your .NET backend project from Visual Stud
 
 ##<a name="define-table-controller"></a> How to: Define a table controller
 
-A table controller provides access to entity data in a table-based data store, such as SQL Database or Azure Table storage. Table controllers inherit from the **TableController** generic class, where the generic type is an entity in the model that represents the table schema, as follows:
+You need to define a Table Controller to expose a SQL table to mobile clients.  Configuring a Table Controller contains 3 steps:
 
-	public class TodoItemController : TableController<TodoItem>
+1. Create a Data Transfer Object (DTO) class.
+2. Configure a table reference in the Mobile DbContext class.
+3. Create a table controller.
+
+A Data Transfer Object (DTO) is a plain C# object that inherits from `EntityData`.  For example:
+
+    public class TodoItem : EntityData
     {
-		//...
-	}
+        public string Text { get; set; }
+        public bool Complete {get; set;}
+    }
 
-Table controllers are initialized by using the **AddTables** extension method. This adds routes under `/tables/` for all subclasses of `TableController`.
+The DTO is used to define the table within the SQL database.  To create the database entry, add the following to the DbContext you are 
+using.  In the default project template for Azure Mobile Apps, the DbContext is called `Models\MobileServiceContext.cs`:
 
-The following example initializes a table controller that uses Entity Framework for data access:
+    public class MobileServiceContext : DbContext
+    {
+        private const string connectionStringName = "Name=MS_TableConnectionString";
 
-    new MobileAppConfiguration().AddTables(
-        new MobileAppTableConfiguration()
-        .MapTableControllers()
-        .AddEntityFramework()).ApplyTo(config);
+        public MobileServiceContext() : base(connectionStringName)
+        {
 
-For an example of a table controller that uses Entity Framework to access data from an Azure SQL Database, see the **TodoItemController** class in the quickstart server project download from the Azure portal.
+        }
+
+        public DbSet<TodoItem> TodoItems { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Add(
+                new AttributeToColumnAnnotationConvention<TableColumnAttribute, string>(
+                    "ServiceColumnTable", (property, attributes) => attributes.Single().ColumnType.ToString()));
+        }
+    }
+
+If you have the Azure SDK installed, you can now create a template table controller as follows:
+
+1. Right-click on the Controllers folder and select **Add** > **Controller...**.
+2. Select the **Azure Mobile Apps Table Controller** option, then click on **Add**.
+3. In the **Add Controller** dialog, select your new DTO (Model class) and the MobileServiceContext.  The Controller name will be created for you.
+4. Click on **Add**.
+
+For an example of a table controller that uses Entity Framework to access data from an Azure SQL Database, see the **TodoItemController** class 
+in the quickstart server project download from the Azure portal.
 
 ### How to: Adjust the table paging size
 
@@ -482,6 +519,10 @@ In the above example, you should configure the _authAudience_ and _authIssuer_ a
 Your locally-running server is now equipped to validate tokens which the client obtains from the cloud-based endpoint.
 
 
+[1]: https://msdn.microsoft.com/library/azure/dn961176.aspx
+[2]: https://github.com/Azure/azure-mobile-apps-net-server
+[3]: app-service-mobile-ios-get-started.md
+[4]: https://azure.microsoft.com/downloads/
 [Azure portal]: https://portal.azure.com
 [NuGet.org]: http://www.nuget.org/
 [Microsoft.Azure.Mobile.Server.Quickstart]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Quickstart/
