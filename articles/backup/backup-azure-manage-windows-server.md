@@ -60,7 +60,12 @@ From the top of the Dashboard:
 - Delete - If a recovery services vault is no longer being used, you can delete it to free up storage space. Delete is only enabled after all protected servers have been deleted from the vault.
 
 ![Backup dashboard tasks](./media/backup-azure-manage-windows-server/dashboard-tasks.png)
-
+## Alerts for backups using Azure backup agent:
+| Alert Level  | Alerts sent |
+| ------------- | ------------- |
+| Critical | Backup failure, recovery failure  |
+| Warning  | Backup completed with warnings (when less than hundred files are not backed up due to corruption issues and more than a million of files are successfully backed up)  |
+| Informational  | None  |
 ## Manage Backup alerts
 Click the **Backup Alerts** tile to open the **Backup Alerts** blade and manage alerts.
 
@@ -284,6 +289,15 @@ A3. Below are the cases when the notification will not be sent in order to reduc
    - If notifications are configured hourly and an alert is raised and resolved within the hour
    - Job is canceled.
    - Second backup job failed becuase original backup job is in progress. 
+
+## Troubleshooting Monitoring Issues<br>
+#### Issue: Jobs and alerts from Azure backup agent does not appear on the portal.
+##### Troubleshooting steps:
+"OBRecoveryServicesManagementAgent" is used to send the data of the jobs and alerts to the Azure backup service. Open the task manager and view if the "OBRecoveryServicesManagementAgent" process is running.
+At times this process would have been struck or shutdown. If the process is not running, browse the list of services from control panel, start or restart "Microsoft Azure Recovery Services Management Agent".
+For further information, browse the logs at
+"Azure backup agent installation folder"\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*.
+<b>Ex:</b> C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog
 
 ## Next steps
 - [Restore Windows Server or Windows Client from Azure](backup-azure-restore-windows-server.md)
