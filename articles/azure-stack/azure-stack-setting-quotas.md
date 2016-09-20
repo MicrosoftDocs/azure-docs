@@ -34,17 +34,17 @@ from the **Resource Provider** administration blade for that service.
 A tenant that subscribes to an offer that contains multiple
 plans can use all resources that are available in each plan.
 
-## To create an IaaS quota:
+## To create an IaaS quota
 
 1.  In a browser, go to
     [https://portal.azurestack.local](https://portal.azurestack.local/).
 
-    Sign in to the Azure Stack portal as an administrator (using the credentials that you provided during deployment).
+    Sign in to the Azure Stack portal as an administrator (by using the credentials that you provided during deployment).
 
 2.  Select **New**, and then select **Quota**.
 
-3.  Select the first service for which you want to create a quota. For an IaaS quota, follow these steps for Compute, Network, and Storage services.
-In this example, we first create a quota for the Compute Service. In the **Namespace** list, select the **Microsoft.Compute.Admin** namespace.
+3.  Select the first service for which you want to create a quota. For an IaaS quota, follow these steps for the Compute, Network, and Storage services.
+In this example, we first create a quota for the Compute service. In the **Namespace** list, select the **Microsoft.Compute.Admin** namespace.
 
     > ![Creating a new Compute quota](/articles/azure-stack/media/azure-stack-setting-quota/NewComputeQuota.PNG)
 
@@ -60,8 +60,8 @@ In this example, we first create a quota for the Compute Service. In the **Names
 
     > ![Setting a Compute quota](/articles/azure-stack/media/azure-stack-setting-quota/SetQuotasBladeCompute.PNG)
 
-7.  Once you have configured the values and clicked **Ok**, the **Quota
-    Settings** item now appears as **Configured**. Click **Ok** to
+7.  After you have configured the values and clicked **Ok**, the **Quota
+    Settings** item appears as **Configured**. Click **Ok** to
     create the **Quota** resource.
 
     You should see a notification indicating that the quota resource is
