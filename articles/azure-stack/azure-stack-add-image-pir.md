@@ -18,7 +18,7 @@
 
 # Add an image to the Platform Image Repository in Azure Stack
 
-Before a virtual machine can be added to Marketplace, its image must be added to the Platform Image Repository. This repository contains all the images for virtual machines that are offered in Marketplace and that are referenced by Azure Resource Manager templates.
+Before a virtual machine can be added to Azure Marketplace, its image must be added to the Platform Image Repository. This repository contains all the images for virtual machines that are offered in Marketplace and that are referenced by Azure Resource Manager templates.
 
 ## To add an image to the Platform Image Repository
 
