@@ -1,9 +1,9 @@
 <properties
-	pageTitle="Using PlayReady and/or Widevine Dynamic Common Encryption"
+	pageTitle="Using PlayReady and/or Widevine Dynamic Common Encryption | Microsoft Azure"
 	description="Microsoft Azure Media Services enables you to deliver MPEG-DASH, Smooth Streaming, and Http-Live-Streaming (HLS) streams protected with Microsoft PlayReady DRM. It also enables you to delivery DASH encrypted with Widevine DRM. This topic shows how to dynamically encrypt with PlayReady and Widevine DRM."
 	services="media-services"
 	documentationCenter=""
-	authors="Juliako,Mingfeiy"
+	authors="Mingfeiy"
 	manager="erikre"
 	editor=""/>
 
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="06/22/2016"
-	ms.author="juliako"/>
+	ms.date="09/15/2016"
+	ms.author="juliako;mingfeiy"/>
 
 
-#Using PlayReady and/or Widevine Dynamic Common Encryption
+#Using PlayReady and/or Widevine dynamic common encryption
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-protect-with-drm.md)
@@ -609,7 +609,9 @@ The following sample demonstrates functionality that was introduced in Azure Med
 		}
 
 
-##Media Services learning paths
+## Next step
+
+Review Media Services learning paths.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
