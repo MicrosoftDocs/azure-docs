@@ -3,7 +3,7 @@
 	description="This article shows you how to use a mobile app as the primary contact method for Azure Multi-Factor Authentication."
 	services="multi-factor-authentication"
 	documentationCenter=""
-	authors="billmath"
+	authors="kgremban"
 	manager="stevenp"
 	editor="curtland"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/30/2016"
-	ms.author="billmath"/>
+	ms.author="kgremban"/>
 
 # Use a mobile app as your contact method with Azure Multi-Factor Authentication
 
