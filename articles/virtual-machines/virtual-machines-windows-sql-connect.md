@@ -84,6 +84,7 @@ Before you can connect to the instance of SQL Server from another VM or the inte
 - [Configure SQL Server to listen on the TCP protocol](#configure-sql-server-to-listen-on-the-tcp-protocol)
 - [Configure SQL Server for mixed mode authentication](#configure-sql-server-for-mixed-mode-authentication)
 - [Create SQL Server authentication logins](#create-sql-server-authentication-logins)
+- [Configure a Network Security Group inbound rule](#configure-a-network-security-group-inbound-rule-for-the-vm)
 - [Configure a DNS Label for the public IP address](#configure-a-dns-label-for-the-public-ip-address)
 - [Connect to the Database Engine from another computer](#connect-to-the-database-engine-from-another-computer)
 
