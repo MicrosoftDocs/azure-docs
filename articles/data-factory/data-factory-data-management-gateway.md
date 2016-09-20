@@ -498,4 +498,4 @@ You can remove a gateway using the **Remove-AzureRmDataFactoryGateway** cmdlet a
 
 
 ## Next Steps
-- See [Data Management Gateway](data-factory-data-management-gateway.md) article for detailed information about the gateway. 
+- See [Move data between on-premises and cloud data stores](data-factory-move-data-between-onprem-and-cloud.md) article. In the walkthrough, you create a pipeline that uses the gateway to move data from an on-premises SQL Server database to an Azure blob.  

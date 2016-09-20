@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2016"
+	ms.date="09/13/2016"
 	ms.author="larryfr"/>
 
 # Install and use Solr on HDInsight Hadoop clusters
@@ -166,13 +166,25 @@ The Solr dashboard is a web UI that allows you to work with Solr through your we
 
 Once you have established an SSH tunnel, use the following steps to use the Solr dashboard:
 
-1. Determine the host name for the head node:
+1. Determine the host name for the primary headnode:
 
-    1. In a browser, go to https://CLUSTERNAME.azurehdinsight.net. When prompted, use the Admin username and password to authenticate to the site.
+    1. Use SSH to connect to the cluster on port 22. For example, `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net` where __USERNAME__ is your SSH user name and __CLUSTERNAME__ is the name of your cluster.
+
+        For more information on using SSH, see the following documents:
+
+        * [Use SSH with Linux-based HDInsight from a Linux, Unix, or Mac OS X client](hdinsight-hadoop-linux-use-ssh-unix.md)
+
+        * [Use SSH with Linux-based HDInsight from a Windows client](hdinsight-hadoop-linux-use-ssh-windows.md)
     
-    2. From the menu at the top of the page, select __Hosts__.
+    3. Use the following command to get the fully qualified hostname:
+
+            hostname -f
+
+        This will return a name similar to the following:
+
+            hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
     
-    3. Select the entry that begins with __hn0__. When the page opens, the host name will be displayed at the top. The format of the host name is __hn0-PARTOFCLUSTERNAME.randomcharacters.cx.internal.cloudapp.net__. This is the host name you must use when connecting to the Solr dashboard.
+        This is the hostname that should be used in the following steps.
     
 1. In your browser, connect to __http://HOSTNAME:8983/solr/#/__, where __HOSTNAME__ is the name you determined in the previous steps. 
 
