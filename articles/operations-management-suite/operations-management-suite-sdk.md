@@ -29,7 +29,7 @@
 
 ## Backup
 - [Azure Backup documentation](http://azure.microsoft.com/documentation/services/backup)
-- [Backup PowerShell Cmdlets](https://msdn.microsoft.com/en-us/library/mt619253.aspx)
+- [Backup PowerShell Cmdlets](https://msdn.microsoft.com/library/mt619253.aspx)
 - [Deploy and manage backup to Azure for Windows Server/Windows Client using PowerShell](../backup/backup-client-automation.md)
 
 
@@ -42,8 +42,8 @@
 - [Log Analytics .NET Library](https://www.nuget.org/packages/Microsoft.Azure.Management.OperationalInsights/0.16.0-preview)
 
 ## Site Recovery
-- [Site Recovery PowerShell cmdlets](https://msdn.microsoft.com/en-us/library/mt637930.aspx)
-- [Site Recovery REST API Reference](https://msdn.microsoft.com/en-us/library/azure/mt750497.aspx)
+- [Site Recovery PowerShell cmdlets](https://msdn.microsoft.com/library/mt637930.aspx)
+- [Site Recovery REST API Reference](https://msdn.microsoft.com/library/azure/mt750497.aspx)
 - [Add Azure Automation runbooks to recovery plans](../site-recovery/site-recovery-runbook-automation.md)
 - [Replicate between on-premises Hyper-V virtual machines and Azure by using PowerShell and Azure Resource Manager](../site-recovery/site-recovery-deploy-with-powershell-resource-manager.md)
 
