@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="09/19/2016"
+   ms.date="09/20/2016"
    ms.author="v-sharos@microsoft.com"/>
 
 # StorSimple 8000 series: a hybrid cloud storage solution
@@ -209,17 +209,17 @@ Deduplication reduces the overall amount of data stored by eliminating redundanc
 
 A summary of the supported StorSimple workloads is tabulated below.
 
-| Scenario                  | Workload                | Supported | Version              |
-|---------------------------|-------------------------|-----------|----------------------|
-| Collaboration             | File sharing            | Yes       | All versions         |
-| Distributed collaboration | File sharing            | Yes       | All versions         |
-| Collaboration             | SharePoint              | Yes*      | Update 2 and later   |
-| Archival                  | Simple file archiving   | Yes       | All versions         |
-| Virtualization            | Virtual machines                     | Yes*      | Update 2 and later   |
-| Database                  | SQL                     | Yes*      | Update 2 and later   |
-| Video surveillance        | Video surveillance      | Yes       | Update 2 and later   |
-| Backup                    | Primary   target backup | Yes*      | Update   3 and later |
-| Backup                    | Secondary target backup | Yes*      | Update   3 and later |
+| Scenario                  | Workload                | Supported |  Restrictions                                 | Version              |
+|---------------------------|-------------------------|-----------|-----------------------------------------------|----------------------|
+| Collaboration             | File sharing            | Yes       |                                               | All versions         |
+| Collaboration             | Distributed file sharing| Yes       |                                               | All versions         |
+| Collaboration             | SharePoint              | Yes*      |Supported only with locally pinned volumes     | Update 2 and later   |
+| Archival                  | Simple file archiving   | Yes       |                        | All versions         |
+| Virtualization            | Virtual machines        | Yes*      |Supported only with locally pinned volumes     | Update 2 and later   |
+| Database                  | SQL                     | Yes*      |Supported only with locally pinned volumes     | Update 2 and later   |
+| Video surveillance        | Video surveillance      | Yes       |Supported only with dedicated StorSimple device| Update 2 and later   |
+| Backup                    | Primary   target backup | Yes*      |Supported only with dedicated StorSimple device| Update   3 and later |
+| Backup                    | Secondary target backup | Yes*      |Supported only with dedicated StorSimple device| Update   3 and later |
 
 Yes* - Solution guidelines and best practices should be applied.
 
