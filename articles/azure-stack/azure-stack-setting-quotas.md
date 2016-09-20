@@ -67,7 +67,7 @@ In this example, we first create a quota for the Compute service. In the **Names
     You should see a notification indicating that the quota resource is
     being created.
 
-8.   Once the quota set has been successfully created, you receive a second notification. The Compute service quota is now ready to be associated with a plan. Repeat these steps with the Network and Storage services, and you are ready to create an IaaS plan!
+8.   After the quota set has been successfully created, you receive a second notification. The Compute service quota is now ready to be associated with a plan. Repeat these steps with the Network and Storage services, and you are ready to create an IaaS plan!
 
     >   ![Notification upon quota creation success](/articles/azure-stack/media/azure-stack-setting-quota/QuotaSuccess.png)
 
