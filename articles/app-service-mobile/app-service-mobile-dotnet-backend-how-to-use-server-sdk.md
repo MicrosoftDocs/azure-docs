@@ -41,7 +41,7 @@ If you are adding mobile capabilities to an existing project, see the [Download 
 
 ### Create a .NET backend using the Azure portal
 
-Either follow the [Quickstart tutorial][3] or follow these steps to create an App Service mobile backend:
+To create an App Service mobile backend, either follow the [Quickstart tutorial][3] or follow these steps:
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
 
@@ -50,7 +50,7 @@ compressed project files to your local computer, and open the solution in Visual
 
 ### Create a .NET backend using Visual Studio 2013 and Visual Studio 2015
 
-You will need to install the [Azure SDK for .NET][4] (version 2.9.0 or later) to create an Azure Mobile Apps project in Visual Studio. Once you 
+You need to install the [Azure SDK for .NET][4] (version 2.9.0 or later) to create an Azure Mobile Apps project in Visual Studio. Once you 
 have installed the SDK, create an ASP.NET application using the following steps:
 
 1. Open the **New Project** dialog (from *File* > **New** > **Project...**).
@@ -74,11 +74,11 @@ package, then click **Install**.
 
 A .NET backend server project is initialized similar to other ASP.NET projects, by including an OWIN startup class. Ensure that you have referenced 
 the NuGet package `Microsoft.Owin.Host.SystemWeb`. To add this class in Visual Studio, right-click on your server project and select **Add** > 
-**New Item**, then **Web** > **General** > **OWIN Startup class**  A class is generated with the following attribute:
+**New Item**, then **Web** > **General** > **OWIN Startup class**.  A class is generated with the following attribute:
 
     [assembly: OwinStartup(typeof(YourServiceName.YourStartupClassName))]
 
-In the `Configuration()` method of your OWIN startup class, use a **HttpConfiguration** object to configure the Azure Mobile Apps environment.
+In the `Configuration()` method of your OWIN startup class, use an **HttpConfiguration** object to configure the Azure Mobile Apps environment.
 The following example initializes the server project with no added features:
 
 	// in OWIN startup class
@@ -129,10 +129,13 @@ The following NuGet-based extension packages provide various mobile features tha
 initialization by using the **MobileAppConfiguration** object.
 
 - [Microsoft.Azure.Mobile.Server.Quickstart]
-	 Supports the basic Mobile Apps setup. Added to the configuration by calling the **UseDefaultConfiguration** extension method during initialization. This extension includes following extensions: Notifications, Authentication, Entity, Tables, Cross-domain and Home packages. This is equivalent to the quickstart server project that you download from the Azure portal.
+	 Supports the basic Mobile Apps setup. Added to the configuration by calling the **UseDefaultConfiguration** extension method during 
+     initialization. This extension includes following extensions: Notifications, Authentication, Entity, Tables, Cross-domain, and Home 
+     packages. This is equivalent to the quickstart server project that you download from the Azure portal.
 
 - [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/)
-	Implements the default *this mobile app is up and running page* for the web site root. Add to the configuration by calling the **AddMobileAppHomeController** extension method.
+	Implements the default *this mobile app is up and running page* for the web site root. Add to the configuration by calling the 
+    **AddMobileAppHomeController** extension method.
 
 - [Microsoft.Azure.Mobile.Server.Tables](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/)
 	includes classes for working with data and sets-up the data pipeline. Add to the configuration by calling the **AddTables** extension method.
@@ -141,30 +144,35 @@ initialization by using the **MobileAppConfiguration** object.
 	Enables the Entity Framework to access data in the SQL Database. Add to the configuration by calling the **AddTablesWithEntityFramework** extension method.
 
 - [Microsoft.Azure.Mobile.Server.Authentication]
-	Enables authentication and sets-up the OWIN middleware used to validate tokens. Add to the configuration by calling the **AddAppServiceAuthentication** and **IAppBuilder**.**UseAppServiceAuthentication** extension methods.
+	Enables authentication and sets-up the OWIN middleware used to validate tokens. Add to the configuration by calling the **AddAppServiceAuthentication** 
+    and **IAppBuilder**.**UseAppServiceAuthentication** extension methods.
 
 - [Microsoft.Azure.Mobile.Server.Notifications]
 	Enables push notifications and defines a push registration endpoint. Add to the configuration by calling the **AddPushNotifications** extension method.
 
 - [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/)
-	Creates a controller that serves data to legacy web browsers from your Mobile App. Add to the configuration by calling the **MapLegacyCrossDomainController** extension method.
+	Creates a controller that serves data to legacy web browsers from your Mobile App. Add to the configuration by calling the 
+    **MapLegacyCrossDomainController** extension method.
 
 - [Microsoft.Azure.Mobile.Server.Login]
-	 Provides support for custom authentication via the AppServiceLoginHandler.CreateToken() method. This is a static method and does not need to be enabled in the configuration.
+	 Provides the AppServiceLoginHandler.CreateToken() method, which is a static method used during custom authentication scenarios.   
 
 ## <a name="publish-server-project"></a>How to: Publish the server project
 
-This section shows you how to publish your .NET backend project from Visual Studio. You can also deploy your backend project using Git or any of the other methods covered in the [Azure App Service deployment documentation](../app-service-web/web-sites-deploy.md).
+This section shows you how to publish your .NET backend project from Visual Studio. You can also deploy your backend project using Git or any of 
+the other methods covered in the [Azure App Service deployment documentation](../app-service-web/web-sites-deploy.md).
 
 1. In Visual Studio, rebuild the project to restore NuGet packages.
 
-2. In Solution Explorer, right-click the project, click **Publish**. The first time you publish, you will need to define a publishing profile. When you already have a profile defined, you can just select it and click **Publish**.
+2. In Solution Explorer, right-click the project, click **Publish**. The first time you publish, you need to define a publishing profile. When 
+   you already have a profile defined, you can select it and click **Publish**.
 
-2. If asked to select a publish target, click **Microsoft Azure App Service** > **Next**, then (if needed) sign-in with your Azure credentials. Visual Studio downloads and securely stores your publish settings directly from Azure.
+2. If asked to select a publish target, click **Microsoft Azure App Service** > **Next**, then (if needed) sign-in with your Azure credentials. 
+   Visual Studio downloads and securely stores your publish settings directly from Azure.
 
 	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-1.png)
 
-3. Choose your **Subscription**, select **Resource Type** from **View**, expand **Mobile App** and click your Mobile App backend, then click **OK**.
+3. Choose your **Subscription**, select **Resource Type** from **View**, expand **Mobile App**, and click your Mobile App backend, then click **OK**.
 
 	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-2.png)
 
@@ -172,13 +180,13 @@ This section shows you how to publish your .NET backend project from Visual Stud
 
 	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-3.png)
 
-	When your Mobile App backend has published successfully, you will see a landing page indicating success.
+	When your Mobile App backend has published successfully, you see a landing page indicating success.
 
 	![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-success.png)
 
 ##<a name="define-table-controller"></a> How to: Define a table controller
 
-You need to define a Table Controller to expose a SQL table to mobile clients.  Configuring a Table Controller contains 3 steps:
+Define a Table Controller to expose a SQL table to mobile clients.  Configuring a Table Controller requires three steps:
 
 1. Create a Data Transfer Object (DTO) class.
 2. Configure a table reference in the Mobile DbContext class.
@@ -217,26 +225,31 @@ using.  In the default project template for Azure Mobile Apps, the DbContext is 
 If you have the Azure SDK installed, you can now create a template table controller as follows:
 
 1. Right-click on the Controllers folder and select **Add** > **Controller...**.
-2. Select the **Azure Mobile Apps Table Controller** option, then click on **Add**.
-3. In the **Add Controller** dialog, select your new DTO (Model class) and the MobileServiceContext.  The Controller name will be created for you.
-4. Click on **Add**.
+2. Select the **Azure Mobile Apps Table Controller** option, then click **Add**.
+3. In the **Add Controller** dialog:
+    * In the **Model class** dropdown, select your new DTO.
+    * In the **DbContext** dropdown, select the Mobile Service DbContext class.
+    * The Controller name is created for you.
+4. Click **Add**.
 
-For an example of a table controller that uses Entity Framework to access data from an Azure SQL Database, see the **TodoItemController** class 
-in the quickstart server project download from the Azure portal.
+The quickstart server project contains an example for a simple **TodoItemController**.
 
 ### How to: Adjust the table paging size
 
-By default, Azure Mobile Apps returns 50 records per request.  This ensures that the client does not tie up their UI thread nor the server for 
+By default, Azure Mobile Apps returns 50 records per request.  Paging ensures that the client does not tie up their UI thread nor the server for 
 too long, ensuring a good user experience. You must increase the server side "allowed query size" and the client-side page size to effect a 
-change in the table paging size. To increase the paging size, adjust your table controller with this line:
+change in the table paging size. To increase the paging size, adjust your table controller using the `EnableQuery` attribute:
 
     [EnableQuery(PageSize = 500)]
 
-Ensure the PageSize is the same or bigger than the size that will be requested by the client.  Refer to the specific client HOWTO documentation for details on changing the client page size.
+Ensure the PageSize is the same or larger than the size that is requested by the client.  Refer to the specific client HOWTO documentation 
+for details on changing the client page size.
 
 ## How to: Define a custom API controller
 
-The custom API controller provides the most basic functionality to your Mobile App backend by exposing an endpoint. You can register a mobile-specific API controller using the [MobileAppController] attribute. This attribute registers the route, sets up the Mobile Apps JSON serializer, and turns on [client version checking](app-service-mobile-client-and-server-versioning.md).
+The custom API controller provides the most basic functionality to your Mobile App backend by exposing an endpoint. You can register a 
+mobile-specific API controller using the [MobileAppController] attribute. The `MobileAppController` attribute registers the route, sets 
+up the Mobile Apps JSON serializer, and turns on [client version checking](app-service-mobile-client-and-server-versioning.md).
 
 1. In Visual Studio, right-click the Controllers folder, then click **Add** > **Controller**, select **Web API 2 Controller&mdash;Empty** and click **Add**.
 
@@ -260,15 +273,15 @@ The custom API controller provides the most basic functionality to your Mobile A
 		    .MapApiControllers()
 		    .ApplyTo(config);
 
-	Note that you do not need to call **MapApiControllers** if you instead call **UseDefaultConfiguration**, which initializes all features.
+	Tou do not need to call **MapApiControllers** if you instead call **UseDefaultConfiguration**, which initializes all features.
 
 Any controller that does not have **MobileAppControllerAttribute** applied can still be accessed by clients, but it may not be correctly 
 consumed by clients using any Mobile App client SDK.
 
 ## How to: Work with authentication
 
-Mobile Apps uses the facilities of App Service authentication and ASP.NET to simply the process of enabling authentication for your apps. 
-This section shows you how to perform the following authentication-related tasks in your .NET backend server project:
+Azure Mobile Apps leverages App Service Authentication / Authorization to secure your mobile backend.  This section shows you how to perform 
+the following authentication-related tasks in your .NET backend server project:
 
 + [How to: Add authentication to a server project](#add-auth)
 + [How to: Use custom authentication for your application](#custom-auth)
@@ -287,9 +300,10 @@ to step 3.
 
 		app.UseAppServiceAuthentication(config);
 
-	This adds the OWIN middleware component that enables your Azure Mobile App to validate tokens issued by the associated App Service gateway.
+	This OWIN middleware component validates tokens issued by the associated App Service gateway.
 
-3. Add the `[Authorize]` attribute to any controller or method that requires authentication. Users must now be authenticated to access that endpoint or specific APIs.
+3. Add the `[Authorize]` attribute to any controller or method that requires authentication. Users must now be authenticated to access that 
+   endpoint or specific APIs.
 
 To learn about how to authenticate clients to your Mobile Apps backend, see [Add authentication to your app](app-service-mobile-ios-get-started-users.md).
 
