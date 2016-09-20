@@ -15,18 +15,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2016"
+	ms.date="09/19/2016"
 	ms.author="genli"/>
 
 # How to cancel your Azure subscription
 
-Cancelling your azure subscription means your services will be deleted. Make sure you take the time to back up your data and stop your services safely.
+Cancelling your azure subscription means you will no longer be able to access the Azure services you've deployed. Make sure you take the time to back up your data and stop your services safely.
 
 ## Before you cancel your subscription
 
-- Back up your data. If you're storing data in Azure storage or SQL, download a copy. If you have a VM, you may want to obtain an image of it and save it before shutting it down
+- Back up your data. For example if you're storing data in Azure storage or SQL, download a copy. If you have a virtual machine, you may want to obtain an image of it and save it locally.
 
-- Shut down your services by going to the resources page in the management portal, and stopping whatever is running
+- Shut down your services. Go to the [resources page in the management portal](https://ms.portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources), and **Stop** any running virtual machines, applications, or other services.
 
 ## To cancel your subscription
 
@@ -48,8 +48,8 @@ Cancelling your azure subscription means your services will be deleted. Make sur
 
 ## After you cancel your subscription 
 
-When you cancel your subscription, we wait 90 days before permanently deleting your data, in case you need to access it or change your mind. [Learn more](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
-
 If you cancelled your Pay-As-You-Go subscription accidentally, you can follow the instructions outlined [here] (https://azure.microsoft.com/en-us/documentation/articles/billing-subscription-become-disable/) to reactivate it.
+
+When you cancel your subscription, we wait 90 days before permanently deleting your data in case you need to access it or change your mind. [Learn more](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 
 > [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
