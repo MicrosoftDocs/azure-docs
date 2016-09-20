@@ -63,7 +63,7 @@ In particular, review the connection scenarios in each article for "connecting o
 
 It is not unusual to configure the NSG and corresponding Azure endpoint or Access Control List (ACL) to make your Azure VM accessible to other parties. Chances are you've done this before to allow your own application logic to connect to your SQL Azure VM. It's no different for an Azure Search connection to your SQL Azure VM. If you haven't done this yet, this section covers a few good security practices to keep in mind.
 
-> [AZURE.NOTE] For background, see [What is a Network Security Group?](../virtual-machines/virtual-networks-nsg/). You can also refer to [How to create NSGs for ARM deployments](../virtual-machines/virtual-networks-create-nsg-arm-pportal/) and [How to create NSGs for Classic deployments](../virtual-machines/virtual-networks-create-nsg-classic-ps/) for instructions. The following recommendations assume you already understand your NSG configuration and how to ACL an Azure Search endpoint based on its IP address.
+> [AZURE.NOTE] For background, see [What is a Network Security Group?](../virtual-machines/virtual-networks-nsg.md). You can also refer to [How to create NSGs for ARM deployments](../virtual-machines/virtual-networks-create-nsg-arm-pportal.md) and [How to create NSGs for Classic deployments](../virtual-machines/virtual-networks-create-nsg-classic-ps.md) for instructions. The following recommendations assume you already understand your NSG configuration and how to ACL an Azure Search endpoint based on its IP address.
 
 #### Restrict access to the search service IP address
 
@@ -71,11 +71,11 @@ For either VM deployment model (**Resource Manager** or **Classic**), we strongl
 
 #### Managing IP address fluctuations
 
-Note that if your search service has only one search unit (that is, one replica and one partition), the IP address may change during routine service restarts. This will disrupt connections for ACLs having your search service's IP address.
+If your search service has only one search unit (that is, one replica and one partition), the IP address may change during routine service restarts. This disrupts connections for ACLs having your search service's IP address.
 
 One way to avoid connectivity failure is to use more than one replica and one partition in Azure Search. Doing so increases the cost, but it also solves the IP address problem. In Azure Search, IP addresses don't change when you have more than one search unit.
 
-A second approach is to allow the connection to fail, and then reconfigure the ACLs in the NSG. Although there is no guarantee, on average IP addresses change every few weeks. If indexing is ad hoc and infrequent, this approach might be viable.
+A second approach is to allow the connection to fail, and then reconfigure the ACLs in the NSG. Although there is no guarantee, on average IP addresses change every few weeks. If indexing is always planned and occurs infrequently, this approach might be viable.
 
 A third viable-but-not-secure approach is to specify the IP address range of the Azure region where your search service is provisioned. The list of IP ranges from which public IP addresses are allocated to Azure resources is published at [Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). 
 
@@ -85,4 +85,4 @@ Additionally, if you are using the Azure portal to create an indexer, Azure Sear
 
 ## Next steps
 
-With the above configuration requirements out of the way, you can now specify a SQL Server on Azure VM as the data source for an Azure Search indexer. See [Connecting Azure SQL Database to Azure Search using indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md) for more information.
+With configuration out of the way, you can now specify a SQL Server on Azure VM as the data source for an Azure Search indexer. See [Connecting Azure SQL Database to Azure Search using indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md) for more information.
