@@ -18,6 +18,7 @@
 
 # Tutorial: Build your first Azure data factory using Azure portal
 > [AZURE.SELECTOR]
+- [Overview and prerequisites](data-factory-build-your-first-pipeline.md)
 - [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
@@ -48,7 +49,7 @@ A data factory can have one or more pipelines. A pipeline can have one or more a
 	> The name of the data factory may be registered as a **DNS** name in the future and hence become publically visible.
 
 3.	Select the **Azure subscription** where you want the data factory to be created. 
-4.	Select existing **resource group** or create a resource group. For the tutorial, create a resource group named: **ADFGetStartedRG**. To learn about resources groups, see [Azure Resource Manager overview](resource-group-overview.md/#resource-groups).    
+4.	Select existing **resource group** or create a resource group. For the tutorial, create a resource group named: **ADFGetStartedRG**. 
 5.	Click **Create** on the **New data factory** blade.
 
 	> [AZURE.IMPORTANT] To create Data Factory instances, you must be a member of the [Data Factory Contributor](../active-directory/role-based-access-built-in-roles.md/#data-factory-contributor) role at the subscription/resource group level. 

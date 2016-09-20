@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Protecting Content Overview" 
+	pageTitle="Protecting content overview | Microsoft Azure" 
 	description="This articles give an overview of content protection with Media Services." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/19/2016" 
 	ms.author="juliako"/>
 
-#Protecting Content Overview
+#Protecting content overview
 
 
 Microsoft Azure Media Services enables you to secure your media from the time it leaves your computer through storage, processing, and delivery. Media Services allows you to deliver your content encrypted dynamically with Advanced Encryption Standard (AES) (using 128-bit encryption keys) and common encryption (CENC) using PlayReady and/or Widevine DRM. Media Services also provides a service for delivering AES keys and PlayReady licenses to authorized clients. You can also use the following AMS partners to help you deliver Widevine licenses: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
@@ -36,13 +36,13 @@ Microsoft Azure Media Services enables you to secure your media from the time it
 
 Depending on the type of content you want to upload, store, and deliver, Media Services provides various encryption options that you can choose from.
 
-###None 
+###None
 
 No encryption is used. This is the default value. When using this option your content is not protected in transit or at rest in storage.
 
 If you plan to deliver an MP4 using progressive download, use this option to upload your content.
 
-###StorageEncrypted 
+###StorageEncrypted
 
 Use **StorageEncrypted** to encrypt your clear content locally using AES 256 bit encryption and then upload it to Azure Storage where it is stored encrypted at rest. Assets protected with storage encryption are automatically unencrypted and placed in an encrypted file system prior to encoding, and optionally re-encrypted prior to uploading back as a new output asset. The primary use case for storage encryption is when you want to secure your high quality input media files with strong encryption at rest on disk.
 
@@ -58,7 +58,7 @@ If you want to see how the basic algorithm works, view the AMS .NET implementati
 - [AesCtr](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/FileEncryptionTransform.cs)
 
 
-###CommonEncryptionProtected 
+###CommonEncryptionProtected
 
 Use **CommonEncryptionProtected** if you want to encrypt (or upload already encrypted) content with Common Encryption. Both PlayReady and Widewine are encrypted per the Common Encryption (CENC) specification and are supported by AMS.
 
@@ -78,7 +78,7 @@ You also need to configure the asset's delivery policy. If you want to stream a 
 
 When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content using AES or common encryption. To decrypt the stream, the player will request the key from the key delivery service. To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
 
->[AZURE.NOTE]To take advantage of dynamic encryption, you must first get at least one On-demand streaming unit for the streaming endpoint from which you plan to delivery your encrypted content. For more information, see [How to Scale Media Services](media-services-manage-origins.md#scale_streaming_endpoints).
+>[AZURE.NOTE]To take advantage of dynamic encryption, you must first get at least one On-demand streaming unit for the streaming endpoint from which you plan to delivery your encrypted content. For more information, see [How to Scale Media Services](media-services-portal-manage-streaming-endpoints.md).
 
 ##Licenses and keys delivery service
 
@@ -86,9 +86,9 @@ Media Services provides a service for delivering DRM (PlayReady and Widevine) li
 
 Note if you are using the Portal, you can configure one AES policy (which will be applied to all the AES encrypted content) and one PlayReady policy (which will be applied to all the PlayReady encrypted content). Use Media Services SDK for .NET if you want more control over the configurations.
 
-##DRM licenses 
+##DRM licenses
 
-###PlayReady license 
+###PlayReady license
 
 Media Services provides a service for delivering PlayReady licenses. When the end user player (for example, Silverlight) tries to play your PlayReady protected content, a request is sent to the license delivery service to obtain a license. If the license service approves the request, it issues the license which is sent to the client and can be used to decrypt and play the specified content.
 
