@@ -30,20 +30,18 @@ Here are the Fabric settings that you can customize:
 ### Section Name : Security
 
 |Parameter|Allowed Values|Guidance or short Descriptions|
-
 |-----------------------|--------------------------|--------------------------|
-
-|ClusterProtectionLevel|None or EncryptAndSign.| None (default) for unsecure clusters, EncryptAndSign for secure clusters. |
+|ClusterProtectionLevel|None or EncryptAndSign| None (default) for unsecured clusters, EncryptAndSign for secure clusters. |
 <br/>
 ### Section Name : Hosting
 
-|Parameter|Allowed Values|Short Description|
+|Parameter|Allowed Values|Guidance or short Descriptions|
 |-----------------------|--------------------------|--------------------------|
-|ServiceTypeRegistrationTimeout|None or EncryptAndSign.| None (default) for unsecure cluters, EncryptAndSign for secure clusters. |
-|ServiceTypeDisableFailureThreshold|None or EncryptAndSign.| None (default) for unsecure cluters, EncryptAndSign for secure clusters. |
-|ActivationRetryBackoffInterval|None or EncryptAndSign.| None (default) for unsecure cluters, EncryptAndSign for secure clusters. |
-|ActivationMaxRetryInterval|Specify timespan in seconds| On every continuous activation failure the system will retry the activation for up to the ten times. This parameter specifies Wait time interval before retry after every activation failure |
-|ActivationMaxFailureCount|None or EncryptAndSign.| None (default) for unsecure cluters, EncryptAndSign for secure clusters. |
+|ServiceTypeRegistrationTimeout|Time in Seconds,default is 300| Maximum time allowed for the ServiceType to be  registered with fabric|
+|ServiceTypeDisableFailureThreshold|Whole number, default is 1| This is the threshold for the failure count after which FailoverManager is notified to disable the service type on that node and try a different node for placement.|
+|ActivationRetryBackoffInterval|Time in Seconds, default is 5|Backoff interval on every activation failure;On every continuous activation failure the system will retry the activation for up to the MaxActivationFailureCount. The retry interval on every try is a product of continuous activation failure and the activation back-off interval.|
+|ActivationMaxRetryInterval|Time in seconds, default is 300| On every continuous activation failure the system will retry the activation for up to the ten times. This parameter specifies Wait time interval before retry after every activation failure |
+|ActivationMaxFailureCount|Whole number,Default in 10| This is the maximum count for which system will retry failed activation before giving up |
 
 
 ### Section Name : FailoverManager
