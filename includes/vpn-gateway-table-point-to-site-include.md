@@ -4,6 +4,7 @@
 | **Azure Portal** |  Supported+  |  Not Supported  |
 | **PowerShell** | Supported | [Article](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)|
 
-+ Most steps can be done through the Azure portal for the classic deployment model. However, currently PowerShell is required for the VPN client configuration package.
+(+) denotes that currently not all steps are available in the Azure portal for this configuration. Some PowerShell is required.
+
 
 
