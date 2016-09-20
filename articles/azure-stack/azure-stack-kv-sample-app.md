@@ -1,6 +1,6 @@
 # Run the sample application for Key Vault #
 
-## Donwload and preparation ##
+## Download the samples and prepare ##
 
 Download the Azure Key Vault client samples from the [Azure Key Vault client samples page](https://www.microsoft.com/en-us/download/details.aspx?id=45343).
 
