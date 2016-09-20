@@ -52,7 +52,7 @@ The sample has the following data factory entities:
 
 The sample copies data from a query result in PostgreSQL database to a blob every hour. The JSON properties used in these samples are described in sections following the samples. 
 
-As a first step, setup the data management gateway by following the instructions in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article.
+As a first step, setup the data management gateway. The instructions are in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article.
 
 **PostgreSQL linked service:**
 
@@ -88,7 +88,7 @@ As a first step, setup the data management gateway by following the instructions
 
 The sample assumes you have created a table “MyTable” in PostgreSQL and it contains a column called “timestamp” for time series data.
 
-Setting “external”: true informs the Data Factory service that this is a table that is external to the data factory and is not produced by an activity in the data factory.
+Setting “external”: true informs the Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
 
 	{
 	    "name": "PostgreSqlDataSet",
@@ -227,7 +227,7 @@ Property | Description | Required
 type | The type property must be set to: **OnPremisesPostgreSql** | Yes
 server | Name of the PostgreSQL server. | Yes 
 database | Name of the PostgreSQL database. | Yes 
-schema | Name of the schema in the database. The schema name is case sensitive. | No 
+schema | Name of the schema in the database. The schema name is case-sensitive. | No 
 authenticationType | Type of authentication used to connect to the PostgreSQL database. Possible values are: Anonymous, Basic, and Windows. | Yes 
 username | Specify user name if you are using Basic or Windows authentication. | No 
 password | Specify password for the user account you specified for the username. | No 
@@ -239,11 +239,11 @@ See [Setting Credentials and Security](data-factory-move-data-between-onprem-and
 
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
 
-The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type **RelationalTable** (which includes PostgreSQL dataset) has the following properties.
+The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type **RelationalTable** (which includes PostgreSQL dataset) has the following properties:
 
 Property | Description | Required
 -------- | ----------- | --------
-tableName | Name of the table in the PostgreSQL Database instance that linked service refers to. The tableName is case sensitive. | No (if **query** of **RelationalSource** is specified) 
+tableName | Name of the table in the PostgreSQL Database instance that linked service refers to. The tableName is case-sensitive. | No (if **query** of **RelationalSource** is specified) 
 
 ## PostgreSQL copy activity type properties
 
@@ -257,7 +257,7 @@ Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | --------
 query | Use the custom query to read data. | SQL query string. For example: "query": "select * from \"MySchema\".\"MyTable\"". | No (if **tableName** of **dataset** is specified)
 
-> [AZURE.NOTE] Schema and table names are case sensitive and they have to enclosed in "" (double quotes) in the query.  
+> [AZURE.NOTE] Schema and table names are case-sensitive and they have to  be enclosed in "" (double quotes) in the query.  
 
 **Example:**
 
@@ -267,12 +267,12 @@ query | Use the custom query to read data. | SQL query string. For example: "que
 
 ## Type mapping for PostgreSQL
 
-As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article Copy activity performs automatic type conversions from source types to sink types with the following 2 step approach:
+As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article Copy activity performs automatic type conversions from source types to sink types with the following 2-step approach:
 
 1. Convert from native source types to .NET type
 1. Convert from .NET type to native sink type
 
-When moving data to PostgreSQL the following mappings will be used from PostgreSQL type to .NET type.
+When moving data to PostgreSQL, the following mappings are used from PostgreSQL type to .NET type.
 
 PostgreSQL Database type |	PostgresSQL aliases | .NET Framework type
 ------------------------ | -------------------- | ---------------------
