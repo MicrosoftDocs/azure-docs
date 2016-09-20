@@ -42,7 +42,7 @@ The following steps create a classic VNet and a virtual network gateway. If you 
 
 4. On the **DNS Servers and VPN Connectivity** page, enter the following information, and then click the next arrow on the lower right. 
 
-	- **DNS Servers** - Enter the DNS server name and IP address, or select a previously registered DNS server from the dropdown. This setting does not create a DNS server, it allows you to specify the DNS servers that you want to use for name resolution for this virtual network.
+	- **DNS Servers** - Enter the DNS server name and IP address, or select a previously registered DNS server from the shortcut menu. This setting does not create a DNS server. It allows you to specify the DNS servers that you want to use for name resolution for this virtual network.
 	- **Site-to-Site Connectivity** - Select the checkbox for **Configure a site-to-site VPN**.
 	- **ExpressRoute** – Select the checkbox **Use ExpressRoute**. This option only appears if you selected **Configure a Site-to-Site VPN**.
 	- **Local Network** - You are required to have a local network site for ExpressRoute. However, in the case of an ExpressRoute connection, the address prefixes specified for the local network site will be ignored. Instead, the address prefixes advertised to Microsoft through the ExpressRoute circuit will be used for routing purposes.<BR>If you already have a local network created for your ExpressRoute connection, you can select it from the dropdown. If not, select **Specify a New Local Network**.
