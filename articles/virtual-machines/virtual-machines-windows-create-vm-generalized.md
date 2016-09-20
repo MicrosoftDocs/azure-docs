@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Create VM from a specialized VHD | Microsoft Azure"
-	description="Learn how to create a virtual machine by attaching specialized specialized VHD running Windows, in the Resource Manager deployment model."
+	pageTitle="Create VM from a generalized VHD | Microsoft Azure"
+	description="Learn how to create a Windows virtual machine from a generalized VHD image using Azure PowerShell, in the Resource Manager deployment model."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -14,11 +14,14 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2016"
+	ms.date="09/19/2016"
 	ms.author="cynthn"/>
 
-# Create a VM from a generalized image
+# Create a VM from a generalized VHD image
 
+A generalized VHD image has had all of your personal account information removed using Sysprep. If you intend to use the VHD as an image to create new VMs from, you should generalize the VHD by following the instructions in [Prepare a Windows VHD to upload to Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md) and then [Generalize a Windows virtual machine using Sysprep](virtual-machines-windows-generalize-vhd.md). 
+
+Once the VHD has been generalized, you can use that VHD image to create a new VM using Azure PowerShell.
 
 ## Create a virtual network
 

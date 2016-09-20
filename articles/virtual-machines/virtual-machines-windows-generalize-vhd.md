@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Generalize a Windows VHD | Microsoft Azure"
-	description="Learn to use Sysprep to generalize a Windows VHD to use with the Resource Manager deployment model."
+	description="Learn to use Sysprep to generalize a Windows VM to use with the Resource Manager deployment model."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -22,8 +22,9 @@
 	
 # Generalize a Windows virtual machine using Sysprep
 
-
 This section shows you how to generalize your Windows virtual machine for use as an image. Sysprep removes all your personal account information, among other things. For details about Sysprep, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx).
+
+[AZURE.IMPORTANT} If you are running Sysprep before uploading your VHD to Azure for the first time, make sure you have [prepared your VHD](virtual-machines-windows-prepare-for-upload-vhd-image.md). 
 
 1. Sign in to the Windows virtual machine.
 

@@ -19,9 +19,7 @@
 
 # Create a VM from a specialized VHD
 
-Specialized
-
-
+A specialized VHD maintains the user accounts, applications and other state data from your original VM. If you intend to use the VHD as-is to create a new VM, you need to attach the VHD as an OS disk. 
 
 ## Create a VM from a specialized VHD using a quick start template
 

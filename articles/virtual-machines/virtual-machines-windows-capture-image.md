@@ -78,7 +78,7 @@ This section shows you how to generalize your Windows virtual machine so that it
 	Select-AzureRmSubscription -SubscriptionId "<subscriptionID>"
 ```
 
-## Deallocate the VM and set the state to generalized		
+## Deallocate the VM and set the state to generalized
 
 1. Deallocate the VM resources.
 
