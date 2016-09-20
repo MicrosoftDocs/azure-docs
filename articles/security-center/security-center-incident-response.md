@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/19/2016"
+   ms.date="09/20/2016"
    ms.author="yurid"/>
 
 # Leveraging Azure Security Center for Incident Response

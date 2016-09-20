@@ -203,13 +203,13 @@ This alert gives information that enables you to identify the attacked resource,
 
 This alert is triggered when an application error has been detected on a database which may indicate a possible vulnerability to SQL injection attacks.
 
-![Potential SQL Injection alert](./media/security-center-alerts-type/security-center-alerts-type-fig12.png)
+![Potential SQL Injection alert](./media/security-center-alerts-type/security-center-alerts-type-fig12-new.png)
 
 ### Unusual access from unfamiliar location
 
 This alert is triggered when an access from an unfamiliar IP address was detected on server, which was not seen in the last period.
 
-![Unusual access alert](./media/security-center-alerts-type/security-center-alerts-type-fig13.png)
+![Unusual access alert](./media/security-center-alerts-type/security-center-alerts-type-fig13-new.png)
 
 
 ## See also
