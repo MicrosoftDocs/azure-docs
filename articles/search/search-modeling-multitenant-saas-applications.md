@@ -77,7 +77,9 @@ In the case of a multitenant scenario, the application developer consumes one or
 1. _Service per tenant:_ Each tenant has its own dedicated Azure Search service, offering highest level of data and workload separation.
 1. _Mix of both:_ Larger, more-active tenants are assigned dedicated services while smaller tenants are assigned individual indexes within shared services.
 
-### Index per tenant
+## Index per tenant
+![](./media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png)
+
 In an index-per-tenant model, multiple tenants occupy a single Azure Search service where each tenant has their own index.
 
 Tenants achieve data isolation because all search requests and document operations are issued at an index level in Azure Search. In the application layer, there is the need awareness to direct the various tenants’ traffic to the proper indexes while also managing resources at the service level across all tenants.
@@ -92,7 +94,10 @@ Azure Search allows for the scale of both the individual indexes and the total n
 
 If the total number of indexes grows too large for a single service, another service has to be provisioned to accommodate the new tenants. If indexes have to be moved between search services as new services are added, the data from the index has to be manually copied from one index to the other as Azure Search does not allow for an index to be moved.
 
-### Service per tenant
+
+## Service per tenant
+![](./media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png)
+
 In a service-per-tenant architecture, each tenant has its own search service.
 
 In this model, the application achieves the maximum level of isolation for its tenants. Each service has dedicated storage and throughput for handling search request as well as separate API keys.
@@ -105,14 +110,14 @@ The service-per-tenant model is an efficient choice for applications with a glob
 
 The challenges in scaling this pattern arise when individual tenants outgrow their service. Azure Search does not currently support upgrading the pricing tier of a search service, so all data would have to be manually copied to a new service.
 
-### Mixed
+## Mixed
 Another pattern for modeling multitenancy is mixing both index-per-tenant and service-per-tenant strategies.
 
 By mixing the two patterns, an application's largest tenants can occupy dedicated services while the long tail of less active, smaller tenants can occupy indexes in a shared service. This model ensures that the largest tenants have consistently high performance from the service while helping to protect the smaller tenants from any noisy neighbors.
 
 However, implementing this strategy relies foresight in predicting which tenants will require a dedicated service versus an index in a shared service. Application complexity increases with the need to manage both of these multitenancy models.
 
-### Even finer granularity
+## Even finer granularity
 The above design patterns to model multitenant scenarios in Azure Search assume a uniform scope where each tenant is a whole instance of an application. However, applications can sometimes handle many smaller scopes.
 
 If service-per-tenant and index-per-tenant models are not sufficiently small scopes, it is possible to model an index to achieve an even finer degree of granularity.
