@@ -29,7 +29,7 @@ version of Microsoft Azure Stack.
 <span id="Concepts" class="anchor"><span id="_Toc386544169" class="anchor"><span id="_Toc389466742" class="anchor"><span id="_Ref428966996" class="anchor"><span id="_Toc433223853" class="anchor"></span></span></span></span></span>
 ## Known differences
 
-This Technical Preview version of Azure Stack Azure Consistent Storage is known
+This Technical Preview version of Azure Stack Azure Consistent Storage
 does not have 100% feature parity with Azure Storage for the API
 versions that are supported. Known feature shortcomings include the following:
 
@@ -44,11 +44,11 @@ versions that are supported. Known feature shortcomings include the following:
 
 -   The Get Page Ranges API returns pages that have 4 KB of granularity.
 
--   Partition Key and Row Key in Azure Consistent Storage Table implementation are each limited to 400 characters (that is, 800 bytes) in size.
+-   Partition Key and Row Key in the Azure Consistent Storage Table implementation are each limited to 400 characters (that is, 800 bytes) in size.
 
--   Blob names in Azure Consistent Storage Blob service implementation are limited to 880 characters (that is, 1760 bytes) in size.
+-   Blob names in the Azure Consistent Storage Blob service implementation are limited to 880 characters (that is, 1760 bytes) in size.
 
--   Azure Consistent Storage implementation of tenant storage usage data reporting provides storage usage meters that are identical to those in Azure, with the same semantics and units. Currently, however, the Storage Transactions usage meter does not include IaaS transactions, and the Data Transfer usage meter does not differentiate the bandwidth usage by internal or external network traffic to an Azure Stack region.
+-   The Azure Consistent Storage implementation of tenant storage usage data reporting provides storage usage meters that are identical to those in Azure, with the same semantics and units. Currently, however, the Storage Transactions usage meter does not include IaaS transactions, and the Data Transfer usage meter does not differentiate the bandwidth usage by internal or external network traffic to an Azure Stack region.
 
 -   Certain differences exist in the scope of functionality for storage manageability. For example, you can't change the account type or have custom domains. In addition, only API-level consistency is offered for the Premium\_LRS storage account type.
 
