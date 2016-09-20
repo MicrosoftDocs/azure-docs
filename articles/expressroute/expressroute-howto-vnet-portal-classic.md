@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Configure a Virtual Network and Gateway for ExpressRoute | Microsoft Azure"
-   description="This article walks you through setting up a virtual network (VNet) for ExpressRoute using the classic deployment model."
+   pageTitle="Configure a Virtual Network and Gateway for ExpressRoute in the classic portal | Microsoft Azure"
+   description="This article walks you through setting up a virtual network for ExpressRoute using the classic deployment model and the classic portal."
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
@@ -14,7 +14,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/25/2016"
+   ms.date="09/20/2016"
    ms.author="cherylmc"/>
 
 # Create a Virtual Network for ExpressRoute in the classic portal
