@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Add an image to the Platform Image Repository in Azure Stack | Microsoft Azure"
 	description="Learn how to prepare a virtual hard disk image before you add an image to the Platform Image Repository in Azure Stack."
 	services="azure-stack"
