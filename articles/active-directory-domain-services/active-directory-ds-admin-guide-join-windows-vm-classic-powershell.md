@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory Domain Services preview: Administration Guide | Microsoft Azure"
+	pageTitle="Azure Active Directory Domain Services: Administration Guide | Microsoft Azure"
 	description="Join a Windows virtual machine to a managed domain using Azure PowerShell and the classic deployment model."
 	services="active-directory-ds"
 	documentationCenter=""
