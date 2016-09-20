@@ -44,4 +44,5 @@ azure vm extension-image list westus
 |Custom Script Extension for Linux  | Run scripts against an Azure Virtual Machine  |[Custom Script Extension for Liunx](./virtual-machines-linux-extensions-customscript)   |
 |Docker Extension |Installs the Docker daemon to support remote Docker commands.  | [Docker VM Extension](./virtual-machines-linux-dockerextension)  |
 |VM Access Extension | Regain access to Azure Virtual Machine  |[VM Access Extension](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
+|Azure Diagnostics Extension |Manage Azure Diagnostics |[Azure Diagnostics Extension](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 
