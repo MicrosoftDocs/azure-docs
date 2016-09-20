@@ -31,7 +31,6 @@ the entire server SDK unit test suite and some sample projects.
 
 The reference documentation for the server SDK is located here: [Azure Mobile Apps .NET Reference][1].
 
-
 ## <a name="create-app"></a>How to: Create a .NET Mobile App backend
 
 If you are starting a new project, you can create an App Service application using either the [Azure portal] or Visual Studio. You can run
@@ -50,7 +49,7 @@ compressed project files to your local computer, and open the solution in Visual
 
 ### Create a .NET backend using Visual Studio 2013 and Visual Studio 2015
 
-You need to install the [Azure SDK for .NET][4] (version 2.9.0 or later) to create an Azure Mobile Apps project in Visual Studio. Once you 
+Install the [Azure SDK for .NET][4] (version 2.9.0 or later) to create an Azure Mobile Apps project in Visual Studio. Once you 
 have installed the SDK, create an ASP.NET application using the following steps:
 
 1. Open the **New Project** dialog (from *File* > **New** > **Project...**).
@@ -131,7 +130,7 @@ initialization by using the **MobileAppConfiguration** object.
 - [Microsoft.Azure.Mobile.Server.Quickstart]
 	 Supports the basic Mobile Apps setup. Added to the configuration by calling the **UseDefaultConfiguration** extension method during 
      initialization. This extension includes following extensions: Notifications, Authentication, Entity, Tables, Cross-domain, and Home 
-     packages. This is equivalent to the quickstart server project that you download from the Azure portal.
+     packages. This package is used by the Mobile Apps Quickstart available on the Azure portal.
 
 - [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/)
 	Implements the default *this mobile app is up and running page* for the web site root. Add to the configuration by calling the 
@@ -237,7 +236,7 @@ The quickstart server project contains an example for a simple **TodoItemControl
 ### How to: Adjust the table paging size
 
 By default, Azure Mobile Apps returns 50 records per request.  Paging ensures that the client does not tie up their UI thread nor the server for 
-too long, ensuring a good user experience. You must increase the server side "allowed query size" and the client-side page size to effect a 
+too long, ensuring a good user experience. Increase the server side "allowed query size" and the client-side page size to effect a 
 change in the table paging size. To increase the paging size, adjust your table controller using the `EnableQuery` attribute:
 
     [EnableQuery(PageSize = 500)]
@@ -253,7 +252,7 @@ up the Mobile Apps JSON serializer, and turns on [client version checking](app-s
 
 1. In Visual Studio, right-click the Controllers folder, then click **Add** > **Controller**, select **Web API 2 Controller&mdash;Empty** and click **Add**.
 
-2. Supply a **Controller name**, such as `CustomController`, and click **Add**. This creates a new **CustomController** class that inherits from **ApiController**.
+2. Supply a **Controller name**, such as `CustomController`, and click **Add**.
 
 3. In the new controller class file, add the following using statement:
 
@@ -273,10 +272,9 @@ up the Mobile Apps JSON serializer, and turns on [client version checking](app-s
 		    .MapApiControllers()
 		    .ApplyTo(config);
 
-	Tou do not need to call **MapApiControllers** if you instead call **UseDefaultConfiguration**, which initializes all features.
-
-Any controller that does not have **MobileAppControllerAttribute** applied can still be accessed by clients, but it may not be correctly 
-consumed by clients using any Mobile App client SDK.
+You can also use the `UseDefaultConfiguration()` extension method instead of `MapApiControllers()`. Any controller that does not have 
+**MobileAppControllerAttribute** applied can still be accessed by clients, but it may not be correctly consumed by clients using any 
+Mobile App client SDK.
 
 ## How to: Work with authentication
 
@@ -302,22 +300,26 @@ to step 3.
 
 	This OWIN middleware component validates tokens issued by the associated App Service gateway.
 
-3. Add the `[Authorize]` attribute to any controller or method that requires authentication. Users must now be authenticated to access that 
-   endpoint or specific APIs.
+3. Add the `[Authorize]` attribute to any controller or method that requires authentication. 
 
 To learn about how to authenticate clients to your Mobile Apps backend, see [Add authentication to your app](app-service-mobile-ios-get-started-users.md).
 
 ### <a name="custom-auth"></a>How to: Use custom authentication for your application
 
-You can choose to provide your own login system if you do not wish to use one of the App Service Authentication/Authorization providers. To do so, install the [Microsoft.Azure.Mobile.Server.Login] package.
+If you do not wish to use one of the App Service Authentication/Authorization providers, you can implement your own login system. Install 
+the [Microsoft.Azure.Mobile.Server.Login] package to assist with authentication token generation.  You must provide your own code to determine
+user authorization. For example, you might check against salted and hashed passwords in a database. In the example below, the `isValidAssertion()` 
+method (defined elsewhere) is responsible for these checks.
 
-You will need to provide your own logic for determining if a user should be signed in. For example, you might check against salted and hashed passwords in a database. In the example below, the `isValidAssertion()` method is responsible for these checks and is defined elsewhere.
+The custom authentication is exposed by creating a new ApiController and exposing `register` and `login` actions. The client can log in by 
+collecting the relevant information from the user and submitting an HTTPS POST to the API with the user information in the body. Once the server 
+validates the assertion, a token is issued using the `AppServiceLoginHandler.CreateToken()` method.
 
-The custom authentication is exposed by creating a new ApiController and exposing register and login actions like the one below. The client can attempt login by collecting the relevant information from the user and submitting an HTTPS POST to the API with the user information in the body. Once the server validates the assertion, a token can be issued using the `AppServiceLoginHandler.CreateToken()` method.
+This ApiController **should not** use the `[MobileAppController]` attribute.  The `[MobileAppController]` attribute will cause client login 
+requests to fail. The `[MobileAppController]` attribute requires the request header [ZUMO-API-VERSION](app-service-mobile-client-and-server-versioning.md) 
+and this header is **not** sent by the client SDK for login routes. 
 
-Note that this ApiController **should not** use the `[MobileAppController]` attribute, as that will cause client login requests to fail. The `[MobileAppController]` attribute requires the request header [ZUMO-API-VERSION](app-service-mobile-client-and-server-versioning.md) and this header is **not** sent by the client SDK for login routes. 
-
-An example login action might be:
+An example `login` action:
 
 		public IHttpActionResult Post([FromBody] JObject assertion)
 		{
@@ -340,7 +342,8 @@ An example login action might be:
 			}
 		}
 
-In the above, LoginResult and LoginResultUser are just simple objects exposing the properties shown. The client expects login responses to come back as JSON objects of the form:
+In the above, LoginResult and LoginResultUser are serializable objects exposing required properties. The client expects login responses to be returned
+as JSON objects of the form:
 
 		{
 			"authenticationToken": "<token>",
@@ -349,17 +352,20 @@ In the above, LoginResult and LoginResultUser are just simple objects exposing t
 			}
 		}
 
-The `AppServiceLoginHandler.CreateToken()` method includes an _audience_ and an _issuer_ parameter. Both of these are typically set to the URL of your application root, using the HTTPS scheme. Similarly you should set _secretKey_ to be the value of your application's signing key. This is a sensitive value that should never be shared or included in a client. You can obtain this value while hosted in App Service by referencing the _WEBSITE_AUTH_SIGNING_KEY_ environment variable. If needed in a local debugging context, follow the instructions in the [Local debugging with authentication](#local-debug) section to retrieve the key and store it as an application setting.
+The `AppServiceLoginHandler.CreateToken()` method includes an _audience_ and an _issuer_ parameter. Both of these are typically set to the URL 
+of your application root, using the HTTPS scheme. Similarly you should set _secretKey_ to be the value of your application's signing key. This 
+is a sensitive value that should never be shared or included in a client. You can obtain this value while hosted in App Service by referencing 
+the _WEBSITE\_AUTH\_SIGNING\_KEY_ environment variable. If needed in a local debugging context, follow the instructions in 
+the [Local debugging with authentication](#local-debug) section to retrieve the key and store it as an application setting.
 
-You also need to provide a lifetime for the issued token, as well as any claims you would like included. It is required that you provide a subject claim, as shown in the example code.
+The issued token may also include other claims and an expiry date.  Minimally, the issued token must include a subject (**sub**) claim.
 
-You can also simplify the client code to use the `loginAsync()` method (naming may vary across platforms) instead of a manual HTTP POST. You would use the overload which takes an additional token parameter, which correlates to the assertion object you would POST. The provider in this case should be a custom name of your choosing. Then on the server, your login action should be on the _/.auth/login/{customProviderName}_ path which includes this custom name. To put your controller on this path, add a route to your HttpConfiguration before applying your MobileAppConfiguration.
+You can support the standard client `loginAsync()` method by overloading the authentication route.  If the client calls `client.loginAsync('custom');`
+to log in, your route must be `/.auth/login/custom`.  You can set the route for the custom authentication controller using `MapHttpRoute()`:
 
-		config.Routes.MapHttpRoute("CustomAuth", ".auth/login/CustomAuth", new { controller = "CustomAuth" });
+    config.Routes.MapHttpRoute("custom", ".auth/login/custom", new { controller = "CustomAuth" });
 
-Replace the string "CustomAuth" above with the name of the controller hosting your login action.
-
->[AZURE.TIP] Using the loginAsync() approach ensures that the authentication token is attached to every subsequent call to the service.
+>[AZURE.TIP] Using the `loginAsync()` approach ensures that the authentication token is attached to every subsequent call to the service.
 
 ###<a name="user-info"></a>How to: Retrieve authenticated user information
 
