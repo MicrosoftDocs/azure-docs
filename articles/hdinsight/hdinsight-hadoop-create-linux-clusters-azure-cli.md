@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="08/30/2016"
+   	ms.date="09/20/2016"
    	ms.author="larryfr"/>
 
 #Create Linux-based clusters in HDInsight using the Azure CLI
@@ -65,7 +65,7 @@ The following steps should be performed from a command-prompt, shell or terminal
     * Replace __groupname__ with a unique name for the group. 
     * Replace __location__ with the geographic region that you want to create the group in. 
     
-        For a list of valid locations, use the `azure locations list` command, and then use one of the locations from the __Name__ column.
+        For a list of valid locations, use the `azure location list` command, and then use one of the locations from the __Name__ column.
 
 5. Create a new storage account. This will be used as the default storage for the HDInsight cluster.
 
