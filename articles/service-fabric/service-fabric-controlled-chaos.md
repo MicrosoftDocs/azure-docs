@@ -43,7 +43,7 @@ In its current form, Chaos induces only safe faults, which implies that in the a
     - If the cluster health is OK 
     - The service health is OK 
     - The target replica set size is achieved for the service partition 
-    - No InBuild replicas exist.
+    - No InBuild replicas exist
  - **MaxConcurrentFaults**: Maximum number of concurrent faults induced in each iteration. The higher the number, the more aggressive the Chaos, hence resulting in more complex failovers and transition combinations. Chaos guarantees that in the absence of external faults there is no quorum loss or data loss, irrespective of how high a value this configuration has.
  - **EnableMoveReplicaFaults**: Enables or disables the faults that cause the move of the primary or secondary replicas. These faults are disabled by default.
  - **WaitTimeBetweenIterations**: Amount of time to wait between iterations, that is, after a round of faults and corresponding validation.
@@ -83,8 +83,8 @@ class Program
         {
             var startTimeUtc = DateTime.UtcNow;
             var stabilizationTimeout = TimeSpan.FromSeconds(30.0);
-            var timeToRun = TimeSpan.FromMinutes(10.0);
-            var maxConcurrentFaults = 10;
+            var timeToRun = TimeSpan.FromMinutes(60.0);
+            var maxConcurrentFaults = 3;
 
             var parameters = new ChaosParameters(
                 stabilizationTimeout,
@@ -111,13 +111,14 @@ class Program
 
                 foreach (var chaosEvent in report.History)
                 {
-                    if (!eventSet.Contains(chaosEvent))
+                    if (eventSet.add(chaosEvent))
                     {
                         Console.WriteLine(chaosEvent);
-                        eventSet.Add(chaosEvent);
                     }
                 }
 
+                // When Chaos stops, a StoppedEvent is created.
+                // If StoppedEvent is found, exit the loop.
                 var lastEvent = report.History.LastOrDefault();
 
                 if (lastEvent is StoppedEvent)
@@ -127,8 +128,6 @@ class Program
 
                 Task.Delay(TimeSpan.FromSeconds(1.0)).GetAwaiter().GetResult();
             }
-
-            client.TestManager.StopChaosAsync().GetAwaiter().GetResult();
         }
     }
 }
