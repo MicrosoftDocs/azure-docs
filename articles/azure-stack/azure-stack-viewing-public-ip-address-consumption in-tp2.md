@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Viewing public IP address consumption in TP2 | Microsoft Azure"
-	description="Administrators can view the consumption of public IP addresses in a Region."
+	description="Administrators can view the consumption of public IP addresses in a region."
 	services="azure-stack"
 	documentationCenter=""
 	authors="ScottNapolitan"
@@ -26,13 +26,13 @@ they have been used for tenant IaaS VM instances, fabric
 infrastructure services, or public IP address resources that were explicitly created by tenants.
 
 The purpose of this tile is to give Azure Stack administrators a sense of the overall number of public IP
-addresses that have been consumed in this location. This helps administrators determine whether or
+addresses that have been consumed in this location. This helps administrators determine whether
 they are running low on this resource.
 
 On the **Settings** blade, the **Public IP Addresses** menu item under **Tenant resources** lists only those public IP addresses that have been
 *explicitly created by tenants*. As such, the number of **Used** public
 IP addresses on the **Public IP Address Usage** tile is always
-different (larger) than the number on the **Public IP Addresses** tile
+different from (larger than) the number on the **Public IP Addresses** tile
 under **Tenant resources**.
 
 ## View the public IP address usage information
@@ -40,12 +40,12 @@ under **Tenant resources**.
 To view the total number of public IP addresses that have been consumed
 in the region:
 
-1.  In the Azure Stack portal, click on **Browse**, and then select **Resource
+1.  In the Azure Stack portal, click **Browse**, and then select **Resource
     Providers**.
 
 2.  From the list of **Resource Providers**, select **Network Resource Provider Admin**.
 
-3.  Alternately you can click on **Browse | Locations** and select
+3.  Alternately, you can click **Browse | Locations** and select
     the location that you want to view from the list. Then, on the **Resource Providers** tile, select **Network Resource Provider Admin**.
 
 4.  The **Network Resource Provider** landing blade displays the
@@ -70,7 +70,7 @@ Network Resource Provider, but not in the Network Controller yet.
 
 The
 Network Controller does not assign an address to this resource until it
-is actually bound to an interface, a Network Interface Card
+is actually bound to an interface, a network interface card
 (NIC), a load balancer, or a virtual network gateway. When the public IP
 address is bound to an interface, the Network Controller allocates an IP
 address to it, and it appears in the **Address** field.
@@ -84,8 +84,8 @@ list or another.
 
  | **Public IP address assignment case** | **Appears in usage summary** | **Appears in tenant public IP addresses list** |
  |---------------------------------------|:----------------------------:| :----------------------------------------------:|
- | Dynamic public IP address not yet assigned to an NIC or load balancer (temporary) | No | Yes |
- | Dynamic public IP address assigned to an NIC or load balancer | Yes | Yes |
- | Static public IP address assigned to a tenant NIC or load balancer | Yes | Yes |
- | Static public IP address assigned to a fabric infrastructure service endpoint | Yes | No |
- | Public IP address implicitly created for IaaS VM instances and used for Outbound NAT on the VNET. These are created behind the scenes whenever a tenant creates a VM instance so that VMs can send information out to the Internet. | Yes | No |
+ | Dynamic public IP address not yet assigned to an NIC or load balancer (temporary). | No | Yes |
+ | Dynamic public IP address assigned to an NIC or load balancer. | Yes | Yes |
+ | Static public IP address assigned to a tenant NIC or load balancer. | Yes | Yes |
+ | Static public IP address assigned to a fabric infrastructure service endpoint. | Yes | No |
+ | Public IP address implicitly created for IaaS VM instances and used for outbound NAT on the virtual network. These are created behind the scenes whenever a tenant creates a VM instance so that VMs can send information out to the Internet. | Yes | No |
