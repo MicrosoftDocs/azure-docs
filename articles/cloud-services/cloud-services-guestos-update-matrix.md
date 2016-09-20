@@ -28,6 +28,9 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 Unsure about what the Guest OS is or how the Guest OS releases work? Read [this](#how-it-works) section.
 
 ## News updates
+###### **September 13 2016**
+September Guest OS rollout is starting September 13 2016, and projected to be released on October 13 2016.
+
 ###### **August 9 2016**
 August Guest OS rollout is starting August 9 2016, and projected to be released on September 8 2016. 
 
@@ -66,9 +69,10 @@ Supports .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 | Configuration String           | Release date    | Disable date  | Expired date |
 | ------------------------------ | --------------- | ------------- | ---- |
-| WA-GUEST-OS-4.35_201608-01     | Sept 8 2016*    | Post 4.37     | TBD |
+| WA-GUEST-OS-4.36_201609-01     | Oct 13 2016     | Post 4.38     | TBD |
+| WA-GUEST-OS-4.35_201608-01     | Sept 13 2016    | Post 4.37     | TBD |
 | WA-GUEST-OS-4.34_201607-01     | Aug 8 2016      | Post 4.36     | TBD |
-| WA-GUEST-OS-4.33_201606-01     | July 13 2016    | Post 4.35     | TBD |
+| WA-GUEST-OS-4.33_201606-01     | July 13 2016    | Oct 13 2016   | TBD |
 | WA-GUEST-OS-4.32_201605-01     | June 10 2016    | Sept 8 2016   | TBD |
 | WA-GUEST-OS-4.31_201604-01     | May 2 2016      | Aug 13 2016   | TBD |
 | WA-GUEST-OS-4.30_201603-01     | April 7 2016    | July 10 2016  | TBD |
@@ -95,9 +99,10 @@ Supports .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 | Configuration String           | Release date   | Disable date  | Expired date |
 | ------------------------------ | -------------- | ------------- | --- |
-| WA-GUEST-OS-3.42_201608-01     | Sept 8 2016*   | Post 3.44     | TBD |
+| WA-GUEST-OS-3.43_201609-01     | Oct 13 2016    | Post 3.45     | TBD |
+| WA-GUEST-OS-3.42_201608-01     | Sept 13 2016   | Post 3.44     | TBD |
 | WA-GUEST-OS-3.41_201607-01     | Aug 8 2016     | Post 3.43     | TBD |
-| WA-GUEST-OS-3.40_201606-01     | July 13 2016   | Post 3.42     | TBD |
+| WA-GUEST-OS-3.40_201606-01     | July 13 2016   | Oct 13 2016   | TBD |
 | WA-GUEST-OS-3.39_201605-01     | June 10 2016   | Sept 8 2016   | TBD |
 | WA-GUEST-OS-3.38_201604-01     | May 2 2016     | Aug 13 2016   | TBD |
 | WA-GUEST-OS-3.37_201603-01     | April 7 2016   | July 10 2016  | TBD |
@@ -125,9 +130,10 @@ Supports .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Configuration String           | Release date  | Disable date  | Expired date |
 | ------------------------------ | ------------- | ------------  | --- |
-| WA-GUEST-OS-2.54_201608-01     | Sept 8 2016*  | Post 2.56     | TBD |
+| WA-GUEST-OS-2.55_201609-01     | Oct 13 2016   | Post 2.57     | TBD |
+| WA-GUEST-OS-2.54_201608-01     | Sept 13 2016  | Post 2.56     | TBD |
 | WA-GUEST-OS-2.53_201607-01     | Aug 8 2016    | Post 2.55     | TBD |
-| WA-GUEST-OS-2.52_201606-01     | July 13 2016  | Post 2.54     | TBD |
+| WA-GUEST-OS-2.52_201606-01     | July 13 2016  | Oct 13 2016   | TBD |
 | WA-GUEST-OS-2.51_201605-01     | June 10 2016  | Sept 8 2016   | TBD |
 | WA-GUEST-OS-2.50_201604-01     | May 2 2016    | Aug 13 2016   | TBD |
 | WA-GUEST-OS-2.49_201603-01     | April 7 2016  | July 10 2016  | TBD |
