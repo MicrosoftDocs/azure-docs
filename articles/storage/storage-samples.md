@@ -4,7 +4,7 @@
 	services="storage"
 	documentationCenter="na"
 	authors="tamram"
-	manager="na"
+	manager="carmonm"
 	editor="tysonn" />
 <tags
 	ms.service="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.workload="storage"
 	ms.date="08/03/2016"
-	ms.author="tamram" />
+	ms.author="tamram;micurd" />
 
 # Azure Storage samples
 
