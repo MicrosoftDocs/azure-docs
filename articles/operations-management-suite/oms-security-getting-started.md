@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/02/2016"
+   ms.date="09/20/2016"
    ms.author="yurid"/>
  
 # Getting started with Operations Management Suite Security and Audit Solution
@@ -42,6 +42,7 @@ The OMS Security and Audit dashboard is organized in four major categories:
 
 - **Security Domains**: in this area you will be able to further explore security records over time, access malware assessment, update assessment, network security, identity and access information, computers with security events and quickly have access to Azure Security Center dashboard.
 - **Notable Issues**: this option will allow you to quickly identify the amount of active issues and the severity of these issues.
+- **Detections (Preview)**: enables you to identify attack patterns by visualizing security alerts as they take place in your resources.
 - **Threat Intelligence**: enables you to identify attack patterns by visualizing the total number of servers with outbound malicious IP traffic, the malicious threat type and a map that shows where these IPs are coming from. 
 - **Common security queries**: this option provides you a list of the most common security queries that you can use to monitor your environment. When you click in one of those queries, it will open the Search blade with the results for that query.
 
@@ -123,7 +124,17 @@ The main intent of this group of options is to provide a quick view of the issue
 
 ![Notable issues](./media/oms-security-getting-started/oms-getting-started-fig10.JPG)
 
-You can see that these issues were already covered in different areas of the **Security Domains** group, which reinforces the intent of this view: visualize the most important issues in your environment from a single place. 
+You can see that these issues were already covered in different areas of the **Security Domains** group, which reinforces the intent of this view: visualize the most important issues in your environment from a single place.
+
+## Detections (Preview)
+
+The main intent of this option is to allow IT to quickly identify potential threats to their environment via and the severity of this threat.
+
+![Threat Intel](./media/oms-security-getting-started/oms-getting-started-fig12.png)
+
+This option can also be used during an incident response investigation to perform the assessment and obtain more information about the attack.
+
+> [AZURE.NOTE] For more information on how to use OMS for Incident Response, watch [How to Leverage the Azure Security Center & Microsoft Operations Management Suite for an Incident Response](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703).
 
 ## Threat Intelligence
 
