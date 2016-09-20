@@ -57,13 +57,13 @@ The following guidelines help you select a virtual network to use with Azure AD 
 
 
 ## Network Security Groups and subnet design
-[Network security group (NSG)](../virtual-network/virtual-networks-nsg.md) contains a list of Access Control List (ACL) rules that allow or deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When a NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, traffic to an individual VM can be restricted further by associating a NSG directly to that VM.
+[Network security group (NSG)](../virtual-network/virtual-networks-nsg.md) contains a list of Access Control List (ACL) rules that allow or deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, traffic to an individual VM can be restricted further by associating an NSG directly to that VM.
 
-> [AZURE.NOTE] **You should deploy Azure AD Domain Services to a separate dedicated subnet within your Azure virtual network. Do not apply NSG to that dedicated subnet. Do not enable Azure AD Domain Services in the gateway subnet of your virtual network.**
+> [AZURE.NOTE] **Deploy Azure AD Domain Services to a separate dedicated subnet within your Azure virtual network. Do not apply NSG to that dedicated subnet. Do not enable Azure AD Domain Services in the gateway subnet of your virtual network.**
 
 ![Recommended subnet design](./media/active-directory-domain-services-design-guide/vnet-subnet-design.png)
 
-> [AZURE.WARNING] When you apply a NSG to a subnet in which Azure AD Domain Services is enabled, you may disrupt Microsoft's ability to service and manage the domain. Additionally, synchronization between your Azure AD tenant and your managed domain will be disrupted. Deployments where an NSG has been applied to the subnet in which Azure AD Domain Services is enabled **will not be offered an SLA**.
+> [AZURE.WARNING] When you associate an NSG with a subnet in which Azure AD Domain Services is enabled, you may disrupt Microsoft's ability to service and manage the domain. Additionally, synchronization between your Azure AD tenant and your managed domain is disrupted. **The SLA does not apply to deployments where an NSG has been applied to the subnet in which Azure AD Domain Services is enabled.**
 
 
 ## Network connectivity
