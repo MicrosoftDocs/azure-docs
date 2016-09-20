@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="06/16/2016"
+	ms.date="09/16/2016"
 	ms.author="andrela"/>
 
 
@@ -22,7 +22,7 @@
 
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)] 
 
-This topic shows how to connect and query a Azure SQL Database using Ruby. You can run this sample from Windows, Ubuntu Linux, or Mac platforms.
+This topic shows how to connect and query an Azure SQL Database using Ruby. You can run this sample from Windows, Ubuntu Linux, or Mac platforms.
 
 ## Step 1: Configure Development Environment
 

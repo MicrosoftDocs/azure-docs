@@ -13,16 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/05/2016" 
+	ms.date="09/20/2016" 
 	ms.author="spelluru"/>
 
 # Move data from Teradata using Azure Data Factory
 
-This article outlines how you can use the Copy Activity in an Azure data factory to move data to from Teradata to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
+This article outlines how you can use the Copy Activity in an Azure data factory to move data to from Teradata to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with copy activity and supported data store combinations.
 
 Data factory supports connecting to on-premises Teradata sources via the Data Management Gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway. 
 
-**Note:** You need to leverage the gateway to connect to Teradata even if it is hosted in Azure IaaS VMs. If you are trying to connect to an instance of Teradata hosted in cloud you can also install the gateway instance in the IaaS VM.
+> [AZURE.NOTE]
+Gateway is required even if the Teradata is hosted in an Azure IaaS VM. You can install the gateway on the same IaaS VM as the data store or on a different VM as long as the gateway can connect to the database. 
 
 Data factory supports only moving data from Teradata to other data stores, not from other data stores to Teradata.
 
@@ -35,7 +36,7 @@ For Data Management Gateway to connect to the Teradata Database, you need to ins
 ## Copy data wizard
 The easiest way to create a pipeline that copies data from Teradata to any of the supported sink data stores is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
 
-The following example provides sample JSON definitions that you can use to create a pipeline by using [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data from Teradata to Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.   
+The following example provides sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data from Teradata to Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.   
 
 ### Sample: Copy data from Teradata to Azure Blob
 
@@ -51,7 +52,7 @@ The sample has the following data factory entities:
 
 The sample copies data from a query result in Teradata database to a blob every hour. The JSON properties used in these samples are described in sections following the samples. 
 
-As a first step, setup the data management gateway as per the instructions in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article.
+As a first step, setup the data management gateway. The instructions are in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article.
 
 **Teradata linked service:**
 
@@ -86,7 +87,7 @@ As a first step, setup the data management gateway as per the instructions in th
 
 The sample assumes you have created a table “MyTable” in Teradata and it contains a column called “timestamp” for time series data.
 
-Setting “external”: true and specifying externalData policy tells data factory that the table is external to the data factory and not produced by an activity in the data factory.
+Setting “external”: true informs the Data Factory service that the table is external to the data factory and is not produced by an activity in the data factory.
 
 	{
 	    "name": "TeradataDataSet",
@@ -174,7 +175,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 
 **Pipeline with Copy activity:**
 
-The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **RelationalSource** and **sink** type is set to **BlobSink**. The SQL query specified for the **query** property selects the data in the past hour to copy.
+The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run hourly. In the pipeline JSON definition, the **source** type is set to **RelationalSource** and **sink** type is set to **BlobSink**. The SQL query specified for the **query** property selects the data in the past hour to copy.
 
 	{
 	    "name": "CopyTeradataToBlob",
@@ -239,18 +240,18 @@ See [Setting Credentials and Security](data-factory-move-data-between-onprem-and
 
 ## Teradata dataset type properties
 
-For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
+For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
 
-The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. There are no type properties supported for the Teradata dataset at this time. 
+The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. Currently, there are no type properties supported for the Teradata dataset. 
 
 
 ## Teradata copy activity type properties
 
-For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc. are available for all types of activities. 
+For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policies are available for all types of activities. 
 
-Properties available in the typeProperties section of the activity on the other hand vary with each activity type and in case of Copy activity they vary depending on the types of sources and sinks.
+Properties available in the typeProperties section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
 
-In case of Copy Activity when source is of type **RelationalSource** (which includes Teradata) the following properties are available in **typeProperties** section:
+When source is of type **RelationalSource** (which includes Teradata) the following properties are available in **typeProperties** section:
 
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | --------
@@ -260,12 +261,12 @@ query | Use the custom query to read data. | SQL query string. For example: sele
 
 ## Type mapping for Teradata
 
-As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article, the Copy activity performs automatic type conversions from automatic type conversions from source types to sink types with the following 2 step approach:
+As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article, the Copy activity performs automatic type conversions from source types to sink types with the following 2-step approach:
 
 1. Convert from native source types to .NET type
 2. Convert from .NET type to native sink type
 
-When moving data to Teradata the following mappings will be used from Teradata type to .NET type.
+When moving data to Teradata, the following mappings are used from Teradata type to .NET type.
 
 Teradata Database type | .NET Framework type
 ----------------- | ---------------------------
