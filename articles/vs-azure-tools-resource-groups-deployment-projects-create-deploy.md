@@ -131,7 +131,15 @@ You are now ready to deploy your project. When you deploy an Azure Resource Grou
 
     ![Edit Parameters button](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/edit-parameters.png)
 
-1. Provide values for the empty parameters and select the **Save** button. The empty parameters are **hostingPlanName**, **administratorLogin**, **administratorLoginPassword**, and **databaseName**.  **hostingPlanName** specifies a name for the [App Service plan](./app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) to create. **administratorLogin** specifies the user name for the SQL Server administrator. Do not use common admin names like **sa** or **admin**. The **administratorLoginPassword** specifies a password for SQL Server administrator. The **Save passwords as plain text in the parameters file** option is not secure; therefore, do not select this option. Since the password is not saved as plain text, you will need to provide this password again during deployment. **databaseName** specifies a name for the database to create. 
+1. Provide values for the empty parameters and select the **Save** button. The empty parameters are **hostingPlanName**, **administratorLogin**, **administratorLoginPassword**, and **databaseName**.
+
+    **hostingPlanName** specifies a name for the [App Service plan](./app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) to create. 
+    
+    **administratorLogin** specifies the user name for the SQL Server administrator. Do not use common admin names like **sa** or **admin**. 
+    
+    The **administratorLoginPassword** specifies a password for SQL Server administrator. The **Save passwords as plain text in the parameters file** option is not secure; therefore, do not select this option. Since the password is not saved as plain text, you will need to provide this password again during deployment. 
+    
+    **databaseName** specifies a name for the database to create. 
 
     ![Edit Parameters Dialog Box](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/provide-parameters.png)
     
@@ -142,7 +150,7 @@ You are now ready to deploy your project. When you deploy an Azure Resource Grou
 1. The deployment may take a few minutes. In the **Output** windows, you see the status of the deployment. When the deployment has finished, the last message indicates a successful deployment with something similar to:
 
         ... 
-        18:00:58 - Successfully deployed template 'c:\users\user\documents\visual studio 2015\projects\azureresourcegroup1\azureresourcegroup1a\templates\websitesqldatabase.json' to resource group 'AzureResourceGroup1'.
+        18:00:58 - Successfully deployed template 'c:\users\user\documents\visual studio 2015\projects\azureresourcegroup1\azureresourcegroup1\templates\websitesqldatabase.json' to resource group 'DemoSiteGroup'.
 
 
 1. In a browser, open the [Azure portal](https://portal.azure.com/) and sign in to your account. To see the resource group, select **Resource groups** and the resource group you deployed to.
@@ -163,7 +171,7 @@ At this point, you have deployed the infrastructure for your app, but there is n
 web app and SQL Database tables during deployment. If you are deploying a Virtual Machine instead of a web app, you want to run some code on the machine as part of deployment. The process for 
 deploying code for a web app or for setting up a Virtual Machine is almost the same.
 
-1. Add a project to your Visual Studio solution. Right-click the solution, and select **New** > **New Project**.
+1. Add a project to your Visual Studio solution. Right-click the solution, and select **Add** > **New Project**.
 
     ![add project](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-project.png)
 
