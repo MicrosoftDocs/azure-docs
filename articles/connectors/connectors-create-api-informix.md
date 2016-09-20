@@ -36,8 +36,6 @@ This topic shows you how to use the Connector in a logic app to process database
 
 To learn more about Logic Apps, see [create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
->[AZURE.INCLUDE [What you need to get started](../../includes/connectors-create-api-azure.md)]
-
 ## Logic App Actions
 Connector supports the following Logic app actions:
 
