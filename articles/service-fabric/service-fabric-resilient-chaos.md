@@ -36,7 +36,7 @@ Chaos runs in multiple iterations; each iteration consists of faults and cluster
 
 For example, consider an instance of Chaos, set to run for an hour with a maximum of three concurrent faults. Chaos induces three faults, and then validates the cluster health and it iterates through the previous step until it is explicitly stopped through the StopChaosAsync API or one-hour passes. If the cluster becomes unhealthy in any iteration, that is, it does not stabilize within a configured time, Chaos generates a ValidationFailedEvent, which indicates that something has gone wrong and may need further investigation.
 
-In its current form, Chaos induces only safe faults, which implies that in the absence of external faults, a quorum loss, or data loss will never occur.
+In its current form, Chaos induces only safe faults, which implies that in the absence of external faults, a quorum loss, or data loss never occurs.
 
 ### Important configuration options
  - **TimeToRun**: Total time that Chaos runs before finishing with success. Chaos can be stopped before it has run for TimeToRun period through the StopChaos API.
@@ -45,7 +45,7 @@ In its current form, Chaos induces only safe faults, which implies that in the a
     - The service health is OK 
     - The target replica set size is achieved for the service partition 
     - No InBuild replicas exist.
- - **MaxConcurrentFaults**: Maximum number of concurrent faults induced in each iteration. The higher the number, the more aggressive the Chaos, hence resulting in more complex failovers and transition combinations. Chaos guarantees that in the absence of external faults there will not be a quorum loss or a data loss, irrespective of how high this configuration is.
+ - **MaxConcurrentFaults**: Maximum number of concurrent faults induced in each iteration. The higher the number, the more aggressive the Chaos, hence resulting in more complex failovers and transition combinations. Chaos guarantees that in the absence of external faults there is no quorum loss or data loss, irrespective of how high a value this configuration has.
  - **EnableMoveReplicaFaults**: Enables or disables the faults that cause the move of the primary or secondary replicas. These faults are disabled by default.
  - **WaitTimeBetweenIterations**: Amount of time to wait between iterations, that is, after a round of faults and corresponding validation.
  - **WaitTimeBetweenFaults**: Amount of time to wait between two consecutive faults in an iteration.
