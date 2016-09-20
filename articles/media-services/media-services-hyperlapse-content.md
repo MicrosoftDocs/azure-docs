@@ -75,7 +75,7 @@ The following is an example of a conformant configuration file in XML and JSON:
 
 The following method uploads a media file as an asset and creates a job with the Azure Media Hyperlapse Media Processor.
 
-> [AZURE.NOTE] You should already have a CloudMediaContext in scope with the name "context" for this code to work.  To learn more about this, read the [content management article](media-services-dotnet-get-started/.md).
+> [AZURE.NOTE] You should already have a CloudMediaContext in scope with the name "context" for this code to work.  To learn more about this, read the [content management article](media-services-dotnet-get-started.md).
 
 > [AZURE.NOTE] The string argument "hyperConfig" is expected to be a conformant configuration preset in either JSON or XML as described above.
 
