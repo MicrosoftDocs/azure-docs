@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Adding a VM Image to Azure Stack | Microsoft Azure"
+	pageTitle="Adding a VM image to Azure Stack | Microsoft Azure"
 	description="Add your organization's custom Windows or Linux VM image for tenants to use"
 	services="azure-stack"
 	documentationCenter=""
@@ -50,7 +50,7 @@ If the VM image VHD is available locally on the console VM (or another externall
 
 4. Add the VM image by invoking the Add-VMImage cmdlet. Make sure you run the command from the same directory that you imported the module from.
 	-  Include the publisher, offer, SKU, and version for the VM image. These parameters are used by Azure Resource Manager templates that reference the VM image.
-	-  Specify the osType as Windows or Linux.
+	-  Specify osType as Windows or Linux.
 	-  Include your Azure Active Directory tenant ID in the form *&lt;myaadtenant&gt;*.onmicrosoft.com.
 	- Following is an example invocation of the script:
 	```powershell
@@ -79,10 +79,10 @@ Following is a description of the command parameters.
 |**offer** | The offer name segment of the VM Image that tenants use when deploying the VM image. An example is ‘WindowsServer’. Do not include a space or other special characters in this field. |
 | **sku** | The SKU name segment of the VM Image that tenants use when deploying the VM image. An example is ‘Datacenter2016’. Do not include a space or other special characters in this field. |
 |**version** | The version of the VM Image that tenants use when deploying the VM image. This version is in the format *\#.\#.\#*. An example is ‘1.0.0’. Do not include a space or other special characters in this field.|
-| **osType** | The ostype of the image must be either ‘Windows’ or ‘Linux’. |
+| **osType** | The osType of the image must be either ‘Windows’ or ‘Linux’. |
 |**osDiskLocalPath** | The local path to the OS disk VHD that you are uploading as a VM image to Azure Stack. |
 |**dataDiskLocalPaths**| An optional array of the local paths for data disks that can be uploaded as part of the VM image.|
-|**CreateGalleryItem**| Boolean flag that determines whether to create an item in Marketplace. The default is set to true.|
+|**CreateGalleryItem**| A Boolean flag that determines whether to create an item in Marketplace. The default is set to true.|
 |**title**| The display name of Marketplace item. The default is set to be the Publisher-Offer-Sku of the VM image.|
 |**description**| The description of the Marketplace item. |
 |**osDiskBlobURI**| Optionally, this script also accepts a Blob storage URI for osDisk.|
@@ -94,7 +94,7 @@ Following is a description of the command parameters.
 
 > [AZURE.NOTE] This method requires creating the Marketplace item separately.
 
-One requirement of images is that they can be referenced by a blob
+One requirement of images is that they can be referenced by a Blob
     storage URI. Prepare a Windows or Linux operating system
     virtual hard disk image in VHD format (not VHDX), and then upload the
     image to a storage account in Azure or in Azure Stack. If your image
@@ -118,7 +118,7 @@ step for the ‘Login to Azure’ step.
 - Make a note of the Blob storage URI where you upload the image. It has the following format:
 *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*.vhd
 
-2.  To make the blob anonymously accessible, go to the storage account blob container where the VM image VHD was uploaded to **Blob,** and then select **Access Policy**. If you wish, you can instead generate a shared access signature for the container and include it as part of the blob URI.
+2.  To make the blob anonymously accessible, go to the storage account blob container where the VM image VHD was uploaded to **Blob,** and then select **Access Policy**. If you want, you can instead generate a shared access signature for the container and include it as part of the blob URI.
 
 ![Navigate to storage account blobs](/articles/azure-stack/media/azure-stack-add-vm-image/image1.png)
 
@@ -142,8 +142,8 @@ step for the ‘Login to Azure’ step.
     successfully added.
 
 4.  Tenants can deploy the VM Image by specifying the
-    publisher, offer, SKU, and version of the VM Image in an Azure
+    publisher, offer, SKU, and version of the VM image in an Azure
     Resource Manager template. To make the VM image
     more readily available for tenant consumption in the UI, it is best
     to [create a
-    Marketplace item.](https://azure.microsoft.com/en-us/documentation/articles/azure-stack-create-marketplace-item/)
+    Marketplace item](https://azure.microsoft.com/en-us/documentation/articles/azure-stack-create-marketplace-item/).
