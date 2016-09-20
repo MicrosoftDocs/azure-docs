@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/05/2016" 
+	ms.date="09/20/2016" 
 	ms.author="spelluru"/>
 
 # Move data to and from Azure SQL Database using Azure Data Factory
 
-This article outlines how you can use the Copy Activity in an Azure data factory to move data to Azure SQL from another data store and move data from another data store to Azure SQL. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
+This article outlines how you can use the Copy Activity in an Azure data factory to move data to Azure SQL from another data store and move data from another data store to Azure SQL. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with copy activity and supported data store combinations.
 
 ## Copy data wizard
 The easiest way to create a pipeline that copies data to/from Azure SQL Database is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
@@ -69,7 +69,7 @@ See the [Azure Blob](data-factory-azure-blob-connector.md#azure-storage-linked-s
 
 The sample assumes you have created a table “MyTable” in Azure SQL and it contains a column called “timestampcolumn” for time series data. 
 
-Setting “external”: ”true” and specifying externalData policy informs the Azure Data Factory service that this is a table that is external to the data factory and not produced by an activity in the data factory.
+Setting “external”: ”true” informs the Azure Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
 
 	{
 	  "name": "AzureSqlInput",
@@ -223,7 +223,7 @@ The sample below shows:
 4.	An output [dataset](data-factory-create-datasets.md) of type [AzureSqlTable](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties).
 4.	A [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) and [SqlSink](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties).
 
-The sample copies data belonging to a time series from Azure blob to a table in Azure SQL database every hour. The JSON properties used in these samples are described in sections following the samples. 
+The sample copies time-series data (hourly, daily, etc.,) from Azure blob to a table in Azure SQL database every hour. The JSON properties used in these samples are described in sections following the samples. 
 
 
 **Azure SQL linked service**
@@ -256,7 +256,7 @@ See the [Azure Blob](data-factory-azure-blob-connector.md#azure-storage-linked-s
 
 **Azure Blob input dataset**
 
-Data is picked up from a new blob every hour (frequency: hour, interval: 1). The folder path and file name for the blob are dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, and day part of the start time and file name uses the hour part of the start time. “external”: “true” setting informs the Data Factory service that this table is external to the data factory and not produced by an activity in the data factory.
+Data is picked up from a new blob every hour (frequency: hour, interval: 1). The folder path and file name for the blob are dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, and day part of the start time and file name uses the hour part of the start time. “external”: “true” setting informs the Data Factory service that this table is external to the data factory and is not produced by an activity in the data factory.
 
 	{
 	  "name": "AzureBlobInput",
@@ -409,7 +409,7 @@ The following table provides description for JSON elements specific to Azure SQL
 
 ## Azure SQL dataset type properties
 
-For a full list of sections & properties available for defining datasets, please refer to the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...). 
+For a full list of sections & properties available for defining datasets, please refer to the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.). 
 
 The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The **typeProperties** section for the dataset of type **AzureSqlTable** has the following properties.
 
@@ -578,7 +578,7 @@ Notice that as your source and target table have different schema (target has an
 
 ### Type mapping for SQL Server & Azure SQL Database
 
-As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article Copy activity performs automatic type conversions from automatic type conversions from source types to sink types with the following 2 step approach:
+As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article Copy activity performs automatic type conversions from source types to sink types with the following 2 step approach:
 
 1. Convert from native source types to .NET type
 2. Convert from .NET type to native sink type
