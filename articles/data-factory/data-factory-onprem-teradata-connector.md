@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/05/2016" 
+	ms.date="09/20/2016" 
 	ms.author="spelluru"/>
 
 # Move data from Teradata using Azure Data Factory
@@ -22,7 +22,8 @@ This article outlines how you can use the Copy Activity in an Azure data factory
 
 Data factory supports connecting to on-premises Teradata sources via the Data Management Gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article to learn about Data Management Gateway and step-by-step instructions on setting up the gateway. 
 
-**Note:** You need to leverage the gateway to connect to Teradata even if it is hosted in Azure IaaS VMs. If you are trying to connect to an instance of Teradata hosted in cloud you can also install the gateway instance in the IaaS VM.
+> [AZURE.NOTE]
+You need to leverage the gateway to connect to Teradata even if it is hosted in Azure IaaS VMs. If you are trying to connect to an instance of Teradata hosted in cloud you can also install the gateway instance in the IaaS VM.
 
 Data factory supports only moving data from Teradata to other data stores, not from other data stores to Teradata.
 
