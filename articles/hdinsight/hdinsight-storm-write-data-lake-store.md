@@ -4,7 +4,7 @@ description="Learn how to write data to Azure Data Lake Store from an Apache Sto
 services="hdinsight"
 documentationCenter="na"
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
