@@ -19,7 +19,7 @@ Here is a quick overview of the process:
 
 -   You need a certificate in the .pfx format.
 
--   Create a Key Vault (using either a template or the following sample script).
+-   Create a key vault (using either a template or the following sample script).
 
 -   Make sure you have turned on the EnabledForDeployment switch.
 
@@ -29,8 +29,8 @@ Deploying VMs
 -------------
 
 This sample script creates a key vault, and then stores a
-certificate stored in the .pfx file in a local directory, to the Key
-Vault as a secret.
+certificate stored in the .pfx file in a local directory, to the key
+vault as a secret.
 
 \$vaultName = "contosovault"
 
@@ -91,11 +91,11 @@ Next, it creates a new resource group and then creates a key vault. Note
 the last parameter to the New-AzureKeyVault command,
 '-EnabledForDeployment', which grants access to Azure (specifically to the Microsoft.Compute
 resource provider) to read secrets from
-the Key Vault for deployments.
+the key vault for deployments.
 
-The last command simply stores the base64 encoded JSON object in the Key Vault as a secret.
+The last command simply stores the base64 encoded JSON object in the key vault as a secret.
 
-Here's sample output from the above script:
+Here's sample output from the preceding script:
 
 VERBOSE: 12:43:16 PM – Created resource group 'contosovaultrg' in
 location
@@ -212,7 +212,7 @@ Now we are ready to deploy a VM template. Note the URI of the
 secret from the output (as highlighted in the preceding in green).
 
 You'll need a template located here. The parameters of special interest
-(besides the usual VM parameters) are the vault name, vault resource
+(besides the usual VM parameters) are the vault name, the vault resource
 group, and the secret URI. Of course, you can
 also download it from GitHub and modify as needed.
 
@@ -225,7 +225,7 @@ with the file name &lt;UppercaseThumbprint&gt;.crt for the X509
 certificate file, and &lt;UppercaseThumbprint&gt;.prv for the private key.
 Both of these files are .pem formatted.
 
-The application usually finds the certificate by using the thumbprint, and
+The application usually finds the certificate by using the thumbprint and
 doesn't need modification.
 
 Retiring certificates
@@ -255,7 +255,7 @@ this new certificate version though.
 
 By separating the certificate from the VM or the application payload, we
 have now reduced the number of personnel that will have direct access to
-the certificate. 
+the certificate.
 
 As an added benefit, you now have one convenient place in Key Vault to
 manage all your certificates, including the all the versions that were
