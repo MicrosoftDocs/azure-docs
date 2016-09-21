@@ -20,8 +20,8 @@
 This release provides new features for both tenants and administrators.
 
 ## Network   
-   - [Azure-provided DNS](azure-stack-what-is-idns.md) provides internal network name registration and Domain Name System (DNS) resolution without additional DNS infrastructure.
-   - [Virtual network gateways](azure-stack-virtual-network-gateways.md) provide VPN connectivity options to Azure or on-premises resources.
+   - [Azure-provided DNS](azure-stack-understanding-dns-in-tp2.md) provides internal network name registration and Domain Name System (DNS) resolution without additional DNS infrastructure.
+   - [Virtual network gateways](azure-stack-create-vpn-connection-one-node-tp2.md) provide VPN connectivity options to Azure or on-premises resources.
    - User-defined routes can route network traffic through firewalls, security, other appliances, and other services.
    - You can create network resources from the Microsoft Azure Marketplace.   
 
@@ -43,7 +43,7 @@ This release provides new features for both tenants and administrators.
 - Virtual machines can have multiple network interfaces.
 
 ## Key Vault
-- [Azure Key Vault](azure-stack-intro-key-vault.md) provides secure management of your keys and passwords for cloud apps.
+- [Azure Key Vault](azure-stack-kv-intro.md) provides secure management of your keys and passwords for cloud apps.
 - You can audit and monitor key usage by apps and VMs.
 
 ## Billing and usage
