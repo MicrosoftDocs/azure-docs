@@ -92,7 +92,7 @@ All resources in Azure Resource Manager are associated with a resource group. If
     * **-g**--resource group
     * **-l**--name of the internal load balancer set
     * **-n**--name of the front end IP
-    * **-a**-- private IP address within the subnet range.
+    * **-a**-- private IP address within the subnet range
     * **-e**--subnet name
     * **-m**--virtual network name
 
