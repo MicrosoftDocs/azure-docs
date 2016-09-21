@@ -15,7 +15,7 @@
 	ms.topic="support-article" 
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure" 
-	ms.date="06/28/2016" 
+	ms.date="09/19/2016" 
 	ms.author="iainfou" 
 />
 
@@ -24,11 +24,11 @@
 
 If you have been facing difficulties troubleshooting Remote Desktop (RDP) connection or application access to Windows-based Azure virtual machine (VM), redeploying the VM may help. When you redeploy a VM, it moves the VM to a new node within the Azure infrastructure and then powers it back on, retaining all your configuration options and associated resources. This article shows you how to redeploy a VM using Azure PowerShell or the Azure portal.
 
-> [AZURE.NOTE] After you redeploy a VM, the temporary disk will be lost and dynamic IP addresses associated with virtual network interface will be updated. 
+> [AZURE.NOTE] After you redeploy a VM, the temporary disk is lost and dynamic IP addresses associated with virtual network interface are updated. 
 
 ## Using Azure PowerShell
 
-Make sure you have the latest Azure PowerShell 1.x installed on your machine. Please read [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information.
+Make sure you have the latest Azure PowerShell 1.x installed on your machine. For more information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
 Use this Azure PowerShell command to redeploy your virtual machine:
 
@@ -39,4 +39,4 @@ Use this Azure PowerShell command to redeploy your virtual machine:
 
 
 ## Next steps
-You can find specific help on [troubleshooting RDP connections](virtual-machines-windows-troubleshoot-rdp-connection.md) or [detailed RDP troubleshooting steps](virtual-machines-windows-detailed-troubleshoot-rdp.md) if you are having issues connecting to your VM. You can also read [application troubleshooting issues](virtual-machines-windows-troubleshoot-app-connection.md) if you cannot access an application running on your VM.
+If you are having issues connecting to your VM, you can find specific help on [troubleshooting RDP connections](virtual-machines-windows-troubleshoot-rdp-connection.md) or [detailed RDP troubleshooting steps](virtual-machines-windows-detailed-troubleshoot-rdp.md). If you cannot access an application running on your VM, you can also read [application troubleshooting issues](virtual-machines-windows-troubleshoot-app-connection.md).

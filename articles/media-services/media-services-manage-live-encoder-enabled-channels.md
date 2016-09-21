@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2016"
+	ms.date="09/19/2016"
 	ms.author="juliako;anilmur"/>
 
 #Live streaming using Azure Media Services to create multi-bitrate streams
@@ -473,7 +473,7 @@ Review Media Services learning paths.
 
 ##Related topics
 
-[Delivering Live Streaming Events with Azure Media Services](media-services-live-streaming-workflow.md)
+[Delivering Live Streaming Events with Azure Media Services](media-services-overview.md)
 
 [Media Services Concepts](media-services-concepts.md)
 

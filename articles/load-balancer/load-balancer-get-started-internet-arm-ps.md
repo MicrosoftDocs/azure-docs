@@ -151,16 +151,22 @@ Create network interfaces (or modify existing ones) and then associate them to N
         Location             : westus
         Id                   : /subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be
         Etag                 : W/"d448256a-e1df-413a-9103-a137e07276d1"
+        ResourceGuid         : 896cac4f-152a-40b9-b079-3e2201a5906e
         ProvisioningState    : Succeeded
         Tags                 :
         VirtualMachine       : null
         IpConfigurations     : [
                             {
+                            "Name": "ipconfig1",
+                            "Etag": "W/\"d448256a-e1df-413a-9103-a137e07276d1\"",
+                            "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be/ipConfigurations/ipconfig1",
                             "PrivateIpAddress": "10.0.2.6",
                             "PrivateIpAllocationMethod": "Static",
                             "Subnet": {
                                 "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/virtualNetworks/NRPVNet/subnets/LB-Subnet-BE"
                             },
+                            "ProvisioningState": "Succeeded",
+                            "PrivateIpAddressVersion": "IPv4",
                             "PublicIpAddress": {
                                 "Id": null
                             },
@@ -174,19 +180,18 @@ Create network interfaces (or modify existing ones) and then associate them to N
                                 "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/loadBalancers/NRPlb/inboundNatRules/RDP1"
                                 }
                             ],
-                            "ProvisioningState": "Succeeded",
-                            "Name": "ipconfig1",
-                            "Etag": "W/\"d448256a-e1df-413a-9103-a137e07276d1\"",
-                            "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be/ipConfigurations/ipconfig1"
+                            "Primary": true,
+                            "ApplicationGatewayBackendAddressPools": []
                             }
                         ]
         DnsSettings          : {
                             "DnsServers": [],
-                            "AppliedDnsServers": []
+                            "AppliedDnsServers": [],
+                            "InternalDomainNameSuffix": "prcwibzcuvie5hnxav0yjks2cd.dx.internal.cloudapp.net"
                         }
-        AppliedDnsSettings   :
+        EnableIPForwarding   : False
         NetworkSecurityGroup : null
-        Primary              : False
+        Primary              : 
 
 5. Use the `Add-AzureRmVMNetworkInterface` cmdlet to assign the NICs to different VMs.
 
