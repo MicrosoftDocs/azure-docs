@@ -20,18 +20,47 @@
 
 # Create a scale set using the Azure Portal
 
+This tutorial shows you how easy it is to create a Virtual Machine Scae Set in just a few minutes, by using the Azure portal. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+
+## Choose the VM image from the marketplace
+
+From the portal, you can easily deploy a scale set with CentOS, CoreOS, Debian, Open Suse, Red Hat Enterprise Linux, SUSE Linux Enterprise Server, or Ubuntu Server images.
+
 First, navigate to the [Azure portal](https://portal.azure.com) in a web browser. Click `New`, search for `scale set`, then select the `Virtual machine scale set` entry:
 
 ![ScaleSetPortalOverview](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalOverview.PNG)
 
-Continue by filling out the `Basics` blade:
+## Create the Windows virtual machine
+
+Now you can use the default settings and quickly create the virtual machine.
+
+1. On the `Basics` blade, enter a name for the scale set. This name becomes the base of the FQDN of the load balancer in front of the scale set, so make sure the name is unique across all of Azure.
+
+2. Select your desired OS type, enter your desired username, and select which authentication type you prefer. If you choose a password, it must be at least 12 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. See more about [username and password requirements](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm). If you choose `SSH public key`, be sure to only paste in your public key, NOT your private key:
 
 ![ScaleSetPortalBasics](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalBasics.PNG)
 
-Followed by the `Service` blade, which allows for autoscale configuration:
+3. Enter your desired resource group name and location, then click `OK`.
+
+4. On the `Virtual machine scale set service settings` blade: enter your desired domain name label (the base of the FQDN for the load balancer in front of the scale set). This must be unique across all of Azure.
+
+5. Choose your desired operating system disk image, instance count, and machine size.
+
+6. Enable or disable autoscale and configure if enabled:
 
 ![ScaleSetPortalService](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalService.PNG)
 
+7. On the `Summary` blade, once validation is done, click `OK`.
+
+8. Finally, on the `Purchase` blade, click `Purchase` to start the scale set deployment.
+
+## Connect to a VM in the Scale Set
+
+Once your scale set is deployed, navigate to the `Inbound NAT Rules` tab of the load balancer for the scale set:
+
+![ScaleSetPortalNatRules](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalNatRules.PNG)
+
+You can connect to each VM in the scale set using these NAT rules. For instance, for a Windows scale set, if there is a NAT rule on incoming port 50000, you could connect to that machine via RDP on `<load-balancer-ip-address>:50000`. For a Linux scale set, you would connect using the command `ssh -p 50000 <username>@<load-balancer-ip-address>`.
 
 ## Next steps
 
