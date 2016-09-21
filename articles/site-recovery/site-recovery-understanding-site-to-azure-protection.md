@@ -36,7 +36,7 @@ After you protect a virtual machine from the Azure portal or on-premises, a Site
 
 !["Enable protection" job in the list of jobs](media/site-recovery-understanding-site-to-azure-protection/image001.PNG)
 
-The **Enable protection** job checks for the prerequisites before invoking the [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx)method. This method creates replication to Azure by using inputs that are configured during protection.
+The **Enable protection** job checks for the prerequisites before invoking the [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) method. This method creates replication to Azure by using inputs that are configured during protection.
 
 The **Enable protection** job starts the initial replication from on-premises by invoking the [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) method. This method sends the virtual machine's virtual disks to Azure.
 
