@@ -38,10 +38,10 @@ Log Analytics is in preview in Azure Government.
 
 ### Differences from public Azure
 
-The following Log Analytics features and solutions are not currently available in Azure Government. This list will be updated when the status of features / solutions changes.
+The following Log Analytics features and solutions are not currently available in Azure Government. This list is updated when the status of features / solutions changes.
 
 + Near real-time metrics
-  - When viewing metric graphs with a time range of less than 6 hours, the graph will not automatically update with new metric values
+  - When viewing metric graphs with a time range of less than six hours, the graph does not automatically update with new metric values
 + Export of data to PowerBI
 + Network Monitoring solution
 + Office 365 solution
@@ -49,13 +49,13 @@ The following Log Analytics features and solutions are not currently available i
 + Application Dependency Monitoring
 + Update Assessment
 + Azure portal integration
-  - Selecting Azure storage accounts to monitor must be done through PowerShell or resource manager templates
-  - Selecting virtual machines to enable the Log Analytics agent must be done through PowerShell or resource manager templates
+  - Selecting Azure storage accounts to monitor must be done through PowerShell or Resource Manager templates
+  - Selecting virtual machines to enable the Log Analytics agent must be done through PowerShell or Resource Manager templates
 + Linux monitoring
 
-For additional information, please see [Log Analytics public documentation](/log-analytics-overview.md).
+For additional information, see [Log Analytics public documentation](/log-analytics-overview.md).
 
 ## Next Steps
 
-For supplemental information and updates please subscribe to the
+For supplemental information and updates, please subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
