@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/19/2016"
+   ms.date="09/21/2016"
    ms.author="cherylmc"/>
 
 # Planning and design for VPN Gateway
@@ -46,13 +46,9 @@ The following table can help you decide the best connectivity option for your so
 
 ### <a name="gwrequire"></a>Gateway requirements by VPN type and SKU
 
+[AZURE.INCLUDE [vpn-gateway-gwsku](../../includes/vpn-gateway-gwsku-include.md)]
 
-When you create a VPN gateway, you need to specify the gateway SKU that you want to use. 
-There are three VPN Gateway SKUs:
-
-- Basic
-- Standard
-- High Performance
+For more information about gateway SKUs, see [VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 [AZURE.INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)] 
 
