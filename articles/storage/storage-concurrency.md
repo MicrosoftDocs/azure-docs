@@ -100,7 +100,9 @@ The following table summarizes the container operations that accept conditional 
 
 (*) The permissions defined by SetContainerACL are cached and updates to these permissions take 30 seconds to propagate during which period updates are not guaranteed to be consistent.  
 
-The following table summarizes the blob operations that accept conditional headers such as **If-Match** in the request and that return an ETag value in the resp| Operation           | Returns ETag value | Accepts conditional headers           |
+The following table summarizes the blob operations that accept conditional headers such as **If-Match** in the request and that return an ETag value in the response.
+
+| Operation           | Returns ETag value | Accepts conditional headers           |
 |:--------------------|:-------------------|:--------------------------------------|
 | Put Blob            | Yes                | Yes                                   |
 | Get Blob            | Yes                | Yes                                   |
