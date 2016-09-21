@@ -20,7 +20,7 @@
 
 # Create a scale set using the Azure Portal
 
-This tutorial shows you how easy it is to create a Virtual Machine Scae Set in just a few minutes, by using the Azure portal. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+This tutorial shows you how easy it is to create a Virtual Machine Scale Set in just a few minutes, by using the Azure portal. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Choose the VM image from the marketplace
 
@@ -42,7 +42,7 @@ Now you can use the default settings and quickly create the virtual machine.
 
 3. Enter your desired resource group name and location, then click `OK`.
 
-4. On the `Virtual machine scale set service settings` blade: enter your desired domain name label (the base of the FQDN for the load balancer in front of the scale set). This must be unique across all of Azure.
+4. On the `Virtual machine scale set service settings` blade: enter your desired domain name label (the base of the FQDN for the load balancer in front of the scale set). This label must be unique across all of Azure.
 
 5. Choose your desired operating system disk image, instance count, and machine size.
 
