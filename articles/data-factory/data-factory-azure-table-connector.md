@@ -432,7 +432,7 @@ The EmpID is specified as the partition key.
 
 ### Type Mapping for Azure Table
 
-As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article, Copy activity performs automatic type conversions from automatic type conversions from source types to sink types with the following two-step approach.
+As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article, Copy activity performs automatic type conversions from source types to sink types with the following two-step approach.
 
 1. Convert from native source types to .NET type
 2. Convert from .NET type to native sink type
