@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="08/30/2016"
+ms.date="09/13/2016"
 ms.author="larryfr"/>
 
 # Ports and URIs used by HDInsight
@@ -36,9 +36,9 @@ All the nodes in an HDInsight cluster are located in an Azure Virtual Network, a
 
 | Service | Port | Protocol | Description |
 | ---- | ---------- | -------- | ----------- | ----------- |
-| sshd | 22 | SSH | Connects clients to sshd on head node 0. See [Use SSH with Linux-based HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) |
+| sshd | 22 | SSH | Connects clients to sshd on the primary headnode. See [Use SSH with Linux-based HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) |
 | sshd | 22 | SSH | Connects clients to sshd on the edge node (HDInsight Premium only). See [Get started using R Server on HDInsight](hdinsight-hadoop-r-server-get-started.md) |
-| sshd | 23 | SSH | Connects clients to sshd on head node 1. See [Use SSH with Linux-based HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) |
+| sshd | 23 | SSH | Connects clients to sshd on the secondary headnode. See [Use SSH with Linux-based HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) |
 | Ambari | 443 | HTTPS | Ambari web UI. See [Manage HDInsight using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md) |
 | Ambari | 443 | HTTPS | Ambari REST API. See [Manage HDInsight using the Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md) |
 | WebHCat | 443 | HTTPS | HCatalog REST API. See [Use Hive with Curl](hdinsight-hadoop-use-Pig-curl.md), [Use Pig with Curl](hdinsight-hadoop-use-Pig-curl.md), [Use MapReduce with Curl](hdinsight-hadoop-use-mapreduce-curl.md) |

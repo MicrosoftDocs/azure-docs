@@ -27,10 +27,10 @@ Cloud service roles (worker roles and web roles) use a guest agent for probe mon
 
 Probe behavior depends on:
 
-- The number of successful probes that allow an instance to be labeled as running.
-- The number of failed probes that cause an instance to be labeled as not running.
+- The number of successful probes that allow an instance to be labeled as up.
+- The number of failed probes that cause an instance to be labeled as down.
 
-The timeout and frequency value set i. SuccessFailCount determine whether an instance is determined to be running or not running. In the Azure portal, the timeout is set to two times the value of the frequency.
+The timeout divided by the probe frequency value is equal to SuccessFailCount which determines whether an instance is assumed to be up or down. In the Azure portal, the timeout is set to two times the value of the frequency.
 
 The probe configuration of all load-balanced instances for an endpoint (that is, a load-balanced set) must be the same. This means you cannot have a different probe configuration for each role instance or virtual machine in the same hosted service for a particular endpoint combination. For example, each instance must have identical local ports and timeouts.
 
@@ -77,11 +77,11 @@ TCP probes initiate a connection by performing a three-way handshake with the de
 
 For more information about configuring an HTTP health probe or a TCP probe, see [Get started creating an Internet-facing load balancer in Resource Manager using PowerShell](load-balancer-get-started-internet-arm-ps.md#create-lb-rules-nat-rules-a-probe-and-a-load-balancer).
 
-## Add healthy instances back to Load Balancer
+## Add healthy instances back into Load Balancer rotation
 
 TCP and HTTP probes are considered healthy and mark the role instance as healthy when:
 
-. Load Balancer gets a positive probe the first time the VM boots.
+- Load Balancer gets a positive probe the first time the VM boots.
 - The number SuccessFailCount (described earlier) defines the value of successful probes that are required to mark the role instance as healthy. If a role instance was removed, the number of successful, successive probes must equal or exceed the value of SuccessFailCount to mark the role instance as running.
 
 >[AZURE.NOTE] If the health of a role instance is fluctuating, Load Balancer waits longer before putting the role instance back in the healthy state. This is done via policy to protect the user and the infrastructure.

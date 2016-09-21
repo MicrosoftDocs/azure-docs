@@ -1,26 +1,26 @@
-<properties 
-	pageTitle="Securing cloud resources with Azure Multi-Factor Authentication and AD FS" 
-	description="This is the Azure Multi-Factor authentication page that describes how to get started with Azure MFA and AD FS in the cloud." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+<properties
+	pageTitle="Securing cloud resources with Azure Multi-Factor Authentication and AD FS"
+	description="This is the Azure Multi-Factor authentication page that describes how to get started with Azure MFA and AD FS in the cloud."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 # Securing cloud resources with Azure Multi-Factor Authentication and AD FS
 
 If your organization is federated with Azure Active Directory and you have resources that are accessed by Azure AD, you can use Azure Multi-Factor Authentication or Active Directory Federation Services to secure these resources. Use the procedures below to secure Azure Active Directory resources with either Azure Multi-Factor Authentication or Active Directory Federation Services.
 
-## To secure Azure AD resources using AD FS do the following: 
+## To secure Azure AD resources using AD FS do the following:
 
 
 
@@ -71,7 +71,7 @@ The first thing we need to do is to configure the AD FS claims. We will be creat
 10. On the Add Transform Claim Rule Wizard, select Send Claims Using a Custom Rule from the drop down and click Next.
 11. In the box under Claim rule name: enter Keep Users Signed In.
 12. In the Custom rule box enter:
-	    
+
 		c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
 			=> issue(claim = c);
 ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip5.png)
@@ -97,9 +97,3 @@ Now that the claims are in place, we cane configure trusted ips.
 
 
 That’s it! At this point, federated Office 365 users should only have to use MFA when a claim originates from outside the corporate intranet.
-
-
-
-
-
-

@@ -113,5 +113,7 @@ The following example is a configuration where only EventID 4624 and EventId 462
 
 After making changes, check the storage account to ensure that the correct events are collected.
 
+If you have questions about Azure Log Integration, please send an email to [AzSIEMteam@microsoft.com] (mailto:AzSIEMteam@microsoft.com)
+
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-faq/event-xml.png

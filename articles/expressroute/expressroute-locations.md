@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/07/2016"
+   ms.date="09/20/2016"
    ms.author="cherylmc" />
 
 # ExpressRoute partners and peering locations
@@ -66,7 +66,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **[British Telecom]( http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | Supported | Supported | Amsterdam, Hong Kong, London, Silicon Valley, Singapore, Sydney, Tokyo, Washington DC |
 |**CenturyLink** | Coming soon | Coming soon| Silicon Valley |
 |**China Telecom Global** | Supported | Not Supported | Hong Kong |
-|**[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** | Supported | Coming soon | Montreal+, Toronto |
+|**[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** | Supported | Coming soon | Dallas, Montreal+, Toronto |
 | **[Colt]( http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)**  |  Supported | Supported | Amsterdam, Dublin, London, Tokyo |
 | **Comcast** | Supported | Supported | Chicago, Silicon Valley, Washington DC |
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** | Supported | Supported | Los Angeles | 

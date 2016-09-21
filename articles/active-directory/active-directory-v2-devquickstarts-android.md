@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="brandwe"/>
 
 #  Add sign-in to an Android app using a third-party library with Graph API using the v2.0 endpoint
