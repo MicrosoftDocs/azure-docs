@@ -350,9 +350,9 @@ responses to be returned as JSON objects of the form:
 		}
 
 The `AppServiceLoginHandler.CreateToken()` method includes an _audience_ and an _issuer_ parameter. Both of these parameters are set to the URL 
-of your application root, using the HTTPS scheme. Similarly you should set _secretKey_ to be the value of your application's signing key. The
-signing key is a sensitive value and must not be distributed in a client. You can obtain this value while hosted in App Service by 
-referencing the _WEBSITE\_AUTH\_SIGNING\_KEY_ environment variable. If needed in a local debugging context, follow the instructions in 
+of your application root, using the HTTPS scheme. Similarly you should set _secretKey_ to be the value of your application's signing key. Do not
+distribute the signing key in a client as it can be used to mint keys and impersonate users. You can obtain the signing key while hosted in App 
+Service by referencing the _WEBSITE\_AUTH\_SIGNING\_KEY_ environment variable. If needed in a local debugging context, follow the instructions in 
 the [Local debugging with authentication](#local-debug) section to retrieve the key and store it as an application setting.
 
 The issued token may also include other claims and an expiry date.  Minimally, the issued token must include a subject (**sub**) claim.
@@ -563,7 +563,7 @@ To obtain the signing key:
 3. In the Kudu Management site, click **Environment**.
 4. Find the value for _WEBSITE\_AUTH\_SIGNING\_KEY_. 
 
-You should use the signing key for the _authSigningKey_ parameter in your local application config.  Your mobile backend is now equipped to validate 
+Use the signing key for the _authSigningKey_ parameter in your local application config.  Your mobile backend is now equipped to validate 
 tokens when running locally, which the client obtains the token from the cloud-based endpoint.
 
 [1]: https://msdn.microsoft.com/library/azure/dn961176.aspx
