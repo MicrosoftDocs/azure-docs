@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Active Directory v2.0 libraries | Microsoft Azure"
-   description="A list of terms for commonly used Azure Active Directory developer concepts and features."
+   description="Provides a list of all compatible client libraries and server middleware libraries, along with related library/source/samples links, for the Azure Active Directory v2.0 endpoint."
    services="active-directory"
    documentationCenter=""
    authors="skwan"
