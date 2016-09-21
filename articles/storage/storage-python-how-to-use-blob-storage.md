@@ -14,7 +14,7 @@
 	ms.devlang="python"
 	ms.topic="article"
     ms.date="09/20/2016"
-	ms.author="jehine;tamram"/>
+	ms.author="jwillis;tamram"/>
 
 # How to use Azure Blob storage from Python
 

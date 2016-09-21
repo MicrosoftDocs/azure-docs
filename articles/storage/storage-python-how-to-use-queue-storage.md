@@ -3,7 +3,7 @@
 	description="Learn how to use the Azure Queue service from Python to create and delete queues, and insert, get, and delete messages."
 	services="storage"
 	documentationCenter="python"
-	authors="tamram"
+	authors="robinsh"
 	manager="carmonm"
 	editor="tysonn"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="python"
 	ms.topic="article"
 	ms.date="09/20/2016"
-	ms.author="tamram"/>
+	ms.author="cbrooks;robinsh"/>
 
 # How to use Queue storage from Python
 

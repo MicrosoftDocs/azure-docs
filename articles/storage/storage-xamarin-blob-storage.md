@@ -4,7 +4,7 @@
 	services="storage"
 	documentationCenter="xamarin"
 	authors="micurd"
-	manager=""
+	manager="jahogg"
 	editor="tysonn"/>
 
 <tags

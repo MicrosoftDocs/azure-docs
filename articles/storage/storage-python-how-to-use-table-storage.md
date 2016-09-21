@@ -14,7 +14,7 @@
 	ms.devlang="python"
 	ms.topic="article"
 	ms.date="09/20/2016"
-	ms.author="tamram"/>
+	ms.author="gusapost;tamram"/>
 
 
 # How to use Table storage from Python

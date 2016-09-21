@@ -4,7 +4,7 @@
 	services="storage"
 	documentationCenter=""
 	authors="aungoo-msft"
-	manager=""
+	manager="tadb"
 	editor="tysonn"/>
 
 <tags
