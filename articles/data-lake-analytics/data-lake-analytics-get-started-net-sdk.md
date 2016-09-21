@@ -26,8 +26,6 @@ Learn how to use the Azure .NET SDK to create Azure Data Lake Analytics accounts
 In this tutorial, you will develop a C# console application which contains a U-SQL script that reads a tab separated values (TSV) file and converts it into a comma 
 separated values (CSV) file. To go through the same tutorial using other supported tools, click the tabs on the top of this section.
 
-[AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
-
 ##Prerequisites
 
 Before you begin this tutorial, you must have the following:

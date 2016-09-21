@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="04/26/2016"
+   ms.date="09/20/2016"
    ms.author="v-sharos@microsoft.com"/>
 
 # StorSimple 8000 series: a hybrid cloud storage solution
@@ -204,6 +204,47 @@ Microsoft Azure StorSimple uses deduplication and data compression to further re
 Deduplication reduces the overall amount of data stored by eliminating redundancy in the stored data set. As information changes, StorSimple ignores the unchanged data and captures only the changes. In addition, StorSimple reduces the amount of stored data by identifying and removing unnecessary information. 
 
 >[AZURE.NOTE] Data on locally pinned volumes is not deduplicated or compressed. However, backups of locally pinned volumes are deduplicated and compressed.
+
+## StorSimple workload summary
+
+A summary of the supported StorSimple workloads is tabulated below.
+
+| Scenario                  | Workload                | Supported |  Restrictions                                  | Version              |
+|---------------------------|-------------------------|-----------|------------------------------------------------|----------------------|
+| Collaboration             | File sharing            | Yes       |                                                | All versions         |
+| Collaboration             | Distributed file sharing| Yes       |                                                | All versions         |
+| Collaboration             | SharePoint              | Yes*      |Supported only with locally pinned volumes      | Update 2 and later   |
+| Archival                  | Simple file archiving   | Yes       |                                                | All versions         |
+| Virtualization            | Virtual machines        | Yes*      |Supported only with locally pinned volumes      | Update 2 and later   |
+| Database                  | SQL                     | Yes*      |Supported only with locally pinned volumes      | Update 2 and later   |
+| Video surveillance        | Video surveillance      | Yes*       |Supported when StorSimple device is dedicated only to this workload| Update 2 and later   |
+| Backup                    | Primary   target backup | Yes*      |Supported when StorSimple device is dedicated only to this workload| Update   3 and later |
+| Backup                    | Secondary target backup | Yes*      |Supported when StorSimple device is dedicated only to this workload| Update   3 and later |
+
+*Yes&#42; - Solution guidelines and restrictions should be applied.*
+
+The following workloads are not supported by StorSimple 8000 series devices. If deployed on StorSimple, these workloads will result in an unsupported configuration.
+
+-  Medical imaging
+-  Exchange
+-  VDI
+-  Oracle
+-  SAP
+-  Big data
+-  Content distribution
+-  Boot from SCSI
+
+Following is a list of the StorSimple supported infrastructure components. 
+
+| Scenario | Workload      | Supported |  Restrictions                                 | Version      |
+|----------|---------------|-----------|-----------------------------------------------|--------------|
+| General  | Express Route | Yes       |                                                All versions |
+| General  | DataCore FC   | Yes*       |Supported with DataCore SANsymphony            | All versions |
+| General  | DFSR          | Yes*      |Supported only with locally pinned volumes     | All versions |
+| General  | Indexing      | Yes*       |For tiered volumes, only metadata indexing is supported (no data).<br>For locally pinned volumes, complete indexing is supported.| All versions |
+| General  | Anti-virus    | Yes*       |For tiered volumes, only scan on open and close is supported.<br> For locally pinned volumes, full scan is supported.| All versions |
+
+*Yes&#42; - Solution guidelines and restrictions should be applied.*
 
 ## StorSimple terminology 
 

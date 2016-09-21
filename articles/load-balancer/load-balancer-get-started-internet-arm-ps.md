@@ -93,8 +93,8 @@ This example creates the following items:
 
 - A NAT rule to translate all incoming traffic on port 3441 to port 3389
 - A NAT rule to translate all incoming traffic on port 3442 to port 3389
-- A load balancer rule to balance all incoming traffic on port 80 to port 80 on the addresses in the back-end pool
 - A probe rule to check the health status on a page named **HealthProbe.aspx**
+- A load balancer rule to balance all incoming traffic on port 80 to port 80 on the addresses in the back-end pool
 - A load balancer that uses all these objects
 
 Use these steps:
@@ -105,11 +105,7 @@ Use these steps:
 
         $inboundNATRule2= New-AzureRmLoadBalancerInboundNatRuleConfig -Name RDP2 -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3442 -BackendPort 3389
 
-2. Create a load balancer rule.
-
-        $lbrule = New-AzureRmLoadBalancerRuleConfig -Name HTTP -FrontendIpConfiguration $frontendIP -BackendAddressPool  $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80
-
-3. Create a health probe. There are two ways to configure a probe:
+2. Create a health probe. There are two ways to configure a probe:
 
     HTTP probe
 
@@ -118,6 +114,10 @@ Use these steps:
     TCP probe
 
         $healthProbe = New-AzureRmLoadBalancerProbeConfig -Name HealthProbe -Protocol Tcp -Port 80 -IntervalInSeconds 15 -ProbeCount 2
+
+3. Create a load balancer rule.
+
+        $lbrule = New-AzureRmLoadBalancerRuleConfig -Name HTTP -FrontendIpConfiguration $frontendIP -BackendAddressPool  $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80
 
 4. Create the load balancer by using the previously created objects.
 
