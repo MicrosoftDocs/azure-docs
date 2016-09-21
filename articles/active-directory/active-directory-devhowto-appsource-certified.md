@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/05/2016"
+   ms.date="09/22/2016"
    ms.author="skwan;bryanla"/>
 
 #How to get AppSource Certified for Azure Active Directory (AD) 
