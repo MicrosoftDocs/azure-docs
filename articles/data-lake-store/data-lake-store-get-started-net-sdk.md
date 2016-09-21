@@ -161,7 +161,7 @@ The following snippet lists all Data Lake Store accounts within a given Azure su
     // List all ADLS accounts within the subscription
     public static List<DataLakeStoreAccount> ListAdlStoreAccounts()
     {
-        var response = _adlsClient.Account.List(_adlsAccountName);
+        var response = _adlsClient.Account.List();
         var accounts = new List<DataLakeStoreAccount>(response);
         
         while (response.NextPageLink != null)
