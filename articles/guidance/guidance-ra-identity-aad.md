@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/20/2016"
+   ms.date="09/21/2016"
    ms.author="telmos"/>
 
 # Implementing Azure Active Directory
@@ -53,7 +53,8 @@ Typical use cases for this architecture include:
 
 - Situations where the on-premises network and Azure virtual network hosting cloud applications are not directly linked by using a VPN tunnel or ExpressRoute circuit.
 
-You should note that AAD does not provide all the functionality of AD. For example, AAD currently only handles user authentication rather than computer authentication. Some applications and services, such as SQL Server, may require computer authentication in which case this solution is not appropriate. Additionally, AAD might not be suitable for systems where components could migrate across the on-premises/cloud boundary as this could require reconfiguration of AAD. 
+You should note that AAD does not provide all the functionality of AD. For example, AAD currently only handles user authentication rather than computer authentication. Some applications and services, such as SQL Server, may require computer authentication in which case this solution is not appropriate. Additionally, AAD might not be suitable for systems where components could migrate across the on-premises/cloud boundary as this could require reconfiguration of AAD.
+
 > [AZURE.NOTE] For a detailed explanation of how Azure Active Directory works, watch [Microsoft Active Directory Explained][aad-explained].
 
 ## Architecture diagram
@@ -86,7 +87,7 @@ This section summarizes recommendations for implementing AAD.
 
 ### VM recommendations
 
-You can run the Azure AD Connect sync service using a VM or a computer hosted on-premises. Depending on the volatility of the information in your AD directory, once the initial synchronization with AAD has been performed the load on the Azure AD Connect sync service is unlikely to be high. Using a VM enables you to more easily scale the server if necessary, and to also implement high availability for the AD Connect sync service by running a secondary staging server. For more information, see the [Topology considerations](#topology-considerations) section.
+You can run the Azure AD Connect sync service using a VM or a computer hosted on-premises. Depending on the volatility of the information in your AD directory, once the initial synchronization with AAD has been performed the load on the Azure AD Connect sync service is unlikely to be high. Using a VM enables you to more easily scale the server (monitor the activity as described in the [Monitoring considerations](#monitoring-considerations) section to determine whether this is necessary), and to also implement high availability for the AD Connect sync service by running a secondary staging server. For more information, see the [Topology considerations](#topology-considerations) section.
 
 ### Security recommendations
 
@@ -156,13 +157,15 @@ By default, the AAD service assumes that users will log in by providing the same
 
 - You might require that users experience seamless SSO (without additional password prompts) when accessing cloud resources from domain joined machines on the corporate network.
 
-If you use AD FS on-premises to provide single sign-on, you can configure AAD to use your installation of AD FS to identify users. You can configure this option by performing a custom installation of Azure AD Connect:
+For more information, see [Azure AD Connect User Sign on options][aad-user-sign-in].
+
+If you use AD FS on-premises to provide single sign-on, you can configure AAD to use your installation of AD FS to identify users. You have two options in this case:
+
+- *Federation Server with AD FS*. This option to enables you to install and configure a new instance of AD FS with Azure AD Connect. For detailed information, see [Custom installation of Azure AD Connect: Configuring federation with AD FS][aad-adfs]. Note that this architecture requires you to add a custom domain to AD FS that corresponds to your on-premises domain, and you must verify your domain before AAD can establish a trust relationship with it. For more information, see [Add a custom domain name to Azure Active Directory][aad-custom-domain].
+
+- *Do not configure*. Select this option if you already have a 3rd party federation server or another existing solution in place.
 
 [![7]][7]
-
-Select *Federation with AD FS* to install and configure AD FS with Azure AD Connect. Select *Do not configure* if you already have a 3rd party federation server or another existing solution in place.
-
-For more information, see [Azure AD Connect User Sign on options][aad-user-sign-in].
 
 ## Object synchronization considerations
 
@@ -174,15 +177,29 @@ You can filter by domain or OU to limit the objects to be synchronized by perfor
 
 ## Security considerations
 
-Consider using AAD Premium P2 edition, which includes AAD Identity Protection. Identity Protection uses adaptive machine learning algorithms and heuristics to detect anomalies and risk events that may indicate that an identity has been compromised. For example, it can detect potentially anomalous activity such as irregular sign-in activities, sign-ins from unknown sources or from IP addresses with suspicious activity, or sign-ins from devices that may be infected. Using this data, Identity Protection generates reports and alerts that enables you to investigate these risk events and take appropriate remediation or mitigation action.
+Security concerns address the following aspects of AAD:
 
-For more information, see [Azure Active Directory Identity Protection][aad-identity-protection].
+- Managing users' passwords.
 
-If you are using a premium version of AAD, you can enable password writeback from AAD to your on-premises directory by performing a custom installation of Azure AD Connect:
+	If you are using a premium version of AAD, you can enable password writeback from AAD to your on-premises directory by performing a custom installation of Azure AD Connect:
 
-[![9]][9]
+	[![9]][9]
 
-This feature enables users to reset their own passwords from within the Azure portal, but should only be enabled after reviewing your organization's password security policy. For example, you can restrict which users can change their passwords, and you can tailor the password management experience. For more information, see [Customizing Password Management to fit your organization's needs][aad-password-management].
+	This feature enables users to reset their own passwords from within the Azure portal, but should only be enabled after reviewing your organization's password security policy. For example, you can restrict which users can change their passwords, and you can tailor the password management experience. For more information, see [Customizing Password Management to fit your organization's needs][aad-password-management].
+
+- Maintaining protection for on-premises applications that can be accessed externally.
+
+	Use the Azure AD Application Proxy to provide controlled access to on-premises web applications from external users through AAD. This approach protects your applications by not exposing them directly to the Internet. Only users that have valid credentials in you Azure directory will be able to reacch your applications. For more information, see the article [Enable Application Proxy in the Azure portal][https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-enable/].
+
+- Actively monitoring AAD for signs of suspicious activity.
+
+	Consider using AAD Premium P2 edition, which includes AAD Identity Protection. Identity Protection uses adaptive machine learning algorithms and heuristics to detect anomalies and risk events that may indicate that an identity has been compromised. For example, it can detect potentially anomalous activity such as irregular sign-in activities, sign-ins from unknown sources or from IP addresses with suspicious activity, or sign-ins from devices that may be infected. Using this data, Identity Protection generates reports and alerts that enables you to investigate these risk events and take appropriate remediation or mitigation action. For more information, see [Azure Active Directory Identity Protection][aad-identity-protection].
+
+	You can also use the reporting feature of AAD in the Azure portal to monitor suspicious and other security-related activities occurring within your system. AAD can generate a series of summary reports:
+
+	[![17]][17]
+
+	For more information about using these reports, see [Azure Active Directory Reporting Guide][aad-reporting-guide].
 
 ## Scalability considerations
 
@@ -208,19 +225,69 @@ As with scalability concerns, availability spans the AAD service and the configu
 
 	Additionally, if you are not using the SQL Server Express LocalDB instance that comes with Azure AD Connect, then you should consider high availability for SQL Server. Note that the only high availability solution supported is SQL clustering; solutions such as mirroring and Always On are not supported by Azure AD Connect.
 
+	For additional considerations about maintaining the availaibility of the Azure AD Connect sync server, and how to recover after a failure, see [Azure AD Connect sync: Operational tasks and considerations - Disaster Recovery][aad-sync-disaster-recovery].
+
 ## Management considerations
 
-Most of the management effort is concerned with maintaining the performance of Azure AD Connect. TBD
+There are two aspects to managing AAD:
 
-https://azure.microsoft.com/en-gb/documentation/articles/active-directory-aadconnectsync-operations/
+1. Administering AAD in the cloud.
+
+2. Maintaining the Azure AD Connect sync servers.
+
+AAD provides the following options for managing domains and directories in the cloud:
+
+- [Azure Active Directory PowerShell Module][aad-powershell]. Use this module if you need to script common Azure AD administrative tasks such as user management, domain management and for configuring single sign-on.
+
+- Azure AD management blade in the Azure portal. This blade provides an interactive management view of the directory, and enables you to control and configure most aspects of AAD:
+
+	[![10]][10]
+
+Azure AD Connect installs the following tools that you use to maintain the Azure AD Connect sync services from your on-premises machines:
+
+- The Microsoft Azure Active Directory Connect console. This tool enables you to modify the configuration of the Azure AD Sync server, customize the way in which synchronization occurs, enable or disable staging mode, and switch the user sign-in mode (you can enable AD FS sign-in if you did not specify this previously):
+
+	[![11]][11]
+
+- The Synchronization Service Manager. Use the *Operations* tab in this tool to manage the synchronization process and detect whether any parts of the process have failed. You can trigger synchronizations manually using this tool. 
+
+	[![12]][12]
+
+	The *Connectors* tab enables you to control the connections for the domains (on-premises and in the cloud) to which the synchronization engine is attached:
+
+	[![13]][13]
+
+-  The Synchonization Rules Editor. Use this tool to customize the way in which objects are transformed when they are copied between an on-premises directory and AAD in the cloud. This tool enables you to specify additional attributes and objects for synchronization, and filters to determine which instances should or should not be synchronized.
+
+	[![14]][14]
+
+	For more information, see the Synchronization Rule Editor section in the document [Azure AD Connect sync: Understanding the default configuration][aad-connect-sync-default-rules].
+
+The page [Azure AD Connect sync: Best practices for changing the default configuration][aad-sync-best-practices] contains additional information and tips for managing Azure AD Connect.
 
 ## Monitoring considerations
 
-TBD
+Health monitoring is performed by using a series of agents installed on-premises:
 
-Health - https://azure.microsoft.com/en-gb/documentation/articles/active-directory-aadconnect-health/
+- Azure AD Connect installs an agent that captures information about synchronizations. Use the Azure Active Directory Connect Health blade in the Azure portal to monitor the health and performance of Azure AD Connect:
 
-Reporting - https://azure.microsoft.com/en-us/documentation/articles/active-directory-reporting-guide/
+	[![15]][15]
+
+	For more information, see [Using Azure AD Connect Health for sync][aad-health].
+
+- To monitor the health of the AD DS domains and directories from Azure, install the Azure AD Connect Health for AD DS agent on a machine within the on-premises domain. Use the Azure Active Directory Connect Health blade in the Azure portal to monitor AD DS:
+
+	[![16]][16]
+
+	For more information, see [Using Azure AD Connect Health with AD DS][aad-health-adds]
+
+- Install the Azure AD Connect Health for AD FS agent to monitor the health of AD FS running on on-premises, and use the the Azure Active Directory Connect Health blade in the Azure portal to monitor AD DS:
+
+	[![17]][17]
+
+	For more information, see [Using Azure AD Connect Health with AD FS][aad-health-adfs]
+
+For additional information on installing the AD Connect Health agents and their requirements, see [Azure AD Connect Health Agent Installation][aad-agent-installation].
 
 ## Solution components
 
@@ -253,7 +320,16 @@ Reporting - https://azure.microsoft.com/en-us/documentation/articles/active-dire
 [aad-identity-protection]: https://azure.microsoft.com/documentation/articles/active-directory-identityprotection/
 [aad-password-management]: https://azure.microsoft.com/documentation/articles/active-directory-passwords-customize/
 [aad-connect-sync-operational-tasks]: https://azure.microsoft.com/documentation/articles/active-directory-aadconnectsync-operations/#staging-mode
-
+[aad-custom-domain]: https://azure.microsoft.com/documentation/articles/active-directory-add-domain/
+[aad-powershell]: https://msdn.microsoft.com/library/azure/mt757189.aspx
+[aad-sync-disaster-recovery]: https://azure.microsoft.com/documentation/articles/active-directory-aadconnectsync-operations/#disaster-recovery
+[aad-sync-best-practices]: https://azure.microsoft.com/documentation/articles/active-directory-aadconnectsync-best-practices-changing-default-configuration/
+[aad-adfs]: https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-get-started-custom/#configuring-federation-with-ad-fs
+[aad-health]: https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-health-sync/
+[aad-health-adds]: https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-health-adds/
+[aad-health-adfs]: https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-health-adfs/
+[aad-agent-installation]: https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-health-agent-install/
+[aad-reporting-guide]: https://azure.microsoft.com/documentation/articles/active-directory-reporting-guide/
 [0]: ./media/guidance-ra-identity-aad/figure1.png "Cloud identity architecture using Azure Active Directory"
 [1]: ./media/guidance-ra-identity-aad/figure2.png "Single forest, single AAD directory topology"
 [2]: ./media/guidance-ra-identity-aad/figure3.png "Multiple forests, single AAD directory topology"
@@ -263,3 +339,11 @@ Reporting - https://azure.microsoft.com/en-us/documentation/articles/active-dire
 [7]: ./media/guidance-ra-identity-aad/figure8.png "Specifying the SSO method for user sign-in"
 [8]: ./media/guidance-ra-identity-aad/figure9.png "Specifying Domain and OU filtering options"
 [9]: ./media/guidance-ra-identity-aad/figure10.png "Enabling password writeback"
+[10]: ./media/guidance-ra-identity-aad/figure11.png "The Azure AD management blade in the portal"
+[11]: ./media/guidance-ra-identity-aad/figure12.png "The Azure AD Connect console"
+[12]: ./media/guidance-ra-identity-aad/figure13.png "The Operations tab in the Synchronization Service Manager"
+[13]: ./media/guidance-ra-identity-aad/figure14.png "The Connectors tab in the Synchronization Service Manager"
+[14]: ./media/guidance-ra-identity-aad/figure15.png "The Synchronization Rules Editor"
+[15]: ./media/guidance-ra-identity-aad/figure16.png "The Azure Active Directory Connect Health blade in the Azure portal showing synchronization health"
+[16]: ./media/guidance-ra-identity-aad/figure17.png "The Azure Active Directory Connect Health blade in the Azure portal showing AD DS health"
+[17]: ./media/guidance-ra-identity-aad/figure18.png "Security reports available in the Azure portal"
