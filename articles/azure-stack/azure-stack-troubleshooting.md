@@ -24,6 +24,17 @@ If you experience issues while deploying or using Microsoft Azure Stack, refer t
 
 The recommendations for troubleshooting issues that are described in this section are derived from several sources and may or may not resolve your particular issue. Code examples are provided as is and expected results cannot be guaranteed. This section is not comprehensive of all troubleshooting issues for Microsoft Azure Stack, and it is subject to frequent edits and updates as improvements to the product are implemented.
 
+## Known Issues
+
+ - You will see that there AzureRM PowerShell modules are no longer installed by default on the MAS-CON01 VM. This is now by design, because there is an alternate method to install these modules.
+    - See the “Use PSGallery to Install AzureRM” section for this guidance
+ - You will see that the “Availability Set” resource in the Marketplace shows up under the virtualMachine-ARM Category – this is a cosmetic issue, only. 
+ - You will see that the Microsoft.Insights RP is not automatically registered for Tenant Subscriptions. If you would like to see Monitoring data for a VM deployed as a Tenant, you will have to run the following command from PowerShell (after you authenticate to the Azure Stack environment as that tenant user): Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Insights 
+ - If you have GREATER THAN ONE AAD Directory associated with your AAD Identity, and do not specify it with the parameter, you will get an error message, prompting to specify one of the available directories.
+ - You may see a non-terminating error for “The term 'C:\WinRM\Start-Logging.ps1' is not recognized”
+ - You may see non-terminating errors for “Invoke-EceAction : Cannot index into a null array” and/or “InvokeEceAction : Cannot bind argument to parameter 'Message' because it is an empty string.”
+
+
 ## Azure Active Directory
 
 ### JavaScript error when attempting to connect via AAD and Azure PowerShell
