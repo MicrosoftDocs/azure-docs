@@ -65,11 +65,6 @@ You can resize a gateway SKU. The following PowerShell example shows a gateway S
 	$gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 	Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
 
-<br>
-
-
-###  <a name="aggthroughput"></a>Estimated aggregate throughput by SKU and gateway type
-
 
 The following table shows the gateway types and the estimated aggregate throughput. This table applies to both the Resource Manager and classic deployment models.
 

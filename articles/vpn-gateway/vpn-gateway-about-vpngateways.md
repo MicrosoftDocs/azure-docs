@@ -36,8 +36,6 @@ Each virtual network can have only one virtual network gateway per gateway type.
 
 [AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)] 
 
-###  <a name="skugw"></a>Estimated aggregate throughput by SKU and gateway type
-
 The following table shows the gateway types and the estimated aggregate throughput. This table applies to both the Resource Manager and classic deployment models.
 
 [AZURE.INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)] 
