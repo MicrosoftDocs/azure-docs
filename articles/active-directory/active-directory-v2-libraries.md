@@ -25,16 +25,16 @@ We recommend you use libraries written by protocol domain experts who follow a S
 ## Types of Libraries
 There are two kinds of libraries that work with v2.0: client libraries and server middleware libraries:
 
-- Client libraries:  Client libraries are used on native clients and on servers to obtain access tokens for calling a resource, such as the Microsoft Graph.
-- Server middleware libraries:  Server middleware libraries are used by web applications to sign a user in, and by web APIs to validate tokens that are sent by native clients or other servers.
+- **Client libraries**:  Client libraries are used on native clients and on servers to obtain access tokens for calling a resource, such as the Microsoft Graph.
+- **Server middleware libraries**:  Server middleware libraries are used by web applications to sign a user in, and by web APIs to validate tokens that are sent by native clients or other servers.
 
 ## Support
 Since you can choose any standards-compliant library when using the v2.0 endpoint, it’s important to understand where to go for support.  Issues and feature requests in library code go to the library owner. Issues and feature requests in the service-side protocol implementation go to Microsoft.
 
 Libraries come in two different support categories:
 
-- Microsoft supported:  Microsoft provides fixes for these libraries.  Microsoft has done Security Development Lifecycle due diligence on these libraries. 
-- v2.0 compatible:  Microsoft has tested a set of libraries in basic scenarios and confirmed they work with the v2.0 endpoint.  Microsoft does not provide fixes for these libraries and has not done security due diligence on these libraries.  Issues and feature requests should be directed to the library’s open source project.
+- **Microsoft supported**:  Microsoft provides fixes for these libraries.  Microsoft has done Security Development Lifecycle due diligence on these libraries. 
+- **v2.0 compatible**:  Microsoft has tested a set of libraries in basic scenarios and confirmed they work with the v2.0 endpoint.  Microsoft does not provide fixes for these libraries and has not done security due diligence on these libraries.  Issues and feature requests should be directed to the library’s open source project.
 
 For a list of libraries that work with the v2.0 endpoint, see the following sections. 
 
@@ -82,16 +82,16 @@ Please use the following Disqus comments section to provide feedback and help us
 [ClientLib-NET-Sample]: active-directory-v2-devquickstarts-wpf.md
 [ClientLib-Node-Lib]: https://www.npmjs.com/package/passport-azure-ad
 [ClientLib-Node-Repo]: https://github.com/AzureAD/passport-azure-ad
-[ClientLib-Node-Sample]: 
-[ClientLib-Iosmac-Lib]: 
-[ClientLib-Iosmac-Repo]: 
-[ClientLib-Iosmac-Sample]: 
-[ClientLib-Android-Lib]: 
-[ClientLib-Android-Repo]: 
-[ClientLib-Android-Sample]: 
-[ClientLib-Js-Lib]: 
-[ClientLib-Js-Repo]: 
-[ClientLib-Js-Sample]: 
+[ClientLib-Node-Sample]: /
+[ClientLib-Iosmac-Lib]: /
+[ClientLib-Iosmac-Repo]: /
+[ClientLib-Iosmac-Sample]: /
+[ClientLib-Android-Lib]: /
+[ClientLib-Android-Repo]: /
+[ClientLib-Android-Sample]: /
+[ClientLib-Js-Lib]: /
+[ClientLib-Js-Repo]: /
+[ClientLib-Js-Sample]: /
 [ServerLib-Net4-Owin-Oidc-Lib]: https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/
 [ServerLib-Net4-Owin-Oidc-Repo]: http://katanaproject.codeplex.com/
 [ServerLib-Net4-Owin-Oidc-Sample]: active-directory-v2-devquickstarts-dotnet-web.md
@@ -100,13 +100,13 @@ Please use the following Disqus comments section to provide feedback and help us
 [ServerLib-Net4-Owin-Oauth-Sample]: https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-devquickstarts-dotnet-api/
 [ServerLib-Net-Jwt-Lib]: https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt
 [ServerLib-Net-Jwt-Repo]: https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet
-[ServerLib-Net-Jwt-Sample]: 
+[ServerLib-Net-Jwt-Sample]:  /
 [ServerLib-NetCore-Owin-Oidc-Lib]: https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.OpenIdConnect/
 [ServerLib-NetCore-Owin-Oidc-Repo]: https://github.com/aspnet/Security
 [ServerLib-NetCore-Owin-Oidc-Sample]: https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-v2
 [ServerLib-NetCore-Owin-Oauth-Lib]: https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.OAuth/
 [ServerLib-NetCore-Owin-Oauth-Repo]: https://github.com/aspnet/Security
-[ServerLib-NetCore-Owin-Oauth-Sample]: 
+[ServerLib-NetCore-Owin-Oauth-Sample]:  /
 [ServerLib-Node-Lib]: https://www.npmjs.com/package/passport-azure-ad
 [ServerLib-Node-Repo]: https://github.com/AzureAD/passport-azure-ad
 [ServerLib-Node-Sample]: https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-devquickstarts-node-web/
