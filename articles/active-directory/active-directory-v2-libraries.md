@@ -42,7 +42,7 @@ For a list of libraries that work with the v2.0 endpoint, see the following sect
 | Platform| Library Name| Download | Repository | Sample |
 | :-: | :-: | :-: | :-: | :-: |
 | .NET, Windows Store, Xamarin | Microsoft Authentication Library (MSAL) for .NET | [Microsoft.Identity.Client (NuGet)][ClientLib-NET-Lib] | [MSAL for .NET (GitHub)][ClientLib-NET-Repo] | [Windows desktop native client sample][ClientLib-NET-Sample] |
-| Node.js | Microsoft Azure Active Directory Passport.js Plug-In | [Passport-Azure-AD (npm)][ClientLib-Node-Lib] | [Passport-Azure-AD (GitHub)][ClientLib-Node-Repo] | [Coming soon][ClientLib-Node-Sample] |
+| Node.js | Microsoft Azure Active Directory Passport.js Plug-In | [Passport-Azure-AD (npm)][ClientLib-Node-Lib] | [Passport-Azure-AD (GitHub)][ClientLib-Node-Repo] | Coming soon |
 | iOS, Mac | Microsoft Authentication Library (MSAL) for ObjC | In development | In development | In development |
 | Android | Microsoft Authentication Library (MSAL) for ObjC | In development | In development | In development |
 | JavaScript | Microsoft Authentication Library (MSAL) for JavaScript | In development | In development | In development |
@@ -53,9 +53,9 @@ For a list of libraries that work with the v2.0 endpoint, see the following sect
 | :-: | :-: | :-: | :-: | :-: |
 | .NET 4.x | OWIN OpenID Connect Middleware for ASP.NET | [Microsoft.Owin.Security.OpenIdConnect (NuGet)][ServerLib-Net4-Owin-Oidc-Lib] | [Katana Project (CodePlex)][ServerLib-Net4-Owin-Oidc-Repo] | [Web app sample][ServerLib-Net4-Owin-Oidc-Sample] |
 | .NET 4.x | OWIN OAuth Bearer Middleware for ASP.Net | [Microsoft.Owin.Security.OAuth (NuGet)][ServerLib-Net4-Owin-Oauth-Lib] | [Katana Project (CodePlex)][ServerLib-Net4-Owin-Oauth-Repo] | [Web API sample][ServerLib-Net4-Owin-Oauth-Sample] |
-| .NET 4.x, .NET Core | JSON Web Token Handler for .Net | [System.IdentityModel.Tokens.Jwt (NuGet)][ServerLib-Net-Jwt-Lib] | [Azure AD identity model extensions for .Net (GitHub)][ServerLib-Net-Jwt-Repo] | [Coming soon][ServerLib-Net-Jwt-Sample] |
+| .NET 4.x, .NET Core | JSON Web Token Handler for .Net | [System.IdentityModel.Tokens.Jwt (NuGet)][ServerLib-Net-Jwt-Lib] | [Azure AD identity model extensions for .Net (GitHub)][ServerLib-Net-Jwt-Repo] | Coming soon |
 | .NET Core | OWIN OpenID Connect Middleware for .Net Core | [Microsoft.AspNetCore.Authentication.OpenIdConnect (NuGet)][ServerLib-NetCore-Owin-Oidc-Lib] | [ASP.Net Security (GitHub)][ServerLib-NetCore-Owin-Oidc-Repo] | [Web app sample][ServerLib-NetCore-Owin-Oidc-Sample] |
-| .NET Core | OWIN OAuth Bearer Middleware for .Net Core | [Microsoft.AspNetCore.Authentication.OAuth (NuGet)][ServerLib-NetCore-Owin-Oauth-Lib] | [ASP.Net Security (GitHub)][ServerLib-NetCore-Owin-Oauth-Repo] | [Coming soon][ServerLib-NetCore-Owin-Oauth-Sample] |
+| .NET Core | OWIN OAuth Bearer Middleware for .Net Core | [Microsoft.AspNetCore.Authentication.OAuth (NuGet)][ServerLib-NetCore-Owin-Oauth-Lib] | [ASP.Net Security (GitHub)][ServerLib-NetCore-Owin-Oauth-Repo] | Coming soon |
 | Node.js | Microsoft Azure Active Directory Passport.js Plug-In | [Passport-Azure-AD (npm)][ServerLib-Node-Lib] | [Passport-Azure-AD (GitHub)][ServerLib-Node-Repo] | [Web app sample][ServerLib-Node-Sample] |
 
 ## v2.0 Compatible Client Libraries
@@ -64,9 +64,9 @@ For a list of libraries that work with the v2.0 endpoint, see the following sect
 |   |   |   |   |   |
 
 
-## v2.0 Compatible Server Middleware Libraries
+## v2.0 Compatible Server Middleware Libraries (coming soon)
 
-> [AZURE.NOTE] Coming soon!
+
 
 ## Related content
 See the [Azure AD App Model v2 Overview][AAD-App-Model-V2-Overview] for more information on the Azure AD v2.0 endpoint. 
@@ -82,16 +82,16 @@ Please use the following Disqus comments section to provide feedback and help us
 [ClientLib-NET-Sample]: active-directory-v2-devquickstarts-wpf.md
 [ClientLib-Node-Lib]: https://www.npmjs.com/package/passport-azure-ad
 [ClientLib-Node-Repo]: https://github.com/AzureAD/passport-azure-ad
-[ClientLib-Node-Sample]: /
-[ClientLib-Iosmac-Lib]: /
-[ClientLib-Iosmac-Repo]: /
-[ClientLib-Iosmac-Sample]: /
-[ClientLib-Android-Lib]: /
-[ClientLib-Android-Repo]: /
-[ClientLib-Android-Sample]: /
-[ClientLib-Js-Lib]: /
-[ClientLib-Js-Repo]: /
-[ClientLib-Js-Sample]: /
+[ClientLib-Node-Sample]:
+[ClientLib-Iosmac-Lib]:
+[ClientLib-Iosmac-Repo]:
+[ClientLib-Iosmac-Sample]:
+[ClientLib-Android-Lib]:
+[ClientLib-Android-Repo]:
+[ClientLib-Android-Sample]:
+[ClientLib-Js-Lib]:
+[ClientLib-Js-Repo]:
+[ClientLib-Js-Sample]:
 [ServerLib-Net4-Owin-Oidc-Lib]: https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/
 [ServerLib-Net4-Owin-Oidc-Repo]: http://katanaproject.codeplex.com/
 [ServerLib-Net4-Owin-Oidc-Sample]: active-directory-v2-devquickstarts-dotnet-web.md
@@ -100,13 +100,13 @@ Please use the following Disqus comments section to provide feedback and help us
 [ServerLib-Net4-Owin-Oauth-Sample]: https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-devquickstarts-dotnet-api/
 [ServerLib-Net-Jwt-Lib]: https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt
 [ServerLib-Net-Jwt-Repo]: https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet
-[ServerLib-Net-Jwt-Sample]:  /
+[ServerLib-Net-Jwt-Sample]:
 [ServerLib-NetCore-Owin-Oidc-Lib]: https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.OpenIdConnect/
 [ServerLib-NetCore-Owin-Oidc-Repo]: https://github.com/aspnet/Security
 [ServerLib-NetCore-Owin-Oidc-Sample]: https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-v2
 [ServerLib-NetCore-Owin-Oauth-Lib]: https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.OAuth/
 [ServerLib-NetCore-Owin-Oauth-Repo]: https://github.com/aspnet/Security
-[ServerLib-NetCore-Owin-Oauth-Sample]:  /
+[ServerLib-NetCore-Owin-Oauth-Sample]:
 [ServerLib-Node-Lib]: https://www.npmjs.com/package/passport-azure-ad
 [ServerLib-Node-Repo]: https://github.com/AzureAD/passport-azure-ad
 [ServerLib-Node-Sample]: https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-devquickstarts-node-web/
