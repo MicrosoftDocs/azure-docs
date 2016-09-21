@@ -19,10 +19,11 @@
 # Tutorial: How to do a firmware update
 
 ## Introduction
-We showed how to use the Azure IoT Hub device twin and C2D methods for a remote reboot. [Link to intro/reboot article]  This article uses the same IoT Hub primitives and provides guidance and sample code snippets for how to do an end-to-end simulated firmware update.  This pattern is used in the firmware update implementation for the Intel Edison device sample. [Link to Edison doc/sample]  
+In the [Get started with device management][lnk-dm-getstarted] tutorial, you saw how to use the [device twin][lnk-devtwin] and [cloud-to-device (C2D) methods][lnk-c2dmethod] primitives to remotely reboot a device. This tutorial uses the same IoT Hub primitives and provides guidance and shows you how to do an end-to-end simulated firmware update.  This pattern is used in the firmware update implementation for the Intel Edison device sample. [Link to Edison doc/sample]  
 
-## The IoT cloud application code
-Using the same IoT Hub connection string from the getting started with device management article [link], we can now create our code for the IoT cloud application.
+## Add the IoT back-end code
+
+Using the same IoT Hub connection string from the [getting started with device management tutorial][lnk-dm-getstarted], you can now create code for the back-end app that initiates the firmware update.
 
 1. Open a shell
 
@@ -77,15 +78,23 @@ Using the same IoT Hub connection string from the getting started with device ma
 
     ```
     
-4. Run the code.  Since the device is not running, you'll see the firmware update C2D method fail and the firmwareUpdate reported property as empty.
-
+4. Run the code. Since the device is not running, you see the firmware update C2D method fails and the **firmwareUpdate** reported property is empty.
     ```
     node serviceApp.js
     ```
 
-## The IoT device code
-The following will show the how to create the device code that handles the firmware update C2D method and reports progress through device twin reported properties.  The device code implements a finite state machine to handle the flow of preparing to download the image, downloading the image, and finally applying the image.  Within these states there can be several failure conditions that need to be handled and reported through the device twin.
+## Add the IoT device code
 
+The steps below show you how to create the device code that handles the firmware update C2D method and reports progress through device twin reported properties. The device code implements a finite state machine to handle this flow:
+
+- Prepare to download the image.
+- Download the image.
+- Apply the image.  
+
+Within these states there can be several failure conditions that must be handled and reported through the device twin.
+
+[AZURE.NOTE] For this tutorial, you run this code on your development machine rather than on a device to make it easy to test.
+ 
 1. Use npm to add the Azure IoT SDK
 
     ```
@@ -250,14 +259,19 @@ client.open(function(err) {
     node deviceApp.js
     ```
     
-## Rerun the IoT cloud app to trigger and end-to-end firmware update
+## Trigger the end-to-end firmware update
  
-Rerun the service app in a new shell while the device app is running in the background. 
+Rerun the back-end app in a new shell while the device app is running in the background. 
 
 1. Open a new shell
 
-2. Run the service app to initiate the simulated firmware update and monitor the periodic reported properties
+2. Run the back-end app to initiate the simulated firmware update and monitor the periodic reported properties
 
     ```
     node serviceApp.js
     ```
+
+
+[lnk-devtwin]: iot-hub-devguide-device-twins.md
+[lnk-c2dmethod]: iot-hub-devguide-direct-methods.md
+[lnk-dm-getstarted]: iot-hub-device-management-get-started.md

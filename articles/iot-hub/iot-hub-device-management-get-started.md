@@ -19,194 +19,242 @@
 # Tutorial: Get started with device management 
 
 ## Introduction
-IoT cloud applications can use primitives in Azure IoT Hub, namely the device twin and cloud-to-device (C2D) methods, to remotely start and monitor device management actions on devices.  This article provides guidance and code for how an IoT cloud application and a device work together to initiate and monitor a remote device reboot using IoT Hub.
+IoT cloud applications can use primitives in Azure IoT Hub, namely the device twin and direct methods, to remotely start and monitor device management actions on devices.  This article provides guidance and code for how an IoT cloud application and a device work together to initiate and monitor a remote device reboot using IoT Hub.
 
-Device management actions (such as reboot, factory reset, and firmware update) are initiated using a C2D method from an IoT cloud application to a device.  [Learn more about C2D methods].  It is the responsibility of the device to handle the method request (from the cloud), initiate the corresponding device specific action (on the device), and provide status updates through the device twin reported properties (in th cloud).
+To remotely start and monitor device management actions on your devices from a cloud-based, back-end app, use Azure IoT Hub primitives such as [device twin][lnk-devtwin] and [cloud-to-device (C2D) methods][lnk-c2dmethod]. This tutorial shows you how a back-end app and a device can work together to enable you initiate and monitor remote device reboot from IoT Hub.
 
-IoT cloud applications can run device twin queries to report on progress of device management actions.
+You use a C2D method to initiate device management actions (such as reboot, factory reset, and firmware update) from a back-end app in the cloud. The device is responsible for:
 
-## Create a device management enabled IoT Hub
+- Handling the method request sent from IoT Hub.
+- Initiating the corresponding device specific action on the device.
+- Providing status updates through the device twin reported properties to IoT Hub.
 
-First, you need to create a device management enabled IoT Hub. The following steps show you how to complete this task using the Azure portal.
+You can use a back-end app in the cloud to run device twin queries to report on the progress of your device management actions.
 
-1.  Sign in to the [Azure portal].
-2.  In the Jumpbar, click **New**, then click **Internet of Things**, and then click **Azure IoT Hub**.
+This tutorial shows you how to:
 
-	![][img-new-hub]
+- Use the Azure portal to create an IoT Hub and create a device identity in your IoT hub.
+- Create a simulated device that has a direct method which enables reboot which can be called by the cloud.
+- Create a console application that calls the reboot direct method on the simulated device via your IoT hub.
 
-3.  In the **IoT Hub** blade, choose the configuration for your IoT Hub.
+At the end of this tutorial, you have two Node.js console applications:
 
-	![][img-configure-hub]
+**dmpatterns_getstarted_device.js**, which connects to your IoT hub with the device identity created earlier, receives a reboot direct method, simulates a physical reboot, and reports the time for the last reboot.
+**dmpatterns_getstarted_service.js**, which calls a direct method on the simulated device, displays the response, and displays the updated device twin reported properties.
 
-  -   In the **Name** box, enter a name for your IoT Hub. If the **Name** is valid and available, a green check mark appears in the **Name** box.
-  -   Select a **Pricing and scale tier**. This tutorial does not require a specific tier.
-  -   In **Resource group**, create a new resource group, or select an existing one. For more information, see [Using resource groups to manage your Azure resources].
-  -   Check the box to **Enable Device Management**.
-  -   In **Location**, select the location to host your IoT Hub. IoT Hub device management is only available in East US, North Europe, and East Asia during public preview. In the future, it will be available in all regions.
+To complete this tutorial, you need the following:
 
-    > [AZURE.NOTE] By checking **Enable Device Management**, you create a preview IoT Hub supported only in East US, North Europe, and East Asia and not intended for production scenarios. You cannot migrate devices into and out of device management enabled hubs.
+Node.js version 0.12.x or later, <br/>  [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
 
-4.  When you have chosen your IoT Hub configuration options, click **Create**. It can take a few minutes for Azure to create your IoT Hub. To check the status, you can monitor the progress on the **Startboard** or in the **Notifications** panel.
+An active Azure account. (If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].)
 
-	![][img-monitor]
+[AZURE.INCLUDE [iot-hub-get-started-create-hub-pp](../../includes/iot-hub-get-started-create-hub-pp.md)]
 
-5.  When the IoT Hub has been created successfully, open the blade of the new IoT Hub, make a note of the **Hostname**, and then click **Shared access policies**.
+## Create a device identity
+TODO: get markdown from Elio. 
 
-	![][img-keys]
+## Create a simulated device app
 
-6.  Click the **iothubowner** policy, then copy and make note of the connection string in the **iothubowner** blade. Copy it to a location you can access later because you need it to complete the rest of this tutorial.
+In this section, you create a Node.js console app that responds to a direct method called by the cloud, which triggers a simulated device reboot and uses the device twin reported properties to enable device twin queries to identify devices and when they last rebooted.
 
- 	> [AZURE.NOTE] In production scenarios, make sure to refrain from using the **iothubowner** credentials.
-
-	![][img-connection]
-
-You have now created a device management enabled IoT Hub. You need the connection string to complete the rest of this tutorial.
-
-## Register your device with IoT Hub
-TODO: Use the IoT Hub explorer to register your device 
-
-## The IoT cloud application code
-With the IoT Hub connection string, we can now create our code for the IoT cloud application.
-
-1. Open a shell
-
-2. Use npm to add the Azure IoT SDK
+1. Create a new empty folder called **manageddevice**.  In the **manageddevice** folder, create a package.json file using the following command at your command-prompt.  Accept all the defaults:
 
     ```
-    npm install azure-iothub
-    ```
-
-3. Create serviceApp.js and copy/paste the following code.
-
-    ```
-    var Registry = require('azure-iothub').Registry;
-    var Client = require('azure-iothub').Client;
-     
-    var connectionString = '[Connection string goes here]';
-    var registry = Registry.fromConnectionString(connectionString);
-    var client = Client.fromConnectionString(connectionString);
-
-    var queryTwinLastReboot = function() {
-    registry.findTwins("SELECT properties.reported.iothubDM.reboot.lastReboot FROM devices WHERE deviceId = 'deviceId'", function(err, queryResult) {
-        if (err) {
-        console.error('Could not query twins: ' + err.constructor.name + ': ' + err.message);
-        } else {
-        console.log('Last reboot time: ' + queryResult.result[0])
-        }
-    });
-    };
-     
-    var startRebootDevice = function(twin) {
-        var params = {
-        };
-        client.c2dmethod('ihdmReboot', params, function(err) {
-            if (err) {
-            console.error('Could not initiate the firmware update on the device: '+ err.constructor.name + ': ' + err.message)
-            } 
-        });
-    };
-
-    registry.getDeviceTwin('deviceId', function(err, twin){
-      if (err) {
-        console.error(err.constructor.name + ': ' + err.message);
-      } else {
-        startRebootDevice();
-        setInterval(queryTwinLastReboot, 1000);
-    });  
-
-    ```
-
-4. Run the code.  Since the device is not running, you'll see the reboot C2D method fail and the Last reboot time reported in the device twin reported property empty.
-
-    ```
-    node serviceApp.js
+    npm init
     ```
     
-## The IoT device code
-The following will show the how to create the device code that handles the reboot C2D method and reports progress through device twin reported properties.
-
-1. Use npm to add the Azure IoT SDK
+2. At your command-prompt in the **manageddevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
 
     ```
-    npm install azure-iothub
+    npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-    
-2. Create deviceApp.js and copy/paste the following code.
+
+3. Using a text editor, create a new **dmpatterns_getstarted_device.js** file in the **manageddevice** folder.
+
+4. Add the following 'require' statements at the start of the **dmpatterns_getstarted_device.js** file:
 
     ```
+    'use strict';
+
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
-    var time = require('time');
+    ```
 
-    var connectionString = '[IoT device connection string]';
+5. Add a **connectionString** variable and use it to create a device client.  
+
+    ```
+    var connectionString = 'HostName={youriothostname};DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}';
     var client = Client.fromConnectionString(connectionString, Protocol);
+    ```
 
-    var reportRebootThroughTwin = function() {
-    var now = new time.Date();
+6. Add the following function to implement the direct method on the device
 
-    var patch = {
-        reported : {
-            iothubDM : {
-                reboot : {
-                lastReboot : now.time(),
+    ```
+    var onReboot = function(request, response) {
+        
+        // Respond the cloud app for the direct method
+        response.end(200, function(err) {
+            if (!!err) {
+                console.error('An error occured when sending a method response:\n' + err.toString());
+            } else {
+                console.error('Response to method \'' + request.methodName + '\' sent successfully.');
+            }
+        });
+        
+        // Report the reboot before the physical restart
+        var date = new Date();
+        var patch = {
+            reported : {
+                iothubDM : {
+                    reboot : {
+                        lastReboot : date.toISOString(),
+                    }
                 }
             }
-        }
-    };
+        };
 
-    client.reportTwinState(patch, function(err) {
-            if (err) throw err;
-            console.log('twin state reported')
-        });
+        client.reportTwinState(patch, function(err) {
+        if (err) throw err;
+        console.log('Device reboot Twin state reported')
+        });  
+        
+        // Add your device's reboot API for physical restart
+        console.log('Rebooting!');
     };
+    ```
 
-    var deviceSpecificPhysicalRestart = function() {
-        // Add call to restart device - this is device specific
-    };
+7. Open the connection to your IoT hub and start the direct method listener:
 
+    ```
     client.open(function(err) {
-    if (err) {
-        console.error('could not open IotHub client');
-    }  else {
-        console.log('client opened');
-    }
-    
-    client.on('ihdmReboot', function(desiredChange) {
-            // Report the reboot before the physical restart
-            reportRebootThroughTwin();
-            
-            deviceSpecificPhysicalRestart();
-        })
+        if (err) {
+            console.error('Could not open IotHub client');
+        }  else {
+            console.log('Client opened');
+            client.onDeviceMethod('reboot', onReboot);
+        }
     });
     ```
     
-3. Run the code to start the device.  Do not quit the running device app as the next step will require that it is running in the background.
+8. Save and close the **dmpatterns_getstarted_device.js** file.
+
+ [AZURE.NOTE] To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the MSDN article [Transient Fault Handling][lnk-transient-faults].
+
+## Trigger a remote reboot on the device using a direct method 
+
+In this section, you create a Node.js console app that initiates a remote reboot on a device using a direct method and uses device twin queries to find the last reboot time for that device.
+
+1. Create a new empty folder called **triggerrebootondevice**.  In the **triggerrebootondevice** folder, create a package.json file using the following command at your command-prompt.  Accept all the defaults:
 
     ```
-    node deviceApp.js
+    npm init
     ```
     
-## Rerun the IoT cloud app to trigger and end-to-end reboot
- 
-Rerun the service app in a new shell while the device app is running in the background. 
-
-1. Open a new shell
-
-2. Run the service app to initiate the remote reboot and monitor the periodic reported property after the simulated reboot.
+2. At your command-prompt in the **triggerrebootondevice** folder, run the following command to install the **azure-iothub** Device SDK package and **azure-iot-device-mqtt** package:
 
     ```
-    node serviceApp.js
+    npm install azure-iot-hub --save
+    ```
+    
+3. Using a text editor, create a new **dmpatterns_getstarted_service.js** file in the **triggerrebootondevice** folder.
+
+4. Add the following 'require' statements at the start of the **dmpatterns_getstarted_service.js** file:
+
+    ```
+    'use strict';
+
+    var Registry = require('azure-iothub').Registry;
+    var Client = require('azure-iothub').Client;
     ```
 
-## Customizing and extending the device management actions
+5. Add the following variable declarations and replace the placeholder values:
 
-Your IoT solutions can expand on defined defined device management patterns or enable custom patterns through the use of the IoT Hub device twin and C2D method primitives.  Some examples of other device management actions include factory reset, firmware update, software update, power management, network and connectivity management, data encryption, among others.
+    ```
+    var connectionString = '{iothubconnectionstring}';
+    var registry = Registry.fromConnectionString(connectionString);
+    var client = Client.fromConnectionString(connectionString);
+    var deviceToReboot = {deviceIdOfTargetDevice};
+    ```
+    
+6. Add the following function to invoke the device method to reboot the target device:
+
+    ```
+    var startRebootDevice = function(twin) {
+
+        var methodName = "reboot";
+        var timeout = 30;
+        
+        client.invokeDeviceMethod(deviceToReboot, methodName, {}, timeout, function(err, result) {
+            if (err) { 
+                console.error("Direct method error: "+err.message);
+            } else {
+                console.log("Successfully invoked the device to reboot.");  
+            }
+        });
+    };
+    ```
+
+7. Add the following function to query for the device and get the last reboot time:
+
+    ```
+    var queryTwinLastReboot = function() {
+        registry.getDeviceTwin(deviceToReboot, function(err, twin){
+            lastRebootTime = twin.properties.reported.iothubDM.reboot.lastReboot;
+            if (err) {
+                console.error('Could not query twins: ' + err.constructor.name + ' : ' + err.message);
+            } else {
+                console.log('Last reboot time: ' + JSON.stringify(lastRebootTime, null, 2));
+            }
+        });
+    };
+    ```
+    
+8. Add the following code to call the functions that will trigger the reboot direct method and query for the last reboot time:
+
+    ```
+    startRebootDevice();
+    queryTwinLastReboot();
+    ```
+    
+9. Save and close the **dmpatterns_getstarted_service.js** file.
+
+## Run the applications
+
+You are now ready to run the applications.
+
+1. At the command-prompt in the **manageddevice** folder, run the following command to begin listening for the reboot direct method.
+
+    ```
+    node dmpatterns_getstarted_device.js
+    ```
+
+2. At the command-prompt in the **triggerrebootondevice** folder, run the following command to trigger the remote reboot and query for the device twin to find the last reboot time.
+
+    ```
+    node dmpatterns_getstarted_service.js
+    ```
+
+3. You will see the react to the direct method by printing out the message
+
+## Customize and extend the device management actions
+
+Your IoT solutions can expand the defined set of device management patterns or enable custom patterns through the use of the device twin and C2D method primitives. Other examples of device management actions include factory reset, firmware update, software update, power management, network and connectivity management, and data encryption.
 
 [Link to Olivier's Intel Edison sample that includes reboot, factory reset, and firmware update]
 
 ## Device maintenance windows
 
-Devices are usually configured to take action at a time that minimizes interruptions and downtime.  Device maintenance windows are a commonly used pattern to define the time when a device should update configuration.  Your IoT cloud solutions can use the desired properties of the device twin to define and activate a policy on your device that enables a devices maintenance window.  Upon receiving the maintenance window policy, the device would then use the reported property of the device twin to report the status of the policy.  The IoT cloud app can then use device twin queries to attest to compliance of devices and each policy.
+Typically, you configure devices to perform actions at a time that minimizes interruptions and downtime.  Device maintenance windows are a commonly used pattern to define the time when a device should update its configuration. Your back-end solutions can use the desired properties of the device twin to define and activate a policy on your device that enables a maintenance window. When a device receives the maintenance window policy, it can use the reported property of the device twin to report the status of the policy. The back-end app can then use device twin queries to attest to compliance of devices and each policy.
+
+## Next steps
+
+In this tutorial, you used a direct method to trigger a remote reboot on a device, used the device twin reported properties to report the last reboot time from the device, and queried for the device twin to discover the last reboot time of the device from the cloud.
+
+To continue getting started with IoT Hub and device management patterns such as remote over the air firmware update, see:
+
+[Tutorial: How to do a firmware update][lnk-fwupdate]
+
+To learn how to extend your IoT solution and schedule method calls on multiple devices, see the [Schedule and broadcast jobs][lnk-tutorial-jobs] tutorial.
 
 <!-- images and links -->
 [img-new-hub]: media/iot-hub-get-started-with-dm/image1.png
@@ -217,9 +265,16 @@ Devices are usually configured to take action at a time that minimizes interrupt
 [img-output]: media/iot-hub-get-started-with-dm/image6.png
 [img-dm-ui]: media/iot-hub-get-started-with-dm/dmui.png
 
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[lnk-fwupdate]: iot-hub-firmware-update.md
 [Azure portal]: https://portal.azure.com/
 [Using resource groups to manage your Azure resources]: ../azure-portal/resource-group-portal.md
 [lnk-dm-github]: https://github.com/Azure/azure-iot-device-management
+[lnk-tutorial-jobs]: iot-hub-schedule-jobs.md
 [lnk-sample-ui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
+
+[lnk-devtwin]: iot-hub-devguide-device-twins.md
+[lnk-c2dmethod]: iot-hub-devguide-direct-methods.md
