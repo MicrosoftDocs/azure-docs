@@ -47,8 +47,8 @@ You can develop Azure VHDs in the cloud or on-premises:
 Now that you reviewed the prerequisites and completed the necessary tasks, you can move forward with creating your virtual machine image offer as detailed in the [Virtual machine image publishing guide](marketplace-publishing-vm-image-creation.md).
 
 ## See also
-- [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md)
-- [Create a virtual machine running Windows in the Azure preview portal](../virtual-machines-windows-hero-tutorial.md)
+- [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publisvirtual-machines/hing-getting-started.md)
+- [Create a virtual machine running Windows in the Azure preview portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
 
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
