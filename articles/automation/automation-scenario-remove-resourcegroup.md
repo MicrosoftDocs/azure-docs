@@ -56,15 +56,15 @@ The following steps will walk you through the execution of this runbook and help
 
 1. From the Azure Portal, open your Automation account and click the  **Runbooks** tile.
 2. Select the **Remove-ResourceGroups** runbook and click **Start**.
-3. When you start the runbook, the **Start Runbook** blade opens and you can configure the following values for the parameters.  Select a resource group in your subscription that you want to test with and will cause no harm if you accidentally delete it.<br> ![Remove-ResouceGroup Parameters](../media/automation-scenario-remove-resourcegroup/remove-resourcegroup-input-parameters.png)
+3. When you start the runbook, the **Start Runbook** blade opens and you can configure the following values for the parameters.  Select a resource group in your subscription that you want to test with and will cause no harm if you accidentally delete it.<br> ![Remove-ResouceGroup Parameters](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-input-parameters.png)
     
     >[AZURE.NOTE] Make sure the **Previewmode** option is set to **true** in order to avoid deleting the selected resource group(s).  **Please note** that this runbook will not allow you to delete the resource group that the Automation account is defined in.  
 
 4. Once you have configured all the parameter values, click **OK** and the runbook will be queued up for execution.  
 
-To view the details of the **Remove-ResourceGroup** runbook job in the Azure portal, select the **Jobs** tile of the runbook. The job summary displays the input parameters and the output stream, in addition to general information about the job and any exceptions if they occurred.<br> ![Remove-ResourceGroup Runbook Job Status](../media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-status.png).
+To view the details of the **Remove-ResourceGroup** runbook job in the Azure portal, select the **Jobs** tile of the runbook. The job summary displays the input parameters and the output stream, in addition to general information about the job and any exceptions if they occurred.<br> ![Remove-ResourceGroup Runbook Job Status](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-status.png).
 
-The **Job Summary** includes messages from the output, warning, and error streams. Select the **Output** tile to view detailed results from the runbook execution.<br> ![Remove-ResourceGroup Runbook Output Results](../media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-output.png) 
+The **Job Summary** includes messages from the output, warning, and error streams. Select the **Output** tile to view detailed results from the runbook execution.<br> ![Remove-ResourceGroup Runbook Output Results](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-output.png) 
 
 ## Next steps
 
