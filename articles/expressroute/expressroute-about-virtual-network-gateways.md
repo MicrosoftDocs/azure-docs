@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/20/2016"
+   ms.date="09/21/2016"
    ms.author="cherylmc" />
 
 # About virtual network gateways for ExpressRoute
