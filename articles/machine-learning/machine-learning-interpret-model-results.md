@@ -39,12 +39,12 @@ The modules used for prediction on top of these models are:
 
 This document explains how to interpret prediction results for each of these modules. For an overview of these modules, see [How to choose parameters to optimize your algorithms in Azure Machine Learning](machine-learning-algorithm-parameters-optimize.md).
 
-This topic addresses prediction interpretation but not model evaluation. For more information on how to evaluate your model, refer to [How to evaluate model performance in Azure Machine Learning](machine-learning-evaluate-model-performance.md).
+This topic addresses prediction interpretation but not model evaluation. For more information about how to evaluate your model, see [How to evaluate model performance in Azure Machine Learning](machine-learning-evaluate-model-performance.md).
 
 If you are new to Azure Machine Learning and need help creating a simple experiment to get started, see [Create a simple experiment in Azure Machine Learning Studio](machine-learning-create-experiment.md) in Azure Machine Learning Studio.
 
 ## Classification ##
-There are two sub-categories of classification problems:
+There are two subcategories of classification problems:
 
 * Problems with only two classes (two-class or binary classification)
 * Problems with more than two classes (multi-class classification)
@@ -103,7 +103,7 @@ In this experiment, we perform a letter-recognition task as an example of multic
 
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/5_1.png)
 
-In the training data, there are 16 features extracted from hand-written letter images. The twenty-six letters form our twenty-six classes. An experiment has been set up to train a multiclass classification model for letter recognition and predict on the same feature set on a test data set, as shown in Figure 6.
+In the training data, there are 16 features extracted from hand-written letter images. The 26 letters form our 26 classes. An experiment has been set up to train a multiclass classification model for letter recognition and predict on the same feature set on a test data set, as shown in Figure 6.
 
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/6.png)
 
@@ -117,7 +117,7 @@ Figure 7. Visualize score model results in multi-class classification
 
 **Result interpretation**
 
-The left 16 columns represent the feature values of the test set. The columns with names like Scored Probabilities for Class "XX" are just like the Scored Probabilities column in the two-class case. They show the probability that the corresponding entry falls into a certain class. For example, for the first entry, there is 0.003571 probability that it is an “A”, 0.000451 probability that it is a “B”, and so forth. The last column (Scored Labels) is the same as Scored Labels in the two-class case. It selects the class with the largest scored probability as the predicted class of the corresponding entry. For example, for the first entry, the scored label is “F” since it has the largest probability to be an “F” (0.916995).
+The left 16 columns represent the feature values of the test set. The columns with names like Scored Probabilities for Class "XX" are just like the Scored Probabilities column in the two-class case. They show the probability that the corresponding entry falls into a certain class. For example, for the first entry, there is 0.003571 probability that it is an “A,” 0.000451 probability that it is a “B,” and so forth. The last column (Scored Labels) is the same as Scored Labels in the two-class case. It selects the class with the largest scored probability as the predicted class of the corresponding entry. For example, for the first entry, the scored label is “F” since it has the largest probability to be an “F” (0.916995).
 
 **Web service publication**
 
@@ -237,7 +237,7 @@ There are several things we can do with Azure Machine Learning’s built-in [Tra
 - Find users related to a given user
 - Find items related to a given item
 
-You can choose what you want to do by selecting from the four options in the **Recommender prediction kind** menu. Here you can walk through all four scenarios. A typical Azure Machine Learning experiment for a recommender system looks like Figure 20. For information about how to use those recommender system modules, see  [Train matchbox recommender][train-matchbox-recommender] and [Score matchbox recommender][score-matchbox-recommender].
+You can choose what you want to do by selecting from the four options in the **Recommender prediction kind** menu. Here you can walk through all four scenarios. A typical Azure Machine Learning experiment for a recommender system looks like Figure 20. For information about how to use those recommender system modules, see [Train matchbox recommender][train-matchbox-recommender] and [Score matchbox recommender][score-matchbox-recommender].
 
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/19_1.png)
 
