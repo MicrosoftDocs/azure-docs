@@ -30,7 +30,7 @@ Refer to our [Troubleshooting guide](active-directory-ds-troubleshooting.md) for
 No. You can only create a single domain serviced by Azure AD Domain Services for a single Azure AD directory.  
 
 #### Can I make Azure AD Domain Services available in multiple virtual networks within my subscription?
-The service itself does not directly support this scenario. Azure AD Domain Services are available in only one virtual network at a time. However, you may configure connectivity between multiple virtual networks to expose Azure AD Domain Services to other virtual networks. This article describes how you can [connect virtual networks in Azure](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
+The service itself does not directly support this scenario. Azure AD Domain Services is available in only one virtual network at a time. However, you may configure connectivity between multiple virtual networks to expose Azure AD Domain Services to other virtual networks. This article describes how you can [connect virtual networks in Azure](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 #### Can I enable Azure AD Domain Services using PowerShell?
 PowerShell/automated deployment of Azure AD Domain Services is not available currently.
@@ -47,7 +47,7 @@ No. The domain provided by Azure AD Domain Services is a managed domain. You do 
 No. Because this is a managed domain, you can't connect to domain controllers for the domain via Remote Desktop. Members of the 'AAD DC Administrators' group can administer the managed domain using AD administration tools such as the Active Directory Administration Center (ADAC) or AD PowerShell. These tools are installed using the 'Remote Server Administration Tools' feature on a Windows server joined to the managed domain.
 
 #### I’ve enabled Azure AD Domain Services. What user account do I use to domain join machines to this domain?
-Any of the user accounts you’ve added to the administrative group (for example, ‘AAD DC Administrators’) would be able to domain join machines. Additionally, users in this group are granted remote desktop access to machines that have been joined to the domain.
+Users you’ve added to the administrative group (for example, ‘AAD DC Administrators’) are able to domain-join machines. Additionally, users in this group are granted remote desktop access to machines that have been joined to the domain.
 
 #### Can I wield domain administrator privileges for the domain provided by Azure AD Domain Services?
 No. Because this is a managed service, you aren't granted administrative privileges on the domain. This means that both ‘Domain Administrator’ as well as ‘Enterprise Administrator’ privileges are not available within the domain. Existing domain administrator or enterprise administrator groups within your Azure AD directory are also not granted domain/enterprise administrator privileges on the domain.
@@ -70,10 +70,10 @@ The service is available at a special reduced price for the duration of the publ
 This service is included in the free trial for Azure. You can sign up for a [free one-month trial of Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 #### Can I get Azure AD Domain Services as part of Enterprise Mobility Suite (EMS)?
-No, Azure AD Domain Services is a pay-as-you-go Azure service and is not part of EMS. Azure AD Domain Services are available for all SKUs of Azure AD (Free, Basic, and Premium) and are billed on an hourly basis depending on usage.
+No, Azure AD Domain Services is a pay-as-you-go Azure service and is not part of EMS. Azure AD Domain Services is available for all SKUs of Azure AD (Free, Basic, and Premium) and are billed on an hourly basis depending on usage.
 
 #### What Azure regions is the service available in?
-Refer to our [regions page](active-directory-ds-regions.md) to see a list of the Azure regions where Azure AD Domain Services are available.
+Refer to our [regions page](active-directory-ds-regions.md) to see a list of the Azure regions where Azure AD Domain Services is available.
 
 #### When will Azure AD Domain Services be Generally Available?
 We cannot currently share timelines for when the service will be generally available.

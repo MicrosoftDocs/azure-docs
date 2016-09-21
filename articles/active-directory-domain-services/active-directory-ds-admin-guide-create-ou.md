@@ -46,7 +46,7 @@ Now that the AD Administrative Tools are installed on the domain joined virtual 
 
 5. You should see the option to create an Organizational Unit. Click **Organizational Unit** to launch the **Create Organizational Unit** dialog.
 
-6. In the **Create Organizational Unit** dialog, specify a **Name** for the new OU. Provide a short description for the OU. You may also set the **Managed By** field for the OU. To create the new OU, click **OK**.
+6. In the **Create Organizational Unit** dialog, specify a **Name** for the new OU. Provide a short description for the OU. You may also set the **Managed By** field for the OU. To create the custom OU, click **OK**.
 
     ![ADAC - create OU dialog](./media/active-directory-domain-services-admin-guide/create-ou-dialog.png)
 
@@ -56,7 +56,7 @@ Now that the AD Administrative Tools are installed on the domain joined virtual 
 
 
 ## Permissions/Security for newly created OUs
-By default, the user (member of the 'AAD DC Administrators' group) who created the new OU is granted administrative privileges (full control) over the OU. The user can then go ahead and grant privileges to other users or to the 'AAD DC Administrators' group as desired. As seen in the following screenshot, the user 'bob@domainservicespreview.onmicrosoft.com' who created the new 'MyCustomOU' organizational unit is granted full control over it.
+By default, the user (member of the 'AAD DC Administrators' group) who created the custom OU is granted administrative privileges (full control) over the OU. The user can then go ahead and grant privileges to other users or to the 'AAD DC Administrators' group as desired. As seen in the following screenshot, the user 'bob@domainservicespreview.onmicrosoft.com' who created the new 'MyCustomOU' organizational unit is granted full control over it.
 
  ![ADAC - new OU security](./media/active-directory-domain-services-admin-guide/create-ou-permissions.png)
 

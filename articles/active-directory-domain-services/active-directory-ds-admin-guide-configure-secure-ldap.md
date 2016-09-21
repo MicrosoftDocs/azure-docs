@@ -41,7 +41,7 @@ Acquire a valid certificate per the following guidelines, before you enable secu
 
 2. **Lifetime** - The certificate must be valid for at least the next 3-6 months. Secure LDAP access to your managed domain is disrupted when the certificate expires.
 
-3. **Subject name** - The subject name on the certificate must be a wildcard for your managed domain. For instance, if your domain is named 'contoso100.com', the certificate's subject name must be '*.contoso100.com'. You must also set the DNS name (subject alternate name) to this wildcard name.
+3. **Subject name** - The subject name on the certificate must be a wildcard for your managed domain. For instance, if your domain is named 'contoso100.com', the certificate's subject name must be '*.contoso100.com'. Set the DNS name (subject alternate name) to this wildcard name.
 
 3. **Key usage** - The certificate must be configured for the following uses - Digital signatures and key encipherment.
 
@@ -97,7 +97,7 @@ Perform the following steps, to export the LDAPS certificate to a .PFX file.
 
 2. On the **User Account Control** prompt, click **YES** to launch MMC (Microsoft Management Console) as administrator.
 
-3. From the **File** menu, click on **Add/Remove Snap-in...**.
+3. From the **File** menu, click **Add/Remove Snap-in...**.
 
     ![Add snap-in to MMC console](./media/active-directory-domain-services-admin-guide/secure-ldap-add-snapin.png)
 
@@ -135,7 +135,7 @@ Perform the following steps, to export the LDAPS certificate to a .PFX file.
 
     ![Export certificate private key](./media/active-directory-domain-services-admin-guide/secure-ldap-export-private-key.png)
 
-    > [AZURE.WARNING] You MUST export the private key along with the certificate. Enabling secure LDAP for your managed domain fails if you provide a PFX that does not contain the private key for the certificate.
+    > [AZURE.WARNING] You MUST export the private key along with the certificate. If you provide a PFX that does not contain the private key for the certificate, enabling secure LDAP for your managed domain fails.
 
 13. On the **Export File Format** page, select **Personal Information Exchange - PKCS #12 (.PFX)** as the file format for the exported certificate.
 
@@ -145,13 +145,13 @@ Perform the following steps, to export the LDAPS certificate to a .PFX file.
 
 14. On the **Security** page, select the **Password** option and type in a password to protect the .PFX file. Remember this password since it will be needed in the next task. Click **Next** to proceed.
 
-    ![Specify password to export certificate ](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-password.png)
+    ![Password for certificate export ](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-password.png)
 
 	> [AZURE.NOTE] Make a note of this password. You need it while enabling secure LDAP for this managed domain in [Task 3 - Enable secure LDAP for the managed domain](#task-3---enable-secure-ldap-for-the-managed-domain)
 
 15. On the **File to Export** page, specify the file name and location where you'd like to export the certificate.
 
-    ![Specify path to export certificate](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-path.png)
+    ![Path for certificate export](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-path.png)
 
 16. On the following page, click **Finish** to export the certificate to a PFX file. You should see confirmation dialog when the certificate has been exported.
 
@@ -159,7 +159,7 @@ Perform the following steps, to export the LDAPS certificate to a .PFX file.
 
 
 ## Task 3 - Enable secure LDAP for the managed domain
-To enable secure LDAP, perform the following configuration steps.
+To enable secure LDAP, perform the following configuration steps:
 
 1. Navigate to the **[Azure classic portal](https://manage.windowsazure.com)**.
 
@@ -173,7 +173,7 @@ To enable secure LDAP, perform the following configuration steps.
 
     ![Configure tab of directory](./media/active-directory-domain-services-getting-started/configure-tab.png)
 
-5. Scroll down to the section titled **domain services**. You should see an option titled **Secure LDAP (LDAPS)** as shown in the following screenshot.
+5. Scroll down to the section titled **domain services**. You should see an option titled **Secure LDAP (LDAPS)** as shown in the following screenshot:
 
     ![Domain Services configuration section](./media/active-directory-domain-services-admin-guide/secure-ldap-start.png)
 
@@ -203,7 +203,7 @@ To enable secure LDAP, perform the following configuration steps.
 
 Before you begin this task, ensure you have completed the steps outlined in [Task 3](#task-3---enable-secure-ldap-for-the-managed-domain).
 
-1. You should see an option to **ENABLE SECURE LDAP ACCESS OVER THE INTERNET** in the **domain services** section of the **Configure** page. This is set to **NO** by default since internet access to the managed domain over secure LDAP is disabled by default.
+1. You should see an option to **ENABLE SECURE LDAP ACCESS OVER THE INTERNET** in the **domain services** section of the **Configure** page. This option is set to **NO** by default since internet access to the managed domain over secure LDAP is disabled by default.
 
     ![Secure LDAP enabled](./media/active-directory-domain-services-admin-guide/secure-ldap-enabled2.png)
 
@@ -235,7 +235,7 @@ Configure your external DNS provider so that the DNS name of the managed domain 
 
 That's it - you are now ready to connect to the managed domain using secure LDAP over the internet.
 
-> [AZURE.WARNING] Remember that client computers must trust the issuer of the LDAPS certificate to be able to connect successfully to the managed domain using LDAPS. If you are using an enterprise certification authority or a publicly trusted certification authority, this is not a problem since client computers trust these certificate issuers. If you are using a self-signed certificate, you need to install the public part of the self-signed certificate into the trusted certificate store on the client computer.
+> [AZURE.WARNING] Remember that client computers must trust the issuer of the LDAPS certificate to be able to connect successfully to the managed domain using LDAPS. If you are using an enterprise certification authority or a publicly trusted certification authority, you do not need to do anything since client computers trust these certificate issuers. If you are using a self-signed certificate, you need to install the public part of the self-signed certificate into the trusted certificate store on the client computer.
 
 <br>
 

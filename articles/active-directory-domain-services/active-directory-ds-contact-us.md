@@ -20,7 +20,7 @@
 # Azure AD Domain Services - Contact Us
 
 ## Contact the product team
-If you have issues with your managed domain, check to see if the steps outlined in the [Troubleshooting Guide](active-directory-ds-troubleshooting.md) resolve the issue. If you're still having trouble, feel free to reach out to us.
+If you have issues with your managed domain, check to see if the steps outlined in the [Troubleshooting Guide](active-directory-ds-troubleshooting.md) resolve the issue. If you're still having trouble, feel free to contact us.
 
 You may email us at: [Azure AD Domain Services Feedback](mailto:aaddsfb@microsoft.com).
 
