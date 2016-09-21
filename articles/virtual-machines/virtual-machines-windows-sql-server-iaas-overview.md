@@ -39,9 +39,9 @@ If you're moving other workloads to Azure, such as an enterprise application, it
 After you decide to run SQL Server on Azure VMs, one of your first decisions is whether to use a VM image that includes the SQL Server licensing costs. Your other option is to bring your own license (BYOL) and only pay for the VM itself. The next two sections describe these options.
 
 ## Create a new SQL VM
-The following sections provide direct links to the Azure portal for the SQL Server virtual machine gallery images. Depending on the image you select, you can either pay for SQL Server licensing costs on a per-minute basis. Or, you can bring your own license (BYOL).
+The following sections provide direct links to the Azure portal for the SQL Server virtual machine gallery images. Depending on the image you select, you can either pay for SQL Server licensing costs on a per-minute basis, or you can bring your own license (BYOL).
 
-Step-by-step guidance is available in the tutorial, [Provision a SQL Server virtual machine in the Azure Portal](virtual-machines-windows-portal-sql-server-provision.md). And you can review [Performance best practices for SQL Server VMs](virtual-machines-windows-sql-performance.md), which explains how to select the appropriate machine size and other features available during provisioning.
+Find step-by-step guidance for this process in the tutorial, [Provision a SQL Server virtual machine in the Azure Portal](virtual-machines-windows-portal-sql-server-provision.md). Also, review the [Performance best practices for SQL Server VMs](virtual-machines-windows-sql-performance.md), which explains how to select the appropriate machine size and other features available during provisioning.
 
 ## Option 1: Create a SQL VM with per-minute licensing
 The following table provides a matrix of available SQL Server images in the virtual machine gallery. Click on any link to begin creating a new SQL VM with your specified version, edition, and operating system.
@@ -58,7 +58,7 @@ The following table provides a matrix of available SQL Server images in the virt
 |**SQL 2008 R2 SP3**|Windows Server 2012|[Express](https://portal.azure.com/#create/Microsoft.SQLServer2008R2SP3ExpressWindowsServer2012)|
 
 ## Option 2: Create a SQL VM with an existing license
-You can also bring your own license (BYOL). In this scenario, you only pay for the VM without any additional charges for SQL Server licensing. To use your own license, use the matrix of SQL Server versions, editions, and operating systems below. In the portal, the image names are prefixed with **{BYOL}** in the Portal.
+You can also bring your own license (BYOL). In this scenario, you only pay for the VM without any additional charges for SQL Server licensing. To use your own license, use the matrix of SQL Server versions, editions, and operating systems below. In the portal, these image names are prefixed with **{BYOL}**.
 
 |Version|Operating system|Edition|
 |---|---|---|
@@ -69,7 +69,7 @@ You can also bring your own license (BYOL). In this scenario, you only pay for t
 > [AZURE.IMPORTANT] To use BYOL VM images, you must have and Enterprise Agreement with [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/). You also need a valid license for the version/edition of SQL Server you want to use. You must [provide the necessary BYOL information to Microsoft](http://d36cz9buwru1tt.cloudfront.net/License_Mobility_Customer_Verification_Guide.pdf) within **10** days of provisioning your VM.
 
 ## Manage your SQL VM
-After provisioning your SQL Server VM, there are several optional management tasks. In some aspects, you configure and manage SQL Server exactly like you would on-premises. But some tasks are specific to Azure. The following sections highlight some of these areas with links to more information.
+After provisioning your SQL Server VM, there are several optional management tasks. In many aspects, you configure and manage SQL Server exactly like you would manage an on-premises SQL Server instance. However, some tasks are specific to Azure. The following sections highlight some of these areas with links to more information.
 
 ### Migrate your data
 
