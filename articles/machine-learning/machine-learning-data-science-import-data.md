@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="garye;bradsev" />
 
 
@@ -53,6 +53,8 @@ You can import a number of data types into your experiment, depending on what me
 - Plain text (.txt)
 - Comma-separated values (CSV) with a header (.csv) or without (.nh.csv)
 - Tab-separated values (TSV) with a header (.tsv) or without (.nh.tsv)
+- Excel file
+- Azure table
 - Hive table
 - SQL database table
 - OData values
