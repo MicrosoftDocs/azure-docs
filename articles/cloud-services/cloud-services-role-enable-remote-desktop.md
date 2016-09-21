@@ -38,7 +38,7 @@ The Azure classic portal uses the Remote Desktop Extension approach so you can e
     
     ![Cloud services remote](./media/cloud-services-role-enable-remote-desktop/CloudServices_Remote.png)
     
-    > [AZURE.WARNING] All role instances will be restarted when you first enable Remote Desktop and click OK (checkmark). To prevent a reboot, the certificate used to encrypt the password must be installed on the role. To prevent a restart, [upload a certificate for the cloud service](cloud-services-how-to-create-deploy/#how-to-upload-a-certificate-for-a-cloud-service) and then return to this dialog.
+    > [AZURE.WARNING] All role instances will be restarted when you first enable Remote Desktop and click OK (checkmark). To prevent a reboot, the certificate used to encrypt the password must be installed on the role. To prevent a restart, [upload a certificate for the cloud service](../cloud-services/cloud-services-configure-ssl-certificate.md#step-3-upload-a-certificate) and then return to this dialog.
     
 
 3. In **Roles**, select the role you want to update or select **All** for all roles.
