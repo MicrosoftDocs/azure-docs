@@ -87,6 +87,7 @@ For any built-in PHP runtime, you can change any of the configuration options by
 		display_errors=On
 		upload_max_filesize=10M
 		
+		; OPTIONAL:
 		; Turn this on to write PHP errors
 		; to d:\home\LogFiles\php_errors.log
 		log_errors=On
