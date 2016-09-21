@@ -366,8 +366,8 @@ to log in, your route must be `/.auth/login/custom`.  You can set the route for 
 
 ###<a name="user-info"></a>How to: Retrieve authenticated user information
 
-When a user is authenticated by App Service, you can access the assigned user ID and other information in your .NET backend code. This can be 
-used for making authorization decisions in the backend. The following code obtains the user ID associated with a request:
+When a user is authenticated by App Service, you can access the assigned user ID and other information in your .NET backend code. The user
+information can be used for making authorization decisions in the backend. The following code obtains the user ID associated with a request:
 
     // Get the SID of the current user.
     var claimsPrincipal = this.User as ClaimsPrincipal;
@@ -460,12 +460,12 @@ You can now use the Notification Hubs client to send push notifications to regis
 see [Add push notifications to your app](app-service-mobile-ios-get-started-push.md). To learn more about Notification Hubs, 
 see [Notification Hubs Overview](../notification-hubs/notification-hubs-push-notification-overview.md).
 
-##<a name="tags"></a>How to: Add tags to a device installation to enable targeted push
+##<a name="tags"></a>How to: Enable targeted push using Tags
 
 Notification Hubs lets you send targeted notifications to specific registrations by using tags. Several tags are created automatically:
 
 * The Installation ID identifies a specific device.
-* The User Id based on the SID of the user identifies a specific user.
+* The User Id based on the authenticated SID identifies a specific user.
 
 The installation ID can be accessed from the **installationId** property on the **MobileServiceClient**.  The following example shows how to 
 use an installation ID to add a tag to a specific installation in Notification Hubs:
@@ -541,7 +541,7 @@ You can run your application locally to test changes before publishing them to t
 in Visual Studio. However, there are some additional considerations when using authentication.
 
 You must have a cloud-based mobile app with App Service Authentication/Authorization configured, and your client must have the cloud endpoint 
-specified as the alternate login host. Please see the documentation for your client platform for the specific steps required.
+specified as the alternate login host. See the documentation for your client platform for the specific steps required.
 
 Ensure that your mobile backend has [Microsoft.Azure.Mobile.Server.Authentication] installed. Then, in your application's OWIN startup class, 
 add the following, after `MobileAppConfiguration` has been applied to your `HttpConfiguration`:
@@ -554,17 +554,17 @@ add the following, after `MobileAppConfiguration` has been applied to your `Http
 			TokenHandler = config.GetAppServiceTokenHandler()
 		});
 
-In the above example, you should configure the _authAudience_ and _authIssuer_ application settings within your Web.config file to each be the 
+In the preceding example, you should configure the _authAudience_ and _authIssuer_ application settings within your Web.config file to each be the 
 URL of your application root, using the HTTPS scheme. Similarly you should set _authSigningKey_ to be the value of your application's signing key. 
-This is a sensitive value that should never be shared or included in a client. To obtain it:
+To obtain the signing key:
 
 1. Navigate to your app within the [Azure portal] 
 2. Click **Tools**, **Kudu**, **Go**.
 3. In the Kudu Management site, click **Environment**.
 4. Find the value for _WEBSITE\_AUTH\_SIGNING\_KEY_. 
 
-This is the value you should use for _authSigningKey_ in your local app config.  Your locally-running server is now equipped to validate tokens 
-which the client obtains from the cloud-based endpoint.
+This is the value you should use for _authSigningKey_ in your local app config.  Your mobile backend is now equipped to validate tokens when running
+locally, which the client obtains the token from the cloud-based endpoint.
 
 [1]: https://msdn.microsoft.com/library/azure/dn961176.aspx
 [2]: https://github.com/Azure/azure-mobile-apps-net-server
