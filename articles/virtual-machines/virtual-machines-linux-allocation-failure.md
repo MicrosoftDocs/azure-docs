@@ -3,7 +3,7 @@
 	description="Troubleshoot allocation failures when you create, restart, or resize a Linux VM in Azure"
 	services="virtual-machines-linux, azure-resource-manager"
 	documentationCenter=""
-	authors="jiangchen79"
+	authors="JiangChen79"
 	manager="felixwu"
 	editor=""
 	tags="top-support-issue,azure-resourece-manager,azure-service-management"/>
