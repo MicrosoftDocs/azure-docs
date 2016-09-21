@@ -1,6 +1,6 @@
 <properties
-	pageTitle="How to interpret model results in Machine Learning | Microsoft Azure"
-	description="How to to choose the optimal parameter set for an algorithm using and visualizing score model outputs."
+	pageTitle="Interpret model results in Machine Learning | Microsoft Azure"
+	description="How to choose the optimal parameter set for an algorithm using and visualizing score model outputs."
 	services="machine-learning"
 	documentationCenter=""
 	authors="bradsev"
@@ -17,9 +17,10 @@
 	ms.author="bradsev" />
 
 
-# How to interpret model results in Azure Machine Learning
+# Interpret model results in Azure Machine Learning
 
 **Understanding and visualizing a score model's Output**
+
 This topic explains how to visualize and interpret prediction results in the Azure Machine Learning Studio. After you have trained a model and done predictions on top of it ("scored the model"), you need to understand and interpret the prediction result.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
