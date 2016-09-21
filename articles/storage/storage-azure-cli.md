@@ -14,7 +14,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="09/20/2016"
-    ms.author="micurd"/>
+    ms.author="micurd;tamram"/>
 
 # Using the Azure CLI with Azure Storage
 

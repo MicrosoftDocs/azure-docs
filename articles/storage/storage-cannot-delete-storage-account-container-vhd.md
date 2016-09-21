@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="genlin"
 	manager="felixwu"
-	editor=""
+	editor="tysonn"
 	tags="storage"/>
 
 <tags
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/20/2016"
-	ms.author="genli;robinsh"/>
+	ms.author="minet;genli;robinsh"/>
 
 # Troubleshoot deleting Azure storage accounts, containers, or VHDs
 

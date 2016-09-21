@@ -4,7 +4,7 @@
 	services="storage"
 	documentationCenter="java"
 	authors="dineshmurthy"
-	manager=""
+	manager="jahogg"
 	editor="tysonn"/>
 
 <tags
