@@ -49,7 +49,7 @@ HDInsight Spark clusters include Zeppelin notebooks that you can use to run Spar
 	In the empty paragraph that is created by default in the new notebook, paste the following snippet.
 
 		%livy.spark
-		//The above magic instructs Zeppelin to use the Livy interpreter
+		//The above magic instructs Zeppelin to use the Livy Scala interpreter
 
 		// Create an RDD using the default Spark context, sc
 		val hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
