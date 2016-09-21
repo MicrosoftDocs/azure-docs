@@ -45,7 +45,7 @@ In this task, you enable Azure AD Domain Services for your directory. Perform th
 
 7. Specify the **DNS domain name of domain services**.
 
-   - The default domain name of the directory (that is, ending with the **.onmicrosoft.com** domain suffix) are selected by default.
+   - The default domain name of the directory (that is, ending with the **.onmicrosoft.com** domain suffix) is selected by default.
 
    - The list contains all domains that have been configured for your Azure AD directory – including verified as well as unverified domains that you configure in the ‘Domains’ tab.
 
@@ -71,23 +71,23 @@ In this task, you enable Azure AD Domain Services for your directory. Perform th
 
    - you have an existing cloud service with that name on the virtual network.
 
-10. Click **Save** from the task pane at the bottom of the page to enable Azure AD Domain Services.
+10. To enable Azure AD Domain Services, click **Save** from the task pane at the bottom of the page.
 
 11. The page displays a ‘Pending …’ state, while Azure AD Domain Services is being enabled for your directory.
 
     ![Enable Domain Services - pending state](./media/active-directory-domain-services-getting-started/enable-domain-services-pendingstate.png)
 
-    > [AZURE.NOTE] Azure AD Domain Services provides high availability for your managed domain. After you enable Azure AD Domain Services, notice the IP addresses at which Domain Services is available on the virtual network show up one by one. The second IP address is displayed shortly, as soon the service enables high availability for your domain. When high availability is configured and active for your domain, you should see two IP addresses in the **domain services** section of the **Configure** tab.
+    > [AZURE.NOTE] Azure AD Domain Services provides high availability for your managed domain. After you enable Azure AD Domain Services, notice the IP addresses at which Domain Services are available on the virtual network show up one by one. The second IP address is displayed shortly, as soon the service enables high availability for your domain. When high availability is configured and active for your domain, you should see two IP addresses in the **domain services** section of the **Configure** tab.
 
 12. After about 20-30 minutes, you see the first IP address at which Domain Services is available on your virtual network in the **IP address** field on the **Configure** page.
 
     ![Domain Services enabled - first IP provisioned](./media/active-directory-domain-services-getting-started/domain-services-enabled-firstdc-available.png)
 
-13. When high availability is operational for your domain, you see two IP addresses displayed on the page. These are the IP addresses at which Azure AD Domain Services are available on your selected virtual network. Note down the IP addresses so you can update the DNS settings for your virtual network. This step enables virtual machines on the virtual network to connect to the domain for operations such as domain join.
+13. When high availability is operational for your domain, you see two IP addresses displayed on the page. These are the IP addresses at which Azure AD Domain Services is available on your selected virtual network. Note down the IP addresses so you can update the DNS settings for your virtual network. This step enables virtual machines on the virtual network to connect to the domain for operations such as domain join.
 
     ![Domain Services enabled - both IPs provisioned](./media/active-directory-domain-services-getting-started/domain-services-enabled-bothdcs-available.png)
 
-> [AZURE.NOTE] Depending on the size of your Azure AD directory (number of users, groups etc.), it takes a while for the contents of the directory to be available in Azure AD Domain Services. This synchronization process happens in the background. For large directories with tens of thousands of objects, it may take a day or two for all users, group memberships and credentials to be available in Azure AD Domain Services.
+> [AZURE.NOTE] Depending on the size of your Azure AD tenant (number of users, groups etc.), it takes a while for the contents of the tenant to be available in Azure AD Domain Services. This synchronization process happens in the background. For large tenants with tens of thousands of objects, it may take a day or two for all users, group memberships, and credentials to be available in Azure AD Domain Services.
 
 <br>
 

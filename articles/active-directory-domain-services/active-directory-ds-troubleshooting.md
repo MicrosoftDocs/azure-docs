@@ -49,7 +49,7 @@ If one or more users in your Azure AD tenant are unable to sign in to the newly 
 
 - **Overly long UPN prefix:** Ensure the affected user account's UPN prefix (first part of the UPN) in your Azure AD tenant is fewer than 20 characters long. For instance, for the UPN 'joereallylongnameuser@contoso.com', the prefix ('joereallylongnameuser') exceeds 20 characters and this account is not available in the managed domain.
 
-- **Duplicate UPN prefix:** Ensure that you do not have other user accounts in your Azure AD tenant with the same UPN prefix (the first part of the UPN) as that of the affected user account. For instance, if you have two user accounts 'joeuser@finance.contoso.com' and 'joeuser@engineering.contoso.com', both users encounter issues signing in to the managed domain. This issue could also happen if one of the user accounts is an external account (for example, 'joeuser@live.com'). We are working on a fix for this issue.
+- **Duplicate UPN prefix:** Ensure other user accounts in your Azure AD tenant do not have the same UPN prefix (the first part of the UPN) as the affected user account. For instance, if you have two user accounts 'joeuser@finance.contoso.com' and 'joeuser@engineering.contoso.com', both users encounter issues signing in to the managed domain. This issue could also happen if one of the user accounts is an external account (for example, 'joeuser@live.com'). We are working on a fix for this issue.
 
 - **Synced accounts:** If the affected user accounts are synchronized from an on-premises directory, verify that:
     - You have deployed or updated to the [latest recommended release of Azure AD Connect](active-directory-ds-getting-started-password-sync.md#install-or-update-azure-ad-connect).
@@ -58,7 +58,7 @@ If one or more users in your Azure AD tenant are unable to sign in to the newly 
 
     - Depending on the size of your directory, it may take a while for user accounts and credential hashes to be available in Azure AD Domain Services. Ensure you wait long enough before retrying authentication (depending on the size of your directory - a few hours to a day or two for large directories).
 
-    - If the issue persists after verifying the steps above, try restarting the Microsoft Azure AD Sync Service. From your sync machine, launch a command prompt and execute the following commands:
+    - If the issue persists after verifying the preceding steps, try restarting the Microsoft Azure AD Sync Service. From your sync machine, launch a command prompt and execute the following commands:
       1. net stop 'Microsoft Azure AD Sync'
       2. net start 'Microsoft Azure AD Sync'
 
