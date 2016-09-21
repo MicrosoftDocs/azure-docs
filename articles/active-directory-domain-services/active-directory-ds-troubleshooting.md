@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory Domain Services preview: Troubleshooting Guide | Microsoft Azure"
+	pageTitle="Azure Active Directory Domain Services: Troubleshooting Guide | Microsoft Azure"
 	description="Troubleshooting guide for Azure AD Domain Services"
 	services="active-directory-ds"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/21/2016"
 	ms.author="maheshu"/>
 
-# Azure AD Domain Services *(Preview)* - Troubleshooting guide
+# Azure AD Domain Services - Troubleshooting guide
 This article provides troubleshooting hints for issues you may encounter when setting up or administering Azure Active Directory (AD) Domain Services.
 
 
@@ -25,7 +25,7 @@ If you encounter a situation where you try to enable Azure AD Domain Services fo
 
 - Ensure that you do not have an existing domain with the same domain name available on that virtual network. For instance, assume you have a domain called 'contoso.com' already available on the selected virtual network. Subsequently, you try to enable an Azure AD Domain Services managed domain with the same domain name (i.e. 'contoso.com') on that virtual network. You will encounter a failure when trying to enable Azure AD Domain Services. This is due to name conflicts for the domain name on that virtual network. In this situation, you must use a different name to set up your Azure AD Domain Services managed domain. Alternately, you can de-provision the existing domain and then proceed to enable Azure AD Domain Services.
 
-- Check to see if you have an application with the name 'Azure AD Domain Services Sync' in your Azure AD directory. If this application exists, you will need to delete it and then re-enable Azure AD Domain Services. Perform the following steps in order to check for the presence of the application and to delete it, if the application exists:
+- Check to see if you have an application with the name 'Azure AD Domain Services Sync' in your Azure AD directory. If this application exists, you will need to delete it and then re-enable Azure AD Domain Services. Perform the following steps to check for the presence of the application and to delete it, if the application exists:
 
   1. Navigate to the **Azure management portal** ([https://manage.windowsazure.com](https://manage.windowsazure.com)).
   2. Select the **Active Directory** node on the left pane.
@@ -38,6 +38,10 @@ If you encounter a situation where you try to enable Azure AD Domain Services fo
 
 ### Users are unable to sign in to the Azure AD Domain Services managed domain
 If you encounter a situation where one or more users in your Azure AD tenant are unable to sign in to the newly created managed domain, perform the following troubleshooting steps:
+
+- Try to sign in using the UPN format (eg. 'joeuser@contoso.com') instead of the SAMAccountName format ('CONTOSO\joeuser'). Sometimes, the SAMAccountName may be automatically generated for users whose UPN prefix is overly long or is the same as another user on the managed domain. The UPN format is guaranteed to be unique within an Azure AD tenant.
+
+> [AZURE.NOTE] We recommend using the UPN format to sign in to the Azure AD Domain Services managed domain.
 
 - Ensure that you have [enabled password synchronization](active-directory-ds-getting-started-password-sync.md) in accordance with the steps outlined in the Getting Started guide.
 

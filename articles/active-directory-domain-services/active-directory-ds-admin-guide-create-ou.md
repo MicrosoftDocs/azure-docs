@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory Domain Services preview: Administration Guide | Microsoft Azure"
+	pageTitle="Azure Active Directory Domain Services: Administration Guide | Microsoft Azure"
 	description="Create an Organizational Unit (OU) on Azure AD Domain Services managed domains"
 	services="active-directory-ds"
 	documentationCenter=""
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/21/2016"
 	ms.author="maheshu"/>
 
 # Create an Organizational Unit (OU) on an Azure AD Domain Services managed domain
-Azure AD Domain Services managed domains include two built-in containers called 'AADDC Computers' and 'AADDC Users' respectively. The 'AADDC Computers' container has computer objects for all computers that are joined to the managed domain. The 'AADDC Users' container includes users and groups in the Azure AD tenant. Occasionally, it may be necessary to create service accounts on the managed domain in order to deploy workloads. For this purpose, you can create a custom Organizational Unit (OU) on the managed domain and create service accounts within that OU. This article shows you how to create an OU in your managed domain.
+Azure AD Domain Services managed domains include two built-in containers called 'AADDC Computers' and 'AADDC Users' respectively. The 'AADDC Computers' container has computer objects for all computers that are joined to the managed domain. The 'AADDC Users' container includes users and groups in the Azure AD tenant. Occasionally, it may be necessary to create service accounts on the managed domain to deploy workloads. For this purpose, you can create a custom Organizational Unit (OU) on the managed domain and create service accounts within that OU. This article shows you how to create an OU in your managed domain.
 
 
 ## Install AD administration tools on a domain-joined virtual machine for remote administration

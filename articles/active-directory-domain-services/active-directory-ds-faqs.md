@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory Domain Services preview: FAQs | Microsoft Azure"
+	pageTitle="Azure Active Directory Domain Services: FAQs | Microsoft Azure"
 	description="Frequently asked questions about Azure Active Directory Domain Services"
 	services="active-directory-ds"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/21/2016"
 	ms.author="maheshu"/>
 
 # Azure Active Directory Domain Services preview: FAQs
@@ -30,7 +30,7 @@ Refer to our [Troubleshooting guide](active-directory-ds-troubleshooting.md) for
 No. You can only create a single domain serviced by Azure AD Domain Services for a single Azure AD directory.  
 
 #### Can I make Azure AD Domain Services available in multiple virtual networks within my subscription?
-The service itself does not directly support this scenario. Azure AD Domain Services are available in only one virtual network at a time. However, you may configure connectivity between multiple virtual networks in order to expose Azure AD Domain Services to other virtual networks. This article describes how you can [connect virtual networks in Azure](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
+The service itself does not directly support this scenario. Azure AD Domain Services are available in only one virtual network at a time. However, you may configure connectivity between multiple virtual networks to expose Azure AD Domain Services to other virtual networks. This article describes how you can [connect virtual networks in Azure](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 #### Can I enable Azure AD Domain Services using PowerShell?
 PowerShell/automated deployment of Azure AD Domain Services is not available currently.
@@ -59,12 +59,12 @@ No. Group memberships cannot be modified on domains serviced by Azure AD Domain 
 No. The schema is administered by Microsoft for the managed domain. Schema extensions are not supported by Azure AD Domain Services.
 
 #### Can I modify DNS records provided by Azure AD Domain Services?
-Yes. Users that belong to the 'AAD DC Administrators' group are granted 'DNS Administrator' privileges, in order to modify DNS records in the managed domain. These users can use the DNS Manager console on a machine running Windows Server joined to the managed domain, in order to manage DNS. In order to use the DNS Manager console, install 'DNS Server Tools', which is part of the 'Remote Server Administration Tools' optional feature on the server. More information on [utilities for administering, monitoring and troubleshooting DNS](https://technet.microsoft.com/library/cc753579.aspx) is available on TechNet.
+Yes. Users that belong to the 'AAD DC Administrators' group are granted 'DNS Administrator' privileges, to modify DNS records in the managed domain. These users can use the DNS Manager console on a machine running Windows Server joined to the managed domain, to manage DNS. To use the DNS Manager console, install 'DNS Server Tools', which is part of the 'Remote Server Administration Tools' optional feature on the server. More information on [utilities for administering, monitoring and troubleshooting DNS](https://technet.microsoft.com/library/cc753579.aspx) is available on TechNet.
 
 ### Billing and availability
 
 #### Is this a paid service?
-The service is available at a special reduced price for the duration of the public preview period. Billing will commence at full price once the service is generally available (GA). See the pricing page for more information.
+The service is available at a special reduced price for the duration of the public preview period. Billing will commence at full price once the service is generally available (GA). See the [pricing page](https://azure.microsoft.com/pricing/details/active-directory-ds/) for more information.
 
 #### Is there a free trial for the service?
 This service is included in the free trial for Azure. You can sign up for a [free one-month trial of Azure](https://azure.microsoft.com/pricing/free-trial/).

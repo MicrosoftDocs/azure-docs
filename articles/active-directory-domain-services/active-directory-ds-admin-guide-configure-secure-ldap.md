@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/21/2016"
 	ms.author="maheshu"/>
 
 # Configure Secure LDAP (LDAPS) for an Azure AD Domain Services managed domain
@@ -73,7 +73,7 @@ You may choose to create a self-signed certificate for secure LDAP, if:
 
 **Create a self-signed certificate using PowerShell**
 
-On your Windows computer, open a new PowerShell window as **Administrator** and type the following commands, in order to create a new self-signed certificate.
+On your Windows computer, open a new PowerShell window as **Administrator** and type the following commands, to create a new self-signed certificate.
 
     $lifetime=Get-Date
 
@@ -89,7 +89,7 @@ The newly created self-signed certificate will be placed in the local machine's 
 ## Task 2 - Export the secure LDAP certificate to a .PFX file
 Before you start this task, ensure that you have obtained the secure LDAP certificate from your enterprise certification authority or a public certification authority or have created a self-signed certificate.
 
-Perform the following steps, in order to export the LDAPS certificate to a .PFX file.
+Perform the following steps, to export the LDAPS certificate to a .PFX file.
 
 1. Press the **Start** button and type **R** to bring up the **Run** dialog. Type **mmc** and click **OK**.
 
@@ -159,7 +159,7 @@ Perform the following steps, in order to export the LDAPS certificate to a .PFX 
 
 
 ## Task 3 - Enable secure LDAP for the managed domain
-Perform the following configuration steps in order to enable secure LDAP.
+Perform the following configuration steps to enable secure LDAP.
 
 1. Navigate to the **[Azure classic portal](https://manage.windowsazure.com)**.
 
@@ -229,13 +229,13 @@ Before you begin this task, ensure you have completed the steps outlined in [Tas
 
 Once you have enabled secure LDAP access over the internet for your managed domain, you need to update DNS so that client computers can find this managed domain. At the end of task 4, an external IP address is displayed on the **Configure** tab in **EXTERNAL IP ADDRESS FOR LDAPS ACCESS**.
 
-Configure your external DNS provider so that the DNS name of the managed domain (eg. 'contoso100.com') points to this external IP address. In our example, we will need to create the following DNS entry:
+Configure your external DNS provider so that the DNS name of the managed domain (eg. 'contoso100.com') points to this external IP address. In our example, we need to create the following DNS entry:
 
     contoso100.com  -> 52.165.38.113
 
 That's it - you are now ready to connect to the managed domain using secure LDAP over the internet.
 
-> [AZURE.WARNING] Remember that client computers must trust the issuer of the LDAPS certificate in order to be able to connect successfully to the managed domain using LDAPS. If you are using an enterprise certification authority or a publicly trusted certification authority, this is not a problem since client computers will trust these certificate issuers. If you are using a self-signed certificate, you will need to install the public part of the self-signed certificate (i.e. exported without the private key) into the trusted certificate store on the client computer.
+> [AZURE.WARNING] Remember that client computers must trust the issuer of the LDAPS certificate to be able to connect successfully to the managed domain using LDAPS. If you are using an enterprise certification authority or a publicly trusted certification authority, this is not a problem since client computers will trust these certificate issuers. If you are using a self-signed certificate, you will need to install the public part of the self-signed certificate (i.e. exported without the private key) into the trusted certificate store on the client computer.
 
 <br>
 

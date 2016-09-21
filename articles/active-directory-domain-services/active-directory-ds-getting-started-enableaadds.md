@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure AD Domain Services: Enable Azure AD Domain Services | Microsoft Azure"
-	description="Getting started with Azure Active Directory Domain Services (Preview)"
+	description="Getting started with Azure Active Directory Domain Services"
 	services="active-directory-ds"
 	documentationCenter=""
 	authors="mahesh-unnikrishnan"
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/06/2016"
+	ms.date="09/21/2016"
 	ms.author="maheshu"/>
 
-# Azure AD Domain Services *(Preview)* - Enable Azure AD Domain Services
+# Enable Azure AD Domain Services
 
 ## Task 3: Enable Azure AD Domain Services
-In this task you will enable Azure AD Domain Services for your directory. Perform the following configuration steps in order to enable Azure AD Domain Services for your directory.
+In this task you will enable Azure AD Domain Services for your directory. Perform the following configuration steps to enable Azure AD Domain Services for your directory.
 
 1. Navigate to the **Azure classic portal** ([https://manage.windowsazure.com](https://manage.windowsazure.com)).
 
@@ -29,7 +29,7 @@ In this task you will enable Azure AD Domain Services for your directory. Perfor
 
     ![Select Azure AD Directory](./media/active-directory-domain-services-getting-started/select-aad-directory.png)
 
-4. Click on the **Configure** tab.
+4. Click the **Configure** tab.
 
     ![Configure tab of directory](./media/active-directory-domain-services-getting-started/configure-tab.png)
 
@@ -61,7 +61,7 @@ In this task you will enable Azure AD Domain Services for your directory. Perfor
 
    - Note that virtual networks belonging to a region where Azure AD Domain Services is not supported will not show up in the drop-down list.
 
-   - Similarly, virtual networks that were created using Azure Resource Manager (ARM-based virtual networks) will not appear in the drop-down list. This is because ARM-based virtual networks are not currently supported by Azure AD Domain Services.
+   - Similarly, virtual networks that were created using Azure Resource Manager will not appear in the drop-down list. This is because Resource Manager-based virtual networks are not currently supported by Azure AD Domain Services.
 
 9. Ensure that the DNS domain name you have chosen for the managed domain does not already exist in the virtual network. This could happen in any of the following scenarios:
 
@@ -73,7 +73,7 @@ In this task you will enable Azure AD Domain Services for your directory. Perfor
 
 10. When you are done selecting the above options, click **Save** from the task pane at the bottom of the page to enable Azure AD Domain Services.
 
-11. The page will display a ‘Pending …’ state, while Azure AD Domain Services is being enabled for your directory.
+11. The page displays a ‘Pending …’ state, while Azure AD Domain Services is being enabled for your directory.
 
     ![Enable Domain Services - pending state](./media/active-directory-domain-services-getting-started/enable-domain-services-pendingstate.png)
 
