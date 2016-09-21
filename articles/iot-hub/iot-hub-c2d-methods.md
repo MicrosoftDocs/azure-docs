@@ -41,9 +41,7 @@ To complete this tutorial, you need the following:
 
 + An active Azure account. (If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].)
 
-[AZURE.INCLUDE [TBD](../../includes/TBD)] - Elio is creating include content here! To add later.
-
-You have now created your IoT hub. You have the IoT Hub hostname and the IoT Hub connection string that you need to complete the rest of this tutorial.
+[AZURE.INCLUDE [iot-hub-get-started-create-hub-pp](../../includes/iot-hub-get-started-create-hub-pp.md)]
 
 ## Create a device identity
 
