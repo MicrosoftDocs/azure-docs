@@ -58,7 +58,7 @@ The following Log Analytics features and solutions are not currently available i
 + Can I migrate data from Log Analytics in public Azure to Azure Government?
   - No. It is not possible to move data or your workspace from public Azure to Azure Government.
 
-For more information, see [Log Analytics public documentation](/log-analytics/log-analytics-overview.md).
+For more information, see [Log Analytics public documentation](../log-analytics/log-analytics-overview.md).
 
 ## Next Steps
 
