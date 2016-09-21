@@ -154,7 +154,7 @@ You can see the performance results of the retrained model by combining the *Bas
 
 Examine the results to determine whether the newly trained model performs well enough to replace the existing one.
 
-Copy the *BaseLocation*, *RelativeLocation*, and *SasBlobToken* from the output results, you will use them in the during the retraining process.
+Copy the *BaseLocation*, *RelativeLocation*, and *SasBlobToken* from the output results, you will use them during the retraining process.
 
 ## Next steps
 

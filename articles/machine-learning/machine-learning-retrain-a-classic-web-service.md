@@ -22,7 +22,7 @@ The Predictive Web Service you deployed is the default scoring endpoint. Default
 
 ## Add a new Endpoint
  
-The Predictive Web Service that you deployed contains a default scoring endpoint that is kept in sync with the original training and scoring experiments trained model. To update your Web service to with a new trained model you must create a new scoring endpoint. 
+The Predictive Web Service that you deployed contains a default scoring endpoint that is kept in sync with the original training and scoring experiments trained model. To update your Web service to with a new trained model, you must create a new scoring endpoint. 
 
 To create a new scoring endpoint, on the Predictive Web Service that can be updated with the trained model:
 
@@ -115,7 +115,7 @@ The *apiKey* and the *endpointUrl* for the call can be obtained from endpoint da
 The value of the *Name* parameter in *Resources* should match the Resource Name of the saved Trained Model in the Predictive Experiment. To get the Resource Name:
 
 1.	Sign in to the [Azure Classic portal](https://manage.windowsazure.com).
-2.	In the left menu, click** Machine Learning**.
+2.	In the left menu, click ** Machine Learning**.
 3.	Under Name, click your workspace and then click **Web Services**.
 4.	Under Name, click Census Model [predictive exp.].
 5.	Click the new endpoint you added.
