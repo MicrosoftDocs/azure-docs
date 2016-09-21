@@ -50,6 +50,7 @@ For additional information, you can always type ```get-help``` and then the Powe
 ## Create a alert rules in PowerShell
 
 1. Log in to Azure.   
+2. 
 	```
 	Login-AzureRmAccount
 	```
