@@ -24,7 +24,7 @@ Before you start, ensure that you have the Service Fabric development environmen
 If you need to set it up, see detailed instructions on [how to set up the development environment](service-fabric-get-started.md).
 
 ## Basic concepts
-To get started with Reliable Actors, you need to understand just four basic concepts:
+To get started with Reliable Actors, you need to understand a few basic concepts:
 
 * **Actor service**. Reliable Actors are packaged in Reliable Services that can be deployed in the Service Fabric infrastructure. A service can host one or more actors. We will go into more detail about the trade-offs of one actor versus multiple actors per service below. For now, let's assume that we need to implement only one actor.
 * **Actor interface**. The actor interface is used to define a strongly-typed public interface of an actor. In the Reliable Actor model terminology, the actor interface defines the types of messages that the actor can understand and process. The actor interface is used by other actors and client applications to "send" (asynchronously) messages to the actor. Reliable Actors can implement multiple interfaces. As we will see, a HelloWorld actor can implement the IHelloWorld interface, but it can also implement an ILogging interface that defines different messages and/or functionalities.
@@ -46,69 +46,127 @@ Start by creating a new Service Fabric application. The Service Fabric SDK for L
 $ yo azuresf
 ```
 
-Follow the instructions to create a **Reliable Actor Service - Java**. For this tutorial, we will name the application "HelloWorldApplication" and the service "HelloWorld". The result will include directories for the `HelloWorldApplication` and `HelloWorld`.
+Follow the instructions to create a **Reliable Actor Service - Java**. For this tutorial, we will name the application "HelloWorldActorApplication" and the actor "HelloWorldActor". The following scaffolding will be created:
+
+```bash
+HelloWorldActorApplication/
+├── build.gradle
+├── HelloWorldActor
+│   ├── build.gradle
+│   ├── settings.gradle
+│   └── src
+│       └── statefulactor
+│           ├── HelloWorldActorImpl.java
+│           └── HelloWorldActorService.java
+├── HelloWorldActorApplication
+│   ├── ApplicationManifest.xml
+│   └── HelloWorldActorPkg
+│       ├── Code
+│       │   ├── entryPoint.sh
+│       │   └── _readme.txt
+│       ├── Config
+│       │   ├── _readme.txt
+│       │   └── Settings.xml
+│       ├── Data
+│       │   └── _readme.txt
+│       └── ServiceManifest.xml
+├── HelloWorldActorInterface
+│   ├── build.gradle
+│   └── src
+│       └── statefulactor
+│           └── HelloWorldActor.java
+├── HelloWorldActorTestClient
+│   ├── build.gradle
+│   ├── settings.gradle
+│   ├── src
+│   │   └── statefulactor
+│   │       └── test
+│   │           └── HelloWorldActorTestClient.java
+│   └── testclient.sh
+├── install.sh
+├── settings.gradle
+└── uninstall.sh
+
+```
 
 ## Reliable Actors basic building blocks
 
-A typical Reliable Actors solution is composed of three projects:
+A typical Reliable Actors application is composed of several parts.
 
-* **The application project (MyActorApplication)**. This is the project that packages all of the services together for deployment. It contains the *ApplicationManifest.xml* and PowerShell scripts for managing the application.
+### Actor interface
 
-* **The interface project (MyActor.Interfaces)**. This is the project that contains the interface definition for the actor. In the MyActor.Interfaces project, you can define the interfaces that will be used by the actors in the solution. Your actor interfaces can be defined in any project with any name, however the interface defines the actor contract that is shared by the actor implementation and the clients calling the actor, so it typically makes sense to define it in an assembly that is separate from the actor implementation and can be shared by multiple other projects.
+This contains the interface definition for the actor. This interface defines the actor contract that is shared by the actor implementation and the clients calling the actor, so it typically makes sense to define it in a place that is separate from the actor implementation and can be shared by multiple other services or client applications.
 
-```csharp
-public interface IMyActor : IActor
-{
-    Task<string> HelloWorld();
+`HelloWorldActorInterface/src/statefulactor/HelloWorldActor.java`:
+```java
+public interface HelloWorldActor extends Actor {
+    @Readonly   
+    CompletableFuture<Integer> getCountAsync();
+
+    CompletableFuture<?> setCountAsync(int count);
 }
 ```
 
-* **The actor service project (MyActor)**. This is the project used to define the Service Fabric service that is going to host the actor. It contains the implementation of the actor. An actor implementation is a class that derives from the base type `Actor` and implements the interface(s) that are defined in the MyActor.Interfaces project.
+### Actor service 
+This contains your actor implementation and actor registration code. The actor class implements the actor interface. This is where your actor does its work.
 
-```csharp
-[StatePersistence(StatePersistence.Persisted)]
-internal class MyActor : Actor, IMyActor
-{
-    public Task<string> HelloWorld()
-    {
-        return Task.FromResult("Hello world!");
+`HelloWorldActor/src/statefulactor/HelloWorldActorImpl`:
+```java
+@ActorServiceAttribute(name = "HelloWorldActor.HelloWorldActorService")
+@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
+public class HelloWorldActorImpl extends ActorWithState implements HelloWorldActor {
+    Logger logger = Logger.getLogger(this.getClass().getName());
+
+    protected CompletableFuture<?> onActivateAsync() {
+        logger.log(Level.INFO, "onActivateAsync");
+
+        return this.stateManager().tryAddStateAsync("count", 0);
+    }
+
+    @Override
+    public CompletableFuture<Integer> getCountAsync() {
+        logger.log(Level.INFO, "Getting current count value");
+        return this.stateManager().getStateAsync("count");
+    }
+
+    @Override
+    public CompletableFuture<?> setCountAsync(int count) {
+        logger.log(Level.INFO, "Setting current count value {0}", count);
+        return this.stateManager().addOrUpdateStateAsync("count", count, (key, value) -> count > value ? count : value);
     }
 }
 ```
 
 The actor service must be registered with a service type in the Service Fabric runtime. In order for the Actor Service to run your actor instances, your actor type must also be registered with the Actor Service. The `ActorRuntime` registration method performs this work for actors.
 
-```csharp
-internal static class Program
-{
-    private static void Main()
-    {
-        try
-        {
-            ActorRuntime.RegisterActorAsync<MyActor>(
-                (context, actorType) => new ActorService(context, actorType, () => new MyActor())).GetAwaiter().GetResult();
+`HelloWorldActor/src/statefulactor/HelloWorldActorService`:
+```java
+public class HelloWorldActorService {
+	
+    public static void main(String[] args) throws Exception {
+		
+        try {
+            ActorRuntime.registerActorAsync(HelloWorldActorImpl.class, 
+                (context, actorType) -> new ActorServiceImpl(context, actorType, ()-> new HelloWorldActorImpl()), 
+                Duration.ofMinutes
 
-            Thread.Sleep(Timeout.Infinite);
-        }
-        catch (Exception e)
-        {
-            ActorEventSource.Current.ActorHostInitializationFailed(e.ToString());
-            throw;
+            Thread.sleep(Long.MAX_VALUE);
+			
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
         }
     }
 }
-
 ```
 
-If you start from a new project in Visual Studio and you have only one actor definition, the registration is included by default in the code that Visual Studio generates. If you define other actors in the service, you need to add the actor registration by using:
+### The application 
 
-```csharp
- ActorRuntime.RegisterActorAsync<MyOtherActor>();
+This represents the application that packages all of the services together for deployment. It contains the *ApplicationManifest.xml* and place holders for the actor service package.
 
-```
-
-> [AZURE.TIP] The Service Fabric Actors runtime emits some [events and performance counters related to actor methods](service-fabric-reliable-actors-diagnostics.md#actor-method-events-and-performance-counters). They are useful in diagnostics and performance monitoring.
-
+### Test client
+ 
+This is a simple test client application you can run separately from the Service Fabric application to test your actor service. It does not get deployed with your service.
 
 ## Debugging
 
