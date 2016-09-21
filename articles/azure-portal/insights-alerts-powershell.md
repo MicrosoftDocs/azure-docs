@@ -36,7 +36,7 @@ You can configure an alert do the following when it triggers:
 - send email notifications to the service administrator and co-administrators
 - send email to additional emails that you specify.
 - call a webhook
-- start execution of an Azure runbook (only from the Azure portal at this time) 
+- start execution of an Azure runbook (only from the Azure portal) 
 
 You can configure and get information about alert rules using 
 - [Azure portal](insights-alerts-portal.md)
@@ -47,7 +47,7 @@ You can configure and get information about alert rules using
 
 For additional information, you can always type ```get-help``` and then the PowerShell command you want help on. 
 
-## Create a alert rules in PowerShell
+## Create alert rules in PowerShell
 
 1. Log in to Azure.   
 2. 
@@ -61,7 +61,7 @@ For additional information, you can always type ```get-help``` and then the Powe
 	Get-AzureRmContext
 	Set-AzureRmContext -SubscriptionId <subscriptionid>
 	```
-3.  To list existing rules on a resource group, use the following command
+3.  To list existing rules on a resource group, use the following command:
 
 	```
     Get-AzureRmAlertRule -ResourceGroup <myresourcegroup> -DetailedOutput
