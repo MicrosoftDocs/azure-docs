@@ -27,7 +27,7 @@ The following features are available in the Azure AD Domain Services preview rel
 
 - **One domain instance per Azure AD directory:** You can create a single Active Directory domain for each Azure AD directory.
 
-- **Create domains with custom names:** You can create domains with custom names (for example, 'contoso100.com') using Azure AD Domain Services. This includes both verified as well as unverified domain names. Optionally, you can also create a domain with the built-in domain suffix (that is, *.onmicrosoft.com) that is offered by your Azure AD directory.
+- **Create domains with custom names:** You can create domains with custom names (for example, 'contoso100.com') using Azure AD Domain Services. You can use either verified or unverified domain names. Optionally, you can also create a domain with the built-in domain suffix (that is, *.onmicrosoft.com) that is offered by your Azure AD directory.
 
 - **Integrated with Azure AD:** You do not need to configure or manage replication to Azure AD Domain Services. User accounts, group memberships, and user credentials (passwords) from your Azure AD directory are automatically available in Azure AD Domain Services. New users, groups, or changes to attributes from your Azure AD tenant or your on-premises directory are automatically synchronized to Azure AD Domain Services.
 

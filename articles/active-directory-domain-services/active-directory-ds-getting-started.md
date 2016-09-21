@@ -23,11 +23,11 @@ This article walks through the configuration tasks required to enable Azure AD D
 ## Task 1: Create the 'AAD DC Administrators' group
 The first task is to create an administrative group in your Azure Active Directory tenant. This special administrative group is called **AAD DC Administrators**. Members of this group are granted administrative privileges on machines that are domain-joined to the Azure AD Domain Services managed domain. On domain-joined machines, this group is added to the ‘Administrators’ group. Additionally, members of this group can use Remote Desktop to connect remotely to domain-joined machines.  
 
-> [AZURE.NOTE] You do not have Domain Administrator or Enterprise Administrator privileges on the managed domain created using Azure AD Domain Services. On managed domains, these privileges are reserved by the service and are not made available to users within the tenant. However, you will be able to use the special administrator group created in this configuration task, to perform some privileged operations. These operations include joining computers to the domain, belonging to the Administrators group on domain-joined machines, configuring Group Policy etc.
+> [AZURE.NOTE] You do not have Domain Administrator or Enterprise Administrator privileges on the managed domain created using Azure AD Domain Services. On managed domains, these privileges are reserved by the service and are not made available to users within the tenant. However, you can use the special administrator group created in this configuration task, to perform some privileged operations. These operations include joining computers to the domain, belonging to the Administrators group on domain-joined machines, configuring Group Policy etc.
 
 In this configuration task, you create the administrative group and add one or more users in your directory to the group. Perform the following steps to create the administrative group for Azure AD Domain Services:
 
-1. Navigate to the **Azure classic portal** ( [https://manage.windowsazure.com](https://manage.windowsazure.com))
+1. Navigate to the **Azure classic portal** ([https://manage.windowsazure.com](https://manage.windowsazure.com))
 
 2. Select the **Active Directory** node on the left pane.
 
@@ -41,7 +41,7 @@ In this configuration task, you create the administrative group and add one or m
 
 6. Create a group named **AAD DC Administrators**.
 
-    > [AZURE.WARNING] You must create a group with this exact name to enable access within Azure AD Domain Services.
+    > [AZURE.WARNING] Create a group with this exact name to enable access within Azure AD Domain Services.
 
 	![Create administrator group](./media/active-directory-domain-services-getting-started/create-admin-group.png)
 

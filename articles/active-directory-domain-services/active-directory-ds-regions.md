@@ -18,4 +18,4 @@
 
 # Azure AD Domain Services - Supported regions
 
-To learn where Azure AD Domain Services are available, please see [Azure Services by region](https://azure.microsoft.com/regions/#services/).
+To learn where Azure AD Domain Services is available, see [Azure Services by region](https://azure.microsoft.com/regions/#services/).

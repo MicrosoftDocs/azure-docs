@@ -89,4 +89,4 @@ Azure RemoteApp enables Contoso's administrator to create a domain-joined collec
 
 ![Azure RemoteApp](./media/active-directory-domain-services-scenarios/azure-remoteapp.png)
 
-For more information about this deployment scenario, refer to the Remote Desktop Services Blog article titled [Lift-and-shift your workloads with Azure RemoteApp and Azure AD Domain Services](http://blogs.msdn.com/b/rds/archive/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services.aspx).
+For more information about this deployment scenario, see the Remote Desktop Services Blog article titled [Lift-and-shift your workloads with Azure RemoteApp and Azure AD Domain Services](http://blogs.msdn.com/b/rds/archive/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services.aspx).
