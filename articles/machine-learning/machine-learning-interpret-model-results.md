@@ -59,9 +59,9 @@ An example of a two-class classification problem is the classification of iris f
 
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/1.png)
 
-Figure 1. Experiment of iris two-class classification problem
+Figure 1. Iris two-class classification problem experiment
 
-An experiment has been performed to solve this problem, as shown in Figure 1. A two-class boosted decision tree model has been trained and scored. Now you can visualize the prediction results from the [Score Model][score-model] module by clicking the output port of the [Score Model][score-model] module and then clicking **Visualize** in the menu that appears.
+An experiment has been performed to solve this problem, as shown in Figure 1. A two-class boosted decision tree model has been trained and scored. Now you can visualize the prediction results from the [Score Model][score-model] module by clicking the output port of the [Score Model][score-model] module and then clicking **Visualize** on the menu that appears.
 
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/1_1.png)
 
@@ -77,19 +77,19 @@ There are six columns in the results table. The left four columns are the four f
 
 **Web service publication**
 
-Once the prediction results have been understood and judged sound, the experiment can be published as a web service so that you can deploy it in various applications and call it to obtain class predictions on any new iris flower. To learn how to change a training experiment into a scoring experiment and publish it as a web service, see [Publish the Azure Machine Learning web service](machine-learning-walkthrough-5-publish-web-service.md). Following this procedure provides you with a scoring experiment as shown in Figure 3.
+Once the prediction results have been understood and judged sound, the experiment can be published as a web service so that you can deploy it in various applications and call it to obtain class predictions on any new iris flower. To learn how to change a training experiment into a scoring experiment and publish it as a web service, see [Publish the Azure Machine Learning web service](machine-learning-walkthrough-5-publish-web-service.md). This procedure provides you with a scoring experiment as shown in Figure 3.
 
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/3.png)
 
-Figure 3. Scoring experiment of iris two-class classification problem
+Figure 3. Scoring the iris two-class classification problem experiment
 
-Now you need to set the input and output for the web service. The input is the right input port of [Score Model][score-model], which is the Iris flower features input. The choice of the output depends on whether you are interested in the predicted class (scored label), the scored probability, or both. In this example, it is assumed that you are interested in both. To select the desired output columns, use a [Select Columns in Data set][select-columns] module. Click the [Select Columns in Data set][select-columns] module, click **Launch column selector**, and select **Scored Labels** and **Scored Probabilities**. After setting the output port of [Select Columns in Data set][select-columns] module and running it again, you should be ready to publish the scoring experiment as a web service by clicking **PUBLISH WEB SERVICE**. The final experiment looks like Figure 4.
+Now you need to set the input and output for the web service. The input is the right input port of [Score Model][score-model], which is the Iris flower features input. The choice of the output depends on whether you are interested in the predicted class (scored label), the scored probability, or both. In this example, it is assumed that you are interested in both. To select the desired output columns, use a [Select Columns in Data set][select-columns] module. Click [Select Columns in Data set][select-columns], click **Launch column selector**, and select **Scored Labels** and **Scored Probabilities**. After setting the output port of [Select Columns in Data set][select-columns] and running it again, you should be ready to publish the scoring experiment as a web service by clicking **PUBLISH WEB SERVICE**. The final experiment looks like Figure 4.
 
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/4.png)
 
 Figure 4. Final scoring experiment of an iris two-class classification problem
 
-After running the web service, and entering some feature values of a test instance, the result returns two numbers. The first number is the scored label, the second is the scored probability. This flower is predicted as Class 1 with 0.9655 probability.
+After running the web service and entering some feature values of a test instance, the result returns two numbers. The first number is the scored label, the second is the scored probability. This flower is predicted as Class 1 with 0.9655 probability.
 
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/4_1.png)
 
@@ -100,21 +100,21 @@ Figure 5. Web service result of iris two-class classification
 ### Multi-class classification
 **Example experiment**
 
-In this experiment, we perform a letter-recognition task as an example of multiclass classification. The classifier attempts to predict a certain letter (class) based on some hand-written attribute values extracted from the hand-written images.
+In this experiment, you perform a letter-recognition task as an example of multiclass classification. The classifier attempts to predict a certain letter (class) based on some hand-written attribute values extracted from the hand-written images.
 
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/5_1.png)
 
-In the training data, there are 16 features extracted from hand-written letter images. The 26 letters form our 26 classes. An experiment has been set up to train a multiclass classification model for letter recognition and predict on the same feature set on a test data set, as shown in Figure 6.
+In the training data, there are 16 features extracted from hand-written letter images. The 26 letters form our 26 classes. Figure 6 shows an experiment that will train a multiclass classification model for letter recognition and predict on the same feature set on a test data set.
 
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/6.png)
 
-Figure 6. Experiment of letter recognition multiclass classification problem
+Figure 6. Letter recognition multiclass classification problem experiment
 
 Visualizing the results from the [Score Model][score-model] module by clicking the output port of [Score Model][score-model] module and then clicking **Visualize**, you should see content as shown in Figure 7.
 
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/7.png)
 
-Figure 7. Visualize score model results in multi-class classification
+Figure 7. Visualize score model results in a multi-class classification
 
 **Result interpretation**
 
@@ -130,7 +130,7 @@ Figure 8. R code for extracting Scored Labels and the associated probabilities o
 
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/9.png)
 
-Figure 9. Final scoring experiment of the letter recognition multiclass classification problem
+Figure 9. Final scoring experiment of the letter-recognition multiclass classification problem
 
 After publishing and running the web service and entering some input feature values, the returned result looks like Figure 10. This hand-written letter, with its extracted 16 features, is predicted to be a “T” with 0.9715 probability.
 
@@ -138,7 +138,7 @@ After publishing and running the web service and entering some input feature val
 
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/10.png)
 
-Figure 10. Web service result of iris two-class classification
+Figure 10. Web service result of multiclass classification
 
 ## Regression
 
@@ -150,7 +150,7 @@ Use automobile price prediction as your example for regression. You are trying t
 
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/11.png)
 
-Figure 11. Experiment of automobile price regression problem
+Figure 11. Automobile price regression problem experiment
 
 Visualizing the [Score Model][score-model] module, the result looks like Figure 12.
 
@@ -160,7 +160,7 @@ Figure 12. Scoring result for the automobile price prediction problem
 
 **Result interpretation**
 
-In this scoring result, Scored Labels is the result column. The numbers are the predicted price for each car.
+Scored Labels is the result column in this scoring result. The numbers are the predicted price for each car.
 
 **Web service publication**
 
@@ -186,11 +186,11 @@ Let’s use the Iris data set again to build a clustering experiment. Here you c
 
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/15.png)
 
-Figure 15. Experiment of iris clustering problem
+Figure 15. Iris clustering problem experiment
 
-Clustering differs from classification in that the training data set doesn’t have ground-truth labels by itself. Clustering groups the training data set instances into distinct clusters. During the training process, the model labels the entries by learning the differences between their features. After that, the trained model can be further used to classify future entries. There are two parts of the result we are interested in within a clustering problem. The first part is labeling the training data set, and the second is classifying a new data set with the trained model.
+Clustering differs from classification in that the training data set doesn’t have ground-truth labels by itself. Clustering groups the training data set instances into distinct clusters. During the training process, the model labels the entries by learning the differences between their features. After that, the trained model can be used to further classify future entries. There are two parts of the result we are interested in within a clustering problem. The first part is labeling the training data set, and the second is classifying a new data set with the trained model.
 
-The first part of the result can be visualized by clicking the left output port of [Train Clustering Model][train-clustering-model] module and clicking **Visualize** afterwards. The visualization is shown in Figure 16.
+The first part of the result can be visualized by clicking the left output port of [Train Clustering Model][train-clustering-model] and then clicking **Visualize**. The visualization is shown in Figure 16.
 
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/16.png)
 
@@ -204,7 +204,7 @@ Figure 17. Visualize clustering result on a new data set
 
 **Result interpretation**
 
-Although the results of the two parts stem from different experiment stages, they look the same and are interpreted in the same way. The first four columns are features. The last column, Assignments, is the prediction result. The entries assigned the same number are predicted to be in the same cluster, that is, they share similarities in some way (this experiment uses the default Euclidean distance metric). Because you specified the number of clusters to be 2, the entries in Assignments column are labeled either 0 or 1.
+Although the results of the two parts stem from different experiment stages, they look the same and are interpreted in the same way. The first four columns are features. The last column, Assignments, is the prediction result. The entries assigned the same number are predicted to be in the same cluster, that is, they share similarities in some way (this experiment uses the default Euclidean distance metric). Because you specified the number of clusters to be 2, the entries in Assignments are labeled either 0 or 1.
 
 **Web service publication**
 
@@ -238,9 +238,11 @@ There are several things we can do with Azure Machine Learning’s built-in [Tra
 - Find users related to a given user
 - Find items related to a given item
 
-You can choose what you want to do by selecting from the four options in the **Recommender prediction kind** menu. Here you can walk through all four scenarios. A typical Azure Machine Learning experiment for a recommender system looks like Figure 20. For information about how to use those recommender system modules, see [Train matchbox recommender][train-matchbox-recommender] and [Score matchbox recommender][score-matchbox-recommender].
+You can choose what you want to do by selecting from the four options in the **Recommender prediction kind** menu. Here you can walk through all four scenarios.
 
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/19_1.png)
+
+A typical Azure Machine Learning experiment for a recommender system looks like Figure 20. For information about how to use those recommender system modules, see [Train matchbox recommender][train-matchbox-recommender] and [Score matchbox recommender][score-matchbox-recommender].
 
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/20.png)
 
@@ -250,7 +252,7 @@ Figure 20. Recommender system experiment
 
 *Predict ratings for a given user and item*
 
-By selecting Rating Prediction under **Recommender prediction kind**, we ask the recommender system to predict the rating for a given user and item. The visualization of the [Score Matchbox Recommender][score-matchbox-recommender] output looks like Figure 21.
+By selecting **Rating Prediction** under **Recommender prediction kind**, you are asking the recommender system to predict the rating for a given user and item. The visualization of the [Score Matchbox Recommender][score-matchbox-recommender] output looks like Figure 21.
 
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/21.png)
 
@@ -268,15 +270,15 @@ Figure 22. Visualize score result of the recommender system--item recommendation
 
 The first of the six columns represents the given user IDs to recommend items for, as provided by the input data. The other five columns represent the items recommended to the user in descending order of relevance. For example, in the first row, the most recommended restaurant for customer U1048 is 134986, followed by 135018, 134975, 135021, and 132862.
 
-*Find users related to a given user*
+**Find users related to a given user**
 
-By selecting **Related Users** under **Recommender prediction kind**, we ask the recommender system to find related users to a given user. Related users are the users who have similar preferences. The last parameter to choose in this scenario is *Related user selection*. The option **From Users That Rated Items (for model evaluation)** is primarily for model evaluation during the training process. Choose **From All Users** for this prediction stage. The visualization of the [Score Matchbox Recommender][score-matchbox-recommender] output looks like Figure 23.
+By selecting **Related Users** under **Recommender prediction kind**, you're asking the recommender system to find related users to a given user. Related users are the users who have similar preferences. The last parameter to choose in this scenario is *Related user selection*. The option **From Users That Rated Items (for model evaluation)** is primarily for model evaluation during the training process. Choose **From All Users** for this prediction stage. The visualization of the [Score Matchbox Recommender][score-matchbox-recommender] output looks like Figure 23.
 
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/23.png)
 
-Figure 23. Visualize score result of the recommender system--related users
+Figure 23. Visualize score results of the recommender system--related users
 
-The first of the six columns shows the given user IDs to find related users for, as provided by input data. The other five columns store the predicted related users of the user in descending order of relevance. For example, in the first row, the most relevant customer for customer U1048 is U1051, followed by U1066, U1044, U1017, and U1072.
+The first of the six columns shows the given user IDs needed to find related users, as provided by input data. The other five columns store the predicted related users of the user in descending order of relevance. For example, in the first row, the most relevant customer for customer U1048 is U1051, followed by U1066, U1044, U1017, and U1072.
 
 **Find items related to a given item**
 
@@ -284,13 +286,13 @@ By selecting **Related Items** under **Recommender prediction kind**, you are as
 
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/24.png)
 
-Figure 24. Visualize score result of the recommender system--related items
+Figure 24. Visualize score results of the recommender system--related items
 
-The first of the six columns represents the given item IDs to find related items for, as provided by the input data. The other five columns store the predicted related items of the item in descending order in terms of relevance. For example, in the first row, the most relevant item for item 135026 is 135074, followed by 135035, 132875, 135055, and 134992.
+The first of the six columns represents the given item IDs needed to find related items, as provided by the input data. The other five columns store the predicted related items of the item in descending order in terms of relevance. For example, in the first row, the most relevant item for item 135026 is 135074, followed by 135035, 132875, 135055, and 134992.
 
 **Web service publication**
 
-The process of publishing these experiments as web services to get predictions is similar for each of the four scenarios. Here we take the second scenario, recommend items to a given user, as an example. You can follow the same procedure with the other three.
+The process of publishing these experiments as web services to get predictions is similar for each of the four scenarios. Here we take the second scenario (recommend items to a given user) as an example. You can follow the same procedure with the other three.
 
 Saving the trained recommender system as a trained model and filtering the input data to a single user ID column as requested, you can hook up the experiment as in Figure 25 and publish it as a web service.
 
