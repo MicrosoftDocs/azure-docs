@@ -160,7 +160,7 @@ In this section, you create a Node.js console app that calls a method on the sim
     ```
     var connectionString = '{iothub connection string}';
 	var methodName = 'writeLine';
-	var deviceId = 'mydevice';
+	var deviceId = 'myDeviceId';
     ```
 
 6. Create the client to open the connection to your IoT hub.
@@ -172,7 +172,7 @@ In this section, you create a Node.js console app that calls a method on the sim
 7. Add the following function to invoke the device method and print the device response to the console:
 
 	```
-	client.invokeDeviceMethod( mydevice, methodName, payload, 30, function (err, result) {
+	client.invokeDeviceMethod( deviceId, methodName, payload, 30, function (err, result) {
 		if (err) {
 			console.error('Failed to invoke method \'' + methodName + '\': ' + err.message);
 		} else {
