@@ -72,7 +72,7 @@ You can configure and get information about alert rules using
 
 10. Select **OK** when done to create the alert.   
 
-Within a few minutes, the alert is active and trigger as previously described.
+Within a few minutes, the alert is active and triggers as previously described.
 
 ## Managing your alerts
 
