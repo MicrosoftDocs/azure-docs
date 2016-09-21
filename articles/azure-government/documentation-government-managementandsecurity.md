@@ -32,5 +32,30 @@ Key Vault is generally available in Azure Government. Just as in public, there i
 
 For additional information, please see the [Azure Key Vault public documentation](/key-vault-get-started).
 
+## Log Analytics
+
+Log Analytics is in preview in Azure Government. 
+
+### Differences from public Azure
+
+The following Log Analytics features and solutions are not currently available in Azure Government. This list will be updated when the status of features / solutions changes.
+
++ Near real-time metrics
+  - When viewing metric graphs with a time range of less than 6 hours, the graph will not automatically update with new metric values
++ Export of data to PowerBI
++ Network Monitoring solution
++ Office 365 solution
++ Windows 10 Upgrade Analytics solution
++ Application Dependency Monitoring
++ Update Assessment
++ Azure portal integration
+  - Selecting Azure storage accounts to monitor must be done through PowerShell or resource manager templates
+  - Selecting virtual machines to enable the Log Analytics agent must be done through PowerShell or resource manager templates
++ Linux monitoring
+
+For additional information, please see [Log Analytics public documentation](/log-analytics-overview.md).
+
+## Next Steps
+
 For supplemental information and updates please subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
