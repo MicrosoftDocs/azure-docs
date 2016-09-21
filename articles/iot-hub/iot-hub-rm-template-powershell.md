@@ -138,7 +138,6 @@ To learn more about developing for IoT Hub, see the following:
 
 To further explore the capabilities of IoT Hub, see:
 
-- [Exploring device management using the sample UI][lnk-dmui]
 - [Simulating a device with the Gateway SDK][lnk-gateway]
 
 <!-- Links -->
@@ -153,5 +152,4 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md

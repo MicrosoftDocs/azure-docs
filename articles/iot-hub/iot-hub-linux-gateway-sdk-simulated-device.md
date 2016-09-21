@@ -130,7 +130,6 @@ If you want to gain a more advanced understanding of the Gateway SDK and experim
 To further explore the capabilities of IoT Hub, see:
 
 - [Developer guide][lnk-devguide]
-- [Exploring device management using the sample UI][lnk-dmui]
 - [Secure your IoT solution from the ground up][lnk-securing]
 
 <!-- Links -->
@@ -144,5 +143,4 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-manage-devices]: iot-hub-gateway-sdk-device-management.md
 
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-securing]: iot-hub-security-ground-up.md

@@ -43,7 +43,6 @@ To learn more about planning your IoT Hub deployment, see [Scaling, HA and DR][l
 To further explore the capabilities of IoT Hub, see:
 
 - [Developer guide][lnk-devguide]
-- [Exploring device management using the sample UI][lnk-dmui]
 - [Simulating a device with the Gateway SDK][lnk-gateway]
 
 [Azure Event Hubs]: ../event-hubs/event-hubs-what-is-event-hubs.md
@@ -56,5 +55,4 @@ To further explore the capabilities of IoT Hub, see:
 
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
