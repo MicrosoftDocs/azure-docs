@@ -120,7 +120,7 @@ The following table summarizes the blob operations that accept conditional heade
 | Get Block List      | Yes                | No                                    |
 | Put Page            | Yes                | Yes                                   |
 | Get Page Ranges     | Yes                | Yes                                   |
-	Yes|	Yes
+
 
 (*) Lease Blob does not change the ETag on a blob.  
 
@@ -229,9 +229,11 @@ The following C# snippet shows a customer entity that was previously either crea
 
 To explicitly disable the concurrency check, you should set the **ETag** property of the **employee** object to “*” before you execute the replace operation.  
 
-customer.ETag = "*";  
+	customer.ETag = "*";  
 
-The following table summarizes how the table entity oper| Operation                | Returns ETag value | Requires If-Match request header |
+The following table summarizes how the table entity operations use ETag values:
+
+| Operation                | Returns ETag value | Requires If-Match request header |
 |:-------------------------|:-------------------|:---------------------------------|
 | Query Entities           | Yes                | No                               |
 | Insert Entity            | Yes                | No                               |
@@ -240,7 +242,7 @@ The following table summarizes how the table entity oper| Operation             
 | Delete Entity            | No                 | Yes                              |
 | Insert or Replace Entity | Yes                | No                               |
 | Insert or Merge Entity   | Yes                | No                               |
-rt or Merge Entity|	Yes|	No
+| Insert or Merge Entity   | Yes                | No                               |
 
 Note that the **Insert or Replace Entity** and **Insert or Merge Entity** operations do *not* perform any concurrency checks because they do not send an ETag value to the table service.  
 
