@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="azure-government"
-	ms.date="08/25/2016"
+	ms.date="09/22/2016"
 	ms.author="ryansoc"/>
 
 
@@ -52,6 +52,11 @@ The following Log Analytics features and solutions are not currently available i
   - Selecting Azure storage accounts to monitor must be done through PowerShell or Resource Manager templates
   - Selecting virtual machines to enable the Log Analytics agent must be done through PowerShell or Resource Manager templates
 + Linux monitoring
+
+### Frequently asked questions
+
++ Can I migrate data from Log Analytics in public Azure to Azure Government?
+  - No. It is not possible to move data or your workspace from public Azure to Azure Government.
 
 For additional information, see [Log Analytics public documentation](/log-analytics-overview.md).
 
