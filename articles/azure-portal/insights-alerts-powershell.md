@@ -39,6 +39,7 @@ You can configure an alert do the following when it triggers:
 - start execution of an Azure runbook (only from the Azure portal) 
 
 You can configure and get information about alert rules using 
+
 - [Azure portal](insights-alerts-portal.md)
 - [PowerShell](insights-alerts-powershell.md) 
 - [command-line interface (CLI)](insights-alerts-command-line-interface.md) 
@@ -50,7 +51,7 @@ For additional information, you can always type ```get-help``` and then the Powe
 ## Create alert rules in PowerShell
 
 1. Log in to Azure.   
-2. 
+ 
 	```
 	Login-AzureRmAccount
 	```
@@ -97,7 +98,7 @@ For additional information, you can always type ```get-help``` and then the Powe
 5. The following example sets up an alert on a web site resource. The alert triggers whenever it consistently receives any traffic for 5 minutes and again when it receives no traffic for 5 minutes.
 
     ```
-	Add-AzureRmMetricAlertRule -Name MyMetricRuleWithWebhookAndEmail -Location "East US" -ResourceGroup myresourcegroup -TargetResourceId /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename -MetricName "BytesReceived" -Operator GreaterThan -Threshold 2 -WindowSize 00:05:00 -TimeAggregationOperator Total -Description "alert on any website activity"
+	Add-AzureRmMetricAlertRule -Name myMetricRuleWithWebhookAndEmail -Location "East US" -ResourceGroup myresourcegroup -TargetResourceId /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename -MetricName "BytesReceived" -Operator GreaterThan -Threshold 2 -WindowSize 00:05:00 -TimeAggregationOperator Total -Description "alert on any website activity"
    
 	```
 
@@ -108,7 +109,7 @@ For additional information, you can always type ```get-help``` and then the Powe
     $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com
 	$actionWebhook = New-AzureRmAlertRuleWebhook -ServiceUri https://www.contoso.com?token=mytoken
 	
-	Add-AzureRmMetricAlertRule -Name MyMetricRuleWithWebhookAndEmail -Location "East US" -ResourceGroup myresourcegroup -TargetResourceId /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename -MetricName "BytesReceived" -Operator GreaterThan -Threshold 2 -WindowSize 00:05:00 -TimeAggregationOperator Total -Actions $actionEmail, $actionWebhook -Description "alert on any website activity"
+	Add-AzureRmMetricAlertRule -Name myMetricRuleWithWebhookAndEmail -Location "East US" -ResourceGroup myresourcegroup -TargetResourceId /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename -MetricName "BytesReceived" -Operator GreaterThan -Threshold 2 -WindowSize 00:05:00 -TimeAggregationOperator Total -Actions $actionEmail, $actionWebhook -Description "alert on any website activity"
 	```
 
 
@@ -126,8 +127,9 @@ For additional information, you can always type ```get-help``` and then the Powe
     You can use the PowerShell command [Get-AzureRmProviderOperation](https://msdn.microsoft.com/library/mt603720.aspx) to obtain a list of possible operationNames. Alternately, you can use the Azure portal to query the Activity log and find specific past operations that you want to create an alert for. The operations shown in the graphic log view of the friendly names. Look in the JSON for the entry and pull out the OperationName value.   
 
 8. Verify that your alerts have been created properly by looking at the individual rules.
+
 	```
-    Get-AzureRmAlertRule -Name MyMetricRuleWithWebhookAndEmail -ResourceGroup myresourcegroup -DetailedOutput
+    Get-AzureRmAlertRule -Name myMetricRuleWithWebhookAndEmail -ResourceGroup myresourcegroup -DetailedOutput
 
 	Get-AzureRmAlertRule -Name myLogAlertRule -ResourceGroup myresourcegroup -DetailedOutput
 	```
@@ -135,7 +137,7 @@ For additional information, you can always type ```get-help``` and then the Powe
 
 	```
     Remove-AzureRmAlertRule -ResourceGroup myresourcegroup -Name myrule
-	Remove-AzureRmAlertRule -ResourceGroup myresourcegroup -Name MyMetricRuleWithWebhookAndEmail
+	Remove-AzureRmAlertRule -ResourceGroup myresourcegroup -Name myMetricRuleWithWebhookAndEmail
 	Remove-AzureRmAlertRule -ResourceGroup myresourcegroup -Name myLogAlertRule
 	```
 

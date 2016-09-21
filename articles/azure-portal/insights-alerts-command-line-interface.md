@@ -39,6 +39,7 @@ You can configure an alert do the following when it triggers:
 - start execution of an Azure runbook (only from the Azure portal at this time) 
 
 You can configure and get information about alert rules using 
+
 - [Azure portal](insights-alerts-portal.md)
 - [PowerShell](insights-alerts-powershell.md) 
 - [command-line interface (CLI)](insights-alerts-command-line-interface.md) 
@@ -73,7 +74,7 @@ You can always receive help for commands by typing a command and putting -help a
 	- The **Resource ID** for the resource you want to set an alert for
 	- The **metric definitions** available for that resource
 	
-    One way to get the Resource ID is to use the Azure portal. Assuming the resource is already created, select it in the portal. Then in the next blade, select *Properties* under the *Settings* section. Another blade is shown.  and RESOURCE ID is shown there. Another way is to use the [Azure Resource Explorer](https://resources.azure.com/).
+    One way to get the Resource ID is to use the Azure portal. Assuming the resource is already created, select it in the portal. Then in the next blade, select *Properties* under the *Settings* section. The *RESOURCE ID* is a field in the next blade. Another way is to use the [Azure Resource Explorer](https://resources.azure.com/).
 
     An example resource id for a web app is 
   

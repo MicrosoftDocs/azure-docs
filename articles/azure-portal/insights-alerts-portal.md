@@ -39,6 +39,7 @@ You can configure an alert do the following when it triggers:
 - start execution of an Azure runbook (only from the Azure portal) 
 
 You can configure and get information about alert rules using 
+
 - [Azure portal](insights-alerts-portal.md)
 - [PowerShell](insights-alerts-powershell.md) 
 - [command-line interface (CLI)](insights-alerts-command-line-interface.md) 
