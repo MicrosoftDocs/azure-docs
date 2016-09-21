@@ -4,7 +4,7 @@
  services="iot-hub"
  documentationCenter=".net"
  authors="nberdy"
- manager="kevinmil"
+ manager="timlt"
  editor=""/>
 
 <tags
@@ -19,31 +19,35 @@
 # Invoke a direct method on a device
 
 ## Overview
-IoT Hub provides the ability to invoke methods on devices from the cloud. Methods represent a request-reply interaction with a device similar to an HTTP call in that they succeed or fail immediately (after a user-specified timeout) to let the user know the status of the call. This is useful for scenarios in which the course of immediate action is different depending on whether the device was able to respond, for example sending an SMS wake-up to a device if a device is offline (SMS being more expensive than a method call).
 
-You can think of a method as a remote procedure call directly to the device. Only methods which have been implemented on a device may be called from the cloud; if the cloud attempts to invoke a method on a device which does not have that method defined, the method call will fail.
+IoT Hub gives you ability to invoke methods on devices from the cloud. Methods represent a request-reply interaction with a device similar to an HTTP call in that they succeed or fail immediately (after a user-specified timeout) to let the user know the status of the call. This is useful for scenarios where the course of immediate action is different depending on whether the device was able to respond, such as sending an SMS wake-up to a device if a device is offline (SMS being more expensive than a method call).
+
+You can think of a method as a remote procedure call directly to the device. Only methods which have been implemented on a device may be called from the cloud. If the cloud attempts to invoke a method on a device which does not have that method defined, the method call fails.
 
 Each device method targets a single device. [Jobs][lnk-devguide-jobs] provide a way to invoke methods on multiple devices, and queue method invocation for disconnected devices.
 
-Anyone with "service connect" permissions on IoT Hub may invoke a method on a device.
+Anyone with **service connect** permissions on IoT Hub may invoke a method on a device.
 
 ### When to use
-Device methods are similar to [cloud-to-device messages][lnk-devguide-messages] in that both offer ways for the cloud back-end to pass information to a device, but they differ in fundamental ways. Conceptually, methods are synchronous and not durable, and cloud-to-device messages are asynchronous with up to 48 hours of durability.
 
-Methods follow a request-response pattern and are not durable. The lack of durability provides two immediate benefits for commanding devices:
-- **Immediate feedback on method execution** so there is no correlation needed for request/reply patterns, and
-- **Higher throughput**. Since IoT Hub is not providing any durability, the operations can be performed faster. IoT Hub allows more method calls per unit than cloud-to-device messages.
+Device methods are similar to [cloud-to-device messages][lnk-devguide-messages] in that both enable the cloud back-end to pass information to a device, but they differ in fundamental ways. Conceptually, methods are synchronous and not durable, while cloud-to-device messages are asynchronous with up to 48 hours of durability.
 
-Cloud-to-device messages are not necessarily commands to the device, but rather represent a cloud service passing some bit of information to the device for it to pick up at its own leisure, to which the device may or may not respond. Cloud-to-device messages have a longer timeout time (up to 48 hours) while methods expire much more quickly.
+Methods follow a request-response pattern and are not durable. The lack of durability provides two immediate benefits when you are commanding devices:
 
-We recommend using device methods for immediate command invocation on a device and jobs for scheduled invocation of a command on a device.
+- **Immediate feedback on method execution** means there is no correlation needed for request/reply patterns.
+- **Higher throughput** means the operations can be performed faster because IoT Hub is not providing any durability. IoT Hub allows more method calls per unit than cloud-to-device messages.
+
+Cloud-to-device messages are not necessarily commands to the device, but rather represent a cloud service passing some bit of information to the device for it to pick up at its leisure, and to which the device may or may not respond. Cloud-to-device messages have a longer timeout time (up to 48 hours) while methods expire much more quickly.
+
+Use device methods for immediate command invocation on a device and jobs for scheduled invocation of a command on a device.
 
 ## Method lifecycle
-Methods are implemented on the device and may need zero or more inputs required in the method payload to correctly instantiate the method. You invoke a direct method through a service-facing URI (`{iot hub}/twins/{device id}/methods/`). A device receives direct methods through a device-specific MQTT topic (`$iothub/methods/POST/{method name}/`).
+
+Methods are implemented on the device and may require zero or more inputs in the method payload to correctly instantiate. You invoke a direct method through a service-facing URI (`{iot hub}/twins/{device id}/methods/`). A device receives direct methods through a device-specific MQTT topic (`$iothub/methods/POST/{method name}/`).
 
 > [AZURE.NOTE] When you invoke a direct method on a device, property names and values can only contain US-ASCII printable alphanumeric, except any in the following set: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
 
-Methods are synchronous and either succeed or fail after the timeout period (default: 30 seconds, settable up to 3600 seconds). Methods are useful in "interactive" scenarios in which the user wants a device to act if and only if the device is online and receiving commands, such as turning on a light from a phone. In these scenarios the user wants to see an immediate success or failure so they can act accordingly sooner. The device may return some message body as a result of the method, but it isn't required for the method to do so. There is no guaranteed on ordering or any concurrency semantics on method calls.
+Methods are synchronous and either succeed or fail after the timeout period (default: 30 seconds, settable up to 3600 seconds). Methods are useful in interactive scenarios where you want a device to act if and only if the device is online and receiving commands, such as turning on a light from a phone. In these scenarios, you want to see an immediate success or failure so the cloud service can act on the result as soon as possible. The device may return some message body as a result of the method, but it isn't required for the method to do so. There is no guarantee on ordering or any concurrency semantics on method calls.
 
 Device method calls are HTTP-only from the cloud side, and MQTT-only from the device side.
 
@@ -59,19 +63,19 @@ Direct method invocations on a device are HTTP calls which comprise:
 - *Headers* which contain the authorization, request ID, content type, and content encoding
 - A transparent JSON *body* in the following format:
 
-	```
-	{
-		“methodName”: “reboot”,
-		“timeout”: 200,
-		“payload”: {
-			“input1”: “someInput”,
-			“input2”: “anotherInput”
-		}
-	}
-	```
+  ```
+  {
+    "methodName": "reboot",
+    "timeout": 200,
+    "payload": {
+      "input1": "someInput",
+      "input2": "anotherInput"
+    }
+  }
+  ```
 
-	Timeout is in seconds. If timeout is not set, it defaults to 30 seconds.
-	
+  Timeout is in seconds. If timeout is not set, it defaults to 30 seconds.
+  
 #### Response
 
 The back-end receives a response which comprises:
@@ -79,14 +83,14 @@ The back-end receives a response which comprises:
 - *Headers* which contain the etag, request ID, content type, and content encoding
 - A JSON *body* in the following format:
 
-	```
-	{
-		“status” : “OK”,
-		“body” : {...}
-	}
-	```
-	
-	 Both `status` and `body` are provided by the device an used to respond with the device's own status code and/or description.
+  ```
+  {
+    "status" : "OK",
+    "body" : {...}
+  }
+  ```
+  
+   Both `status` and `body` are provided by the device and used to respond with the device's own status code and/or description.
 
 ### Device-facing
 
@@ -98,8 +102,8 @@ The body which the device receives is in the following format:
 
 ```
 {
-	“input1”: “someInput”,
-	“input2”: “anotherInput”
+  "input1": "someInput",
+  "input2": "anotherInput"
 }
 ```
 
@@ -108,8 +112,8 @@ Method requests are QoS 0.
 #### Response
 
 The device sends responses to `$iothub/methods/res/{status}/?$rid={request id}`, where:
-	- The `status` property is the device-supplied status of method execution.
-	- The `$rid` property is the request ID from the method invocation received from IoT Hub.
+  - The `status` property is the device-supplied status of method execution.
+  - The `$rid` property is the request ID from the method invocation received from IoT Hub.
 The body is set by the device and can be any status.
 
 ### Additional reference material
