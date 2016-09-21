@@ -387,7 +387,6 @@ To further explore the capabilities of IoT Hub, see:
 
 - [Developer guide][lnk-devguide]
 - [Exploring device management using the sample UI][lnk-dm-sample-ui]
-- [Using the Azure Portal to manage IoT Hub][lnk-create-hub]
 
 
 
@@ -408,7 +407,7 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-inteledison-bsp]: http://www.intel.com/content/dam/support/us/en/documents/edison/sb/edisonbsp_ug_331188007.pdf
 [lnk-hackgnar]: http://www.hackgnar.com/2016/01/manually-building-yocto-images-for.html
 [lnk-shawnhymel]: http://shawnhymel.com/724/creating-a-custom-linux-kernel-for-the-edison-yocto-2-1/
-[lnk-create-hub]: iot-hub-manage-through-portal.md
+[lnk-create-hub]: iot-hub-create-through-portal.md
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-explorer-tools]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md
 [lnk-nodejs]: https://nodejs.org/

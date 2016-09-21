@@ -131,12 +131,11 @@ To further explore the capabilities of IoT Hub, see:
 
 - [Developer guide][lnk-devguide]
 - [Exploring device management using the sample UI][lnk-dmui]
-- [Using the Azure Portal to manage IoT Hub][lnk-portal]
 - [Secure your IoT solution from the ground up][lnk-securing]
 
 <!-- Links -->
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
-[lnk-create-hub]: iot-hub-manage-through-portal.md
+[lnk-create-hub]: iot-hub-create-through-portal.md
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-explorer-tools]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
@@ -146,5 +145,4 @@ To further explore the capabilities of IoT Hub, see:
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-dmui]: iot-hub-device-management-ui-sample.md
-[lnk-portal]: iot-hub-manage-through-portal.md
 [lnk-securing]: iot-hub-security-ground-up.md
