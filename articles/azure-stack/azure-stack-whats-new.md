@@ -32,7 +32,7 @@ This release provides new features for both tenants and administrators.
  - Premium Storage API account support.
  - Storage service support for common tools and SDKs, such as Azure CLI, PowerShell, .NET, Python, and Java SDK. 
  - [Storage Account Shared Access Signature](https://msdn.microsoft.com/en-us/library/azure/mt584140.aspx) enable granular delegation of access to your storage services without having to share your full account key.  
- - Storage services now use [Group Managed Service Accounts](https://technet.microsoft.com/en-us/library/hh831477(v=ws.11).aspx#BKMK_group_managed_sa) for strong security with low management overhead.
+ - Storage services now use [Group Managed Service Accounts](https://technet.microsoft.com/library/hh831477(v=ws.11).aspx#BKMK_group_managed_sa) for strong security with low management overhead.
  - You can reclaim unused tenant resources on-demand.
  - Deleted storage account retention length is configurable.
 

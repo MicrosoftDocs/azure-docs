@@ -22,7 +22,7 @@ The Azure Stack POC is a one-node deployment of Azure Stack Technical Preview 1.
 
 ![](media/azure-stack-architecture/image1.png)
 
-**MAS-ACS01** Virtual machine hosting Azure Consistent Storage services. These services run on the Service Fabric on a dedicated virtual machine.
+**MAS-ACS01** Virtual machine hosting Azure Stack storage services.
 
 **MAS-ADFS01** Virtual machine hosting Active Directory Federation Services.  This virtual machine is not used in Technical Preview 2.  
 

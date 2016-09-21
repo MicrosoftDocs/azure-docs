@@ -44,21 +44,17 @@ In the following steps, you configure Azure CLI to connect to Azure Stack. Then 
 
            azure account env add AzureStack --resource-manager-endpoint-url "https://api.azurestack.local" --management-endpoint-url "https://api.azurestack.local" --active-directory-endpoint-url  "https://login.windows.net" --portal-url "https://portal.azurestack.local" --gallery-endpoint-url "https://portal.azurestack.local" --active-directory-resource-id "https://azurestack.local-api/" --active-directory-graph-resource-id "https://graph.windows.net/"
 
-3.  Use the following command to add the Azure Stack environment:
-
-		azure account env add AzureStack --resource-manager-endpoint-url "https://api.azurestack.local" --management-endpoint-url "https://api.azurestack.local" --active-directory-endpoint-url  "https://login.windows.net" --portal-url "https://portal.azurestack.local" --gallery-endpoint-url "https://portal.azurestack.local" --active-directory-resource-id "https://azurestack.local-api/" --active-directory-graph-resource-id "https://graph.windows.net/"
-
-4.  Sign in by using the following command (replace *username* with your user name):
+3.  Sign in by using the following command (replace *username* with your user name):
 
 		azure login -e AzureStack -u “<username>”
 
 	>[AZURE.NOTE]If you're getting certificate validation issues, disable certificate validation by running the command `set 		NODE_TLS_REJECT_UNAUTHORIZED=0`.
 
-5.  Set the Azure configuration mode to Azure Resource Manager by using the following command:
+4.  Set the Azure configuration mode to Azure Resource Manager by using the following command:
 
         azure config mode arm
 
-6.  Retrieve a list of subscriptions.
+5.  Retrieve a list of subscriptions.
 
         azure account list     
 

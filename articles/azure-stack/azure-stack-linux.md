@@ -4,7 +4,7 @@
 	services="azure-stack"
 	documentationCenter=""
 	authors="anjayajodha"
-	manager="ddarmour"
+	manager="daarmour"
 	editor=""/>
 
 <tags
