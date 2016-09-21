@@ -65,7 +65,7 @@ You can resize a gateway SKU. The following PowerShell example shows a gateway S
 	$gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 	Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
 
-
+<br>
 The following table shows the gateway types and the estimated aggregate throughput. This table applies to both the Resource Manager and classic deployment models.
 
 [AZURE.INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)] 

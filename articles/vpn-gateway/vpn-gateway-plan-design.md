@@ -52,10 +52,7 @@ For more information about gateway SKUs, see [VPN Gateway settings](vpn-gateway-
 
 [AZURE.INCLUDE [vpn-gateway-table-requirements](../../includes/vpn-gateway-table-requirements-include.md)] 
 
-
-
-### <a name="aggthroughput"></a>Gateway types and aggregate throughput estimates
-
+<br>
 The following table shows the gateway types and the estimated aggregate throughput. The estimated aggregate throughput may be a deciding factor for your design.
 Pricing does differ between gateway SKUs. For information about pricing, see [VPN Gateway Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/). This table applies to both the Resource Manager and classic deployment models.
 
