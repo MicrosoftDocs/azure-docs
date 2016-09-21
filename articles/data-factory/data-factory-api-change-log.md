@@ -13,14 +13,29 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/20/2016" 
+	ms.date="09/21/2016" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory - .NET API change log 
 This article provides information about changes to Azure Data Factory SDK in a specific version. You can find the latest Nuget package for Azure Data Factory [here](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories) 
 
+## Version 4.11.0
+Release date: 2016.09.21
+
+Feature Additions:
+
+- The following linked service types have been added:
+	- [OnPremisesMongoDbLinkedService](https://msdn.microsoft.com/library/mt765129.aspx)
+	- [AmazonRedshiftLinkedService](https://msdn.microsoft.com/library/mt765121.aspx)
+	- [AwsAccessKeyLinkedService](https://msdn.microsoft.com/library/mt765144.aspx)
+- The following dataset types have been added: 
+	- [MongoDbCollectionDataset](https://msdn.microsoft.com/library/mt765145.aspx)
+	- [AmazonS3Dataset](https://msdn.microsoft.com/library/mt765112.aspx)
+- The following copy source types have been added:
+	- [MongoDbSource](https://msdn.microsoft.com/en-US/library/mt765123.aspx)
+
 ## Version 4.10.0
-Release date: 2016.09.09 
+Release date: 2016.09.12 
 
 - The following optional properties have been added to TextFormat:
 	- [SkipLineCount](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.skiplinecount.aspx)
