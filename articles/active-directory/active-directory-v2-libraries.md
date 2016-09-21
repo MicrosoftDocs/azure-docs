@@ -61,11 +61,23 @@ For a list of libraries that work with the v2.0 endpoint, see the following sect
 ## v2.0 Compatible Client Libraries
 | Platform| Name | Tested Version | Repository | Sample |
 | :-: | :-: | :-: | :-: | :-: |
-|   |   |   |   |   |
+| Android | [OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib/wiki) | 0.2.1 | [OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib) | [Native app sample](active-directory-v2-devquickstarts-android.md) |
+| iOS | [NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) | 1.2.8 | [NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) | [Native app sample](active-directory-v2-devquickstarts-ios.md)|
+| JavaScript | [Hello.js](https://adodson.com/hello.js/) | 1.13.5 | [Hello.js](https://github.com/MrSwitch/hello.js) | Coming soon |
+| Node.js | [Azure AD Passport.js Plug-In](https://github.com/AzureAD/passport-azure-ad) | 2.0.3 | [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad) | [Web app sample](active-directory-v2-devquickstarts-node-web.md) |
+| Python-Flask | [Flask-OAuthlib](https://github.com/lepture/flask-oauthlib) | 0.9.3 | [Flask-OAuthlib](https://github.com/lepture/flask-oauthlib) | Coming soon |
+| Ruby | [OmniAuth](https://github.com/omniauth/omniauth/wiki)</br>[Omniauth::MicrosoftV2Auth](https://github.com/microsoftgraph/ruby-connect-rest-sample/tree/master/omniauth-microsoft_v2_auth) | omniauth:1.3.1</br>omniauth-oauth2:1.4.0</br>microsoft_strategy:0.1.0 | [OmniAuth](https://github.com/omniauth/omniauth)</br>[Omniauth::MicrosoftV2Auth](https://github.com/microsoftgraph/ruby-connect-rest-sample/tree/master/omniauth-microsoft_v2_auth) | Coming soon |
+|  |  |  |  |  |
+| Android | [OAuth2 Client](https://github.com/wuman/android-oauth-client) |   | [OAuth2 Client](https://github.com/wuman/android-oauth-client)  | Coming soon  |
+| Java | [WSO2 Identity Server](https://docs.wso2.com/display/IS500/Introducing+the+Identity+Server) | [Version 5.2.0](http://wso2.com/products/identity-server/) | [Source](https://docs.wso2.com/display/IS500/Building+from+Source) | [Samples index](https://docs.wso2.com/display/IS500/Samples)  |
+| Java | [Java Gluu Server](https://gluu.org/docs/) |   | [oxAuth](https://github.com/GluuFederation/oxAuth)  | Coming soon |
+| Node.js | [NPM passport-openidconnect](https://www.npmjs.com/package/passport-openidconnect) | 0.0.1  | [Passport-OpenID Connect](https://github.com/jaredhanson/passport-openidconnect) | Coming soon  |
+| PHP | [OpenID Connect Basic Client](https://github.com/jumbojett/OpenID-Connect-PHP) |   | [OpenID Connect Basic Client](https://github.com/jumbojett/OpenID-Connect-PHP)  | Coming soon  |
 
 
-## v2.0 Compatible Server Middleware Libraries (coming soon)
 
+## v2.0 Compatible Server Middleware Libraries 
+Coming soon
 
 
 ## Related content
