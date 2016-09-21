@@ -19,7 +19,7 @@
 
 # Create a VM from a specialized VHD
 
-Specialized
+Create a new VM from a specialized VHD.
 
 
 
@@ -37,6 +37,7 @@ To use this quick start template, you need to provice the following information:
 
 ## Create variables
 
+```powershell
 $sourceRG = "<sourceResourceGroupName>"
 $destinationRG = "<destinationResourceGroupName>"
 
@@ -50,6 +51,7 @@ $vNet = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsof
 $nic = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Network/networkInterfaces" -ResourceName "<nicName>"
 $ip = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Network/publicIPAddresses" -ResourceName "<ipName>"
 $nsg = Get-AzureRmResource -ResourceGroupName $sourceRG -ResourceType "Microsoft.Network/networkSecurityGroups" -ResourceName "<nsgName>"
+```
 
 
 
@@ -60,6 +62,7 @@ By using the VHD copied in the preceding steps, you can now use Azure PowerShell
 
 Set up a virtual network and NIC for your new VM, similar to following script. Use values for the variables (represented by the **$** sign) as appropriate to your application.
 
+```powershell
 	$pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName -Location $location -AllocationMethod Dynamic
 
 	$subnetconfig = New-AzureRmVirtualNetworkSubnetConfig -Name $subnet1Name -AddressPrefix $vnetSubnetAddressPrefix
@@ -67,11 +70,12 @@ Set up a virtual network and NIC for your new VM, similar to following script. U
 	$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location -AddressPrefix $vnetAddressPrefix -Subnet $subnetconfig
 
 	$nic = New-AzureRmNetworkInterface -Name $nicname -ResourceGroupName $rgName -Location $location -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
-
+```
 
 Now set up the VM configurations, create a new VM and attach the copied VHD as the OS VHD.
-</br>
 
+
+```powershell
 	#Set the VM name and size
 	$vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A2"
 
@@ -85,11 +89,14 @@ Now set up the VM configurations, create a new VM and attach the copied VHD as t
 	#Add data disks by using the URLs of the copied data VHDs at the appropriate Logical Unit Number (Lun)
 	$dataDiskName = $vmName + "dataDisk"
 	$vm = Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -VhdUri $dataDiskUri -Lun 0 -CreateOption attach
+```
 
 The data and operating system disk URLs look something like this: `https://StorageAccountName.blob.core.windows.net/BlobContainerName/DiskName.vhd`. You can find this on the portal by browsing to the target storage container, clicking the operating system or data VHD that was copied, and then copying the contents of the URL.
 
+```powershell
 	#Create the new VM
 	New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vm
+```
 
 If this command was successful, you'll see output like this:
 
@@ -100,9 +107,12 @@ If this command was successful, you'll see output like this:
 
 You should see the newly created VM either in the [Azure portal](https://portal.azure.com), under **Browse** > **Virtual machines**, or by using the following PowerShell commands:
 
+```powershell
 	$vmList = Get-AzureRmVM -ResourceGroupName $rgName
 	$vmList.Name
+```
 
+## Next steps
 To sign in to your new virtual machine, browse to the VM in the [portal](https://portal.azure.com), click **Connect**, and open the Remote Desktop RDP file. Use the account credentials of your original virtual machine to sign in to your new virtual machine.
 
 

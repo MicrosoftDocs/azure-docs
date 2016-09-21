@@ -50,7 +50,7 @@ The following PowerShell script shows how to set up the virtual machine configur
 	# Name of the virtual machine
 	$vmName = "<vmName>"
 	
-	# Size of the virtual machine. See the VM sizes documentation for more information: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/
+	# Size of the virtual machine. 
     # Use "Get-Help New-AzureRmVMConfig" to know the available options for -VMsize
 	$vmSize = "<vmSize>"
 	

@@ -26,7 +26,7 @@ Once the VHD has been generalized, you can use that VHD image to create a new VM
 ## Create a virtual network
 
 Create the vNet and subNet of the [virtual network](../virtual-network/virtual-networks-overview.md).
-		
+
 
 1. Replace the value of variables with your own information. Provide the address prefix for the subnet in CIDR format. Create the variables and the subnet.
 
