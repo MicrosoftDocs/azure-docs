@@ -351,7 +351,7 @@ responses to be returned as JSON objects of the form:
 
 The `AppServiceLoginHandler.CreateToken()` method includes an _audience_ and an _issuer_ parameter. Both of these parameters are set to the URL 
 of your application root, using the HTTPS scheme. Similarly you should set _secretKey_ to be the value of your application's signing key. The
-signing key is a sensitive value that must not be included in a client. You can obtain this value while hosted in App Service by 
+signing key is a sensitive value and must not be distributed in a client. You can obtain this value while hosted in App Service by 
 referencing the _WEBSITE\_AUTH\_SIGNING\_KEY_ environment variable. If needed in a local debugging context, follow the instructions in 
 the [Local debugging with authentication](#local-debug) section to retrieve the key and store it as an application setting.
 
@@ -366,9 +366,8 @@ to log in, your route must be `/.auth/login/custom`.  You can set the route for 
 
 ###<a name="user-info"></a>How to: Retrieve authenticated user information
 
-When a user is authenticated by App Service, you can access the assigned user ID and other information in your .NET backend code. This is 
-useful for making authorization decisions in the backend, such as whether a table row or resource may be accessed The following code obtains
-the user ID associated with a request:
+When a user is authenticated by App Service, you can access the assigned user ID and other information in your .NET backend code. This can be 
+used for making authorization decisions in the backend. The following code obtains the user ID associated with a request:
 
     // Get the SID of the current user.
     var claimsPrincipal = this.User as ClaimsPrincipal;
@@ -406,7 +405,7 @@ needed to make requests against the Facebook Graph API:
         var fbInfo = await resp.Content.ReadAsStringAsync();
     }
 
-You must add a using statement for `System.Security.Principal` to make the **GetAppServiceIdentityAsync** extension method work.
+Add a using statement for `System.Security.Principal` to provide the **GetAppServiceIdentityAsync** extension method.
 
 ### <a name="authorize"></a>How to: Restrict data access for authorized users
 
@@ -422,13 +421,12 @@ value in the UserId column on the TodoItem table:
     // Only return data rows that belong to the current user.
     return Query().Where(t => t.UserId == sid);
 
-The `Query()` method returns an `IQueryable` which can be manipulated by LINQ to handle filtering.
+The `Query()` method returns an `IQueryable` that can be manipulated by LINQ to handle filtering.
 
 ## How to: Add push notifications to a server project
 
-You can add push notifications to your server project by extending the **MobileAppConfiguration** object and creating a Notification Hubs 
-client. When you install the [Microsoft.Azure.Mobile.Server.Quickstart] package and call the **UseDefaultConfiguration** extension method, 
-you can skip down to step 3.
+Add push notifications to your server project by extending the **MobileAppConfiguration** object and creating a Notification Hubs 
+client.
 
 1. In Visual Studio, right-click the server project and click **Manage NuGet Packages**, search for `Microsoft.Azure.Mobile.Server.Notifications`, 
    then click **Install**. 
@@ -464,12 +462,13 @@ see [Notification Hubs Overview](../notification-hubs/notification-hubs-push-not
 
 ##<a name="tags"></a>How to: Add tags to a device installation to enable targeted push
 
-Notification Hubs lets you send targeted notifications to specific registrations by using tags. One tag that gets created automatically 
-is the installation ID, which is specific to an instance of the app on a given device. A registration with an installation ID is also 
-called an *installation*. You can use the installation ID to manage installation, such as for adding tags. The installation ID can be 
-accessed from the **installationId** property on the **MobileServiceClient**.
+Notification Hubs lets you send targeted notifications to specific registrations by using tags. Several tags are created automatically:
 
-The following example shows how to use an installation ID to add a tag to a specific installation in Notification Hubs:
+* The Installation ID identifies a specific device.
+* The User Id based on the SID of the user identifies a specific user.
+
+The installation ID can be accessed from the **installationId** property on the **MobileServiceClient**.  The following example shows how to 
+use an installation ID to add a tag to a specific installation in Notification Hubs:
 
 	hub.PatchInstallation("my-installation-id", new[]
 	{
@@ -481,11 +480,16 @@ The following example shows how to use an installation ID to add a tag to a spec
 	    }
 	});
 
-Note that any tags supplied by the client during push notification registration are ignored by the backend when creating the installation. To enable a client to add tags to the installation, you must create a new custom API that adds tags using the pattern above. For an example of a custom API controller that lets clients add tags to an installation, see [Client-added push notification tags](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#client-added-push-notification-tags) in the App Service Mobile Apps completed quickstart sample for .NET backend.
+Any tags supplied by the client during push notification registration are ignored by the backend when creating the installation. To enable a client 
+to add tags to the installation, you must create a custom API that adds tags using the preceding pattern. 
+
+See [Client-added push notification tags][5] in the App Service Mobile Apps completed quickstart sample for an example.
 
 ##<a name="push-user"></a>How to: Send push notifications to an authenticated user
 
-When an authenticated user registers for push notifications, a user ID tag is automatically added to the registration. By using this tag, you can send push notifications to all devices registered by a specific user. The following code gets the SID of user making the request and sends a template push notification to every device registration for that user:
+When an authenticated user registers for push notifications, a user ID tag is automatically added to the registration. By using 
+this tag, you can send push notifications to all devices registered by that person. The following code gets the SID of user making the 
+request and sends a template push notification to every device registration for that person:
 
     // Get the current user SID and create a tag for the current user.
     var claimsPrincipal = this.User as ClaimsPrincipal;
@@ -498,7 +502,8 @@ When an authenticated user registers for push notifications, a user ID tag is au
     // Send a template notification to the user ID.
     await hub.SendTemplateNotificationAsync(notification, userTag);
 
-When registering for push notifications from an authenticated client, make sure that authentication is complete before attempting registration. For more information, see [Push to users](https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users) in the App Service Mobile Apps completed quickstart sample for .NET backend.
+When registering for push notifications from an authenticated client, make sure that authentication is complete before attempting 
+registration. For more information, see [Push to users][6] in the App Service Mobile Apps completed quickstart sample for .NET backend.
 
 ## How to: Debug and troubleshoot the .NET Server SDK
 
@@ -510,7 +515,8 @@ Azure App Service provides several debugging and troubleshooting techniques for 
 
 ### Logging
 
-You can write to App Service diagnostic logs by using the standard ASP.NET trace writing. Before you can write to the logs, you must enable diagnostics in your Mobile App backend.
+You can write to App Service diagnostic logs by using the standard ASP.NET trace writing. Before you can write to the logs, you must enable 
+diagnostics in your Mobile App backend.
 
 To enable diagnostics and write to the logs:
 
@@ -531,11 +537,14 @@ To enable diagnostics and write to the logs:
 
 ### <a name="local-debug"></a>Local debugging with authentication
 
-You can run your application locally to test changes before publishing them to the cloud. For many apps, this is just a matter of pressing *F5* while in Visual Studio. However, there are some additional considerations when using authentication.
+You can run your application locally to test changes before publishing them to the cloud. For most Azure Mobile Apps backends, press *F5* while 
+in Visual Studio. However, there are some additional considerations when using authentication.
 
-You must have a cloud-based mobile app with App Service Authentication/Authorization configured, and your client must have the cloud endpoint specified as the alternate login host. Please see the documentation for your chosen client platform ([iOS](app-service-mobile-ios-how-to-use-client-library.md), [Windows/Xamarin](app-service-mobile-dotnet-how-to-use-client-library.md)) for the specific steps required.
+You must have a cloud-based mobile app with App Service Authentication/Authorization configured, and your client must have the cloud endpoint 
+specified as the alternate login host. Please see the documentation for your client platform for the specific steps required.
 
-Ensure that your application has [Microsoft.Azure.Mobile.Server.Authentication] installed. Then, in your application's OWIN startup class, add the following, after `MobileAppConfiguration` has been applied to your `HttpConfiguration`:
+Ensure that your mobile backend has [Microsoft.Azure.Mobile.Server.Authentication] installed. Then, in your application's OWIN startup class, 
+add the following, after `MobileAppConfiguration` has been applied to your `HttpConfiguration`:
 
 		app.UseAppServiceAuthentication(new AppServiceAuthenticationOptions()
 		{
@@ -545,15 +554,24 @@ Ensure that your application has [Microsoft.Azure.Mobile.Server.Authentication] 
 			TokenHandler = config.GetAppServiceTokenHandler()
 		});
 
-In the above example, you should configure the _authAudience_ and _authIssuer_ application settings within your Web.config file to each be the URL of your application root, using the HTTPS scheme. Similarly you should set _authSigningKey_ to be the value of your application's signing key. This is a sensitive value that should never be shared or included in a client. To obtain it, navigate to your app within the [Azure portal] and click **Tools**. Then select **Kudu** and click **Go**. This will take you to the Kudu management endpoint for your site. Click **Environment** and find the value under _WEBSITE_AUTH_SIGNING_KEY_. This is the value you should use for _authSigningKey_ in your local app config.
+In the above example, you should configure the _authAudience_ and _authIssuer_ application settings within your Web.config file to each be the 
+URL of your application root, using the HTTPS scheme. Similarly you should set _authSigningKey_ to be the value of your application's signing key. 
+This is a sensitive value that should never be shared or included in a client. To obtain it:
 
-Your locally-running server is now equipped to validate tokens which the client obtains from the cloud-based endpoint.
+1. Navigate to your app within the [Azure portal] 
+2. Click **Tools**, **Kudu**, **Go**.
+3. In the Kudu Management site, click **Environment**.
+4. Find the value for _WEBSITE\_AUTH\_SIGNING\_KEY_. 
 
+This is the value you should use for _authSigningKey_ in your local app config.  Your locally-running server is now equipped to validate tokens 
+which the client obtains from the cloud-based endpoint.
 
 [1]: https://msdn.microsoft.com/library/azure/dn961176.aspx
 [2]: https://github.com/Azure/azure-mobile-apps-net-server
 [3]: app-service-mobile-ios-get-started.md
 [4]: https://azure.microsoft.com/downloads/
+[5]: https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#client-added-push-notification-tags
+[6]: https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users
 [Azure portal]: https://portal.azure.com
 [NuGet.org]: http://www.nuget.org/
 [Microsoft.Azure.Mobile.Server]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/
