@@ -124,7 +124,7 @@ Azure Security Center monitors the following Azure resources:
 - Virtual machines (VMs) (including [Cloud Services](../cloud-services/cloud-services-choose-me.md))
 - Azure Virtual Networks
 - Azure SQL service
-- Partner solutions integrated with your Azure subscription such as a web application firewall on VMs and on [App Service Environment](../app-service-app-service-environments-readme.md)
+- Partner solutions integrated with your Azure subscription such as a web application firewall on VMs and on [App Service Environment](../app-service/app-service-app-service-environments-readme.md)
 
 ## Virtual Machines
 
