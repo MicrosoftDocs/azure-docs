@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="08/19/2016"
+	ms.date="09/20/2016"
 	ms.author="rachelap"/>
 
 # Get started with API Apps, ASP.NET, and Swagger in Azure App Service

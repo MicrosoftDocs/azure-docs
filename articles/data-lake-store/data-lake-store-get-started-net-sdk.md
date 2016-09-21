@@ -153,7 +153,6 @@ The following snippet creates the Data Lake Store account and filesystem client 
 
     // Create client objects
     var fileSystemClient = new DataLakeStoreFileSystemManagementClient(creds);
-    var jobClient = new DataLakeAnalyticsJobManagementClient(creds);
 
 ## List all Data Lake Store accounts within a subscription
 
