@@ -34,25 +34,25 @@ First, navigate to the [Azure portal](https://portal.azure.com) in a web browser
 
 Now you can use the default settings and quickly create the virtual machine.
 
-1. On the `Basics` blade, enter a name for the scale set. This name becomes the base of the FQDN of the load balancer in front of the scale set, so make sure the name is unique across all of Azure.
+> On the `Basics` blade, enter a name for the scale set. This name becomes the base of the FQDN of the load balancer in front of the scale set, so make sure the name is unique across all of Azure.
 
-2. Select your desired OS type, enter your desired username, and select which authentication type you prefer. If you choose a password, it must be at least 12 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. See more about [username and password requirements](../virtual-machines/virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm). If you choose `SSH public key`, be sure to only paste in your public key, NOT your private key:
+> Select your desired OS type, enter your desired username, and select which authentication type you prefer. If you choose a password, it must be at least 12 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. See more about [username and password requirements](../virtual-machines/virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm). If you choose `SSH public key`, be sure to only paste in your public key, NOT your private key:
 
 ![ScaleSetPortalBasics](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalBasics.PNG)
 
-3. Enter your desired resource group name and location, then click `OK`.
+> Enter your desired resource group name and location, then click `OK`.
 
-4. On the `Virtual machine scale set service settings` blade: enter your desired domain name label (the base of the FQDN for the load balancer in front of the scale set). This label must be unique across all of Azure.
+> On the `Virtual machine scale set service settings` blade: enter your desired domain name label (the base of the FQDN for the load balancer in front of the scale set). This label must be unique across all of Azure.
 
-5. Choose your desired operating system disk image, instance count, and machine size.
+> Choose your desired operating system disk image, instance count, and machine size.
 
-6. Enable or disable autoscale and configure if enabled:
+> Enable or disable autoscale and configure if enabled:
 
 ![ScaleSetPortalService](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalService.PNG)
 
-7. On the `Summary` blade, once validation is done, click `OK`.
+> On the `Summary` blade, once validation is done, click `OK`.
 
-8. Finally, on the `Purchase` blade, click `Purchase` to start the scale set deployment.
+> Finally, on the `Purchase` blade, click `Purchase` to start the scale set deployment.
 
 ## Connect to a VM in the Scale Set
 
