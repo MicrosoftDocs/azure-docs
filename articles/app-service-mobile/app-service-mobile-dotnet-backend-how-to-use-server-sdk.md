@@ -563,8 +563,8 @@ To obtain the signing key:
 3. In the Kudu Management site, click **Environment**.
 4. Find the value for _WEBSITE\_AUTH\_SIGNING\_KEY_. 
 
-This is the value you should use for _authSigningKey_ in your local app config.  Your mobile backend is now equipped to validate tokens when running
-locally, which the client obtains the token from the cloud-based endpoint.
+You should use the signing key for the _authSigningKey_ parameter in your local application config.  Your mobile backend is now equipped to validate 
+tokens when running locally, which the client obtains the token from the cloud-based endpoint.
 
 [1]: https://msdn.microsoft.com/library/azure/dn961176.aspx
 [2]: https://github.com/Azure/azure-mobile-apps-net-server
