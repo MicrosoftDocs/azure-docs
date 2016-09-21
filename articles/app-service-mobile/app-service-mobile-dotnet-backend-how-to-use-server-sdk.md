@@ -236,12 +236,12 @@ The quickstart server project contains an example for a simple **TodoItemControl
 ### How to: Adjust the table paging size
 
 By default, Azure Mobile Apps returns 50 records per request.  Paging ensures that the client does not tie up their UI thread nor the server for 
-too long, ensuring a good user experience. Increase the server side "allowed query size" and the client-side page size to effect a 
-change in the table paging size. To increase the paging size, adjust your table controller using the `EnableQuery` attribute:
+too long, ensuring a good user experience. To change the table paging size, increase the server side "allowed query size" and the client-side page size 
+The server side "allowed query size" is adjusted using the `EnableQuery` attribute:
 
     [EnableQuery(PageSize = 500)]
 
-Ensure the PageSize is the same or larger than the size that is requested by the client.  Refer to the specific client HOWTO documentation 
+Ensure the PageSize is the same or larger than the size requested by the client.  Refer to the specific client HOWTO documentation 
 for details on changing the client page size.
 
 ## How to: Define a custom API controller
@@ -278,7 +278,7 @@ Mobile App client SDK.
 
 ## How to: Work with authentication
 
-Azure Mobile Apps leverages App Service Authentication / Authorization to secure your mobile backend.  This section shows you how to perform 
+Azure Mobile Apps uses App Service Authentication / Authorization to secure your mobile backend.  This section shows you how to perform 
 the following authentication-related tasks in your .NET backend server project:
 
 + [How to: Add authentication to a server project](#add-auth)
@@ -307,17 +307,14 @@ To learn about how to authenticate clients to your Mobile Apps backend, see [Add
 ### <a name="custom-auth"></a>How to: Use custom authentication for your application
 
 If you do not wish to use one of the App Service Authentication/Authorization providers, you can implement your own login system. Install 
-the [Microsoft.Azure.Mobile.Server.Login] package to assist with authentication token generation.  You must provide your own code to determine
-user authorization. For example, you might check against salted and hashed passwords in a database. In the example below, the `isValidAssertion()` 
+the [Microsoft.Azure.Mobile.Server.Login] package to assist with authentication token generation.  Provide your own code for validating
+user credentials. For example, you might check against salted and hashed passwords in a database. In the example below, the `isValidAssertion()` 
 method (defined elsewhere) is responsible for these checks.
 
-The custom authentication is exposed by creating a new ApiController and exposing `register` and `login` actions. The client can log in by 
-collecting the relevant information from the user and submitting an HTTPS POST to the API with the user information in the body. Once the server 
-validates the assertion, a token is issued using the `AppServiceLoginHandler.CreateToken()` method.
-
-This ApiController **should not** use the `[MobileAppController]` attribute.  The `[MobileAppController]` attribute will cause client login 
-requests to fail. The `[MobileAppController]` attribute requires the request header [ZUMO-API-VERSION](app-service-mobile-client-and-server-versioning.md) 
-and this header is **not** sent by the client SDK for login routes. 
+The custom authentication is exposed by creating an ApiController and exposing `register` and `login` actions. The client should use
+a custom UI to collect the information from the user.  The information is then submitted to the API with a standard HTTP POST call. Once 
+the server validates the assertion, a token is issued using the `AppServiceLoginHandler.CreateToken()` method.  The ApiController **should not** 
+use the `[MobileAppController]` attribute. 
 
 An example `login` action:
 
@@ -342,8 +339,8 @@ An example `login` action:
 			}
 		}
 
-In the above, LoginResult and LoginResultUser are serializable objects exposing required properties. The client expects login responses to be returned
-as JSON objects of the form:
+In the preceding example, LoginResult and LoginResultUser are serializable objects exposing required properties. The client expects login 
+responses to be returned as JSON objects of the form:
 
 		{
 			"authenticationToken": "<token>",
@@ -352,10 +349,10 @@ as JSON objects of the form:
 			}
 		}
 
-The `AppServiceLoginHandler.CreateToken()` method includes an _audience_ and an _issuer_ parameter. Both of these are typically set to the URL 
-of your application root, using the HTTPS scheme. Similarly you should set _secretKey_ to be the value of your application's signing key. This 
-is a sensitive value that should never be shared or included in a client. You can obtain this value while hosted in App Service by referencing 
-the _WEBSITE\_AUTH\_SIGNING\_KEY_ environment variable. If needed in a local debugging context, follow the instructions in 
+The `AppServiceLoginHandler.CreateToken()` method includes an _audience_ and an _issuer_ parameter. Both of these parameters are set to the URL 
+of your application root, using the HTTPS scheme. Similarly you should set _secretKey_ to be the value of your application's signing key. The
+signing key is a sensitive value that must not be included in a client. You can obtain this value while hosted in App Service by 
+referencing the _WEBSITE\_AUTH\_SIGNING\_KEY_ environment variable. If needed in a local debugging context, follow the instructions in 
 the [Local debugging with authentication](#local-debug) section to retrieve the key and store it as an application setting.
 
 The issued token may also include other claims and an expiry date.  Minimally, the issued token must include a subject (**sub**) claim.
@@ -370,19 +367,19 @@ to log in, your route must be `/.auth/login/custom`.  You can set the route for 
 ###<a name="user-info"></a>How to: Retrieve authenticated user information
 
 When a user is authenticated by App Service, you can access the assigned user ID and other information in your .NET backend code. This is 
-useful for making authorization decisions for a given user in the backend, such as whether a specific user can access a table row or other 
-resource. The following code shows how to obtain the user ID for a logged-in user:
+useful for making authorization decisions in the backend, such as whether a table row or resource may be accessed The following code obtains
+the user ID associated with a request:
 
     // Get the SID of the current user.
     var claimsPrincipal = this.User as ClaimsPrincipal;
     string sid = claimsPrincipal.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-The SID is derived from the provider-specific user ID and is static for a given user and login provider. When a user accesses an endpoint 
-anonymously, the User property returns null.
+The SID is derived from the provider-specific user ID and is static for a given user and login provider.  The SID is null for invalid
+authentication tokens.
 
-App Service also lets you request specific claims from your login provider. This lets you request more information from the provider, such 
-as by using the Facebook Graph APIs. You can specify claims in the provider blade in the portal. Some claims require additional configuration 
-with the provider.
+App Service also lets you request specific claims from your login provider. Each identity provider can provide more information using the
+identity provider SDK.  For example, you can use the Facebook Graph API for friends information.  You can specify claims that are requested
+in the provider blade in the Azure portal. Some claims require additional configuration with the identity provider.
 
 The following code calls the **GetAppServiceIdentityAsync** extension method to get the login credentials, which include the access token 
 needed to make requests against the Facebook Graph API:
@@ -409,11 +406,14 @@ needed to make requests against the Facebook Graph API:
         var fbInfo = await resp.Content.ReadAsStringAsync();
     }
 
-Note that you must add a using statement for `System.Security.Principal` to make the **GetAppServiceIdentityAsync** extension method work.
+You must add a using statement for `System.Security.Principal` to make the **GetAppServiceIdentityAsync** extension method work.
 
 ### <a name="authorize"></a>How to: Restrict data access for authorized users
 
-In the previous section, we showed how to retrieve the user ID of an authenticated user. You can restrict access to data and other resources based on this value. For example, adding a userId column to tables and filtering a user's query results by the user ID is a simple way to limit returned data only to authorized users. The following code returns data rows only when the ID of the current user matches the value in the UserId column on the TodoItem table:
+In the previous section, we showed how to retrieve the user ID of an authenticated user. You can restrict access to data and other 
+resources based on this value. For example, adding a userId column to tables and filtering the query results by the user ID is 
+a simple way to limit returned data only to authorized users. The following code returns data rows only when the SID matches the 
+value in the UserId column on the TodoItem table:
 
     // Get the SID of the current user.
     var claimsPrincipal = this.User as ClaimsPrincipal;
@@ -422,29 +422,25 @@ In the previous section, we showed how to retrieve the user ID of an authenticat
     // Only return data rows that belong to the current user.
     return Query().Where(t => t.UserId == sid);
 
-Depending on your specific scenario, you might also want to create Users or Roles tables to track more detailed user authorization information, such as which endpoints a given user is permitted to access.
+The `Query()` method returns an `IQueryable` which can be manipulated by LINQ to handle filtering.
 
 ## How to: Add push notifications to a server project
 
-You can add push notifications to your server project by extending the **MobileAppConfiguration** object and creating a Notification Hubs client. When you install the [Microsoft.Azure.Mobile.Server.Quickstart] package and call the **UseDefaultConfiguration** extension method, you can skip down to step 3.
+You can add push notifications to your server project by extending the **MobileAppConfiguration** object and creating a Notification Hubs 
+client. When you install the [Microsoft.Azure.Mobile.Server.Quickstart] package and call the **UseDefaultConfiguration** extension method, 
+you can skip down to step 3.
 
-1. In Visual Studio, right-click the server project and click **Manage NuGet Packages**, search for Microsoft.Azure.Mobile.Server.Notifications`, then click **Install**. This installs the [Microsoft.Azure.Mobile.Server.Notifications] package.
+1. In Visual Studio, right-click the server project and click **Manage NuGet Packages**, search for `Microsoft.Azure.Mobile.Server.Notifications`, 
+   then click **Install**. 
 
-3. Repeat this step to install the `Microsoft.Azure.NotificationHubs` package, which includes the Notification Hubs client library.
+2. Repeat this step to install the `Microsoft.Azure.NotificationHubs` package, which includes the Notification Hubs client library.
 
-2. In App_Start/Startup.MobileApp.cs, and add a call to the **AddPushNotifications** extension method during initialization, which looks like the following:
+3. In App_Start/Startup.MobileApp.cs, and add a call to the **AddPushNotifications()** extension method during initialization:
 
 		new MobileAppConfiguration()
 			// other features...
 			.AddPushNotifications()
 			.ApplyTo(config);
-
-	This creates the push notification registration endpoint in your server project. This endpoint is used by clients to register with the associated notification hub. Now you need to add the Notification Hub client that is used to send notifications.
-
-3. In a controller from which you want to send push notifications, add the following using statement:
-
-		using System.Collections.Generic;
-		using Microsoft.Azure.NotificationHubs;
 
 4. Add the following code that creates a Notification Hubs client:
 
@@ -460,9 +456,11 @@ You can add push notifications to your server project by extending the **MobileA
 
         // Create a new Notification Hub client.
         NotificationHubClient hub = NotificationHubClient
-        .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
+            .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
-At this point, you can use the Notification Hubs client to send push notifications to registered devices. For more information, see [Add push notifications to your app](app-service-mobile-ios-get-started-push.md). To learn more about all that you can do with Notification Hubs, see [Notification Hubs Overview](../notification-hubs/notification-hubs-push-notification-overview.md).
+You can now use the Notification Hubs client to send push notifications to registered devices. For more information, 
+see [Add push notifications to your app](app-service-mobile-ios-get-started-push.md). To learn more about Notification Hubs, 
+see [Notification Hubs Overview](../notification-hubs/notification-hubs-push-notification-overview.md).
 
 ##<a name="tags"></a>How to: Add tags to a device installation to enable targeted push
 
