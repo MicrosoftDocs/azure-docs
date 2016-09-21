@@ -418,7 +418,7 @@ In the following example, source column DivisionID is mapped to the destination 
 		"columnMappings": "DivisionID: DivisionID, FirstName: FirstName, LastName: LastName"
 	} 
 
-The EmpID is specified as the partition key. 
+The DivisionID is specified as the partition key. 
 
 	"sink": {
 		"type": "AzureTableSink",
