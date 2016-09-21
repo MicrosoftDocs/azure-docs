@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2016"
+	ms.date="09/21/2016"
 	ms.author="cynthn"/>
 
 # Create a VM from a specialized VHD
