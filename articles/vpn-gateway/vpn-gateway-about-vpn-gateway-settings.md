@@ -20,7 +20,7 @@
 
 A VPN gateway connection solution relies on the configuration of multiple resources in order to send network traffic between virtual networks and on-premises locations. Each resource contains configurable settings. The combination of the resources and settings determines the connection outcome.
 
-The sections in this article discuss the resources and settings that relate to a VPN gateway in the Resource Manager deployment model. You may find it helpful to view the available configurations by using connection topology diagrams. You can find the descriptions and topology diagrams for each connection solution in the [About VPN Gateway](vpn-gateway-about-vpngateways.md) article. 
+The sections in this article discuss the resources and settings that relate to a VPN gateway in the **Resource Manager** deployment model. You may find it helpful to view the available configurations by using connection topology diagrams. You can find the descriptions and topology diagrams for each connection solution in the [About VPN Gateway](vpn-gateway-about-vpngateways.md) article. 
 
 ## <a name="gwtype"></a>Gateway types
 
@@ -47,7 +47,7 @@ Example:
 
 **Specifying the gateway SKU in the Azure portal**
 
-If you use the Azure portal to create a Resource Manager virtual network gateway, the virtual network gateway is configured using the Standard SKU by default. Currently, you cannot specify other SKUs for the Resource Manager deployment model in the Azure portal. However, after creating your gateway, you can upgrade to a more powerful gateway SKU (from Basic/Standard to HighPerformance) using the 'Resize-AzureRmVirtualNetworkGateway' PowerShell cmdlet. You can also downgrade the gateway SKU size using PowerShell.
+If you use the Azure portal to create a Resource Manager virtual network gateway, the virtual network gateway is configured using the Standard SKU by default. Currently, you cannot specify other SKUs for the Resource Manager deployment model in the Azure portal. However, after creating your gateway, you can upgrade to a more powerful gateway SKU (from Basic/Standard to HighPerformance) using the `Resize-AzureRmVirtualNetworkGateway` PowerShell cmdlet. You can also downgrade the gateway SKU size using PowerShell.
 
 **Specifying the gateway SKU using PowerShell**
 
