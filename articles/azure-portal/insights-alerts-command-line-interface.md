@@ -86,7 +86,7 @@ You can always receive help for commands by typing a command and putting -help a
 	```
 	azure insights metrics list /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename PT1M 
   	```
-   *PT1M* is the granularity of the available measurement (1 minute intervals). Using different granularities gives you different metric options.
+   *PT1M* is the granularity of the available measurement (1-minute intervals). Using different granularities gives you different metric options.
 
  
 4. To create a metric-based alert rule, use a command of the following form
@@ -121,7 +121,7 @@ You can always receive help for commands by typing a command and putting -help a
 	azure insights alerts rule log set myActivityLogRule eastus myresourceGroupName Microsoft.Storage/storageAccounts/listKeys/action
 	```
 
-    The operationName corresponds to an event type for an entry in the activity log.	Examples include *Microsoft.Compute/virtualMachines/delete* and *microsoft.insights/diagnosticSettings/write*.
+    The operationName corresponds to an event type for an entry in the activity log. Examples include *Microsoft.Compute/virtualMachines/delete* and *microsoft.insights/diagnosticSettings/write*.
 
     You can use the PowerShell command [Get-AzureRmProviderOperation](https://msdn.microsoft.com/library/mt603720.aspx) to obtain a list of possible operationNames. Alternately, you can use the Azure portal to query the Activity log and find specific past operations that you want to create an alert for. The operations shown in the graphic log view of the friendly names. Look in the JSON for the entry and pull out the OperationName value.   
 
