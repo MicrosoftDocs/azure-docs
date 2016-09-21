@@ -115,7 +115,7 @@ In the remaining sections of the article, you can see how to use the available .
 
 ## Authentication
 
-The following snippet can be used use for an interactive log in experience.
+The following snippet can be used use for an interactive log in experience. Use this with an existing Azure AD "Native Client" Application; one is provided for you below.
 
     // User login via interactive popup
     //    Use the client ID of an existing AAD "Native Client" application.
@@ -125,7 +125,7 @@ The following snippet can be used use for an interactive log in experience.
     var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"))
     var creds = UserTokenProvider.LoginWithPromptAsync(domain, activeDirectoryClientSettings).Result;
 
-Alternatively, the following snippet can be used to authenticate your application non-interactively, using the client secret / key for an application / service principal.
+Alternatively, the following snippet can be used to authenticate your application non-interactively, using the client secret / key for an application / service principal. Use this with an existing [Azure AD "Web App" Application](../resource-group/resource-group-create-service-principal-portal.md).
 
     // Service principal / appplication authentication with client secret / key
     //    Use the client ID and certificate of an existing AAD "Web App" application.
@@ -136,7 +136,7 @@ Alternatively, the following snippet can be used to authenticate your applicatio
     var clientCredential = new ClientCredential(webApp_clientId, clientSecret);
     var creds = ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential).Result;
 
-As a third option, the following snippet can be used to authenticate your application non-interactively, using the certificate for an application / service principal.
+As a third option, the following snippet can be used to authenticate your application non-interactively, using the certificate for an application / service principal. Use this with an existing [Azure AD "Web App" Application](../resource-group/resource-group-create-service-principal-portal.md).
 
     // Service principal / application authentication with certificate
     //    Use the client ID and certificate of an existing AAD "Web App" application.
@@ -152,7 +152,8 @@ As a third option, the following snippet can be used to authenticate your applic
 The following snippet creates the Data Lake Store account and filesystem client objects, which are used to issue requests to the service.
 
     // Create client objects
-    var fileSystemClient = new DataLakeStoreFileSystemManagementClient(creds);
+    _adlsClient = new DataLakeStoreAccountManagementClient(creds);
+    _adlsFileSystemClient = new DataLakeStoreFileSystemManagementClient(creds);
 
 ## List all Data Lake Store accounts within a subscription
 
@@ -161,7 +162,7 @@ The following snippet lists all Data Lake Store accounts within a given Azure su
     // List all ADLS accounts within the subscription
     public static List<DataLakeStoreAccount> ListAdlStoreAccounts()
     {
-        var response = _adlsClient.Account.List(_adlsAccountName);
+        var response = _adlsClient.Account.List();
         var accounts = new List<DataLakeStoreAccount>(response);
         
         while (response.NextPageLink != null)
@@ -196,7 +197,7 @@ The following snippet shows an `UploadFile` method that you can use to upload fi
         uploader.Execute();
     }
 
-DataLakeStoreUploader supports recursive upload and download between a local file (or folder) path to Data Lake store.    
+DataLakeStoreUploader supports recursive upload and download between a local file path and a Data Lake Store file path.    
 
 ## Get file or directory info
 
