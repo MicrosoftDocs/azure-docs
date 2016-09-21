@@ -57,7 +57,7 @@ With the global authentication policy, you can enable authentication separately 
 
 For more information, see [Configuring authentication policies](https://technet.microsoft.com/library/dn486781.aspx).
 
-## Provision a data catalog
+## Provision data catalog
 You can provision only one data catalog per organization (Azure Active Directory domain). Therefore, if the owner or co-owner of an Azure subscription who belongs to this Azure Active Directory domain has already created a catalog, you will not be able to create a catalog again even if you have multiple Azure subscriptions. To test whether a data catalog has been created by a user in your Azure Active Directory domain, go to the [Azure Data Catalog home page](http://azuredatacatalog.com) and verify whether you see the catalog. If a catalog has already been created for you, skip the following procedure and go to the next section.    
 
 1. Go to the [Data Catalog service page](https://azure.microsoft.com/services/data-catalog) and click **Get started**.
