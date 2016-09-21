@@ -43,9 +43,12 @@ The **Enable protection** job starts the initial replication from on-premises by
 ![Details for the "Enable protection" job](media/site-recovery-understanding-site-to-azure-protection/IMAGE002.PNG)
 
 ### Finalize protection on the virtual machine
-A [Hyper-V VM snapshot](https://technet.microsoft.com/library/dd560637.aspx) is taken when initial replication is triggered. Virtual hard disks are processed one by one till all the disks are uploaded to Azure. This normally takes a while to finish, based on the disk size and the bandwidth. To optimize your network usage, see [How to manage on-premises to Azure protection network bandwidth usage](https://support.microsoft.com/kb/3056159).
+A [Hyper-V VM snapshot](https://technet.microsoft.com/library/dd560637.aspx) is taken when initial replication is triggered. Virtual hard disks are processed one by one until all the disks are uploaded to Azure. This normally takes a while to finish, based on the disk size and the bandwidth. To optimize your network usage, see [How to manage on-premises to Azure protection network bandwidth usage](https://support.microsoft.com/kb/3056159).
 
-After the initial replication finishes, the **Finalize protection on the virtual machine** job configures the network and post-replication settings. While initial replication is in progress, all the changes to the disks are tracked. Additional disk storage will be consumed for the snapshot and Hyper-V Replica Log (HRL) files while initial replication is in progress.
+After the initial replication finishes, the **Finalize protection on the virtual machine** job configures the network and post-replication settings. While initial replication is in progress:
+
+- All changes to the disks are tracked. 
+- Additional disk storage is consumed for the snapshot and Hyper-V Replica Log (HRL) files.
 
 On completion of initial replication, the Hyper-V VM snapshot is deleted. This deletion results in merging data changes after initial replication to the parent disk.
 
@@ -61,7 +64,7 @@ During initial replication or delta replication, you can monitor VM replication 
 ### Resynchronization
 A virtual machine is marked for resynchronization when both delta replication fails and full initial replication is costly in terms of network bandwidth or time. For example, when HRL file size piles up to 50 percent of the total disk size, the virtual machine is marked for resynchronization. Resynchronization minimizes the amount of data sent over the network by computing checksums of the source and target virtual machine disks and sending only the differential.
 
-After resynchronization finishes, normal delta replication should resume. You can resume resynchronization in the event of a network outage or another outage.
+After resynchronization finishes, normal delta replication should resume. You can resume resynchronization if a network outage or another outage occurs.
 
 By default, automatically scheduled resynchronization is configured to happen outside work hours. If the virtual machine needs to be resynchronized manually, select the virtual machine from the portal and click **Resynchronize**.
 
@@ -74,7 +77,7 @@ There is built-in retry logic for replication errors. This logic can be classifi
 
 | Category              	| Scenarios                                    |
 |---------------------------|----------------------------------------------|
-| Non-recoverable error 	| No retry will be attempted. Virtual machine replication status is **Critical**, and administrator intervention is required. Examples include: <ul><li>Broken VHD chain</li><li>Invalid state for the replica virtual machine</li><li>Network authentication error</li><li>Authorization error</li><li>Virtual machine that isn't found, in the case of a standalone Hyper-V server</li></ul>|
+| Non-recoverable error 	| No retry is attempted. Virtual machine replication status is **Critical**, and administrator intervention is required. Examples include: <ul><li>Broken VHD chain</li><li>Invalid state for the replica virtual machine</li><li>Network authentication error</li><li>Authorization error</li><li>Virtual machine that isn't found, in the case of a standalone Hyper-V server</li></ul>|
 | Recoverable error     	| Retries occur every replication interval, using an exponential back-off that increases the retry interval from the start of the first attempt (1, 2, 4, 8, 10 minutes). If an error persists, retry every 30 minutes. Examples include: <ul><li>Network error</li><li>Low disk space</li><li>Low memory condition</li></ul>|
 
 ## Hyper-V virtual machine protection and recovery life cycle
