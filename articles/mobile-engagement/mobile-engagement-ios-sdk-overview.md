@@ -70,6 +70,42 @@ in the project explorer, open your project pane and select the correct target. T
 #### Application push capability
 XCode 8 may reset your app push capability, please double check it in the `capability` tab of your selected target.
 
+#### Add the new iOS 10 notification registration code
+The older code snippet to register the app to notifications still works but is using deprecated APIs while running on iOS 10. 
+
+Import the `User Notification` framework:
+
+		#import <UserNotifications/UserNotifications.h>
+
+In your application delegate `application:didFinishLaunchingWithOptions` method replace:
+
+		if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+			[application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil]];
+			[application registerForRemoteNotifications];
+		}
+		else {
+
+    		[application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+		}
+
+by :
+
+		if (NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_8_0)
+		{
+			if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_9_x_Max)
+			{
+				[UNUserNotificationCenter.currentNotificationCenter requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert) completionHandler:^(BOOL granted, NSError * _Nullable error) {}];
+			}else
+			{
+				[application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)   categories:nil]];
+			}
+			[application registerForRemoteNotifications];
+		}
+		else
+		{
+			[application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+		}
+
 #### If you already have your own UNUserNotificationCenterDelegate implementation
 
 The SDK have its own implementation of the UNUserNotificationCenterDelegate protocol. It is used by the SDK to monitor the life cycle of Engagement notifications on devices running on iOS 10 or greater. If the SDK detects your delegate it will not use its own implementation because there can be only one UNUserNotificationCenter delegate per application. This means that you will have to add the Engagement logic to your own delegate.

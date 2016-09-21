@@ -101,15 +101,29 @@ Please follow the guide : [How to Prepare your Application for Apple Push Notifi
 
 *At this point your application should have a registered Apple push certificate in the Engagement frontend.*
 
-If it's not done already, you need to register your application to receive push notifications. Add the following line when your application starts (typically in `application:didFinishLaunchingWithOptions:`):
+If it's not done already, you need to register your application to receive push notifications.
 
-	if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
-	  	[application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil]];
-	  	[application registerForRemoteNotifications];
-	}
-	else {
-	  	[application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
-	}
+* Import the `User Notification` framework:
+
+		#import <UserNotifications/UserNotifications.h>
+
+* Add the following line when your application starts (typically in `application:didFinishLaunchingWithOptions:`):
+
+		if (NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_8_0)
+		{
+			if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_9_x_Max)
+			{
+				[UNUserNotificationCenter.currentNotificationCenter requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert) completionHandler:^(BOOL granted, NSError * _Nullable error) {}];
+			}else
+			{
+				[application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)   categories:nil]];
+			}
+			[application registerForRemoteNotifications];
+		}
+		else
+		{
+			[application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+		}
 
 Then, You need to provide to Engagement the device token returned by Apple servers. This is done in the method named `application:didRegisterForRemoteNotificationsWithDeviceToken:` in your application delegate:
 
