@@ -117,7 +117,7 @@ In this exercise, you use the registration tool to register data assets from the
 
 ### Register a data source
 
-1.	Go to the [Azure Data Catalog home page](https://azuredatacatlog.com) and click **Publish Data**.
+1.	Go to the [Azure Data Catalog home page](https://azuredatacatalog.com) and click **Publish Data**.
 
     ![Azure Data Catalog--Publish Data button](media/data-catalog-get-started/data-catalog-publish-data.png)
 
