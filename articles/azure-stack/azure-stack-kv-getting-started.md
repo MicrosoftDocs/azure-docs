@@ -1,3 +1,21 @@
+<properties
+	pageTitle="Getting Started with Azure Stack Key Vault | Microsoft Azure"
+	description="Get started using Azure Stack Key Vault"
+	services="azure-stack"
+	documentationCenter=""
+	authors="flfmendes"
+	manager="natmack"
+	editor=""/>
+
+<tags
+	ms.service="azure-stack"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="09/26/2016"
+	ms.author="ricardom"/>
+
 
 # Getting Started #
 

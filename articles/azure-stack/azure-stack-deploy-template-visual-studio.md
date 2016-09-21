@@ -4,7 +4,6 @@
 	services="azure-stack"
 	documentationCenter=""
 	authors="HeathL17"
-	authors="heathl17"
 	manager="byronr"
 	editor=""/>
 
@@ -15,7 +14,6 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/26/2016"
-	ms.date="08/15/2016"
 	ms.author="helaw"/>
 
 # Deploy templates in Azure Stack using Visual Studio

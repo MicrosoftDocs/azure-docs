@@ -14,22 +14,22 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/17/2016"
+	ms.date="09/26/2016"
 	ms.author="mchad"/>
 
 # Azure Consistent Storage: Differences and considerations
 
-Azure Consistent Storage is the set of storage cloud services in
-Microsoft Azure. Azure Consistent Storage provides blob, table, queue, and account
+Azure-consistent storage is the set of storage cloud services in
+Microsoft Azure. Azure Stack storage provides blob, table, queue, and account
 management functionality with Azure-consistent semantics. This article
-summarizes the known Azure Consistent Storage differences with Azure Storage. It also summarizes other
+summarizes the known Azure Stack storage differences with Azure Storage. It also summarizes other
 considerations to keep in mind when you deploy the currently publicly available preview
 version of Microsoft Azure Stack.
 
 <span id="Concepts" class="anchor"><span id="_Toc386544169" class="anchor"><span id="_Toc389466742" class="anchor"><span id="_Ref428966996" class="anchor"><span id="_Toc433223853" class="anchor"></span></span></span></span></span>
 ## Known differences
 
-This Technical Preview version of Azure Stack Azure Consistent Storage
+This Technical Preview version of Azure Stack storage
 does not have 100% feature parity with Azure Storage for the API
 versions that are supported. Known feature shortcomings include the following:
 
@@ -54,28 +54,26 @@ versions that are supported. Known feature shortcomings include the following:
 
 ## Deployment considerations
 
--   **Test only.** Do not deploy Azure Consistent Storage in production environments that use the current Microsoft Azure Stack Technical Preview release. This version is meant only for evaluation purposes in a test lab environment.
+-   **Test only.** Do not deploy Azure Stack storage in production environments that use the current Microsoft Azure Stack Technical Preview release. This version is meant only for evaluation purposes in a test lab environment.
 
 -   **Performance**. The Microsoft Azure Stack Technical Preview version
-    of Azure Consistent Storage is not fully performance-optimized.
+    of Azure Stack storage is not fully performance-optimized.
 
--   **Scalability.** The Microsoft Azure Stack Technical Preview version of Azure Consistent Storage is not optimized for scalability.
+-   **Scalability.** The Microsoft Azure Stack Technical Preview version of Azure Stack storage is not optimized for scalability.
 
 ## Version support considerations
 
-The following versions are supported with this preview release of Azure Consistent Storage:
+The following versions are supported with this preview release of Azure Stack storage:
 
 > Azure Storage Client Library: [Microsoft Azure Storage 6.x .NET
 > SDK](http://www.nuget.org/packages/WindowsAzure.Storage/6.2.0)
 >
 > Azure Storage data services: [2015-04-05 REST API
-> version](https://msdn.microsoft.com/en-us/library/azure/mt705637.aspx)
+> version](https://msdn.microsoft.com/library/azure/mt705637.aspx)
 >
 > Azure Storage management services:
-> [2015-05-01-preview](https://msdn.microsoft.com/en-us/library/azure/mt163683.aspx)
-> and
-> [2015-06-15](https://microsoft.sharepoint.com/teams/AzureStack/Azure%20Stack%20Shared/Customer/msdn.microsoft.com/en-us/library/azure/mt163683.aspx)
+> [2015-05-01-preview](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 
 ## Next steps
 
--   [Introduction to Azure Consistent Storage](azure-stack-architecture.md)
+-   [Introduction to Azure Stack storage](azure-stack-architecture.md)
