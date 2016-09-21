@@ -1,6 +1,6 @@
 <properties
    pageTitle="VMWare Log Monitoring for Operations Management Suite (OMS) | Microsoft Azure"
-   description=""
+   description="The VMWare solution in Operations Management Suite (OMS) provides a centralized solution for analysis of VMWare logs.  This article provides details for deploying and using the solution in your OMS workspace."
    services="operations-management-suite"
    documentationCenter=""
    authors="keikhara"
@@ -102,7 +102,7 @@ Once you’ve clicked on the VMWare Solution tile, you will see the views organi
 
 Click on any tile and this will take you to the Log Analytics Search pane. This will provide you more detailed information. 
 
-From here you can edit the search query to modify it to something specific. For a tutorial on the basics of OMS search, check out the [OMS log search tutorial.](https://azure.microsoft.com/documentation/articles/log-analytics-log-searches/)
+From here you can edit the search query to modify it to something specific. For a tutorial on the basics of OMS search, check out the [OMS log search tutorial.](../log-analytics//log-analytics-log-searches.md)
 
 #### Finding ESXi Host’s Top Events and ESXi Host with high event counts
 A single ESXi Host will generate multiple logs based on their processes. The OMS VMWare Solution centralizes this and summarizes the event counts. This way, you can understand which ESXi Host has a high volume of events and what events are toping in the environment. 
@@ -140,4 +140,4 @@ If you have any questions or suggestions, please contact [OMSVMWare@microsoft.co
 
 ## Next steps
 
-- [Search logs](log-analytics-log-searches.md) to view detailed VMWare data.
+- [Search logs](../log-analytics/log-analytics-log-searches.md) to view detailed VMWare data.
