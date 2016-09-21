@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Active Directory Domain Services preview: Features | Microsoft Azure"
+	pageTitle="Azure Active Directory Domain Services: Features | Microsoft Azure"
 	description="Features of Azure Active Directory Domain Services"
 	services="active-directory-ds"
 	documentationCenter=""
