@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/08/2016"
+   ms.date="09/20/2016"
    ms.author="bwren" />
 
 # Integrating with Operations Management Suite (OMS)
@@ -123,4 +123,4 @@ For example, your solution could include an Automation runbook to gather and pro
 - Creating custom solutions (Link not available yet)    
 
 ## Next steps
-- Reference the OMS SDK for technical information on automating OMS services.  (Link not available yet) 
+- Reference the [OMS SDK](operations-management-suite-sdk.md) for technical information on automating OMS services.  
