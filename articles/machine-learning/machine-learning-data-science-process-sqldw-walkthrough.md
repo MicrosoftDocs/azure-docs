@@ -3,7 +3,7 @@
 	description="Advanced Analytics Process and Technology in Action"  
 	services="machine-learning"
 	documentationCenter=""
-	authors="bradsev,hangzh-msft,wguo123"
+	authors="bradsev"
 	manager="jhubbard"
 	editor="cgronlun" />
 
