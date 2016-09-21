@@ -1,3 +1,21 @@
+<properties
+	pageTitle="Allow application to revtrieve Azure Stack Key Vault secrets  | Microsoft Azure"
+	description="Use a sample app to work with Azure Stack Key Vault"
+	services="azure-stack"
+	documentationCenter=""
+	authors="flfmendes"
+	manager="natmack"
+	editor=""/>
+
+<tags
+	ms.service="azure-stack"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="09/26/2016"
+	ms.author="ricardom"/>
+
 # Run the sample application for Key Vault #
 
 ## Download the samples and prepare ##

@@ -1,9 +1,27 @@
-#**Manage Storage Accounts in Azure Stack**#
+<properties
+	pageTitle="Manage Azure Stack storage accounts  | Microsoft Azure"
+	description="Learn how to find, manage, recover and reclaim Azure Stack storage accounts"
+	services="azure-stack"
+	documentationCenter=""
+	authors="AniAnirudh"
+	manager="darmour"
+	editor=""/>
+
+<tags
+	ms.service="azure-stack"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="09/26/2016"
+	ms.author="anirudha"/>
+
+# Manage Storage Accounts in Azure Stack
 
 Learn how to manage storage accounts in Azure Stack to find, recover,
 and reclaim storage capacity based on business needs.
 
-##**Find a storage account**##
+## Find a storage account
 
 The list of storage accounts in the region can be viewed in Azure Stack
 by:
@@ -62,7 +80,7 @@ in.
 ![](media/azure-stack-manage-storage-accounts/image6.png)
 
 
-##**Look at account details**##
+## Look at account details
 
 Once you have located the accounts you are interested in viewing, you
 can click on the particular account to view certain details. A new blade
@@ -72,7 +90,7 @@ creation time, location etc.
 ![](media/azure-stack-manage-storage-accounts/image7.png)
 
 
-##**Recover a deleted account**##
+## Recover a deleted account
 
 You may be in a situation where you would like to recover a deleted
 account.<br>
@@ -102,7 +120,7 @@ In AzureStack there is a very simple way to do so.
   Once the recovered account is successfully synchronized, one can go
   back to using it.
 
-##**Some Gotchas**##
+### Some Gotchas
 
 -   Your deleted account shows state as “out of retention”.
 
@@ -115,7 +133,7 @@ This could mean that the deleted account has already been garbage
 collected. In this case it cannot be recovered anymore. See “reclaim
 capacity” below.
 
-##**Set Retention Period**##
+## Set Retention Period
 
 Retention period setting allows an admin to specify a time period in
 days (between 0 and 9999 days) during which any deleted account can
@@ -148,7 +166,7 @@ To change the retention period –
 
     ![](media/azure-stack-manage-storage-accounts/image10.png)
 
-##**Reclaim capacity**##
+## Reclaim capacity
 
 One of the side effects of having a retention period is that a deleted
 account will continue to consume capacity until it comes out of the

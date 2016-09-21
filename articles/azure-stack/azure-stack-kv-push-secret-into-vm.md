@@ -1,6 +1,22 @@
+<properties
+	pageTitle="Deploy a VM with a certificate using Azure Stack Key Vault  | Microsoft Azure"
+	description="Learn how deploy a VM and inject a certificate from Azure Stack Key Vault"
+	services="azure-stack"
+	documentationCenter=""
+	authors="flfmendes"
+	manager="natmack"
+	editor=""/>
 
-Tenant can create VMs and include certificates retrieved from Key Vault
-=======================================================================
+<tags
+	ms.service="azure-stack"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="09/26/2016"
+	ms.author="ricardom"/>
+
+# Tenant can create VMs and include certificates retrieved from Key Vault
 
 In Azure Stack, VMs are deployed through Azure Resource Manager, and you
 can now store certificates in Azure Stack Key Vault. Then Azure Stack

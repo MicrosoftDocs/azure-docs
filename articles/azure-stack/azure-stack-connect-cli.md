@@ -36,21 +36,25 @@ Quickly install the Azure CLI to use a set of open-source, shell-based commands 
 ## Connect to Azure Stack
 In the following steps, you configure Azure CLI to connect to Azure Stack. Then you sign in and retrieve subscription information.
 
-1.  Use the following command to add the Azure Stack environment:
+1.  Retrieve the value for active-directory-resource-id by executing this PowerShell:
+        
+         Invoke-RestMethod -Uri https://api.azurestack.local/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
 
-		azure account env add AzureStack --resource-manager-endpoint-url "https://api.azurestack.local" --management-endpoint-url "https://api.azurestack.local" --active-directory-endpoint-url  "https://login.windows.net" --portal-url "https://portal.azurestack.local" --gallery-endpoint-url "https://portal.azurestack.local" --active-directory-resource-id "https://azurestack.local-api/" --active-directory-graph-resource-id "https://graph.windows.net/"
+2.  Use the following CLI command to add the Azure Stack environment, making sure to update *--active-directory-resource-id* with the data URL retrieved above:
 
-2.  Sign in by using the following command (replace *username* with your user name):
+           azure account env add AzureStack --resource-manager-endpoint-url "https://api.azurestack.local" --management-endpoint-url "https://api.azurestack.local" --active-directory-endpoint-url  "https://login.windows.net" --portal-url "https://portal.azurestack.local" --gallery-endpoint-url "https://portal.azurestack.local" --active-directory-resource-id "https://azurestack.local-api/" --active-directory-graph-resource-id "https://graph.windows.net/"
+
+3.  Sign in by using the following command (replace *username* with your user name):
 
 		azure login -e AzureStack -u “<username>”
 
 	>[AZURE.NOTE]If you're getting certificate validation issues, disable certificate validation by running the command `set 		NODE_TLS_REJECT_UNAUTHORIZED=0`.
 
-3. Set the Azure configuration mode to Azure Resource Manager by using the following command:
+4.  Set the Azure configuration mode to Azure Resource Manager by using the following command:
 
         azure config mode arm
 
-4. Retrieve a list of subscriptions.
+5.  Retrieve a list of subscriptions.
 
         azure account list     
 
