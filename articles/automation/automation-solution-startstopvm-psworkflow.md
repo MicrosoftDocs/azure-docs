@@ -88,8 +88,8 @@ The runbooks will [output a message](automation-runbook-output-and-messages.md) 
 | Start-AzureVMs | Start request for virtual machine successfully submitted | MyVM has been started |
 | Start-AzureVMs | Start request for virtual machine failed  | MyVM failed to start |
 | Stop-AzureVMs | Virtual machine is already stopped  | MyVM is already stopped |
-| Stop-AzureVMs | Stop request for virtual machine successfully submitted | MyVM has been started |
-| Stop-AzureVMs | Stop request for virtual machine failed  | MyVM failed to start |
+| Stop-AzureVMs | Stop request for virtual machine successfully submitted | MyVM has been stopped |
+| Stop-AzureVMs | Stop request for virtual machine failed  | MyVM failed to stop |
 
 For example, the following code snippet from a runbook attempts to start all virtual machines with the service name *MyServiceName*.  If any of the start requests fail, then error actions can be taken. 
 
