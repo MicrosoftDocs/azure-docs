@@ -20,20 +20,20 @@
 
 Many customers create more than one resource group, where some are for dedicated for managing production applications and others may be development, testing and staging environments. Automating the deployment of these resources is one thing, but being able to decommission a resource group with a click of the button is another.  Using Automation to handle it is a perfect use case and opportunity to streamline such a common management task. This also becomes helpful if you are working with an Azure subscription that has a spending limit through a member offer like MSDN or the Microsoft Partner Network Cloud Essentials program, for example. 
 
-This scenario is based on a PowerShell runbook and is designed to remove one or more resource groups across one or more subscriptions that you specify.  The runbook supports testing first before proceeding, which is its default value.  This way you don't accidentally delete it without making absolutely sure your ready to complete this procedure.   
+This scenario is based on a PowerShell runbook and is designed to remove one or more resource groups that you specify from your subscription.  The runbook supports testing first before proceeding, which is its default value.  This way you don't accidentally delete it without making absolutely sure your ready to complete this procedure.   
 
 ## Getting the scenario
 
 This scenario consists of a PowerShell runbook that you can download from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Remove-ResourceGroup/1.0/DisplayScript)
 
 Runbook | Description| 
-----------|----------|
-Remove-ResourceGroups | Removes one or more Azure resource group and its resources from the specified subscription(s)|
+--------|------------|
+Remove-ResourceGroups | Removes one or more Azure resource group and its resources from the subscription.|
 
 The following input parameters are defined for this runbook:
 
 Parameter | Description|
-----------|----------
+----------|------------|
 AuthenticationAssetName (Optional) | The name of an authentication asset with authorization for this subscription.|
 NameFilter (Required) | Allows you to specify a name filter to limit the resource groups that you intend on deleting. You can pass multiple values using a comma separated list.<br>
 The filter is not case sensitive and will match any resource group that contains the string.|
