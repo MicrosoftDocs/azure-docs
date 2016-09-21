@@ -242,7 +242,6 @@ The following table summarizes how the table entity operations use ETag values:
 | Delete Entity            | No                 | Yes                              |
 | Insert or Replace Entity | Yes                | No                               |
 | Insert or Merge Entity   | Yes                | No                               |
-| Insert or Merge Entity   | Yes                | No                               |
 
 Note that the **Insert or Replace Entity** and **Insert or Merge Entity** operations do *not* perform any concurrency checks because they do not send an ETag value to the table service.  
 
