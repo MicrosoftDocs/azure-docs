@@ -69,7 +69,8 @@ Here are the Fabric settings that you can customize:
 ## Next steps
 
 Read these articles for more information on cluster management:
-[Add, Roll over, remove certificates, ](service-fabric-cluster-security-update-certs-azure.md) 
+
+[Add, Roll over, remove certificates from your Azure cluster ](service-fabric-cluster-security-update-certs-azure.md) 
 
 
 
