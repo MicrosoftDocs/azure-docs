@@ -50,9 +50,9 @@ Now you can use the default settings and quickly create the virtual machine.
 
 ![ScaleSetPortalService](./media/virtual-machine-scale-sets-portal-create/ScaleSetPortalService.PNG)
 
-> On the `Summary` blade, once validation is done, click `OK`.
+* On the `Summary` blade, once validation is done, click `OK`.
 
-> Finally, on the `Purchase` blade, click `Purchase` to start the scale set deployment.
+* Finally, on the `Purchase` blade, click `Purchase` to start the scale set deployment.
 
 ## Connect to a VM in the Scale Set
 
