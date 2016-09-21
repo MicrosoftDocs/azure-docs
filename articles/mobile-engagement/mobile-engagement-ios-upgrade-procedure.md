@@ -27,7 +27,7 @@ For each new version of the SDK you must first replace (remove and re-import in 
 ### XCode 8
 XCode 8 is mandatory starting from version 4.0.0 of the SDK.
 
-> [AZURE.NOTE] If you really depends on XCode 7 then you may use the [iOS Engagement SDK v3.2.4](https://aka.ms/r6oouh). There is a known bug on the reach module of this previous version while running on iOS 10 devices:  system notifications are not actioned. To fix this you will have to implement the deprecated API `application:didReceiveRemoteNotification:` in your app delegate as follow:
+> [AZURE.NOTE] If you really depend on XCode 7 then you may use the [iOS Engagement SDK v3.2.4](https://aka.ms/r6oouh). There is a known bug on the reach module of this previous version while running on iOS 10 devices:  system notifications are not actioned. To fix this you will have to implement the deprecated API `application:didReceiveRemoteNotification:` in your app delegate as follow:
 
 	- (void)application:(UIApplication*)application
 	didReceiveRemoteNotification:(NSDictionary*)userInfo
@@ -83,7 +83,7 @@ by :
 
 ### If you already have your own UNUserNotificationCenterDelegate implementation
 
-The SDK also have its own implementation of the UNUserNotificationCenterDelegate protocol. It is used by the SDK to monitor the life cycle of Engagement notifications on devices running on iOS 10 or greater. If the SDK detects your delegate it will not use its own implementation because there can be only one UNUserNotificationCenter delegate per application. This means that you will have to add the Engagement logic to your own delegate.
+The SDK also has its own implementation of the UNUserNotificationCenterDelegate protocol. It is used by the SDK to monitor the life cycle of Engagement notifications on devices running on iOS 10 or greater. If the SDK detects your delegate it will not use its own implementation because there can be only one UNUserNotificationCenter delegate per application. This means that you will have to add the Engagement logic to your own delegate.
 
 There are two ways to achieve this.
 
@@ -140,7 +140,7 @@ Or by inheriting from the `AEUserNotificationHandler` class
 
 	@end
 
-> [AZURE.NOTE] You can determine whether a notification comes from Engagement or not by passing it's `userInfo` dictionary to the Agent `isEngagementPushPayload:` class method.
+> [AZURE.NOTE] You can determine whether a notification comes from Engagement or not by passing its `userInfo` dictionary to the Agent `isEngagementPushPayload:` class method.
 
 ##From 2.0.0 to 3.0.0
 Dropped support for iOS 4.X. Starting from this version the deployment target of your application must be at least iOS 6.
