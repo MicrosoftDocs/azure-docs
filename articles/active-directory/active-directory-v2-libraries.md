@@ -36,7 +36,7 @@ Libraries come in two different support categories:
 - Microsoft supported:  Microsoft provides fixes for these libraries.  Microsoft has done Security Development Lifecycle due diligence on these libraries. 
 - v2.0 compatible:  Microsoft has tested a set of libraries in basic scenarios and confirmed they work with the v2.0 endpoint.  Microsoft does not provide fixes for these libraries and has not done security due diligence on these libraries.  Issues and feature requests should be directed to the library’s open source project.
 
-For a list of libraries that work with the v2.0 endpoint, see below. 
+For a list of libraries that work with the v2.0 endpoint, see the following sections. 
 
 ## Microsoft Supported Client Libraries
 | Platform| Library Name| Download | Repository | Sample |
@@ -69,7 +69,7 @@ For a list of libraries that work with the v2.0 endpoint, see below.
 > [AZURE.NOTE] Coming soon!
 
 ## Related content
-See the [Azure AD App Model v2 Overview][AAD-App-Model-V2-Overview] for more information on . 
+See the [Azure AD App Model v2 Overview][AAD-App-Model-V2-Overview] for more information on the Azure AD v2.0 endpoint. 
 
 Please use the following Disqus comments section to provide feedback and help us refine and shape our content.
 
@@ -110,37 +110,4 @@ Please use the following Disqus comments section to provide feedback and help us
 [ServerLib-Node-Lib]: https://www.npmjs.com/package/passport-azure-ad
 [ServerLib-Node-Repo]: https://github.com/AzureAD/passport-azure-ad
 [ServerLib-Node-Sample]: https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-devquickstarts-node-web/
-
-
-
-
-
-[AAD-App-Manifest]: ./active-directory-application-manifest.md
-[AAD-App-SP-Objects]: ./active-directory-application-objects.md
-[AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
-[AAD-Dev-Guide]: ./active-directory-developers-guide.md
-[AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
-[AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
-[AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
-[AAD-Graph-User-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity
-[AAD-How-Subscriptions-Assoc]: ./active-directory-how-subscriptions-associated-directory.md
-[AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
-[AAD-How-To-Tenant]: active-directory-howto-tenant.md
-[AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
-[AAD-Multi-Tenant-Overview]: active-directory-devhowto-multi-tenant-overview.md
-[AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
-[AAD-Tokens-Claims]: ./active-directory-token-and-claims.md
-[AZURE-classic-portal]: https://manage.windowsazure.com
-[Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
-[JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
-[Microsoft-Graph]: https://graph.microsoft.io
-[O365-Perm-Ref]: https://msdn.microsoft.com/en-us/office/office365/howto/application-manifest
-[OAuth2-Access-Token-Scopes]: https://tools.ietf.org/html/rfc6749#section-3.3
-[OAuth2-AuthZ-Endpoint]: https://tools.ietf.org/html/rfc6749#section-3.1
-[OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3 
-[OAuth2-Client-Types]: https://tools.ietf.org/html/rfc6749#section-2.1
-[OAuth2-Role-Def]: https://tools.ietf.org/html/rfc6749#page-6
-[OpenIDConnect]: http://openid.net/specs/openid-connect-core-1_0.html
-[OpenIDConnect-AuthZ-Endpoint]: http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint
-[OpenIDConnect-ID-Token]: http://openid.net/specs/openid-connect-core-1_0.html#IDToken
 
