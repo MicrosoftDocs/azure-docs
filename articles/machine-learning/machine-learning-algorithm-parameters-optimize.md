@@ -70,8 +70,7 @@ The model is then evaluated on the validation dataset. The left output port of t
 
 ![Validation dataset](./media/machine-learning-algorithm-parameters-optimize/fig6b.png)
 
-You can see the exact parameters chosen by visualizing the right output port. This model can be used in scoring a test set or in an operationalized web service after saving as a trained model.
-
+You can see the exact parameters chosen by visualizing the right output port. This model can be used in scoring a test set or in an operationalized web service after saving as a trained model. 
 
 <!-- Module References -->
 [partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/
