@@ -199,8 +199,8 @@ A Data Transfer Object (DTO) is a plain C# object that inherits from `EntityData
         public bool Complete {get; set;}
     }
 
-The DTO is used to define the table within the SQL database.  To create the database entry, add the following to the DbContext you are 
-using.  In the default project template for Azure Mobile Apps, the DbContext is called `Models\MobileServiceContext.cs`:
+The DTO is used to define the table within the SQL database.  To create the database entry, add a `DbSet<>` property to 
+the DbContext you are using.  In the default project template for Azure Mobile Apps, the DbContext is called `Models\MobileServiceContext.cs`:
 
     public class MobileServiceContext : DbContext
     {
