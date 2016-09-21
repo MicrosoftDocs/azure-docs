@@ -20,12 +20,11 @@
 
 # Azure Active Directory conditional access   
   
-Securing access to company resources is important to every organization. With the advent of cloud services and mobile devices, the way in which users access company resources has significantly changed. This requires a new approach to accessing corporate resources and security.  
+Securing access to company resources is important to every organization. With the advent of cloud services and mobile devices, how users access company resources has significantly changed. Proliferation of personal and company-owned devices requires a new approach to accessing corporate resources and  security.  
   
 ## Why conditional access?  
 
-Azure Active Directory Conditional access control capabilities offer simple ways for companies to secure  resources in the cloud and on-premises. Conditional access policies can be used to help protect against the risk of stolen and phished credentials, by requiring multi-factor authentication, as well as helping to keep company data safe, by requiring an Intune-managed device granting access to sensitive services. 
-
+Azure Active Directory Conditional access control capabilities offer simple ways for companies to secure  resources in the cloud and on-premises. Conditional access policies can protect against the risk of stolen and phished credentials with multi-factor authentication. You can also enforce conditional access policies to keep company data safe, such only devices enrolled into a mobile device management system like Microsoft Intune are granted access to sensitive services. 
 
 
 ## Prerequisites
@@ -59,7 +58,7 @@ With conditional access control, Azure Active Directory checks the specific cond
 
 - **Block**: Conditions like user location can be applied to block user access. For example, blocking access when a user is not on a trusted network. 
 
-- **Compliant devices**: At the device level, you can set policies that enforce conditions such that only computers that are domain-joined, or mobile devices that are enrolled into an Mobile Device Management (MDM) application, and meet compliance, are allowed access. For example, Microsoft Intune can be used to check compliance on devices and report it back to Azure Active Directory for enforcement during application access. For detailed guidance on how to use Microsoft Intune to protect apps and data, see [Protect apps and data with Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/protect-apps-and-data-with-microsoft-intune). You can also enforce data protection for lost or stolen devices through Microsoft Intune. For more information, see [Help protect your data with full or selective wipe using Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune)
+- **Compliant devices**: At the device level, you can set policies that enforce conditions such that only computers that are domain-joined, or mobile devices that are enrolled into a Mobile Device Management (MDM) application, and meet compliance, are allowed access. For example, Microsoft Intune can be used to check compliance on devices and report it back to Azure Active Directory for enforcement during application access. For detailed guidance on how to use Microsoft Intune to protect apps and data, see [Protect apps and data with Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/protect-apps-and-data-with-microsoft-intune). You can also enforce data protection for lost or stolen devices through Microsoft Intune. For more information, see [Help protect your data with full or selective wipe using Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune)
 
 ## Applications
 
@@ -76,7 +75,7 @@ You can also restrict access to applications from devices that are registered wi
 Policies can be set based on the following requirements:
 
 - **Domain joined devices** - You can set a policy to restrict access to devices that are joined to an on-premises Active Directory domain and are also registered with Azure AD. This policy applies to Windows desktops, laptops or enterprise tablets that belong to an on-premises Active Directory domain which have registered with Azure AD.
-For more information on how to setup automatic registration of domain joined devices with Azure AD, see [How to setup automatic Registration of Windows domain joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
+For more information on how to set up automatic registration of domain joined devices with Azure AD, see [How to set up automatic Registration of Windows domain joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
 
 - **Compliant devices** - You can set a policy to restrict access to devices that are marked **compliant** in the directory by the management system. This policy ensures that only devices that meet security policies such as enforcing file encryption on a device are allowed access. This policy can be used to restrict access from the following devices:
 
