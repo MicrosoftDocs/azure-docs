@@ -22,7 +22,7 @@ This document helps you to configure security policies in Security Center by gui
 ## What are security policies?
 A security policy defines the set of controls, which are recommended for resources within the specified subscription or resource group. In Security Center, you define policies for your Azure subscriptions or resource group according to your company security needs and the type of applications or sensitivity of the data in each subscription.
 
-For example, resources that are used for development or test may have different security requirements from resources that are used for production applications. Likewise, applications that use regulated data like personally identifiable information might require a higher level of security. Security policies that are enabled in Azure Security Center drive security recommendations and monitoring to help you identify potential vulnerabilities and mitigate threats. Read [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md) for more information about how to determine the option that is appropriate for you.
+For example, resources that are used for development or test might have different security requirements from resources that are used for production applications. Likewise, applications that use regulated data like personally identifiable information might require a higher level of security. Security policies that are enabled in Azure Security Center drive security recommendations and monitoring to help you identify potential vulnerabilities and mitigate threats. Read [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md) for more information about how to determine the option that is appropriate for you.
 
 ## Set security policies for subscriptions
 
@@ -48,7 +48,7 @@ You can configure security policies for each subscription or resource group. To 
 
     >[AZURE.NOTE] We recommend that you turn on data collection for each of your subscriptions to ensure that security monitoring is available for all existing and new VMs. Enabling data collection installs the monitoring agent. If you don't want to turn on data collection now from this location, you can do it later from the **Health** and **Recommendations** views. You can also enable data collection for only the subscription or for select VMs. Refer to the [Azure Security Center FAQ](security-center-faq.md) to know more about the supported VMs.
 
-5. If your storage account is not configured yet, you may see a warning like the following screenshot when you open **Security Policy**:
+5. If your storage account is not configured yet, you might see a warning like the one in the following screenshot when you open **Security Policy**:
 
     ![Storage selection](./media/security-center-policies/security-center-policies-fig2.png)
 
