@@ -36,7 +36,7 @@ You can configure an alert do the following when it triggers:
 - send email notifications to the service administrator and co-administrators
 - send email to additional emails that you specify.
 - call a webhook
-- start execution of an Azure runbook (only from the Azure portal at this time) 
+- start execution of an Azure runbook (only from the Azure portal) 
 
 You can configure and get information about alert rules using 
 - [Azure portal](insights-alerts-portal.md)

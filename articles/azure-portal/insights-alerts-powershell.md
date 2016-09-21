@@ -93,7 +93,7 @@ For additional information, you can always type ```get-help``` and then the Powe
     A full list of available options for Get-AzureRmMetricDefinition is available by running Get-MetricDefinitions.
 
  
-5. The following example sets up an alert on a web site resource that triggers whenever it consistently receives any traffic for 5 minutes and again when it receives no traffic for 5 minutes.
+5. The following example sets up an alert on a web site resource. The alert triggers whenever it consistently receives any traffic for 5 minutes and again when it receives no traffic for 5 minutes.
 
     ```
 	Add-AzureRmMetricAlertRule -Name MyMetricRuleWithWebhookAndEmail -Location "East US" -ResourceGroup myresourcegroup -TargetResourceId /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename -MetricName "BytesReceived" -Operator GreaterThan -Threshold 2 -WindowSize 00:05:00 -TimeAggregationOperator Total -Description "alert on any website activity"

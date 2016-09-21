@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Use the cross-platform Command Line Interface (CLI) to create alerts for Azure services | Microsoft Azure"
-	description="Use the command line interface to create Azure alerts, which can trigger notifications or automation when the conditions you specify are met.
+	description="Use the command line interface to create Azure alerts, which can trigger notifications or automation when the conditions you specify are met."
 	authors="rboucher"
 	manager=""
 	editor=""
@@ -93,7 +93,7 @@ You can always receive help for commands by typing a command and putting -help a
  
 	**azure insights alerts rule metric set** *[options] &lt;ruleName&gt; &lt;location&gt; &lt;resourceGroup&gt; &lt;windowSize&gt; &lt;operator&gt; &lt;threshold&gt; &lt;targetResourceId&gt; &lt;metricName&gt; &lt;timeAggregationOperator&gt;*
 	
-	The following example sets up an alert on a web site resource that triggers whenever it consistently receives any traffic for 5 minutes and again when it receives no traffic for 5 minutes. 
+	The following example sets up an alert on a web site resource. The alert triggers whenever it consistently receives any traffic for 5 minutes and again when it receives no traffic for 5 minutes. 
 
     ```
 	azure insights alerts rule metric set myrule eastus myreasourcegroup PT5M GreaterThan 2 /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename BytesReceived Total
