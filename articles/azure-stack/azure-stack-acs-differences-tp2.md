@@ -73,7 +73,7 @@ The following versions are supported with this preview release of Azure Stack st
 >
 > Azure Storage management services:
 > [2015-05-01-preview](https://msdn.microsoft.com/library/azure/mt163683.aspx)
-
+> [2015-06-15](https://msdn.microsoft.com/en-us/library/azure/mt163683.aspx) 
 ## Next steps
 
 -   [Introduction to Azure Stack storage](azure-stack-architecture.md)
