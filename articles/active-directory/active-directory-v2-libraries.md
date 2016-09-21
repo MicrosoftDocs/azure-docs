@@ -64,7 +64,6 @@ For a list of libraries that work with the v2.0 endpoint, see the following sect
 | Android | [OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib/wiki) | 0.2.1 | [OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib) | [Native app sample](active-directory-v2-devquickstarts-android.md) |
 | iOS | [NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) | 1.2.8 | [NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) | [Native app sample](active-directory-v2-devquickstarts-ios.md)|
 | JavaScript | [Hello.js](https://adodson.com/hello.js/) | 1.13.5 | [Hello.js](https://github.com/MrSwitch/hello.js) | Coming soon |
-| Node.js | [Azure AD Passport.js Plug-In](https://github.com/AzureAD/passport-azure-ad) | 2.0.3 | [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad) | [Web app sample](active-directory-v2-devquickstarts-node-web.md) |
 | Python-Flask | [Flask-OAuthlib](https://github.com/lepture/flask-oauthlib) | 0.9.3 | [Flask-OAuthlib](https://github.com/lepture/flask-oauthlib) | Coming soon |
 | Ruby | [OmniAuth](https://github.com/omniauth/omniauth/wiki)</br>[Omniauth::MicrosoftV2Auth](https://github.com/microsoftgraph/ruby-connect-rest-sample/tree/master/omniauth-microsoft_v2_auth) | omniauth:1.3.1</br>omniauth-oauth2:1.4.0</br>microsoft_strategy:0.1.0 | [OmniAuth](https://github.com/omniauth/omniauth)</br>[Omniauth::MicrosoftV2Auth](https://github.com/microsoftgraph/ruby-connect-rest-sample/tree/master/omniauth-microsoft_v2_auth) | Coming soon |
 |  |  |  |  |  |
@@ -118,7 +117,7 @@ Please use the following Disqus comments section to provide feedback and help us
 [ServerLib-NetCore-Owin-Oidc-Sample]: https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-v2
 [ServerLib-NetCore-Owin-Oauth-Lib]: https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.OAuth/
 [ServerLib-NetCore-Owin-Oauth-Repo]: https://github.com/aspnet/Security
-[ServerLib-NetCore-Owin-Oauth-Sample]:
+[ServerLib-NetCore-Owin-Oauth-Sample]:/
 [ServerLib-Node-Lib]: https://www.npmjs.com/package/passport-azure-ad
 [ServerLib-Node-Repo]: https://github.com/AzureAD/passport-azure-ad/
 [ServerLib-Node-Sample]: https://azure.microsoft.com/en-us/documentation/articles/active-directory-v2-devquickstarts-node-web/
