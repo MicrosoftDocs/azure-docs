@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
 	ms.date="07/26/2016"
-	ms.author="gusapost;robinsh"/>
+	ms.author="cbrooks;robinsh"/>
 
 # Get started with Azure Queue storage using .NET
 

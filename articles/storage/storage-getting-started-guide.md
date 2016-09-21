@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
 	ms.date="09/20/2016"
-	ms.author="tamram"/>
+	ms.author="dineshm;tamram"/>
 
 # Get started with Azure Storage in five minutes
 

@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
 	ms.date="09/20/2016"
-	ms.author="tamram"/>
+	ms.author="gusapost;tamram"/>
 
 
 # Get started with Azure Table storage using .NET

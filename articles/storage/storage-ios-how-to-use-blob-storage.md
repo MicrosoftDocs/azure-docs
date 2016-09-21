@@ -11,7 +11,7 @@
     ms.service="storage"
     ms.workload="storage"
     ms.tgt_pltfrm="na"
-    ms.devlang="Objective-C"
+    ms.devlang="objective-c"
     ms.topic="article"
     ms.date="09/20/2016"
     ms.author="micurd;tamram"/>

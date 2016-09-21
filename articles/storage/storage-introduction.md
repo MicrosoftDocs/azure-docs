@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="09/20/2016"
-	ms.author="tamram"/>
+	ms.author="vamshik;tamram"/>
 
 # Introduction to Microsoft Azure Storage
 
