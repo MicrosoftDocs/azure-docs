@@ -207,10 +207,10 @@ Set up the Hyper-V site, install the Azure Site Recovery Provider and the Azure 
 
 	![internet](./media/site-recovery-hyper-v-site-to-azure/provider7.PNG)
 
-5.After installation finishes click **Register** to register the server in the vault.	
+6.After installation finishes click **Register** to register the server in the vault.	
 	![Install location](./media/site-recovery-hyper-v-site-to-azure/provider2.png)
 
-6.After registration finishes metadata from the Hyper-V server is retrieved by Azure Site Recovery and the server is displayed on the **Settings** > **Site Recovery Infrastructure** > **Hyper-V Hosts** blade.
+7.After registration finishes metadata from the Hyper-V server is retrieved by Azure Site Recovery and the server is displayed on the **Settings** > **Site Recovery Infrastructure** > **Hyper-V Hosts** blade.
 
 
 ### Command line installation
