@@ -25,7 +25,7 @@ This article shows you how to create and upload a Windows virtual hard disk (VHD
 For more details about disks and VHDs in Azure, see [About disks and VHDs for virtual machines](virtual-machines-linux-about-disks-vhds.md).
 
 
-## Prepare the VM for uploading
+## Prepare the VM 
 
 You can upload both generalized and specialized VHDs to Azure. Each type requires that you prepare the VM before starting.
 
@@ -144,6 +144,6 @@ This command may take a while to complete, depending on your network connection 
 ## Next steps
 
 - Create a VM from a generalized VHD
-- Create a VM from a specialized VHD
+- [Create a VM from a specialized VHD](virtual-machines-windows-create-vm-specialized) by attaching it as an OS disk when you create a new VM.
 
 
