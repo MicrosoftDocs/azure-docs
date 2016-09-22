@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Automatic backup and restore with DocumentDB | Microsoft Azure"
+	pageTitle="Online backup and restore with DocumentDB | Microsoft Azure"
 	description="Learn how to perform automatic backup and restore of NoSQL databases with Azure DocumentDB."
 	keywords="backup and restore, automatic backup"
 	services="documentdb"
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/13/2016"
+	ms.date="09/22/2016"
 	ms.author="raprasa"/>
 
-# Automatic and online backup and restore with DocumentDB 
+# Automatic online backup and restore with DocumentDB 
 
 Azure DocumentDB automatically takes backups of all your data at regular intervals. The automatic backups are taken without affecting the performance or availability of your NoSQL database operations. All your backups are stored separately in another storage service, and those backups are globally replicated for resiliency against regional disasters. The automatic backups are intended for scenarios when you accidentally delete your DocumentDB collection and later want to restore it.  
 
@@ -38,7 +38,7 @@ The following images illustrate the high degree of redundancy with DocumentDB.
 
 ## Full backups for “Oops I deleted my collection or database” scenario
 
-With DocumentDB, not only your data, but the backups of your data are also made highly redundant and resilient to regional disasters. For this, DocumentDB automatically takes backups of all your data periodically. Internally, the frequency of backup is configurable on a per database account basis. Currently, full backups are taken approximately every four hours but this is subject to change. 
+With DocumentDB, not only your data, but the backups of your data are also made highly redundant and resilient to regional disasters. These backups are done automatically, and are currently taken approximately every four hours. 
 
 The backups are taken without affecting the performance or availability of your database operations. DocumentDB takes the backup in the background without consuming your provisioned RUs or affecting the performance and without affecting the availability of your NoSQL database. 
 
@@ -51,11 +51,11 @@ The following image illustrates periodic full backups of all DocumentDB entities
 
 ## Retention period for a given snapshot
 
-While we periodically take snapshots of your data for automatic backup, for compliance reasons, each snapshot of data is stored for at least 30 days and up to 90 days before we eventually purge it. Internally, this retention interval is configurable on a per database account basis. If a collection or account is deleted, we keep the last backup of the collection or all the collections (account delete) for 90 days.
+DocumentDB takes snapshots of your data approximately every four hours, and each snapshot for an active account is maintained for approximately 8 hours. If a collection or account is deleted, DocumentDB stores the last backup for 90 days.
 
 ## Restoring your data from the backup
 
-In case you accidentally delete your data, you can file a support ticket or call support to restore the data from the last automatic backup. For a specific snapshot of your backup to be restored, we require that the data was at least available with us for the duration of the backup cycle for that snapshot.
+In case you accidentally delete your data, you can file a support ticket or call support to restore the data from the last automatic backup. For a specific snapshot of your backup to be restored, DocumentDB requires that the data was at least available with us for the duration of the backup cycle for that snapshot.
 
 ## Next steps
 
