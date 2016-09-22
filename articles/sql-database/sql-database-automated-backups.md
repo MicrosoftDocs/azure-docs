@@ -30,11 +30,11 @@ Backup files are stored in a geo-redundant storage account with read access (RA-
 
 ### Automated backup costs
 
-Microsoft Azure SQL Database provides up to 200% of your maximum provisioned database storage of backup storage at no additional cost. For example, if you have a Standard DB instance with a provisioned DB size of 250 GB, you have 500 GB of backup storage at no additional charge. If your database exceeds the provided backup storage, you can choose to reduce the retention period by contacting Azure Support. Another option is to pay for extra backup storage that will be billed at the standard Read-Access Geographically Redundant Storage (RA-GRS) rate. 
+Microsoft Azure SQL Database provides up to 200% of your maximum provisioned database storage of backup storage at no additional cost. For example, if you have a Standard DB instance with a provisioned DB size of 250 GB, you have 500 GB of backup storage at no additional charge. If your database exceeds the provided backup storage, you can choose to reduce the retention period by contacting Azure Support. Another option is to pay for extra backup storage that is billed at the standard Read-Access Geographically Redundant Storage (RA-GRS) rate. 
 
 ### Automated backup schedule
 
-All Basic, Standard, and Premium databases are protected by automatic backups. Full database backups are taken every week, differential database backups are taken hourly, and transaction log backups are taken every five minutes. The first full backup is scheduled immediately after a database is created. It usually completes within 30 minutes, but it can take longer. The first full backup can take longer to complete, especially if the database is of a significant size. The initial database can be of a significant size, for example, if it is created by a database copy or by restoring a large database. After the first full backup, all further backups are scheduled automatically and managed silently in the background. Exact timing of full and differential backups is determined by the system to balance overall load. 
+All Basic, Standard, and Premium databases are protected by automatic backups. Full database backups are taken every week, differential database backups are taken hourly, and transaction log backups are taken every five minutes. The first full backup is scheduled immediately after a database is created. It usually completes within 30 minutes, but it can take longer when the database is of a significant size. For example, the initial backup can take longer on a restored database or a database copy. After the first full backup, all further backups are scheduled automatically and managed silently in the background. Exact timing of full and differential backups is determined by the system to balance overall load. 
 
 ### Automated backup retention period
 
@@ -42,7 +42,7 @@ An automated backup is retained for 7 days for Basic, 35 days for Standard, and 
 
 **What happens to my restore point retention period when I downgrade/upgrade by service tier?**
 
-After downgrading to a lower performance tier, the restore point’s retention period is immediately truncated to the retention period of the performance tier of the current database. If the service tier is upgraded, the retention period will begin extending only after the database is upgraded. For example, if a database is downgraded to Basic, the retention period will change from 35 days to 7 days. Immediately, all the restore points older than 7 days are not available. When you upgrade a database Standard or Premium, the retention period begins with 7 days and grows until it reaches 35 days.
+After downgrading to a lower performance tier, the restore point’s retention period is immediately truncated to the retention period of the performance tier of the current database. If the service tier is upgraded, the retention period will begin extending only after the database is upgraded. For example, if a database is downgraded to Basic, the retention period changes from 35 days to 7 days. Immediately, all the restore points older than seven days are not available. When you upgrade a database Standard or Premium, the retention period begins with 7 days and grows until it reaches 35 days.
 
 **How long is the retention period for a dropped DB?** 
 The retention period is determined by the service tier of the database while it existed or the number of days where the database exists, whichever is less.
