@@ -1,9 +1,9 @@
 <properties
- pageTitle=""
+ pageTitle="Get Started with Raspberry Pi 3"
  services="iot-hub"
- documentationCenter=""
- authors=""
- manager=""
+ documentationCenter="Describes all the lessons to get started with Raspberry Pi"
+ authors="xshi"
+ manager="jeffya"
  editor=""/>
 
 <tags
@@ -12,8 +12,8 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="" 
- ms.author=""/>
+ ms.date="09/22/2016" 
+ ms.author="xshi"/>
 
 # Get Started with Raspberry Pi 3
 
