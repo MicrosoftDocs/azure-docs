@@ -19,6 +19,8 @@
 
 # Deploy the MySQL Resource Provider on Azure Stack to use with WebApps
 
+> [AZURE.NOTE] The following information only applies to Azure Stack TP1 deployments.
+
 Use this article to follow the detailed steps for setting up the MySQL Resource Provider on the Azure Stack proof of concept (POC) so that you can start [using MySQL databases](azure-stack-mysql-rp-deploy-short.md) on Azure Stack, including using MySQL as the backend for WordPress sites created with [Azure Web Apps](azure-stack-webapps-deploy.md).
 
 ## Set up steps before you deploy
