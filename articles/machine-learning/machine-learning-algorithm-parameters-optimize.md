@@ -52,7 +52,7 @@ The [Partition and Sample][partition-and-sample] module can be used to randomly 
 
 
 ## Define the metric
-The [Tune Model Hyperparameters][tune-model-hyperparameters] module provides support for empirically choosing the best set of parameters for a given algorithm and dataset. in addition to other information regarding training the model, the Properties pane of this module includes the metric for determining the best parameter set. It has two different drop-down list boxes for classification and regression algorithms, respectively. If the algorithm under consideration is a classification algorithm, the regression metric is ignored and vice versa. In this specific example, the metric is **Accuracy**.   
+The [Tune Model Hyperparameters][tune-model-hyperparameters] module provides support for empirically choosing the best set of parameters for a given algorithm and dataset. In addition to other information regarding training the model, the Properties pane of this module includes the metric for determining the best parameter set. It has two different drop-down list boxes for classification and regression algorithms, respectively. If the algorithm under consideration is a classification algorithm, the regression metric is ignored and vice versa. In this specific example, the metric is **Accuracy**.   
 
 ![Sweep parameters](./media/machine-learning-algorithm-parameters-optimize/fig5.png)
 
@@ -70,7 +70,7 @@ The model is then evaluated on the validation dataset. The left output port of t
 
 ![Validation dataset](./media/machine-learning-algorithm-parameters-optimize/fig6b.png)
 
-You can see the exact parameters chosen by visualizing the right output port. This model can be used in scoring a test set or in an operationalized web service after saving as a trained model. 
+You can see the exact parameters chosen by visualizing the right output port. This model can be used in scoring a test set or in an operationalized web service after saving as a trained model.
 
 <!-- Module References -->
 [partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/
