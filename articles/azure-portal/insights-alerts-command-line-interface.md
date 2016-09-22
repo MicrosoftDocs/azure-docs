@@ -32,7 +32,7 @@ You can receive an alert based on monitoring metrics for, or events on, your Azu
 - **Metric values** - The alert triggers when the value of a specified metric crosses a threshold you assign in either direction. That is, it triggers both when the condition is first met and then afterwards when that condition is no longer being met.    
 - **Activity log events** - An alert can trigger on *every* event, or, only when a certain number of events occur.
 
-You can configure an alert do the following when it triggers: 
+You can configure an alert to do the following when it triggers: 
 
 - send email notifications to the service administrator and co-administrators
 - send email to additional emails that you specify.
@@ -90,7 +90,7 @@ You can always receive help for commands by typing a command and putting -help a
 	azure insights metrics list /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename PT1M 
   	```
 
-   *PT1M* is the granularity of the available measurement (1-minute intervals). Using different granularities gives you different metric options.
+	_PT1M_ is the granularity of the available measurement (1-minute intervals). Using different granularities gives you different metric options.
 
  
 4. To create a metric-based alert rule, use a command of the following form:

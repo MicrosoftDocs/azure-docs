@@ -32,7 +32,8 @@ You can receive an alert based on monitoring metrics for, or events on, your Azu
 - **Metric values** - The alert triggers when the value of a specified metric crosses a threshold you assign in either direction. That is, it triggers both when the condition is first met and then afterwards when that condition is no longer being met.    
 - **Activity log events** - An alert can trigger on *every* event, or, only when a certain number of events occur.
 
-You can configure an alert do the following when it triggers: 
+
+You can configure an alert to do the following when it triggers: 
 
 - send email notifications to the service administrator and co-administrators
 - send email to additional emails that you specify.
