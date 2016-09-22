@@ -127,5 +127,17 @@ In order to enable FairPlay encription, you need to provide the App Certificate 
 
 ![Protect content](./media/media-services-portal-content-protection/media-services-content-protection009.png)
 
+##Next steps
+
+Review Media Services learning paths.
+
+[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
+##Provide feedback
+
+[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+
+
 
 
