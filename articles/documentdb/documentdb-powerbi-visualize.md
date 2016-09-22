@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/11/2016"
+	ms.date="09/20/2016"
 	ms.author="hawong"/>
 
 # Power BI tutorial for DocumentDB: Visualize data using the Power BI connector
@@ -87,25 +87,24 @@ Ready to give it a try? Let's get started.
 
 	![Power BI Desktop Get Data - Power BI connector](./media/documentdb-powerbi-visualize/power_bi_connector_pbigetdata.png)
 
-6. Specify the DocumentDB account endpoint URL you would like to retrieve the data from as shown below, and then click **OK**. You can retrieve the URL from the URI box in the **Keys** blade of the Azure Portal or you can use the demo account information provided above. For more information, see [Keys](documentdb-manage-account.md#keys).
+6. Specify the DocumentDB account endpoint URL you would like to retrieve the data from as shown below, and then click **OK**. You can retrieve the URL from the URI box in the **[Keys](documentdb-manage-account.md#keys)** blade of the Azure portal or you can use the demo account, in which case the URL is `https://analytics.documents.azure.com`. 
 
-
-	*Note.  In this tutorial, we will not specify the Database name, Collection name, or a SQL statement as these fields are optional.  Instead, we will use the Navigator to select the Database and Collection to identify where the data comes from.*
+	Leave the database name, collection name, and SQL statement blank as these fields are optional.  Instead, we will use the Navigator to select the Database and Collection to identify where the data comes from.
 
     ![Power BI tutorial for DocumentDB Power BI connector - Desktop Connect Window](./media/documentdb-powerbi-visualize/power_bi_connector_pbiconnectwindow.png)
 
-7. If you are connecting to this endpoint for the first time, you will be prompted for the account key. Enter the account key and click **Connect**.
+7. If you are connecting to this endpoint for the first time, you will be prompted for the account key.  You can retrieve the key from the **Primary Key** box in the **[Read-only Keys](documentdb-manage-account.md#keys)** blade of the Azure portal, or you can use the demo account, in which case the key is `RcEBrRI2xVnlWheejXncHId6QRcKdCGQSW6uSUEgroYBWVnujW3YWvgiG2ePZ0P0TppsrMgscoxsO7cf6mOpcA==`. Enter the account key and click **Connect**.
 
-	*Note. We recommend that you use the read-only key when building reports.  This will prevent unnecessary exposure of the master key to potential security risks. The read-only key is available from the Read-Only Keys blade of the Azure Portal or you can use the demo account information provided above.*
+	We recommend that you use the read-only key when building reports.  This will prevent unnecessary exposure of the master key to potential security risks. The read-only key is available from the [Keys](documentdb-manage-account.md#keys) blade of the Azure portal or you can use the demo account information provided above.
 
     ![Power BI tutorial for DocumentDB Power BI connector - Account Key](./media/documentdb-powerbi-visualize/power_bi_connector_pbidocumentdbkey.png)
 
 8. When the account is successfully connected, the **Navigator** will appear.  The **Navigator** will show a list of databases under the account.
-9. Click and expand on the database where the data for the report will come from.  A list of collections under the database will display.  
+9. Click and expand on the database where the data for the report will come from, if you're using the demo account, select **volcanodb**.   
 
-10. Now, select a collection that you will retrieve the data from, e.g. volcano1.
+10. Now, select a collection that you will retrieve the data from. If you're using the demo account, select **volcano1**.
 
-	*Note. The Preview pane shows a list of **Record** items.  A Document is represented as a **Record** type in Power BI. Similarly, a nested JSON block inside a document is also a **Record**.*
+	The Preview pane shows a list of **Record** items.  A Document is represented as a **Record** type in Power BI. Similarly, a nested JSON block inside a document is also a **Record**.
 
     ![Power BI tutorial for DocumentDB Power BI connector - Navigator window](./media/documentdb-powerbi-visualize/power_bi_connector_pbinavigator.png)
 
@@ -130,16 +129,16 @@ Ready to give it a try? Let's get started.
 
 6. The center pane now shows a coordinates column of **List** type.  As shown at the beginning of the tutorial, the GeoJSON data in this tutorial is of Point type with Latitude and Longitude values recorded in the coordinates array.
 
-	*Note.  the coordinates[0] element represents Longitude while coordinates[1] represents Latitude.*
+	The coordinates[0] element represents Longitude while coordinates[1] represents Latitude.
 	![Power BI tutorial for DocumentDB Power BI connector - Coordinates list](./media/documentdb-powerbi-visualize/power_bi_connector_pbiresultflattenlist.png)
 
 7. To flatten the coordinates array, we will create a **Custom Column** called LatLong.  Select the **Add Column** ribbon and click on **Add Custom Column**.  The **Add Custom Column** window should appear.
 
 8. Provide a name for the new column, e.g. LatLong.
 
-9. Next, specify the custom formula for the new column.  For our example, we will concatenate the Latitude and Longitude values separated by a comma as shown below using the following formula: Text.From([coordinates]{1})&","&Text.From([coordinates]{0}). Click **OK**.
+9. Next, specify the custom formula for the new column.  For our example, we will concatenate the Latitude and Longitude values separated by a comma as shown below using the following formula: `Text.From([Document.Location.coordinates]{1})&","&Text.From([Document.Location.coordinates]{0})`. Click **OK**.
 
-    *Note. For more information on Data Analysis Expressions(DAX) including DAX functions, please visit [DAX Basic in Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/554619-dax-basics-in-power-bi-desktop).*
+    For more information on Data Analysis Expressions (DAX) including DAX functions, please visit [DAX Basic in Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/554619-dax-basics-in-power-bi-desktop).
 
     ![Power BI tutorial for DocumentDB Power BI connector - Add Custom Column](./media/documentdb-powerbi-visualize/power_bi_connector_pbicustomlatlong.png)
 
@@ -147,7 +146,13 @@ Ready to give it a try? Let's get started.
 
 	![Power BI tutorial for DocumentDB Power BI connector - Custom LatLong column](./media/documentdb-powerbi-visualize/power_bi_connector_pbicolumnlatlong.png)
 
-11. We have now completed flattening the data into tabular format.  You can leverage all of the features available in the Query Editor to shape and transform data in DocumentDB.  For instance, you can change the data type for Elevation to **Decimal Number** by changing the **Data Type** on the **Home** ribbon.
+    If you receive an Error in the new column, make sure that the applied steps under Query Settings match the following figure:
+
+    ![Applied steps should be Source, Navigation, Expanded Document, Expanded Document.Location, Added Custom](./media/documentdb-powerbi-visualize/azure-documentdb-power-bi-applied-steps.png)
+
+    If you're steps are different, delete the extra steps and try adding the custom column again. 
+
+11. We have now completed flattening the data into tabular format.  You can leverage all of the features available in the Query Editor to shape and transform data in DocumentDB.  If you're using the sample, change the data type for Elevation to **Whole number** by changing the **Data Type** on the **Home** ribbon.
 
     ![Power BI tutorial for DocumentDB Power BI connector - Change column type](./media/documentdb-powerbi-visualize/power_bi_connector_pbichangetype.png)
 
@@ -172,12 +177,12 @@ In the Report view, you should find:
 
 The following shows the basic steps of creating a simple interactive Map view report.
 
-1. For our example, we will create a map view showing the location of each volcano.  In the **Visualizations** pane,  click on the Map visual type as highlighed in the screenshot above.  You should see the Map visual type painted on the **Report** canvas.  The **Visualization** pane should also display a set of properties related to the Map visual type.
+1. For our example, we will create a map view showing the location of each volcano.  In the **Visualizations** pane,  click on the Map visual type as highlighted in the screenshot above.  You should see the Map visual type painted on the **Report** canvas.  The **Visualization** pane should also display a set of properties related to the Map visual type.
 
 2. Now, drag and drop the LatLong field from the **Fields** pane to the **Location** property in **Visualizations** pane.
 3. Next, drag and drop the Volcano Name field to the **Legend** property.  
 
-4. Then, drag and drop the Elevation field to the **Values** property.  
+4. Then, drag and drop the Elevation field to the **Size** property.  
 
 5. You should now see the Map visual showing a set of bubbles indicating the location of each volcano with the size of the bubble correlating to the elevation of the volcano.
 
@@ -195,9 +200,11 @@ To share your report, you must have an account in PowerBI.com.
 
 ## Publish data in PowerBI.com
 
-1.	Create a report in Power BI Desktop as described in the previous sections of this article.
-2. When you publish a report in your PowerBI.com tenant,  there are two items created associated with the published report in PowerBI.com, a dataset and a report. For example, after you published a report called VolcanoDB to PowerBI.com, you will see VolcanoDB in the Reports and Datasets sections respectively in your PowerBI.com tenant.
-3. To create a dashboard, click on the VolcanoDB report in the Reports section. Once the report opens, you can then ‘pin’ the charts element to a dashboard.  You can also do adhoc modifications to report. However, it's recommended that you use Power BI Desktop to perform the modifications and republish the report to PowerBI.com.
+Now that you have a report, lets share on PowerBI.com
+
+When you publish a report in your PowerBI.com tenant,  there are two items created associated with the published report in PowerBI.com, a dataset and a report. For example, after you published a report called VolcanoDB to PowerBI.com, you will see VolcanoDB in the Reports and Datasets sections respectively in your PowerBI.com tenant.
+
+- To create a dashboard, click on the VolcanoDB report in the Reports section. You can also do adhoc modifications to report. However, it's recommended that you use Power BI Desktop to perform the modifications and republish the report to PowerBI.com.
 
 ## Refresh data in PowerBI.com
 
@@ -211,12 +218,15 @@ For a scheduled refresh, do the following.
 
     The **Settings** page appears. You should see a set of settings for the dataset as shown below. 
 2. Expand **Data source credentials**. 
+
 3. Click on **Edit credentials**. 
 
     The Configure popup appears. 
 
 4. Enter the key to connect to the DocumentDB account for that data set, then click **Sign in**. 
-5. Expand **Schedule Refresh** and set up the schedule you want to refresh the dataset.   
+
+5. Expand **Schedule Refresh** and set up the schedule you want to refresh the dataset. 
+  
 6. Click **Apply** and you are done setting the dataset to refresh on a particular schedule.
 
 ## Next steps
