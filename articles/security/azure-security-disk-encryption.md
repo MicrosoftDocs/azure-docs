@@ -798,7 +798,7 @@ Go to [Azure Resource Viewer](https://resources.azure.com/), then expand this hi
 
 In the InstanceView, scroll down to see the encryption status of your drives.
 
-![VM Instance View](./media/azure-security-disk-encryption/vm-instanceview.PNG)
+![VM Instance View](./media/azure-security-disk-encryption/vm-instanceview.png)
 
 2.Look at [boot diagnostics](https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/). Messages from ADE extension shall be prefixed with `[AzureDiskEncryption]`.
 
