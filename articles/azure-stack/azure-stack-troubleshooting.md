@@ -26,8 +26,7 @@ The recommendations for troubleshooting issues that are described in this sectio
 
 ## Known Issues
 
- - You will see that there AzureRM PowerShell modules are no longer installed by default on the MAS-CON01 VM. This is now by design, because there is an alternate method to install these modules.
-    - See the “Use PSGallery to Install AzureRM” section for this guidance
+ - You will see that there AzureRM PowerShell modules are no longer installed by default on the MAS-CON01 VM. This is now by design, because there is an alternate method to [install these modules and connect](azure-stack-connect-powershell.md).  
  - You will see that the “Availability Set” resource in the Marketplace shows up under the virtualMachine-ARM Category – this is a cosmetic issue, only. 
  - You will see that the Microsoft.Insights RP is not automatically registered for Tenant Subscriptions. If you would like to see Monitoring data for a VM deployed as a Tenant, you will have to run the following command from PowerShell (after you authenticate to the Azure Stack environment as that tenant user): 
 
@@ -36,7 +35,10 @@ The recommendations for troubleshooting issues that are described in this sectio
  - If you have GREATER THAN ONE AAD Directory associated with your AAD Identity, and do not specify it with the parameter, you will get an error message, prompting to specify one of the available directories.
  - You may see a non-terminating error for “The term 'C:\WinRM\Start-Logging.ps1' is not recognized”
  - You may see non-terminating errors for “Invoke-EceAction : Cannot index into a null array” and/or “InvokeEceAction : Cannot bind argument to parameter 'Message' because it is an empty string.”
- - When creating a new virtual machine in the portal, the storage option defaults to SSD.  This must be changed to HDD or you will not be able to continue through the deployment steps.  
+ - When creating a new virtual machine in the portal, the storage option defaults to SSD.  This must be changed to HDD or you will not be able to continue through the deployment steps.
+ - Export option for Azure Resource Manager templates are blank on all settings.
+ - You are able to createa a VM with disk size larger than quota.  Additionally, deploying a VM with a disk larger than the storage quota will cause the subscription to become unusable.
+ - Quota updates to storage after subscription acquisition do not take effect.
 
 ## Azure Active Directory
 
