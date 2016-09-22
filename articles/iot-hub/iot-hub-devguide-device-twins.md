@@ -29,7 +29,7 @@ Consider using device twins when:
 * Solution back-ends have to store device meta-data,
 * Device apps have to report current state information such as available capabilities and conditions (e.g. connectivity method used),
 * Device apps and back-ends have to synchronize the state of long-running workflows (e.g. firmware/configuration updates), and
-* Solution back-ends have to query devices based on meta-data, configuration or state.
+* Solution back-ends have to query devices based on meta-data, configuration or conditions.
 
 Use [device-to-cloud messages][lnk-d2c] for sequences of timestamped events (e.g. time series of sensor data, alarms) and [cloud-to-device methods][lnk-methods] for interactive control of devices, e.g. turn on a fan.
 
@@ -113,7 +113,7 @@ The `telemetryConfig` desired and reported properties are used by the back-end a
 
 3. The app back-end can keep track the results of the configuration operation across many devices, by [querying][lnk-query] twins.
 
-In many cases twins are used to synchronize long-running operations such as firmware updates. Refer to [Use desired properties to configure devices][lnk-tutorial-use-twin] for more information on how to use properties to synchronize and track long running operations across devices.
+In many cases twins are used to synchronize long-running operations such as firmware updates. Refer to [Use desired properties to configure devices][lnk-twin-synchronization] for more information on how to use properties to synchronize and track long running operations across devices.
 
 ### Back-end-facing operations
 The application back-end operates on the twin using the following atomic operations, exposed through HTTP:
@@ -262,21 +262,16 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-query]: iot-hub-devguide-query-language.md
-<<<<<<< HEAD
 [lnk-jobs]: iot-hub-devguide-jobs.md
 [lnk-identity]: iot-hub-devguide-identity-registry.md
 [lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
 [lnk-methods]: iot-hub-devguide-direct-methods.md
 
-[lnk-tutorial-use-twin]: iot-hub-node-node-twin-use-desired-to-config.md
-
 [ISO8601]: https://en.wikipedia.org/wiki/ISO_8601
 [RFC7232]: https://tools.ietf.org/html/rfc7232
-=======
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 
 [lnk-devguide-directmethods]: iot-hub-devguide-direct-methods.md
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
-[lnk-twin-tutorial]: iot-hub-device-management-device-twin.md
-[lnk-twin-properties]: iot-hub-twin-properties.md
->>>>>>> 8ad9d33ae42b9930a46ff0d964006d7eff9a578e
+[lnk-twin-tutorial]: iot-hub-node-node-twin-getstarted.md
+[lnk-twin-properties]: iot-hub-node-node-twin-how-to-configure.md
