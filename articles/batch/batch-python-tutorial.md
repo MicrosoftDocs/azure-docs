@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="09/21/2016"
+	ms.date="09/22/2016"
 	ms.author="marsma"/>
 
 # Get started with the Azure Batch Python client
@@ -49,7 +49,7 @@ To run the *python_tutorial_client.py* sample script on your local workstation, 
 
 ### cryptography dependencies
 
-You must install the dependencies for the [cryptography][crypto] library, required by the `azure-batch` and `azure-storage` Python packages. Perform one of the following operations appropriate for your platform, or refer to the [cryptography installation][crypto_install] details for more information:.
+You must install the dependencies for the [cryptography][crypto] library, required by the `azure-batch` and `azure-storage` Python packages. Perform one of the following operations appropriate for your platform, or refer to the [cryptography installation][crypto_install] details for more information:
 
 * Ubuntu
 
