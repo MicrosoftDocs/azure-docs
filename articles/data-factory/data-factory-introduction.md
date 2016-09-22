@@ -27,7 +27,7 @@ Data Factory works across on-premises and cloud data sources to ingest, prepare,
 ![Diagram: Data Factory Overview, a data integration service](./media/data-factory-introduction/what-is-azure-data-factory.png)
 **Figure1.** Collect data from many different on-premises data sources, ingest, prepare, transform, and analyze the data, and then publish ready-to-use data for consumption.
 
-## Data Factory entities
+## Pipelines and activities
 In a Data Factory solution, you create one or more data **pipelines**. A pipeline is a logical grouping of activities. They are used to group activities into a unit that together perform a task. For example, a sequence of several transformation Activities might be needed to cleanse log file data. This sequence could have a complex schedule and dependencies that need to be orchestrated and automated. All these activities could be grouped into a single Pipeline named "CleanLogFiles." CleanLogFiles pipeline could then be deployed, scheduled, or deleted as one single unit instead of managing each individual activity independently.
 
 **Activities** define the actions to perform on your data. Each activity takes zero or more datasets as inputs and produces one or more datasets as outputs. An activity is a unit of orchestration in Azure Data Factory. For example, you may use a Copy activity to orchestrate copying data from one data store to another data store. Similarly, you may use a Hive activity, which runs a Hive query on an Azure HDInsight cluster to transform or analyze your data. Azure Data Factory provides a wide range of [data transformation](data-factory-data-transformation-activities.md), and a data movement activity (copy activity).
@@ -38,7 +38,7 @@ In a Data Factory solution, you create one or more data **pipelines**. A pipelin
 ## Data transformation activities
 [AZURE.INCLUDE [data-factory-transformation-activities](../../includes/data-factory-transformation-activities.md)]
 
-# Linked services
+## Linked services
 Linked services define the information needed for Data Factory to connect to external resources. Linked services are used for two purposes in Data Factory:
 
 - To represent a data store including, but not limited to, an on-premises SQL Server, Oracle DB, File share, or an Azure Blob Storage account. As mentioned earlier, Datasets represent data structures within the data stores connected to Data Factory through a Linked service.
