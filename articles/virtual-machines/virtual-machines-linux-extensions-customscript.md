@@ -25,7 +25,7 @@ This document details how to use the Custom Script Extension from the Azure CLI,
 
 ## Extension Configuration
 
-The Custom Script Extension configuration specifies things like script location and the command to be run. This configuration can be stored in configuration files, specified on the command line, or in an Azure Resource Manager template. Sensitive data can be stored in a protected configuration, which is encrypted and only decrypted inside the virtual machine. The protected file is useful when the execution command includes secrets such as a password.
+The Custom Script Extension configuration specifies things like script location and the command to be run. This configuration can be stored in configuration files, specified on the command line, or in an Azure Resource Manager template. Sensitive data can be stored in a protected configuration, which is encrypted and only decrypted inside the virtual machine. The protected configuration is useful when the execution command includes secrets such as a password.
 
 ### Public Configuration
 
@@ -67,7 +67,7 @@ When using the Azure CLI to run the Custom Script Extension, create a configurat
 azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config-path /scirpt-config.json
 ```
 
-Optionally, the command can be run using the `--public-config` option, which allows the configuration to be specified during execution and without a separate configuration file.
+Optionally, the command can be run using the `--public-config` and `--private-config` option, which allows the configuration to be specified during execution and without a separate configuration file.
 
 ```none
 azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
@@ -163,7 +163,7 @@ The Azure Custom Script Extension can be run at Virtual Machine deployment time 
 }
 ```
 
-**Example 2** - execution command in private configuration.
+**Example 2** - execution command in protected configuration.
 
 ```json
 {
