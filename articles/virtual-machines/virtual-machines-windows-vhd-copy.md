@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Create a copy of a VHD in Azure | Microsoft Azure"
-	description="Learn how to create a copy of a VHD running Windows, in the Resource Manager deployment model."
+	pageTitle="Create a copy of a VM in Azure | Microsoft Azure"
+	description="Learn how to create a copy of the VHD of a Windows VM running in Azure, in the Resource Manager deployment model."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -19,11 +19,11 @@
 	
 	
 	
-# Create a copy of a VHD in the Azure 
+# Create a copy Windows VM running in Azure 
 
-This article shows you how to use the AZCopy tool to create a copy of a VHD in Azure. 
+This article shows you how to use the AZCopy tool to create a copy of the VHD from a Windows VM that is running in Azure. 
 
-If you want to upload VHD from a local VM, like one created using Hyper-V, the see []
+If you want to upload VHD from a local VM, like one created using Hyper-V, the see [Upload a Windows VHD from an on-premises VM to Azure ](virtual-machines-windows-upload-image.md).
 
 
 ## Before you begin
@@ -92,8 +92,7 @@ If you only want to copy a specific VHD in a container with multiple files, you 
 
 ## Next steps
 
-- If the VHD was from a specialized VM, see.
-- If the VHD was from a generalized VM, see. 
+Create a new VM by [attaching the copy of the VHD to a VM as an OS disk](virtual-machines-windows-specialized-image.md).
 
 
 

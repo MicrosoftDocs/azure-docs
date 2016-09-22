@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Upload a Windows VHD for Resource Manager | Microsoft Azure"
-	description="Learn to upload a Windows virtual machine image to use with the Resource Manager deployment model."
+	description="Learn to upload a Windows virtual machine VHD from on-premises to Azure, using the Resource Manager deployment model."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,7 +17,7 @@
 	ms.date="09/19/2016"
 	ms.author="cynthn"/>
 
-# Upload a Windows VM image to Azure for Resource Manager deployments
+# Upload a Windows VHD from an on-premises VM to Azure 
 
 
 This article shows you how to create and upload a Windows virtual hard disk (VHD) as an image or attach it as the OS disk so you can quickly create VMs. For more details about disks and VHDs in Azure, see [About disks and VHDs for virtual machines](virtual-machines-linux-about-disks-vhds.md).
@@ -54,8 +54,9 @@ In Azure, you can only use [generation 1 virtual machines](http://blogs.technet.
 You can upload both generalized and specialized VHDs to Azure. 
 
 - **Generalized VHD** - a generalized image has had all of your personal account information removed using Sysprep. If you intend to use the VHD as an image to create new VMs from, you should generalize the VHD by following the instructions in [Prepare a Windows VHD to upload to Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md) and then [Generalize a Windows virtual machine using Sysprep](virtual-machines-windows-generalize-vhd.md). 
- - **Specialized VHD** - a specialized VHD maintains the user accounts, applications and other state data from your original VM. If you intend to use the VHD as-is to create a new VM, ensure the following steps are completed. 
-	- Remove any guest tools agents that are installed on the VM (i.e. VMware tools).
+
+- **Specialized VHD** - a specialized VHD maintains the user accounts, applications and other state data from your original VM. If you intend to use the VHD as-is to create a new VM, ensure the following steps are completed. 
+	- Remove any guest virtualization tools and agents that are installed on the VM (i.e. VMware tools).
 	- Ensure the VM is configured to pull its IP address and DNS settings via DHCP. This ensures that the server obtains an IP address within the VNet when it starts up. 
 
 ## Log in to Azure

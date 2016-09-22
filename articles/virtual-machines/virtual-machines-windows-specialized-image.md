@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Create VM from a specialized VHD | Microsoft Azure"
-	description="Learn how to create a virtual machine by attaching specialized specialized VHD running Windows, in the Resource Manager deployment model."
+	description="Learn how to create a virtual machine by attaching a specialized VHD as the OS disk, in the Resource Manager deployment model."
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,7 +17,7 @@
 	ms.date="09/21/2016"
 	ms.author="cynthn"/>
 
-# Create a VM from a specialized VHD
+# Create a VM from a specialized VHD 
 
 A specialized VHD maintains the user accounts, applications and other state data from your original VM. If you intend to use the VHD as-is to create a new VM, you need to attach the VHD as an OS disk. 
 
@@ -51,7 +51,7 @@ The following PowerShell script shows how to set up the virtual machine configur
 	$vmName = "<vmName>"
 	
 	# Size of the virtual machine. 
-    # Use "Get-Help New-AzureRmVMConfig" to know the available options for -VMsize
+    # Use "Get-Help New-AzureRmVMConfig" to see the available options for -VMsize
 	$vmSize = "<vmSize>"
 	
 	# Computer name for the VM

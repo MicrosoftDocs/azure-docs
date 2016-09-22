@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Create a VM image from an Azure VM | Microsoft Azure"
-	description="Learn how to create a generalized VM image from an existing Azure VM created in the Resource Manager deployment model"
+	pageTitle="Create a generalized VM image | Microsoft Azure"
+	description="Learn how to create a generalized VM image from an existing VM in Azure, using the Resource Manager deployment model"
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="cynthn"
@@ -18,8 +18,7 @@
 	ms.author="cynthn"/>
 
 
-# How to create a generalized VM image from an existing Azure VM
-
+# How to create a generalized VM image from an existing VM in Azure
 
 This article shows you how to use Azure PowerShell create a generalized image of an existing Azure VM. You can then use the image to create another VM. This image includes the OS disk and the data disks that are attached to the virtual machine. The image doesn't include the virtual network resources, so you need to set up those resources when you create a VM using the image. This process creates a [generalized Windows image](https://technet.microsoft.com/library/hh824938.aspx).
 
@@ -103,7 +102,7 @@ This section shows you how to generalize your Windows virtual machine so that it
 
 ## Create the image 
 
-1. Copy the virtual machine image to the destination storage container using this command. The image is created in the same storage account as the original virtual machine. The `-Path` variable saves a copy of the JSON template locally. The `-DestinationContainerName` variable is the name of the container that you want to hold your images. If the container doesn't exist, it is created for you.
+Create an image of the virtual machine using the [Save-AzureRmVMImage cmdlet](https://msdn.microsoft.com/library/mt619423.aspx). The image is created in the same storage account as the original virtual machine. The `-DestinationContainerName` variable is the name of the container that you want to hold your images. If the container doesn't exist, it is created for you. You can also add the `-Path` variable if you want to save a copy of the JSON template locally.
 
 ```powershell
 	Save-AzureRmVMImage -ResourceGroupName <resourceGroupName> -Name <vmName> -DestinationContainerName <destinationContainerName> -VHDNamePrefix <prefixTemplateName> -Path <pathtothelocalfile\Filename.json>
@@ -113,11 +112,9 @@ This section shows you how to generalize your Windows virtual machine so that it
 	
 	You can also verify the URI in the portal. The image is copied to a blob named **system** in your storage account. 
 
-2. Create a variable for the path to the image. 
+## Next steps
 
-```powershell
-		$imageURI = "<https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd>"
-```
+[Create a new VM from the image](virtual-machines-windows-create-vm-generalized.md).
 
 
 
