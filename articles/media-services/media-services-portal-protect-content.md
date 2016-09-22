@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Configuring content protection policies using the Azure portal" 
+	pageTitle="Configuring content protection policies using the Azure portal | Microsoft Azure" 
 	description="This article demonstrates how to use the Azure portal to configure content protection policies. The article also shows how to enable dynamic encryption for your assets." 
 	services="media-services" 
 	documentationCenter="" 
