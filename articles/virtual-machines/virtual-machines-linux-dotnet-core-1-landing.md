@@ -31,7 +31,7 @@ The Music Store Resource Manager template can be found here, [Music Store Linux 
 
 Each of these components, including the associate template JSON is examined in the following four articles.
 
-- [**Application Architecture**](./virtual-machines-linux-dotnet-core-2-architecute.md) – Application components such as web sites and databases need to be hosted on Azure computer resources such as virtual machines and Azure SQL databases. This document walks through mapping compute need, to Azure resources, and deploying these resources with an Azure Resource Manager template. 
+- [**Application Architecture**](./virtual-machines-linux-dotnet-core-2-architecture.md) – Application components such as web sites and databases need to be hosted on Azure computer resources such as virtual machines and Azure SQL databases. This document walks through mapping compute need, to Azure resources, and deploying these resources with an Azure Resource Manager template. 
 
 - [**Access and Security**](./virtual-machines-linux-dotnet-core-3-access-security.md) – When hosting applications in Azure, it is necessary to consider how the application is accessed, and how different application components access each other. This document details providing and securing internet access to an application and access between application components.
 
@@ -65,7 +65,7 @@ When the template deployment has completed, browse to the public IP Address usin
 
 <hr>
 
-[Step 1 - Application Architecture with Azure Resource Manager Templates](./virtual-machines-linux-dotnet-core-2-architecute.md)
+[Step 1 - Application Architecture with Azure Resource Manager Templates](./virtual-machines-linux-dotnet-core-2-architecture.md)
 
 [Step 2 - Access and Security in Azure Resource Manager Templates](./virtual-machines-linux-dotnet-core-3-access-security.md)
 
