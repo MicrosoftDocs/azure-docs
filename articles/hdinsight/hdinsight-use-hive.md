@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="09/06/2016"
+	ms.date="09/19/2016"
 	ms.author="larryfr"/>
 
 # Use Hive and HiveQL with Hadoop in HDInsight to analyze a sample Apache log4j file
@@ -32,6 +32,8 @@ Hive allows you to project structure on largely unstructured data. After you def
 
 Hive understands how to work with structured and semi-structured data, such as text files where the fields are delimited by specific characters. Hive also supports custom **serializer/deserializers (SerDe)** for complex or irregularly structured data. For more information, see [How to use a custom JSON SerDe with HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight.aspx).
 
+## User defined functions (UDF)
+
 Hive can also be extended through **user-defined functions (UDF)**. A UDF allows you to implement functionality or logic that isn't easily modeled in HiveQL. For an example of using UDFs with Hive, see the following:
 
 * [Use a Java User Defined Function with Hive](hdinsight-hadoop-hive-java-udf.md)
@@ -42,6 +44,7 @@ Hive can also be extended through **user-defined functions (UDF)**. A UDF allows
 
 * [How to add a custom Hive UDF to HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
+* [Custom Hive UDF example to convert date/time formats to Hive timestamp](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
 
 ## Hive internal tables vs external tables
 

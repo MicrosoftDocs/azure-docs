@@ -3,8 +3,8 @@
     description="Learn how to use the queue storage service in Azure. Samples are written in C++."
     services="storage"
     documentationCenter=".net"
-    authors="robinsh"
-    manager="carmonm"
+    authors="dineshmurthy"
+    manager=jahogg""
     editor="tysonn"/>
 
 <tags
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/03/2016"
-    ms.author="dineshm"/>
+    ms.date="09/20/2016"
+    ms.author="dineshm;robinsh"/>
 
 # How to use Queue Storage from C++  
 
@@ -194,7 +194,7 @@ There are two ways you can customize message retrieval from a queue. First, you 
 	}
 
 ## How to: Get the queue length
-You can get an estimate of the number of messages in a queue. The **download_attributes** method asks the Queue service to retrieve the queue attributes, including the message count. The **approximate_message_count** method gets the approximate number of messages in the queue. 
+You can get an estimate of the number of messages in a queue. The **download_attributes** method asks the Queue service to retrieve the queue attributes, including the message count. The **approximate_message_count** method gets the approximate number of messages in the queue.
 
 	// Retrieve storage account from connection-string.
 	azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -230,6 +230,7 @@ To delete a queue and all the messages contained in it, call the **delete_queue_
 	queue.delete_queue_if_exists();  
 
 ## Next steps
+
 Now that you've learned the basics of Queue storage, follow these links to learn more about Azure Storage.
 
 -	[How to use Blob Storage from C++](storage-c-plus-plus-how-to-use-blobs.md)
@@ -237,3 +238,4 @@ Now that you've learned the basics of Queue storage, follow these links to learn
 -	[List Azure Storage Resources in C++](storage-c-plus-plus-enumeration.md)
 -	[Storage Client Library for C++ Reference](http://azure.github.io/azure-storage-cpp)
 -	[Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
+

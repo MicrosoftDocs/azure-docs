@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
-	ms.author="bradsev;gopitk" />
+	ms.date="09/19/2016"
+	ms.author="bradsev" />
 
 
 # What is the Team Data Science Process (TDSP)?
@@ -74,9 +74,9 @@ The next step is to obtain a deeper understanding of the data by investigating i
 Data scientists, in collaboration with domain experts, must identify the features that capture the salient properties of the data set and that can best be used to predict the key business variables identified during planning. These new features can be derived from existing data or may require additional data to be collected. This process is known as **feature engineering** and is one of the key steps in building an effective predictive analytics system. This step requires a creative combination of domain expertise and the insights obtained from the data exploration step. For guidance, see [Feature engineering in the Team Data Science Process](machine-learning-data-science-create-features.md).
 
 
-## 4. Create and train ML models
+## 4. Create and train Machine Learning models
 
-Data scientists build analytical models to predict the key variables identified by the business requirements defined in the planning step using data that has been cleaned and featurized. Machine learning systems support multiple **modeling algorithms** that are applicable to a wide variety of cases. For guidance, see [How to choose algorithms for Team Azure Machine Learning](machine-learning-algorithm-choice.md).
+Data scientists build analytical models to predict the key variables identified by the business requirements defined in the planning step using data that has been cleaned and featurized. Machine learning systems support multiple **modeling algorithms** that are applicable to a wide variety of cases. For guidance, see [How to choose algorithms for Azure Machine Learning](machine-learning-algorithm-choice.md).
 
 Data scientists must choose the most appropriate model for their prediction task and it is not uncommon that results from multiple models need to be combined to obtain the best results. The input data for modeling is usually divided randomly into three parts:
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="zhangya;bradsev" />
 
 
@@ -25,8 +25,10 @@ This topic explains the purposes of feature engineering and provides examples of
 
 This **menu** links to topics that describe how to create features for data in various environments. This task is a step in the [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-Feature engineering attempts to increase the predictive power of learning algorithms by creating features from raw data that help facilitate the learning process. The engineering and selection of features is one part of the TDSP outlined in the [What is the Team Data Science Process?](data-science-process-overview.md) Feature engineering and selection are parts of the **Develop features** step of the CAP. 
+Feature engineering attempts to increase the predictive power of learning algorithms by creating features from raw data that help facilitate the learning process. The engineering and selection of features is one part of the TDSP outlined in the [What is the Team Data Science Process?](data-science-process-overview.md) Feature engineering and selection are parts of the **Develop features** step of the TDSP. 
+
 * **feature engineering**: This process attempts to create additional relevant features from the existing raw features in the data, and to increase the predictive power of the learning algorithm.
+
 * **feature selection**: This process selects the key subset of original data features in an attempt to reduce the dimensionality of the training problem.
 
 Normally **feature engineering** is applied first to generate additional features, and then the **feature selection** step is performed to eliminate irrelevant, redundant, or highly correlated features.

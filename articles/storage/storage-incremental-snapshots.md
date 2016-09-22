@@ -4,7 +4,7 @@
 	services="storage"
 	documentationCenter="na"
 	authors="aungoo-msft"
-	manager=""
+	manager="tadb"
 	editor="tysonn"/>
 
 <tags
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/25/2016"
-	ms.author="tamram;aungoo-msft"/>
+	ms.date="09/20/2016"
+	ms.author="aungoo;tamram"/>
 
 
 # Back up Azure virtual machine disks with incremental snapshots
 
-## Overview 
+## Overview
 
 Azure Storage provides the capability to take snapshots of blobs. Snapshots capture the blob state at that point in time. In this article, we will describe a scenario of how you can maintain backups of virtual machine disks using snapshots. You can use this methodology when you choose not to use Azure Backup and Recovery Service, and wish to create a custom backup strategy for your virtual machine disks.
 
@@ -60,7 +60,7 @@ Incremental Snapshot Copy allows you to copy from one storage account to another
 -   Base blob and its Snapshot OR
 -   Any two snapshots of the base blob
 
-Provided the following conditions are met, 
+Provided the following conditions are met,
 
 - The blob was created on Jan-1-2016 or later.
 - The blob was not overwritten with [PutPage](https://msdn.microsoft.com/library/azure/ee691975.aspx) or [Copy Blob](https://msdn.microsoft.com/library/azure/dd894037.aspx) between two snapshots.

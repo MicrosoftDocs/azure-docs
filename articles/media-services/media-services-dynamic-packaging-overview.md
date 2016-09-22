@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Dynamic Packaging Overview"
+	pageTitle="Dynamic packaging overview | Microsoft Azure"
 	description="The topic gives and overview of dynamic packaging."
 	authors="Juliako"
 	manager="erikre"
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/22/2016" 
+	ms.date="09/19/2016" 
 	ms.author="juliako"/>
 
 
-#Dynamic Packaging
+#Dynamic packaging
 
 ##Overview
 
@@ -34,7 +34,7 @@ The following diagram shows the dynamic packaging workflow.
 ![Dynamic Encoding](./media/media-services-dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
 
->[AZURE.NOTE]To take advantage of dynamic packaging, you must first get at least one On-demand streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see [How to Scale Media Services](media-services-manage-origins.md#scale_streaming_endpoints).
+>[AZURE.NOTE]To take advantage of dynamic packaging, you must first get at least one On-demand streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see [How to Scale Media Services](media-services-portal-manage-streaming-endpoints.md).
 
 ##Common scenario
 
@@ -56,11 +56,11 @@ To prepare your asset for dynamic streaming you have two options:
 3. [Stream your content](media-services-deliver-content-overview.md).
 
 -OR-
- 
-1. Upload pre-enocded MP4 files. 
 
-	>[AZURE.NOTE] This opiton is not recommended.
-	
+1. Upload pre-enocded MP4 files.
+
+>[AZURE.NOTE] This opiton is not recommended.
+
 2. [Validate your pre-encoded files](media-services-static-packaging.md#validating-adaptive-bitrate-mp4s-encoded-with-external-encoders).
 3. [Stream your content](media-services-deliver-content-overview.md).
 
