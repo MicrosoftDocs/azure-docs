@@ -75,7 +75,7 @@ In this section, you create a Node.js console app that responds to a method call
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myFirstNodeDevice;SharedAccessKey={yourdevicekey}';
     
-    var client = clientFromConnectionString(connectionString, Mqtt);
+    var client = DeviceClient.fromConnectionString(connectionString, Mqtt);
     ```
 
 6. Add the following function to implement the method on the device:
