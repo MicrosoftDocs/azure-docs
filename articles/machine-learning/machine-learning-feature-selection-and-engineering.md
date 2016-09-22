@@ -126,7 +126,8 @@ By applying this [Filter-Based Feature Selection][filter-based-feature-selection
 ## Conclusion
 Feature engineering and feature selection are two steps commonly performed to prepare the training data when building a machine learning model. Normally, feature engineering is applied first to generate additional features, and then the feature selection step is performed to eliminate irrelevant, redundant, or highly correlated features.
 
-It is not always necessarily to perform feature engineering or feature selection. Whether it is needed depends on the data you have or collect, the algorithm you pick, and the objective of the experiment.
+It is not always necessarily to perform feature engineering or feature selection. Whether it is needed depends on the data you have or collect, the algorithm you pick, and the objective of the experiment. 
+
 
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
