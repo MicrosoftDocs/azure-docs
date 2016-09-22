@@ -38,48 +38,7 @@ In this guide, we walk through the steps for connecting to Azure Stack with Powe
 	    Get-Command -Module AzureRM.AzureStackAdmin
 
 ## Connect to Azure Stack
-In the following steps, you add an Azure environment. This step configures PowerShell for use with Azure Stack.  
-
-Before you run the following in PowerShell, update the password and user name strings (*MySecret* and *MYACCOUNT@MYDIR.onmicrosoft.com*) with values for your environment.
-
-    #Establish credentials for connection to Azure Stack
-	$password = ConvertTo-SecureString "MySecret" -AsPlainText -Force
-	$Credential = New-Object System.Management.Automation.PSCredential "MYACCOUNT@MYDIR.onmicrosoft.com", $password
-
-	#Optional for interactive credential request
-	#$Credential = Get-Credential
-
-	#Configure Azure Stack environment information
-	$Name = "AzureStack"
-	$ResourceManagerEndpoint = "https://api." + $env:USERDNSDOMAIN
-	$DirectoryTenantId = ([xml](Get-Content -Path "C:\CloudDeployment\Config.xml")).SelectSingleNode("//Role[@Id='AAD']").PublicInfo.AADTenant.Id
-	$endpoints = Invoke-RestMethod -Method Get -Uri "$($ResourceManagerEndpoint.ToString().TrimEnd('/'))/metadata/endpoints?api-version=2015-01-01" -Verbose
-	Write-Verbose -Message "Endpoints: $(ConvertTo-Json $endpoints)" -Verbose
-
-	$AzureKeyVaultDnsSuffix="vault.$($env:USERDNSDOMAIN)".ToLowerInvariant()
-	$AzureKeyVaultServiceEndpointResourceId= $("https://vault.$env:USERDNSDOMAIN".ToLowerInvariant())
-	$StorageEndpointSuffix = ($env:USERDNSDOMAIN).ToLowerInvariant()
-
-	$azureEnvironmentParams = @{
-        Name                                     = $Name
-        ActiveDirectoryEndpoint                  = $endpoints.authentication.loginEndpoint.TrimEnd('/') + "/"
-        ActiveDirectoryServiceEndpointResourceId = $endpoints.authentication.audiences[0]
-        AdTenant                                 = $DirectoryTenantId
-        ResourceManagerEndpoint                  = $ResourceManagerEndpoint
-        GalleryEndpoint                          = $endpoints.galleryEndpoint
-        GraphEndpoint                            = $endpoints.graphEndpoint
-        GraphAudience                            = $endpoints.graphEndpoint
-        StorageEndpointSuffix                    = $StorageEndpointSuffix
-        AzureKeyVaultDnsSuffix                   = $AzureKeyVaultDnsSuffix
-        AzureKeyVaultServiceEndpointResourceId   = $AzureKeyVaultServiceEndpointResourceId
-    }
-
-    $azureEnvironment = Add-AzureRmEnvironment @azureEnvironmentParams
-    $azureEnvironment = Get-AzureRmEnvironment $azureEnvironmentParams.Name
-
-    #Connect to Azure Stack by using the environment and credential information from above
-    $azureAccount = Add-AzureRmAccount -Environment $azureEnvironment -Credential $Credential -TenantId $DirectoryTenantId -Verbose
-    Write-Verbose "Using account: $(ConvertTo-Json $azureAccount.Context)" -Verbose
+A module is available for download which handles configuring the PowerShell connection to Azure Stack for you.  Visit [Azure Stack Tools](http://aka.ms/ConnectToAzureStackPS) for the module and additional steps. 
 
 ## Retrieve a list of subscriptions
 In this section, you verify PowerShell cmdlets are running against Azure Stack by retrieving and selecting a subscription for use.
