@@ -18,13 +18,13 @@
 
 # VMware (Preview) solution in Log Analytics
 
-The VMware solution in Log Analytics is a log monitoring solution that helps you create a centralized logging and monitoring approach for large VMware logs. This article describes how you can troubleshoot, capture, and manage the ESXi hosts in a single location using the solution. With the solution, you can see detailed data for all your ESXi hosts in a single location. You can see top event counts, status, and trends of VM and ESXi hosts provided through the ESXi host logs. You can troubleshoot by viewing and searching centralized ESXi host logs. And, you can create alerts based on log search queries.
+The VMware solution in Log Analytics is a solution that helps you create a centralized logging and monitoring approach for large VMware logs. This article describes how you can troubleshoot, capture, and manage the ESXi hosts in a single location using the solution. With the solution, you can see detailed data for all your ESXi hosts in a single location. You can see top event counts, status, and trends of VM and ESXi hosts provided through the ESXi host logs. You can troubleshoot by viewing and searching centralized ESXi host logs. And, you can create alerts based on log search queries.
 
 ## Installing and configuring the solution
 
 Use the following information to install and configure the solution.
 
-- Add the VMware Log Monitoring solution to your OMS workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
+- Add the VMware solution to your OMS workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
 
 #### Supported VMware ESXi hosts
 vSphere ESXi Host 5.5 and 6.0
@@ -43,9 +43,9 @@ Create a Linux operating system VM to receive all syslog data from the ESXi host
 
 3. Open the ESXi host firewall for syslog. **ESXi Host Configuration** > **Software** > **Security Profile** > **Firewall** and open **Properties**.  
 
-  ![vspherefw](./media/log-analytics-vmware/vsphere2.png)
+  ![vspherefw](./media/log-analytics-vmware/vsphere2.png)  
 
-  ![vspherefwproperties](./media/log-analytics-vmware/vsphere3.png)
+  ![vspherefwproperties](./media/log-analytics-vmware/vsphere3.png)  
 
 4. Check the vSphere Console to verify that that syslog is properly set up. Confirm on the ESXI host that port **1514** is configured.
 
