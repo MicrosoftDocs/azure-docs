@@ -113,7 +113,7 @@ If you want to use the v2.0 endpoint in a production application, you have the f
 ## Restrictions on protocols
 The v2.0 endpoint only supports Open ID Connect & OAuth 2.0.  However, not all features and capabilities of each protocol have been incorporated into the v2.0 endpoint.  Some examples include:
 
-- The OpenID Connect `end_sesssion_endpoint`
+- The OpenID Connect `end_session_endpoint`
 - The OAuth 2.0 client credentials grant
 
 To better understand the scope of protocol functionality supported in the v2.0 endpoint, read through our [OpenID Connect & OAuth 2.0 Protocol Reference](active-directory-v2-protocols.md).
