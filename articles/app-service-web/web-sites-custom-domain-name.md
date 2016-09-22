@@ -177,7 +177,7 @@ Your additional TXT record takes on the convention that maps from &lt;*subdomain
 <a name="cname"></a>
 ### Create a CNAME record
 
-If you use a CNAME record to map to your Azure app's default domain name, you don't need an additional CNAME record
+If you use a CNAME record to map to your Azure app's default domain name, you don't need an additional TXT record
 like you do with an A record. 
 
 >[AZURE.IMPORTANT] Do not create a CNAME record for your root domain (i.e. the "root record"). For more information, see 
@@ -227,8 +227,7 @@ domain name (FQDN) of your custom domain to the list.
 
 6.  Upon clicking **Validate** Azure will kick off Domain Verification workflow. This will check for Domain ownership as well as Hostname availability and report success or detailed error with prescriptive guidence on how to fix the error.    
 
-7.  Upon successful validation **Add hostname** button will become active and you will be able to the assign hostname. Now navigate to your custom domain name in a browser. You should
-now see your app running using your custom domain name. 
+7.  Upon successful validation **Add hostname** button will become active and you will be able to the assign hostname. 
 
 8.  Once Azure finishes configuring your new custom domain name, navigate to your custom domain name in a browser. The browser should open your Azure app, which means that your custom domain name is configured properly.
 

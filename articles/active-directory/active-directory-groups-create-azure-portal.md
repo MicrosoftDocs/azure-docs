@@ -39,7 +39,7 @@ This article explains how to create and populate a new group in the Azure Active
 
 5. On the **Group** blade, add a name and description for the group.
 
-6. To select members to add to the group, select **Assigned** in the **Membership type** box, and then select **Members**. For more information about how to manage the membership of a group dynamically, see [Manage dynamic rules for users in a group](active-directory-groups-dynamic-users-azure-portal.md) or [Manage dynamic rules for devices in a group](active-directory-groups-dynamic-devices-azure-portal.md).
+6. To select members to add to the group, select **Assigned** in the **Membership type** box, and then select **Members**. For more information about how to manage the membership of a group dynamically, see [Using attributes to create advanced rules for group membership](active-directory-groups-dynamic-membership-azure-portal.md).
 
   ![Selecting members to add](./media/active-directory-groups-create-azure-portal/select-members.png)
 

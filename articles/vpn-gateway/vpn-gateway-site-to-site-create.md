@@ -20,10 +20,9 @@
 # Create a VNet with a Site-to-Site connection using the Azure classic portal
 
 > [AZURE.SELECTOR]
-- [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-- [Azure Classic Portal](vpn-gateway-site-to-site-create.md)
-- [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
-
+- [Resource Manager - Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Resource Manager - PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
+- [Classic - Classic Portal](vpn-gateway-site-to-site-create.md)
 
 This article walks you through creating a virtual network and a site-to-site VPN connection to your on-premises network using the **classic deployment model** and the classic portal. Site-to-Site connections can be used for cross-premises and hybrid configurations. Currently, you cannot create an end-to-end Site-to-Site configuration for the classic deployment model using the Azure portal.
 
@@ -55,11 +54,11 @@ Verify that you have the following items before beginning configuration.
 
 2. In the lower left corner of the screen, click **New**. In the navigation pane, click **Network Services**, and then click **Virtual Network**. Click **Custom Create** to begin the configuration wizard.
 
-3. To create your VNet, fill out the information on the following pages.
+3. To create your VNet, enter your configuration settings on the following pages:
 
 ## Virtual network details page
 
-Enter the following information.
+Enter the following information:
 
 - **Name**: Name your virtual network. For example, *EastUSVNet*. You'll use this virtual network name when you deploy your VMs and PaaS instances, so you may not want to make the name too complicated.
 - **Location**: The location is directly related to the physical location (region) where you want your resources (VMs) to reside. For example, if you want the VMs that you deploy to this virtual network to be physically located in *East US*, select that location. You can't change the region associated with your virtual network after you create it.
@@ -76,7 +75,7 @@ Enter the following information, and then click the next arrow on the lower righ
 
 If you're creating a new local network, you'll see the **Site-To-Site Connectivity** page. If you want to use a local network that you previously created, this page will not appear in the wizard and you can move on to the next section.
 
-Enter the following information and then click the next arrow.
+Enter the following information, and then click the next arrow.
 
 - 	**Name**: The name you want to call your local (on-premises) network site.
 - 	**VPN Device IP Address**: The public facing IPv4 address of your on-premises VPN device that you use to connect to Azure. The VPN device cannot be located behind a NAT.

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - What's Next" 
-	description="This is the Azure Multi-factor authentication page that describes what to do next with MFA.  This includes reports, fraud alert, one-time bypass, custom voice messages, caching, trusted ips and app passwords." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+	pageTitle="Azure Multi-Factor Authentication - What's Next"
+	description="This is the Azure Multi-factor authentication page that describes what to do next with MFA.  This includes reports, fraud alert, one-time bypass, custom voice messages, caching, trusted ips and app passwords."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/30/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/30/2016"
+	ms.author="kgremban"/>
 
 # Configuring Azure Multi-Factor Authentication
 
@@ -28,12 +28,12 @@ To access the MFA Management Portal via the MFA Service Settings page, sign into
 
 
 Feature| Description| What is covered
-:------------- | :------------- | :------------- | 
+:------------- | :------------- | :------------- |
 [Fraud alert](#fraud-alert)|Fraud alert can be configured and setup so that your users can report fraudulent attempts to access their resources.|How to setup, configure and report fraud
 [One-time bypass](#one-time-bypass) |A one-time bypass allows a user to authenticate a single time by "bypassing" multi-factor authentication.|How to setup and configure a one-time bypass
 [Custom Voice Messages](#custom-voice-messages) |Custom voice messages allow you to use your own recordings or greetings with multi-factor authentication. |How to setup and configure custom greetings and messages
 [Caching](#caching-in-azure-multi-factor-authentication)|Caching allows you to set a specific time period so that subsequent authentication attempts succeed automatically. |How to setup and configure authentication caching.
-[Trusted IPs](#trusted-ips)|Trusted IPs is a feature of multi-factor authentication that allows administrators of a managed or federated tenant the ability to bypass multi-factor authentication for users that are signing in from the company’s local intranet.|Configure and setup IP addresses that are exempt for multi-factor authentication	
+[Trusted IPs](#trusted-ips)|Trusted IPs is a feature of multi-factor authentication that allows administrators of a managed or federated tenant the ability to bypass multi-factor authentication for users that are signing in from the company’s local intranet.|Configure and setup IP addresses that are exempt for multi-factor authentication
 [App Passwords](#app-passwords)|App passwords allows an application that is not mfa aware to bypass multi-factor authentication and continue working.|Information about app passwords.
 [Rememeber Multi-Factor Authentication for remembered devices and browsers](#remember-multi-factor-authentication-for-devices-users-trust)|Allows you to remember devices for a set number of days after a user has successfully signed in using MFA.|Information about enabling this feature and setting up the number of days.
 [Selectable Verification Methods](#selectable-verification-methods)|Allows you to choose the authentication methods that are available for users to use.|Information about enabling or disabling specific authentication methods such as call or text messages.
@@ -50,7 +50,7 @@ Fraud alert can be configured and setup so that your users can report fraudulent
 3.	In the Azure Multi-Factor Authentication Management Portal, click Settings under the Configure section.
 4.	Under the Fraud Alert section of the Settings page, check the Allow users to submit Fraud Alerts checkbox.
 5.	If you want users to be blocked when fraud is reported, place a check in Block user when fraud is reported.
-6.	In the **Code To Report Fraud During Initial Greeting** textbox enter a number code that can be used during call verification. If a user enters this code plus # instead of just the # sign, then a fraud alert will be reported. 
+6.	In the **Code To Report Fraud During Initial Greeting** textbox enter a number code that can be used during call verification. If a user enters this code plus # instead of just the # sign, then a fraud alert will be reported.
 7.	At the bottom, click Save.
 
 >[AZURE.NOTE]
@@ -67,7 +67,7 @@ Fraud alert can be reported two ways.  Either through the mobile app or through 
 
 
 1. When a verification is sent to your phone click on it and it will start the Microsoft Authenticator app.
-2. To report fraud, click the Cancel and Report Fraud. This will bring up a box that says your organizations IT Support staff will be notified. 
+2. To report fraud, click the Cancel and Report Fraud. This will bring up a box that says your organizations IT Support staff will be notified.
 3. Click report fraud.
 4. On the app, click Close.
 
@@ -94,7 +94,7 @@ Fraud alert can be reported two ways.  Either through the mobile app or through 
 
 ## One-time bypass
 
-A one-time bypass allows a user to authenticate a single time by "bypassing" multi-factor authentication. The bypass is temporary and expires after the specified number of seconds.  So in situations where the mobile app or phone is not receiving a notification or phone-call, you can enable a one-time bypass so the user can access the desired resource. 
+A one-time bypass allows a user to authenticate a single time by "bypassing" multi-factor authentication. The bypass is temporary and expires after the specified number of seconds.  So in situations where the mobile app or phone is not receiving a notification or phone-call, you can enable a one-time bypass so the user can access the desired resource.
 
 ### To create a one-time bypass
 
@@ -179,9 +179,9 @@ Caching allows you to set a specific time period so that subsequent authenticati
 
 Trusted IPs is a feature of multi-factor authentication that allows administrators of a managed or federated tenant the ability to bypass multi-factor authentication for users that are signing in from the company’s local intranet. The features are available for Azure AD tenants that have Azure AD Premium, Enterprise Mobility Suite or Azure Multi-Factor Authentication licenses.
 
- 
+
 Type of Azure AD Tenant| Available Trusted IP options
-:------------- | :------------- | 
+:------------- | :------------- |
 Managed|Specific IP address ranges – Administrators can specify a range of IP addresses that can bypass multi-factor authentication for users that are signing in from the company’s intranet..
 Federated|<li>All Federated Users - All federated users who are signing-in from inside the organization will bypass multi-factor authentication using a claim issued by AD FS.</li><li>Specific IP address ranges – Administrators can specify a range of IP addresses that can bypass multi-factor authentication for users that are signing in from the company’s intranet.
 
@@ -189,7 +189,7 @@ This bypass only works from inside a company’s intranet. So for example, if yo
 
 
 |Trusted IPs enabled| Trusted IPs disabled
-:------------- | :------------- | :------------- | 
+:------------- | :------------- | :------------- |
 Inside corpnet|For browser flows multi-factor authentication NOT required.|For browser flows, multi-factor authentication required
 |For rich client apps, regular passwords will work if the user has not created any app passwords. Once an app password has been created, app passwords are required.|For rich client apps, app passwords required
 Outside corpnet|For browser flows, multi-factor authentication required.|For browser flows, multi-factor authentication required.
@@ -204,7 +204,7 @@ Outside corpnet|For browser flows, multi-factor authentication required.|For bro
 5. In the multi-factor authentication section, click Manage service settings.
 6. On the Service Settings page, under Trusted IPs, select either:
 
-	- For requests from federated users originating from my intranet – All federated users who are signing in from the corporate network will bypass multi-factor authentication using a claim issued by AD FS. 
+	- For requests from federated users originating from my intranet – All federated users who are signing in from the corporate network will bypass multi-factor authentication using a claim issued by AD FS.
 	- For requests from a specific range of public IPs – enter the IP addresses in the boxes provided using CIDR notation. For example: xxx.xxx.xxx.0/24 for IP addresses in the range xxx.xxx.xxx.1 – xxx.xxx.xxx.254, or xxx.xxx.xxx.xxx/32 for a single IP address. You can enter up to 50 IP address ranges.
 
 7. Click save.
@@ -216,7 +216,7 @@ Outside corpnet|For browser flows, multi-factor authentication required.|For bro
 
 
 
- 
+
 ## App Passwords
 
 In some apps, like Office 2010 or older and Apple Mail you can't use multi-factor authenticaton.  To use these apps, you'll need to use "app passwords" in place of your traditional password.  The app password allows the application to bypass multi-factor authentication and continue working.
@@ -232,7 +232,7 @@ In some apps, like Office 2010 or older and Apple Mail you can't use multi-facto
 The following is an important list of things that you should know about app passwords.
 
 Authentication Experience|For browser based apps|For non-browser based apps
-:------------- | :------------- | :------------- 
+:------------- | :------------- | :-------------
 |<ul><li>The 1st factor of authentication is performed on-premises</li><li>The 2nd factor is a phone based method carried out by Cloud Identity.</li>|<ul><li>Admins and users can use app passwords to sign-in.
 
 - Users can have multiple app passwords which increases the surface area for theft. Since app passwords are hard to remember, it might encourage people to write this down. This is not recommended and should be discouraged because only one factor is required to login with app password.
@@ -299,7 +299,7 @@ By default, users cannot create app passwords.  This feature must be enabled.  T
 ### Creating app passwords
 Users can create app passwords during their initial registration.  They are given an option at the end of the registration process that allows them to create them.
 
-Additionally users can also create app passwords later on by changing their settings in the Azure Portal, the Office 365 portal or by 
+Additionally users can also create app passwords later on by changing their settings in the Azure Portal, the Office 365 portal or by
 
 ### To create app passwords in the Office 365 portal
 --------------------------------------------------------------------------------
@@ -331,7 +331,7 @@ Additionally users can also create app passwords later on by changing their sett
 
 ### To create app passwords if you do not have an Office 365 or Azure subscription
 --------------------------------------------------------------------------------
-1. Sign-in to [https://myapps.microsoft.com](https://myapps.microsoft.com)	
+1. Sign-in to [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. At the top, select profile.
 3. Click on your user name and select Additional Security Verification.
 5. On the proofup page, at the top, select app passwords
@@ -343,9 +343,9 @@ Additionally users can also create app passwords later on by changing their sett
 
 ## Remember Multi-Factor Authentication for devices users trust
 
-Remembering Multi-Factor Authentication for devices and browsers that users trust is a free feature for all MFA users.  It allows you to give users the option to by-pass MFA for a set number of days after performing a successful sign-in using MFA. This can enhance the usability for your users. 
+Remembering Multi-Factor Authentication for devices and browsers that users trust is a free feature for all MFA users.  It allows you to give users the option to by-pass MFA for a set number of days after performing a successful sign-in using MFA. This can enhance the usability for your users.
 
-However, since the users are allowed to remember MFA for trusted devices, this feature may reduce account security. To ensure account security, you should restore Multi-Factor Authentication for their devices for either of the following scenarios: 
+However, since the users are allowed to remember MFA for trusted devices, this feature may reduce account security. To ensure account security, you should restore Multi-Factor Authentication for their devices for either of the following scenarios:
 
 - If their corporate account has become compromised
 - If a remembered device is lost or stolen
@@ -370,7 +370,7 @@ However, since the users are allowed to remember MFA for trusted devices, this f
 It is now possible to choose the authentication methods that are available to your users when using Azure Multi-Factor Authentication.  This feature, was previously only available in the on-premises server version.  The table below provides a brief overview of the various authentication methods that can be enabled or disabled for your users.
 
 Method|Description
-:------------- | :------------- | 
+:------------- | :------------- |
 [Call to phone](multi-factor-authentication-end-user-first-time-mobile-phone.md)|  Places an automated voice call to the Authentication phone. The user answers the call and presses # in the phone keypad to authenticate. This phone number will not be synchronized to on-premises Active Directory.
 [Text message to phone](multi-factor-authentication-end-user-first-time-mobile-phone.md)|Sends a text message containing a verification code to the user. The user is prompted to either reply to the text message with the verification code or to enter the verification code into the sign-in interface.
 [Notification through mobile app](multi-factor-authentication-end-user-first-time-mobile-app.md)|In this mode, the Microsoft Authenticator app prevents unauthorized access to accounts and stops fraudulent transactions. This is done using a push notification to your phone or registered device. Simply view the notification and if it is legitimate you tap Verify. Otherwise you may choose Deny or choose to deny and report the fraudulent notification. For information on reporting fraudulent notifications see How to use the Deny and Report Fraud Feature for Multi-Factor Authentication.</br></br>The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).|
