@@ -1,7 +1,8 @@
 <properties
  pageTitle="Get Started with Raspberry Pi 3"
+ description="Describes all the lessons to get started with Raspberry Pi"
  services="iot-hub"
- documentationCenter="Describes all the lessons to get started with Raspberry Pi"
+ documentationCenter=""
  authors="xshi"
  manager="jeffya"
  editor=""/>
