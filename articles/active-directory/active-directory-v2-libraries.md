@@ -61,7 +61,7 @@ For a list of libraries that work with the v2.0 endpoint, see the following sect
 <!--- COMMENTING UNTIL SAMPLE IS AVAILABLE
 | .NET 4.x, .NET Core | JSON Web Token Handler for .Net | [System.IdentityModel.Tokens.Jwt (NuGet)][ServerLib-Net-Jwt-Lib] | [Azure AD identity model extensions for .Net (GitHub)][ServerLib-Net-Jwt-Repo] | Coming soon |
 --->
-## v2.0 compatible client libraries
+## Compatible client libraries
 | Platform| Name | Tested Version | Source code | Sample |
 | :-: | :-: | :-: | :-: | :-: |
 | Android | [OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib/wiki) | 0.2.1 | [OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib) | [Native app sample](active-directory-v2-devquickstarts-android.md) |
@@ -78,8 +78,7 @@ For a list of libraries that work with the v2.0 endpoint, see the following sect
 | PHP | [OpenID Connect Basic Client](https://github.com/jumbojett/OpenID-Connect-PHP) |   | [OpenID Connect Basic Client](https://github.com/jumbojett/OpenID-Connect-PHP)  | Coming soon  |
 -->
 
-
-## v2.0 compatible server middleware libraries 
+## Compatible server middleware libraries 
 Coming soon
 
 
