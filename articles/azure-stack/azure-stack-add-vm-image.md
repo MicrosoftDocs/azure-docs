@@ -108,7 +108,7 @@ Follow the steps from [Upload a Windows VM image to Azure for
     account**. Keep in mind the following:
 
 -   For a Linux image, follow the instructions to
-prepare the image, or use an existing Azure Stack Linux image as described in the article [Deploy Linux virtual machines on Azure Stack](zure-stack-linux.md).
+prepare the image, or use an existing Azure Stack Linux image as described in the article [Deploy Linux virtual machines on Azure Stack](azure-stack-linux.md).
 
 - It's more efficient to upload an image to Azure Stack Blob storage than to Azure Blob storage because it takes less time to push the VM image to the
 Azure Stack image repository. While following the upload instructions, make sure to substitute the [Authenticate PowerShell with Microsoft Azure
