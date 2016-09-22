@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Media Services Release Notes" 
+	pageTitle="Media Services release notes | Microsoft Azure" 
 	description="Media Services Release Notes" 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/14/2016"
+	ms.date="09/19/2016"
 	ms.author="juliako"/>
 
-# Azure Media Services Release Notes
+# Azure Media Services release notes
 
 These release notes summarize changes from previous releases and known issues.
 
@@ -30,12 +30,13 @@ These release notes summarize changes from previous releases and known issues.
 Issue|Description
 ---|---
 Several common HTTP headers are not provided in the REST API.|If you develop Media Services applications using the REST API, you find that some common HTTP header fields (including CLIENT-REQUEST-ID, REQUEST-ID, and RETURN-CLIENT-REQUEST-ID) are not supported. The headers will be added in a future update.
-Encoding an asset with a file name that contains escape characters (for example, %20) fails with “MediaProcessor : File not found.”|Names of files that are going to be added to an asset and then encoded should only contain alphanumeric characters and spaces. The issue will be fixed in a future update.
+Percent-encoding is not allowed.|Media Services uses the value of the IAssetFile.Name property when building URLs for the streaming content (for example, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) For this reason, percent-encoding is not allowed. The value of the **Name** property cannot have any of the following [percent-encoding-reserved characters](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Also, there can only be one ‘.’ for the file name extension.
 The ListBlobs method that is part of the Azure Storage SDK version 3.x fails.|Media Services generates SAS URLs based on the [2012-02-12](http://msdn.microsoft.com/library/azure/dn592123.aspx) version. If you want to use Azure Storage SDK to list blobs in a blob container, use the [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) method that is part of Azure Storage SDK version 2.x. The ListBlobs method that is part of the Azure Storage SDK version 3.x will fail.
 Media Services throttling mechanism restricts the resource usage for applications that make excessive request to the service. The service may return the Service Unavailable (503) HTTP status code.|For more information, see the description of the 503 HTTP status code in the [Azure Media Services Error Codes](http://msdn.microsoft.com/library/azure/dn168949.aspx) topic.
 When querying entities, there is a limit of 1000 entities returned at one time because public REST v2 limits query results to 1000 results. | You need to use **Skip** and **Take** (.NET)/ **top** (REST) as described in [this .NET example](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) and [this REST API example](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). 
 Some clients can come across a repeat tag issue in the Smooth Streaming manifest.|For more information, see [this](media-services-deliver-content-overview.md#known-issues) section.
 Azure Media Services .NET SDK objects cannot be serialized and as a result do not work with Azure Caching.|If you try to serialize the SDK AssetCollection object to add it to Azure Caching, an exception is thrown.
+Encoding jobs fail with a message string "Stage: DownloadFile. Code: System.NullReferenceException".|The typical encoding workflow is to upload input video file(s) to an input Asset, and submit one or more encoding jobs for that input Asset, without further modifying that input Asset. However, if you modify the input Asset (for example by adding/deleting/renaming files within the Asset), then subsequent jobs may fail with a DownloadFile error. The workaround is to delete the input Asset, and re-upload input file(s) to a new Asset. 
 
 ##<a id="rest_version_history"></a>REST API Version History
 
@@ -149,7 +150,7 @@ Azure Media Services (AMS) is now live in the following data centers: Brazil Sou
 
 - Announcing the general availability of Media Encoder Standard. For more information, see [this blog post](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/).
 
-	Media Encoder Standard uses presets described in [this](http://go.microsoft.com/fwlink/?LinkId=618336) section. Note that when using a preset for 4k encodes, you should get the **Premium** reserved unit type. For more information, see [How to Scale Encoding](media-services-portal-encoding-units).
+	Media Encoder Standard uses presets described in [this](http://go.microsoft.com/fwlink/?LinkId=618336) section. Note that when using a preset for 4k encodes, you should get the **Premium** reserved unit type. For more information, see [How to Scale Encoding](media-services-scale-media-processing-overview.md).
 - Live Real-time captions with Azure Media Services and Player. For more information, see  [this blog post](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/)
 
 ###Media Services .NET SDK Updates
@@ -260,12 +261,12 @@ This release marked the default Microsoft.WindowsAzure.MediaServices.Client.Cont
 
 ##<a id="november_changes_14"></a>November 2014 Release
 
-- Media Services now enables you to ingest a live Smooth Streaming (FMP4) content over an SSL connection. To ingest over SSL, make sure to update the ingest URL to HTTPS.  For more information about live streaming, see [Working with Azure Media Services Live Streaming].
-- Note that currently, you cannot ingest an RTMP live stream over an SSL connection.
-- You can also stream your content over an SSL connection. To do this, make sure your streaming URLs start with HTTPS.
-- Note that you can only stream over SSL if the streaming endpoint from which you deliver your content was created after September 10th, 2014. If your streaming URLs are based on the streaming endpoints created after September 10th, the URL contains “streaming.mediaservices.windows.net” (the new format). Streaming URLs that contain “origin.mediaservices.windows.net” (the old format) do not support SSL. If your URL is in the old format and you want to be able to stream over SSL, [create a new streaming endpoint](media-services-manage-origins.md). Use URLs created based on the new streaming endpoint to stream your content over SSL.
-   
-##<a id="october_changes_14"></a>October 2014 Release
+        - Media Services now enables you to ingest a live Smooth Streaming (FMP4) content over an SSL connection. To ingest over SSL, make sure to update the ingest URL to HTTPS.  For more information about live streaming, see [Working with Azure Media Services Live Streaming].
+        - Note that currently, you cannot ingest an RTMP live stream over an SSL connection.
+        - You can also stream your content over an SSL connection. To do this, make sure your streaming URLs start with HTTPS.
+        - Note that you can only stream over SSL if the streaming endpoint from which you deliver your content was created after September 10th, 2014. If your streaming URLs are based on the streaming endpoints created after September 10th, the URL contains “streaming.mediaservices.windows.net” (the new format). Streaming URLs that contain “origin.mediaservices.windows.net” (the old format) do not support SSL. If your URL is in the old format and you want to be able to stream over SSL, [create a new streaming endpoint](media-services-portal-manage-streaming-endpoints.md). Use URLs created based on the new streaming endpoint to stream your content over SSL.
+
+        ##<a id="october_changes_14"></a>October 2014 Release
 
 ### <a id="new_encoder_release"></a>Media Services Encoder Release
 

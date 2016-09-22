@@ -4,7 +4,7 @@ description="Use PowerShell to create multiple Machine Learning models and web s
 services="machine-learning"
 documentationCenter=""
 authors="hning86"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags

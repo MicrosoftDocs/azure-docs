@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/01/2016"
 	ms.author="rajram"/>
 
 # Get started with the file connector and add it to your Logic app
@@ -27,8 +27,10 @@ The file connector uses the Hybrid Connection Manager for hybrid connectivity to
 To use the file connector, you need to first create an instance of the file connector API app. This can be done as follows:
 
 1.	Open the Azure Marketplace using the + NEW option on the left side of the Azure Portal.
-2.	Browse to “Marketplace > API Apps” and search for “file connector”.
-3.	Configure the file connector as follows:  
+2.	Search for “file connector”.
+3.	Select **File Connector (preview)** from the search results.
+4.	Select the **Create** button
+5.	Configure the file connector as follows:  
 ![][1]
 
 	- **Name** - give a name for your file connector

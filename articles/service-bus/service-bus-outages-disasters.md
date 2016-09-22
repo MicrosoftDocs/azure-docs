@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="05/06/2016"
+    ms.date="09/02/2016"
     ms.author="sethm" />
 
 # Best practices for insulating applications against Service Bus outages and disasters
@@ -43,7 +43,7 @@ A non-partitioned queue or topic is assigned to one messaging store. If this mes
 
 To allow for a failover between two datacenters, you can create a Service Bus service namespace in each datacenter. For example, the Service Bus service namespace **contosoPrimary.servicebus.windows.net** might be located in the United States North/Central region, and **contosoSecondary.servicebus.windows.net** might be located in the US South/Central region. If a Service Bus messaging entity must remain accessible in the presence of a datacenter outage, you can create that entity in both namespaces.
 
-For more information, see the "Failure of Service Bus within an Azure datacenter" section in [Asynchronous Messaging Patterns and High Availability][].
+For more information, see the "Failure of Service Bus within an Azure datacenter" section in [Asynchronous messaging patterns and high availability][].
 
 ## Protecting relay endpoints against datacenter outages or disasters
 
@@ -85,14 +85,6 @@ When using passive replication, in the following scenarios messages can be lost 
 
 The [Geo-replication with Service Bus Brokered Messages][] sample demonstrates passive replication of messaging entities.
 
-## Durable client-side queue
-
-If the application can tolerate a Service Bus entity being unavailable, but must not lose messages, the sender can employ a durable client-side queue that locally stores all messages that cannot be sent to Service Bus. Once the Service Bus entity becomes available again, all buffered messages are sent to that entity. The [Durable Message Sender][] sample implements such a queue with the help of MSMQ. Alternatively, the messages can be written to the local disk.
-
-A durable client-side queue preserves message order and shields the client application from exceptions in case the Service Bus entity is unavailable. It can be used with simple and distributed transactions.
-
-> [AZURE.NOTE] This sample works well in Infrastructure as a Service (IaaS) scenarios where a local disk or a disk for MSMQ is mapped to a storage account and messages are stored reliably with MSMQ. This is not suitable for Platform as a Service (PaaS) scenarios such as Cloud Services and Web Applications.
-
 ## Next steps
 
 To learn more about disaster recovery, see these articles:
@@ -102,11 +94,10 @@ To learn more about disaster recovery, see these articles:
 
   [Service Bus Authentication]: service-bus-authentication-and-authorization.md
   [Partitioned messaging entities]: service-bus-partitioning.md
-  [Asynchronous Messaging Patterns and High Availability]: service-bus-async-messaging.md
+  [Asynchronous messaging patterns and high availability]: service-bus-async-messaging.md#failure-of-service-bus-within-an-azure-datacenter
   [Geo-replication with Service Bus Relayed Messages]: http://code.msdn.microsoft.com/Geo-replication-with-16dbfecd
   [BrokeredMessage.MessageId]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx
   [BrokeredMessage.Label]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx
   [Geo-replication with Service Bus Brokered Messages]: http://code.msdn.microsoft.com/Geo-replication-with-f5688664
-  [Durable Message Sender]: http://code.msdn.microsoft.com/Service-Bus-Durable-Sender-0763230d
   [Azure SQL Database Business Continuity]: ../sql-database/sql-database-business-continuity.md
   [Azure resiliency technical guidance]: ../resiliency/resiliency-technical-guidance.md

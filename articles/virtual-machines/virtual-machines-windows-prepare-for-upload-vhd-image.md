@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2016"
-	ms.author="genli"/>
+	ms.date="09/18/2016"
+	ms.author="glimoli;genli"/>
 
 # Prepare a Windows VHD to upload to Azure
-To upload a Windows VM from on-premises to Azure, you must correctly prepare the virtual hard disk (VHD). There are several recommended steps for you to complete before you upload a VHD to Azure. Running `sysprep` is a common process, but only one step in generalizing an image. This article shows you how to prepare a Windows VHD to upload to Microsoft Azure.
+To upload a Windows VM from on-premises to Azure, you must correctly prepare the virtual hard disk (VHD). There are several recommended steps for you to complete before you upload a VHD to Azure. This article shows you how to prepare a Windows VHD to upload to Microsoft Azure, and it also explains [when and how to use Sysprep](#step23).
 
 ## Prepare the virtual disk
 
@@ -26,7 +26,7 @@ To upload a Windows VM from on-premises to Azure, you must correctly prepare the
 
 Make sure that the Windows VHD is working correctly on the local server. Resolve any errors within the VM itself before trying to convert or upload to Azure.
 
-If you need to convert your virtual disk to the required format for Azure, use one of the methods noted in the following sections.
+If you need to convert your virtual disk to the required format for Azure, use one of the methods noted in the following sections. Back up the VM before running any virtual disk conversion process or Sysprep.
 
 ### Convert using Hyper-V Manager
 - Open Hyper-V Manager and select your local computer on the left. In the menu above it, click **Action** > **Edit Disk**.
@@ -34,8 +34,8 @@ If you need to convert your virtual disk to the required format for Azure, use o
 	- Select **Convert** on the next screen
 		- If you need to convert from VHDX, select **VHD** and click **Next**
 		- If you need to convert from Dynamic disk, select **Fixed size** and click **Next**
-		
-	- Browse to and select **Path for the new VHD file**. 
+
+	- Browse to and select **Path for the new VHD file**.
 	- Click **Finish** to close.
 
 ### Convert using PowerShell
@@ -66,7 +66,7 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
 3. Configure the disk SAN policy to [Onlineall](https://technet.microsoft.com/library/gg252636.aspx):
 
 	```
-	dispart san policy=onlineall
+	diskpart san policy=onlineall
 	```
 
 4. Use Coordinated Universal Time (UTC) time for Windows and set the startup type of the Windows Time (w32time) service to **Automatically**:
@@ -93,17 +93,17 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
 
 	sc config iphlpsvc start= auto
 
-	sc config PolicyAgent start= manual
+	sc config PolicyAgent start= demand
 
 	sc config LSM start= auto
 
-	sc config netlogon start= manual
+	sc config netlogon start= demand
 
-	sc config netman start= manual
+	sc config netman start= demand
 
-	sc config NcaSvc start= manual
+	sc config NcaSvc start= demand
 
-	sc config netprofm start= manual
+	sc config netprofm start= demand
 
 	sc config NlaSvc start= auto
 
@@ -113,11 +113,11 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
 
 	sc config RpcEptMapper start= auto
 
-	sc config termService start= manual
+	sc config termService start= demand
 
 	sc config MpsSvc start= auto
 
-	sc config WinHttpAutoProxySvc start= manual
+	sc config WinHttpAutoProxySvc start= demand
 
 	sc config LanmanWorkstation start= auto
 
@@ -162,7 +162,7 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
 
 
 ## Configure Windows Firewall rules
-10. Allow WinRM through the three firewall profiles (Domain, Private and Public) and enable PowerShell Remote service: 
+10. Allow WinRM through the three firewall profiles (Domain, Private and Public) and enable PowerShell Remote service:
 
 	```
 	Enable-PSRemoting -force
@@ -205,25 +205,25 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
 	- Outbound
 
 	```
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (LLMNR-UDP-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (LLMNR-UDP-Out)" new enable=yes
 
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Datagram-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (NB-Datagram-Out)" new enable=yes
 
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (NB-Name-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (NB-Name-Out)" new enable=yes
 
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (Pub-WSD-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (Pub-WSD-Out)" new enable=yes
 
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (SSDP-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (SSDP-Out)" new enable=yes
 
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (UPnPHost-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (UPnPHost-Out)" new enable=yes
 
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (UPnP-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (UPnP-Out)" new enable=yes
 
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD Events-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (WSD Events-Out)" new enable=yes
 
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD EventsSecure-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (WSD EventsSecure-Out)" new enable=yes
 
-	netsh advfirewall firewall set rule dir=in name="Network Discovery (WSD-Out)" new enable=yes
+	netsh advfirewall firewall set rule dir=out name="Network Discovery (WSD-Out)" new enable=yes
 	```
 
 
@@ -233,25 +233,23 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
 13. Make sure the Boot Configuration Data (BCD) settings match the following:
 
 	```
-	bcdedit /set {bootmgr} device partition=<Boot Partition>
-
 	bcdedit /set {bootmgr} integrityservices enable
 
-	bcdedit /set {default} device partition=<OS Partition>
+	bcdedit /set {default} device partition=C:
 
 	bcdedit /set {default} integrityservices enable
 
 	bcdedit /set {default} recoveryenabled Off
 
-	bcdedit /set {default} osdevice partition=<OS Partition>
+	bcdedit /set {default} osdevice partition=C:
 
 	bcdedit /set {default} bootstatuspolicy IgnoreAllFailures
 	```
 
 14. Remove any extra Transport Driver Interface filters, such as software that analyzes TCP packets.
 15. To make sure the disk is healthy and consistent, run the `CHKDSK /f` command.
-16.	Uninstall all other third-party software and drivers.
-17. Make sure that a third-party application is not using Port 3389. This port is used for the RDP service in Azure.
+16.	Uninstall any other third-party software and driver related to physical components or any other virtualization technology.
+17. Make sure that a third-party application is not using Port 3389. This port is used for the RDP service in Azure. You can use the `netstat -anob` command to check the ports that are using by the applications.
 18.	If the Windows VHD that you want to upload is a domain controller, follow [these extra steps](https://support.microsoft.com/kb/2904015) to prepare the disk.
 19.	Reboot the VM to make sure that Windows is still healthy can be reached by using the RDP connection.
 20.	Reset the current local administrator password and make sure that you can use this account to sign in to Windows through the RDP connection.  This access permission is controlled by the "Allow log on through Remote Desktop Services" policy object. This object is located under "Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment."
@@ -282,11 +280,13 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
 
 	- [KB3146723](https://support.microsoft.com/kb/3146723) MS16-048: Description of the security update for CSRSS: April 12, 2016
 	- [KB2904100](https://support.microsoft.com/kb/2904100) System freezes during disk I/O in Windows
-
-23. If you want to create an image to deploy multiple machines from it, you need to generalize the image by running `sysprep` before you upload the VHD to Azure. For more information about how to create a generalized image, see the following articles:
+<a id="step23"></a>
+23. If you want to create an image to deploy multiple machines from it, you need to generalize the image by running `sysprep` before you upload the VHD to Azure. You do not need to run `sysprep` for using a specialized VHD. For more information about how to create a generalized image, see the following articles:
 
 	- [Create a VM image from an existing Azure VM using the Resource Manager deployment model](virtual-machines-windows-capture-image.md)
 	- [Create a VM image from an existing Azure VM using the Classic deployment modem](virtual-machines-windows-classic-capture-image.md)
+	- [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+
 
 
 ## Suggested extra configurations

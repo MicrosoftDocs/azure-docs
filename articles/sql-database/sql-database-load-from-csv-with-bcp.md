@@ -1,7 +1,7 @@
 <properties
    pageTitle="Load data from CSV file into Azure SQL Databaase (bcp) | Microsoft Azure"
    description="For a small data size, uses bcp to import data into Azure SQL Database."
-   services="sql-data-warehouse"
+   services="sql-database"
    documentationCenter="NA"
    authors="CarlRabeler"
    manager="jhubbard"
@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/30/2016"
+   ms.date="09/13/2016"
    ms.author="carlrab"/>
 
 
@@ -37,12 +37,9 @@ You can download the bcp and sqlcmd utilities from the [Microsoft Download Cente
 
 If you are trying this tutorial with your own data, your data needs to use the ASCII or UTF-16 encoding since bcp does not support UTF-8. 
 
-PolyBase supports UTF-8 but doesn't yet support UTF-16. Note that if you want to combine bcp with PolyBase you will need to transform the data to UTF-8 after it is exported from SQL Server. 
-
-
 ## 1. Create a destination table
 
-Define a table in SQL Data Warehouse that will be the destination table for the load. The columns in the table must correspond to the data in each row of your data file.
+Define a table in SQL Database as the destination table. The columns in the table must correspond to the data in each row of your data file.
 
 To create a table, open a command prompt and use sqlcmd.exe to run the following command:
 

@@ -25,11 +25,6 @@ This article shows you how to create and upload a Windows virtual hard disk (VHD
 For more details about disks and VHDs in Azure, see [About disks and VHDs for virtual machines](virtual-machines-linux-about-disks-vhds.md).
 
 
-
-*********Move to Thomas topic **************************
-In Azure, you can only use [generation 1 virtual machines](http://blogs.technet.com/b/ausoemteam/archive/2015/04/21/deciding-when-to-use-generation-1-or-generation-2-virtual-machines-with-hyper-v.aspx) that are in the VHD file format. 
-
-
 ## Prepare the VM for uploading
 
 You can upload both generalized and specialized VHDs to Azure. Each type requires that you prepare the VM before starting.

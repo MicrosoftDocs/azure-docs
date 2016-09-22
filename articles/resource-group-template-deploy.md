@@ -23,12 +23,6 @@
 - [Azure CLI](resource-group-template-deploy-cli.md)
 - [Portal](resource-group-template-deploy-portal.md)
 - [REST API](resource-group-template-deploy-rest.md)
-- [.NET](https://azure.microsoft.com/documentation/samples/resource-manager-dotnet-template-deployment/)
-- [Java](https://azure.microsoft.com/documentation/samples/resources-java-deploy-using-arm-template/)
-- [Python](https://azure.microsoft.com/documentation/samples/resource-manager-python-template-deployment/)
-- [Node](https://azure.microsoft.com/documentation/samples/resource-manager-node-template-deployment/)
-- [Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-template-deployment/)
-
 
 This topic explains how to use Azure PowerShell with Resource Manager templates to deploy your resources to Azure.  
 
@@ -66,9 +60,9 @@ To learn more about options for deployment that might be better suited to your s
 
         Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
 
-3. Typically, when deploying a new template, you want to create a resource group to contain the resources. If you have an existing resource group that you wish to deploy to, you can skip this step and simply use that resource group. 
+3. Typically, when deploying a new template, you want to create a resource group to contain the resources. If you have an existing resource group that you wish to deploy to, you can skip this step and use that resource group. 
 
-     To create a resource group, provide a name and location for your resource group. 
+     To create a resource group, provide a name and location for your resource group. You need to provide a location for the resource group because the resource group stores metadata about the resources. For compliance reasons, you may want to specify where that metadata is stored. In general, we recommend that you specify a location where most of your resources will reside. Using the same location can simplify your template.
 
         New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West US"
    
@@ -128,7 +122,7 @@ To learn more about options for deployment that might be better suited to your s
         Mode              : Incremental
         ...
 
-     If your template includes a parameter with the same name as one of the parameters in the PowerShell command to deploy the template, you are prompted to provide a value for that parameter with the postfix **FromTemplate**. For example, a parameter named **ResourceGroupName** in your template conflicts with the **ResourceGroupName** parameter in the [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx) cmdlet. You are prompted to provide a value for **ResourceGroupNameFromTemplate**. In general, you should avoid this confusion by not naming parameters with the same name as parameters used for deployment operations.
+     If your template includes a parameter with the same name as one of the parameters in the PowerShell command, you are prompted to provide a value for that parameter. The parameter from your template will include the postfix **FromTemplate**. For example, a parameter named **ResourceGroupName** in your template conflicts with the **ResourceGroupName** parameter in the [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx) cmdlet. You are prompted to provide a value for **ResourceGroupNameFromTemplate**. In general, you should avoid this confusion by not naming parameters with the same name as parameters used for deployment operations.
 
 6. If you want to log additional information about the deployment that may help you troubleshoot any deployment errors, use the **DeploymentDebugLogLevel** parameter. You can specify that request content, response content, or both be logged with the deployment operation.
 

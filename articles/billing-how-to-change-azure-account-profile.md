@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2016"
+	ms.date="08/17/2016"
 	ms.author="genli"/>
 
 # How to change profile information of your Azure account such as contact email, address and phone number
@@ -26,6 +26,8 @@ Missed an important email from Azure? Want to update other contact information i
 
 -	[How to change your profile information](#how-to-change-your-profile-information)
 -	[Answers to common issues and questions](#frequently-asked-questions)
+
+> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
 ## Important information about your profile email address
 
@@ -60,3 +62,5 @@ Because of technical constraints, we cannot change the country on an existing ac
 ### What email address does the Azure Billing Alerts preview feature use?
 
 If you sign up for the new Azure Billing Alerts preview feature, you will receive Azure Billing Alerts email at the address you specify, regardless of whether you have changed the Account Administrator email address.
+
+> [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.

@@ -3,7 +3,7 @@
    description="How to run Windows VMs for an N-tier architecture in Microsoft Azure."
    services=""
    documentationCenter="na"
-   authors="mikewasson"
+   authors="MikeWasson"
    manager="roshar"
    editor=""
    tags=""/>
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="07/12/2016"
-   ms.author="mikewasson"/>
+   ms.author="mwasson"/>
 
 # Adding reliability to an N-tier architecture on Azure 
 

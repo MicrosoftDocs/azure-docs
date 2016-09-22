@@ -63,7 +63,7 @@ The **Actions** property of a custom role specifies the Azure operations to whic
 Use `Get-AzureRmProviderOperation` (in PowerShell) or `azure provider operations show` (in Azure CLI) to list operations of Azure resource providers. You may also use these commands to verify that an operation string is valid, and to expand wildcard operation strings.
 
 ```
-Get-AzureRMProviderOperation Microsoft.Computer/virtualMachines/*/action | FT Operation, OperationName
+Get-AzureRMProviderOperation Microsoft.Compute/virtualMachines/*/action | FT Operation, OperationName
 
 Get-AzureRMProviderOperation Microsoft.Network/*
 ```

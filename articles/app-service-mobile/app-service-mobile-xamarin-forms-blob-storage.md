@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="mobile-xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-    ms.date="05/10/2016"
+    ms.date="08/22/2016"
     ms.author="donnam"/>
 
 #Connect to Azure Storage in your Xamarin.Forms app
@@ -38,7 +38,7 @@ In this tutorial, you will create a storage account and add a connection string 
 
 1. Create a storage account by following the tutorial [Create an Azure Storage Account]. 
 
-2. In the Azure Portal, navigate to your newly created storage account and click the **Keys** icon. Copy the **Primary Connection String**.
+2. In the Azure portal, navigate to your newly created storage account and click the **Keys** icon. Copy the **Primary Connection String**.
 
 3. Navigate to your mobile app backend. Under **All Settings** -> **Application Settings** -> **Connection Strings**, create a new key named `MS_AzureStorageAccountConnectionString` and use the value copied from your storage account. Use **Custom** as the key type.
 
@@ -52,7 +52,7 @@ You need to add a new controller to your server project that will respond to req
 
 ###<a name="add-controller-code"></a>Add a storage controller to your server project
 
-1. In Visual Studio, open your .NET server project. Add the NuGet package [Microsoft.Azure.Mobile.Server.Files]. Be sure to select **Include prerelease**.
+1. In Visual Studio, open your .NET server project. Add the Nuget package [Microsoft.Azure.Mobile.Server.Files]. Be sure to select **Include prerelease**.
 
 2. In Visual Studio, open your .NET server project. Right-click the **Controllers** folder and select **Add** -> **Controller** -> **Web API 2 Controller - Empty**. Name the controller `TodoItemStorageController`.
 
@@ -105,7 +105,7 @@ The new `TodoItemStorageController` exposes two sub-resources under the record i
 
 - StorageToken
 
-    + HTTP POST : Creates a storage token
+    + HTTP POST: Creates a storage token
     
         `/tables/TodoItem/{id}/MobileServiceFiles`
     
@@ -131,9 +131,9 @@ The diagram below shows the client and server interactions. Before uploading a f
 
 ## Update your client app to add image support
 
-Open the Xamarin.Forms quickstart project in either Visual Studio or Xamarin Studio. You will install NuGet packages and update the portable library project and the iOS, Android, and Windows client projects:
+Open the Xamarin.Forms quickstart project in either Visual Studio or Xamarin Studio. You will install Nuget packages and update the portable library project and the iOS, Android, and Windows client projects:
 
-- [Add NuGet packages](#add-nuget)
+- [Add Nuget packages](#add-nuget)
 - [Add IPlatform interface](#add-iplatform)
 - [Add FileHelper class](#add-filehelper)
 - [Add a file sync handler](#file-sync-handler)
@@ -144,9 +144,9 @@ Open the Xamarin.Forms quickstart project in either Visual Studio or Xamarin Stu
 
 >[AZURE.NOTE] This tutorial only contains instructions for the Android, iOS, and Windows Store platforms, not Windows Phone.
 
-###<a name="add-nuget"></a>Add NuGet packages
+###<a name="add-nuget"></a>Add Nuget packages
 
-Right-click the solution and select **Manage NuGet packages for solution**. Add the following NuGet packages to **all** projects in the solution. Be sure to check **Include prerelease**.
+Right-click the solution and select **Manage Nuget packages for solution**. Add the following Nuget packages to **all** projects in the solution. Be sure to check **Include prerelease**.
 
   - [Microsoft.Azure.Mobile.Client.Files]
 
@@ -160,7 +160,7 @@ For convenience, this sample uses the [PCLStorage] library, but it is not requir
 
 ###<a name="add-iplatform"></a>Add IPlatform interface
 
-Create a new interface `IPlatform` in the main portable library project. This follows the [Xamarin.Forms DependencyService] pattern to load the right platform-specific class at runtime. You will later add platform specific implementations in each of the client projects.
+Create a new interface `IPlatform` in the main portable library project. This follows the [Xamarin.Forms DependencyService] pattern to load the right platform-specific class at runtime. You will later add platform-specific implementations in each of the client projects.
 
 1. Add the following using statements:
 
@@ -243,7 +243,7 @@ Create a new interface `IPlatform` in the main portable library project. This fo
 
 Create a new class `TodoItemFileSyncHandler` in the main portable library project. This class contains callbacks from the Azure SDK to notify your code when a file is added or removed.
 
-The Azure Mobile Client SDK does not store actually store any file data: the client SDK invokes your implementation of `IFileSyncHandler` which in turn determines whether and how files are stored on the local device.
+The Azure Mobile Client SDK does not actually store any file data: the client SDK invokes your implementation of `IFileSyncHandler` which in turn determines whether and how files are stored on the local device.
 
 1. Add the following using statements:
 

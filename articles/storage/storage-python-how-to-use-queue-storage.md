@@ -3,8 +3,8 @@
 	description="Learn how to use the Azure Queue service from Python to create and delete queues, and insert, get, and delete messages."
 	services="storage"
 	documentationCenter="python"
-	authors="emgerner-msft"
-	manager="wpickett"
+	authors="robinsh"
+	manager="carmonm"
 	editor="tysonn"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="07/26/2016"
-	ms.author="emgerner"/>
+	ms.date="09/20/2016"
+	ms.author="cbrooks;robinsh"/>
 
 # How to use Queue storage from Python
 
@@ -78,7 +78,7 @@ after the message has been processed.
 	messages = queue_service.get_messages('taskqueue')
 	for message in messages:
 		print(message.content)
-		queue_service.delete_message('taskqueue', message.message_id, message.pop_receipt)
+		queue_service.delete_message('taskqueue', message.id, message.pop_receipt)
 
 There are two ways you can customize message retrieval from a queue.
 First, you can get a batch of messages (up to 32). Second, you can set a
@@ -91,7 +91,7 @@ five minutes for each message.
 	messages = queue_service.get_messages('taskqueue', num_messages=16, visibility_timeout=5*60)
 	for message in messages:
 		print(message.content)
-		queue_service.delete_message('taskqueue', message.message_id, message.pop_receipt)		
+		queue_service.delete_message('taskqueue', message.id, message.pop_receipt)		
 
 
 ## How To: Change the Contents of a Queued Message
@@ -104,7 +104,7 @@ message appears immediately and the content is updated.
 
 	messages = queue_service.get_messages('taskqueue')
 	for message in messages:
-		queue_service.update_message('taskqueue', message.message_id, message.pop_receipt, 0, u'Hello World Again')
+		queue_service.update_message('taskqueue', message.id, message.pop_receipt, 0, u'Hello World Again')
 
 ## How To: Get the Queue Length
 

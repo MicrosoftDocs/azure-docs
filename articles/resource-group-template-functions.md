@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/11/2016"
+   ms.date="09/12/2016"
    ms.author="tomfitz"/>
 
 # Azure Resource Manager template functions
@@ -631,34 +631,34 @@ The following example trims the white-space characters from the user-provided pa
 
 **uniqueString (baseString, ...)**
 
-Creates a unique string based on the values provided as parameters. 
+Creates a deterministic hash string based on the values provided as parameters. 
 
 | Parameter                          | Required | Description
 | :--------------------------------: | :------: | :----------
 | baseString      |   Yes    | The string used in the hash function to create a unique string.
 | additional parameters as needed    | No       | You can add as many strings as needed to create the value that specifies the level of uniqueness.
 
-This function is helpful when you need to create a unique name for a resource. You provide parameter values that represent the level of uniqueness for the result. You can specify whether the name is unique for your subscription, resource group, or deployment. 
+This function is helpful when you need to create a unique name for a resource. You provide parameter values that limit the scope of uniqueness for the result. You can specify whether the name is unique down to subscription, resource group, or deployment. 
 
-The returned value is not a random string, but rather the result of a hash function. The returned value is 13 characters long. It is not guaranteed to be globally unique. You may want to combine the value with a prefix from your naming convention to create a name that is easier to recognize. The following example shows the format of the returned value. Of course, the actual value will vary by the provided parameters.
+The returned value is not a random string, but rather the result of a hash function. The returned value is 13 characters long. It is not globally unique. You may want to combine the value with a prefix from your naming convention to create a name that is meaningful. The following example shows the format of the returned value. Of course, the actual value will vary by the provided parameters.
 
     tcvhiyu5h2o5o
 
 The following examples show how to use uniqueString to create a unique value for commonly used levels.
 
-Unique based on subscription
+Unique scoped to subscription
 
     "[uniqueString(subscription().subscriptionId)]"
 
-Unique based on resource group
+Unique scoped to resource group
 
     "[uniqueString(resourceGroup().id)]"
 
-Unique based on deployment for a resource group
+Unique scoped to deployment for a resource group
 
     "[uniqueString(resourceGroup().id, deployment().name)]"
     
-The following example shows how to create a unique name for a storage account based on your resource group.
+The following example shows how to create a unique name for a storage account based on your resource group (inside this resource group the name is not unique if constructed the same way).
 
     "resources": [{ 
         "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]", 
@@ -1089,7 +1089,7 @@ The following example references a storage account in a different resource group
 		}
 	}
 
-The properties on the returned object vary by the resource type.
+The properties on the object returned from the **reference** function vary by resource type. To see the property names and values for a resource type, create a simple template that returns the object in the **outputs** section. If you have an existing resource of that type, your template just returns the object without deploying any new resources. If you do not have an existing resource of that type, your template deploys only that type and returns the object. Then, add those properties to other templates that need to dynamically retrieve the values during deployment. 
 
 <a id="resourcegroup" />
 ### resourceGroup

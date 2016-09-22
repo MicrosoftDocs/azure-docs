@@ -15,10 +15,12 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/16/2016"
-	ms.author="chrande"/>
+	ms.date="08/22/2016"
+	ms.author="chrande; glenga"/>
 
 # Azure Functions DocumentDB bindings
+
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 This article explains how to configure and code Azure DocumentDB bindings in Azure Functions. 
 
@@ -65,6 +67,29 @@ Using the example function.json above, the DocumentDB input binding will retriev
 	{   
 	    document.text = "This has changed.";
 	}
+
+#### Azure DocumentDB input code example for an F# queue trigger
+
+Using the example function.json above, the DocumentDB input binding will retrieve the document with the id that matches the queue message string and pass it to the 'document' parameter. If that document is not found, the 'document' parameter will be null. The document is then updated with the new text value when the function exits.
+
+	open FSharp.Interop.Dynamic
+	let Run(myQueueItem: string, document: obj) =
+	    document?text <- "This has changed."
+
+You will need a `project.json` file that uses NuGet to specify the `FSharp.Interop.Dynamic` and `Dynamitey` packages as package dependencies, like this:
+
+	{
+	  "frameworks": {
+	    "net46": {
+	      "dependencies": {
+	        "Dynamitey": "1.0.2",
+	        "FSharp.Interop.Dynamic": "3.0.0"
+	      }
+	    }
+	  }
+	}
+
+This will use NuGet to fetch your dependencies and will reference them in your script.
 
 #### Azure DocumentDB input code example for a Node.js queue trigger
  
@@ -129,6 +154,12 @@ The output document:
 	}
  
 
+#### Azure DocumentDB output code example for an F# queue trigger
+
+	open FSharp.Interop.Dynamic
+	let Run(myQueueItem: string, document: obj) =
+	    document?text <- (sprintf "I'm running in an F# function! %s" myQueueItem)
+
 #### Azure DocumentDB output code example for a C# queue trigger
 
 
@@ -175,6 +206,27 @@ You could use the following C# code in a queue trigger function:
 	        address = employee.address
 	    };
 	}
+
+Or the equivalent F# code:
+
+	open FSharp.Interop.Dynamic
+	open Newtonsoft.Json
+
+	type Employee = {
+	    id: string
+	    name: string
+	    employeeId: string
+	    address: string
+	}
+
+	let Run(myQueueItem: string, employeeDocument: byref<obj>, log: TraceWriter) =
+	    log.Info(sprintf "F# Queue trigger function processed: %s" myQueueItem)
+	    let employee = JObject.Parse(myQueueItem)
+	    employeeDocument <-
+	        { id = sprintf "%s-%s" employee?name employee?employeeId
+	          name = employee?name
+	          employeeId = employee?id
+	          address = employee?address }
 
 Example output:
 

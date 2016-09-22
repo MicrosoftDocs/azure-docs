@@ -33,7 +33,7 @@ This article shows you how to use Azure PowerShell create a generalized image of
 
 ## Prepare the source VM 
 
-This section shows you how to generalize your Windows virtual machine so that it can be used as an image.
+This section shows you how to generalize your Windows virtual machine so that it can be used as an image. Back up the VM before running Sysprep.
 
 > [AZURE.WARNING] You cannot log in to the VM via RDP once it is generalized, because the process removes all user accounts. The changes are irreversible. 
 
@@ -110,7 +110,7 @@ Create an image of the virtual machine using the [Save-AzureRmVMImage cmdlet](ht
 
 	You can get the URL of your image from the JSON file template. Go to the **resources** > **storageProfile** > **osDisk** > **image** > **uri** section for the complete path of your image. The URL of the image looks like: `https://<storageAccountName>.blob.core.windows.net/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`.
 	
-	You can also verify the URI in the portal. The image is copied to a blob named **system** in your storage account. 
+	You can also verify the URI in the portal. The image is copied to a container named **system** in your storage account. 
 
 ## Next steps
 

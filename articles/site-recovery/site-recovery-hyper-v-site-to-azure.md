@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="05/09/2016"
+	ms.date="09/19/2016"
 	ms.author="raynew"/>
 
 
@@ -88,7 +88,7 @@ Here's what you'll need on-premises.
 **Prerequisite** | **Details**
 --- | ---
 **Hyper-V**| One or more on-premises servers running Windows Server 2012 R2 with latest updates and the Hyper-V role.<br/><br/>The Hyper-V server should contain one or more virtual machines.<br/><br/>Hyper-V servers should be connected to the Internet, either directly or via a proxy.<br/><br/>Hyper-V servers should have fixes mentioned in [KB2961977](https://support.microsoft.com/en-us/kb/2961977 "KB2961977") installed.
-**Provider and agent** | During Azure Site Recovery deployment you’ll install the Azure Site Recovery Provider. The Provider installation will also install the Azure Recovery Services Agent on each Hyper-V server running virtual machines you want to protect. All Hyper-V servers in a Site Recovery vault should have the same versions of the Provider and agent.<br/><br/>The Provider will need to connect to Azure Site Recovery over the Internet. Traffic can be sent directly or through a proxy. Note that HTTPS based proxy is not supported. The proxy server should allow access to: <br/><br/> *.hypervrecoverymanager.windowsazure.com <br/><br/> *.accesscontrol.windows.net <br/><br/> *.backup.windowsazure.com <br/><br/> *.blog.core.windows.net <br/><br/> *store.core.windows.net <br/><br/> https://www.msftncsi.com/ncsi.txt<br/><br/>If you have IP address-based firewall rules on the server, check that the rules allow communication to Azure. You'll need to allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653) and the HTTPS (433) protocol.<br/><br/>Allow IP address ranges for the Azure region of your subscription, and for West US.
+**Provider and agent** | During Azure Site Recovery deployment you’ll install the Azure Site Recovery Provider. The Provider installation will also install the Azure Recovery Services Agent on each Hyper-V server running virtual machines you want to protect. All Hyper-V servers in a Site Recovery vault should have the same versions of the Provider and agent.<br/><br/>The Provider will need to connect to Azure Site Recovery over the Internet. Traffic can be sent directly or through a proxy. Note that HTTPS based proxy is not supported. The proxy server should allow access to: <br/><br/> *.hypervrecoverymanager.windowsazure.com <br/><br/> *.accesscontrol.windows.net <br/><br/> *.backup.windowsazure.com <br/><br/> *.blog.core.windows.net <br/><br/> *store.core.windows.net <br/><br/> https://www.msftncsi.com/ncsi.txt<br/><br/>If you have IP address-based firewall rules on the server, check that the rules allow communication to Azure. You'll need to allow the [Azure Datacenter IP Ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653) and the HTTPS (443) port.<br/><br/>Allow IP address ranges for the Azure region of your subscription, and for West US.
 
 ## Protected machine prerequisites
 
@@ -113,12 +113,15 @@ Set up an Azure network. You’ll need this so that the Azure VMs created after 
 - Depending on the resource model you want to use for failed over Azure VMs, you’ll set up the Azure network in [ARM mode](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) or [classic mode](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 - We recommend you set up a network before you begin. If you don't you'll need to do it during Site Recovery deployment.
 
+> [AZURE.NOTE] [Migration of networks](../resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for networks used for deploying Site Recovery.
 
 ### Set up an Azure storage account
 
 - You’ll need a standard Azure storage account to hold data replicated to Azure.
 - Depending on the resource model you want to use for failed over Azure VMs, you'll set an account in [ARM mode](../storage/storage-create-storage-account.md) or [classic mode](../storage/storage-create-storage-account-classic-portal.md).
 - We recommend that you set up a storage account before you begin. If you don't you'll need to do it during Site Recovery deployment. The accounts need to be in the same region as the Recovery Services vault.
+
+> [AZURE.NOTE] [Migration of storage accounts](../resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for storage accounts used for deploying Site Recovery.
 
 ### Prepare the Hyper-V hosts
 
@@ -190,11 +193,11 @@ Set up the Hyper-V site, install the Azure Site Recovery Provider and the Azure 
 1. Run the Provider setup file.
 2. In **Microsoft Update** you can opt in for updates so that Provider updates are installed in accordance with your Microsoft Update policy.
 3. In **Installation** accept or modify the default Provider installation location and click **Install**.
-5. In **Vault Settings** page, click **Browse** to select the vault key file that you downloaded. Specify the Azure Site Recovery subscription, the vault name, and the Hyper-V site to which the Hyper-V server belongs.
+4. In **Vault Settings** page, click **Browse** to select the vault key file that you downloaded. Specify the Azure Site Recovery subscription, the vault name, and the Hyper-V site to which the Hyper-V server belongs.
 
 	![Server registration](./media/site-recovery-hyper-v-site-to-azure/provider3.png)
 
-4.In **Proxy Settings** specify how the Provider that will be installed on the server will connect to Azure Site Recovery over the internet.
+5.In **Proxy Settings** specify how the Provider that will be installed on the server will connect to Azure Site Recovery over the internet.
 
 - If you want the Provider to connect directly select **Connect directly without a proxy**.
 - If you want to connect with the proxy that's currently set up on the server select **Connect with existing proxy settings**.
@@ -204,10 +207,10 @@ Set up the Hyper-V site, install the Azure Site Recovery Provider and the Azure 
 
 	![internet](./media/site-recovery-hyper-v-site-to-azure/provider7.PNG)
 
-5.After installation finishes click **Register** to register the server in the vault.	
+6.After installation finishes click **Register** to register the server in the vault.	
 	![Install location](./media/site-recovery-hyper-v-site-to-azure/provider2.png)
 
-6.After registration finishes metadata from the Hyper-V server is retrieved by Azure Site Recovery and the server is displayed on the **Settings** > **Site Recovery Infrastructure** > **Hyper-V Hosts** blade.
+7.After registration finishes metadata from the Hyper-V server is retrieved by Azure Site Recovery and the server is displayed on the **Settings** > **Site Recovery Infrastructure** > **Hyper-V Hosts** blade.
 
 
 ### Command line installation

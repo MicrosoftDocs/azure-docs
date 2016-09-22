@@ -20,3 +20,5 @@ No. To leverage reverse DNS records for your Public IP Addresses, you must speci
 No. Azure does not support the onward delegation of ARPA zones. Azure hosts the ARPA zones for all available IPs, and enables customers to create reverse DNS records within these ARPA zones.
 ### Can I host ARPA zones for my ISP-assigned IP blocks on Azure DNS?
 No. Azure DNS does not currently support reverse DNS records in customers DNS zones.
+### Can I send emails to external domains from my Azure Compute services?
+No. As per [here](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/), Azure Compute services do not support sending emails to external domains.

@@ -4,7 +4,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	authors="nitinme"
 	tags="azure-portal"/>
 
@@ -14,19 +14,39 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2016"
+	ms.date="08/31/2016"
 	ms.author="nitinme"/>
 
 
 # Release notes for Hadoop components on Azure HDInsight
 
+## Notes for 08/30/2016 release of R Server on HDInsight
+
+The full version numbers for Linux-based HDInsight clusters deployed with this release:
+
+|HDI |HDI cluster version	|HDP |HDP Build   |Ambari Build |
+|----|----------------------|----|------------|-------------|
+|3.2 |3.2.1000.0.8268980	|2.2 |2.2.9.1-19  |2.2.1.12-4   |
+|3.3 |3.3.1000.0.8268980	|2.3 |2.3.3.1-25  |2.2.1.12-4   |
+|3.4 |3.4.1000.0.8269383	|2.4 |2.4.2.4-5   |2.2.1.12-4   |
+
+The full version numbers for Windows-based HDInsight clusters deployed with this release:
+
+|HDI |HDI cluster version	|HDP |HDP Build     |
+|----|----------------------|----|--------------|
+|2.1 |2.1.10.1033.2559206   |1.3 |1.3.12.0-01795|
+|3.0 |3.0.6.1033.2559206 	|2.0 |2.0.13.0-2117 |
+|3.1 |3.1.4.1033.2559206	|2.1 |2.1.16.0-2374 |
+|3.2 |3.2.7.1033.2559206	|2.2 |2.2.9.1-11    |
+|3.3 |3.3.0.1033.2559206	|2.3 |2.3.3.1-25    |
+
 ## Notes for 08/17/2016 release of R Server on HDInsight
 
-•	R Server 8.0.5 – mainly a bug fix release. See the [R Server Release Notes](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes) for more info. 
-•	AzureML package on the edge node – [this R package](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html) enables R models to be published and consumed as an Azure ML web service.  See the ["Operationalize a Model"](hdinsight-hadoop-r-server-overview.md#operationalize-a-model) section of our ["Overview of R Server on HDInsight"](hdinsight-hadoop-r-server-overview.md) article for more info.
-•	Linux dependencies of the [top 100 most popular R packages](https://github.com/metacran/cranlogs) – these Linux package dependencies are now pre-installed.  
-•	Option to use the CRAN repo when adding R packages to the data nodes. See the ["Install R packages"](hdinsight-hadoop-r-server-get-started.md#install-r-packages) section of our ["Get started using R Server on HDInsight"](hdinsight-hadoop-r-server-get-started.md) article for more info.
-•	Improved the reliability of R Server provisioning when clusters are created.
+- R Server 8.0.5 – mainly a bug fix release. See the [R Server Release Notes](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes) for more info. 
+- AzureML package on the edge node – [this R package](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html) enables R models to be published and consumed as an Azure ML web service.  See the ["Operationalize a Model"](hdinsight-hadoop-r-server-overview.md#operationalize-a-model) section of our ["Overview of R Server on HDInsight"](hdinsight-hadoop-r-server-overview.md) article for more info.
+- Linux dependencies of the [top 100 most popular R packages](https://github.com/metacran/cranlogs) – these Linux package dependencies are now pre-installed.  
+- Option to use the CRAN repo when adding R packages to the data nodes. See the ["Install R packages"](hdinsight-hadoop-r-server-get-started.md#install-r-packages) section of our ["Get started using R Server on HDInsight"](hdinsight-hadoop-r-server-get-started.md) article for more info.
+- Improved the reliability of R Server provisioning when clusters are created.
 
 
 ## Notes for 08/01/2016 release of HDInsight

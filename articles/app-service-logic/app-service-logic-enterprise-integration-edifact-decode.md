@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Learn about Enterprise Integration Pack Decode EDIFACT Message Connctor | Microsoft Azure App Service | Microsoft Azure" 
+	pageTitle="Learn about Enterprise Integration Pack Decode EDIFACT Message Connector | Microsoft Azure App Service | Microsoft Azure" 
 	description="Learn how to use partners with the Enterprise Integration Pack and Logic apps" 
 	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
@@ -26,7 +26,7 @@ Validates EDI and partner-specific properties, generates XML document for each t
 
 * An Azure account; you can create a [free account](https://azure.microsoft.com/free)
 
-* An Integration Account is required to use Decode EDIFACT message connector. See details on how to create an [Integration Account](./app-service-logic-enterprise-integration-create-integration-account.md), [partners](./app-service-logic-enterprise-integration-create-integration-account.md) and [EDIFACT agreement](./app-service-logic-enterprise-integration-edifact.md)
+* An Integration Account is required to use Decode EDIFACT message connector. See details on how to create an [Integration Account](./app-service-logic-enterprise-integration-create-integration-account.md), [partners](./app-service-logic-enterprise-integration-partners.md) and [EDIFACT agreement](./app-service-logic-enterprise-integration-edifact.md)
 
 ### Connect to Decode EDIFACT Message using the following steps:
 

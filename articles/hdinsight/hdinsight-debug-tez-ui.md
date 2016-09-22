@@ -4,7 +4,7 @@ description="Learn how to use the Tez UI to debug Tez jobs on Windows-based HDIn
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags

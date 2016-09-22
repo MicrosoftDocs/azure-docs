@@ -3,8 +3,8 @@
 	description="Provides a list of frequently asked questions and answers related to Azure Multi-Factor Authentication. Multi-Factor Authentication is a method of verifying a user's identity that requires more than a user name and password. It provides an additional layer of security to user sign-in and transactions."
 	services="multi-factor-authentication"
 	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/04/2016"
-	ms.author="billmath"/>
+	ms.date="08/22/2016"
+	ms.author="kgremban"/>
 
 # Azure Multi-Factor Authentication FAQ
 
@@ -38,7 +38,7 @@ This FAQ answers common questions about Azure Multi-Factor Authentication and us
   If you're a legacy PhoneFactor customer and you have questions or need help resetting a password, use the [password reset](mailto:phonefactorsupport@microsoft.com) link to open a support case.
 
 - [Azure Multi-Factor Authentication Server (PhoneFactor) support](https://support.microsoft.com/oas/default.aspx?prid=14947)
-  
+
   Use this link to contact a Microsoft support professional. They’ll ask you a few questions to help you determine your support options, which might include email, online submission, or phone support.
 
 
@@ -145,7 +145,7 @@ Get more information about creating app passwords and other [help with app passw
 
 The Azure Multi-Factor Authentication service sends text messages through SMS aggregators. Many factors might affect the reliability of text message delivery and receipt, including the aggregator that is used, the destination country, the user's mobile phone carrier, and the signal strength. Because of this, delivery of text messages and receipt of SMS replies in two-way SMS is not guaranteed. We recommend using one-way SMS rather than two-way SMS when possible. One-way SMS is more reliable and it prevents users from incurring global SMS charges from replying to a text message that was sent from another country.
 
-Text message verifications also are more reliable in some countries or regions, such as the United States and Canada. We encourage users who experience difficulty reliably receiving text messages when using Azure Multi-Factor Authentication to select the mobile app or phone call method instead. The mobile app method of authentication is great because the user can receive mobile app notifications both over cellular and Wi-Fi connections. In addition, the mobile app passcode is displayed even when the device has no signal at all. The Azure Authenticator app is available for [Windows Phone](http://www.windowsphone.com/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator), and [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458).
+Text message verifications also are more reliable in some countries or regions, such as the United States and Canada. We encourage users who experience difficulty reliably receiving text messages when using Azure Multi-Factor Authentication to select the mobile app or phone call method instead. The mobile app method of authentication is great because the user can receive mobile app notifications both over cellular and Wi-Fi connections. In addition, the mobile app passcode is displayed even when the device has no signal at all. The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
 **Q: Can I use hardware tokens with Azure Multi-Factor Authentication Server?**
 

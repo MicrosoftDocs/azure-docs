@@ -19,7 +19,7 @@
 # Register the current user for push notifications by using ASP.NET
 
 > [AZURE.SELECTOR]
-- [iOS](notification-hubs-ios-aspnet-register-user-push-notifications.md)
+- [iOS](notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
 
 
 

@@ -4,7 +4,7 @@
    services="virtual-machines-linux"
    documentationCenter="virtual-machines"
    authors="kmouss"
-   manager="drewm"
+   manager="timlt"
    editor=""/>
 
 <tags
@@ -56,7 +56,7 @@ To enable monitoring for an Azure VM.
 
 [Azure.Note] You can change from version 2.0 to a later version when available. 
 
-For more details about configuring monitoring metrics and samples, visit the document - **[Using Linux Diagnostic Extension to Monitor Linux VM’s performance and diagnostic data](virtual-machines-linux-diagnostic-extension/).
+For more details about configuring monitoring metrics and samples, visit the document - **[Using Linux Diagnostic Extension to Monitor Linux VM’s performance and diagnostic data](virtual-machines-linux-classic-diagnostic-extension.md).
 
 <!--Image references-->
 [1]: ./media/virtual-machines-linux-vm-monitoring/portal-enable-disable.png

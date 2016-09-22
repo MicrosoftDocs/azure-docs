@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="python"
     ms.topic="hero-article"
-    ms.date="08/11/2016"
+    ms.date="08/25/2016"
     ms.author="anhoh"/>
 
 # Python Flask Web Application Development with DocumentDB
@@ -185,7 +185,7 @@ def create():
     db = client.CreateDatabase({ 'id': config.DOCUMENTDB_DATABASE })
 
     # Create collection
-    collection = client.CreateCollection(db['_self'],{ 'id': config.DOCUMENTDB_COLLECTION }, { 'offerType': 'S1' })
+    collection = client.CreateCollection(db['_self'],{ 'id': config.DOCUMENTDB_COLLECTION })
 
     # Create document
     document = client.CreateDocument(collection['_self'],

@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="What are App Passwords in Azure MFA?" 
-	description="This page will help users understand what app passwords are and what they are used for with regard to Azure MFA." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+<properties
+	pageTitle="What are App Passwords in Azure MFA?"
+	description="This page will help users understand what app passwords are and what they are used for with regard to Azure MFA."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2016"
+	ms.author="kgremban"/>
 
 
 
@@ -25,7 +25,7 @@ Certain non-browser apps, such as the Apple native email client that uses Exchan
 >[AZURE.NOTE] Modern Authentication for the Office 2013 Clients
 >
 > Office 2013 clients (including Outlook) now support new Authentication Protocols and can be enabled to support Multi-Factor Authentication.  This means that once enabled, app passwords are not required for use with Office 2013 clients.  For more information see [Office 2013 modern authentication public preview announced](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
- 
+
 ## How to use app passwords
 
 The following are some things to remember on how to use app passwords.
@@ -34,7 +34,7 @@ The following are some things to remember on how to use app passwords.
 - Currently there is a limit of 40 passwords per user. If you attempt to create one after you have reached the limit, you will be prompted to delete one of your existing app passwords in order to create a new one.
 - It is recommended that app passwords be created per device and not per application. For example, you can create one app password for your laptop and use that app password for all of your applications on that laptop.
 - You are given an app password the first time you sign-in.  If you need additional ones, you can create them.
- 
+
 ![Setup](./media/multi-factor-authentication-end-user-app-passwords/app.png)
 
 Once you have an app password, you use this in place of your original password with these non-browser apps.  So for instance, if you are using multi-factor authentication and the Apple native email client on your phone.  Use the app password so that it can bypass multi-factor authentication and continue to work.
@@ -43,12 +43,12 @@ Once you have an app password, you use this in place of your original password w
 During your initial sign-in you are given an app password that you can use.  Additionally you can also create and delete app passwords later on.  How you do this depends on how you use multi-factor authentication.  Choose the one that most applies to you.
 
 How you use multi-factor authentiation|Description
-:------------- | :------------- | 
+:------------- | :------------- |
 [I use it with Office 365](#creating-and-deleting-app-passwords-with-office-365)|  This means that you will want to create app passwords through the Office 365 portal.
 [I don't know](#creating-and-deleting-app-passwords-with-myapps-portal)|This means you will want create app passwords through [https://myapps.microsoft.com](https://myapps.microsoft.com)
 [I use it with Microsoft Azure](#create-app-passwords-in-the-azure-portal)| This means that you will want create app passwords through the Azure portal.
 
-## Creating and deleting app passwords with Office 365 
+## Creating and deleting app passwords with Office 365
 
 If you use multi-factor authentication with Office 365 you will want to create and delete app passwords through the Office 365 portal.
 
@@ -96,7 +96,7 @@ If you are not sure how you use multi-factor authentication, then you can always
 
 ### To create an app password using the Myapps portal
 
-1. Sign-in to [https://myapps.microsoft.com](https://myapps.microsoft.com)	
+1. Sign-in to [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. At the top, select profile.
 3. Select Additional Security Verification.
 ![Cloud](./media/multi-factor-authentication-end-user-manage/myapps1.png)
@@ -112,7 +112,7 @@ If you are not sure how you use multi-factor authentication, then you can always
 
 ### To delete an app password using the Myapps portal
 
-1. Sign-in to [https://myapps.microsoft.com](https://myapps.microsoft.com)	
+1. Sign-in to [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. At the top, select profile.
 3. Select Additional Security Verification.
 ![Cloud](./media/multi-factor-authentication-end-user-manage/myapps1.png)
