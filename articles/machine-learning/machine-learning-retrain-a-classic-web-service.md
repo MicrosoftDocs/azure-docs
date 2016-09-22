@@ -134,4 +134,5 @@ Using the Retraining APIs, you can update the trained model of a predictive Web 
 * Distribution of a model to customers with the goal of letting them retrain the model using their own data.
 
 Next steps
+
 [Troubleshooting the retraining of an Azure Machine Learning classic web service](machine-learning-troubleshooting-retraining-models.md)

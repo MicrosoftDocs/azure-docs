@@ -159,6 +159,7 @@ Copy the *BaseLocation*, *RelativeLocation*, and *SasBlobToken* from the output 
 ## Next steps
 
 [Retrain a Classic Web service](machine-learning-retrain-a-classic-web-service.md)
+
 [Retrain a New Web service using the Machine Learning Management cmdlets](machine-learning-retrain-new-web-service-using-powershell.md)
 
 <!-- Retrain a New Web service using the Machine Learning Management REST API -->
