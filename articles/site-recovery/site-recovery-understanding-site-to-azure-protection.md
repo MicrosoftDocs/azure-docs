@@ -21,13 +21,13 @@
 
 This article describes the technical concepts that can help you successfully configure and manage a Hyper-V site or a System Center Virtual Machine Manager (VMM) site to Azure protection by using Azure Site Recovery.
 
-## Site deployment for replication between on-premises and Azure
+## Setting up the source environment for replication between on-premises and Azure
 
 As part of setting up disaster recovery between on-premises and Azure, be sure to download and install Azure Site Recovery Provider on the VMM server. Install Azure Recovery Services Agent on each Hyper-V host.
 
 ![VMM site deployment for replication between on-premises and Azure](media/site-recovery-understanding-site-to-azure-protection/image00.png)
 
-Hyper-V Site deployment is the same as VMM site deployment. The only difference is that the provider and agent are installed on the Hyper-V host itself.
+Setting up the source environment in a Hyper-V managed infrastructure is similar to setting up the source environment in a VMM managed infrastructure. The only difference is that the provider and agent are installed on the Hyper-V host itself. In the VMM environment, the provider is installed on the VMM server, and the agent is installed on the Hyper-V hosts (in case of replication to Azure).
 
 ## Workflows
 
