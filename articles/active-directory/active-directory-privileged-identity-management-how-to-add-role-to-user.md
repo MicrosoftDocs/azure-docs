@@ -59,7 +59,7 @@ Follow these steps to remove a specific user from a role:
 3. Click **Remove**. A message will ask you to confirm.
 4. Click **Yes** to remove the role from the user.
 
-If you're not sure which users still need their role assignments, then you can [start a security review for the role](active-directory-privileged-identity-management-how-to-start-security-review.md).
+If you're not sure which users still need their role assignments, then you can [start an access review for the role](active-directory-privileged-identity-management-how-to-start-security-review.md).
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
