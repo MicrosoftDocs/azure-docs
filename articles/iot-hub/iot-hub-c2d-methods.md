@@ -20,7 +20,7 @@
 
 ## Introduction
 
-Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and an application back end. Previous tutorials ([Get started with IoT Hub] and [Send Cloud-to-Device messages with IoT Hub]) illustrate the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub. IoT Hub also gives you the ability to invoke non-durable methods on devices from the cloud. Methods represent a request-reply interaction with a device similar to an HTTP call in that they succeed or fail immediately (after a user-specified timeout) to let the user know the status of the call.
+Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and an application back end. Previous tutorials ([Get started with IoT Hub] and [Send Cloud-to-Device messages with IoT Hub]) illustrate the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub. IoT Hub also gives you the ability to invoke non-durable methods on devices from the cloud. Methods represent a request-reply interaction with a device similar to an HTTP call in that they succeed or fail immediately (after a user-specified timeout) to let the user know the status of the call. [Invoke a direct method on a device][lnk-devguide-methods] describes methods in more detail and offers guidance about when to use methods versus cloud-to-device messages.
 
 This tutorial shows you how to:
 
@@ -53,7 +53,7 @@ In this section, you create a Node.js console app that responds to a method call
     npm init
     ```
 
-2. At your command-prompt in the **simulateddevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-amqp** package:
+2. At your command-prompt in the **simulateddevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
 
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
@@ -74,39 +74,31 @@ In this section, you create a Node.js console app that responds to a method call
 
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myFirstNodeDevice;SharedAccessKey={yourdevicekey}';
-    
     var client = DeviceClient.fromConnectionString(connectionString, Mqtt);
     ```
 
 6. Add the following function to implement the method on the device:
 
     ```
-	function onWriteLine(request, response) {
+    function onWriteLine(request, response) {
+        var requestbody = JSON.parse(request.body);
+	console.log(requestbody.input);
 
-		var requestbody = JSON.parse(request.body);
-	
-		console.log(requestbody.input);
+        // add some properties to the response
+	response.properties = {
+            'LineStatus': 'Written'
+        };
 
-		// add some properties to the response
-		response.properties = {
-			'LineStatus': 'Written'
-		};
+        response.write('Input was written to log.');
 
-		// add a payload to the response
-		response.write('Input was written to log.');
-
-		// complete the response
-		response.end(200, function(err) {
-			if(!!err) {
-				console.error('An error ocurred when sending a method response:\n' +
-					err.toString());
-			} else {
-				console.log('Response to method \'' + request.methodName +
-					'\' sent successfully.' );
-			}
-		});
-
-	}
+        response.end(200, function(err) {
+            if(!!err) {
+	        console.error('An error ocurred when sending a method response:\n' + err.toString());
+            } else {
+                console.log('Response to method \'' + request.methodName + '\' sent successfully.' );
+            }
+        });
+    }
     ```
 
 7. Open the connection to your IoT hub and start initialize the method listener:
@@ -124,7 +116,7 @@ In this section, you create a Node.js console app that responds to a method call
 
 8. Save and close the **SimulatedDevice.js** file.
 
-> [AZURE.NOTE] To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the MSDN article [Transient Fault Handling][lnk-transient-faults].
+> [AZURE.NOTE] To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as connection retry), as suggested in the MSDN article [Transient Fault Handling][lnk-transient-faults].
 
 ## Call a method on a device
 
@@ -217,6 +209,7 @@ In this tutorial, you configured a new IoT hub in the portal, and then created a
 
 To continue getting started with IoT Hub and to explore other IoT scenarios, see:
 
+- [Get started with IoT Hub]
 - [Schedule jobs on multiple devices][lnk-devguide-jobs]
 
 To learn how to extend your IoT solution and schedule method calls on multiple devices, see the [Schedule and broadcast jobs][lnk-tutorial-jobs] tutorial.
@@ -237,7 +230,8 @@ To learn how to extend your IoT solution and schedule method calls on multiple d
 
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 [lnk-tutorial-jobs]: iot-hub-schedule-jobs.md
+[lnk-devguide-methods]: iot-hub-devguide-direct-methods.md
 
 [Send Cloud-to-Device messages with IoT Hub]: iot-hub-csharp-csharp-c2d.md
 [Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
-[Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
+[Get started with IoT Hub]: iot-hub-node-node-getstarted.md
