@@ -38,7 +38,7 @@ Libraries come in two different support categories:
 
 For a list of libraries that work with the v2.0 endpoint, see the following sections. 
 
-## Microsoft supported client libraries
+### Microsoft supported client libraries
 | Platform| Library Name| Download | Source code | Sample |
 | :-: | :-: | :-: | :-: | :-: |
 | .NET, Windows Store, Xamarin | Microsoft Authentication Library (MSAL) for .NET | [Microsoft.Identity.Client (NuGet)][ClientLib-NET-Lib] | [MSAL for .NET (GitHub)][ClientLib-NET-Repo] | [Windows desktop native client sample][ClientLib-NET-Sample] |
@@ -50,7 +50,7 @@ For a list of libraries that work with the v2.0 endpoint, see the following sect
 | JavaScript | Microsoft Authentication Library (MSAL) for JavaScript | In development | In development | In development |
  -->
 
-## Microsoft supported server middleware libraries
+### Microsoft supported server middleware libraries
 | Platform| Library Name| Download | Source code | Sample |
 | :-: | :-: | :-: | :-: | :-: |
 | .NET 4.x | OWIN OpenID Connect Middleware for ASP.NET | [Microsoft.Owin.Security.OpenIdConnect (NuGet)][ServerLib-Net4-Owin-Oidc-Lib] | [Katana Project (CodePlex)][ServerLib-Net4-Owin-Oidc-Repo] | [Web app sample][ServerLib-Net4-Owin-Oidc-Sample] |
@@ -61,7 +61,7 @@ For a list of libraries that work with the v2.0 endpoint, see the following sect
 <!--- COMMENTING UNTIL SAMPLE IS AVAILABLE
 | .NET 4.x, .NET Core | JSON Web Token Handler for .Net | [System.IdentityModel.Tokens.Jwt (NuGet)][ServerLib-Net-Jwt-Lib] | [Azure AD identity model extensions for .Net (GitHub)][ServerLib-Net-Jwt-Repo] | Coming soon |
 --->
-## v2.0 compatible client libraries
+### v2.0 compatible client libraries
 | Platform| Name | Tested Version | Source code | Sample |
 | :-: | :-: | :-: | :-: | :-: |
 | Android | [OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib/wiki) | 0.2.1 | [OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib) | [Native app sample](active-directory-v2-devquickstarts-android.md) |
@@ -79,7 +79,7 @@ For a list of libraries that work with the v2.0 endpoint, see the following sect
 -->
 
 
-## v2.0 compatible server middleware libraries 
+### v2.0 compatible server middleware libraries 
 Coming soon
 
 
