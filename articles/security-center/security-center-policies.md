@@ -64,7 +64,7 @@ You can configure security policies for each subscription or resource group. To 
 
 9. In the **Security Policy** blade, click **On** to enable the security recommendations that you want to use on this subscription. Click **Prevention policy** to see options like those in the following screenshot:
 
-	![Selecting the security policies](./media/security-center-policies/security-center-policies-fig4-ga.png)
+	![Selecting the security policies](./media/security-center-policies/security-center-policies-fig4-ga-new.png)
 
 Use the following table as a reference to understand each option:
 
