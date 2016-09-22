@@ -24,7 +24,7 @@ Stream Analytics provides support for user defined functions that call out to Az
 
 ## Overview: Azure Machine Learning terminology
 
-Microsoft Azure Machine Learning provides a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. This tool is called the *Azure Machine Learning Studio*. The studio will be utilized to interact with the Machine Learning resources and easily build, test and iterate on your design. These resources and their definitions are below.
+Microsoft Azure Machine Learning provides a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. This tool is called the *Azure Machine Learning Studio*. The studio is useded to interact with the Machine Learning resources and easily build, test, and iterate on your design. These resources and their definitions are below.
 
 - **Workspace**: The *workspace* is a container that holds all other Machine Learning resources together in a container for management and control.
 - **Experiment**: *Experiments* are created by data scientists to utilize datasets and train a machine learning model.
@@ -35,7 +35,7 @@ Each endpoint has apis for batch execution and synchronous execution. Stream Ana
 
 ## Machine Learning resources that needed for Stream Analytics jobs
 
-For the purposes of Stream Analytics job processing, a Request/Response endpoint, an [apikey](../machine-learning/machine-learning-connect-to-azure-machine-learning-web-service.md#get-an-azure-machine-learning-authorization-key) and a swagger definition are all necessary for successful execution. Stream Analytics has an additional endpoint that constructs the url for swagger endpoint, looks up the interface and returns a default UDF definition to the user.
+For the purposes of Stream Analytics job processing, a Request/Response endpoint, an [apikey](../machine-learning/machine-learning-connect-to-azure-machine-learning-web-service.md#get-an-azure-machine-learning-authorization-key), and a swagger definition are all necessary for successful execution. Stream Analytics has an additional endpoint that constructs the url for swagger endpoint, looks up the interface and returns a default UDF definition to the user.
 
 ## Configure a Stream Analytics and Machine Learning UDF via REST API
 
@@ -78,7 +78,7 @@ Example request body:
 
 ## Call RetrieveDefaultDefinition endpoint for default UDF
 
-Once the skeleton UDF is created the complete definition of the UDF is needed. The RetreiveDefaultDefinition endpoint helps you get the default definition for a scalar function that is bound to an Azure Machine Learning endpoint. The payload below requires you to get the default UDF definition for a scalar function that is bound to an Azure Machine Learning endpoint. It doesn’t specify the actual endpoint as it has already been provided during PUT request. Stream Analytics will call the endpoint provided in the request if it is provided explicitly. Otherwise it will use the one originally referenced. Here the UDF takes a single string parameter (a sentence) and returns a single output of type string which indicates the “sentiment” label for that sentence.
+Once the skeleton UDF is created the complete definition of the UDF is needed. The RetreiveDefaultDefinition endpoint helps you get the default definition for a scalar function that is bound to an Azure Machine Learning endpoint. The payload below requires you to get the default UDF definition for a scalar function that is bound to an Azure Machine Learning endpoint. It doesn’t specify the actual endpoint as it has already been provided during PUT request. Stream Analytics calls the endpoint provided in the request if it is provided explicitly. Otherwise it uses the one originally referenced. Here the UDF takes a single string parameter (a sentence) and returns a single output of type string which indicates the “sentiment” label for that sentence.
 
 ````
 POST : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>/RetrieveDefaultDefinition?api-version=<apiVersion>
@@ -144,7 +144,7 @@ Now the UDF must be patched with the previous response, as shown below.
 PATCH : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>?api-version=<apiVersion>
 ````
 
-Request Body (Output from  RetrieveDefaultDefinition):
+Request Body (Output from RetrieveDefaultDefinition):
 
 ````
 	{
