@@ -16,7 +16,7 @@
     ms.date="09/22/2016"
     ms.author="magoedte"/>
 
-# Automate removal of Resource Groups
+# Azure Automation scenario - automate removal of Resource Groups
 
 Many customers create more than one resource group, where some are for dedicated for managing production applications and others may be development, testing and staging environments. Automating the deployment of these resources is one thing, but being able to decommission a resource group with a click of the button is another.  Using Automation to handle it is a perfect use case and opportunity to streamline such a common management task. This also becomes helpful if you are working with an Azure subscription that has a spending limit through a member offer like MSDN or the Microsoft Partner Network Cloud Essentials program, for example. 
 
@@ -24,12 +24,12 @@ This scenario is based on a PowerShell runbook and is designed to remove one or 
 
 ## Getting the scenario
 
-This scenario consists of a PowerShell runbook that you can download from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Remove-ResourceGroup/1.0/DisplayScript).   
+This scenario consists of a PowerShell runbook that you can download from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Remove-ResourceGroup/1.0/DisplayScript).<br>   
 
 Runbook | Description|
 ----------|------------|
 Remove-ResourceGroups | Removes one or more Azure resource groups and its resources from the subscription.  
-
+<br>
 The following input parameters are defined for this runbook:
 
 Parameter | Description|
