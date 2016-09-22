@@ -80,7 +80,7 @@ Now, let's deploy some code to Azure using Git.
 
 5. In the web app blade, scroll down to **Deployment options** or search for it, then click it. 
 
-    ![deploymnet options for your first web app in Azure](./media/app-service-web-get-started/deploy-web-app-deployment-options.png)
+    ![deployment options for your first web app in Azure](./media/app-service-web-get-started/deploy-web-app-deployment-options.png)
 
 6. Click **Choose Source** > **Local Git Repository** > **OK**.
 
