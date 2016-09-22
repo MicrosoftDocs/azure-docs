@@ -64,7 +64,7 @@ You are about to create a Service Fabric cluster on machines you own, so you can
 ### Step 2: Prepare the machines to meet the prerequisites
 Prerequisites for each machine that you want to add to the cluster:
 
-- Minimum of 2 GB memory is recommended
+- Minimum of 4 GB memory is recommended
 - Network connectivity: Make sure that the machines are on a secure network or networks.
 - Windows Server 2012 R2 or Windows Server 2012 (you need to have [KB2858668](https://support.microsoft.com/kb/2858668) installed).
 - [.NET Framework 4.5.1 or higher](https://www.microsoft.com/download/details.aspx?id=40773), full install.
@@ -117,19 +117,19 @@ Open one of the *ClusterConfig.json* files from the package you downloaded and m
 |**Nodes**|These are the details for each of the nodes that are part of the cluster (node type, node name, IP address, fault domain, and upgrade domain of the node). The machines you want the cluster to be created on need to be listed here with their IP addresses. <br> If you use the same IP address for all the nodes, then a one-box cluster is created, which you can use for testing purposes. Do not use One-box clusters for deploying production workloads.|
 
 ### Step 2: Run the create cluster script
-Once you have modified the cluster configuration in the JSON doc and added all the node information to it, run the cluster creation *CreateServiceFabricCluster.ps1* PowerShell script from the package folder and pass in the path to the JSON configuration file and the location of the package CAB file.
+Once you have modified the cluster configuration in the JSON doc and added all the node information to it, run the cluster creation *CreateServiceFabricCluster.ps1* PowerShell script from the package folder and pass in the path to the JSON configuration file and accept the EULA.
 
 This script can be run on any machine that has administrator access to all the machines that are listed as nodes in the cluster configuration file. The machine that this script is run on may or may not be part of the cluster.
 
 ```
 #Create an unsecured local development cluster
 
-.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -AcceptEULA $true
+.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json -AcceptEULA true
 ```
 ```
 #Create an unsecured multi-machine cluster
 
-.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -AcceptEULA $true
+.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json -AcceptEULA true
 ```
 
 >[AZURE.NOTE] The deployment logs are available locally on the VM/Machine that you ran the CreateServiceFabricCluster Powershell on. They are in a subfolder called "DeploymentTraces" under the folder where you ran the Powershell command. Also to see whether Service Fabric was deployed correctly to a machine, you can find the installed files in the C:\ProgramData directory and the FabricHost.exe and Fabric.exe processes can be seen running in Task Manager.
@@ -160,12 +160,12 @@ You can add or remove nodes to your standalone Service Fabric cluster as your bu
 
 ## Remove your cluster
 
-To remove a cluster, run the *RemoveServiceFabricCluster.ps1* Powershell script from the package folder and pass in the path to the JSON configuration file and the location of the package CAB file.
+To remove a cluster, run the *RemoveServiceFabricCluster.ps1* Powershell script from the package folder and pass in the path to the JSON configuration file and optionally specify a location for the log of the deletion.
 
 This script can be run on any machine that has administrator access to all the machines that are listed as nodes in the cluster configuration file. The machine that this script is run on may or may not be part of the cluster
 
 ```
-.\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json   -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab
+.\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.MultiMachine.json   
 ```
 
 ## Preview features included in this package

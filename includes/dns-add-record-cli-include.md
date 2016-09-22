@@ -39,6 +39,11 @@ In this example, we use the record set name "@" to create the MX record at the z
 
 	azure network dns record-set add-record myresourcegroup  contoso.com  "test-ns" NS -d "ns1.contoso.com"
 
+#### Create a PTR record set with a single record  
+In this case 'my-arpa-zone.com' represents the ARPA zone representing your IP range.  Each PTR record set in this zone corresponds to an IP address within this IP range.    
+
+	azure network dns record-set add-record myresourcegroup my-arpa-zone.com "10" PTR -P "myservice.contoso.com"   
+
 #### Create an SRV record set with a single record
 
 If you are creating an SRV record in the root of the zone, you can specify "_service" and "_protocol" in the record name. There is no need to include "@" in the record name.

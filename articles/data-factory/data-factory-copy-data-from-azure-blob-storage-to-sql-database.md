@@ -19,13 +19,13 @@
 
 # Copy data from Blob Storage to SQL Database using Data Factory 
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Using Data Factory Editor](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Using PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Using Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [Using REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [Using .NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Using Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
+- [Overview and prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
 
 In this tutorial, you create a data factory with a pipeline to copy data from Blob storage to SQL database.
 
@@ -62,7 +62,7 @@ You need the names of Azure SQL server, database, and user to do this tutorial. 
 5. Close all the blades by clicking **X**.
 
 ## Allow Azure services to access SQL server 
-Ensure that **Allow access to Azure services** setting turned **ON** for your Azure SQL server so that the Data Factory service can access your Azure SQL server. To verify and turn on this setting, do the following:
+Ensure that **Allow access to Azure services** setting turned **ON** for your Azure SQL server so that the Data Factory service can access your Azure SQL server. To verify and turn on this setting, do the following steps:
 
 1. Click **BROWSE** hub on the left and click **SQL servers**.
 2. Select **your server**, and click **SETTINGS** on the **SQL SERVER** blade.
@@ -94,20 +94,18 @@ Now, prepare your Azure blob storage and Azure SQL database for the tutorial by 
 
 		CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
 
-	**If you have SQL Server 2012/2014 installed on your computer:** follow instructions from [Step 2: Connect to SQL Database of the Managing Azure SQL Database using SQL Server Management Studio][sql-management-studio] article to connect to your Azure SQL server and run the SQL script. This article uses the [Azure portal](http://manage.windowsazure.com), not the [Azure portal](https://portal.azure.com), to configure firewall for an Azure SQL server.
+	**If you have SQL Server 2012/2014 installed on your computer:** follow instructions from [Step 2: Connect to SQL Database of the Managing Azure SQL Database using SQL Server Management Studio][sql-management-studio] article to connect to your Azure SQL server and run the SQL script. This article uses the [classic Azure portal](http://manage.windowsazure.com), not the [new Azure portal](https://portal.azure.com), to configure firewall for an Azure SQL server.
 
 	If your client is not allowed to access the Azure SQL server, you need to configure firewall for your Azure SQL server to allow access from your machine (IP Address). See [this article](../sql-database/sql-database-configure-firewall-settings.md) for steps to configure the firewall for your Azure SQL server.
 
+You have completed the prerequisites. Click a tab at the top to perform the tutorial using one of the options:   
 
-Do the following:
-
-- Click [Using Data Factory Editor](data-factory-copy-activity-tutorial-using-azure-portal.md) link at the top to perform the tutorial by using Data Factory Editor, which is part of the Azure portal.
-- Click [Using PowerShell](data-factory-copy-activity-tutorial-using-powershell.md) link at the top to perform the tutorial by using Azure PowerShell.
-- Click [Using Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) link at the top to perform the tutorial by using Visual Studio 2013.
-
-## Copy Activity
-See [Data Movement Activities](data-factory-data-movement-activities.md) article for detailed information about the Copy Activity in Azure Data Factory.  
-
+- Azure portal
+- Visual Studio
+- PowerShell
+- REST API
+- .NET API
+- Copy Wizard
 
 <!--Link references-->
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
