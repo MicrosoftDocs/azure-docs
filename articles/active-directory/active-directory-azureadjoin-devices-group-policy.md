@@ -126,7 +126,7 @@ Windows 10 computers will authenticate by using Windows Integrated authenticatio
 You can use Group Policy in Active Directory to configure your Windows 10 domain-joined devices to automatically register with Azure AD. 
 
 >[AZURE.NOTE]
- For latest instructions on how to set up automatic device registration see, [How to set up automatic registration of Windows domain joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md)
+>For latest instructions on how to set up automatic device registration see, [How to set up automatic registration of Windows domain joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md)
  
 
 >[AZURE.NOTE]
