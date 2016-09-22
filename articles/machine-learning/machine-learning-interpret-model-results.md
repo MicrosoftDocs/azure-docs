@@ -19,7 +19,7 @@
 
 # Interpret model results in Azure Machine Learning
 
-**Understanding and visualizing a score model's Output**
+**Understand and visualize a score model's output**
 
 This topic explains how to visualize and interpret prediction results in the Azure Machine Learning Studio. After you have trained a model and done predictions on top of it ("scored the model"), you need to understand and interpret the prediction result.
 
@@ -61,7 +61,7 @@ An example of a two-class classification problem is the classification of iris f
 
 Figure 1. Iris two-class classification problem experiment
 
-An experiment has been performed to solve this problem, as shown in Figure 1. A two-class boosted decision tree model has been trained and scored. Now you can visualize the prediction results from the [Score Model][score-model] module by clicking the output port of the [Score Model][score-model] module and then clicking **Visualize** on the menu that appears.
+An experiment has been performed to solve this problem, as shown in Figure 1. A two-class boosted decision tree model has been trained and scored. Now you can visualize the prediction results from the [Score Model][score-model] module by clicking the output port of the [Score Model][score-model] module and then clicking **Visualize**.
 
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/1_1.png)
 
@@ -250,7 +250,7 @@ Figure 20. Recommender system experiment
 
 **Result interpretation**
 
-*Predict ratings for a given user and item*
+**Predict ratings for a given user and item**
 
 By selecting **Rating Prediction** under **Recommender prediction kind**, you are asking the recommender system to predict the rating for a given user and item. The visualization of the [Score Matchbox Recommender][score-matchbox-recommender] output looks like Figure 21.
 
@@ -260,7 +260,7 @@ Figure 21. Visualize the score result of the recommender system--rating predicti
 
 The first two columns are the user-item pairs provided by the input data. The third column is the predicted rating of a user for a certain item. For example, in the first row, customer U1048 is predicted to rate restaurant 135026 as 2.
 
-*Recommend items to a given user*
+**Recommend items to a given user**
 
 By selecting **Item Recommendation** under **Recommender prediction kind**, you're asking the recommender system to recommend items to a given user. The last parameter to choose in this scenario is *Recommended item selection*. The option **From Rated Items (for model evaluation)** is primarily for model evaluation during the training process. For this prediction stage, we choose **From All Items**. The visualization of the [Score Matchbox Recommender][score-matchbox-recommender] output looks like Figure 22.
 
@@ -306,7 +306,7 @@ Running the web service, the returned result looks like Figure 26. The five reco
 
 ![screenshot_of_experiment](./media/machine-learning-interpret-model-results/26.png)
 
-Figure 26. Web Service Result of Restaurant Recommendation Problem
+Figure 26. Web service result of restaurant recommendation problem
 
 
 <!-- Module References -->
