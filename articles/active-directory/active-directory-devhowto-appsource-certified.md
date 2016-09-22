@@ -27,7 +27,7 @@ If you’re not familiar with Azure AD sign-in or multi-tenant application devel
 3. To learn how to implement the multi-tenant sign-in pattern with Azure AD, check out [How to sign in any Azure Active Directory (AD) user using the multi-tenant application pattern][AAD-Howto-Multitenant-Overview]
 
 ## Related content
-For more information on building applications that support Azure AD sign in, or to get help and support, refer to the [Azure AD Developer's Guide][AAD-Dev-Guide].
+For more information on building applications that support Azure AD sign-in, or to get help and support, refer to the [Azure AD Developer's Guide][AAD-Dev-Guide].
 
 Please use the Disqus comments section below to provide feedback and help us refine and shape our content.
 
