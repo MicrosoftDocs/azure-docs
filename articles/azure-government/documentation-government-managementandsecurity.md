@@ -52,11 +52,14 @@ The following Log Analytics features and solutions are not currently available i
   - Selecting Azure storage accounts to monitor must be done through PowerShell or Resource Manager templates
   - Selecting virtual machines to enable the Log Analytics agent must be done through PowerShell or Resource Manager templates
 + Linux monitoring
++ OMS Mobile applications
 
 ### Frequently asked questions
 
 + Can I migrate data from Log Analytics in public Azure to Azure Government?
   - No. It is not possible to move data or your workspace from public Azure to Azure Government.
++ Can I switch between public Azure and Azure Government workspaces from the OMS Log Analytics portal?
+  - No. The portals for public Azure and Azure Government are separate and do not share information. 
 
 For more information, see [Log Analytics public documentation](../log-analytics/log-analytics-overview.md).
 
