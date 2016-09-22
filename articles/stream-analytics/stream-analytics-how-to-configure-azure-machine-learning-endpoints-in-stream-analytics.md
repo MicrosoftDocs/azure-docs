@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/27/2016" 
+	ms.date="09/22/2016" 
 	ms.author="jeffstok"
 />
 
@@ -52,10 +52,13 @@ By using REST APIs you may configure your job to call Azure Machine Language fun
 
 As an example, the following sample code creates a scalar UDF named *newudf* that binds to an Azure Machine Learning endpoint. Note that the *endpoint* (service URI) can be found on the API help page for the chosen service and the *apiKey* can be found on the Services main page.
 
-PUT : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>?api-version=<apiVersion>  
+````
+	PUT : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>?api-version=<apiVersion>  
+````
 
 Example request body:  
 
+````
 	{
 		"name": "newudf",
 		"properties": {
@@ -71,15 +74,19 @@ Example request body:
 			}
 		}
 	}
+````
 
 ## Call RetrieveDefaultDefinition endpoint for default UDF
 
 Once the skeleton UDF is created the complete definition of the UDF is needed. The RetreiveDefaultDefinition endpoint helps you get the default definition for a scalar function that is bound to an Azure Machine Learning endpoint. The payload below requires you to get the default UDF definition for a scalar function that is bound to an Azure Machine Learning endpoint. It doesn’t specify the actual endpoint as it has already been provided during PUT request. Stream Analytics will call the endpoint provided in the request if it is provided explicitly. Otherwise it will use the one originally referenced. Here the UDF takes a single string parameter (a sentence) and returns a single output of type string which indicates the “sentiment” label for that sentence.
 
+````
 POST : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>/RetrieveDefaultDefinition?api-version=<apiVersion>
+````
 
 Example request body:  
 
+````
 	{
 		"bindingType": "Microsoft.MachineLearning/WebService",
 		"bindingRetrievalProperties": {
@@ -87,10 +94,11 @@ Example request body:
 			"udfType": "Scalar"
 		}
 	}
+````
 
 A sample output of this would look something like below.  
 
-
+````
 	{
 		"name": "newudf",
 		"properties": {
@@ -126,19 +134,61 @@ A sample output of this would look something like below.
 			}
 		}
 	}
+````
 
 ## Patch UDF with the response 
 
 Now the UDF must be patched with the previous response, as shown below.
 
+````
 PATCH : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>?api-version=<apiVersion>
+````
 
-Request Body: Output from  RetrieveDefaultDefinition
+Request Body (Output from  RetrieveDefaultDefinition):
+
+````
+	{
+		"name": "newudf",
+		"properties": {
+			"type": "Scalar",
+			"properties": {
+				"inputs": [{
+					"dataType": "nvarchar(max)",
+					"isConfigurationParameter": null
+				}],
+				"output": {
+					"dataType": "nvarchar(max)"
+				},
+				"binding": {
+					"type": "Microsoft.MachineLearning/WebService",
+					"properties": {
+						"endpoint": "https://ussouthcentral.services.azureml.net/workspaces/f80d5d7a77ga4a4bbf2a30c63c078dca/services/b7be5e40fd194258896fb602c1858eaf/execute",
+						"apiKey": null,
+						"inputs": {
+							"name": "input1",
+							"columnNames": [{
+								"name": "tweet",
+								"dataType": "string",
+								"mapTo": 0
+							}]
+						},
+						"outputs": [{
+							"name": "Sentiment",
+							"dataType": "string"
+						}],
+						"batchSize": 10
+					}
+				}
+			}
+		}
+	}
+````
 
 ## Implement Stream Analytics transformation to call the UDF
 
 Now query the UDF (here named scoreTweet) for every input event and write a response for that event to an output.  
 
+````
 	{
 		"name": "transformation",
 		"properties": {
@@ -146,8 +196,8 @@ Now query the UDF (here named scoreTweet) for every input event and write a resp
 			"query": "select *,scoreTweet(Tweet) TweetSentiment into blobOutput from blobInput"
 		}
 	}
+````
 
-For further information see:
 
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
