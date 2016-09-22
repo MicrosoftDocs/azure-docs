@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="09/19/2016"
+   ms.date="09/22/2016"
    ms.author="nepeters"/>
 
 # Using the Azure Custom Script Extension with Linux Virtual Machines
@@ -128,7 +128,7 @@ Azure CLI command:
 azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config-path ./public.json --private-config-path ./protected.json
 ```
 
-## Azure Resource Manager Template
+## Resource Manager Template
 
 The Azure Custom Script Extension can be run at Virtual Machine deployment time using a Resource Manager template. To do so, add properly formatted JSON to the deployment template.
 
