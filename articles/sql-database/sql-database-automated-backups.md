@@ -30,7 +30,7 @@ Backup files are stored in a geo-redundant storage account with read access (RA-
 
 ### Automated backup costs
 
-Microsoft Azure SQL Database provides up to 200% of your maximum provisioned database storage of backup storage at no additional cost. For example, if you have a Standard DB instance with a provisioned DB size of 250 GB, you will have 500 GB of backup storage at no additional charge. If your database exceeds the provided backup storage, you can choose to reduce the retention period by contacting Azure Support. Another option is to pay for the extra backup storage which will be billed at the standard Read-Access Geographically Redundant Storage (RA-GRS) rate. 
+Microsoft Azure SQL Database provides up to 200% of your maximum provisioned database storage of backup storage at no additional cost. For example, if you have a Standard DB instance with a provisioned DB size of 250 GB, you have 500 GB of backup storage at no additional charge. If your database exceeds the provided backup storage, you can choose to reduce the retention period by contacting Azure Support. Another option is to pay for extra backup storage that will be billed at the standard Read-Access Geographically Redundant Storage (RA-GRS) rate. 
 
 ### Automated backup schedule
 
