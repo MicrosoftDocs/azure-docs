@@ -89,11 +89,9 @@ Run the following command to retrieve a list of Azure Stack subscriptions associ
     Get-AzureRMSubsciptions
 
 
-
-
 ## Next steps
-
+[Deploy templates with PowerShell](azure-stack-deploy-template-powershell.md)
+[Connect with Azure CLI](azure-stack-connect-cli.md)
 [Deploy templates with Visual Studio](azure-stack-deploy-template-visual-studio.md)
 
 
-﻿
