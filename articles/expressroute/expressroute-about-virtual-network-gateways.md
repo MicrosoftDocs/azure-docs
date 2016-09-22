@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/20/2016"
+   ms.date="09/21/2016"
    ms.author="cherylmc" />
 
 # About virtual network gateways for ExpressRoute
@@ -30,17 +30,15 @@ Each virtual network can have only one virtual network gateway per gateway type.
 ## <a name="gwsku"></a>Gateway SKUs
 
 [AZURE.INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
->[AZURE.NOTE] The 'Basic' SKU cannot be used with ExpressRoute. 
 
 If you use the Azure portal to create a Resource Manager virtual network gateway, the virtual network gateway is configured using the Standard SKU by default. Currently, you cannot specify other SKUs for the Resource Manager deployment model in the Azure portal. However, after creating your gateway, you can upgrade to a more powerful gateway SKU (for example, from Basic/Standard to HighPerformance) using the 'Resize-AzureRmVirtualNetworkGateway' PowerShell cmdlet.
 
-<br>
-###  <a name="aggthroughput"></a>Estimated aggregate throughput by SKU and gateway type
+###  <a name="aggthroughput"></a>Estimated aggregate throughput by gateway SKU
 
 
 The following table shows the gateway types and the estimated aggregate throughput. This table applies to both the Resource Manager and classic deployment models.
 
-[AZURE.INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)] 
+[AZURE.INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)] 
 
 
 ## <a name="resources"></a>REST APIs and PowerShell cmdlets

@@ -23,7 +23,7 @@ An App Service Environment can be created in **either** an Azure Resource Manage
 
 An App Service Environment must always be created within a subnet because a subnet provides a network boundary which can be used to lock down inbound traffic behind upstream devices and services such that HTTP and HTTPS traffic is only accepted from specific upstream IP addresses.
 
-Inbound and outbound network traffic on a subnet is controlled using a [network security group][NetworkSecurityGroups]. Currently only network security groups created in the classic deployment model are supported for App Service Environment. Controlling inbound traffic requires creating network security rules in a network security group, and then assigning the network security group the subnet containing the App Service Environment.
+Inbound and outbound network traffic on a subnet is controlled using a [network security group][NetworkSecurityGroups]. Controlling inbound traffic requires creating network security rules in a network security group, and then assigning the network security group the subnet containing the App Service Environment.
 
 Once a network security group is assigned to a subnet, inbound traffic to apps in the App Service Environment is allowed/blocked based on the allow and deny rules defined in the network security group.
 
