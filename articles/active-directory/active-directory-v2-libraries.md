@@ -20,7 +20,7 @@
 # Azure Active Directory (AD) v2.0 and authentication libraries
 The Azure AD v2.0 endpoint supports the industry standard OAuth 2.0 and OpenID Connect 1.0 protocols.  A variety of libraries from Microsoft and from others can be used with the v2.0 endpoint.
 
-When building an application that uses the v2.0 endpoint, we recommend you use libraries written by protocol domain experts who follow a Security Development Lifecycle (SDL) methodology, such as the one followed by Microsoft.  If you decide to hand-code support for the protocols, we recommend you follow SDL and carefully observe the security considerations found in the standards specifications for each of the protocols.
+When building an application that uses the v2.0 endpoint, we recommend you use libraries written by protocol domain experts who follow a Security Development Lifecycle (SDL) methodology, [such as the one followed by Microsoft][Microsoft-SDL].  If you decide to hand-code support for the protocols, we recommend you follow SDL and carefully observe the security considerations found in the standards specifications for each of the protocols.
 
 ## Types of libraries
 There are two kinds of libraries that work with v2.0: 
@@ -106,6 +106,7 @@ Please use the following Disqus comments section to provide feedback and help us
 [ClientLib-Js-Lib]:
 [ClientLib-Js-Repo]:
 [ClientLib-Js-Sample]:
+[Microsoft-SDL]: http://www.microsoft.com/sdl/default.aspx
 [ServerLib-Net4-Owin-Oidc-Lib]: https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/
 [ServerLib-Net4-Owin-Oidc-Repo]: http://katanaproject.codeplex.com/
 [ServerLib-Net4-Owin-Oidc-Sample]: active-directory-v2-devquickstarts-dotnet-web.md
