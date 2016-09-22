@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="09/20/2016"
+    ms.date="09/22/2016"
     ms.author="magoedte"/>
 
 # Automate removal of Resource Groups
@@ -26,10 +26,9 @@ This scenario is based on a PowerShell runbook and is designed to remove one or 
 
 This scenario consists of a PowerShell runbook that you can download from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Remove-ResourceGroup/1.0/DisplayScript).  
 
-
 Runbook | Description| 
 --------|------------|
-Remove-ResourceGroups | Removes one or more Azure resource group and its resources from the  subscription.|
+Remove-ResourceGroups | Removes one or more Azure resource group and its resources from the  subscription.
 
 The following input parameters are defined for this runbook:
 
