@@ -19,7 +19,7 @@
 
 # Using the Azure Custom Script Extension with Linux Virtual Machines
 
-The Custom Script Extension downloads and executes scripts on Azure virtual machines. The Custom Script extension is useful for post deployment configuration, software installation, or any other configuration / management task. Script can be downloaded from Azure storage or other accessible internet location, or provided to the extension run time. The Custom Script extension integrates with Azure Resource Manager templates, and can also be run using the Azure CLI, PowerShell, or the Azure Virtual Machine REST API.
+The Custom Script Extension downloads and executes scripts on Azure virtual machines. This extension is useful for post deployment configuration, software installation, or any other configuration / management task. Scripts can be downloaded from Azure storage or other accessible internet location, or provided to the extension run time. The Custom Script extension integrates with Azure Resource Manager templates, and can also be run using the Azure CLI, PowerShell, Azure Portal, or the Azure Virtual Machine REST API.
 
 This document details how to use the Custom Script Extension from the Azure CLI, and an Azure Resource Manager template, and also details troubleshooting steps on Linux systems.
 
@@ -61,7 +61,7 @@ Schema:
 
 ## Azure CLI
 
-When using the Azure CLI to run the Custom Script Extension, create a configuration file or specify the configuration on the command line.
+When using the Azure CLI to run the Custom Script Extension, create a configuration file or files containing at minimum the file uri, and the script execution command.
 
 ```none
 azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config-path /scirpt-config.json
@@ -130,6 +130,10 @@ azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.E
 
 The Azure Custom Script Extension can be run at Virtual Machine deployment time using a Resource Manager template. To do so, add properly formatted JSON to the deployment template.
 
+### Resource Manager Examples
+
+**Example 1** - public configuration.
+
 ```json
 {
     "name": "scriptextensiondemo",
@@ -151,17 +155,48 @@ The Azure Custom Script Extension can be run at Virtual Machine deployment time 
         "fileUris": [
           "https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"
         ],
-        "commandToExecute": "sh oms.sh"
+        "commandToExecute": "sh hello.sh"
       }
     }
 }
 ```
 
-See the .Net Core Music Store Demo a working example - [Music Store Demo](https://github.com/neilpeterson/nepeters-azure-templates/tree/master/dotnet-core-music-linux-vm-sql-db).
+**Example 2** - execution command in privat configuration.
+
+```json
+{
+  "name": "config-app",
+  "type": "extensions",
+  "location": "[resourceGroup().location]",
+  "apiVersion": "2015-06-15",
+  "dependsOn": [
+    "[concat('Microsoft.Compute/virtualMachines/', concat(variables('vmName'),copyindex()))]"
+  ],
+  "tags": {
+    "displayName": "config-app"
+  },
+  "properties": {
+    "publisher": "Microsoft.Azure.Extensions",
+    "type": "CustomScript",
+    "typeHandlerVersion": "2.0",
+    "autoUpgradeMinorVersion": true,
+    "settings": {
+      "fileUris": [
+        "https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh
+      ]              
+    },
+    "protectedSettings": {
+      "commandToExecute": "sh hello.sh <password>"
+    }
+  }
+}
+```
+
+See the .Net Core Music Store Demo for a complete example - [Music Store Demo](https://github.com/neilpeterson/nepeters-azure-templates/tree/master/dotnet-core-music-linux-vm-sql-db).
 
 ## Troubleshooting
 
-When the Custom Script Extension runs, the script is created or downloaded into a directory like the following example. The command output is also saved into this directory in `stdout` and `stderr` file.
+When the Custom Script Extension runs, the script is created or downloaded into a directory similar to the following example. The command output is also saved into this directory in `stdout` and `stderr` file.
 
 ```none
 /var/lib/azure/custom-script/download/0/
