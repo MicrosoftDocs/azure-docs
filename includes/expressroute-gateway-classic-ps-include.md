@@ -14,7 +14,9 @@ Use the command below to verify that the gateway has been created. This command 
 
 ## Resize a gateway
 
-There are three [Gateway SKUs](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md). You can use the following command to change the Gateway SKU at any time.
+There are a number of [Gateway SKUs](../articles/expressroute/expressroute-about-virtual-network-gateways.md). You can use the following command to change the Gateway SKU at any time.
+
+>[AZURE.IMPORTANT] This command doesn't work for UltraPerformance gateway. You can't upgrade to or downgrade from an UltraPerformance gateway. 
 
 	Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
 
