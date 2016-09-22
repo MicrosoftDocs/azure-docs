@@ -43,26 +43,26 @@ Create a Linux operating system VM to receive all syslog data from the ESXi host
 
 3. Open the ESXi host firewall for syslog. **ESXi Host Configuration** > **Software** > **Security Profile** > **Firewall** and open **Properties**.  
 
-  ![vspherefw](./media/log-analytics-vmware/vsphere2.png)  
+    ![vspherefw](./media/log-analytics-vmware/vsphere2.png)  
 
-  ![vspherefwproperties](./media/log-analytics-vmware/vsphere3.png)  
+    ![vspherefwproperties](./media/log-analytics-vmware/vsphere3.png)  
 
 4. Check the vSphere Console to verify that that syslog is properly set up. Confirm on the ESXI host that port **1514** is configured.
 
 5. Test the connectivity between the Linux server and the ESXi host by using the `nc` command on the ESXi Host. For example:
 
-  ```
-  [root@ESXiHost:~] nc -z 123.456.789.101 1514
-  Connection to 123.456.789.101 1514 port [tcp/*] succeeded!
-  ```
+    ```
+    [root@ESXiHost:~] nc -z 123.456.789.101 1514
+    Connection to 123.456.789.101 1514 port [tcp/*] succeeded!
+    ```
 
 6. Download and install the OMS Agent for Linux on the Linux server. See [documentation for OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) for more information.
 
 7. In the OMS Portal, perform a log search for `Type=VMware_CL`. When OMS collects the syslog data, it retains the syslog format. In the portal, some specific fields are captured, such as *Hostname* and *ProcessName*.  
 
-  ![type](./media/log-analytics-vmware/type.png)  
+    ![type](./media/log-analytics-vmware/type.png)  
 
-  If your view log search results are similar to the image above, you're set to use the OMS VMware solution dashboard.  
+    If your view log search results are similar to the image above, you're set to use the OMS VMware solution dashboard.  
 
 ## VMware solution overview
 
