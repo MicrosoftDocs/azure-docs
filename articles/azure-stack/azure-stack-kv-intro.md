@@ -3,7 +3,7 @@
 	description="Learn how Azure Stack Key Vault manages keys and secrets"
 	services="azure-stack"
 	documentationCenter=""
-	authors="flfmendes"
+	authors="rlfmendes"
 	manager="natmack"
 	editor=""/>
 

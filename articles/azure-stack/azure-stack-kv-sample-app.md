@@ -3,7 +3,7 @@
 	description="Use a sample app to work with Azure Stack Key Vault"
 	services="azure-stack"
 	documentationCenter=""
-	authors="flfmendes"
+	authors="rlfmendes"
 	manager="natmack"
 	editor=""/>
 

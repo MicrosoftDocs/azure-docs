@@ -3,7 +3,7 @@
 	description="Learn how to deploy a VM using a password stored in Azure Stack Key Vault"
 	services="azure-stack"
 	documentationCenter=""
-	authors="flfmendes"
+	authors="rlfmendes"
 	manager="natmack"
 	editor=""/>
 

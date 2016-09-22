@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Understanding DNS in Azure Stack TP2 | Microsoft Azure"
-	description="Understanding new DNS features and capabilities in Azure Stack TP2."
+	description="Understanding new DNS features and capabilities in Azure Stack TP2"
 	services="azure-stack"
 	documentationCenter=""
 	authors="ScottNapolitan"
@@ -57,7 +57,7 @@ can be associated with a public IP address. You can choose the label
 (prefix), but Azure chooses the suffix, which is based on the region in
 which you create the public IP address.
 
-![Screenshot of DNS name label](articles/azure-stack/media/azure-stack-understanding-dns-in-tp2/image3.png)
+![Screenshot of DNS name label](media/azure-stack-understanding-dns-in-tp2/image3.png)
 
 In the image above, Azure will create an “A” record in DNS for the DNS
 name label specified under the zone **westus.cloudapp.azure.com**. The
@@ -90,7 +90,7 @@ the POC Fabric DNS server, namely 192.168.200.2.
 If you created a VM via the portal, you had to select **Custom
 DNS** in the virtual network or ethernet adapter settings.
 
-![Screenshot of specifying a custom DNS server](articles/azure-stack/media/azure-stack-understanding-dns-in-tp2/image1.png)
+![Screenshot of specifying a custom DNS server](media/azure-stack-understanding-dns-in-tp2/image1.png)
 
 In TP2, you can select Azure DNS and do not need to specify custom DNS
 server entries.
@@ -99,9 +99,7 @@ If you created a VM via a template with your own image, you
 had to add the **DHCPOptions** property and the DNS server in order to
 get the DNS name resolution to work. The following image shows what this looked like.
 
-![Screenshot of DHCPOptions property](articles/azure-stack/media/azure-stack-understanding-dns-in-tp2/image2.png)
+![Screenshot of DHCPOptions property](media/azure-stack-understanding-dns-in-tp2/image2.png)
 
 In TP2, you no longer need to make these changes to your VM templates to
 allow your VMs to resolve Internet names. They should just work.
-
-﻿

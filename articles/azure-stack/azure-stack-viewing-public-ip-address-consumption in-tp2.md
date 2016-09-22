@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Viewing public IP address consumption in TP2 | Microsoft Azure"
-	description="Administrators can view the consumption of public IP addresses in a region."
+	description="Administrators can view the consumption of public IP addresses in a region"
 	services="azure-stack"
 	documentationCenter=""
 	authors="ScottNapolitan"

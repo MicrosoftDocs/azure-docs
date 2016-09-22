@@ -3,7 +3,7 @@
 	description="Get started using Azure Stack Key Vault"
 	services="azure-stack"
 	documentationCenter=""
-	authors="flfmendes"
+	authors="rlfmendes"
 	manager="natmack"
 	editor=""/>
 

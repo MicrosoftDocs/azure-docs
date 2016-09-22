@@ -31,7 +31,7 @@ This release provides new features for both tenants and administrators.
  - Blob storage supports [append block operation](https://msdn.microsoft.com/library/azure/mt427365.aspx).
  - Premium Storage API account support.
  - Storage service support for common tools and SDKs, such as Azure CLI, PowerShell, .NET, Python, and Java SDK. 
- - [Storage Account Shared Access Signature](https://msdn.microsoft.com/en-us/library/azure/mt584140.aspx) enable granular delegation of access to your storage services without having to share your full account key.  
+ - [Storage Account Shared Access Signature](https://msdn.microsoft.com/library/azure/mt584140.aspx) enable granular delegation of access to your storage services without having to share your full account key.  
  - Storage services now use [Group Managed Service Accounts](https://technet.microsoft.com/library/hh831477(v=ws.11).aspx#BKMK_group_managed_sa) for strong security with low management overhead.
  - You can reclaim unused tenant resources on-demand.
  - Deleted storage account retention length is configurable.
@@ -42,13 +42,16 @@ This release provides new features for both tenants and administrators.
 - You can resize virtual machine disks.
 - Virtual machines can have multiple network interfaces.
 
+### Portal Experience
+ - Azure Stack Regions are a logical unit of scale and management within Azure Stack. In this preview, you can view information on services like compute, network, and storage by region.
+ - You can now the updates blade.
+
 ## Key Vault
 - [Azure Key Vault](azure-stack-kv-intro.md) provides secure management of your keys and passwords for cloud apps.
 - You can audit and monitor key usage by apps and VMs.
 
 ## Billing and usage
  - Billing and consumption APIs expose data on how your services are consumed.  
- - You can capture plans and offers in Resource Manager templates.
  - Delegated Providers enable resellers to offer your Azure Stack services to their customers.
 
 ## Monitoring and health
