@@ -91,10 +91,7 @@ For additional information please see [Key Vault for Azure Government](/azure-go
 Isolation is all about using boundaries, segmentation, and containers to limit data access to only authorized users, services, and applications. For example, the separation between tenants is an essential security mechanism for multitenant cloud platforms such as Microsoft Azure. Logical isolation helps prevent one tenant from interfering with the operations of any other tenant.
 
 ### <a name="Overview"></a>Environment Isolation
-The Azure Government environment is a physical and network-isolated instance that is separate from the rest of Microsoft's network. Isolation is achieved through a series of physical and logical controls that include the following:
-* Securing of physical barriers using biometric devices and cameras.
-* Use of specific credentials and multifactor authentication by Microsoft personnel requiring logical access to the production environment.
-* All service infrastructure for Azure Government is located within the United States.
+The Azure Government environment is a physical instance that is separate from the rest of Microsoft's network. This is achieved through a series of physical and logical controls that include the following:  Securing of physical barriers using biometric devices and cameras.  Use of specific credentials and multifactor authentication by Microsoft personnel requiring logical access to the production environment.  All service infrastructure for Azure Government is located within the United States.
 
 #### <a name="Overview"></a>Per-Customer Isolation
 Azure implements network access control and segregation through VLAN isolation, ACLs, load balancers and IP filters
