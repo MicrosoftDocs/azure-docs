@@ -16,10 +16,10 @@
 	ms.date="09/26/2016"
 	ms.author="Helaw"/>
 
-# Updates Management in Azure Stack
-Technical Preview 2 introduces a preview of the experience for managing Azure Stack updates.  In this guide, you'll navigate to updates node.  
+# Updates management in Azure Stack
+Technical Preview 2 introduces a preview of the experience for managing Azure Stack updates.  In this topic, you'll navigate to the updates node.  
 
-## Updates Blade
+## Updates blade
 1.  To access the Updates blade, click on **Browse** and then click **Updates**.
 
 2.  Click on the **local** location.
