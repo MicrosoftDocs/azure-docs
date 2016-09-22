@@ -1,5 +1,5 @@
 ﻿<properties
-   pageTitle="Availability and Scale in Azure Resource Manager Templates"
+   pageTitle="Availability and Scale in Azure Resource Manager Templates | Microsoft Azure"
    description="Azure Virtual Machine DotNet Core Tutorial"
    services="virtual-machines-linux"
    documentationCenter="virtual-machines"
@@ -17,7 +17,7 @@
    ms.date="09/21/2016"
    ms.author="nepeters"/>
 
-# Availability and Scale in Azure Resource Manager Templates
+# Availability and scale in Azure Resource Manager templates
 
 Availability and scale refer to uptime and the ability to meet demand. If an application must be up 99.9% of the time, it needs to have an architecture that allows for multiple concurrent compute resources. For instance, rather than having a single website, a configuration with a higher level of availability includes multiple instances of the same site, with balancing technology in front of them. In this configuration, one instance of the application can be taken down for maintenance, while the remaining continue to function. Scale on the other hand refers to an applications ability to serve demand. With a load balanced application, adding or removing instances from the pool allows an application to scale to meet demand.
 
@@ -32,13 +32,13 @@ Follow this link to see the JSON sample within the Resource Manager template –
 
 ```none
 {
-  "name": "[variables('availabilitySetName')]",
-  "type": "Microsoft.Compute/availabilitySets",
-  "location": "[resourceGroup().location]",
   "apiVersion": "2015-06-15",
-  "dependsOn": [ ],
+  "type": "Microsoft.Compute/availabilitySets",
+  "name": "[variables('availabilitySetName')]",
+  "location": "[resourceGroup().location]",
+  "dependsOn": [],
   "tags": {
-    "displayName": "avalibility-set-front"
+    "displayName": "avalibility-set"
   },
   "properties": {
     "platformUpdateDomainCount": 5,
@@ -206,7 +206,7 @@ One example inbound NAT rule as seen in the Azure portal. An SSH NAT rule is cre
 
 For in-depth information on the Azure Network Load Balancer, see [Load balancing for Azure infrastructure services](./virtual-machines-linux-load-balance.md).
 
-## Deploy Multiple VMs
+## Deploy multiple VMs
 
 Finally, for an Availability Set or Load Balancer to effectively function, multiple virtual machines are required. Multiple VMs can be deployed using the Azure Resource Manager template copy function. Using the copy function, it is not necessary to define a finite number of Virtual Machines, rather this value can be dynamically provided at the time of deployment. The copy function consumes the number of instances to created and handles deploying the proper number of virtual machines and associated resources.
 
@@ -223,15 +223,16 @@ In the Music Store Sample template, a parameter is defined that takes in an inst
 },
 ```
 
-On the Virtual Machine resource, the loop is given a name and the number of instances parameter used to control the number of resulting copies.
+On the Virtual Machine resource, the copy loop is given a name and the number of instances parameter used to control the number of resulting copies.
 
-Follow this link to see the JSON sample within the Resource Manager template – [Virtual Machine Copy Function](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L299). 
+Follow this link to see the JSON sample within the Resource Manager template – [Virtual Machine Copy Function](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L300). 
 
 
 ```none
 "apiVersion": "2015-06-15",
 "type": "Microsoft.Compute/virtualMachines",
-"name": "[concat(parameters('vmName'),copyindex())]",
+"name": "[concat(variables('vmName'),copyindex())]",
+"location": "[resourceGroup().location]",
 "copy": {
   "name": "virtualMachineLoop",
   "count": "[parameters('numberOfInstances')]"
@@ -265,7 +266,7 @@ The `copyIndex` function is used several times in the Music Store sample templat
 
 For more information on the copy function, see [Create multiple instances of resources in Azure Resource Manager](../resource-group-create-multiple.md).
 
-## Next Step
+## Next step
 
 <hr>
 

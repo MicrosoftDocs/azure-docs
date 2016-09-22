@@ -1,5 +1,5 @@
 ﻿<properties
-   pageTitle="Deploying Compute Resources with Azure Resource Manager Templates"
+   pageTitle="Deploying Compute Resources with Azure Resource Manager Templates | Microsoft Azure"
    description="Azure Virtual Machine DotNet Core Tutorial"
    services="virtual-machines-linux"
    documentationCenter="virtual-machines"
@@ -17,7 +17,7 @@
    ms.date="09/21/2016"
    ms.author="nepeters"/>
 
-# Application Architecture with Azure Resource Manager Templates
+# Application architecture with Azure Resource Manager templates
 
 When developing an Azure Resource Manager deployment, compute requirements need to be mapped to Azure resources and services. If an application consists of several http endpoints, a database, and a data caching service, the Azure resources that host each of these components needs to be rationalized. For instance, the sample Music Store application includes a web application that is hosted on a virtual machine, and a SQL database, which is hosted in Azure SQL database. 
 
@@ -33,26 +33,26 @@ Follow this link to see the JSON sample within the Resource Manager template –
 
 ```none
 {
-      "apiVersion": "2015-06-15",
-      "type": "Microsoft.Compute/virtualMachines",
-      "name": "[concat(variables('vmName'),copyindex())]",
-      "copy": {
-        "name": "virtualMachineLoop",
-        "count": "[parameters('numberOfInstances')]"
-      },
-      "location": "[resourceGroup().location]",
-      "tags": {
-        "displayName": "virtual-machine"
-      },
-      "dependsOn": [
-        "[concat('Microsoft.Storage/storageAccounts/', variables('vhdStorageName'))]",
-        "[concat('Microsoft.Compute/availabilitySets/', variables('availabilitySetName'))]",
-        "nicLoop"
-      ],
-      "properties": {
-        "availabilitySet": {
-          "id": "[resourceId('Microsoft.Compute/availabilitySets', variables('availabilitySetName'))]"
-        },
+  "apiVersion": "2015-06-15",
+  "type": "Microsoft.Compute/virtualMachines",
+  "name": "[concat(variables('vmName'),copyindex())]",
+  "location": "[resourceGroup().location]",
+  "copy": {
+    "name": "virtualMachineLoop",
+    "count": "[parameters('numberOfInstances')]"
+  },
+  "tags": {
+    "displayName": "virtual-machine"
+  },
+  "dependsOn": [
+    "[concat('Microsoft.Storage/storageAccounts/', variables('vhdStorageName'))]",
+    "[concat('Microsoft.Compute/availabilitySets/', variables('availabilitySetName'))]",
+    "nicLoop"
+  ],
+  "properties": {
+    "availabilitySet": {
+      "id": "[resourceId('Microsoft.Compute/availabilitySets', variables('availabilitySetName'))]"
+    },
       ........<truncated>  
     }
 ```
@@ -70,9 +70,9 @@ Follow this link to see the JSON sample within the Resource Manager template –
 
 ```none
 {
+  "apiVersion": "2015-06-15",
   "type": "Microsoft.Storage/storageAccounts",
   "name": "[variables('vhdStorageName')]",
-  "apiVersion": "2015-06-15",
   "location": "[resourceGroup().location]",
   "tags": {
     "displayName": "storage-account"
@@ -234,26 +234,27 @@ Follow this link to see the JSON sample within the Resource Manager template –
 
 ```none
 {
-  "name": "[variables('musicstoresqlName')]",
-  "type": "Microsoft.Sql/servers",
-  "location": "[resourceGroup().location]",
   "apiVersion": "2014-04-01-preview",
-  "dependsOn": [ ],
+  "type": "Microsoft.Sql/servers",
+  "name": "[variables('musicStoreSqlName')]",
+  "location": "[resourceGroup().location]",
+
+  "dependsOn": [],
   "tags": {
     "displayName": "sql-music-store"
   },
   "properties": {
     "administratorLogin": "[parameters('adminUsername')]",
-    "administratorLoginPassword": "[parameters('adminPassword')]"
+    "administratorLoginPassword": "[parameters('sqlAdminPassword')]"
   },
   "resources": [
     {
-      "name": "firewall-allow-azure",
-      "type": "firewallrules",
-      "location": "[resourceGroup().location]",
       "apiVersion": "2014-04-01-preview",
+      "type": "firewallrules",
+      "name": "firewall-allow-azure",
+      "location": "[resourceGroup().location]",
       "dependsOn": [
-        "[concat('Microsoft.Sql/servers/', variables('musicstoresqlName'))]"
+        "[concat('Microsoft.Sql/servers/', variables('musicStoreSqlName'))]"
       ],
       "properties": {
         "startIpAddress": "0.0.0.0",
@@ -270,7 +271,7 @@ A view of the SQL server and MusicStore database as seen in the Azure portal.
 
 For more information on deploying Azure SQL Database, see [Azure SQL Database documentation](https://azure.microsoft.com/documentation/services/sql-database/).
 
-## Next Step
+## Next step
 
 <hr>
 

@@ -1,5 +1,5 @@
 ﻿<properties
-   pageTitle="Azure Virtual Machine DotNet Core Tutorial 1"
+   pageTitle="Azure Virtual Machine DotNet Core Tutorial 1 | Microsoft Azure"
    description="Azure Virtual Machine DotNet Core Tutorial"
    services="virtual-machines-linux"
    documentationCenter="virtual-machines"
@@ -17,11 +17,11 @@
    ms.date="09/21/2016"
    ms.author="nepeters"/>
 
-# Automating Application Deployments to Azure Virtual Machines
+# Automating application deployments to Azure Virtual Machines
 
 This four-part series details deploying and configuring Azure resource and applications using Azure Resource Manage templates. In this series, a sample template is deployed and the deployment template examined. The goal of this series is to educate on the relationship between Azure resources, and to provide hands on experience deploying fully integrated Azure Resource Manager templates. This document assumes a basic level of knowledge with Azure Resource Manager, before starting this tutorial familiarize yourself with basic Azure Resource Manager concepts.
 
-## Music Store Application
+## Music store application
 
 The sample used in this series is a .Net Core application simulating a Music Store shopping experience. This application can be deployed to either a Linux or Windows virtual system, sample deployments have been created for both. The application includes a web application and a SQL database. Before reading the articles in this series, deploy the application using the deployment button found on this page. When fully deployed, the application / Azure architecture looks like the following diagram. 
 
@@ -41,7 +41,7 @@ Each of these components, including the associate template JSON is examined in t
 
 The goal when developing Azure Resource Manager templates is to automate the deployment of Azure Infrastructure, and the installation and configuration of any applications being hosted on this Azure infrastructure. Working through these articles provides an example of this experience.
 
-## Deploy the Music Store Application
+## Deploy the music store application
 
 The Music Store application can be deployed using this button.
 
@@ -61,7 +61,7 @@ The Azure Resource Manager template requires the following parameter values.
 
 When the template deployment has completed, browse to the public IP Address using any internet browser. The .Net Core Music site will be presented.
 
-## Next Step
+## Next steps
 
 <hr>
 

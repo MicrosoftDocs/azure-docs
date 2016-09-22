@@ -1,5 +1,5 @@
 ﻿<properties
-   pageTitle="Access and Security in Azure Resource Manager Templates"
+   pageTitle="Access and Security in Azure Resource Manager Templates | Microsoft Azure" 
    description="Azure Virtual Machine DotNet Core Tutorial"
    services="virtual-machines-linux"
    documentationCenter="virtual-machines"
@@ -17,7 +17,7 @@
    ms.date="09/21/2016"
    ms.author="nepeters"/>
 
-# Access and Security in Azure Resource Manager Templates
+# Access and security in Azure Resource Manager templates
 
 Applications hosted in Azure likely need to be access over the internet or a VPN / Express Route connection with Azure. With the Music Store application sample, the web site is made available on the internet with a public IP address. With access established, connections to the application and access to the virtual machine resources themselves should be secured. This access security is provided with a Network Security Group. 
 
@@ -113,40 +113,20 @@ Follow this link to see the JSON sample within the Resource Manager template –
 
 In this example, the network security group is associate with the subnet object declared in the Virtual Network resource. 
 
-Follow this link to see the JSON sample within the Resource Manager template – [Network Security Group association with Virtual Network](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L136).
+Follow this link to see the JSON sample within the Resource Manager template – [Network Security Group association with Virtual Network](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L158).
 
 
 ```none
-{
-  "apiVersion": "2015-06-15",
-  "type": "Microsoft.Network/virtualNetworks",
-  "name": "[variables('virtualNetworkName')]",
-  "location": "[resourceGroup().location]",
-  "dependsOn": [
-    "[concat('Microsoft.Network/networkSecurityGroups/', variables('nsgfront'))]"
-  ],
-  "tags": {
-    "displayName": "virtual-network"
-  },
-  "properties": {
-    "addressSpace": {
-      "addressPrefixes": [
-        "10.0.0.0/16"
-      ]
-    },
-    "subnets": [
-      {
-        "name": "[variables('subnetfront')]",
-        "properties": {
-          "addressPrefix": "10.0.0.0/24",
-          "networkSecurityGroup": {
-            "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('nsgfront'))]"
-          }
-        }
+"subnets": [
+  {
+    "name": "[variables('subnetName')]",
+    "properties": {
+      "addressPrefix": "10.0.0.0/24",
+      "networkSecurityGroup": {
+        "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroup'))]"
       }
-    ]
+    }
   }
-},
 ```
 
 Here is what the network security group looks like from the Azure portal. Notice that an NSG can be associate with a subnet and / or network interface. In this case, the NSG is associated to a subnet. In this configuration, the inbound rules apply to all virtual machines connected to the subnet.
@@ -155,7 +135,7 @@ Here is what the network security group looks like from the Azure portal. Notice
 
 For in-depth information on Network Security Groups, see [What is a Network Security Group]( https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/).
 
-## Next Step
+## Next step
 
 <hr>
 
