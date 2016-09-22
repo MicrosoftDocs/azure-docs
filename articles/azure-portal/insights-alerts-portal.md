@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Receive alert notifications using the Azure Portal | Microsoft Azure"
+	pageTitle="Use Azure portal to create alerts for Azure services | Microsoft Azure"
 	description="Use the Azure portal to create Azure alerts, which can trigger notifications or automation when the conditions you specify are met."
 	authors="rboucher"
 	manager=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/20/2016"
+	ms.date="09/23/2016"
 	ms.author="robb"/>
 
 # Receive alert notifications using the Azure portal
@@ -33,6 +33,7 @@ You can receive an alert based on monitoring metrics for, or events on, your Azu
 - **Activity log events** - An alert can trigger on *every* event, or, only when a certain number of events occur.
 
 You can configure an alert do the following when it triggers: 
+
 - send email notifications to the service administrator and co-administrators
 - send email to additional emails that you specify.
 - call a webhook

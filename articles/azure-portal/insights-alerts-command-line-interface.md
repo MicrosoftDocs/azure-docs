@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/20/2016"
+	ms.date="09/23/2016"
 	ms.author="robb"/>
 
 # Use the cross-platform Command Line Interface (CLI) to create alerts for Azure services 
@@ -33,6 +33,7 @@ You can receive an alert based on monitoring metrics for, or events on, your Azu
 - **Activity log events** - An alert can trigger on *every* event, or, only when a certain number of events occur.
 
 You can configure an alert do the following when it triggers: 
+
 - send email notifications to the service administrator and co-administrators
 - send email to additional emails that you specify.
 - call a webhook
@@ -57,16 +58,17 @@ You can always receive help for commands by typing a command and putting -help a
 1. Perform the Prerequisites and login to Azure. See [Azure Insights CLI samples](insights-cli-samples.md). In short, install the CLI and run these commands. They get you logged in, show what subscription you are using, and prepare to run insights commands. 
 
 
-	```
+	```console
 	azure login
 	azure account show
 	azure config mode arm 
 
 	```
+
 2.  To list existing rules on a resource group, use the following form 
     **azure insights alerts rule list** *[options] &lt;resourceGroup&gt;*
 
-	```
+	```console
 	azure insights alerts rule list myresourcegroupname
 
 	```
@@ -84,26 +86,27 @@ You can always receive help for commands by typing a command and putting -help a
 
     To get a list of the available metrics and units for those metrics for the previous resource example, use the following CLI command:  
 
-	```
+	```console
 	azure insights metrics list /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename PT1M 
   	```
+
    *PT1M* is the granularity of the available measurement (1-minute intervals). Using different granularities gives you different metric options.
 
  
-4. To create a metric-based alert rule, use a command of the following form
+4. To create a metric-based alert rule, use a command of the following form:
  
 	**azure insights alerts rule metric set** *[options] &lt;ruleName&gt; &lt;location&gt; &lt;resourceGroup&gt; &lt;windowSize&gt; &lt;operator&gt; &lt;threshold&gt; &lt;targetResourceId&gt; &lt;metricName&gt; &lt;timeAggregationOperator&gt;*
 	
 	The following example sets up an alert on a web site resource. The alert triggers whenever it consistently receives any traffic for 5 minutes and again when it receives no traffic for 5 minutes. 
 
-    ```
+    ```console
 	azure insights alerts rule metric set myrule eastus myreasourcegroup PT5M GreaterThan 2 /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename BytesReceived Total
    
 	```
 
 5. To create webhook or send email when an alert fires, first create the email and/or webhooks. Then create the rule immediately afterwards. You cannot associate webhook or emails with already created rules using the CLI. 
  
-	```
+	```console
 	azure insights alerts actions email create --customEmails myemail@contoso.com
 
 	azure insights alerts actions webhook create https://www.contoso.com
@@ -118,7 +121,7 @@ You can always receive help for commands by typing a command and putting -help a
 
 	For example
 
-	```
+	```console
 	azure insights alerts rule log set myActivityLogRule eastus myresourceGroupName Microsoft.Storage/storageAccounts/listKeys/action
 	```
 
@@ -128,16 +131,17 @@ You can always receive help for commands by typing a command and putting -help a
 
 7. You can verify that your alerts have been created properly by looking at an individual rule.
 
-	```
+	```console
     azure insights alerts rule list myresourcegroup --ruleName myrule
 	```
+
 8. To delete rules, use a command of the form: 
 
 	**insights alerts rule delete** [options] &lt;resourceGroup&gt; &lt;ruleName&gt;
 
-	These commands delete the rules created previously in this article.
+	These commands delete the rules previously created in this article.
 
-	```
+	```console
     azure insights alerts rule delete myresourcegroup myrule
     azure insights alerts rule delete myresourcegroup myrulewithwebhookandemail
     azure insights alerts rule delete myresourcegroup myActivityLogRule
