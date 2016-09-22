@@ -107,7 +107,7 @@ The high level steps required to enable disk encryption for Windows and Linux VM
 
 1. Customer choose the encryption scenario from the above 3 encryption scenarios
 
-2. Customer opts into enabling disk encryption via the Azure disk encryption ARM template or PS cmdlets or CLI command and specifies the encryption configuration
+2. Customer opts into enabling disk encryption via the Azure disk encryption Resource Manager template or PS cmdlets or CLI command and specifies the encryption configuration
 
     - For the customer encrypted VHD scenario, the customer uploads the encrypted VHD to their storage account and encryption key material to their key vault and provide the encryption configuration to enable encryption on a new IaaS VM
 
@@ -117,7 +117,7 @@ The high level steps required to enable disk encryption for Windows and Linux VM
 
 4. Customer provide Azure AD identity to write the encryption key material to their key vault to enable encryption on the IaaS VM for scenarios 2 and 3 above.
 
-5.  Azure service management updates the VM service model with encryption and key vault configuration and provisions encrypted VM for the customer
+5.  Azure classic deployment model updates the VM service model with encryption and key vault configuration and provisions encrypted VM for the customer
 
 ![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption/disk-encryption-fig1.JPG)
 
@@ -126,13 +126,13 @@ The high level steps required to enable disk encryption for Windows and Linux VM
 The high level steps required to disable disk encryption for Windows IaaS VM’s are:
 
 1. Customer choose to disable encryption (decryption) on a running Windows IaaS VM in Azure 
-via the Azure disk encryption ARM template or PS cmdlets and specifies the decryption configuration.
+via the Azure disk encryption Resource Manager template or PS cmdlets and specifies the decryption configuration.
 
 2. The disable encryption step is supported only on Windows IaaS VM and is not supported on Linux IaaS VM.
 
 3. The disable encryption step disables encryption of the OS or data volume or both on the running Windows IaaS VM.
 
-4. Azure service management updates the VM service model and the Windows IaaS VM is marked decrypted. The contents of the VM are not encrypted at rest anymore.
+4. Azure classic deployment model updates the VM service model and the Windows IaaS VM is marked decrypted. The contents of the VM are not encrypted at rest anymore.
 
 5. The disable encryption does not delete the customer key vault and the encryption key material, which is BitLocker Encryption Keys for Windows and Passphrase for Linux.
 
@@ -166,7 +166,7 @@ Azure Disk Encryption is supported on the following Windows client SKU’s - Win
 
 - Azure platform needs access to the encryption keys or secrets in customer Azure Key Vault in order to make them available to the VM to boot and decrypt the virtual machine OS volume. To grant permissions to Azure platform to access the Key Vault, **enabledForDiskEncryption** property must be set on the Key Vault for this requirement. Refer to section **Setting and Configuring Azure Key Vault for Azure disk encryption usage** in the Appendix of this article for more details.
 
-- The Key Vault secret and key encryption key (KEK) URLs must be versioned. Azure service management enforces this restriction of versioning. See below examples for valid secret and KEK URL:
+- The Key Vault secret and key encryption key (KEK) URLs must be versioned. Azure classic deployment model enforces this restriction of versioning. See below examples for valid secret and KEK URL:
 
 	- Example of valid secret URL:
 
@@ -231,9 +231,9 @@ Use the PowerShell cmdlet below to create a new Azure AD app:
 **Note:** $azureAdApplication.ApplicationId is the Azure AD ClientID and $aadClientSecret  is the client Secret that you should use later to enable ADE.You should safeguard the Azure AD client secret appropriately.
 
 
-##### Provisioning the Azure AD client ID and secret from the Azure Service Management Portal
+##### Provisioning the Azure AD client ID and secret from the Azure Classic deployment model Portal
 
-Azure AD Client ID and secret can also be provisioned using the Azure Service Management Portal at https://manage.windowsazure.com, follow the steps below to perform this task:
+Azure AD Client ID and secret can also be provisioned using the Azure Classic deployment model Portal at https://manage.windowsazure.com, follow the steps below to perform this task:
 
 1.Click the Active Directory tab as shown in Figure below:
 
@@ -380,9 +380,9 @@ Azure disk encryption safeguards the disk encryption keys and secrets in your Az
 #### Create a New Key Vault
 To create a new Key Vault, use one of the options listed below:
 
-- Use the "101-Create-KeyVault" ARM template located [here](https://github.com/Azure/azure-quickstart-templates/blob/master/101-create-key-vault/azuredeploy.json)
+- Use the "101-Create-KeyVault" Resource Manager template located [here](https://github.com/Azure/azure-quickstart-templates/blob/master/101-create-key-vault/azuredeploy.json)
 - Use the Azure PowerShell Key Vault cmdlets.
-- Use the Azure Portal.
+- Use the Azure portal.
 
 **Note:** If you already have a Key Vault setup for your subscription, please proceed to next section.
 
@@ -420,11 +420,11 @@ There are many scenarios that you can enable disk encryption and the steps may v
 
 ### Enable encryption on new IaaS VM’s created from the Azure Gallery
 
-Disk encryption can be enabled on new IaaS Windows VM from Azure gallery in Azure using the ARM template published [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image). Click on “Deploy to Azure” button on the Azure quickstart template, input encryption configuration in the parameters blade and click OK. Select the subscription, resource group, resource group location, legal terms and agreement and click Create button to enable encryption on a new IaaS VM.
+Disk encryption can be enabled on new IaaS Windows VM from Azure gallery in Azure using the Resource Manager template published [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image). Click on “Deploy to Azure” button on the Azure quickstart template, input encryption configuration in the parameters blade and click OK. Select the subscription, resource group, resource group location, legal terms and agreement and click Create button to enable encryption on a new IaaS VM.
 
 **Note:** This template creates a new encrypted Windows VM using the Windows Server 2012 gallery image.
 
-You can see the ARM template parameters details for new VM from Azure gallery scenario using Azure AD Client ID in the table below:
+You can see the Resource Manager template parameters details for new VM from Azure gallery scenario using Azure AD Client ID in the table below:
 
 | Parameter                        | Description|
 |-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -448,15 +448,15 @@ You can create a fully-encrypted RedHat Linux 7.2 VM with a 2 TB RAID-0 array us
 
 ### Enable encryption on new IaaS VM’s created from Customer Encrypted VHD and encryption keys
 
-In this scenario you can enable encrypting by using the ARM template, PowerShell cmdletsor CLI commands. The sections below will explain in more details the ARM template and CLI commands.
+In this scenario you can enable encrypting by using the Resource Manager template, PowerShell cmdletsor CLI commands. The sections below will explain in more details the Resource Manager template and CLI commands.
 
 Please follow the instructions from "[Preparing a pre-encrypted Linux VHD](#preparing-a-pre-encrypted-linux-vhd)" for preparing pre-encrypted images that can be used in Azure. Once the image is created, the following steps can be used for deployment.
 
-#### Using ARM Template
+#### Using Resource Manager template
 
-Disk encryption can be enabled on customer encrypted VHD using the ARM template published [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-pre-encrypted-vm). Click on “Deploy to Azure” button on the Azure quickstart template, input encryption configuration in the parameters blade and click OK. Select the subscription, resource group, resource group location, legal terms and agreement and click Create button to enable encryption on new IaaS VM.
+Disk encryption can be enabled on customer encrypted VHD using the Resource Manager template published [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-pre-encrypted-vm). Click on “Deploy to Azure” button on the Azure quickstart template, input encryption configuration in the parameters blade and click OK. Select the subscription, resource group, resource group location, legal terms and agreement and click Create button to enable encryption on new IaaS VM.
 
-The ARM template parameters details for customer encrypted VHD scenario are described in the table below:
+The Resource Manager template parameters details for customer encrypted VHD scenario are described in the table below:
 
 | Parameter                        | Description|
 |-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -496,13 +496,13 @@ Follow the steps below to enable disk encryption for this scenario using CLI com
 
 ### Enable encryption on existing or running IaaS Windows VM in Azure
 
-In this scenario you can enable encrypting by using the ARM template, PowerShell cmdlets or CLI commands. The sections below will explain in more details how to enable it using ARM template and CLI commands.
+In this scenario you can enable encrypting by using the Resource Manager template, PowerShell cmdlets or CLI commands. The sections below will explain in more details how to enable it using Resource Manager template and CLI commands.
 
-#### Using ARM template
+#### Using Resource Manager template
 
-Disk encryption can be enabled on existing/running IaaS Windows VM in Azure using the ARM template published [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm). Click on “Deploy to Azure” button on the Azure quickstart template, input encryption configuration in the parameters blade and click OK. Select the subscription, resource group, resource group location, legal terms and agreement and click Create button to enable encryption on existing/running IaaS VM.
+Disk encryption can be enabled on existing/running IaaS Windows VM in Azure using the Resource Manager template published [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm). Click on “Deploy to Azure” button on the Azure quickstart template, input encryption configuration in the parameters blade and click OK. Select the subscription, resource group, resource group location, legal terms and agreement and click Create button to enable encryption on existing/running IaaS VM.
 
-The ARM template parameters details for existing/running VM scenario using Azure AD Client ID are available in the table below:
+The Resource Manager template parameters details for existing/running VM scenario using Azure AD Client ID are available in the table below:
 
 | Parameter                 | Description|
 |-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -540,9 +540,9 @@ Follow the steps below to enable encryption on existing/running IaaS Windows VM 
 
 ### Enable encryption on existing or running IaaS Linux VM in Azure
 
-Disk encryption can be enabled on existing/running IaaS Linux VM in Azure using the ARM template published  [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm). Click on “Deploy to Azure” button on the Azure quickstart template, input encryption configuration in the parameters blade and click OK. Select the subscription, resource group, resource group location, legal terms and agreement and click Create button to enable encryption on existing/running IaaS VM.
+Disk encryption can be enabled on existing/running IaaS Linux VM in Azure using the Resource Manager template published  [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm). Click on “Deploy to Azure” button on the Azure quickstart template, input encryption configuration in the parameters blade and click OK. Select the subscription, resource group, resource group location, legal terms and agreement and click Create button to enable encryption on existing/running IaaS VM.
 
-The ARM template parameters details for existing/running VM scenario using Azure AD Client ID are described in the table below:
+The Resource Manager template parameters details for existing/running VM scenario using Azure AD Client ID are described in the table below:
 
 | Parameter                 | Description|
 |-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -577,9 +577,9 @@ Disk encryption can be enabled on customer encrypted VHD using the CLI command i
 
 You can get encryption status using Azure Management portal, [PowerShell cmdlets](https://msdn.microsoft.com/library/azure/mt622700.aspx) or CLI commands. The sections below will explain how to use the Azure portal and CLI commands to get the encryption status.
 
-#### Get encryption status of an encrypted IaaS VM using Azure Management Portal
+#### Get encryption status of an encrypted IaaS VM using Azure portal
 
-You can get the encryption status of the IaaS VM from Azure management portal. Logon to Azure portal at https://portal.azure.com/, click on virtual machines link in the left menu to see summary view of the virtual machines in your subscription. You can filter the virtual machines view by selecting the subscription name from the subscription dropdown. Click on columns located at the top of the virtual machines page menu. Select Disk Encryption column from the choose column blade and click update. You should see the disk encryption column showing the encryption state “Enabled” or “Not Enabled” for each VM as shown in the figure below.
+You can get the encryption status of the IaaS VM from Azure portal. Logon to Azure portal at https://portal.azure.com/, click on virtual machines link in the left menu to see summary view of the virtual machines in your subscription. You can filter the virtual machines view by selecting the subscription name from the subscription dropdown. Click on columns located at the top of the virtual machines page menu. Select Disk Encryption column from the choose column blade and click update. You should see the disk encryption column showing the encryption state “Enabled” or “Not Enabled” for each VM as shown in the figure below.
 
 ![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption/disk-encryption-fig2.JPG)
 
@@ -623,24 +623,24 @@ You can get the encryption status of the IaaS VM from disk encryption CLI comman
 
 #### Disable Encryption on running Windows IaaS VM
 
-You can disable encryption on a running Windows or Linux IaaS VM via the Azure disk encryption ARM template or PS cmdlets and specifies the decryption configuration.
+You can disable encryption on a running Windows or Linux IaaS VM via the Azure disk encryption Resource Manager template or PS cmdlets and specifies the decryption configuration.
 
 
 ##### Windows VM
 
-The disable encryption step disables encryption of the OS or data volume or both on the running Windows IaaS VM. You cannot disable the OS volume and leave the data volume encrypted. When the disable encryption step is performed, Azure service management updates the VM service model and the Windows IaaS VM is marked decrypted. The contents of the VM are not encrypted at rest anymore. The disable encryption does not delete the customer key vault and the encryption key material, which is BitLocker Encryption Keys for Windows and Passphrase for Linux. 
+The disable encryption step disables encryption of the OS or data volume or both on the running Windows IaaS VM. You cannot disable the OS volume and leave the data volume encrypted. When the disable encryption step is performed, Azure classic deployment model updates the VM service model and the Windows IaaS VM is marked decrypted. The contents of the VM are not encrypted at rest anymore. The disable encryption does not delete the customer key vault and the encryption key material, which is BitLocker Encryption Keys for Windows and Passphrase for Linux. 
 
 ##### Linux VM
 
 On Linux VMs, disabling encryption is supported only for data volumes. If OS volume is encrypted on a VM, encryption must **not** be disabled on data volumes as this will update the VM model, take away the encryption keys and make the OS unbootable.
 
-##### Disable encryption on existing/running IaaS Windows in Azure using ARM template
+##### Disable encryption on existing/running IaaS Windows in Azure using Resource Manager template
 
-Disk encryption can be disabled on running Windows IaaS VM using the ARM template published [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm). Click on “Deploy to Azure” button on the Azure quickstart template, input decryption configuration in the parameters blade and click OK. Select the subscription, resource group, resource group location, legal terms and agreement and click Create button to enable encryption on a new IaaS VM.
+Disk encryption can be disabled on running Windows IaaS VM using the Resource Manager template published [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm). Click on “Deploy to Azure” button on the Azure quickstart template, input decryption configuration in the parameters blade and click OK. Select the subscription, resource group, resource group location, legal terms and agreement and click Create button to enable encryption on a new IaaS VM.
 
 For Linux VM, [this](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm) template can be used to disable encryption.
 
-ARM template parameters details for disabling encryption on running Windows IaaS VM:
+Resource Manager template parameters details for disabling encryption on running Windows IaaS VM:
 
 | ​vmName         | ​Name of the VM on which encryption operation is to be performed                                                                                                                                                                       |
 |-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
