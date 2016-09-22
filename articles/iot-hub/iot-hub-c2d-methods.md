@@ -37,15 +37,11 @@ At the end of this tutorial, you have two Node.js console applications:
 
 To complete this tutorial, you need the following:
 
-+ Node.js version 0.12.x or later. <br/> [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
++ Node.js version 0.10.x or later. <br/> [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
 
 + An active Azure account. (If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].)
 
 [AZURE.INCLUDE [iot-hub-get-started-create-hub-pp](../../includes/iot-hub-get-started-create-hub-pp.md)]
-
-## Create a device identity
-
-TODO: get markdown from Elio, maybe include a line about how to do this programmatically via iot-hub-node-node-getstarted.md
 
 ## Create a simulated device app
 
@@ -70,7 +66,8 @@ In this section, you create a Node.js console app that responds to a method call
     ```
     'use strict';
 
-    var clientFromConnectionString = require('azure-iot-device-amqp').clientFromConnectionString;
+    var Mqtt = require(azure-iot-device-mqtt).Mqtt;
+    var DeviceClient = require('azure-iot-device').Client;
     ```
 
 5. Add a **connectionString** variable and use it to create a device client. Replace **{youriothostname}** with the name of the IoT hub you created the *Create an IoT Hub* section. Replace **{yourdevicekey}** with the device key value you generated in the *Create a device identity* section:
@@ -78,7 +75,7 @@ In this section, you create a Node.js console app that responds to a method call
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myFirstNodeDevice;SharedAccessKey={yourdevicekey}';
     
-    var client = clientFromConnectionString(connectionString);
+    var client = clientFromConnectionString(connectionString, Mqtt);
     ```
 
 6. Add the following function to implement the method on the device:
@@ -172,7 +169,13 @@ In this section, you create a Node.js console app that calls a method on the sim
 7. Add the following function to invoke the device method and print the device response to the console:
 
 	```
-	client.invokeDeviceMethod( deviceId, methodName, payload, 30, function (err, result) {
+	var methodParams = {
+            methodName: methodName,
+            payload: 'a line to be written',
+            timeoutInSeconds: 30
+        };
+
+        client.invokeDeviceMethod(deviceId, methodParams, function (err, result {
 		if (err) {
 			console.error('Failed to invoke method \'' + methodName + '\': ' + err.message);
 		} else {
@@ -188,7 +191,7 @@ In this section, you create a Node.js console app that calls a method on the sim
 
 You are now ready to run the applications.
 
-1. At a command-prompt in the **simulateddevice** folder, run the following command to begin sending telemetry data to your IoT hub:
+1. At a command-prompt in the **simulateddevice** folder, run the following command to start listening for method calls from your IoT Hub:
 
     ```
     node SimulatedDevice.js
