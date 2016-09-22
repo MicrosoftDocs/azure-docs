@@ -50,15 +50,15 @@ You can deploy Linux virtual machines on the Azure Stack POC by adding a Linux-b
 
 	Follow the instructions below to install the Azure Linux agent manually -
 
-	- First, download the latest Azure Linux agent from [Github](https://github.com/Azure/WALinuxAgent/releases), example:
+ - First, download the latest Azure Linux agent from [Github](https://github.com/Azure/WALinuxAgent/releases), example:
 
-		# wget https://github.com/Azure/WALinuxAgent/archive/v2.1.7.tar.gz
+			# wget https://github.com/Azure/WALinuxAgent/archive/v2.1.7.tar.gz
 
-	- Unpack the Azure agent:
+ - Unpack the Azure agent:
 
-		# tar -vzxf v2.1.7.tar.gz
+			# tar -vzxf v2.1.7.tar.gz
 
-	- Install python-setuptools
+ - Install python-setuptools
 
 	**Debian / Ubuntu**
 
@@ -73,17 +73,16 @@ You can deploy Linux virtual machines on the Azure Stack POC by adding a Linux-b
 
 		# sudo yum install python-setuptools
 
-	- Install the Azure agent:
+ - Install the Azure agent:
 
-		# cd WALinuxAgent-2.1.7
-		# sudo python setup.py install --register-service
-
+			# cd WALinuxAgent-2.1.7
+			# sudo python setup.py install --register-service
 
 	Note that systems with Python 2.x and Python 3.x installed side-by-side may need to run the following:
 
-		# sudo python3 setup.py install --register-service
+			# sudo python3 setup.py install --register-service
 
-	Please see the [README](https://github.com/Azure/WALinuxAgent/blob/master/README.md) for additional information.
+	Please see the Azure Linux Agent [README](https://github.com/Azure/WALinuxAgent/blob/master/README.md) for additional information.
 
 3. [Add the image to the PIR](../azure-stack/azure-stack-add-image-pir.md). Make sure that the `OSType` parameter is set to `Linux`.
 
