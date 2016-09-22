@@ -20,11 +20,11 @@
 
 # Machine Learning integration in Stream Analytics
 
-Stream Analytics provides support for user defined functions that call out to Azure Machine Learning endpoints. REST API support for this feature is detailed in the [Stream Analytics REST API library](https://msdn.microsoft.com/library/azure/dn835031.aspx). This article provides supplemental information needed for successful implementation of this capability in Stream Analytics. A tutorial has also been posted and is available [here](stream-analytics-machine-learning-integration-tutorial.md).
+Stream Analytics supports user-defined functions that call out to Azure Machine Learning endpoints. REST API support for this feature is detailed in the [Stream Analytics REST API library](https://msdn.microsoft.com/library/azure/dn835031.aspx). This article provides supplemental information needed for successful implementation of this capability in Stream Analytics. A tutorial has also been posted and is available [here](stream-analytics-machine-learning-integration-tutorial.md).
 
 ## Overview: Azure Machine Learning terminology
 
-Microsoft Azure Machine Learning provides a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. This tool is called the *Azure Machine Learning Studio*. The studio is useded to interact with the Machine Learning resources and easily build, test, and iterate on your design. These resources and their definitions are below.
+Microsoft Azure Machine Learning provides a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. This tool is called the *Azure Machine Learning Studio*. The studio is used to interact with the Machine Learning resources and easily build, test, and iterate on your design. These resources and their definitions are below.
 
 - **Workspace**: The *workspace* is a container that holds all other Machine Learning resources together in a container for management and control.
 - **Experiment**: *Experiments* are created by data scientists to utilize datasets and train a machine learning model.
@@ -44,7 +44,7 @@ By using REST APIs you may configure your job to call Azure Machine Language fun
 1. Create a Stream Analytics job
 2. Define an input
 3. Define an output
-4. Create a user defined function (UDF)
+4. Create a user-defined function (UDF)
 5. Write a Stream Analytics transformation that calls the UDF
 6. Start the job
 
