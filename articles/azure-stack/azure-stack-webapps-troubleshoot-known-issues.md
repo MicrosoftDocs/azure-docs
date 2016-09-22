@@ -18,6 +18,8 @@
     
 # Web Apps Resource Provider - Known Issues and Troubleshooting
 
+> [AZURE.NOTE] The following information only applies to Azure Stack TP1 deployments.
+
 If you experience issues while deploying or working with Web Apps on Azure Stack please refer to the guidance below.
 
 ## Azure Stack Web Apps Not Available in the portal
