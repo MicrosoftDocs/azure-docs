@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2016"
+	ms.date="09/16/2016"
 	ms.author="robinsh"/>
 
 # Azure Storage Service Encryption for Data at Rest
@@ -24,18 +24,17 @@ The following sections provide detailed guidance on how to use the Storage Servi
 
 ## Overview
 
-
 Azure Storage provides a comprehensive set of security capabilities which together enable developers to build secure applications. Data can be secured in transit between an application and Azure by using [Client-Side Encryption](storage-client-side-encryption.md), HTTPs, or SMB 3.0. Storage Service Encryption provides encryption at rest, handling encryption, decryption, and key management in a totally transparent fashion. All data is encrypted using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available.
 
 SSE works by encrypting the data when it is written to Azure Storage, and can be used  for block blobs, page blobs and append blobs. It works for the following:
 
 -   General purpose storage accounts and Blob storage accounts
--   Standard storage and Primary storage 
+-   Standard storage and Premium storage 
 -   All redundancy levels (LRS, ZRS, GRS, RA-GRS)
 -   Azure Resource Manager storage accounts (but not classic) 
 -   All regions
 
-This screenshot shows where to find the Storage Service Encryption setting using the [Azure portal](https://azure.portal.com). On this screen, you would click Encryption to continue.
+To enable or disable Storage Service Encryption for a storage account, log into the [Azure portal](https://azure.portal.com) and select a storage account. On the Settings blade, look for the Blob Service section as shown in this screenshot and click Encryption.
 
 ![Portal Screenshot showing Encryption option](./media/storage-service-encryption/image1.png)
 
@@ -125,7 +124,9 @@ A: No, SSE is only supported on Resource Manager storage accounts.
 
 **Q: How can I encrypt data in my classic storage account?**
 
-A: You can create a new Resource Manager storage account and copy your data using [AzCopy](storage-use-azcopy.md) from your existing classic storage account to your newly created Resource Manager storage account.
+A: You can create a new Resource Manager storage account and copy your data using [AzCopy](storage-use-azcopy.md) from your existing classic storage account to your newly created Resource Manager storage account. 
+
+Another option is to migrate your classic storage account to a Resource Manage storage account. For more information, see [Platform Supported Migration of IaaS Resources from Classic to Resource Manager](https://azure.microsoft.com/blog/iaas-migration-classic-resource-manager/).
 
 **Q: I have an existing Resource Manager storage account. Can I enable SSE on it?**
 
