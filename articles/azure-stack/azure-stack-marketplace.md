@@ -40,6 +40,4 @@ Every item published to the Marketplace uses a format called the Azure Gallery P
 
 ## Next steps
 
-[Publish a virtual machine image](azure-stack-add-image-pir.md)
-
 [Create and publish a marketplace item](azure-stack-create-and-publish-marketplace-item.md)
