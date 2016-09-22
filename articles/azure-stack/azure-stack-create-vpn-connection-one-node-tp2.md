@@ -76,7 +76,7 @@ Deploying POC Environment 1
 For the first POC deployment, you must first prepare the deployment
 machine and then run the PowerShell deployment script. You can find
 step-by-step instructions online on [How to Deploy Azure Stack
-POC](https://azure.microsoft.com/en-us/documentation/articles/azure-stack-run-powershell-script/).
+POC](azure-stack-run-powershell-script).
 
 Deploying POC Environment 2
 ---------------------------
@@ -179,7 +179,7 @@ deployment.  In our example, we're going to change each entry from 192.168.102.0
   | **Default Value: **        | &lt;VIP Id="KeyVaultDataPlane" Name="Key Vault Data Plane API" NetworkId="External" IPv4Address="192.168.102.3/24" EnableOutboundNat="True"&gt; |
   | **New Value: **            | &lt;VIP Id="KeyVaultDataPlane" Name="Key Vault Data Plane API" NetworkId="External" IPv4Address="192.168.112.3/24" EnableOutboundNat="True"&gt; |
 
-#### Windows Azure Stack Resource Manager (ARM)
+#### Microsoft Azure Stack Resource Manager
 
   | **Path to config file: **  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\WAS\\OneNodeRole.xml |
   | ---------------------------| ------------------------------------------------------------------------|
@@ -217,7 +217,7 @@ quota settings for this exercise.
 Create a Plan and Offer
 =======================
 
-[Plans](azure-stack-key-features.md/#services-plans-offers-and-subscriptions) are
+[Plans](azure-stack-key-features.md) are
 groupings of one or more services. As a provider, you can create plans
 to offer to your tenants. In turn, your tenants subscribe to your offers
 to use the plans and services they include.
