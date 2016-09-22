@@ -40,7 +40,7 @@ Step | Description
 [Monitor pipeline](#monitor-pipeline) | In this step, you monitor slices of input and output tables by using Azure portal.
 
 ## Prerequisites 
-You must complete prerequisites listed in the [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) article before performing this tutorial.
+Complete prerequisites listed in the [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) article before performing this tutorial.
 
 ## Create data factory
 In this step, you use the Azure portal to create an Azure data factory named **ADFTutorialDataFactory**.
@@ -65,7 +65,7 @@ In this step, you use the Azure portal to create an Azure data factory named **A
 		2. Select **Create new**, and enter the name of a resource group.   
 	
 			Some of the steps in this tutorial assume that you use the name: **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../resource-group-overview.md).  
-	4. Select the **location** for the data factory. Only regions supported  by the Data Factory service are shown in the drop-down list.
+	4. Select the **location** for the data factory. Only regions supported by the Data Factory service are shown in the drop-down list.
 	5. Select **Pin to Startboard**.	 
 	6. Click **Create**.
 
@@ -94,7 +94,7 @@ In this step, you create two linked services: **AzureStorageLinkedService** and 
 6. Replace `<accountname>` and `<accountkey>` with the account name and account key values for your Azure storage account. 
 
 	![Editor Blob Storage JSON](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-json.png)	
-6. Click **Deploy** on the toolbar to deploy the AzureStorageLinkedService. You should see the **AzureStorageLinkedService** in the tree view now. 
+6. Click **Deploy** on the toolbar. You should see the deployed **AzureStorageLinkedService** in the tree view now. 
 
 	![Editor Blob Storage Deploy](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-deploy.png)
 
