@@ -4,7 +4,7 @@
 	services="azure-stack"
 	documentationCenter=""
 	authors="mattmcg"
-	manager="byronr"
+	manager="darmour"
 	editor=""/>
 
 <tags
@@ -39,7 +39,7 @@ If the VM image VHD is available locally on the console VM (or another externall
     -   For Linux images, follow the steps to
         prepare the image or use an existing Azure Stack Linux image as described in
         the article [Deploy Linux virtual machines on Azure
-        Stack](https://azure.microsoft.com/documentation/articles/azure-stack-linux/).
+        Stack](azure-stack-linux.md).
 
 2. Clone the [Azure Stack Tools repository](https://aka.ms/azurestackaddvmimage), and then go to the **AddVMImage** folder.
 3. Open PowerShell. Then, in the **AddVMImage** folder, run the following command:
@@ -112,7 +112,7 @@ prepare the image, or use an existing Azure Stack Linux image as described in th
 
 - It's more efficient to upload an image to Azure Stack Blob storage than to Azure Blob storage because it takes less time to push the VM image to the
 Azure Stack image repository. While following the upload instructions, make sure to substitute the [Authenticate PowerShell with Microsoft Azure
-Stack](https://azure.microsoft.com/en-us/documentation/articles/azure-stack-deploy-template-powershell/1)
+Stack](azure-stack-deploy-template-powershell.md)
 step for the ‘Login to Azure’ step.
 
 - Make a note of the Blob storage URI where you upload the image. It has the following format:
@@ -146,4 +146,4 @@ step for the ‘Login to Azure’ step.
     Resource Manager template. To make the VM image
     more readily available for tenant consumption in the UI, it is best
     to [create a
-    Marketplace item](https://azure.microsoft.com/documentation/articles/azure-stack-create-marketplace-item/).
+    Marketplace item](azure-stack-create-marketplace-item.md).

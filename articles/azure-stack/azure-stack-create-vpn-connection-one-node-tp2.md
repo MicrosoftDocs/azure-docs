@@ -17,6 +17,7 @@
 	ms.date="09/26/2016"
 	ms.author="scottnap"/>
 
+# Create a Site-to-Site VPN connection between two Virtual Networks in different Azure Stack PoC Environments
 
 Overview
 =========
@@ -46,7 +47,7 @@ items so make sure you have these things before you get started.
 
 -   Two Servers that meet the Azure Stack POC hardware requirements
     defined by the [Azure Stack Deployment
-    Prerequisites](https://azure.microsoft.com/en-us/documentation/articles/azure-stack-deploy/),
+    Prerequisites](azure-stack-deploy.md),
     and the other prerequisites defined by that document.
 
 -   The Azure Stack Technical Preview 2 Deployment Package.
@@ -59,7 +60,7 @@ complete this configuration.
 
 -   For the first POC, you can simply follow the deployment instructions
     detailed in the article [Deploy Azure Stack
-    POC](https://azure.microsoft.com/en-us/documentation/articles/azure-stack-run-powershell-script/%20).
+    POC](azure-stack-run-powershell-script.md).
 
 -   For the second POC, you need to change the external network
     address range, which requires changing settings in files in the
@@ -196,7 +197,7 @@ Once you have made the necessary changes and saved them, you can proceed
 with the second POC deployment. From here it should work exactly like
 the first POC deployment. Again, you can find step-by-step instructions
 online on [How to Deploy Azure Stack
-POC](https://azure.microsoft.com/en-us/documentation/articles/azure-stack-run-powershell-script/).
+POC](azure-stack-run-powershell-script.md).
 
 Configure Quotas for Compute, Network and Storage
 =================================================
@@ -216,7 +217,7 @@ quota settings for this exercise.
 Create a Plan and Offer
 =======================
 
-[Plans](https://azure.microsoft.com/en-us/documentation/articles/azure-stack-key-features/#services-plans-offers-and-subscriptions) are
+[Plans](azure-stack-key-features.md/#services-plans-offers-and-subscriptions) are
 groupings of one or more services. As a provider, you can create plans
 to offer to your tenants. In turn, your tenants subscribe to your offers
 to use the plans and services they include.
@@ -226,16 +227,16 @@ environment.
 
 1.  First create a Plan. To do this, you can follow the steps in the
     [Create a
-    Plan](https://azure.microsoft.com/en-us/documentation/articles/azure-stack-create-plan/)
+    Plan](azure-stack-create-plan.md)
     online article.
 
 2.  Create an Offer following the steps described in [Create an Offer in
     Azure
-    Stack](https://azure.microsoft.com/en-us/documentation/articles/azure-stack-create-offer/%20).
+    Stack](azure-stack-create-offer.md).
 
 3.  Log in to the Portal as a Tenant Administrator and [subscribe to the
     Offer you
-    created](https://azure.microsoft.com/en-us/documentation/articles/azure-stack-subscribe-plan-provision-vm/).
+    created](azure-stack-subscribe-plan-provision-vm.md.
 
 Create the Network Resources in POC 1
 =====================================
@@ -252,7 +253,7 @@ Log in as a tenant
 A service administrator can log in as a tenant to test the plans,
 offers, and subscriptions that their tenants might use. If you don’t
 already have one, [Create a tenant
-account](https://azure.microsoft.com/en-us/documentation/articles/azure-stack-add-new-user-aad/) before
+account](azure-stack-add-new-user-aad.md) before
 you log in.
 
 Create the virtual network & VM subnet
@@ -485,7 +486,7 @@ Log in as a tenant
 A service administrator can log in as a tenant to test the plans,
 offers, and subscriptions that their tenants might use. If you don’t
 already have one, [Create a tenant
-account](https://azure.microsoft.com/en-us/documentation/articles/azure-stack-add-new-user-aad/) before
+account](azure-stack-add-new-user-aad.md) before
 you log in.
 
 Create the virtual network & VM subnet

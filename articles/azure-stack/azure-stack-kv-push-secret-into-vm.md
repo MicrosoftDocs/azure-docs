@@ -3,7 +3,7 @@
 	description="Learn how deploy a VM and inject a certificate from Azure Stack Key Vault"
 	services="azure-stack"
 	documentationCenter=""
-	authors="flfmendes"
+	authors="rlfmendes"
 	manager="natmack"
 	editor=""/>
 
