@@ -18,6 +18,8 @@
 	
 # Azure Stack Web Apps Overview
     
+> [AZURE.NOTE] The following information only applies to Azure Stack TP1 deployments.
+
 Azure Stack Web Apps is the first element of the Azure App Service offering brought to Azure Stack. The Azure Stack Web Apps installer will create an instance of each of the five required role types and will also create a file server. Although you can add more instances for each of the role types, remember that there is not much space for VMs in Technical Preview 1. The current capabilities for Azure Stack Web Apps are primarily foundation capabilities that are needed to manage the system and host web apps.
 
 ![Azure Stack App Service Web Apps in the Azure Stack Portal][1]
