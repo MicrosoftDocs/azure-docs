@@ -66,7 +66,6 @@ A possible implementation of this solution is to use a [ZooKeeper][zookeeper] da
 - Learn how to [implement a DMZ between Azure and the Internet][dmz-internet] using layer-7 NVAs.
 
 <!-- links -->
-
 [udr-overview]: ../virtual-network/virtual-networks-udr-overview.md
 [lb-overview]: ../load-balancer/load-balancer-overview.md
 [zookeeper]: https://zookeeper.apache.org/
@@ -75,7 +74,6 @@ A possible implementation of this solution is to use a [ZooKeeper][zookeeper] da
 [dmz-internet]: guidance-iaas-ra-secure-vnet-dmz.md
 
 <!-- images -->
-
 [0]: ./media/guidance-nva-ha/single-nva.png "Single NVA architecture"
 [1]: ./media/guidance-nva-ha/l7-ingress.png "Layer 7 ingress"
 [2]: ./media/guidance-nva-ha/l7-ingress-egress.png "Layer 7 ingress and egress"
