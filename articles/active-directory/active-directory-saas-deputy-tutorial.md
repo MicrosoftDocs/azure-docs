@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2016"
+	ms.date="09/21/2016"
 	ms.author="jeedes"/>
 
 
@@ -142,11 +142,8 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
     a. Click **Download certificate**, and then save the file on your computer.
 
-    b. Click **Next**.
-
-6. Navigate to the following URL: `https://<your-subdomain>.deputy.com/exec/config/system_config` 
-
-7. Go to **Security Settings** and click **Edit**.
+    
+6. Navigate to the following URL: https://<your-subdomain>.deputy.com/exec/config/system_config. Go to **Security Settings** and click **Edit**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_004.png)
 
@@ -158,7 +155,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	a. Enable **Social Login**.
 
-	b. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **OpenSSL Certificate** textbox.
+	b. Open your Base64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **OpenSSL Certificate** textbox.
 
 	c. In the SAM SSO URL textbox, type `https://<your subdomain>.deputy.com/exec/devapp/samlacs?dpLoginTo=<saml sso url>`
 	
@@ -237,7 +234,7 @@ The objective of this section is to create a test user in the classic portal cal
 
 ### Creating a Deputy test user
 
-In order to enable Azure AD users to log into Deputy, they must be provisioned into Deputy.In the case of Deputy, provisioning is a manual task.
+In order to enable Azure AD users to log into Deputy, they must be provisioned into Deputy. In the case of Deputy, provisioning is a manual task.
 
 ####To provision a user account, perform the following steps:
 
