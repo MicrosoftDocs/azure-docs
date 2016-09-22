@@ -86,7 +86,7 @@ A third viable (but not particularly secure) approach is to specify the IP addre
 
 #### Include the Azure Search portal IP addresses
 
-If you are using the Azure portal to create an indexer, Azure Search portal logic also needs access to your SQL Azure VM during creation time. Azure search portal IP addresses can be found by pinging `stamp1.search.ext.azure.com` and `stamp2.search.ext.azure.com`.
+If you are using the Azure portal to create an indexer, Azure Search portal logic also needs access to your SQL Azure VM during creation time. Azure search portal IP addresses can be found by pinging `stamp2.search.ext.azure.com`.
 
 ## Next steps
 
