@@ -88,7 +88,7 @@ To see summary statistics about each column:
 
     summary(data)
 
-For another a different view of the data:
+For a different view of the data:
 
     str(data)
 
