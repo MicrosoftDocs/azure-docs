@@ -17,7 +17,7 @@
    ms.author="iainfou"/>
 
 # Encrypting disks on a Linux VM
-For enhanced virtual machine (VM) security and compliance, virtual disks in Azure can be encrypted at rest. Disks are encrypted using cryptographic keys that are secured in an Azure Key Vault. You control these crytographic keys and can audit their use. There is no charge for encrypting virtual disks in Azure. This article details how to encrypt virtual disks on a Linux VM using the Azure CLI. Only VMs created using the Resource Manager deployment model can be encrypted.
+For enhanced virtual machine (VM) security and compliance, virtual disks in Azure can be encrypted at rest. Disks are encrypted using cryptographic keys that are secured in an Azure Key Vault. You control these cryptographic keys and can audit their use. There is no charge for encrypting virtual disks in Azure. This article details how to encrypt virtual disks on a Linux VM using the Azure CLI. Only VMs created using the Resource Manager deployment model can be encrypted.
 
 
 ## Quick commands
@@ -39,7 +39,7 @@ azure keyvault create --vault-name <TestKeyVault> --resource-group <TestEncrypt>
   --location  <WestUS>
 ```
 
-Create a cryptographic key in your Key Vault and enable it for disk encryption as follows::
+Create a cryptographic key in your Key Vault and enable it for disk encryption as follows:
 
 ```bash
 azure keyvault key create --vault-name <TestKeyVault> --key-name <TestEncryptKey> \
@@ -57,7 +57,7 @@ azure ad app create --name <TestEncryptApp> \
   --password P@ssw0rd!
 ```
 
-Note the `applicationId` shown in the output from the preceding command to create the Azure Active Directory app. This application ID is used in the following steps:
+Note the `applicationId` shown in the output from the preceding command. This application ID is used in the following steps:
 
 ```bash
 azure ad sp create --applicationId <applicationId>
@@ -111,7 +111,7 @@ azure vm show-disk-encryption-status -g TestEncrypt -n TestVM
 ```
 
 ## Overview of disk encryption
-Virtual disks on Linux VMs are encrypted at rest using [dm-crypt](https://wikipedia.org/wiki/Dm-crypt). Cryptographic keys are stored in Azure Key Vault using software-protection, or you can import or generate your keys in Hardware Security Modules (HSMs) certified to FIPS 140-2 level 2 standards. You retain control of these cryptographic keys and can audit their use. These crytographic keys are used to encrypt and decrypt virtual disks attached to your VM. An Azure Active Directory endpoint provides a secure mechanism for issuing these cryptographic keys as VMs are powered on and off.
+Virtual disks on Linux VMs are encrypted at rest using [dm-crypt](https://wikipedia.org/wiki/Dm-crypt). Cryptographic keys are stored in Azure Key Vault using software-protection, or you can import or generate your keys in Hardware Security Modules (HSMs) certified to FIPS 140-2 level 2 standards. You retain control of these cryptographic keys and can audit their use. These cryptographic keys are used to encrypt and decrypt virtual disks attached to your VM. An Azure Active Directory endpoint provides a secure mechanism for issuing these cryptographic keys as VMs are powered on and off.
 
 The process for encrypting a VM is as follows:
 
@@ -137,9 +137,9 @@ Disk encryption relies on the following additional components:
 ## Requirements and limitations
 Supported scenarios and requirements for disk encryption:
 
-- The following Linux server SKUs - Ubuntu, CentOS, SUSE and SUSE Linux Enterprise Server (SLES) and Red Hat Enterprise Linux.
+- The following Linux server SKUs - Ubuntu, CentOS, SUSE and SUSE Linux Enterprise Server (SLES), and Red Hat Enterprise Linux.
 - All resources (such as Key Vault, Storage account, and VM) must be in the same Azure region and subscription.
-- Standard A, D and G series VMs.
+- Standard A, D, and G series VMs.
 
 Disk encryption is not supported in the following scenarios:
 
@@ -222,14 +222,14 @@ azure vm show-disk-encryption-status -g TestEncrypt -n TestVM
 
 
 ## Encrypt virtual disks
-To actually now encrypt the virtual disks, you bring together all the previous components:
+To now encrypt the virtual disks, you bring together all the previous components:
 
 - Specify the Azure Active Directory application and password.
 - Specify the Key Vault to store the metadata for your encrypted disks.
 - Specify the cryptographic keys to use for the actual encryption and decryption.
 - Specify whether you want to encrypt the OS disk, the data disks, or all.
 
-First, lets review the details for your Azure Key Vault and the key you created, as you need the Key Vault ID, URI, and then key URL in the final step:
+Lets review the details for your Azure Key Vault and the key you created, as you need the Key Vault ID, URI, and then key URL in the final step:
 
 ```bash
 azure keyvault show <TestKeyVault>
