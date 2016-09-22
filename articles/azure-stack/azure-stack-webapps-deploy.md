@@ -18,6 +18,8 @@
 
 # Add a Web Apps resource provider to Azure Stack
 
+> [AZURE.NOTE] The following information only applies to Azure Stack TP1 deployments.
+
 Adding a Web Apps Resource Provider to Azure Stack has seven steps:
 
 1.	Download required components.
