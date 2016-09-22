@@ -28,7 +28,7 @@ This article describes the available sizes and options for the Azure virtual mac
 >
 >- To see general limits on Azure VMs, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 
-<br>
+<br>   
 
 [AZURE.INCLUDE [virtual-machines-common-sizes](../../includes/virtual-machines-common-sizes.md)]
 
