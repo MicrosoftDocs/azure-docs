@@ -25,14 +25,8 @@ To learn more about securing your IoT solution see, [Secure your IoT deployment]
 
 To further explore the capabilities of IoT Hub, see:
 
-- [Designing your solution][lnk-design]
-- [Exploring device management using the sample UI][lnk-dmui]
 - [Simulating a device with the Gateway SDK][lnk-gateway]
-- [Using the Azure Portal to manage IoT Hub][lnk-portal]
 
 [lnk-security-deployment]: iot-hub-security-deployment.md
 
-[lnk-design]: iot-hub-guidance.md
-[lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-[lnk-portal]: iot-hub-manage-through-portal.md

@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="06/15/2016"
+     ms.date="09/12/2016"
      ms.author="dobett"/>
 
 
@@ -47,7 +47,7 @@ The gateway software runs as a service on the Edison board. Two simulated device
 
 ### Device management client
 
-The [device management client][lnk-device-management] runs as a service on the Edison board. This enables you to run remote jobs on the Edison board such as [firmware updates][lnk-dm-jobs], reboots, and configuration updates as well as querying device properties. In this tutorial, the device management client receives and processes a request to perform a firmware update on the Edison board.
+The [device management client][lnk-device-management] runs as a service on the Edison board. This enables you to run remote jobs on the Edison board such as firmware updates, reboots, and configuration updates as well as querying device properties. In this tutorial, the device management client receives and processes a request to perform a firmware update on the Edison board.
 
 ### IoT Hub
 
@@ -385,10 +385,8 @@ If you want to gain a more advanced understanding of the Gateway SDK and experim
 
 To further explore the capabilities of IoT Hub, see:
 
-- [Designing your solution][lnk-design]
 - [Developer guide][lnk-devguide]
-- [Exploring device management using the sample UI][lnk-dmui]
-- [Using the Azure Portal to manage IoT Hub][lnk-portal]
+- [Exploring device management using the sample UI][lnk-dm-sample-ui]
 
 
 
@@ -404,23 +402,17 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-setup-win64]: https://software.intel.com/get-started-edison-windows
 [lnk-setup-win32]: https://software.intel.com/get-started-edison-windows-32
-[lnk-setup-osx]: https://software.intel.com/get-started-edison-osx
 [lnk-setup-linux]: https://software.intel.com/get-started-edison-linux
 [lnk-serial-connection]: https://software.intel.com/setting-up-serial-terminal-intel-edison-board
 [lnk-inteledison-bsp]: http://www.intel.com/content/dam/support/us/en/documents/edison/sb/edisonbsp_ug_331188007.pdf
 [lnk-hackgnar]: http://www.hackgnar.com/2016/01/manually-building-yocto-images-for.html
 [lnk-shawnhymel]: http://shawnhymel.com/724/creating-a-custom-linux-kernel-for-the-edison-yocto-2-1/
-[lnk-create-hub]: iot-hub-manage-through-portal.md
+[lnk-create-hub]: iot-hub-create-through-portal.md
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-explorer-tools]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md
 [lnk-nodejs]: https://nodejs.org/
 [lnk-azure-portal]: https://portal.azure.com
 [lnk-dm-sample-ui]: iot-hub-device-management-ui-sample.md
-[lnk-gateway-physical]: iot-hub-gateway-sdk-physical-device.md
 [lnk-gateway-scenario]: iot-hub-linux-gateway-sdk-simulated-device.md
-[lnk-dm-jobs]: iot-hub-device-management-device-jobs.md
 
-[lnk-design]: iot-hub-guidance.md
 [lnk-devguide]: iot-hub-devguide.md
-[lnk-dmui]: iot-hub-device-management-ui-sample.md
-[lnk-portal]: iot-hub-manage-through-portal.md

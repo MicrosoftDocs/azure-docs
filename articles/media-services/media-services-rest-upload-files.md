@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/30/2016"
+	ms.date="09/15/2016"
 	ms.author="juliako"/>
 
 
-# Upload files into a Media Services account using REST
+# Upload files into a Media Services account using REST | Microsoft Azure
 
  > [AZURE.SELECTOR]
  - [.NET](media-services-dotnet-upload-files.md)
@@ -26,8 +26,11 @@
 
 In Media Services, you upload your digital files into an asset. The [Asset](https://msdn.microsoft.com/library/azure/hh974277.aspx) entity can contain video, audio, images, thumbnail collections, text tracks and closed caption files (and the metadata about these files.)  Once the files are uploaded into the asset, your content is stored securely in the cloud for further processing and streaming. 
 
-
->[AZURE.NOTE]Media Services uses the value of the IAssetFile.Name property when building URLs for the streaming content (for example, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) For this reason, percent-encoding is not allowed. The value of the **Name** property cannot have any of the following [percent-encoding-reserved characters](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Also, there can only be one ‘.’ for the file name extension.
+>[AZURE.NOTE]The following considerations apply when choosing an asset file name:
+>
+>- Media Services uses the value of the IAssetFile.Name property when building URLs for the streaming content (for example, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) For this reason, percent-encoding is not allowed. The value of the **Name** property cannot have any of the following [percent-encoding-reserved characters](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Also, there can only be one '.' for the file name extension.
+>
+>- The length of the name should not be greater than 512 characters.
 
 The basic workflow for uploading Assets is divided into the following sections:
 
@@ -519,7 +522,9 @@ The ContentKey is associated to one or more assets by sending a HTTP POST reques
 
 
 
-##Media Services learning paths
+##Next step
+
+Review Media Services learning paths.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

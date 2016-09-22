@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="06/27/2016"
+	ms.date="09/13/2016"
 	ms.author="spelluru"/>
 
 # Keyboard shortcuts for Azure Data Catalog
@@ -22,7 +22,7 @@
 
 ### General keyboard shortcuts
 
-|To do this|Press
+|Operation|Press
 |---|---
 |Tab to each control on a page|Tab
 |Choose an option|Enter or Spacebar
@@ -33,27 +33,27 @@
 
 ### Authentication page
 
-|To do this|Press
+|Operation|Press
 |---|---
 |Sign into service|ALT+S
 
 ### Data source selection page
 
-|To do this|Press
+|Operation|Press
 |---|---
 |Go to next page (if enabled)|ALT+N
 |Change selected type when the focus is on a tile|LEFT, UP, RIGHT, or DOWN ARROW
 
 ### Data source connection page
 
-|To do this|Press
+|Operation|Press
 |---|---
 |Go to previous page (if enabled)|ALT+P
 |Choose Connect button.| ALT+C
 
 ### Connection context page
 
-|To do this|Press
+|Operation|Press
 |---|---
 |Register button (if enabled)| ALT+R
 |Include Preview checkbox (if available)|ALT+P
@@ -64,7 +64,7 @@
 
 ### Publish progress page
 
-|To do this|Press
+|Operation|Press
 |---|---
 |Cancel button|ALT+C
 |Register More Objects button| ALT+R
@@ -72,14 +72,14 @@
 
 ### Publish progress page
 
-|To do this|Press
+|Operation|Press
 |---|---
 |Save button (if enabled)| ALT+S
 |Cancel button|ALT+C
 
 ## Keyboard shortcuts for the Data Catalog portal
 
-|To do this|Press
+|Operation|Press
 |---|---
 |Navigate| TAB and SHIFT+TAB
 |Click an item| SPACE or ENTER

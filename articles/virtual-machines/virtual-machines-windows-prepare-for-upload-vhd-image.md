@@ -14,11 +14,11 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2016"
+	ms.date="09/18/2016"
 	ms.author="glimoli;genli"/>
 
 # Prepare a Windows VHD to upload to Azure
-To upload a Windows VM from on-premises to Azure, you must correctly prepare the virtual hard disk (VHD). There are several recommended steps for you to complete before you upload a VHD to Azure. Running `sysprep` is a common process, but only one step in generalizing an image. This article shows you how to prepare a Windows VHD to upload to Microsoft Azure.
+To upload a Windows VM from on-premises to Azure, you must correctly prepare the virtual hard disk (VHD). There are several recommended steps for you to complete before you upload a VHD to Azure. This article shows you how to prepare a Windows VHD to upload to Microsoft Azure, and it also explains [when and how to use Sysprep](#step23).
 
 ## Prepare the virtual disk
 
@@ -248,8 +248,8 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
 
 14. Remove any extra Transport Driver Interface filters, such as software that analyzes TCP packets.
 15. To make sure the disk is healthy and consistent, run the `CHKDSK /f` command.
-16.	Uninstall all other third-party software and drivers.
-17. Make sure that a third-party application is not using Port 3389. This port is used for the RDP service in Azure.
+16.	Uninstall any other third-party software and driver related to physical components or any other virtualization technology.
+17. Make sure that a third-party application is not using Port 3389. This port is used for the RDP service in Azure. You can use the `netstat -anob` command to check the ports that are using by the applications.
 18.	If the Windows VHD that you want to upload is a domain controller, follow [these extra steps](https://support.microsoft.com/kb/2904015) to prepare the disk.
 19.	Reboot the VM to make sure that Windows is still healthy can be reached by using the RDP connection.
 20.	Reset the current local administrator password and make sure that you can use this account to sign in to Windows through the RDP connection.  This access permission is controlled by the "Allow log on through Remote Desktop Services" policy object. This object is located under "Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment."
@@ -280,12 +280,13 @@ If you have a Windows VM image in the [VMDK file format](https://en.wikipedia.or
 
 	- [KB3146723](https://support.microsoft.com/kb/3146723) MS16-048: Description of the security update for CSRSS: April 12, 2016
 	- [KB2904100](https://support.microsoft.com/kb/2904100) System freezes during disk I/O in Windows
-
-23. If you want to create an image to deploy multiple machines from it, you need to generalize the image by running `sysprep` before you upload the VHD to Azure. For more information about how to create a generalized image, see the following articles:
+<a id="step23"></a>
+23. If you want to create an image to deploy multiple machines from it, you need to generalize the image by running `sysprep` before you upload the VHD to Azure. You do not need to run `sysprep` for using a specialized VHD. For more information about how to create a generalized image, see the following articles:
 
 	- [Create a VM image from an existing Azure VM using the Resource Manager deployment model](virtual-machines-windows-capture-image.md)
 	- [Create a VM image from an existing Azure VM using the Classic deployment modem](virtual-machines-windows-classic-capture-image.md)
 	- [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
+
 
 
 ## Suggested extra configurations
