@@ -415,4 +415,4 @@ Solution Template in your subscription:
     Tool (desktop)](http://www.microsoft.com/download/details.aspx?id=43376)
 
 ## **Acknowledgements**
-This article is authored by data scientists Yijing Chen and software engineer Qiu Min at Microsoft.
+This article is authored by data scientist Yijing Chen and software engineer Qiu Min at Microsoft.

@@ -62,7 +62,7 @@ To decide on a service tier, start by determining whether the database should be
 
 To decide on a service tier for a standalone database, start by determining the database features that you need to choose your SQL Database edition:
 
-- Database size (5 GB maximum for Basic, 250 GB maximum for Standard, and 500 GB to 1 TB maximum for Premium - depending on the performance level)
+- Database size (2 GB maximum for Basic, 250 GB maximum for Standard, and 500 GB to 1 TB maximum for Premium - depending on the performance level)
 - Database backup retention period (7 days for Basic, 35 days for Standard, and 35 days for Premium)
 
 Once you have determined the SQL Database edition, you are ready to determine the performance level for the database (the number of DTUs). You can guess and then [scale up or down dynamically](sql-database-scale-up.md) based on actual experience. You can also use the [DTU Calculator](http://dtucalculator.azurewebsites.net/) to approximate the number of DTUs needed. 
