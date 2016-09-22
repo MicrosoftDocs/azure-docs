@@ -45,9 +45,7 @@ The following table describes the connected sources that are supported by the AD
 | [SCOM management group](../log-analytics/log-analytics-om-agents.md) | Yes | ADM analyzes and collects data from Windows and Linux agents in a connected SCOM management group. <br><br>A direct connection from the SCOM agent computer to OMS is required. Data is sent directly from forwarded from the management group to the OMS repository.|
 | [Azure storage account](../log-analytics/log-analytics-azure-storage.md) | No | ADM collects data from agent computers, so there is no data from it to collect from Azure storage. |
 
-In addition to the Microsoft Monitoring Agent, Windows and Linux computers require the Microsoft Dependency Agent.  The Dependency Agent passes its data locally on-box to the OMS-connected agents, which then sends it to OMS where it is processed by ADM.
-
-Application components and other details will only be discovered on servers with agents installed. Details will not be discovered for systems without an agent although connections between them and agent servers will be discovered.
+In addition to the Microsoft Monitoring Agent, Windows and Linux computers require the Microsoft Dependency Agent.  The Dependency Agent passes its data locally on-box to the OMS-connected agents, which then sends it to OMS where it is processed by ADM. Application components and other details will only be discovered on servers with agents installed. Details will not be discovered for systems without an agent although connections between them and agent servers will be discovered.
 
 You can use ADM on servers with OMS Direct Agents or on servers that are attached to OMS via SCOM Management Groups.  However, in both cases, ADM data is always sent directly from MMA to OMS (i.e. ADM data does not flow through a SCOM Management Group), so the server must be able to connect to OMS.  Each OMS agent therefore requires internet connectivity to the OMS cloud or the use of an OMS Gateway.  This may require configuration of a firewall or proxy.
 
@@ -55,10 +53,6 @@ Using both configurations with the same workspace in each will cause duplication
 NOTE: Even if the machine itself isn’t specified in the SCOM Console’s OMS configuration, if an Instance Group such as “Windows Server Instances Group” is active, it may still result in the machine receiving OMS configuration via SCOM.
 
 ![ADM Agents](media/operations-management-suite-application-dependency-monitor/agents.png)
-
-
-## Prerequisites
-
 
 
 ## Management packs
@@ -158,67 +152,6 @@ Files for the Dependency Agent are placed in the following directories.
 | Config files | /etc/opt/microsoft/dependency-agent/config |
 | Service executables | /sbin/bluestripe-collector<br>/sbin/bluestripe-collector-manager |
 | Binary storage files | /var/opt/microsoft/dependency-agent/storage |
-
-
-## Troubleshooting
-If you encounter problems with Application Dependency Monitor, you can gather troubleshooting information from multiple components using the following information.
-
-### Windows Agents
-
-#### Microsoft Dependency Agent
-To generate troubleshooting data from the Dependency Agent, open a Command Prompt as administrator and run the CollectBluestripeData.vbs script using the following command.  You can add the --help flag to show additional options.
-
-	cd C:\Program Files\Bluestripe\Collector
-	cscript CollectBluestripeData.vbs
-
-The Support Data Package is saved in the %USERPROFILE% directory for the current user.  You can use the --file <filename> option to save it to a different location.
-
-#### Microsoft Dependency Agent Management Pack for MMA
-The Dependency Agent Management Pack runs inside Microsoft Management Agent.  It receives data from the Dependency Agent and forwards it to the ADM cloud service.
-  
-Verify that the management pack is downloaded by performing the following steps.
-
-1.	Look for a file called Microsoft.IntelligencePacks.ApplicationDependencyMonitor.mp in C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs.  
-2.	If the file is not present and the agent is connected to a SCOM management group, then verify that it has been imported into SCOM by checking Management Packs in the Administration workspace of the Operations Console.
-
-The ADM MP writes events to the Operations Manager Windows event log.  The log can be [searched in OMS](../log-analytics/log-analytics-log-search.md) via the system log solution, where you can configure which log files to upload.  If debug events are enabled, they are written to the Application event log, with the event source *AdmProxy*.
-
-#### Microsoft Monitoring Agent
-To collect diagnostic traces, open a Command Prompt as administrator and run the following commands: 
-
-	cd \Program Files\Microsoft Monitoring Agent\Agent\Tools
-	net stop healthservice 
-	StartTracing.cmd ERR
-	net start healthservice
-
-Traces are written to c:\Windows\Logs\OpsMgrTrace.  You can stop the tracing with StopTracing.cmd.
-
-
-### Linux Agents
-
-#### Microsoft Dependency Agent
-To generate troubleshooting data from the Dependency Agent, login with an account that has sudo or root privileges and run the following command.  You can add the --help flag to show additional options.
-
-	/usr/lib/bluestripe-collector/scripts/collect-dependency-agent-data.sh
-
-The Support Data Package is saved to /var/opt/microsoft/dependency-agent/log (if root) under the Agent's installation directory, or to the home directory of the user running the script (if non-root).  You can use the --file <filename> option to save it to a different location.
-
-#### Microsoft Dependency Agent Fluentd Plug-in for Linux
-The Dependency Agent Fluentd Plug-in runs inside the OMS Linux Agent.  It receives data from the Dependency Agent and forwards it to the ADM cloud service.  
-
-Logs are written to the following two files.
-
-- /var/opt/microsoft/omsagent/log/omsagent.log
-- /var/log/messages
-
-#### OMS Agent for Linux
-A troubleshooting resource for connecting Linux servers to OMS can be found here: [https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md) 
-
-The logs for the OMS Agent for Linux are located in */var/opt/microsoft/omsagent/log/*.  
-
-The logs for omsconfig (agent configuration) are located in */var/opt/microsoft/omsconfig/log/*.
- 
-The log for the OMI and SCX components which provide performance metrics data are located in */var/opt/omi/log/* and */var/opt/microsoft/scx/log*.
 
 
 ## Using Application Dependency Monitor
@@ -358,6 +291,67 @@ Type=AdmProcess_CL Name_s=curl | Distinct ProductVersion_s
 ### Create a Computer Group of all computers running CentOS
 
 ![ADM query example](media/operations-management-suite-application-dependency-monitor/adm-example-07.png)
+
+
+## Troubleshooting
+If you encounter problems with Application Dependency Monitor, you can gather troubleshooting information from multiple components using the following information.
+
+### Windows Agents
+
+#### Microsoft Dependency Agent
+To generate troubleshooting data from the Dependency Agent, open a Command Prompt as administrator and run the CollectBluestripeData.vbs script using the following command.  You can add the --help flag to show additional options.
+
+	cd C:\Program Files\Bluestripe\Collector
+	cscript CollectBluestripeData.vbs
+
+The Support Data Package is saved in the %USERPROFILE% directory for the current user.  You can use the --file <filename> option to save it to a different location.
+
+#### Microsoft Dependency Agent Management Pack for MMA
+The Dependency Agent Management Pack runs inside Microsoft Management Agent.  It receives data from the Dependency Agent and forwards it to the ADM cloud service.
+  
+Verify that the management pack is downloaded by performing the following steps.
+
+1.	Look for a file called Microsoft.IntelligencePacks.ApplicationDependencyMonitor.mp in C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs.  
+2.	If the file is not present and the agent is connected to a SCOM management group, then verify that it has been imported into SCOM by checking Management Packs in the Administration workspace of the Operations Console.
+
+The ADM MP writes events to the Operations Manager Windows event log.  The log can be [searched in OMS](../log-analytics/log-analytics-log-search.md) via the system log solution, where you can configure which log files to upload.  If debug events are enabled, they are written to the Application event log, with the event source *AdmProxy*.
+
+#### Microsoft Monitoring Agent
+To collect diagnostic traces, open a Command Prompt as administrator and run the following commands: 
+
+	cd \Program Files\Microsoft Monitoring Agent\Agent\Tools
+	net stop healthservice 
+	StartTracing.cmd ERR
+	net start healthservice
+
+Traces are written to c:\Windows\Logs\OpsMgrTrace.  You can stop the tracing with StopTracing.cmd.
+
+
+### Linux Agents
+
+#### Microsoft Dependency Agent
+To generate troubleshooting data from the Dependency Agent, login with an account that has sudo or root privileges and run the following command.  You can add the --help flag to show additional options.
+
+	/usr/lib/bluestripe-collector/scripts/collect-dependency-agent-data.sh
+
+The Support Data Package is saved to /var/opt/microsoft/dependency-agent/log (if root) under the Agent's installation directory, or to the home directory of the user running the script (if non-root).  You can use the --file <filename> option to save it to a different location.
+
+#### Microsoft Dependency Agent Fluentd Plug-in for Linux
+The Dependency Agent Fluentd Plug-in runs inside the OMS Linux Agent.  It receives data from the Dependency Agent and forwards it to the ADM cloud service.  
+
+Logs are written to the following two files.
+
+- /var/opt/microsoft/omsagent/log/omsagent.log
+- /var/log/messages
+
+#### OMS Agent for Linux
+A troubleshooting resource for connecting Linux servers to OMS can be found here: [https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md) 
+
+The logs for the OMS Agent for Linux are located in */var/opt/microsoft/omsagent/log/*.  
+
+The logs for omsconfig (agent configuration) are located in */var/opt/microsoft/omsconfig/log/*.
+ 
+The log for the OMI and SCX components which provide performance metrics data are located in */var/opt/omi/log/* and */var/opt/microsoft/scx/log*.
 
 
 
