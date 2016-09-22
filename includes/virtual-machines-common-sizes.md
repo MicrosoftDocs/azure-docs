@@ -149,7 +149,7 @@ For information and considerations about using these sizes, see [About the H-ser
 
 | Size          | CPU cores | Memory: GiB | Local disk size: GiB | Max data disks | Max cached disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth |
 |---------------|-----------|--------------|--------------------------------|----------------|--------------------------------------------|----------------------------------------------|-----------------------|
-| Standard_DS1  | 1   | 3.5          | 7       | 2     | 4,000 / 32 (42)               | 3,200 / 32    | 1 / moderate              |
+| Standard_DS1  | 1   | 3.5          | 7       | 2     | 4,000 / 32 (43)               | 3,200 / 32    | 1 / moderate              |
 | Standard_DS2  | 2   | 7            | 14      | 4     | 8,000 / 64 (86)               | 6,400 / 64    | 2 / high                  |
 | Standard_DS3  | 4   | 14           | 28      | 8     | 16,000 / 128 (172)            | 12,800 / 128  | 4 / high                  |
 | Standard_DS4  | 8   | 28           | 56      | 16    | 32,000 / 256 (344)            | 25,600 / 256  | 8 / high                  |
