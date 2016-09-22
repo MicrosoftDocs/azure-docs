@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Azure Automation scenario - automate removal of Resource Groups | Microsoft Azure"
+    pageTitle="Automate removal of Resource Groups | Microsoft Azure"
     description="PowerShell Workflow version of an Azure Automation scenario including runbooks to remove all Resource Groups in your subscription."
     services="automation"
     documentationCenter=""
