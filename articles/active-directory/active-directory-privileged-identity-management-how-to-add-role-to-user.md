@@ -26,7 +26,7 @@ The Azure AD Privileged Identity Management application allows privileged role a
 
 In your organization, you can assign users to different administrative roles in Azure AD, Office 365, and other Microsoft services and applications.  More details on the available roles can be found at [Roles in Azure AD PIM](active-directory-privileged-identity-management-roles.md).
 
-In order to add or remove a user in a role using Privileged Identity Management, bring up the PIM dashboard. and then either click on the **Users in Admin Roles** button, or select a specific role (such as Global Administrator) from the roles table.
+In order to add or remove a user in a role using Privileged Identity Management, bring up the PIM dashboard. Then either click on the **Users in Admin Roles** button, or select a specific role (such as Global Administrator) from the roles table.
 
 > [AZURE.NOTE] If you haven't enabled PIM in the Azure portal yet, go to [Get started with Azure AD PIM](active-directory-privileged-identity-management-getting-started.md) for details.
 
