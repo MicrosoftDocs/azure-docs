@@ -34,7 +34,7 @@ The Azure Stack POC is a one-node deployment of Azure Stack Technical Preview 1.
 
 **MAS-Con01** Virtual machine available to developers for installing PowerShell, Visual Studio, and other tools.
 
-**MAS-DC01** Virtual machine hosting Active Directory, DNS, and DHCP services for Microsoft Azure Stack. These infrastructure services are required to bring up the Azure Stack as well as the ongoing maintenance.
+**MAS-DC01** Virtual machine hosting Active Directory, DNS, and DHCP services for Microsoft Azure Stack.
 
 **MAS-GWY01** Virtual machine providing edge gateway services such as VPN site-to-site connections for tenant networks.
 
