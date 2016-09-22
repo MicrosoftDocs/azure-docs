@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/01/2016"
+	ms.date="09/26/2016"
 	ms.author="erikje"/>
 
 # Log in to the Azure Stack POC virtual machine
@@ -53,7 +53,7 @@ If you don’t already have one, [Create a tenant account](azure-stack-add-new-u
 
 4.  Log in using a tenant account.
 
-RDP may restrict how many users can access the physical Microsoft Azure POC host. To enable multiple users, see [Enable multiple concurrent user connections](azure-stack-enable-multiple-concurrent-users.md).
+RDP may restrict how many users can access the physical Microsoft Azure POC host.
 
 ## Next steps
 
