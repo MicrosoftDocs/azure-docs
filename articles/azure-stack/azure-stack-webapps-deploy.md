@@ -154,7 +154,7 @@ Now that you have deployed and registered the Web Apps resource provider, you ca
 
 ## Next steps
 
-You can also try out other [platform as a service (PaaS) services](azure-stack-tools-paas-services.md), like the [SQL Server resource provider](azure-stack-sqlrp-deploy.md) and [MySQL resource provider](azure-stack-mysqlrp-deploy.md).
+You can also try out other [platform as a service (PaaS) services](azure-stack-tools-paas-services.md), like the [SQL Server resource provider](azure-stack-sql-rp-deploy-short.md) and [MySQL resource provider](azure-stack-mysql-rp-deploy-short.md).
 
 <!--Image references-->
 [1]: ./media/azure-stack-webapps-deploy/AppService_exe_Start.png
