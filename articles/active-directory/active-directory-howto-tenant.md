@@ -43,16 +43,16 @@ To do so, follow these steps.  Alternatively, you may wish to create a new tenan
 2.	Navigate to the “Azure Active Directory” section of the portal (found in the left nav bar, under **More Services**)
 3.	You should automatically be signed in to the "Default Directory", if not you can switch directories by clicking on your account name in the top right corner.
 4.	From the **Quick Tasks** section, choose **Add a user**.
-5.	In the Add User Form provide the following details:
+5.	In the Add User Form, provide the following details:
 
-    - Name: (choose appropriate values)
+    - Name: (choose an appropriate value)
     - User name: (choose a user name for this administrator)
     - Profile: (fill in the appropriate values for First name, Last name, Job title and Department)
     - Role: Global Administrator
 
 6.	When you have completed the Add User Form, and receive the temporary password for the new administrative user, be sure to record this password as you will need to login with this new user in order to change the password. You can also send the password directly to the user, using an alternative e-mail.
 7.  Click on **Create** to create the new user.
-8.	To change the temporary password, log into https://login.microsoftonline.com with this new user account and change the password when requested.
+8.	To change the temporary password, log into [https://login.microsoftonline.com](https://login.microsoftonline.com) with this new user account and change the password when requested.
 
 
 ## Use an organizational Azure subscription
