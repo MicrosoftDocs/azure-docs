@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Online backup and restore with DocumentDB | Microsoft Azure"
 	description="Learn how to perform automatic backup and restore of NoSQL databases with Azure DocumentDB."
-	keywords="backup and restore, automatic backup"
+	keywords="backup and restore, online backup"
 	services="documentdb"
 	documentationCenter=""
 	authors="RahulPrasad16"
@@ -19,7 +19,7 @@
 
 # Automatic online backup and restore with DocumentDB 
 
-Azure DocumentDB automatically takes backups of all your data at regular intervals. The automatic backups are taken without affecting the performance or availability of your NoSQL database operations. All your backups are stored separately in another storage service, and those backups are globally replicated for resiliency against regional disasters. The automatic backups are intended for scenarios when you accidentally delete your DocumentDB collection and later want to restore it.  
+Azure DocumentDB automatically takes backups of all your data at regular intervals. The automatic backups are taken without affecting the performance or availability of your NoSQL database operations. All your backups are stored separately in another storage service, and those backups are globally replicated for resiliency against regional disasters. The automatic backups are intended for scenarios when you accidentally delete your DocumentDB collection and later require data recovery or a disaster recovery solution.  
 
 This article starts with a quick recap of the data redundancy and availability in DocumentDB, and then discusses backups. 
 
@@ -29,16 +29,16 @@ DocumentDB is designed to be [globally distributed](documentdb-distribute-data-g
 
 As illustrated in the following diagram, a single DocumentDB collection is [horizontally partitioned](documentdb-partition-data.md). A “partition” is denoted by a circle in the following diagram, and each partition is made highly available via a replica set. This is the local distribution within a single Azure region (denoted by the X axis). Further, each partition (with its corresponding replica set) is then globally distributed across multiple regions associated with your database account (for example, in this illustration the three regions – East US, West US and Central India). The “partition set” is a globally distributed entity comprising of multiple copies of your data in each region (denoted by the Y axis). You can assign priority to the regions associated with your database account and DocumentDB will transparently failover to the next region in case of disaster. You can also manually simulate failover to test the end-to-end availability of your application.  
 
-The following images illustrate the high degree of redundancy with DocumentDB.
+The following image illustrates the high degree of redundancy with DocumentDB.
 
-![High degree of redundancy with DocumentDB](./media/documentdb-automatic-backup-and-restore/azure-documentdb-nosql-database-redundancy.png)
+![High degree of redundancy with DocumentDB](./media/documentdb-online-backup-and-restore/azure-documentdb-nosql-database-redundancy.png)
 
 
-![High degree of redundancy with DocumentDB](./media/documentdb-automatic-backup-and-restore/azure-documentdb-nosql-database-global-distribution.png)
+![High degree of redundancy with DocumentDB](./media/documentdb-online-backup-and-restore/azure-documentdb-nosql-database-global-distribution.png)
 
 ## Full backups for “Oops I deleted my collection or database” scenario
 
-With DocumentDB, not only your data, but the backups of your data are also made highly redundant and resilient to regional disasters. These backups are done automatically, and are currently taken approximately every four hours. 
+With DocumentDB, not only your data, but the backups of your data are also made highly redundant and resilient to regional disasters. These automated backups are currently taken approximately every four hours. 
 
 The backups are taken without affecting the performance or availability of your database operations. DocumentDB takes the backup in the background without consuming your provisioned RUs or affecting the performance and without affecting the availability of your NoSQL database. 
 
@@ -46,14 +46,14 @@ Unlike your data that is stored inside DocumentDB, the automatic backups are sto
 
 The following image illustrates periodic full backups of all DocumentDB entities in GRS Azure Storage.
 
-![Periodic full backups of all DocumentDB entities in GRS Azure Storage](./media/documentdb-automatic-backup-and-restore/azure-documentdb-nosql-database-automatic-backup.png)
+![Periodic full backups of all DocumentDB entities in GRS Azure Storage](./media/documentdb-online-backup-and-restore/azure-documentdb-nosql-database-automatic-backup.png)
 
 
 ## Retention period for a given snapshot
 
 DocumentDB takes snapshots of your data approximately every four hours, and each snapshot for an active account is maintained for approximately 8 hours. If a collection or account is deleted, DocumentDB stores the last backup for 90 days.
 
-## Restoring your data from the backup
+## Restore database from the online backup
 
 In case you accidentally delete your data, you can file a support ticket or call support to restore the data from the last automatic backup. For a specific snapshot of your backup to be restored, DocumentDB requires that the data was at least available with us for the duration of the backup cycle for that snapshot.
 
