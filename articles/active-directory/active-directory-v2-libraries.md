@@ -20,7 +20,7 @@
 # Azure Active Directory (AD) v2.0 and authentication libraries
 The Azure AD v2.0 endpoint supports the industry standard OAuth 2.0 and OpenID Connect 1.0 protocols.  A variety of libraries from Microsoft and from others can be used with the v2.0 endpoint.
 
-We recommend you use libraries written by protocol domain experts who follow a Security Development Lifecycle (SDL) methodology such as the one followed by Microsoft.  If you decide to hand-code support for the protocols in your application, we recommend you follow SDL and carefully observe the security considerations in the standards specifications for the protocols.
+When building an application that uses the v2.0 endpoint, we recommend you use libraries written by protocol domain experts who follow a Security Development Lifecycle (SDL) methodology, such as the one followed by Microsoft.  If you decide to hand-code support for the protocols, we recommend you follow SDL and carefully observe the security considerations found in the standards specifications for each of the protocols.
 
 ## Types of libraries
 There are two kinds of libraries that work with v2.0: 
@@ -28,17 +28,17 @@ There are two kinds of libraries that work with v2.0:
 - **Client libraries**:  Client libraries are used on native clients and on servers to obtain access tokens for calling a resource, such as the Microsoft Graph.
 - **Server middleware libraries**:  Server middleware libraries are used by web applications to sign a user in, and by web APIs to validate tokens that are sent by native clients or other servers.
 
-## Support
-Since you can choose any standards-compliant library when using the v2.0 endpoint, it’s important to understand where to go for support.  Issues and feature requests in library code go to the library owner. Issues and feature requests in the service-side protocol implementation go to Microsoft.
+## Library support
+Since you can choose any standards-compliant library when using the v2.0 endpoint, it’s important to know where to go for support.  Issues and feature requests in library code go to the library owner. Issues and feature requests in the service-side protocol implementation go to Microsoft.
 
-Libraries come in two different support categories:
+Libraries come in two support categories:
 
 - **Microsoft supported**:  Microsoft provides fixes for these libraries.  Microsoft has done Security Development Lifecycle due diligence on these libraries. 
-- **v2.0 compatible**:  Microsoft has tested a set of libraries in basic scenarios and confirmed they work with the v2.0 endpoint.  Microsoft does not provide fixes for these libraries and has not done a review of these libraries.  Issues and feature requests should be directed to the library’s open source project.
+- **Compatible**:  Microsoft has tested a set of libraries in basic scenarios and confirmed they work with the v2.0 endpoint.  Microsoft does not provide fixes for these libraries and has not done a review of these libraries.  Issues and feature requests should be directed to the library’s open source project.
 
 For a list of libraries that work with the v2.0 endpoint, see the following sections. 
 
-### Microsoft supported client libraries
+## Microsoft supported client libraries
 | Platform| Library Name| Download | Source code | Sample |
 | :-: | :-: | :-: | :-: | :-: |
 | .NET, Windows Store, Xamarin | Microsoft Authentication Library (MSAL) for .NET | [Microsoft.Identity.Client (NuGet)][ClientLib-NET-Lib] | [MSAL for .NET (GitHub)][ClientLib-NET-Repo] | [Windows desktop native client sample][ClientLib-NET-Sample] |
@@ -50,7 +50,7 @@ For a list of libraries that work with the v2.0 endpoint, see the following sect
 | JavaScript | Microsoft Authentication Library (MSAL) for JavaScript | In development | In development | In development |
  -->
 
-### Microsoft supported server middleware libraries
+## Microsoft supported server middleware libraries
 | Platform| Library Name| Download | Source code | Sample |
 | :-: | :-: | :-: | :-: | :-: |
 | .NET 4.x | OWIN OpenID Connect Middleware for ASP.NET | [Microsoft.Owin.Security.OpenIdConnect (NuGet)][ServerLib-Net4-Owin-Oidc-Lib] | [Katana Project (CodePlex)][ServerLib-Net4-Owin-Oidc-Repo] | [Web app sample][ServerLib-Net4-Owin-Oidc-Sample] |
@@ -61,7 +61,7 @@ For a list of libraries that work with the v2.0 endpoint, see the following sect
 <!--- COMMENTING UNTIL SAMPLE IS AVAILABLE
 | .NET 4.x, .NET Core | JSON Web Token Handler for .Net | [System.IdentityModel.Tokens.Jwt (NuGet)][ServerLib-Net-Jwt-Lib] | [Azure AD identity model extensions for .Net (GitHub)][ServerLib-Net-Jwt-Repo] | Coming soon |
 --->
-### v2.0 compatible client libraries
+## v2.0 compatible client libraries
 | Platform| Name | Tested Version | Source code | Sample |
 | :-: | :-: | :-: | :-: | :-: |
 | Android | [OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib/wiki) | 0.2.1 | [OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib) | [Native app sample](active-directory-v2-devquickstarts-android.md) |
@@ -79,7 +79,7 @@ For a list of libraries that work with the v2.0 endpoint, see the following sect
 -->
 
 
-### v2.0 compatible server middleware libraries 
+## v2.0 compatible server middleware libraries 
 Coming soon
 
 
