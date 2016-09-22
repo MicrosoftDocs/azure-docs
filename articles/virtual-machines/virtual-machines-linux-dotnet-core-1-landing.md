@@ -45,7 +45,7 @@ The goal when developing Azure Resource Manager templates is to automate the dep
 
 The Music Store application can be deployed using this button.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fneilpeterson%2Fazure-dotnet-core-tutorial%2Fmaster%2Fazure-dotnet-core-tutorial-linux%2Ftutorial-one%2Fazuredeploy.json" target="_blank">
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fdotnet-core-sample-templates%2Fmaster%2Fdotnet-core-music-linux%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
@@ -53,7 +53,6 @@ The Azure Resource Manager template requires the following parameter values.
 
 |Parameter Name |Description   |
 |---|---|
-|VMNAME | Virtual Machine name. An integer is added to this value and is incremented for each virtual machine in the deployment.  |
 |SSHKEYDATA   | SSH key data used to secure access to the Virtual Machine. For information on creating an SSH key air, see [Creating SSH keys for Linux VMs in Azure](./ virtual-machines-linux-mac-create-ssh-keys.md).  |
 |ADMINUSERNAME   | Admin user name that is used on the virtual machine and the Azure SQL Database.  |
 |SQLADMINPASSWORD | Password that is used on the Azure SQL Database.  |

@@ -21,7 +21,7 @@
 
 Once all Azure infrastructural requirements have been identified and translated into a deployment template, the actual application deployment needs to be addressed. Application deployment here is referring to installing the actual application binaries onto Azure resources. For the Music Store sample, .Net Core, NGINX, and Supervisor need to be installed and configured on each virtual machine. The Music Store binaries need to be installed onto the virtual machine, and the Music Store database pre-created.
 
-This document details how Virtual Machine extensions can automate application deployment and configuration to Azure virtual machines. All dependencies and unique configurations are highlighted. For the best experience, pre-deploy an instance of the solution to your Azure subscription and work along with the Azure Resource Manager template. The complete template can be found here – [Music Store Deployment on Ubuntu]( https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json).
+This document details how Virtual Machine extensions can automate application deployment and configuration to Azure virtual machines. All dependencies and unique configurations are highlighted. For the best experience, pre-deploy an instance of the solution to your Azure subscription and work along with the Azure Resource Manager template. The complete template can be found here – [Music Store Deployment on Ubuntu](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
 
 ## Configuration Script
 
@@ -42,7 +42,7 @@ sudo apt-get update
 sudo apt-get install -y dotnet-dev-1.0.0-preview2-003121
 
 # download application
-sudo wget https://raw.github.com/neilpeterson/nepeters-azure-templates/master/dotnet-core-music-linux-vm-sql-db/music-app/music-store-azure-demo-pub.tar /
+sudo wget https://raw.github.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/music-app/music-store-azure-demo-pub.tar /
 sudo mkdir /opt/music
 sudo tar -xf music-store-azure-demo-pub.tar -C /opt/music
 
@@ -50,7 +50,7 @@ sudo tar -xf music-store-azure-demo-pub.tar -C /opt/music
 sudo apt-get install -y nginx
 sudo service nginx start
 sudo touch /etc/nginx/sites-available/default
-sudo wget https://raw.githubusercontent.com/neilpeterson/nepeters-azure-templates/master/dotnet-core-music-linux-vm-sql-db/music-app/nginx-config/default -O /etc/nginx/sites-available/default
+sudo wget https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/music-app/nginx-config/default -O /etc/nginx/sites-available/default
 sudo cp /opt/music/nginx-config/default /etc/nginx/sites-available/
 sudo nginx -s reload
 
@@ -64,7 +64,7 @@ sudo chmod 0400 /opt/music/config.json
 # config supervisor
 sudo apt-get install -y supervisor
 sudo touch /etc/supervisor/conf.d/music.conf
-sudo wget https://raw.githubusercontent.com/neilpeterson/nepeters-azure-templates/master/dotnet-core-music-linux-vm-sql-db/music-app/supervisor/music.conf -O /etc/supervisor/conf.d/music.conf
+sudo wget https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/music-app/supervisor/music.conf -O /etc/supervisor/conf.d/music.conf
 sudo service supervisor stop
 sudo service supervisor start
 
@@ -76,7 +76,7 @@ sudo service supervisor start
 
 VM Extensions can be run against a virtual machine at build time by including the extension resource in the Azure Resource Manager template. The extension can be added with the Visual Studio Add Resource wizard, or by inserting valid JSON into the template. The Script Extension resource is nested inside the Virtual Machine resource; this can be seen in the following example.
 
-Follow this link to see the JSON sample within the Resource Manager template – [VM Script Extension](https://github.com/neilpeterson/nepeters-azure-templates/blob/master/dotnet-core-music-linux-vm-sql-db/azuredeploy.json#L365). 
+Follow this link to see the JSON sample within the Resource Manager template – [VM Script Extension](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L359). 
 
 Notice in the below JSON that the script is stored in GitHub. This script could also be stored in Azure Blob storage. Also, Azure Resource Manager templates allow the script execution string to constructed such that template parameters values can be used as parameters for script execution. In this case data is provided when deploying the templates, and these values can then be used when executing the script.
 
@@ -87,21 +87,23 @@ Notice in the below JSON that the script is stored in GitHub. This script could 
   "location": "[resourceGroup().location]",
   "apiVersion": "2015-06-15",
   "dependsOn": [
-    "[concat('Microsoft.Compute/virtualMachines/', concat(parameters('vmname-front'),copyindex()))]"
+    "[concat('Microsoft.Compute/virtualMachines/', concat(variables('vmName'),copyindex()))]"
   ],
   "tags": {
     "displayName": "config-app"
   },
   "properties": {
-    "publisher": "Microsoft.OSTCExtensions",
-    "type": "CustomScriptForLinux",
-    "typeHandlerVersion": "1.4",
+    "publisher": "Microsoft.Azure.Extensions",
+    "type": "CustomScript",
+    "typeHandlerVersion": "2.0",
     "autoUpgradeMinorVersion": true,
     "settings": {
       "fileUris": [
-        "https://raw.githubusercontent.com/neilpeterson/nepeters-azure-templates/master/dotnet-core-music-linux-vm-sql-db/support-scripts/config-music.sh"
-      ],
-      "commandToExecute": "[concat('sudo sh config-music.sh ',variables('musicstoresqlName'), ' ', parameters('adminUsername'), ' ', parameters('adminPassword'))]"
+        "https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh"
+      ]
+    },
+    "protectedSettings": {
+      "commandToExecute": "[concat('sudo sh config-music.sh ',variables('musicStoreSqlName'), ' ', parameters('adminUsername'), ' ', parameters('sqlAdminPassword'))]"
     }
   }
 }
