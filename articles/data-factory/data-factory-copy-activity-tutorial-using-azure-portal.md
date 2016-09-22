@@ -55,7 +55,7 @@ In this step, you use the Azure portal to create an Azure data factory named **A
 	
   		![New data factory blade](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-new-data-factory.png)
 	2. Select your Azure **subscription**.
-	3. For the Resource Group, do one of the following:
+	3. For the Resource Group, do one of the following steps:
 		1. Select **Use existing**, and select an existing resource group from the drop-down list. 
 		2. Select **Create new**, and enter the name of a resource group.   
 	
@@ -74,7 +74,7 @@ In this step, you use the Azure portal to create an Azure data factory named **A
 		>  
 		>  The name of the data factory may be registered as a DNS name in the future and hence become publically visible.				 
 
-9. Click the bell icon on the toolbar to see the status/notification messages. 
+9.  To see the status/notification messages, click the bell icon on the toolbar. 
 
 	![Notification messages](./media/data-factory-copy-activity-tutorial-using-azure-portal/Notifications.png) 
 10. After the creation is complete, you see the **Data Factory** blade as shown in the image.
@@ -100,7 +100,7 @@ In this step, you create two linked services: **AzureStorageLinkedService** and 
 
 	![Editor Blob Storage JSON](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-json.png)    
 	
-	See [JSON Scripting Reference](http://go.microsoft.com/fwlink/?LinkId=516971) for details about JSON properties.
+	See [Move data from/to Azure Blob](data-factory-azure-blob-connector.md) for details about JSON properties.
 
 6. Click **Deploy** on the toolbar to deploy the AzureStorageLinkedService. You should see the **AzureStorageLinkedService** in the tree view now. 
 
@@ -179,7 +179,7 @@ In this step, you create a dataset named **InputDataset** that points to a blob 
 	            { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
 	        ],
 
-	See [Move data from/to Azure Blob ](data-factory-azure-blob-connector.md) for details about JSON properties.
+	See [Move data from/to Azure Blob](data-factory-azure-blob-connector.md) for details about JSON properties.
 
 2. Click **Deploy** on the toolbar to create and deploy the **InputDataset** dataset. Confirm that you see the **InputDataset** in the tree view.
 
@@ -312,7 +312,7 @@ In this step, you create a pipeline with a **Copy Activity** that uses **InputDa
 ## Monitor pipeline
 In this step, you use the Azure portal to monitor what’s going on in an Azure data factory. 
 
-1. Click **X** to close the **Diagram** view to see the Data Factory home page for the data factory. If you have closed the web browser, do the following: 
+1. Click **X** to close the **Diagram** view to see the Data Factory home page for the data factory. If you have closed the web browser, do the following steps: 
 	2. Navigate to [Azure portal](https://portal.azure.com/). 
 	2. Double-click **ADFTutorialDataFactory** on the **Startboard** (or) click **Data factories** on the left menu, and search for ADFTutorialDataFactory. 
 3. You should see the count and names of tables and pipeline you created on this blade.
