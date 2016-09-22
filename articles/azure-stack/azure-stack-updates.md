@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Updates in Azure Stack | Microsoft Azure"
-	description="Learn about the Updates interface in Azure Stack"
+	description="Learn about updates in Azure Stack"
 	services="azure-stack"
 	documentationCenter=""
 	authors="HeathL17"
