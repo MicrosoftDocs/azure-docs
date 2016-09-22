@@ -44,7 +44,7 @@ This release provides new features for both tenants and administrators.
 
 ### Portal Experience
  - Azure Stack Regions are a logical unit of scale and management within Azure Stack. In this preview, you can view information on services like compute, network, and storage by region.
- - You can now preview the update blade.
+ - You can now the updates blade.
 
 ## Key Vault
 - [Azure Key Vault](azure-stack-kv-intro.md) provides secure management of your keys and passwords for cloud apps.
