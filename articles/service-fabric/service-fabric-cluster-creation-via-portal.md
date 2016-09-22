@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/19/2016"
+   ms.date="09/21/2016"
    ms.author="vturecek"/>
 
 # Create a Service Fabric cluster in Azure using the Azure portal
@@ -161,9 +161,9 @@ To make this process easier, a PowerShell module is [available on GitHub][servic
  1. Download the entire contents of the repo into a local directory. 
  2. Import the module in your PowerShell window:
 
-  ```powershell
+```powershell
   PS C:\Users\vturecek> Import-Module "C:\users\vturecek\Documents\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
-  ```
+```
      
 The `Invoke-AddCertToKeyVault` command in this PowerShell module automatically formats a certificate private key into a JSON string and uploads it to Key Vault. Use it to add the cluster certificate and any additional application certificates to Key Vault. Simply repeat this step for any additional certificates you want to install in your cluster.
 
@@ -241,7 +241,7 @@ Configure your cluster nodes. Node types define the VM sizes, the number of VMs,
 
  2. The minimum **size** of VMs for the primary node type is driven by the **durability** tier you choose for the cluster. The default for the durability tier is bronze. For more information on durability, refer to [how to choose the Service Fabric cluster reliability and durability][service-fabric-cluster-capacity].
 
- 3. Select the VM size and pricing tier. D-series VMs have SSD drives and are highly recommended for stateful applications.
+ 3. Select the VM size and pricing tier. D-series VMs have SSD drives and are highly recommended for stateful applications. Do not use any VM SKU that has partial cores or have less than 7 GB of available disk capacity. 
 
  4. The minimum **number** of VMs for the primary node type is driven by the **reliability** tier you choose. The default for the reliability tier is Silver. For more information on reliability, refer to [how to choose the Service Fabric cluster reliability and durability][service-fabric-cluster-capacity].
 
@@ -250,6 +250,10 @@ Configure your cluster nodes. Node types define the VM sizes, the number of VMs,
  6. Configure custom endpoints. This field allows you to enter a comma-separated list of ports that you want to expose through the Azure Load Balancer to the public Internet for your applications. For example, if you plan to deploy a web application to your cluster, enter "80" here to allow traffic on port 80 into your cluster. For more information on endpoints, refer to [communicating with applications][service-fabric-connect-and-communicate-with-services]
 
  7. Configure cluster **diagnostics**. By default, diagnostics are enabled on your cluster to assist with troubleshooting issues. If you want to disable diagnostics change the **Status** toggle to **Off**. Turning off diagnostics is **not** recommended.
+
+ 9. Select the Fabric upgrade mode you want set your cluster to. Select **Automatic**, if you want the system to automatically pick up the latest available version and try to upgrade your cluster to it. Set the mode to **Manual**, if you want to choose an supported version.
+
+>[AZURE.NOTE] we support only cluster that are running supported versions of service Fabric. By selecting the **Manual** mode, you are taking on the responsibility to upgrade your cluster to a supported version. For more details on the Fabric upgrade mode refer to the [service-fabric-cluster-upgrade document.][service-fabric-cluster-upgrade]
 
 
 #### 3. Security
@@ -320,6 +324,7 @@ At this point, you have a secure cluster using certificates for management authe
 [service-fabric-health-introduction]: service-fabric-health-introduction.md
 [service-fabric-reliable-services-backup-restore]: service-fabric-reliable-services-backup-restore.md
 [remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md#remote-connect-to-a-vm-scale-set-instance-or-a-cluster-node
+[service-fabric-cluster-upgrade]: service-fabric-cluster-upgrade.md
 
 <!--Image references-->
 [SearchforServiceFabricClusterTemplate]: ./media/service-fabric-cluster-creation-via-portal/SearchforServiceFabricClusterTemplate.png
