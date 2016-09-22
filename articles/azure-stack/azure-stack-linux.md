@@ -60,29 +60,29 @@ You can deploy Linux virtual machines on the Azure Stack POC by adding a Linux-b
 
  - Install python-setuptools
 
-	**Debian / Ubuntu**
+		**Debian / Ubuntu**
 
-		# sudo apt-get update
-		# sudo apt-get install python-setuptools
+			# sudo apt-get update
+			# sudo apt-get install python-setuptools
 
-	**Ubuntu 16.04+**
+		**Ubuntu 16.04+**
 
-		# sudo apt-get install python3-setuptools
+			# sudo apt-get install python3-setuptools
 
-	**RHEL / CentOS / Oracle Linux**
+		**RHEL / CentOS / Oracle Linux**
 
-		# sudo yum install python-setuptools
+			# sudo yum install python-setuptools
 
  - Install the Azure agent:
 
 			# cd WALinuxAgent-2.1.7
 			# sudo python setup.py install --register-service
 
-	Note that systems with Python 2.x and Python 3.x installed side-by-side may need to run the following:
+	Systems with Python 2.x and Python 3.x installed side-by-side may need to run the following command:
 
-			# sudo python3 setup.py install --register-service
+		# sudo python3 setup.py install --register-service
 
-	Please see the Azure Linux Agent [README](https://github.com/Azure/WALinuxAgent/blob/master/README.md) for additional information.
+	For more information, see the Azure Linux Agent [README](https://github.com/Azure/WALinuxAgent/blob/master/README.md).
 
 3. [Add the image to the PIR](../azure-stack/azure-stack-add-image-pir.md). Make sure that the `OSType` parameter is set to `Linux`.
 
