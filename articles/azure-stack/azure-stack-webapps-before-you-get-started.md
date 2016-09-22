@@ -18,6 +18,8 @@
 	
 # Before you get started with Azure Stack Web Apps
 
+> [AZURE.NOTE] The following information only applies to Azure Stack TP1 deployments.
+
 You will need a few items to install Azure Stack Web Apps:
 
 - A completed deployment of [Azure Stack Technical Preview 1](azure-stack-run-powershell-script.md)
