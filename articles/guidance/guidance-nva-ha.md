@@ -38,14 +38,14 @@ You can use one of the following solutions to deploy a highly available NVA envi
 |PIP-UDR switch|Single set of NVAs for all traffic<br/>Can handle all traffic (no limit on port rules)|Active-passive<br/>Requires a failover process|
 
 ## Ingress with layer 7 virtual appliances
-If you are providing connectivity to workloads hosted in Azure through a small set of server-side ports (such as HTTP and HTTPS), you can use a set of NVAs behind an Azure load balancer. The following figure highlights how to provide high availability in this scenario at the NVA level.
+You can use a set of NVAs behind an Azure load balancer to provide connectivity to Azure workloads behind a small set of server-side ports (such as HTTP and HTTPS). The following figure highlights how to provide high availability in this scenario at the NVA level.
 
 ![[1]][1]
 
 In this scenario, the network virtual appliance used must terminate all connections, and pass them to the workload subnet. The workload virtual machines (VMs) respond to the NVA they received a request from, and traffic flows without issues. 
 
 ## Ingress-egress with layer 7 virtual appliances
-You can extend the preceding architecture and add another set of NVAs to handle traffic originating from Azure to be handled by NVAs, as shown in the following figure.
+You can extend the preceding architecture and add another set of NVAs to handle traffic originating from Azure to be handled by NVAs, as shown in the following figure:
 
 ![[2]][2]
 
@@ -58,7 +58,7 @@ You can avoid creating multiple NVA stacks by using two NVAs in active-passive m
 
 This scenario is similar to the single NVA scenario. The only difference is that the PIP and UDRs must be changed to switch traffic between the NVAs. These changes can be done manually, or you can also automate them. To automate, you can deploy an application to both NVAs that checks for the health of the active node. Once the active node is down, your application can change the PIP and UDRs to link to the passive node.
 
-A possible implementation of this solution is to use a [ZooKeeper][zookeeper] daemon on the NVAs to handle leader election (deciding which node is the active node). Once a leader is elected, it calls to the Azure REST API to remove the PIP from the failed node and attach it to the leader, and change UDRs to point to the new leader's private IP address.
+A possible implementation of this solution is to use a [ZooKeeper][zookeeper] daemon on the NVAs to handle leader election (deciding which node is the active node). Once a leader is elected, it calls to the Azure REST API to remove the PIP from the failed node and attach it to the leader. It should also change UDRs to point to the new leader's private IP address.
 
 ## Next steps
 
