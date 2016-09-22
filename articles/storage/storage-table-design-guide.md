@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Azure Storage Table Design Guide | Microsoft Azure"
-   description="Design Scalable and Performant Tables in Azure Table Storage"
-   services="storage"
-   documentationCenter="na"
-   authors="jasonnewyork" 
-   manager="tadb"
-   editor="tysonn"/>
+	pageTitle="Azure Storage Table Design Guide | Microsoft Azure"
+	description="Design Scalable and Performant Tables in Azure Table Storage"
+	services="storage"
+	documentationCenter="na"
+	authors="jasonnewyork" 
+	manager="tadb"
+	editor="tysonn"/>
 
 <tags
-   ms.service="storage"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="storage"
-   ms.date="03/18/2016"
-   ms.author="jahogg"/>
+	ms.service="storage"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="storage"
+	ms.date="09/22/2016"
+	ms.author="jahogg;tamram"/>
 
 # Azure Storage Table Design Guide: Designing Scalable and Performant Tables
 
