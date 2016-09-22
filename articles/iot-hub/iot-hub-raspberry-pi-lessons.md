@@ -17,11 +17,11 @@
 
 # Get Started with Raspberry Pi 3
 
-In these lessons, you will begin by learning the basics of working with Raspberry Pi 3 device. You will move to simple user-friendly lessons help you seamlessly connect your devices to the cloud with Microsoft Azure IoT.
+In these lessons, you begin by learning the basics of working with Raspberry Pi 3 device. You move to simple user-friendly lessons help you seamlessly connect your devices to the cloud with Microsoft Azure IoT.
 
 ## Lesson 1: Get started with your Raspberry Pi device
 
-Configure your Raspberry Pi 3 device with an operating system, set up your development environment, and deploy a simple application to the Pi.
+Configure your Raspberry Pi 3 device with an operating system, set up your development environment, and deploy an application to the Pi.
 
 [Click to start Lesson 1]()
 
