@@ -3,7 +3,7 @@
  description="Describes all the lessons to get started with Raspberry Pi"
  services="iot-hub"
  documentationCenter=""
- authors="xshi"
+ authors="shizn"
  manager="jeffya"
  editor=""/>
 
