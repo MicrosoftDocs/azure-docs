@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/22/2016"
+	ms.date="09/22/2016"
 	ms.author="kgremban"/>
 
 # What is Azure Multi-Factor Authentication?
@@ -27,17 +27,11 @@ Multi-factor authentication (MFA) is a method of authentication that requires th
 <center>![Username and Password](./media/multi-factor-authentication/pword.png) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Certificates](./media/multi-factor-authentication/phone.png) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Smart Phone](./media/multi-factor-authentication/hware.png) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Smart Card](./media/multi-factor-authentication/smart.png) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Virtual Smart Card](./media/multi-factor-authentication/vsmart.png) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Username and Password](./media/multi-factor-authentication/cert.png)</center>
 
 
-
-Azure Multi-factor authentication is a method of verifying who you are that requires the use of more than just a username and password. It provides a second layer of security to user sign-ins and transactions.   
-
-Azure Multi-Factor Authentication helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication via a range of easy verification options—phone call, text message, or mobile app notification or verification code and 3rd party OATH tokens.
-
-For an overview of how Azure Multi-Factor Authentication works see the following video.
-
+Azure Multi-Factor Authentication helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication via a range of easy verification options—phone call, text message, mobile app notification or verification code, and 3rd party OATH tokens.
 
 >[AZURE.VIDEO multi-factor-authentication-overview]
 
-##Why use Azure Multi-Factor Authentication?
+## Why use Azure Multi-Factor Authentication?
 
 Today, now more than ever, people are increasingly connected.  With smart phones, tablets, laptops, and PCs, people have several different options on how they are going to connect and stay connected at any time.  People can access their accounts and applications from anywhere and this means that they can get more work done and serve their customers better.
 
@@ -47,12 +41,10 @@ Azure Multi-Factor Authentication is an easy to use, scalable, and reliable solu
 :-------------: | :-------------: | :-------------: | :-------------: |
 **Easy to use**|**Scalable**|**Always Protected**|**Reliable**
 
-- **Easy to Use** - Azure Multi-Factor Authentication is simple to setup and use.  The additional protection that comes with Azure Multi-Factor Authentication allows users to use and manage their own devices and, in many instances, it can be setup with just a few simple clicks.
-- **Scalable** - Azure Multi-Factor Authentication utilizes the power of the cloud and integrates with your on-premises AD and custom apps.  This protection is even extended to your high volume mission critical scenarios.
+- **Easy to Use** - Azure Multi-Factor Authentication is simple to set up and use.  The additional protection that comes with Azure Multi-Factor Authentication allows users to use and manage their own devices and, in many instances, it can be set up with just a few simple clicks.
+- **Scalable** - Azure Multi-Factor Authentication uses the power of the cloud and integrates with your on-premises AD and custom apps.  This protection is even extended to your high-volume, mission-critical scenarios.
 - **Always Protected** - Azure Multi-Factor Authentication provides strong authentication using the highest industry standards.
 - **Reliable** - We guarantee 99.9% availability of Azure Multi-Factor Authentication. The service is considered unavailable when it is unable to receive or process authentication requests for the multi-factor authentication.  
-
-For additional information on why use Azure Multi-Factor Authentication see the following video.
 
 >[AZURE.VIDEO windows-azure-multi-factor-authentication]
 
@@ -73,18 +65,16 @@ Azure Multi-Factor Authentication helps safeguard access to data and application
 - mobile app verification code
 - 3rd party OATH tokens
 
-For additional information on how it works see the following video.
-
 >[AZURE.VIDEO multi-factor-authentication-deep-dive-securing-access-on-premises]
 
 ## Methods available for multi-factor authentication
 When a user signs in, an additional verification is sent to the user.  The following are a list of methods that can be used for this second verification.
 
-Verification Method  | Description
+Verification method  | Description
 ------------- | ------------- |
-Phone Call | A call is placed to a user’s smart phone asking them to verify that they are signing in by pressing the # sign.  This will complete the verification process.  This option is configurable and can be changed to a code that you specify.
-Text Message | A text message will be sent to a user’s smart phone with a 6 digit code.  Enter this code in to complete the verification process.
-Mobile App Notification | A verification request will be sent to a user’s smart phone asking them complete the verification by selecting Verify from the mobile app. This will occur if you selected app notification as your primary verification method.  If they receive this when they are not signing in, they can choose to report it as fraud.</li><br><p> The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+Phone call | A call is placed to a user’s phone asking them to verify that they are signing. Press the # key to complete the verification process.  This option is configurable and can be changed to a code that you specify.
+Text message | A text message will be sent to a user’s smart phone with a 6 digit code.  Enter this code in to complete the verification process.
+Mobile app notification | A verification request will be sent to a user’s smart phone asking them complete the verification by selecting **Verify** from the mobile app. This will occur if app notification is the primary verification method.  If they receive this notification when they are not signing in, they can report it as fraud.</li><br><p> The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 Verification code with Mobile App | A verification code will be sent to the mobile app that is running on a user’s smart phone.  This will occur if you selected a verification code as your primary verification method.</li><br><p> The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
 
@@ -103,23 +93,23 @@ The following table below provides a list of the features that are available in 
 
 Feature  | Multi-Factor Authentication for Office 365 (included in Office 365 SKUs)|Multi-Factor Authentication for Azure Administrators (included with Azure subscription) | Azure Multi-Factor Authentication (included in Azure AD Premium and Enterprise Mobility Suite)
 ------------- | :-------------: |:-------------: |:-------------: |
-Administrators can protect accounts with MFA| * | * (Available only for Azure Administrator accounts)|*
-Mobile app as a second factor|* | * | *
-Phone call as a second factor|* | * | *
-SMS as a second factor|* | * | *
-App passwords for clients that don't support MFA|* | * | *
-Admin control over authentication methods| *|* | *
-PIN mode| | | *
-Fraud alert| | | *
-MFA Reports| | | *
-One-Time Bypass| | | *
-Custom greetings for phone calls| | | *
-Customization of caller ID for phone calls| | | *
-Event Confirmation| | | *
-Trusted IPs| | | *
-Remember MFA for trusted devices |* | * | *
-MFA SDK | | | * requires Multi-Factor Auth provider and full Azure subscription
-MFA for on-premises applications using MFA server| | | *
+Administrators can protect accounts with MFA| ● | ● (Available only for Azure Administrator accounts)|●
+Mobile app as a second factor|● | ● | ●
+Phone call as a second factor|● | ● | ●
+SMS as a second factor|● | ● | ●
+App passwords for clients that don't support MFA|● | ● | ●
+Admin control over authentication methods| ● | ● | ●
+PIN mode| | | ●
+Fraud alert| | | ●
+MFA Reports| | | ●
+One-Time Bypass| | | ●
+Custom greetings for phone calls| | | ●
+Customization of caller ID for phone calls| | | ●
+Event Confirmation| | | ●
+Trusted IPs| | | ●
+Remember MFA for trusted devices |● | ● | ●
+MFA SDK | | | ● requires Multi-Factor Auth provider and full Azure subscription
+MFA for on-premises applications using MFA server| | | ●
 
 
 
@@ -154,33 +144,33 @@ The following sections will provide guidance on determining each of these.
 
 ### What am I trying to secure?
 
-In order to determine the correct multi-factor authentication solution, first we must answer the question of what are you trying to secure with a second method of authentication.  Is it an application that is in Azure?  Or is it a remote access system for example.  By determining what we are trying to secure, we will see to answer the question of where multi-factor authentication needs to be enabled.  
+In order to determine the correct multi-factor authentication solution, first we must answer the question of what are you trying to secure with a second method of authentication.  Is it an application in Azure?  Or a remote access system?  By determining what we are trying to secure, we can decide where multi-factor authentication needs to be enabled.  
 
 
 
-What are you trying to secure| Multi-Factor Authentication in the cloud|Multi-Factor Authentication Server
+What are you trying to secure | Multi-Factor Authentication in the cloud | Multi-Factor Authentication Server
 ------------- | :-------------: | :-------------: |
-First party Microsoft apps|* |* |
-Saas apps in the app gallery|* |* |
-IIS applications published through Azure AD App Proxy|* |* |
-IIS applications not published through Azure AD App Proxy | |* |
-Remote access such as VPN, RDG| |* |
+First party Microsoft apps|● |● |
+Saas apps in the app gallery|● |● |
+IIS applications published through Azure AD App Proxy|● |● |
+IIS applications not published through Azure AD App Proxy | |● |
+Remote access such as VPN, RDG| |● |
 
 
 
 ### Where are the users located
 
-Next, depending on where are users are located, we can determine the correct solution to use, whether it is mutli-factor authentication in the cloud or on-premises using the MFA Server.
+Next, depending on where are users are located, we can determine the correct solution to use, whether it is multi-factor authentication in the cloud or on-premises using the MFA Server.
 
 
 
-User Location| Solution
-------------- | :------------- |
-Azure Active Directory| Multi-Factor Authentication in the cloud|
-Azure AD and on-premises AD using federation with AD FS| Both MFA in the cloud and MFA Server are available options
-Azure AD and on-premises AD using DirSync, Azure AD Sync, Azure AD Connect - no password sync|Both MFA in the cloud and MFA Server are available options
-Azure AD and on-premises AD using DirSync, Azure AD Sync, Azure AD Connect - with password sync|Multi-Factor Authentication in the cloud
-On-premises Active Directory|Multi-Factor Authentication Server
+User Location| Multi-Factor Authentication in the cloud | Multi-Factor Authentication Server
+------------- | :------------- | :------------- |
+Azure Active Directory| ● | |
+Azure AD and on-premises AD using federation with AD FS | ● | ● |
+Azure AD and on-premises AD using DirSync, Azure AD Sync, Azure AD Connect - no password sync | ● | ● |
+Azure AD and on-premises AD using DirSync, Azure AD Sync, Azure AD Connect - with password sync | ● | |
+On-premises Active Directory | | ● |
 
 The following table is a comparison of the features that are a with Multi-Factor Authentication in the cloud and with the Multi-Factor Authentication Server.
 
