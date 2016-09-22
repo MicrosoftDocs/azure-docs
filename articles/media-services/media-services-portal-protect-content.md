@@ -66,21 +66,27 @@ For detailed information about the PlayReady rights template, see [Media Service
 
 ### Non persistent
 
+If you configure license as non-persistent, it is only held in memory while the player is using the license.  
+
 ![Protect content](./media/media-services-portal-content-protection/media-services-content-protection003.png)
 
 ### Persistent
+
+If you configure the license  as persistent, it is saved in persistent storage on the client.
 
 ![Protect content](./media/media-services-portal-content-protection/media-services-content-protection004.png)
 
 ## Widevine rights template
 
-For detailed information about the Widevien rights template, see [Widevine License Template Overview](media-services-widevine-license-template-overview.md).
+For detailed information about the Widevine rights template, see [Widevine License Template Overview](media-services-widevine-license-template-overview.md).
 
 ### Basic
 
 When you select **Basic**, the template will be created with all defaults values.
 
 ### Advanced
+
+For detailed explanation about advance option of Widevine configurations, see [this](media-services-widevine-license-template-overview.md) topic.
 
 ![Protect content](./media/media-services-portal-content-protection/media-services-content-protection005.png)
 
