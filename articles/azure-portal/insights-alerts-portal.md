@@ -16,7 +16,7 @@
 	ms.date="09/23/2016"
 	ms.author="robb"/>
 
-# Receive alert notifications using the Azure portal
+# Use Azure portal to create alerts for Azure services
 
 > [AZURE.SELECTOR]
 - [Portal](insights-alerts-portal.md)
