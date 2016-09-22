@@ -1,5 +1,5 @@
 <properties
-  pageTitle="Azure and Linux Storage | Microsoft Azure"
+  pageTitle="Azure and Linux VM Storage | Microsoft Azure"
   description="Describes Azure Storage with Linux virtual machines."
   services="virtual-machines-linux"
   documentationCenter="virtual-machines-linux"
@@ -16,7 +16,7 @@
   ms.date="09/16/2016"
   ms.author="v-livech"/>
 
-# Azure and Linux storage
+# Azure and Linux VM storage
 
 Azure Storage is the cloud storage solution for modern applications that rely on durability, availability, and scalability to meet the needs of their customers.  In addition to making it possible for developers to build large-scale applications to support new scenarios, Azure Storage also provides the storage foundation for Azure Virtual Machines, a further testament to its robustness.
 
