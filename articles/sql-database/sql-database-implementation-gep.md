@@ -20,7 +20,7 @@
 
 ![GEP Logo](./media/sql-database-case-study-gep/geplogo.png)
 
-GEP delivers software and services that enable procurement leaders around the world to maximize their impact on their businesses’ operations, strategies, and financial performances. In addition to consulting and managed services, the company offers SMART by GEP®, a cloud-based, comprehensive procurement-software platform. However, GEP ran into limitations trying to support solutions like SMART by GET with its own on-premises datacenters: the investments needed were steep and regulatory requirements in other countries would have made the necessary investments more daunting still. By moving to the cloud, GEP has freed up IT resources, allowing it to worry less about IT operations and to focus more on developing new sources of value for its customers across the globe.
+GEP delivers software and services that enable procurement leaders around the world to maximize their impact on their businesses’ operations, strategies, and financial performances. In addition to consulting and managed services, the company offers SMART by GEP®, a cloud-based, comprehensive procurement-software platform. However, GEP ran into limitations trying to support solutions like SMART by GEP with its own on-premises datacenters: the investments needed were steep and regulatory requirements in other countries would have made the necessary investments more daunting still. By moving to the cloud, GEP has freed up IT resources, allowing it to worry less about IT operations and to focus more on developing new sources of value for its customers across the globe.
 
 ## Expanding services and growth by using Azure
 
