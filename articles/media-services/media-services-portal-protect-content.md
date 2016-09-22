@@ -26,11 +26,11 @@ Microsoft Azure Media Services (AMS) enables you to secure your media from the t
 
 AMS provides a service for delivering DRM licenses and AES clear keys to authorized clients.The Azure portal enables you to create one **key/license authorization policy** for all types of encryptions.
 
-This article demonstrates how to configure content protection policies with the Azure portal. The article also shows how to apply dynamic encryption for your assets.
+This article demonstrates how to configure content protection policies with the Azure portal. The article also shows how to apply dynamic encryption to your assets.
 
 > [AZURE.NOTE]  If you used the Azure Classic portal to create protection policies, the policies may not appear in the [Azure portal](https://portal.azure.com/). However, all the old polices still exist. You can examine them using the Azure Media Services .NET SDK or the [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer/releases) tool (to see the policies, right click on the asset -> Display information (F4)->click on Content keys tab-> click on the key). 
 > 
-> If you want to encrypt your asset using new policies, configure them the Azure portal, click save, and re-apply dynamic encryption. 
+> If you want to encrypt your asset using new policies, configure them with the Azure portal, click save, and re-apply dynamic encryption. 
 
 ## Start configuring content protection
 
@@ -44,7 +44,7 @@ To use the portal to start configuring content protection, global to your AMS ac
 
 ## Key/license authorization policy
 
-AMS supports multiple ways of authenticating users who make key or license requests. The content key authorization policy must be configured by you and met by your client in order for the key/license to be delived to the client. The content key authorization policy could have one or more authorization restrictions: open or token restriction.
+AMS supports multiple ways of authenticating users who make key or license requests. The content key authorization policy must be configured by you and met by your client in order for the key/license to be delived to the client. The content key authorization policy could have one or more authorization restrictions: **open** or **token** restriction.
 
 The Azure portal enables you to create one **key/license authorization policy** for all types of encryptions.
 
@@ -123,15 +123,17 @@ AES clear key encryption will be enabled on all streaming protocols: Smooth Stre
 
 When you select the DRM tab, you are presented with different choices of content protection policies (which you must have configured by now) + a set of streaming protocols.
 
-- PlayReady and Widevine with MPEG-DASH - will dynamically encrypt your MPEG-DASH stream with PlayReady and Widevine DRMs.
-- PlayReady and Widevine with MPEG-DASH + FairPlay with HLS - will dynamically encrypt you MPEG-DASH stream with PlayReady and Widevine DRMs. Will also encrypt your HLS streams with FairPlay.
-- PlayReady only with Smooth Streaming, HLS and MPEG-DASH - will dynamically encrypt Smooth Streaming, HLS, MPEG-DASH streams with PlayReady DRM.
-- Widevine only with MPEG-DASH - will dynamically encrypt you MPEG-DASH with Widevine DRM.
-- FairPlay only with HLS - will dynamically encrypt your HLS stream with FairPlay.
+- **PlayReady and Widevine with MPEG-DASH** - will dynamically encrypt your MPEG-DASH stream with PlayReady and Widevine DRMs.
+- **PlayReady and Widevine with MPEG-DASH + FairPlay with HLS** - will dynamically encrypt you MPEG-DASH stream with PlayReady and Widevine DRMs. Will also encrypt your HLS streams with FairPlay.
+- **PlayReady only with Smooth Streaming, HLS and MPEG-DASH** - will dynamically encrypt Smooth Streaming, HLS, MPEG-DASH streams with PlayReady DRM.
+- **Widevine only with MPEG-DASH** - will dynamically encrypt you MPEG-DASH with Widevine DRM.
+- **FairPlay only with HLS** - will dynamically encrypt your HLS stream with FairPlay.
 
 In order to enable FairPlay encription, you need to provide the App Certificate and Application Secret Key (ASK) through the FairPlay Configuration option of the Content Protection settings blade.
 
 ![Protect content](./media/media-services-portal-content-protection/media-services-content-protection009.png)
+
+Once you make the encryption selection, press **Apply**.
 
 ##Next steps
 
