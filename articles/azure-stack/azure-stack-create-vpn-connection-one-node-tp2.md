@@ -76,7 +76,7 @@ Deploying POC Environment 1
 For the first POC deployment, you must first prepare the deployment
 machine and then run the PowerShell deployment script. You can find
 step-by-step instructions online on [How to Deploy Azure Stack
-POC](azure-stack-run-powershell-script).
+POC](azure-stack-run-powershell-script.md).
 
 Deploying POC Environment 2
 ---------------------------

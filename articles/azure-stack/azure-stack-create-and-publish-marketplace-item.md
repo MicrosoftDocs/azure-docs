@@ -35,7 +35,7 @@
 
 4. Test the template with the Microsoft Azure Stack APIs to make sure that the resource can be deployed successfully.
 
-5. If your template relies on a virtual machine image, follow the instructions to [publish a virtual machine image to Azure Stack](azure-stack-add-image-pir.md).
+5. If your template relies on a virtual machine image, follow the instructions to [add a virtual machine image to Azure Stack](azure-stack-add-vm-image.md).
 
 6. Save your Azure Resource Manager template in the **/Contoso.TodoList/DeploymentTemplates/** folder.
 
