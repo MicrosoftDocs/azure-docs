@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="09/20/2016"
+	ms.date="09/21/2016"
 	ms.author="jroth" />
 
 # Provision a SQL Server virtual machine in the Azure Portal
@@ -141,9 +141,9 @@ If you would prefer to not enable connections to the Database Engine via the int
 - **Local (inside VM only)** to allow connections to SQL Server only from within the VM.
 - **Private (within Virtual Network)** to allow connections to SQL Server from machines or services in the same virtual network.
 
-In general, improve security by choosing the most restrictive connectivity that your scenario allows. But all the options are securable through Network Security Group rules and SQL/Windows Authentication.
+>[AZURE.NOTE] The virtual machine image for SQL Server Express edition does not automatically enable the TCP/IP protocol. This is true even for the Public and  Private connectivity options. For Express edition, you must use SQL Server Configuration Manager to [manually enable the TCP/IP protocol](#configure-sql-server-to-listen-on-the-tcp-protocol) after creating the VM.
 
->[AZURE.NOTE] Virtual machine images for SQL Server Express or Developer editions do not automatically enable the TCP/IP protocol. This prevents remote connectivity even if you selected Public or Private in the portal. For Express and Developer editions, you must use SQL Server Configuration Manager to [manually enable the TCP/IP protocol](virtual-machines-windows-sql-connect.md#configure-sql-server-to-listen-on-the-tcp-protocol) after creating the VM.
+In general, improve security by choosing the most restrictive connectivity that your scenario allows. But all the options are securable through Network Security Group rules and SQL/Windows Authentication.
 
 **Port** defaults to 1433. You can specify a different port number.
 For more information, see [Connect to a SQL Server Virtual Machine (Resource Manager) | Microsoft Azure](virtual-machines-windows-sql-connect.md).

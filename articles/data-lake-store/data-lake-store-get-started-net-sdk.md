@@ -125,7 +125,7 @@ The following snippet can be used use for an interactive log in experience. Use 
     var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"))
     var creds = UserTokenProvider.LoginWithPromptAsync(domain, activeDirectoryClientSettings).Result;
 
-Alternatively, the following snippet can be used to authenticate your application non-interactively, using the client secret / key for an application / service principal. Use this with an existing [Azure AD "Web App" Application](../resource-group/resource-group-create-service-principal-portal.md).
+Alternatively, the following snippet can be used to authenticate your application non-interactively, using the client secret / key for an application / service principal. Use this with an existing [Azure AD "Web App" Application](../resource-group-create-service-principal-portal.md).
 
     // Service principal / appplication authentication with client secret / key
     //    Use the client ID and certificate of an existing AAD "Web App" application.
@@ -136,7 +136,7 @@ Alternatively, the following snippet can be used to authenticate your applicatio
     var clientCredential = new ClientCredential(webApp_clientId, clientSecret);
     var creds = ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential).Result;
 
-As a third option, the following snippet can be used to authenticate your application non-interactively, using the certificate for an application / service principal. Use this with an existing [Azure AD "Web App" Application](../resource-group/resource-group-create-service-principal-portal.md).
+As a third option, the following snippet can be used to authenticate your application non-interactively, using the certificate for an application / service principal. Use this with an existing [Azure AD "Web App" Application](../resource-group-create-service-principal-portal.md).
 
     // Service principal / application authentication with certificate
     //    Use the client ID and certificate of an existing AAD "Web App" application.
