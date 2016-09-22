@@ -114,7 +114,7 @@ azure vm show-disk-encryption-status -g TestEncrypt -n TestVM
 ## Supporting services and encryption process
 To encrypt a virtual disk, there are some prerequisites and supporting Azure services that provide the security mechanisms. Disk encryption relies on the following components:
 
-- **Azure Key Vault** - used to safeguard cryptographic keys and secrets used for the disk encryption/decryption process. If one exists, you can use an existing Azure Key Vault. You do not have to dedicate a Key Vault to encrypting disks unless you wish to have separate administrative boundaries and visibility.
+- **Azure Key Vault** - used to safeguard cryptographic keys and secrets used for the disk encryption/decryption process. If one exists, you can use an existing Azure Key Vault. You do not have to dedicate a Key Vault to encrypting disks. To separate administrative boundaries and key visibility, you can create a dedicated Key Vault if desired.
 - **Azure Active Directory** - handles the secure exchanging of required cryptographic keys and authentication for requested actions. You can typically use an existing Azure Active Directory instance for housing your application. The application is more of an endpoint for the Key Vault and Virtual Machine services to request and get issued the appropriate cryptographic keys. You are not developing an actual application that integrates with Azure Active Directory.
 
 The process for encrypting a VM is as follows:
@@ -169,7 +169,7 @@ azure ad app create --name <TestEncryptApp> \
   --password P@ssw0rd!
 ```
 
-Make a note of the `applicationId` that is shown in the output from the preceding command. This application ID is used in some of the following steps. Next, you create a service principal name (SPN) so that the application is accessible within your environment. To successfully encrypt or decrypt virtual disks, permissions on the cryptographic key stored in Key Vault must be set to permit the Azure Active Directory application to read the keys. Create the SPN and set the appropriate permissions as follows:
+Make a note of the `applicationId` that is shown in the output from the preceding command. This application ID is used in some of the remaining steps. Next, you create a service principal name (SPN) so that the application is accessible within your environment. To successfully encrypt or decrypt virtual disks, permissions on the cryptographic key stored in Key Vault must be set to permit the Azure Active Directory application to read the keys. Create the SPN and set the appropriate permissions as follows:
 
 ```bash
 azure ad sp create --applicationId <applicationId>
