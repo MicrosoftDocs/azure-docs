@@ -16,7 +16,7 @@
 	ms.date="09/26/2016"
 	ms.author="scottnap"/>
 
-Introducing iDNS for Azure Stack
+# Introducing iDNS for Azure Stack
 ================================
 
 iDNS is a new feature in Technology Preview 2 for Azure Stack that

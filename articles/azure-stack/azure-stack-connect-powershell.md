@@ -35,10 +35,7 @@ In this guide, we walk through the steps for connecting to Azure Stack with Powe
 
 3.  To confirm the installation of AzureRM modules, execute the following commands:
 
-	    Get-Module -ListAvailable | where {$_.Name -match "AzureRM"}
 	    Get-Command -Module AzureRM.AzureStackAdmin
-
-	> [AZURE.NOTE] If you do not see AzureRM commands listed, restart the MAS-CON01 VM.  Once the machine has restarted, check for the modules by using the preceding steps again.
 
 ## Connect to Azure Stack
 In the following steps, you add an Azure environment. This step configures PowerShell for use with Azure Stack.  

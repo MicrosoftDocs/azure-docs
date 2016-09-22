@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/15/2016"
+	ms.date="09/26/2016"
 	ms.author="erikje"/>
 
 # Subscribe to an offer
@@ -24,7 +24,7 @@ Now that you've [created an offer](azure-stack-create-offer.md), test that your 
 
     ![](media/azure-stack-subscribe-plan-provision-vm/image01.png)
 
-2.  In the **Display Name** field, type a name for your subscription, click **Offer**, click one of the offers in the **Choose an offer** blade, and then click **OK**.
+2.  In the **Display Name** field, type a name for your subscription, click **Offer**, click one of the offers in the **Choose an offer** blade, and then click **Create**.
 
 	![](media/azure-stack-subscribe-plan-provision-vm/image02.png)
 

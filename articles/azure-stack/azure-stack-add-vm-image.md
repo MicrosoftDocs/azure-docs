@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/01/2016"
+	ms.date="09/26/2016"
 	ms.author="mattmcg"/>
 
 # Make a custom virtual machine image available in Azure Stack
@@ -35,11 +35,11 @@ Preview.
 If the VM image VHD is available locally on the console VM (or another externally connected device), use the following steps:
 
 1. Prepare a Windows or Linux operating system virtual hard disk image in VHD format (not VHDX).
-    -   For Windows images, the article [Upload a Windows VM image to Azure for Resource Manager deployments](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-upload-image/) contains image preparation instructions in the **Prepare the VHD for upload** section.
+    -   For Windows images, the article [Upload a Windows VM image to Azure for Resource Manager deployments](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/) contains image preparation instructions in the **Prepare the VHD for upload** section.
     -   For Linux images, follow the steps to
         prepare the image or use an existing Azure Stack Linux image as described in
         the article [Deploy Linux virtual machines on Azure
-        Stack](https://azure.microsoft.com/en-us/documentation/articles/azure-stack-linux/).
+        Stack](https://azure.microsoft.com/documentation/articles/azure-stack-linux/).
 
 2. Clone the [Azure Stack Tools repository](https://aka.ms/azurestackaddvmimage), and then go to the **AddVMImage** folder.
 3. Open PowerShell. Then, in the **AddVMImage** folder, run the following command:
@@ -103,7 +103,7 @@ One requirement of images is that they can be referenced by a Blob
 
 Follow the steps from [Upload a Windows VM image to Azure for
     Resource Manager
-    deployments](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-windows-upload-image/) article
+    deployments](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/) article
     through the step **Upload the VM image to your storage
     account**. Keep in mind the following:
 
@@ -146,4 +146,4 @@ step for the ‘Login to Azure’ step.
     Resource Manager template. To make the VM image
     more readily available for tenant consumption in the UI, it is best
     to [create a
-    Marketplace item](https://azure.microsoft.com/en-us/documentation/articles/azure-stack-create-marketplace-item/).
+    Marketplace item](https://azure.microsoft.com/documentation/articles/azure-stack-create-marketplace-item/).

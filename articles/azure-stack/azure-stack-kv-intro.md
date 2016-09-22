@@ -1,3 +1,21 @@
+<properties
+	pageTitle="Azure Stack Key Vault introduction | Microsoft Azure"
+	description="Learn how Azure Stack Key Vault manages keys and secrets"
+	services="azure-stack"
+	documentationCenter=""
+	authors="flfmendes"
+	manager="natmack"
+	editor=""/>
+
+<tags
+	ms.service="azure-stack"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="09/26/2016"
+	ms.author="ricardom"/>
+
 # Introduction to Key Vault in Azure Stack #
 
 ## Before you start
