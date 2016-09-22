@@ -84,7 +84,7 @@ azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.E
 }
 ```
 
-Azure CLI command.
+Azure CLI command:
 
 ```none
 azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config-path /public.json
@@ -98,7 +98,7 @@ azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.E
 }
 ```
 
-Azure CLI command.
+Azure CLI command:
 
 ```none
 azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config-path /public.json
@@ -106,13 +106,15 @@ azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.E
 
 **Example 3** - A public configuration file is used to specify the script file URI, and a protected configuration file is used to specify the command to be executed.
 
+Public configuration file:
+
 ```json
 {
   "fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],
 }
 ```
 
-protected configuration file.  
+Protected configuration file:  
 
 ```json
 {
@@ -120,7 +122,7 @@ protected configuration file.
 }
 ```
 
-Azure CLI command.
+Azure CLI command:
 
 ```none
 azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config-path ./public.json --private-config-path ./protected.json
