@@ -127,7 +127,7 @@ You can use Group Policy in Active Directory to configure your Windows 10 domain
 
 >[AZURE.NOTE]
 >For latest instructions on how to set up automatic device registration see, [How to set up automatic registration of Windows domain joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md)
- 
+
 
 >[AZURE.NOTE]
 > This Group Policy template has been renamed in Windows 10. If you are running the Group Policy tool from a Windows 10 computer, the policy will appear as: <br>
