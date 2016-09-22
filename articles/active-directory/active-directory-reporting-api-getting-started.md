@@ -22,7 +22,8 @@
 
 Azure Active Directory provides you with a variety of reports. The data of these reports can be very useful to your applications, such as SIEM systems, audit, and business intelligence tools. The Azure AD reporting APIs provide programmatic access to the data through a set of REST-based APIs. You can call these APIs from a variety of programming languages and tools.
 
-This article provides you with the information you need to get started with the Azure AD sign-in and audit APIs.
+This article provides you with the information you need to get started with the Azure AD reporting APIs.
+In the next section, you find more details about using the audit and sign-in APIs. For all other APIs, see LINK TO THE MSDN ARTICLE.
 
 For questions, issues or feedback, please contact [AAD Reporting Help](mailto:aadreportinghelp@microsoft.com).
 
@@ -47,4 +48,4 @@ For questions, issues or feedback, please contact [AAD Reporting Help](mailto:aa
 
 ## Next Steps
 
-Curious about which security, audit, and activity reports are available? Check out [Azure AD Security, Audit, and Activity Reports](active-directory-view-access-usage-reports.md). You can also see all of the available Azure AD Graph API endpoints by navigating to [https://graph.windows.net/tenant-name/reports/$metadata?api-version=beta](https://graph.windows.net/tenant-name/reports/$metadata?api-version=beta), which are documented in the [Azure AD Reports and Events (Preview)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-reports-and-events-preview) article.
+If you are curious to see all of the available Azure AD Graph API endpoints by navigating to [https://graph.windows.net/tenant-name/reports/$metadata?api-version=beta](https://graph.windows.net/tenant-name/reports/$metadata?api-version=beta), which are documented in the [Azure AD Reports and Events (Preview)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-reports-and-events-preview) article.
