@@ -22,7 +22,6 @@ Azure Storage is the cloud storage solution for modern applications that rely on
 
 Azure Storage is massively scalable, so you can store and process hundreds of terabytes of data to support the big data scenarios required by scientific, financial analysis, and media applications. Or you can store the small amounts of data required for a small business website. Wherever your needs fall, you pay only for the data you’re storing. Azure Storage currently stores tens of trillions of unique customer objects, and handles millions of requests per second on average.
 
-- [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)
 
 
 ## Standard storage
@@ -40,8 +39,32 @@ Premium storage features:
 
 - [Premium Storage](../storage/storage-premium-storage.md)
 
+## Premium Storage supported VMs
+Premium Storage supports DS-series, DSv2-series, GS-series, and Fs-series Azure Virtual Machines (VMs). You can use both Standard and Premium storage disks with Premium Storage supported of VMs. But you cannot use Premium Storage disks with VM series which are not Premium Storage compatible.
+
+Following are the Linux Distributions that we validated with Premium Storage.
+
+| Distribution | Version                 | Supported Kernel    |
+|--------------|-------------------------|---------------------|
+| Ubuntu       | 12.04                   | 3.2.0-75.110+       |
+| Ubuntu       | 14.04                   | 3.13.0-44.73+       |
+| Debian       | 7.x, 8.x                | 3.16.7-ckt4-1+      |
+| SLES         | SLES 12                 | 3.12.36-38.1+       |
+| SLES         | SLES 11 SP4             | 3.0.101-0.63.1+     |
+| CoreOS       | 584.0.0+                | 3.18.4+             |
+| Centos       | 6.5, 6.6, 6.7, 7.0, 7.1 | 3.10.0-229.1.2.el7+ |
+| RHEL         | 6.8+, 7.2+              |                     |
+
+
 ## File storage
 
+Azure File storage offers file shares in the cloud using the standard SMB protocol. With Azure Files, you can migrate enterprise applications that rely on file servers to Azure. Applications running in Azure can easily mount file shares from Azure virtual machines running Linux. And with the latest release of File storage, you can also mount a file share from an on-premises application that supports SMB 3.0.  Because file shares are SMB shares, you can access them via standard file system APIs.
+
+File storage is built on the same technology as Blob, Table, and Queue storage, so File storage offers the availability, durability, scalability, and geo-redundancy that is built into the Azure storage platform. For details about File storage performance targets and limits, see Azure Storage Scalability and Performance Targets.
+
+File storage is now generally available and supports both SMB 2.1 and SMB 3.0. For additional details on File storage, see the File service REST API.
+
+- [How to use Azure File Storage with Linux](../storage/storage-how-to-use-files-linux.md)
 
 ## Redundancy
 
