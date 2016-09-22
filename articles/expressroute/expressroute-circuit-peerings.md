@@ -17,7 +17,7 @@
 
 # ExpressRoute circuits and routing domains
 
- You must order an *ExpressRoute circuit* to connect your on-premises infrastructure to Microsoft through a connectivity provider. The figure below provides a logical representation of connectivity between your WAN and Microsoft.  
+ You must order an *ExpressRoute circuit* to connect your on-premises infrastructure to Microsoft through a connectivity provider. The figure below provides a logical representation of connectivity between your WAN and Microsoft.
 
 ![](./media/expressroute-circuit-peerings/expressroute-basic.png)
 
