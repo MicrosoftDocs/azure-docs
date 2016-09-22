@@ -45,6 +45,7 @@ An automated backup is retained for 7 days for Basic, 35 days for Standard, and 
 After downgrading to a lower performance tier, the restore point’s retention period is immediately truncated to the retention period of the performance tier of the current database. If the service tier is upgraded, the retention period will begin extending only after the database is upgraded. For example, if a database is downgraded to Basic, the retention period changes from 35 days to 7 days. Immediately, all the restore points older than seven days are not available. When you upgrade a database Standard or Premium, the retention period begins with 7 days and grows until it reaches 35 days.
 
 **How long is the retention period for a dropped DB?** 
+
 The retention period is determined by the service tier of the database while it existed or the number of days where the database exists, whichever is less.
 
 > [AZURE.IMPORTANT] If you delete an Azure SQL Database server instance, all databases that belong to the instance are also deleted and cannot be recovered. You cannot restore a deleted server.
