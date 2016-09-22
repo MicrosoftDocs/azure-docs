@@ -20,6 +20,16 @@
 
 This article explains different compute environments that you can use to process or transform data. It also provides details about different configurations (on-demand vs. bring your own) supported by Data Factory when configuring linked services linking these compute environments to an Azure data factory.
 
+The following table provides a list of compute environments supported by Data Factory and the activities that can run on them. 
+
+| Compute environment | activities |
+| ------------------- | -------- | 
+| [On-demand HDInsight cluster](#azure-hdinsight-on-demand-linked-service) or [your own HDInsight cluster](#azure-hdinsight-linked-service) | [DotNet](../articles/data-factory/data-factory-use-custom-activities.md), [Hive](../articles/data-factory/data-factory-hive-activity.md), [Pig](../articles/data-factory/data-factory-pig-activity.md), [MapReduce](../articles/data-factory/data-factory-map-reduce.md), [Hadoop Streaming](../articles/data-factory/data-factory-hadoop-streaming-activity.md) | 
+| [Azure Batch](#azure-batch-linked-service) | [DotNet](../articles/data-factory/data-factory-use-custom-activities.md) |  
+| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning activities: Batch Execution and Update Resource](../articles/data-factory/data-factory-azure-ml-batch-execution-activity.md) |
+| [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](../articles/data-factory/data-factory-usql-activity.md)
+[Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Stored Procedure](../articles/data-factory/data-factory-stored-proc-activity.md)
+
 ## On-demand compute environment
 
 In this type of configuration, the computing environment is fully managed by the Azure Data Factory service. It is automatically created by the Data Factory service before a job is submitted to process data and removed when the job is completed. You can create a linked service for the on-demand compute environment, configure it, and control granular settings for job execution, cluster management, and bootstrapping actions.

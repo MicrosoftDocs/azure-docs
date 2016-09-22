@@ -1,4 +1,4 @@
-Azure Data Factory supports the following transformation activities that can be added to [pipelines](data-factory-create-pipelines.md) either individually or chained with another activity.
+Azure Data Factory supports the following transformation activities that can be added to pipelines either individually or chained with another activity.
 
 Data transformation activity |  Compute environment 
 :----------------------- | :--------------------
