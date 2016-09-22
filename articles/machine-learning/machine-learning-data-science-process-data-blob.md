@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016"
-	ms.author="sunliangms;fashah;garye;bradsev" /> 
+	ms.date="09/19/2016"
+	ms.author="fashah;garye;bradsev" /> 
 
 #<a name="heading"></a>Process Azure blob data with advanced analytics
 
 This document covers exploring data and generating features from data stored in Azure Blob storage. 
 
 ## Load the data into a Pandas data frame
-In order to do explore and manipulate a dataset, it must be downloaded from the blob source to a local file which can then be loaded in a Pandas data frame. Here are the steps to follow for this procedure:
+In order to explore and manipulate a dataset, it must be downloaded from the blob source to a local file which can then be loaded in a Pandas data frame. Here are the steps to follow for this procedure:
 
 1. Download the data from Azure blob with the following sample Python code using blob service. Replace the variable in the code below with your specific values: 
 

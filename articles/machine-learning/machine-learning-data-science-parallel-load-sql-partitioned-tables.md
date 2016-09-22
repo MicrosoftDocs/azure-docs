@@ -13,23 +13,24 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="09/19/2016" 
 	ms.author="bradsev" /> 
 
 # Parallel Bulk Data Import Using SQL Partition Tables
 
-This document describes how to build partitioned table(s) for fast parallel bulk importing of data to a SQL Server database. For big data loading/transfer to an SQL database, importing data to the SQL DB and subsequent queries can be improved by using _Partitioned Tables and Views_. 
+This document describes how to build partitioned table(s) for fast parallel bulk importing of data to a SQL Server database. For big data loading/transfer to a SQL database, importing data to the SQL DB and subsequent queries can be improved by using _Partitioned Tables and Views_. 
 
 
 ## Create a new database and a set of filegroups
 
-- [Create a new database](https://technet.microsoft.com/library/ms176061.aspx) (if not exists)
+- [Create a new database](https://technet.microsoft.com/library/ms176061.aspx) (if it doesn't exist)
 - Add database filegroups to the database which will hold the partitioned physical files
-- Note: This can be done with [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) if new or [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) if database exists already
+
+  Note: This can be done with [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) if new or [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) if the database exists already
 
 - Add one or more files (as needed) to each database filegroup
 
- > [AZURE.NOTE] Specify the target filegroup which hold data for this partition and the physical database file name(s) where the filegroup data will be stored.
+ > [AZURE.NOTE] Specify the target filegroup which holds data for this partition and the physical database file name(s) where the filegroup data will be stored.
  
 The following example creates a new database with three filegroups other than the primary and log groups, containing one physical file in each. The database files are created in the default SQL Server Data folder, as configured in the SQL Server instance. For more information about the default file locations, see [File Locations for Default and Named Instances of SQL Server](https://msdn.microsoft.com/library/ms143547.aspx).
 
@@ -74,7 +75,7 @@ Create partitioned table(s) according to the data schema, mapped to the database
 	    <filegroup_5>, <filegroup_6>, <filegroup_7>, <filegroup_8>,
 	    <filegroup_9>, <filegroup_10>, <filegroup_11>, <filegroup_12> )
 
-- Tip: To verify the ranges in effect in each partition according to the function/scheme, run the following query:
+  Tip: To verify the ranges in effect in each partition according to the function/scheme, run the following query:
 
 	    SELECT psch.name as PartitionScheme,
 	    	prng.value AS ParitionValue,
@@ -89,7 +90,7 @@ Create partitioned table(s) according to the data schema, mapped to the database
 	    CREATE TABLE <table_name> ( [include schema definition here] )
 	    ON <TablePScheme>(<partition_field>)
 
-- For more information, see [Create Partitioned Tables and Indexes](https://msdn.microsoft.com/library/ms188730.aspx).
+For more information, see [Create Partitioned Tables and Indexes](https://msdn.microsoft.com/library/ms188730.aspx).
 
 
 ## Bulk import the data for each individual partition table

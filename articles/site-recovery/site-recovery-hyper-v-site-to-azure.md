@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="05/09/2016"
+	ms.date="09/19/2016"
 	ms.author="raynew"/>
 
 
@@ -193,11 +193,11 @@ Set up the Hyper-V site, install the Azure Site Recovery Provider and the Azure 
 1. Run the Provider setup file.
 2. In **Microsoft Update** you can opt in for updates so that Provider updates are installed in accordance with your Microsoft Update policy.
 3. In **Installation** accept or modify the default Provider installation location and click **Install**.
-5. In **Vault Settings** page, click **Browse** to select the vault key file that you downloaded. Specify the Azure Site Recovery subscription, the vault name, and the Hyper-V site to which the Hyper-V server belongs.
+4. In **Vault Settings** page, click **Browse** to select the vault key file that you downloaded. Specify the Azure Site Recovery subscription, the vault name, and the Hyper-V site to which the Hyper-V server belongs.
 
 	![Server registration](./media/site-recovery-hyper-v-site-to-azure/provider3.png)
 
-4.In **Proxy Settings** specify how the Provider that will be installed on the server will connect to Azure Site Recovery over the internet.
+5.In **Proxy Settings** specify how the Provider that will be installed on the server will connect to Azure Site Recovery over the internet.
 
 - If you want the Provider to connect directly select **Connect directly without a proxy**.
 - If you want to connect with the proxy that's currently set up on the server select **Connect with existing proxy settings**.
@@ -207,10 +207,10 @@ Set up the Hyper-V site, install the Azure Site Recovery Provider and the Azure 
 
 	![internet](./media/site-recovery-hyper-v-site-to-azure/provider7.PNG)
 
-5.After installation finishes click **Register** to register the server in the vault.	
+6.After installation finishes click **Register** to register the server in the vault.	
 	![Install location](./media/site-recovery-hyper-v-site-to-azure/provider2.png)
 
-6.After registration finishes metadata from the Hyper-V server is retrieved by Azure Site Recovery and the server is displayed on the **Settings** > **Site Recovery Infrastructure** > **Hyper-V Hosts** blade.
+7.After registration finishes metadata from the Hyper-V server is retrieved by Azure Site Recovery and the server is displayed on the **Settings** > **Site Recovery Infrastructure** > **Hyper-V Hosts** blade.
 
 
 ### Command line installation
