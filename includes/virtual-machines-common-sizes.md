@@ -64,7 +64,7 @@ We have created the concept of the Azure Compute Unit (ACU) to provide a way of 
 |[F1s-F16s](#fs-series) | 210-250*|
 |[G1-5](#g-series)	|180 - 240*|
 |[GS1-5](#gs-series)	|180 - 240*|
-|[H](#h-series)	|298|
+|[H](#h-series)	|290 - 300*|
 
 
 ACUs marked with a * use Intel® Turbo technology to increase CPU frequency and provide a performance boost.  The amount of the boost can vary based on the VM size, workload, and other workloads running on the same host.
@@ -246,10 +246,9 @@ MBps = 10^6 bytes per second, and GiB = 1024^3 bytes.
 <br>
 ## H-series
 
-Azure H-series virtual machines are next generation high performance computing VMs. Aimed at high end computational needs, like molecular modeling, computational fluid dynamics and similar. These VMs are built on Intel Haswell processor technology specifically E5-2667 V3 processors with 8 and 16 core VM sizes both featuring DDR4 memory and local SSD based storage. 
+Azure H-series virtual machines are the next generation high performance computing VMs aimed at high end computational needs, like molecular modeling, and computational fluid dynamics. These 8 and 16 core VMs are built on the Intel Haswell E5-2667 V3 processor technology featuring DDR4 memory and local SSD based storage. 
 
-The H-series line up offers, besides substantial CPU power, diverse options for RDMA and low latency capable networking using FDR InfiniBand along with several memory configurations to support memory intensive computational requirements.
-
+In addition to the substantial CPU power, the H-series offers diverse options for low latency RDMA networking using FDR InfiniBand and several memory configurations to support memory intensive computational requirements.
 
 
 | Size           | CPU cores | Memory: GiB | Local SSD disk size: GiB | Max data disks | Max disk throughput: IOPS | Max NICs / Network bandwidth |
