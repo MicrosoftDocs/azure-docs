@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/29/2016"
+	ms.date="09/26/2016"
 	ms.author="erikje"/>
 
 # Add a new Azure Stack tenant account in Azure Active Directory
@@ -90,6 +90,3 @@ If you don't have an Azure subscription, you can't use the Azure portal to add a
 
 
 
-## Next steps
-
-[Enable multiple concurrent user connections](azure-stack-enable-multiple-concurrent-users.md)
