@@ -192,7 +192,7 @@ Following is a drill down view of Configuration Change event after selecting **S
 
 
 ## Output data
-ADM’s computer and process inventory data is available for [search](../log-analytics/log-analytics-log-search.md) in Log Analytics.  This can be applied to scenarios including migration planning, capacity analysis, discovery, and ad hoc performance troubleshooting. 
+ADM’s computer and process inventory data is available for [search](../log-analytics/log-analytics-log-searches.md) in Log Analytics.  This can be applied to scenarios including migration planning, capacity analysis, discovery, and ad hoc performance troubleshooting. 
 
 One record is generated per hour for each unique computer and process in addition to records generated when that process or computer starts or is on-boarded to ADM.  These records have the properties in the following tables. 
 
