@@ -15,7 +15,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="03/28/2016"
+      ms.date="09/16/2016"
       ms.author="v-jibran@microsoft.com"/>
 
 # Quickstart for the Azure AD Graph API

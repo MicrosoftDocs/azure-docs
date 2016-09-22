@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="Managing Concurrency in Microsoft Azure Storage"
 	description="How to manage concurrency for the Blob, Queue, Table, and File services"
 	services="storage"
@@ -14,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="02/20/2016"
-	ms.author="jahogg"/>
+	ms.author="jahogg;tamram"/>
 
 # Managing Concurrency in Microsoft Azure Storage
 
@@ -86,40 +86,41 @@ The Storage Service also includes support for additional conditional headers suc
 
 The following table summarizes the container operations that accept conditional headers such as **If-Match** in the request and that return an ETag value in the response.  
 
-Operation	|Returns Container ETag value|	Accepts conditional headers|
-------------|-----------------------|------------------------------------|
-Create Container|	Yes|	No|
-Get Container Properties|	Yes|	No|
-Get Container Metadata|	Yes|	No|
-Set Container Metadata|	Yes|	Yes|
-Get Container ACL|	Yes|	No|
-Set Container ACL|	Yes|	Yes (*)|
-Delete Container|	No|	Yes|
-Lease Container|	Yes|	Yes|
-List Blobs|	No|	No  
+| Operation                | Returns Container ETag value | Accepts conditional headers |
+|:-------------------------|:-----------------------------|:----------------------------|
+| Create Container         | Yes                          | No                          |
+| Get Container Properties | Yes                          | No                          |
+| Get Container Metadata   | Yes                          | No                          |
+| Set Container Metadata   | Yes                          | Yes                         |
+| Get Container ACL        | Yes                          | No                          |
+| Set Container ACL        | Yes                          | Yes (*)                     |
+| Delete Container         | No                           | Yes                         |
+| Lease Container          | Yes                          | Yes                         |
+| List Blobs               | No                           | No                          |
 
 (*) The permissions defined by SetContainerACL are cached and updates to these permissions take 30 seconds to propagate during which period updates are not guaranteed to be consistent.  
 
-The following table summarizes the blob operations that accept conditional headers such as **If-Match** in the request and that return an ETag value in the response.  
+The following table summarizes the blob operations that accept conditional headers such as **If-Match** in the request and that return an ETag value in the response.
 
-Operation	|Returns ETag value	|Accepts conditional headers|
------------|-------------------|----------------------------|
-Put Blob|	Yes|	Yes|
-Get Blob|	Yes|	Yes|
-Get Blob Properties|	Yes|	Yes|
-Set Blob Properties|	Yes|	Yes|
-Get Blob Metadata|	Yes|	Yes|
-Set Blob Metadata|	Yes|	Yes|
-Lease Blob (*)|	Yes|	Yes|
-Snapshot Blob|	Yes|	Yes|
-Copy Blob|	Yes|	Yes (for source and destination blob)|
-Abort Copy Blob|	No|	No|
-Delete Blob|	No|	Yes|
-Put Block|	No|	No|
-Put Block List|	Yes|	Yes|
-Get Block List|	Yes|	No|
-Put Page|	Yes|	Yes|
-Get Page Ranges|	Yes|	Yes
+| Operation           | Returns ETag value | Accepts conditional headers           |
+|:--------------------|:-------------------|:--------------------------------------|
+| Put Blob            | Yes                | Yes                                   |
+| Get Blob            | Yes                | Yes                                   |
+| Get Blob Properties | Yes                | Yes                                   |
+| Set Blob Properties | Yes                | Yes                                   |
+| Get Blob Metadata   | Yes                | Yes                                   |
+| Set Blob Metadata   | Yes                | Yes                                   |
+| Lease Blob (*)      | Yes                | Yes                                   |
+| Snapshot Blob       | Yes                | Yes                                   |
+| Copy Blob           | Yes                | Yes (for source and destination blob) |
+| Abort Copy Blob     | No                 | No                                    |
+| Delete Blob         | No                 | Yes                                   |
+| Put Block           | No                 | No                                    |
+| Put Block List      | Yes                | Yes                                   |
+| Get Block List      | Yes                | No                                    |
+| Put Page            | Yes                | Yes                                   |
+| Get Page Ranges     | Yes                | Yes                                   |
+
 
 (*) Lease Blob does not change the ETag on a blob.  
 
@@ -228,19 +229,19 @@ The following C# snippet shows a customer entity that was previously either crea
 
 To explicitly disable the concurrency check, you should set the **ETag** property of the **employee** object to “*” before you execute the replace operation.  
 
-customer.ETag = "*";  
+	customer.ETag = "*";  
 
-The following table summarizes how the table entity operations use ETag values:  
+The following table summarizes how the table entity operations use ETag values:
 
-Operation	|Returns ETag value	|Requires If-Match request header|
-------------|-------------------|--------------------------------|
-Query Entities|	Yes|	No|
-Insert Entity|	Yes|	No|
-Update Entity|	Yes|	Yes|
-Merge Entity|	Yes|	Yes|
-Delete Entity|	No|	Yes|
-Insert or Replace Entity|	Yes|	No|
-Insert or Merge Entity|	Yes|	No
+| Operation                | Returns ETag value | Requires If-Match request header |
+|:-------------------------|:-------------------|:---------------------------------|
+| Query Entities           | Yes                | No                               |
+| Insert Entity            | Yes                | No                               |
+| Update Entity            | Yes                | Yes                              |
+| Merge Entity             | Yes                | Yes                              |
+| Delete Entity            | No                 | Yes                              |
+| Insert or Replace Entity | Yes                | No                               |
+| Insert or Merge Entity   | Yes                | No                               |
 
 Note that the **Insert or Replace Entity** and **Insert or Merge Entity** operations do *not* perform any concurrency checks because they do not send an ETag value to the table service.  
 

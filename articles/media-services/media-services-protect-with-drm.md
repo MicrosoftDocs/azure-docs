@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Using PlayReady and/or Widevine Dynamic Common Encryption | Microsoft Azure"
+	pageTitle="Using PlayReady and/or Widevine dynamic common encryption | Microsoft Azure"
 	description="Microsoft Azure Media Services enables you to deliver MPEG-DASH, Smooth Streaming, and Http-Live-Streaming (HLS) streams protected with Microsoft PlayReady DRM. It also enables you to delivery DASH encrypted with Widevine DRM. This topic shows how to dynamically encrypt with PlayReady and Widevine DRM."
 	services="media-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="09/15/2016"
+	ms.date="09/19/2016"
 	ms.author="juliako;mingfeiy"/>
 
 
@@ -37,7 +37,7 @@ To take advantage of dynamic encryption, you need to have an asset that contains
 
 This topic would be useful to developers that work on applications that deliver media protected with multiple DRMs, such as PlayReady and Widevine. The topic shows you how to configure the PlayReady license delivery service with authorization policies so that only authorized clients could receive PlayReady or Widevine licenses. It also shows how to use dynamic encryption encryption with PlayReady or Widevine DRM over DASH.
 
->[AZURE.NOTE]To start using dynamic encryption, you must first get at least one scale unit (also known as streaming unit). For more information, see [How to Scale a Media Service](media-services-manage-origins.md#scale_streaming_endpoints).
+>[AZURE.NOTE]To start using dynamic encryption, you must first get at least one scale unit (also known as streaming unit). For more information, see [How to Scale a Media Service](media-services-portal-manage-streaming-endpoints.md).
 
 
 ##Download sample
@@ -48,15 +48,15 @@ You can download the sample described in this article from [here](https://github
 
 The following are general steps that you would need to perform when protecting your assets with PlayReady, using the Media Services license delivery service, and also using dynamic encryption.
 
-1. Create an asset and upload files into the asset. 
+1. Create an asset and upload files into the asset.
 1. Encode the asset containing the file to the adaptive bitrate MP4 set.
-1. Create a content key and associate it with the encoded asset. In Media Services, the content key contains the asset’s encryption key. 
+1. Create a content key and associate it with the encoded asset. In Media Services, the content key contains the asset’s encryption key.
 1. Configure the content key’s authorization policy. The content key authorization policy must be configured by you and met by the client in order for the content key to be delivered to the client.
 
-	When creating the content key authorization policy, you need to specify the following: delivery method (PlayReady or Widevine), restrictions (open or token), and information specific to the key delivery type that defines how the key is delivered to the client ([PlayReady](media-services-playready-license-template-overview.md) or [Widevine](media-services-widevine-license-template-overview.md) license template). 
-1. Configure the delivery policy for an asset. The delivery policy configuration includes: delivery protocol (for example, MPEG DASH, HLS, HDS, Smooth Streaming or all), the type of dynamic encryption (for example, Common Encryption), PlayReady or Widevine license acquisition URL. 
- 
-	You could apply different policy to each protocol on the same asset. For example, you could apply PlayReady encryption to Smooth/DASH and AES Envelope to HLS. Any protocols that are not defined in a delivery policy (for example, you add a single policy that only specifies HLS as the protocol) will be blocked from streaming. The exception to this is if you have no asset delivery policy defined at all. Then, all protocols will be allowed in the clear.
+When creating the content key authorization policy, you need to specify the following: delivery method (PlayReady or Widevine), restrictions (open or token), and information specific to the key delivery type that defines how the key is delivered to the client ([PlayReady](media-services-playready-license-template-overview.md) or [Widevine](media-services-widevine-license-template-overview.md) license template).
+1. Configure the delivery policy for an asset. The delivery policy configuration includes: delivery protocol (for example, MPEG DASH, HLS, HDS, Smooth Streaming or all), the type of dynamic encryption (for example, Common Encryption), PlayReady or Widevine license acquisition URL.
+
+You could apply different policy to each protocol on the same asset. For example, you could apply PlayReady encryption to Smooth/DASH and AES Envelope to HLS. Any protocols that are not defined in a delivery policy (for example, you add a single policy that only specifies HLS as the protocol) will be blocked from streaming. The exception to this is if you have no asset delivery policy defined at all. Then, all protocols will be allowed in the clear.
 1. Create an OnDemand locator in order to get a streaming URL.
 
 You will find a complete .NET example at the end of the topic.
@@ -65,17 +65,17 @@ The following image demonstrates the workflow described above. Here the token is
 
 ![Protect with PlayReady](./media/media-services-content-protection-overview/media-services-content-protection-with-drm.png)
 
-The rest of this topic provides detailed explanations, code examples, and links to topics that show you how to achieve the tasks described above. 
+The rest of this topic provides detailed explanations, code examples, and links to topics that show you how to achieve the tasks described above.
 
 ##Current limitations
 
 If you add or update an asset delivery policy, you must delete the associated locator (if any) and create a new locator.
 
-Limitation when encrypting with Widevine with Azure Media Services: currently, multiple content keys are not supported. 
+Limitation when encrypting with Widevine with Azure Media Services: currently, multiple content keys are not supported.
 
 ##Create an asset and upload files into the asset
 
-In order to manage, encode, and stream your videos, you must first upload your content into Microsoft Azure Media Services. Once uploaded, your content is stored securely in the cloud for further processing and streaming. 
+In order to manage, encode, and stream your videos, you must first upload your content into Microsoft Azure Media Services. Once uploaded, your content is stored securely in the cloud for further processing and streaming.
 
 For detailed information, see [Upload Files into a Media Services account](media-services-dotnet-upload-files.md).
 
@@ -84,7 +84,7 @@ For detailed information, see [Upload Files into a Media Services account](media
 With dynamic encryption all you need is to create an asset that contains a set of multi-bitrate MP4 files or multi-bitrate Smooth Streaming source files. Then, based on the specified format in the manifest and fragment request, the On-Demand Streaming server will ensure that you receive the stream in the protocol you have chosen. As a result, you only need to store and pay for the files in single storage format and Media Services service will build and serve the appropriate response based on requests from a client. For more information, see the [Dynamic Packaging Overview](media-services-dynamic-packaging-overview.md) topic.
 
 For instructions on how to encode, see [How to encode an asset using Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md).
-	
+
 
 ##<a id="create_contentkey"></a>Create a content key and associate it with the encoded asset
 
