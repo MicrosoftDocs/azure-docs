@@ -13,7 +13,7 @@
 	ms.workload="data-management"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
-	ms.date="09/14/2016"
+	ms.date="09/19/2016"
 	ms.author="sstein"/>
 
 
@@ -78,7 +78,7 @@ To view your databases server name, click **Overview** on the **SQL database** b
 To view, create, or update firewall rules, click **Set server firewall** on the **SQL database** blade. For details, see [Configure an Azure SQL Database server-level firewall rule using the Azure portal](sql-database-configure-firewall-settings.md).
 
 
-![firewall rules](./media/sql-database-manage-portal/commands.png)
+![firewall rules](./media/sql-database-manage-portal/sql-database-firewall.png)
 
 
 ## How do I change my SQL database service tier or performance level?
@@ -128,14 +128,14 @@ To failover to a geo-replicated secondary, click **Geo-Replication** on the **SQ
 To copy a SQL database, click **Copy** on the **SQL database** blade. For details, see [Copy an Azure SQL database using the Azure portal](sql-database-copy-portal.md).
 
 
-![SQL database settings](./media/sql-database-manage-portal/commands.png)
+![SQL database settings](./media/sql-database-manage-portal/sql-database-copy.png)
 
 ## How do I archive an Azure SQL database to a BACPAC file?
 
 To create a BACPAC of a SQL database, click **Export** on the **SQL database** blade. For details, see [Archive an Azure SQL database to a BACPAC file using the Azure portal](sql-database-export.md).
 
 
-![SQL database export](./media/sql-database-manage-portal/commands.png)
+![SQL database export](./media/sql-database-manage-portal/sql-database-export.png)
 
 
 
@@ -144,7 +144,7 @@ To create a BACPAC of a SQL database, click **Export** on the **SQL database** b
 To restore a SQL database, click **Restore** on the **SQL database** blade. For details, see [Restore an Azure SQL Database to a previous point in time with the Azure portal](sql-database-point-in-time-restore-portal.md).
 
 
-![SQL database settings](./media/sql-database-manage-portal/commands.png)
+![SQL database settings](./media/sql-database-manage-portal/sql-database-restore.png)
 
 
 ## How do I create an Azure SQL database from a BACPAC file?
@@ -163,7 +163,7 @@ To restore a deleted SQL database, click **Deleted databases** on the **SQL serv
 
 To delete a SQL database, click **Delete** on the **SQL database** blade. 
 
-![SQL database settings](./media/sql-database-manage-portal/commands.png)
+![SQL database settings](./media/sql-database-manage-portal/sql-database-delete.png)
 
 
 

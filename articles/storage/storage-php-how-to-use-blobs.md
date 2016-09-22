@@ -14,7 +14,7 @@
 	ms.devlang="PHP"
 	ms.topic="article"
     	ms.date="08/11/2016"
-	ms.author="robmcm"/>
+	ms.author="jwillis;robmcm"/>
 
 # How to use blob storage from PHP
 

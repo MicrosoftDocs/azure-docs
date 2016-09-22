@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="09/19/2016"
 	ms.author="fashah;bradsev"/>
 
 
@@ -76,7 +76,7 @@ To set up your Azure Data Science environment:
 
 1. [Create a storage account](../storage/storage-create-storage-account.md)
 
-2. [Create an Azure ML workspace](machine-learning-create-workspace.md)
+2. [Create an Azure Machine Learning workspace](machine-learning-create-workspace.md)
 
 3. [Provision a Data Science Virtual Machine](machine-learning-data-science-setup-sql-server-virtual-machine.md), which will serve as a SQL Server as well an IPython Notebook server.
 
@@ -613,7 +613,7 @@ We are now ready to proceed to model building and model deployment in [Azure Mac
 
 ## <a name="mlmodel"></a>Building Models in Azure Machine Learning
 
-To begin the modeling exercise, log in to your Azure Machine Learning workspace. If you have not yet created a machine learning workspace, see [Create an Azure ML workspace](machine-learning-create-workspace.md).
+To begin the modeling exercise, log in to your Azure Machine Learning workspace. If you have not yet created a machine learning workspace, see [Create an Azure Machine Learning workspace](machine-learning-create-workspace.md).
 
 1. To get started with Azure Machine Learning, see [What is Azure Machine Learning Studio?](machine-learning-what-is-ml-studio.md)
 
@@ -624,7 +624,7 @@ To begin the modeling exercise, log in to your Azure Machine Learning workspace.
 A typical training experiment consists of the following:
 
 1. Create a **+NEW** experiment.
-2. Get the data to Azure ML.
+2. Get the data to Azure Machine Learning.
 3. Pre-process, transform and manipulate the data as needed.
 4. Generate features as needed.
 5. Split the data into training/validation/testing datasets(or have separate datasets for each).
@@ -634,11 +634,11 @@ A typical training experiment consists of the following:
 9. Evaluate the model(s) to compute the relevant metrics for the learning problem.
 10. Fine tune the model(s) and select the best model to deploy.
 
-In this exercise, we have already explored and engineered the data in SQL Server, and decided on the sample size to ingest in Azure ML. To build one or more of the prediction models we decided:
+In this exercise, we have already explored and engineered the data in SQL Server, and decided on the sample size to ingest in Azure Machine Learning. To build one or more of the prediction models we decided:
 
-1. Get the data to Azure ML using the [Import Data][import-data] module, available in the **Data Input and Output** section. For more information, see the [Import Data][import-data] module reference page.
+1. Get the data to Azure Machine Learning using the [Import Data][import-data] module, available in the **Data Input and Output** section. For more information, see the [Import Data][import-data] module reference page.
 
-	![Azure ML Import Data][17]
+	![Azure Machine Learning Import Data][17]
 
 2. Select **Azure SQL Database** as the **Data source** in the **Properties** panel.
 
@@ -654,7 +654,7 @@ In this exercise, we have already explored and engineered the data in SQL Server
 
 An example of a binary classification experiment reading data directly from the SQL Server database is in the figure below. Similar experiments can be constructed for multiclass classification and regression problems.
 
-![Azure ML Train][10]
+![Azure Machine Learning Train][10]
 
 > [AZURE.IMPORTANT] In the modeling data extraction and sampling query examples provided in previous sections, **all labels for the three modeling exercises are included in the query**. An important (required) step in each of the modeling exercises is to **exclude** the unnecessary labels for the other two problems, and any other **target leaks**. For e.g., when using binary classification, use the label **tipped** and exclude the fields **tip\_class**, **tip\_amount**, and **total\_amount**. The latter are target leaks since they imply the tip paid.
 >
@@ -662,7 +662,7 @@ An example of a binary classification experiment reading data directly from the 
 
 ## <a name="mldeploy"></a>Deploying Models in Azure Machine Learning
 
-When your model is ready, you can easily deploy it as a web service directly from the experiment. For more information about deploying Azure ML web services, see [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md).
+When your model is ready, you can easily deploy it as a web service directly from the experiment. For more information about deploying Azure Machine Learning web services, see [Deploy an Azure Machine Learning web service](machine-learning-publish-a-machine-learning-web-service.md).
 
 To deploy a new web service, you need to:
 
@@ -683,7 +683,7 @@ When the scoring experiment is created, review it and adjust as needed. A typica
 
 A sample scoring experiment is in the figure below. When ready to deploy, click the **PUBLISH WEB SERVICE** button in the lower action bar.
 
-![Azure ML Publish][11]
+![Azure Machine Learning Publish][11]
 
 To recap, in this walkthrough tutorial, you have created an Azure data science environment, worked with a large public dataset all the way from data acquisition to model training and deploying of an Azure Machine Learning web service.
 
