@@ -18,6 +18,8 @@
 
 # Deploy the SQL Server Resource Provider Adapter on Azure Stack
 
+> [AZURE.NOTE] The following information only applies to Azure Stack TP1 deployments.
+
 Use this article to follow the detailed steps for setting up the SQL Server Resource Provider Adapter on the Azure Stack proof of concept (POC). See [use SQL databases on Azure Stack](azure-stack-sql-rp-deploy-short.md) to understand resource provider capabilities and architecture.
 
 ## Set up steps before you deploy
