@@ -60,7 +60,7 @@ Follow this link to see the JSON sample within the Resource Manager template –
 ```
 The availability set as seen from the Azure portal. Each virtual machine and details about the configuration are detailed here.
 
-![](./media/virtual-machines-linux-dotnet-core/aset.png)
+![Availability Set](./media/virtual-machines-linux-dotnet-core/aset.png)
 
 For in-depth information on Availability Sets, see [Manage availability of virtual machines](./virtual-machines-linux-manage-availability.md). 
 
@@ -102,7 +102,7 @@ Follow this link to see the JSON sample within the Resource Manager template –
 
 From the Azure portal, the network load balancer overview shows the association with the public IP address.
 
-![](./media/virtual-machines-linux-dotnet-core/nlb.png)
+![Network Load Balancer](./media/virtual-machines-linux-dotnet-core/nlb.png)
 
 ## Load Balancer Rule
 
@@ -137,7 +137,7 @@ Follow this link to see the JSON sample within the Resource Manager template –
 
 A view of the network load balancer rule from the portal.
 
-![](./media/virtual-machines-linux-dotnet-core/lbrule.png)
+![Network Load Balancer Rule](./media/virtual-machines-linux-dotnet-core/lbrule.png)
 
 ## Load Balancer Probe
 
@@ -162,7 +162,7 @@ Follow this link to see the JSON sample within the Resource Manager template –
 
 The load balancer probe seen from the Azure portal.
 
-![](./media/virtual-machines-linux-dotnet-core/lbprobe.png)
+![Network Load Balancer Probe](./media/virtual-machines-linux-dotnet-core/lbprobe.png)
 
 ## Inbound NAT Rules
 
@@ -202,7 +202,7 @@ Follow this link to see the JSON sample within the Resource Manager template –
 
 One example inbound NAT rule as seen in the Azure portal. An SSH NAT rule is created for each virtual machine in the deployment.
 
-![](./media/virtual-machines-linux-dotnet-core/natrule.png)
+![Inbound NAT Rule](./media/virtual-machines-linux-dotnet-core/natrule.png)
 
 For in-depth information on the Azure Network Load Balancer, see [Load balancing for Azure infrastructure services](./virtual-machines-linux-load-balance.md).
 

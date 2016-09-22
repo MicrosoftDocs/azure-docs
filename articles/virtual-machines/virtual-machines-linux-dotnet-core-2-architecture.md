@@ -59,7 +59,7 @@ Follow this link to see the JSON sample within the Resource Manager template –
 
 Once deployed, the virtual machine properties can be seen in the Azure portal.
 
-![](./media/virtual-machines-linux-dotnet-core/vm.png)
+![Virtual Machine](./media/virtual-machines-linux-dotnet-core/vm.png)
 
 ## Storage Account
 
@@ -100,11 +100,11 @@ Follow this link to see the JSON sample within the Resource Manager template –
 
 After deployment, the storage account can be viewed in the Azure portal.
 
-![](./media/virtual-machines-linux-dotnet-core/storacct.png)
+![Storage Account](./media/virtual-machines-linux-dotnet-core/storacct.png)
 
 Clicking into the storage account blob container, the virtual hard driver file for each virtual machine deployed with the template can be seen.
 
-![](./media/virtual-machines-linux-dotnet-core/vhd.png)
+![Virtual Hard Drives](./media/virtual-machines-linux-dotnet-core/vhd.png)
 
 For more information on Azure Storage, see [Azure Storage documentation](https://azure.microsoft.com/documentation/services/storage/).
 
@@ -149,7 +149,7 @@ Follow this link to see the JSON sample within the Resource Manager template –
 
 From the Azure portal, the virtual network looks like the following image. Notice that all virtual machines deployed with the template are attached to the virtual network.
 
-![](./media/virtual-machines-linux-dotnet-core/vnet.png)
+![Virtual Network](./media/virtual-machines-linux-dotnet-core/vnet.png)
 
 ## Network Interface
 
@@ -219,7 +219,7 @@ Follow this link to see the JSON sample within the Resource Manager template –
 
 From the Azure portal, the network interface looks like the following image. The internal IP address and the virtual machine association can be seen on the network interface resource.
 
-![](./media/virtual-machines-linux-dotnet-core/nic.png)
+![Network Interface](./media/virtual-machines-linux-dotnet-core/nic.png)
 
 For more information on Azure Virtual Networks, see [Azure Virtual Network documentation](https://azure.microsoft.com/documentation/services/virtual-network/).
 
@@ -267,7 +267,7 @@ Follow this link to see the JSON sample within the Resource Manager template –
 
 A view of the SQL server and MusicStore database as seen in the Azure portal.
 
-![](./media/virtual-machines-linux-dotnet-core/sql.png)
+![SQL Server](./media/virtual-machines-linux-dotnet-core/sql.png)
 
 For more information on deploying Azure SQL Database, see [Azure SQL Database documentation](https://azure.microsoft.com/documentation/services/sql-database/).
 

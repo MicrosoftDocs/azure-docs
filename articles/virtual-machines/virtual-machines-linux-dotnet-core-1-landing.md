@@ -27,7 +27,7 @@ The sample used in this series is a .Net Core application simulating a Music Sto
 
 The Music Store Resource Manager template can be found here, [Music Store Linux Template]( https://github.com/neilpeterson/nepeters-azure-templates/tree/master/dotnet-core-music-linux-vm-sql-db)
 
-![](./media/virtual-machines-linux-dotnet-core/music-store.png)
+![Music Store Application](./media/virtual-machines-linux-dotnet-core/music-store.png)
 
 Each of these components, including the associate template JSON is examined in the following four articles.
 
