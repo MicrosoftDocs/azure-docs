@@ -53,10 +53,10 @@ In this walkthru you'll see how to use the AS2 and X12 actions to create a busin
 10. Enter the word **x12** in the search box in order to filter all the actions to the one that you want to use  
 ![](./media/app-service-logic-enterprise-integration-b2b/b2b-10.png)  
 11. Select the **X12 - Decode X12 message** action to add it to the Logic app  
-![](./media/app-service-logic-enterprise-integration-b2b/b2b-11.png)  
+![](./media/app-service-logic-enterprise-integration-b2b/b2b-as2message.png)  
 12. You now need to specify the input to this action which will be the output of the AS2 action above. The actual message content is in a JSON object and is base64 encoded. You therefore need to specify an expression as the input so enter the following expression in the **X12 FLAT FILE MESSAGE TO DECODE** input field  
 
-    @base64ToString(body('Decode_AS2_message')?['Message']?['Content'])  
+    @base64ToString(body('Decode_AS2_message')?['AS2Message']?['Content'])  
 
 13. This step will decode the X12 data received from the trading partner and will output a number of items in a JSON object. In order to let the partner know of the receipt of the data you can send back a response containing the AS2 Message Disposition Notification (MDN) in an HTTP Response Action  
 14. Add the **Response** action by selecting **Add an action**   

@@ -25,6 +25,7 @@ Enterprise integration uses certificates to secure B2B communications. You can u
 - Public certificates, which must be purchased from a certification authority (CA).
 - Private certificates, which you can issue yourself. These certificates are sometimes referred to as self-signed certificates.
 
+
 ## What are certificates?
 Certificates are digital documents that verify the identity of the participants in electronic communications and that also secure electronic communications.
 
@@ -115,7 +116,6 @@ Following are the detailed steps for uploading your private certificates into yo
 11. Select the **Certificates** tile. You should see the newly added certificate.
 ![See the new certificate](./media/app-service-logic-enterprise-integration-certificates/privatecertificate-2.png)  
 After you upload a certificate, it's available to help you to secure your B2B messages when you define their properties in [agreements](./app-service-logic-enterprise-integration-agreements.md).  
-
 
 ## Next steps
 - [Create a logic app that uses B2B features](./app-service-logic-enterprise-integration-b2b.md)  
