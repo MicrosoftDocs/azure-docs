@@ -19,7 +19,7 @@
 
 # Using the Azure Custom Script Extension with Linux Virtual Machines
 
-The Custom Script Extension downloads and executes scripts on Azure virtual machines. This extension is useful for post deployment configuration, software installation, or any other configuration / management task. Scripts can be downloaded from Azure storage or other accessible internet location, or provided to the extension run time. The Custom Script extension integrates with Azure Resource Manager templates, and can also be run using the Azure CLI, PowerShell, Azure Portal, or the Azure Virtual Machine REST API.
+The Custom Script Extension downloads and executes scripts on Azure virtual machines. This extension is useful for post deployment configuration, software installation, or any other configuration / management task. Scripts can be downloaded from Azure storage or other accessible internet location, or provided to the extension run time. The Custom Script extension integrates with Azure Resource Manager templates, and can also be run using the Azure CLI, PowerShell, Azure portal, or the Azure Virtual Machine REST API.
 
 This document details how to use the Custom Script Extension from the Azure CLI, and an Azure Resource Manager template, and also details troubleshooting steps on Linux systems.
 
@@ -104,7 +104,7 @@ Azure CLI command.
 azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config-path /public.json
 ```
 
-**Example 3** - A public configuration files is used to specify the script file URI, and a protected configuration file is used to specify the command to be executed.
+**Example 3** - A public configuration file is used to specify the script file URI, and a protected configuration file is used to specify the command to be executed.
 
 ```json
 {
@@ -161,7 +161,7 @@ The Azure Custom Script Extension can be run at Virtual Machine deployment time 
 }
 ```
 
-**Example 2** - execution command in privat configuration.
+**Example 2** - execution command in private configuration.
 
 ```json
 {
