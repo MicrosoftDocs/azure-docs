@@ -29,7 +29,7 @@ Below we describe how to create a Resource Manager template first for an alert a
 
 ## Resource Manager template for a metric alert
 
-To create an alert using a Resource Manager template, you create a resource of type “Microsoft.Insights/alertRules” and fill in all related properties. Below is a template that creates an alert rule.
+To create an alert using a Resource Manager template, you create a resource of type `Microsoft.Insights/alertRules` and fill in all related properties. Below is a template that creates an alert rule.
 
 ```json
 {
