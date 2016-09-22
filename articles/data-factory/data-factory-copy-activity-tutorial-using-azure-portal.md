@@ -34,14 +34,13 @@ Here are the steps you perform as part of this tutorial:
 Step | Description
 -----| -----------
 [Create an Azure Data Factory](#create-data-factory) | In this step, you create an Azure data factory named **ADFTutorialDataFactory**.  
-[Create linked services](#create-linked-services) | In this step, you create two linked services: **AzureStorageLinkedService** and **AzureSqlLinkedService**. The AzureStorageLinkedService links the Azure storage and AzureSqlLinkedService links the Azure SQL database to the ADFTutorialDataFactory. The input data for the pipeline resides in a blob container in the Azure blob storage and output data be stored in a table in the Azure SQL database. Therefore, you add these two data stores as linked services to the data factory.      
-[Create input and output datasets](#create-datasets) | In the previous step, you created linked services that refer to data stores that contain input/output data. In this step, you define two data factory tables -- **InputDataset** and **OutputDataset** -- that represent the input/output data that is stored in the data stores. For the InputDataset, you specify the blob container that contains a blob with the source data and for the OutputDataset, you specify the SQL table that stores the output data. You also specify other properties such as structure, availability, and policy. 
-[Create a pipeline](#create-pipeline) | In this step, you create a pipeline named **ADFTutorialPipeline** in the ADFTutorialDataFactory. The pipeline has a **Copy Activity** that copies input data from the Azure blob to the output Azure SQL table. The Copy Activity performs the data movement in Azure Data Factory. It is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity. 
+[Create linked services](#create-linked-services) | In this step, you create two linked services: **AzureStorageLinkedService** and **AzureSqlLinkedService**. <br/><br/>The AzureStorageLinkedService links the Azure storage and AzureSqlLinkedService links the Azure SQL database to the ADFTutorialDataFactory. The input data for the pipeline resides in a blob container in the Azure blob storage and output data be stored in a table in the Azure SQL database. Therefore, you add these two data stores as linked services to the data factory.      
+[Create input and output datasets](#create-datasets) | In the previous step, you created linked services that refer to data stores that contain input/output data. In this step, you define two datasets -- **InputDataset** and **OutputDataset** -- that represent the input/output data that is stored in the data stores. <br/><br/>For the InputDataset, you specify the blob container that contains a blob with the source data and for the OutputDataset, you specify the SQL table that stores the output data. You also specify other properties such as structure, availability, and policy. 
+[Create a pipeline](#create-pipeline) | In this step, you create a pipeline named **ADFTutorialPipeline** in the ADFTutorialDataFactory. <br/><br/>You add a **Copy Activity** to the pipeline that copies input data from the Azure blob to the output Azure SQL table. The Copy Activity performs the data movement in Azure Data Factory. It is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity. 
 [Monitor pipeline](#monitor-pipeline) | In this step, you monitor slices of input and output tables by using Azure portal.
 
 ## Prerequisites 
-> [AZURE.IMPORTANT] 
-> Go through the [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) article and complete the **prerequisite** steps before performing this tutorial.
+You must complete prerequisites listed in the [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) article before performing this tutorial.
 
 ## Create data factory
 In this step, you use the Azure portal to create an Azure data factory named **ADFTutorialDataFactory**.
@@ -54,26 +53,25 @@ In this step, you use the Azure portal to create an Azure data factory named **A
 	1. Enter **ADFTutorialDataFactory** for the **name**. 
 	
   		![New data factory blade](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-new-data-factory.png)
+
+		The name of the Azure data factory must be **globally unique**. If you receive the following error, change the name of the data factory (for example, yournameADFTutorialDataFactory) and try creating again. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
+	
+			Data factory name “ADFTutorialDataFactory” is not available  
+	 
+		![Data Factory name not available](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-data-factory-not-available.png)
 	2. Select your Azure **subscription**.
 	3. For the Resource Group, do one of the following steps:
 		1. Select **Use existing**, and select an existing resource group from the drop-down list. 
 		2. Select **Create new**, and enter the name of a resource group.   
 	
 			Some of the steps in this tutorial assume that you use the name: **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../resource-group-overview.md).  
-	4. Select the **location** for the data factory. Only regions supported Data Factory service are shown in the drop-down list.
+	4. Select the **location** for the data factory. Only regions supported  by the Data Factory service are shown in the drop-down list.
 	5. Select **Pin to Startboard**.	 
 	6. Click **Create**.
 
-		The name of the Azure data factory must be globally unique. If you receive the following error, change the name of the data factory (for example, yournameADFTutorialDataFactory) and try creating again. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
-	
-			Data factory name “ADFTutorialDataFactory” is not available  
-	 
-		![Data Factory name not available](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-data-factory-not-available.png)
-	
 		> [AZURE.IMPORTANT] To create Data Factory instances, you must be a member of the [Data Factory Contributor](../active-directory/role-based-access-built-in-roles.md/#data-factory-contributor) role at the subscription/resource group level.
 		>  
-		>  The name of the data factory may be registered as a DNS name in the future and hence become publically visible.				 
-
+		>  The name of the data factory may be registered as a DNS name in the future and hence become publically visible.				
 9.  To see the status/notification messages, click the bell icon on the toolbar. 
 
 	![Notification messages](./media/data-factory-copy-activity-tutorial-using-azure-portal/Notifications.png) 
@@ -82,7 +80,7 @@ In this step, you use the Azure portal to create an Azure data factory named **A
     ![Data factory home page](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-data-factory-home-page.png)
 
 ## Create linked services
-Linked services link data stores or compute services to an Azure data factory. A data store can be an Azure Storage, Azure SQL Database, or an on-premises SQL Server database.
+Linked services link data stores or compute services to an Azure data factory. See [supported data stores](data-factory-data-movement-activities.md##supported-data-stores-and-formats) for all the sources and sinks supported by the Copy Activity. See [compute linked services](data-factory-compute-linked-services.md) for the list of compute services supported by Data Factory. In this tutorial, you do not use any compute service. 
 
 In this step, you create two linked services: **AzureStorageLinkedService** and **AzureSqlLinkedService**. AzureStorageLinkedService linked service links an Azure Storage Account and AzureSqlLinkedService links an Azure SQL database to the **ADFTutorialDataFactory**. You create a pipeline later in this tutorial that copies data from a blob container in AzureStorageLinkedService to a SQL table in AzureSqlLinkedService.
 
@@ -90,21 +88,18 @@ In this step, you create two linked services: **AzureStorageLinkedService** and 
 1.	In the **Data Factory** blade, click **Author and deploy** tile to launch the **Editor** for the data factory.
 
 	![Author and Deploy Tile](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-author-deploy-tile.png) 
-
-	 
 5. In the **Editor**, click **New data store** button on the toolbar and select **Azure storage** from the drop-down menu. You should see the JSON template for creating an Azure storage linked service in the right pane. 
 
-	![Editor New data store button](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-newdatastore-button.png)
-    
-6. Replace **accountname** and **accountkey** with the account name and account key values for your Azure storage account. 
+	![Editor New data store button](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-newdatastore-button.png)    
+6. Replace `<accountname>` and `<accountkey>` with the account name and account key values for your Azure storage account. 
 
-	![Editor Blob Storage JSON](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-json.png)    
-	
-	See [Move data from/to Azure Blob](data-factory-azure-blob-connector.md) for details about JSON properties.
-
+	![Editor Blob Storage JSON](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-json.png)	
 6. Click **Deploy** on the toolbar to deploy the AzureStorageLinkedService. You should see the **AzureStorageLinkedService** in the tree view now. 
 
 	![Editor Blob Storage Deploy](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-deploy.png)
+
+> [AZURE.NOTE]
+> See [Move data from/to Azure Blob](data-factory-azure-blob-connector.md#azure-storage-linked-service) for details about JSON properties.
 
 ### Create a linked service for the Azure SQL Database
 1. In the **Data Factory Editor**, click **New data store** button on the toolbar and select **Azure SQL Database** from the drop-down menu. You should see the JSON template for creating the Azure SQL linked service in the right pane.
@@ -112,8 +107,11 @@ In this step, you create two linked services: **AzureStorageLinkedService** and 
 3. Click **Deploy** on the toolbar to create and deploy the **AzureSqlLinkedService**.
 4. Confirm that you see **AzureSqlLinkedService** in the tree view. 
 
+> [AZURE.NOTE]
+> See [Move data from/to Azure SQL Database](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) for details about JSON properties.
+
 ## Create datasets
-In the previous step, you created linked services **AzureStorageLinkedService** and **AzureSqlLinkedService** to link an Azure Storage account and Azure SQL database to the data factory: **ADFTutorialDataFactory**. In this step, you define two data factory datasets -- **InputDataset** and **OutputDataset** -- that represent the input/output data that is stored in the data stores referred by AzureStorageLinkedService and AzureSqlLinkedService respectively. For InputDataset, you specify the blob container that contains a blob with the source data and for OutputDataset, you specify the SQL table that stores the output data. 
+In the previous step, you created linked services **AzureStorageLinkedService** and **AzureSqlLinkedService** to link an Azure Storage account and Azure SQL database to the data factory: **ADFTutorialDataFactory**. In this step, you define two datasets -- **InputDataset** and **OutputDataset** -- that represent the input/output data that is stored in the data stores referred by AzureStorageLinkedService and AzureSqlLinkedService respectively. For InputDataset, you specify the blob container that contains a blob with the source data and for OutputDataset, you specify the SQL table that stores the output data. 
 
 ### Create input dataset 
 In this step, you create a dataset named **InputDataset** that points to a blob container in the Azure Storage represented by the **AzureStorageLinkedService** linked service.
@@ -158,12 +156,12 @@ In this step, you create a dataset named **InputDataset** that points to a blob 
 	
 	- dataset **type** is set to **AzureBlob**.
 	- **linkedServiceName** is set to **AzureStorageLinkedService**. You created this linked service in Step 2.
-	- **folderPath** is set to the **adftutorial** container. You can also specify the name of a blob within the folder. Since you are not specifying the name of the blob, data from all blobs in the container is considered as an input data.  
+	- **folderPath** is set to the **adftutorial** container. You can also specify the name of a blob within the folder using the **fileName** property. Since you are not specifying the name of the blob, data from all blobs in the container is considered as an input data.  
 	- format **type** is set to **TextFormat**
 	- There are two fields in the text file – **FirstName** and **LastName** – separated by a comma character (**columnDelimiter**)	
 	- The **availability** is set to **hourly** (**frequency** is set to **hour** and **interval** is set to **1**). Therefore, Data Factory looks for input data every hour in the root folder of blob container (**adftutorial**) you specified. 
 	
-	if you don't specify a **fileName** for an **input** **table**, all files/blobs from the input folder (**folderPath**) are considered as inputs. If you specify a fileName in the JSON, only the specified file/blob is considered asn input.
+	if you don't specify a **fileName** for an **input** dataset, all files/blobs from the input folder (**folderPath**) are considered as inputs. If you specify a fileName in the JSON, only the specified file/blob is considered asn input.
  
 	If you do not specify a **fileName** for an **output table**, the generated files in the **folderPath** are named in the following format: Data.&lt;Guid\&gt;.txt (example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
@@ -178,10 +176,10 @@ In this step, you create a dataset named **InputDataset** that points to a blob 
 	            { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
 	            { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
 	        ],
-
-	See [Move data from/to Azure Blob](data-factory-azure-blob-connector.md) for details about JSON properties.
-
 2. Click **Deploy** on the toolbar to create and deploy the **InputDataset** dataset. Confirm that you see the **InputDataset** in the tree view.
+
+> [AZURE.NOTE]
+> See [Move data from/to Azure Blob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) for details about JSON properties.
 
 ### Create output dataset
 In this part of the step, you create an output dataset named **OutputDataset**. This dataset points to a SQL table in the Azure SQL database represented by **AzureSqlLinkedService**. 
@@ -223,6 +221,9 @@ In this part of the step, you create an output dataset named **OutputDataset**. 
 	- The **availability** is set to **hourly** (**frequency** set to **hour** and **interval** set to **1**).  The Data Factory service generates an output data slice every hour in the **emp** table in the Azure SQL database.
 
 3. Click **Deploy** on the toolbar to create and deploy the **OutputDataset** dataset. Confirm that you see the **OutputDataset** in the tree view. 
+
+> [AZURE.NOTE]
+> See [Move data from/to Azure SQL Database](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) for details about JSON properties.
 
 ## Create pipeline
 In this step, you create a pipeline with a **Copy Activity** that uses **InputDataset** as input and **OutputDataset** as output.
@@ -294,7 +295,6 @@ In this step, you create a pipeline with a **Copy Activity** that uses **InputDa
 1. In the **Data Factory** blade, click **Diagram**.
 
 	![Data Factory Blade - Diagram Tile](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-datafactoryblade-diagramtile.png)
-
 2. You should see the diagram similar to the following image: 
 
 	![Diagram view](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-diagram-blade.png)
@@ -312,6 +312,8 @@ In this step, you create a pipeline with a **Copy Activity** that uses **InputDa
 ## Monitor pipeline
 In this step, you use the Azure portal to monitor what’s going on in an Azure data factory. 
 
+### Monitor pipeline using Diagram View
+
 1. Click **X** to close the **Diagram** view to see the Data Factory home page for the data factory. If you have closed the web browser, do the following steps: 
 	2. Navigate to [Azure portal](https://portal.azure.com/). 
 	2. Double-click **ADFTutorialDataFactory** on the **Startboard** (or) click **Data factories** on the left menu, and search for ADFTutorialDataFactory. 
@@ -328,7 +330,7 @@ In this step, you use the Azure portal to monitor what’s going on in an Azure 
 
 	Notice that all the data slices up to the current time are **Ready** because the **emp.txt** file exists all the time in the blob container: **adftutorial\input**. Confirm that no slices show up in the **Recently failed slices** section at the bottom.
 
-	Both **Recently updated slices** and **Recently failed slices** lists are sorted by the **LAST UPDATE TIME**. The update time of a slice is changed in the following situations: 
+	Both **Recently updated slices** and **Recently failed slices** lists are sorted by the **LAST UPDATE TIME**. 
     
 	Click **Filter** on the toolbar to filter the slices.  
 	
@@ -336,22 +338,18 @@ In this step, you use the Azure portal to monitor what’s going on in an Azure 
 6. Close the blades until you see the **Datasets** blade. Click the **OutputDataset**. This dataset is the output dataset for **ADFTutorialPipeline**.
 
 	![data sets blade](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-datasets-blade.png)
-
 6. You should see the **OutputDataset** blade as shown in the following image:
 
-	![table blade](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-table-blade.png)
- 
+	![table blade](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-table-blade.png) 
 7. Notice that the data slices up to the current time have already been produced and they are **Ready**. No slices show up in the **Problem slices** section at the bottom.
 8. Click **… (Ellipsis)** to see all the slices.
 
 	![data slices blade](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-dataslices-blade.png)
-
 9. Click any data slice from the list and you should see the **Data slice** blade.
 
 	![data slice blade](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-dataslice-blade.png)
   
-	If the slice is not in the **Ready** state, you can see the upstream slices that are not Ready and are blocking the current slice from executing in the **Upstream slices that are not ready** list. 
-
+	If the slice is not in the **Ready** state, you can see the upstream slices that are not Ready and are blocking the current slice from executing in the **Upstream slices that are not ready** list.
 11. In the **DATA SLICE** blade, you should see all activity runs in the list at the bottom. Click an **activity run** to see the **Activity run details** blade. 
 
 	![Activity Run Details](./media/data-factory-copy-activity-tutorial-using-azure-portal/ActivityRunDetails.png)
@@ -361,6 +359,17 @@ In this step, you use the Azure portal to monitor what’s going on in an Azure 
 
 	![sql query results](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-sql-query-results.png)
 
+### Monitor pipeline using Monitor & Manage App
+You can also use Monitor & Manage application to monitor your pipelines. For detailed information about using this application, see [Monitor and manage Azure Data Factory pipelines using Monitoring and Management App](data-factory-monitor-manage-app.md).
+
+1. Click **Monitor & Manage** tile on the home page for your data factory.
+
+	![Monitor & Manage tile](./media/data-factory-copy-activity-tutorial-using-azure-portal/monitor-manage-tile.png) 
+2. You should see **Monitor & Manage application**. Change the **Start time** and **End time** to include start (2016-07-12) and end times (2016-07-13) of your pipeline, and click **Apply**. 
+
+	![Monitor & Manage App](./media/data-factory-copy-activity-tutorial-using-azure-portal/monitor-and-manage-app.png) 
+3. Select an activity window in the **Activity Windows** list to see details about it. 
+	![Activity window details](./media/data-factory-copy-activity-tutorial-using-azure-portal/activity-window-details.png)
 
 ## Summary 
 In this tutorial, you created an Azure data factory to copy data from an Azure blob to an Azure SQL database. You used the Azure portal to create the data factory, linked services, datasets, and a pipeline. Here are the high-level steps you performed in this tutorial:  
