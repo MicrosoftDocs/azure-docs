@@ -356,7 +356,7 @@ While you are evaluating Machine Learning Studio, you can use the free billing t
 
 Once you have decided that Azure Machine Learning meets your needs, you can sign up for the standard tier. To sign up, you must have a Microsoft Azure Subscription.
 
-In the standard tier you are billed a monthly per for each workspace you define in Machine Learning Studio. When you run an experiment in the studio, you are billed for compute resources when you are running an experiment. When you deploy a Classic Web Service, transactions and compute hours are billed on a Pay As You Go (PAYG) basis. 
+In the standard tier you are billed a monthly for each workspace you define in Machine Learning Studio. When you run an experiment in the studio, you are billed for compute resources when you are running an experiment. When you deploy a Classic Web Service, transactions and compute hours are billed on a Pay As You Go (PAYG) basis. 
 
 The New Machine Learning Web Services introduce Billing Plans that allow for more predictability in costs. Tiered pricing offers discounted rates to customers that need a large amount of capacity.
 
