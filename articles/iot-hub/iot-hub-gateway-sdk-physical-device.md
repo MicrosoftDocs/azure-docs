@@ -398,7 +398,6 @@ The default behavior for a device using the HTTP protocol to connect to IoT Hub 
 
 If you want to gain a more advanced understanding of the Gateway SDK and experiment with some code examples, visit the following developer tutorials and resources:
 
-- [Manage a gateway device][lnk-manage-devices]
 - [Azure IoT Gateway SDK][lnk-gateway-sdk]
 
 To further explore the capabilities of IoT Hub, see:
@@ -417,6 +416,5 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-setup-linux]: https://software.intel.com/get-started-edison-linux
 [lnk-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 
-[lnk-manage-devices]: iot-hub-gateway-sdk-device-management.md
 
 [lnk-devguide]: iot-hub-devguide.md
