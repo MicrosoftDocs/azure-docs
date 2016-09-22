@@ -26,8 +26,8 @@ This tutorial helps you get started with Azure Data Catalog. You perform the fol
 | [Provision data catalog](#provision-data-catalog) | In this procedure, you provision or set up Azure Data Catalog. You do this step only if the catalog has not been set up before. You can have only one data catalog per organization (Microsoft Azure Active Directory domain) even though there are multiple subscriptions associated with your Azure account. |
 | [Register data assets](#register-data-assets) | In this procedure, you register data assets from the AdventureWorks2014 sample database with the data catalog. Registration is the process of extracting key structural metadata such as names, types, and locations from the data source and copying that metadata to the catalog. The data source and data assets remain where they are, but the metadata is used by the catalog to make them more easily discoverable and understandable. |
 | [Discover data assets](#discover-data-assets) | In this procedure, you use the Azure Data Catalog portal to discover data assets that were registered in the previous step. After a data source has been registered with Azure Data Catalog, its metadata is indexed by the service so that users can easily search for the data they need. |
-| [Annotate data assets](#annotate-data-assets) | In this procedure, you provide annotations (information such as descriptions, tags, documentation, or experts) for the data assets to supplement the metadata extracted from the data source, and to make the data source more understandable to more people. |
-| [Connect to data assets](#connect-to-data-assets) | In this procedure, you open data assets in integrated client tools (such as Excel and SQL Server Data Tools) and a non-integrated tool (SQL Server Management Studio) by using connection information. |
+| [Annotate data assets](#annotate-data-assets) | In this procedure, you provide annotations (information such as descriptions, tags, documentation, or experts) for the data assets. This information supplements the metadata extracted from the data source, and to make the data source more understandable to more people. |
+| [Connect to data assets](#connect-to-data-assets) | In this procedure, you open data assets in integrated client tools (such as Excel and SQL Server Data Tools) and a non-integrated tool (SQL Server Management Studio). |
 | [Manage data assets](#manage-data-assets) | In this procedure, you set up security for your data assets. Data Catalog does not give users access to the data itself. The owner of the data source controls data access. <br/><br/> With Data Catalog, you can discover data sources and view the **metadata** related to the sources registered in the catalog. There may be situations, however, where data sources should be visible only to specific users or to members of specific groups. For these scenarios, you can use Data Catalog to take ownership of registered data assets within the catalog and control the visibility of the assets you own. |
 | [Remove data assets](#remove-data-assets) | In this procedure, you learn how to remove data assets from the data catalog. |  
 
@@ -41,9 +41,9 @@ Azure subscriptions help you organize access to cloud service resources like Azu
 If you don't have a subscription, you can create a free trial account in just a couple of minutes. See [Free Trial](https://azure.microsoft.com/pricing/free-trial/) for details.
 
 ### Azure Active Directory
-To set up Azure Data Catalog, you must be signed in with an Azure Active Directory (Azure AD) user account. The user must be the owner or co-owner of an Azure subscription.  
+To set up Azure Data Catalog, you must be signed in with an Azure Active Directory (Azure AD) user account. You must be the owner or co-owner of an Azure subscription.  
 
-Azure AD provides an easy way for your business to manage identity and access, both in the cloud and on-premises. Users can use a single work or school account to sign in to any cloud or on-premises web application. Azure Data Catalog uses Azure AD to authenticate sign-in. To learn more, see [What is Azure Active Directory](../active-directory/active-directory-whatis.md).
+Azure AD provides an easy way for your business to manage identity and access, both in the cloud and on-premises. You can use a single work or school account to sign in to any cloud or on-premises web application. Azure Data Catalog uses Azure AD to authenticate sign-in. To learn more, see [What is Azure Active Directory](../active-directory/active-directory-whatis.md).
 
 ### Azure Active Directory policy configuration
 
@@ -57,7 +57,7 @@ With the global authentication policy, you can enable authentication separately 
 
 For more information, see [Configuring authentication policies](https://technet.microsoft.com/library/dn486781.aspx).
 
-## Provision a data catalog
+## Provision data catalog
 You can provision only one data catalog per organization (Azure Active Directory domain). Therefore, if the owner or co-owner of an Azure subscription who belongs to this Azure Active Directory domain has already created a catalog, you will not be able to create a catalog again even if you have multiple Azure subscriptions. To test whether a data catalog has been created by a user in your Azure Active Directory domain, go to the [Azure Data Catalog home page](http://azuredatacatalog.com) and verify whether you see the catalog. If a catalog has already been created for you, skip the following procedure and go to the next section.    
 
 1. Go to the [Data Catalog service page](https://azure.microsoft.com/services/data-catalog) and click **Get started**.
@@ -117,7 +117,7 @@ In this exercise, you use the registration tool to register data assets from the
 
 ### Register a data source
 
-1.	Go to the [Azure Data Catalog home page](https://azuredatacatlog.com) and click **Publish Data**.
+1.	Go to the [Azure Data Catalog home page](https://azuredatacatalog.com) and click **Publish Data**.
 
     ![Azure Data Catalog--Publish Data button](media/data-catalog-get-started/data-catalog-publish-data.png)
 
@@ -179,7 +179,7 @@ Following are a few examples for discovering data assets in the catalog.
 Basic search helps you search a catalog by using one or more search terms. Results are any assets that match on any property with one or more of the terms specified.
 
 1. Click **Home** in the Azure Data Catalog portal. If you have closed the web browser, go to the [Azure Data Catalog home page](https://www.azuredatacatalog.com).
-2. In the search box, enter **cycles** and press **ENTER**.
+2. In the search box, enter `cycles` and press **ENTER**.
 
 	![Azure Data Catalog--basic text search](media/data-catalog-get-started/data-catalog-basic-text-search.png)
 3. Confirm that you see all four tables and the database (AdventureWorks2014) in the results. You can switch between **grid view** and **list view** by clicking buttons on the toolbar as shown in the following image. Notice that the search keyword is highlighted in the search results because the **Highlight** option is **ON**. You can also specify the number of **results per page** in search results.
@@ -238,7 +238,7 @@ By grouping with parentheses, you can group parts of the query to achieve logica
 ### Comparison operators
 With comparison operators, you can use comparisons other than equality for properties that have numeric and date data types.
 
-1. In the search box, enter **lastRegisteredTime:>"06/09/2016"**.
+1. In the search box, enter `lastRegisteredTime:>"06/09/2016"`.
 2. Clear the **Table** filter under **Object Type**.
 3. Press **ENTER**.
 4. Confirm that you see the **Product**, **ProductCategory**, **ProductDescription**, and **ProductPhoto** tables and the AdventureWorks2014 database you registered in search results.
