@@ -24,32 +24,8 @@ Azure Storage is massively scalable, so you can store and process hundreds of te
 
 - [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)
 
-## Blob storage
 
-## Block blobs
-
-Block blobs let you upload large blobs efficiently. Block blobs are comprised of blocks, each of which is identified by a block ID. You create or modify a block blob by writing a set of blocks and committing them by their block IDs. Each block can be a different size, up to a maximum of 4 MB, and a block blob can include up to 50,000 blocks. The maximum size of a block blob is therefore slightly more than 195 GB (4 MB X 50,000 blocks).
-
-## Page blobs
-
-Page blobs are a collection of 512-byte pages optimized for random read and write operations. To create a page blob, you initialize the page blob and specify the maximum size the page blob will grow. To add or update the contents of a page blob, you write a page or pages by specifying an offset and a range that align to 512-byte page boundaries. A write to a page blob can overwrite just one page, some pages, or up to 4 MB of the page blob. Writes to page blobs happen in-place and are immediately committed to the blob. The maximum size for a page blob is 1 TB.
-
-## Append blobs
-
-An append blob is comprised of blocks and is optimized for append operations. When you modify an append blob, blocks are added to the end of the blob only, via the Append Block operation. Updating or deleting of existing blocks is not supported. Unlike a block blob, an append blob does not expose its block IDs.
-
-- [Blob Service Concepts](https://msdn.microsoft.com/library/dd179376.aspx)
-
-## File storage
-
-## Table storage
-
-What is the Table service? As you might expect from the name, the Table service uses a tabular format to store data. In the standard terminology, each row of the table represents an entity, and the columns store the various properties of that entity. Every entity has a pair of keys to uniquely identify it, and a timestamp column that the Table service uses to track when the entity was last updated (this happens automatically and you cannot manually overwrite the timestamp with an arbitrary value). The Table service uses this last-modified timestamp (LMT) to manage optimistic concurrency.
-
-- [Azure Storage Table Design Guide](../storage/storage-table-design-guide.md)
-
-## Queue storage
-
+## Standard storage
 ## Premium storage
 
 Azure Premium Storage delivers high-performance, low-latency disk support for virtual machines running I/O-intensive workloads. Virtual machine (VM) disks that use Premium Storage store data on solid state drives (SSDs). You can migrate your application's VM disks to Azure Premium Storage to take advantage of the speed and performance of these disks.
@@ -63,6 +39,9 @@ Premium storage features:
 - Premium Locally Redundant Storage: A Premium Storage account only supports Locally Redundant Storage (LRS) as the replication option and keeps three copies of the data within a single region.
 
 - [Premium Storage](../storage/storage-premium-storage.md)
+
+## File storage
+
 
 ## Redundancy
 
