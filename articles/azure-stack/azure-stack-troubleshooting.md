@@ -26,19 +26,23 @@ The recommendations for troubleshooting issues that are described in this sectio
 
 ## Known Issues
 
- - You will see that there AzureRM PowerShell modules are no longer installed by default on the MAS-CON01 VM. This is now by design, because there is an alternate method to [install these modules and connect](azure-stack-connect-powershell.md).  
- - You will see that the “Availability Set” resource in the Marketplace shows up under the virtualMachine-ARM Category – this is a cosmetic issue, only. 
- - You will see that the Microsoft.Insights RP is not automatically registered for Tenant Subscriptions. If you would like to see Monitoring data for a VM deployed as a Tenant, you will have to run the following command from PowerShell (after you authenticate to the Azure Stack environment as that tenant user): 
+ - You may see the following non-terminating errors during deployment, these do not impact deployment success:
+     - “The term 'C:\WinRM\Start-Logging.ps1' is not recognized”
+     - “Invoke-EceAction : Cannot index into a null array” 
+	 - “InvokeEceAction : Cannot bind argument to parameter 'Message' because it is an empty string.”
+ - You will see that the **Availability Set** resource in the Marketplace shows up under the **virtualMachine-ARM** category – this is a only cosmetic issue.
+ - When creating a new virtual machine in the portal, in the **Basics** step, the storage option defaults to SSD.  This must be changed to HDD or on the **Size** step of VM deployment, you will not see VM sizes available to select and continue deployment. 
+ - You will see that there AzureRM PowerShell modules are no longer installed by default on the MAS-CON01 VM (in TP1 this was named ClientVM). This is now by design, because there is an alternate method to [install these modules and connect](azure-stack-connect-powershell.md).  
+  - You will see that the **Microsoft.Insights** resource provider is not automatically registered for tenant subscriptions. If you would like to see monitoring data for a VM deployed as a tenant, you will have to run the following command from PowerShell (after you [install and connect](azure-stack-connect-powershell.md) as a tenant): 
 
-       Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Insights 
+       
+	     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Insights 
 
- - If you have GREATER THAN ONE AAD Directory associated with your AAD Identity, and do not specify it with the parameter, you will get an error message, prompting to specify one of the available directories.
- - You may see a non-terminating error for “The term 'C:\WinRM\Start-Logging.ps1' is not recognized”
- - You may see non-terminating errors for “Invoke-EceAction : Cannot index into a null array” and/or “InvokeEceAction : Cannot bind argument to parameter 'Message' because it is an empty string.”
- - When creating a new virtual machine in the portal, the storage option defaults to SSD.  This must be changed to HDD or you will not be able to continue through the deployment steps.
- - Export option for Azure Resource Manager templates are blank on all settings.
- - You are able to createa a VM with disk size larger than quota.  Additionally, deploying a VM with a disk larger than the storage quota will cause the subscription to become unusable.
- - Quota updates to storage after subscription acquisition do not take effect.
+ - You will see export functionality in the portal for Resource Groups, however no text is displayed and available for export.      
+ - You can start a deployment of storage resources larger than available quota.  This deployment will fail and the account resources will be suspended.  There are two remediation options available:
+     - Service Administrator can increase the quota, though changes will not take effect immediately and commonly take up to an hour to propogate.
+     - Service Administrator can create an add-on plan with additional quota that the tenant can then add to the subscription.
+ - When using the portal to create VMs on Azure Stack environments with identity in ‘Azure - China’, you will not see VM sizes available to select in the **Size** step of VM deployment and will be unable to continue deployment.
 
 ## Azure Active Directory
 
@@ -146,7 +150,7 @@ There are other ways to do this via PowerShell, like using the Get-Credential cm
 The SQL Server Resource Provider and the Web Apps Resource Providers both require a Windows Server image with .NET 3.5 installed.
 By leveraging the steps mentioned just before in this document, you create such an image, and the documentation tells you to replace the default Windows Server 2012 R2 image with this new .NET 3.5-enabled image. Those steps are accurate and, if you follow them, things should be working.
 
-However, you may want to keep one image without .NET 3.5 and one with .NET 3.5. For this, you can just add your new .NET 3.5-enabled image to the Platform Image Repository (PIR), and change the “SKU”, “Publisher”, “Offer” fields from the SQL Server RP and Web Apps RP templates, to match your new values.
+However, you may want to keep one image without .NET 3.5 and one with .NET 3.5. For this, you can [add](azure-stack-add-vm-image.md) your new .NET 3.5-enabled image, and change the “SKU”, “Publisher”, “Offer” fields from the SQL Server RP and Web Apps RP templates, to match your new values.
 
 ### Can't delete resource groups hosting a SQL Server "virtual server"
 
@@ -163,7 +167,7 @@ If publishing fails for a SQL Server or MySQL Server gallery package with multip
 
 ### "Signature verification failed on downloaded file" error during Web Apps resource provider deployment
 
-Workaround: Clear any previous cache (C:/Users/<your alias>/AppData/Local/Temp/Websites/WebsitesSetup/) you may have and try the download again.
+Workaround: Clear any previous cache (C:/Users/<your username>/AppData/Local/Temp/Websites/WebsitesSetup/) you may have and try the download again.
 
 
 ## Portal
@@ -184,7 +188,7 @@ Please ensure you use minimal caps for the storage account. This behavior is con
 
 SQL Server requires .NET Framework 3.5, and the image used in the template must contain that component. The default image provided with TP1 does not include the .NET Framework 3.5.
 
-To create a new image with this component, see [Add an image to the Platform Image Repository (PIR) in Azure Stack](azure-stack-add-image-pir.md).
+To create a new image with this component, see [Add an VM Image in Azure Stack](azure-stack-add-vm-image.md).
 
 ### Template deployment fails using Visual Studio
 
