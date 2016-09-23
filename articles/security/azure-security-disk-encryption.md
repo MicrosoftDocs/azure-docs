@@ -100,7 +100,7 @@ The high level steps required to enable disk encryption for Windows and Linux VM
 4. Customer provide Azure AD application identity to write the encryption key material to their key vault to enable encryption on the IaaS VM for scenarios mentioned in #2 above
 5.  Azure updates the VM service model with encryption and key vault configuration and provisions encrypted VM for the customer
 
-![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption/disk-encryption-fig1.JPG)
+![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption/disk-encryption-fig1.png)
 
 ### Decryption Workflow
 
@@ -184,23 +184,23 @@ Azure AD Client ID and secret can also be provisioned using the Azure Classic de
 
 1.Click the Active Directory tab as shown in Figure below:
 
-![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig3.JPG)
+![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig3.png)
 
 2.Click Add Application and type the application name as shown below:
 
-![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig4.JPG)
+![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig4.png)
 
 3.Click the arrow button and configure the app's properties as shown below:
 
-![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig5.JPG)
+![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig5.png)
 
 4.Click the check mark in the lower left corner to finish. The app's configuration page appears. Notice the Azure AD Client ID is located in the bottom of the page as shown in figure below.
 
-![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig6.JPG)
+![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig6.png)
 
 5.Save the Azure AD client secret by click in the Save button. Click the save button and note the secret from the keys text box, this is the Azure AD client secret. You should safeguard the Azure AD client secret appropriately.
 
-![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig7.JPG)
+![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig7.png)
 
 
 **Note:** this flow above is not supported in the Portal.
@@ -357,6 +357,8 @@ You must set the *enabledForDiskEncryption* property on your Key Vault as mentio
 You can setup access policies for your AAD application from the Key Vault UX:
 
 ![Azure Key Vault](./media/azure-security-disk-encryption/keyvault-portal-fig3.png)
+
+![Azure Key Vault](./media/azure-security-disk-encryption/keyvault-portal-fig3b.png)
 
 Make sure that Key Vault is enabled for Disk Encryption in "Advanced Access Policies":
 
@@ -529,7 +531,7 @@ You can get encryption status using Azure service management portal, [PowerShell
 
 You can get the encryption status of the IaaS VM from Azure service management portal. Logon to Azure portal at https://portal.azure.com/, click on virtual machines link in the left menu to see summary view of the virtual machines in your subscription. You can filter the virtual machines view by selecting the subscription name from the subscription dropdown. Click on columns located at the top of the virtual machines page menu. Select Disk Encryption column from the choose column blade and click update. You should see the disk encryption column showing the encryption state “Enabled” or “Not Enabled” for each VM as shown in the figure below.
 
-![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption/disk-encryption-fig2.JPG)
+![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption/disk-encryption-fig2.png)
 
 #### Get encryption status of an encrypted IaaS VM using disk encryption PS Cmdlet
 You can get the encryption status of the IaaS VM from disk encryption PS cmdlet “Get-AzureRmVMDiskEncryptionStatus”. To get the encryption settings for your VM, type in your Azure PowerShell session:
@@ -643,7 +645,7 @@ The sections that follow are necessary in order to prepare a pre-encrypted Windo
 #### Update group policy to allow non-TPM for OS protection
 You need to configure the BitLocker Group Policy setting called BitLocker Drive Encryption, located under Local Computer Policy \Computer Configuration\Administrative Templates\Windows Components. Change this setting to: *Operating System Drives - Require additional authentication at startup - Allow BitLocker without a compatible TPM* as shown in the figure below:
 
-![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption/disk-encryption-fig8.JPG)
+![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption/disk-encryption-fig8.png)
 
 #### Install BitLocker feature components
 For Windows Server 2012 and above use the below command:
