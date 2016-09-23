@@ -40,6 +40,7 @@ This tutorial shows you how to:
 At the end of this tutorial, you have two Node.js console applications:
 
 **dmpatterns_getstarted_device.js**, which connects to your IoT hub with the device identity created earlier, receives a reboot direct method, simulates a physical reboot, and reports the time for the last reboot.
+
 **dmpatterns_getstarted_service.js**, which calls a direct method on the simulated device, displays the response, and displays the updated device twin reported properties.
 
 To complete this tutorial, you need the following:

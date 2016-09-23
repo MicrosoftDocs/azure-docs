@@ -21,256 +21,350 @@
 ## Introduction
 In the [Get started with device management][lnk-dm-getstarted] tutorial, you saw how to use the [device twin][lnk-devtwin] and [cloud-to-device (C2D) methods][lnk-c2dmethod] primitives to remotely reboot a device. This tutorial uses the same IoT Hub primitives and provides guidance and shows you how to do an end-to-end simulated firmware update.  This pattern is used in the firmware update implementation for the Intel Edison device sample. [Link to Edison doc/sample]  
 
-## Add the IoT back-end code
+This tutorial shows you how to:
 
-Using the same IoT Hub connection string from the [getting started with device management tutorial][lnk-dm-getstarted], you can now create code for the back-end app that initiates the firmware update.
+- Create a console application that calls the firmwareUpdate direct method on the simulated device via your IoT hub.
+- Create a simulated device that implements a firmwareUpdate direct method which goes through a multi-stage process that waits to download the firmware image, downloads the firmware image, and finally applies th firmware image.  Throughout executing each stage the device uses the twin reported properties to update progress.
 
-1. Open a shell
+At the end of this tutorial, you have two Node.js console applications:
 
-2. Use npm to add the Azure IoT SDK
+**dmpatterns_fwupdate_service.js**, which calls a direct method on the simulated device, displays the response, and periodically (every 500ms) displays the updated device twin reported properties.
+
+**dmpatterns_fwupdate_device.js**, which connects to your IoT hub with the device identity created earlier, receives a firmwareUpdate direct method, runs through a multi-state process to simulate a firmware update including: waiting for the image download, downloading the new image, and finally applying the image.
+
+
+To complete this tutorial, you need the following:
+
+Node.js version 0.12.x or later, <br/>  [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
+
+An active Azure account. (If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].)
+
+Follow the [Get started with device management](iot-hub-device-management-get-started.md) article to create your IoT hub and get your connection string.
+
+[AZURE.INCLUDE [iot-hub-get-started-create-hub-pp](../../includes/iot-hub-get-started-create-hub-pp.md)]
+
+
+## Create a simulated device app
+
+In this section, you create a Node.js console app that responds to a direct method called by the cloud, which triggers a simulated device firmware update and uses the device twin reported properties to enable device twin queries to identify devices and when they last rebooted.
+
+1. Create a new empty folder called **manageddevice**.  In the **manageddevice** folder, create a package.json file using the following command at your command-prompt.  Accept all the defaults:
 
     ```
-    npm install azure-iothub
-    ```
-
-3. Create serviceApp.js and copy/paste the following code.
-
-    ```
-    var Registry = require('azure-iothub').Registry;
-    var Client = require('azure-iothub').Client;
-     
-    var connectionString = '[Connection string goes here]';
-    var registry = Registry.fromConnectionString(connectionString);
-    var client = Client.fromConnectionString(connectionString);
-
-    var createFWUpdateReported = function(twin) {
-        return 'FWUpdate reported: ' + JSON.stringify(twin.properties.reported.iothubDM.firmwareUpdate);
-    };
-
-    var queryTwinFWUpdateReported = function() {
-        registry.findTwins("SELECT * FROM devices WHERE deviceId = 'deviceId'", function(err, queryResult) {
-            if (err) {
-            console.error('Could not query twins: ' + err.constructor.name + ': ' + err.message);
-            } else {
-            console.log(createFWUpdateReported(queryResult.result[0]));
-            }
-        });
-    };
-     
-    var startFirmwareUpdateDevice = function(twin) {
-        var params = {
-            fwPackageUri: 'https://secureurl'
-        };
-        client.c2dmethod('ihdmFirmwareUpdate', params, function(err) {
-            if (err) {
-            console.error('Could not start the firmware update on the device: '+ err.constructor.name + ': ' + err.message)
-            } 
-        });
-    };
-
-    registry.getDeviceTwin('deviceId', function(err, twin) {
-      if (err) {
-        console.error(err.constructor.name + ': ' + err.message);
-      } else {
-        startFirmwareUpdateDevice();
-        setInterval(queryTwinFWUpdateReported, 1000);
-    });  
-
+    npm init
     ```
     
-4. Run the code. Since the device is not running, you see the firmware update C2D method fails and the **firmwareUpdate** reported property is empty.
-    ```
-    node serviceApp.js
-    ```
-
-## Add the IoT device code
-
-The steps below show you how to create the device code that handles the firmware update C2D method and reports progress through device twin reported properties. The device code implements a finite state machine to handle this flow:
-
-- Prepare to download the image.
-- Download the image.
-- Apply the image.  
-
-Within these states there can be several failure conditions that must be handled and reported through the device twin.
-
-[AZURE.NOTE] For this tutorial, you run this code on your development machine rather than on a device to make it easy to test.
- 
-1. Use npm to add the Azure IoT SDK
+2. At your command-prompt in the **manageddevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
 
     ```
-    npm install azure-iothub
+    npm install azure-iot-device azure-iot-device-mqtt --save
+    ```
+
+3. Using a text editor, create a new **dmpatterns_fwupdate_device.js** file in the **manageddevice** folder.
+
+4. Add the following 'require' statements at the start of the **dmpatterns_fwupdate_device.js** file:
+
+    ```
+    'use strict';
+
+    var Client = require('azure-iot-device').Client;
+    var Protocol = require('azure-iot-device-mqtt').Mqtt;
+    ```
+
+5. Add a **connectionString** variable and use it to create a device client.  
+
+    ```
+    var connectionString = 'HostName={youriothostname};DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}';
+    var client = Client.fromConnectionString(connectionString, Protocol);
+    ```
+
+6. Add the following function which will be used to update twin reported properties
+
+    ```
+    var reportFWUpdateThroughTwin = function(twin, firmwareUpdateValue) {
+      var patch = {
+          iothubDM : {
+            firmwareUpdate : firmwareUpdateValue
+          }
+      };
+
+      twin.properties.reported.update(patch, function(err) {
+        if (err) throw err;
+        console.log('twin state reported')
+      });
+    };
     ```
     
-2. Create deviceApp.js and copy/paste the following code.
+7. Add the following functions wihch will simulate the download and apply of the firmware image.
 
-```
-var Client = require('azure-iot-device').Client;
-var Protocol = require('azure-iot-device-mqtt').Mqtt;
-var time = require('time');
-var StateMachine = require('javascript-state-machine');
-
-var imageData = null;
-
-var reportFWUpdateThroughTwin = function(firmwareUpdateValue) {
-  var patch = {
-    reported : {
-      iothubDM : {
-        firmwareUpdate : firmwareUpdateValue,
-      }
+    ```
+    var simulateDownloadImage = function(imageUrl, callback) {
+      var error = null;
+      var image = "[fake image data]";
+      
+      console.log("Downloading image from " + imageUrl);
+      
+      callback(error, image);
     }
-  };
 
-  client.reportTwinState(patch, function(err) {
-    if (err) throw err;
-    console.log('twin state reported')
-  });
-};
+    var simulateApplyImage = function(imageData, callback) {
+      var error = null;
+      
+      if (!imageData) {
+        error = {message: 'Apply image failed because of missing image data.'};
+      }
+      
+      callback(error);
+    }
+    ```
 
-var simulateDownloadImage = function(imageUrl, callback) {
-  var error = null;
-  
-  console.log("Downloading image from " + imageUrl);
-  
-  callback(error);
-}
+8. Add the following function which will update the firmware update status through the twin reported properties to waiting to download.  Typically, devices are informed of an avaiable update and an administrator defined policy causes the device to start downloading and applying the update.  This is where the logic to enable that policy would run.  For simplicity, we're delaying for 4 seconds and proceeding to download the firmware image. 
 
-var simulateApplyImage = function(imageData, callback) {
-  var error = null;
-  
-  if (!imageData) {
-    error = {message: 'Apply image failed because of missing image data.'};
-  }
-  
-  callback(error);
-}
-
-var fsm = StateMachine.create({
-  initial: 'idle',
-  events: [
-    {name: 'waitToDownload', from: 'idle', to: 'waiting'},
-    {name: 'downloadImage', from: 'waiting', to: 'downloading'},
-    {name: 'applyImage', from: 'downloading', to: 'idle'},
-
-  ],
-  callbacks: {
-    onwaitToDownload: 
-      function(event, from, to, fwPackageUriVal) { 
-        reportFWUpdateThroughTwin({
-          fwPackageUri: fwPackageUriVal,
-          status: 'waiting',
-          error : null,
-        });
-        setTimeout(function() {}, 3000);
-      },
+    ```
+    var waitToDownload = function(twin, fwPackageUriVal, callback) {
+      var now = new Date();
+      
+      reportFWUpdateThroughTwin(twin, {
+        fwPackageUri: fwPackageUriVal,
+        status: 'waiting',
+        error : null,
+        startedWaitingTime : now.toISOString()
+      });
+      setTimeout(callback, 4000);
+    };
+    ```
     
-    ondownloadImage: 
-      function(event, from, to, fwPackageUriVal) { 
-        reportFWUpdateThroughTwin({
-          status: 'downloading',
-        });
-        
-        setTimeout(function() {}, 3000);
-        
+9. Add the following function which will update the firmware update status through the twin reported properties to downloading the firmware image.  It follows up by simulating a firmware download and finally updates the firmware update status to inform of either a download success or failure.
+
+    ```
+    var downloadImage = function(twin, fwPackageUriVal, callback) {
+      var now = new Date();   
+      
+      reportFWUpdateThroughTwin(twin, {
+        status: 'downloading',
+      });
+      
+      setTimeout(function() {
         // Simulate download
         simulateDownloadImage(fwPackageUriVal, function(err, image) {
-          var now = new time.Date(); 
           
           if (err)
           {
-            reportFWUpdateThroughTwin({
-              staus: 'downloadfailed',
+            reportFWUpdateThroughTwin(twin, {
+              status: 'downloadfailed',
               error: {
                 code: error_code,
                 message: error_message,
               }
             });
           }
-          else {
-            imageData = image;
-            
-            reportFWUpdateThroughTwin({
+          else {        
+            reportFWUpdateThroughTwin(twin, {
               status: 'downloadComplete',
-              downloadCompleteTime: now.time,
+              downloadCompleteTime: now.toISOString(),
             });
+            
+            setTimeout(function() { callback(image); }, 4000);   
           }
-          
-          fsm.transition();
         });
         
-        return StateMachine.ASYNC;
-      },
+      }, 4000);
+    }
+    ```
     
-    onapplyImage: 
-      function(event, from, to, fwPackageUriVal) { 
-        reportFWUpdateThroughTwin({
-          status: 'applying',
-        })
-        
-        setTimeout(function() {}, 3000);
+10. Add the following function which will update the firmware update status through the twin reported properties to applying the firmware image.  It follows up by simulating a applying of the firmware image and finally updates the firmware update status to inform of either a apply success or failure.
+
+    ```
+    var applyImage = function(twin, imageData, callback) {
+      var now = new Date();   
+      
+      reportFWUpdateThroughTwin(twin, {
+        status: 'applying',
+        startedApplyingImage : now.toISOString()
+      });
+      
+      setTimeout(function() {
         
         // Simulate apply firmware image
         simulateApplyImage(imageData, function(err) {
-          
           if (err) {
-            reportFWUpdateThroughTwin({
+            reportFWUpdateThroughTwin(twin, {
               status: 'applyFailed',
               error: {
                 code: err.error_code,
                 message: err.error_message,
               }
             });
-          } else {
-            var now = new time.Date(); 
-            reportFWUpdateThroughTwin({
+          } else { 
+            reportFWUpdateThroughTwin(twin, {
               status: 'applyComplete',
-              lastFirmwareUpdate: now.time
+              lastFirmwareUpdate: now.toISOString()
             });    
             
           }
-        })
-      },
+        });
+        
+        setTimeout(callback, 4000);
+        
+      }, 4000);
+    }
+    ```
+
+11. Add the following functoin which handle the firmwareUpdate method and initiate the multi-stage firmware update process.
+
+    ```
+    var onFirmwareUpdate = function(request, response) {
+
+      // Respond the cloud app for the direct method
+      response.end(200, function(err) {
+        if (!!err) {
+          console.error('An error occured when sending a method response:\n' + err.toString());
+        } else {
+          console.error('Response to method \'' + request.methodName + '\' sent successfully.');
+        }
+      });
+
+      // Get the parameter from the body of the method request
+      var string = String.fromCharCode.apply(null, request.body); 
+      var fwPackageUri = JSON.parse(string).fwPackageUri;
+
+      // Obtain the device twin
+      client.getDeviceTwin(function(err, twin) {
+        if (err) {
+          console.error('Could not get device twin.');
+        } else {
+          console.log('Device twin acquired.');
+          
+          // Start the multi-stage firmware update
+          waitToDownload(twin, fwPackageUri, function() {
+            downloadImage(twin, fwPackageUri, function(imageData) {
+              applyImage(twin, imageData, function() {});    
+            });  
+          });
+
+        }
+      });
+    }
+    ```
     
+12. Finally, add the following code which connects to IoT hub as a device, 
+
+    ```
+    client.open(function(err) {
+      if (err) {
+        console.error('Could not connect to IotHub client');
+      }  else {
+        console.log('Client connected to IoT Hub.  Waiting for firmwareUpdate direct method.');
+      }
       
-    
-  }
-})
+      client.onDeviceMethod('firmwareUpdate', onFirmwareUpdate(request, response));
+    });
+    ```
 
-var connectionString = '[IoT device connection string]';
-var client = Client.fromConnectionString(connectionString, Protocol);
+ [AZURE.NOTE] To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the MSDN article [Transient Fault Handling][lnk-transient-faults].
 
-client.open(function(err) {
-  if (err) {
-    console.error('could not open IotHub client');
-  }  else {
-    console.log('client opened');
-  }
-  
-  client.on('ihdmFirmwareUpdate', function(params) {
-      fsm.waitToDownload(params.fwPackageUri);
-      fsm.downloadImage(params.fwPackageUri);
-      fsm.applyImage(imageData);
-  });
-});
-```
+## Trigger a remote firmware update on the device using a direct method 
 
-3. Run the code to start the device.  Do not quit the running device app as the next step will require that it is running in the background.
+In this section, you create a Node.js console app that initiates a remote firmware update on a device using a direct method and uses device twin queries to periodically get the status of the active firmware update on that  device.
+
+
+1. Create a new empty folder called **triggerfwupdateondevice**.  In the **triggerfwupdateondevice** folder, create a package.json file using the following command at your command-prompt.  Accept all the defaults:
 
     ```
-    node deviceApp.js
+    npm init
     ```
     
-## Trigger the end-to-end firmware update
- 
-Rerun the back-end app in a new shell while the device app is running in the background. 
-
-1. Open a new shell
-
-2. Run the back-end app to initiate the simulated firmware update and monitor the periodic reported properties
+2. At your command-prompt in the **triggerfwupdateondevice** folder, run the following command to install the **azure-iothub** Device SDK package and **azure-iot-device-mqtt** package:
 
     ```
-    node serviceApp.js
+    npm install azure-iot-hub --save
+    ```
+    
+3. Using a text editor, create a new **dmpatterns_getstarted_service.js** file in the **triggerrebootondevice** folder.
+
+4. Add the following 'require' statements at the start of the **dmpatterns_getstarted_service.js** file:
+
+    ```
+    'use strict';
+
+    var Registry = require('azure-iothub').Registry;
+    var Client = require('azure-iothub').Client;
     ```
 
+5. Add the following variable declarations and replace the placeholder values:
+
+    ```
+    var connectionString = '{iothubconnectionstring}';
+    var registry = Registry.fromConnectionString(connectionString);
+    var client = Client.fromConnectionString(connectionString);
+    var deviceToReboot = {deviceIdOfTargetDevice};
+    ```
+    
+6. Add the following function to find and display the value of the firmwareUpdate reported property.
+
+    ```
+    var queryTwinFWUpdateReported = function() {
+        //registry.findTwins("SELECT * FROM devices WHERE deviceId = '"+deviceToUpdate+"'", function(err, queryResult) {
+        registry.getDeviceTwin(deviceToUpdate, function(err, twin){
+            if (err) {
+              console.error('Could not query twins: ' + err.constructor.name + ': ' + err.message);
+            } else {
+              console.log((JSON.stringify(twin.properties.reported.iothubDM.firmwareUpdate)) + "\n");
+            }
+        });
+    };
+    ```
+
+7. Add the following function to invoke the firmwareUpdate method to reboot the target device:
+
+    ```
+    var startFirmwareUpdateDevice = function() {
+        var params = {
+            fwPackageUri: 'https://secureurl'
+        };
+        var methodName = "firmwareUpdate";
+        var timeout = 3000;
+        
+        client.invokeDeviceMethod(deviceToUpdate, methodName, JSON.stringify(params), timeout, function(err, result) {
+            if (err) {
+            console.error('Could not start the firmware update on the device: ' + err.message)
+            } 
+        });
+    };
+    ```
+
+8. Finally, Add the following function to code to start the firmware update sequence and start periodically showing the twin reported properties:
+
+    ```
+    startFirmwareUpdateDevice();
+    setInterval(queryTwinFWUpdateReported, 500);
+    ```
+    
+9. Save and close the **dmpatterns_fwupdate_service.js** file.
+
+## Run the applications
+
+You are now ready to run the applications.
+
+1. At the command-prompt in the **manageddevice** folder, run the following command to begin listening for the reboot direct method.
+
+    ```
+    node dmpatterns_fwupdate_device.js
+    ```
+
+2. At the command-prompt in the **triggerrebootondevice** folder, run the following command to trigger the remote reboot and query for the device twin to find the last reboot time.
+
+    ```
+    node dmpatterns_fwupdate_service.js
+    ```
+
+3. You will see the react to the direct method by printing out the message
+
+## Next steps
+
+In this tutorial, you used a direct method to trigger a remote firmware update on a device and periodically used the twin reported properties to understand the progress of the firmware update process.  
+
+To learn how to extend your IoT solution and schedule method calls on multiple devices, see the [Schedule and broadcast jobs][lnk-tutorial-jobs] tutorial.
 
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md
