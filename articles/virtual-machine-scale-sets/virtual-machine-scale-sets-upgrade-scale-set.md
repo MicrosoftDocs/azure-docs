@@ -28,7 +28,7 @@ There are three types of OS update:
 
 - Changing the URI that points to a new version of a custom image you built (**properties > virtualMachineProfile > storageProfile > osDisk > image > uri**). This scenario is covered in this article.
 
-- Patching the OS from within a virtual machine (for example, installing a security patch or using Windows Update). This scenario is supported but not covered in this article.
+- Patching the OS from within a virtual machine (for example, installing a security patch or by using Windows Update). This scenario is supported but not covered in this article.
 
 The first two options are supported requirements covered by this article. You'll need to create a new scale set to execute the third option.
 
@@ -45,7 +45,7 @@ Following is the basic sequence for changing the OS version or SKU of a platform
 4. Do a *manualUpgrade* call on the virtual machines in the scale set. This step is only relevant if *upgradePolicy* is set to **Manual** in your scale set. If it is set to **Automatic**, all the virtual machines are upgraded at once, thus causing downtime.
 
 
-With this background information in mind, you can update the version of a scale set in PowerShell using the REST API. These examples cover the case of a platform image, but this article provides enough information for you to adapt this process to a custom image.
+With this background information in mind, you can update the version of a scale set in PowerShell by using the REST API. These examples cover the case of a platform image, but this article provides enough information for you to adapt this process to a custom image.
 
 ## PowerShell##
 
@@ -78,7 +78,7 @@ $vmss.virtualMachineProfile.storageProfile.osDisk.image.uri= $newURI
 ```
 
 
-## Using the REST API
+## The REST API
 
 Here are a couple of Python examples that use the Azure REST API to roll out an OS version update. Both use the lightweight [azurerm](https://pypi.python.org/pypi/azurerm) library of Azure REST API wrapper functions to do a GET on the scale set model, followed by a PUT with an updated model. They also look at virtual machine instances views to identify the virtual machines by update domain.
 
@@ -86,7 +86,7 @@ Here are a couple of Python examples that use the Azure REST API to roll out an 
 
  [Vmssupgrade](https://github.com/gbowerman/vmsstools) is Python script used to roll out an OS upgrade to a running virtual machine scale set one update domain at a time.
 
-![vmssupgrade screenshot](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssupgrade-screenshot.png)
+![Vmssupgrade script for choosing virtual machines or an update domain](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssupgrade-screenshot.png)
 
 This script lets you choose specific virtual machines to update or specify an update domain. It supports changing a platform image version or changing the URI of a custom image.
 
@@ -96,8 +96,8 @@ This script lets you choose specific virtual machines to update or specify an up
 
 The following screenshot shows a model of a scale set for Ubuntu 14.04-2LTS version 14.04.201507060. Many more options have been added to this tool since this screenshot was taken.
 
-![vmsseditor screenshot 1](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor1.png)
+![Vmsseditor model of a scale set for Ubuntu 14.04-2LTS](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor1.png)
 
 After clicking **Upgrade** and then **Get Details**, virtual machines in UD 0 start to update.
 
-![vmsseditor screenshot 2](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor2.png)
+![Vmsseditor showing update in progress](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor2.png)
