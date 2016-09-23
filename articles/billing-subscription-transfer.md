@@ -48,7 +48,7 @@ You can now do this easily in the Microsoft Azure Account Center- for Pay-As-You
 
 4.  Follow the prompts to specify the recipient.
 
-    ![Transfer Subscription dialog box](./media/billing-subscription-transfer/image2.png)
+    ![Transfer Subscription dialog box](./media/billing-subscription-transfer/image2.PNG)
 
 5.  The recipient will automatically get an email with a acceptance link.
 
