@@ -95,7 +95,7 @@ Invoke-RestMethod -Uri $request `
                   -Method Get `
                   -Verbose
 ```
-For an Azure Web App, the metric definitions would appear similar to the following screenshot.
+For an Azure Web App, the metric definitions would appear similar to the following screenshot:
 
 ![Alt "JSON view of metric definition response."](./media/monitoring-rest-api-walkthrough/available_metric_definitions_json_response.png)
 
@@ -151,11 +151,11 @@ $request = "https://management.azure.com/subscriptions/${subscriptionId}/provide
                    -Verbose).Value | ConvertTo-Json
 ```
 
-Using the REST API can really help to understand the available metric definitions, granularity, and related values. That information is very helpful when using the [Azure Insights Management Library](https://msdn.microsoft.com/library/azure/mt417623.aspx).
+Using the REST API can really help to understand the available metric definitions, granularity, and related values. That information is helpful when using the [Azure Insights Management Library](https://msdn.microsoft.com/library/azure/mt417623.aspx).
 
 ## Retrieving Metrics via the Insights Management Library
 
-Just like working with the REST API, the first step in working with the management library is to authenticate. This can be done by using the ADAL to retrieve the JWT token from Azure AD. Assuming the Azure AD service principal is already configured, retrieving the token can be as simple as the code shown in the following sample.
+Just like working with the REST API, the first step in working with the management library is to authenticate. This can be done by using the ADAL to retrieve the JWT token from Azure AD. Assuming the Azure AD service principal is already configured, retrieving the token can be as simple as the code shown in the following sample:
 
 ```csharp
 private static string GetAccessToken()
@@ -172,7 +172,7 @@ private static string GetAccessToken()
 }
 ```
 
-The primary class for working with the Insights API is the [InsightsClient](https://msdn.microsoft.com/library/azure/microsoft.azure.insights.insightsclient.aspx). This class exposes functionality to retrieve the available metric definitions and metric values, as seen in the sample code below.
+The primary class for working with the Insights API is the [InsightsClient](https://msdn.microsoft.com/library/azure/microsoft.azure.insights.insightsclient.aspx). This class exposes functionality to retrieve the available metric definitions and metric values, as seen in the following sample code:
 
 ```csharp
 private static MetricListResponse GetResourceMetrics(TokenCloudCredentials credentials, string resourceUri, string filter, TimeSpan period, string duration)
@@ -209,7 +209,7 @@ For the preceding code, the resource URI to use is the full path to the desired 
 
 */subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{site-name}/*
 
->[AZURE.NOTE] To find the resource URI for a desired resource, one helpful approach is to use the [Azure Resource Explorer](https://resources.azure.com) tool. Navigate to the desired resource and then look at the URI shown, as in the following screenshot.
+>[AZURE.NOTE] To find the resource URI for a desired resource, one helpful approach is to use the [Azure Resource Explorer](https://resources.azure.com) tool. Navigate to the desired resource and then look at the URI shown, as in the following screenshot:
 
 ![Alt "Azure Resource Explorer"](./media/monitoring-rest-api-walkthrough/azure_resource_explorer.png)
 
