@@ -34,12 +34,14 @@ The reference documentation for the iOS client SDK is located here: [Azure Mobil
 The iOS SDK supports Objective-C projects, Swift 2.2 projects, and Swift 2.3 projects for iOS versions 8.0 or later.
 
 The "server-flow" authentication uses a WebView for the presented UI.  If the device is not able to present 
-a WebView UI, then other methods of authentication is needed that is outside the scope of the product.  
+a WebView UI, then another method of authentication is required that is outside the scope of the product.  
 This SDK is thus not suitable for Watch-type or similarly restricted devices.
 
 ##<a name="Setup"></a>Setup and Prerequisites
 
-This guide assumes that you have created a backend with a table. This guide assumes that the table has the same schema as the tables in those tutorials. This guide also assumes that in your code, you reference `MicrosoftAzureMobile.framework` and import `MicrosoftAzureMobile/MicrosoftAzureMobile.h`.
+This guide assumes that you have created a backend with a table. This guide assumes that the table has the 
+same schema as the tables in those tutorials. This guide also assumes that in your code, you reference 
+`MicrosoftAzureMobile.framework` and import `MicrosoftAzureMobile/MicrosoftAzureMobile.h`.
 
 ##<a name="create-client"></a>How to: Create Client
 
@@ -165,8 +167,7 @@ let query = table.query()
 let query = table.queryWithPredicate(NSPredicate(format: "complete == NO"))
 ```
 
-`MSQuery` lets you control several query behaviors. Execute an `MSQuery` query by calling 
-`readWithCompletion` on the object, as shown in the following example.
+`MSQuery` lets you control several query behaviors.
 
 * Specify order of results
 * Limit which fields to return
@@ -174,6 +175,8 @@ let query = table.queryWithPredicate(NSPredicate(format: "complete == NO"))
 * Specify total count in response
 * Specify custom query string parameters in request
 * Apply additional functions
+
+Execute an `MSQuery` query by calling `readWithCompletion` on the object.
 
 ## <a name="sorting"></a>How to: Sort Data with MSQuery
 
@@ -249,8 +252,8 @@ query.parameters = ["myKey1": "value1", "myKey2": "value2"]
 
 ##<a name="inserting"></a>How to: Insert Data
 
-To insert a new table row, create a `NSDictionary` and invoke `table insert`. The Azure App Service mobile
-backend automatically generates new columns based on the `NSDictionary` if [Dynamic Schema] is not disabled.
+To insert a new table row, create a `NSDictionary` and invoke `table insert`. If [Dynamic Schema] is enabled,
+the Azure App Service mobile backend automatically generates new columns based on the `NSDictionary`.
 
 If `id` is not provided, the backend automatically generates a new unique ID. Provide your own `id` to use 
 email addresses, usernames, or your own custom values as ID. Providing your own ID may ease joins and 
@@ -632,7 +635,7 @@ provides a more native UX feel and allows for additional customization.
    [How to configure App Service for Facebook login][9] tutorial.
 
 2. Install the Facebook SDK for iOS by following the [Facebook SDK for iOS - Getting Started][10]
-   documentation. Instead of creating a new app, you can add the iOS platform to your existing registration. 
+   documentation. Instead of creating an app, you can add the iOS platform to your existing registration. 
 
 3. Facebook's documentation includes some Objective-C code in the App Delegate. If you are using **Swift**, you 
    can use the following translations for AppDelegate.swift:
@@ -655,7 +658,7 @@ provides a more native UX feel and allows for additional customization.
 4. In addition to adding `FBSDKCoreKit.framework` to your project, also add a reference to `FBSDKLoginKit.framework` 
    in the same way. 
 
-4. Add the below code to your application, according to the language you are using. 
+4. Add the following code to your application, according to the language you are using. 
 
 **Objective-C**:
 
@@ -716,13 +719,13 @@ for additional customization.
 2. Add Fabric to your project by following the [Fabric for iOS - Getting Started] documentation and setting up 
    TwitterKit.
 
-    > [AZURE.NOTE] By default, Fabric creates a new Twitter application for you. You can change 
-    this by registering the Consumer Key and Consumer Secret you created earlier using the code snippets 
-    below.	Alternatively, you can replace the Consumer Key and Consumer Secret values that you provide to 
-    App Service with the values you see in the [Fabric Dashboard]. If you choose this option, be sure to set 
+    > [AZURE.NOTE] By default, Fabric creates a Twitter application for you. You can avoid creating an 
+    application by registering the Consumer Key and Consumer Secret you created earlier using the following 
+    code snippets.	Alternatively, you can replace the Consumer Key and Consumer Secret values that you provide 
+    to App Service with the values you see in the [Fabric Dashboard]. If you choose this option, be sure to set 
     the callback URL to a placeholder value, such as `https://<yoursitename>.azurewebsites.net/.auth/login/twitter/callback`.
 
-	If you choose to use the secrets you created earlier, add the following to your App Delegate:
+	If you choose to use the secrets you created earlier, add the following code to your App Delegate:
 	
 	**Objective-C**:
 
@@ -749,7 +752,7 @@ for additional customization.
 			return true
 		}
 	
-3. Add the below code to your application, according to the language you are using. 
+3. Add the following code to your application, according to the language you are using. 
 
 **Objective-C**:
 
@@ -794,7 +797,8 @@ Google SDK in the future.
 
 1. Configure your mobile app backend for Google sign-in by following the [How to configure App Service for Google login](app-service-mobile-how-to-configure-google-authentication.md) tutorial.
 
-2. Install the Google SDK for iOS by following the [Google Sign-In for iOS - Start integrating](https://developers.google.com/identity/sign-in/ios/start-integrating) documentation. You may skip the "Authenticate with a Backend Server" section, as App Service will handle this for you.
+2. Install the Google SDK for iOS by following the [Google Sign-In for iOS - Start integrating](https://developers.google.com/identity/sign-in/ios/start-integrating) 
+   documentation. You may skip the "Authenticate with a Backend Server" section.
 
 3. Add the following to your delegate's `signIn:didSignInForUser:withError:` method, according to the language 
    you are using.
@@ -830,10 +834,9 @@ Google SDK in the future.
 
  
  5. Add the following code to your application in a UIViewController that implements the `GIDSignInUIDelegate` 
-    protocol, according to the language you are using. Note that you are signed out before being signed in 
-    again, and although you don't need to enter your credentials again, you see a consent dialog. This is 
-    required to obtain a new server authentication code. Only call this method when the session token has 
-    expired.
+    protocol, according to the language you are using.  You are signed out before being signed in 
+    again, and although you don't need to enter your credentials again, you see a consent dialog.  Only call 
+    this method when the session token has expired.
  
  **Objective-C**:
 
