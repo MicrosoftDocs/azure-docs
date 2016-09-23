@@ -20,10 +20,10 @@
 This release provides new features for both tenants and administrators.
 
 ## Network   
-   - [Azure-provided DNS](azure-stack-understanding-dns-in-tp2.md) provides internal network name registration and Domain Name System (DNS) resolution without additional DNS infrastructure.
+   - [iDNS](azure-stack-understanding-dns-in-tp2.md) provides internal network name registration and Domain Name System (DNS) resolution without additional DNS infrastructure.
    - [Virtual network gateways](azure-stack-create-vpn-connection-one-node-tp2.md) provide VPN connectivity options to Azure or on-premises resources.
    - User-defined routes can route network traffic through firewalls, security, other appliances, and other services.
-   - You can create network resources from the Microsoft Azure Marketplace.   
+   - You can create network resources from the Marketplace.   
 
 ## Storage
  - [Azure Queues](https://msdn.microsoft.com/library/dd179353.aspx) enable reliable and persistent service messaging.
@@ -44,7 +44,7 @@ This release provides new features for both tenants and administrators.
 
 ### Portal Experience
  - Azure Stack Regions are a logical unit of scale and management within Azure Stack. In this preview, you can view information on services like compute, network, and storage by region.
- - You can now the updates blade.
+ - You can now preview the updates interface.
 
 ## Key Vault
 - [Azure Key Vault](azure-stack-kv-intro.md) provides secure management of your keys and passwords for cloud apps.
