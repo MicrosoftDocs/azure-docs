@@ -395,8 +395,7 @@ as the database system in an another Azure VM.
 
 ![](./media/virtual-machines-linux-sap-hana-get-started/image016.jpg)
 
-Once the ASCS instance is installed on the app server VM and is set to "green" in the SAP MC the sapmnt
-directory which includes e.g. the SAP profile directory has to shared with the SAP HANA DB server VM.
+Once the ASCS instance is installed on the app server VM and is set to "green" in the SAP MC the sapmnt directory which includes e.g. the SAP profile directory has to be shared with the SAP HANA DB server VM.
 The DB installation step needs access to this information. The best way is to use NFS which can be
 configured using Yast.
 
