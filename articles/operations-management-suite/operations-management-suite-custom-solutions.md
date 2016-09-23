@@ -45,7 +45,7 @@ The basic structure of a Resource Manager Template is as follows.  Each of the f
        "outputs": {  }
     }
 
-## Parameters
+### Parameters
 
 The **parameters** element defines values that you require from the user when they install the solution.  The standard set of parameters below is required for every solution.  You can add other parameters as required for your particular solution.    
 
@@ -88,7 +88,7 @@ The **parameters** element defines values that you require from the user when th
 
 You refer to parameter values in other elements of the solution with the syntax **parameters('parameter name')**.  For example, to access the workspace name, you would use **parameters('WorkspaceName')** 
 
-## Variables
+### Variables
 
 The **Variables** element includes values that you will use in other elements.  These values are not exposed to the user installing the solution.  They are intended to provide the author with a single location where they can manage values that may be used multiple times throughout the solution. 
 
@@ -104,7 +104,7 @@ Following is an example of a **variables** element with typical parameters used 
 You refer to variable values through the solution with the syntax **variables('variable name')**.  For example, to access the SolutionName variable, you would use **variables('SolutionName')** 
 
 
-## Resources
+### Resources
 
 The **Resources** element defines the different resources included in your solution.  This will be the largest and most complex portion of the template.
 
@@ -130,7 +130,7 @@ Resources are defined with the following structure.  All types of resources will
 
 The sections that follow provide details on the Solution resources and other resources that are common to solutions.
 
-### Solution resource
+#### Solution resource
 Each solution requires a resource entry that defines the solution itself.  This will have a type of **Microsoft.OperationsManagement/solutions**.
 
       "name": "[concat(variables('SolutionName'), '(' ,parameters('workspacename'), ')')]",
