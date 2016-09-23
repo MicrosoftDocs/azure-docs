@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="03/29/2016"
+   ms.date="09/13/2016"
    ms.author="kundanap"/>
 
 # Linux VM extension configuration samples
@@ -92,9 +92,10 @@ Rest of the article provides sample configurations for Linux VM Extensions.
 
 ### CustomScript Extension for Linux.
     {
-        "publisher": " Microsoft.OSTCExtensions",
-        "type": "CustomScriptForLinux",
-        "typeHandlerVersion": "1.3",
+        "publisher": " Microsoft.Azure.Extensions",
+        "type": "CustomScript",
+        "typeHandlerVersion": "2.0",
+        "autoUpgradeMinorVersion": true,
         "settings": {
             "fileUris": [
                 "http: //Yourstorageaccount.blob.core.windows.net/customscriptfiles/start.ps1"

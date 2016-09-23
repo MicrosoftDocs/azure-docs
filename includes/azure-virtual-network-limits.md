@@ -40,5 +40,5 @@ Load balancer rules per load balancer | 150 | 150
 Public front end IP per load balancer | 5 | contact support
 Private front end IP per load balancer | 1 | contact support
 Application gateways | 50 | 50
-
+Virtual network peering | 10 | 50
 Contact support in case you need to increase limits from default.

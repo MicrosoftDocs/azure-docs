@@ -13,12 +13,12 @@
    	ms.tgt_pltfrm="na"
    	ms.devlang="na"
    	ms.topic="article"
-   	ms.date="07/06/2016"
+   	ms.date="09/22/2016"
    	ms.author="v-donglo"/>
 
 # Deploy a new web service
 
-Microsoft Azure Machine learning now provides web services that are based on [Azure Resource Manager](../azure-portal/resource-group-overview.md) allowing for new billing plan options and deploying your web service to multiple regions.
+Microsoft Azure Machine learning now provides web services that are based on [Azure Resource Manager](../resource-group-overview.md) allowing for new billing plan options and deploying your web service to multiple regions.
 
 The general workflow to deploy a web service using Microsoft Azure Machine Learning Web Services is:
 
@@ -88,6 +88,13 @@ On the Consuming page you can find:
 
 For more information on consuming web services, see [How to consume an Azure Machine Learning web service that has been deployed from a Machine Learning experiment](machine-learning-consume-web-services.md).
 
+## Next Steps
+
+For more information on consuming web services, see:
+
+[How to consume an Azure Machine Learning web service that has been deployed from a Machine Learning experiment](machine-learning-consume-web-services.md)
+
+[Azure Machine Learning Web Services: Deployment and consumption](machine-learning-deploy-consume-web-service-guide.md)
 
 <!--Image references-->
 [1]: ./media/machine-learning-webservice-deploy-a-web-service/armdeploymentworkflow.png

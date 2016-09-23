@@ -4,7 +4,7 @@
 	services="azure-stack"
 	documentationCenter=""
 	authors="anjayajodha"
-	manager="daarmour"
+	manager="byronr"
 	editor=""/>
 
 <tags
@@ -28,9 +28,9 @@ You can deploy Linux virtual machines on the Azure Stack POC by adding a Linux-b
   - [CentOS](http://olstacks.cloudapp.net/latest/)
   - [SuSE](https://download.suse.com/Download?buildid=VCFi7y7MsFQ~)
   
- 1. Extract the image VHD if necessary and [add the image to the Marketplace](../azure-stack/azure-stack-add-vm-image.md). Make sure that the `OSType` parameter is set to `Linux`.
+ 2. Extract the image VHD if necessary and [add the image to the Marketplace](azure-stack-add-vm-image.md). Make sure that the `OSType` parameter is set to `Linux`.
  
- 1. After you've added the image to the Marketplace, a Marketplace item is created and you can deploy a Linux virtual machine.
+ 3. After you've added the image to the Marketplace, a Marketplace item is created and you can deploy a Linux virtual machine.
   
 ## Prepare your own image
 
@@ -42,10 +42,10 @@ You can deploy Linux virtual machines on the Azure Stack POC by adding a Linux-b
  - [SLES & openSUSE](../virtual-machines/virtual-machines-linux-suse-create-upload-vhd.md)
  - [Ubuntu](../virtual-machines/virtual-machines-linux-create-upload-ubuntu.md)
 
-2. [Add the image to the Marketplace](../azure-stack/azure-stack-add-vm-image.md). Make sure that the `OSType` parameter is set to `Linux`.
+2. [Add the image to the Marketplace](azure-stack-add-vm-image.md). Make sure that the `OSType` parameter is set to `Linux`.
 
 3. After you've added the image to the Marketplace, a Marketplace item is created and you can deploy a Linux virtual machine.
 
 ## Next steps
 
-[Frequently asked questions for Azure Stack](../azure-stack/azure-stack-faq.md)
+[Frequently asked questions for Azure Stack](azure-stack-faq.md)
