@@ -145,7 +145,7 @@ Be sure to follow the steps in the “Clean up your Azure account” section at 
 
 ## Provision Azure resources required for the tutorial
 
-This tutorial requires two instances of Azure event hubs to receive *entry* and *exit* data streams. Azure SQL Database outputs the results of the Stream Analytics jobs. Azure Storage stores reference data about vehicle registrations.
+This tutorial requires two event hubs to receive *entry* and *exit* data streams. Azure SQL Database outputs the results of the Stream Analytics jobs. Azure Storage stores reference data about vehicle registrations.
 
 You can use the Setup.ps1 script in the TollApp folder on GitHub to create all required resources. In the interest of time, we recommend that you run it. If you would like to learn more about how to configure these resources in the Azure portal, refer to the “Configuring tutorial resources in Azure portal” appendix.
 
@@ -187,7 +187,7 @@ You should be able to see all created resources in Azure portal now. Go to <http
 
 ### Azure Event Hubs
 
-Click **SERVICE BUS** on the left side of the Azure portal to see instances of event hubs that the script created in the previous section.
+Click **SERVICE BUS** on the left side of the Azure portal to see event hubs that the script created in the previous section.
 
 ![Service Bus](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image8.png)
 
@@ -195,13 +195,13 @@ You will see all available namespaces in your subscription. Click the one that s
 
 ![Event Hubs tab in the Azure portal](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image9.png)
 
-You will see two instances of event hubs named *entry* and *exit* created in this namespace.
+You will see two event hubs named *entry* and *exit* created in this namespace.
 
 ![Screenshot of "entry" and "exit" event hubs in Azure portal](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image10.png)
 
 ### Azure Storage container
 
-1. Click **STORAGE** on the left side of the Azure portal to see the storage container that's used in the tutorial.
+1. Click **STORAGE** on the left side of the Azure portal to see the Azure Storage container that's used in the tutorial.
 
 	![Storage menu item](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image11.png)
 
@@ -247,7 +247,7 @@ Connect to the SQL database (the destination) from Visual Studio:
 
 	![Add Connection dialog box](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image17.jpg)
 
-7. Click OK.
+7. Click **OK**.
 
 8. Open Server Explorer.
 
@@ -349,7 +349,7 @@ Now all inputs are defined.
 
 1. Click the **OUTPUT** tab and then click **ADD AN OUTPUT**.
 
-	![The Output tabe and "Add an output" option](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image37.jpg)
+	![The Output tab and "Add an output" option](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image37.jpg)
 
 2. Click **SQL Database**.
 
@@ -472,7 +472,7 @@ In the dialog box that opens, change the **START OUTPUT** time to **CUSTOM TIME*
 
 Starting the job can take a few minutes. You can see the status on the top-level page for Stream Analytics.
 
-![Screeenshot of the status of the job](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image50.jpg)
+![Screenshot of the status of the job](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image50.jpg)
 
 ## Check results in Visual Studio
 
@@ -511,7 +511,7 @@ You can access **Operation Logs** from the **DASHBOARD** tab.
 
 ![The "Operation Logs" option](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image54.jpg)
 
-![Screeshot of operation logs where you can see the status of jobs](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image55.png)
+![Screenshot of operation logs where you can see the status of jobs](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image55.png)
 
 To see additional information about a particular event, click the event, and then click the **DETAILS** button.
 
@@ -528,7 +528,7 @@ Refer to the [online documentation](https://azure.microsoft.com/documentation/se
 
 1. Stop the Stream Analytics job in the Azure portal.
 
-	The Setup.ps1 script creates two instances of event hubs and a SQL database. The following instructions help you clean up resources at the end of the tutorial.
+	The Setup.ps1 script creates two event hubs and a SQL database. The following instructions help you clean up resources at the end of the tutorial.
 
 2. In a PowerShell window, type **.\\Cleanup.ps1** to start the script that deletes resources used in the tutorial.
 
