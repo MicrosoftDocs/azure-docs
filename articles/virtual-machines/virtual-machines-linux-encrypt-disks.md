@@ -141,11 +141,12 @@ Supported scenarios and requirements for disk encryption:
 - All resources (such as Key Vault, Storage account, and VM) must be in the same Azure region and subscription.
 - Standard A, D, and G series VMs.
 
-Disk encryption is not supported in the following scenarios:
+Disk encryption is not currently supported in the following scenarios:
 
 - Basic-tier VMs and Standard DS (Premium storage) VMs.
 - VMs created using the Classic deployment model.
 - Disabling disk encryption on Linux VMs.
+- Updating the cryptographic keys on an already encrypted Linux VM.
 
 
 ## Create the Azure Key Vault and keys
@@ -270,4 +271,31 @@ azure vm show-disk-encryption-status -g <TestEncrypt> -n <TestVM>
 ```
 
 
+## Add additional data disks
+Once you have encrypted your data disks, you can later add additional virtual disks to your VM and also encrypt them. When you run the `azure vm enable-disk-encryption` command, increment the sequence version using the `--sequence-version` parameter. This sequence version parameter allows you to perform repeated operations on the same VM.
+
+For example, lets add a second virtual disk to your VM as follows:
+
+```bash
+azure vm disk attach-new --resource-group <TestEncrypt> --vm-name <TestVM> \
+  --size-in-gb 5
+```
+
+Rerun the command to encrypt the virtual disks, this time adding the `--sequence-version` parameter and incrementing the value from our first run as follows:
+
+```bash
+azure vm enable-disk-encryption --resource-group <TestEncrypt> --vm-name <TestVM> \
+  --aad-client-id <applicationId> --aad-client-secret <applicationPassword> \
+  --disk-encryption-key-vault-url <keyvault vaultURI> \
+  --disk-encryption-key-vault-id <keyvault Id> \
+  --key-encryption-key-url <key kid> \
+  --key-encryption-key-vault-id <keyvault Id> \
+  --volume-type Data
+  --sequence-version 2
+```
+
+
 ## Next steps
+
+- For more information about managing Azure Key Vault, including deleting cryptographic keys and vaults, see [Manage Key Vault using CLI](../key-vault/key-vault-manage-with-cli.md).
+- For more information about disk encryption, such as preparing an encrypted custom VM to upload to Azure, see [Azure Disk Encryption](../security/azure-security-disk-encryption.md).
