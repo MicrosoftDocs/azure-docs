@@ -76,7 +76,15 @@ Yes. Use the **Move** button on your data factory blade as shown in the followin
 ![Move data factory](media/data-factory-faq/move-data-factory.png)
 
 ## What are the compute environments supported by Data Factory?
+The following table provides a list of compute environments supported by Data Factory and the activities that can run on them. 
 
+| Compute environment | activities |
+| ------------------- | -------- | 
+| [On-demand HDInsight cluster](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) or [your own HDInsight cluster](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) | [DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) | 
+| [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |  
+| [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) | [Machine Learning activities: Batch Execution and Update Resource](data-factory-azure-ml-batch-execution-activity.md) |
+| [Azure Data Lake Analytics](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](data-factory-usql-activity.md)
+| [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service), [Azure SQL Data Warehouse](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service), [SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) | [Stored Procedure](data-factory-stored-proc-activity.md)
 
 ## Activities - FAQ
 ### What are the different types of activities you can use in a Data Factory pipeline? 

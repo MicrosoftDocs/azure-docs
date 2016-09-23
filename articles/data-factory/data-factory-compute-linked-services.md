@@ -28,7 +28,7 @@ The following table provides a list of compute environments supported by Data Fa
 | [Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |  
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning activities: Batch Execution and Update Resource](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](data-factory-usql-activity.md)
-[Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Stored Procedure](data-factory-stored-proc-activity.md)
+| [Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Stored Procedure](data-factory-stored-proc-activity.md)
 
 ## On-demand compute environment
 
