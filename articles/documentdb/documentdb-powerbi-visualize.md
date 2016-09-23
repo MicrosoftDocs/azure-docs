@@ -21,7 +21,7 @@
 
 [PowerBI.com](https://powerbi.microsoft.com/) is an online service where you can create and share dashboards and reports with data that's important to you and your organization.  Power BI Desktop is a dedicated report authoring tool that enables you to retrieve data from various data sources, merge and transform the data, create powerful reports and visualizations, and publish the reports to Power BI.  With the latest version of Power BI Desktop, you can now connect to your DocumentDB account via the DocumentDB connector for Power BI.   
 
-In this Power BI tutorial, we will walk through the steps to connect to a DocumentDB account in Power BI Desktop, navigate to a collection where we want to extract the data using the Navigator, transform JSON data into tabular format using Power BI Desktop Query Editor, and build and publish a report to PowerBI.com.
+In this Power BI tutorial, we walk through the steps to connect to a DocumentDB account in Power BI Desktop, navigate to a collection where we want to extract the data using the Navigator, transform JSON data into tabular format using Power BI Desktop Query Editor, and build and publish a report to PowerBI.com.
 
 After completing this Power BI tutorial, you'll be able to answer the following questions:  
 
@@ -37,10 +37,10 @@ Before following the instructions in this Power BI tutorial, ensure that you hav
 
 - [The latest version of Power BI Desktop](https://powerbi.microsoft.com/desktop).
 - Access to our demo account or data in your Azure DocumentDB account.
-	- The demo account is populated with the volcano data shown in this tutorial. This demo account is not bound by any SLAs and is meant for demostration purposes only.  We reserve the right to make modifications to this demo account including but not limited to, terminating the account, changing the key, restricting access, changing and delete the data, at any time without advance notice or reason.
+	- The demo account is populated with the volcano data shown in this tutorial. This demo account is not bound by any SLAs and is meant for demonstration purposes only.  We reserve the right to make modifications to this demo account including but not limited to, terminating the account, changing the key, restricting access, changing and delete the data, at any time without advance notice or reason.
 		- URL:   https://analytics.documents.azure.com
 		- Read-only key: MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==
-	- Or, to create your own account, see [Create a DocumentDB database account using the Azure Portal](https://azure.microsoft.com/documentation/articles/documentdb-create-account/). Then, to get sample volcano data that's similar to what's used in this tutorial (but does not contain the GeoJSON blocks), see the [NOAA site](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5) and then import the data using the [DocumentDB data migration tool](https://azure.microsoft.com/documentation/articles/documentdb-import-data/).
+	- Or, to create your own account, see [Create a DocumentDB database account using the Azure portal](https://azure.microsoft.com/documentation/articles/documentdb-create-account/). Then, to get sample volcano data that's similar to what's used in this tutorial (but does not contain the GeoJSON blocks), see the [NOAA site](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5) and then import the data using the [DocumentDB data migration tool](https://azure.microsoft.com/documentation/articles/documentdb-import-data/).
 
 
 To share your reports in PowerBI.com, you must have an account in PowerBI.com.  To learn more about Power BI for Free and Power BI Pro, please visit [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
@@ -150,7 +150,7 @@ Ready to give it a try? Let's get started.
 
     ![Applied steps should be Source, Navigation, Expanded Document, Expanded Document.Location, Added Custom](./media/documentdb-powerbi-visualize/azure-documentdb-power-bi-applied-steps.png)
 
-    If you're steps are different, delete the extra steps and try adding the custom column again. 
+    If your steps are different, delete the extra steps and try adding the custom column again. 
 
 11. We have now completed flattening the data into tabular format.  You can leverage all of the features available in the Query Editor to shape and transform data in DocumentDB.  If you're using the sample, change the data type for Elevation to **Whole number** by changing the **Data Type** on the **Home** ribbon.
 
@@ -177,7 +177,7 @@ In the Report view, you should find:
 
 The following shows the basic steps of creating a simple interactive Map view report.
 
-1. For our example, we will create a map view showing the location of each volcano.  In the **Visualizations** pane,  click on the Map visual type as highlighted in the screenshot above.  You should see the Map visual type painted on the **Report** canvas.  The **Visualization** pane should also display a set of properties related to the Map visual type.
+1. For our example, we will create a map view showing the location of each volcano.  In the **Visualizations** pane, click on the Map visual type as highlighted in the screenshot above.  You should see the Map visual type painted on the **Report** canvas.  The **Visualization** pane should also display a set of properties related to the Map visual type.
 
 2. Now, drag and drop the LatLong field from the **Fields** pane to the **Location** property in **Visualizations** pane.
 3. Next, drag and drop the Volcano Name field to the **Legend** property.  
@@ -193,10 +193,10 @@ The following shows the basic steps of creating a simple interactive Map view re
 ## Publish and share your report
 To share your report, you must have an account in PowerBI.com.
 
-1. In the Power BI Desktop,  click on the **Home** ribbon.
+1. In the Power BI Desktop, click on the **Home** ribbon.
 2. Click **Publish**.  You will be prompted to enter the user name and password for your PowerBI.com account.
 3. Once the credential has been authenticated, the report is published to your destination you selected.
-4. Click Open 'PowerBITutorial.pbix' in Power BI to see and share your report on  PowerBI.com.
+4. Click Open 'PowerBITutorial.pbix' in Power BI to see and share your report on PowerBI.com.
 
     ![Publishing to Power BI Success! Open tutorial in Power BI](./media/documentdb-powerbi-visualize/power_bi_connector_open_in_powerbi.png)
 
@@ -245,5 +245,5 @@ For a scheduled refresh, do the following.
 6. Click **Apply** and you are done setting up the scheduled refresh.
 
 ## Next steps
-- To learn more about Power BI, click [here](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/)
-- To learn more about DocumentDB, click [here](https://azure.microsoft.com/documentation/services/documentdb/).
+- To learn more about Power BI, see [Get started with Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/)
+- To learn more about DocumentDB, see the [DocumentDB documentation landing page](https://azure.microsoft.com/documentation/services/documentdb/).
