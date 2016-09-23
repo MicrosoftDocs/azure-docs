@@ -693,26 +693,28 @@ a more native UX feel and allows for additional customization.
 
 2. Install ADAL by modifying your build.gradle file to include the following definitions:
 
-	repositories {
-		mavenCentral()
-		flatDir {
-			dirs 'libs'
-		}
-		maven {
-			url "YourLocalMavenRepoPath\\.m2\\repository"
-		}
-	}
-    packagingOptions {
-        exclude 'META-INF/MSFTSIG.RSA'
-        exclude 'META-INF/MSFTSIG.SF'
+```
+repositories {
+    mavenCentral()
+    flatDir {
+        dirs 'libs'
     }
-	dependencies {
-		compile fileTree(dir: 'libs', include: ['*.jar'])
-		compile('com.microsoft.aad:adal:1.1.1') {
-			exclude group: 'com.android.support'
-		} // Recent version is 1.1.1
-    	compile 'com.android.support:support-v4:23.0.0'
-	}
+    maven {
+        url "YourLocalMavenRepoPath\\.m2\\repository"
+    }
+}
+packagingOptions {
+    exclude 'META-INF/MSFTSIG.RSA'
+    exclude 'META-INF/MSFTSIG.SF'
+}
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile('com.microsoft.aad:adal:1.1.1') {
+        exclude group: 'com.android.support'
+    } // Recent version is 1.1.1
+    compile 'com.android.support:support-v4:23.0.0'
+}
+```
 
 3. Add the following code to your application, making the following replacements:
 
