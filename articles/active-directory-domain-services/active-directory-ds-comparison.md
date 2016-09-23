@@ -17,8 +17,29 @@
 	ms.author="maheshu"/>
 
 # How to decide if Azure AD Domain Services is right for your use-case
+Azure AD Domain Services enables you to deploy your workloads in Azure Infrastructure Services, without having to worry about maintaining your identity infrastructure. This managed service is different from a typical Windows Server Active Directory deployment that you deploy and administer on your own. The service is designed for ease-of-deployment, automated health monitoring and remediation, and a simple identity infrastructure for the cloud. We are constantly evolving the service to add support for common deployment scenarios.
 
-## Compare Azure AD Domain Services to a 'do-it-yourself' AD domain in Azure
+To decide whether to use Azure AD Domain Services or spin up and manage your own AD infrastructure (do-it-yourself) in Azure:
+- See the list of [features offered by Azure AD Domain Services](active-directory-ds-features.md).
+- Review common [deployment scenarios for Azure AD Domain Services](active-directory-ds-scenarios.md).
+- Finally, [compare Azure AD Domain Services to a do-it-yourself AD option](active-directory-ds-comparison.md#compare-azure-ad-domain-services-to-diy-ad-domain-in-azure).
+
+
+## 'Do-it-yourself' (DIY) AD deployment options
+You may have deployment use-cases where you need some of the capabilities offered by a Windows Server AD installation. In these cases, consider one of the following do-it-yourself (DIY) options:
+- **Standalone cloud domain:** You can set up a standalone ‘cloud domain’ using Azure virtual machines that have been configured as domain controllers. This infrastructure does not integrate with your on-premises AD environment. This option would require a different set of ‘cloud credentials’ in order to login/administer VMs in the cloud.
+
+- **Resource forest deployment:** You can set up a domain in the resource forest topology, using Azure virtual machines configured as domain controllers. Next, you can configure an AD trust relationship with your on-premises AD environment. You can domain-join computers (Azure VMs) to this resource forest in the cloud. User authentication happens over either a VPN/ExpressRoute connection to your on-premises directory.
+
+- **Extend your on-premises domain to Azure:** You can connect an Azure virtual network to your on-premises network using a VPN/ExpressRoute connection, so that Azure VMs can be joined to your on-premises AD. Another alternative is to promote a replica domain controller(s) of your on-premises domain in Azure as a VM and set it up to replicate over a VPN/ExpressRoute connection to the on-premises directory.
+
+> [AZURE.NOTE] You may determine that a DIY option is better suited for your deployment use-cases. Consider [sharing feedback](active-directory-ds-contact-us.md) to help us understand what features would help you chose Azure AD Domain Services in the future. This feedback helps us evolve the service to better suit your deployment needs and use-cases.
+
+We have published [guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx) to help make DIY installations easier.
+
+
+## Compare Azure AD Domain Services to DIY AD domain in Azure
+The following table helps you decide between using Azure AD Domain Services and managing your own AD infrastructure in Azure.
 
 |Feature|Azure AD Domain Services|'Do-it-yourself' AD in Azure VMs|
 |---|:---:|:---:|
@@ -32,6 +53,7 @@
 |[**Schema extensions**](active-directory-ds-comparison.md#schema-extensions)|No|Yes|
 |[**AD domain/forest trusts**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts)|No|Yes|
 |[**LDAP read**](active-directory-ds-comparison.md#ldap-read)|Yes|Yes|
+|[**Secure LDAP (LDAPS)**](active-directory-ds-comparison.md#secure-ldap)|Yes|Yes|
 |[**LDAP write**](active-directory-ds-comparison.md#ldap-write)|No|Yes|
 |[**Group Policy**](active-directory-ds-comparison.md#group-policy)|Simple|Full|
 |[**Geo-dispersed deployments**](active-directory-ds-comparison.md#geo-dispersed-deployments)|No|Yes|
@@ -49,9 +71,10 @@ An Azure AD Domain Services managed domain includes managed DNS services. Member
 These elevated privileges are not offered on an AAD-DS managed domain. Applications that require these elevated privileges to be installed/run cannot be run against managed domains. A smaller subset of administrative privileges is available to members of the delegated administration group called ‘AAD DC Administrators’. These privileges include privileges to configure DNS, configure group policy, gain administrator privileges on domain-joined machines etc.
 
 #### Domain join
+You can join virtual machines to the managed domain similar to how you join computers to an AD domain.
 
 #### Domain authentication using NTLM and Kerberos
-Azure AD Domain Services enable you to use your corporate credentials in order to authenticate with the managed domain. Credentials are kept in sync with your Azure AD tenant. In the case of synced tenants, Azure AD Connect ensures that changes to credentials made on-premises are synchronized to Azure AD. With a DIY domain setup, you may need to setup a domain trust relationship with an on-premises account forest for users to authenticate with their corporate credentials. Alternately, you may need to setup AD replication to ensure that user passwords synchronize to your Azure domain controller virtual machines.
+With Azure AD Domain Services, you can use your corporate credentials to authenticate with the managed domain. Credentials are kept in sync with your Azure AD tenant. For synced tenants, Azure AD Connect ensures that changes to credentials made on-premises are synchronized to Azure AD. With a DIY domain setup, you may need to set up a domain trust relationship with an on-premises account forest for users to authenticate with their corporate credentials. Alternately, you may need to set up AD replication to ensure that user passwords synchronize to your Azure domain controller virtual machines.
 
 #### Custom OU structure
 Members of the 'AAD DC Administrators' group can create custom OUs within the managed domain.
@@ -65,6 +88,9 @@ Managed domains cannot be configured to set up trust relationships (inbound/outb
 #### LDAP Read
 The managed domain supports LDAP read workloads. Therefore you can deploy applications that perform LDAP read operations against the managed domain.
 
+#### Secure LDAP
+You can configure Azure AD Domain Services to provide secure LDAP access to your managed domain, including over the internet.
+
 #### LDAP Write
 The managed domain is read-only for user objects. Therefore, applications that perform LDAP write operations against attributes of the user object do not work in a managed domain. Additionally, user passwords cannot be changed from within the managed domain. Another example would be modification of group memberships or group attributes within the managed domain, which is not permitted. However, any changes to user attributes or passwords made in Azure AD (via PowerShell/Azure portal) or on-premises AD are synchronized to the AAD-DS managed domain.
 
@@ -77,5 +103,7 @@ Azure AD Domain Services managed domains are available in a single virtual netwo
 
 ## Related Content
 - [Features - Azure AD Domain Services](active-directory-ds-features.md)
+
+- [Deployment scenarios - Azure AD Domain Services](active-directory-ds-scenarios.md)
 
 - [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx)
