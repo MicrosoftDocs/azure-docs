@@ -21,39 +21,35 @@
 
 [AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-This guide shows you how to use the Android client SDK for Mobile Apps to implement common scenarios, such as querying
-for data (inserting, updating, and deleting), authenticating users, handling errors, and customizing the client. It also
-does a deep-dive into common client code used in most mobile apps.
+This guide shows you how to use the Android client SDK for Mobile Apps to implement common scenarios, such as 
+querying for data (inserting, updating, and deleting), authenticating users, handling errors, and customizing 
+the client. It also does a deep-dive into common client code used in most mobile apps.
 
 This guide focuses on the client-side Android SDK.  To learn more about the server-side SDKs for Mobile Apps, see
-[Work with .NET backend SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) or
-[How to use the Node.js backend SDK](app-service-mobile-node-backend-how-to-use-server-sdk.md).
+[Work with .NET backend SDK][10] or [How to use the Node.js backend SDK][11].
 
 ## Reference Documentation
 
-You can find the Javadocs API reference for the Android client library [on GitHub](http://azure.github.io/azure-mobile-apps-android-client/).
+You can find the [Javadocs API reference][12] for the Android client library on GitHub.
 
 ## Supported Platforms
 
 The Azure Mobile Apps Android SDK supports API levels 19 through 24 (KitKat through Nougat).  
 
-The "server-flow" authentication uses a WebView for the presented UI.  This means that if the device is not able to present a
-WebView UI, then other methods of authentication will be needed that is outside the scope of the product.  This SDK is thus
-not suitable for Watch-type or similarly restricted devices.
+The "server-flow" authentication uses a WebView for the presented UI.  This means that if the device is not 
+able to present a WebView UI, then other methods of authentication will be needed that is outside the scope 
+of the product.  This SDK is not suitable for Watch-type or similarly restricted devices.
 
 ## Setup and Prerequisites
 
-The Mobile Services SDK for Android supports Android version 2.2 or later, but we recommend building against version 4.2 or later.
+Complete the [Mobile Apps quickstart](app-service-mobile-android-get-started.md) tutorial, which will ensure 
+that you have installed Android Studio; it will help you configure your account and create your first Mobile 
+App backend. If you do this,you can skip the rest of this section.
 
-Complete the [Mobile Apps quickstart](app-service-mobile-android-get-started.md) tutorial, which will ensure that you have
-installed Android Studio; it will help you configure your account and create your first Mobile App backend. If you do this,
-you can skip the rest of this section.
+If you decide not to complete the Quickstart tutorial, and want to connect an Android app to a Mobile App backend, 
+you need to do the following:
 
-If you decide not to complete the Quickstart tutorial, and want to connect an Android app to a Mobile App backend, you
-need to do the following:
-
-- [create a Mobile App backend](app-service-mobile-android-get-started.md#create-a-new-azure-mobile-app-backend) to use
-  with your Android app (unless your app already has one)
+- [create a Mobile App backend][13] to use with your Android app (unless your app already has one)
 - In Android Studio, [update the Gradle build files](#gradle-build), and
 - [Enable internet permission](#enable-internet)
 
@@ -75,23 +71,27 @@ Change both **build.gradle** files:
 
 		compile 'com.microsoft.azure:azure-mobile-android:3.1.0'
 
-	Currently the latest version is 3.1.0. The supported versions are listed [here](http://go.microsoft.com/fwlink/p/?LinkID=717034).
+    Currently the latest version is 3.1.0. The supported versions are listed [here][14].
 
 ###<a name="enable-internet"></a>Enable internet permission
-To access Azure, your app must have the INTERNET permission enabled. If it's not already enabled, add the following line of code to your **AndroidManifest.xml** file:
+
+To access Azure, your app must have the INTERNET permission enabled. If it's not already enabled, add the 
+following line of code to your **AndroidManifest.xml** file:
 
 	<uses-permission android:name="android.permission.INTERNET" />
 
 ## The basics deep dive
 
-This section discusses some of the code in the Quickstart app. If you did not complete the Quickstart, you will need to add this code to your app.
+This section discusses some of the code in the Quickstart app. If you did not complete the Quickstart, you 
+will need to add this code to your app.
 
-> [AZURE.NOTE] The string "MobileServices" occurs frequently in the code: the code actually references the Mobile Apps SDK, it's just a temporary carry-over from the past.
-
+> [AZURE.NOTE] The string "MobileServices" occurs frequently in the code: the code actually references the 
+Mobile Apps SDK and aids backwards-compatibility for those familiar with the older Mobile Services SDK.
 
 ###<a name="data-object"></a>Define client data classes
 
-To access data from SQL Azure tables, you define client data classes that correspond to the tables in the Mobile App backend. Examples in this topic assume a table named *ToDoItem*, which has the following columns:
+To access data from SQL Azure tables, you define client data classes that correspond to the tables in the 
+Mobile App backend. Examples in this topic assume a table named **ToDoItem**, which has the following columns:
 
 - id
 - text
@@ -109,7 +109,8 @@ The code will reside in a file called **ToDoItem.java**.
 
 If your SQL Azure table contains more columns, you would add the corresponding fields to this class.
 
-For example if it had an integer Priority column, then you might add this field, along with its getter and setter methods:
+For example if it had an integer Priority column, then you might add this field, along with its getter and 
+setter methods:
 
 	private Integer priority;
 
@@ -117,7 +118,7 @@ For example if it had an integer Priority column, then you might add this field,
 	* Returns the item priority
 	*/
 	public Integer getPriority() {
-	return mPriority;
+	    return mPriority;
 	}
 	
 	/**
@@ -127,20 +128,26 @@ For example if it had an integer Priority column, then you might add this field,
 	*            priority to set
 	*/
 	public final void setPriority(Integer priority) {
-	mPriority = priority;
+	    mPriority = priority;
 	}
 
-To learn how to create additional tables in your Mobile Apps backend, see [How to: Define a table controller](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller) (.NET backend) or [Define Tables using a Dynamic Schema](app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations) (Node.js backend). For a Node.js backend, you can also use the **Easy tables** setting in the [Azure portal].
+To learn how to create additional tables in your Mobile Apps backend, see [How to: Define a table controller][15] 
+(.NET backend) or [Define Tables using a Dynamic Schema][16] (Node.js backend). For a Node.js backend, you can 
+also use the **Easy tables** setting in the [Azure portal].
 
 ###<a name="create-client"></a>How to: Create the client context
 
-This code creates the **MobileServiceClient** object that is used to access your Mobile App backend. The code goes in the `onCreate` method of the **Activity** class specified in *AndroidManifest.xml* as a **MAIN** action and **LAUNCHER** category. In the Quickstart code, it goes in the **ToDoActivity.java** file.
+This code creates the **MobileServiceClient** object that is used to access your Mobile App backend. The code goes 
+in the `onCreate` method of the **Activity** class specified in *AndroidManifest.xml* as a **MAIN** action and 
+**LAUNCHER** category. In the Quickstart code, it goes in the **ToDoActivity.java** file.
 
 		MobileServiceClient mClient = new MobileServiceClient(
 			"MobileAppUrl", // Replace with the above Site URL
 			this)
 
-In this code, replace `MobileAppUrl` with the URL of your Mobile App backend, which can be found in the [Azure portal](https://portal.azure.com/) in the blade for your Mobile App backend. For this line of code to compile, you also need to add the following **import** statement:
+In this code, replace `MobileAppUrl` with the URL of your Mobile App backend, which can be found in the 
+[Azure portal] in the blade for your Mobile App backend. For this line of code to compile, you also need to 
+add the following **import** statement:
 
 	import com.microsoft.windowsazure.mobileservices.*;
 
@@ -148,25 +155,24 @@ In this code, replace `MobileAppUrl` with the URL of your Mobile App backend, wh
 
 The easiest way to query or modify data in the backend is by using the *typed programming model*, since Java 
 is a strongly typed language (later on we will discuss the *untyped* model). This model provides seamless JSON 
-serialization and deserialization using the [gson](http://go.microsoft.com/fwlink/p/?LinkId=290801) library 
-when sending data between client objects and tables in the backend Azure SQL: the developer doesn't have to 
-do anything, the framework handles it all.
+serialization and deserialization using the [gson][3] library when sending data between client objects and tables 
+in the backend Azure SQL: the developer doesn't have to do anything, the framework handles it all.
 
-To access a table, first create a [MobileServiceTable](http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/table/MobileServiceTable.html) object by calling the **getTable** method on the [MobileServiceClient](http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html).  This method has two overloads:
+To access a table, first create a [MobileServiceTable][8] object by calling the **getTable** method on 
+the [MobileServiceClient][9].  This method has two overloads:
 
 	public class MobileServiceClient {
 	    public <E> MobileServiceTable<E> getTable(Class<E> clazz);
 	    public <E> MobileServiceTable<E> getTable(String name, Class<E> clazz);
 	}
 
-In the following code, *mClient* is a reference to your MobileServiceClient object.
-
-The [first overload](http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html#getTable-java.lang.String-) is used where the class name and the table name are the same, and is the one used in the Quickstart:
+In the following code, **mClient** is a reference to your MobileServiceClient object.  The first overload is 
+used where the class name and the table name are the same, and is the one used in the Quickstart:
 
 	MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable(ToDoItem.class);
 
-
-The [2nd overload](http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html#getTable-java.lang.String-java.lang.Class-) is used when the table name is different from the class name: the first parameter is the table name.
+The second overload is used when the table name is different from the class name: the first parameter is the 
+table name.
 
 	MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
 
@@ -178,15 +184,19 @@ Data binding involves three components:
 - The screen layout
 - The adapter that ties the two together.
 
-In our sample code, we return the data from the Mobile Apps SQL Azure table *ToDoItem* into an array. This is a very common pattern for data applications: database queries often return a collection of rows which the client gets in a list or array. In this sample the array is the data source.
+In our sample code, we return the data from the Mobile Apps SQL Azure table **ToDoItem** into an array. This is 
+a very common pattern for data applications: database queries often return a collection of rows which the 
+client gets in a list or array. In this sample the array is the data source.
 
 The code specifies a screen layout that defines the view of the data that will appear on the device.
 
-And the two are bound together with an adapter, which in this code is an extension of the *ArrayAdapter&lt;ToDoItem&gt;* class.
+And the two are bound together with an adapter, which in this code is an extension of the 
+**ArrayAdapter&lt;ToDoItem&gt;** class.
 
 #### <a name="layout"></a>How to: Define the Layout
 
-The layout is defined by several snippets of XML code. Given an existing layout, let's assume the following code represents the **ListView** we want to populate with our server data.
+The layout is defined by several snippets of XML code. Given an existing layout, let's assume the following 
+code represents the **ListView** we want to populate with our server data.
 
     <ListView
         android:id="@+id/listViewToDo"
@@ -195,7 +205,10 @@ The layout is defined by several snippets of XML code. Given an existing layout,
         tools:listitem="@layout/row_list_to_do" >
     </ListView>
 
-In the above code the *listitem* attribute specifies the id of the layout for an individual row in the list. Here is that code, which specifies a check box and its associated text. This gets instantiated once for each item in the list. This layout does not display the **id** field, and a more complex layout would specify additional fields in the display. This code is in the **row_list_to_do.xml** file.
+In the above code the *listitem* attribute specifies the id of the layout for an individual row in the list. Here 
+This code specifies a check box and its associated text. This gets instantiated once for each item in the 
+list. This layout does not display the **id** field, and a more complex layout would specify additional fields 
+in the display. This code is in the **row_list_to_do.xml** file.
 
 	<?xml version="1.0" encoding="utf-8"?>
 	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -212,14 +225,16 @@ In the above code the *listitem* attribute specifies the id of the layout for an
 
 #### <a name="adapter"></a>How to: Define the adapter
 
-Since the data source of our view is an array of *ToDoItem*, we subclass our adapter from a *ArrayAdapter&lt;ToDoItem&gt;* class. This subclass will produce a View for every *ToDoItem* using the *row_list_to_do* layout.
+Since the data source of our view is an array of **ToDoItem**, we subclass our adapter from an 
+**ArrayAdapter&lt;ToDoItem&gt;** class. This subclass will produce a View for every **ToDoItem** using the 
+**row_list_to_do** layout.
 
-In our code we define the following class which is an extension of the *ArrayAdapter&lt;E&gt;* class:
+In our code we define the following class which is an extension of the **ArrayAdapter&lt;E&gt;** class:
 
 	public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 
-
-You must override the adapter's *getView* method. This sample code is one example of how to do this: details will vary with your application.
+You must override the adapters **getView** method. This sample code is one example of how to do this: details 
+will vary with your application.
 
     @Override
 	public View getView(int position, View convertView, ViewGroup parent) {
@@ -530,28 +545,26 @@ The next step is to insert the object.
 
     mJsonToDoTable.insert(jsonItem).get();
 
-
 If you need to get the ID of the inserted object, use this method call:
 
 	jsonItem.getAsJsonPrimitive("id").getAsInt());
 
-
 ### <a name="json_delete"></a>How to: Delete from an untyped table
 
-The following code shows how to delete an instance, in this case, the same instance of a **JsonObject** that was created in the prior *insert* example. Note that the code is the same as with the typed case, but the method has a different signature since it references an **JsonObject**.
-
+The following code shows how to delete an instance, in this case, the same instance of a **JsonObject** 
+that was created in the prior *insert* example. Note that the code is the same as with the typed case, 
+but the method has a different signature since it references an **JsonObject**.
 
          mToDoTable.delete(jsonItem);
-
 
 You can also delete an instance directly by using its ID:
 
 		 mToDoTable.delete(ID);
 
-
 ### <a name="json_get"></a>How to: Return all rows from an untyped table
 
-The following code shows how to retrieve an entire table. Since you are using a JSON Table, you can selectively retrieve only some of the table's columns.
+The following code shows how to retrieve an entire table. Since you are using a JSON Table, you can 
+selectively retrieve only some of the table's columns.
 
     public void showAllUntyped(View view) {
         new AsyncTask<Void, Void, Void>() {
@@ -585,15 +598,18 @@ The following code shows how to retrieve an entire table. Since you are using a 
         }.execute();
     }
 
-You can do filtering, sorting and paging by concatenating  methods that have the same names as those used in the typed programming model.
-
-
+You can do filtering, sorting and paging by concatenating methods that have the same names as those 
+used in the typed programming model.
 
 ##<a name="custom-api"></a>How to: Call a custom API
 
-A custom API enables you to define custom endpoints that expose server functionality that does not map to an insert, update, delete, or read operation. By using a custom API, you can have more control over messaging, including reading and setting HTTP message headers and defining a message body format other than JSON.
+A custom API enables you to define custom endpoints that expose server functionality that does not map to 
+an insert, update, delete, or read operation. By using a custom API, you can have more control over messaging, 
+including reading and setting HTTP message headers and defining a message body format other than JSON.
 
-From an Android client, you call the **invokeApi** method to call the custom API endpoint. The following example shows how to call an API endpoint named *completeAll*, which returns a collection class named MarkAllResult.
+From an Android client, you call the **invokeApi** method to call the custom API endpoint. The following 
+example shows how to call an API endpoint named **completeAll**, which returns a collection class named 
+**MarkAllResult**.
 
 	public void completeItem(View view) {
 
@@ -935,3 +951,12 @@ JSON and the mobile services table.
 [5]: app-service-mobile-android-get-started-push.md
 [6]: ../notification-hubs/notification-hubs-push-notification-overview.md#integration-with-app-service-mobile-apps
 [7]: app-service-mobile-android-get-started-users.md#cache-tokens
+[8]: http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/table/MobileServiceTable.html
+[9]: http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html
+[10]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
+[11]: app-service-mobile-node-backend-how-to-use-server-sdk.md
+[12]: http://azure.github.io/azure-mobile-apps-android-client/
+[13]: app-service-mobile-android-get-started.md#create-a-new-azure-mobile-app-backend
+[14]: http://go.microsoft.com/fwlink/p/?LinkID=717034
+[15]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller
+[16]: app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations
