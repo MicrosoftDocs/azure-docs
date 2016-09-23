@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="06/08/2016"
+   ms.date="09/22/2016"
    ms.author="danlep"/>
 
-# Big Compute in Azure: Technical resources for batch and high performance computing (HPC)
-This is a guide to technical resources to help you run your large-scale parallel, batch, and HPC workloads in Azure. Extend your existing batch or HPC workloads to the Azure cloud, or build new Big Compute solutions in Azure using a range of Azure services.
+# Big Compute in Azure: Technical resources for batch and high-performance computing 
+This is a guide to technical resources to help you run your large-scale parallel, batch, and high-performance computing (HPC) workloads in Azure. Extend your existing batch or HPC workloads to the Azure cloud, or build new Big Compute solutions in Azure using a range of Azure services.
 
 ## Solutions options
 
@@ -90,7 +90,7 @@ Use these Azure templates to deploy Linux HPC clusters.
 
 ## Compute intensive instances
 
-Azure offers a [range of sizes](../virtual-machines/virtual-machines-windows-sizes.md), including compute intensive [A8 and A9](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) instances capable of connecting to a back-end RDMA network, to run your Linux and Windows HPC workloads.
+Azure offers a [range of sizes](../virtual-machines/virtual-machines-windows-sizes.md), including [compute intensive](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) instances capable of connecting to a back-end RDMA network, to run your Linux and Windows HPC workloads.
 
 
 * [Set up a Linux RDMA cluster to run MPI applications](../virtual-machines/virtual-machines-linux-classic-rdma-cluster.md)
@@ -102,6 +102,8 @@ Azure offers a [range of sizes](../virtual-machines/virtual-machines-windows-siz
 ## Samples and demos
 
 * [Azure Batch C# and Python code samples](https://github.com/Azure/azure-batch-samples)
+
+* [Batch Shipyard](https://azure.github.io/batch-shipyard/) toolkit for easy deployment of batch-style Dockerized workloads
 
 * [Test drive SUSE Linux Enterprise Server for HPC](https://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver12optimizedforhighperformancecompute/)
 
@@ -119,7 +121,11 @@ Azure offers a [range of sizes](../virtual-machines/virtual-machines-windows-siz
 
 * [Cloud Services](https://azure.microsoft.com/documentation/services/cloud-services/)
 
+* [App Service](https://azure.microsoft.com/en-us/documentation/services/app-service/)
+
 * [Media Services](https://azure.microsoft.com/documentation/services/media-services/)
+
+* [Functions](https://azure.microsoft.com/documentation/services/functions/)
 
 ## Architecture blueprints
 
