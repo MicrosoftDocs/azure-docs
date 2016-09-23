@@ -48,10 +48,10 @@ SDK is not suitable for Watch-type or similarly restricted devices.
 ## Setup and Prerequisites
 
 Complete the [Mobile Apps quickstart](app-service-mobile-android-get-started.md) tutorial.  This task ensures
-you all pre-requisites for developing Azure Mobile Apps have been met.  The Quickstart also helps you configure 
+all pre-requisites for developing Azure Mobile Apps have been met.  The Quickstart also helps you configure 
 your account and create your first Mobile App backend.
 
-If you decide not to complete the Quickstart tutorial, the following tasks must be completed:
+If you decide not to complete the Quickstart tutorial, complete the following tasks:
 
 - [create a Mobile App backend][13] to use with your Android app.
 - In Android Studio, [update the Gradle build files](#gradle-build).
@@ -84,19 +84,18 @@ following line of code to your **AndroidManifest.xml** file:
 
 ## The basics deep dive
 
-This section discusses some of the code in the Quickstart app that pertains to using Azure Mobile Apps.  You
-must perform the same tasks in your own code.
+This section discusses some of the code in the Quickstart app that pertains to using Azure Mobile Apps.  
 
 ###<a name="data-object"></a>Define client data classes
 
-To access data from SQL Azure tables, you define client data classes that correspond to the tables in the 
+To access data from SQL Azure tables, define client data classes that correspond to the tables in the 
 Mobile App backend. Examples in this topic assume a table named **ToDoItem**, which has the following columns:
 
 - id
 - text
 - complete
 
-The corresponding typed client-side object is the following:
+The corresponding typed client-side object:
 
 	public class ToDoItem {
 		private String id;
@@ -106,9 +105,8 @@ The corresponding typed client-side object is the following:
 
 The code resides in a file called **ToDoItem.java**.
 
-If your SQL Azure table contains more columns, you would add the corresponding fields to this class.
-
-For example if it had an integer Priority column, then you might add this field, along with its getter and 
+If your SQL Azure table contains more columns, you would add the corresponding fields to this class.  For 
+example if it had an integer Priority column, then you might add this field, along with its getter and 
 setter methods:
 
 	private Integer priority;
@@ -154,8 +152,7 @@ add the following **import** statement:
 
 The easiest way to query or modify data in the backend is by using the *typed programming model*, since Java 
 is a strongly typed language. This model provides seamless JSON serialization and deserialization using the 
-[gson][3] library when sending data between client objects and tables in the backend Azure SQL: the developer 
-doesn't have to do anything, the framework handles it all.
+[gson][3] library when sending data between client objects and tables in the backend Azure SQL.
 
 To access a table, first create a [MobileServiceTable][8] object by calling the **getTable** method on 
 the [MobileServiceClient][9].  This method has two overloads:
@@ -183,19 +180,17 @@ Data binding involves three components:
 - The screen layout
 - The adapter that ties the two together.
 
-In our sample code, we return the data from the Mobile Apps SQL Azure table **ToDoItem** into an array. This is 
-a very common pattern for data applications: database queries often return a collection of rows which the 
-client gets in a list or array. In this sample the array is the data source.
+In our sample code, we return the data from the Mobile Apps SQL Azure table **ToDoItem** into an array. This
+activity is a common pattern for data applications.  Database queries often return a collection of rows that 
+the client gets in a list or array. In this sample, the array is the data source.
 
-The code specifies a screen layout that defines the view of the data that appears on the device.
-
-And the two are bound together with an adapter, which in this code is an extension of the 
-**ArrayAdapter&lt;ToDoItem&gt;** class.
+The code specifies a screen layout that defines the view of the data that appears on the device.  The two are 
+bound together with an adapter, which in this code is an extension of the  **ArrayAdapter&lt;ToDoItem&gt;** class.
 
 #### <a name="layout"></a>How to: Define the Layout
 
-The layout is defined by several snippets of XML code. Given an existing layout, let's assume the following 
-code represents the **ListView** we want to populate with our server data.
+The layout is defined by several snippets of XML code. Given an existing layout, the following code represents 
+the **ListView** we want to populate with our server data.
 
     <ListView
         android:id="@+id/listViewToDo"
@@ -204,8 +199,8 @@ code represents the **ListView** we want to populate with our server data.
         tools:listitem="@layout/row_list_to_do" >
     </ListView>
 
-In the above code the *listitem* attribute specifies the id of the layout for an individual row in the list. Here 
-This code specifies a check box and its associated text. This gets instantiated once for each item in the 
+In the preceding code, the *listitem* attribute specifies the id of the layout for an individual row in the 
+list. This code specifies a check box and its associated text and gets instantiated once for each item in the 
 list. This layout does not display the **id** field, and a more complex layout would specify additional fields 
 in the display. This code is in the **row_list_to_do.xml** file.
 
@@ -228,11 +223,11 @@ Since the data source of our view is an array of **ToDoItem**, we subclass our a
 **ArrayAdapter&lt;ToDoItem&gt;** class. This subclass produces a View for every **ToDoItem** using the 
 **row_list_to_do** layout.
 
-In our code we define the following class which is an extension of the **ArrayAdapter&lt;E&gt;** class:
+In our code we define the following class that is an extension of the **ArrayAdapter&lt;E&gt;** class:
 
 	public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 
-You must override the adapters **getView** method. This sample code is one example of how to do this: details 
+Override the adapters **getView** method. This sample code is one example of how to do this: details 
 vary with your application.
 
     @Override
@@ -276,30 +271,26 @@ We create an instance of this class in our Activity as follows:
 	ToDoItemAdapter mAdapter;
 	mAdapter = new ToDoItemAdapter(this, R.layout.row_list_to_do);
 
-Note that the second parameter to the ToDoItemAdapter constructor is a reference to the layout. The call 
-to the constructor is followed by the following code which first gets a reference to the **ListView**, and 
-next calls *setAdapter* to configure itself to use the adapter we just created:
+The second parameter to the ToDoItemAdapter constructor is a reference to the layout. The call to the constructor 
+is followed by the following code which first gets a reference to the **ListView**, and next calls **setAdapter** 
+to configure itself to use the adapter we just created:
 
 	ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
 	listViewToDo.setAdapter(mAdapter);
 
 ### <a name="api"></a>The API structure
 
-Mobile Apps table operations and custom API calls are asynchronous, so you use the 
-[Future](http://developer.android.com/reference/java/util/concurrent/Future.html) and 
-[AsyncTask](http://developer.android.com/reference/android/os/AsyncTask.html) objects 
-in all of the asynchronous methods involving queries and inserts, updates and deletes. This 
-makes it easier to perform multiple operations on a background thread without having to deal 
-with multiple nested callbacks.
+Mobile Apps table operations and custom API calls are asynchronous. Use the [Future] and [AsyncTask] objects in 
+all of the asynchronous methods involving queries and inserts, updates and deletes. Using futures makes it easier
+to perform multiple operations on a background thread without having to deal with multiple nested callbacks.
 
-To see how these asynchronous APIs are used in your Android app and how data is displayed 
-in the UI, review the **ToDoActivity.java** file in the Android quickstart project from 
-the [Azure portal].
-
+To see how these asynchronous APIs are used in your Android app and how data is displayed in the UI, review the 
+**ToDoActivity.java** file in the Android quickstart project from the [Azure portal].
 
 #### <a name="use-adapter"></a>How to: Use the adapter
 
-You are now ready to use data binding. The following code shows how to get the items in the mobile service table, clear the adapter, and then call the adapter's *add* method to fill it with the returned items.
+You are now ready to use data binding. The following code shows how to get the items in the mobile service table, 
+clear the adapter, and then call the adapter's *add* method to fill it with the returned items.
 
     public void showAll(View view) {
         AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
@@ -326,7 +317,7 @@ You are now ready to use data binding. The following code shows how to get the i
 		runAsyncTask(task);
     }
 
-You must also call the adapter any time you modify the **ToDoItem** table if you want to display the results of 
+Call the adapter any time you modify the **ToDoItem** table if you want to display the results of 
 doing that. Since modifications are done on a record by record basis, you deal with a single row instead of a 
 collection. When you insert an item you call the **add** method on the adapter, when deleting, you call the 
 **remove** method.
@@ -838,7 +829,7 @@ such as the following.
 - mComplete
 - mDuration
 
-You must serialize the client names into JSON names that match the column names of the **ToDoItem** table 
+Serialize the client names into JSON names that match the column names of the **ToDoItem** table 
 on the server. The following code, which makes use of the [gson][3] library does this.
 
 	@com.google.gson.annotations.SerializedName("text")
@@ -959,3 +950,5 @@ JSON and the mobile services table.
 [14]: http://go.microsoft.com/fwlink/p/?LinkID=717034
 [15]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller
 [16]: app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations
+[Future]: http://developer.android.com/reference/java/util/concurrent/Future.html
+[AsyncTask]: http://developer.android.com/reference/android/os/AsyncTask.html
