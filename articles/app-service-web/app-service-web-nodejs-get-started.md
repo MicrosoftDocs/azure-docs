@@ -171,7 +171,7 @@ To read iisnode logs, follow these steps.
         git commit -m "{your commit message}"
         git push azure master
    
-   iisnode is now configured. The next steps show you how to access these logs.
+    iisnode is now configured. The next steps show you how to access these logs.
      
 4. In your browser, access the Kudu debug console for your app, which is at:
 
