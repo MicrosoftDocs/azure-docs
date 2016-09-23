@@ -185,7 +185,7 @@ activity is a common pattern for data applications.  Database queries often retu
 the client gets in a list or array. In this sample, the array is the data source.
 
 The code specifies a screen layout that defines the view of the data that appears on the device.  The two are 
-bound together with an adapter, which in this code is an extension of the  **ArrayAdapter&lt;ToDoItem&gt;** class.
+bound together with an adapter, which in this code is an extension of the **ArrayAdapter&lt;ToDoItem&gt;** class.
 
 #### <a name="layout"></a>How to: Define the Layout
 
@@ -227,8 +227,7 @@ In our code we define the following class that is an extension of the **ArrayAda
 
 	public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 
-Override the adapters **getView** method. This sample code is one example of how to do this: details 
-vary with your application.
+Override the adapters **getView** method. For example:
 
     @Override
 	public View getView(int position, View convertView, ViewGroup parent) {
@@ -271,26 +270,24 @@ We create an instance of this class in our Activity as follows:
 	ToDoItemAdapter mAdapter;
 	mAdapter = new ToDoItemAdapter(this, R.layout.row_list_to_do);
 
-The second parameter to the ToDoItemAdapter constructor is a reference to the layout. The call to the constructor 
-is followed by the following code which first gets a reference to the **ListView**, and next calls **setAdapter** 
-to configure itself to use the adapter we just created:
+The second parameter to the ToDoItemAdapter constructor is a reference to the layout. We can now instantiate
+the **ListView** and assign the adapter to the **ListView**.
 
 	ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
 	listViewToDo.setAdapter(mAdapter);
 
 ### <a name="api"></a>The API structure
 
-Mobile Apps table operations and custom API calls are asynchronous. Use the [Future] and [AsyncTask] objects in 
-all of the asynchronous methods involving queries and inserts, updates and deletes. Using futures makes it easier
+Mobile Apps table operations and custom API calls are asynchronous. Use the [Future] and [AsyncTask] objects for 
+the asynchronous methods involving queries, inserts, updates, and deletes. Using futures makes it easier
 to perform multiple operations on a background thread without having to deal with multiple nested callbacks.
 
-To see how these asynchronous APIs are used in your Android app and how data is displayed in the UI, review the 
-**ToDoActivity.java** file in the Android quickstart project from the [Azure portal].
+Review the **ToDoActivity.java** file in the Android quickstart project from the [Azure portal] for an example.
 
 #### <a name="use-adapter"></a>How to: Use the adapter
 
-You are now ready to use data binding. The following code shows how to get the items in the mobile service table, 
-clear the adapter, and then call the adapter's *add* method to fill it with the returned items.
+You are now ready to use data binding. The following code shows how to get the items in the table and fill the
+local adapter with the returned items.
 
     public void showAll(View view) {
         AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
@@ -317,10 +314,9 @@ clear the adapter, and then call the adapter's *add* method to fill it with the 
 		runAsyncTask(task);
     }
 
-Call the adapter any time you modify the **ToDoItem** table if you want to display the results of 
-doing that. Since modifications are done on a record by record basis, you deal with a single row instead of a 
-collection. When you insert an item you call the **add** method on the adapter, when deleting, you call the 
-**remove** method.
+Call the adapter any time you modify the **ToDoItem** table. Since modifications are done on a record by 
+record basis, you handle a single row instead of a collection. When you insert an item, call the 
+**add** method on the adapter; when deleting, call the **remove** method.
 
 ##<a name="querying"></a>How to: Query data from your Mobile App backend
 
@@ -335,7 +331,7 @@ This section describes how to issue queries to the Mobile App backend, which inc
 
 ### <a name="showAll"></a>How to: Return all Items from a Table
 
-The following query returns all items in the *ToDoItem* table.
+The following query returns all items in the **ToDoItem** table.
 
 	List<ToDoItem> results = mToDoTable.execute().get();
 
@@ -343,15 +339,16 @@ The *results* variable returns the result set from the query as a list.
 
 ### <a name="filtering"></a>How to: Filter returned data
 
-The following query execution returns all items from the *ToDoItem* table where *complete* equals *false*. This is the code that is already in the Quickstart.
+The following query execution returns all items from the **ToDoItem** table where **complete** equals 
+**false**.
 
 	List<ToDoItem> result = mToDoTable.where()
 								.field("complete").eq(false)
 								.execute().get();
 
-*mToDoTable* is the reference to the mobile service table that we created previously.
+**mToDoTable** is the reference to the mobile service table that we created previously.
 
-You define a filter using the **where** method call on the table reference. This is followed by a **field** 
+Define a filter using the **where** method call on the table reference. This is followed by a **field** 
 method call followed by a method call that specifies the logical predicate. Possible predicate methods 
 include **eq** (equals), **ne** (not equal), **gt** (greater than), **ge** (greater than or equal to), 
 **lt** (less than), **le** (less than or equal to), and etc. These methods let you compare number and 
@@ -411,7 +408,7 @@ a table of **ToDoItems**. **mToDoTable** is the reference to the backend table t
     List<ToDoItem> result = mToDoTable.top(5).execute().get();
 
 
-Here's a query that skips the first 5 items, and then returns the next 5:
+Here's a query that skips the first five items, and then returns the next five:
 
 	mToDoTable.skip(5).top(5).execute().get();
 
@@ -426,44 +423,51 @@ created previously.
 
 The parameters to the select function are the string names of the table's columns that you want to return.
 
-The **select** method needs to follow methods like **where** and **orderBy**, if they are present. It can 
+The **select** method needs to follow methods like **where** and **orderBy**. It can 
 be followed by paging methods like **top**.
 
 ### <a name="chaining"></a>How to: Concatenate query methods
 
-As you have seen, the methods used in querying backend tables can be concatenated. This allows you to do things like select specific columns of filtered rows that are sorted and paged. You can create quite complex logical filters.
+The methods used in querying backend tables can be concatenated. Chaining query methods allows you to select 
+specific columns of filtered rows that are sorted and paged. You can create complex logical filters.
+Each query method returns a Query object.To end the series of methods and actually run the query, call the 
+**execute** method. For example:
 
-What makes this work is that the query methods you use return **MobileServiceQuery&lt;T&gt;** objects, which can in turn have additional methods invoked on them. To end the series of methods and actually run the query, you call the **execute** method.
+	mToDoTable.where()
+        .year("due").eq(2013)
+		.and().startsWith("text", "PRI0")
+		.or().field("duration").gt(10)
+		.orderBy(duration, QueryOrder.Ascending)
+        .select("id", "complete", "text", "duration")
+        .top(20)
+		.execute().get();
 
-Here's a code sample where *mToDoTable* is a reference to the *ToDoItem* table.
+The chained query methods must be ordered as follows:
 
-	mToDoTable.where().year("due").eq(2013)
-					.and().startsWith("text", "PRI0")
-					.or().field("duration").gt(10)
-				.select("id", "complete", "text", "duration")
-				.orderBy(duration, QueryOrder.Ascending).top(20)
-				.execute().get();
-
-The main requirement in chaining methods together is that the *where* method and predicates need to come first. After that, you can call subsequent methods in the order that best meets the needs of your application.
-
+1. Filtering (**where**) methods.
+2. Sorting (**orderBy**) methods.
+3. Selection (**select**) methods.
+4. paging (**skip** and **top**) methods.
 
 ##<a name="inserting"></a>How to: Insert data into the backend
 
-The following code shows how to insert a new row into a table.
-
-First you instantiate an instance of the *ToDoItem* class and set its properties.
+Instantiate an instance of the *ToDoItem* class and set its properties.
 
 	ToDoItem item = new ToDoItem();
 	item.text = "Test Program";
 	item.complete = false;
 
-Next you execute the following code:
+Then use **insert()** to insert an object:
 
 	ToDoItem entity = mToDoTable.insert(item).get();
 
-The returned entity matches the data inserted into the backend table, included the ID and any other values set on the backend.
+The returned entity matches the data inserted into the backend table, included the ID and any other values set 
+on the backend.
 
-Mobile Apps requires that each table have a column named **id**, which is used to index the table. By default, this column is a string data type, which is needed to support offline sync. The default value of the ID column is a GUID, but you can provide other unique values, such as email addresses or usernames. When a string ID value is not provided for an inserted record, the backend generates a new GUID value.
+Mobile Apps requires that each table have a column named **id**, which is used to index the table. By default, 
+this column is a string data type. The default value of the ID column is a GUID.  You can provide other unique 
+values, such as email addresses or usernames. When a string ID value is not provided for an inserted record, the 
+backend generates a new GUID value.
 
 String ID values provide the following advantages:
 
@@ -471,13 +475,16 @@ String ID values provide the following advantages:
 + Records are easier to merge from different tables or databases.
 + ID values integrate better with an application's logic.
 
+String ID values are **REQUIRED** for offline sync support.
+
 ##<a name="updating"></a>How to: Update data in a mobile app
 
-The following code shows how to update data in a table.
+To update data in a table, pass the new object to the **update()** method.
 
     mToDoTable.update(item).get();
 
 In this example, *item* is a reference to a row in the *ToDoItem* table, which has had some changes made to it.
+The row with the same **id** will be updated.
 
 ##<a name="deleting"></a>How to: Delete data in a mobile app
 
@@ -502,9 +509,9 @@ This code shows how to look up an item with a specific *id*.
 ##<a name="untyped"></a>How to: Work with untyped data
 
 The untyped programming model gives you exact control over the JSON serialization, and there are some 
-scenarios where you may wish to use it, for example, if your backend table contains a large number of 
+scenarios where you may wish to use it; for example, if your backend table contains a large number of 
 columns and you only need to reference a few of them. Using the typed model requires you to define all 
-of the mobile apps table's columns in your data class. But with the untyped model you only define the 
+of the mobile apps table's columns in your data class. With the untyped model you only define the 
 columns you need to use.
 
 Most of the API calls for accessing data are similar to the typed programming calls. The main difference 
@@ -528,7 +535,7 @@ as we see in the following examples.
 ### <a name="json_insert"></a>How to: Insert into an untyped table
 
 The following code shows how to do an insert. The first step is to create a 
-[**JsonObject**][1], which is part of the [gson]( http://go.microsoft.com/fwlink/p/?LinkId=290801) library.
+[**JsonObject**][1], which is part of the [gson][3] library.
 
 	JsonObject jsonItem = new JsonObject();
 	jsonItem.addProperty("text", "Wake up");
@@ -622,15 +629,24 @@ example shows how to call an API endpoint named **completeAll**, which returns a
 	    	});
 	    }
 
-The **invokeApi** method is called on the client, which sends a POST request to the new custom API. The result returned by the custom API is displayed in a message dialog, as are any errors. Other versions of **invokeApi** let you optionally send an object in the request body, specify the HTTP method, and send query parameters with the request. Untyped versions of **invokeApi** are provided as well.
+The **invokeApi** method is called on the client, which sends a POST request to the new custom API. The result 
+returned by the custom API is displayed in a message dialog, as are any errors. Other versions of **invokeApi** 
+let you optionally send an object in the request body, specify the HTTP method, and send query parameters with 
+the request. Untyped versions of **invokeApi** are provided as well.
 
 ##<a name="authentication"></a>How to: add authentication to your app
 
 Tutorials already describe in detail how to add these features.
 
-App Service supports [authenticating app users](app-service-mobile-android-get-started-users.md) using a variety of external identity providers: Facebook, Google, Microsoft Account, Twitter, and Azure Active Directory. You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the identity of authenticated users to implement authorization rules in your backend.
+App Service supports [authenticating app users](app-service-mobile-android-get-started-users.md) using a variety 
+of external identity providers: Facebook, Google, Microsoft Account, Twitter, and Azure Active Directory. You 
+can set permissions on tables to restrict access for specific operations to only authenticated users. You can 
+also use the identity of authenticated users to implement authorization rules in your backend.
 
-Two authentication flows are supported: a *server* flow and a *client* flow. The server flow provides the simplest authentication experience, as it relies on the provider's web authentication interface. The client flow allows for deeper integration with device-specific capabilities such as single-sign-on as it relies on provider-specific device-specific SDKs, and requires you to code this.
+Two authentication flows are supported: a *server* flow and a *client* flow. The server flow provides the simplest 
+authentication experience, as it relies on the provider's web authentication interface. The client flow allows for 
+deeper integration with device-specific capabilities such as single-sign-on as it relies on provider-specific 
+device-specific SDKs, and requires you to code this.
 
 Three steps are required to enable authentication in your app:
 
@@ -638,9 +654,11 @@ Three steps are required to enable authentication in your app:
 - Restrict table permissions to authenticated users only.
 - Add authentication code to your app.
 
-You can set permissions on tables to restrict access for specific operations to only authenticated users. You can also use the SID of an authenticated user to modify requests.
+You can set permissions on tables to restrict access for specific operations to only authenticated users. You 
+can also use the SID of an authenticated user to modify requests.
 
-These first two tasks are done using the [Azure portal](https://portal.azure.com/). For more information, see [Get started with authentication].
+These first two tasks are done using the [Azure portal]. For more information, see 
+[Get started with authentication].
 
 ### <a name="caching"></a>How to: Add authentication code to your app
 
@@ -648,7 +666,8 @@ The following code starts the server flow login process using the Google provide
 
 	MobileServiceUser user = mClient.login(MobileServiceAuthenticationProvider.Google);
 
-You can get the ID of the logged-in user from a **MobileServiceUser** using the **getUserId** method. For an example of how to use Futures to call the asynchronous login APIs, see [Get started with authentication].
+You can get the ID of the logged-in user from a **MobileServiceUser** using the **getUserId** method. For an 
+example of how to use Futures to call the asynchronous login APIs, see [Get started with authentication].
 
 
 ### <a name="caching"></a>How to: Cache authentication tokens
@@ -668,9 +687,12 @@ then resumes the request that generated the 401. You can also inspect the token 
 
 ## <a name="adal"></a>How to: Authenticate users with the Active Directory Authentication Library
 
-You can use the Active Directory Authentication Library (ADAL) to sign users into your application using Azure Active Directory. This is often preferable to using the `loginAsync()` methods, as it provides a more native UX feel and allows for additional customization.
+You can use the Active Directory Authentication Library (ADAL) to sign users into your application using Azure 
+Active Directory. This is often preferable to using the `loginAsync()` methods, as it provides a more native UX 
+feel and allows for additional customization.
 
-1. Configure your mobile app backend for AAD sign-in by following the [How to configure App Service for Active Directory login](app-service-mobile-how-to-configure-active-directory-authentication.md) tutorial. Make sure to complete the optional step of registering a native client application.
+1. Configure your mobile app backend for AAD sign-in by following the [How to configure App Service for Active Directory login](app-service-mobile-how-to-configure-active-directory-authentication.md) tutorial. Make sure 
+   to complete the optional step of registering a native client application.
 
 2. Install ADAL by modifying your build.gradle file to include the following:
 
@@ -697,13 +719,17 @@ You can use the Active Directory Authentication Library (ADAL) to sign users int
 
 3. Add the below code to your application, making the following replacements:
 
-* Replace **INSERT-AUTHORITY-HERE** with the name of the tenant in which you provisioned your application. The format should be https://login.windows.net/contoso.onmicrosoft.com. This value can be copied out of the Domain tab in your Azure Active Directory in the [Azure classic portal].
+* Replace **INSERT-AUTHORITY-HERE** with the name of the tenant in which you provisioned your application. The 
+  format should be https://login.windows.net/contoso.onmicrosoft.com. This value can be copied out of the Domain 
+  tab in your Azure Active Directory in the [Azure classic portal].
 
-* Replace **INSERT-RESOURCE-ID-HERE** with the client ID for your mobile app backend. You can obtain this from the **Advanced** tab under **Azure Active Directory Settings** in the portal.
+* Replace **INSERT-RESOURCE-ID-HERE** with the client ID for your mobile app backend. You can obtain this from 
+  the **Advanced** tab under **Azure Active Directory Settings** in the portal.
 
 * Replace **INSERT-CLIENT-ID-HERE** with the client ID you copied from the native client application.
 
-* Replace **INSERT-REDIRECT-URI-HERE** with your site's _/.auth/login/done_ endpoint, using the HTTPS scheme. This value should be similar to _https://contoso.azurewebsites.net/.auth/login/done_.
+* Replace **INSERT-REDIRECT-URI-HERE** with your site's _/.auth/login/done_ endpoint, using the HTTPS scheme. This 
+  value should be similar to _https://contoso.azurewebsites.net/.auth/login/done_.
 
 		private AuthenticationContext mContext;
 
@@ -878,7 +904,7 @@ every field name. This code also enables pretty-printing of the output JSON.
 
 
 
-This code must be executed prior to any method calls on the Mobile Services client object.
+This code must be executed before any method calls on the Mobile Services client object.
 
 ### <a name="complex"></a>How to: Store an object or array property into a table
 
