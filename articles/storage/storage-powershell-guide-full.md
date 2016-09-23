@@ -13,7 +13,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/03/2016"
-	ms.author="robinsh"/>
+	ms.author="micurd;robinsh"/>
 
 # Using Azure PowerShell with Azure Storage
 

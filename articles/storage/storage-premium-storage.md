@@ -4,7 +4,7 @@
 	services="storage"
 	documentationCenter=""
 	authors="aungoo-msft"
-	manager=""
+	manager="tadb"
 	editor="tysonn"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/24/2016"
-	ms.author="aungoo-msft"/>
+	ms.date="09/19/2016"
+	ms.author="aungoo;robinsh"/>
 
 
 # Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads
@@ -55,9 +55,9 @@ For step-by-step instructions, see the [Quick Start](#quick-start) section later
 
 ## Premium Storage supported VMs
 
-Premium Storage supports DS-series, DSv2-series, GS-series, and Fs-series Azure Virtual Machines (VMs). You can use both Standard and Premium storage disks with Premium Storage supported of VMs. But you cannot use Premium Storage disks with VM series which are not Premium Storage compatible. 
+Premium Storage supports DS-series, DSv2-series, GS-series, and Fs-series Azure Virtual Machines (VMs). You can use both Standard and Premium storage disks with Premium Storage supported of VMs. But you cannot use Premium Storage disks with VM series which are not Premium Storage compatible.
 
-For information on available Azure VM types and sizes for Windows VMs, see [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md). For information on VM types and sizes for Linux VMs, see [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md). 
+For information on available Azure VM types and sizes for Windows VMs, see [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md). For information on VM types and sizes for Linux VMs, see [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md).
 
 Following are some of the features of DS, DSv2, GS, and Fs series VMs:
 
@@ -79,7 +79,7 @@ For example, a STANDARD_DS1 VM has 32 MB per second dedicated bandwidth availabl
 Currently, the largest VM on DS-series is STANDARD_DS14 and it can provide up to 512 MB per second across all disks. The largest VM on GS-series is STANDARD_GS5 and it can give up to 2000 MB per second across all disks.
 Note that these limits are for disk traffic alone, not including cache-hits and network traffic. There is a separate bandwidth available for VM network traffic, which is different from the dedicated bandwidth for Premium Storage disks.
 
-For the most up-to-date information on maximum IOPS and throughput (bandwidth) for Premium Storage supported VMs, see [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md) or [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md). 
+For the most up-to-date information on maximum IOPS and throughput (bandwidth) for Premium Storage supported VMs, see [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md) or [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md).
 
 To learn about the Premium storage disks and their IOPs and throughput limits, see the table in the [Premium Storage Scalability and Performance Targets](#premium-storage-scalability-and-performance-targets) section in this article.
 
@@ -428,6 +428,8 @@ See more detailed steps in [How to attach a data disk in Azure portal](../virtua
 2. In the VM All Settings, go to Disks and click on the disk you wish to change.
 3. Change the Host caching option to the desired value, None or ReadOnly or ReadWrite
 
+>[AZURE.WARNING] Changing the cache setting of an Azure disk detaches and re-attaches the target disk. If it is the operating system disk, the VM is restarted. Stop all applications/services that might be affected by this disruption before changing the disk cache setting.
+
 ### Create an Azure virtual machine using Premium Storage via Azure PowerShell
 
 #### I. Create a Premium Storage account in Azure PowerShell
@@ -473,6 +475,8 @@ To update the disk caching policy, note the LUN number of the data disk attached
 
 		Get-AzureVM "myservice" -name "MyVM" | Set-AzureDataDisk -LUN 2 -HostCaching ReadOnly | Update-AzureVM
 
+>[AZURE.WARNING] Changing the cache setting of an Azure disk detaches and re-attaches the target disk. If it is the operating system disk, the VM is restarted. Stop all applications/services that might be affected by this disruption before changing the disk cache setting.
+
 ### Create an Azure virtual machine using Premium Storage via the Azure Command-Line Interface
 
 The [Azure Command-Line Interface](../xplat-cli-install.md)(Azure CLI) provides a provides a set of open source, cross-platform commands for working with the Azure Platform. The following examples show how to use Azure CLI (version 0.8.14 and later) to create a Premium Storage account, a new virtual machine, and attach a new data disk from a Premium Storage account.
@@ -509,6 +513,8 @@ To change the cache policy on one of your disks using Azure CLI, run the followi
 Note that the caching policy options can be ReadOnly, None, or ReadWrite. For more options, see the help by running the following command:
 
 		azure vm disk attach --help
+
+>[AZURE.WARNING] Changing the cache setting of an Azure disk detaches and re-attaches the target disk. If it is the operating system disk, the VM is restarted. Stop all applications/services that might be affected by this disruption before changing the disk cache setting.
 
 ## FAQs
 

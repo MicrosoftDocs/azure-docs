@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/19/2016"
+   ms.date="09/20/2016"
    ms.author="larryfr"/>
 
 # Run Hive queries using the Query Console
@@ -23,7 +23,7 @@
 
 In this article, you will learn how to use the HDInsight Query Console to run Hive queries on an HDInsight Hadoop cluster from your browser.
 
-> [AZURE.NOTE] The Query Console is only available on Windows-based HDInsight clusters.
+> [AZURE.IMPORTANT] The HDInsight Query Console is only available on Windows-based HDInsight clusters. If you are using a Linux-based HDInsight cluster, see [Run Hive queries using the Hive View](hdinsight-hadoop-use-hive-ambari-view.md).
 
 
 ##<a id="prereq"></a>Prerequisites

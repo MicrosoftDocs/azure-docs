@@ -13,14 +13,14 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
- ms.date="03/14/2016"
+ ms.date="09/19/2016"
  ms.author="elioda"/>
 
 # Scaling IoT Hub
 
-Azure IoT Hub can support up to a million simultaneously connected devices. For more information, see [IoT Hub pricing][lnk-pricing]. Each IoT Hub unit allows a number of daily messages.
+Azure IoT Hub can support up to a million simultaneously connected devices. For more information, see [IoT Hub pricing][lnk-pricing]. Each IoT Hub unit allows a certain number of daily messages.
 
-In order to properly scale your solution, consider your particular use of IoT Hub. In particular, consider the required peak throughput for the following categories of operations:
+To properly scale your solution, consider your particular use of IoT Hub. In particular, consider the required peak throughput for the following categories of operations:
 
 * Device-to-cloud messages
 * Cloud-to-device messages
@@ -39,8 +39,6 @@ Device-to-cloud messages follow these sustained throughput guidelines.
 | S1 | Up to 1111 KB/minute per unit<br/>(1.5 GB/day/unit) | Average of 278 messages/minute per unit<br/>(400,000 messages/day per unit) |
 | S2 | Up to 16 MB/minute per unit<br/>(22.8 GB/day/unit) | Average of 4167 messages/minute per unit<br/>(6 million messages/day per unit) |
 | S3 | Up to 814 MB/minute per unit<br/>(1144.4 GB/day/unit) | Average of 208,333 messages/minute per unit<br/>(300 million messages/day per unit) |
-
-The performance of cloud-to-device messages scales per device, with each device receiving up to 5 messages per minute.
 
 ## Identity registry operation throughput
 

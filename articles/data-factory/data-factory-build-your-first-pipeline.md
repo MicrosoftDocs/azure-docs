@@ -19,6 +19,7 @@
 
 # Tutorial: Build your first pipeline to process data using Hadoop cluster 
 > [AZURE.SELECTOR]
+- [Overview and prerequisites](data-factory-build-your-first-pipeline.md)
 - [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
@@ -43,7 +44,7 @@ In this tutorial, you perform the following steps:
  
 Here is the **diagram view** of the sample data factory you build in this tutorial. 
 
-![Diagram view in Data Factory tutorial](./media/data-factory-tutorial-prerequisites/data-factory-tutorial-diagram-view.png)
+![Diagram view in Data Factory tutorial](./media/data-factory-build-your-first-pipeline/data-factory-tutorial-diagram-view.png)
 
 In this tutorial, **inputdata** folder of the **adfgetstarted** Azure blob container contains one file named input.log. This log file has entries from three months: January, February, and March of 2016. Here are the sample rows for each month in the input file. 
 
