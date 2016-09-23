@@ -37,11 +37,12 @@ Application Gateway WAF is offered in a new SKU (WAF SKU) and comes preconfigure
 
 - SQL injection protection
 - Cross site scripting protection
-- Common Web Attacks Protection
-- HTTP Protection detecting violations of the HTTP protocol and a locally defined usage policy.
-- HTTP Denial of Service Protections defense against HTTP Flooding and Slow HTTP DoS Attacks.
-- Automation Detection Detecting bots, crawlers, scanners, and other surface malicious activity.
-- Identification of Application Defects alerts on application misconfigurations.
+- Common Web Attacks Protection such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion attack
+- Protection against HTTP protocol violations
+- Protection against HTTP protocol anomalies such as missing host user-agent and accept headers
+- HTTP DoS Protections including HTTP flooding and slow HTTP DoS prevention
+- Prevention against bots, crawlers, and scanners
+- Detection of common application misconfigurations (i.e. Apache, IIS, etc)
 
 ## WAF Modes
 
