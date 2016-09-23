@@ -56,11 +56,14 @@ Your application can directly provide user credentials to Azure AD. This method 
 ### What do I need to use this approach?
 
 * Azure AD domain name (already listed in the prerequisite of this article).
-* Client ID for a **native client application** that you must have already created in Azure AD. 
-	* For instructions on how to create an Azure AD application, see [Create an Active Directory Application](../resource-group-create-service-principal-portal.md#create-an-active-directory-application).
-	* For instructions on how to retrieve a client key for the Azure AD application, see [Retrieve client key](../resource-group-create-service-principal-portal.md#get-client-id-and-authentication-key).
 
-	>[AZURE.NOTE] The instructions in the above links are for an Azure AD web application. However, the steps are exactly the same even if you chose to create a native client application instead.
+* Azure AD **native client application**. 
+
+* Client ID for the Azure AD native client application. 
+
+For instructions on how to create an Azure AD application and retrieve the client ID, see [Create an Active Directory Application](../resource-group-create-service-principal-portal.md#create-an-active-directory-application). 
+
+>[AZURE.NOTE] The instructions in the above links are for an Azure AD web application. However, the steps are exactly the same even if you chose to create a native client application instead.
 
 ## Service-to-service authentication
 
@@ -69,10 +72,15 @@ This is the recommended approach if you want your application to automatically a
 ### What do I need to use this approach?
 
 * Azure AD domain name (already listed in the prerequisite of this article).
-* Client ID for a **web application** that you must have already created in Azure AD. 
-	* For instructions on how to create an Azure AD application, see [Create an Active Directory Application](../resource-group-create-service-principal-portal.md#create-an-active-directory-application).
-	* For instructions on how to retrieve a client key for the Azure AD application, see [Retrieve client key](../resource-group-create-service-principal-portal.md#get-client-id-and-authentication-key).
-* Configure the Azure AD web application to either use the client secret or a certificate.
+
+* Azure AD **web application**.
+
+* Client ID for the Azure AD web application.
+
+	>[AZURE.NOTE] For instructions on how to create an Azure AD application and retrieve the client ID, see [Create an Active Directory Application](../resource-group-create-service-principal-portal.md#create-an-active-directory-application).
+	
+* Configure the Azure AD web application to either use the client secret or a certificate. To create a web application using a certificate, see [Create a service principal with certificate](../resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
+
 * Enable access for the Azure AD web application on the the Data Lake Store file/folder or the Data Lake Analytics account that you want to work with. For instructions on how to provide access to an Azure AD application to a Data Lake Store file/folder, see [Assign users or security group as ACLs to the Azure Data Lake Store file system](data-lake-store-secure-data.md#filepermissions).
 
 ## Next steps
