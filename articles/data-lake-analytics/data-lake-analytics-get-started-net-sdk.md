@@ -101,12 +101,12 @@ A sample search log can be found in a public Azure Blob container. In the applic
 		{
 		  class Program
 		  {
-			private const string SUBSCRIPTIONID = "65a1016d-0f67-45d2-b838-b8f373d6d52e";
+			private const string SUBSCRIPTIONID = "<Enter Your Azure Subscription ID>";
 			private const string CLIENTID = "1950a258-227b-4e31-a9cf-717495945fc2";
 			private const string DOMAINNAME = "common"; // Replace this string with the user's Azure Active Directory tenant ID or domain name, if needed.
 
-			private static string _adlaAccountName = "jgaoadla0831";
-			private static string _adlsAccountName = "jgaoadls0831";
+			private static string _adlaAccountName = "<Enter an Existing Data Lake Analytics Account Name>";
+			private static string _adlsAccountName = "<Enter the default Data Lake Store Account Name>";
 
 			private static DataLakeAnalyticsAccountManagementClient _adlaClient;
 			private static DataLakeStoreFileSystemManagementClient _adlsFileSystemClient;
