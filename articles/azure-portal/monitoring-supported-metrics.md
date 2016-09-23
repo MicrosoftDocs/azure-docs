@@ -20,7 +20,7 @@
 
 Azure Monitor provides several ways to interact with metrics, including charting them in the portal, accessing them through the REST API, or querying them using PowerShell or CLI. Below is a complete list of all metrics currently available with Azure Monitor's metric pipeline.
 
-> [AZURE.NOTE] Other metrics may be available in the portal or using legacy APIs. This list only includes metrics available using the consolidated Azure Monitor metric pipeline.
+> [AZURE.NOTE] Other metrics may be available in the portal or using legacy APIs. This list only includes public preview metrics available using the public preview of the consolidated Azure Monitor metric pipeline.
 
 ## Microsoft.Batch/batchAccounts
 
@@ -217,13 +217,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |cacheWrite9|Cache Write (Shard 9)|BytesPerSecond|Maximum||
 |cacheRead9|Cache Read (Shard 9)|BytesPerSecond|Maximum||
 |percentProcessorTime9|CPU (Shard 9)|Percent|Maximum||
-
-## Microsoft.CognitiveServices/accounts
-
-|Metric|Metric Display Name|Unit|Aggregation Type|Description|
-|---|---|---|---|---|
-|NumberOfCalls|Total number of API calls|Count|Total|Total number of API calls.|
-|NumberOfFailedCalls|Total number of failed API calls|Count|Total|Total number of failed API calls.|
 
 ## Microsoft.Compute/virtualMachines
 

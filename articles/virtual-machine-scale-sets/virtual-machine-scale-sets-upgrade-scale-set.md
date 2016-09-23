@@ -20,11 +20,11 @@
 
 # Upgrade a Virtual Machine Scale Set
 
-This article describes how you can roll out an OS update to an Azure VM Scale Set without any downtime. In this context, an OS update is either changing the version/sku of the OS, or changing the URI of a custom image. Updating without downtime means updating VMs one at a time, or in groups (such as one fault domain at a time), rather than all at once. By doing so, any VMs that are not being upgraded can keep running.
+This article describes how you can roll out an OS update to an Azure VM Scale Set without any downtime. In this context, an OS update is either changing the version/SKU of the OS, or changing the URI of a custom image. Updating without downtime means updating VMs one at a time, or in groups (such as one fault domain at a time), rather than all at once. By doing so, any VMs that are not being upgraded can keep running.
 
 To avoid ambiguity, let’s distinguish three types of OS update you might want to do:
 
-1. Changing the version or sku of a platform image. For example, changing Ubuntu 14.04.2-LTS version from 14.04.201506100 to 14.04.201507060, or changing the Ubuntu 15.10/latest sku to 16.04.0-LTS/latest. This scenario is covered in this article.
+1. Changing the version or SKU of a platform image. For example, changing Ubuntu 14.04.2-LTS version from 14.04.201506100 to 14.04.201507060, or changing the Ubuntu 15.10/latest SKU to 16.04.0-LTS/latest. This scenario is covered in this article.
 
 2. You built a new version of a custom image and want to change the URI that points to the image (properties->virtualMachineProfile->storageProfile->osDisk->image->uri). This scenario is covered in this article.
 
@@ -33,11 +33,11 @@ To avoid ambiguity, let’s distinguish three types of OS update you might want 
 The first 2 are supported requirements. For the third one, at least for now, you’d need to create a new scale set to do that. This article covers options 1. and 2.
 Note: VM Scale Sets which are deployed as part of a [Service Fabric](https://azure.microsoft.com/services/service-fabric/) cluster are not covered here.
 
-The basic sequence for changing the OS version/sku of a platform image or the URI of a custom image looks as follows:
+The basic sequence for changing the OS version/SKU of a platform image or the URI of a custom image looks as follows:
 
 * Get the VMSS model.
 
-* Change the version, sku, or URI value in the model.
+* Change the version, SKU, or URI value in the model.
 
 * Update the model.
 
@@ -91,7 +91,7 @@ This script lets you choose specific VMs to update, or specify an update domain,
 
 ### vmsseditor
 
-This tool is a general-purpose editor for VM Scale Sets that shows VM status as a heatmap where one row represents one update domain. Among other things, you can update the model for a VMSS with a new version, sku or custom image URI, and then pick Fault Domains to upgrade. When you do so, all the VMs in that update domain are upgraded to the new model. Alternatively, you could do a rolling upgrade based on the batch size of your choice. vmsseditor can be found in the following [github repo](https://github.com/gbowerman/vmssdashboard)
+This tool is a general-purpose editor for VM Scale Sets that shows VM status as a heatmap where one row represents one update domain. Among other things, you can update the model for a VMSS with a new version, SKU or custom image URI, and then pick Fault Domains to upgrade. When you do so, all the VMs in that update domain are upgraded to the new model. Alternatively, you could do a rolling upgrade based on the batch size of your choice. vmsseditor can be found in the following [GitHub repo](https://github.com/gbowerman/vmssdashboard)
 
 For example, here I’ve updated the model of a scale set to Ubuntu 14.04-2LTS version 14.04.201507060. Note that this screenshot is old; many more options have since been added to this tool.
 
