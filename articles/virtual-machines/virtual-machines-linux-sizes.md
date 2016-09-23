@@ -22,11 +22,11 @@ ms.service="virtual-machines-linux"
 This article describes the available sizes and options for the Azure virtual machines you can use to run your Linux apps and workloads. It also provides deployment considerations to be aware of when you're planning to use these resources. This article is also available for [Windows virtual machines](virtual-machines-windows-sizes.md).
 
 >[AZURE.IMPORTANT] 
->- For information about pricing of the various sizes, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux). 
+> - For information about pricing of the various sizes, see [Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux). 
 >
->- For availability of VM sizes in Azure regions, see [Products available by region](https://azure.microsoft.com/regions/services/).
+> - For availability of VM sizes in Azure regions, see [Products available by region](https://azure.microsoft.com/regions/services/).
 >
->- To see general limits on Azure VMs, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
+> - To see general limits on Azure VMs, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 
 <br>   
 
