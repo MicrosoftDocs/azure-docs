@@ -102,7 +102,7 @@ The following image illustrates detailed step-by-step process in the life cycle 
 
 - When upgrading to WMF 5 RTM, if the machine is already registered as a node in Azure Automation DSC, please unregister it from Azure Automation DSC and reregister it after the WMF 5 RTM upgrade.
 
-- Azure Automation DSC does not support partial or composite DSC configurations at this time. However, DSC composite resources can be imported and used just like in local PowerShell, enabling configuration reuse.
+- Azure Automation DSC does not support partial or composite DSC configurations at this time. However, DSC composite resources can be imported and used in Azure Automation DSC Configurations just like in local PowerShell, enabling configuration reuse.
 
 - The latest version of WMF 5 must be installed for the PowerShell DSC agent for Windows to be able to communicate with Azure Automation. The latest version of the PowerShell DSC agent for Linux must be installed for Linux to be able to communicate with Azure Automation.
 

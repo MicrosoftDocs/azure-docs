@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Asymmetric Routing | Microsoft Azure"
-   description="This article walks through issues a customer can face with asymmetric routing in its network when it has multiple links to a destination."
+   pageTitle="Asymmetric routing | Microsoft Azure"
+   description="This article walks you through the issues a customer might face with asymmetric routing in a network that has multiple links to a destination."
    documentationCenter="na"
    services="expressroute"
    authors="osamazia"
@@ -9,70 +9,70 @@
 <tags
    ms.service="expressroute"
    ms.devlang="na"
-   ms.topic="get-started-article" 
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="08/23/2016"
    ms.author="osamazia"/>
 
-# Asymmetric Routing with multiple network paths
+# Asymmetric routing with multiple network paths
 
-This article explains how forward and return traffic can take different routes when there are multiple paths available between source and destination.
+This article explains how forward and return network traffic might take different routes when multiple paths are available between network source and destination.
 
-To understand asymmetric routing, we need to understand two concepts. One is impact of multiple network paths. Other is behavior of the devices that keep state such as firewalls. These devices are called stateful devices. A combination of these two factors creates scenarios where the traffic is dropped by a stateful device as it did not see the traffic originated through itself.
+It's important to understand two concepts to understand asymmetric routing. One is the effect of multiple network paths. The other is how devices, like a firewall, keep state. These types of devices are called stateful devices. A combination of these two factors creates scenarios in which network traffic is dropped by a stateful device because the stateful device didn't detect that traffic originated with the device itself.
 
-## Multiple Network Paths
+## Multiple network paths
 
-When an enterprise network has only one link to the Internet via their Internet service provider, then all traffic towards and from the Internet comes through the same path. Often, companies purchase multiple circuits, as redundant paths, to improve network uptime. In such cases, it is possible that traffic going outside the network towards the Internet goes through one link while the return traffic comes through a different link. This phenomenon is commonly known as Asymmetric Routing where the reverse traffic takes a different path from the original flow.
+When an enterprise network has only one link to the Internet through their Internet service provider, all traffic to and from the Internet travels the same path. Often, companies purchase multiple circuits, as redundant paths, to improve network uptime. When this happens, it's possible that traffic that goes outside of the network, to the Internet, goes through one link, and the return traffic goes through a different link. This is commonly known as asymmetric routing. In asymmetric routing, reverse network traffic takes a different path from the original flow.
 
-![Routing3](./media/expressroute-asymmetric-routing/AsymmetricRouting3.png)
+![Network with multiple paths](./media/expressroute-asymmetric-routing/AsymmetricRouting3.png)
 
-While the preceding description is for Internet, it applies to other combinations of multiple paths. Examples are, an Internet path and a private path to the same destination, multiple private paths to the same destination etc. 
+Although it primarily occurs on the Internet, asymmetric routing also applies to other combinations of multiple paths. It applies, for example, both to an Internet path and a private path that go to the same destination, and to multiple private paths that go to the same destination.
 
-Each router along the way from source to destination computes best path to reach a destination based on its calculation of best path to reach the destination. Determination of best possible path is based on two main factors.
+Each router along the way, from source to destination, computes the best path to reach a destination. The router's determination of best possible path is based on two main factors:
 
-1.	Routing between external networks is based on routing protocol called Border Gateway Protocol commonly known as BGP. BGP takes advertisements from neighbors and run them through number of steps to determine the best path to the destination and installs it in its routing table.
-2.	Length of subnet mask associated with a route. If multiple advertisements for the same IP address but different subnet masks are received, then the advertisement with longer subnet mask is preferred because it is considered more specific route.
+-	Routing between external networks is based on a routing protocol, Border Gateway Protocol (BGP). BGP takes advertisements from neighbors and runs them through a series of steps to determine the best path to the intended destination. It stores the best path in its routing table.
+-	The length of a subnet mask associated with a route influences routing paths. If a router receives multiple advertisements for the same IP address but with different subnet masks, the router prefers the advertisement with a longer subnet mask because it's considered a more specific route.
 
-## Stateful Devices
+## Stateful devices
 
-Routers look at the IP header of the packet for routing purposes. However, there are devices that look even deeper inside the packet. Typically these devices look at Layer4 (TCP/UDP) or even Layer7(Application Layer) headers. These devices are either security devices or bandwidth optimization devices. Firewall is a common example of stateful devices. Firewall allows or denies a packet through its interfaces based on various fields such as protocol, TCP/UDP port, URL headers. This packet inspection puts lot of processing load on the device. To improve the performance, the firewall inspects the first packet of a flow. If the packet is allowed, it keeps the flow information in its state table. All subsequent packets related to this flow are allowed based on the initial decision. So, when a packet, which is part of an existing flow, arrives at the firewall and firewall has no prior state information about it, the firewall drops this packet.
+Routers look at the IP header of a packet for routing purposes. Some devices look even deeper inside the packet. Typically, these devices look at Layer4 (Transmission Control Protocol, or TCP; or User Datagram Protocol, or UDP), or even Layer7 (Application Layer) headers. These kinds of devices are either security devices or bandwidth-optimization devices. 
+
+A firewall is a common example of a stateful device. A firewall allows or denies a packet to pass through its interfaces based on various fields such as protocol, TCP/UDP port, and URL headers. This level of packet inspection puts a heavy processing load on the device. To improve performance, the firewall inspects the first packet of a flow. If it allows the packet to proceed, it keeps the flow information in its state table. All subsequent packets related to this flow are allowed based on the initial determination. A packet that is part of an existing flow might arrive at the firewall. If the firewall has no prior state information about it, the firewall drops the packet.
 
 ## Asymmetric routing with ExpressRoute
 
-When you connect to Microsoft, through ExpressRoute, then following changes happen to your network.
+When you connect to Microsoft through Azure ExpressRoute, your network changes like this:
 
-1.	You have multiple links to Microsoft. One link is your existing Internet connection and other is via ExpressRoute. Some traffic to Microsoft may go through Internet but come back via ExpressRoute or vice versa.
-2.	You receive more specific IP addresses via ExpressRoute. So, traffic from your network to Microsoft for services offered via ExpressRoute always prefer ExpressRoute. 
+-	You have multiple links to Microsoft. One link is your existing Internet connection, and the other is via ExpressRoute. Some traffic to Microsoft might go through the Internet but come back via ExpressRoute, or vice versa.
+-	You receive more specific IP addresses via ExpressRoute. So, for traffic from your network to Microsoft for services offered via ExpressRoute, routers always prefer ExpressRoute.
 
-To understand the impact of above two, let’s go through some scenarios. Let's assume you have only one circuit to Internet and you consume all Microsoft services via Internet. The traffic from your network to Microsoft and back traverses through the same Internet link and passes through the firewall. The firewall records the flow as it sees the first packet and return packets are allowed as the flow exists in the state table.
+To understand the effect these two changes have on a network, let’s consider some scenarios. As an example, you have only one circuit to the Internet and you consume all Microsoft services via the Internet. The traffic from your network to Microsoft and back traverses the same Internet link and passes through the firewall. The firewall records the flow as it sees the first packet and return packets are allowed because the flow exists in the state table.
 
-![Routing1](./media/expressroute-asymmetric-routing/AsymmetricRouting1.png)
-
-
-Now you turn on ExpressRoute and consume services offered by Microsoft over ExpressRoute. All other services from Microsoft are consumed over the Internet. You deploy a separate firewall at your edge connecting to ExpressRoute. Microsoft will advertise more specific prefixes to your network over ExpressRoute for specific services. Your routing infrastructure will choose ExpressRoute as preferred path for those prefixes. If you are not advertising your Public IP addresses to Microsoft over ExpressRoute, then Microsoft will communicate with your Public IP addresses via Internet. So, forward traffic from your network to Microsoft will use ExpressRoute while reverse traffic from Microsoft will use Internet. When the firewall at the edge sees a response packet for a flow not found in the state table, then it will drop the return traffic. 
-
-If you choose to use the same NAT pool for ExpressRoute and for Internet, you will see similar issues with the clients on private IP addresses in your network. Request for services such as Windows Update will go via Internet as IP addresses for these services are not advertised via ExpressRoute. However, the return traffic will come back via ExpressRoute. If Microsoft receives an IP address with same subnet mask from Internet and ExpressRoute, then it prefers ExpressRoute over Internet. If a firewall or other stateful device at your network edge, facing ExpressRoute, has no prior information about the flow, it will drop the packets belonging to that flow. 
-
-## Solutions to Asymmetric Routing
-
-There are two main ways to solve the Asymmetric Routing problem. One is via routing and other is via source-based NAT (SNAT). 
-
-1. Routing 
-
-    - You should ensure that your Public IP addresses are advertised to appropriate WAN links. For example, if you want to use Internet for authentication traffic and ExpressRoute for your mail traffic. Then you must not advertise your ADFS public IP addresses over ExpressRoute. Similarly, on-premises ADFS server must not be exposed to IP addresses received over ExpressRoute. Routes received over ExpressRoute are more specific so they will make ExpressRoute preferred path for authentication traffic to Microsoft thus causing asymmetric routing.
-
-    - If you want to use ExpressRoute for authentication, then you must make sure that you are advertising ADFS public IP addresses over ExpressRoute without NAT. This way traffic originating from Microsoft to on premises ADFS server goes over ExpressRoute while return traffic from customer to Microsoft will use ExpressRoute as it is preferred over Internet. 
-
-2. Source-based NAT
-
-	Another way of solving Asymmetric Routing issues is via Source NAT (SNAT). For example, if you have not advertised the public IP address of on-premises SMTP server over ExpressRoute intending to use Internet for this communication. A request originated from Microsoft to your on-premises SMTP server traverses the Internet. You source NAT the incoming request to an internal IP address. Reverse traffic from SMTP server will go to the edge firewall (used to do NAT) instead of ExpressRoute. This way the return traffic will go back via Internet. 
+![Asymmetric routing with ExpressRoute](./media/expressroute-asymmetric-routing/AsymmetricRouting1.png)
 
 
-![Routing2](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
+Then, you turn on ExpressRoute and consume services offered by Microsoft over ExpressRoute. All other services from Microsoft are consumed over the Internet. You deploy a separate firewall at your edge that is connected to ExpressRoute. Microsoft advertises more specific prefixes to your network over ExpressRoute for specific services. Your routing infrastructure chooses ExpressRoute as the preferred path for those prefixes. If you are not advertising your public IP addresses to Microsoft over ExpressRoute, Microsoft communicates with your public IP addresses via the Internet. Forward traffic from your network to Microsoft uses ExpressRoute, and reverse traffic from Microsoft uses the Internet. When the firewall at the edge sees a response packet for a flow that it does not find in the state table, it drops the return traffic.
 
-## Detection of Asymmetric Routing
+If you choose to use the same network address translation (NAT) pool for ExpressRoute and for the Internet, you'll see similar issues with the clients in your network on private IP addresses. Requests for services like Windows Update go via the Internet because IP addresses for these services are not advertised via ExpressRoute. However, the return traffic comes back via ExpressRoute. If Microsoft receives an IP address with the same subnet mask from the Internet and ExpressRoute, it prefers ExpressRoute over the Internet. If a firewall or another stateful device that is on your network edge and facing ExpressRoute has no prior information about the flow, it drops the packets that belong to that flow.
 
-Traceroute is the best way to ensure that traffic is traversing the expected path. If you expect traffic from your on-premises SMTP server to Microsoft take the Internet path, then traceroute from the SMTP server to Office 365. The result will validate that traffic is indeed leaving your network towards Internet and not towards ExpressRoute. 
+## Asymmetric routing solutions
+
+You have two main options to solve the problem of asymmetric routing. One is through routing, and the other is by using source-based NAT (SNAT).
+
+### Routing
+
+Ensure that your public IP addresses are advertised to appropriate wide area network (WAN) links. For example, if you want to use the Internet for authentication traffic and ExpressRoute for your mail traffic, you should not advertise your Active Directory Federation Services (AD FS) public IP addresses over ExpressRoute. Similarly, be sure not to expose an on-premises AD FS server to IP addresses that the router receives over ExpressRoute. Routes received over ExpressRoute are more specific so they make ExpressRoute the preferred path for authentication traffic to Microsoft. This causes asymmetric routing.
+
+If you want to use ExpressRoute for authentication, make sure that you are advertising AD FS public IP addresses over ExpressRoute without NAT. This way, traffic that originates from Microsoft and goes to an on-premises AD FS server goes over ExpressRoute. Return traffic from customer to Microsoft uses ExpressRoute because it's the preferred route over the Internet.
+
+### Source-based NAT
+
+Another way of solving asymmetric routing issues is by using SNAT. For example, you have not advertised the public IP address of an on-premises Simple Mail Transfer Protocol (SMTP) server over ExpressRoute because you intend to use the Internet for this type of communication. A request that originates with Microsoft and then goes to your on-premises SMTP server traverses the Internet. You SNAT the incoming request to an internal IP address. Reverse traffic from the SMTP server goes to the edge firewall (which you use for NAT) instead of through ExpressRoute. The return traffic goes back via the Internet.
 
 
+![Source-based NAT network configuration](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
+
+## Asymmetric routing detection
+
+Traceroute is the best way to make sure that your network traffic is traversing the expected path. If you expect traffic from your on-premises SMTP server to Microsoft to take the Internet path, the expected traceroute is from the SMTP server to Office 365. The result validates that traffic is indeed leaving your network toward the Internet and not toward ExpressRoute.

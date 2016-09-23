@@ -3,7 +3,7 @@
    description="Step-by-step instructions to configure a default Docker instance using Docker Machine and VirtualBox"
    services="azure-container-service"
    documentationCenter="na"
-   authors="allclark"
+   authors="mlearned"
    manager="douge"
    editor="" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
    ms.date="06/08/2016"
-   ms.author="allclark" />
+   ms.author="mlearned" />
 
 # Configure a Docker Host with VirtualBox
 

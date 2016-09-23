@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="05/23/2016"
+	ms.date="09/16/2016"
 	ms.author="sethm"/>
 
-# .NET on-premises/cloud hybrid application using Azure Service Bus relay
+# .NET on-premises/cloud hybrid application using Azure Service Bus Relay
 
 ## Introduction
 
@@ -27,7 +27,7 @@ You will learn:
 
 -   How to create or adapt an existing web service for consumption by a
     web solution.
--   How to use the Azure Service Bus relay to share data between
+-   How to use the Azure Service Bus Relay service to share data between
     an Azure application and a web service hosted elsewhere.
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
@@ -80,7 +80,7 @@ The following is a screen shot of the start page of the completed web applicatio
 
 Before you can begin developing Azure applications, get the tools and set up your development environment.
 
-1.  Install the Azure SDK for .NET at [Get Tools and SDK][].
+1.  Install the Azure SDK for .NET from the [Get Tools and SDK][] page.
 
 2. 	Click **Install the SDK** for the version of Visual Studio you are using. The steps in this tutorial use Visual Studio 2015.
 
@@ -407,7 +407,7 @@ Run the application to verify that it works.
     the project name in Solution Explorer and select **Set As
     Startup Project**.
 2.  In Visual Studio, press F5.
-3.  Your application should appear running in a browser.
+3.  Your application should appear, running in a browser.
 
     ![][21]
 
@@ -415,9 +415,9 @@ Run the application to verify that it works.
 
 The next step is to hook up the on-premises products server with the ASP.NET application.
 
-1.  If it is not already open, in Visual Studio re-open the **ProductsPortal** project you created in the "Creating an ASP.NET Application" section.
+1.  If it is not already open, in Visual Studio re-open the **ProductsPortal** project you created in the [Create an ASP.NET application](#create-an-aspnet-application) section.
 
-2.  Similar to the step in the "Create an On-Premises Server" section, add the NuGet package to the project References. In Solution Explorer, right-click the **ProductsPortal** project, then click **Manage NuGet Packages**.
+2.  Similar to the step in the "Create an On-Premises Server" section, add the NuGet package to the project references. In Solution Explorer, right-click the **ProductsPortal** project, then click **Manage NuGet Packages**.
 
 3.  Search for "Service Bus" and select the **Microsoft Azure Service Bus** item. Then complete the installation and close this dialog box.
 
@@ -469,7 +469,7 @@ The next step is to hook up the on-premises products server with the ASP.NET app
 	}
 	```
 
-7.  In Solution Explorer, right-click the **ProductsPortal** solution, click **Add**, then click **Existing Project**.
+7.  In Solution Explorer, right-click the **ProductsPortal** solution (make sure to right-click the solution, not the project). Click **Add**, then click **Existing Project**.
 
 8.  Navigate to the **ProductsServer** project, then double-click the **ProductsServer.csproj** solution file to add it.
 
@@ -497,16 +497,17 @@ To test the application locally, in Visual Studio press **F5**. The on-premises 
 
 Press **Refresh** on the **ProductsPortal** page. Each time you refresh the page, you'll see the server app display a message when `GetProducts()` from **ProductsServer** is called.
 
+Close both applications before proceeding to the next step.
+
 ## Deploy the ProductsPortal project to an Azure web app
 
-The next step is to convert the **ProductsPortal** frontend to an Azure web app. First, deploy the **ProductsPortal** project, following all the steps in the section [Deploy the web project to the Azure web app](../app-service-web/web-sites-dotnet-get-started.md#deploy-the-web-project-to-the-azure-web-app). After deployment is complete, return to this tutorial and proceed to the next step. 
+The next step is to convert the **ProductsPortal** frontend to an Azure web app. First, deploy the **ProductsPortal** project, following all the steps in the section [Deploy the web project to the Azure web app](../app-service-web/web-sites-dotnet-get-started.md#deploy-the-web-project-to-the-azure-web-app). After deployment is complete, return to this tutorial and proceed to the next step.
+
+> [AZURE.NOTE] You may see an error message in the browser window when the **ProductsPortal** web project is automatically launched after the deployment. This is expected, and occurs because the **ProductsServer** application isn't running yet.
 
 Copy the URL of the deployed web app, as you will need the URL in the next step. You can also obtain this URL from the Azure App Service Activity window in Visual Studio:
 
 ![][9] 
-   
-
-> [AZURE.NOTE] You may see an error message in the browser window when the **ProductsPortal** web project is automatically launched after the deployment. This is expected, and occurs because the **ProductsServer** application isn't running yet.
 
 ### Set ProductsPortal as web app
 
