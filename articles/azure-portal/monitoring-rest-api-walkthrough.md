@@ -29,7 +29,7 @@ Besides working with various metric data points, the Insights API makes it possi
 
 The first step is to authenticate the request.
 
-All of the tasks executed against the Azure Insights API use the Azure Resource Manager authentication model. Therefore, all requests must be authenticated with Azure Active Directory (Azure AD). One approach to authenticate the client application is to create an Azure AD service principal and retrieve the authentication (JWT) token. The sample script below demonstrates creating an Azure AD service principal via PowerShell. For a more detailed walk-through, please refer to the documentation on [using Azure PowerShell to create a service principal to access resources](../resource-group-authenticate-service-principal.md#authenticate-service-principal-with-password—powershell). It is also possible to [create a service principle via the Azure portal](../resource-group-create-service-principal-portal.md).
+All the tasks executed against the Azure Insights API use the Azure Resource Manager authentication model. Therefore, all requests must be authenticated with Azure Active Directory (Azure AD). One approach to authenticate the client application is to create an Azure AD service principal and retrieve the authentication (JWT) token. The following sample script demonstrates creating an Azure AD service principal via PowerShell. For a more detailed walk-through, refer to the documentation on [using Azure PowerShell to create a service principal to access resources](../resource-group-authenticate-service-principal.md#authenticate-service-principal-with-password—powershell). It is also possible to [create a service principle via the Azure portal](../resource-group-create-service-principal-portal.md).
 
 ```PowerShell
 $subscriptionId = "{azure-subscription-id}"
@@ -58,7 +58,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Reader `
 
 ```
 
-To query the Azure Insights API, the client application should use the previously created service principal to authenticate. The following example PowerShell script shows one way to do this, using the Active Directory Authentication Library (ADAL) to help get the JWT authentication token. The JWT token will later be passed as part of an HTTP Authorization parameter in requests to the Azure Insights API.
+To query the Azure Insights API, the client application should use the previously created service principal to authenticate. The following example PowerShell script shows one approach, using the Active Directory Authentication Library (ADAL) to help get the JWT authentication token. The JWT token is passed as part of an HTTP Authorization parameter in requests to the Azure Insights API.
 
 ```PowerShell
 $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://localhost/azure-insights"
@@ -95,23 +95,23 @@ Invoke-RestMethod -Uri $request `
                   -Method Get `
                   -Verbose
 ```
-For an Azure Web App, the metric definitions would appear similar to the example screenshot below.
+For an Azure Web App, the metric definitions would appear similar to the following screenshot.
 
 ![Alt "JSON view of metric definition response."](./media/monitoring-rest-api-walkthrough/available_metric_definitions_json_response.png)
 
 
-Please refer to the [List the metric definitions for a resource in Azure Insights REST API](https://msdn.microsoft.com/library/azure/dn931939.aspx) documentation for additional details. 
+For more information, see the [List the metric definitions for a resource in Azure Insights REST API](https://msdn.microsoft.com/library/azure/dn931939.aspx) documentation. 
 
 ## Retrieve Metric Values
-Once the available metric definitions are known, it is then possible to retrieve the related metric values. Use the metric’s name ‘value’ (not the ‘localizedValue’) for any filtering requests (e.g. retrieve the ‘CpuTime’ and ‘Requests’ metric data points). 
+Once the available metric definitions are known, it is then possible to retrieve the related metric values. Use the metric’s name ‘value’ (not the ‘localizedValue’) for any filtering requests (for example, retrieve the ‘CpuTime’ and ‘Requests’ metric data points). 
 
->[AZURE.NOTE] The request / response information for this API call does not appear as an available task at [https://msdn.microsoft.com/library/azure/dn931930.aspx](https://msdn.microsoft.com/library/azure/dn931930.aspx). However, it is possible to do so, and the request URI is very similar to that of listing the metric definitions.
+>[AZURE.NOTE] The request / response information for this API call does not appear as an available task at [https://msdn.microsoft.com/library/azure/dn931930.aspx](https://msdn.microsoft.com/library/azure/dn931930.aspx). However, it is possible to do so, and the request URI is similar to that of listing the metric definitions.
 
 **Method**: GET
 
 **Request URI**: https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider-namespace}/{resource-type}/{resource-name}/metrics?api-version=2014-04-01&$filter={filter}
 
-For example, to retrieve the Average Response Time data points for an Azure Web App for period from 2016-09-14 (September 14, 2016) to 2016-09-15 (September 15, 2016) with a granularity of 1 hour (all times should be indicated as UTC), the request URI would be as follows:
+For example, to retrieve the Average Response Time data points for the period from September 14, 2016 to September 15, 2016 with a granularity of one hour (all times should be indicated as UTC), the request URI would be as follows:
 
 ```PowerShell
 $filter = "(name.value eq 'AverageResponseTime') and timeGrain eq duration'PT1H' and startTime eq 2016-09-14T00:00:00.0000000Z and endTime eq 2016-09-15T00:00:00.0000000Z"
@@ -126,7 +126,7 @@ The result would appear similar to the example following screenshot.
 
 ![Alt "JSON response showing Average Response Time metric value"](./media/monitoring-rest-api-walkthrough/avg_response_time_metric_json_response.png)
 
-To retrieve multiple data points, add the metric definition name(s) to the filter, as seen in the following example:
+To retrieve multiple data points, add the metric definition names to the filter, as seen in the following example:
 
 ```PowerShell
 $filter = "(name.value eq 'AverageResponseTime' or name.value eq 'Requests') and timeGrain eq duration'PT1M' and startTime eq 2016-09-09T10:00:00.0000000Z and endTime eq 2016-09-09T16:00:00.0000000Z"
@@ -151,11 +151,11 @@ $request = "https://management.azure.com/subscriptions/${subscriptionId}/provide
                    -Verbose).Value | ConvertTo-Json
 ```
 
-Using the REST API can really help to understand the available metric definitions, granularity, and related values. That information very helpful when using the [Azure Insights Management Library](https://msdn.microsoft.com/library/azure/mt417623.aspx).
+Using the REST API can really help to understand the available metric definitions, granularity, and related values. That information is very helpful when using the [Azure Insights Management Library](https://msdn.microsoft.com/library/azure/mt417623.aspx).
 
 ## Retrieving Metrics via the Insights Management Library
 
-Just like working with the REST API, the first step in working with the management library is to authenticate. This can similarly be done by using the ADAL to retrieve the JWT token from Azure AD. Assuming the Azure AD service principal is already configured, retrieving the token can be as simple as the code shown in the sample below.
+Just like working with the REST API, the first step in working with the management library is to authenticate. This can be done by using the ADAL to retrieve the JWT token from Azure AD. Assuming the Azure AD service principal is already configured, retrieving the token can be as simple as the code shown in the following sample.
 
 ```csharp
 private static string GetAccessToken()
@@ -205,15 +205,15 @@ private static MetricDefinitionListResponse GetAvailableMetricDefinitions(TokenC
 }
 ```
 
-For the above code, the resource URI to use is the full path to the desired Azure resource. For example, to query against an Azure Web App, the resource URI would be:
+For the preceding code, the resource URI to use is the full path to the desired Azure resource. For example, to query against an Azure Web App, the resource URI would be:
 
 */subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{site-name}/*
 
->[AZURE.NOTE] To find the resource URI for a desired resource, one helpful approach is to use the [Azure Resource Explorer](https://resources.azure.com) tool. Simply browse to the desired resource and then look at the URI shown, as in the screenshot below.
+>[AZURE.NOTE] To find the resource URI for a desired resource, one helpful approach is to use the [Azure Resource Explorer](https://resources.azure.com) tool. Navigate to the desired resource and then look at the URI shown, as in the following screenshot.
 
 ![Alt "Azure Resource Explorer"](./media/monitoring-rest-api-walkthrough/azure_resource_explorer.png)
 
 
 ## Next steps
-* Review the [Overview of Monitoring](../monitoring-overview.md/)
+* Review the [Overview of Monitoring](../monitoring-overview.md)
 * Review the [Microsoft Azure Insights REST API Reference](https://msdn.microsoft.com/library/azure/dn931943.aspx)
