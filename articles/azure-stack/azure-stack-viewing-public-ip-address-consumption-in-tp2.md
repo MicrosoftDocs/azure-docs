@@ -83,8 +83,8 @@ assigned that determine whether the address appears in one
 list or another.
 
  | **Public IP address assignment case** | **Appears in usage summary** | **Appears in tenant public IP addresses list** |
- |---------------------------------------|:----------------------------:| :----------------------------------------------:|
- | Dynamic public IP address not yet assigned to an NIC or load balancer (temporary). | No | Yes |
+ | ------------------------------------- | ----------------------------| ---------------------------------------------- |
+ | Dynamic public IP address not yet assigned to an NIC or load balancer (temporary) | No | Yes |
  | Dynamic public IP address assigned to an NIC or load balancer. | Yes | Yes |
  | Static public IP address assigned to a tenant NIC or load balancer. | Yes | Yes |
  | Static public IP address assigned to a fabric infrastructure service endpoint. | Yes | No |
