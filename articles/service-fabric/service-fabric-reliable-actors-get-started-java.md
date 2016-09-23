@@ -105,6 +105,7 @@ The basic concepts described earlier translate into the basic building blocks of
 This contains the interface definition for the actor. This interface defines the actor contract that is shared by the actor implementation and the clients calling the actor, so it typically makes sense to define it in a place that is separate from the actor implementation and can be shared by multiple other services or client applications.
 
 `HelloWorldActorInterface/src/statefulactor/HelloWorldActor.java`:
+
 ```java
 public interface HelloWorldActor extends Actor {
     @Readonly   
@@ -118,6 +119,7 @@ public interface HelloWorldActor extends Actor {
 This contains your actor implementation and actor registration code. The actor class implements the actor interface. This is where your actor does its work.
 
 `HelloWorldActor/src/statefulactor/HelloWorldActorImpl`:
+
 ```java
 @ActorServiceAttribute(name = "HelloWorldActor.HelloWorldActorService")
 @StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
@@ -149,6 +151,7 @@ public class HelloWorldActorImpl extends ActorWithState implements HelloWorldAct
 The actor service must be registered with a service type in the Service Fabric runtime. In order for the Actor Service to run your actor instances, your actor type must also be registered with the Actor Service. The `ActorRuntime` registration method performs this work for actors.
 
 `HelloWorldActor/src/statefulactor/HelloWorldActorService`:
+
 ```java
 public class HelloWorldActorService {
 	
