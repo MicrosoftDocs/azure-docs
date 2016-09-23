@@ -90,7 +90,7 @@ The Azure Disk Encryption Management solution enables the following business nee
 
 The high level steps required to enable disk encryption for Windows and Linux VM’s are:
 
-1. Customer choose the encryption scenario from the above 3 encryption scenarios
+1. Customer chooses a encryption scenario from the above encryption scenarios
 2. Customer opts into enabling disk encryption via the Azure disk encryption Resource Manager template or PS cmdlets or CLI command and specifies the encryption configuration
 
     - For the customer encrypted VHD scenario, the customer uploads the encrypted VHD to their storage account and encryption key material to their key vault and provide the encryption configuration to enable encryption on a new IaaS VM
