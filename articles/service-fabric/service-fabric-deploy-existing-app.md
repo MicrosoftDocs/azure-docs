@@ -19,7 +19,7 @@
 # Deploy a guest executable to Service Fabric
 
 You can run any type of application, such as node.js, Java, or native applications in Azure Service Fabric. Service Fabric refers to these types of applications as guest executables.
-Guest executables are treated by Service Fabric like stateless services. As a result, they are placed on nodes in a cluster, based on availability and other metrics. This article describes how to package and deploy a guest executable to a Service Fabric cluster, using Visual Studio or a command-line utility.
+Guest executables are treated by Service Fabric like stateless services. As a result, they are placed on nodes in a cluster, based on availability and other metrics. This article describes how to package and deploy a guest executable to a Service Fabric cluster, using Visual Studio or a command-line utility.  
 
 In this article, we cover the steps to package a guest executable and deploy it to Service Fabric.  
 
