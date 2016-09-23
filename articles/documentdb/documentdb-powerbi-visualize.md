@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/20/2016"
+	ms.date="09/22/2016"
 	ms.author="hawong"/>
 
 # Power BI tutorial for DocumentDB: Visualize data using the Power BI connector
@@ -195,28 +195,43 @@ To share your report, you must have an account in PowerBI.com.
 
 1. In the Power BI Desktop,  click on the **Home** ribbon.
 2. Click **Publish**.  You will be prompted to enter the user name and password for your PowerBI.com account.
-3. Once the credential has been authenticated, the report is published to your PowerBI.com account.
-4. You can then share your report in PowerBI.com.
+3. Once the credential has been authenticated, the report is published to your destination you selected.
+4. Click Open 'PowerBITutorial.pbix' in Power BI to see and share your report on  PowerBI.com.
 
-## Publish data in PowerBI.com
+    ![Publishing to Power BI Success! Open tutorial in Power BI](./media/documentdb-powerbi-visualize/power_bi_connector_open_in_powerbi.png)
 
-Now that you have a report, lets share on PowerBI.com
+## Create a dashboard in PowerBI.com
 
-When you publish a report in your PowerBI.com tenant,  there are two items created associated with the published report in PowerBI.com, a dataset and a report. For example, after you published a report called VolcanoDB to PowerBI.com, you will see VolcanoDB in the Reports and Datasets sections respectively in your PowerBI.com tenant.
+Now that you have a report, lets share it on PowerBI.com
 
-- To create a dashboard, click on the VolcanoDB report in the Reports section. You can also do adhoc modifications to report. However, it's recommended that you use Power BI Desktop to perform the modifications and republish the report to PowerBI.com.
+When you publish your report from Power BI Desktop to PowerBI.com, it generates a **Report** and a **Dataset** in your PowerBI.com tenant. For example, after you published a report called **PowerBITutorial** to PowerBI.com, you will see PowerBITutorial in both the **Reports** and **Datasets** sections on PowerBI.com.
+
+   ![Screenshot of the new Report and Dataset in PowerBI.com](./media/documentdb-powerbi-visualize/documentdb-powerbi-reports-datasets.png)
+
+To create a sharable dashboard, click the **Pin Live Page** button on your PowerBI.com report.
+
+   ![Screenshot of the new Report and Dataset in PowerBI.com](./media/documentdb-powerbi-visualize/azure-documentdb-power-bi-pin-live-tile.png)
+
+Then follow the instructions in [Pin a tile from a report](https://powerbi.microsoft.com/documentation/powerbi-service-pin-a-tile-to-a-dashboard-from-a-report/#pin-a-tile-from-a-report) to create a new dashboard. 
+
+You can also do ad hoc modifications to report before creating a dashboard. However, it's recommended that you use Power BI Desktop to perform the modifications and republish the report to PowerBI.com.
 
 ## Refresh data in PowerBI.com
 
-There are two ways to refresh data, ad-hoc and scheduled.
+There are two ways to refresh data, ad hoc and scheduled.
 
-For an adhoc refresh, simply click on the eclipses (…) by the dataset, e.g. VolcanoDB. You should see a list of actions including **Refresh Now**.   Click **Refresh Now** to refresh the data.
+For an ad hoc refresh, simply click on the eclipses (…) by the **Dataset**, e.g. PowerBITutorial. You should see a list of actions including **Refresh Now**. Click **Refresh Now** to refresh the data.
+
+![Screenshot of Refresh Now in PowerBI.com](./media/documentdb-powerbi-visualize/azure-documentdb-power-bi-refresh-now.png)
 
 For a scheduled refresh, do the following.
 
 1. Click **Schedule Refresh** in the action list. 
 
-    The **Settings** page appears. You should see a set of settings for the dataset as shown below. 
+   ![Screenshot of the Schedule Refresh in PowerBI.com](./media/documentdb-powerbi-visualize/azure-documentdb-power-bi-schedule-refresh.png)
+
+    The **Settings** page appears. 
+
 2. Expand **Data source credentials**. 
 
 3. Click on **Edit credentials**. 
@@ -227,7 +242,7 @@ For a scheduled refresh, do the following.
 
 5. Expand **Schedule Refresh** and set up the schedule you want to refresh the dataset. 
   
-6. Click **Apply** and you are done setting the dataset to refresh on a particular schedule.
+6. Click **Apply** and you are done setting up the scheduled refresh.
 
 ## Next steps
 - To learn more about Power BI, click [here](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/)
