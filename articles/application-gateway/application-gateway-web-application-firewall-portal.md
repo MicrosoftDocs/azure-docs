@@ -48,7 +48,7 @@ only additional application gateways are able to be added to the subnet.
 
 ## Add web application firewall to an existing application gateway
 
-This scenario will update an existing application gateway to support web application firewall in prevention mode.
+This scenario updates an existing application gateway to support web application firewall in prevention mode.
 
 ### Step 1
 

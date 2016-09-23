@@ -226,4 +226,5 @@ Create an application gateway with all configuration items from the preceding st
 
 Learn how to configure diagnostic logging, to log the events that are detected or prevented with Web Application Firewall by visiting [Application Gateway Diagnostics](application-gateway-diagnostics.md)
 
+
 [scenario]: ./media/application-gateway-web-application-firewall-powershell/scenario.png
