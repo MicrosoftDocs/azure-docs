@@ -23,13 +23,13 @@ An Azure Service Fabric cluster is a resource that you own, but is partly manage
 
 ## Controlling the fabric version that runs on your Cluster
 
-You can set your cluster to receive automatic fabric upgrades, as soon as Microsoft releases a new version or choose to select a supported fabric version you want your cluster to be on.
+You can set your cluster to receive automatic fabric upgrades, when Microsoft releases a new version or choose to select a supported fabric version you want your cluster to be on.
 
 You do this by setting the "upgradeMode" cluster configuration on the portal or using ARM at the time of creation or later on a live cluster 
 
->[AZURE.NOTE] Make sure to keep your cluster running a supported fabric version at all times. As and when we announce the release of a new version of service fabric, the previous version is marked for end of life after a minimum of 60 days from that date. The new releases are announced [on the service fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric/ ). The new release is available to choose at that time. 
+>[AZURE.NOTE] Make sure to keep your cluster running a supported fabric version always. As and when we announce the release of a new version of service fabric, the previous version is marked for end of life after a minimum of 60 days from that date. The new releases are announced [on the service fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric/ ). The new release is available to choose then. 
 
-14 days prior to the expiry of the release your cluster is running, a health event is generated that puts your cluster into a warning health state. The cluster remains in a warning state till you upgrade to a supported fabric version.
+14 days prior to the expiry of the release your cluster is running, a health event is generated that puts your cluster into a warning health state. The cluster remains in a warning state until you upgrade to a supported fabric version.
 
 
 ### Setting the upgrade mode via portal 
@@ -44,7 +44,7 @@ You can set the cluster to automatic or manual when on a live cluster, using the
 
 ### Setting the upgrade mode via a Resource Manager template 
 
-Add the  "upgradeMode" configuration to the Microsoft.ServiceFabric/clusters resource defintion and set the "clusterCodeVersion" to one of the supported fabric versions as shown below and then deploy the template. The valid values for "upgradeMode" are  "Manual" or "Automatic"
+Add the "upgradeMode" configuration to the Microsoft.ServiceFabric/clusters resource definition and set the "clusterCodeVersion" to one of the supported fabric versions as shown below and then deploy the template. The valid values for "upgradeMode" are "Manual" or "Automatic"
  
 ![ARMUpgradeMode][ARMUpgradeMode]
 
@@ -53,7 +53,7 @@ Add the  "upgradeMode" configuration to the Microsoft.ServiceFabric/clusters res
 
 Run the following command, and you should get an output similar to this.
 
-"supportExpiryUtc" tells your when a given release is expiring. the latest release will not have a valid date - it will have a value of "9999-12-31T23:59:59.9999999", which just means that the expirty date is not yet set.
+"supportExpiryUtc" tells your when a given release is expiring or has expired. The latest release does not have a valid date - it will have a value of "9999-12-31T23:59:59.9999999", which just means that the expiry date is not yet set.
 
 ```REST
 GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/clusterVersions?api-version= 2016-09-01
@@ -99,11 +99,11 @@ Output:
 
 ## Fabric upgrade behavior when the cluster Upgrade Mode is Automatic
 
-Microsoft maintains the fabric code and configuration that runs in a cluster. We perform automatic monitored upgrades to the software on an as-needed basis. These upgrades could be code, configuration, or both. To make sure that your application suffers no impact or minimal impact due to these upgrades, we perform the upgrades in the following three phases.
+Microsoft maintains the fabric code and configuration that runs in a cluster. We perform automatic monitored upgrades to the software on an as-needed basis. These upgrades could be code, configuration, or both. To make sure that your application suffers no impact or minimal impact due to these upgrades, we perform the upgrades in the following phases:
 
 ### Phase 1: An upgrade is performed by using all cluster health policies
 
-During this phase, the upgrades proceed one upgrade domain at a time, and the applications that were running in the cluster continue to run without any downtime. The cluster health policies (a combination of node health and the health all of the applications running in the cluster) are adhered to for the duration of the upgrade.
+During this phase, the upgrades proceed one upgrade domain at a time, and the applications that were running in the cluster continue to run without any downtime. The cluster health policies (a combination of node health and the health all the applications running in the cluster) are adhered to during the upgrade.
 
 If the cluster health policies are not met, the upgrade is rolled back. Then an email is sent to the owner of the subscription. The email contains the following information:
 
@@ -131,7 +131,7 @@ If the cluster health policies are met, the upgrade is considered successful and
 
 ### Phase 3: An upgrade is performed by using aggressive health policies
 
-These health policies in this phase are geared towards completion of the upgrade rather than the health of the applications. Very few cluster upgrades will end up in this phase. If your cluster gets to this phase, there is a good chance that your application becomes unhealthy and/or lose availability.
+These health policies in this phase are geared towards completion of the upgrade rather than the health of the applications. Very few cluster upgrades end up in this phase. If your cluster gets to this phase, there is a good chance that your application becomes unhealthy and/or lose availability.
 
 Similar to the other two phases, Phase 3 upgrades proceed one upgrade domain at a time.
 
@@ -143,7 +143,7 @@ If the cluster health policies are met, the upgrade is considered successful and
 
 ## Cluster configurations that you control
 
-In addition to the ablity to set the cluster upgrade mode to manual, Here are the configurations that you can change on a live cluster.
+In addition to the ability to set the cluster upgrade mode, Here are the configurations that you can change on a live cluster.
 
 ### Certificates
 
@@ -168,7 +168,7 @@ To open a new port on all VMs in a node type, do the following:
 
     Add a new rule to the same load balancer by using the probe that you created in the previous step.
 
-    ![Screenshot that shows adding a new rule to a load balancer in the portal.][AddingLBRules]
+    ![Adding a new rule to a load balancer in the portal.][AddingLBRules]
 
 
 ### Placement properties
@@ -186,7 +186,7 @@ For each of the node types, you can add custom capacity metrics that you want to
 You can specify custom health polices for fabric upgrade. If you have set your cluster to Automatic fabric upgrades, then these policies get applied to the Phase-1 of the automatic fabric upgrades.
 If you have set your cluster for Manual fabric upgrades, then these policies get applied each time you select a new version triggering the system to kick off the fabric upgrade in your cluster. If you do not override the policies, the defaults are used.
 
-You can specify the custom health policies or review the current settings under the "fabric upgrade" blade, by selecting the advanced upgrade settings. Review the picture below on how to. 
+You can specify the custom health policies or review the current settings under the "fabric upgrade" blade, by selecting the advanced upgrade settings. Review the following picture on how to. 
 
 ![Manage custom health policies][HealthPolices]
 
