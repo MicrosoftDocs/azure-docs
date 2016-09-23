@@ -116,7 +116,7 @@ The high level steps required to disable disk encryption for IaaS VM’s are:
 The following are prerequisites to enable Azure Disk Encryption on Azure IaaS VMs for the supported scenarios called out in the overview section
 
 - User must have a valid active Azure subscription to create resources in Azure in the regions supported
-- Azure Disk Encryption is supported on the following Windows server SKU’s - Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. Windows Server 2016 Technical Preview is not supported in this release.
+- Azure Disk Encryption is supported on the following Windows server SKU’s - Windows Server 2008 R2, Windows Server 2012 and Windows Server 2012 R2. Windows Server 2016 Technical Preview is not supported in this release.
 - Azure Disk Encryption is supported on the following Windows client SKU’s - Windows 8 Client and Windows 10 Client.
 
 **Note**: For Windows Server 2008 R2, .Net framework 4.5 MUST be installed before enabling encryption in Azure. You can install it from Windows update by installing the optional update "Microsoft .NET Framework 4.5.2 for Windows Server 2008 R2 x64-based Systems ([KB2901983](https://support.microsoft.com/kb/2901983))"
@@ -333,7 +333,7 @@ Azure disk encryption safeguards the disk encryption keys and secrets in your Az
 To create a new Key Vault, use one of the options listed below:
 
 - Use the "101-Create-KeyVault" Resource Manager template located [here](https://github.com/Azure/azure-quickstart-templates/blob/master/101-create-key-vault/azuredeploy.json)
-- Use the Azure PowerShell Key Vault cmdlets.
+- Use the Azure PowerShell [Key Vault cmdlets](https://msdn.microsoft.com/en-us/library/dn868052.aspx).
 - Use the Azure service management portal.
 
 **Note:** If you already have a Key Vault setup for your subscription, please proceed to next section.
