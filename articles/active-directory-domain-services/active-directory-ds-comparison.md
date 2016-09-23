@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2016"
+	ms.date="09/23/2016"
 	ms.author="maheshu"/>
 
 # How to decide if Azure AD Domain Services is right for your use-case
@@ -22,7 +22,7 @@
 
 |Feature|Azure AD Domain Services|'Do-it-yourself' AD in Azure VMs|
 |---|---|---|
-|**Managed domain**|![](./media/active-directory-domain-services-design-guide/feature-yes.png)|No|
+|**Managed domain**|Yes|No|
 |**Secure baselines**|Yes|Needs work|
 |**Custom OU structure**|Yes|Yes|
 |**Manage DNS**|Yes|Yes|
