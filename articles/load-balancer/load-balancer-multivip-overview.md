@@ -21,7 +21,7 @@
 
 Azure Load Balancer allows you to load balance services on multiple ports, multiple IP addresses, or both. You can use public and internal load balancer definitions to load balance flows across a set of VMs.
 
-This article describes the fundamentals of this feature, important concepts, and constraints. If you only intend to expose services on one IP address, you can find simplified instructions for [public](load-balancer-get-started-internet-portal.md) or [internal](load-balancer-get-started-ilb-arm-portal.md) load balancer configurations. Adding Multiple VIPs is incremental to a single VIP configuration. Using the concepts in this article, you can expand a simplified configuration at any time.
+This article describes the fundamentals of this ability, important concepts, and constraints. If you only intend to expose services on one IP address, you can find simplified instructions for [public](load-balancer-get-started-internet-portal.md) or [internal](load-balancer-get-started-ilb-arm-portal.md) load balancer configurations. Adding Multiple VIPs is incremental to a single VIP configuration. Using the concepts in this article, you can expand a simplified configuration at any time.
 
 When you define an Azure Load Balancer, a frontend and a backend configuration are connected with rules. The health probe referenced by the rule is used to determine how new flows are sent to a node in the backend pool. The frontend is defined by a Virtual IP (VIP), which is a 3-tuple comprised of an IP address (public or internal), a transport protocol (UDP or TCP), and a port number. A DIP is an IP address on an Azure virtual NIC attached to a VM in the backend pool.
 
@@ -39,7 +39,7 @@ The table above shows four different frontends. Frontends #1, #2 and #3 are a si
 Azure Load Balancer provides flexibility in defining the load balancing rules. A rule declares how and address and port on the frontend is mapped to the destination address and port on the backend. Whether or not backend ports are reused across rules depends on the type of the rule. Each type of rule has specific requirements that can affect host configuration and probe design. There are two types of rules:
 
 1. The default rule with no backend port reuse
-2. The Floating IP rule where backend ports are reused (also known as Direct Server Return or DSR).
+2. The Floating IP rule where backend ports are reused
 
 Azure Load Balancer allows you to mix both rule types on the same load balancer configuration. The load balancer can use them simultaneously for a given VM, or any combination, as long as you abide by the constraints of the rule. Which rule type you choose depends on the requirements of your application and the complexity of supporting that configuration. You should evaluate which rule types are best for your scenario.
 
@@ -80,7 +80,11 @@ Health probes are always directed to the DIP of a VM. You must insure you that y
 
 Azure Load Balancer provides the flexibility to reuse the frontend port across multiple VIPs regardless of the rule type used. Additionally, some application scenarios prefer or require the same port to be used by multiple application instances on a single VM in the backend pool. Common examples of port reuse include clustering for high availability, network virtual appliances, and exposing multiple TLS endpoints without re-encryption.
 
-If you want to reuse the backend port across multiple rules, you must enable Floating IP in the rule definition. Floating IP is Azure’s terminology for Direct Server Return (DSR).
+If you want to reuse the backend port across multiple rules, you must enable Floating IP in the rule definition.
+
+Floating IP is a portion of what is known as Direct Server Return (DSR). DSR consists out of two parts: a flow topology and an IP address mapping scheme. At a platform level, Azure Load Balancer always operates in a DSR flow topology regardless of whether Floating IP is enabled or not. This means that the outbound part of a flow is always correctly rewritten to flow directly back to the origin.
+
+With the default rule type, Azure exposes a traditional load balancing IP address mapping scheme for ease of use. Enabling Floating IP changes the IP address mapping scheme to allow for additional flexibility as explained below.
 
 The following diagram illustrates this configuration:
 
@@ -117,13 +121,13 @@ The following table shows the complete mapping in the load balancer:
 
 The destination of the inbound flow is the VIP address on the loopback interface in the VM. Each rule must produce a flow with a unique combination of destination IP address and destination port. By varying the destination IP address of the flow, port reuse is possible on the same VM. Your service is exposed to the load balancer by binding it to the VIP’s IP address and port of the respective loopback interface.
 
-Notice that this example does not change the destination port. Even though this is a DSR scenario, Azure Load Balancer also supports defining a rule to rewrite the backend destination port and to make it different from the frontend destination port.
+Notice that this example does not change the destination port. Even though this is a Floating IPO scenario, Azure Load Balancer also supports defining a rule to rewrite the backend destination port and to make it different from the frontend destination port.
 
 The Floating IP rule type is the foundation of several load balancer configuration patterns. One example that is currently available is the [SQL AlwaysOn with Multiple Listeners](../virtual-machines/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) configuration. Over time, we will document more of these scenarios.
 
 ## Limitations
 
 * Multiple VIP configurations are only supported with IaaS VMs.
-* Outbound sessions can only originate from the DIP of the VM, not from the VIP configured in the guest OS on a loopback interface.
+* With the Floating IP rule, your application must use the DIP for outbound flows. If your application binds to the VIP address configured on the loopback interface in the guest OS, then SNAT is not be available to rewrite the outbound flow and the flow fails.
 * Public IP addresses have an effect on billing. For more information, see [IP Address pricing](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * Subscription limits apply. For more information, see [Service limits](../azure-subscription-service-limits.md#networking-limits) for details.
