@@ -33,6 +33,14 @@ This guide focuses on the client-side Android SDK.  To learn more about the serv
 
 You can find the Javadocs API reference for the Android client library [on GitHub](http://azure.github.io/azure-mobile-apps-android-client/).
 
+## Supported Platforms
+
+The Azure Mobile Apps Android SDK supports API levels 19 through 24 (KitKat through Nougat).  
+
+The "server-flow" authentication uses a WebView for the presented UI.  This means that if the device is not able to present a
+WebView UI, then other methods of authentication will be needed that is outside the scope of the product.  This SDK is thus
+not suitable for Watch-type or similarly restricted devices.
+
 ## Setup and Prerequisites
 
 The Mobile Services SDK for Android supports Android version 2.2 or later, but we recommend building against version 4.2 or later.
