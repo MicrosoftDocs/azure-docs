@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/16/2016"
+   ms.date="09/23/2016"
    ms.author="alkohli" />
 
 # Deploy and manage a StorSimple virtual device in Azure
@@ -139,7 +139,7 @@ Perform the following steps to create the StorSimple virtual device.
 
 [AZURE.INCLUDE [Create a virtual device](../../includes/storsimple-create-virtual-device-u2.md)]
 
-If the creation of the virtual device fails in this step, you may not have connectivity to the Internet. For more information, go to [troubleshoot Internet connectivity failures](#troubleshoot-internet-connectivity-errors.md) when creatig a virtual device.
+If the creation of the virtual device fails in this step, you may not have connectivity to the Internet. For more information, go to [troubleshoot Internet connectivity failures](#troubleshoot-internet-connectivity-errors) when creatig a virtual device.
 
 
 ### Step 2: Configure and register the virtual device
