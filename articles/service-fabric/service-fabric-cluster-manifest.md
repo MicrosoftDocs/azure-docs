@@ -117,10 +117,12 @@ Note that since a primary node runs a single copy of the system services, you wo
 ### **nodeTypes**
 The **nodeTypes** section describes the type of the nodes that your cluster has. At least one node type must be specified for a cluster, as shown in the snippet below. 
 
-	"nodeTypes": [{
+    "nodeTypes": [{
         "name": "NodeType0",
         "clientConnectionEndpointPort": "19000",
         "clusterConnectionEndpoint": "19001",
+        "leaseDriverEndpointPort": "19002"
+        "serviceConnectionEndpointPort": "19003",
         "httpGatewayEndpointPort": "19080",
         "applicationPorts": {
 			"startPort": "20001",
@@ -133,7 +135,7 @@ The **nodeTypes** section describes the type of the nodes that your cluster has.
         "isPrimary": true
     }]
 
-The **name** is the friendly name for this particular node type. To create a node of this node type, you will need to assign the friendly name for this node type to the **nodeTypeRef** variable for that node, as mentioned in the [Nodes on the cluster](#clusternodes) section above. For each node type, you can define various endpoints for connecting to this cluster. You can choose any port number for these connection endpoints, as long as they do not conflict with any other endpoints in this cluster. In a cluster with multiple node types, there will be one primary node type, which has **isPrimary** set to *true*. The rest of the nodes will have the **isPrimary** set to *false*. Read [Service Fabric cluster capacity planning considerations](service-fabric-cluster-capacity.md) for more information on **nodeTypes** and **reliabilityLevel** values as per your cluster capacity, as well as to know the difference between the primary and the non-primary node types.
+The **name** is the friendly name for this particular node type. To create a node of this node type, you will need to assign the friendly name for this node type to the **nodeTypeRef** variable for that node, as mentioned in the [Nodes on the cluster](#clusternodes) section above. For each node type, you can define various endpoints for connecting to this cluster. You can choose any port number for these connection endpoints, as long as they do not conflict with any other endpoints in this cluster. If you want to create a http application gateway port, then you can specify "reverseProxyEndpointPort": [Port number] in addition to other ports as above. In a cluster with multiple node types, there will be one primary node type, which has **isPrimary** set to *true*. The rest of the nodes will have the **isPrimary** set to *false*. Read [Service Fabric cluster capacity planning considerations](service-fabric-cluster-capacity.md) for more information on **nodeTypes** and **reliabilityLevel** values as per your cluster capacity, as well as to know the difference between the primary and the non-primary node types.
 
 
 ### **fabricSettings**
