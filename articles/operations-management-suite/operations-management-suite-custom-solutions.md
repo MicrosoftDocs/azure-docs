@@ -24,9 +24,7 @@ Solutions extend the functionality of Operations Management Suite (OMS) by provi
 ## Planning your custom solution
 Solutions in OMS include multiple resources supporting a particular management scenario.  When planning your solution, you should focus on the management scenario that you're trying to achieve and all required resources to support it.  
 
-Each solution should be self contained and define each resources that it requires, even if one or more resources are also defined by other solutions.  When a solution is installed, each resource is created unless it already exists, and you can define what happens to resources when a solution is removed.  
-
-When the first solution is installed, the resource will be created.  When the next solution is installed, it will use the resource that's already in place.  
+Each solution should be self contained and define each resource that it requires, even if one or more resources are also defined by other solutions.  When a solution is installed, each resource is created unless it already exists, and you can define what happens to resources when a solution is removed.  
 
 For example, a solution might include an [Azure Automation runbook](../automation/automation-intro.md) that collects data to the Log Analytics repository using a [schedule](../automation/automation-schedules.md) and a [custom view](../log-analytics/log-analytics-view-designer.md) that provides various visualizations of the collected data.  The same schedule might be used by another solution.  As the solution author, you would define all three resources but specify that the runbook and view should be automatically removed when the solution is removed.    You would also define the schedule but specify that it should remain in place if the solution were removed in case it was still in use by the other solution.
 
@@ -106,7 +104,7 @@ You refer to variable values through the solution with the syntax **variables('v
 
 ### Resources
 
-The **Resources** element defines the different resources included in your solution.  This will be the largest and most complex portion of the template.
+The **resources** element defines the different resources included in your solution.  This will be the largest and most complex portion of the template.
 
 Resources are defined with the following structure.  All types of resources will have the same structure, but the values defined in the **properties** element will be different for different types.  See Common resources in OMS solutions (Coming soon) for details of different resources common to solutions.
 
@@ -128,12 +126,11 @@ Resources are defined with the following structure.  All types of resources will
 		}
 	]
 
-The sections that follow provide details on the Solution resources and other resources that are common to solutions.
 
 #### Solution resource
-Each solution requires a resource entry that defines the solution itself.  This will have a type of **Microsoft.OperationsManagement/solutions**.
+Each solution requires a resource entry in the **resources** element that defines the solution itself.  This will have a type of **Microsoft.OperationsManagement/solutions** and have the following structure.
 
-      "name": "[concat(variables('SolutionName'), '(' ,parameters('workspacename'), ')')]",
+      "name": "[concat(variables('SolutionName'), '(' ,parameters('workspaceName'), ')')]",
       "location": "[parameters('workspaceRegionId')]",
       "tags": { },
       "type": "Microsoft.OperationsManagement/solutions",
@@ -186,7 +183,7 @@ There are three methods for deploying a custom solution.
 
 ## Next steps
 
-- Learn the details of [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md) 
+- Learn the details of [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
 - Search [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates) for samples of different Resource Manager templates.
 - View the details for common resources used in OMS solutions (Coming soon).
  
