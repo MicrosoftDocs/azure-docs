@@ -605,8 +605,7 @@ Resource Manager template parameters details for disabling encryption on running
 
 | ​vmName         | ​Name of the VM on which encryption operation is to be performed                                                                                                                                                                       |
 |-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ​volumeType     | ​Type of the volume on which decryption operation is performed. Valid values are "OS", "Data", "All". **Note:** You cannot disable encryption on running Windows IaaS VM OS/boot volume without disabling encryption on “Data” volume.
-**NOTE**: Disabling encryption on OS disk is not allowed on Linux VMs. |
+| ​volumeType     | ​Type of the volume on which decryption operation is performed. Valid values are "OS", "Data", "All". **Note:** You cannot disable encryption on running Windows IaaS VM OS/boot volume without disabling encryption on “Data” volume. **Note**: Disabling encryption on OS disk is not allowed on Linux VMs. |
 | sequenceVersion | Sequence version of the BitLocker operation. Increment this version number every time a disk decryption operation is performed on the same VM                                                                                          |
 
 ##### Disable encryption on existing/running IaaS VM in Azure using PS cmdlet
