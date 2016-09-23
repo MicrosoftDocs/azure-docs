@@ -21,6 +21,25 @@
 ## Overview
 
 ## Reference sections
+organization.
+
+Examples (twins, jobs)
+// Running example and snippets (filters, projection, aggregation)
+number operators, string = and IN (array) on tags and prop.
+project and aggregation (simple and group by).
+
+// job example
+select from single device, from multiple devices, aggregate
+
+// Detailed.
+
+Follow docdb/specs.
+select
+from
+Where
+
+
+
 
 ## Next steps
 
