@@ -35,6 +35,7 @@ This release provides new features for both tenants and administrators.
  - Storage services now use [Group Managed Service Accounts](https://technet.microsoft.com/library/hh831477.aspx) for strong security with low management overhead.
  - You can reclaim unused tenant resources on-demand.
  - Deleted storage account retention length is configurable.
+ - You can recover deleted tenant storage accounts.
 
 ## Compute
 - You can deallocate virtual machines.
@@ -56,7 +57,6 @@ This release provides new features for both tenants and administrators.
 
 ## Monitoring and health
  - New monitoring capabilities available in the portal and APIs allow you to proactively view and manage alerts on your environment.  
- - System Health Tests automatically test your fabric to ensure services are working as expected.   
 
 ## Next steps
 - [Understand Azure Stack POC Architecture](azure-stack-architecture.md)      
