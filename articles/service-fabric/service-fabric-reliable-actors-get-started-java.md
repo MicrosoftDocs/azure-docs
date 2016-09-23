@@ -33,11 +33,11 @@ To get started with Reliable Actors, you only need to understand a few basic con
 
  * **Actor service**. Reliable Actors are packaged in Reliable Services that can be deployed in the Service Fabric infrastructure. Actor instances are activated in a named service instance.
  
- * **Actor registration**. Just as with Reliable Services, a the Reliable Actors service needs to be registered with the Service Fabric runtime. In addition, the actor type needs to be registered with the Actor runtime.
+ * **Actor registration**. As with Reliable Services, a Reliable Actor service needs to be registered with the Service Fabric runtime. In addition, the actor type needs to be registered with the Actor runtime.
  
- * **Actor interface**. The actor interface is used to define a strongly-typed public interface of an actor. In the Reliable Actor model terminology, the actor interface defines the types of messages that the actor can understand and process. The actor interface is used by other actors and client applications to "send" (asynchronously) messages to the actor. Reliable Actors can implement multiple interfaces.
+ * **Actor interface**. The actor interface is used to define a strongly typed public interface of an actor. In the Reliable Actor model terminology, the actor interface defines the types of messages that the actor can understand and process. The actor interface is used by other actors and client applications to "send" (asynchronously) messages to the actor. Reliable Actors can implement multiple interfaces.
  
- * **ActorProxy class**. The ActorProxy class is used by client applications to invoke the methods exposed through the actor interface interface. The ActorProxy class provides two important functionalities:
+ * **ActorProxy class**. The ActorProxy class is used by client applications to invoke the methods exposed through the actor interface. The ActorProxy class provides two important functionalities:
 	* Name resolution: It is able to locate the actor in the cluster (find the node of the cluster where it is hosted).
 	* Failure handling: It can retry method invocations and re-resolve the actor location after, for example, a failure that requires the actor to be relocated to another node in the cluster.
 
@@ -54,7 +54,7 @@ Start by creating a new Service Fabric application. The Service Fabric SDK for L
 $ yo azuresf
 ```
 
-Follow the instructions to create a **Reliable Actor Service - Java**. For this tutorial, we will name the application "HelloWorldActorApplication" and the actor "HelloWorldActor". The following scaffolding will be created:
+Follow the instructions to create a **Reliable Actor Service - Java**. For this tutorial, we will name the application "HelloWorldActorApplication" and the actor "HelloWorldActor." The following scaffolding will be created:
 
 ```bash
 HelloWorldActorApplication/
