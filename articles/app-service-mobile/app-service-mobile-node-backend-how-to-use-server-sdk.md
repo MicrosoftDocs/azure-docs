@@ -750,7 +750,7 @@ developing locally.
 
 Mobile Apps integrates with Azure Notification Hubs to enable you to send targeted push notifications to millions 
 of devices across all major platforms. By using Notification Hubs, you can send push notifications to iOS, Android 
-nd Windows devices. To learn more about all that you can do with Notification Hubs, see 
+and Windows devices. To learn more about all that you can do with Notification Hubs, see 
 [Notification Hubs Overview](../notification-hubs/notification-hubs-push-notification-overview.md).
 
 ### </a><a name="send-push"></a>How to: Send push notifications
