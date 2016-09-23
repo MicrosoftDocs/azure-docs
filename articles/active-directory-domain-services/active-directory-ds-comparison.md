@@ -22,16 +22,16 @@
 
 |Feature|Azure AD Domain Services|'Do-it-yourself' AD in Azure VMs|
 |---|:---:|:---:|
-|[**Managed service**](active-directory-ds-comparison.md#managed-service)|Yes|No|
-|[**Secure deployments**](active-directory-ds-comparison.md#secure-deployments)|Yes|Administrator needs to secure the deployment.|
-|[**DNS server**](active-directory-ds-comparison.md#dns-server)|Yes (managed service)|Yes|
-|**Domain/Enterprise administrator privileges**|No|Yes|
-|**Custom OU structure**|Yes|Yes|
-|[**Schema extensions**](active-directory-ds-comparison.md#schema-extensions)|No|Yes|
-|**AD domain/forest trusts**|No|Yes|
-|**LDAP write/modify**|No|Yes|
+|[**Managed service**](active-directory-ds-comparison.md#managed-service)|:white_check_mark:|:negative_squared_cross_mark:|
+|[**Secure deployments**](active-directory-ds-comparison.md#secure-deployments)|:white_check_mark:|Administrator needs to secure the deployment.|
+|[**DNS server**](active-directory-ds-comparison.md#dns-server)|:white_check_mark: (managed service)|:white_check_mark:|
+|**Domain/Enterprise administrator privileges**|:negative_squared_cross_mark:|:white_check_mark:|
+|**Custom OU structure**|:white_check_mark:|:white_check_mark:|
+|[**Schema extensions**](active-directory-ds-comparison.md#schema-extensions)|:negative_squared_cross_mark:|:white_check_mark:|
+|**AD domain/forest trusts**|:negative_squared_cross_mark:|:white_check_mark:|
+|**LDAP write/modify**|:negative_squared_cross_mark:|:white_check_mark:|
 |**Group Policy**|Simple|Full|
-|**Geo-dispersed deployments**|No|Yes|
+|**Geo-dispersed deployments**|:negative_squared_cross_mark:|:white_check_mark:|
 
 #### Managed service
 Azure AD Domain Services domains are managed by Microsoft. You do not have to worry about patching, updates, monitoring, backups, and ensuring availability of your domain. These management tasks are offered as a service by Microsoft Azure for your managed domains.
