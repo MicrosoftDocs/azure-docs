@@ -281,7 +281,7 @@ azure vm disk attach-new --resource-group <TestEncrypt> --vm-name <TestVM> \
   --size-in-gb 5
 ```
 
-Rerun the command to encrypt the virtual disks, this time adding the `--sequence-version` parameter and incrementing the value from our first run as follows:
+Rerun the command to encrypt the virtual disks, this time adding the `--sequence-version` parameter, and incrementing the value from our first run as follows:
 
 ```bash
 azure vm enable-disk-encryption --resource-group <TestEncrypt> --vm-name <TestVM> \
