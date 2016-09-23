@@ -34,8 +34,8 @@ The Azure Toolkit for Eclipse - August 2016 release includes the following enhan
   - In addition to the JDKs provided by Azure, you can also choose from a wide selection of Zulu OpenJDK versions made available on Azure by Azul Systems.
   - You can also specify your own JDK distribution if you upload it as a ZIP file to your storage account.
 * **Enhancements to the Azure Explorer view**:
-  - Support for Virtual Machine management using Azure's new Resource Manager (ARM) model: you can list, create and delete resource manager-based virtual machines without leaving the IDE.
-  - Support for Storage Account blob management using ARM, which complements the existing functionality for managing "classic" storage accounts.
+  - Support for Virtual Machine management using Azure's new Resource Manager model: you can list, create and delete resource manager-based virtual machines without leaving the IDE.
+  - Support for Storage Account blob management using Azure's Resource Manager, which complements the existing functionality for managing "classic" storage accounts.
 * **Microsoft JDBC Driver 6.0 for SQL Server**. This update includes the latest JDBC driver for Microsoft SQL Server (v6.0), which is now included as a library that you can easily add to your Java projects, thereby replacing the older version.
 
 ### June 29, 2016

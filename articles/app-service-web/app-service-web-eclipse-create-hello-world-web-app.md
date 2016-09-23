@@ -22,7 +22,7 @@ This tutorial shows how to create and deploy a basic Hello World application to 
 
 When you have completed this tutorial, your application will look similar to the following illustration when you view it in a web browser:
 
-![][01]
+![Preview of Hello World app][01]
  
 ## Prerequisites
 
@@ -40,7 +40,7 @@ First, we'll start off with creating a Java project.
 
 1. For purposes of this tutorial, name the project **MyWebApp**. Your screen will appear similar to the following:
 
-    ![][02]
+    ![Creating a new Dynamic Web Project][02]
 
 1. Click **Finish**.
 
@@ -64,35 +64,35 @@ There are several ways by which you can deploy a Java web application to Azure. 
 
 1. In the context menu, select **Azure**, then click **Publish as Azure Web App...**
 
-    ![][03]
+    ![Publish as Azure Web App][03]
    
     Alternatively, while your web application project is selected in the Project Explorer, you can click the **Publish** dropdown button on the toolbar and select **Publish as Azure Web App** from there:
    
-    ![][14]
+    ![Publish as Azure Web App][14]
    
 1. If you have not already signed into Azure from Eclipse, you will be prompted to sign into your Azure account:
 
-    ![][04]
+    ![Azure Sign In dialog box][04]
    
     Note: If you have multiple Azure accounts, some of the prompts during the sign in process may be shown more than once, even if they appear to be the same. When this happens, continue following the sign in instructions.
 
 1. After you have successfully signed into your Azure account, the **Manage Subscriptions** dialog box will display a list of subscriptions that are associated with your credentials. If there are multiple subscriptions listed and you want to work with only a specific subset of them, you may optionally uncheck the ones you do want to use. When you have selected your subscriptions, click **Close**.
 
-    ![][05]
+    ![Manage Subscriptions dialog box][05]
    
 1. When the **Deploy to Azure Web App Container** dialog box appears, it will display any Web App containers that you have previously created; if you have not created any containers, the list will be empty.
 
-    ![][06]
+    ![Deploy to Azure Web App Container dialog box][06]
    
 1. If you have not created an Azure Web App Container before, or if you would like to publish your application to a new container, use the following steps. Otherwise, select an existing Web App Container and skip to step 7 below.
 
     1. Click **New...**
 
-        ![][15]
+        ![Deploy to Azure Web App Container dialog box][15]
 
     1. The **New Web App Container** dialog box will be displayed:
 
-        ![][07a]
+        ![New Web App Container dialog box][07a]
 
     1. Enter a **DNS Label** for your Web App Container; this will form the leaf DNS label of the host URL for your web application in Azure. Note: The name must be available and conform to Azure Web App naming requirements.
 
@@ -112,7 +112,7 @@ There are several ways by which you can deploy a Java web application to Azure. 
 
         * The **New Resource Group** dialog box will be displayed:
 
-            ![][08]
+            ![New Resource Group dialog box][08]
 
         * In the the **Name** textbox, specify a name for your new Resource Group.
 
@@ -126,7 +126,7 @@ There are several ways by which you can deploy a Java web application to Azure. 
 
             * **Deploy my own JDK from this download location**: This option allows you to specify your own JDK distribution, which must be packaged as a ZIP file and uploaded to either a publicly available download location or an Azure storage account for which you have access.
 
-            ![][07b]
+            ![New Web App Container dialog box][07b]
 
 	* Click **OK**.
 
@@ -140,7 +140,7 @@ There are several ways by which you can deploy a Java web application to Azure. 
 
         * The **New App Service Plan** dialog box will be displayed:
 
-            ![][09]
+            ![New App Service Plan dialog box][09]
 
         * In the the **Name** textbox, specify a name for your new App Service Plan.
 
@@ -152,7 +152,7 @@ There are several ways by which you can deploy a Java web application to Azure. 
 
     1. Once you have completed all of the above steps, the New Web App Container dialog box should resemble the following illustration:
 
-        ![][10]
+        ![New Web App Container dialog box][10]
 
     1. Click **OK** to complete the creation of your new Web App container.
 
@@ -160,7 +160,7 @@ There are several ways by which you can deploy a Java web application to Azure. 
 
 1. You are now ready to complete the initial deployment of your Web App to Azure:
 
-    ![][11]
+    ![Deploy to Azure Web App Container dialog box][11]
 
     Click **OK** to deploy your Java application to the selected Web App container.
 
@@ -168,7 +168,7 @@ There are several ways by which you can deploy a Java web application to Azure. 
 
 1. Next, you should see the **Azure Activity Log** view, which will indicate the deployment status of your Web App.
 
-    ![][12]
+    ![Azure Activity Log][12]
 
     The process of deploying your Web App to Azure should take only a few seconds to complete. When your application ready, you will see a link named **Published** in the **Status** column. When you click the link, it will take you to your deployed Web App's home page.
 
@@ -205,7 +205,7 @@ When the **Azure Explorer** view is displayed, use follow these steps to stop yo
 
 1. When the context menu appears, click **Stop**.
 
-    ![][13]
+    ![Stopping an Existing Web App][13]
 
 ## Next Steps
 
