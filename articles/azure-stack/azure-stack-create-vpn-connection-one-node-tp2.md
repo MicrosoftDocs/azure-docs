@@ -129,7 +129,7 @@ Gateway
 
 > C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\Gateway\\OneNodeRole.xml
 
-1.  Look for the following entry.
+2.  Look for the following entry.
 
 > &lt;PublicInfo&gt;
 >
@@ -142,10 +142,10 @@ Gateway
 >
 > &lt;/PublicInfo&gt;
 
-1.  Change the value for **Ipv4Address** from **192.168.102.1/24** to
+3.  Change the value for **Ipv4Address** from **192.168.102.1/24** to
     **192.168.112.1/24**.
 
-2.  Save the file.
+4.  Save the file.
 
 ### Change the VIPs of External Facing Service Endpoints
 
@@ -459,23 +459,23 @@ POC1 now and put it on our VM subnet in our virtual network.
 
  ![](media/azure-stack-create-vpn-connection-one-node-tp2/image6.png)
 
-1.  On the **Basics** blade, in the **Name** field enter the value
+4.  On the **Basics** blade, in the **Name** field enter the value
     **VM01**.
 
-2.  Enter a valid User name and password. You’ll use this account to log
+5.  Enter a valid User name and password. You’ll use this account to log
     in to the VM after it has been created.
 
-3.  Provide a **Subscription**, **Resource Group** and **Location** and
+6.  Provide a **Subscription**, **Resource Group** and **Location** and
     then click **Ok**.
 
-4.  On the **Size** blade, choose a VM size for this instance and then
+7.  On the **Size** blade, choose a VM size for this instance and then
     click **Select**.
 
-5.  On the Settings blade, you can accept the defaults, just make sure
+8.  On the Settings blade, you can accept the defaults, just make sure
     that the Virtual network selected is **VNET-01** and the Subnet is
     set to **10.0.0.0/24**. Click **Ok**.
 
-6.  Review the settings on the **Summary** blade and click **Ok**.
+9.  Review the settings on the **Summary** blade and click **Ok**.
 
 Create the Network Resources in POC 2
 =====================================
@@ -681,23 +681,23 @@ network.
 
  ![](media/azure-stack-create-vpn-connection-one-node-tp2/image6.png)
 
-1.  On the **Basics** blade, in the **Name** field enter the value
+4.  On the **Basics** blade, in the **Name** field enter the value
     **VM02**.
 
-2.  Enter a valid User name and password. You’ll use this account to log
+5.  Enter a valid User name and password. You’ll use this account to log
     in to the VM after it has been created.
 
-3.  Provide a **Subscription**, **Resource Group** and **Location** and
+6.  Provide a **Subscription**, **Resource Group** and **Location** and
     then click **Ok**.
 
-4.  On the **Size** blade, choose a VM size for this instance and then
+7.  On the **Size** blade, choose a VM size for this instance and then
     click **Select**.
 
-5.  On the Settings blade, you can accept the defaults, just make sure
+8.  On the Settings blade, you can accept the defaults, just make sure
     that the Virtual network selected is **VNET-02** and the Subnet is
     set to **20.0.0.0/24**. Click **Ok**.
 
-6.  Review the settings on the **Summary** blade and click **Ok**.
+9.  Review the settings on the **Summary** blade and click **Ok**.
 
 Configure the NAT VM in each POC for gateway traversal
 ======================================================
@@ -821,7 +821,7 @@ Log in to the tenant VM in POC2
 
  ![](media/azure-stack-create-vpn-connection-one-node-tp2/image16.png)
 
-1.  A reply from the remote VM indicates a successful test! You can
+9.  A reply from the remote VM indicates a successful test! You can
     close the VM Connect window or, if you like, try doing some other
     data transfers to test your connection (like a file copy).
 
