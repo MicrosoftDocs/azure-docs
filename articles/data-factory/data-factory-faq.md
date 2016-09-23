@@ -75,6 +75,9 @@ Yes. Use the **Move** button on your data factory blade as shown in the followin
 
 ![Move data factory](media/data-factory-faq/move-data-factory.png)
 
+## What are the compute environments supported by Data Factory?
+
+
 ## Activities - FAQ
 ### What are the different types of activities you can use in a Data Factory pipeline? 
 
@@ -88,8 +91,13 @@ The **availability** configuration setting in the output data table determines w
 ### Is it better to have a pipeline with multiple activities or a separate pipeline for each activity? 
 Pipelines are supposed to bundle related activities. If the datasets that connect them are not consumed by any other activity outside the pipeline, you can keep the activities in one pipeline. This way, you would not need to chain pipeline active periods so that they align with each other. Also, the data integrity in the tables internal to the pipeline is better preserved when updating the pipeline. Pipeline update essentially stops all the activities within the pipeline, removes them, and creates them again. From authoring perspective, it might also be easier to see the flow of data within the related activities in one JSON file for the pipeline.
 
-### Where is the copy operation performed? 
+### What are the supported data stores?
+[AZURE.INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
+### What are the supported file formats? 
+[AZURE.INCLUDE [data-factory-file-format](../../includes/data-factory-file-format.md)]
+
+### Where is the copy operation performed? 
 See [Globally available data movement](data-factory-data-movement-activities.md#global) section for details. In short, when an on-premises data store is involved, the copy operation is performed by the Data Management Gateway in your on-premises environment. And, when the data movement is between two cloud stores, the copy operation is performed in the region closest to the sink location in the same geography. 
 
 
