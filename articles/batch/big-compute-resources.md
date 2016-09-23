@@ -88,9 +88,9 @@ Use these Azure templates to deploy Linux HPC clusters.
 
 * [MPI forum](https://social.microsoft.com/Forums/en-us/home?forum=windowshpcmpi)
 
-## Compute intensive instances
+## Compute-intensive instances
 
-Azure offers a [range of sizes](../virtual-machines/virtual-machines-windows-sizes.md), including [compute intensive](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) instances capable of connecting to a back-end RDMA network, to run your Linux and Windows HPC workloads.
+Azure offers a [range of VM sizes](../virtual-machines/virtual-machines-windows-sizes.md), including [compute-intensive](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) instances capable of connecting to a back-end RDMA network, to run your Linux and Windows HPC workloads.
 
 
 * [Set up a Linux RDMA cluster to run MPI applications](../virtual-machines/virtual-machines-linux-classic-rdma-cluster.md)
@@ -121,7 +121,7 @@ Azure offers a [range of sizes](../virtual-machines/virtual-machines-windows-siz
 
 * [Cloud Services](https://azure.microsoft.com/documentation/services/cloud-services/)
 
-* [App Service](https://azure.microsoft.com/en-us/documentation/services/app-service/)
+* [App Service](https://azure.microsoft.com/documentation/services/app-service/)
 
 * [Media Services](https://azure.microsoft.com/documentation/services/media-services/)
 
