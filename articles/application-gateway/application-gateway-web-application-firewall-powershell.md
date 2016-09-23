@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/20/2016"
+   ms.date="09/26/2016"
    ms.author="gwallace"/>
 
 # Configure Web Application Firewall on a new or existing Application Gateway
@@ -23,7 +23,7 @@
 
 Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. Application provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others. To find a complete list of supported features, visit Application Gateway Overview
 
-Web Application Firewall (WAF) provides detection or preventing on security attacks against web applications configured to use Application Gateway.
+The web application firewall (WAF) in Azure Application Gateway protects web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacks.
 
 The following article shows how to [add web application firewall to an existing application gateway](#add-web-application-firewall-to-an-existing-application-gateway) and [create an application gateway that uses web application firewall](#create-an-application-gateway-with-web-application-firewall).
 
@@ -61,7 +61,14 @@ Retrieve the gateway that you are adding Web Application Firewall to.
 
     $gw = Get-AzureRmApplicationGateway -Name "AdatumGateway" -ResourceGroupName "MyResourceGroup"
 
+
 ### Step 4
+
+Configure the web application firewall sku. The available sizes are **WAF\_Large** and **WAF\_Medium**. When web application is used the tier must be **WAF**.
+
+    $gw | Set-AzureRmApplicationGatewaySku -Name WAF_Large -Tier WAF
+
+### Step 5
 
 Configure the WAF settings as defined in the following example:
 
@@ -69,9 +76,7 @@ For the **WafMode** setting, the available values are Prevention and Detection.
 
     $config = Add-AzureRmApplicationGatewayWafConfig -Enabled $true -WafMode "Prevention" -ApplicationGateway $gw
 
-> [AZURE.NOTE] When adding WAF to an existing application gateway, the **SKU** automatically changes to **WAF\_Medium** or **WAF\_Large** based on the previous size of the application gateway.
-
-### Step 3
+### Step 6
 
 Update the application gateway with the settings defined in the preceding step.
 

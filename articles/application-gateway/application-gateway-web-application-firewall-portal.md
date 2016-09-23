@@ -5,7 +5,7 @@
    documentationCenter="na"
    authors="georgewallace"
    manager="carmonm"
-   editor=""
+   editor="tysonn"
    tags="azure-resource-manager"
 />
 <tags  
@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/09/2016"
+   ms.date="09/26/2016"
    ms.author="gwallace" />
 
-# Create an application gateway by using the portal
+# Create an application gateway with web application firewall by using the portal
 
 > [AZURE.SELECTOR]
 - [Azure portal](application-gateway-web-application-firewall-portal.md)
@@ -27,7 +27,7 @@ Azure Application Gateway is a layer-7 load balancer. It provides failover, perf
 Application provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others.
 To find a complete list of supported features, visit [Application Gateway Overview](application-gateway-introduction.md)
 
-Web Application Firewall (WAF) provides detection or preventing on security attacks against web applications configured to use Application Gateway.
+The web application firewall (WAF) in Azure Application Gateway protects web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacks.
 
 ## Scenarios
 
@@ -69,7 +69,7 @@ The settings to update an existing application gateway to support web applicatio
 
 ![blade showing basic settings][2]
 
->[AZURE.NOTE] An instance count of 1 can be chosen for testing purposes. It is important to know that any instance count under two instances is not covered by the SLA and are therefore not recommended. Small gateways are not available when using web application firewall.
+>[AZURE.NOTE] To view web application firewall logs, diagnostics must be enabled and ApplicationGatewayFirewallLog selected. An instance count of 1 can be chosen for testing purposes. It is important to know that any instance count under two instances is not covered by the SLA and are therefore not recommended. Small gateways are not available when using web application firewall.
 
 ## Create an application gateway with web application firewall
 
@@ -93,7 +93,7 @@ Next fill out the basic information about the application gateway. Be sure to ch
 The information needed for the basic settings is:
 
 - **Name** - The name for the application gateway.
-- **Tier** - The tier of the application gateway, available options are (**Standard** and **WAF**)
+- **Tier** - The tier of the application gateway, available options are (**Standard** and **WAF**). Web application firewall is only available in the WAF Tier.
 - **SKU size** - This setting is the size of the application gateway, available options are (**Medium** and **Large**).
 - **Instance count** - The number of instances, this value should be a number between **2** and **10**.
 - **Resource group** - The resource group to hold the application gateway, it can be an existing resource group or a new one.

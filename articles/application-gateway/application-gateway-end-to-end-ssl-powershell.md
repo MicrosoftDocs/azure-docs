@@ -1,20 +1,20 @@
 <properties
-pageTitle="Configure SSL Policy and end to end SSL with Application Gateway | Microsoft Azure"
-description="This article describes how to configure end to end SSL with Application Gateway using Azure Resource Manager PowerShell"
-services="application-gateway"
-documentationCenter="na"
-authors="georgewallace"
-manager="carmonmills"
-editor="tysonn"/>
+    pageTitle="Configure SSL Policy and end to end SSL with Application Gateway | Microsoft Azure"
+    description="This article describes how to configure end to end SSL with Application Gateway using Azure Resource Manager PowerShell"
+    services="application-gateway"
+    documentationCenter="na"
+    authors="georgewallace"
+    manager="carmonmills"
+    editor="tysonn"/>
 
 <tags
-ms.service="application-gateway"
-ms.devlang="na"
-ms.topic="article"
-ms.tgt_pltfrm="na"
-ms.workload="infrastructure-services"
-ms.date="09/22/2016"
-ms.author="gwallace"/>
+    ms.service="application-gateway"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="infrastructure-services"
+    ms.date="09/26/2016"
+    ms.author="gwallace"/>
 
 # Configure SSL Policy and end to end SSL with Application Gateway using PowerShell
 
@@ -22,7 +22,7 @@ ms.author="gwallace"/>
 
 Application Gateway supports end to end encryption of traffic. Application Gateway does this by terminating the SSL connection at the application gateway. The gateway then applies the routing rules to the traffic, re-encrypts the packet, and forwards the packet to the appropriate backend based on the routing rules defined. Any response from the web server goes through the same process back to the end user.
 
-Another feature that application gateway supports is disabling certain SSL protocols. Application Gateway supports disabling the following protocols; TLSv1.0, TLSv1.1 and TLSv1.2.
+Another feature that application gateway supports is disabling certain SSL protocol versions. Application Gateway supports disabling the following protocol version; TLSv1.0, TLSv1.1 and TLSv1.2.
 
 ![scenario image][scenario]
 
@@ -39,7 +39,9 @@ This scenario will:
 
 ## Before you begin
 
-To configure end to end SSL with an application gateway, a certificate is required for the gateway and certificates are required for the backend servers. The gateway certificate is used to encrypt and decrypt the traffic sent to it via SSL. The gateway certificate needs to be in Personal Information Exchange (pfx) format. This file format allows for the private key to be exported which is required by the application gateway to perform the encryption and decryption of traffic. Another certificate is needed for the backend http settings. This certificate is placed on the backend servers. In order for end to end SSL to work, those certificates also must be white-listed on the application gateway so it knows about the certificate. This process is described in the following steps:
+To configure end to end SSL with an application gateway, a certificate is required for the gateway and certificates are required for the backend servers. The gateway certificate is used to encrypt and decrypt the traffic sent to it via SSL. The gateway certificate needs to be in Personal Information Exchange (pfx) format. This file format allows for the private key to be exported which is required by the application gateway to perform the encryption and decryption of traffic. 
+
+For end to end ssl encryption the backend must be whitelisted with application gateway. This is done by upload the public certificate of the backends to the application gateway. This ensures that the application gateway only communicates with known backend instances, tus securing the end to end communication. This process is described in the following steps:
 
 ## Create the Resource Group
 
@@ -73,15 +75,11 @@ Assign an address range for the subnet be used for the Application Gateway itsel
 
     $gwSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name 'appgwsubnet' -AddressPrefix 10.0.0.0/24
 
-> [AZURE.NOTE] A subnet for an application gateway should have a minimum of 28 mask bits. This leaves 10 available addresses in the subnet for Application Gateway instances. With a smaller subnet, you may not be able to add more instances of your application gateway in the future.
-
 ### Step 2
 
 Assign an address range to be used for the Backend address pool.
 
     $nicSubnet = New-AzureRmVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPrefix 10.0.2.0/24
-
-> [AZURE.NOTE] If you are planning to use Application Gateway with an externally facing web application, the second subnet is not required. For this example, an internal subnet is being used.
 
 ### Step 3
 
@@ -101,7 +99,7 @@ Retrieve the virtual network resource and subnet resources to be used in the fol
 
 Create a public IP resource to be used for the application gateway. This public IP address is used a following step.
 
-    $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name 'appgwpip' -Location "West US" -AllocationMethod Dynamic
+    $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'appgwpip' -Location "West US" -AllocationMethod Dynamic
 
 > [AZURE.IMPORTANT] Application Gateway does not support the use of a public IP address created with a domain label defined. Only a public IP address with a dynamically created domain label is supported. If you require a friendly dns name for the application gateway, it is recommended to use a cname record as an alias.
 
@@ -155,7 +153,7 @@ Upload the certificate to be used on the ssl enabled backend pool resources.
 
     $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\users\gwallace\Desktop\cert.cer
 
-> [AZURE.NOTE] The certificate provided in this step must also be present on the backend server. This step whitelists the certificate with the application gateway.
+> [AZURE.NOTE] The certificate provided in this step should be the public key of the pfx cert present on the backend. This step whitelists the backend with the application gateway. 
 
 ### Step 8
 
@@ -179,9 +177,9 @@ Configure the instance size of the application gateway.  The available sizes are
 
 ### Step 11
 
-Configure the SSL policy to be used on the Application Gateway. Application Gateway supports the ability to disable certain SSL policies.
+Configure the SSL policy to be used on the Application Gateway. Application Gateway supports the ability to disable certain SSL protocol versions.
 
-The following values are a list of policies that can be disabled.
+The following values are a list of protocol versions that can be disabled.
 
 - **TLSv1_0**
 - **TLSv1_1**
@@ -197,9 +195,9 @@ Using all the preceding steps, create the Application Gateway. The creation of t
 
     $appgw = New-AzureRmApplicationGateway -Name appgateway -SslCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslPolicy $sslPolicy -AuthenticationCertificates $authcert -Verbose
 
-## Disable SSL Policies on an existing Application Gateway
+## Disable SSL protocol versions on an existing Application Gateway
 
-The preceding steps take you through creating an application with end to end ssl and disabling certain SSL Policies. The following example disables certain SSL policies on an existing application gateway.
+The preceding steps take you through creating an application with end to end ssl and disabling certain SSL protocol versions. The following example disables certain SSL policies on an existing application gateway.
 
 ### Step 1
 
@@ -209,17 +207,11 @@ Retrieve the application gateway to update.
 
 ### Step 2
 
-Define an SSL policy. In the following example, TLSv1.0 and TLSv1.1 are disabled.
+Define an SSL policy. In the following example, TLSv1.0 is disabled.
 
-    $sslpolicy = New-AzureRmApplicationGatewaySslPolicy -DisabledSslProtocols TLSv1_0,TLSv1_1
+    Set-AzureRmApplicationGatewaySslPolicy -DisabledSslProtocols TLSv1_0 -ApplicationGateway $gw
 
 ### Step 3
-
-Set the preceding SSL policy object to the gateway retrieved earlier.
-
-    $gw.SslPolicy = $sslpolicy
-
-### Step 4
 
 Finally, update the gateway. It is important to note that this last step is a long running task. When it is done, end to end ssl is configured on the application gateway.
 
@@ -227,6 +219,6 @@ Finally, update the gateway. It is important to note that this last step is a lo
 
 ## Next steps
 
-Learn about hardening the security of your web applications with Web Application Firewall through Application Gateway by visiting Web Application Firewall Overview
+Learn about hardening the security of your web applications with Web Application Firewall through Application Gateway by visiting [Web Application Firewall Overview](application-gateway-webapplicationfirewall-overview.md)
 
 [scenario]: ./media/application-gateway-end-to-end-ssl-powershell/scenario.png
