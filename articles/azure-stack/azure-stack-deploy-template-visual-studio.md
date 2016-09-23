@@ -3,7 +3,7 @@
 	description="Learn how to deploy templates with Visual Studio in Azure Stack."
 	services="azure-stack"
 	documentationCenter=""
-	authors="heathl17"
+	authors="HeathL17"
 	manager="byronr"
 	editor=""/>
 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/15/2016"
+	ms.date="09/26/2016"
 	ms.author="helaw"/>
 
 # Deploy templates in Azure Stack using Visual Studio
 
-Use Visual Studio to deploy Azure Resource Manager (ARM) templates to the Azure Stack POC.
+Use Visual Studio to deploy Azure Resource Manager templates to the Azure Stack POC.
 
-ARM templates deploy and provision all of the resources for your application in a single, coordinated operation.
+Resource Manager templates deploy and provision all the resources for your application in a single, coordinated operation.
 
 1.  Open Visual Studio 2015 Update 1.
 
@@ -30,7 +30,7 @@ ARM templates deploy and provision all of the resources for your application in 
 
 4.  In the **Select Azure Template** dialog box, click **Windows Virtual Machine**, and then click **OK**.
 
-  You can see a list of templates available in your new project by expanding the **Templates** node in the **Solution Explorer** pane.
+  In your new project, you can see a list of the templates available by expanding the **Templates** node in the **Solution Explorer** pane.
 
 5.  In the **Solution Explorer** pane, right-click the name of your project, click **Deploy**, then click **New Deployment**.
 
