@@ -151,4 +151,4 @@ Microsoft Azure Stack collects and aggregates usage data across all resource pro
 
 ## Next steps
 
-[Deploy Azure Stack Technical Preview 1 (POC)](azure-stack-deploy.md)
+[Deploy Azure Stack Technical Preview 2 (POC)](azure-stack-deploy.md)

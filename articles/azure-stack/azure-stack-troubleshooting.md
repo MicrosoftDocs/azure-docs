@@ -126,7 +126,7 @@ Mount the Windows Server 2012R2 ISO and run:
 
 This error indicates that deployment script is unable to connect to the Internet for Azure Active Directory (AAD) authentication via the NATVM. Please verify the PortalVM has Internet connectivity by browsing to https://login.windows.net
 - If you are using a static IP / gateway, you need to specify the NATVM static IP / gateway as parameters (NATVMStaticIP and  NATVMStaticGateway) when running the deployment script.
-- If you require a proxy to connect to the Internet, you need to specify the ProxyServer parameter when running the deployment script. 
+
 
 Note: TP1 doesn’t support scenarios where the proxy requires authentication.
 
@@ -205,7 +205,7 @@ Workaround:  publish the template using PowerShell.
 Make sure that:
 
 - The template must be using a Microsoft Azure service that is already available or in preview in Azure Stack.
-- The APIs used for a specific resource are supported by the local Azure Stack instance, and that you are targeting a valid location (“local” in Azure Stack Technical Preview (TP) 1, vs the “East US” or “South India” in Azure).
+- The APIs used for a specific resource are supported by the local Azure Stack instance, and that you are targeting a valid location (“local” in Azure Stack Technical Preview (TP) 2, vs the “East US” or “South India” in Azure).
 - You review [this article](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/README.md) about the Test-AzureRmResourceGroupDeployment cmdlets, which catch small differences in azure Resource Manager syntax.
 
 You can also use the Azure Stack templates already provided in the [GitHub repository](http://aka.ms/AzureStackGitHub/) to help you get started.

@@ -18,7 +18,7 @@
 
 # Microsoft Azure Stack POC architecture
 
-The Azure Stack POC is a one-node deployment of Azure Stack Technical Preview 1. All the components are installed on the host machine, and in the virtual machines of the deployment. The following diagram illustrates the logical architecture of the Azure Stack POC and its components.
+The Azure Stack POC is a one-node deployment of Azure Stack Technical Preview 2. All the components are installed on the host machine, and in the virtual machines of the deployment. The following diagram illustrates the logical architecture of the Azure Stack POC and its components.
 
 ![](media/azure-stack-architecture/image1.png)
 
