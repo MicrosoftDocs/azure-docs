@@ -227,11 +227,9 @@ For an ad hoc refresh, simply click on the eclipses (…) by the **Dataset**, e.
 For a scheduled refresh, do the following.
 
 1. Click **Schedule Refresh** in the action list. 
+    ![Screenshot of the Schedule Refresh in PowerBI.com](./media/documentdb-powerbi-visualize/azure-documentdb-power-bi-schedule-refresh.png)
 
-   ![Screenshot of the Schedule Refresh in PowerBI.com](./media/documentdb-powerbi-visualize/azure-documentdb-power-bi-schedule-refresh.png)
-   The **Settings** page appears. 
-
-2. Expand **Data source credentials**. 
+2. In the **Settings** page, expand **Data source credentials**. 
 
 3. Click on **Edit credentials**. 
 
