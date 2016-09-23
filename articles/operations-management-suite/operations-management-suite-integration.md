@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/20/2016"
+   ms.date="09/23/2016"
    ms.author="bwren" />
 
 # Integrating with Operations Management Suite (OMS)
@@ -120,7 +120,7 @@ You can encapsulate integration logic into a custom solution to run in your work
 
 For example, your solution could include an Automation runbook to gather and process data and then populate the Log Analytics repository using the HTTP Data Collector API.  You could also include a custom view that presents and analyzes the collected data.  
 
-- Creating custom solutions (Link not available yet)    
+- Creating custom solutions (Coming soon)    
 
 ## Next steps
 - Reference the [OMS SDK](operations-management-suite-sdk.md) for technical information on automating OMS services.  

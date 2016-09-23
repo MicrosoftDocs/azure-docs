@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/20/2016"
+   ms.date="09/23/2016"
    ms.author="bwren" />
 
 # Operations Management Suite (OMS) SDK
@@ -49,5 +49,5 @@
 
 ## Next steps
 
-- Read about the different options for integrating with OMS services.
-- Create a custom solution in OMS.
+- Read about the different options for [integrating with OMS services](operations-management-suite-integration.md).
+- Create a custom solution in OMS (Coming soon).
