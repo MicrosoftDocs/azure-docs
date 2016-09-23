@@ -23,11 +23,11 @@
 - [PowerShell](powershell-install-configure.md)
 - [Azure CLI](xplat-cli-install.md)
 
-Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of open-source shell-based commands for creating and managing resources in Microsoft Azure. You have several choices to install these cross-platform tools on your computer: 
+Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of open-source shell-based commands for creating and managing resources in Microsoft Azure. You have several options to install these cross-platform tools on your computer: 
 
-* **npm package** - Run npm, the package manager for JavaScript, to install the latest Azure CLI package on your Linux distribution or OS (requires node.js and npm on your computer)
-* **Installer** - Download a compiled installer for easy installation on Mac or Windows
-* **Docker container** - Start using the latest CLI in a ready-to-run Docker container (requires Docker host on your computer)
+* **npm package** - Run npm (the package manager for JavaScript) to install the latest Azure CLI package on your Linux distribution or OS. Requires node.js and npm on your computer.
+* **Installer** - Download an installer for easy installation on Mac or Windows.
+* **Docker container** - Start using the latest CLI in a ready-to-run Docker container. Requires Docker host on your computer.
     
 For more options and background, see the project repository on [GitHub](https://github.com/azure/azure-xplat-cli).
 
@@ -49,8 +49,7 @@ If you prefer, download the latest Linux [tar file][linux-installer] for the npm
 
 ## Option 2. Use an installer
 
-The following CLI installer packages are also available for download:
-
+If you use a Mac or Windows computer, the following CLI installers are available for download:
 
 * [Mac OS X installer][mac-installer]
 
