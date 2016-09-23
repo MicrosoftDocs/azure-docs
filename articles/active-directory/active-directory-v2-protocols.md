@@ -18,7 +18,7 @@
 
 # v2.0 Protocols - OAuth 2.0 & OpenID Connect
 
-the v2.0 endpoint can use Azure AD for identity-as-a-service with industry standard protocols, OpenID Connect and OAuth 2.0.  While the service is standard compliant, there can be subtle differences between any two implementations of these protocols.  The information here will be useful if you choose to write your code by directly sending & handling HTTP requests or use a 3rd party open source library, rather than using one of our open source libraries.
+The v2.0 endpoint can use Azure AD for identity-as-a-service with industry standard protocols, OpenID Connect and OAuth 2.0.  While the service is standards-compliant, there can be subtle differences between any two implementations of these protocols.  The information here will be useful if you choose to write your code by directly sending & handling HTTP requests or use a 3rd party open source library, rather than using one of our open source libraries.
 <!-- TODO: Need link to libraries above -->
 
 > [AZURE.NOTE]
@@ -42,7 +42,7 @@ Every app that uses the v2.0 endpoint will need to be registered at [apps.dev.mi
 - A **Redirect URI** or **Package Identifier** that can be used to direct responses back to your app
 - A few other scenario-specific values.
 
-For more detail, learn how to [register an app](active-directory-v2-app-registration.md).
+For more details, learn how to [register an app](active-directory-v2-app-registration.md).
 
 ## Endpoints
 Once registered, the app communicates with Azure AD by sending requests to the v2.0 endpoint:
