@@ -128,6 +128,6 @@ The Floating IP rule type is the foundation of several load balancer configurati
 ## Limitations
 
 * Multiple VIP configurations are only supported with IaaS VMs.
-* With the Floating IP rule, your application must use the DIP for outbound flows. If your application binds to the VIP address configured on the loopback interface in the guest OS, then SNAT is not be available to rewrite the outbound flow and the flow fails.
+* With the Floating IP rule, your application must use the DIP for outbound flows. If your application binds to the VIP address configured on the loopback interface in the guest OS, then SNAT is not available to rewrite the outbound flow and the flow fails.
 * Public IP addresses have an effect on billing. For more information, see [IP Address pricing](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * Subscription limits apply. For more information, see [Service limits](../azure-subscription-service-limits.md#networking-limits) for details.
