@@ -13,19 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-<<<<<<< HEAD
    ms.date="09/20/2016"
    ms.author="mfussell"/>
 
 # Why a microservices approach to building applications?
-As software developers, there is nothing new in how we think about factoring an application into component parts. It is the central paradigm of object orientation, software abstractions, and componentization. Today, this factorization tends to take the form of classes and interfaces between shared libraries and technology layers. Typically, a tiered approach is taken with a back-end store, middle-tier business logic, and a front-end UI. What *has* changed over the last few years is that we, as developers, are building distributed applications for the cloud, driven by the business. 
-=======
-   ms.date="08/03/2016"
-   ms.author="mfussell"/>
-
-# Why a microservices approach to building applications?
 As software developers, there is nothing new in how we think about factoring an application into component parts. It is the central paradigm of object orientation, software abstractions, and componentization. Today, this factorization tends to take the form of classes and interfaces between shared libraries and technology layers. Typically, a tiered approach is taken with a back-end store, middle-tier business logic, and a front-end UI. What *has* changed over the last few years is that we, as developers, are building distributed applications for the cloud, driven by the business.
->>>>>>> 979802b69d90862f3bf110f2392896c2ca12ea11
 
 The changing business needs are:
 
@@ -38,21 +30,13 @@ These business needs are affecting *how* we build applications.
 For more information on Azure's approach to microservices, read [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
 
 ## Monolithic vs. microservice design approach
-<<<<<<< HEAD
 All applications evolve over time. Successful applications evolve by being useful to people. Unsuccessful applications do not evolve and eventually are deprecated. The question becomes: how much do you know about your requirements today, and what will they be in the future? For example, let's say you are building a reporting application for a department. You are sure that the application will remain within the scope of your company and that the reports will be short-lived. Your choice of approach is different than, say, building a service for delivering video content to tens of millions of customers. Sometimes, getting something out the door as proof of concept is the driving factor, with the knowledge that the application can be redesigned later. There is little point in over-engineering something that never gets used. It’s the usual engineering trade-off. On the other hand, when companies talk about building for the cloud, the expectation is growth and usage. The issue is that growth and scale are unpredictable. We would like to be able to prototype quickly while also knowing that we are on a path to deal with future success. This is the lean startup approach: build, measure, learn, iterate.
-=======
-All applications evolve over time. Successful applications evolve by being useful to people. Unsuccessful applications do not evolve and eventually are deprecated. The question becomes: how much do you know about your requirements today, and what will they be in the future? For example, let's say you are building a reporting application for a department. You are sure that the application will remain within the scope of your company and that the reports will be short-lived. Your choice of approach will be different than, say, building a service for delivering video content to tens of millions of customers. Sometimes, getting something out the door as proof of concept is the driving factor, with the knowledge that the application can be redesigned later. There is little point in over-engineering something that never gets used. It’s the usual engineering trade-off. On the other hand, when companies talk about building for the cloud, the expectation is growth and usage. The issue is that growth and scale are unpredictable. We would like to be able to prototype quickly while also knowing that we are on a path to deal with future success. This is the lean startup approach: build, measure, learn, iterate.
->>>>>>> 979802b69d90862f3bf110f2392896c2ca12ea11
 
 During the client-server era, we tended to focus on building tiered applications by using specific technologies in each tier. The term "monolithic" application has emerged for these approaches. The interfaces tended to be between the tiers, and a more tightly coupled design used between components within each tier. Developers designed and factored classes compiled into libraries, linked together into a few executables and DLLs. There are benefits to such a monolithic design approach. It's often simpler to design and has faster calls between components, since these calls are often over IPC. Also, everyone tests a single product, which tends to be more people-resource efficient. The downside is that a tight coupling between tiered layers results and you cannot scale individual components. If you need to perform fixes or upgrades, you have to wait for others to finish their testing. It is more difficult to be agile.
 
 Microservices address these downsides and more closely align with the preceding business requirements, but they also have both upsides and downsides. The benefits of microservices are that each one typically encapsulates simpler business functionality, which you scale up or down, test, deploy, and manage independently. One important benefit of a microservice approach is that teams are driven more by business scenarios than by technology, which the tiered approach encourages. In practice, smaller teams develop a microservice based on a customer scenario, using any technologies they choose. In other words, the organization doesn’t need to standardize tech to maintain monolithic applications. Individual teams that own services can do what makes sense for them based on team expertise or what’s most appropriate for the problem to be solved. In practice, having a set of recommended technologies, such as a particular NoSQL store or web application framework, is preferable.
 
-<<<<<<< HEAD
 The downside of microservices comes in managing the increased number of separate entities and dealing with more complex deployments and versioning. Network traffic between the microservices increases as well as the corresponding network latencies. Having lots of chatty, granular services is a recipe for a performance nightmare. Without tools to help view these dependencies, it is hard to “see” the whole system. Standards are what make the microservice approach work by agreeing on how to communicate and being tolerant of only the things you need from a service, rather than rigid contracts. It is important to define these contacts up front in the design, since services update independently of one another. Another description coined for designing with a microservices approach is “fine-grained SOA.”
-=======
-The downside of microservices comes in managing the increased number of separate entities and dealing with more complex deployments and versioning. Network traffic between the microservices increases as well as the corresponding network latencies. Having lots of chatty, granular services is a recipe for a performance nightmare. Without tools to help view these dependencies, it is hard to “see” the whole system. Ultimately, standards are what make the microservice approach work by agreeing on how to communicate and being tolerant of only the things you need from a service, rather than rigid contracts. It is important to define these contacts up front in the design, since services update independently of one another. Another description coined for designing with a microservices approach is “fine-grained SOA.”
->>>>>>> 979802b69d90862f3bf110f2392896c2ca12ea11
 
 
 ***At its simplest, the microservices design approach is about a decoupled federation of services, with independent changes to each, and agreed-upon standards for communication.***
@@ -113,30 +97,18 @@ Returning to the monolithic versus microservice approach for a moment, the follo
 
 ***On the right is the microservices approach, a graph of interconnected microservices where state is typically scoped to the microservice and various technologies are used.***
 
-<<<<<<< HEAD
 In a monolithic approach, typically there is a single database used by the application. The advantage is that it is a single location, making it easy to deploy. Each component can have a single table to store its state. Teams need to be strict in separating state, which is a challenge. Inevitably there are temptations to add a new column to an existing customer table, do a join between tables, and create dependencies at the storage layer. Once this happens, you can't scale individual components. In the microservices approach, each service manages and stores its own state. Each service is responsible for scaling both code and state together to meet the demands of the service. A downside is that when there is a need to create views, or queries, of your application’s data you will need to query across disparate state stores. Typically, this is solved by having a separate microservice that builds a view across a collection of microservices. If you need to perform multiple ad-hoc queries on the data, each microservice should consider writing its data into a data warehousing service for offline analytics.
-=======
-In a monolithic approach, typically there is a single database used by the application. The advantage is that it is a single location, making it easy to deploy. Each component can have a single table to store its state. Teams need to be strict in separating state, which is a challenge. Inevitably there are temptations to simply add a new column to an existing customer table, do a join between tables, and create dependencies at the storage layer. Once this happens, you can't scale individual components. In the microservices approach, each service manages and stores its own state. Each service is responsible for scaling both code and state together to meet the demands of the service. A downside is that when there is a need to create views, or queries, of your application’s data you will need to query across disparate state stores. Typically, this is solved by having a separate microservice that builds a view across a collection of microservices. If you need to perform multiple ad-hoc queries on the data, each microservice should consider writing its data into a data warehousing service for offline analytics.
->>>>>>> 979802b69d90862f3bf110f2392896c2ca12ea11
 
 Versioning is specific to the deployed version of a microservice so that multiple, different versions deploy and run side by side. Versioning addresses the scenarios where a newer version of a microservice fails during upgrade and needs to roll back to an earlier version. The other scenario for versioning is performing A/B-style testing, where different users experience different versions of the service. For example, it is common to upgrade a microservice for a specific set of customers to test new functionality before rolling it out more widely. After lifecycle management of microservices, this now brings us to communication between them.
 
 
 ### Interacts with other microservices over well-defined interfaces and protocols
 
-<<<<<<< HEAD
 This topic needs little attention here, since there is extensive literature on service-oriented architecture published in the past 10 years describing communication patterns. Generally, service communication uses a REST approach with HTTP and TCP protocols and XML or JSON as the serialization format. From an interface perspective, it is about embracing the web design approach. But there is nothing stopping you from using binary protocols or your own data formats. Be prepared for people to have a harder time using your microservices if these are openly available.
 
 ### Has a unique name (URL) used to resolve its location
 
 Remember how we keep saying that the microservice approach is like the web? Like the web, your microservice needs to be addressable wherever it is running. If you are thinking about machines and which one is running a particular microservice, things will go bad quickly. In the same way that DNS resolves a particular URL to a particular machine, your microservice needs to have a unique name so that its current location is discoverable. Microservices need addressable names that make them independent from the infrastructure that they are running on. This implies that there is an interaction between how your service is deployed and how it is discovered, since there needs to be a service registry. Equally, when a machine fails the registry service must tell you where the service is now running. This brings us to the next topic: resilience and consistency.
-=======
-This topic needs little attention here, since there is extensive literature on service-oriented architecture published in the past 10 years describing communication patterns. Generally, service communication uses a REST approach with HTTP and TCP protocols and XML or JSON as the serialization format. From an interface perspective, it is about embracing the web design approach. But there is nothing stopping you from using binary protocols or your own data formats. Just be prepared for people to have a harder time using your microservices if these are openly available.
-
-### Has a unique name (URL) used to resolve it's location
-
-Remember how we keep saying that the microservice approach is like the web? Like the web, your microservice needs to be addressable wherever it is running. If you are thinking about machines and which one is running a particular microservice, things will go bad quickly. In the same way that DNS resolves a particular URL to a particular machine, your microservice needs to have a unique name so that it's current location is discoverable. Microservices need addressable names that make them independent from the infrastructure that they are running on. Of course, this implies that there is an interaction between how your service is deployed and how it is discovered, since there needs to be a service registry. Equally, when a machine fails the registry service must tell you where the service is now running. This brings us to the next topic: resilience and consistency.
->>>>>>> 979802b69d90862f3bf110f2392896c2ca12ea11
 
 ### Remains consistent and available in the presence of failures
 
@@ -148,11 +120,7 @@ The problems of resiliency are compounded during other scenarios, such as when f
 
 It may seem obvious, and it is often overlooked, but it is essential that a microservice reports its health and diagnostics. Otherwise, there is little insight from an operations perspective. Correlating diagnostic events across a set of independent services and dealing with machine clock skews to make sense of the event order is challenging. In the same way that you interact with a microservice over agreed-upon protocols and data formats, there emerges a need for standardization in how to log health and diagnostic events that ultimately end up in an event store for querying and viewing. In a microservices approach, it is key that the different teams agree on a single logging format.  There needs to be a consistent approach to viewing diagnostic events in the application as a whole.
 
-<<<<<<< HEAD
 Health is different from diagnostics. Health is about the microservice reporting its current state to take appropriate actions. A good example is working with upgrade and deployment mechanisms to maintain availability. A service may be currently unhealthy due to a process crash or machine reboot, but still operational. The last thing you need is to make this worse by performing an upgrade. The best approach is to do an investigation first, or allow time for the microservice to recover. Health events from a microservice allow us to make informed decisions and, in effect, help create self-healing services.
-=======
-Health is different from diagnostics. Health is about the microservice reporting its current state in order to take appropriate actions. A good example is working with upgrade and deployment mechanisms to maintain availability. A service may be currently unhealthy due to a process crash or machine reboot, but still operational. The last thing you need is to make this worse by performing an upgrade. The best approach is to do an investigation first, or allow time for the microservice to recover. Health events from a microservice allow us to make informed decisions and, in effect, help create self-healing services.
->>>>>>> 979802b69d90862f3bf110f2392896c2ca12ea11
 
 ## Service Fabric as a microservices platform
 
@@ -171,11 +139,7 @@ However, it does provide built-in programming APIs that make it easier to build 
 
 ### Are microservices right for my application?
 
-<<<<<<< HEAD
 Maybe. What we experienced was that as more and more teams in Microsoft began to build for the cloud for business reasons, many of them realized the benefits of taking a microservice-like approach. Bing, for example, has been developing microservices in search for years. For other teams, the microservices approach was new. They found that there were hard problems to solve outside of their core areas of strength. This is why Service Fabric gained traction as the technology of choice for building services.
-=======
-Maybe. What we experienced was that as more and more teams in Microsoft began to build for the cloud for business reasons, many of them realized the benefits of taking a microservice-like approach. Bing, for example, has been developing microservices in search for years. For other teams, the microservices approach was very new. They found that there were hard problems to solve outside of their core areas of strength. This is why Service Fabric gained traction as the technology of choice for building services.
->>>>>>> 979802b69d90862f3bf110f2392896c2ca12ea11
 
 The objective of Service Fabric is to reduce the complexities of building applications with a microservice approach, so that you do not have to go through as many costly redesigns. Start small, scale when needed, deprecate services, add new ones, and evolve with customer usage--that’s the approach. We also know that in reality there are many other problems yet to be solved to make microservices more approachable for most developers. Containers and the actor programming model are examples of small steps in that direction, and we are sure that more innovations will emerge to make this easier.
  

@@ -19,7 +19,7 @@
 # Deploy a guest executable to Service Fabric
 
 You can run any type of application, such as node.js, Java, or native applications in Azure Service Fabric. Service Fabric refers to these types of applications as guest executables.
-Guest executables are treated by Service Fabric like stateless services. As a result, they are placed on nodes in a cluster, based on availability and other metrics. This article describes how to package and deploy a guest executable to a Service Fabric cluster, using Visual Studio or a command-line utility.  
+Guest executables are treated by Service Fabric like stateless services. As a result, they are placed on nodes in a cluster, based on availability and other metrics. This article describes how to package and deploy a guest executable to a Service Fabric cluster, using Visual Studio or a command-line utility.
 
 In this article, we cover the steps to package a guest executable and deploy it to Service Fabric.  
 
@@ -50,7 +50,6 @@ As part of deploying a guest executable, it is useful to understand the Service 
 To deploy an application to Service Fabric, the application needs to follow a predefined directory structure. The following example of that structure.
 
 ```
-<<<<<<< HEAD
 |-- ApplicationPackageRoot
     |-- GuestService1Pkg
         |-- Code
@@ -60,16 +59,6 @@ To deploy an application to Service Fabric, the application needs to follow a pr
         |-- Data
         |-- ServiceManifest.xml
     |-- ApplicationManifest.xml
-=======
-|-- ApplicationPackage
-    |-- code
-        |-- existingapp.exe
-    |-- config
-        |-- Settings.xml
-    |-- data
-    |-- ServiceManifest.xml
-|-- ApplicationManifest.xml
->>>>>>> 979802b69d90862f3bf110f2392896c2ca12ea11
 ```
 
 The ApplicationPackageRoot contains the ApplicationManifest.xml file that defines the application. A subdirectory for each service included in the application is used to contain all the artifacts that the service requires--the ServiceManifest.xml and typically, the following three directories:
@@ -205,12 +194,7 @@ The SetupEntrypoint element is used to specify any executable or batch file that
 
 There is only one SetupEntrypoint, so setup/config scripts need to be grouped in a single batch file if the application's setup/config requires multiple scripts. The SetupEntrypoint can execute any type of file--executable files, batch files, and PowerShell cmdlets. For more details, see [Configure SetupEntryPoint](service-fabric-application-runas-security.md).
 
-<<<<<<< HEAD
 In the preceding example, the SetupEntrypoint runs a batch file called `LaunchConfig.cmd` that is located in the `scripts` subdirectory of the code directory (assuming the WorkingFolder element is set to CodeBase).
-=======
-There is only one SetupEntrypoint, so setup/config scripts need to be bundled in a single batch file if the application's setup/config requires multiple scripts. SetupEntrypoint can execute any type of file--executable files, batch files, and PowerShell cmdlets.
-In the example above, the SetupEntrypoint is based on a batch file LaunchConfig.cmd that is located in the `scripts` subdirectory of the code directory (assuming the WorkingFolder element is set to code).
->>>>>>> 979802b69d90862f3bf110f2392896c2ca12ea11
 
 #### Updating the Entrypoint
 
