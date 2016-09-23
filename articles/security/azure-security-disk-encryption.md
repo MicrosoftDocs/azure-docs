@@ -595,20 +595,20 @@ The disable encryption step disables encryption of the data volume on the runnin
 
 **NOTE**: Disabling encryption on OS disk is not allowed on Linux VMs.
 
-##### Disable encryption on existing/running IaaS Windows in Azure using Resource Manager template
+##### Disable encryption on existing/running IaaS VM in Azure using Resource Manager template
 
 Disk encryption can be disabled on running Windows IaaS VM using the Resource Manager template published [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm). Click on “Deploy to Azure” button on the Azure quickstart template, input decryption configuration in the parameters blade and click OK. Select the subscription, resource group, resource group location, legal terms and agreement and click Create button to enable encryption on a new IaaS VM.
 
 For Linux VM, [this](https://aka.ms/decrypt-linuxvm) template can be used to disable encryption.
 
-Resource Manager template parameters details for disabling encryption on running Windows IaaS VM:
+Resource Manager template parameters details for disabling encryption on running IaaS VM:
 
 | ​vmName         | ​Name of the VM on which encryption operation is to be performed                                                                                                                                                                       |
 |-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ​volumeType     | ​Type of the volume on which decryption operation is performed. Valid values are "OS", "Data", "All". **Note:** You cannot disable encryption on running Windows IaaS VM OS/boot volume without disabling encryption on “Data” volume. |
 | sequenceVersion | Sequence version of the BitLocker operation. Increment this version number every time a disk decryption operation is performed on the same VM                                                                                          |
 
-##### Disable encryption on existing/running IaaS Windows in Azure using PS cmdlet
+##### Disable encryption on existing/running IaaS VM in Azure using PS cmdlet
 
 To disable using the PS cmdlet, [Disable-AzureRmVMDiskEncryption](https://msdn.microsoft.com/library/azure/mt715776.aspx) cmdlet disables encryption on an infrastructure as a service (IaaS) virtual machine. This cmdlet supports both Windows and Linux VMs. This cmdlet installs an extension on the virtual machine to disable encryption. If the Name parameter is not specified, an extension with the default name "AzureDiskEncryption for Windows VMs" is created. 
 
