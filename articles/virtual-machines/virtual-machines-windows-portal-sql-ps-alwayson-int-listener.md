@@ -106,7 +106,7 @@ The front end port is the port that applications use to connect to the SQL Serve
 
 >[AZURE.NOTE] For SQL Server availability groups, each IP address requires a specific probe port. For example, if one IP address on a load balancer uses probe port 59999, no other IP addresses on that load balancer can use probe port 59999. 
 
-- For information about load balancer limits see **Private front end IP per load balancer** under [Networking Limits - Azure Resource Manager](../azure-subscription-service-limits.md#networking-limits).
+- For information about load balancer limits see **Private front end IP per load balancer** under [Networking Limits - Azure Resource Manager](../azure-subscription-service-limits#networking-limits).
 
 - For information about availability group limits see [Restrictions (Availability Groups)](http://msdn.microsoft.com/library/ff878487.aspx#RestrictionsAG).
 
