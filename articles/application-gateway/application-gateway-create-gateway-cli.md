@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/02/2016"
+   ms.date="09/09/2016"
    ms.author="gwallace" />
 
 # Create an application gateway by using the Azure CLI
@@ -54,6 +54,28 @@ This scenario will:
 Azure Application Gateway requires its own subnet. When creating a virtual network, ensure that you leave enough address space to have multiple subnets. Once you deploy an application gateway to a subnet,
 only additional application gateways are able to be added to the subnet.
 
+## Log in to Azure
+
+Open the **Microsoft Azure Command Prompt**, and log in. 
+
+    azure login
+
+Once you type the preceding example, a code is provided. Navigate to https://aka.ms/devicelogin in a browser to continue the login process.
+
+![cmd showing device login][1]
+
+In the browser, enter the code you received. You are redirected to a sign-in page.
+
+![browser to enter code][2]
+
+Once the code has been entered you are signed in, close the browser to continue on with the scenario.
+
+![successfully signed in][3]
+
+## Switch to Resource Manager Mode
+
+    azure config mode arm
+
 ## Create the resource group
 
 Before creating the application gateway, a resource group is created to contain the application gateway. The following shows the command.
@@ -74,13 +96,15 @@ After the virtual network is created, a subnet is added for the application gate
 
 ## Create the application gateway
 
-Once the virtual network and subnet are created, the pre-requisites for the application gateway are complete. Additionally a previously exported .pfx certificate and the password for the certificate are required for the following step. 
+Once the virtual network and subnet are created, the pre-requisites for the application gateway are complete. Additionally a previously exported .pfx certificate and the password for the certificate are required for the following step:
 The IP addresses used for the backend are the IP addresses for your backend server. These values can be either private IPs in the virtual network, public ips, or fully qualified domain names for your backend servers.
 
-    azure network application-gateway create -n AdatumAppGateway -l eastus -g AdatumAppGatewayRG -e AdatumAppGatewayVNET -m Appgatewaysubnet -r 134.170.185.46,134.170.188.221,134.170.185.50 -y c:\AdatumAppGateway\adatumcert.pfx -x P@ssw0rd
+    azure network application-gateway create -n AdatumAppGateway -l eastus -g AdatumAppGatewayRG -e AdatumAppGatewayVNET -m Appgatewaysubnet -r 134.170.185.46,134.170.188.221,134.170.185.50 -y c:\AdatumAppGateway\adatumcert.pfx -x P@ssw0rd -z 2 -a Standard_Medium -w Basic -j 443 -f Enabled -o 80 -i http -b https -u Standard
+
+
 
 This example creates a basic application gateway with default settings for the listener, backend pool, backend http settings, and rules. It also configures SSL offload. You can modify these settings to suit your deployment once the provisioning is successful.
-If you already have your web application defined with the IP addresses for the backend pool defined in the preceding steps, once the application gateway is provisioned and started load balancing begins.
+If you already have your web application defined with the the backend pool in the preceding steps, once created, load balancing begins.
 
 ## Next steps
 
@@ -91,3 +115,6 @@ Learn how to configure SSL Offloading and take the costly SSL decryption off you
 <!--Image references-->
 
 [scenario]: ./media/application-gateway-create-gateway-cli/scenario.png
+[1]: ./media/application-gateway-create-gateway-cli/figure1.png
+[2]: ./media/application-gateway-create-gateway-cli/figure2.png
+[3]: ./media/application-gateway-create-gateway-cli/figure3.png

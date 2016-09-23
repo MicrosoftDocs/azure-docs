@@ -92,7 +92,7 @@ You can similarly read service properties, which are only stored in the device t
 
 ### Deep Read
 
-A deep read starts a device job to read the value of the requested property from the physical device. Device jobs were introduced in the [Overview of Azure IoT device management][lnk-dm-overview] and are described in detail in [Tutorial: How to use device jobs to update device firmware][lnk-dm-jobs]. The deep read will give you a more up-to-date value for the device property, because the freshness is not limited by the notify interval. The job sends a message to the physical device and updates the device twin with the most recent value for only the specified property. It does not refresh the whole device twin.
+A deep read starts a device job to read the value of the requested property from the physical device. Device jobs were introduced in the [Overview of Azure IoT device management][lnk-dm-overview]. The deep read will give you a more up-to-date value for the device property, because the freshness is not limited by the notify interval. The job sends a message to the physical device and updates the device twin with the most recent value for only the specified property. It does not refresh the whole device twin.
 
 ```
 scheduleDevicePropertyRead(jobId, deviceIds, propertyNames, done)
@@ -102,7 +102,7 @@ You cannot do a deep read on service properties or tags because they are not syn
 
 ### Deep Write
 
-If you want to change a writeable device property, you can do this with a deep write which starts a device job to write the value on the physical device. Not all the device properties are writeable. For a full list, see Appendix A of [Introducing the Azure IoT Hub device management client library][lnk-dm-library].
+If you want to change a writeable device property, you can do this with a deep write which starts a device job to write the value on the physical device. Not all the device properties are writeable.
 
 The job sends a message to the physical device to update the specified property. The device twin is not immediately updated when the job completes. You must wait until the next notify interval. Once the synchronization occurs, you can see the change in the device twin with a shallow read.
 
@@ -121,23 +121,19 @@ int level = get_batterylevel();  // call to platform specific code 
 set_device_batterylevel(0, level);
 ```
 
-Instead of using the set method, you could implement a callback. For additional information on this option, see [Introducing the Azure IoT Hub device management library][lnk-dm-library].
+Instead of using the set method, you could implement a callback.
 
 ## Next steps
 
 To learn more about the Azure IoT Hub device management features you can go through the tutorials:
 
-- [How to find device twins using queries][lnk-tutorial-queries]
-- [How to use device jobs to update device firmware][lnk-tutorial-jobs]
 - [Enable managed devices behind an IoT gateway][lnk-dm-gateway]
-- [Introducing the Azure IoT Hub device management client library][lnk-library-c]
 - The device management client libraries provides an end to end sample using an [Intel Edison device][lnk-edison].
 
 To further explore the capabilities of IoT Hub, see:
 
 - [Developer guide][lnk-devguide]
 - [Simulating a device with the Gateway SDK][lnk-gateway]
-- [Using the Azure Portal to manage IoT Hub][lnk-portal]
 
 <!-- images and links -->
 [img-twin]: media/iot-hub-device-management-device-twin/image1.png
@@ -145,17 +141,10 @@ To further explore the capabilities of IoT Hub, see:
 
 [lnk-lwm2m]: http://technical.openmobilealliance.org/Technical/technical-information/release-program/current-releases/oma-lightweightm2m-v1-0
 [lnk-dm-overview]: iot-hub-device-management-overview.md
-[lnk-dm-library]: iot-hub-device-management-library.md
 [lnk-get-started]: iot-hub-device-management-get-started.md
-[lnk-tutorial-queries]: iot-hub-device-management-device-query.md
-[lnk-dm-jobs]: iot-hub-device-management-device-jobs.md
 [lnk-edison]: https://github.com/Azure/azure-iot-sdks/tree/dmpreview/c/iotdm_client/samples/iotdm_edison_sample
 
-[lnk-tutorial-queries]: iot-hub-device-management-device-query.md
-[lnk-tutorial-jobs]: iot-hub-device-management-device-jobs.md
 [lnk-dm-gateway]: iot-hub-gateway-device-management.md
-[lnk-library-c]: iot-hub-device-management-library.md
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-[lnk-portal]: iot-hub-manage-through-portal.md

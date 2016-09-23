@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="What does Azure Multi-Factor Authentication mean for me?" 
-	description="This is the Azure Multi-Factor authentication page that will assist your end users with getting going with Azure Multi-Factor Authentication." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+<properties
+	pageTitle="What does Azure Multi-Factor Authentication mean for me?"
+	description="This is the Azure Multi-Factor authentication page that will assist your end users with getting going with Azure Multi-Factor Authentication."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/22/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/22/2016"
+	ms.author="kgremban"/>
 
 
 
@@ -22,7 +22,7 @@
 
 So, you have gotten an email from someone in IT or perhaps even your boss saying that they have added additional security verification to your account.  So what does this mean?
 
-Not to worry.  That simply means that your organization wants to take some extra steps to ensure that you are who you say you are when signing in to things such as Office 365.  This is done by using a combination of your user name and password and a phone.  Either your office phone or a smart phone. 
+Not to worry.  That simply means that your organization wants to take some extra steps to ensure that you are who you say you are when signing in to things such as Office 365.  This is done by using a combination of your user name and password and a phone.  Either your office phone or a smart phone.
 
 So the first thing you are going to need to do is complete the enrollment process.  But before we start that process there are a few things to decide.
 
@@ -40,11 +40,9 @@ Now that you have decided on your verification method, it's time to enroll.  Use
 Select one of the topics below to get started.
 
 Topic|Description
-:------------- | :------------- | 
+:------------- | :------------- |
 [Setup Experience](multi-factor-authentication-end-user-first-time.md)|  Describes the process of setting up multi-factor authentication for the first time.
 [Sign-in experience](multi-factor-authentication-end-user-signin.md)|Shows what you can expect from signing in using the various methods such as phone or app.
 [Changing your settings](multi-factor-authentication-end-user-manage-settings.md)|Shows you how you can change your settings such as phone number or preferred enrollment method.
 [Help with app passwords](multi-factor-authentication-end-user-app-passwords.md)| Find information on creating and using app passwords.
 [Use the mobile app](multi-factor-authentication-microsoft-authenticator.md)|The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073).
-
- 

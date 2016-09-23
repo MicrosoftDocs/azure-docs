@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2016"
+   ms.date="09/20/2016"
    ms.author="dkshir;chackdan"/>
 
 
@@ -32,7 +32,7 @@ After you have [created your standalone Service Fabric cluster on Windows Server
 6. Run *AddNode.ps1* Powershell with the parameters describing the new node to add. The example below adds a new node called VM5, with type NodeType0, IP address 182.17.34.52 into UD1 and FD1. The *ExistingClusterConnectionEndPoint* is a connection endpoint for a node already in the existing cluster. For this endpoint, you can choose the IP address of *any* node in the cluster.
 
 ```
-.\AddNode.ps1 -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClusterConnectionEndPoint 182.17.34.50:19000 -UpgradeDomain UD1 -FaultDomain FD1
+.\AddNode.ps1 -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClusterConnectionEndPoint 182.17.34.50:19000 -UpgradeDomain UD1 -FaultDomain FD1 -AcceptEULA true
 ```
 
 ## Remove nodes from your cluster
@@ -43,7 +43,7 @@ After you have [created your standalone Service Fabric cluster on Windows Server
 4. Run *RemoveNode.ps1* Powershell. The example below removes the current node from the cluster. The *ExistingClusterConnectionEndPoint* is a connection endpoint for a node already in the existing cluster. For this endpoint, you can choose the IP address of *any* node in the cluster.
 
 ```
-.\RemoveNode.ps1 -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -ExistingClusterConnectionEndPoint 182.17.34.50:19000
+.\RemoveNode.ps1 -ExistingClusterConnectionEndPoint 182.17.34.50:19000
 ```
 
 

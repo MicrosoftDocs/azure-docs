@@ -20,15 +20,25 @@
 
 ## Overview
 
-This article describes the options for securing your IoT hub. IoT Hub uses *permissions* to grant access to each IoT hub's endpoints. Permissions limit the access to an IoT hub based on functionality.
+This article describes the options for securing your IoT hub. IoT Hub uses *permissions* to grant access to each IoT hub endpoints. Permissions limit the access to an IoT hub based on functionality.
+
+This article describes:
+
+- The different permissions that you can grant to a device or back-end app to access your IoT hub.
+- The authentication process and the tokens it uses to verify permissions.
+- How to scope credentials to limit access to specific resources.
+- IoT Hub support for X.509 certificates.
+- Custom device authentication mechanisms that use existing device identity registries or authentication schemes.
 
 ### When to use
 
+You must have appropriate permissions to access any of the IoT Hub endpoints. For example, a device must include a token containing security credentials along with every message it sends to IoT Hub.
+
 ## Access control and permissions
 
-You can grant permissions in the following ways:
+You can grant [permissions](#iot-hub-permissions) in the following ways:
 
-* **Hub-level shared access policies**. Shared access policies can grant any combination of the permissions listed in the previous section. You can define policies in the [Azure portal][lnk-management-portal], or programmatically by using the [Azure IoT Hub Resource provider APIs][lnk-resource-provider-apis]. A newly created IoT hub has the following default policies:
+* **Hub-level shared access policies**. Shared access policies can grant any combination of [permissions](#iot-hub-permissions). You can define policies in the [Azure portal][lnk-management-portal], or programmatically by using the [Azure IoT Hub Resource provider APIs][lnk-resource-provider-apis]. A newly created IoT hub has the following default policies:
 
     - **iothubowner**: Policy with all permissions.
     - **service**: Policy with ServiceConnect permission.
@@ -45,8 +55,6 @@ For example, in a typical IoT solution:
 - The runtime device business logic component uses the *service* policy.
 - Individual devices connect using credentials stored in the IoT hub's identity registry.
 
-For guidance on IoT Hub security topics, see the security section in [Design your solution][lnk-custom-auth].
-
 ## Authentication
 
 Azure IoT Hub grants access to endpoints by verifying a token against the shared access policies and device identity registry security credentials.
@@ -61,9 +69,7 @@ For more information about how to construct and use security tokens, see [IoT Hu
 
 Each supported protocol, such as MQTT, AMQP, and HTTP, transports tokens in different ways.
 
-
-HTTP implements authentication by including a valid token in the **Authorization** request header.
-
+When using MQTT, the CONNECT packet has the deviceId as the ClientId, {iothubhostname}/{deviceId} in the Username field, and a SAS token in the Password field. {iothubhostname} should be the full CName of the IoT hub (for example, contoso.azure-devices.net).
 
 When using [AMQP][lnk-amqp], IoT Hub supports [SASL PLAIN][lnk-sasl-plain] and [AMQP Claims-Based-Security][lnk-cbs].
 
@@ -74,9 +80,9 @@ For SASL PLAIN, the **username** can be:
 * `{policyName}@sas.root.{iothubName}` if using hub-level tokens.
 * `{deviceId}` if using device-scoped tokens.
 
-In both cases, the password field contains the token, as described in the [IoT Hub security tokens][lnk-sas-tokens] article.
+In both cases, the password field contains the token, as described in [IoT Hub security tokens][lnk-sas-tokens].
 
-When using MQTT, the CONNECT packet has the deviceId as the ClientId, {iothubhostname}/{deviceId} in the Username field, and a SAS token in the Password field. {iothubhostname} should be the full CName of the IoT hub (for example, contoso.azure-devices.net).
+HTTP implements authentication by including a valid token in the **Authorization** request header.
 
 #### Example
 
@@ -89,14 +95,14 @@ Password (Generate SAS with Device Explorer): `SharedAccessSignature sr=iothubna
 
 ### Special considerations for SASL PLAIN
 
-When using SASL PLAIN, a client connecting to an IoT hub can use a single token for each TCP connection. When the token expires, the TCP connection disconnects from the service and triggers a reconnect. This behavior, while not problematic for an application back-end component, is very damaging for a device-side application for the following reasons:
+When using SASL PLAIN with AMQP, a client connecting to an IoT hub can use a single token for each TCP connection. When the token expires, the TCP connection disconnects from the service and triggers a reconnect. This behavior, while not problematic for an application back-end component, is very damaging for a device-side application for the following reasons:
 
 *  Gateways usually connect on behalf of many devices. When using SASL PLAIN, they have to create a distinct TCP connection for each device connecting to an IoT hub. This scenario considerably increases the consumption of power and networking resources, and increases the latency of each device connection.
 * Resource-constrained devices are adversely affected by the increased use of resources to reconnect after each token expiration.
 
 ## Scope hub-level credentials
 
-You can scope hub-level security policies by creating tokens with a restricted resource URI. For example, the endpoint to send device-to-cloud messages from a device is **/devices/{deviceId}/messages/events**. You can also use a hub-level shared access policy with **DeviceConnect** permissions to sign a token whose resourceURI is **/devices/{deviceId}**. This approach creates a token that is only usable to send devices on behalf of device **deviceId**.
+You can scope hub-level security policies by creating tokens with a restricted resource URI. For example, the endpoint to send device-to-cloud messages from a device is **/devices/{deviceId}/messages/events**. You can also use a hub-level shared access policy with **DeviceConnect** permissions to sign a token whose resourceURI is **/devices/{deviceId}**. This approach creates a token that is only usable to send messages on behalf of device **deviceId**.
 
 This mechanism is similar to the [Event Hubs publisher policy][lnk-event-hubs-publisher-policy], and enables you to implement custom authentication methods.
 
@@ -127,7 +133,7 @@ These are the expected values:
 
 **Note on prefix**: The URI prefix is computed by segment and not by character. For example `/a/b` is a prefix for `/a/b/c` but not for `/a/bc`.
 
-This is a Node function that computes the token from the inputs `resourceUri, signingKey, policyName, expiresInMins`. The next sections will detail how to initialize the different inputs for the different token use cases.
+The following is a Node.js function that computes the token from the inputs `resourceUri, signingKey, policyName, expiresInMins`. The next sections detail how to initialize the different inputs for the different token use cases.
 
     var crypto = require('crypto');
 
@@ -154,7 +160,7 @@ This is a Node function that computes the token from the inputs `resourceUri, si
         return token;
     };
  
- For comparison purposes, the equivalent Python code is:
+ As a comparison, the equivalent Python code is:
  
     from base64 import b64encode, b64decode
     from hashlib import sha256
@@ -177,9 +183,9 @@ This is a Node function that computes the token from the inputs `resourceUri, si
 
 ### Use SAS tokens in a device client
 
-There are two ways to obtain **DeviceConnect** permissions with IoT Hub with security tokens: using a device identity key, or a shared access policy key.
+There are two ways to obtain **DeviceConnect** permissions with IoT Hub with security tokens: use a [symmetric device key from the device identity registry](#use-a-symmetric-key-in-the-identity-registry), or use a [shared access policy key](#use-a-shared-access-policy).
 
-Moreover, it is important to note that all functionality accessible from devices is exposed by design on endpoints with prefix `/devices/{deviceId}`.
+Remember that all functionality accessible from devices is exposed by design on endpoints with prefix `/devices/{deviceId}`.
 
 > [AZURE.IMPORTANT] The only way that IoT Hub authenticates a specific device is using the device identity symmetric key. In cases when a shared access policy is used to access device functionality, the solution must consider the component issuing the security token as a trusted subcomponent.
 
@@ -225,7 +231,7 @@ The two main scenarios for using shared access policies to access device functio
 
 Since the shared access policy can potentially grant access to connect as any device, it is important to use the correct resource URI when creating security tokens. This is especially important for token services, which have to scope the token to a specific device using the resource URI. This point is less relevant for protocol gateways as they are already mediating traffic for all devices.
 
-As an example, a token service using the precreated shared access policy called **device** would create a token with the following parameters:
+As an example, a token service using the pre-created shared access policy called **device** would create a token with the following parameters:
 
 * resource URI: `{IoT hub name}.azure-devices.net/devices/{device id}`,
 * signing key: one of the keys of the `device` policy,
@@ -259,7 +265,7 @@ These are the service functions exposed on the endpoints:
 | `{iot hub host name}/servicebound/feedback` | Receive feedback for cloud-to-device messages. |
 | `{iot hub host name}/devicebound` | Send cloud-to-device messages. |
 
-As an example, a service generating using the precreated shared access policy called **registryRead** would create a token with the following parameters:
+As an example, a service generating using the pre-created shared access policy called **registryRead** would create a token with the following parameters:
 
 * resource URI: `{IoT hub name}.azure-devices.net/devices`,
 * signing key: one of the keys of the `registryRead` policy,

@@ -179,8 +179,6 @@ Leave the simulated devices and the device management app running as you proceed
 
 To continue getting started with IoT Hub, see [Getting started with the Gateway SDK][lnk-gateway-SDK].
 
-To learn more about the Azure IoT Hub device management features, see the [Explore Azure IoT Hub device management using the sample UI][lnk-sample-ui] tutorial.
-
 <!-- images and links -->
 [img-new-hub]: media/iot-hub-device-management-get-started/image1.png
 [img-configure-hub]: media/iot-hub-device-management-get-started/image2.png
@@ -194,5 +192,4 @@ To learn more about the Azure IoT Hub device management features, see the [Explo
 [Azure portal]: https://portal.azure.com/
 [Using resource groups to manage your Azure resources]: ../azure-portal/resource-group-portal.md
 [lnk-dm-github]: https://github.com/Azure/azure-iot-device-management
-[lnk-sample-ui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md

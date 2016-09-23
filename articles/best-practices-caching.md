@@ -626,7 +626,7 @@ This is a potentially complex process because you might need to create several V
 
 Each master/subordinate pair should be located close together to minimize latency. However, each set of pairs can be running in different Azure datacenters located in different regions, if you wish to locate cached data close to the applications that are most likely to use it. The page [Running Redis on a CentOS Linux VM in Azure](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx) on the Microsoft website walks through an example that shows how to build and configure a Redis node running as an Azure VM.
 
-Note that if you implement your own Redis cache in this way, you are responsible for monitoring, managing, and securing the service.
+[AZURE.NOTE] Please note that if you implement your own Redis cache in this way, you are responsible for monitoring, managing, and securing the service.
 
 ## Partitioning a Redis cache
 

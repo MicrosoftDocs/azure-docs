@@ -35,7 +35,7 @@ For the complete template, see the [Service Bus namespace template][] on GitHub.
 
 ## What will you deploy?
 
-With this template, you will deploy a Service Bus namespace with a [Basic or Standard](https://azure.microsoft.com/pricing/details/service-bus/) SKU.
+With this template, you will deploy a Service Bus namespace with a [Basic, Standard, or Premium](https://azure.microsoft.com/pricing/details/service-bus/) SKU.
 
 To run the deployment automatically, click the following button:
 
@@ -69,7 +69,8 @@ The name of the Service Bus [SKU](https://azure.microsoft.com/pricing/details/se
     "type": "string", 
     "allowedValues": [ 
         "Basic", 
-        "Standard" 
+        "Standard",
+        "Premium" 
     ], 
     "defaultValue": "Standard", 
     "metadata": { 
@@ -78,9 +79,7 @@ The name of the Service Bus [SKU](https://azure.microsoft.com/pricing/details/se
 
 ```
 
-The template defines the values that are permitted for this parameter (Basic or Standard) and assigns a default value (Standard) if no value is specified.
-
-There is a Standard tier base charge of $10 per month, which enables you to perform up to 12.5 million operations per month at no additional cost. The Basic tier costs $0.05 per million operations.
+The template defines the values that are permitted for this parameter (Basic, Standard, or Premium) and assigns a default value (Standard) if no value is specified.
 
 For more information about Service Bus pricing, please see [Service Bus pricing and billing][].
 
