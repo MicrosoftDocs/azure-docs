@@ -42,6 +42,11 @@ The recommendations for troubleshooting issues that are described in this sectio
      - Service Administrator can increase the quota, though changes will not take effect immediately and commonly take up to an hour to propogate.
      - Service Administrator can create an add-on plan with additional quota that the tenant can then add to the subscription.
  - When using the portal to create VMs on Azure Stack environments with identity in ‘Azure - China’, you will not see VM sizes available to select in the **Size** step of VM deployment and will be unable to continue deployment.
+ - You may a see a deployment failure in the portal, when the VM has actually deployed successfully.
+ - When you delete a plan, offer, or subscription, VMs may not be deleted.
+ - You will see the VM extensions in the marketplace.
+ - You can not deploy a VM from a saved VM image.
+
 
 ## Azure Active Directory
 
