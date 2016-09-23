@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="09/22/2016"
+	ms.date="09/23/2016"
 	ms.author="raprasa"/>
 
 # Automatic online backup and restore with DocumentDB 
@@ -25,7 +25,7 @@ This article starts with a quick recap of the data redundancy and availability i
 
 ## High availability with DocumentDB - a quick recap 
 
-DocumentDB is designed to be [globally distributed](documentdb-distribute-data-globally.md) – it allows you to scale throughput across multiple Azure regions along with policy driven failover and transparent multi-homing APIs. As a database system offering [99.99% availability SLAs](https://azure.microsoft.com/support/legal/sla/documentdb/v1_0/), all the writes in DocumentDB are durably committed by a quorum of replicas within a local data center. Additionally, if your database account is associated with more than one Azure region, your writes are replicated across other regions as well. To scale your throughput and access data at low latencies, you can have as many read regions associated with your database account as you like. In each read region, the (replicated) data is durably persisted across a replica set.  
+DocumentDB is designed to be [globally distributed](documentdb-distribute-data-globally.md) – it allows you to scale throughput across multiple Azure regions along with policy driven failover and transparent multi-homing APIs. As a database system offering [99.99% availability SLAs](https://azure.microsoft.com/support/legal/sla/documentdb/v1_0/), all the writes in DocumentDB are durably committed to local disks by a quorum of replicas within a local data center before acknowledging to the client. Note that the high availability of DocumentDB relies on local storage and does not depend on any external storage technologies. Additionally, if your database account is associated with more than one Azure region, your writes are replicated across other regions as well. To scale your throughput and access data at low latencies, you can have as many read regions associated with your database account as you like. In each read region, the (replicated) data is durably persisted across a replica set.  
 
 As illustrated in the following diagram, a single DocumentDB collection is [horizontally partitioned](documentdb-partition-data.md). A “partition” is denoted by a circle in the following diagram, and each partition is made highly available via a replica set. This is the local distribution within a single Azure region (denoted by the X axis). Further, each partition (with its corresponding replica set) is then globally distributed across multiple regions associated with your database account (for example, in this illustration the three regions – East US, West US and Central India). The “partition set” is a globally distributed entity comprising of multiple copies of your data in each region (denoted by the Y axis). You can assign priority to the regions associated with your database account and DocumentDB will transparently failover to the next region in case of disaster. You can also manually simulate failover to test the end-to-end availability of your application.  
 
@@ -36,7 +36,7 @@ The following image illustrates the high degree of redundancy with DocumentDB.
 
 ![High degree of redundancy with DocumentDB](./media/documentdb-online-backup-and-restore/azure-documentdb-nosql-database-global-distribution.png)
 
-## Full backups for “Oops I deleted my collection or database” scenario
+## Full, automatic, and online backups for “Oops I deleted my collection or database” scenario
 
 With DocumentDB, not only your data, but the backups of your data are also made highly redundant and resilient to regional disasters. These automated backups are currently taken approximately every four hours. 
 
@@ -51,14 +51,14 @@ The following image illustrates periodic full backups of all DocumentDB entities
 
 ## Retention period for a given snapshot
 
-DocumentDB takes snapshots of your data approximately every four hours, and each snapshot for an active account is maintained for approximately 8 hours. If a collection or account is deleted, DocumentDB stores the last backup for 90 days.
+As described above, we periodically take snapshots of your data and per our compliance regulations, we retain the latest snapshot up to 90 days before it eventually gets purged. If a collection or account is deleted, DocumentDB stores the last backup for 90 days.
 
 ## Restore database from the online backup
 
-In case you accidentally delete your data, you can file a support ticket or call support to restore the data from the last automatic backup. For a specific snapshot of your backup to be restored, DocumentDB requires that the data was at least available with us for the duration of the backup cycle for that snapshot.
+In case you accidentally delete your data, you can [file a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) or [call support](https://azure.microsoft.com/support/options/) to restore the data from the last automatic backup. For a specific snapshot of your backup to be restored, DocumentDB requires that the data was at least available with us for the duration of the backup cycle for that snapshot.
 
 ## Next steps
 
-To replicate your data NoSQL database in multiple data centers, see [globally distributed](documentdb-distribute-data-globally.md). 
+To replicate your data NoSQL database in multiple data centers, see [distribute your data globally with DocumentDB](documentdb-distribute-data-globally.md). 
 
 To file contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
