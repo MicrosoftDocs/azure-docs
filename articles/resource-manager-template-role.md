@@ -50,7 +50,8 @@ The following tables describe the values you need to set in the schema.
 | properties | Object<br />Required<br />[properties object](#properties) | An object that identifies the role definition, princial, and scope. |  
 
 <a id="properties" />
-## Properties object
+
+### Properties object
 
 | Name | Value1 | Description |
 | ---- | ---- | ---- |
