@@ -16,7 +16,7 @@
  ms.date="09/30/2016" 
  ms.author="elioda"/>
 
-# Use device twins to synchronize state and configurations
+# Understand device twins
 
 ## Overview
 
