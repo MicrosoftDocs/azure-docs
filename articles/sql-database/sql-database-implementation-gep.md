@@ -18,7 +18,7 @@
 
 # Azure gives GEP global reach and greater efficiency
 
-![GEP Logo](./media/sql-database-case-study-gep/geplogo.png)
+![GEP Logo](./media/sql-database-implementation-gep/geplogo.png)
 
 GEP delivers software and services that enable procurement leaders around the world to maximize their impact on their businesses’ operations, strategies, and financial performances. In addition to consulting and managed services, the company offers SMART by GEP®, a cloud-based, comprehensive procurement-software platform. However, GEP ran into limitations trying to support solutions like SMART by GEP with its own on-premises datacenters: the investments needed were steep and regulatory requirements in other countries would have made the necessary investments more daunting still. By moving to the cloud, GEP has freed up IT resources, allowing it to worry less about IT operations and to focus more on developing new sources of value for its customers across the globe.
 
@@ -48,7 +48,7 @@ By taking advantage of Azure datacenters across the globe, GEP can easily extend
 
 GEP built SMART by GEP from the ground up on Azure. A critical motivation for GEP was the greater scalability, less downtime, and reduced maintenance costs that GEP could experience with Azure SQL Database compared to what GEP could achieve on-premises. However, once moved to the cloud, GEP discovered new development opportunities in the cloud, like rapid prototyping and lean engineering to better respond to customer needs. Developing in Azure let GEP do away with the software licensing headaches that its developers could run into on-premises. The core of SMART by GEP is Azure SQL Database, though GEP uses many other Azure services to easily and rapidly continue to improve SMART by GEP.
 
-![Figure 1](./media/sql-database-case-study-gep/figure1.png)
+![SMART by GEP Architecture](./media/sql-database-implementation-gep/figure1.png)
 Figure 1. SMART by GEP architecture
 
 ## Structured data
@@ -107,7 +107,3 @@ Since migrating from on-premises datacenters to Azure, and building SMART by GEP
 - Huzaifa Matawala, Associate Director—Architect, GEP
 - Sathyan Narasingh, Engineering Manager, GEP
 - Deepa Velukutty, Database Architect, GEP
-
-![Smart Logo](./media/sql-database-case-study-gep/smartbygeplogo.png)
-
-![GEP Logo](./media/sql-database-case-study-gep/geplogo.png)
