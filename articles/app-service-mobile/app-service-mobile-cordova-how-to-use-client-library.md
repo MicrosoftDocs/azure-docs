@@ -106,7 +106,7 @@ The settings are saved at this point.  Do not close the browser window until the
 Also add these loopback URLs to the CORS settings for your App Service:
 
 1. Log in to the [Azure portal]
-2. Select **All resources** or **App Services** then click on the name of your Mobile App.
+2. Select **All resources** or **App Services** then click the name of your Mobile App.
 3. The Settings blade opens automatically.  If it doesn't, click **All Settings**.
 4. Click **CORS** under the API menu.
 5. Enter the URL that you wish to add in the box provided and press Enter.
