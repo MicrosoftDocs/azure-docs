@@ -55,10 +55,10 @@ As described above, we periodically take snapshots of your data and per our comp
 
 ## Restore database from the online backup
 
-In case you accidentally delete your data, you can [file a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) or [call support](https://azure.microsoft.com/support/options/) to restore the data from the last automatic backup. For a specific snapshot of your backup to be restored, DocumentDB requires that the data was at least available with us for the duration of the backup cycle for that snapshot.
+In case you accidentally delete your data, you can [file a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) or [call Azure support](https://azure.microsoft.com/support/options/) to restore the data from the last automatic backup. For a specific snapshot of your backup to be restored, DocumentDB requires that the data was at least available with us for the duration of the backup cycle for that snapshot.
 
 ## Next steps
 
-To replicate your data NoSQL database in multiple data centers, see [distribute your data globally with DocumentDB](documentdb-distribute-data-globally.md). 
+To replicate your NoSQL database in multiple data centers, see [distribute your data globally with DocumentDB](documentdb-distribute-data-globally.md). 
 
 To file contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
