@@ -25,7 +25,7 @@ An Azure Service Fabric cluster is a resource that you own, but is partly manage
 
 You can set your cluster to receive automatic fabric upgrades, when Microsoft releases a new version or choose to select a supported fabric version you want your cluster to be on.
 
-You do this by setting the "upgradeMode" cluster configuration on the portal or using ARM at the time of creation or later on a live cluster 
+You do this by setting the "upgradeMode" cluster configuration on the portal or using Resource Manager at the time of creation or later on a live cluster 
 
 >[AZURE.NOTE] Make sure to keep your cluster running a supported fabric version always. As and when we announce the release of a new version of service fabric, the previous version is marked for end of life after a minimum of 60 days from that date. The new releases are announced [on the service fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric/ ). The new release is available to choose then. 
 
