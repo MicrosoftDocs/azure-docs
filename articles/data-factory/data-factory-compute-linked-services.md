@@ -24,11 +24,11 @@ The following table provides a list of compute environments supported by Data Fa
 
 | Compute environment | activities |
 | ------------------- | -------- | 
-| [On-demand HDInsight cluster](#azure-hdinsight-on-demand-linked-service) or [your own HDInsight cluster](#azure-hdinsight-linked-service) | [DotNet](../articles/data-factory/data-factory-use-custom-activities.md), [Hive](../articles/data-factory/data-factory-hive-activity.md), [Pig](../articles/data-factory/data-factory-pig-activity.md), [MapReduce](../articles/data-factory/data-factory-map-reduce.md), [Hadoop Streaming](../articles/data-factory/data-factory-hadoop-streaming-activity.md) | 
-| [Azure Batch](#azure-batch-linked-service) | [DotNet](../articles/data-factory/data-factory-use-custom-activities.md) |  
-| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning activities: Batch Execution and Update Resource](../articles/data-factory/data-factory-azure-ml-batch-execution-activity.md) |
-| [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](../articles/data-factory/data-factory-usql-activity.md)
-[Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Stored Procedure](../articles/data-factory/data-factory-stored-proc-activity.md)
+| [On-demand HDInsight cluster](#azure-hdinsight-on-demand-linked-service) or [your own HDInsight cluster](#azure-hdinsight-linked-service) | [DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) | 
+| [Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |  
+| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning activities: Batch Execution and Update Resource](data-factory-azure-ml-batch-execution-activity.md) |
+| [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](data-factory-usql-activity.md)
+[Azure SQL](#azure-sql-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Stored Procedure](data-factory-stored-proc-activity.md)
 
 ## On-demand compute environment
 
