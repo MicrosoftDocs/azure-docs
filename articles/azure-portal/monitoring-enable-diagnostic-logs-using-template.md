@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2016"
+	ms.date="09/26/2016"
 	ms.author="johnkem"/>
 
 # Automatically enable Diagnostic Settings at resource creation using a Resource Manager template
-In this article we show how you can use an [Azure Resource Manager template](../resource-group-authoring-templates.md) to configure Diagnostic Settings on a resource when it is created. This enables you to automatically start streaming your Diagnostic Logs and metrics to Event Hubs or archiving them in a Storage Account when a resource is created.
+In this article we show how you can use an [Azure Resource Manager template](../resource-group-authoring-templates.md) to configure Diagnostic Settings on a resource when it is created. This enables you to automatically start streaming your Diagnostic Logs and metrics to Event Hubs, archiving them in a Storage Account, or sending them to Log Analytics when a resource is created.
 
 The method for enabling Diagnostic Logs using a Resource Manager template depends on the resource type.
 
@@ -36,9 +36,9 @@ Below we give an example of the template JSON file you need to generate for non-
 ## Non-Compute resource template
 For non-Compute resources, you will need to do two things:
 
-1. Add parameters to the parameters blob for the storage account name and service bus rule id (enabling archival of Diagnostic Logs in a storage account and/or streaming of logs to Event Hubs).
+1. Add parameters to the parameters blob for the storage account name, service bus rule ID, and/or OMS Log Analytics workspace ID (enabling archival of Diagnostic Logs in a storage account, streaming of logs to Event Hubs, and/or sending logs to Log Analytics).
 
-    ```
+    ```json
     "storageAccountName": {
       "type": "string",
       "metadata": {
@@ -50,11 +50,17 @@ For non-Compute resources, you will need to do two things:
       "metadata": {
         "description": "Service Bus Rule Id for the Service Bus Namespace in which the Event Hub should be created or streamed to."
       }
+    },
+    "workspaceId":{
+      "type": "string",
+      "metadata": {
+        "description": "Log Analytics workspace ID for the Log Analytics workspace to which logs will be sent."
+      }
     }
     ```
 2. In the resources array of the resource for which you want to enable Diagnostic Logs, add a resource of type `[resource namespace]/providers/diagnosticSettings`.
 
-    ```
+    ```json
     "resources": [
       {
         "type": "providers/diagnosticSettings",
@@ -66,6 +72,7 @@ For non-Compute resources, you will need to do two things:
         "properties": {
           "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
           "serviceBusRuleId": "[parameters('serviceBusRuleId')]",
+          "workspaceId": "[parameters('workspaceId')]",
           "logs": [ 
             {
               "category": "/* log category name */",
@@ -85,76 +92,85 @@ The properties blob for the Diagnostic Setting follows [the format described in 
 
 Here is a full example that creates a Network Security Group and turns on streaming to Event Hubs and storage in a storage account.
 
-```
+```json
+
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "nsgName": {
-            "type": "string",
-			"metadata": {
-				"description": "Name of the NSG that will be created."
-			}
-        },
-		"storageAccountName": {
-			"type": "string",
-			"metadata": {
-				"description":"Name of the Storage Account in which Diagnostic Logs should be saved."
-			}
-		},
-		"serviceBusRuleId": {
-			"type": "string",
-			"metadata": {
-				"description":"Service Bus Rule Id for the Service Bus Namespace in which the Event Hub should be created or streamed to."
-			}
-		}
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "nsgName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the NSG that will be created."
+      }
     },
-    "variables": {},
-    "resources": [
+    "storageAccountName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Storage Account in which Diagnostic Logs should be saved."
+      }
+    },
+    "serviceBusRuleId": {
+      "type": "string",
+      "metadata": {
+        "description": "Service Bus Rule Id for the Service Bus Namespace in which the Event Hub should be created or streamed to."
+      }
+    },
+    "workspaceId": {
+      "type": "string",
+      "metadata": {
+        "description": "Log Analytics workspace ID for the Log Analytics workspace to which logs will be sent."
+      }
+    }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('nsgName')]",
+      "apiVersion": "2016-03-30",
+      "location": "westus",
+      "properties": {
+        "securityRules": []
+      },
+      "resources": [
         {
-            "type": "Microsoft.Network/networkSecurityGroups",
-            "name": "[parameters('nsgName')]",
-            "apiVersion": "2016-03-30",
-            "location": "westus",
-            "properties": {
-                "securityRules": []
-            },
-            "resources": [
-				{
-					"type": "providers/diagnosticSettings",
-					"name": "Microsoft.Insights/service",
-					"dependsOn": [
-						"[resourceId('Microsoft.Network/networkSecurityGroups', parameters('nsgName'))]"
-					],
-					"apiVersion": "2015-07-01",
-					"properties": {
-						"storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
-                        "serviceBusRuleId": "[parameters('serviceBusRuleId')]",
-						"logs": [
-							{
-								"category": "NetworkSecurityGroupEvent",
-								"enabled": true,
-								"retentionPolicy": {
-									"days": 0,
-									"enabled": false
-								}
-							},
-                            {
-								"category": "NetworkSecurityGroupRuleCounter",
-								"enabled": true,
-								"retentionPolicy": {
-									"days": 0,
-									"enabled": false
-								}
-							}
-						]
-					}
-				}
-			],
-            "dependsOn": []
+          "type": "providers/diagnosticSettings",
+          "name": "Microsoft.Insights/service",
+          "dependsOn": [
+            "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('nsgName'))]"
+          ],
+          "apiVersion": "2015-07-01",
+          "properties": {
+            "storageAccountId": "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]",
+            "serviceBusRuleId": "[parameters('serviceBusRuleId')]",
+            "workspaceId": "[parameters('workspaceId')]",
+            "logs": [
+              {
+                "category": "NetworkSecurityGroupEvent",
+                "enabled": true,
+                "retentionPolicy": {
+                  "days": 0,
+                  "enabled": false
+                }
+              },
+              {
+                "category": "NetworkSecurityGroupRuleCounter",
+                "enabled": true,
+                "retentionPolicy": {
+                  "days": 0,
+                  "enabled": false
+                }
+              }
+            ]
+          }
         }
-    ]
+      ],
+      "dependsOn": []
+    }
+  ]
 }
+
 ```
 
 ## Compute resource template
