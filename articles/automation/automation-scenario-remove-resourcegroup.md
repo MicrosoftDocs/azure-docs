@@ -24,7 +24,7 @@ This scenario is based on a PowerShell runbook and is designed to remove one or 
 
 ## Getting the scenario
 
-This scenario consists of a PowerShell runbook that you can download from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Remove-ResourceGroup/1.0/DisplayScript) or the [TechNet Script Center](https://gallery.technet.microsoft.com/scriptcenter/Remove-one-or-more-Azure-9c43ef46).  You can also import directly from the [Runbook Gallery](automation-runbook-gallery.md).<br>   
+This scenario consists of a PowerShell runbook that you can download from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Remove-ResourceGroup/1.0/DisplayScript).  Alternatively you can import it directly from the [Runbook Gallery](automation-runbook-gallery.md).<br>   
 
 Runbook | Description|
 ----------|------------|
