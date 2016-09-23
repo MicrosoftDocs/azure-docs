@@ -18,8 +18,8 @@
 
 # Azure Monitor partner integrations
 
-|Partners||||
-|-----------|-----------|-----------|-----------|
+|Partners|||
+|-----------|-----------|-----------|
 | [![Partner Logo][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] | [![Partner Logo][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] | [![Partner Logo][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
 | [![Partner Logo][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] | [![Partner Logo][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] | [![Partner Logo][datadog-logo]<br/>**DataDog**][datadog-anchor] |
 | [![Partner Logo][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] | [![Partner Logo][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] | [![Partner Logo][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] |
@@ -36,7 +36,7 @@ AppDynamics Application Performance Management (APM) enables application owners 
 [Go to the documentation.][appdynamics-doc]
 
 ## Atlassian JIRA
-Atlassian is hard at work on integration with Azure Monitor! Come back soon for more information.
+Coming soon!
 
 ## CloudMonix
 CloudMonix offers monitoring, automation and self-healing services for Microsoft Azure platform.
