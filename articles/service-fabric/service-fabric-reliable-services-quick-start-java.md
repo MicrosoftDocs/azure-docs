@@ -16,22 +16,22 @@
    ms.date="09/26/2016"
    ms.author="vturecek"/>
 
-# Getting started with Reliable Actors
+# Getting started with Reliable Services
 This article explains the basics of Azure Service Fabric Reliable Services and walks you through creating and deploying a simple Reliable Service application written in Java.
 
 ## Installation and setup
 Before you start, make sure that you have the Service Fabric development environment for Linux set up. See detailed instructions on [how to set up the development environment](service-fabric-get-started.md).
 
 ## Basic concepts
-To get started with Reliable Services, you need to understand a few basic concepts:
+To get started with Reliable Services, you only need to understand a few basic concepts:
 
- - **Service type**: This is your service implementation. It is the class you write that extends `StatelessService`. 
- 
- - **Service registration**: The service type is registered with Service Fabric and has a name and a version. 
+ - **Service type**: This is your service implementation. It is defined by the class you write that extends `StatelessService` and any other code or dependencies used therein, along with a name and a version number.
 
- - **Service instance**: To run your service, you create instances of your service type, much like you create object instances of a class type. Service instances are in fact object instantiations of your service class that you write. 
+ - **Named service instance**: To run your service, you create named instances of your service type, much like you create object instances of a class type. Service instances are in fact object instantiations of your service class that you write. 
 
- - **Service host**: The service instances you create need to run somewhere. The service host is a host process where instances of your service can run.
+ - **Service host**: The named service instances you create need to run inside a host. The service host is just a process where instances of your service can run.
+
+ - **Service registration**: Registration brings everything together. The service type must be registered with the Service Fabric runtime in a service host to allow Service Fabric to create instances of it to run.  
 
 ## Create a stateless service
 
@@ -66,12 +66,11 @@ HelloWorldApplication/
 ├── install.sh
 ├── settings.gradle
 └── uninstall.sh
-
 ```
 
 ## Implement the service
 
-Open **HelloWorldApplication/HelloWorld/src/statelessservice/HelloWorldService.java**. In Service Fabric, a service can run any business logic. The service API provides two entry points for your code:
+Open **HelloWorldApplication/HelloWorld/src/statelessservice/HelloWorldService.java**. This class defines the service type, and can run any code. The service API provides two entry points for your code:
 
  - An open-ended entry point method, called `runAsync()`, where you can begin executing any workloads, including long-running compute workloads.
 
@@ -95,7 +94,6 @@ In this tutorial, we will focus on the `runAsync()` entry point method. This is 
 
 ### RunAsync
 
-
 The platform calls this method when an instance of a service is placed and ready to execute. For a stateless service, that simply means when the service instance is opened. A cancellation token is provided to coordinate when your service instance needs to be closed. In Service Fabric, this open/close cycle of a service instance can occur many times over the lifetime of the service as a whole. This can happen for various reasons, including:
 
 - The system moves your service instances for resource balancing.
@@ -109,7 +107,7 @@ This orchestration is managed by the system to keep your service highly availabl
 
 In this stateless service example, the count is stored in a local variable. But because this is a stateless service, the value that's stored exists only for the current lifecycle of its service instance. When the service moves or restarts, the value is lost.
 
-## Service registration
+### Service registration
 
 Service types must be registered with the Service Fabric runtime. The service type is defined in the `ServiceManifest.xml` and your service class that implements `StatelessService`. Service registration is performed in the process main entry point. In this example, the process main entry point is `HelloWorld.java`:
 
@@ -125,27 +123,20 @@ public static void main(String[] args) throws Exception {
         throw ex;
     }
 }
-
-``` 
+```
 
 ## Run the application
 
-We now return to the *HelloWorld* application. You can now build and deploy your services. When you press **F5**, your application will be built and deployed to your local cluster.
+The Yeoman scaffolding includes a gradle script to build the application and bash scripts to deploy and un-deploy the application. To run the application, first build the application with gradle:
 
-After the services start running, you can view the generated Event Tracing for Windows (ETW) events in a **Diagnostic Events** window. Note that the events displayed are from both the stateless service and the stateful service in the application. You can pause the stream by clicking the **Pause** button. You can then examine the details of a message by expanding that message.
+```bash
+$ gradle
+```
 
->[AZURE.NOTE] Before you run the application, make sure that you have a local development cluster running. Check out the [getting started guide](service-fabric-get-started.md) for information on setting up your local environment.
+This will produce a Service Fabric application package that can be deployed using Service Fabric Azure CLI. The install.sh script contains the necessary Azure CLI commands to deploy the application package. Simply run the install.sh script to deploy:
+
+```bask
+$ ./install.sh
+```
 
 ## Next steps
-
-[Debug your Service Fabric application in Visual Studio](service-fabric-debugging-your-application.md)
-
-[Get started: Service Fabric Web API services with OWIN self-hosting](service-fabric-reliable-services-communication-webapi.md)
-
-[Learn more about Reliable Collections](service-fabric-reliable-services-reliable-collections.md)
-
-[Deploy an application](service-fabric-deploy-remove-applications.md)
-
-[Application upgrade](service-fabric-application-upgrade.md)
-
-[Developer reference for Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)
