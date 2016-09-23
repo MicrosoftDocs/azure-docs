@@ -645,10 +645,10 @@ Make sure to review the *Prerequisites* section in this document before proceedi
 6.You should see the below output confirming Azure Disk Encryption PowerShell installation:
 
     PS C:\Windows\System32\WindowsPowerShell\v1.0> get-command *diskencryption*
-    CommandType  Name                               	  Version    Source                                                             
-    Cmdlet       Get-AzureRmVMDiskEncryptionStatus        1.1.0      AzureRM.Compute                                                    
-    Cmdlet       Disable-AzureRmVMDiskEncryption          1.1.0      AzureRM.Compute                                                    
-    Cmdlet       Set-AzureRmVMDiskEncryptionExtension     1.1.0      AzureRM.Compute                                                     
+    CommandType  Name                               	      Source                                                             
+    Cmdlet       Get-AzureRmVMDiskEncryptionStatus            AzureRM.Compute                                                    
+    Cmdlet       Disable-AzureRmVMDiskEncryption              AzureRM.Compute                                                    
+    Cmdlet       Set-AzureRmVMDiskEncryptionExtension         AzureRM.Compute                                                     
 
 ### Preparing a pre-encrypted Windows VHD
 The sections that follow are necessary in order to prepare a pre-encrypted Windows VHD for deployment as an encrypted VHD in Azure IaaS. The steps are used to prepare and boot a fresh windows VM (vhd) on Hyper-V or Azure.
