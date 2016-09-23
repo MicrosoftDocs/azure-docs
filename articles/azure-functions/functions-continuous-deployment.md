@@ -48,7 +48,9 @@ Use the following procedure to configure continuous deployment for an existing f
 1. In your function app in the [Azure Functions portal](https://functions.azure.com/signin), click **Function app settings** > **Configure continuous integration** > **Setup**.
 
 	![Setup continuous deployment](./media/functions-continuous-deployment/setup-deployment.png)
-
+	
+	![Setup continuous deployment](./media/functions-continuous-deployment/setup-deployment-1.png)
+	
 	You can also get to the Deployments blade from the Functions quickstart by clicking **Start from source control**.
 
 2. In the Deployments blade, click **Choose source**, then fill-in the information for your chosen deployment source and click **OK**.
