@@ -4,7 +4,7 @@
    services="data-lake-store,stream-analytics" 
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags

@@ -201,7 +201,7 @@ Each IoT hub exposes the following configuration options for cloud-to-device mes
 | feedback.ttlAsIso8601 | Retention for service-bound feedback messages. | ISO_8601 interval up to 2D (minimum 1 minute). Default: 1 hour. |
 | feedback.maxDeliveryCount | Maximum delivery count for feedback queue. | 1 to 100. Default: 100. |
 
-For more information, see [Manage IoT hubs][lnk-portal].
+For more information, see [Create IoT hubs][lnk-portal].
 
 ## Read device-to-cloud messages
 
@@ -346,7 +346,7 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-management-portal]: https://portal.azure.com
 [lnk-servicebus]: http://azure.microsoft.com/documentation/services/service-bus/
 [lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
-[lnk-portal]: iot-hub-manage-through-portal.md
+[lnk-portal]: iot-hub-create-through-portal.md
 
 [lnk-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-quotas]: iot-hub-devguide-quotas-throttling.md

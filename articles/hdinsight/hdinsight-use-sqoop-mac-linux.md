@@ -2,7 +2,7 @@
 	pageTitle="Use Hadoop Sqoop in Linux-based HDInsight | Microsoft Azure"
 	description="Learn how to run Sqoop import and export between a Linux-based Hadoop on HDInsight cluster and an Azure SQL database."
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"

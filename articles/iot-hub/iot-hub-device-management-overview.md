@@ -64,7 +64,7 @@ Although IoT projects differ greatly, when it comes to managing devices there is
 
 
 
-## Next Steps
+## Next steps
 
 Using the building blocks that Azure IoT Hub provides, developers can create IoT applications which fulfill the unique IoT operator requirements within in each device lifecycle stage.
 To continue learning about the Azure IoT Hub device management features, see the [Get started with Azure IoT Hub device management][lnk-get-started] tutorial.
@@ -73,8 +73,6 @@ To continue learning about the Azure IoT Hub device management features, see the
 [img-dm_principles]: media/iot-hub-device-management-overview/image4.png
 [img-device_lifecycle]: media/iot-hub-device-management-overview/image5.png
 
-[lnk-lwm2m]: http://technical.openmobilealliance.org/Technical/technical-information/release-program/current-releases/oma-lightweightm2m-v1-0
-[lnk-library-c]: iot-hub-device-management-library.md
 [lnk-get-started]: iot-hub-device-management-get-started.md
 [lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
 [lnk-apidocs]: http://azure.github.io/azure-iot-sdks/

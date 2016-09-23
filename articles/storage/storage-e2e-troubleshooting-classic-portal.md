@@ -13,7 +13,7 @@
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="08/03/2016" 
-	ms.author="robinsh"/>
+	ms.author="jahogg;robinsh"/>
 
 # End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer 
 

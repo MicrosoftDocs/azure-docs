@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Azure Mobile Engagement iOS SDK Integration"
+	pageTitle="Azure Mobile Engagement iOS SDK Integration | Microsoft Azure"
 	description="Latest updates and procedures for iOS SDK for Azure Mobile Engagement"
 	services="mobile-engagement"
 	documentationCenter="mobile"
-	authors="MehrdadMzfr"
-	manager="dwrede"
+	authors="piyushjo"
+	manager="erikre"
 	editor="" />
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/19/2016"
-	ms.author="MehrdadMzfr" />
+	ms.date="09/14/2016"
+	ms.author="piyushjo" />
 
 #How to Integrate Engagement on iOS
 
@@ -26,23 +26,28 @@
 
 This procedure describes the simplest way to activate Engagement's Analytics and Monitoring functions in your iOS application.
 
-> [AZURE.IMPORTANT] The Engagement SDK requires iOS6+: the deployment target of your application must be at least iOS 6.
+The Engagement SDK requires iOS6+ and Xcode 8: the deployment target of your application must be at least iOS 6.
+
+> [AZURE.NOTE]
+> If you really depends on XCode 7 then you may use the [iOS Engagement SDK v3.2.4](https://aka.ms/r6oouh). There is a known bug on the Reach module of this previous version while running on iOS 10 devices see [the reach module integration](mobile-engagement-ios-integrate-engagement-reach.md) for more details. If you choose to use the SDK v3.2.4 then just skip the `UserNotifications.framework` import in the next step.
 
 The following steps are enough to activate the report of logs needed to compute all statistics regarding Users, Sessions, Activities, Crashes and Technicals. The report of logs needed to compute other statistics like Events, Errors and Jobs must be done manually using the Engagement API  (see [How to use the advanced Mobile Engagement tagging API in your iOS app](mobile-engagement-ios-use-engagement-api.md) since these statistics are application dependent.
 
 ##Embed the Engagement SDK into your iOS project
 
-Download the iOS SDK from [here](http://aka.ms/qk2rnj).
-Add the Engagement SDK to your iOS project: in Xcode, right click on your project and select **"Add files to ..."** and choose the `EngagementSDK` folder.
+- Download the iOS SDK from [here](http://aka.ms/qk2rnj).
 
-Engagement requires additional frameworks to work: in the project explorer, open your project pane and select the correct target. Then, open the **"Build phases"** tab and in the **"Link Binary With Libraries"** menu, add these frameworks:
+- Add the Engagement SDK to your iOS project: in Xcode, right click on your project and select **"Add files to ..."** and choose the `EngagementSDK` folder.
 
-> -   `AdSupport.framework` - set the link as `Optional`
-> -   `SystemConfiguration.framework`
-> -   `CoreTelephony.framework`
-> -   `CFNetwork.framework`
-> -   `CoreLocation.framework`
-> -   `libxml2.dylib`
+- Engagement requires additional frameworks to work: in the project explorer, open your project pane and select the correct target. Then, open the **"Build phases"** tab and in the **"Link Binary With Libraries"** menu, add these frameworks:
+
+	-   `UserNotifications.framework` - set the link as `Optional`
+	-   `AdSupport.framework` - set the link as `Optional`
+	-   `SystemConfiguration.framework`
+	-   `CoreTelephony.framework`
+	-   `CFNetwork.framework`
+	-   `CoreLocation.framework`
+	-   `libxml2.dylib`
 
 > [AZURE.NOTE] The AdSupport framework can be removed. Engagement needs this framework to collect the IDFA. However, IDFA collection can be disabled \<ios-sdk-engagement-idfa\> to comply with the new Apple policy regarding this ID.
 
