@@ -74,7 +74,7 @@ There are several ways by which you can deploy a Java web application to Azure. 
 
     ![Azure Sign In dialog box][04]
    
-    Note: If you have multiple Azure accounts, some of the prompts during the sign in process may be shown more than once, even if they appear to be the same. When this happens, continue following the sign in instructions.
+    If you have multiple Azure accounts, some of the prompts during the sign in process may be shown more than once, even if they appear to be the same. When this happens, continue following the sign in instructions.
 
 1. After you have successfully signed into your Azure account, the **Manage Subscriptions** dialog box will display a list of subscriptions that are associated with your credentials. If there are multiple subscriptions listed and you want to work with only a specific subset of them, you may optionally uncheck the ones you do want to use. When you have selected your subscriptions, click **Close**.
 
@@ -94,7 +94,7 @@ There are several ways by which you can deploy a Java web application to Azure. 
 
         ![New Web App Container dialog box][07a]
 
-    1. Enter a **DNS Label** for your Web App Container; this will form the leaf DNS label of the host URL for your web application in Azure. Note: The name must be available and conform to Azure Web App naming requirements.
+    1. Enter a **DNS Label** for your Web App Container; this will form the leaf DNS label of the host URL for your web application in Azure. (Note that the name must be available and conform to Azure Web App naming requirements.)
 
     1. In the **Web Container** drop-down menu, select the appropriate software for your application.
 
@@ -102,9 +102,7 @@ There are several ways by which you can deploy a Java web application to Azure. 
 
     1. In the **Subscription** drop-down menu, select the subscription you want to use for this deployment.
 
-    1. In the **Resource Group** drop-down menu, select the Resource Group with which you want to associate your Web App.
-
-        Note: Azure Resource Groups allow you to group related resources together so that, for example, they can be deleted together.
+    1. In the **Resource Group** drop-down menu, select the Resource Group with which you want to associate your Web App. (Azure Resource Groups allow you to group related resources together so that, for example, they can be deleted together.)
 
         You can select an existing Resource Group (if you have any) and skip to step g below, or use the following these steps to create a new Resource Group:
 
@@ -130,9 +128,7 @@ There are several ways by which you can deploy a Java web application to Azure. 
 
 	* Click **OK**.
 
-    1. The **App Service Plan** drop-down menu lists the app service plans that are associated with the Resource Group that you selected.
-
-        Note: An App Service Plan specifies information such as the location of your Web App, the pricing tier and the compute instance size. A single App Service Plan can be used for multiple Web Apps, which is why it is maintained separately from a specific Web App deployment.
+    1. The **App Service Plan** drop-down menu lists the app service plans that are associated with the Resource Group that you selected. (App Service Plans specify information such as the location of your Web App, the pricing tier and the compute instance size. A single App Service Plan can be used for multiple Web Apps, which is why it is maintained separately from a specific Web App deployment.)
 
         You can select an existing App Service Plan (if you have any) and skip to step h below, or use the following these steps to create a new App Service Plan:
 
@@ -164,7 +160,7 @@ There are several ways by which you can deploy a Java web application to Azure. 
 
     Click **OK** to deploy your Java application to the selected Web App container.
 
-    Note: By default, your application will be deployed as a subdirectory of the application server. If you want it to be deployed as the root application, check the **Deploy to root** checkbox before clicking **OK**.
+    By default, your application will be deployed as a subdirectory of the application server. If you want it to be deployed as the root application, check the **Deploy to root** checkbox before clicking **OK**.
 
 1. Next, you should see the **Azure Activity Log** view, which will indicate the deployment status of your Web App.
 
