@@ -223,7 +223,7 @@ In order to execute the commands below you need the Azure AD PowerShell module, 
 
 #### Certificate based authentication for Azure AD
 
-> [AZURE.NOTE] Certificate based authentication is currently not supported on Linux VMs.
+> [AZURE.NOTE] AAD certificate based authentication is currently not supported on Linux VMs.
 
 The sections that follow have the necessary steps to configure a certificate based authentication for Azure AD.
 
