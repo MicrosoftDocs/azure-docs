@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="07/21/2016"
-	ms.author="ricksal"/>
+	ms.date="09/23/2016"
+	ms.author="adrianha"/>
 
 
 # How to use the Android client library for Mobile Apps

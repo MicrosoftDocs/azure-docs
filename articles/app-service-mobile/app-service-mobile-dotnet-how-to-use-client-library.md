@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/11/2016"
-	ms.author="glenga"/>
+	ms.date="09/23/2016"
+	ms.author="adrianha"/>
 
 # How to use the managed client for Azure Mobile Apps
 
@@ -343,7 +343,7 @@ String IDs provide you with the following benefits:
 * IDs values can integrate better with an application's logic.
 
 When a string ID value is not set on an inserted record, the Mobile App backend generates a unique value for the 
-ID. You can use the [Guid.NewGuid] methodto generate your own ID values, either on the client or in the backend.
+ID. You can use the [Guid.NewGuid] method to generate your own ID values, either on the client or in the backend.
 
     JObject jo = new JObject();
     jo.Add("id", Guid.NewGuid().ToString("N"));
@@ -524,7 +524,7 @@ on `IMobileServiceTableQuery<T>` and `IMobileServiceTable<T>`. To load data, cal
 
 When you use the collection created by calling `ToCollectionAsync` or `ToCollection`, you get a collection that 
 can be bound to UI controls.  This collection is paging-aware.  Since the collection is loading data from the 
-network,  loading will fail sometimes. To handle such failures,  override the `OnException` method on
+network, loading will fail sometimes. To handle such failures, override the `OnException` method on
 `MobileServiceIncrementalLoadingCollection` to handle exceptions resulting from calls to `LoadMoreItemsAsync`.
 
 Consider if your table has many fields but you only want to display some of them in your control. You 
@@ -603,7 +603,7 @@ Examples are provided for the following client-flow authentication patterns:
 You can use the Active Directory Authentication Library (ADAL) to initiate user authentication from the client 
 using Azure Active Directory authentication. 
 
-1. Configure your mobile app backend for AAD sign in by following the [How to configure App Service for Active 
+1. Configure your mobile app backend for AAD signin by following the [How to configure App Service for Active 
    Directory login] tutorial. Make sure to complete the optional step of registering a native client application.
 2. In Visual Studio or Xamarin Studio, open your project and add a reference to the 
    `Microsoft.IdentityModel.CLients.ActiveDirectory` NuGet package. When searching, include pre-release versions.
@@ -712,7 +712,7 @@ using Azure Active Directory authentication.
 	        AuthenticationAgentContinuationHelper.SetAuthenticationAgentContinuationEventArgs(requestCode, resultCode, data);
 	    }
 
-####<a name="client-facebook"></a>Single sign-in using a token from Facebook or Google
+####<a name="client-facebook"></a>Single Sign-On using a token from Facebook or Google
 
 You can use the client flow as shown in this snippet for Facebook or Google.
 
@@ -809,7 +809,7 @@ For more information, see the [Windows Live SDK] documentation.
 
 Once you have registered your identity provider, call the [LoginAsync] method on the [MobileServiceClient] with 
 the [MobileServiceAuthenticationProvider] value of your provider. For example, the following code initiates a 
-server flow sign in by using Facebook.
+server flow signin by using Facebook.
 
 	private MobileServiceUser user;
 	private async System.Threading.Tasks.Task Authenticate()
@@ -838,7 +838,7 @@ server flow sign in by using Facebook.
 If you are using an identity provider other than Facebook, change the value of [MobileServiceAuthenticationProvider] 
 above to the value for your provider.
 
-In a server flow, Azure App Service manages the OAuth authentication flow by displaying the sign in page of 
+In a server flow, Azure App Service manages the OAuth authentication flow by displaying the signin page of 
 the selected provider.  Once the identity provider returns, Azure App Service generates an App Service 
 authentication token. The [LoginAsync] method returns a [MobileServiceUser], which provides both the [UserId] 
 of the authenticated user and the [MobileServiceAuthenticationToken], as a JSON web token (JWT). This token can be 
@@ -847,7 +847,7 @@ cached and reused until it expires. For more information, see [Caching the authe
 ###<a name="caching"></a>Caching the authentication token
 
 In some cases, the call to the login method can be avoided after the first successful authentication by storing 
-the authentication token from the provider.   Windows Store and UWP apps can use [PasswordVault] to cache the 
+the authentication token from the provider.  Windows Store and UWP apps can use [PasswordVault] to cache the 
 current authentication token after a successful sign-in, as follows:
 
 	await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook);		
@@ -918,7 +918,7 @@ Windows app for push notifications with the Windows Notification Service (WNS):
     }
 
 If you are pushing to WNS, then you MUST obtain a Windows Store package SID (see below).  For more information 
-on Windows apps, including how to register for template registrations,  see [Add push notifications to your app].
+on Windows apps, including how to register for template registrations, see [Add push notifications to your app].
 
 Requesting tags from the client is not supported.  Tag Requests are silently dropped from registration.  
 If you wish to register your device with tags, create a Custom API that uses the Notification Hubs API to perform 
