@@ -20,16 +20,16 @@
 
 [AZURE.INCLUDE [tabs](../../includes/app-service-web-get-started-nav-tabs.md)]
 
-This tutorial shows how to create a simple [Node.js][NODEJS] application and deploy it to a [web app] in [Azure App Service] from a command line environment such as cmd.exe or bash. The instructions in this tutorial can be followed on any operating system that is capable of running Node.js.
+This tutorial shows how to create a simple [Node.js] application and deploy it to [Azure App Service] from a command-line environment, such as cmd.exe or bash. The instructions in this tutorial can be followed on any operating system that can run Node.js.
 
 <a name="prereq"></a>
 ## Prerequisites
 
-- **Node.js** ([Click here to install][NODEJS])
-- **Bower** ([Click here to install][BOWER])
-- **Yeoman** ([Click here to install][YEOMAN])
-- **Git** ([Click here to install][GIT])
-- **Azure CLI** ([Click here to install][Azure CLI])
+- [Node.js]
+- [Bower]
+- [Yeoman]
+- [Git]
+- [Azure CLI]
 - A Microsoft Azure account. If you don't have an account, you can [sign up for a free trial] or [activate your Visual Studio subscriber benefits].
 
 ## Create and deploy a simple Node.js web app
@@ -58,20 +58,20 @@ This tutorial shows how to create a simple [Node.js][NODEJS] application and dep
 
     In your browser, navigate to <http://localhost:3000> to make sure that you can see the Express home page. Once you've verified your app runs properly, use `Ctrl-C` to stop it.
     
-1. Change into ASM mode and log in to Azure (you need [Azure CLI](#prereq) for this):
+1. Change into ASM mode and log in to Azure (you need [Azure CLI](#prereq)):
 
         azure config mode asm
         azure login
 
     Follow the prompt to continue the login in a browser with a Microsoft account that has your Azure subscription.
 
-2. Make sure you're still in the root directory of your app, then create the App Service app resource in Azure with a unique app name with the next command; for example: http://{appname}.azurewebsites.net
+2. Make sure you're still in the root directory of your app, then create the App Service app resource in Azure with a unique app name with the next command. For example: http://{appname}.azurewebsites.net
 
         azure site create --git {appname}
 
     Follow the prompt to select an Azure region to deploy to. If you've never set up Git/FTP deployment credentials for your Azure subscription, you'll also be prompted to create them.
 
-3. Open the ./config/config.js file from the root of your application and change the production port to `process.env.port`; your `production` property in the `config` object should look like the following example.
+3. Open the ./config/config.js file from the root of your application and change the production port to `process.env.port`; your `production` property in the `config` object should look like the following example:
 
         production: {
             root: rootPath,
@@ -83,13 +83,19 @@ This tutorial shows how to create a simple [Node.js][NODEJS] application and dep
 
     This lets your Node.js app respond to web requests on the default port that iisnode listens.
     
+4. Open ./package.json and add the `engines` property to [specify the desired Node.js version](#version).
+
+        "engines": {
+            "node": "6.6.0"
+        }, 
+
 4. Save your changes, then use git to deploy your app to Azure:
 
         git add .
         git commit -m "{your commit message}"
         git push azure master
 
-    The Express generator already provides a .gitignore file, so your `git push` won't consume bandwidth trying to upload the node_modules/ directory.
+    The Express generator already provides a .gitignore file, so your `git push` doesn't consume bandwidth trying to upload the node_modules/ directory.
 
 5. Finally, launch your live Azure app in the browser:
 
@@ -116,7 +122,7 @@ Azure App Service uses [iisnode] to run Node.js apps. The Azure CLI and the Kudu
     
 ## Use a Node.js framework
 
-If you use a popular Node.js framework, such as [Sails.js][SAILSJS] or [MEAN.js][MEANJS] to develop apps, you can deploy those to App Service. Popular Node.js frameworks have their specific quirks, and their package dependencies keep getting updated. However, App Service makes the the stdout and stderr logs available to you, so you can know exactly what's happening with your app and make changes accordingly. For more information, see [Get stdout and stderr logs from iisnode](#iisnodelog).
+If you use a popular Node.js framework, such as [Sails.js][SAILSJS] or [MEAN.js][MEANJS] to develop apps, you can deploy those to App Service. Popular Node.js frameworks have their specific quirks, and their package dependencies keep getting updated. However, App Service makes the stdout and stderr logs available to you, so you can know exactly what's happening with your app and make changes accordingly. For more information, see [Get stdout and stderr logs from iisnode](#iisnodelog).
 
 The following tutorials will show you how to work with a specific framework in App Service:
 
@@ -124,13 +130,14 @@ The following tutorials will show you how to work with a specific framework in A
 - [Create a Node.js chat application with Socket.IO in Azure App Service]
 - [How to use io.js with Azure App Service Web Apps]
 
+<a name="version"></a>
 ## Use a specific Node.js engine
 
-In your typical workflow, you can tell App Service to use a specific Node.js engine as you normally would in package.json.
+In your typical workflow, you tell App Service to use a specific Node.js engine as you normally would in package.json.
 For example:
 
     "engines": {
-        "node": "5.5.0"
+        "node": "6.6.0"
     }, 
 
 The Kudu deployment engine determines which Node.js engine to use in the following order:
@@ -139,10 +146,13 @@ The Kudu deployment engine determines which Node.js engine to use in the followi
 - Next, look at package.json to see if `"node": "..."` is specified in the `engines` object. If yes, then use that.
 - Choose a default Node.js version by default.
 
+>[AZURE.NOTE] It is recommended that you explicitly define the Node.js engine you want. The default Node.js version can change,
+and you may get errors in your Azure web app because the default Node.js version is not appropriate for your app.
+
 <a name="iisnodelog"></a>
 ## Get stdout and stderr logs from iisnode
 
-To read iisnode logs, use the following steps.
+To read iisnode logs, follow these steps.
 
 > [AZURE.NOTE] After completing these steps, log files may not exist until an error occurs.
 
@@ -167,7 +177,7 @@ To read iisnode logs, use the following steps.
 
         https://{appname}.scm.azurewebsites.net/DebugConsole 
 
-    Note that this URL differs from the web app URL by the addition of "*.scm.*" to the DNS name. If you omit that addition to the URL, you will get a 404 error.
+    This URL differs from the web app URL by the addition of "*.scm.*" to the DNS name. If you omit that addition to the URL, you will get a 404 error.
 
 5. Navigate to D:\home\site\wwwroot\iisnode
 
@@ -222,20 +232,20 @@ To enable Node-Inspector, follow these steps:
 [Azure CLI]: ../xplat-cli-install.md
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [activate your Visual Studio subscriber benefits]: http://go.microsoft.com/fwlink/?LinkId=623901
-[BOWER]: http://bower.io/
+[Bower]: http://bower.io/
 [Create a Node.js chat application with Socket.IO in Azure App Service]: ./web-sites-nodejs-chat-app-socketio.md
 [Deploy a Sails.js web app to Azure App Service]: ./app-service-web-nodejs-sails.md
 [Exploring the Super Secret Kudu Debug Console]: /documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [Express generator for Yeoman]: https://github.com/petecoop/generator-express
-[GIT]: http://www.git-scm.com/downloads
+[Git]: http://www.git-scm.com/downloads
 [How to use io.js with Azure App Service Web Apps]: ./web-sites-nodejs-iojs.md
 [iisnode]: https://github.com/tjanczuk/iisnode/wiki
 [MEANJS]: http://meanjs.org/
-[NODEJS]: http://nodejs.org
+[Node.js]: http://nodejs.org
 [SAILSJS]: http://sailsjs.org/
 [sign up for a free trial]: http://go.microsoft.com/fwlink/?LinkId=623901
 [web app]: ./app-service-web-overview.md
-[YEOMAN]: http://yeoman.io/
+[Yeoman]: http://yeoman.io/
 
 <!-- IMG List -->
 

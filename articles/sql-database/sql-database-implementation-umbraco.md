@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/08/2016"
+   ms.date="09/22/2016"
    ms.author="carlrab"/>
 
 # Umbraco uses Azure SQL Database to quickly provision and scale services for thousands of tenants in the cloud
 
-![Umbraco Logo](./media/sql-database-case-study-umbraco/umbracologo.png)
+![Umbraco Logo](./media/sql-database-implementation-umbraco/umbracologo.png)
 
 Umbraco is a popular open-source content-management system (CMS) that can run anything from small campaign or brochure sites to complex applications for Fortune 500 companies and global media websites. 
 
@@ -33,7 +33,7 @@ To simplify customer deployments, Umbraco added Umbraco-as-a-Service (UaaS): a s
 UaaS enables SaaS customers to use Umbraco CMS capabilities that were previously out of their reach. These customers are provisioned with a working CMS environment that includes a production database. Customers can add up to two additional databases for development and staging environments, depending on their requirements. When a new environment is requested, an automated process assigns that customer a database automatically. The new database is ready in seconds, because the database has already been pre-provisioned by Umbraco from an Azure elastic pool of available databases (see Figure 1).
 
 
-![Figure 1](./media/sql-database-case-study-umbraco/figure1.png)
+![Umbraco provisioning lifecycle](./media/sql-database-implementation-umbraco/figure1.png)
 
 Figure 1. Provisioning lifecycle for Umbraco as a Service (UaaS)
  
@@ -53,9 +53,9 @@ With Azure SQL Database and other Azure services, Umbraco customers can self-pro
 
     Customers use one to three environments (for production, staging, and/or development), each with its own database. Customer databases are in elastic database pools, which enables Umbraco to provide efficient scaling without having to over-provision.
 
-    ![Figure 2](./media/sql-database-case-study-umbraco/figure2.png)
+    ![Umbraco project overview](./media/sql-database-implementation-umbraco/figure2.png)
 
-    ![Figure 3](./media/sql-database-case-study-umbraco/figure3.png)
+    ![Umbraco project detail](./media/sql-database-implementation-umbraco/figure3.png)
 
     Figure 2. Umbraco-as-a-Service (UaaS) customer website, showing project overview and details
 
@@ -85,7 +85,7 @@ In fact, according to Morten Christensen, Technical Lead at Umbraco, “UaaS is 
 
 If a customer does not require a second and/or third environment anymore, it can simply remove those environments. That frees up resources that can be used for other customers as part of the Umbraco elastic database-availability pool.
 
-![Figure 4](./media/sql-database-case-study-umbraco/figure4.png)
+![Umbraco deployment architecture](./media/sql-database-implementation-umbraco/figure4.png)
 
 Figure 3. UaaS deployment architecture on Microsoft Azure
 

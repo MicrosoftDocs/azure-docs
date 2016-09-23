@@ -3,7 +3,7 @@
 	description="Troubleshoot common causes of issues that can occur when you sign up for Azure."
 	services=""
 	documentationCenter=""
-	authors="jiangchen79"
+	authors="JiangChen79"
 	manager="felixwu"
 	editor=""
 	tags="billing,top-support-issue"/>
