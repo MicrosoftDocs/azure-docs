@@ -77,7 +77,7 @@ Next, install the **Azure Batch** and **Azure Storage** Python packages. You can
 
 Issue following **pip** command to install the Batch and Storage packages:
 
-`pip install --user -r requirements.txt`
+`pip install -r requirements.txt`
 
 Or, you can install the [azure-batch][pypi_batch] and [azure-storage][pypi_storage] Python packages manually:
 
