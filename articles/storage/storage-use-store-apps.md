@@ -4,7 +4,9 @@
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
-	manager="carmonm" />
+	manager="carmonm"
+	editor="tysonn"/>
+
 <tags
 	ms.service="storage"
 	ms.workload="storage"
@@ -12,7 +14,7 @@
 	ms.devlang="dotnet"
 	ms.topic="article"
 	ms.date="09/07/2016"
-	ms.author="tamram"/>
+	ms.author="micurd;tamram"/>
 	
 # How to use Azure Storage in Windows Store apps
 

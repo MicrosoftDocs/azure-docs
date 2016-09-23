@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2016"
+	ms.date="09/21/2016"
 	ms.author="nini"/>
+
+
 
 
 # Service Fabric Solution in Log Analytics
 
 > [AZURE.SELECTOR]
-- [Resource Manager](log-analytics-service-fabric-arm.md)
+- [Resource Manager](log-analytics-service-fabric-azure-resource-manager.md)
 - [PowerShell](log-analytics-service-fabric.md)
 
 This article describes how to use the Service Fabric solution in Log Analytics to help identify and troubleshoot issues across your Service Fabric cluster, by getting visibility into how your Service Fabric nodes are performing, and how your applications and micro-services are running.

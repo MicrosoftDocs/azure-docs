@@ -18,9 +18,9 @@
 
 # Create an Event Hubs namespace with Event Hub and enable Archive using an Azure Resource Manager template
 
-This article shows how to use an Azure Resource Manager template that creates an Event Hubs namespace with an Event Hub and enables Archive on your Event Hub. You will learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements
+This article shows how to use an Azure Resource Manager template that creates an Event Hubs namespace with an Event Hub and enables Archive on your Event Hub. You learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements
 
-For more information about creating templates, please see [Authoring Azure Resource Manager templates][].
+For more information about creating templates, see [Authoring Azure Resource Manager templates][].
 
 For more information on practice and patterns on Azure Resources naming conventions, please see [Azure Resources Naming Conventions][].
 
@@ -29,11 +29,11 @@ For the complete template, see the [Event Hub and enable Archive template][] on 
 >[AZURE.NOTE]
 >To check for the latest templates, visit the [Azure Quickstart Templates][] gallery and search for Event Hubs.
 
-## What will you deploy?
+## What you deploy?
 
-With this template, you will deploy an Event Hubs namespace with an Event Hub and will enable Archive.
+With this template, you deploy an Event Hubs namespace with an Event Hub and enable Archive.
 
-[Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) is an event processing service used to provide event and telemetry ingress to Azure at massive scale, with low latency and high reliability. Event Hubs Archive will enable you to automatically deliver the streaming data in your Event Hubs to Azure Blob storage of your choive within a specified time or size interval of your choosing.
+[Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) is an event processing service used to provide event and telemetry ingress to Azure at massive scale, with low latency and high reliability. Event Hubs Archive will enable you to automatically deliver the streaming data in your Event Hubs to Azure Blob storage of your choice within a specified time or size interval of your choosing.
 
 To run the deployment automatically, click the following button:
 
@@ -41,7 +41,7 @@ To run the deployment automatically, click the following button:
 
 ## Parameters
 
-With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed. The template includes a section called `Parameters` that contains all of the parameter values. You should define a parameter for those values that will vary based on the project you are deploying or based on the environment you are deploying to. Do not define parameters for values that will always stay the same. Each parameter value is used in the template to define the resources that are deployed.
+With Azure Resource Manager, you define parameters for values you want to specify when the template is deployed. The template includes a section called `Parameters` that contains all the parameter values. You should define a parameter for those values that vary based on the project you are deploying or based on the environment you are deploying to. Do not define parameters for values that always stay the same. Each parameter value is used in the template to define the resources that are deployed.
 
 The template defines the following parameters.
 
@@ -169,7 +169,7 @@ The size interval at which the Archive starts archiving the data in Azure blob s
 
 ### destinationStorageAccountResourceId
 
-The Archive will require a Storage Account resource id, to enable archive to your desired Azure Storage.
+The Archive requires a Storage Account resource id, to enable archive to your desired Azure Storage.
 
 ```
  "destinationStorageAccountResourceId":{
@@ -182,7 +182,7 @@ The Archive will require a Storage Account resource id, to enable archive to you
 
 ### blobContainerName
 
-The blob cotainer where you want your Event Data be archived.
+The blob container where you want your Event Data be archived.
 
 ```
  "blobContainerName":{
@@ -287,4 +287,4 @@ Now that you've created and deployed resources using Azure Resource Manager, lea
   [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../xplat-cli-azure-resource-manager.md
   [Event Hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-eventhubs-create-namespace-and-enable-archive/
   [Azure Resources Naming Conventions]: https://azure.microsoft.com/en-us/documentation/articles/guidance-naming-conventions/
-  [Event Hub and enable Archive template]:[https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-archive]
+  [Event Hub and enable Archive template]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-archive

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS" 
-	description="This is the Azure Multi-factor authentication page that will assist in deploying Remote Desktop (RD) Gateway and Azure Multi-Factor Authentication Server using RADIUS." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="femila" 
+	pageTitle="Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS"
+	description="This is the Azure Multi-factor authentication page that will assist in deploying Remote Desktop (RD) Gateway and Azure Multi-Factor Authentication Server using RADIUS."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtand"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/15/2016" 
-	ms.author="billmath"/>
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/15/2016"
+	ms.author="kgremban"/>
 
 # Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS
 
@@ -55,6 +55,6 @@ The Azure Multi-Factor Authentication Server is configured as a RADIUS proxy bet
 1. Open the Azure Multi-Factor Authentication Server and click the RADIUS Authentication icon. Check the Enable RADIUS authentication checkbox.
 2. On the Clients tab, ensure the ports match what is configured in NPS and click the Add… button. Add the RD Gateway server IP address, application name (optional) and a shared secret. The shared secret will need to be the same on both the Azure Multi-Factor Authentication Server and RD Gateway.
 3. Click the Target tab and choose the RADIUS server(s) radio button.
-4. Click the Add… button. Enter the IP address, shared secret and ports of the NPS server. Unless using a central NPS, the RADIUS client and RADIUS target will be the same. The shared secret must match the one setup in the RADIUS client section of the NPS server. 
+4. Click the Add… button. Enter the IP address, shared secret and ports of the NPS server. Unless using a central NPS, the RADIUS client and RADIUS target will be the same. The shared secret must match the one setup in the RADIUS client section of the NPS server.
 
 ![Radius Authentication](./media/multi-factor-authentication-get-started-server-rdg/radius.png)

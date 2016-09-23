@@ -52,7 +52,7 @@ For each new version of the SDK you must first replace (remove and re-import in 
 ### XCode 8
 XCode 8 is mandatory starting from version 4.0.0 of the SDK.
 
-> [AZURE.NOTE] If you really depends on XCode 7 then you may use the [iOS Engagement SDK v3.2.4](https://aka.ms/r6oouh). There is a known bug on the reach module of this previous version while running on iOS 10 devices:  system notifications are not actioned. To fix this you will have to implement the deprecated API `application:didReceiveRemoteNotification:` in your app delegate as follow:
+> [AZURE.NOTE] If you really depend on XCode 7 then you may use the [iOS Engagement SDK v3.2.4](https://aka.ms/r6oouh). There is a known bug on the reach module of this previous version while running on iOS 10 devices:  system notifications are not actioned. To fix this you will have to implement the deprecated API `application:didReceiveRemoteNotification:` in your app delegate as follows:
 
 	- (void)application:(UIApplication*)application
 	didReceiveRemoteNotification:(NSDictionary*)userInfo
@@ -70,9 +70,45 @@ in the project explorer, open your project pane and select the correct target. T
 #### Application push capability
 XCode 8 may reset your app push capability, please double check it in the `capability` tab of your selected target.
 
+#### Add the new iOS 10 notification registration code
+The older code snippet to register the app to notifications still works but is using deprecated APIs while running on iOS 10. 
+
+Import the `User Notification` framework:
+
+		#import <UserNotifications/UserNotifications.h>
+
+In your application delegate `application:didFinishLaunchingWithOptions` method replace:
+
+		if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+			[application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil]];
+			[application registerForRemoteNotifications];
+		}
+		else {
+
+    		[application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+		}
+
+by :
+
+		if (NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_8_0)
+		{
+			if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_9_x_Max)
+			{
+				[UNUserNotificationCenter.currentNotificationCenter requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert) completionHandler:^(BOOL granted, NSError * _Nullable error) {}];
+			}else
+			{
+				[application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)   categories:nil]];
+			}
+			[application registerForRemoteNotifications];
+		}
+		else
+		{
+			[application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+		}
+
 #### If you already have your own UNUserNotificationCenterDelegate implementation
 
-The SDK have its own implementation of the UNUserNotificationCenterDelegate protocol. It is used by the SDK to monitor the life cycle of Engagement notifications on devices running on iOS 10 or greater. If the SDK detects your delegate it will not use its own implementation because there can be only one UNUserNotificationCenter delegate per application. This means that you will have to add the Engagement logic to your own delegate.
+The SDK has its own implementation of the UNUserNotificationCenterDelegate protocol. It is used by the SDK to monitor the life cycle of Engagement notifications on devices running on iOS 10 or greater. If the SDK detects your delegate it will not use its own implementation because there can be only one UNUserNotificationCenter delegate per application. This means that you will have to add the Engagement logic to your own delegate.
 
 There are two ways to achieve this.
 
@@ -129,4 +165,4 @@ Or by inheriting from the `AEUserNotificationHandler` class
 
 	@end
 
-> [AZURE.NOTE] You can determine whether a notification comes from Engagement or not by passing it's `userInfo` dictionary to the Agent `isEngagementPushPayload:` class method.
+> [AZURE.NOTE] You can determine whether a notification comes from Engagement or not by passing its `userInfo` dictionary to the Agent `isEngagementPushPayload:` class method.
