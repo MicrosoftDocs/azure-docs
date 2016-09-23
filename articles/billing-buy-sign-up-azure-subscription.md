@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2016"
+	ms.date="09/23/2016"
 	ms.author="genli"/>
 
 # How to sign up, purchase, upgrade, or activate Azure
