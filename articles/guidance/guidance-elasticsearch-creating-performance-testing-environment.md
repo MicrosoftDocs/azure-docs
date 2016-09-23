@@ -219,7 +219,7 @@ You will need to repeat these steps for each JMeter subordinate VM.
 ## Installing the JMeter Server Agent on the Elasticsearch nodes
 
 This procedure assumes that you have login access to the Elasticsearch nodes. If you have created the
-cluster using the ARM template, you can connect to each node through the jump box VM, as illustrated 
+cluster using the Resource Manager template, you can connect to each node through the jump box VM, as illustrated 
 in the Elasticsearch topology section of [Running Elasticsearch on Azure](guidance-elasticsearch-running-on-azure.md). You can connect to the jump box using PuTTY as well. 
 
 From there, you can use the *ssh* command to log in to each of the nodes in the Elasticsearch cluster.
