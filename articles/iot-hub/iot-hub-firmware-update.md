@@ -43,7 +43,6 @@ Follow the [Get started with device management](iot-hub-device-management-get-st
 
 [AZURE.INCLUDE [iot-hub-get-started-create-hub-pp](../../includes/iot-hub-get-started-create-hub-pp.md)]
 
-
 ## Create a simulated device app
 
 In this section, you create a Node.js console app that responds to a direct method called by the cloud, which triggers a simulated device firmware update and uses the device twin reported properties to enable device twin queries to identify devices and when they last rebooted.
@@ -280,7 +279,7 @@ In this section, you create a Node.js console app that initiates a remote firmwa
     npm install azure-iot-hub --save
     ```
     
-3. Using a text editor, create a new **dmpatterns_getstarted_service.js** file in the **triggerrebootondevice** folder.
+3. Using a text editor, create a new **dmpatterns_getstarted_service.js** file in the **triggerfwupdateondevice** folder.
 
 4. Add the following 'require' statements at the start of the **dmpatterns_getstarted_service.js** file:
 
@@ -352,7 +351,7 @@ You are now ready to run the applications.
     node dmpatterns_fwupdate_device.js
     ```
 
-2. At the command-prompt in the **triggerrebootondevice** folder, run the following command to trigger the remote reboot and query for the device twin to find the last reboot time.
+2. At the command-prompt in the **triggerfwupdateondevice** folder, run the following command to trigger the remote reboot and query for the device twin to find the last reboot time.
 
     ```
     node dmpatterns_fwupdate_service.js
@@ -369,3 +368,4 @@ To learn how to extend your IoT solution and schedule method calls on multiple d
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md
 [lnk-dm-getstarted]: iot-hub-device-management-get-started.md
+[lnk-tutorial-jobs]: iot-hub-schedule-jobs.md

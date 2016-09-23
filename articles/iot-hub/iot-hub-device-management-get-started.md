@@ -257,6 +257,9 @@ To continue getting started with IoT Hub and device management patterns such as 
 
 To learn how to extend your IoT solution and schedule method calls on multiple devices, see the [Schedule and broadcast jobs][lnk-tutorial-jobs] tutorial.
 
+To continue getting started with IoT Hub, see [Getting started with the Gateway SDK][lnk-gateway-SDK].
+
+
 <!-- images and links -->
 [img-new-hub]: media/iot-hub-get-started-with-dm/image1.png
 [img-configure-hub]: media/iot-hub-get-started-with-dm/image2.png
@@ -275,7 +278,6 @@ To learn how to extend your IoT solution and schedule method calls on multiple d
 [lnk-dm-github]: https://github.com/Azure/azure-iot-device-management
 [lnk-tutorial-jobs]: iot-hub-schedule-jobs.md
 [lnk-sample-ui]: iot-hub-device-management-ui-sample.md
-
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
