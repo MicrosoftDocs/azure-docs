@@ -42,7 +42,7 @@ See [Data Movement Activities](data-factory-data-movement-activities.md) article
 
 See [Data Transformation Activities](data-factory-data-transformation-activities.md) article for more details.
 
-If you need to move data to/from a data store that Copy Activity doesn't support, or transform data using your own logic, create a **custom .NET activity**. For details on creating and using a custom activity, see [Use custom activities in an Azure Data Factory pipeline](../articles/data-factory/data-factory-use-custom-activities.md).
+If you need to move data to/from a data store that Copy Activity doesn't support, or transform data using your own logic, create a **custom .NET activity**. For details on creating and using a custom activity, see [Use custom activities in an Azure Data Factory pipeline](data-factory-use-custom-activities.md).
 
 ## Linked services
 Linked services define the information needed for Data Factory to connect to external resources (Examples: Azure Storage, on-premises SQL Server, Azure HDInsight). Linked services are used for two purposes in Data Factory:
