@@ -48,7 +48,7 @@ You can now do this easily in the Microsoft Azure Account Center- for Pay-As-You
 
 4.  Follow the prompts to specify the recipient.
 
-    ![Transfer Subscription dialog box](./media/billing-subscription-transfer/image2.PNG)
+    ![Transfer Subscription dialog box](./media/billing-subscription-transfer/image2.png)
 
 5.  The recipient will automatically get an email with a acceptance link.
 
@@ -57,9 +57,9 @@ You can now do this easily in the Microsoft Azure Account Center- for Pay-As-You
 6.  The recipient clicks on the link and follows the instructions,
     including entering their payment information.
 
-    ![First subscription transfer web page](./media/billing-subscription-transfer/image4.PNG)
+    ![First subscription transfer web page](./media/billing-subscription-transfer/image4.png)
 
-    ![Second subscription transfer web page](./media/billing-subscription-transfer/image5.PNG)
+    ![Second subscription transfer web page](./media/billing-subscription-transfer/image5.png)
 
 7. Success! The subscription is now transferred.
 
