@@ -177,8 +177,8 @@ The following code snippet deletes a Data Lake Analytics account:
 
 Data Lake Analytics currently supports the following data sources:
 
-- [Azure Data Lake Storage](data-lake-storage-overview.md)
-- [Azure Storage](storage-introduction.md)
+- [Azure Data Lake Storage](../data-lake-store/data-lake-store-overview.md)
+- [Azure Storage](../storage/storage-introduction.md)
 
 When you create an Analytics account, you must designate an Azure Data Lake Storage account to be the default 
 storage account. The default Data Lake Store account is used to store job metadata and job audit logs. After you have 
