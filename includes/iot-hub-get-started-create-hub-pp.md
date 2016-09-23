@@ -15,7 +15,7 @@ You need to create a device management enabled IoT Hub for your simulated device
   -   Select a **Pricing and scale tier**. This tutorial does not require a specific tier.
   -   In **Resource group**, create a new resource group, or select an existing one. For more information, see [Using resource groups to manage your Azure resources].
   -   Check the box to **Enable Device Management**.
-  -   In **Location**, select the location to host your IoT Hub. IoT Hub device management is only available in East US, North Europe, and East Asia during public preview. In the future, it will be available in all regions.
+  -   In **Location**, select the location to host your IoT Hub. IoT Hub device management is only available in East US, North Europe, and East Asia during public preview.
 
     > [AZURE.NOTE]  If you don't check the box to **Enable Device Management**, the samples don't work.<br/>By checking **Enable Device Management**, you create a preview IoT Hub supported only in East US, North Europe, and East Asia and not intended for production scenarios. You cannot migrate devices into and out of device management enabled hubs.
 
@@ -27,19 +27,17 @@ You need to create a device management enabled IoT Hub for your simulated device
 
 	![][img-keys]
 
-6.  Click the **iothubowner** policy, then copy and make note of the connection string in the **iothubowner** blade. Copy it to a location you can access later because you need it to complete the rest of this tutorial.
+6.  Click the **iothubowner** policy, then copy and make note of the connection string in the **iothubowner** blade. Copy it to a location you can access later because you need it to complete this tutorial.
 
  	> [AZURE.NOTE] In production scenarios, make sure to refrain from using the **iothubowner** credentials.
 
 	![][img-connection]
 
-You have now created a device management enabled IoT Hub. You need the connection string to complete the rest of this tutorial.
-
-You have now created your IoT hub. You have the IoT Hub connection string that is used to connect to IoT as a cloud service.
+You have now created a device management enabled IoT Hub. You need the connection string to complete this tutorial.
 
 ## Create a device identity
 
-In this section, we will use a Node tool called [IoT Hub Explorer][iot-hub-explorer] to create a device identity for this tutorial.
+In this section, you use a Node tool called [IoT Hub Explorer][iot-hub-explorer] to create a device identity for this tutorial.
 
 Run the following in your command-line environment:
 
@@ -53,11 +51,11 @@ Finally, create a new device identity called `myDeviceId` with the command:
 
         iothub-explorer create myDeviceId --connection-string
 
-Make sure to copy the device connection string from the result. This connection string will be used by the device app to connect to your IoT Hub as a device.
+Make sure to copy the device connection string from the result. This connection string is used by the device app to connect to your IoT Hub as a device.
 
     ![][img-identity]
 
-Refer to [Getting started with IoT Hub] for the programmatic way to create device identities.
+Refer to [Getting started with IoT Hub] for a way to create device identities using a GUI app.
 
 <!-- images and links -->
 [img-new-hub]: media/iot-hub-get-started-create-hub-pp/image1.png
@@ -67,3 +65,6 @@ Refer to [Getting started with IoT Hub] for the programmatic way to create devic
 [img-connection]: media/iot-hub-get-started-create-hub-pp/image5.png
 [img-identity]:
 media/iot-hub-get-started-create-hub-pp/devidentity.png
+
+[Azure portal]: https://portal.azure.com/
+[iot-hub-explorer]: https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer
