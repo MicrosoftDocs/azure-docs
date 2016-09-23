@@ -258,8 +258,8 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 ```
 
 [lnk-apis-sdks]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md
-[lnk-guidance-security]: iot-hub-devguide-security.md#custom-device-authentication
-[lnk-devguide-security]: iot-hub-devguide-security.md
+[lnk-guidance-security]: iot-hub-guidance.md#customauth
+[lnk-devguide-security]: iot-hub-devguide.md#security
 [lnk-azure-protocol-gateway]: iot-hub-protocol-gateway.md
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/doc/how_to_use_device_explorer.md
 

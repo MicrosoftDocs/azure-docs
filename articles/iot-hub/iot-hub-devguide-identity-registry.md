@@ -60,7 +60,7 @@ An IoT solution typically has a separate solution-specific store that contains a
 
 You can disable devices by updating the **status** property of an identity in the registry. Typically, you use this property in two scenarios:
 
-- During a provisioning orchestration process. For more information, see [Design your solution - Device Provisioning][lnk-guidance-provisioning].
+- During a provisioning orchestration process. For more information, see [Device Provisioning][lnk-guidance-provisioning].
 - If, for any reason, you consider a device is compromised or has become unauthorized.
 
 ## Import and export device identities
