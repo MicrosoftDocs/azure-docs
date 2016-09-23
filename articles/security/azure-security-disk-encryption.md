@@ -106,10 +106,10 @@ The high level steps required to enable disk encryption for Windows and Linux VM
 
 The high level steps required to disable disk encryption for IaaS VM’s are:
 
-1. Customer choose to disable encryption (decryption) on a running IaaS VM in Azure via the Azure disk encryption Resource Manager template or PS cmdlets and specifies the decryption configuration.
+1. Customer chooses to disable encryption (decryption) on a running IaaS VM in Azure via the Azure disk encryption Resource Manager template or PS cmdlets and specifies the decryption configuration.
 2. The disable encryption step disables encryption of the OS or data volume or both on the running Windows IaaS VM. However disabling OS disk encryption for Linux is not supported as mentioned in the documentation above. The disable step is allowed only for data drives on Linux VMs. 
 4. Azure updates the VM service model and the IaaS VM is marked decrypted. The contents of the VM are not encrypted at rest anymore.
-5. The disable encryption does not delete the customer key vault and the encryption key material, - BitLocker Encryption Keys for Windows or Passphrase for Linux.
+5. The disable encryption operation does not delete the customer key vault and the encryption key material, - BitLocker Encryption Keys for Windows or Passphrase for Linux.
 
 ## Prerequisites
 
@@ -123,7 +123,7 @@ The following are prerequisites to enable Azure Disk Encryption on Azure IaaS VM
 
 - Azure Disk Encryption is supported on the following Linux server SKUs - Ubuntu, CentOS, SUSE and SUSE Linux Enterprise Server (SLES) and Red Hat Enterprise Linux.
 
-**Note**: Linux OS disk encryption is currently suported on the following Linux distributions - RHEL 7.2, CentOS 7.2, Ubuntu 16.04
+**Note**: Linux OS disk encryption is currently supported on the following Linux distributions - RHEL 7.2, CentOS 7.2, Ubuntu 16.04
 
 - All resources (Ex: Key Vault, Storage account, VM, etc.,) must belong to the same Azure region and subscription.
 
