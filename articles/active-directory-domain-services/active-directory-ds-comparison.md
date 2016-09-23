@@ -27,11 +27,12 @@ To decide whether to use Azure AD Domain Services or spin up and manage your own
 
 ## 'Do-it-yourself' (DIY) AD deployment options
 You may have deployment use-cases where you need some of the capabilities offered by a Windows Server AD installation. In these cases, consider one of the following do-it-yourself (DIY) options:
-- **Standalone cloud domain:** You can set up a standalone ‘cloud domain’ using Azure virtual machines that have been configured as domain controllers. This infrastructure does not integrate with your on-premises AD environment. This option would require a different set of ‘cloud credentials’ in order to login/administer VMs in the cloud.
+
+- **Standalone cloud domain:** You can set up a standalone ‘cloud domain’ using Azure virtual machines that have been configured as domain controllers. This infrastructure does not integrate with your on-premises AD environment. This option would require a different set of ‘cloud credentials’ to login/administer VMs in the cloud.
 
 - **Resource forest deployment:** You can set up a domain in the resource forest topology, using Azure virtual machines configured as domain controllers. Next, you can configure an AD trust relationship with your on-premises AD environment. You can domain-join computers (Azure VMs) to this resource forest in the cloud. User authentication happens over either a VPN/ExpressRoute connection to your on-premises directory.
 
-- **Extend your on-premises domain to Azure:** You can connect an Azure virtual network to your on-premises network using a VPN/ExpressRoute connection, so that Azure VMs can be joined to your on-premises AD. Another alternative is to promote a replica domain controller(s) of your on-premises domain in Azure as a VM and set it up to replicate over a VPN/ExpressRoute connection to the on-premises directory.
+- **Extend your on-premises domain to Azure:** You can connect an Azure virtual network to your on-premises network using a VPN/ExpressRoute connection, so that Azure VMs can be joined to your on-premises AD. Another alternative is to promote a replica domain controller(s) of your on-premises domain in Azure as a VM. You can then set it up to replicate over a VPN/ExpressRoute connection to your on-premises directory. This effectively extends your on-premises domain to Azure.
 
 > [AZURE.NOTE] You may determine that a DIY option is better suited for your deployment use-cases. Consider [sharing feedback](active-directory-ds-contact-us.md) to help us understand what features would help you chose Azure AD Domain Services in the future. This feedback helps us evolve the service to better suit your deployment needs and use-cases.
 
