@@ -646,7 +646,7 @@ integration into the mobile device and is only recommended for proof of concept 
 
 The client flow allows for deeper integration with device-specific capabilities such as single sign-on as it 
 relies on SDKs provided by the identity provider.  For example, you can integrate the Facebook SDK into your
-mobile application.  The mobile client will swap into the Facebook app and confirm your sign-on before swapping
+mobile application.  The mobile client swaps into the Facebook app and confirms your sign-on before swapping
 back to your mobile app.
 
 Four steps are required to enable authentication in your app:
@@ -679,7 +679,7 @@ should be stored encrypted for safety in case the phone gets stolen.
 You can see a complete example of how to cache authentication tokens in [Cache authentication tokens section][7].
 
 When you try to use an expired token, you receive a *401 unauthorized* response. You can handle authentication 
-errors using filters.  Filters intercept requeststo the App Service backend. The filter code tests the response 
+errors using filters.  Filters intercept requests to the App Service backend. The filter code tests the response 
 for a 401, triggers the sign-in process, and then resumes the request that generated the 401. 
 
 ## <a name="adal"></a>How to: Authenticate users with the Active Directory Authentication Library

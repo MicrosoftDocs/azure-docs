@@ -78,14 +78,14 @@ by default.  Examples of problematic OAuth UI flows include:
 - The Ripple emulator.
 - Live Reload with Ionic.
 - Running the mobile backend locally
-- Running the mobile backend in a different Azure App Servie than the one providing authentication.
+- Running the mobile backend in a different Azure App Service than the one providing authentication.
 
 Follow these instructions to add your local settings to the configuration:
 
 1. Log in to the [Azure portal]
-2. Select **All resources** or **App Services** then click on the name of your Mobile App.
+2. Select **All resources** or **App Services** then click the name of your Mobile App.
 3. Click **Tools**
-4. Clickn **Resource explorer** in the OBSERVE menu, then click **Go**.  A new window or tab opens.
+4. Click **Resource explorer** in the OBSERVE menu, then click **Go**.  A new window or tab opens.
 5. Expand the **config**, **authsettings** nodes for your site in the left-hand navigation.
 6. Click **Edit**
 7. Look for the "allowedExternalRedirectUrls" element.  It may be set to null or an array of values.  Change 
@@ -97,17 +97,17 @@ Follow these instructions to add your local settings to the configuration:
          ],
 
     Replace the URLs with the URLs of your service.  Examples include "http://localhost:3000" (for the Node.js sample
-    service), or "http://localhost:4400" (for the Ripple service).  However, these are examples - your situation,
+    service), or "http://localhost:4400" (for the Ripple service).  However, these URLs are examples - your situation,
     including for the services mentioned in the examples, may be different.
 8. Click the **Read/Write** button in the top-right corner of the screen.
 9. Click the green **PUT** button.
 
 The settings are saved at this point.  Do not close the browser window until the settings have finished saving.
-You must also add these loopback URLs to the CORS settings for your App Service:
+Also add these loopback URLs to the CORS settings for your App Service:
 
 1. Log in to the [Azure portal]
 2. Select **All resources** or **App Services** then click on the name of your Mobile App.
-3. The Settings blade will open automatically.  If it doesn't, click **All Settings**.
+3. The Settings blade opens automatically.  If it doesn't, click **All Settings**.
 4. Click **CORS** under the API menu.
 5. Enter the URL that you wish to add in the box provided and press Enter.
 6. Enter additional URLs as needed.
@@ -117,9 +117,9 @@ It takes approximately 10-15 seconds for the new settings to take effect.
 
 ##<a name="register-for-push"></a>How to: Register for Push Notifications
 
-Install the [phonegap-plugin-push] to handle push notifications.  This can be easily added using the `cordova plugin add`
-command on the command line, or via the Git plugin installer within Visual Studio.  The following code in your Apache
-Cordova app will register your device for push notifications:
+Install the [phonegap-plugin-push] to handle push notifications.  This plugin can be easily added using the 
+`cordova plugin add` command on the command line, or via the Git plugin installer within Visual Studio.  The 
+following code in your Apache Cordova app registers your device for push notifications:
 
 ```
 var pushOptions = {
@@ -159,8 +159,8 @@ pushHandler.on('error', function (error) {
 ```
 
 Use the Notification Hubs SDK to send push notifications from the server.  Never send push notifications 
-directly from clients as that could be used to trigger a denial of service attack against Notification Hubs 
-or the PNS and result in the PNS banning your traffic.
+directly from clients. Doing so could be used to trigger a denial of service attack against Notification Hubs 
+or the PNS.  The PNS could ban your traffic as a result of such attacks.
 
 <!-- URLs. -->
 [Azure portal]: https://portal.azure.com
