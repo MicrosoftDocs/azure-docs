@@ -248,16 +248,13 @@ The device app can ignore all notifications with `$version` less or equal than t
 Other reference topics in the Developer Guide include:
 
 - [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for runtime and management operations.
-// TODO
-
 - [Throttling and quotas][lnk-quotas] describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
-// pending!!!
-
 - [IoT Hub device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service applications that interact with IoT Hub.
 - [Query language for twins, methods, and jobs][lnk-query] describes the query language you can use to retrieve information from IoT Hub about your device twins, methods and jobs.
 - [IoT Hub MQTT support][lnk-devguide-mqtt] provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps
+
 Now you have learned about device twins, you may be interested in the following Developer Guide topics:
 
 - [Invoke a direct method on a device][lnk-methods]
