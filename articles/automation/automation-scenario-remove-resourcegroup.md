@@ -3,7 +3,7 @@
     description="PowerShell Workflow version of an Azure Automation scenario including runbooks to remove all Resource Groups in your subscription."
     services="automation"
     documentationCenter=""
-    authors="mgoedtel"
+    authors="MGoedtel"
     manager="jwhit"
     editor=""
 	/>
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="09/22/2016"
+    ms.date="09/23/2016"
     ms.author="magoedte"/>
 
 # Azure Automation scenario - automate removal of Resource Groups
@@ -24,17 +24,16 @@ This scenario is based on a PowerShell runbook and is designed to remove one or 
 
 ## Getting the scenario
 
-This scenario consists of a PowerShell runbook that you can download from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Remove-ResourceGroup/1.0/DisplayScript).<br>   
+This scenario consists of a PowerShell runbook that you can download from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Remove-ResourceGroup/1.0/DisplayScript) or  you can import it directly from the [Runbook Gallery](automation-runbook-gallery.md) in the Azure portal.<br><br> 
 
 Runbook | Description|
 ----------|------------|
-Remove-ResourceGroups | Removes one or more Azure resource groups and its resources from the subscription.  
+Remove-ResourceGroup | Removes one or more Azure resource groups and its resources from the subscription.  
 <br>
 The following input parameters are defined for this runbook:
 
 Parameter | Description|
 ----------|------------|
-AuthenticationAssetName (Optional) | The name of an authentication asset with authorization for this subscription.|
 NameFilter (Required) | Allows you to specify a name filter to limit the resource groups that you intend on deleting. You can pass multiple values using a comma separated list.<br>
 The filter is not case sensitive and will match any resource group that contains the string.|
 PreviewMode (Optional) with default of $true | Execute the runbook to see which resource groups would be deleted but take no action.
@@ -55,10 +54,10 @@ After downloading the runbook, you can import it using the procedure in [Importi
 The following steps will walk you through the execution of this runbook and help you become familiar with how it works.  We will only be testing the runbook in this example, not actually deleting the resource group.  
 
 1. From the Azure Portal, open your Automation account and click the  **Runbooks** tile.
-2. Select the **Remove-ResourceGroups** runbook and click **Start**.
-3. When you start the runbook, the **Start Runbook** blade opens and you can configure the following values for the parameters.  Select a resource group in your subscription that you want to test with and will cause no harm if you accidentally delete it.<br> ![Remove-ResouceGroup Parameters](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-input-parameters.png)
+2. Select the **Remove-ResourceGroup** runbook and click **Start**.
+3. When you start the runbook, the **Start Runbook** blade opens and you can configure the following values for the parameters.  Enter the name of one or more resource groups in your subscription that you want to test with and will cause no harm if accidentally deleted.<br> ![Remove-ResouceGroup Parameters](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-input-parameters.png)
     
-    >[AZURE.NOTE] Make sure the **Previewmode** option is set to **true** in order to avoid deleting the selected resource group(s).  **Please note** that this runbook will not allow you to delete the resource group that the Automation account is defined in.  
+    >[AZURE.NOTE] Make sure the **Previewmode** option is set to **true** in order to avoid deleting the selected resource group(s).  **Please note** that this runbook will not remove the resource group that contains the Automation account that is running this runbook.  
 
 4. Once you have configured all the parameter values, click **OK** and the runbook will be queued up for execution.  
 
