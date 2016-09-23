@@ -37,25 +37,25 @@ Application Gateway WAF is offered in a new SKU (WAF SKU) and comes preconfigure
 
 - SQL injection protection
 - Cross site scripting protection
-- Common Web Attacks Protection 
+- Common Web Attacks Protection
 - HTTP Protection detecting violations of the HTTP protocol and a locally defined usage policy.
 - HTTP Denial of Service Protections defense against HTTP Flooding and Slow HTTP DoS Attacks.
 - Automation Detection Detecting bots, crawlers, scanners, and other surface malicious activity.
 - Identification of Application Defects alerts on application misconfigurations.
 
 ## WAF Modes
-Application Gateway WAF can be configured to run in the following two modes – 
 
-- Detection mode – When configured to run in detection mode, Application Gateway WAF monitors and logs all threat alerts into a log file. You need to ensure that logging diagnostics for Application Gateway is turned on using the Diagnostics section. You will also need to ensure that the WAF log is selected and turned on.
-- Prevention mode – When configured to run in prevention mode, Application Gateway actively blocks intrusions and attacks detected by its rules. The attacker receives a 403 unauthorized access exception and the connection is terminated. Prevention mode continues to log such attacks in the WAF logs.
+Application Gateway WAF can be configured to run in the following two modes:
 
+- **Detection mode** – When configured to run in detection mode, Application Gateway WAF monitors and logs all threat alerts into a log file. You need to ensure that logging diagnostics for Application Gateway is turned on using the Diagnostics section. You will also need to ensure that the WAF log is selected and turned on.
+- **Prevention mode** – When configured to run in prevention mode, Application Gateway actively blocks intrusions and attacks detected by its rules. The attacker receives a 403 unauthorized access exception and the connection is terminated. Prevention mode continues to log such attacks in the WAF logs.
 
 ## Application Gateway WAF reports
-Application Gateway WAF provides detailed reporting on each threat it detects. Logging is integrated with Azure Diagnostics Logs and alerts are recorded in a json format.  
 
+Application Gateway WAF provides detailed reporting on each threat it detects. Logging is integrated with Azure Diagnostics Logs and alerts are recorded in a json format.
 
 ![imageURLroute](./media/application-gateway-webapplicationfirewall-overview/waf2.png)
-    
+
     {
         "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<applicationGatewayName>",
         "operationName": "ApplicationGatewayFirewall",
@@ -73,8 +73,6 @@ Application Gateway WAF provides detailed reporting on each threat it detects. L
             "message":"XSS Filter - Category 1: Script Tag Vector",
             "details":{"message":" Warning. Pattern match "(?i)(<script","file":"/owasp_crs/base_rules/modsecurity_crs_41_xss_attacks.conf","line":"14"}}
     }
-
-
 
 ## Application Gateway WAF SKU pricing
 

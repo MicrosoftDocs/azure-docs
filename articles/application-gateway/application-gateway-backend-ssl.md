@@ -25,7 +25,6 @@ End to end SSL allows you to securely transmit sensitive data to the backend enc
 
 When configured with end to end SSL communication mode, application gateway terminates user SSL sessions at the gateway and decrypts user traffic. It then applies the configured rules to select an appropriate backend pool instance to route traffic to. Application gateway then initiates a new SSL connection to the backend server and re-encrypts data using backend server's public key certificate before transmitting request to the backend. End to end SSL is enabled by setting protocol setting in BackendHTTPSetting to Https, which is then applied to a backend pool. Each backend server in the backend pool with end to end SSL enabled must be configured with a certificate to allow secure communication.
 
-
 ![imageURLroute](./media/application-gateway-multi-site-overview/multisite.png)
 
 In this example, requests for https://contoso.com can be routed to ContosoServerPool over HTTP, and https://fabrikam.com will be routed to FabrikamServerPool over HTTPS using end to end SSL.
@@ -38,11 +37,10 @@ Application gateway only communicates with known backend instances, which have w
 
 Application gateway also supports user configurable SSL negotiation policies, which allow customers finer grained control over SSL connections at the application gateway.
 
-1.    SSL 2.0 and 3.0 are forced disabled for all Application Gateways. They are not configurable at all. 
-2.    SSL policy definition gives you option to disable any of the following 3 protocols - TLSv1_0, TLSv1_1, TLSv1_2.
-3.    If no SSL policy is defined all three (TLSv1_0, TLSv1_1, TLSv1_2) would be enabled.
+1. SSL 2.0 and 3.0 are forced disabled for all Application Gateways. They are not configurable at all.
+2. SSL policy definition gives you option to disable any of the following 3 protocols - TLSv1_0, TLSv1_1, TLSv1_2.
+3. If no SSL policy is defined all three (TLSv1_0, TLSv1_1, TLSv1_2) would be enabled.
 
-    
-## Next steps 
+## Next steps
 
-After learning about end to end SSLsupport, go to [enable end to end SSL on application gateway](application-gateway-create-multisite-endtoendSSL-powershell.md) to create an application gateway with ability to send traffic to backend in encrypted form.
+After learning about end to end SSL support, go to [enable end to end SSL on application gateway](application-gateway-create-end-to-end-powershell.md) to create an application gateway with ability to send traffic to backend in encrypted form.
