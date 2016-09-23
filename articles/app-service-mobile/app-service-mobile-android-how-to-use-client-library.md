@@ -21,9 +21,14 @@
 
 [AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-This guide shows you how to use the Android client SDK for Mobile Apps to implement common scenarios, such as 
-querying for data (inserting, updating, and deleting), authenticating users, handling errors, and customizing 
-the client. It also does a deep-dive into common client code used in most mobile apps.
+This guide shows you how to use the Android client SDK for Mobile Apps to implement common scenarios, such as:
+
+- Querying for data (inserting, updating, and deleting).
+- Authentication.
+- Handling errors.
+- Customizing the client. 
+
+It also does a deep-dive into common client code used in most mobile apps.
 
 This guide focuses on the client-side Android SDK.  To learn more about the server-side SDKs for Mobile Apps, see
 [Work with .NET backend SDK][10] or [How to use the Node.js backend SDK][11].
@@ -36,24 +41,21 @@ You can find the [Javadocs API reference][12] for the Android client library on 
 
 The Azure Mobile Apps Android SDK supports API levels 19 through 24 (KitKat through Nougat).  
 
-The "server-flow" authentication uses a WebView for the presented UI.  This means that if the device is not 
-able to present a WebView UI, then other methods of authentication will be needed that is outside the scope 
-of the product.  This SDK is not suitable for Watch-type or similarly restricted devices.
+The "server-flow" authentication uses a WebView for the presented UI. If the device is not able to present a 
+WebView UI, then other methods of authentication are needed that is outside the scope of the product.  This 
+SDK is not suitable for Watch-type or similarly restricted devices.
 
 ## Setup and Prerequisites
 
-Complete the [Mobile Apps quickstart](app-service-mobile-android-get-started.md) tutorial, which will ensure 
-that you have installed Android Studio; it will help you configure your account and create your first Mobile 
-App backend. If you do this,you can skip the rest of this section.
+Complete the [Mobile Apps quickstart](app-service-mobile-android-get-started.md) tutorial.  This task ensures
+you all pre-requisites for developing Azure Mobile Apps have been met.  The Quickstart also helps you configure 
+your account and create your first Mobile App backend.
 
-If you decide not to complete the Quickstart tutorial, and want to connect an Android app to a Mobile App backend, 
-you need to do the following:
+If you decide not to complete the Quickstart tutorial, the following tasks must be completed:
 
-- [create a Mobile App backend][13] to use with your Android app (unless your app already has one)
-- In Android Studio, [update the Gradle build files](#gradle-build), and
-- [Enable internet permission](#enable-internet)
-
-After this, you will need to complete the steps described in the Deep dive section.
+- [create a Mobile App backend][13] to use with your Android app.
+- In Android Studio, [update the Gradle build files](#gradle-build).
+- [Enable internet permission](#enable-internet).
 
 ###<a name="gradle-build"></a>Update the Gradle build file
 
@@ -82,11 +84,8 @@ following line of code to your **AndroidManifest.xml** file:
 
 ## The basics deep dive
 
-This section discusses some of the code in the Quickstart app. If you did not complete the Quickstart, you 
-will need to add this code to your app.
-
-> [AZURE.NOTE] The string "MobileServices" occurs frequently in the code: the code actually references the 
-Mobile Apps SDK and aids backwards-compatibility for those familiar with the older Mobile Services SDK.
+This section discusses some of the code in the Quickstart app that pertains to using Azure Mobile Apps.  You
+must perform the same tasks in your own code.
 
 ###<a name="data-object"></a>Define client data classes
 
@@ -105,7 +104,7 @@ The corresponding typed client-side object is the following:
 		private Boolean complete;
 	}
 
-The code will reside in a file called **ToDoItem.java**.
+The code resides in a file called **ToDoItem.java**.
 
 If your SQL Azure table contains more columns, you would add the corresponding fields to this class.
 
@@ -154,9 +153,9 @@ add the following **import** statement:
 ###<a name="instantiating"></a>How to: Create a table reference
 
 The easiest way to query or modify data in the backend is by using the *typed programming model*, since Java 
-is a strongly typed language (later on we will discuss the *untyped* model). This model provides seamless JSON 
-serialization and deserialization using the [gson][3] library when sending data between client objects and tables 
-in the backend Azure SQL: the developer doesn't have to do anything, the framework handles it all.
+is a strongly typed language. This model provides seamless JSON serialization and deserialization using the 
+[gson][3] library when sending data between client objects and tables in the backend Azure SQL: the developer 
+doesn't have to do anything, the framework handles it all.
 
 To access a table, first create a [MobileServiceTable][8] object by calling the **getTable** method on 
 the [MobileServiceClient][9].  This method has two overloads:
@@ -188,7 +187,7 @@ In our sample code, we return the data from the Mobile Apps SQL Azure table **To
 a very common pattern for data applications: database queries often return a collection of rows which the 
 client gets in a list or array. In this sample the array is the data source.
 
-The code specifies a screen layout that defines the view of the data that will appear on the device.
+The code specifies a screen layout that defines the view of the data that appears on the device.
 
 And the two are bound together with an adapter, which in this code is an extension of the 
 **ArrayAdapter&lt;ToDoItem&gt;** class.
@@ -226,7 +225,7 @@ in the display. This code is in the **row_list_to_do.xml** file.
 #### <a name="adapter"></a>How to: Define the adapter
 
 Since the data source of our view is an array of **ToDoItem**, we subclass our adapter from an 
-**ArrayAdapter&lt;ToDoItem&gt;** class. This subclass will produce a View for every **ToDoItem** using the 
+**ArrayAdapter&lt;ToDoItem&gt;** class. This subclass produces a View for every **ToDoItem** using the 
 **row_list_to_do** layout.
 
 In our code we define the following class which is an extension of the **ArrayAdapter&lt;E&gt;** class:
@@ -234,7 +233,7 @@ In our code we define the following class which is an extension of the **ArrayAd
 	public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 
 You must override the adapters **getView** method. This sample code is one example of how to do this: details 
-will vary with your application.
+vary with your application.
 
     @Override
 	public View getView(int position, View convertView, ViewGroup parent) {
@@ -327,7 +326,10 @@ You are now ready to use data binding. The following code shows how to get the i
 		runAsyncTask(task);
     }
 
-You must also call the adapter any time you modify the *ToDoItem* table if you want to display the results of doing that. Since modifications are done on a record by record basis, you will be dealing with a single row instead of a collection. When you insert an item you call the *add* method on the adapter, when deleting, you call the *remove* method.
+You must also call the adapter any time you modify the **ToDoItem** table if you want to display the results of 
+doing that. Since modifications are done on a record by record basis, you deal with a single row instead of a 
+collection. When you insert an item you call the **add** method on the adapter, when deleting, you call the 
+**remove** method.
 
 ##<a name="querying"></a>How to: Query data from your Mobile App backend
 
@@ -655,7 +657,7 @@ The following code starts the server flow login process using the Google provide
 
 	MobileServiceUser user = mClient.login(MobileServiceAuthenticationProvider.Google);
 
-You can get the ID of the logged-in user from a **MobileServiceUser**  using the **getUserId** method. For an example of how to use Futures to call the asynchronous login APIs, see [Get started with authentication].
+You can get the ID of the logged-in user from a **MobileServiceUser** using the **getUserId** method. For an example of how to use Futures to call the asynchronous login APIs, see [Get started with authentication].
 
 
 ### <a name="caching"></a>How to: Cache authentication tokens
@@ -667,13 +669,11 @@ should be stored encrypted for safety in case the phone gets stolen.
 
 You can see a complete example of how to cache authentication tokens in [Cache authentication tokens section][7].
 
-When you try to use an expired token you will get a *401 unauthorized* response. The user must then log in 
+When you try to use an expired token you receive a *401 unauthorized* response. The user must then log in 
 to obtain new tokens. You can avoid having to write code to handle this in every place in your app that 
 calls your mobile service by using filters, which allow you to intercept calls to and responses from Azure 
-Mobile Apps. The filter code will then test the response for a 401, trigger the sign-in process if needed, and 
-then 
-resume the request that generated the 401. You can also inspect the token to check the expiration.
-
+Mobile Apps. The filter code tests the response for a 401, triggers the sign-in process if needed, and 
+then resumes the request that generated the 401. You can also inspect the token to check the expiration.
 
 ## <a name="adal"></a>How to: Authenticate users with the Active Directory Authentication Library
 
@@ -823,8 +823,8 @@ The client assumes that the table names, column names and data types on the back
 data objects defined in the client. But there can be any number of reasons why the server and client names 
 might not match. In your scenario, you might want to do the following kinds of customizations:
 
-- The column names used in the mobile-  service table don't match the names you are using in the client.
-- Use a mobile service table that has a different name than the class it maps to in the client.
+- The column names used in the App Service table don't match the names you are using in the client.
+- Use an App Service table that has a different name than the class it maps to in the client.
 - Turn on automatic property capitalization.
 - Add complex properties to an object.
 
@@ -864,8 +864,7 @@ overrides of the [getTable()][4] function, as seen in the following code.
 
 Mapping column names for a narrow table with only a few columns isn't a big deal, as we saw in the preceding 
 section. But suppose our table has a lot of columns, say 20 or 30. It turns out that we can call the 
-[gson][3] API and specify a conversion strategy that will apply to every column, and avoid having to 
-annotate every single column name.
+[gson][3] API and specify a conversion strategy that applies to every column.
 
 To do this we use the [gson][3] library which the Android client library uses behind the scenes to serialize 
 Java objects to JSON data, which is sent to Azure Mobile Services.
