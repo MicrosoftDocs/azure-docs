@@ -33,7 +33,7 @@ Configuring WAF at application gateway provides the following benefit to you:
 
 ## Overview
 
-Application Gateway WAF is offered in a new SKU (WAF SKU) and comes preconfigured with OWASP ModSecurity Core Rule Set to offer baseline protection against most of the OWASP top 10 common web vulnerabilities. The Core Rule Sets provide default protections from the following attack/threat categories:
+Application Gateway WAF is offered in a new SKU (WAF SKU) and comes preconfigured with ModSecurity and OWASP Core Rule Set to offer baseline protection against most of the OWASP top 10 common web vulnerabilities.
 
 - SQL injection protection
 - Cross site scripting protection
