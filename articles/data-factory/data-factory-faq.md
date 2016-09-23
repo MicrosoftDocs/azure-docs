@@ -75,7 +75,7 @@ Yes. Use the **Move** button on your data factory blade as shown in the followin
 
 ![Move data factory](media/data-factory-faq/move-data-factory.png)
 
-## What are the compute environments supported by Data Factory?
+### What are the compute environments supported by Data Factory?
 The following table provides a list of compute environments supported by Data Factory and the activities that can run on them. 
 
 | Compute environment | activities |
