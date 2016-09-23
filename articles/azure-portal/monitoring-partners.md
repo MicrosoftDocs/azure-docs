@@ -23,7 +23,7 @@
 | [![Partner Logo][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] | [![Partner Logo][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] | [![Partner Logo][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
 | [![Partner Logo][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] | [![Partner Logo][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] | [![Partner Logo][datadog-logo]<br/>**DataDog**][datadog-anchor] |
 | [![Partner Logo][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] | [![Partner Logo][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] | [![Partner Logo][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] |
-| [![Partner Logo][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] | [![Partner Logo][splunk-logo]<br/>**Splunk**][splunk-anchor] | [![Partner Logo][sumologic-logo]<br/>**SumoLogic**][sumologic-anchor] |
+| [![Partner Logo][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] | [![Partner Logo][splunk-logo]<br/>**Splunk**][splunk-anchor] | [![Partner Logo][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] |
 
 ## AlertLogic Log Manager
 Alert Logic Log Manager collects VM, Application, and Azure platform logs for security analysis and retention. This includes Azure Audit Logs via the Azure Insights API.  This information is used to detect malfeasance and meet compliance requirements.
@@ -31,7 +31,7 @@ Alert Logic Log Manager collects VM, Application, and Azure platform logs for se
 [Go to the documentation.][alertlogic-doc]
 
 ## AppDynamics
-AppDynamics Application Performance Management (APM) enables application owners to rapidly troubleshoot performance bottlenecks and optimize the performance of their applications running in Azure environment. AppDynamics APM is seamlessly integrated with Azure Marketplace and available for monitor Azure Cloud Services (PaaS) (Including web & worker roles),Virtual Machines (IaaS), Remote Service Detection (Windows Azure Service Bus), Windows Azure Queue Windows Azure Remote Services (Azure Blob), Azure Queue (Microsoft Service Bus), Data Storage, Windows Azure Blob Storage. 
+AppDynamics Application Performance Management (APM) enables application owners to rapidly troubleshoot performance bottlenecks and optimize the performance of their applications running in Azure environment. AppDynamics APM is seamlessly integrated with Azure Marketplace and available for monitor Azure Cloud Services (PaaS) (Including web & worker roles), Virtual Machines (IaaS), Remote Service Detection (Windows Azure Service Bus), Windows Azure Queue Windows Azure Remote Services (Azure Blob), Azure Queue (Microsoft Service Bus), Data Storage, Windows Azure Blob Storage. 
 
 [Go to the documentation.][appdynamics-doc]
 
@@ -44,7 +44,7 @@ CloudMonix offers monitoring, automation and self-healing services for Microsoft
 [Go to the documentation.][cloudmonix-doc]
 
 ## Cloudyn
-Cloudyn manages and optimizes multi-platform, hybrid cloud deployments to help enterprises fully realize their cloud potential. The SaaS solution delivers visibility into usage, performance and cost, coupled with insights and actionable recommendations for smart optimization and cloud governance. Cloudyn enables accountability through accurate chargeback and hierarchical cost allocation management. Cloudyn is integrated with Azure Monitoring in order to provide insights and actionable recommendations in order to iotimize your Azure deployment.
+Cloudyn manages and optimizes multi-platform, hybrid cloud deployments to help enterprises fully realize their cloud potential. The SaaS solution delivers visibility into usage, performance and cost, coupled with insights and actionable recommendations for smart optimization and cloud governance. Cloudyn enables accountability through accurate chargeback and hierarchical cost allocation management. Cloudyn is integrated with Azure Monitoring in order to provide insights and actionable recommendations in order to optimize your Azure deployment.
 
 [Go to the documentation.][cloudyn-doc]
 
@@ -82,7 +82,7 @@ Performance and diagnostic information is collected from Azure Storage Tables an
 
 [Go to the documentation.][splunk-doc]
 
-## Sumologic
+## Sumo Logic
 
 [Learn more.][sumologic-doc]
 
@@ -102,7 +102,7 @@ Performance and diagnostic information is collected from Azure Storage Tables an
 [opsgenie-anchor]: #opsgenie "OpsGenie"
 [pagerduty-anchor]: #pagerduty "PagerDuty"
 [splunk-anchor]: #splunk-add-on-for-microsoft-azure "Splunk"
-[sumologic-anchor]: #sumologic "Sumologic"
+[sumologic-anchor]: #sumologic "Sumo Logic"
 
 <!--Icon references-->
 [alertlogic-logo]: ./media/partner-logos/alertlogic.png
