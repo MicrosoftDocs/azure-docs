@@ -22,10 +22,10 @@
 
 |Feature|Azure AD Domain Services|'Do-it-yourself' AD in Azure VMs|
 |---|---|---|
-|**Managed domain**|Yes|No|
-|**Secure baselines**|Yes|Needs work|
+|[**Managed domain**](active-directory-ds-comparison.md#Managed-service)|Yes|No|
+|[**Secure deployments**](active-directory-ds-comparison.md#Secure-deployments)|Yes|Needs to be secured.|
 |**Custom OU structure**|Yes|Yes|
-|**Manage DNS**|Yes|Yes|
+|[**DNS server**](active-directory-ds-comparison.md#DNS-server)|Yes|Yes|
 |**Domain/Enterprise administrator privileges**|No|Yes|
 |**Schema extensions**|No|Yes|
 |**AD domain/forest trusts**|No|Yes|
@@ -33,17 +33,17 @@
 |**Group Policy**|Simple|Full|
 |**Geo-dispersed deployments**|No|Yes|
 
-#### Managed domain
+#### Managed service
 Azure AD Domain Services domains are managed by Microsoft. This means you do not have to worry about patching, updates, monitoring, backups, and ensuring availability of your domain. These management tasks are offered as a service by Microsoft Azure for your managed domains.
 
-#### Secure baselines
+#### Secure deployments
 The managed domain is securely locked down in conjunction with Microsoft’s security best practices for AD deployments. These best practices stem from the AD product team's decades of experience engineering and supporting AD deployments. For do-it-yourself deployments you will need to take specific deployment steps to lock down/secure your deployment.
 
 #### Custom OU structure
 Members of the 'AAD DC Administrators' group can create custom OUs within the managed domain.
 
-#### Manage DNS
-Members of the 'AAD DC Administrators' group can manage DNS on the managed domain. Members of this group are given full DNS Administration privileges for the managed domain. DNS management can be performed using the 'DNS Administration console' included in the Remote Server Administration Tools (RSAT) package.
+#### DNS server
+An Azure AD Domain Services managed domain includes managed DNS services. Members of the 'AAD DC Administrators' group can manage DNS on the managed domain. Members of this group are given full DNS Administration privileges for the managed domain. DNS management can be performed using the 'DNS Administration console' included in the Remote Server Administration Tools (RSAT) package.
 
 #### Domain/Enterprise Administrator privileges
 These elevated privileges are not offered on an AAD-DS managed domain. Applications that require these elevated privileges in order to be installed/run cannot be run against managed domains. A smaller subset of administrative privileges (for example, privileges to configure DNS, configure group policy, gain administrator privileges on domain-joined machines etc.) are available to members of the delegated administration group called ‘AAD DC Administrators’.
@@ -63,3 +63,7 @@ Sophisticated group policy constructs such as the ability to create separate GPO
 
 #### Geo-dispersed deployments
 Azure AD Domain Services managed domains are available in a single virtual network in Azure. For scenarios that require domain controllers to be available in multiple Azure regions across the world, setting up domain controllers in Azure IaaS VMs might be the better alternative.
+
+
+## Related Content
+- [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/en-us/library/azure/jj156090.aspx)
