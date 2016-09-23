@@ -21,20 +21,20 @@
 ## Differences between Azure AD Domain Services and a 'do-it-yourself' AD domain in Azure
 
 |Feature|Azure AD Domain Services|'Do-it-yourself' AD in Azure VMs|
-|---|---|---|
-|[**Managed domain**](active-directory-ds-comparison.md#Managed-service)|Yes|No|
-|[**Secure deployments**](active-directory-ds-comparison.md#Secure-deployments)|Yes|Administrator needs to secure.|
-|[**DNS server**](active-directory-ds-comparison.md#DNS-server)|Yes (managed)|Yes|
+|---|:---:|:---:|
+|[**Managed service**](active-directory-ds-comparison.md#managed-service)|Yes|No|
+|[**Secure deployments**](active-directory-ds-comparison.md#secure-deployments)|Yes|Administrator needs to secure the deployment.|
+|[**DNS server**](active-directory-ds-comparison.md#dns-server)|Yes (managed service)|Yes|
 |**Domain/Enterprise administrator privileges**|No|Yes|
 |**Custom OU structure**|Yes|Yes|
-|**Schema extensions**|No|Yes|
+|[**Schema extensions**](active-directory-ds-comparison.md#schema-extensions)|No|Yes|
 |**AD domain/forest trusts**|No|Yes|
 |**LDAP write/modify**|No|Yes|
 |**Group Policy**|Simple|Full|
 |**Geo-dispersed deployments**|No|Yes|
 
 #### Managed service
-Azure AD Domain Services domains are managed by Microsoft. This means you do not have to worry about patching, updates, monitoring, backups, and ensuring availability of your domain. These management tasks are offered as a service by Microsoft Azure for your managed domains.
+Azure AD Domain Services domains are managed by Microsoft. You do not have to worry about patching, updates, monitoring, backups, and ensuring availability of your domain. These management tasks are offered as a service by Microsoft Azure for your managed domains.
 
 #### Secure deployments
 The managed domain is securely locked down as per Microsoft’s security best practices for AD deployments. These best practices stem from the AD product team's decades of experience engineering and supporting AD deployments. For do-it-yourself deployments, you need to take specific deployment steps to lock down/secure your deployment.
@@ -55,15 +55,16 @@ You cannot extend the base schema of an Azure AD Domain Services managed domain.
 Managed domains cannot be configured to set up trust relationships (inbound/outbound) with other domains. Therefore, scenarios such as resource forest deployments or cases where you prefer not to synchronize passwords to Azure AD cannot use Azure AD Domain Services.
 
 #### LDAP Write/Modify
-The managed domain is read-only for user objects. Therefore, applications that perform LDAP writes against attributes of the user object do not work in a managed domain. Additionally, user passwords cannot be changed from within the managed domain. Another example would be modification of group memberships or group attributes within the managed domain, which is not permitted. However, any changes to user attributes or passwords made in Azure AD (via PowerShell/Azure portal) or on-premises AD are synchronized to the AAD-DS managed domain.
+The managed domain is read-only for user objects. Therefore, applications that perform LDAP write operations against attributes of the user object do not work in a managed domain. Additionally, user passwords cannot be changed from within the managed domain. Another example would be modification of group memberships or group attributes within the managed domain, which is not permitted. However, any changes to user attributes or passwords made in Azure AD (via PowerShell/Azure portal) or on-premises AD are synchronized to the AAD-DS managed domain.
 
 #### Group policy
 Sophisticated group policy constructs aren’t supported on the AAD-DS managed domain. For example, you cannot create and deploy separate GPOs for each custom OU in the domain or use WMI filtering for GP targeting. There is a built-in GPO each for the ‘AADDC Computers’ and ‘AADDC Users’ containers, which can be customized to configure group policy.
-
 
 #### Geo-dispersed deployments
 Azure AD Domain Services managed domains are available in a single virtual network in Azure. For scenarios that require domain controllers to be available in multiple Azure regions across the world, setting up domain controllers in Azure IaaS VMs might be the better alternative.
 
 
 ## Related Content
+- [Features - Azure AD Domain Services](active-directory-ds-features.md)
+
 - [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx)
