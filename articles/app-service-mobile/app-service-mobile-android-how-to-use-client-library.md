@@ -106,8 +106,8 @@ The corresponding typed client-side object:
 The code resides in a file called **ToDoItem.java**.
 
 If your SQL Azure table contains more columns, you would add the corresponding fields to this class.  For 
-example if it had an integer Priority column, then you might add this field, along with its getter and 
-setter methods:
+example, if the DTO (data transfer object) had an integer Priority column, then you might add this field, 
+along with its getter and setter methods:
 
 	private Integer priority;
 
@@ -349,7 +349,7 @@ The following query execution returns all items from the **ToDoItem** table wher
 **mToDoTable** is the reference to the mobile service table that we created previously.
 
 Define a filter using the **where** method call on the table reference. The **where** method is followed 
-by a **field**  method call followed by a method call that specifies the logical predicate. Possible predicate 
+by a **field** method followed by a method that specifies the logical predicate. Possible predicate 
 methods include **eq** (equals), **ne** (not equal), **gt** (greater than), **ge** (greater than or equal to), 
 **lt** (less than), **le** (less than or equal to). These methods let you compare number and string fields to 
 specific values.
@@ -507,8 +507,8 @@ Look up an item with a specific **id** field with the **lookUp()** method:
 
 The untyped programming model gives you exact control over JSON serialization.  There are some common
 scenarios where you may wish to use an untyped programming model. For example, if your backend table 
-contains a large number of columns and you only need to reference a subset of the columns.  The typed
-model requires you to define all of the mobile apps table's columns in your data class.  
+contains many columns and you only need to reference a subset of the columns.  The typed model requires 
+you to define all the mobile apps table's columns in your data class.  
 
 Most of the API calls for accessing data are similar to the typed programming calls. The main difference 
 is that in the untyped model you invoke methods on the **MobileServiceJsonTable** object, instead of 
@@ -645,8 +645,8 @@ are required to implement server flow authentication. Server flow authentication
 integration into the mobile device and is only recommended for proof of concept scenarios.
 
 The client flow allows for deeper integration with device-specific capabilities such as single sign-on as it 
-relies on SDKs provided by the identity provider.  For example, if you integrate the Facebook SDK into your
-mobile application, the mobile client will swap into the Facebook app and confirm your sign-on before swapping
+relies on SDKs provided by the identity provider.  For example, you can integrate the Facebook SDK into your
+mobile application.  The mobile client will swap into the Facebook app and confirm your sign-on before swapping
 back to your mobile app.
 
 Four steps are required to enable authentication in your app:
@@ -666,7 +666,7 @@ The following code starts a server flow login process using the Google provider:
 
 	MobileServiceUser user = mClient.login(MobileServiceAuthenticationProvider.Google);
 
-You can get the ID of the logged-in user from a **MobileServiceUser** using the **getUserId** method. For an 
+Obtain the ID of the logged-in user from a **MobileServiceUser** using the **getUserId** method. For an 
 example of how to use Futures to call the asynchronous login APIs, see [Get started with authentication].
 
 ### <a name="caching"></a>How to: Cache authentication tokens
@@ -678,10 +678,9 @@ should be stored encrypted for safety in case the phone gets stolen.
 
 You can see a complete example of how to cache authentication tokens in [Cache authentication tokens section][7].
 
-When you try to use an expired token, you receive a *401 unauthorized* response. You must then log in 
-to obtain new tokens. You can handle authentication errors using filters.  Filters intercept requests
-to the App Service backend. The filter code tests the response for a 401, triggers the sign-in process, 
-and then resumes the request that generated the 401. 
+When you try to use an expired token, you receive a *401 unauthorized* response. You can handle authentication 
+errors using filters.  Filters intercept requeststo the App Service backend. The filter code tests the response 
+for a 401, triggers the sign-in process, and then resumes the request that generated the 401. 
 
 ## <a name="adal"></a>How to: Authenticate users with the Active Directory Authentication Library
 
@@ -858,7 +857,7 @@ such as the following properties:
 - mDuration
 
 Serialize the client names into JSON names that match the column names of the **ToDoItem** table 
-on the server. The following code, which makes use of the [gson][3] library, does this:
+on the server. The following code uses the [gson][3] library to annotate the properties:
 
 	@com.google.gson.annotations.SerializedName("text")
 	private String mText;
@@ -874,7 +873,7 @@ on the server. The following code, which makes use of the [gson][3] library, doe
 
 ### <a name="table"></a>How to: Map different table names between the client and the backend
 
-Map the client table name to a different mobile services table nameby using an override of the [getTable()][4] 
+Map the client table name to a different mobile services table name by using an override of the [getTable()][4] 
 method:
 
 	mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
@@ -882,10 +881,10 @@ method:
 ### <a name="conversions"></a>How to: Automate column name mappings
 
 You can specify a conversion strategy that applies to every column by using the [gson][3] API. The Android client 
-library uses [gson][3] behind the scenes to serialize Java objects to JSON data ebfore the data is sent to Azure 
+library uses [gson][3] behind the scenes to serialize Java objects to JSON data before the data is sent to Azure 
 App Service.  The following code uses the **setFieldNamingStrategy()** method to set the strategy. This example 
 will delete the initial character (an "m"), and then lower-case the next character, for every field name. For
-example, it would turn "mId" into "id".
+example, it would turn "mId" into "id."
 
 	client.setGsonBuilder(
 	    MobileServiceClient
@@ -904,8 +903,8 @@ This code must be executed before using the **MobileServiceClient**.
 
 So far, our serialization examples have involved primitive types such as integers and strings.  Primitive
 types easily serialize into JSON.  If we want to add a complex object that doesn't automatically serialize
-to JSON, we need to provide the JSON serialization method.  To see an example of how to do this, review
-the blog post [Customizing serialization using the gson library in the Mobile Services Android client][2].
+to JSON, we need to provide the JSON serialization method.  To see an example of how to provide custom
+JSON serialization, review the blog post [Customizing serialization using the gson library in the Mobile Services Android client][2].
 
 <!-- Anchors. -->
 
