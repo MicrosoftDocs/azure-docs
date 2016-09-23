@@ -531,6 +531,8 @@ The steps that follow assume the following prerequisites:
 
 6. On the test client computer, navigate to https://www.contoso.com. Verify that AAD prompts you for your credentials, and then log in.
 
+>[AZURE.NOTE] This is the endpoint for the first scenario: Enabling access to the n-tier web application running in the cloud to external users, with AAD providing password authentication.
+
 ### Create a simulated on-premises environment with Active Directory
 
 **TBD**
