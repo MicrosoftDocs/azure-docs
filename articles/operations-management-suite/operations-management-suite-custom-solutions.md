@@ -106,7 +106,7 @@ You refer to variable values through the solution with the syntax **variables('v
 
 The **resources** element defines the different resources included in your solution.  This will be the largest and most complex portion of the template.
 
-Resources are defined with the following structure.  All types of resources will have the same structure, but the values defined in the **properties** element will be different for different types.  See Common resources in OMS solutions (Coming soon) for details of different resources common to solutions.
+Resources are defined with the following structure.  All types of resources will have the same structure, but the values defined in the **properties** element will be different for different types.
 
 	"resources": [
 		{
@@ -126,6 +126,7 @@ Resources are defined with the following structure.  All types of resources will
 		}
 	]
 
+You can get the details and samples of resources that are common to solutions in **Common resources in OMS solutions (Coming soon)**.
 
 #### Solution resource
 Each solution requires a resource entry in the **resources** element that defines the solution itself.  This will have a type of **Microsoft.OperationsManagement/solutions** and have the following structure.
