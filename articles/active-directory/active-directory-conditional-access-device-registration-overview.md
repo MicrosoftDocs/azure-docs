@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/23/2016"
-	ms.author="femila"/>
+	ms.date="09/21/2016"
+	ms.author="Markvi"/>
 
 # Get started with Azure Active Directory Device Registration
 
 Azure Active Directory Device Registration is the foundation for device-based conditional access scenarios. When a device is registered, Azure Active Directory Device Registration provides the device with an identity which is used to authenticate the device when the user signs in. The authenticated device, and the attributes of the device, can then be used to enforce conditional access policies for applications that are hosted in the cloud and on-premises.
 
-When combined with a mobile device management(MDM) solution such as Intune, the device attributes in Azure Active Directory are updated with additional information about the device. This allows you to create conditional access rules that enforce access from devices to meet your standards for security and compliance.
+When combined with a mobile device management(MDM) solution such as Intune, the device attributes in Azure Active Directory are updated with additional information about the device. This allows you to create conditional access rules that enforce access from devices to meet your standards for security and compliance. For more information on enrolling devices in Microsoft Intune, see [Enroll devices for management in Intune](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune)
 
 Azure Active Directory Device Registration is available in your Azure Active Directory. The service includes support for iOS, Android, and Windows devices. The individual scenarios that utilize Azure Active Directory Device Registration may have more specific requirements and platform support.
 
@@ -37,6 +37,9 @@ Azure Active Directory Device Registration includes support for iOS, Android, an
 
 You need to enable Azure AD Device Registration in the Azure Portal so that mobile devices  can discover the service by looking for well-known DNS records. You must configure your company DNS so that Windows 10, Windows 8.1, Windows 7, Android and iOS devices can discover and use the service.
 You can view and enable/disable registered devices using the Administrator Portal in Azure Active Directory.
+
+>[AZURE.NOTE]
+ For latest instructions on how to set up automatic device registration see, [How to setup automatic registration of Windows domain joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md)
 
 ### Enable Azure Active Directory Device Registration Service
 

@@ -4,7 +4,7 @@
 	services="storage"
 	documentationCenter="na"
 	authors="aungoo-msft"
-	manager=""
+	manager="tadb"
 	editor="tysonn"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/20/2016"
-	ms.author="tamram;aungoo"/>
+	ms.author="aungoo;tamram"/>
 
 
 # Back up Azure virtual machine disks with incremental snapshots
