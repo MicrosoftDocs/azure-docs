@@ -51,9 +51,6 @@ An active Azure account. (If you don't have an account, you can create a free tr
 
 [AZURE.INCLUDE [iot-hub-get-started-create-hub-pp](../../includes/iot-hub-get-started-create-hub-pp.md)]
 
-## Create a device identity
-TODO: get markdown from Elio. 
-
 ## Create a simulated device app
 
 In this section, you create a Node.js console app that responds to a direct method called by the cloud, which triggers a simulated device reboot and uses the device twin reported properties to enable device twin queries to identify devices and when they last rebooted.
