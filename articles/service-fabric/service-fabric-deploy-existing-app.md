@@ -71,7 +71,7 @@ Note: You don't have to create the `config` and `data` directories if you don't 
 
 ## Packaging an existing executable
 
-When packaging a guest executable, you can choose either to use a Visual Studio project template or [create the application package manually](.#manually). Using Visual Studio, the application package structure and manifest files are created by the new project wizard for you.
+When packaging a guest executable, you can choose either to use a Visual Studio project template or [create the application package manually](#manually). Using Visual Studio, the application package structure and manifest files are created by the new project wizard for you.
 
 >[AZURE.NOTE] The easiest way to package an existing Windows executable into a service is to use Visual Studio.
 
