@@ -51,7 +51,7 @@ in the region:
 4.  The **Network Resource Provider** landing blade displays the
     **Public IP Address Usage** tile in the **Overview** section.
 
-![Network Resource Provider blade](media/azure-stack-viewing-public-ip-address-consumption in-tp2/image1.png)
+![Network Resource Provider blade](media/azure-stack-viewing-public-ip-address-consumption-in-tp2/image1.png)
 
 Keep in mind that the **Used** number represents the number of public IP addresses from all public IP address pools in that location that are assigned. The **Available** number represents the number of public IP addresses from all public IP address pools that have not been assigned and are still available. The **% Used** number represents the number of used or assigned addresses as a percentage of the total number of public IP addresses in all public IP address
 pools in that location.
@@ -61,7 +61,7 @@ pools in that location.
 To see a list of public IP addresses that were explicitly created by tenant subscriptions in a specific region, go to the **Settings** blade of the
 **Network Resource Provider Admin**, and then select **Public IP Addresses**.
 
-![Settings blade of the Network Resource Provider Admin](media/azure-stack-viewing-public-ip-address-consumption in-tp2/image2.png)
+![Settings blade of the Network Resource Provider Admin](media/azure-stack-viewing-public-ip-address-consumption-in-tp2/image2.png)
 
 You might notice that some public IP addresses that have been dynamically
 allocated appear in the list but do not have an address associated with
@@ -82,10 +82,10 @@ There are a number of different cases in which public IP addresses are
 assigned that determine whether the address appears in one
 list or another.
 
- | **Public IP address assignment case** | **Appears in usage summary** | **Appears in tenant public IP addresses list** |
- | ------------------------------------- | ----------------------------| ---------------------------------------------- |
- | Dynamic public IP address not yet assigned to an NIC or load balancer (temporary) | No | Yes |
- | Dynamic public IP address assigned to an NIC or load balancer. | Yes | Yes |
- | Static public IP address assigned to a tenant NIC or load balancer. | Yes | Yes |
- | Static public IP address assigned to a fabric infrastructure service endpoint. | Yes | No |
- | Public IP address implicitly created for IaaS VM instances and used for outbound NAT on the virtual network. These are created behind the scenes whenever a tenant creates a VM instance so that VMs can send information out to the Internet. | Yes | No |
+| **Public IP address assignment case** | **Appears in usage summary** | **Appears in tenant public IP addresses list** |
+| ------------------------------------- | ----------------------------| ---------------------------------------------- |
+| Dynamic public IP address not yet assigned to an NIC or load balancer (temporary) | No | Yes |
+| Dynamic public IP address assigned to an NIC or load balancer. | Yes | Yes |
+| Static public IP address assigned to a tenant NIC or load balancer. | Yes | Yes |
+| Static public IP address assigned to a fabric infrastructure service endpoint. | Yes | No |
+| Public IP address implicitly created for IaaS VM instances and used for outbound NAT on the virtual network. These are created behind the scenes whenever a tenant creates a VM instance so that VMs can send information out to the Internet. | Yes | No |
