@@ -107,7 +107,7 @@ The corresponding typed client-side object is the following:
 
 The code will reside in a file called **ToDoItem.java**.
 
-If your SQL Azure table contains more columns, you would add the corresponding fields  to this class.
+If your SQL Azure table contains more columns, you would add the corresponding fields to this class.
 
 For example if it had an integer Priority column, then you might add this field, along with its getter and setter methods:
 
@@ -146,7 +146,11 @@ In this code, replace `MobileAppUrl` with the URL of your Mobile App backend, wh
 
 ###<a name="instantiating"></a>How to: Create a table reference
 
-The easiest way to query or modify data in the backend is by using the *typed programming model*, since Java is a strongly typed language (later on we will discuss the *untyped* model). This model provides seamless JSON serialization and deserialization using the [gson](http://go.microsoft.com/fwlink/p/?LinkId=290801) library when sending data between  client objects and tables in the backend Azure SQL: the developer doesn't have to do anything, the framework handles it all.
+The easiest way to query or modify data in the backend is by using the *typed programming model*, since Java 
+is a strongly typed language (later on we will discuss the *untyped* model). This model provides seamless JSON 
+serialization and deserialization using the [gson](http://go.microsoft.com/fwlink/p/?LinkId=290801) library 
+when sending data between client objects and tables in the backend Azure SQL: the developer doesn't have to 
+do anything, the framework handles it all.
 
 To access a table, first create a [MobileServiceTable](http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/table/MobileServiceTable.html) object by calling the **getTable** method on the [MobileServiceClient](http://azure.github.io/azure-mobile-apps-android-client/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html).  This method has two overloads:
 
@@ -258,16 +262,25 @@ We create an instance of this class in our Activity as follows:
 	ToDoItemAdapter mAdapter;
 	mAdapter = new ToDoItemAdapter(this, R.layout.row_list_to_do);
 
-Note that the second parameter to the ToDoItemAdapter constructor is a reference to the layout. The call to the constructor is followed by the following code which first gets a reference to the **ListView**, and next calls *setAdapter* to configure itself to use the adapter we just created:
+Note that the second parameter to the ToDoItemAdapter constructor is a reference to the layout. The call 
+to the constructor is followed by the following code which first gets a reference to the **ListView**, and 
+next calls *setAdapter* to configure itself to use the adapter we just created:
 
 	ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
 	listViewToDo.setAdapter(mAdapter);
 
 ### <a name="api"></a>The API structure
 
-Mobile Apps table operations and custom API calls are asynchronous, so you use the [Future](http://developer.android.com/reference/java/util/concurrent/Future.html) and [AsyncTask](http://developer.android.com/reference/android/os/AsyncTask.html) objects in all of the asynchronous  methods involving queries and inserts, updates and deletes. This makes it easier to perform multiple operations on a background thread without having to deal with multiple nested callbacks.
+Mobile Apps table operations and custom API calls are asynchronous, so you use the 
+[Future](http://developer.android.com/reference/java/util/concurrent/Future.html) and 
+[AsyncTask](http://developer.android.com/reference/android/os/AsyncTask.html) objects 
+in all of the asynchronous methods involving queries and inserts, updates and deletes. This 
+makes it easier to perform multiple operations on a background thread without having to deal 
+with multiple nested callbacks.
 
-To see how these asynchronous APIs are used in your Android app and how data is displayed in the UI, review the **ToDoActivity.java** file in the Android quickstart project from the [Azure portal].
+To see how these asynchronous APIs are used in your Android app and how data is displayed 
+in the UI, review the **ToDoActivity.java** file in the Android quickstart project from 
+the [Azure portal].
 
 
 #### <a name="use-adapter"></a>How to: Use the adapter
@@ -330,21 +343,32 @@ The following query execution returns all items from the *ToDoItem* table where 
 
 *mToDoTable* is the reference to the mobile service table that we created previously.
 
-You define a filter using the **where** method call on the table reference. This is followed by a **field** method call followed by a method call that specifies the logical predicate. Possible predicate methods include **eq** (equals), **ne** (not equal), **gt** (greater than), **ge** (greater than or equal to), **lt** (less than), **le** (less than or equal to), and etc. These methods let you compare number and string fields to specific values.
+You define a filter using the **where** method call on the table reference. This is followed by a **field** 
+method call followed by a method call that specifies the logical predicate. Possible predicate methods 
+include **eq** (equals), **ne** (not equal), **gt** (greater than), **ge** (greater than or equal to), 
+**lt** (less than), **le** (less than or equal to), and etc. These methods let you compare number and 
+string fields to specific values.
 
-You can filter on dates. The following methods let you compare the entire date field or parts of of the date: **year**, **month**, **day**, **hour**, **minute** and **second**. The following example adds a filter for items whose *due date* equals 2013.
+You can filter on dates. The following methods let you compare the entire date field or parts of the 
+date: **year**, **month**, **day**, **hour**, **minute** and **second**. The following example adds 
+a filter for items whose *due date* equals 2013.
 
 	mToDoTable.where().year("due").eq(2013).execute().get();
 
-The following methods support complex filters on string fields: **startsWith**, **endsWith**, **concat**, **subString**, **indexOf**, **replace**, **toLower**, **toUpper**, **trim**, and **length**. The following example filters for table rows where the *text* column starts with "PRI0".
+The following methods support complex filters on string fields: **startsWith**, **endsWith**, **concat**, 
+**subString**, **indexOf**, **replace**, **toLower**, **toUpper**, **trim**, and **length**. The following 
+example filters for table rows where the *text* column starts with "PRI0".
 
 	mToDoTable.where().startsWith("text", "PRI0").execute().get();
 
-The following operator methods are supported on number fields: **add**, **sub**, **mul**, **div**, **mod**, **floor**, **ceiling**, and **round**. The following example filters for table rows where the *duration* is an even number.
+The following operator methods are supported on number fields: **add**, **sub**, **mul**, **div**, 
+**mod**, **floor**, **ceiling**, and **round**. The following example filters for table rows where the 
+**duration** is an even number.
 
 	mToDoTable.where().field("duration").mod(2).eq(0).execute().get();
 
-You can combine predicates with these logical methods: **and**, **or** and **not**. The following example combines two of the above examples.
+You can combine predicates with these logical methods: **and**, **or** and **not**. The following example 
+combines two of the above examples.
 
 	mToDoTable.where().year("due").eq(2013).and().startsWith("text", "PRI0")
 				.execute().get();
@@ -361,19 +385,20 @@ For more detailed discussion and examples of filtering, see [Exploring the richn
 
 ### <a name="sorting"></a>How to: Sort returned data
 
-The following code returns all items from a table of *ToDoItems* sorted ascending by the *text* field. *mToDoTable* is the reference to the backend table that you created previously:
+The following code returns all items from a table of **ToDoItems** sorted ascending by the *text* 
+field. *mToDoTable* is the reference to the backend table that you created previously:
 
 	mToDoTable.orderBy("text", QueryOrder.Ascending).execute().get();
 
-The first parameter of the **orderBy** method is a string equal to the name of the field on which to sort.
-
-The second parameter uses the **QueryOrder** enumeration to specify whether to sort ascending or descending.
-
-Note that if you are filtering using the ***where*** method, the ***where*** method must be invoked prior to the ***orderBy*** method.
+The first parameter of the **orderBy** method is a string equal to the name of the field on which to 
+sort. The second parameter uses the **QueryOrder** enumeration to specify whether to sort ascending 
+or descending.  If you are filtering using the ***where*** method, the ***where*** method must be 
+invoked prior to the ***orderBy*** method.
 
 ### <a name="paging"></a>How to: Return data in pages
 
-The first example shows how to select the top 5 items from a table. The query returns the items from a table of  *ToDoItems*. *mToDoTable* is the reference to the backend table that you created previously:
+The first example shows how to select the top 5 items from a table. The query returns the items from 
+a table of **ToDoItems**. **mToDoTable** is the reference to the backend table that you created previously:
 
     List<ToDoItem> result = mToDoTable.top(5).execute().get();
 
@@ -385,14 +410,16 @@ Here's a query that skips the first 5 items, and then returns the next 5:
 
 ### <a name="selecting"></a>How to: Select specific columns
 
-The following code illustrates how to return all items from a table of  *ToDoItems*, but only displays the *complete* and *text* fields. *mToDoTable* is the reference to the backend table that we created previously.
+The following code illustrates how to return all items from a table of **ToDoItems**, but only displays
+the **complete** and **text** fields. **mToDoTable** is the reference to the backend table that we 
+created previously.
 
 	List<ToDoItemNarrow> result = mToDoTable.select("complete", "text").execute().get();
 
+The parameters to the select function are the string names of the table's columns that you want to return.
 
-Here the parameters to the select function are the string names of the table's columns that you want to return.
-
-The **select** method needs to follow methods like **where** and **orderBy**, if they are present. It can be followed by paging methods like **top**.
+The **select** method needs to follow methods like **where** and **orderBy**, if they are present. It can 
+be followed by paging methods like **top**.
 
 ### <a name="chaining"></a>How to: Concatenate query methods
 
@@ -432,7 +459,7 @@ Mobile Apps requires that each table have a column named **id**, which is used t
 
 String ID values provide the following advantages:
 
-+ IDs can be generated without making a round-trip to the database.
++ IDs can be generated without making a round trip to the database.
 + Records are easier to merge from different tables or databases.
 + ID values integrate better with an application's logic.
 
@@ -466,24 +493,34 @@ This code shows how to look up an item with a specific *id*.
 
 ##<a name="untyped"></a>How to: Work with untyped data
 
-The untyped programming model gives you exact control over the JSON serialization, and there are some scenarios where you may wish to use it, for example, if your backend table contains a large number of columns and you only need to reference a few of them. Using the typed model requires you to define all of the mobile apps table's columns in your data class. But with the untyped model you only define the columns you need to use.
+The untyped programming model gives you exact control over the JSON serialization, and there are some 
+scenarios where you may wish to use it, for example, if your backend table contains a large number of 
+columns and you only need to reference a few of them. Using the typed model requires you to define all 
+of the mobile apps table's columns in your data class. But with the untyped model you only define the 
+columns you need to use.
 
-Most of the API calls for accessing data are similar to the typed programming calls. The main difference is that in the untyped model you invoke methods on the **MobileServiceJsonTable** object, instead of the **MobileServiceTable** object.
-
+Most of the API calls for accessing data are similar to the typed programming calls. The main difference 
+is that in the untyped model you invoke methods on the **MobileServiceJsonTable** object, instead of 
+the **MobileServiceTable** object.
 
 ### <a name="json_instance"></a>How to: Create an instance of an untyped table
 
-Similar to the typed model, you start by getting a table reference, but in this case it's a **MobileServicesJsonTable** object. You get the reference by calling the **getTable** method on an instance of the client, like this:
+Similar to the typed model, you start by getting a table reference, but in this case it's 
+a **MobileServicesJsonTable** object. You get the reference by calling the **getTable** method on 
+an instance of the client, like this:
 
     private MobileServiceJsonTable mJsonToDoTable;
 	//...
     mJsonToDoTable = mClient.getTable("ToDoItem");
 
-Once you have created an instance of the **MobileServiceJsonTable**, you can call almost all of the methods on it that you can with the typed programming model. However in some cases the methods take an untyped parameter, as we see in the following examples.
+Once you have created an instance of the **MobileServiceJsonTable**, it has virtually the same API
+available as with the typed programming model. In some cases the methods take an untyped parameter, 
+as we see in the following examples.
 
 ### <a name="json_insert"></a>How to: Insert into an untyped table
 
-The following code shows how to do an insert. The first step is to create a [**JsonObject**](http://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/JsonObject.html), which is part of the [gson]( http://go.microsoft.com/fwlink/p/?LinkId=290801) library.
+The following code shows how to do an insert. The first step is to create a 
+[**JsonObject**][1], which is part of the [gson]( http://go.microsoft.com/fwlink/p/?LinkId=290801) library.
 
 	JsonObject jsonItem = new JsonObject();
 	jsonItem.addProperty("text", "Wake up");
@@ -607,18 +644,26 @@ You can get the ID of the logged-in user from a **MobileServiceUser**  using the
 
 ### <a name="caching"></a>How to: Cache authentication tokens
 
-Caching authentication tokens requires you to store the User ID and authentication token locally on the device. The next time the app starts, you check the cache, and if these values are present, you can skip the log in procedure and re-hydrate the client with this data. However this data is sensitive, and it should be stored encrypted for safety in case the phone gets stolen.
+Caching authentication tokens requires you to store the User ID and authentication token locally on the 
+device. The next time the app starts, you check the cache, and if these values are present, you can skip 
+the log in procedure and re-hydrate the client with this data. However this data is sensitive, and it 
+should be stored encrypted for safety in case the phone gets stolen.
 
-You can see a complete example of how to cache authentication tokens in [Cache authentication tokens section](app-service-mobile-android-get-started-users.md#cache-tokens).
+You can see a complete example of how to cache authentication tokens in [Cache authentication tokens section][7].
 
-When you try to use an expired token you will get a *401 unauthorized* response. The user must then log in to obtain new tokens. You can avoid having to write code to handle this in every place in your app that calls your mobile service by using filters, which allow you to intercept calls to and responses from Mobile Services. The filter code will then test the response for a 401, trigger the sign-in process if needed, and then resume the request that generated the 401. You can also inspect the token to check the expiration.
+When you try to use an expired token you will get a *401 unauthorized* response. The user must then log in 
+to obtain new tokens. You can avoid having to write code to handle this in every place in your app that 
+calls your mobile service by using filters, which allow you to intercept calls to and responses from Azure 
+Mobile Apps. The filter code will then test the response for a 401, trigger the sign-in process if needed, and 
+then 
+resume the request that generated the 401. You can also inspect the token to check the expiration.
 
 
 ## <a name="adal"></a>How to: Authenticate users with the Active Directory Authentication Library
 
 You can use the Active Directory Authentication Library (ADAL) to sign users into your application using Azure Active Directory. This is often preferable to using the `loginAsync()` methods, as it provides a more native UX feel and allows for additional customization.
 
-1. Configure your mobile app backend for AAD sign-in by followin the [How to configure App Service for Active Directory login](app-service-mobile-how-to-configure-active-directory-authentication.md) tutorial. Make sure to complete the optional step of registering a native client application.
+1. Configure your mobile app backend for AAD sign-in by following the [How to configure App Service for Active Directory login](app-service-mobile-how-to-configure-active-directory-authentication.md) tutorial. Make sure to complete the optional step of registering a native client application.
 
 2. Install ADAL by modifying your build.gradle file to include the following:
 
@@ -645,7 +690,7 @@ You can use the Active Directory Authentication Library (ADAL) to sign users int
 
 3. Add the below code to your application, making the following replacements:
 
-* Replace **INSERT-AUTHORITY-HERE** ith the name of the tenant in which you provisioned your application. The format should be https://login.windows.net/contoso.onmicrosoft.com. This value can be copied out of the Domain tab in your Azure Active Directory in the [Azure classic portal].
+* Replace **INSERT-AUTHORITY-HERE** with the name of the tenant in which you provisioned your application. The format should be https://login.windows.net/contoso.onmicrosoft.com. This value can be copied out of the Domain tab in your Azure Active Directory in the [Azure classic portal].
 
 * Replace **INSERT-RESOURCE-ID-HERE** with the client ID for your mobile app backend. You can obtain this from the **Advanced** tab under **Azure Active Directory Settings** in the portal.
 
@@ -654,75 +699,76 @@ You can use the Active Directory Authentication Library (ADAL) to sign users int
 * Replace **INSERT-REDIRECT-URI-HERE** with your site's _/.auth/login/done_ endpoint, using the HTTPS scheme. This value should be similar to _https://contoso.azurewebsites.net/.auth/login/done_.
 
 		private AuthenticationContext mContext;
+
 		private void authenticate() {
-		String authority = "INSERT-AUTHORITY-HERE";
-		String resourceId = "INSERT-RESOURCE-ID-HERE";
-		String clientId = "INSERT-CLIENT-ID-HERE";
-		String redirectUri = "INSERT-REDIRECT-URI-HERE";
-		try {
-		    mContext = new AuthenticationContext(this, authority, true);
-		    mContext.acquireToken(this, resourceId, clientId, redirectUri, PromptBehavior.Auto, "", callback);
-		} catch (Exception exc) {
-		    exc.printStackTrace();
+            String authority = "INSERT-AUTHORITY-HERE";
+            String resourceId = "INSERT-RESOURCE-ID-HERE";
+            String clientId = "INSERT-CLIENT-ID-HERE";
+            String redirectUri = "INSERT-REDIRECT-URI-HERE";
+            try {
+                mContext = new AuthenticationContext(this, authority, true);
+                mContext.acquireToken(this, resourceId, clientId, redirectUri, PromptBehavior.Auto, "", callback);
+            } catch (Exception exc) {
+                exc.printStackTrace();
+            }
 		}
-		}
+
 		private AuthenticationCallback<AuthenticationResult> callback = new AuthenticationCallback<AuthenticationResult>() {
-		@Override
-		public void onError(Exception exc) {
-		    if (exc instanceof AuthenticationException) {
-		        Log.d(TAG, "Cancelled");
-		    } else {
-		        Log.d(TAG, "Authentication error:" + exc.getMessage());
-		    }
-		}
-		@Override
+            @Override
+            public void onError(Exception exc) {
+                if (exc instanceof AuthenticationException) {
+                    Log.d(TAG, "Cancelled");
+                } else {
+                    Log.d(TAG, "Authentication error:" + exc.getMessage());
+                }
+            }
+            @Override
 			public void onSuccess(AuthenticationResult result) {
-		    if (result == null || result.getAccessToken() == null
-		            || result.getAccessToken().isEmpty()) {
-		        Log.d(TAG, "Token is empty");
-		    } else {
-		        try {
-		            JSONObject payload = new JSONObject();
-		            payload.put("access_token", result.getAccessToken());
-		            ListenableFuture<MobileServiceUser> mLogin = mClient.login("aad", payload.toString());
-		            Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
-		                @Override
-		                public void onFailure(Throwable exc) {
-		                    exc.printStackTrace();
-		                }
-		                @Override
-		                public void onSuccess(MobileServiceUser user) {
-		            		Log.d(TAG, "Login Complete");
-		                }
-		            });
-		        }
-		        catch (Exception exc){
-		            Log.d(TAG, "Authentication error:" + exc.getMessage());
-		        }
-		    }
-		}
+                if (result == null || result.getAccessToken() == null
+                        || result.getAccessToken().isEmpty()) {
+                    Log.d(TAG, "Token is empty");
+                } else {
+                    try {
+                        JSONObject payload = new JSONObject();
+                        payload.put("access_token", result.getAccessToken());
+                        ListenableFuture<MobileServiceUser> mLogin = mClient.login("aad", payload.toString());
+                        Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
+                            @Override
+                            public void onFailure(Throwable exc) {
+                                exc.printStackTrace();
+                            }
+                            @Override
+                            public void onSuccess(MobileServiceUser user) {
+                                Log.d(TAG, "Login Complete");
+                            }
+                        });
+                    }
+                    catch (Exception exc){
+                        Log.d(TAG, "Authentication error:" + exc.getMessage());
+                    }
+                }
+            }
 		};
 		@Override
 		protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		super.onActivityResult(requestCode, resultCode, data);
-		if (mContext != null) {
-		    mContext.onActivityResult(requestCode, resultCode, data);
+            super.onActivityResult(requestCode, resultCode, data);
+            if (mContext != null) {
+                mContext.onActivityResult(requestCode, resultCode, data);
+            }
 		}
-		}
-
 
 ## How to: add push notification to your app
 
-You can [read an overview](../notification-hubs/notification-hubs-push-notification-overview.md#integration-with-app-service-mobile-apps) that describes how Microsoft Azure Notification Hubs supports a wide variety of push notifications,
-
-In [this tutorial](app-service-mobile-android-get-started-push.md), every time a record is inserted, a push notification is sent.
+You can [read an overview][6] that describes how Microsoft Azure Notification Hubs supports a wide variety of 
+push notifications.  In [this tutorial][5], every time a record is inserted, a push notification is sent.
 
 ## How to: add offline sync to your app
 The Quickstart tutorial contains code that implements offline sync. Look for code prefixed with comments like this:
 
 	// Offline Sync
 
-By uncommenting the following lines of code you can implement offline sync, and you can add similar code to other Mobile Apps code.
+By uncommenting the following lines of code you can implement offline sync, and you can add similar code to 
+other Mobile Apps code.
 
 ##<a name="customizing"></a>How to: Customize the client
 
@@ -730,7 +776,7 @@ There are several ways for you to customize the default behavior of the client.
 
 ### <a name="headers"></a>How to: Customize request headers
 
-You might want to attach a custom header to every outgoing request. You can accomplish that by configuring a **ServiceFilter** like this:
+Configure a **ServiceFilter** to add a custom HTTP header to each request:
 
 	private class CustomHeaderFilter implements ServiceFilter {
 
@@ -757,7 +803,9 @@ You might want to attach a custom header to every outgoing request. You can acco
 
 ### <a name="serialization"></a>How to: Customize serialization
 
-The client assumes that the table names, column names and data types on the backend all match exactly the data objects defined in the client. But there can be any number of reasons why the server and client names might not match. In your scenario, you might want to do the following kinds of customizations:
+The client assumes that the table names, column names and data types on the backend all match exactly the 
+data objects defined in the client. But there can be any number of reasons why the server and client names 
+might not match. In your scenario, you might want to do the following kinds of customizations:
 
 - The column names used in the mobile-  service table don't match the names you are using in the client.
 - Use a mobile service table that has a different name than the class it maps to in the client.
@@ -766,15 +814,16 @@ The client assumes that the table names, column names and data types on the back
 
 ### <a name="columns"></a>How to: Map different client and server names
 
-Suppose that your Java client code uses standard Java-style names for the *ToDoItem* object properties, such as the following.
+Suppose that your Java client code uses standard Java-style names for the **ToDoItem** object properties, 
+such as the following.
 
 - mId
 - mText
 - mComplete
 - mDuration
 
-
-You must serialize the client names into JSON names that match the column names of the *ToDoItem* table on the server. The following code, which makes use of the [gson](http://go.microsoft.com/fwlink/p/?LinkId=290801) library does this.
+You must serialize the client names into JSON names that match the column names of the **ToDoItem** table 
+on the server. The following code, which makes use of the [gson][3] library does this.
 
 	@com.google.gson.annotations.SerializedName("text")
 	private String mText;
@@ -790,19 +839,24 @@ You must serialize the client names into JSON names that match the column names 
 
 ### <a name="table"></a>How to: Map different table names between the client and the backend
 
-Mapping the client table name to a different mobile services table name is easy, we just use one of the overrides of the
-<a href="http://go.microsoft.com/fwlink/p/?LinkId=296840" target="_blank">getTable()</a> function, as seen in the following code.
+Mapping the client table name to a different mobile services table name is easy, we just use one of the 
+overrides of the [getTable()][4] function, as seen in the following code.
 
 	mToDoTable = mClient.getTable("ToDoItemBackup", ToDoItem.class);
 
-
 ### <a name="conversions"></a>How to: Automate column name mappings
 
-Mapping column names for a narrow table with only a few columns isn't a big deal, as we saw in the prior section. But suppose our table has a lot of columns, say 20 or 30. It turns out that we can call the <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a> API and specify a conversion strategy that will apply to every column, and avoid having to annotate every single column name.
+Mapping column names for a narrow table with only a few columns isn't a big deal, as we saw in the preceding 
+section. But suppose our table has a lot of columns, say 20 or 30. It turns out that we can call the 
+[gson][3] API and specify a conversion strategy that will apply to every column, and avoid having to 
+annotate every single column name.
 
-To do this we use the <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a> library which the Android client library uses behind the scenes to serialize Java objects to JSON data, which is sent to Azure Mobile Services.
+To do this we use the [gson][3] library which the Android client library uses behind the scenes to serialize 
+Java objects to JSON data, which is sent to Azure Mobile Services.
 
-The following code uses the *setFieldNamingStrategy()* method, in which we define a *FieldNamingStrategy()* method. This method says to delete the initial character (an "m"), and then lower-case the next character, for every field name. This code also enables pretty-printing of the output JSON.
+The following code uses the **setFieldNamingStrategy()** method, in which we define a **FieldNamingStrategy()** 
+method. This method says to delete the initial character (an "m"), and then lower-case the next character, for 
+every field name. This code also enables pretty-printing of the output JSON.
 
 	client.setGsonBuilder(
 	    MobileServiceClient
@@ -822,11 +876,16 @@ This code must be executed prior to any method calls on the Mobile Services clie
 
 ### <a name="complex"></a>How to: Store an object or array property into a table
 
-So far all of our serialization examples have involved primitive types such as integers and strings which easily serialize into JSON and into the mobile services table. Suppose we want to add a complex object to our client type, which doesn't automatically serialize to JSON and to the table. For example we might want to add an array of strings to the client object. It is now up to us to specify how to do the serialization, and how to store the array into the mobile services table.
+So far all of our serialization examples have involved primitive types such as integers and strings 
+which easily serialize into JSON and into the mobile services table. Suppose we want to add a complex 
+object to our client type, which doesn't automatically serialize to JSON and to the table. For example 
+we might want to add an array of strings to the client object. It is now up to us to specify how to 
+do the serialization, and how to store the array into the mobile services table.
 
-To see an example of how to do this, check out the blog post <a href="http://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson" target="_blank">Customizing serialization using the <a href=" http://go.microsoft.com/fwlink/p/?LinkId=290801" target="_blank">gson</a> library in the Mobile Services Android client</a>.
+To see an example of how to do this, check out the blog post [Customizing serialization using the gson library in the Mobile Services Android client][2].
 
-This general method can be used whenever we have a complex object that is not automatically serializable into JSON and the mobile services table.
+This general method can be used whenever we have a complex object that is not automatically serializable into 
+JSON and the mobile services table.
 
 <!-- Anchors. -->
 
@@ -863,11 +922,16 @@ This general method can be used whenever we have a complex object that is not au
 
 <!-- Images. -->
 
-
-
 <!-- URLs. -->
 [Get started with Azure Mobile Apps]: app-service-mobile-android-get-started.md
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [Mobile Services SDK for Android]: http://go.microsoft.com/fwlink/p/?LinkID=717033
 [Azure portal]: https://portal.azure.com
 [Get started with authentication]: app-service-mobile-android-get-started-users.md
+[1]: http://google-gson.googlecode.com/svn/trunk/gson/docs/javadocs/com/google/gson/JsonObject.html
+[2]: http://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson
+[3]: http://go.microsoft.com/fwlink/p/?LinkId=290801
+[4]: http://go.microsoft.com/fwlink/p/?LinkId=296840
+[5]: app-service-mobile-android-get-started-push.md
+[6]: ../notification-hubs/notification-hubs-push-notification-overview.md#integration-with-app-service-mobile-apps
+[7]: app-service-mobile-android-get-started-users.md#cache-tokens
