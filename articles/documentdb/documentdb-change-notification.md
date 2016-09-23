@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="rest-api" 
     ms.topic="article" 
-    ms.date="06/14/2016" 
+    ms.date="09/23/2016" 
     ms.author="b-hoedid"/>
 
 # Notifications for new or changed DocumentDB resources using Logic Apps
