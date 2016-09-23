@@ -63,7 +63,7 @@ Sample OEM configurations are available.
 
 ## Operating system
 
-| | **Requirements**  |
+| | **Requirements**  |
 |---|---|
 | **OS Version** | Windows Server 2016 R2 or later. The operating system version isn’t critical before the deployment starts, as you'll boot the host computer into the VHD that's included in Azure Stack installation zip. The OS and all required patches are already integrated into the image.|
 | **Domain joined?** | No. |
@@ -84,19 +84,19 @@ The Microsoft Azure Stack deployment must be connected to Azure. Therefore, you 
 
 2. [Create](azure-stack-add-new-user-aad.md) at least one account so that you can sign in to the Azure Stack POC as a tenant.
 
-    | **Azure Active Directory account**  | **Supported?** |
+    | **Azure Active Directory account**  | **Supported?** |
     |---|---| 
-    | Organization ID with valid Public Azure Subscription  | Yes |
-    | Microsoft Account with valid Public Azure Subscription  | No |
-    | Organization ID with valid China Azure Subscription  | Yes |
-    | Organization ID with valid US Government Azure Subscription  | Yes |
+    | Organization ID with valid Public Azure Subscription  | Yes |
+    | Microsoft Account with valid Public Azure Subscription  | No |
+    | Organization ID with valid China Azure Subscription  | Yes |
+    | Organization ID with valid US Government Azure Subscription  | Yes |
 
 
 ## Network
 
 ### Switch
 
-One available port on a switch for the POC machine.  
+One available port on a switch for the POC machine.  
 
 The Azure Stack POC machine supports connecting to a switch access port or trunk port. No specialized features are required on the switch. If you are using a trunk port or if you need to configure a VLAN ID, you have to provide the VLAN ID as a deployment parameter. You can see examples in the [list of deployment parameters](azure-stack-run-powershell-script.md).
 
@@ -122,11 +122,7 @@ Make sure there is a DHCP server available on the network that the NIC connects 
 
 ### Internet access
 
-Access to the Internet is required. Both the host IP and the new IP assigned to the NATVM (by DHCP or static IP) must be able to access Internet. Ports 80 and 443 are used under the graph.windows.net and login.windows.net domains.
-
-### Proxy
-
-If a proxy is required in your environment to access the Internet, specify the proxy server address and port as a deployment parameter. Azure Stack POC does not support proxy authentication.
+Azure Stack requires access to the Internet, either directly or through a transparent proxy. Azure Stack does not support the configuration of a web proxy to enable Internet access. Both the host IP and the new IP assigned to the NATVM (by DHCP or static IP) must be able to access Internet. Ports 80 and 443 are used under the graph.windows.net and login.windows.net domains.
 
 ### Telemetry
 
