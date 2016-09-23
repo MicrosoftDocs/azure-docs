@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/02/2016"
+    ms.date="07/19/2016"
     ms.author="magoedte;bwren"/>
 
 # My first PowerShell Workflow runbook
@@ -110,7 +110,7 @@ We've tested and published our runbook, but so far it doesn't do anything useful
     ```
 
 5.	Click **Test pane** so that we can test the runbook.
-6.	Click **Start** to start the test. Once it completes, you should receive output displaying basic information from your account. This confirms that the credential is valid. <br> ![Authenticate](media/automation-first-runbook-textual/runbook-auth-results.png)
+6.	Click **Start** to start the test. Once it completes, you should receive output similar to the following, displaying basic information from your account. This confirms that the credential is valid.<br> ![Authenticate](media/automation-first-runbook-textual/runbook-auth-output.png)
 
 ## Step 6 - Add code to start a virtual machine
 
@@ -121,12 +121,11 @@ Now that our runbook is authenticating to our Azure subscription, we can manage 
     ```
     workflow MyFirstRunbook-Workflow
     {
-     $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
-     Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-     -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
-     Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
+      $Conn = Get-AutomationConnection -Name AzureRunAsConnection
+      Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+      Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName'
     }
-    ```
+    ``` 
 
 2.	Save the runbook and then click **Test pane** so that we can test it.
 3.	Click **Start** to start the test. Once it completes, check that the virtual machine was started.
@@ -145,8 +144,7 @@ Our runbook currently starts the virtual machine that we hardcoded in the runboo
         [string]$ResourceGroupName
        )  
      $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
-     Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID `
-     -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+     Add-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
      Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
     }
     ```
@@ -159,9 +157,9 @@ Our runbook currently starts the virtual machine that we hardcoded in the runboo
 
 7.	When the runbook completes, check that the virtual machine was started.
 
-## Next Steps
+## Next steps
 
 -  To get started with Graphical runbooks, see [My first graphical runbook](automation-first-runbook-graphical.md)
--	To get started with PowerShell runbooks, see [My first PowerShell runbook](automation-first-runbook-textual-powershell.md)
+-  To get started with PowerShell runbooks, see [My first PowerShell runbook](automation-first-runbook-textual-powershell.md)
 -  To learn more about runbook types, their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md)
--	For more information on PowerShell script support feature, see [Native PowerShell script support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
+-  For more information on PowerShell script support feature, see [Native PowerShell script support in Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)

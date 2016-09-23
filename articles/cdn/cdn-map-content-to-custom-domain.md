@@ -1,5 +1,5 @@
 <properties
-	 pageTitle="How to Map Content Delivery Network (CDN) Content to a Custom Domain"
+	 pageTitle="How to Map Azure Content Delivery Network (CDN) Content to a Custom Domain | Microsoft Azure"
 	 description="This topic demonstrate how to map a CDN content to a Custom Domain."
 	 services="cdn"
 	 documentationCenter=""
@@ -12,7 +12,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	 ms.author="casoper"/>
 
 # How to map Custom Domain to Content Delivery Network (CDN) endpoint

@@ -74,8 +74,8 @@ Sample OEM configurations are available.
 
 | | **Requirements**  |
 |---|---|
-| **OS Version** | [Windows Server 2016 Datacenter Edition **Technical Preview 4**](http://aka.ms/ReqOSforAzureStack) with the latest important updates installed.|
-| **Install Method** | Clean install. You can use the WindowsServer2016Datacenter.vhdx provided in the deployment package to quickly install the operating system on your Azure Stack POC machine. If you don't use the WindowsServer2016Datacenter.vhdx, you must manually install the operating system and all important updates.|
+| **OS Version** | Windows Server 2016 Datacenter Edition **Technical Preview 4** with the latest important updates installed. A WindowsServer2016Datacenter.vhdx is included in the download package. You can boot into this VHDX, and then use as the base operating system for your Azure Stack POC deployment.|
+| **Install Method** | Clean install. You can use the WindowsServer2016Datacenter.vhdx provided in the deployment package to quickly install the operating system on your Azure Stack POC machine. |
 | **Domain joined?** | No. |
 
 

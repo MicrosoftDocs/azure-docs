@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/02/2016"
+	ms.date="08/17/2016"
 	ms.author="annemill"/>
 
 # SQL Database Development Overview
-This article walks through the basic considerations that a developer should consider when writing code to connect to Azure SQL Database.
+This article walks through the basic considerations that a developer should be aware of when writing code to connect to Azure SQL Database.
 
 ## Language and platform
-There are code samples available for a variety of programming languages and platforms. You can find links to the code samples at: 
+There are code samples available for various programming languages and platforms. You can find links to the code samples at: 
 
 * More Information: [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md)
 
@@ -37,12 +37,12 @@ Azure SQL Database provides resources for limiting access, protecting data, and 
 
 ## Authentication
 * Azure SQL Database supports both SQL Server authentication users and logins, as well as [Azure Active Directory authentication](sql-database-aad-authentication.md) users and logins.
-* You will need to specify a particular database, instead of defaulting to the *master* database.
+* You need to specify a particular database, instead of defaulting to the *master* database.
 * You cannot use the Transact-SQL **USE myDatabaseName;** statement on SQL Database to switch to another database.
 * More information: [SQL Database security: Manage database access and login security](sql-database-manage-logins.md)
 
 ## Resiliency
-When a transient error occurs while connecting to SQL Database, your code should retry the call.  We recommend that retry logic use backoff logic, so that it does not unnecessarily overwhelm the SQL Database with multiple clients retrying simultaneously.
+When a transient error occurs while connecting to SQL Database, your code should retry the call.  We recommend that retry logic use backoff logic, so that it does not overwhelm the SQL Database with multiple clients retrying simultaneously.
 
 * Code samples:  For code samples that illustrate retry logic, see samples for the language of your choice at: [Connection libraries for SQL Database and SQL Server](sql-database-libraries.md)
 * More information: [Error messages for SQL Database client programs](sql-database-develop-error-messages.md)
@@ -59,8 +59,7 @@ When a transient error occurs while connecting to SQL Database, your code should
 ## Data Sharding with Elastic Scale
 Elastic Scale simplifies the process of scaling out (and in). 
 
-[Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database]
-* (./sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * [Data dependent routing](sql-database-elastic-scale-data-dependent-routing.md)
 * [Get Started with Azure SQL Database Elastic Scale Preview](sql-database-elastic-scale-get-started.md)
 

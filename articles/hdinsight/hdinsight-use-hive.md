@@ -5,7 +5,7 @@
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -15,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="06/16/2016"
+	ms.date="09/19/2016"
 	ms.author="larryfr"/>
 
 # Use Hive and HiveQL with Hadoop in HDInsight to analyze a sample Apache log4j file
@@ -32,7 +32,11 @@ Hive allows you to project structure on largely unstructured data. After you def
 
 Hive understands how to work with structured and semi-structured data, such as text files where the fields are delimited by specific characters. Hive also supports custom **serializer/deserializers (SerDe)** for complex or irregularly structured data. For more information, see [How to use a custom JSON SerDe with HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight.aspx).
 
+## User defined functions (UDF)
+
 Hive can also be extended through **user-defined functions (UDF)**. A UDF allows you to implement functionality or logic that isn't easily modeled in HiveQL. For an example of using UDFs with Hive, see the following:
+
+* [Use a Java User Defined Function with Hive](hdinsight-hadoop-hive-java-udf.md)
 
 * [Using Python with Hive and Pig in HDInsight](hdinsight-python.md)
 
@@ -40,6 +44,7 @@ Hive can also be extended through **user-defined functions (UDF)**. A UDF allows
 
 * [How to add a custom Hive UDF to HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
+* [Custom Hive UDF example to convert date/time formats to Hive timestamp](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
 
 ## Hive internal tables vs external tables
 
@@ -66,21 +71,21 @@ In the previous example, the log level is ERROR.
 
 The sample data is stored in Azure Blob storage, which HDInsight uses as the default file system. HDInsight can access files stored in blobs by using the **wasb** prefix. For example, to access the sample.log file, you would use the following syntax:
 
-	wasb:///example/data/sample.log
+	wasbs:///example/data/sample.log
 
 Because Azure Blob storage is the default storage for HDInsight, you can also access the file by using **/example/data/sample.log** from HiveQL.
 
-> [AZURE.NOTE] The syntax, **wasb:///**, is used to access files stored in the default storage container for your HDInsight cluster. If you specified additional storage accounts when you provisioned your cluster, and you want to access files stored in these accounts, you can access the data by specifying the container name and storage account address, for example, **wasb://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
+> [AZURE.NOTE] The syntax, **wasbs:///**, is used to access files stored in the default storage container for your HDInsight cluster. If you specified additional storage accounts when you provisioned your cluster, and you want to access files stored in these accounts, you can access the data by specifying the container name and storage account address, for example, **wasbs://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
 
 ##<a id="job"></a>Sample job: Project columns onto delimited data
 
-The following HiveQL statements will project columns onto delimited data that is stored in the **wasb:///example/data** directory:
+The following HiveQL statements will project columns onto delimited data that is stored in the **wasbs:///example/data** directory:
 
     set hive.execution.engine=tez;
 	DROP TABLE log4jLogs;
     CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-    STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
+    STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
     SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
 
 In the previous example, the HiveQL statements perform the following actions:

@@ -64,7 +64,7 @@ For a step-by-step guide to adding devices to the remote monitoring preconfigure
 
 Included in the remote monitoring solution source code (referenced above), is a .NET simulator. This simulator is the one provisioned as part of the solution and can be altered to send different metadata, telemetry or respond to different commands.
 
-The preconfigured simulator in the remote monitoring preconfigured solution is a cooler device that emits temperature and humidity telemetry, you can modify the simulator in the [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob ) project when you've forked the GitHub repository.
+The preconfigured simulator in the remote monitoring preconfigured solution is a cooler device that emits temperature and humidity telemetry, you can modify the simulator in the [Simulator.WebJob](https://github.com/Azure/azure-iot-remote-monitoring/tree/master/Simulator/Simulator.WebJob) project when you've forked the GitHub repository.
 
 ### Available locations for simulated devices
 
@@ -154,7 +154,15 @@ Do you have a customization you'd like to see covered in this document? Please a
 
 ## Next steps
 
-For more information about IoT devices, see the [Azure IoT Developer Site](https://azure.microsoft.com/develop/iot/) to find links and documentation.
+To learn more about the options for customizing the preconfigured solutions, see:
+
+- [Connect Logic App to your Azure IoT Suite Remote Monitoring preconfigured solution][lnk-logicapp]
+- [Use dynamic telemetry with the remote monitoring preconfigured solution][lnk-dynamic]
+- [Device information metadata in the remote monitoring preconfigured solution][lnk-devinfo]
+
+[lnk-logicapp]: iot-suite-logic-apps-tutorial.md
+[lnk-dynamic]: iot-suite-dynamic-telemetry.md
+[lnk-devinfo]: iot-suite-remote-monitoring-device-info.md
 
 [IoT Device SDK]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 [lnk-permissions]: iot-suite-permissions.md

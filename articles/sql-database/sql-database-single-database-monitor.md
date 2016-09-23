@@ -4,7 +4,7 @@
 	keywords="database monitoring, cloud database performance"
 	services="sql-database"
 	documentationCenter=""
-	authors="carlrabeler"
+	authors="CarlRabeler"
 	manager="jhubbard"
 	editor=""/>
 

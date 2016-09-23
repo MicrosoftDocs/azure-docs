@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/30/2016" 
-	ms.author="tdykstra"/>
+	ms.author="rachelap"/>
 
 # Service principal authentication for API Apps in Azure App Service
 

@@ -10,7 +10,7 @@
 <tags
  ms.service="iot-hub"
  ms.devlang="na"
- ms.topic="article"
+ ms.topic="get-started-article"
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="04/29/2016"
@@ -103,7 +103,9 @@ The DM client library has two main responsibilities in device management:
 
 To learn more about these responsibilities and the implementation on the physical device in [Introducing the Azure IoT Hub device management client library for C][lnk-library-c].
 
-## Next step
+## Next steps
+
+To implement client applications on a wide variety of device hardware platforms and operating systems, you can use the IoT device SDKs. The IoT device SDKs include libraries that facilitate sending telemetry to an IoT hub and receiving cloud-to-device commands. When you use the SDKs, you can choose from a number of network protocols to communicate with IoT Hub. To learn more, see the [information about device SDKs][lnk-device-sdks].
 
 To continue learning about the Azure IoT Hub device management features, see the [Get started with Azure IoT Hub device management][lnk-get-started] tutorial.
 
@@ -118,3 +120,4 @@ To continue learning about the Azure IoT Hub device management features, see the
 [lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
 [lnk-apidocs]: http://azure.github.io/azure-iot-sdks/
 [lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
+[lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks

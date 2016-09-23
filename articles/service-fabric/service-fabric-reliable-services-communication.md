@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="03/25/2016"
+   ms.date="07/06/2016"
    ms.author="vturecek"/>
 
 # How to use the Reliable Services communication APIs
@@ -69,7 +69,7 @@ In both cases, you return a collection of listeners. This allows your service to
 
 In a stateless service, the override returns a collection of ServiceInstanceListeners. A ServiceInstanceListener contains a function to create an ICommunicationListener and gives it a name. For stateful services, the override returns a collection of ServiceReplicaListeners. This is slightly different from its stateless counterpart, because a ServiceReplicaListener has an option to open an ICommunicationListener on secondary replicas. Not only can you use multiple communication listeners in a service, but you can also specify which listeners accept requests on secondary replicas and which ones listen only on primary replicas.
 
-For example, you can have a ServiceRemotingListener that takes RPC calls only on primary replicas, and a second, custom listener that takes read requests on secondary replicas:
+For example, you can have a ServiceRemotingListener that takes RPC calls only on primary replicas, and a second, custom listener that takes read requests on secondary replicas over HTTP:
 
 ```csharp
 protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -77,8 +77,8 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
     return new[]
     {
         new ServiceReplicaListener(context =>
-            new MyCustomListener(context),
-            "customReadonlyEndpoint",
+            new MyCustomHttpListener(context),
+            "HTTPReadonlyEndpoint",
             true),
 
         new ServiceReplicaListener(context =>
@@ -88,6 +88,8 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
     };
 }
 ```
+
+> [AZURE.NOTE] When creating multiple listeners for a service, each listener **must** be given a unique name.
 
 Finally, describe the endpoints that are required for the service in the [service manifest](service-fabric-application-model.md) under the section on endpoints.
 
@@ -145,10 +147,10 @@ The Reliable Services API provides the following libraries to write clients that
 ### Service endpoint resolution
 The first step to communication with a service is to resolve an endpoint address of the partition or instance of the service you want to talk to. The `ServicePartitionResolver` utility class is a basic primitive that helps clients determine the endpoint of a service at runtime. In Service Fabric terminology, the process of determining the endpoint of a service is referred to as the *service endpoint resolution*.
 
-To connect to services within a cluster, `ServicePartitionResolver` can be created without any parameters:
+To connect to services within a cluster, `ServicePartitionResolver` can be created using default settings. This is the recommended usage for most situations:
 
 ```csharp
-ServicePartitionResolver resolver = new  ServicePartitionResolver();
+ServicePartitionResolver resolver = ServicePartitionResolver.GetDefault();
 ```
 
 To connect to services in a different cluster, a `ServicePartitionResolver` can be created with a set of cluster gateway endpoints. Note that gateway endpoints are just different endpoints for connecting to the same cluster. For example:
@@ -157,13 +159,13 @@ To connect to services in a different cluster, a `ServicePartitionResolver` can 
 ServicePartitionResolver resolver = new  ServicePartitionResolver("mycluster.cloudapp.azure.com:19000", "mycluster.cloudapp.azure.com:19001");
 ```
 
-A `ServicePartitionResolver` can be given a function for creating a `FabricClient` to use internally. 
+Alternatively, `ServicePartitionResolver` can be given a function for creating a `FabricClient` to use internally: 
  
 ```csharp
 public delegate FabricClient CreateFabricClientDelegate();
 ```
 
-`FabricClient` is the object that is used to communicate with the Service Fabric cluster for various management operations on the cluster. This is useful when you want more control over how `ServicePartitionClient` interacts with your cluster. `FabricClient` performs caching internally and is generally expensive to create, so it is important to reuse `FabricClient` instances as much as possible. 
+`FabricClient` is the object that is used to communicate with the Service Fabric cluster for various management operations on the cluster. This is useful when you want more control over how `ServicePartitionResolver` interacts with your cluster. `FabricClient` performs caching internally and is generally expensive to create, so it is important to reuse `FabricClient` instances as much as possible. 
 
 ```csharp
 ServicePartitionResolver resolver = new  ServicePartitionResolver(() => CreateMyFabricClient());
@@ -172,7 +174,7 @@ ServicePartitionResolver resolver = new  ServicePartitionResolver(() => CreateMy
 A resolve method is then used to retrieve the address of a service or a service partition for partitioned services.
 
 ```csharp
-ServicePartitionResolver resolver = new ServicePartitionResolver();
+ServicePartitionResolver resolver = ServicePartitionResolver.GetDefault();
 
 ResolvedServicePartition partition =
     await resolver.ResolveAsync(new Uri("fabric:/MyApp/MyService"), new ServicePartitionKey(), cancellationToken);

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/23/2015"
+	ms.date="09/13/2016"
 	ms.author="guybo"/>
 
 #Deploy a LAMP app using the Azure CustomScript Extension for Linux#
@@ -68,7 +68,7 @@ The script example installs a LAMP stack to Ubuntu (including setting up a silen
 
 ### Upload script
 
-Save the script as a text file, for example *lamp_install.sh*, and then upload it to Azure Storage. You can do this easily with Azure CLI. The following example uploads the file to a storage container named "scripts". If the container doesn't exist you'll need to create it first.
+Save the script as a text file, for example *install_lamp.sh*, and then upload it to Azure Storage. You can do this easily with Azure CLI. The following example uploads the file to a storage container named "scripts". If the container doesn't exist you'll need to create it first.
 
     azure storage blob upload -a <yourStorageAccountName> -k <yourStorageKey> --container scripts ./install_lamp.sh
 
@@ -81,9 +81,9 @@ Also create a JSON file that describes how to download the script from Azure Sto
 
 Now you can use the next command to deploy the Linux CustomScript Extension to the remote VM using the Azure CLI.
 
-    azure vm extension set -c "./public_config.json" lamp-vm CustomScriptForLinux Microsoft.OSTCExtensions 1.*
+    azure vm extension set -c "./public_config.json" lamp-vm CustomScript Microsoft.Azure.Extensions 2.0
 
-The previous command downloads and runs the *lamp_install.sh* script on the VM called *lamp-vm*.
+The previous command downloads and runs the *install_lamp.sh* script on the VM called *lamp-vm*.
 
 Since the app includes a web server, remember to open an HTTP listening port on the remote VM with the next command.
 
@@ -93,8 +93,8 @@ Since the app includes a web server, remember to open an HTTP listening port on 
 
 You can check on how well the custom script runs by looking at the log file on the remote VM. SSH to *lamp-vm* and tail the log file with the next command.
 
-    cd /var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.3.0.0/
-    tail -f extension.log
+    cd /var/log/azure/customscript
+    tail -f handler.log
 
 After you run the CustomScript Extension, you can browse to the PHP page you created for information. The PHP page for the example in this article is *http://lamp-vm.cloudapp.net/phpinfo.php*.
 

@@ -78,13 +78,15 @@ To deploy a resource provider, you run the PowerShell Integrated Scripting Envir
 
 1. Connect the Azure Stack POC remote desktop to clientVm.AzureStack.Local and sign in as azurestack\\azurestackuser.
 
-2. [Download the SQLRP binaries](http://aka.ms/massqlrprfrsh) file and extract it to D:\\SQLRP.
+2. [Download the SQLRP binaries](http://aka.ms/massqlrprfrsh) file. You may need to remove the Internet download security block by right-clicking on the file, selecting **Properties** and from the **General** tab, tick **Unblock**, **OK**. This should prevent 'Could not load file or assembly' exceptions related to DeploymentTelemetry.dll and the subsequent Trace-Deployment exceptions.
 
-3. Run the D:\\SQLRP\\Bootstrap.cmd file as an administrator (azurestack\\administrator).
+3. Extract the files to D:\\SQLRP.
+
+4. Run the D:\\SQLRP\\Bootstrap.cmd file as an administrator (azurestack\\administrator).
 
 	This opens the Bootstrap.ps1 file in the PowerShell ISE.
 
-4. When the PowerShell ISE window completes loading, click the play button or press F5.
+5. When the PowerShell ISE window completes loading, click the play button or press F5.
 
 	![](./media/azure-stack-sql-rp-deploy-long/1strun.png)
 

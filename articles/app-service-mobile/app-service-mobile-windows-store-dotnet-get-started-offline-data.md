@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/14/2016"
+	ms.date="08/19/2016"
 	ms.author="wesmc"/>
 
 # Enable offline sync for your Windows app
@@ -41,7 +41,7 @@ This tutorial requires the following:
 
 Azure Mobile App offline features allow you to interact with a local database when you are in an offline scenario. To use these features in your app, you initialize a [SyncContext][synccontext] to a local store. Then reference your table through the [IMobileServiceSyncTable][IMobileServiceSyncTable] interface. SQLite is used as the local store on the device.
 
-1. Install the [SQLite runtime for the Universal Windows Universal](http://sqlite.org/2016/sqlite-uwp-3120200.vsix).
+1. Install the [SQLite runtime for the Universal Windows Platform](http://sqlite.org/2016/sqlite-uwp-3120200.vsix).
 
 2. In Visual Studio, open the NuGet package manager for the UWP app project that you completed in the [Create a Windows app] tutorial, then search for and install the **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet package.
 
@@ -129,7 +129,7 @@ In this section, you break the connection to your Mobile App backend to simulate
          public static MobileServiceClient MobileService =
 				new MobileServiceClient("https://your-service.azurewebsites.fail");
 
-	Note that when your app is also using authentication, this will cause sign in to fail. You can also demonstrate offline behavior by disabling wifi and celluar networks on the device or use airplane mode.
+	Note that when your app is also using authentication, this will cause sign in to fail. You can also demonstrate offline behavior by disabling wifi and cellular networks on the device or use airplane mode.
 
 2. Press **F5** to build and run the app. Notice your sync failed on refresh when the app launched.
  

@@ -35,9 +35,9 @@ Create a new Explicit App ID for your application with Apple and also configure 
 2. Update the following three fields for your new app and then click **Continue**:
 
 	* **Name**: Type a descriptive name for your app in the **Name** field in the **App ID Description** section.
-	
-	* **Bundle Identifier**: Under the **Explicit App ID** section, enter a **Bundle Identifier** in the form `<Organization Identifier>.<Product Name>` as mentioned in the [App Distribution Guide](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8). This must match what is also used in the XCode or Xamarin project for your app.	 
-	 
+
+	* **Bundle Identifier**: Under the **Explicit App ID** section, enter a **Bundle Identifier** in the form `<Organization Identifier>.<Product Name>` as mentioned in the [App Distribution Guide](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8). This must match what is also used in the XCode, Xamarin, or Cordova project for your app.
+
 	* **Push Notifications**: Check the **Push Notifications** option in the **App Services** section, .
 
 	![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
@@ -88,7 +88,7 @@ Create a new Explicit App ID for your application with Apple and also configure 
 
    	![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-new-provisioning-profile.png)
 
-2. Select **iOS App Development** under **Development** as the provisiong profile type, and click **Continue**. 
+2. Select **iOS App Development** under **Development** as the provisiong profile type, and click **Continue**.
 
 
 3. Next, select the app ID you just created from the **App ID** drop-down list, and click **Continue**
@@ -109,5 +109,3 @@ Create a new Explicit App ID for your application with Apple and also configure 
 6. Finally, pick a name for the profile in **Profile Name**, click **Generate**.
 
    	![](./media/notification-hubs-xamarin-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
-
-

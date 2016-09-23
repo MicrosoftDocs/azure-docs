@@ -13,14 +13,14 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="05/17/2016"
+     ms.date="09/06/2016"
      ms.author="obloch"/>
 
 # Microsoft Azure IoT device SDK for C – more about serializer
 
 The [first article](iot-hub-device-sdk-c-intro.md) in this series introduced the **Azure IoT device SDK for C**. The next article provided a more detailed description of the [**IoTHubClient**](iot-hub-device-sdk-c-iothubclient.md). This article completes coverage of the SDK by providing a more detailed description of the remaining component: the **serializer** library.
 
-The introductory article described how to use the **serializer** library to send events to and receive messages from IoT Hub. In this article we extend that discussion by providing a more complete explanation of how to model your data with the **serializer** macro language. The article also includes more detail about how the library serializes messages (and in some cases how you can control the serialization behavior). We'll also describe some parameters you can modify that determine the size of the models you create.
+The introductory article described how to use the **serializer** library to send events to and receive messages from IoT Hub. In this article, we extend that discussion by providing a more complete explanation of how to model your data with the **serializer** macro language. The article also includes more detail about how the library serializes messages (and in some cases how you can control the serialization behavior). We'll also describe some parameters you can modify that determine the size of the models you create.
 
 Finally, the article revisits some topics covered in previous articles such as message and property handling. As we'll find out, those features work in the same way using the **serializer** library as they do with the **IoTHubClient** library.
 
@@ -573,7 +573,7 @@ WITH_DATA(int, MyData)
 );
 ```
 
-As mentioned previously, **DECLARE\_MODEL** is just a C macro. The name of the model and the **WITH\_DATA** statement (yet another macro) are parameters of **DECLARE\_MODEL**. **nMacroParameters** defines how many parameters can be included in **DECLARE\_MODEL**. Effectively, this defines how many data event and action declarations you can have. As such, with the default limit of 124 this means that you can define a model with a combination of about 60 actions and data events. If you try to exceed this limit, you'll receive compiler errors that look similar to this:
+As mentioned previously, **DECLARE\_MODEL** is just a C macro. The names of the model and the **WITH\_DATA** statement (yet another macro) are parameters of **DECLARE\_MODEL**. **nMacroParameters** defines how many parameters can be included in **DECLARE\_MODEL**. Effectively, this defines how many data event and action declarations you can have. As such, with the default limit of 124 this means that you can define a model with a combination of about 60 actions and data events. If you try to exceed this limit, you'll receive compiler errors that look similar to this:
 
   ![](media/iot-hub-device-sdk-c-serializer/02-nMacroParametersCompilerErrors.PNG)
 
@@ -603,9 +603,9 @@ So far we've covered just about everything you need to know about how to write c
 
 ## The lower-level APIs
 
-The sample application on which this article focused is **simplesample\_amqp**. This sample uses the higher level (the non-"LL") APIs to send events and receive messages. If you use these APIs, a background thread runs which takes care of both sending events and receiving messages. However, you can use the lower level (LL) APIs to eliminate this background thread and take explicit control over when you send events or receive messages from the cloud.
+The sample application on which this article focused is **simplesample\_amqp**. This sample uses the higher-level (the non-"LL") APIs to send events and receive messages. If you use these APIs, a background thread runs which takes care of both sending events and receiving messages. However, you can use the lower-level (LL) APIs to eliminate this background thread and take explicit control over when you send events or receive messages from the cloud.
 
-As described in a [previous article](iot-hub-device-sdk-c-iothubclient.md), there is a set of functions that consists of the higher level APIs:
+As described in a [previous article](iot-hub-device-sdk-c-iothubclient.md), there is a set of functions that consists of the higher-level APIs:
 
 -   IoTHubClient\_CreateFromConnectionString
 
@@ -617,7 +617,7 @@ As described in a [previous article](iot-hub-device-sdk-c-iothubclient.md), ther
 
 These APIs are demonstrated in **simplesample\_amqp**.
 
-There is also an analogous set of lower level APIs.
+There is also an analogous set of lower-level APIs.
 
 -   IoTHubClient\_LL\_CreateFromConnectionString
 
@@ -627,9 +627,9 @@ There is also an analogous set of lower level APIs.
 
 -   IoTHubClient\_LL\_Destroy
 
-Note that the lower level APIs work exactly the same way as described in the previous articles. You can use the first set of APIs if you want a background thread to handle sending events and receiving messages. You use the second set of APIs if you want explicit control over when you send and receive data from IoT Hub. Either set of APIs work equally well with the **serializer** library.
+Note that the lower-level APIs work exactly the same way as described in the previous articles. You can use the first set of APIs if you want a background thread to handle sending events and receiving messages. You use the second set of APIs if you want explicit control over when you send and receive data from IoT Hub. Either set of APIs work equally well with the **serializer** library.
 
-For an example of how the lower level APIs are used with the **serializer** library, see the **simplesample\_http** application.
+For an example of how the lower-level APIs are used with the **serializer** library, see the **simplesample\_http** application.
 
 ## Additional topics
 
@@ -668,3 +668,20 @@ Otherwise, all of the other features listed above work the same in the **seriali
 This article describes in detail the unique aspects of the **serializer** library contained in the **Azure IoT device SDK for C**. With the information provided you should have a good understanding of how to use models to send events and receive messages from IoT Hub.
 
 This also concludes the three-part series on how to develop applications with the **Azure IoT device SDK for C**. This should be enough information to not only get you started but give you a thorough understanding of how the APIs work. For additional information, there are a few samples in the SDK not covered here. Otherwise, the [SDK documentation](https://github.com/Azure/azure-iot-sdks) is a good resource for additional information.
+
+
+To learn more about developing for IoT Hub, see the [IoT Hub SDKs][lnk-sdks].
+
+To further explore the capabilities of IoT Hub, see:
+
+- [Designing your solution][lnk-design]
+- [Exploring device management using the sample UI][lnk-dmui]
+- [Simulating a device with the Gateway SDK][lnk-gateway]
+- [Using the Azure Portal to manage IoT Hub][lnk-portal]
+
+[lnk-sdks]: iot-hub-sdks-summary.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md

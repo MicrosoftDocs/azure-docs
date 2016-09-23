@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2016" 
+	ms.date="07/11/2016" 
 	ms.author="stefsch"/>	
 
 # Network Configuration Details for App Service Environments with ExpressRoute 
@@ -21,7 +21,7 @@
 ## Overview ##
 Customers can connect an [Azure ExpressRoute][ExpressRoute] circuit to their virtual network infrastructure, thus extending their on-premises network to Azure.  An App Service Environment can  be created in a subnet of this [virtual network][virtualnetwork] infrastructure.  Apps running on the App Service Environment can then establish secure connections to back-end resources accessible only over the ExpressRoute connection.  
 
-**Note:**  An App Service Environment cannot be created in a "v2" virtual network.  With a recent change made in June 2016, ASEs can now be deployed into virtual networks that use either public address ranges, or RFC1918 address spaces (i.e. private addresses). 
+An App Service Environment can be created in **either** an Azure Resource Manager virtual network, **or** a classic deployment model virtual network.  With a recent change made in June 2016, ASEs can also now be deployed into virtual networks that use either public address ranges, or RFC1918 address spaces (i.e. private addresses). 
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)] 
 
@@ -58,9 +58,9 @@ If possible, it is recommended to use the following configuration:
 
 The combined effect of these steps is that the subnet level UDR will take precedence over the ExpressRoute forced tunneling, thus ensuring outbound Internet access from the App Service Environment.
 
-**IMPORTANT:**  The routes defined in a UDR **must** be specific enough to  take precedence over any routes advertised by the ExpressRoute configuration.  The example below uses the broad 0.0.0.0/0 address range, and as such can potentially be accidentally overridden by route advertisements using more specific address ranges.
-
-**VERY IMPORTANT:**  App Service Environments are not supported with ExpressRoute configurations that **incorrectly cross-advertise routes from the public peering path to the private peering path**.  ExpressRoute configurations that have public peering configured, will receive route advertisements from Microsoft for a large set of Microsoft Azure IP address ranges.  If these address ranges are incorrectly cross-advertised on the private peering path, the end result is that all outbound network packets from the App Service Environment's subnet will be incorrectly force-tunneled to a customer's on-premises network infrastructure.  This network flow will break App Service Environments.  The solution to this problem is to stop cross-advertising routes from the public peering path to the private peering path.
+> [AZURE.IMPORTANT] The routes defined in a UDR **must** be specific enough to  take precedence over any routes advertised by the ExpressRoute configuration.  The example below uses the broad 0.0.0.0/0 address range, and as such can potentially be accidentally overridden by route advertisements using more specific address ranges.
+>
+>App Service Environments are not supported with ExpressRoute configurations that **incorrectly cross-advertise routes from the public peering path to the private peering path**.  ExpressRoute configurations that have public peering configured, will receive route advertisements from Microsoft for a large set of Microsoft Azure IP address ranges.  If these address ranges are incorrectly cross-advertised on the private peering path, the end result is that all outbound network packets from the App Service Environment's subnet will be incorrectly force-tunneled to a customer's on-premises network infrastructure.  This network flow will break App Service Environments.  The solution to this problem is to stop cross-advertising routes from the public peering path to the private peering path.
 
 Background information on user defined routes is available in this [overview][UDROverview].  
 

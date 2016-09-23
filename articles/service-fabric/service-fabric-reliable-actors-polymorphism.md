@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/25/2016"
+   ms.date="07/07/2016"
    ms.author="seanmck"/>
 
 # Polymorphism in the Reliable Actors framework
@@ -35,7 +35,7 @@ You can also create a hierarchy of actor types, which are derived from the base 
 public abstract class Shape : Actor, IShape
 {
     public abstract Task<int> GetVerticeCount();
-    
+
     public abstract Task<double> GetAreaAsync();
 }
 ```
@@ -74,11 +74,3 @@ Note the `ActorService` attribute on the actor type. This attribute tells the Re
 <!-- Image references -->
 
 [shapes-interface-hierarchy]: ./media/service-fabric-reliable-actors-polymorphism/Shapes-Interface-Hierarchy.png
-
-## Next steps
- - [Actor state management](service-fabric-reliable-actors-state-management.md)
- - [Actor lifecycle and garbage collection](service-fabric-reliable-actors-lifecycle.md)
- - [Actor timers and reminders](service-fabric-reliable-actors-timers-reminders.md)
- - [Actor events](service-fabric-reliable-actors-events.md)
- - [Actor reentrancy](service-fabric-reliable-actors-reentrancy.md)
- - [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)

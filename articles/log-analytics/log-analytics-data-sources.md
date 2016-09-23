@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/02/2016"
+   ms.date="07/29/2016"
    ms.author="bwren" />
 
 # Data sources in Log Analytics
@@ -34,7 +34,7 @@ The data sources that are currently available in Log Analytics are listed in the
 | [Windows Performance counters](log-analytics-data-sources-performance-counters.md) | Perf | Performance counters collected from Windows computers. |
 | [Linux Performance counters](log-analytics-data-sources-performance-counters.md) | Perf | Performance counters collected from Linux computers. |
 | [IIS logs](log-analytics-data-sources-iis-logs.md) | W3CIISLog | Internet Information Services logs in W3C format. |
-| Syslog | Syslog | Syslog events on Windows or Linux computers. |
+| [Syslog](log-analytics-data-sources-syslog.md) | Syslog | Syslog events on Windows or Linux computers. |
 
 ## Configuring data sources
 
@@ -51,7 +51,7 @@ You configure data sources from the **Data** menu in Log Analytics **Settings**.
 
 Data source configurations are delivered to agents that are directly connected to OMS within a few minutes.  The specified data is collected from the agent and delivered directly to Log Analytics at intervals specific to each data source.  See the documentation for each data source for these specifics.
 
-For System Center Operations Manager (SCOM) agents in a connected management group, data source configurations are translated into management packs and delivered to the management group every 5 minutes by default.  The agent downloads the management pack like any other,  collects the specified data and send it to a management server which forwards the data to the OMS.  The agent requires no communication directly with OMS for any of the data sources.  You can read about details of connecting SCOM and OMS and modifying the frequency that configuration is delivered at [Configure Integration with System Center Operations Manager](log-analytics-om-agents.md).
+For System Center Operations Manager (SCOM) agents in a connected management group, data source configurations are translated into management packs and delivered to the management group every 5 minutes by default.  The agent downloads the management pack like any other and collects the specified data. Depending on the data source the data will be either sent to a management server which forwards the data to the Log Analytics, or the agent will send the data to Log Analytics without going through the management server. Refer to [data collection details for OMS features and solutions](log-analytics-add-solutions.md#data-collection-details-for-oms-features-and-solutions) for details.  You can read about details of connecting SCOM and OMS and modifying the frequency that configuration is delivered at [Configure Integration with System Center Operations Manager](log-analytics-om-agents.md).
 
 ## Log Analytics records
 
@@ -62,4 +62,4 @@ All data collected by Log Analytics is stored in the OMS repository as records. 
 
 - Learn about [solutions](log-analytics-add-solutions.md) that add functionality to Log Analytics and also collect data into the OMS repository.
 - Learn about [log searches](log-analytics-log-searches.md) to analyze the data collected from data sources and solutions.  
-- Configure alerts to proactively notify you of critical data collected from data sources and solutions.
+- Configure [alerts](log-analytics-alerts.md) to proactively notify you of critical data collected from data sources and solutions.

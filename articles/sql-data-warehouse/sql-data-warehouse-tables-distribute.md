@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/29/2016"
+   ms.date="08/30/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Distributing tables in SQL Data Warehouse
@@ -28,6 +28,12 @@
 - [Temporary][]
 
 SQL Data Warehouse is a massively parallel processing (MPP) distributed database system.  By dividing data and processing capability across multiple nodes, SQL Data Warehouse can offer huge scalability - far beyond any single system.  Deciding how to distribute your data within your SQL Data Warehouse is one of the most important factors to achieving optimal performance.   The key to optimal performance is minimizing data movement and in turn the key to minimizing data movement is selecting the right distribution strategy.
+
+## Understanding data movement
+
+In an MPP system, the data from each table is divided across several underlying databases.  The most optimized queries on an MPP system can simply be passed through to execute on the individual distributed databases with no interaction between the other databases.  For example, let's say you have a database with sales data which contains two tables, sales and customers.  If you have a query that needs to join your sales table to your customer table and you divide both your sales and customer tables up by customer number, putting each customer in a separate database, any queries which join sales and customer can be solved within each database with no knowledge of the other databases.  In contrast, if you divided your sales data by order number and your customer data by customer number, then any given database will not have the corresponding data for each customer and thus if you wanted to join your sales data to your customer data, you would need to get the data for each customer from the other databases.  In this second example, data movement would need to occur to move the customer data to the sales data, so that the two tables can be joined.  
+
+Data movement isn't always a bad thing, sometimes it's necessary to solve a query.  But when this extra step can be avoided, naturally your query will run faster.  Data Movement most commonly arises when tables are joined or aggregations are performed.  Often you need to do both, so while you may be able to optimize for one scenario, like a join, you still need data movement to help you solve for the other scenario, like an aggregation.  The trick is figuring out which is less work.  In most cases, distributing large fact tables on a commonly joined column is the most effective method for reducing the most data movement.  Distributing data on join columns is a much more common method to reduce data movement than distributing data on columns involved in an aggregation.
 
 ## Select distribution method
 
@@ -131,31 +137,37 @@ Distribution columns are not updatable, therefore, select a column with static v
 
 ### Select distribution column which will distribute data evenly
 
-Since a distributed system performs only as fast as its slowest distribution, it is important to divide the work evenly across the distributions in order to achieve balanced execution across the system.  The way the work is divided on a distributed system is based on where the data for each distribution lives.  This makes it very important to select the right distribution column for distributing the data so that each distribution has equal work and will take the same time to complete its portion of the work.  When work is well divided across the system, this is called balanced execution.  When data is not evenly divided on a system, and not well balanced, we call this **data skew**.  
+Since a distributed system performs only as fast as its slowest distribution, it is important to divide the work evenly across the distributions in order to achieve balanced execution across the system.  The way the work is divided on a distributed system is based on where the data for each distribution lives.  This makes it very important to select the right distribution column for distributing the data so that each distribution has equal work and will take the same time to complete its portion of the work.  When work is well divided across the system, the data is balanced across the distributions.  When data is not evenly balanced, we call this **data skew**.  
 
 To divide data evenly and avoid data skew, consider the following when selecting your distribution column:
 
 1. Select a column which contains a significant number of distinct values.
-2. Avoid distributing data on columns with a high frequency of a few values or a high frequency of nulls.
-3. Avoid distributing data on date columns.
-4. Avoid distributing on columns with less than 60 
+2. Avoid distributing data on columns with a few distinct values. 
+3. Avoid distributing data on columns with a high frequency of nulls.
+4. Avoid distributing data on date columns.
 
-Since each value is hashed to one of 60 distributions, to achieve even distribution you will want to select a column that is highly unique and provides well over 60 unique values.  To illustrate, consider the extreme case where a column only has 40 unique values.  If this column was selected as the distribution key, the data for that table would be spread across only part of the system, leaving 20 distributions with no data and no processing to do.  Conversely, the other 40 distributions would have more work to do that if the data was evenly spread over 60 distributions.
+Since each value is hashed to 1 of 60 distributions, to achieve even distribution you will want to select a column that is highly unique and contains more than 60 unique values.  To illustrate, consider a case where a column only has 40 unique values.  If this column was selected as the distribution key, the data for that table would land on 40 distributions at most, leaving 20 distributions with no data and no processing to do.  Conversely, the other 40 distributions would have more work to do that if the data was evenly spread over 60 distributions.  This scenario is an example of data skew.
 
-If you were to distribute a table on a highly nullable column, then all of the null values will land on the same distribution and that distribution will have to do more work than the other distributions, which will slow the entire system down.  Distributing on a date column can also cause processing skew in the cases where queries are highly selective on date and only a few dates are involved in a query.
+In MPP system, each query step waits for all distributions to complete their share of the work.  If one distribution is doing more work than the others, then the resource of the other distributions are essentially wasted just waiting on the busy distribution.  When work is not evenly spread across all distributions, we call this **processing skew**.  Processing skew will cause queries to run slower than if the workload can be evenly spread across the distributions.  Data skew will lead to processing skew.
+
+Avoid distributing on highly nullable column as the null values will all land on the same distribution. Distributing on a date column can also cause processing skew because all data for a given date will land on the same distribution. If several users are executing queries all filtering on the same date, then only 1 of the 60 distributions will be doing all of the work since a given date will only be on one distribution. In this scenario, the queries will likely run 60 times slower than if the data were equally spread over all of the distributions. 
 
 When no good candidate columns exist, then consider using round robin as the distribution method.
 
 ### Select distribution column which will minimize data movement
 
-Minimizing data movement by selecting the right distribution column is one of the most important strategies for optimizing performance of your SQL Data Warehouse.  Data Movement most commonly arises when tables are joined or aggregations are performed.  Hash distributing large fact tables on a commonly joined column is one of the most effective methods for minimizing data movement.  In addition to selecting a join column to avoid data movement, there are also some criteria which must be met to avoid data movement.  To avoid data movement:
+Minimizing data movement by selecting the right distribution column is one of the most important strategies for optimizing performance of your SQL Data Warehouse.  Data Movement most commonly arises when tables are joined or aggregations are performed.  Columns used in `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` and `HAVING` clauses all make for **good** hash distribution candidates. 
 
-1. The tables involved in the join must be hash distributed on one of the join columns.
-2. The data types of the join columns must match.
+On the other hand, columns in the `WHERE` clause do **not** make for good hash column candidates because they limit which distributions participate in the query, causing processing skew.  A good example of a column which might be tempting to distribute on, but often can cause this processing skew is a date column.
+
+Generally speaking, if you have two large fact tables frequently involved in a join, you will gain the most performance by distributing both tables on one of the join columns.  If you have a table that is never joined to another large fact table, then look to columns that are frequently in the `GROUP BY` clause.
+
+There are a few key criteria which must be met to avoid data movement during a join:
+
+1. The tables involved in the join must be hash distributed on **one** of the columns participating in the join.
+2. The data types of the join columns must match between both tables.
 3. The columns must be joined with an equals operator.
 4. The join type may not be a `CROSS JOIN`.
-
-Columns used in `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` and `HAVING` clauses all make for good hash distribution candidates. On the other hand, columns in the `WHERE` clause do **not** make for good hash column candidates because they limit which distributions participate in the query.  Generally speaking, if you have two large fact tables frequently involved in a join, you will most often distribution on one of the join columns.  If you have a table that is never joined to another large fact table, then look to columns that are frequently in the `GROUP BY` clause.  Unless you cannot find a good candidate column that will distribute your data evenly, it will usually benefit you queries to select a distribution column rather than use the default round robin distribution.
 
 
 ## Troubleshooting data skew
@@ -179,7 +191,7 @@ from dbo.vTableSizes
 where two_part_name in 
     (
     select two_part_name
-    from dbo.vDistributionSkew 
+    from dbo.vTableSizes
     where row_count > 0
     group by two_part_name
     having min(row_count * 1.000)/max(row_count * 1.000) > .10
@@ -278,7 +290,9 @@ RENAME OBJECT [dbo].[FactInternetSales_ROUND_ROBIN] TO [FactInternetSales];
 
 ## Next steps
 
-To learn more about table design, see the [Distribute][], [Index][], [Partition][], [Data Types][], [Statistics][] and [Temporary Tables][Temporary] articles.  For an overview of best practices, see [SQL Data Warehouse Best Practices][].
+To learn more about table design, see the [Distribute][], [Index][], [Partition][], [Data Types][], [Statistics][] and [Temporary Tables][Temporary] articles.
+
+For an overview of best practices, see [SQL Data Warehouse Best Practices][].
 
 
 <!--Image references-->

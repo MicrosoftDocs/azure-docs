@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/15/2016"
+   ms.date="08/29/2016"
    ms.author="cherylmc"/>
 
 # Create and modify an ExpressRoute circuit
@@ -59,6 +59,7 @@ From a browser, navigate to the [Azure portal](http://portal.azure.com) and sign
 
 	![Configure the SKU tier and data metering](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit2.png)
 
+>[AZURE.IMPORTANT] Please be aware that the Peering Location indicates the [physical location](expressroute-locations.md) where you are peering with Microsoft. This is **not** linked to "Location" property, which refers to the geography where the Azure Network Resource Provider is located. While they are not related, it is a good practice to choose a Network Resource Provider geographically close to the Peering Location of the circuit. 
 
 ### 3. View the circuits and properties
 
@@ -139,15 +140,15 @@ You can do the following with no downtime:
 For more information on limits and limitations, refer to the [ExpressRoute FAQ](expressroute-faqs.md).
 
 
-## Deleting and deprovisioning an ExpressRoute circuit
+## Deprovisioning and deleting an ExpressRoute circuit
 
 You can delete your ExpressRoute circuit by selecting the **delete** icon. Note the following:
 
 - You must unlink all virtual networks from the ExpressRoute circuit. If this operation fails, check whether any virtual networks are linked to the circuit.
 
-- If the ExpressRoute circuit service provider provisioning state is enabled, the status moves to **Disabling** from an enabled state. You must work with your service provider to deprovision the circuit on their side. We will continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and notifies us.
+- If the ExpressRoute circuit service provider provisioning state is **Provisioning** or **Provisioned** you must work with your service provider to deprovision the circuit on their side. We will continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and notifies us.
 
-- If the service provider has deprovisioned the circuit (the service provider provisioning state is set to **Not provisioned**) before you run the previous cmdlet, we will deprovision the circuit and stop billing you.
+- If the service provider has deprovisioned the circuit (the service provider provisioning state is set to **Not provisioned**) you can then delete the circuit. This will stop billing for the circuit
 
 ## Next steps
 

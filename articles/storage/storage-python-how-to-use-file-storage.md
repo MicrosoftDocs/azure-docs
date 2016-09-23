@@ -3,8 +3,8 @@
 	description="Learn how to use the Azure File storage from Python to upload, list, download, and delete files."
 	services="storage"
 	documentationCenter="python"
-	authors="emgerner-msft"
-	manager="wpickett"
+	authors="robinsh"
+	manager="carmonm"
 	editor="tysonn"/>
 
 <tags
@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="05/23/2016"
-	ms.author="emgerner"/>
+	ms.date="09/20/2016"
+	ms.author="minet;robinsh"/>
 
 # How to use Azure File storage from Python
 
 [AZURE.INCLUDE [storage-selector-file-include](../../includes/storage-selector-file-include.md)]
+<br/>
+[AZURE.INCLUDE [storage-try-azure-tools-files](../../includes/storage-try-azure-tools-files.md)]
 
 ## Overview
 

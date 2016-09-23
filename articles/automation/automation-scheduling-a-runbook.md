@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Scheduling a runbook in Azure Automation"
+   pageTitle="Scheduling a runbook in Azure Automation | Microsoft Azure"
    description="Describes how to create a schedule in Azure Automation so that you can automatically start a runbook at a particular time or on a recurring schedule."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/29/2016"
+   ms.date="08/05/2016"
    ms.author="bwren" />
 
 # Scheduling a runbook in Azure Automation
@@ -24,13 +24,15 @@ To schedule a runbook in Azure Automation to start at a specified time, you link
 
 You can create a new schedule for runbooks in the Azure portal, in the classic portal, or with Windows PowerShell. You also have the option of creating a new schedule when you link a runbook to a schedule using the Azure classic or Azure portal.
 
+>[AZURE.NOTE] When you associate a schedule with a runbook, Automation stores the current versions of the modules in your account and links them to that schedule.  This means that if you had a module with version 1.0 in your account when you created a schedule and then update the module to version 2.0, the schedule will continue to use 1.0.  In order to use the updated module version, you must create a new schedule. 
+
 ### To create a new schedule in the Azure classic portal
 
 1. In the Azure classic portal, select Automation and then then select the name of an automation account.
 1. Select the **Assets** tab.
 1. At the bottom of the window, click **Add Setting**.
 1. Click **Add Schedule**.
-1. Type a **Name** and optionally a **Description** for the new schedule.your schedule will run **One Time**, **Hourly**, or **Daily**.
+1. Type a **Name** and optionally a **Description** for the new schedule.your schedule will run **One Time**, **Hourly**, **Daily**, **Weekly**, or **Monthly**.
 1. Specify a **Start Time** and other options depending on the type of schedule that you selected.
 
 ### To create a new schedule in the Azure portal
@@ -64,6 +66,7 @@ The following sample commands shows how to create a schedule for the 15th and 30
 ## Linking a schedule to a runbook
 
 A runbook can be linked to multiple schedules, and a schedule can have multiple runbooks linked to it. If a runbook has parameters, then you can provide values for them. You must provide values for any mandatory parameters and may provide values for any optional parameters.  These values will be used each time the runbook is started by this schedule.  You can attach the same runbook to another schedule and specify different parameter values.
+
 
 ### To link a schedule to a runbook with the Azure classic portal
 
@@ -141,6 +144,7 @@ The following sample commands show how to disable a schedule for a runbook using
 	$scheduleName = "Sample-MonthlyDaysOfMonthSchedule"
 	Set-AzureRmAutomationSchedule –AutomationAccountName $automationAccountName `
     –Name $scheduleName –IsEnabled $false -ResourceGroupName "ResourceGroup01"
+
 
 ## Next steps
 

@@ -1,23 +1,26 @@
-<properties 
-	pageTitle="Customize: Azure AD Password Management | Microsoft Azure" 
-	description="How to customize Password Management look and feel, behavior, and notifications in Azure AD to meet your needs." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+<properties
+	pageTitle="Customize: Azure AD Password Management | Microsoft Azure"
+	description="How to customize Password Management look and feel, behavior, and notifications in Azure AD to meet your needs."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="femila"
+	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/03/2016"
 	ms.author="asteen"/>
 
 # Customizing Password Management to fit your organization's needs
-In order to give your users the best possible experience, we recommend that you explore and play with all of the Password Management configuration options available to you. In fact, you can start exploring this right away by going to the configuration tab of the **Active Directory extension** in the [Azure Management Portal](https://manage.windowsazure.com). This topic walks you through all of the different Password Management customizations you can make as an administrator from within **Configure** tab of your directory within the [Azure Management Portal](https://manage.windowsazure.com), including:
+
+> [AZURE.IMPORTANT] **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+
+In order to give your users the best possible experience, we recommend that you explore and play with all of the Password Management configuration options available to you. In fact, you can start exploring this right away by going to the configuration tab of the **Active Directory extension** in the [Azure classic portal](https://manage.windowsazure.com). This topic walks you through all of the different Password Management customizations you can make as an administrator from within **Configure** tab of your directory within the [Azure classic portal](https://manage.windowsazure.com), including:
 
 | Topic |  |
 | --------- | --------- |
@@ -34,10 +37,10 @@ In order to give your users the best possible experience, we recommend that you 
 | How can I allow users to unlock AD accounts without resetting a password? | [Setting: enable users to unlock their AD accounts without resetting a password](#allow-users-to-unlock-accounts-without-resetting-their-password) |
 | How can I enable password reset notifications for users? | [Setting: notify users when their passwords have been reset](#notify-users-and-admins-when-their-own-password-has-been-reset) |
 | How can I enable password reset notifications for admins? | [Setting: notify other admins when an admin reset their own password](#notify-admins-when-other-admins-reset-their-own-passwords) |
-| How can I customize password reset look and feel? | [Setting: company name, branding, and logo ](#password-managment-look-and-feel) |
+| How can I customize password reset look and feel? | [Setting: company name, branding, and logo ](#password-management-look-and-feel) |
 
 
-## Password managment look and feel
+## Password management look and feel
 The following table describes how each control affects the experience for users registering for password reset and resetting their passwords.  You can configure these options under the **Directory Properties** section of your directory’s **Configure** tab within the [Azure Management Portal](https://manage.windowsazure.com).
 
 <table>
@@ -95,7 +98,7 @@ The following table describes how each control affects the experience for users 
               <td>
                 <p>Determines if users visiting the password reset page see the Microsoft logo or your own custom logo.  This configuration item also adds your branding to the access panel and sign in page.</p>
                 <p>
-                  
+
                 </p>
                 <p>You can learn more about the tenant branding and customization feature at <a href="https://technet.microsoft.com/library/dn532270.aspx">Add company branding to your Sign In and Access Panel pages</a>.</p>
               </td>
@@ -223,7 +226,7 @@ The following table describes how each control affects the experience for users 
               <td>
                 <p>Determines what group of end users is allowed to use password reset. </p>
                 <p>
-                  
+
                 </p>
                 <p>(Only visible if <strong>restrict access to password reset</strong> is set to <strong>yes</strong>).</p>
               </td>
@@ -262,16 +265,16 @@ The following table describes how each control affects the experience for users 
               <td>
                 <p>Determines which challenges a user is allowed to use to reset his or her password.</p>
                 <p>
-                  
+
                 </p>
                 <p>(Only visible if <strong>users enabled for password reset</strong> is set to <strong>yes</strong>).</p>
               </td>
               <td>
                 <p>
-                  
+
                 </p>
                 <p>
-                  
+
                 </p>
                 <p>
                   <strong>Note:</strong>
@@ -328,7 +331,7 @@ The following table describes how each control affects the experience for users 
               <td>
                 <p>Determines the minimum number of the available authentication methods a user must go through to reset his or her password.</p>
                 <p>
-                  
+
                 </p>
                 <p>(Only visible if <strong>users enabled for password reset</strong> is set to <strong>yes</strong>).</p>
               </td>
@@ -398,7 +401,7 @@ The following table describes how each control affects the experience for users 
               <td>
                 <p>Determines the minimum number of questions a user must answer when resetting a password.</p>
                 <p>
-                  
+
                 </p>
                 <p>(Only visible if the <strong>Security Questions</strong> checkbox is enabled).</p>
               </td>
@@ -432,7 +435,7 @@ The following table describes how each control affects the experience for users 
               <td>
                 <p>Defines the pre-canned security questions your users may choose from when registering for password reset and when resetting their passwords.</p>
                 <p>
-                  
+
                 </p>
                 <p>(Only visible if the <strong>Security Questions</strong> checkbox is enabled).</p>
               </td>
@@ -483,7 +486,7 @@ The following table describes how each control affects the experience for users 
               <td>
                 <p>Defines the security questions your users may choose from when registering for password reset and when resetting their passwords.</p>
                 <p>
-                  
+
                 </p>
                 <p>(Only visible if the <strong>Security Questions</strong> checkbox is enabled).</p>
               </td>
@@ -533,7 +536,7 @@ The following table describes how each control affects the experience for users 
                   <p>Require users to register when signing in?</p>
                 </div>
                 <p>
-                  
+
                 </p>
               </td>
               <td>
@@ -542,20 +545,20 @@ The following table describes how each control affects the experience for users 
                 <p>This capability works on any sign-in page that uses a work or school account.  Such pages include all of Office 365, the Azure Management Portal, the Access Panel, and any federated or custom-developed applications that use Azure AD to sign in.
                 </p>
                 <p>
-                  
+
                 </p>
                 <p>Enforced registration will only apply to users who are enabled for password reset, so if you have used the "restrict access to password reset" feature and scoped password reset to a specific group of users, then only users in that group will be required to register for password reset when signing in.</p>
                 <p>
-                  
+
                 </p>
                 <p>(Only visible if <strong>users enabled for password reset</strong> is set to <strong>yes</strong>).</p>
               </td>
               <td>
                 <p>
-                  
+
                 </p>
                 <p>
-                  
+
                 </p>
                 <p>
                   <strong>Note:</strong>
@@ -586,16 +589,16 @@ The following table describes how each control affects the experience for users 
               <td>
                 <p>When <strong>require users to register</strong> is turned on, this setting determines the period of time which can elapse before a user must re-confirm their data. </p>
                 <p>
-                  
+
                 </p>
                 <p>(Only visible if <strong>require users to register when signing in to the access panel</strong> is set to <strong>yes</strong>).</p>
               </td>
               <td>
                 <p>
-                  
+
                 </p>
                 <p>
-                  
+
                 </p>
                 <p>
                   <strong>Note: </strong>
@@ -622,7 +625,7 @@ The following table describes how each control affects the experience for users 
               <td>
                 <p>Controls whether or not the contact your administrator link (shown to the left) that appears on the password reset portal when an error occurs or a user waits too long on an operation points to a custom URL or email address.</p>
                 <p>
-                  
+
                 </p>
                 <p>(Only visible if <strong>users enabled for password reset</strong> is set to <strong>yes</strong>).</p>
               </td>
@@ -668,7 +671,7 @@ The following table describes how each control affects the experience for users 
               <td>
                 <p>Controls the email address or URL to which the <strong>contact your administrator</strong> link points. </p>
                 <p>
-                  
+
                 </p>
                 <p>(Only visible if <strong>customize contact your administrator link</strong> is set to <strong>yes</strong>).</p>
               </td>
@@ -702,13 +705,13 @@ The following table describes how each control affects the experience for users 
               <td>
                 <p>Controls whether or not Password Writeback is enabled for this directory and, if writeback is on, indicates the status of the on-premises writeback service.</p>
                 <p>
-                  
+
                 </p>
                 <p>This is setting is useful if you want to temporarily disable the service without re-configuring Azure AD Connect.</p>
               </td>
               <td>
                 <p>
-                  
+
                 </p>
                 <p>
                   <strong>Note:</strong>
@@ -748,11 +751,11 @@ The following table describes how each control affects the experience for users 
                 </div>
               </td>
               <td>
-              
+
               <p>Designates whether or not users who visit the password reset portal should be given the option to unlock their on-premises Active Directory accounts without resetting their password. By default, Azure AD will always unlock accounts when performing a password reset, this setting allows you to separate those two operations.</p>
-              
+
               <p>If set to “yes”, then users will be given the option to reset their password and unlock the account, or to unlock without resetting the password. </p>
-              
+
               <p>If set to “no”, then users will only be able to perform a combined password reset and account unlock operation.</p>
 
               </td>
@@ -763,7 +766,7 @@ The following table describes how each control affects the experience for users 
                 <ul>
                   <li class="unordered">
 												In order to use this feature, you must install the August 2015 or later release of Azure AD Connect (v. 1.0.8667.0 or greater).<br><br><a href="http://www.microsoft.com/download/details.aspx?id=47594">Click here to download the latest version of Azure AD Connect.</a></li>
-                        
+
                   <li class="unordered">
                     <strong>Note:</strong> In order to test this feature, you will need enable password writeback, and  use an account that is sourced from on-premises (like a federated or password synchronized user) and has a locked account.  Users who do not come from on premises and do not have a locked account will not see the option to unlock their accounts.</li>
                 </ul>
@@ -848,7 +851,7 @@ The following table describes how each control affects the experience for users 
                   <li class="unordered">
 												If set to yes, then whenever a user or admin resets his own password, he or she will receive a notification indicating his or her password has been reset.<br><br></li>
                   <li class="unordered">
-												This notification is sent via an email to the primary, and alternate (or authentication) email address of the user who reset his or her password.<br><br></li>
+												This notification is sent via an email to the user’s User Principal Name, and alternate (or authentication) email address of the user who reset his or her password.<br><br></li>
                 </ul>
               </td>
             </tr>
@@ -860,9 +863,9 @@ The following table describes how each control affects the experience for users 
 <br/>
 
 ## Links to password reset documentation
-Below are links to all of the Azure AD Password Reset documentation pages: 
+Below are links to all of the Azure AD Password Reset documentation pages:
 
-* [**Reset your own password**](active-directory-passwords-update-your-own-password.md) - learn about how to reset or change your own password as a user of the system
+* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
 * [**How it works**](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
 * [**Getting started**](active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
 * [**Best practices**](active-directory-passwords-best-practices.md) - learn how to quickly deploy and effectively manage passwords in your organization

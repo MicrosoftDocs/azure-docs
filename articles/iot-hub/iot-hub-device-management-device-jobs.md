@@ -157,11 +157,16 @@ Azure IoT Hub device management client library handles communication between the
 
 To learn more about the Azure IoT Hub device management features you can go through the tutorials:
 
-- the Azure IoT Hub DM client library provides an end to end sample using an [Intel Edison device][lnk-edison].
+- [Enable managed devices behind an IoT gateway][lnk-dm-gateway]
+- [Introducing the Azure IoT Hub device management client library][lnk-library-c]
+- The Azure IoT Hub DM client library provides an end to end sample using an [Intel Edison device][lnk-edison].
 
-- [How to use the device twin][lnk-twin-tutorial]
+To further explore the capabilities of IoT Hub, see:
 
-- [How to find device twins using queries][lnk-tutorial-queries]
+- [Designing your solution][lnk-design]
+- [Developer guide][lnk-devguide]
+- [Simulating a device with the Gateway SDK][lnk-gateway]
+- [Using the Azure Portal to manage IoT Hub][lnk-portal]
 
 <!-- Images and links -->
 
@@ -177,3 +182,11 @@ To learn more about the Azure IoT Hub device management features you can go thro
 [lnk-get-started]: iot-hub-device-management-get-started.md
 [lnk-github-firmware]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/c/iotdm_client/samples/iotdm_simple_sample/iotdm_simple_sample.c
 [lnk-query-samples]: https://github.com/Azure/azure-iot-sdks/blob/dmpreview/doc/get_started/dm_queries/query-samples.md
+
+[lnk-dm-gateway]: iot-hub-gateway-device-management.md
+[lnk-library-c]: iot-hub-device-management-library.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-devguide]: iot-hub-devguide.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md

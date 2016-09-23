@@ -13,11 +13,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
+<<<<<<< HEAD
    ms.date="09/22/2016"
    ms.author="mfussell"/>
 
 # Overview of Service Fabric
 Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices. Service Fabric also addresses the significant challenges in developing and managing cloud applications. Developers and administrators can avoid solving complex infrastructure problems and focus instead on implementing mission-critical, demanding workloads knowing that they are scalable, reliable, and manageable. Service Fabric represents the next-generation middleware platform for building and managing these enterprise-class, Tier-1 cloud-scale applications. 
+=======
+   ms.date="08/03/2016"
+   ms.author="mfussell"/>
+
+# Overview of Service Fabric
+Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices. Service Fabric also addresses the significant challenges in developing and managing cloud applications. Developers and administrators can avoid solving complex infrastructure problems and focus instead on implementing mission-critical, demanding workloads knowing that they are scalable, reliable, and manageable. Service Fabric represents the next-generation middleware platform for building and managing these enterprise-class, Tier-1 cloud-scale applications.
+>>>>>>> 979802b69d90862f3bf110f2392896c2ca12ea11
 
 ## Applications composed of microservices
 Service Fabric enables you to build and manage scalable and reliable applications composed of microservices running at very high density on a shared pool of machines (referred to as a cluster). It provides a sophisticated runtime for building distributed, scalable stateless and stateful microservices. It also provides comprehensive application management capabilities for provisioning, deploying, monitoring, upgrading/patching, and deleting deployed applications.
@@ -41,7 +49,11 @@ For more on the microservices approach, read [Why a microservices approach to bu
 ## Create Service Fabric clusters anywhere
 You can create Service Fabric clusters in many environments, including Azure or on premises, on Windows Server or on Linux. In addition, the development environment in the SDK is identical to the production environment with no emulators involved. In other words, if it runs on your local development cluster it deploys to the same cluster in other environments.
 
+<<<<<<< HEAD
 For more information on creating clusters on-premise, read [creating a cluster on Windows Server or Linux](service-fabric-deploy-anywhere.md) or for Azure creating a cluster [via the Azure portal](service-fabric-cluster-creation-via-portal.md).
+=======
+For more information on creating clusters on-premise, read [creating a cluster on Windows Server or Linux](service-fabric-deploy-anywhere.md) or for Azure creating a cluster [via the Azure Portal](service-fabric-cluster-creation-via-portal.md).
+>>>>>>> 979802b69d90862f3bf110f2392896c2ca12ea11
 
 ![Service Fabric platform][Image1]
 

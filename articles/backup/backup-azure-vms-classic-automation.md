@@ -4,7 +4,7 @@
 	services="backup"
 	documentationCenter=""
 	authors="markgalioto"
-	manager="jwhit"
+	manager="cfreeman"
 	editor=""/>
 
 <tags
@@ -13,27 +13,26 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="08/08/2016"
 	ms.author="markgal;trinadhk;jimpark" />
 
 
 # Deploy and manage backup for Azure VMs using PowerShell
 
 > [AZURE.SELECTOR]
-- [ARM](backup-azure-vms-automation.md)
+- [Resource Manager](backup-azure-vms-automation.md)
 - [Classic](backup-azure-vms-classic-automation.md)
 
-This article shows you how to use Azure PowerShell for backup and recovery of Azure IaaS VMs.
+This article shows you how to use Azure PowerShell for backup and recovery of Azure VMs. Azure has two different deployment models for creating and working with resources: Resouce Manager and Classic. This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
 
 ## Concepts
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
-Get [introduced to Azure IaaS VM backup](backup-azure-vms-introduction.md) in the Azure Backup documentation.
+This article provides information specific to the PowerShell cmdlets used to back up virtual machines. For introductory information about protecting Azure VMs, please see [Plan your VM backup infrastructure in Azure](backup-azure-vms-introduction.md).
 
-> [AZURE.WARNING] Before you start, ensure that you cover the essentials about the [prerequisites](backup-azure-vms-prepare.md) needed to work with Azure Backup, and the [limitations](backup-azure-vms-prepare.md#limitations) of the current VM backup solution.
+> [AZURE.NOTE] Before you start, read the [prerequisites](backup-azure-vms-prepare.md) required to work with Azure Backup, and the [limitations](backup-azure-vms-prepare.md#limitations) of the current VM backup solution.
 
-In order to use PowerShell effectively, it is necessary to understand the hierarchy of objects and from where to start.
+To use PowerShell effectively, take a moment to understand the hierarchy of objects and from where to start.
 
 ![Object hierarchy](./media/backup-azure-vms-classic-automation/object-hierarchy.png)
 

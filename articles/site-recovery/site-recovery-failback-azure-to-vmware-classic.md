@@ -3,8 +3,8 @@
    description="Learn about failing back to the on-premises site after failover of VMware VMs and physical servers to Azure." 
    services="site-recovery" 
    documentationCenter="" 
-   authors="rayne-wiselman" 
-   manager="jwhit" 
+   authors="ruturaj" 
+   manager="mkjain" 
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required" 
-   ms.date="01/11/2015"
-   ms.author="raynew"/>
+   ms.date="08/22/2016"
+   ms.author="ruturajd"/>
 
 # Fail back VMware virtual machines and physical servers to the on-premises site
 
@@ -65,7 +65,7 @@ If you failed over a VMware VM you can fail back to the same source VM if it sti
 	- Ensure that you discover atleast one Master Target sever along with the necessary ESX/ESXi hosts to which you need to failback.
 - If you fail back to the original VM the following is required:
 	- If the VM is managed by a vCenter server then the Master Target's ESX host should have access to the VMs datastore.
-	- If the VM is on an ESX host but isn’t managed by vCenter then the hard disk of the VM must be in a datastore accessible by the MT's host.
+	- If the VM is on an ESX host but is not managed by vCenter then the hard disk of the VM must be in a datastore accessible by the MT's host.
 	- If your VM is on an ESX host and doesn't use vCenter then you should complete discovery of the ESX host of the MT before you reprotect. This applies if you're failing back physical servers too.
 	- Another option (if the on-premises VM exists) is to delete it before you do a failback. Then failback will then create a new VM on the same host as the master target ESX host.
 	

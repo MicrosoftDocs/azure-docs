@@ -1,22 +1,25 @@
-<properties 
-	pageTitle="Learn More: Azure AD Password Management | Microsoft Azure" 
-	description="Advanced topics on Azure AD Password Management, including how password writeback works, password writeback security, how the password reset portal works, and what data is used by password reset." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
-	editor="billmath"/>
+<properties
+	pageTitle="Learn More: Azure AD Password Management | Microsoft Azure"
+	description="Advanced topics on Azure AD Password Management, including how password writeback works, password writeback security, how the password reset portal works, and what data is used by password reset."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="femila"
+	editor="curtand"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/16/2016" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2016"
 	ms.author="asteen"/>
 
 # Learn more about Password Management
+
+> [AZURE.IMPORTANT] **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
+
 If you have already deployed Password Management, or are just looking to learn more about the technical nitty gritty of how it works before deploying, this section will give you a good overview of the technical concepts behind the service. We'll cover the following:
 
 * [**Password writeback overview**](#password-writeback-overview)
@@ -28,7 +31,7 @@ If you have already deployed Password Management, or are just looking to learn m
   - [How to access password reset data for your users](#how-to-access-password-reset-data-for-your-users)
 
 ## Password writeback overview
-Password writeback is an [Azure Active Directory Connect](active-directory-aadconnect.md) component that can be enabled and used by the current subscribers of Azure Active Directory Premium. For more information, see [Azure Active Directory Editions](active-directory-editions.md). 
+Password writeback is an [Azure Active Directory Connect](active-directory-aadconnect.md) component that can be enabled and used by the current subscribers of Azure Active Directory Premium. For more information, see [Azure Active Directory Editions](active-directory-editions.md).
 
 Password writeback allows you to configure your cloud tenant to write passwords back to you on-premises Active Directory.  It obviates you from having to set up and manage a complicated on-premises self-service password reset solution, and it provides a convenient cloud-based way for your users to reset their on-premises passwords wherever they are.  Read on for some of the key features of password writeback:
 
@@ -363,9 +366,9 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 ```
 
 ## Links to password reset documentation
-Below are links to all of the Azure AD Password Reset documentation pages: 
+Below are links to all of the Azure AD Password Reset documentation pages:
 
-* [**Reset your own password**](active-directory-passwords-update-your-own-password.md) - learn about how to reset or change your own password as a user of the system
+* **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
 * [**How it works**](active-directory-passwords-how-it-works.md) - learn about the six different components of the service and what each does
 * [**Getting started**](active-directory-passwords-getting-started.md) - learn how to allow you users to reset and change their cloud or on-premises passwords
 * [**Customize**](active-directory-passwords-customize.md) - learn how to customize the look & feel and behavior of the service to your organization's needs

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="08/11/2016"
 	ms.author="robmcm"/>
 
 # Create a Node.js chat application with Socket.IO in Azure App Service

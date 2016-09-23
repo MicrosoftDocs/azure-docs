@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2016" 
+	ms.date="09/15/2016" 
 	ms.author="arramac"/>
 
 
 # Default quotas for DocumentDB
 
-The following table describes the default quotas for DocumentDB resources. 
+The following table describes the default quotas for Azure DocumentDB database resources. 
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 

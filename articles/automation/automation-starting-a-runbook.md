@@ -5,13 +5,14 @@
    documentationCenter=""
    authors="mgoedtel"
    manager="jwhit"
-   editor="tysonn" /><tags
+   editor="tysonn" />
+<tags
    ms.service="automation"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/06/2016"
+   ms.date="09/15/2016"
    ms.author="magoedte;bwren"/>
 
 # Starting a runbook in Azure Automation
@@ -31,14 +32,6 @@ The following table will help you determine the method to start a runbook in Azu
 The following image illustrates detailed step-by-step process in the life cycle of a runbook. It includes different ways a runbook is started in Azure Automation, components required for Hybrid Runbook Worker to execute Azure Automation runbooks and interactions between different components. To learn about executing Automation runbooks in your datacenter, refer to [hybrid runbook workers](automation-hybrid-runbook-worker.md)
 
 ![Runbook Architecture](media/automation-starting-runbook/runbooks-architecture.png)
-
-## Starting a runbook with the Azure portal
-
-1.	In the Azure portal, select **Automation** and then then click the name of an automation account.
-2.	Select the **Runbooks** tab.
-3.	Select a runbook, and then click **Start**.
-4.	If the runbook has parameters, you will be prompted to provide values with a text box for each parameter. See [Runbook Parameters](#Runbook-parameters) below for further details on parameters.
-5.	Either select **View Job** next to the **Starting** runbook message or select the **Jobs** tab for the runbook to view the runbook job’s status.
 
 ## Starting a runbook with the Azure portal
 
@@ -88,9 +81,9 @@ When you start a runbook from the Azure Portal or Windows PowerShell, the instru
 
 The Azure Automation web service will provide special functionality for parameters using certain data types as described in the following sections.
 
-### Named Values
+### Named values
 
-If the parameter is data type [object], then you can use the following JSON format to send it a list of named values: *{"Name1":Value1, "Name2":Value2, "Name3":Value3}*. These values must be simple types. The runbook will receive the parameter as a [PSCustomObject](https://msdn.microsoft.com/library/system.management.automation.pscustomobject(v=vs.85).aspx) with properties that correspond to each named value.
+If the parameter is data type [object], then you can use the following JSON format to send it a list of named values: *{Name1:'Value1', Name2:'Value2', Name3:'Value3'}*. These values must be simple types. The runbook will receive the parameter as a [PSCustomObject](https://msdn.microsoft.com/library/system.management.automation.pscustomobject%28v=vs.85%29.aspx) with properties that correspond to each named value.
 
 Consider the following test runbook that accepts a parameter called user.
 
@@ -100,10 +93,11 @@ Workflow Test-Parameters
    param (
       [Parameter(Mandatory=$true)][object]$user
    )
-    if ($user.Show) {
-        foreach ($i in 1..$user.RepeatCount) {
-            $user.FirstName
-            $user.LastName
+    $userObject = $user | ConvertFrom-JSON
+	if ($userObject.Show) {
+        foreach ($i in 1..$userObject.RepeatCount) {
+            $userObject.FirstName
+            $userObject.LastName
         }
     }
 }
@@ -112,7 +106,7 @@ Workflow Test-Parameters
 The following text could be used for the user parameter.
 
 ```
-{"FirstName":"Joe","LastName":"Smith","RepeatCount":2,"Show":true}
+{FirstName:'Joe',LastName:'Smith',RepeatCount:'2',Show:'True'}
 ```
 
 This results in the following output.
@@ -188,6 +182,7 @@ Assuming the username in the credential was *jsmith*, this results in the follow
 jsmith
 ```
 
-## Next Steps
+## Next steps
 
--	The runbook architecture in current article provides a high-level description about hybrid runbooks.  To learn more, see [Child runbooks in Azure Automation](automation-child-runbooks.md)
+-	The runbook architecture in current article provides a high-level overview of runbooks managing resources in Azure and on-premise with the Hybrid Runbook Worker.  To learn about executing Automation runbooks in your datacenter, refer to [Hybrid Runbook Workers](automation-hybrid-runbook-worker.md).
+-	To learn more about the creating modular runbooks to be used by other runbooks for specific or common functions, refer to [Child Runbooks](automation-child-runbooks.md).

@@ -45,7 +45,7 @@ To complete this tutorial, you'll need the following:
 
 + An active Azure account. (If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].)
 
-## Receiving messages on the simulated device
+## Receive messages on the simulated device
 
 In this section, you'll modify the simulated device application you created in [Get started with IoT Hub] to receive cloud-to-device messages from the IoT hub.
 
@@ -79,7 +79,7 @@ In this section, you'll modify the simulated device application you created in [
 
 > [AZURE.NOTE] For simplicity's sake, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as exponential backoff), as suggested in the MSDN article [Transient Fault Handling].
 
-## Send a cloud-to-device message from the app back end
+## Send a cloud-to-device message
 
 In this section, you'll write a Windows console app that sends cloud-to-device messages to the simulated device app.
 
@@ -173,18 +173,11 @@ In this section, you will modify the **SendCloudToDevice** app to request feedba
 
 ## Next steps
 
-In this tutorial, you learned how to send and receive cloud-to-device messages. You can continue to explore IoT hub features and scenarios with the following tutorials:
+In this tutorial, you learned how to send and receive cloud-to-device messages. 
 
-- [Process Device-to-Cloud messages] shows how to reliably process telemetry and interactive messages coming from devices.
-- [Uploading files from devices] describes a pattern that makes use of cloud-to-device messages to facilitate file uploads from devices.
+To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Suite].
 
-Additional information on IoT Hub:
-
-* [IoT Hub Overview]
-* [IoT Hub Developer Guide]
-* [IoT Hub Guidance]
-* [Supported device platforms and languages]
-* [Azure IoT Developer Center]
+To learn more about developing solutions with IoT Hub, see the [IoT Hub Developer Guide].
 
 <!-- Images -->
 [20]: ./media/iot-hub-csharp-csharp-c2d/create-identity-csharp1.png
@@ -198,13 +191,8 @@ Additional information on IoT Hub:
 
 [IoT Hub Developer Guide - C2D]: iot-hub-devguide.md#c2d
 
-[Process Device-to-Cloud messages]: iot-hub-csharp-csharp-process-d2c.md
-[Uploading files from devices]: iot-hub-csharp-csharp-file-upload.md
-
-[IoT Hub Overview]: iot-hub-what-is-iot-hub.md
-[IoT Hub Guidance]: iot-hub-guidance.md
 [IoT Hub Developer Guide]: iot-hub-devguide.md
-[Supported device platforms and languages]: iot-hub-supported-devices.md
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Azure IoT Developer Center]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[Azure IoT Suite]: https://azure.microsoft.com/documentation/suites/iot-suite/

@@ -78,13 +78,14 @@ Following is the code to get an access token from Azure Active Directory. This c
 
 	//add these using statements
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using System.Threading.Tasks;
 	using System.Web.Configuration;
 
 	//this is an optional property to hold the secret after it is retrieved
 	public static string EncryptSecret { get; set; }
 
 	//the method that will be provided to the KeyVaultClient
-	public async static Task<string> GetToken(string authority, string resource, string scope)
+	public static async Task<string> GetToken(string authority, string resource, string scope)
     {
 	    var authContext = new AuthenticationContext(authority);
 	    ClientCredential clientCred = new ClientCredential(WebConfigurationManager.AppSettings["ClientId"],
@@ -163,7 +164,7 @@ Now that you have a certificate, you need to associate it with an Azure AD appli
 
 	PS C:\> $sp = New-AzureRmADServicePrincipal -ApplicationId $adapp.ApplicationId
 
-	PS C:\> Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName $sp.ServicePrincipalName -PermissionsToKeys all -ResourceGroupName 'contosorg'
+	PS C:\> Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName $sp.ServicePrincipalName -PermissionsToSecrets all -ResourceGroupName 'contosorg'
 
 	# get the thumbprint to use in your app settings
 	PS C:\>$x509.Thumbprint

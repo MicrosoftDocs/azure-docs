@@ -15,10 +15,12 @@
 	ms.topic="reference"
 	ms.tgt_pltfrm="multiple"
 	ms.workload="na"
-	ms.date="05/16/2016"
-	ms.author="chrande"/>
+	ms.date="08/22/2016"
+	ms.author="chrande; glenga"/>
 
 # Azure Functions Service Bus triggers and bindings for queues and topics
+
+[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 This article explains how to configure and code Azure Service Bus triggers and bindings in Azure Functions. 
 
@@ -63,6 +65,13 @@ public static void Run(string myQueueItem, TraceWriter log)
 {
     log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
 }
+```
+
+#### F# code example that processes a Service Bus queue message
+
+```fsharp
+let Run(myQueueItem: string, log: TraceWriter) =
+    log.Info(sprintf "F# ServiceBus queue trigger function processed message: %s" myQueueItem)
 ```
 
 #### Node.js code example that processes a Service Bus queue message
@@ -164,6 +173,15 @@ public static void Run(TimerInfo myTimer, TraceWriter log, ICollector<string> ou
     outputSbQueue.Add("1 " + message);
     outputSbQueue.Add("2 " + message);
 }
+```
+
+#### F# code example that creates a Service Bus queue message
+
+```fsharp
+let Run(myTimer: TimerInfo, log: TraceWriter, outputSbQueue: byref<string>) =
+    let message = sprintf "Service Bus queue message created at: %s" (DateTime.Now.ToString())
+    log.Info(message)
+    outputSbQueue = message
 ```
 
 #### Node.js code example that creates a Service Bus queue message

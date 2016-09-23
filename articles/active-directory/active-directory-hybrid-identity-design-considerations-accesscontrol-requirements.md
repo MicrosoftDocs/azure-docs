@@ -4,7 +4,7 @@
 	description="Covers the pillars of identity, and identifying access requirements for resources for users in a hybrid environment."
 	documentationCenter=""
 	services="active-directory"
-	authors="yuridio"
+	authors="billmath"
 	manager="stevenpo"
 	editor=""/>
 
@@ -14,8 +14,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-	ms.date="04/28/2016"
-	ms.author="yuridio"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>
 
 # Determine access control requirements for your hybrid identity solution
 When an organization is designing their hybrid identity solution they can also use this opportunity to review access requirements for the resources that they are planning to make it available for users. The data access cross all four pillars of identity, which are:

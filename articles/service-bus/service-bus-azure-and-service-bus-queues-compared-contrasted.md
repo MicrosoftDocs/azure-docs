@@ -179,7 +179,7 @@ This section compares Azure Queues and Service Bus queues from the perspective o
 |---|---|---|
 |Maximum queue size|**200 TB**<br/><br/>(limited to a single storage account capacity)|**1 GB to 80 GB**<br/><br/>(defined upon creation of a queue and [enabling partitioning](service-bus-partitioning.md) – see the “Additional Information” section)|
 |Maximum message size|**64 KB**<br/><br/>(48 KB when using **Base64** encoding)<br/><br/>Azure supports large messages by combining queues and blobs – at which point you can enqueue up to 200GB for a single item.|**256 KB** or **1 MB**<br/><br/>(including both header and body, maximum header size: 64 KB).<br/><br/>Depends on the [service tier](service-bus-premium-messaging.md).|
-|Maximum message TTL|**7 days**|**Unlimited**|
+|Maximum message TTL|**7 days**|**`TimeSpan.Max`**|
 |Maximum number of queues|**Unlimited**|**10,000**<br/><br/>(per service namespace, can be increased)|
 |Maximum number of concurrent clients|**Unlimited**|**Unlimited**<br/><br/>(100 concurrent connection limit only applies to TCP protocol-based communication)|
 
@@ -226,30 +226,6 @@ This section compares the management features provided by Azure Queues and Servi
 - Names of Azure queues can be 3-63 characters long, can contain lowercase letters, numbers, and hyphens. For more information, see [Naming Queues and Metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 
 - Service Bus queue names can be up to 260 characters long and have less restrictive naming rules. Service Bus queue names can contain letters, numbers, periods, hyphens, and underscores.
-
-## Performance
-
-This section compares Azure Queues and Service Bus queues from a performance perspective.
-
-|Comparison Criteria|Azure Queues|Service Bus Queues|
-|---|---|---|
-|Maximum throughput|**Up to 2,000 messages per second**<br/><br/>(based on benchmark with 1 KB messages)|**Up to 2,000 messages per second**<br/><br/>(based on benchmark with 1 KB messages)|
-|Average latency|**10 ms**<br/><br/>(with [TCP Nagle](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx) disabled)|**20-25 ms**|
-|Throttling behavior|**Reject with HTTP 503 code**<br/><br/>(throttled requests are not treated as billable)|**Reject with exception/HTTP 503**<br/><br/>(throttled requests are not treated as billable)|
-
-### Additional information
-
-- A single Azure queue can process up to 2,000 transactions per second. A transaction is either a **Put**, **Get**, or **Delete** operation. Sending a single message to a queue (**Put**) is counted as one transaction, but receiving a message is often a two-step process involving the retrieval (**Get**), followed by a request to remove the message from the queue (**Delete**). As a result, a successful dequeue operation usually involves two transactions. Retrieving multiple messages in a batch can reduce the impact of this, as you can **Get** up to 32 messages in a single transaction, followed by a **Delete** for each of them. For better throughput, you can create multiple queues (a storage account can have an unlimited number of queues).
-
-- When your application reaches the maximum throughput for an Azure queue, an "HTTP 503 Server Busy" response is usually returned from the queue service. When this occurs, the application should trigger the retry logic with exponential back-off delay.
-
-- The latency of Azure Queues is 10 milliseconds on average when handling small messages (less than 10 KB) from a hosted service located in the same location (region) as the storage account.
-
-- Both Azure Queues and Service Bus queues enforce throttling behavior by rejecting requests to a queue that is being throttled. However, neither of them treats throttled requests as billable.
-
-- To achieve higher throughput, use multiple Service Bus queues. For more information about performance optimization with Service Bus, see [Best practices for performance improvements using Service Bus brokered messaging](service-bus-performance-improvements.md).
-
-- When the maximum throughput is reached for a Service Bus queue, a [ServerBusyException](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.serverbusyexception.aspx) (when using the.NET messaging API) or HTTP 503 (when using the REST API) response is returned to the queue client, indicating that the queue is being throttled.
 
 ## Authentication and authorization
 

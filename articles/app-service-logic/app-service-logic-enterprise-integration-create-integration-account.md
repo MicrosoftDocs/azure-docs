@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Overview of integration accounts and the Enterprise Integration Pack | Microsoft Azure App Service" 
+	pageTitle="Overview of integration accounts and the Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure" 
 	description="Learn all about Integration accounts, the Enterprise Integration Pack and Logic apps" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # Overview of integration accounts
@@ -86,7 +86,7 @@ You can easily move an integration account to a new subscription and a new resou
 5. Confirm your choice    
 
 ## Next Steps
-- [Lean more about agreements](./app-service-logic-enterprise-integration-agreements.md "Learn about enterprise integration agreements")  
+- [Learn more about agreements](./app-service-logic-enterprise-integration-agreements.md "Learn about enterprise integration agreements")  
 
 
  

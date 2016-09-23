@@ -12,12 +12,15 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/13/2016"
+    ms.date="08/15/2016"
     ms.author="elizapo" />
 
 
 
 # Create an Azure RemoteApp image
+
+> [AZURE.IMPORTANT]
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
 
 Azure RemoteApp uses images to hold the apps that you share with your users. (We take your image and use it to create VMs - that's what the users access when they sign into Azure RemoteApp.) To create an Azure RemoteApp collection with your choice of applications, whether it is cloud or hybrid, you  start by creating an image with those applications installed. Then, create a collection that uses that image, assign users to the collection, and publish apps to those users.
 

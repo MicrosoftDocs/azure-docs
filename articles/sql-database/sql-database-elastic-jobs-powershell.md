@@ -32,9 +32,9 @@ The PowerShell APIs for **Elastic Database jobs** (in preview), let you define a
 
 ### Select your Azure subscription
 
-To select the subscription you need your subscription Id (**-SubscriptionId**) or subscription name (**-SubscriptionName**). If you have multiple subscriptions you can run the **Get-AzureSubscription** cmdlet and copy the desired subscription information from the result set. Once you have your subscription information, run the following commandlet to set this subscription as the default, namely the target for creating and managing jobs:
+To select the subscription you need your subscription Id (**-SubscriptionId**) or subscription name (**-SubscriptionName**). If you have multiple subscriptions you can run the **Get-AzureRmSubscription** cmdlet and copy the desired subscription information from the result set. Once you have your subscription information, run the following commandlet to set this subscription as the default, namely the target for creating and managing jobs:
 
-	Select-AzureSubscription -SubscriptionId {SubscriptionID}
+	Select-AzureRmSubscription -SubscriptionId {SubscriptionID}
 
 The [PowerShell ISE](https://technet.microsoft.com/library/dd315244.aspx) is recommended for usage to develop and execute PowerShell scripts against the Elastic Database jobs.
 
@@ -521,7 +521,7 @@ Set the following variables to reflect the desired custom collection target conf
 
 To add a database to a specific custom collection use the [**Add-AzureSqlJobChildTarget**](https://msdn.microsoft.comlibrary/mt346064.aspx) cmdlet.
 
-	$serverName = "{Database Server Name}"
+	$databaseServerName = "{Database Server Name}"
 	$databaseName = "{Database Name}"
 	$customCollectionName = "{Custom Database Collection Name}"
 	Add-AzureSqlJobChildTarget -CustomCollectionName $customCollectionName -DatabaseName $databaseName -ServerName $databaseServerName 

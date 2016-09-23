@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/29/2016"
+   ms.date="07/18/2016"
    ms.author="jrj;barbkess;sonyama"/>
 
 # Partitioning tables in SQL Data Warehouse
@@ -37,7 +37,7 @@ Partitioning can benefit data maintenance and query performance.  Whether it ben
 
 The primary benefit of partitioning in SQL Data Warehouse is improve the efficiency and performance of loading data by use of partition deletion, switching and merging.  In most cases data is partitioned on a date column that is closely tied to the sequence which the data is loaded to the database.  One of the greatest benefits of using partitions to maintain data it the avoidance of transaction logging.  While simply inserting, updating or deleting data can be the most straightforward approach, with a little thought and effort, using partitioning during your load process can substantially improve performance.
 
-Partition switching can be used to quickly remove or replace a section of a table.  For example, a sales fact table might contain just data for the past 36 months.  At the end of every month, the oldest month of sales data is deleted from the table.  This data could be deleted by using a delete statement to delete the data for the oldest month.  However, deleting a large amount of data row-by-row with a delete statement can take a very long time, as well as create the risk of large transactions which could take a long time to rollback if something goes wrong.  A more optimal approach is to simply drop drop the oldest partition of data.  Where deleting the individual rows could take hours, deleting an entire partition could take seconds.
+Partition switching can be used to quickly remove or replace a section of a table.  For example, a sales fact table might contain just data for the past 36 months.  At the end of every month, the oldest month of sales data is deleted from the table.  This data could be deleted by using a delete statement to delete the data for the oldest month.  However, deleting a large amount of data row-by-row with a delete statement can take a very long time, as well as create the risk of large transactions which could take a long time to rollback if something goes wrong.  A more optimal approach is to simply drop the oldest partition of data.  Where deleting the individual rows could take hours, deleting an entire partition could take seconds.
 
 ### Benefits to queries
 
@@ -146,6 +146,8 @@ AND     rp.[name]    = 'SloDWPool'
 
 ## Partition switching
 
+SQL Data Warehouse supports partition splitting, merging, and switching. Each of these functions is excuted using the [ALTER TABLE][] statement.
+
 To switch partitions between two tables you must ensure that the partitions align on their respective boundaries and that the table definitions match. As check constraints are not available to enforce the range of values in a table the source table must contain the same partition boundaries as the target table. If this is not the case, then the partition switch will fail as the partition metadata will not be synchronized.
 
 ### How to split a partition that contains data
@@ -187,7 +189,7 @@ CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSal
 
 > [AZURE.NOTE] By Creating the statistic object, we ensure that table metadata is more accurate. If we omit creating statistics, then SQL Data Warehouse will use default values. For details on statistics please review [statistics][].
 
-We can then query for the row count leveraging the `sys.partitions` catalog view:
+We can then query for the row count using the `sys.partitions` catalog view:
 
 ```sql
 SELECT  QUOTENAME(s.[name])+'.'+QUOTENAME(t.[name]) as Table_name
@@ -368,6 +370,7 @@ To learn more, see the articles on [Table Overview][Overview], [Table Data Types
 
 <!-- MSDN Articles -->
 [Partitioned Tables and Indexes]: https://msdn.microsoft.com/library/ms190787.aspx
+[ALTER TABLE]: https://msdn.microsoft.com/en-us/library/ms190273.aspx
 [CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 [partition function]: https://msdn.microsoft.com/library/ms187802.aspx
 [partition scheme]: https://msdn.microsoft.com/library/ms179854.aspx

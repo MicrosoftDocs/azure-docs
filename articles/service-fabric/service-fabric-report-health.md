@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/25/2016"
+   ms.date="07/11/2016"
    ms.author="oanapl"/>
 
 # Add custom Service Fabric health reports
@@ -291,6 +291,8 @@ Based on the health data, service writers and cluster/application administrators
 [Introduction to Service Fabric health Monitoring](service-fabric-health-introduction.md)
 
 [View Service Fabric health reports](service-fabric-view-entities-aggregated-health.md)
+
+[How to report and check service health](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
 
 [Use system health reports for troubleshooting](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 

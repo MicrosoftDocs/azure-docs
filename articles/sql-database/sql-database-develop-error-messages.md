@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="07/12/2016"
 	ms.author="annemill"/>
 
 
@@ -31,15 +31,9 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 
 This article lists SQL error codes for SQL Database client applications, including database connection errors, transient errors (also called transient faults), resource governance errors, database copy issues, elastic pool, and other errors. Most categories are particular to Azure SQL Database, and do not apply to Microsoft SQL Server.
 
-In your client application for any given error you can provide your user with a message you customize.
-
-<a id="bkmk_connection_errors" name="bkmk_connection_errors">&nbsp;</a>
-
-
 ## Database connection errors, transient errors, and other temporary errors
 
-The following table covers the SQL error codes for connection loss errors, and other transient errors you might encounter when your application attempts to access SQL Database.
-
+The following table covers the SQL error codes for connection loss errors, and other transient errors you might encounter when your application attempts to access SQL Database. For getting started tutorials on how to connect to Azure SQL Database, see [Connecting to Azure SQL Database](sql-database-libraries.md).
 
 ### Most common database connection errors and transient fault errors
 
@@ -59,14 +53,14 @@ Transient fault errors typically manifest as one of the following error messages
 
 For code examples of retry logic, see:
 
-- [Connection Libraries for SQL Database and SQL Server](sql-database-libraries.md)
-
+- [Connection Libraries for SQL Database and SQL Server](sql-database-libraries.md) 
 - [Actions to fix connection errors and transient errors in SQL Database](sql-database-connectivity-issues.md)
 
 A discussion of the *blocking period* for clients that use ADO.NET is available in [SQL Server Connection Pooling (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 ### Transient fault error codes
 
+The following errors are transient, and should be retried in application logic 
 
 | Error code | Severity | Description |
 | ---: | ---: | :--- |
@@ -78,13 +72,9 @@ A discussion of the *blocking period* for clients that use ADO.NET is available 
 |49919|16|Cannot process create or update request. Too many create or update operations in progress for subscription "%ld".<br/><br/>The service is busy processing multiple create or update requests for your subscription or server. Requests are currently blocked for resource optimization. Query [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) for pending operations. Wait till pending create or update requests are complete or delete one of your pending requests and retry your request later. |
 |49920|16|Cannot process request. Too many operations in progress for subscription "%ld".<br/><br/>The service is busy processing multiple requests for this subscription. Requests are currently blocked for resource optimization. Query [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) for operation status. Wait until pending requests are complete or delete one of your pending requests and retry your request later. |
 
-
-<a id="bkmk_b_database_copy_errors" name="bkmk_b_database_copy_errors">&nbsp;</a>
-
 ## Database copy errors
 
-
-The following table covers the various errors you can encounter while copying a database in Azure SQL Database. For more information, see [Copy an Azure SQL Database](sql-database-copy.md).
+The following errors can be encountered while copying a database in Azure SQL Database. For more information, see [Copy an Azure SQL Database](sql-database-copy.md).
 
 
 |Error code|Severity|Description|
@@ -103,26 +93,18 @@ The following table covers the various errors you can encounter while copying a 
 |40570|16|Database copy failed due to an internal error. Please drop target database and try again later.|
 |40571|16|Database copy failed due to an internal error. Please drop target database and try again later.|
 
-
-<a id="bkmk_c_resource_gov_errors" name="bkmk_c_resource_gov_errors">&nbsp;</a>
-
 ## Resource governance errors
 
+The following errors are caused by excessive use of resources while working with Azure SQL Database. For example:
 
-The following table covers the errors caused by excessive use of resources while working with Azure SQL Database. For example:
+- A transaction has been open for too long.
+- A transaction is holding too many locks.
+- An application is consuming too much memory.
+- An application is consuming too much `TempDb` space.
 
+Related topics:
 
-- Maybe your transaction has been open for too long.
-- Maybe your transaction is holding too many locks.
-- Maybe your program is consuming too much memory.
-- Maybe your program is consuming too much `TempDb` space.
-
-
-**Tip:** The following link provides more information that applies to most or all errors in this section:
-
-
-- [Azure SQL Database resource limits](sql-database-resource-limits.md)
-
+* More detailed information is available here: [Azure SQL Database resource limits](sql-database-resource-limits.md)
 
 |Error code|Severity|Description|
 |---:|---:|:---|
@@ -135,23 +117,9 @@ The following table covers the errors caused by excessive use of resources while
 |40552|16|The session has been terminated because of excessive transaction log space usage. Try modifying fewer rows in a single transaction.<br/><br/>*Tip:* If you perform bulk inserts using the `bcp.exe` utility or the `System.Data.SqlClient.SqlBulkCopy` class, try using the `-b batchsize` or `BatchSize` options to limit the number of rows copied to the server in each transaction. If you are rebuilding an index with the `ALTER INDEX` statement, try using the `REBUILD WITH ONLINE = ON` option.|
 |40553|16|The session has been terminated because of excessive memory usage. Try modifying your query to process fewer rows.<br/><br/>*Tip:* Reducing the number of `ORDER BY` and `GROUP BY` operations in your Transact-SQL code reduces the memory requirements of your query.|
 
-
-For additional discussion of resource governance and associated errors, see:
-
-
-- [Azure SQL Database resource limits](sql-database-resource-limits.md).
-
-
-<a id="bkmk_e_general_errors" name="bkmk_e_general_errors">&nbsp;</a>
-
 ## Elastic pool errors
 
-Related topics:
-
-* [Create an elastic database pool (C#)](sql-database-elastic-pool-create-csharp.md) 
-* [Manage an elastic database pool (C#)](sql-database-elastic-pool-manage-csharp.md). 
-* [Create an elastic database pool (PowerShell)](sql-database-elastic-pool-create-powershell.md) 
-* [Monitor and manage an elastic database pool (PowerShell)](sql-database-elastic-pool-manage-powershell.md).
+The following errors are related to creating and using Elastics Pools.
 
 | ErrorNumber | ErrorSeverity | ErrorFormat | ErrorInserts | ErrorCause | ErrorCorrectiveAction |
 | :-- | :-- | :-- | :-- | :-- | :-- |
@@ -176,12 +144,16 @@ Related topics:
 | 40891 | EX_USER | The DTU min per database (%d) cannot exceed the DTU max per database (%d). | DTU min per database; DTU max per database. | Attempting to set the DTU min per database higher than the DTU max per database. | Please ensure the DTU min per databases does not exceed the DTU max per database. |
 | TBD | EX_USER | The storage size for an individual database in a elastic pool cannot exceed the max size allowed by '%.*ls' service tier elastic pool. | elastic pool service tier | The max size for the database exceeds the max size allowed by the elastic pool service tier. | Please set the max size of the database within the limits of the max size allowed by the elastic pool service tier. |
 
+Related topics:
+
+* [Create an elastic database pool (C#)](sql-database-elastic-pool-create-csharp.md) 
+* [Manage an elastic database pool (C#)](sql-database-elastic-pool-manage-csharp.md). 
+* [Create an elastic database pool (PowerShell)](sql-database-elastic-pool-create-powershell.md) 
+* [Monitor and manage an elastic database pool (PowerShell)](sql-database-elastic-pool-manage-powershell.md).
 
 ## General errors
 
-
-The following table lists all the general errors that don't fall into any previous category.
-
+The following errors do not fall into any previous categories.
 
 |Error code|Severity|Description|
 |---:|---:|:---|
@@ -249,7 +221,6 @@ The following table lists all the general errors that don't fall into any previo
 |40852|16|Cannot open database '%.*ls' on server '%.*ls' requested by the login. Access to the database is only allowed using a security-enabled connection string. To access this database, modify your connection strings to contain ‘secure’ in the server FQDN  -  'server name'.database.windows.net should be modified to 'server name'.database.`secure`.windows.net.|
 |45168|16|The SQL Azure system is under load, and is placing an upper limit on concurrent DB CRUD operations for a single server (e.g., create database). The server specified in the error message has exceeded the maximum number of concurrent connections. Try again later.|
 |45169|16|The SQL azure system is under load, and is placing an upper limit on the number of concurrent server CRUD operations for a single subscription (e.g., create server). The subscription specified in the error message has exceeded the maximum number of concurrent connections, and the request was denied. Try again later.|
-
 
 ## Related links
 

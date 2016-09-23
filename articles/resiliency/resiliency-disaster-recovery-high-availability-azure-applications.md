@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/20/2016"
-   ms.author="hanuk;jroth;aglick"/>
+   ms.date="08/18/2016"
+   ms.author="aglick"/>
 
 #Disaster recovery and high availability for applications built on Microsoft Azure
 

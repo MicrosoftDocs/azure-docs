@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2016"
+	ms.date="07/18/2016"
 	ms.author="tarcher"/>
 
 # Getting started with Azure Queue storage and Visual Studio connected services (WebJob Projects)
+
+[AZURE.INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## Overview
 

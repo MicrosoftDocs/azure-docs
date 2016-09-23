@@ -3,7 +3,7 @@
    description="Understanding static private IPs (DIPs) and how to manage them in classic mode using the CLI"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn"
    tags="azure-service-management"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/15/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # How to set a static private IP address (classic) in Azure CLI
 

@@ -5,7 +5,7 @@
     keywords="active directory virtual machine, install active directory forest, azure active directory videos "
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	tags=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-	ms.date="04/07/2016"
+	ms.date="07/13/2016"
 	ms.author="markusvi"/>
 
 

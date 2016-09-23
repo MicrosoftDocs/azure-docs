@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/06/2016"
+   ms.date="08/05/2016"
    ms.author="bwren" />
 
 # Microsoft monitoring product comparison
@@ -28,7 +28,7 @@ SCOM requires two SQL databases, one for operational data and another data wareh
 
 SCOM can monitor cloud resources using management packs for products such as [Azure](https://www.microsoft.com/download/details.aspx?id=38414), [Office 365](https://www.microsoft.com/download/details.aspx?id=43708), and [AWS](http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/AWSManagementPack.html).  These management packs use one or more local agents as proxies for discovering cloud resources and running workflows to measure their performance and availability.  Proxy agents are also used to [monitor network devices](https://technet.microsoft.com/library/hh212935.aspx) and other external resources.
 
-The Operations Console is a Windows application that connects to one of the management servers and allows the administrator to view and analyze collected data and configure the SCOM environment .  A web based console can be hosted on any IIS server and provides data analysis through a browser.
+The Operations Console is a Windows application that connects to one of the management servers and allows the administrator to view and analyze collected data and configure the SCOM environment .  A web-based console can be hosted on any IIS server and provides data analysis through a browser.
 
 ![SCOM Architecture](media/operations-management-suite-monitoring-product-comparison/scom-architecture.png)
 
@@ -38,7 +38,7 @@ Most OMS components are in the Azure cloud so you can deploy and manage it with 
 
 Log Analytics can collect data from one of three sources:
 
-- Physical and virtual machines running Windows and the [Microsoft Management Agent (MMA)](https://technet.microsoft.com/library/mt484108.aspx) or Linux and the [Operations Management Suite Agent for Linux](https://technet.microsoft.com/library/mt622052.aspx).  These machines can be on-premises or virtual machines in Azure or another cloud.
+- Physical and virtual machines running Windows and the [Microsoft Monitoring Agent (MMA)](https://technet.microsoft.com/library/mt484108.aspx) or Linux and the [Operations Management Suite Agent for Linux](https://technet.microsoft.com/library/mt622052.aspx).  These machines can be on-premises or virtual machines in Azure or another cloud.
 - An Azure Storage account with [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) data collected by Azure worker role, web role, or virtual machine.
 - [Connection to a SCOM management group](https://technet.microsoft.com/library/mt484104.aspx).  In this configuration, the agents communicate with SCOM management servers which deliver the data to the SCOM database where it is then delivered to the OMS data store.
 Administrators analyze collected data and configure Log Analytics with the OMS portal which is hosted in Azure and can be accessed from any browser.  Mobile apps to access this data are available for the standard platforms.
@@ -99,7 +99,7 @@ The monitoring logic for Log Analytics is summarized in the following diagram.
 
 ## Health Monitoring
 ### Operations Manager
-SCOM can model the different components of an application and provide a real time health for each.  This allows you to not only view detected errors and performance over time but also to validate the actual health of an application or system and each of its components at any given time.  Because it understands the time periods that an application is available, the health engine in SCOM also supports Service Level Agreements (SLA) which analyze and report on the availability of an application over time.
+SCOM can model the different components of an application and provide a real-time health for each.  This allows you to not only view detected errors and performance over time but also to validate the actual health of an application or system and each of its components at any given time.  Because it understands the time periods that an application is available, the health engine in SCOM also supports Service Level Agreements (SLA) which analyze and report on the availability of an application over time.
 
 For example, the view below shows the real-time health of SQL database engines monitored by SCOM.  The health of each of the databases for one of the database engines is shown on the bottom half of the view.
 
@@ -116,7 +116,7 @@ Active Directory is an example of one management pack that provides a model to a
 ![SCOM diagram view](media/operations-management-suite-monitoring-product-comparison/scom-diagram-view.png)
 
 ### Log Analytics
-OMS does not include a common engine to model applications or measure their real time health.  Individual solutions may assess the overall health of particular services based on collected data, and they may install custom logic on the agent to perform real time analysis.  Because solutions run in the cloud with access to the OMS repository, they can often provide deeper analysis than is typically performed by management packs. 
+OMS does not include a common engine to model applications or measure their real-time health.  Individual solutions may assess the overall health of particular services based on collected data, and they may install custom logic on the agent to perform real-time analysis.  Because solutions run in the cloud with access to the OMS repository, they can often provide deeper analysis than is typically performed by management packs. 
 
 For example, the [AD Assessment and SQL Assessment solutions](https://technet.microsoft.com/library/mt484102.aspx) analyze collected data and provide a rating for different aspects of the environment.  It includes recommendations for improvements that can be made to improve the availability and performance of the environment.
 
@@ -161,7 +161,7 @@ Queries in Log Analytics are also the basis of other functionality.  You can sav
 
 ![Log query flow](media/operations-management-suite-monitoring-product-comparison/log-analytics-query-flow.png)
 
-Below is an example of a Log Analytics query.  In this example all events with “started” in the name are returned and grouped by event id.  The user simply provides the query, and Log Analytics dynamically generates the user interface to perform the analysis.  Selecting any item in the list will return the detailed event data.
+Below is an example of a Log Analytics query.  In this example all events with “started” in the name are returned and grouped by event ID.  The user simply provides the query, and Log Analytics dynamically generates the user interface to perform the analysis.  Selecting any item in the list will return the detailed event data.
 
 ![Log query](media/operations-management-suite-monitoring-product-comparison/log-analytics-query.png)
 

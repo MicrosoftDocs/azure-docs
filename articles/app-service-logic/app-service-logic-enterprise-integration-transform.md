@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Overview of Enterprise Integration Pack | Microsoft Azure App Service" 
+	pageTitle="Overview of Enterprise Integration Pack | Microsoft Azure App Service | Microsoft Azure" 
 	description="Use the features of Enterprise Integration Pack to enable business process and integration scenarios using Microsoft Azure App service" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=".net,nodejs,java"
 	authors="msftman" 
 	manager="erikre" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic" 
+	ms.service="logic-apps" 
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2016" 
+	ms.date="07/08/2016" 
 	ms.author="deonhe"/>
 
 # Enterprise integration with XML transforms
@@ -34,20 +34,16 @@ After you upload the transform into your integration account, you can use it to 
 
 ### Prerequisites 
 In the preview, you will need to:  
+
 -  [Create an Azure Functions container](https://ms.portal.azure.com/#create/Microsoft.FunctionApp "Create an Azure Functions container")  
+-  [Add a function to the Azure Functions container](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-transform-function%2Fazuredeploy.json "This template creates a webhook based C# azure function with transform capabilities to use in logic apps integration scenarios")    
+-  Create an integration account and add a map to it  
 
-
->[AZURE.TIP] Make a note of the the name of the Azure Functions container, you will need it in the next step.  
-
-
--  [Add a function to the Azure Functions container](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-transform-function%2Fazuredeploy.json "This template creates a webhook based C# azure function with transform capabilities to use in logic apps integration scenarios")  
-
-
->[AZURE.TIP] Make a note of the the name of the function, you will need it in the next step.  
+>[AZURE.TIP] Make a note of the the name of the Azure Functions container and the Azure function, you will need them in the next step.  
 
 Now that you've taken care of the prerequisites, it's time to create your Logic app:  
 
-1. Create a Logic app and [link it to your integration account](./app-service-logic-enterprise-integration-accounts.md "Learn to link an integration account to a Logic app") that contains the transform.
+1. Create a Logic app and [link it to your integration account](./app-service-logic-enterprise-integration-accounts.md "Learn to link an integration account to a Logic app") that contains the map.
 2. Add a **Request - When an HTTP request is received** trigger to your Logic app  
 ![](./media/app-service-logic-enterprise-integration-transforms/transform-1.png)    
 3. Add the **Transform XML** action by first selecting **Add an action**   
@@ -79,5 +75,6 @@ You can now test your transform by making a request to the HTTP endpoint.
 
 
 ## Learn more
-- [Lean more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
+- [Learn more about the Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
+- [Learn more about maps](./app-service-logic-enterprise-integration-maps.md "Learn about enterprise integration maps")  
  

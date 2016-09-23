@@ -4,7 +4,7 @@
 	services="cortana-analytics"
 	documentationCenter=""
 	authors="garyericson"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/14/2016"
+	ms.date="08/19/2016"
 	ms.author="garye" />
 
 # Architecture of the Cortana Intelligence Solution Template for predictive maintenance in aerospace and other businesses

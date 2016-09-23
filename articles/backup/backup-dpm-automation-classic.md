@@ -3,8 +3,8 @@
 	description="Learn how to deploy and manage Azure Backup for Data Protection Manager (DPM) using PowerShell"
 	services="backup"
 	documentationCenter=""
-	authors="AnuragMehrotra"
-	manager="jwhit"
+	authors="Nkolli1"
+	manager="shreeshd"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/01/2016"
-	ms.author="jimpark; aashishr; anuragm"/>
+	ms.author="jimpark; trinadhk; anuragm; markgal"/>
 
 
 # Deploy and manage backup to Azure for Data Protection Manager (DPM) servers using PowerShell
