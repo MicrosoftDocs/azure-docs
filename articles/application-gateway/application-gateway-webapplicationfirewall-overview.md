@@ -20,7 +20,7 @@
 Web applications are increasingly targets of malicious attacks that exploit common known vulnerabilities. Common among these exploits are SQL injection attacks, cross site scripting attacks to name a few.
 Preventing such attacks in application code can be challenging and may require rigorous maintenance, patching and monitoring at multiple layers of the application topology. A centralized web attacks protection makes security management much simpler and gives better assurance to the application against the threats of intrusions. A WAF solution can also react to a security threat faster by patching a known vulnerability at a central location as against securing each of individual web applications.
 
-![imageURLroute](./media/application-gateway-webapplicationfirewall-overview/waf1.png)
+![imageURLroute](./media/application-gateway-webapplicationfirewall-overview/WAF1.png)
 
 Application Gateway operates as an application delivery controller and offers SSL termination, cookie-based session affinity, round-robin load distribution, content based routing, ability to host multiple websites and security enhancements. Security enhancements offered by Application Gateway include SSL policy management, end to end SSL support. We are strengthening application security capabilities of our service by introducing WAF (web application firewall) directly integrated into the ADC offering. This provides an easy to configure central location to manage and protect your web applications against common web vulnerabilities.
 
