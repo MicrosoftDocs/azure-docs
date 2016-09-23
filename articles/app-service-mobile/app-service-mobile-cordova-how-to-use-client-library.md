@@ -26,7 +26,7 @@ guide, we focus on the client-side Apache Cordova Plugin.
 
 ## Supported Platforms
 
-This SDK provides support for Apache Cordova v6.0.0 and later on iOS, Android and Windows devices.  The platform
+This SDK supports Apache Cordova v6.0.0 and later on iOS, Android, and Windows devices.  The platform
 support is as follows:
 
 * Android API 19-24 (KitKat through Nougat)
@@ -34,8 +34,6 @@ support is as follows:
 * Windows Phone 8.0
 * Windows Phone 8.1
 * Universal Windows Platform
-
-Other platforms may work as well, but they are unsupported at this time.
 
 ##<a name="Setup"></a>Setup and Prerequisites
 
@@ -54,8 +52,8 @@ For more information on creating [your first Apache Cordova app], see their docu
 
 ##<a name="auth"></a>How to: Authenticate Users
 
-Azure App Service supports authenticating and authorizing app users using a variety of external identity
-providers: Facebook, Google, Microsoft Account, and Twitter.   You can set permissions on tables to restrict
+Azure App Service supports authenticating and authorizing app users using various external identity
+providers: Facebook, Google, Microsoft Account, and Twitter. You can set permissions on tables to restrict
 access for specific operations to only authenticated users. You can also use the identity of authenticated
 users to implement authorization rules in server scripts. For more information, see the [Get started with authentication] tutorial.
 
@@ -73,18 +71,25 @@ device-specific SDKs.
 
 ###<a name="configure-external-redirect-urls"></a>How to: Configure your Mobile App Service for External Redirect URLs.
 
-Several types of Apache Cordova applications use a loopback capability to handle OAuth UI flows.  This causes problems
-since the authentication service only knows how to utilize your service by default.  Examples of this are using the Ripple
-emulator, running your service locally or in a different Azure App Service but redirecting to the Azure App Service for
-authentication, or Live Reload with Ionic.  Follow these instructions to add your local settings to the configuration:
+Several types of Apache Cordova applications use a loopback capability to handle OAuth UI flows.  OAuth UI
+flows on localhost cause problems since the authentication service only knows how to utilize your service 
+by default.  Examples of problematic OAuth UI flows include:
 
-1. Log into the [Azure portal]
+- The Ripple emulator.
+- Live Reload with Ionic.
+- Running the mobile backend locally
+- Running the mobile backend in a different Azure App Servie than the one providing authentication.
+
+Follow these instructions to add your local settings to the configuration:
+
+1. Log in to the [Azure portal]
 2. Select **All resources** or **App Services** then click on the name of your Mobile App.
-3. Click on **Tools**
-4. Click on **Resource explorer** in the OBSERVE menu, then click on **Go**.  A new window or tab will open.
+3. Click **Tools**
+4. Clickn **Resource explorer** in the OBSERVE menu, then click **Go**.  A new window or tab opens.
 5. Expand the **config**, **authsettings** nodes for your site in the left-hand navigation.
-6. Click on **Edit**
-7. Look for the "allowedExternalRedirectUrls" element.  It will be set to null.  Change it to the following:
+6. Click **Edit**
+7. Look for the "allowedExternalRedirectUrls" element.  It may be set to null or an array of values.  Change 
+   the value to the following value:
 
          "allowedExternalRedirectUrls": [
              "http://localhost:3000",
@@ -94,21 +99,21 @@ authentication, or Live Reload with Ionic.  Follow these instructions to add you
     Replace the URLs with the URLs of your service.  Examples include "http://localhost:3000" (for the Node.js sample
     service), or "http://localhost:4400" (for the Ripple service).  However, these are examples - your situation,
     including for the services mentioned in the examples, may be different.
-8. Click on the **Read/Write** button in the top-right corner of the screen.
-9. Click on the green **PUT** button.
+8. Click the **Read/Write** button in the top-right corner of the screen.
+9. Click the green **PUT** button.
 
-The settings will be saved at this point.  Do not close the browser window until the settings have finished saving.
-You will also need to add these loopback URLs to the CORS settings:
+The settings are saved at this point.  Do not close the browser window until the settings have finished saving.
+You must also add these loopback URLs to the CORS settings for your App Service:
 
-1. Log into the [Azure portal]
+1. Log in to the [Azure portal]
 2. Select **All resources** or **App Services** then click on the name of your Mobile App.
-3. The Settings blade will open automatically.  If it doesn't, click on **All Settings**.
-4. Click on **CORS** under the API menu.
+3. The Settings blade will open automatically.  If it doesn't, click **All Settings**.
+4. Click **CORS** under the API menu.
 5. Enter the URL that you wish to add in the box provided and press Enter.
 6. Enter additional URLs as needed.
-7. Click on **Save** to save the settings.
+7. Click **Save** to save the settings.
 
-It will take approximately 10-15 seconds for the new settings to take effect.
+It takes approximately 10-15 seconds for the new settings to take effect.
 
 ##<a name="register-for-push"></a>How to: Register for Push Notifications
 
@@ -153,9 +158,9 @@ pushHandler.on('error', function (error) {
 });
 ```
 
-Use the Notification Hubs SDK to send push notifications from the server.  You should never
-send push notifications directly from clients as that could be used to trigger a denial of
-service attack against Notification Hubs or the PNS.
+Use the Notification Hubs SDK to send push notifications from the server.  Never send push notifications 
+directly from clients as that could be used to trigger a denial of service attack against Notification Hubs 
+or the PNS and result in the PNS banning your traffic.
 
 <!-- URLs. -->
 [Azure portal]: https://portal.azure.com
