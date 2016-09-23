@@ -26,7 +26,7 @@ As an example, this article shows you how to quickly set up a WordPress blog wit
 
 ## Step 1: Set up a Linux VM as a Docker host
 
-You can use a variety of Azure procedures and available images or Resource Manager templates in the Azure Marketplace to create a Linux VM and set it up as a Docker host. For example, see [Using the Docker VM Extension to deploy your environment](virtual-machines-linux-dockerextension.md) for a quick procedure to create an Ubuntu VM with the Azure Docker VM extension by using a [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). When you use the Docker VM extension, your VM is automatically set up as a Docker host and Compose is already installed. The example in that article shows you how to use the [Azure command-line interface for Mac, Linux, and Windows](../xplat-cli-install.md) (the Azure CLI) in Resource Manager mode to create the VM.
+You can use various Azure procedures and available images or Resource Manager templates in the Azure Marketplace to create a Linux VM and set it up as a Docker host. For example, see [Using the Docker VM Extension to deploy your environment](virtual-machines-linux-dockerextension.md) to quickly create an Ubuntu VM with the Azure Docker VM extension by using a [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). When you use the Docker VM extension, your VM is automatically set up as a Docker host and Compose is already installed. The example in that article shows you how to use the [Azure command-line interface for Mac, Linux, and Windows](../xplat-cli-install.md) (the Azure CLI) in Resource Manager mode to create the VM.
 
 ## Step 2: Verify that Compose is installed
 
@@ -45,7 +45,7 @@ You see output similar to `docker-compose 1.6.2, build 4d72027`.
 
 ## Step 3: Create a docker-compose.yml configuration file
 
-Next you'll create a `docker-compose.yml` file, which is just a text configuration file, to define the Docker containers to run on the VM. The file specifies the image to run on each container (or it could be a build from a Dockerfile), necessary environment variables and dependencies, ports, and the links between containers. For details on yml file syntax, see [Compose file reference](http://docs.docker.com/compose/yml/).
+Next you create a `docker-compose.yml` file, which is just a text configuration file, to define the Docker containers to run on the VM. The file specifies the image to run on each container (or it could be a build from a Dockerfile), necessary environment variables and dependencies, ports, and the links between containers. For details on yml file syntax, see [Compose file reference](http://docs.docker.com/compose/yml/).
 
 Create a working directory on your VM, and use your favorite text editor to create `docker-compose.yml`. For a proof of concept, copy the following text to the file. This configuration uses images from the [DockerHub Registry](https://registry.hub.docker.com/_/wordpress/) to install WordPress (the open source blogging and content management system) and a linked backend MariaDB SQL database.
 
@@ -66,7 +66,7 @@ db:
 
 ## Step 4: Start the containers with Compose
 
-In the working directory on your VM, simply run the following command. (Depending on your environment, you might need to run `docker-compose` using `sudo`.)
+In the working directory on your VM, run the following command. (Depending on your environment, you might need to run `docker-compose` using `sudo`.)
 
 ```
 $ docker-compose up -d

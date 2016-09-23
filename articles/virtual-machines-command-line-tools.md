@@ -432,7 +432,7 @@ Virtual machine images are captures of already configured virtual machines that 
 
 **vm image list [options]**
 
-This command gets a list of virtual machine images. There are three types of images: images created by Microsoft, which are prefixed with "MSFT", images created by third parties, which are usually prefixed with the name of the vendor, and images you create. To create images, you can either capture an existing virtual machine or create an image from a custom .vhd uploaded to blob storage. For more information about using a custom .vhd, see vm image create.
+This command gets a list of virtual machine images. There are three types of images: images created by Microsoft, which are prefixed with "MSFT", images created by third parties, which are prefixed with the name of the vendor, and images you create. To create images, you can either capture an existing virtual machine or create an image from a custom .vhd uploaded to blob storage. For more information about using a custom .vhd, see vm image create.
 The --json option specifies that the results are returned in raw JSON format.
 
 	~$ azure vm image list
@@ -586,7 +586,7 @@ This command attaches an existing disk in blob storage to an existing virtual ma
 
 **vm disk attach-new &lt;vm-name> &lt;size-in-gb> [blob-url]**
 
-This command attaches a data disk to an Azure virtual machine. In this example, 20 is the size of the new disk, in gigabytes, to be attached. You can optionally use a blob URL as the last argument to explicitly specify the target blob to create. If you do not specify a blob URL, a blob object will be automatically generated.
+This command attaches a data disk to an Azure virtual machine. In this example, 20 is the size of the new disk, in gigabytes, to be attached. You can optionally use a blob URL as the last argument to explicitly specify the target blob to create. If you do not specify a blob URL, a blob object is automatically generated.
 
 	~$ azure vm disk attach-new nick-test36 20 http://nghinazz.blob.core.azure-preview.com/vhds/vmdisk1.vhd
 	info:   Executing command vm disk attach-new
@@ -1511,7 +1511,7 @@ This command uploads a script named `todoitem.insert.js` from the `table` subfol
 	info:    Executing command mobile script upload
 	info:    mobile script upload command OK
 
-The name of the file must be composed from the table and operation names, and it must be located in the table subfolder relative to the location where the command is executed. You can also use the **-f `<file>`** or **--file `<file>`** parameter to specify a different filename and path to the file that contains the script to register.
+The name of the file must be composed from the table and operation names. It must be located in the table subfolder relative to the location where the command is executed. You can also use the **-f `<file>`** or **--file `<file>`** parameter to specify a different filename and path to the file that contains the script to register.
 
 
 **mobile script delete [options] [servicename] [scriptname]**
@@ -2250,7 +2250,7 @@ List the firewall rules.
 
 **sql firewallrule delete [options] &lt;serverName> &lt;ruleName>**
 
-This command will delete a firewall rule.
+This command deletes a firewall rule.
 
 	~$ azure sql firewallrule delete fr8aelne00 allowed
 	info:    Executing command sql firewallrule delete
