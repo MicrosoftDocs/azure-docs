@@ -196,7 +196,7 @@ To share your report, you must have an account in PowerBI.com.
 1. In the Power BI Desktop, click on the **Home** ribbon.
 2. Click **Publish**.  You will be prompted to enter the user name and password for your PowerBI.com account.
 3. Once the credential has been authenticated, the report is published to your destination you selected.
-4. Click Open 'PowerBITutorial.pbix' in Power BI to see and share your report on PowerBI.com.
+4. Click **Open 'PowerBITutorial.pbix' in Power BI** to see and share your report on PowerBI.com.
 
     ![Publishing to Power BI Success! Open tutorial in Power BI](./media/documentdb-powerbi-visualize/power_bi_connector_open_in_powerbi.png)
 
@@ -229,8 +229,7 @@ For a scheduled refresh, do the following.
 1. Click **Schedule Refresh** in the action list. 
 
    ![Screenshot of the Schedule Refresh in PowerBI.com](./media/documentdb-powerbi-visualize/azure-documentdb-power-bi-schedule-refresh.png)
-
-    The **Settings** page appears. 
+   The **Settings** page appears. 
 
 2. Expand **Data source credentials**. 
 
@@ -245,5 +244,5 @@ For a scheduled refresh, do the following.
 6. Click **Apply** and you are done setting up the scheduled refresh.
 
 ## Next steps
-- To learn more about Power BI, see [Get started with Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/)
+- To learn more about Power BI, see [Get started with Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
 - To learn more about DocumentDB, see the [DocumentDB documentation landing page](https://azure.microsoft.com/documentation/services/documentdb/).
