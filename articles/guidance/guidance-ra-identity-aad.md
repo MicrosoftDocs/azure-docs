@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/21/2016"
+   ms.date="09/23/2016"
    ms.author="telmos"/>
 
 # Implementing Azure Active Directory
@@ -289,11 +289,251 @@ Health monitoring is performed by using a series of agents installed on-premises
 
 For additional information on installing the AD Connect Health agents and their requirements, see [Azure AD Connect Health Agent Installation][aad-agent-installation].
 
-## Solution components
+## Sample solution
 
+This section documents the steps for building a sample solution that you can use to test the configuration of AAD. The solution comprises the following elements:
 
-## Deployment
+- An n-tier web application, following the structure described by [Running VMs for an N-tier architecture on Azure][implementing-a-multi-tier-architecture-on-Azure].
 
+- A test client machine; we recommend using another VM for this computer. The configuration of this VM is unimportant, as long as you have administrator access and it can connect to the n-tier web application.
+
+- A simulated on-premises environment that contains its own domain built using AD DS.
+
+The scenarios that these steps demonstrate are:
+
+- Enabling access to the n-tier web application running in the cloud to external users, with AAD providing password authentication.
+
+- Enabling access to the n-tier web application running in the cloud to users running within the organization, with AAD providing password authentication and SSO.
+
+	**THE FOLLOWING TWO SCENARIOS TBD ?**
+
+- Enabling access to the n-tier web application running in the cloud to users running within the organization, with AAD utilizing AD FS running on-premises to provide authentication and SSO.
+
+- Enabling access to a web application running on-premises to external users, with AAD providing authentication.
+
+### Prerequisites
+
+The steps that follow assume the following prerequisites:
+
+- You have an existing Azure subscription in which you can create resource groups.
+
+- You have installed the [Azure Command-Line Interface][azure-cli].
+
+- You have downloaded and installed the most recent build. See [here][azure-powershell-download] for instructions.
+
+- You have installed a copy of the [makecert][makecert] utility on the test client computer.
+
+- You have access to a development computer that has Visual Studio installed.
+
+### Create the n-tier web application architecture
+
+1. Create a folder named `Scripts` that contains a subfolder named `Parameters`.
+
+2. Download the [Deploy-ReferenceArchitecture.ps1][solution-script] PowerShell script to the Scripts folder.
+
+3. In the Parameters folder, create another subfolder named Windows.
+
+4. Download the following files to Parameters/Windows folder:
+
+    - [virtualNetwork.parameters.json][vnet-parameters-windows]
+
+    - [networkSecurityGroup.parameters.json][nsg-parameters-windows]
+
+    - [webTierParameters.json][webtier-parameters-windows]
+
+    - [businessTierParameters.json][businesstier-parameters-windows]
+
+    - [dataTierParameters.json][datatier-parameters-windows]
+
+    - [managementTierParameters.json][managementtier-parameters-windows]
+
+5. Edit the Deploy-ReferenceArchitecture.ps1 file in the Scripts folder, and change the following line to specify the resource group that should be created or used to hold the VM and resources created by the script:
+
+    ```powershell
+    # PowerShell
+    $resourceGroupName = "ra-aad-ntier-rg"
+    ```
+
+6. Edit each of the JSON files in the Parameters/Windows folder and set the `resourceGroup` value in the `virtualNetworkSettings` section in each of the parameter files to be the same as that you specified in the Deploy-ReferenceArchitecture.ps1 script file.
+
+7. Open an Azure PowerShell window, move to the Scripts folder, and run the following command:
+
+    ```powershell
+    .\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> Windows
+    ```
+
+    Replace `<subscription id>` with your Azure subscription ID.
+
+    For `<location>`, specify an Azure region, such as `eastus` or `westus`.
+
+8. When the script has completed, use the Azure portal to obtain the public IP address of the web-tier load balancer (*ra-aad-ntier-web-lb*):
+
+	[![18]][18]
+
+9. Log in to your test client computer (or VM), and verify that you can access the web-tier by using Internet Explorer to browse to the public IP address of the web-tier load balancer. The default IIS page should appear:
+
+	[![19]][19]
+
+### Simulate configuration of a public web site
+
+>[AZURE.NOTE] The following steps simulate associating the web-tier with the DNS name www.contoso.com by modifying the hosts file on the test client computer. Additionally, the web-tier VMs are configured with self-signed certificates and a fake hosting authority. This is for testing purposes only and **you should not use these techniques in a production environment**.
+
+1. On your test client computer, edit the file C:\Windows\System32\drivers\etc\hosts by using Notepad, and add an entry that associates the name www.contoso.com with the public IP address of the web-tier load balancer:
+
+	```text
+	# Copyright (c) 1993-2009 Microsoft Corp.
+	#
+	# This is a sample HOSTS file used by Microsoft TCP/IP for Windows.
+	#
+	# This file contains the mappings of IP addresses to host names. Each
+	# entry should be kept on an individual line. The IP address should
+	# be placed in the first column followed by the corresponding host name.
+	# The IP address and the host name should be separated by at least one
+	# space.
+	#
+	# Additionally, comments (such as these) may be inserted on individual
+	# lines or following the machine name denoted by a '#' symbol.
+	#
+	# For example:
+	#
+	#      102.54.94.97     rhino.acme.com          # source server
+	#       38.25.63.10     x.acme.com              # x client host
+	
+	# localhost name resolution is handled within DNS itself.
+	#	127.0.0.1       localhost
+	#	::1             localhost
+	
+	52.165.38.64	www.contoso.com
+	```
+
+2. Verify that you can now browse to www.contoso.com from the test client computer. The same default IIS page should appear as before.
+
+3. On the test client computer, open a command prompt as Administrator and use the makecert utility to create a fake root certification authority certificate:
+
+	```
+	makecert -sky exchange -pe -a sha256 -n "CN=MyFakeRootCertificateAuthority" -r -sv MyFakeRootCertificateAuthority.pvk MyFakeRootCertificateAuthority.cer -len 2048
+	```
+
+	Verify that the following files are created:
+
+	- MyFakeRootCertificateAuthority.cer
+
+	- MyFakeRootCertificateAuthority.pvk
+
+4. Run the following command to install the fake root certification authority authority:
+
+	```
+	certutil.exe -addstore Root MyFakeRootCertificateAuthority.cer
+	```
+
+5. Use the fake certification authority to generate a certificate for www.contoso.com:
+
+	```
+	makecert -sk pkey -iv MyFakeRootCertificateAuthority.pvk -a sha256 -n "CN=www.contoso.com" -ic MyFakeRootCertificateAuthority.cer -sr localmachine -ss my -sky exchange -pe
+	```
+6. Run the `mmc` command, and add the Certificates snap-in for the computer account for the local computer.
+
+7. In the */Certificates (Local Computer)/Personal/Certificate/* store, export the www.contoso.com certificate with its private key to a file named www.contoso.com.pfx:
+
+	[![20]][20]
+
+8. Return to the Azure portal and connect to the management tier VM (*ra-aad-ntier-mgmt-vm1*). The default user name is *testuser* with password *AweS0me@PW*:
+
+	[![21]][21]
+	
+9. From the management tier VM, connect to each of the web tier VMs in turn with username *testuser* and password *AweS0me@PW*, and perform the following tasks. Note that the VMs have the private addresses IP 10.0.1.4, 10.0.1.5, and 10.0.1.6:
+
+	>[AZURE.NOTE] The web tier VMs only have private IP addresses. You can only connect to them by using the management tier VM.
+
+	1. Copy the files *www.contoso.com.pfx* and *MyFakeRootCertificateAuthority.cer* from the test client computer.
+	
+	2. Open a command prompt as Administrator, move to the folder holding the files that you just copied, and run the following commands:
+	
+		```
+		certutil.exe -privatekey -importPFX my www.contoso.com.pfx NoExport
+
+		certutil.exe -addstore Root MyFakeRootCertificateAuthority.cer
+		```
+
+	3. Run the `mmc` command, add the Certificates snap-in for the computer account for the local computer, and verify that the following certificates have been installed:
+
+		- \Certificates (Local Computer)\Personal\Certificates\www.contoso.com
+
+		-  \Certificates (Local Computer)\Trusted Root Certification Authorities\Certificates\MyFakeRootCertificateAuthority
+
+	4. Start the Internet Information Services (IIS) Manager console and navigate to *Sites\Default Web Site* on the computer.
+
+	5. In the *Actions* pane, click *Bindings*, and add an https binding using the www.contoso.com SSL certificate:
+
+		[![22]][22]
+
+10. Return to the test client computer and verify that you can now browse to https://www.contoso.com.
+
+### Create an Azure Active Directory tenant
+
+1. Using the Azure portal, create a new Azure Active Directory tenant such as *myaadname*.onmicrosoft.com, where *myaadname* is a directory name selected by you.
+
+2. Add a user named *admin* with the GlobalAdmin role to the directory. Make a note of the newly generated password.
+
+3. Using Internet Explorer, browse to https://account.activedirectory.windowsazure.com/ and log in as admin@*myaadname*.onmicrosoft.com. Change your password when prompted.
+
+### Create and deploy a test web application
+
+1. Using Visual Studio on the development computer, create a new ASP.NET Web application named ContosoWebApp1 (use the .NET Framework 4.5.2):
+
+	[![23]][23]
+
+2. Select the *MVC* template, change the authentication to *Work and School accounts*, and specify the name of your AAD tenant. Don't create an App Service in the cloud.
+
+	[![24]][24]
+
+3. Build and run the application to test the authentication. In the sign-in page enter the account name admin@*myaadname*.onmicrosoft.com, provide the password, and then click *Sign in*:
+
+	[![25]][25]
+
+4. Verify that AAD asks for permission to sign you in and read your profile, and then starts running the web application with the identity of Admin.
+
+5. Close Internet Explorer and return to Visual Studio.
+
+6. Open the web.config file, and in the `<appSettings>` section, change the value of the *ida:PostLogoutRedirectUri* key to *https://www.contoso.com:443/*. Save the file.
+
+7. In the *Solution Explorer* window, right-click the ContosoWebApp1 project, click *Publish*.
+
+8. In the *Publish Web* window, click *Custom*. Create a new custom profile named *ContosoWebApp1*.
+
+9. On the *Connection* page, set the *Publish method* to *File System* and specify a folder named *ContosoWebApp*, located in a convenient location on your development computer.
+
+10. On the *Settings* page, set the *Configuration* to *Release*.
+
+11. On the *Preview* page, click *Publish*.
+
+12. Connect to each web server in turn (via the management tier VM) and perform the following tasks:
+
+	1. Copy the *ContosoWebApp* folder and its contents from the development computer to the *C:\inetpub* folder.
+
+	2. Using the Internet Information Services (IIS) Manager console, navigate to *Sites\Default Web Site* on the computer.
+
+	3. In the *Actions* pane, click *Basis Settings*, and change the physical path of the web site to *%SystemDrive%\inetpub\ContosoWebApp*:
+
+		[![26]][26]
+
+### Publish the test web application through AAD
+
+1. Login to the Azure portal and navigate to your AAD directory.
+
+2. On the *Applications* tab, click the ContosoWebApp1 application.
+
+3. Verify that your application is successfully added to the directory, and then click the *CONFIGURE* tab.
+
+4. Change the *SIGN-ON URL* to https://www.contoso.com:443, and set the *REPLY URL* to https://www.contoso.com:443 (the same URL).
+
+5. Save the configuration.
+
+6. On the test client computer, navigate to https://www.contoso.com. Verify that AAD prompts you for your credentials, and then log in.
+
+### Create a simulated on-premises environment with Active Directory
+
+**TBD**
 
 ## Next steps
 
@@ -330,6 +570,16 @@ For additional information on installing the AD Connect Health agents and their 
 [aad-health-adfs]: https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-health-adfs/
 [aad-agent-installation]: https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-health-agent-install/
 [aad-reporting-guide]: https://azure.microsoft.com/documentation/articles/active-directory-reporting-guide/
+[azure-cli]: ../virtual-machines-command-line-tools.md
+[azure-powershell-download]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+[solution-script]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-aad/Deploy-ReferenceArchitecture.ps1
+[vnet-parameters-windows]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-aad/parameters/windows/virtualNetwork.parameters.json
+[nsg-parameters-windows]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-aad/parameters/windows/networkSecurityGroups.parameters.json
+[webtier-parameters-windows]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-aad/parameters/windows/webTier.parameters.json
+[businesstier-parameters-windows]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-aad/parameters/windows/businessTier.parameters.json
+[datatier-parameters-windows]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-aad/parameters/windows/dataTier.parameters.json
+[managementtier-parameters-windows]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-aad/parameters/windows/managementTier.parameters.json
+[makecert]: https://msdn.microsoft.com/library/windows/desktop/aa386968(v=vs.85).aspx
 [0]: ./media/guidance-ra-identity-aad/figure1.png "Cloud identity architecture using Azure Active Directory"
 [1]: ./media/guidance-ra-identity-aad/figure2.png "Single forest, single AAD directory topology"
 [2]: ./media/guidance-ra-identity-aad/figure3.png "Multiple forests, single AAD directory topology"
@@ -347,3 +597,12 @@ For additional information on installing the AD Connect Health agents and their 
 [15]: ./media/guidance-ra-identity-aad/figure16.png "The Azure Active Directory Connect Health blade in the Azure portal showing synchronization health"
 [16]: ./media/guidance-ra-identity-aad/figure17.png "The Azure Active Directory Connect Health blade in the Azure portal showing AD DS health"
 [17]: ./media/guidance-ra-identity-aad/figure18.png "Security reports available in the Azure portal"
+[18]: ./media/guidance-ra-identity-aad/figure19.png "The Azure portal highlighting the public IP address of the web-tier load balancer"
+[19]: ./media/guidance-ra-identity-aad/figure20.png "Using Internet Explorer to browse to the public IP address of the web-tier load balancer"
+[20]: ./media/guidance-ra-identity-aad/figure21.png "The certificates snap-in showing the www.contoso.com certificate"
+[21]: ./media/guidance-ra-identity-aad/figure22.png "Connecting to the management tier VM"
+[22]: ./media/guidance-ra-identity-aad/figure23.png "Creating the HTTPS binding for the default web site"
+[23]: ./media/guidance-ra-identity-aad/figure24.png "Creating the ContosoWebApp1 web application"
+[24]: ./media/guidance-ra-identity-aad/figure25.png "Setting the authentication properties of the ContosoWebApp1 web application"
+[25]: ./media/guidance-ra-identity-aad/figure26.png "Signing in to Azure AAD from the ContosoWebApp1 web application"
+[26]: ./media/guidance-ra-identity-aad/figure27.png "Changing the folder for the default web site"
