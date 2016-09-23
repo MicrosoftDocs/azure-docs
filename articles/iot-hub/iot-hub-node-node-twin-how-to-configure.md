@@ -123,7 +123,7 @@ In this section, you create a Node.js console app that connects to your hub as *
             if (err) {
                 console.error('could not open IotHub client');
             } else {
-                client.getDeviceTwin(function(err, twin) {
+                client.getTwin(function(err, twin) {
                     if (err) {
                         console.error('could not get twin');
                     } else {
@@ -227,7 +227,7 @@ In this section, you create a Node.js console app that updates the *desired prop
         var connectionString = '{service connection string}';
         var registry = iothub.Registry.fromConnectionString(connectionString);
          
-        registry.getDeviceTwin('myDeviceId', function(err, twin){
+        registry.getTwin('myDeviceId', function(err, twin){
             if (err) {
                 console.error(err.constructor.name + ': ' + err.message);
             } else {
