@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="09/22/2016"
+	ms.date="09/23/2016"
 	ms.author="marsma"/>
 
 # Get started with the Azure Batch Python client
@@ -63,7 +63,11 @@ You must install the dependencies for the [cryptography][crypto] library, requir
 
     `zypper ref && zypper -n in libopenssl-dev libffi48-devel python-devel`
 
->[AZURE.NOTE] If installing for Python 3.3+, use the python3 equivalents for the Python dependencies. For example, on Ubuntu: `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython3-dev python3-dev`
+* Windows
+
+    `pip install cryptography`
+
+>[AZURE.NOTE] If installing for Python 3.3+ on Linux, use the python3 equivalents for the Python dependencies. For example, on Ubuntu: `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython3-dev python3-dev`
 
 ### Azure packages
 
