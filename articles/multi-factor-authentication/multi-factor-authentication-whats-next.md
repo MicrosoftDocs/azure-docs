@@ -231,10 +231,6 @@ In some apps, like Office 2010 or older and Apple Mail you can't use multi-facto
 
 The following is an important list of things that you should know about app passwords.
 
-Authentication Experience|For browser-based apps|For non-browser-based apps
-:------------- | :------------- | :-------------
-|<ul><li>The first factor of authentication is performed on-premises</li><li>The second factor is a phone-based method carried out by Cloud Identity.</li>|<ul><li>Admins and users can use app passwords to sign in.
-
 - Users can have multiple app passwords, which increases the surface area for theft. Since app passwords are hard to remember, it might encourage people to write this down. This is not recommended and should be discouraged because only one factor is required to login with app password.
 - Apps which cache passwords and use it in on-premises scenarios might start failing since the app password isn't known outside of the organizational id. An example is Exchange emails that are on-premises but the archived mail is in the cloud. The same password doesn't work.
 - The actual password is automatically generated and is not supplied by the user. This is because the automatically generated password, is harder for an attacker to guess and is more secure.

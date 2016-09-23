@@ -35,7 +35,7 @@ The first question in the enrollment process is how you want us to contact you. 
 
 | Contact method | Description |  
 | -------------- | ----------- |  
-| [Mobile app](#use-a-mobile-app-as-the-contact-method) | - **Receive notifications for verification** - This option pushes a notification to the authenticator app on your smartphone or tablet. View the notification and, if it is legitimate, select **Authenticate** in the app. Your work or school may require that you enter a PIN before you authenticate. <br>- **Use verification code** - In this mode, the authenticator app generates a verification code that updates every 30 seconds. Enter the most current verification code in the sign-in interface. <br> The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| [Mobile app](#use-a-mobile-app-as-the-contact-method) | - **Receive notifications for verification** - This option pushes a notification to the authenticator app on your smartphone or tablet. View the notification and, if it is legitimate, select **Authenticate** in the app. Your work or school may require that you enter a PIN before you authenticate. <br>- **Use verification code** - In this mode, the authenticator app generates a verification code that updates every 30 seconds. Enter the most current verification code in the sign-in interface. <br> The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |  
 | [Mobile phone call or text](#use-your-mobile-phone-as-the-contact-method) | - **Phone call** - Places an automated voice call to the phone number you provide. Answer the call and press # in the phone keypad to authenticate. <br>- **Text message** Sends a text message containing a verification code. Following the prompt in the text, either reply to the text message or enter the verification code provided into the sign-in interface. |  
 | [Office Phone Call](#use-your-office-phone-as-the-contact-method) | Places an automated voice call to the phone number you provide. Answer the call and presses # in the phone keypad to authenticate. |  
 
@@ -67,7 +67,7 @@ Using this method requires that you install an authenticator app on your phone o
 
 
 ### Add an account manually
-If you want to add an account manually:
+If you want to add an account to the mobile app manually, instead of using the QR reader, follow these steps.
 
 1. Select the **Enter account manually** button.  
 2. Enter the code and the URL that are provided on the same page that shows you the barcode. This info goes in the **Code** and **URL** boxes on the mobile app.
@@ -100,3 +100,5 @@ If you want to add an account manually:
 5. At this point, you are prompted to set up app passwords for non-browser apps such as Outlook 2010 or older, or the native email app on Apple devices. This is because some apps don't support two-step verification. If you do not use these apps, click **Done** and skip the rest of the steps.
 6. If you are using these apps, copy the app password provided and paste it into your application instead of your regular password. You can use the same app password for multiple apps. For more info, see [What are App Passwords](multi-factor-authentication-end-user-app-passwords.md).
 7. Click **Done**.
+
+## Next steps
