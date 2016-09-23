@@ -101,8 +101,6 @@ The DM client library has two main responsibilities in device management:
 - Synchronize properties on the physical device with its corresponding device twin in IoT Hub
 - Choreograph device jobs sent by IoT Hub to the device
 
-To learn more about these responsibilities and the implementation on the physical device in [Introducing the Azure IoT Hub device management client library for C][lnk-library-c].
-
 ## Next steps
 
 To implement client applications on a wide variety of device hardware platforms and operating systems, you can use the IoT device SDKs. The IoT device SDKs include libraries that facilitate sending telemetry to an IoT hub and receiving cloud-to-device commands. When you use the SDKs, you can choose from a number of network protocols to communicate with IoT Hub. To learn more, see the [information about device SDKs][lnk-device-sdks].
@@ -112,10 +110,7 @@ To continue learning about the Azure IoT Hub device management features, see the
 <!-- Images and links -->
 [img-twin]: media/iot-hub-device-management-overview/image1.png
 [img-jobs]: media/iot-hub-device-management-overview/image2.png
-[img-client]: media/iot-hub-device-management-overview/image3.png
 
-[lnk-lwm2m]: http://technical.openmobilealliance.org/Technical/technical-information/release-program/current-releases/oma-lightweightm2m-v1-0
-[lnk-library-c]: iot-hub-device-management-library.md
 [lnk-get-started]: iot-hub-device-management-get-started.md
 [lnk-tutorial-twin]: iot-hub-device-management-device-twin.md
 [lnk-apidocs]: http://azure.github.io/azure-iot-sdks/

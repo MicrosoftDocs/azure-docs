@@ -43,33 +43,6 @@ The [IoT Hub APIs and SDKs][lnk-sdks] article describes the various ways to acce
 
 Finally, it is important to note that all IoT Hub endpoints use the [TLS][lnk-tls] protocol, and no endpoint is ever exposed on unencrypted/unsecured channels.
 
-## How to read from Event Hubs-compatible endpoints
-
-When you use the [Azure Service Bus SDK for .NET][lnk-servicebus-sdk] or the [Event Hubs - Event Processor Host][lnk-eventprocessorhost], you can use any IoT Hub connection strings with the correct permissions. Then use **messages/events** as the Event Hub name.
-
-When you use SDKs (or product integrations) that are unaware of IoT Hub, you must retrieve an Event Hubs-compatible endpoint and Event Hub name from the IoT Hub settings in the [Azure portal][lnk-management-portal]:
-
-1. In the IoT hub blade, click **Messaging**.
-2. In the **Device-to-cloud settings** section, you find the following values: **Event Hub-compatible endpoint**, **Event Hub-compatible name**, and **Partitions**.
-
-    ![Device-to-cloud settings][img-eventhubcompatible]
-
-> [AZURE.NOTE] If the SDK requires a **Hostname** or **Namespace** value, remove the scheme from the **Event Hub-compatible endpoint**. For example, if your Event Hub-compatible endpoint is **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, the **Hostname** would be **iothub-ns-myiothub-1234.servicebus.windows.net**, and the **Namespace** would be **iothub-ns-myiothub-1234**.
-
-You can then use any shared access security policy that has the **ServiceConnect** permissions to connect to the specified Event Hub.
-
-If you need to build an Event Hub connection string by using the previous information, use the following pattern:
-
-```
-Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy name};SharedAccessKey={iot hub policy key}
-```
-
-The following is a list of SDKs and integrations that you can use with Event Hub-compatible endpoints that IoT Hub exposes:
-
-* [Java Event Hubs client](https://github.com/hdinsight/eventhubs-client)
-* [Apache Storm spout](../hdinsight/hdinsight-storm-develop-csharp-event-hub-topology.md). You can view the [spout source](https://github.com/apache/storm/tree/master/external/storm-eventhubs) on GitHub.
-* [Apache Spark integration](../hdinsight/hdinsight-apache-spark-eventhub-streaming.md)
-
 ## Field gateways
 
 In an IoT solution, a *field gateway* sits between your devices and your IoT Hub endpoints. It is typically located close to your devices. Your devices communicate directly with the field gateway by using a protocol supported by the devices. The field gateway connects to an IoT Hub endpoint using a protocol that is supported by IoT Hub. A field gateway can be highly specialized hardware or a low power computer running software that accomplishes the end-to-end scenario for which the gateway is intended.
@@ -85,20 +58,16 @@ Other reference topics in this IoT Hub developer guide include:
 - [IoT Hub MQTT support][lnk-devguide-mqtt]
 
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
-[lnk-eventprocessorhost]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx
 
 [img-endpoints]: ./media/iot-hub-devguide-endpoints/endpoints.png
-[img-eventhubcompatible]: ./media/iot-hub-devguide-endpoints/eventhubcompatible.png
 [lnk-amqp]: https://www.amqp.org/
 [lnk-mqtt]: http://mqtt.org/
 [lnk-websockets]: https://tools.ietf.org/html/rfc6455
 [lnk-arm]: ../resource-group-overview.md
 [lnk-event-hubs]: http://azure.microsoft.com/documentation/services/event-hubs/
-[lnk-management-portal]: https://portal.azure.com
 
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 
-[lnk-servicebus-sdk]: https://www.nuget.org/packages/WindowsAzure.ServiceBus
 
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-accesscontrol]: iot-hub-devguide-security.md#access-control-and-permissions

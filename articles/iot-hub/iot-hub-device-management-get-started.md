@@ -275,6 +275,7 @@ To learn how to extend your IoT solution and schedule method calls on multiple d
 [lnk-dm-github]: https://github.com/Azure/azure-iot-device-management
 [lnk-tutorial-jobs]: iot-hub-schedule-jobs.md
 [lnk-sample-ui]: iot-hub-device-management-ui-sample.md
+
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 
 [lnk-devtwin]: iot-hub-devguide-device-twins.md

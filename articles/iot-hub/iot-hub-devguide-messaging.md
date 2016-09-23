@@ -29,11 +29,17 @@ Core properties of IoT Hub messaging functionality are the reliability and durab
 
 IoT Hub supports multiple [device-facing protocols][lnk-protocols] (such as MQTT, AMQP, and HTTP). To support seamless interoperability across protocols, IoT Hub defines a [common message format][lnk-message-format] that all device-facing protocols support.
 
+IoT Hub exposes an [Event Hubs-compatible endpoint][lnk-compatible-endpoint] to enable back-end applications to read the device-to-cloud messages received by the hub.
+
 ### When to use
+
+Messaging is a core capability of IoT Hub. Use it whenever you need to send messages from your device to your back end, or send messages from your back end to a device.
+
+For a comparison of the IoT Hub and Event Hubs services, see [Comparison of IoT Hub and Event Hubs][lnk-compare].
 
 ## Device-to-cloud messages
 
-As detailed in the [IoT Hub endpoints][lnk-endpoints] article, device-to-cloud messages are sent through a device-facing endpoint (**/devices/{deviceId}/messages/events**). Your back-end service receives device-to-cloud messages through a service-facing endpoint (**/messages/events**) that is compatible with [Event Hubs][lnk-event-hubs]. Therefore, you can use standard Event Hubs integration and SDKs to receive device-to-cloud messages.
+You send device-to-cloud messages through a device-facing endpoint (**/devices/{deviceId}/messages/events**). Your back-end service receives device-to-cloud messages through a service-facing endpoint (**/messages/events**) that is compatible with [Event Hubs][lnk-event-hubs]. Therefore, you can use standard [Event Hubs integration and SDKs][lnk-compatible-endpoint] to receive device-to-cloud messages.
 
 IoT Hub implements device-to-cloud messaging in a way that is similar to [Event Hubs][lnk-event-hubs]. IoT Hub's device-to-cloud messages are more like Event Hubs *events* than [Service Bus][lnk-servicebus] *messages*.
 
@@ -96,23 +102,23 @@ The **ConnectionAuthMethod** property contains a JSON serialized object, with th
 
 ## Cloud-to-device messages
 
-As detailed in the [IoT Hub endpoints][lnk-endpoints] article, you can send cloud-to-device messages through a service-facing endpoint (**/messages/devicebound**). A device can receive them through a device-specific endpoint (**/devices/{deviceId}/messages/devicebound**).
+You send cloud-to-device messages through a service-facing endpoint (**/messages/devicebound**). A device receives them through a device-specific endpoint (**/devices/{deviceId}/messages/devicebound**).
 
-Each cloud-to-device message is targeted at a single device, setting the **to** property to **/devices/{deviceId}/messages/devicebound**.
+Each cloud-to-device message is targeted at a single device by setting the **to** property to **/devices/{deviceId}/messages/devicebound**.
 
->[AZURE.IMPORTANT] Each device queue can hold at most 50 cloud-to-device messages. Trying to send more messages to the same device results in an error.
+>[AZURE.IMPORTANT] Each device queue holds at most 50 cloud-to-device messages. Trying to send more messages to the same device results in an error.
 
-> [AZURE.NOTE] When sending cloud-to-device messages, property names and values can only contain ASCII alphanumeric characters, plus ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
+> [AZURE.NOTE] When you send cloud-to-device messages, property names and values can only contain ASCII alphanumeric characters, plus ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
 
 ### Message lifecycle
 
-To implement the guarantee of message delivery at least once, cloud-to-device messages are persisted in per-device queues. Devices must explicitly acknowledge *completion* for IoT Hub to remove them from the queue. This guarantees resiliency against connectivity and device failures.
+To guarantee  at least once message delivery, IoT Hub persists cloud-to-device messages in per-device queues. Devices must explicitly acknowledge *completion* for IoT Hub to remove them from the queue. This guarantees resiliency against connectivity and device failures.
 
 The following diagram shows the lifecycle state graph for a cloud-to-device message.
 
 ![Cloud-to-device message lifecycle][img-lifecycle]
 
-When the service sends a message, it is considered *Enqueued*. When a device wants to *receive* a message, IoT Hub *locks* the message (sets the state to **Invisible**) tallowing other threads on the same device to start receiving other messages. When a device thread completes the processing of a message, it notifies IoT Hub by *completing* the message.
+When the service sends a message, it is considered *Enqueued*. When a device wants to *receive* a message, IoT Hub *locks* the message (sets the state to **Invisible**) allowing other threads on the same device to start receiving other messages. When a device thread completes the processing of a message, it notifies IoT Hub by *completing* the message.
 
 A device can also:
 
@@ -131,7 +137,7 @@ For a tutorial on cloud-to-device messages, see [Tutorial: How to send cloud-to-
 
 Every cloud-to-device message has an expiration time. This time is set either by the service (in the **ExpiryTimeUtc** property), or by IoT Hub using the default *time to live* specified as an IoT Hub property. See [Cloud-to-device configuration options][lnk-c2d-configuration].
 
-> [AZURE.NOTE] A common way to take advantage of message expiration is to set short time to live values, to avoid sending messages to disconnected devices. This approach achieves the same result as maintaining the device connection state, while being more efficient. By requesting message acknowledgements, you can be notified by IoT Hub which devices are able to receive messages, and which are not online or have failed.
+> [AZURE.NOTE] A common way to take advantage of message expiration and avoid sending messages to disconnected devices, is to set short time to live values. This approach achieves the same result as maintaining the device connection state, while being more efficient. When you request message acknowledgements, IoT Hub notifies you which devices are able to receive messages, and which devices are not online or have failed.
 
 ### Message feedback
 
@@ -143,9 +149,7 @@ When you send a cloud-to-device message, the service can request the delivery of
 
 > [AZURE.NOTE] If **Ack** is **full**, and you don't receive a feedback message, it means that the feedback message expired. The service can't know what happened to the original message. In practice, a service should ensure that it can process the feedback before it expires. The maximum expiry time is two days, which allows plenty of time to get the service running again if a failure occurs.
 
-As explained in [Endpoints][lnk-endpoints], IoT Hub delivers feedback through a service-facing endpoint (**/messages/servicebound/feedback**) as messages. The semantics for receiving feedback are the same as for cloud-to-device messages, and have the same [Message lifecycle][lnk-lifecycle]. Whenever possible, message feedback is batched in a single message, with the following format.
-
-Each message retrieved by a device from the feedback endpoint has the following properties:
+As explained in [Endpoints][lnk-endpoints], IoT Hub delivers feedback through a service-facing endpoint (**/messages/servicebound/feedback**) as messages. The semantics for receiving feedback are the same as for cloud-to-device messages, and have the same [Message lifecycle][lnk-lifecycle]. Whenever possible, message feedback is batched in a single message, with the following format:
 
 | Property | Description |
 | -------- | ----------- |
@@ -197,7 +201,36 @@ Each IoT hub exposes the following configuration options for cloud-to-device mes
 | feedback.ttlAsIso8601 | Retention for service-bound feedback messages. | ISO_8601 interval up to 2D (minimum 1 minute). Default: 1 hour. |
 | feedback.maxDeliveryCount | Maximum delivery count for feedback queue. | 1 to 100. Default: 100. |
 
-For more information, see [Manage IoT hubs][lnk-portal].
+For more information, see [Create IoT hubs][lnk-portal].
+
+## Read device-to-cloud messages
+
+IoT Hub exposes an endpoint for your back-end services to read the device-to-cloud messages received by your hub. The endpoint is Event Hubs-compatible, which enables you to use any of the mechanisms the Event Hubs service supports for reading messages.
+
+When you use the [Azure Service Bus SDK for .NET][lnk-servicebus-sdk] or the [Event Hubs - Event Processor Host][lnk-eventprocessorhost], you can use any IoT Hub connection strings with the correct permissions. Then use **messages/events** as the Event Hub name.
+
+When you use SDKs (or product integrations) that are unaware of IoT Hub, you must retrieve an Event Hubs-compatible endpoint and Event Hub name from the IoT Hub settings in the [Azure portal][lnk-management-portal]:
+
+1. In the IoT hub blade, click **Messaging**.
+2. In the **Device-to-cloud settings** section, you find the following values: **Event Hub-compatible endpoint**, **Event Hub-compatible name**, and **Partitions**.
+
+    ![Device-to-cloud settings][img-eventhubcompatible]
+
+> [AZURE.NOTE] If the SDK requires a **Hostname** or **Namespace** value, remove the scheme from the **Event Hub-compatible endpoint**. For example, if your Event Hub-compatible endpoint is **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**, the **Hostname** would be **iothub-ns-myiothub-1234.servicebus.windows.net**, and the **Namespace** would be **iothub-ns-myiothub-1234**.
+
+You can then use any shared access security policy that has the **ServiceConnect** permissions to connect to the specified Event Hub.
+
+If you need to build an Event Hub connection string by using the previous information, use the following pattern:
+
+```
+Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy name};SharedAccessKey={iot hub policy key}
+```
+
+The following is a list of SDKs and integrations that you can use with Event Hub-compatible endpoints that IoT Hub exposes:
+
+* [Java Event Hubs client](https://github.com/hdinsight/eventhubs-client)
+* [Apache Storm spout](../hdinsight/hdinsight-storm-develop-csharp-event-hub-topology.md). You can view the [spout source](https://github.com/apache/storm/tree/master/external/storm-eventhubs) on GitHub.
+* [Apache Spark integration](../hdinsight/hdinsight-apache-spark-eventhub-streaming.md)
 
 ## Reference
 
@@ -301,6 +334,8 @@ If you would like to try out some of the concepts described in this article, you
 
 
 [img-lifecycle]: ./media/iot-hub-devguide-messaging/lifecycle.png
+[img-eventhubcompatible]: ./media/iot-hub-devguide-messaging/eventhubcompatible.png
+
 [lnk-resource-provider-apis]: https://msdn.microsoft.com/library/mt548492.aspx
 [lnk-azure-gateway-guidance]: iot-hub-devguide-endpoints.md#field-gateways
 [lnk-guidance-scale]: iot-hub-scaling.md
@@ -311,8 +346,7 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-management-portal]: https://portal.azure.com
 [lnk-servicebus]: http://azure.microsoft.com/documentation/services/service-bus/
 [lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
-[lnk-sdks]: iot-hub-sdks-summary.md
-[lnk-portal]: iot-hub-manage-through-portal.md
+[lnk-portal]: iot-hub-create-through-portal.md
 
 [lnk-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-quotas]: iot-hub-devguide-quotas-throttling.md
@@ -321,6 +355,7 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 [lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
 [lnk-c2d]: iot-hub-devguide-messaging.md#cloud-to-device-messages
+[lnk-compatible-endpoint]: iot-hub-devguide-messaging.md#read-device-to-cloud-messages
 [lnk-protocols]: iot-hub-devguide-messaging.md#communication-protocols
 [lnk-message-format]: iot-hub-devguide-messaging.md#message-format
 [lnk-d2c-configuration]: iot-hub-devguide-messaging.md#device-to-cloud-configuration-options
@@ -330,6 +365,7 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-lifecycle]: iot-hub-devguide-messaging.md#message-lifecycle
 [lnk-feedback]: iot-hub-devguide-messaging.md#message-feedback
 [lnk-antispoofing]: iot-hub-devguide-messaging.md#anti-spoofing-properties
+[lnk-compare]: iot-hub-compare-event-hubs.md
 
 [lnk-devguide-upload]: iot-hub-devguide-file-upload.md
 [lnk-devguide-identities]: iot-hub-devguide-identity-registry.md
@@ -337,6 +373,9 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-devguide-device-twins]: iot-hub-devguide-device-twins.md
 [lnk-devguide-directmethods]: iot-hub-devguide-direct-methods.md
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
+[lnk-servicebus-sdk]: https://www.nuget.org/packages/WindowsAzure.ServiceBus
+[lnk-eventprocessorhost]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx
+
 
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
