@@ -29,6 +29,20 @@ This guide shows you how to perform common scenarios using the managed client li
 The reference documentation for the client SDK is located here: [Azure Mobile Apps .NET client reference].
 You can also find several client samples in the [Azure-Samples GitHub repository].
 
+## Supported Platforms
+
+The .NET Platform supports the following:
+
+* Xamarin Android releases for API 19 through 24 (KitKat through Nougat)
+* Xamarin iOS releases for iOS versions 8.0 and later
+* Universal Windows Platform
+* Windows Phone 8.1
+* Windows Phone 8.0 except for Silverlight applications
+
+The "server-flow" authentication uses a WebView for the presented UI.  This means that if the device is not able to present a
+WebView UI, then other methods of authentication will be needed that is outside the scope of the product.  This SDK is thus
+not suitable for Watch-type or similarly restricted devices.
+
 ##<a name="setup"></a>Setup and Prerequisites
 
 We assume that you have already created and published your Mobile App backend project, which includes at least one table.  In the code used in this topic, the

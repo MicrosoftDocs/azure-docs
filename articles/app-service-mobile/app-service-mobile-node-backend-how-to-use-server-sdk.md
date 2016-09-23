@@ -35,6 +35,14 @@ providers such as Facebook, Twitter, Google and Microsoft as well as Azure Activ
 
 You can find samples for each use case in the [samples directory on GitHub].
 
+## Supported Platforms
+
+The Azure Mobile Apps Node SDK supports the current LTS release of Node and later.  As of writing, this is
+Node v4.5.0 and later.  Other versions of Node may work, but are not supported.
+
+The Azure Mobile Apps Node SDK supports two database drivers - the node-mssql driver supports SQL Azure and
+local SQL Server instances.  The sqlite3 driver supports SQLite databases on a single instance only.
+
 ### <a name="howto-cmdline-basicapp"></a>How to: Create a Basic Node.js backend using the Command Line
 
 Every Azure App Service Mobile App Node.js backend starts as an ExpressJS application.  ExpressJS is the most popular web service framework

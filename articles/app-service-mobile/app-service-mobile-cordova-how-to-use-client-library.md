@@ -24,6 +24,19 @@ This guide teaches you to perform common scenarios using the latest [Apache Cord
 Apps, first complete [Azure Mobile Apps Quick Start] to create a backend, create a table, and download a pre-built Apache Cordova project. In this
 guide, we focus on the client-side Apache Cordova Plugin.
 
+## Supported Platforms
+
+This SDK provides support for Apache Cordova v6.0.0 and later on iOS, Android and Windows devices.  The platform
+support is as follows:
+
+* Android API 19-24 (KitKat through Nougat)
+* iOS versions 8.0 and later.
+* Windows Phone 8.0
+* Windows Phone 8.1
+* Universal Windows Platform
+
+Other platforms may work as well, but they are unsupported at this time.
+
 ##<a name="Setup"></a>Setup and Prerequisites
 
 This guide assumes that you have created a backend with a table. This guide assumes that the table has the same schema as the tables in those
@@ -37,6 +50,7 @@ cordova plugin add cordova-plugin-ms-azure-mobile-apps
 For more information on creating [your first Apache Cordova app], see their documentation.
 
 [AZURE.INCLUDE [app-service-mobile-html-js-library.md](../../includes/app-service-mobile-html-js-library.md)]
+
 
 ##<a name="auth"></a>How to: Authenticate Users
 

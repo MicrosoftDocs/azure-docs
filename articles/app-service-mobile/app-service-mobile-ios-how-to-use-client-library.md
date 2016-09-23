@@ -26,6 +26,14 @@ This guide teaches you to perform common scenarios using the latest [Azure Mobil
 
 The reference documentation for the iOS client SDK is located here: [Azure Mobile Apps iOS Client Reference](http://azure.github.io/azure-mobile-apps-ios-client/).
 
+## Supported Platforms
+
+The iOS SDK supports Objective-C projects, Swift 2.2 projects and Swift 2.3 projects for iOS versions 8.0 or later.
+
+The "server-flow" authentication uses a WebView for the presented UI.  This means that if the device is not able to present a
+WebView UI, then other methods of authentication will be needed that is outside the scope of the product.  This SDK is thus
+not suitable for Watch-type or similarly restricted devices.
+
 ##<a name="Setup"></a>Setup and Prerequisites
 
 This guide assumes that you have created a backend with a table. This guide assumes that the table has the same schema as the tables in those tutorials. This guide also assumes that in your code, you reference `MicrosoftAzureMobile.framework` and import `MicrosoftAzureMobile/MicrosoftAzureMobile.h`.
