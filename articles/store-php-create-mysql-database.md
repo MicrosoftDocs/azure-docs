@@ -19,7 +19,7 @@
 
 # Create and connect to a MySQL database in Azure
 
-This guide will show you how to create a MySQL database in the [Azure portal](https://portal.azure.com) (provider is [ClearDB](http://www.cleardb.com/)) and how to connect to it from a PHP web app running in 
+This tutorial shows you how to create a MySQL database in the [Azure portal](https://portal.azure.com) (provider is [ClearDB](http://www.cleardb.com/)) and how to connect to it from a PHP web app running in 
 [Azure App Service](./app-service/app-service-value-prop-what-is.md). 
 
 > [AZURE.NOTE] You can also create a MySQL database as part of a [Marketplace app template](./app-service-web/app-service-web-create-web-app-from-marketplace.md).
@@ -41,7 +41,7 @@ To create a MySQL database in the Azure portal, do the following:
 	- **Database Type**: Select **Shared** for low-cost or free tiers, or **Dedicated** to get dedicated resources. 
 	- **Resource group**: Add the MySQL database to an existing [resource group](../resource-group-overview.md) or put it in a new one. Resources in the same group
 	can be easily managed together.
-	- **Location**: Select a location close to you. When adding to an exisitng resource group, you're locked to the resource group's location.
+	- **Location**: Select a location close to you. When adding to an existing resource group, you're locked to the resource group's location.
 	- **Pricing Tier**: Click **Pricing Tier**, then select a pricing option (**Mercury** tier is free), and then click **Select**. 
 	- **Legal Terms**: Click **Legal Terms**, review the purchase details, and click **Purchase**.
 	- **Pin to dashboard**: Select if you want to access it directly from the dashboard. This is especially helpful if you aren't familiar with
@@ -73,10 +73,10 @@ PHP app is available [here](https://github.com/WindowsAzure/azure-sdk-for-php-sa
 ## Connect a Laravel web app (from the PHP get started tutorial)
 
 Suppose you just finished the tutorial [Create, configure, and deploy a PHP web app to Azure](./app-service-web/app-service-web-php-get-started.md)
-and have a [Laravel](https://www.laravel.com/) web app running in Azure, you can easily add database capabilities to your Laravel
+and have a [Laravel](https://www.laravel.com/) web app running in Azure. You can easily add database capabilities to your Laravel
 app. Just follow the steps below:
 
->[AZURE.NOTE] The following steps assumes that you have finished the tutuorial 
+>[AZURE.NOTE] The following steps assume that you have finished the tutorial 
 [Create, configure, and deploy a PHP web app to Azure](./app-service-web/app-service-web-php-get-started.md).
 
 1. Configure the Laravel app in your local development environment to point to the MySQL database. To do this, open `.env`

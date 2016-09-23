@@ -41,7 +41,7 @@ First, quickly create a default Sails.js app by following these steps:
 
 1. Open the command-line terminal of your choice and `CD` to a working directory.
 
-2. Create a new Sails.js app and run it:
+2. Create a Sails.js app and run it:
 
         sails new <appname>
         cd <appname>
@@ -127,7 +127,7 @@ property should look like this:
             "sails-sqlserver": "<leave-as-is>"
         },
 
-3. In, package.json add the following `engines` property to set the Node.js version to one that we want.
+3. In package.json, add the following `engines` property to set the Node.js version to one that we want.
 
         "engines": {
             "node": "6.6.0"
@@ -182,7 +182,7 @@ You can control granularity of the stdout logs in the [config/log.js](http://sai
 To connect to a database in Azure, you create the database of your choice in Azure, such as Azure SQL Database,
 MySQL, MongoDB, Azure (Redis) Cache, etc., and use the corresponding 
 [datastore adapter](https://github.com/balderdashy/sails#compatibility) to connect to it. The steps in this section
-shows you how to connect to a MySQL database in Azure.
+show you how to connect to a MySQL database in Azure.
 
 1. Follow the tutorial [here](../store-php-create-mysql-database.md) to create a MySQL database in Azure.
 
@@ -226,7 +226,7 @@ from your terminal. All connection information you need is in the Azure portal (
             },
         },
     
-    This configuration overrides the settings in your config/connections.js file for the local environement. This file
+    This configuration overrides the settings in your config/connections.js file for the local environment. This file
     is excluded by the default .gitignore in your project, so it will not be stored in Git. Now, you are able to connect
     to your MySQL database both from your Azure web app and from your local development environment.
 
