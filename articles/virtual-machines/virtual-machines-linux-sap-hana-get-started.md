@@ -210,7 +210,7 @@ SAP HANA requires specific Linux kernel settings which are not part of the stand
 and have to be set manually. There is a specific SAP note which describes the settings. 
 
 
-SAP Note SAP HANA DB : Recommended OS settings for SLES 12 / SLE for SAP Applications 12 :
+SAP Note SAP HANA DB : Recommended OS settings for SLES 12 / SLES for SAP Applications 12:
 [ SAP Note 2205917](https://launchpad.support.sap.com/#/notes/2205917)
 
 One additional topic reagrding page-cache related to running SAP HANA on SLES can be found
