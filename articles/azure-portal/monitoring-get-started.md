@@ -20,53 +20,51 @@
 
 Azure Monitor is a new platform service that provides a single source for monitoring Azure resources. With Azure Monitor, you can visualize, query, route, archive, and take action on the metrics and logs coming from your Azure resources. You can work with this data using the Monitor portal blade, Insights PowerShell Cmdlets, Cross-Platform CLI, or Azure Insights REST APIs. In this article, we walk through a few of the key components of Azure Monitor.
 
-## Azure Monitor blade
-
 1. In the portal, navigate to **More services** and find the **Monitor** option. Click the star icon to add this option to your favorites list so that it is always easily accessible from the left-hand navigation bar.
 
-   ![Monitor in the services list](./media/monitoring-get-started/monitor-more-services.png)
+    ![Monitor in the services list](./media/monitoring-get-started/monitor-more-services.png)
 
 2. Click the **Monitor** option to open up the **Monitor** blade. This blade brings together all your monitoring settings and data into one consolidated view. It first opens to the **Activity log** section.
 
-   ![Monitor blade navigation](./media/monitoring-get-started/monitor-blade-nav.png)
+    ![Monitor blade navigation](./media/monitoring-get-started/monitor-blade-nav.png)
 
-   > [AZURE.WARNING] The **Service notifications** and **Notification groups** options displayed are Private Preview and only appear for those who have joined the Private Preview.
+    > [AZURE.WARNING] The **Service notifications** and **Notification groups** options displayed are Private Preview and only appear for those who have joined the Private Preview.
 
-   Azure Monitor has three basic categories of monitoring data: The activity log, metrics, and diagnostic logs.
+    Azure Monitor has three basic categories of monitoring data: The activity log, metrics, and diagnostic logs.
 
 3. Click **Activity log** to ensure that the activity log section is displayed.
 
-   ![Activity Log blade](./media/monitoring-get-started/monitor-act-log-blade.png)
+    ![Activity Log blade](./media/monitoring-get-started/monitor-act-log-blade.png)
 
-   The **activity log** describes all operations performed on resources in your subscription. Using the Activity Log, you can determine the ‘what, who, and when’ for any write operations on resources in your subscription. For example, the Activity Log tells you when a web app was stopped and who stopped it. Activity Log events are stored in the platform for 90 days.
+    The **activity log** describes all operations performed on resources in your subscription. Using the Activity Log, you can determine the ‘what, who, and when’ for any write operations on resources in your subscription. For example, the Activity Log tells you when a web app was stopped and who stopped it. Activity Log events are stored in the platform for 90 days.
    
-   You can create and save queries for common filters, then pin the most important queries to a portal dashboard so you'll always know if events that meet your criteria have occurred.
+    You can create and save queries for common filters, then pin the most important queries to a portal dashboard so you'll always know if events that meet your criteria have occurred.
 
 4. Filter the view to a particular resource group over the last week, then click the **Save** button.
 
-   ![Save activity log query](./media/monitoring-get-started/monitor-act-log-save.png)
+    ![Save activity log query](./media/monitoring-get-started/monitor-act-log-save.png)
 
 5. Now, click the **Pin** button.
 
-   ![Click pin for activity log](./media/monitoring-get-started/monitor-act-log-pin.png)
+    ![Click pin for activity log](./media/monitoring-get-started/monitor-act-log-pin.png)
 
-   Most of the views in this walkthrough can be pinned to a dashboard. This helps you create a single source of information for operational data on your services. 
+    Most of the views in this walkthrough can be pinned to a dashboard. This helps you create a single source of information for operational data on your services. 
 
 6. Return to your dashboard. You can now see that the query (and number of results) is displayed in your dashboard.
 
-   ![Activity log pinned to dashboard](./media/monitoring-get-started/monitor-act-log-db.png)
+    ![Activity log pinned to dashboard](./media/monitoring-get-started/monitor-act-log-db.png)
 
 7. Return to the **Monitor** tile and click the **Metrics** section. You first need to select a resource by filtering and selecting using the options at the top of the section.
 
-   ![Filter resource for metrics](./media/monitoring-get-started/monitor-met-filter.png)
+    ![Filter resource for metrics](./media/monitoring-get-started/monitor-met-filter.png)
 
-   All Azure resources emit metrics. This view brings together all of them in a single pane of glass.
+    All Azure resources emit metrics. This view brings together all of them in a single pane of glass.
 
 8. Once you have selected a resource, all available metrics appear on the left side of the blade. You can chart multiple metrics at once by selecting metrics and modify the graph type and time range. You can also view all metric alerts set on this resource.
 
-   ![Metric blade](./media/monitoring-get-started/monitor-metric-blade.png)
+    ![Metric blade](./media/monitoring-get-started/monitor-metric-blade.png)
 
-   > [AZURE.NOTE] Some metrics are only available by enabling [Application Insights](../application-insights/app-insights-overview.md) on your resource.
+    > [AZURE.NOTE] Some metrics are only available by enabling [Application Insights](../application-insights/app-insights-overview.md) on your resource.
 
 9. When you are happy with your chart, you can use the **Pin** button to pin it to your dashboard.
 
