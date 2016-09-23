@@ -38,15 +38,15 @@ First, we'll start off with creating a Java project.
 
 1. Start Eclipse, and at the menu click **File**, click **New**, and then click **Dynamic Web Project**. (If you don't see **Dynamic Web Project** listed as an available project after clicking **File** and **New**, then do the following: click **File**, click **New**, click **Project...**, expand **Web**, click **Dynamic Web Project**, and click **Next**.)
 
-1. For purposes of this tutorial, name the project **MyHelloWorld**. Your screen will appear similar to the following:
+1. For purposes of this tutorial, name the project **MyWebApp**. Your screen will appear similar to the following:
 
     ![][02]
 
 1. Click **Finish**.
 
-1. Within Eclipse's Project Explorer view, expand **MyHelloWorld**. Right-click **WebContent**, click **New**, and then click **JSP File**.
+1. Within Eclipse's Project Explorer view, expand **MyWebApp**. Right-click **WebContent**, click **New**, and then click **JSP File**.
 
-1. In the **New JSP File** dialog box, name the file **index.jsp**, keep the parent folder as **MyHelloWorld/WebContent**, and then click **Next**.
+1. In the **New JSP File** dialog box, name the file **index.jsp**, keep the parent folder as **MyWebApp/WebContent**, and then click **Next**.
 
 1. In the **Select JSP Template** dialog box, for purposes of this tutorial select **New JSP File (html)**, and then click **Finish**.
 
@@ -60,7 +60,7 @@ First, we'll start off with creating a Java project.
 
 There are several ways by which you can deploy a Java web application to Azure. This tutorial describes one of the simplest: your application will be deployed to an Azure Web App Container - no special project type nor additional tools are needed. The JDK and the web container software will be provided for you by Azure, so there is no need to upload your own; all you need is your Java Web App. As a result, the publishing process for your application will take seconds, not minutes.
 
-1. In Eclipse's Project Explorer, right-click **MyHelloWorld**.
+1. In Eclipse's Project Explorer, right-click **MyWebApp**.
 
 1. In the context menu, select **Azure**, then click **Publish as Azure Web App...**
 
