@@ -374,7 +374,7 @@ Disk encryption can be enabled on new IaaS Windows VM from Azure gallery in Azur
 
 **Note:** This template creates a new encrypted Windows VM using the Windows Server 2012 gallery image.
 
-Disk encryption can be enabled on a new IaaS RedHat Linux 7.2 VM with a 200 GB RAID-0 array using [this](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel) resource manager template. After the template is deployed, verify the VM encryption status using the `Get-AzureRmVmDiskEncryptionStatus` cmdlet as described in the section "[Encrypting OS drive on a running Linux VM](#encrypting-os-drive-on-a-running-linux-vm)". When the machine returns status `VMRestartPending`, restart the VM.
+Disk encryption can be enabled on a new IaaS RedHat Linux 7.2 VM with a 200 GB RAID-0 array using [this](https://aka.ms/fde-rhel) resource manager template. After the template is deployed, verify the VM encryption status using the `Get-AzureRmVmDiskEncryptionStatus` cmdlet as described in the section "[Encrypting OS drive on a running Linux VM](#encrypting-os-drive-on-a-running-linux-vm)". When the machine returns status `VMRestartPending`, restart the VM.
 
 You can see the Resource Manager template parameters details for new VM from Azure gallery scenario using Azure AD Client ID in the table below:
 
@@ -588,7 +588,7 @@ On Linux VMs, disabling encryption is supported only for data volumes. If OS vol
 
 Disk encryption can be disabled on running Windows IaaS VM using the Resource Manager template published [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm). Click on “Deploy to Azure” button on the Azure quickstart template, input decryption configuration in the parameters blade and click OK. Select the subscription, resource group, resource group location, legal terms and agreement and click Create button to enable encryption on a new IaaS VM.
 
-For Linux VM, [this](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm) template can be used to disable encryption.
+For Linux VM, [this](https://aka.ms/decrypt-linuxvm) template can be used to disable encryption.
 
 Resource Manager template parameters details for disabling encryption on running Windows IaaS VM:
 
