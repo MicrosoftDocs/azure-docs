@@ -45,8 +45,8 @@ See [Data Transformation Activities](data-factory-data-transformation-activities
 ## Linked services
 Linked services define the information needed for Data Factory to connect to external resources (Examples: Azure Storage, on-premises SQL Server, Azure HDInsight). Linked services are used for two purposes in Data Factory:
 
-- To represent a **data store** including, but not limited to, an on-premises SQL Server, Oracle database, file share, or an Azure Blob Storage account. See the [Data movement activities](#data-factory-data-movement-activities.md) section for the supported data stores. 
-- To represent a **compute resource** that can host the execution of an activity. For example, the HDInsightHive activity executes on an HDInsight Hadoop cluster. See [Data transformation activities](#data-factory-data-transformation-activities.md) section for the supported compute environments. 
+- To represent a **data store** including, but not limited to, an on-premises SQL Server, Oracle database, file share, or an Azure Blob Storage account. See the [Data movement activities](data-factory-data-movement-activities.md) section for the supported data stores. 
+- To represent a **compute resource** that can host the execution of an activity. For example, the HDInsightHive activity executes on an HDInsight Hadoop cluster. See [Data transformation activities](data-factory-data-transformation-activities.md) section for the supported compute environments. 
 
 ## Datasets 
 Linked services link data stores to an Azure data factory. Datasets represent data structure with in the data store. For example, an Azure Storage linked service provides connection information for Data Factory to connect to an Azure Storage account. An Azure Blob dataset specifies the blob container, folder in the Azure Storage from which the pipeline should read the data. Similarly, an Azure SQL linked service provides connection information for an Azure SQL database and an Azure SQL dataset specifies the table that contains the data.   
