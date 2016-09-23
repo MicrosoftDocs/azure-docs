@@ -34,7 +34,7 @@ There are four steps in the process of finding the best parameter set:
 
 The following image illustrates shows how this can be achieved in Azure Machine Learning.
 
-![Find the best parameter set.](./media/machine-learning-algorithm-parameters-optimize/fig1.png)
+![Find the best parameter set](./media/machine-learning-algorithm-parameters-optimize/fig1.png)
 
 ## Define the parameter space
 You can define the parameter set at the model initialization step. The parameter pane of all machine learning algorithms has two trainer modes – *Single Parameter* and *Parameter Range*. Choose Parameter Range mode. In Parameter Range mode, you can enter multiple values for each parameter. You can enter comma-separated values in the text box.
