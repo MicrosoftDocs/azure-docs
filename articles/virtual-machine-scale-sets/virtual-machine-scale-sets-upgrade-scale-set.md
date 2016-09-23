@@ -34,7 +34,7 @@ The first two options are supported requirements covered by this article. You'll
 
 Virtual machine scale sets that are deployed as part of a [Service Fabric](https://azure.microsoft.com/services/service-fabric/) cluster are not covered here.
 
-The basic sequence for changing the OS version or SKU of a platform image or the URI of a custom image looks as follows:
+Following is the basic sequence for changing the OS version or SKU of a platform image or the URI of a custom image:
 
 1. Get the virtual machine scale set model.
 
@@ -80,7 +80,7 @@ $vmss.virtualMachineProfile.storageProfile.osDisk.image.uri= $newURI
 
 ## Using the REST API
 
-Here are a couple of Python examples that use the Azure REST API to roll out an OS version update. Both use the lightweight [azurerm](https://pypi.python.org/pypi/azurerm) library of Azure REST API wrapper functions to do a GET on the scale set model, and then a PUT with an updated model. They also look at virtual machine instances views to identify the virtual machines by update domain.
+Here are a couple of Python examples that use the Azure REST API to roll out an OS version update. Both use the lightweight [azurerm](https://pypi.python.org/pypi/azurerm) library of Azure REST API wrapper functions to do a GET on the scale set model, followed by a PUT with an updated model. They also look at virtual machine instances views to identify the virtual machines by update domain.
 
 ### Vmssupgrade
 
@@ -92,9 +92,9 @@ This script lets you choose specific virtual machines to update or specify an up
 
 ### Vmsseditor
 
-[Vmsseditor](https://github.com/gbowerman/vmssdashboard) is a general-purpose editor for virtual machine scale sets that shows virtual machine status as a heatmap where one row represents one update domain. Among other things, you can update the model for a scale set with a new version, SKU, or custom image URI, and then pick fault domains to upgrade. When you do so, all the virtual machines in that update domain are upgraded to the new model. Alternatively, you could do a rolling upgrade based on the batch size of your choice.  
+[Vmsseditor](https://github.com/gbowerman/vmssdashboard) is a general-purpose editor for virtual machine scale sets that shows virtual machine status as a heatmap where one row represents one update domain. Among other things, you can update the model for a scale set with a new version, SKU, or custom image URI, and then pick fault domains to upgrade. When you do so, all the virtual machines in that update domain are upgraded to the new model. Alternatively, you can do a rolling upgrade based on the batch size of your choice.  
 
-The following screenshot shows a model of a scale set to Ubuntu 14.04-2LTS version 14.04.201507060. Many more options have been added to this tool since this screenshot was taken.
+The following screenshot shows a model of a scale set for Ubuntu 14.04-2LTS version 14.04.201507060. Many more options have been added to this tool since this screenshot was taken.
 
 ![vmsseditor screenshot 1](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor1.png)
 
