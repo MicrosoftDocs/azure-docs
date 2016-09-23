@@ -95,6 +95,28 @@ This log is only generated if you have enabled it on a per Application Gateway b
 		}
 	}
 
+
+## Firewall log
+
+This log is only generated if you have enabled it on a per application gateway basis as detailed in the preceding steps. This log also requires that web application firewall be configured on an application gateway. The data is stored in the storage account you specified when you enabled the logging. The following data is logged:
+	{
+		"resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<applicationGatewayName>",
+		"operationName": "ApplicationGatewayFirewall",
+		"time": "2016-09-20T00:40:04.9138513Z",
+		"category": "ApplicationGatewayFirewallLog",
+		"properties":     {
+			"instanceId":"ApplicationGatewayRole_IN_0",
+			"clientIp":"108.41.16.164",
+			"clientPort":1815,
+			"requestUri":"/wavsep/active/RXSS-Detection-Evaluation-POST/",
+			"ruleId":"OWASP_973336",
+			"message":"XSS Filter - Category 1: Script Tag Vector",
+			"action":"Logged",
+			"site":"Global",
+			"message":"XSS Filter - Category 1: Script Tag Vector",
+			"details":{"message":" Warning. Pattern match "(?i)(<script","file":"/owasp_crs/base_rules/modsecurity_crs_41_xss_attacks.conf","line":"14"}}
+	}
+
 ## View and analyze the audit log
 
 You can view and analyze audit log data using any of the following methods:
