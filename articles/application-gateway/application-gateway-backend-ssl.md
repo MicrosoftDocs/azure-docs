@@ -15,7 +15,9 @@
    ms.date="09/26/2016"
    ms.author="amsriva"/>
 
-## Application Gateway end to end SSL overview
+# Enabling end to end SSL on Application Gateway
+
+## Overview
 
 Application gateway supports SSL termination at the gateway, after which traffic typically flows unencrypted to the backend servers. This allows web servers to be unburdened from costly encryption/decryption overhead. However for some customers unencrypted communication to the backend servers is not an acceptable option. This could be due to security/compliance requirements or the application may only accept secure connection. For such applications, application gateway now supports end to end SSL encryption.
 
