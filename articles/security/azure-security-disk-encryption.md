@@ -334,7 +334,7 @@ To create a new Key Vault, use one of the options listed below:
 
 - Use the "101-Create-KeyVault" Resource Manager template located [here](https://github.com/Azure/azure-quickstart-templates/blob/master/101-create-key-vault/azuredeploy.json)
 - Use the Azure PowerShell [Key Vault cmdlets](https://msdn.microsoft.com/en-us/library/dn868052.aspx).
-- Use the Azure service management portal.
+- Use the Azure resource manager portal.
 
 **Note:** If you already have a Key Vault setup for your subscription, please proceed to next section.
 
@@ -346,7 +346,7 @@ If you wish to use a Key Encryption Key (KEK) for an additional layer of securit
 
     Add-AzureKeyVaultKey [-VaultName] <string> [-Name] <string> -Destination <string> {HSM | Software}
 
-The KEK can be added from Azure service management portal as well using Azure Key Vault UX.
+The KEK can be added from Azure Resource Manager portal as well using Azure Key Vault UX.
 
 ![Azure Key Vault](./media/azure-security-disk-encryption/keyvault-portal-fig2.png)
 
@@ -530,11 +530,11 @@ Disk encryption can be enabled on customer encrypted VHD using the CLI command i
 
 ### Get encryption status of an encrypted IaaS VM
 
-You can get encryption status using Azure service management portal, [PowerShell cmdlets](https://msdn.microsoft.com/library/azure/mt622700.aspx) or CLI commands. The sections below will explain how to use the Azure portal and CLI commands to get the encryption status.
+You can get encryption status using Azure Resource Manager portal, [PowerShell cmdlets](https://msdn.microsoft.com/library/azure/mt622700.aspx) or CLI commands. The sections below will explain how to use the Azure portal and CLI commands to get the encryption status.
 
-#### Get encryption status of an encrypted IaaS VM using Azure service management portal
+#### Get encryption status of an encrypted IaaS VM using Azure Resource Manager portal
 
-You can get the encryption status of the IaaS VM from Azure service management portal. Logon to Azure portal at https://portal.azure.com/, click on virtual machines link in the left menu to see summary view of the virtual machines in your subscription. You can filter the virtual machines view by selecting the subscription name from the subscription dropdown. Click on columns located at the top of the virtual machines page menu. Select Disk Encryption column from the choose column blade and click update. You should see the disk encryption column showing the encryption state “Enabled” or “Not Enabled” for each VM as shown in the figure below.
+You can get the encryption status of the IaaS VM from Azure Resource Manager portal. Logon to Azure portal at https://portal.azure.com/, click on virtual machines link in the left menu to see summary view of the virtual machines in your subscription. You can filter the virtual machines view by selecting the subscription name from the subscription dropdown. Click on columns located at the top of the virtual machines page menu. Select Disk Encryption column from the choose column blade and click update. You should see the disk encryption column showing the encryption state “Enabled” or “Not Enabled” for each VM as shown in the figure below.
 
 ![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption/disk-encryption-fig2.png)
 
@@ -685,7 +685,7 @@ Encryption of OS drive on a running Linux VM is supported on the following distr
 
 Prerequisites for OS disk encryption:
 
-- VM must be created from Azure Gallery image in Azure service management ortal.
+- VM must be created from Azure Gallery image in Azure Resource Manager ortal.
 - Azure VM with at least 4 GB of RAM (recommended size is 7 GB).
 - (For RHEL and CentOS) SELinux must be [disabled](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) on the VM. The VM must be rebooted at least once after disabling SELinux.
 
