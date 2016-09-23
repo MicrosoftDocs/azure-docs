@@ -12,15 +12,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/19/2016"
+   ms.date="09/22/2016"
    ms.author="bwren" />
 
-# Custom solutions with Operations Management Suite (OMS)
+# Custom solutions with Operations Management Suite (OMS) (Preview)
 
-Solutions extend the functionality of Operations Management Suite (OMS) by providing packaged management scenarios that customers can add to their OMS workspace.  You can create custom solutions to be used in your own environment or made available to customers through the Azure Marketplace.
+>[AZURE.NOTE]Custom solutions in OMS are currently in preview. The schema described below is subject to change.    
+
+Solutions extend the functionality of Operations Management Suite (OMS) by providing packaged management scenarios that customers can add to their OMS workspace.  You can create custom solutions to be used in your own environment or made available to customers through the community.
 
 ## Planning your custom solution
-Solutions in OMS include multiple resources supporting a particular monitoring scenario.  When planning your solution, you should focus on the management scenario that you're trying to achieve and ensure that it includes all required resources to support that scenario.  
+Solutions in OMS include multiple resources supporting a particular management scenario.  When planning your solution, you should focus on the management scenario that you're trying to achieve and ensure that it includes all required resources to support that scenario.  
 
 Multiple solutions may share resources, but one solution should not rely another to first to be installed.  Instead, each solution should both define the common resource.  When the first solution is installed, the resource will be created.  When the next solution is installed, it will use the resource that's already in place.  
 
@@ -43,27 +45,44 @@ The basic structure of a Resource Manager Template is as follows.  Each of the f
 
 ### Parameters
 
-The **parameters** element defines values that you require from the user when they install the solution.  This should include anything specific to their workspace such as the workspace name and region.  You may also require other values for the user to configure different options for the solution.    
+The **parameters** element defines values that you require from the user when they install the solution.  The standard set of parameters below is required for every solution.  You can add other parameters as required for your particular solution.    
 
-Following is an example of a **parameters** element with typical parameters used in solutions.
 
 	"parameters": {
-		"WorkspaceName": {
-			"type": "string"
+		"workspaceName": {
+			"type": "string",
+			"metadata": {
+				"description": "A valid Log Analytics workspace name"
+			}
 		},
-		"AutomationAccountName": {
-			"type": "string"
+        "accountName": {
+           	"type": "string",
+           	"metadata": {
+           	    "description": "A valid Azure Automation account name"
+           	}
+        },
+        "workspaceRegionId": {
+           	"type": "string",
+           	"metadata": {
+           	    "description": "Region of the Log Analytics workspace"
+			}
 		},
-		"WorkspaceRegionId": {
-			"type": "string"
+		"regionId": {
+			"type": "string",
+			"metadata": {
+				"description": "Region of the Azure Automation account"
+			}
 		},
-		"RegionId": {
-			"type": "string"
+		"pricingTier": {
+			"type": "string",
+			"metadata": {
+				"description": "Pricing tier of both Log Analytics workspace and Azure Automation account"
+			}
 		},
-		"PricingTier": {
-			"type": "string"
-		}
 	}
+
+
+
 
 You refer to parameter values in other elements of the solution with the syntax **parameters('parameter name')**.  For example, to access the workspace name, you would use **parameters('WorkspaceName')** 
 
