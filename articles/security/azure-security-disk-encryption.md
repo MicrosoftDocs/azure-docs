@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/14/2016"
-   ms.author="devtiw"/>
+   ms.date="09/23/2016"
+   ms.author="krkhan"/>
 
 
 #Azure Disk Encryption for Windows and Linux IaaS VMs
