@@ -21,13 +21,15 @@
 This tutorial shows you how to deploy a Sails.js app to Azure App Service. In the process, you can glean some general knowledge
 on how to configure your Node.js app to run in App Service. 
 
+You should have working knowledge of Sails.js. This tutorial is not intended to help you with issues related to running Sail.js in general.
+
+
 ## Prerequisites
 
-- [Node.js](https://nodejs.org/).
-- [Sails.js](http://sailsjs.org/get-started).
-- Working knowledge of Sails.js. This tutorial is not intended to help you with issues related to running Sail.js in general.
-- [Git](http://www.git-scm.com/downloads).
-- [Azure CLI](../xplat-cli-install.md).
+- [Node.js](https://nodejs.org/)
+- [Sails.js](http://sailsjs.org/get-started)
+- [Git](http://www.git-scm.com/downloads)
+- [Azure CLI](../xplat-cli-install.md)
 - A Microsoft Azure account. If you don't have an account, you can
 [sign up for a free trial](/pricing/free-trial/?WT.mc_id=A261C142F) or
 [activate your Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
@@ -35,9 +37,9 @@ on how to configure your Node.js app to run in App Service.
 >[AZURE.NOTE] To see Azure App Service in action before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751). There,
 you can immediately create a short-lived starter app in App Service—no credit card required, no commitments.
 
-## Step 1: Create a Sails.js app in your development environment
+## Step 1: Create a Sails.js app locally
 
-First, quickly create a default Sails.js app by following these steps:
+First, quickly create a default Sails.js app in your development environment by following these steps:
 
 1. Open the command-line terminal of your choice and `CD` to a working directory.
 
@@ -49,9 +51,9 @@ First, quickly create a default Sails.js app by following these steps:
 
     Make sure you can navigate to the default home page at http://localhost:1377.
 
-## Step 2: Create the App Service app resource in Azure
+## Step 2: Create the Azure app resource
 
-Next, create the App service app resource. You're going to deploy your Sails.js app to it later.
+Next, create the App Service resource in Azure. You're going to deploy your Sails.js app to it later.
 
 1. log in to Azure like so:
 1. In the same terminal, change into ASM mode and log in to Azure:

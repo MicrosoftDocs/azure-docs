@@ -85,9 +85,9 @@ This tutorial shows how to create a simple [Node.js] application and deploy it t
     
 4. Open ./package.json and add the `engines` property to [specify the desired Node.js version](#version).
 
-    "engines": {
-        "node": "6.6.0"
-    }, 
+        "engines": {
+            "node": "6.6.0"
+        }, 
 
 4. Save your changes, then use git to deploy your app to Azure:
 
@@ -146,7 +146,7 @@ The Kudu deployment engine determines which Node.js engine to use in the followi
 - Next, look at package.json to see if `"node": "..."` is specified in the `engines` object. If yes, then use that.
 - Choose a default Node.js version by default.
 
-It is recommended that you explicitly define the Node.js engine you want. The default Node.js version can change,
+>[AZURE.NOTE] It is recommended that you explicitly define the Node.js engine you want. The default Node.js version can change,
 and you may get errors in your Azure web app because the default Node.js version is not appropriate for your app.
 
 <a name="iisnodelog"></a>
