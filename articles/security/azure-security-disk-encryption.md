@@ -591,7 +591,9 @@ The disable encryption step disables encryption of the OS or data volume or both
 
 ##### Linux VM
 
-On Linux VMs, disabling encryption is supported only for data volumes. If OS volume is encrypted on a VM, encryption must **not** be disabled on data volumes as this will update the VM model, take away the encryption keys and make the OS unbootable.
+The disable encryption step disables encryption of the data volume on the running Linux IaaS VM
+
+**NOTE**: Disabling encryption on OS disk is not allowed on Linux VMs.
 
 ##### Disable encryption on existing/running IaaS Windows in Azure using Resource Manager template
 
