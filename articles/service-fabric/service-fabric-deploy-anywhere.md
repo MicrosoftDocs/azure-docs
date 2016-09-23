@@ -22,7 +22,7 @@ Azure Service Fabric allows for the creation of Service Fabric clusters on any V
 
 ##Create Service Fabric clusters on Azure
 
-Creating a cluster on Azure are done either via an Resource Model template or the Azure portal. Read [Create a Service Fabric cluster by using an Resource Manager template](service-fabric-cluster-creation-via-arm.md) or [Create a Service Fabric cluster from the Azure portal](service-fabric-cluster-creation-via-portal.md) for more information.
+Creating a cluster on Azure is done either via a Resource Model template or the Azure portal. Read [Create a Service Fabric cluster by using a Resource Manager template](service-fabric-cluster-creation-via-arm.md) or [Create a Service Fabric cluster from the Azure portal](service-fabric-cluster-creation-via-portal.md) for more information.
 
 ## Supported operating systems for clusters on Azure
 
@@ -43,7 +43,7 @@ For more information on setting up standalone service fabric clusters on Windows
 The process for creating a Service Fabric cluster on-premises is similar to the process of creating a cluster on any cloud of your choice with a set of VMs. The initial steps to provision the VMs are governed by the cloud provider or on-premises environment that you are using. Once you have a set of VMs with network connectivity enabled between them, then the steps to set up the Service Fabric package, edit the cluster settings, and run the cluster creation and management scripts are identical. This ensures that your knowledge and experience of operating and managing Service Fabric clusters is transferable when you choose to target new hosting environments.
 
 ### Benefits of creating standalone Service Fabric clusters
-* Because there's no vendor lock-in, you can choose where to create your cluster.
+* You are free to choose any cloud provider to host your cluster.
 * Service Fabric applications, once written, can be run in multiple hosting environments with minimal to no changes.
 * Knowledge of building Service Fabric applications carries over from one hosting environment to another.
 * Operational experience of running and managing Service Fabric clusters carries over from one environment to another.

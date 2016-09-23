@@ -40,6 +40,14 @@ You can set the cluster to automatic or manual when you are creating the cluster
 
 You can set the cluster to automatic or manual when on a live cluster, using the manage experience. 
 
+#### Upgrading to a new version on a cluster that is set to Manual mode via portal.
+ 
+To upgrade to a new version, all you need to do is select the available version from the dropdown and save. The Fabric upgrade gets kicked off automatically. The cluster health policies (a combination of node health and the health all the applications running in the cluster) are adhered to during the upgrade.
+
+If the cluster health policies are not met, the upgrade is rolled back. Scroll down this document to read more on how to set those custom health policies. 
+
+Once you have fixed the issues that resulted in the rollback, you need to initiate the upgrade again, by following the same steps as before.
+
 ![Manage_Automaticmode][Manage_Automaticmode]
 
 ### Setting the upgrade mode via a Resource Manager template 
@@ -48,6 +56,14 @@ Add the "upgradeMode" configuration to the Microsoft.ServiceFabric/clusters reso
  
 ![ARMUpgradeMode][ARMUpgradeMode]
 
+#### Upgrading to a new version on a cluster that is set to Manual mode via a Resource Manager template.
+ 
+When the cluster is in Manual mode, to upgrade to a new version, change the "clusterCodeVersion" to a supported version and deploy it. 
+The deployment of the template, kicks of the Fabric upgrade gets kicked off automatically. The cluster health policies (a combination of node health and the health all the applications running in the cluster) are adhered to during the upgrade.
+
+If the cluster health policies are not met, the upgrade is rolled back. Scroll down this document to read more on how to set those custom health policies. 
+
+Once you have fixed the issues that resulted in the rollback, you need to initiate the upgrade again, by following the same steps as before.
 
 ### Get list of all available version for all environments for a given subscription
 

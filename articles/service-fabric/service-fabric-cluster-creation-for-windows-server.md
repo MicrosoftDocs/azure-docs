@@ -26,6 +26,13 @@ This article walks you through the steps for creating a cluster using the standa
 >[AZURE.NOTE] This standalone Windows Server package may contain features that are currently in preview and is not supported for commercial use. To see that list of features that are in preview, scroll down to end of this document. [Click here](http://go.microsoft.com/fwlink/?LinkID=733084) if you would like to download a copy of the EULA now. 
 
 
+<a id="getsupport"></a>
+## Get support for the Service Fabric standalone package
+
+- Ask the community about Service Fabric standalone package for Windows Server in  [Azure Service Fabric forum.](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?)
+
+- Open a ticket for [Professional Support for Service Fabric](http://support.microsoft.com/oas/default.aspx?prid=16146 ).  Learn more about [Professional Support from Microsoft](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
+
 <a id="downloadpackage"></a>
 ## Download the Service Fabric standalone package
 
@@ -232,14 +239,6 @@ As a default, the product collects telemetry on the service fabric usage to impr
 
 
 In order to disable telemetry, add under the following to “properties” element in your cluster config: "enableTelemetry": false
-
-
-<a id="getsupport"></a>
-## Get support for the Service Fabric standalone package
-
-- Ask the community about Service Fabric standalone package for Windows Server in  [Azure Service Fabric forum.](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?)
-
-- Open a ticket for [Professional Support for Service Fabric](http://support.microsoft.com/oas/default.aspx?prid=16146 ).  Learn more about [Professional Support from Microsoft](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 
 <a id="previewfeatures"></a>
 ## Preview features included in this package
