@@ -3,7 +3,7 @@
 	description="Learn how to add a company branding to the Azure sign-in page and the access panel page"
 	services="active-directory"
 	documentationCenter=""
-	authors="markusvi"
+	authors="curtand"
 	manager="femila"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/13/2016"
-	ms.author="MarkVi"/>
+	ms.date="09/22/2016"
+	ms.author="curtand"/>
 
 # Add company branding to your sign-in and Access Panel pages
 
@@ -29,7 +29,7 @@ This topic explains how you can customize the sign-in page and the access panel 
 
 > [AZURE.NOTE]
 >
-- Company branding is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
+- Company branding is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory, or are an Office 365 user. For more information, see [Azure Active Directory editions](active-directory-editions.md).
 - Azure Active Directory Premium and Basic editions are available for customers in China using the worldwide instance of Azure Active Directory. Azure Active Directory Premium and Basic editions are not currently supported in the Microsoft Azure service operated by 21Vianet in China. For more information, contact us at the [Azure Active Directory Forum](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
 
