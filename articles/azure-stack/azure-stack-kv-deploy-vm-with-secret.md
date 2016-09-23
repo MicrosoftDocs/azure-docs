@@ -34,4 +34,4 @@ You reference the secret from within a parameters file, which passes values to y
     "secretName": "sqlAdminPassword"
 
 
-[AZURE.NOTE]The parameter that accepts the secret should be a *securestring*.
+>[AZURE.NOTE]The parameter that accepts the secret should be a *securestring*.
