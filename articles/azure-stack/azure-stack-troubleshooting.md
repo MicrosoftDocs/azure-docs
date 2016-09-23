@@ -34,15 +34,19 @@ The recommendations for troubleshooting issues that are described in this sectio
  - When creating a new virtual machine in the portal, in the **Basics** step, the storage option defaults to SSD.  This must be changed to HDD or on the **Size** step of VM deployment, you will not see VM sizes available to select and continue deployment. 
  - You will see that there AzureRM PowerShell modules are no longer installed by default on the MAS-CON01 VM (in TP1 this was named ClientVM). This is now by design, because there is an alternate method to [install these modules and connect](azure-stack-connect-powershell.md).  
   - You will see that the **Microsoft.Insights** resource provider is not automatically registered for tenant subscriptions. If you would like to see monitoring data for a VM deployed as a tenant, you will have to run the following command from PowerShell (after you [install and connect](azure-stack-connect-powershell.md) as a tenant): 
-
        
-	     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Insights 
+	    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Insights 
 
  - You will see export functionality in the portal for Resource Groups, however no text is displayed and available for export.      
  - You can start a deployment of storage resources larger than available quota.  This deployment will fail and the account resources will be suspended.  There are two remediation options available:
      - Service Administrator can increase the quota, though changes will not take effect immediately and commonly take up to an hour to propogate.
      - Service Administrator can create an add-on plan with additional quota that the tenant can then add to the subscription.
  - When using the portal to create VMs on Azure Stack environments with identity in ‘Azure - China’, you will not see VM sizes available to select in the **Size** step of VM deployment and will be unable to continue deployment.
+ - You may a see a deployment failure in the portal, when the VM has actually deployed successfully.
+ - When you delete a plan, offer, or subscription, VMs may not be deleted.
+ - You will see the VM extensions in the marketplace.
+ - You can not deploy a VM from a saved VM image.
+
 
 ## Azure Active Directory
 

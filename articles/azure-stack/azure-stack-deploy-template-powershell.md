@@ -28,11 +28,9 @@ The VHD used in this example template is a default marketplace image (WindowsSer
 
 1.  Go to <http://aka.ms/AzureStackGitHub>, search for the **101-simple-windows-vm** template, and save it to the following location: c:\\templates\\azuredeploy-101-simple-windows-vm.json.
 
-2.  In PowerShell, run the following deployment script.
+2.  In PowerShell, run the following deployment script. Replace *username* and *password* with your username and password. On subsequent uses, increment the value for the *$myNum* parameter to prevent overwriting your deployment.
 
-  Replace *username* and *password* with your username and password. On subsequent uses, increment the value for the *$myNum* parameter to prevent overwriting your deployment.
-
-```PowerShell
+    ```PowerShell
 		# Set Deployment Variables
 		$myNum = "001" #Modify this per deployment
 		$RGName = "myRG$myNum"
@@ -54,7 +52,7 @@ The VHD used in this example template is a default marketplace image (WindowsSer
 		    -adminPassword ("password" | ConvertTo-SecureString -AsPlainText -Force) `
 		    -vmName "myVM$myNum" `
 		    -windowsOSVersion "2012-R2-Datacenter"
-```
+    ```
 
 3.  Open the Azure Stack portal, click **Browse**, click **Virtual machines**, and look for your new virtual machine (*myDeployment001*).
 

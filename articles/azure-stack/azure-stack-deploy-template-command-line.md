@@ -28,7 +28,7 @@ Navigate to the folder where these files were downloaded and run the following c
 
     azure group create "cliRG" "local" –f azuredeploy.json –d "testDeploy" –e azuredeploy.parameters.json
 
-This command deploys the template to the resource group "cliRG" in the Azure Stack POC’s default location.
+This command deploys the template to the resource group **cliRG** in the Azure Stack POC’s default location.
 
 ## Validate template deployment
 To see this resource group and storage account, use the following commands:

@@ -55,7 +55,8 @@ more by clicking on “load more” link at the bottom of the list <br>
 OR <br>
 If you are interested in a particular storage account – you can **filter
 and fetch the relevant accounts** only.<br>
-To do so -
+
+To filter for accounts:
 
 1. Click on the filter button at the top of the blade.
 
@@ -122,16 +123,16 @@ In AzureStack there is a very simple way to do so.
 
 ### Some Gotchas
 
--   Your deleted account shows state as “out of retention”.
+- Your deleted account shows state as “out of retention”.
 
-This means that the deleted account has exceeded the retention period
-and may not be recoverable anymore.
+  This means that the deleted account has exceeded the retention period
+  and may not be recoverable anymore.
 
--   Your deleted account does not show in the accounts list.
+- Your deleted account does not show in the accounts list.
 
-This could mean that the deleted account has already been garbage
-collected. In this case it cannot be recovered anymore. See “reclaim
-capacity” below.
+  This could mean that the deleted account has already been garbage
+  collected. In this case it cannot be recovered anymore. See “reclaim
+  capacity” below.
 
 ## Set Retention Period
 

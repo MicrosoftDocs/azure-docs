@@ -52,10 +52,10 @@ If the VM image VHD is available locally on the console VM (or another externall
 	-  Include the publisher, offer, SKU, and version for the VM image. These parameters are used by Azure Resource Manager templates that reference the VM image.
 	-  Specify osType as Windows or Linux.
 	-  Include your Azure Active Directory tenant ID in the form *&lt;myaadtenant&gt;*.onmicrosoft.com.
-	- Following is an example invocation of the script:
-	```powershell
-	Add-VMImage -publisher "Canonical" -offer "UbuntuServer" -sku "14.04.3-LTS" -version "1.0.0" -osType Linux -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' -tenantID <myaadtenant>.onmicrosoft.com
-	```
+	-  Following is an example invocation of the script:
+	    ```powershell
+	       Add-VMImage -publisher "Canonical" -offer "UbuntuServer" -sku "14.04.3-LTS" -version "1.0.0" -osType Linux -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' -tenantID <myaadtenant>.onmicrosoft.com
+	    ```
 
 	> [AZURE.NOTE] The cmdlet requests credentials for adding the VM image. Provide the administrator Azure Active Directory credentials, such as serviceadmin@*&lt;myaadtenant&gt;*.onmicrosoft.com, to the prompt.  
 

@@ -30,7 +30,9 @@ Quickly install the Azure CLI to use a set of open-source, shell-based commands 
   	[Download the Linux CLI](http://aka.ms/azstack-mac-cli)
 
 
-  If you’re on Mac or Linux, you can also get the CLI by using the command `npm install -g azure-cli@0.10.4`.
+  If you’re on Mac or Linux, you can also get the CLI by using the following command:
+  
+    `npm install -g azure-cli@0.10.4`.
 
 
 ## Connect to Azure Stack

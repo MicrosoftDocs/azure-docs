@@ -48,56 +48,33 @@ This sample script creates a key vault, and then stores a
 certificate stored in the .pfx file in a local directory, to the key
 vault as a secret.
 
-\$vaultName = "contosovault"
+    $vaultName = "contosovault"
+    $resourceGroup = "contosovaultrg"
+    $location = "local"
+    $secretName = "servicecert"
+    $fileName = "keyvault.pfx"
+    $certPassword = "abcd1234"
 
-\$resourceGroup = "contosovaultrg"
+    # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-\$location = "local"
+    $fileContentBytes = get-content \$fileName -Encoding Byte
 
-\$secretName = "servicecert"
-
-\$fileName = "keyvault.pfx"
-
-\$certPassword = "abcd1234"
-
-\# =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-
-\$fileContentBytes = get-content \$fileName -Encoding Byte
-
-\$fileContentEncoded =
-\[System.Convert\]::ToBase64String(\$fileContentBytes)
-
-\$jsonObject = @"
-
-{
-
-"data": "\$filecontentencoded",
-
-"dataType" :"pfx",
-
-"password": "\$certPassword"
-
-}
-
-"@
-
-\$jsonObjectBytes =
-\[System.Text.Encoding\]::UTF8.GetBytes(\$jsonObject)
-
-\$jsonEncoded = \[System.Convert\]::ToBase64String(\$jsonObjectBytes)
-
-Switch-AzureMode -Name AzureResourceManager
-
-New-AzureResourceGroup -Name \$resourceGroup -Location \$location
-
-New-AzureKeyVault -VaultName \$vaultName -ResourceGroupName
-\$resourceGroup -Location \$location -sku standard -EnabledForDeployment
-
-\$secret = ConvertTo-SecureString -String \$jsonEncoded -AsPlainText
--Force
-
-Set-AzureKeyVaultSecret -VaultName \$vaultName -Name \$secretName
--SecretValue \$secret
+    $fileContentEncoded =
+    [System.Convert\]::ToBase64String(\$fileContentBytes)
+    $jsonObject = @"
+    {
+    "data": "\$filecontentencoded",
+    "dataType" :"pfx",
+    "password": "\$certPassword"
+    }
+    @$jsonObjectBytes = [System.Text.Encoding\]::UTF8.GetBytes(\$jsonObject)
+    $jsonEncoded = \[System.Convert\]::ToBase64String(\$jsonObjectBytes)
+    Switch-AzureMode -Name AzureResourceManager
+    New-AzureResourceGroup -Name \$resourceGroup -Location \$location
+    New-AzureKeyVault -VaultName \$vaultName -ResourceGroupName
+    $resourceGroup -Location \$location -sku standard -EnabledForDeployment
+    $secret = ConvertTo-SecureString -String \$jsonEncoded -AsPlainText -Force
+    Set-AzureKeyVaultSecret -VaultName \$vaultName -Name \$secretName -SecretValue \$secret
 
 The first part of the script reads the .pfx file, and then stores it as a
 JSON object with the file content base64 encoded. Then the JSON object
@@ -113,116 +90,65 @@ The last command simply stores the base64 encoded JSON object in the key vault a
 
 Here's sample output from the preceding script:
 
-VERBOSE: 12:43:16 PM – Created resource group 'contosovaultrg' in
-location
-
-'eastus'
-
-ResourceGroupName : contosovaultrg
-
-Location          : eastus
-
-ProvisioningState : Succeeded
-
-Tags              :
-
-Permissions       :
-
-                    Actions NotActions
-
-                    ======= ==========
-
-                    \*
-
-ResourceId        :
-/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-dd149b4aeb56/re
-
-sourceGroups/contosovaultrg
-
-VaultUri             : https://contosovault.vault.azure.net
-
-TenantId             : xxxxxxxx-xxxx-xxxx-xxxx-2d7cd011db47
-
-TenantName           : xxxxxxxx
-
-Sku                  : standard
-
-EnabledForDeployment : True
-
-AccessPolicies       : {xxxxxxxx-xxxx-xxxx-xxxx-2d7cd011db47}
-
-AccessPoliciesText   :
-
-                       Tenant ID              :
-
-                       xxxxxxxx-xxxx-xxxx-xxxx-2d7cd011db47
-
-                       Object ID              :
-
-                       xxxxxxxx-xxxx-xxxx-xxxx-b092cebf0c80
-
-                       Application ID         :
-
-                       Display Name           : Derick Developer
-
-                       (derick@contoso.com)
-
-                       Permissions to Keys    : get, create, delete,
-
-                       list, update, import, backup, restore
-
-                       Permissions to Secrets : all
-
-OriginalVault        : Microsoft.Azure.Management.KeyVault.Vault
-
-ResourceId           :
-/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-dd149b4aeb56
-
+    VERBOSE:  – Created resource group 'contosovaultrg' in
+    location
+    'eastus'
+    ResourceGroupName : contosovaultrg
+    Location          : eastus
+    ProvisioningState : Succeeded
+    Tags              :
+    Permissions       :
+                        Actions NotActions
+                        ======= ==========
+                        \*
+    ResourceId        :
+    /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-dd149b4aeb56/re
+    sourceGroups/contosovaultrg
+    VaultUri             : https://contosovault.vault.azure.net
+    TenantId             : xxxxxxxx-xxxx-xxxx-xxxx-2d7cd011db47
+    TenantName           : xxxxxxxx
+    Sku                  : standard
+    EnabledForDeployment : True
+    AccessPolicies       : {xxxxxxxx-xxxx-xxxx-xxxx-2d7cd011db47}
+    AccessPoliciesText   :
+                           Tenant ID              :
+                           xxxxxxxx-xxxx-xxxx-xxxx-2d7cd011db47
+                           Object ID              :
+                           xxxxxxxx-xxxx-xxxx-xxxx-b092cebf0c80
+                           Application ID         :
+                           Display Name           : Derick Developer  (derick@contoso.com)
+                           Permissions to Keys    : get, create, delete,
+                           list, update, import, backup, restore
+                           Permissions to Secrets : all
+    OriginalVault        : Microsoft.Azure.Management.KeyVault.Vault
+    ResourceId           :
+    /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-dd149b4aeb56
                      
- /resourceGroups/contosovaultrg/providers/Microsoft.KeyV
+    /resourceGroups/contosovaultrg/providers/Microsoft.KeyV
+                           ault/vaults/contosovault
+    VaultName            : contosovault
+    ResourceGroupName    : contosovaultrg
+    Location             : eastus
+    Tags                 : {}
+    TagsTable            :
+    SecretValue     : System.Security.SecureString
+    SecretValueText :
+    ew0KImRhdGEiOiAiTUlJSkN3SUJBekNDQ01jR0NTcUdTSWIzRFFFSEFh
+               
+    Q0NDTGdFZ2dpME1JSUlzRENDQmdnR0NTcUdTSWIzRFFFSEFhQ0NCZmtF
+                
+    Z2dYMU1JSUY4VENDQmUwR0N5cUdTSWIzRFFFTUNnRUNvSUlFL2pDQ0JQ
+    &lt;&lt;&lt; Output truncated… &gt;&gt;&gt;
 
-                       ault/vaults/contosovault
+    Attributes      :
+    Microsoft.Azure.Commands.KeyVault.Models.SecretAttributes
 
-VaultName            : contosovault
-
-ResourceGroupName    : contosovaultrg
-
-Location             : eastus
-
-Tags                 : {}
-
-TagsTable            :
-
-SecretValue     : System.Security.SecureString
-
-SecretValueText :
-ew0KImRhdGEiOiAiTUlJSkN3SUJBekNDQ01jR0NTcUdTSWIzRFFFSEFh
-
-                 
-Q0NDTGdFZ2dpME1JSUlzRENDQmdnR0NTcUdTSWIzRFFFSEFhQ0NCZmtF
-
-                 
-Z2dYMU1JSUY4VENDQmUwR0N5cUdTSWIzRFFFTUNnRUNvSUlFL2pDQ0JQ
-
-&lt;&lt;&lt; Output truncated… &gt;&gt;&gt;
-
-                  DQp9
-
-Attributes      :
-Microsoft.Azure.Commands.KeyVault.Models.SecretAttribute
-
-                  s
-
-VaultName       : contosovault
-
-Name            : servicecert
-
-Version         : e3391a126b65414f93f6f9806743a1f7
-
-Id              :
-https://contosovault.vault.azure.net:443/secrets/servicecert
-
-                  /e3391a126b65414f93f6f9806743a1f7
+    VaultName       : contosovault
+    Name            : servicecert
+    Version         : e3391a126b65414f93f6f9806743a1f7
+    Id              :
+    https://contosovault.vault.azure.net:443/secrets/servicecert
+                      /e3391a126b65414f93f6f9806743a1f7
 
 Now we are ready to deploy a VM template. Note the URI of the
 secret from the output (as highlighted in the preceding output in green).
@@ -254,8 +180,7 @@ to 'Disabled', so that even if an old template tries to create a VM with
 this old version of certificate, it will. Here's how you set a specific
 secret version to be disabled:
 
-Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name
-servicecert -Version e3391a126b65414f93f6f9806743a1f7 -Enable 0
+    Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Version e3391a126b65414f93f6f9806743a1f7 -Enable 0
 
 Conclusion
 ----------
