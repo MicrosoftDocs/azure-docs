@@ -691,7 +691,7 @@ Encryption of OS drive on a running Linux VM is supported on the following distr
 
 Prerequisites for OS disk encryption:
 
-- VM must be created from Azure Gallery image in Azure Resource Manager ortal.
+- VM must be created from Azure Gallery image in Azure Resource Manager portal.
 - Azure VM with at least 4 GB of RAM (recommended size is 7 GB).
 - (For RHEL and CentOS) SELinux must be [disabled](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) on the VM. The VM must be rebooted at least once after disabling SELinux.
 
