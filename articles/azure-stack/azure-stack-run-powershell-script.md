@@ -19,71 +19,75 @@
 # Deploy Azure Stack POC
 To deploy the Azure Stack POC, you first need to [prepare the deployment machine](#prepare-the-deployment-machine) and then [run the PowerShell deployment script](#run-the-powershell-deployment-script).
 
+## Download and extract Microsoft Azure Stack POC TP2
+
+Before you start, make sure that you have 65 GB of space.
+
+1. The download of Azure Stack POC TP2 is comprised of a zip file containing the following 12 files, totaling ~20GB:
+    - 1 MicrosoftAzureStackPOC.EXE
+    - 11 MicrosoftAzureStackPOC-N.BIN (where N is 1-11)
+2. Extract these files into a single folder on your computer.
+3. Right-Click on the MicrosoftAzureStackPOC.EXE > Run as an administrator.
+4. Review the License Agreement screen and information of the Self-Extractor Wizard and then click **Next**.
+5. Review the Privacy Statement screen and information of the Self-Extractor Wizard and then click **Next**.
+6. Select the Destination for the files to be extracted, click **Next**.
+    - The default is: <drive letter>:\<current folder>\Microsoft Azure Stack POC
+7. Review the Destination location screen and information of the Self-Extractor Wizard, and then **click** Extract.
+8. Extraction will take some time, because it is extracting: CloudBuilder.vhdx (~44.5GB) and ThirdPartyLicenses.rtf files.
+
 ## Prepare the deployment machine
 
 1. Make sure that you can physically connect to the deployment machine, or have physical console access (such as KVM). You will need such access after you reboot the deployment machine in step 9.
 
 2. Make sure the deployment machine meets the [minimum requirements](azure-stack-deploy.md). You can use the [Deployment Checker for Azure Stack Technical Preview 1](https://gallery.technet.microsoft.com/Deployment-Checker-for-76d824e1) to confirm your requirements.
 
-3.  [Download](https://azure.microsoft.com/overview/azure-stack/try/?v=try) or copy the Azure Stack POC deployment package to a folder on your C drive, (for example, c:\\AzureStack).
+3. Log in as the Local Administrator to your POC machine.
 
-4.  Run the **Microsoft Azure Stack POC.exe** file.
+4. Copy the CloudBuilder.vhdx file to C:\CloudBuilder.vhdx.
 
-    This creates the \\Microsoft Azure Stack POC\\ folder containing the following items:
+5. Download these support files from [Github](https://aka.ms/azurestackdeploytools).
 
-	-   MicrosoftAzureStackP.vhdx: Azure Stack deployment virtual machine image
+    - PrepareBootFromVHD.ps1
+    - unattend.xml
+    - unattend_NoKVM.xml 
 
-5. Double-click the c:\AzureStack\MicrosoftAzureStack.vhdx file. This will mount the VHDX as two new drive letters. One has the **windows** folder in it. Take note of that drive letter.
+6. Open an elevated PowerShell console and change the directory to where you copied the files.
 
-6. Open a PowerShell window as an administrator and run the bcdboot command below. This command clears any previously leftover TP2 environment and sets the default boot option to the VHD image you just mounted.
+7. Run the PrepareBootFromVHD.ps1 script. This and the unattend files are available with the other support scripts provided along with this build.
+    There are five parameters for this PowerShell script:
+    - CloudBuilderDiskPath (required) – path to the CloudBuilder.vhdx on the HOST.
+    - DriverPath (optional) – allows you to add additional drivers for the host in the virtual HD.
+    - ApplyUnattend (optional) – switch parameter, if specified, the configuration of the OS is automated, and the user will be prompted for the AdminPassword to configure at boot (requires provided accompanying file unattend_NoKVM.xml).
+    If you do not use this parameter, the generic unattend.xml file is used without further customization. You will need KVM to complete customization after it reboots.
+    - AdminPassword (optional) – only used when the ApplyUnattend parameter is set, requires a minimum of 6 characters.
+    - VHDLanguage (optional) – specifies the VHD language, defaulted to “en-US”.
+    The script is documented and contains example usage, though the most common usage is:
+    
+        `.\PrepareBootFromVHD.ps1 -CloudBuilderDiskPath C:\CloudBuilder.vhdx -ApplyUnattend`
+    
+        If you run this exact command, you will be prompted to enter the AdminPassword.
 
-    if (bcdedit | Select-String -Pattern "AzureStack TP2")
-    {
-        bcdedit /delete '{default}'
-    }
-    bcdboot <mounted drive letter>:\windows
-    bcdedit /set {default} description "AzureStack TP2"
+8. When the script is complete you will be asked to confirm reboot. If there are other users logged in, this command will fail. If this happens, run the following command: `Restart-Computer -force` 
 
-7. Reboot the machine. It will automatically run Windows Setup as the system is prepared. After this point, you will need an alternate connection to the HOST other than RDP.
+9. The HOST will reboot into the OS of the CloudBuilder.vhdx, where the remainder of the deployment steps will take place.
 
-8. When asked, provide your country, language, keyboard, and other preferences. If you're asked for the product key, you can find it [System Requirements and Installation](https://technet.microsoft.com/library/mt126134.aspx).
-
-<<<<<<< HEAD
-9. Log in using a local account with administrator permissions.
-
-10. Verify that **at least** four drives for Azure Stack POC data:
-
-  - Are visible in disk management
-  - Are not in use
-  - Have no partitions
-
-11. Verify that the host is not joined to a domain.
-
-12. Using Internet Explorer, verify network connectivity to Azure.com.
-
-> [AZURE.IMPORTANT] The TP2 POC deployment supports exactly one NIC for networking. If you have multiple NICs, make sure that only one is enabled (and all others are disabled) before running the deployment script below.
+> [AZURE.IMPORTANT] Azure Stack requires access to the Internet, either directly or through a transparent proxy. The TP2 POC deployment supports exactly one NIC for networking. If you have multiple NICs, make sure that only one is enabled (and all others are disabled) before running the deployment script below.
 
 ## Run the PowerShell deployment script
 
-1. Open PowerShell as an administrator.
+1. Log in as the Local Administrator to your POC machine. Use the credentials specified in the previous steps.
 
-2. In PowerShell, go to the Azure Stack folder location (\\Microsoft Azure Stack POC\\ if you used the default).
+2. Open an elevated PowerShell console.
 
-3. Run the deploy command:
+3. In PowerShell, run this command: `cd C:\CloudDeployment\Configuration`
 
-    	.\InstallAzureStack.ps1 –Verbose
+4. Run the deploy command: `.\InstallAzureStackPOC.ps1`
 
-4. At the **Enter the password for the built-in administrator** prompt, enter a password and then confirm it. This is the password to all the virtual machines. Be sure to record it.
-
-5. At the **Please login to your Azure account in the pop-up Azure authentication page**, hit any key to open the Microsoft Azure sign-in dialog box.
+5. At the **Enter the password** prompt, enter a password and then confirm it. This is the password to all the virtual machines. Be sure to record it.
 
 6. Enter the credentials for your Azure Active Directory account. This user must be the Global Admin in the directory tenant.
 
-7. The deployment process will take a few hours, during which one automated system reboot will occur. If you want to monitor the deployment progress, sign in as the domain administrator (for the azurestack\AzureStackAdmin).
-
-If the script fails, restart the script. If it continues to fail, wipe and restart.
-
-You can collect all the deployment related logs on the POC environment by invoking this PowerShell script: TBD.
+7. The deployment process will take a couple of hours, during which one automated system reboot will occur. If you want to monitor the deployment progress, sign in as azurestack\AzureStackAdmin.
 
 ### Deployment script examples
 
@@ -105,9 +109,8 @@ If your AAD Identity is associated with GREATER THAN ONE AAD Directory:
 
 If your environment DOES NOT have DHCP enabled, you will need to include the following ADDITIONAL parameters to one of the options above (example usage provided):
 
+    .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass -AADAdminCredential $aadcred
     -NatIPv4Subnet 10.10.10.0/24 -NatIPv4Address 10.10.10.3 -NatIPv4DefaultGateway 10.10.10.1
-
-> [AZURE.NOTE] Append this to one of the .\InstallAzureStackPOC.ps1 calls above (depending on your situation).
 
 
 ### DeployAzureStack.ps1 optional parameters
@@ -127,12 +130,6 @@ If your environment DOES NOT have DHCP enabled, you will need to include the fol
 For example, `.\InstallAzureStackPOC.ps1 –Verbose –PublicVLan 305` |
 | Rerun | Optional | Use this flag to re-run deployment.  All previous input will be used. Re-entering data previously provided is not supported because several unique values are generated and used for deployment. |
 | TimeServer | Optional | Use this parameter if you need to specify a specific time server. |
-
-## Turn off telemetry for Microsoft Azure Stack POC (optional)
-
-Before deploying Microsoft Azure Stack POC, you can turn off telemetry for Microsoft Azure Stack on the machine from which the deployment is performed. To turn off this feature on a single machine, please refer to: [http://windows.microsoft.com/en-us/windows-10/feedback-diagnostics-privacy-faq](http://windows.microsoft.com/en-us/windows-10/feedback-diagnostics-privacy-faq), and change the **Diagnostic and usage data** setting to **Basic**.
-
-After deploying Microsoft Azure Stack POC, you can turn off telemetry on all the virtual machines that joined the Azure Stack domain. To create a group policy and manage your telemetry settings on those virtual machines, please refer to: [https://technet.microsoft.com/library/mt577208(v=vs.85).aspx\#BKMK\_UTC](https://technet.microsoft.com/library/mt577208%28v=vs.85%29.aspx#BKMK_UTC), and select **0** or **1** for the **Allow Telemetry** group policy. There are two virtual machines (bgpvm and natvm) not joining the Azure Stack domain. To change the Feedback and Diagnostics settings on these virtual machines separately, please refer to:  [http://windows.microsoft.com/en-us/windows-10/feedback-diagnostics-privacy-faq](http://windows.microsoft.com/en-us/windows-10/feedback-diagnostics-privacy-faq).
 
 ## Next steps
 
