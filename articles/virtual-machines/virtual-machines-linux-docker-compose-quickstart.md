@@ -14,18 +14,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="06/10/2016"
+   ms.date="09/22/2016"
    ms.author="danlep"/>
 
 # Get Started with Docker and Compose to define and run a multi-container application on an Azure virtual machine
 
-Get started using Docker and [Compose](http://github.com/docker/compose) to define and run a complex application on a Linux virtual machine in Azure. With Compose (the successor to *Fig*), you use a simple text file to define an application consisting of multiple Docker containers. Then you spin up your application in a single command which does everything to get it running on the VM. 
+Get started using Docker and [Compose](http://github.com/docker/compose) to define and run a complex application on a Linux virtual machine in Azure. With Compose, you use a simple text file to define an application consisting of multiple Docker containers. Then you spin up your application in a single command which does everything to get it running on the VM. 
 
 As an example, this article shows you how to quickly set up a WordPress blog with a backend MariaDB SQL database on an Ubuntu VM, but you can also use Compose to set up more complex applications.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Learn how to [perform these steps using the Resource Manager model](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-wordpress-mysql).
-
-If you're new to Docker and containers, see the [Docker high level whiteboard](https://azure.microsoft.com/documentation/videos/docker-high-level-whiteboard/).
 
 ## Step 1: Set up a Linux VM as a Docker host
 
@@ -33,9 +30,9 @@ You can use a variety of Azure procedures and available images or Resource Manag
 
 ## Step 2: Verify that Compose is installed
 
-After the Linux VM is running with Docker, connect to it from your client computer using SSH.
+Once the deployment is finished, SSH to your new Docker host using the DNS name you provided during deployment. 
 
-To test your installation of Compose on the VM, run the following command.
+To check that Compose is installed on the VM, run the following command.
 
 ```
 $ docker-compose --version
@@ -76,7 +73,7 @@ $ docker-compose up -d
 
 ```
 
-This starts the Docker containers specified in `docker-compose.yml`. You'll see output similar to:
+This starts the Docker containers specified in `docker-compose.yml`. It takes a minute or two for this step to complete. You'll see output similar to the following:
 
 ```
 Creating wordpress_db_1...
