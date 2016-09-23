@@ -31,7 +31,7 @@ Alert Logic Log Manager collects VM, Application, and Azure platform logs for se
 [Go to the documentation.][alertlogic-doc]
 
 ## AppDynamics
-AppDynamics Application Performance Management (APM) enables application owners to rapidly troubleshoot performance bottlenecks and optimize the performance of their applications running in Azure environment. AppDynamics APM is seamlessly integrated with Azure Marketplace and available for monitor Azure Cloud Services (PaaS) (Including web & worker roles), Virtual Machines (IaaS), Remote Service Detection (Windows Azure Service Bus), Windows Azure Queue Windows Azure Remote Services (Azure Blob), Azure Queue (Microsoft Service Bus), Data Storage, Windows Azure Blob Storage. 
+AppDynamics Application Performance Management (APM) enables application owners to rapidly troubleshoot performance bottlenecks and optimize the performance of their applications running in Azure environment. AppDynamics APM is seamlessly integrated with Azure Marketplace and available for monitor Azure Cloud Services (PaaS) (Including web & worker roles), Virtual Machines (IaaS), Remote Service Detection (Microsoft Azure Service Bus), Microsoft Azure Queue Microsoft Azure Remote Services (Azure Blob), Azure Queue (Microsoft Service Bus), Data Storage, Microsoft Azure Blob Storage. 
 
 [Go to the documentation.][appdynamics-doc]
 
