@@ -14,7 +14,7 @@
 	ms.workload="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/21/2016" 
+	ms.date="09/23/2016" 
 	ms.author="betorres"
 />
 
@@ -29,13 +29,13 @@ You will need a Storage account in the same region and subscription as your sear
 
 > [AZURE.IMPORTANT] Standard charges apply for this storage account
 
-Once enabled, the data will start flowing into your storage account within 5-10 minutes into these 2 blob containers:
+You can enable search traffic analytics on the portal or via PowerShell. Once enabled, the data will start flowing into your storage account within 5-10 minutes into these 2 blob containers:
 
     insights-logs-operationlogs: search traffic logs
     insights-metrics-pt1m: aggregated metrics
 
 
-### 1. Using the portal
+### A. Using the portal
 Open your Azure Search service in the [Azure Portal](http://portal.azure.com). Under Settings, you will find the Search traffic analytics option. 
 
 ![][1]
@@ -45,7 +45,7 @@ You have the option to set the retention policy for your data from 1 to 365 days
 
 ![][2]
 
-### 2. Using PowerShell
+### B. Using PowerShell
 
 First, make sure you have the latest [Azure PowerShell cmdlets](https://github.com/Azure/azure-powershell/releases) installed.
 
