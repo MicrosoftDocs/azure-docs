@@ -374,6 +374,8 @@ Disk encryption can be enabled on new IaaS Windows VM from Azure gallery in Azur
 
 **Note:** This template creates a new encrypted Windows VM using the Windows Server 2012 gallery image.
 
+Disk encryption can be enabled on a new IaaS RedHat Linux 7.2 VM with a 200 GB RAID-0 array using [this](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel) resource manager template. After the template is deployed, verify the VM encryption status using the `Get-AzureRmVmDiskEncryptionStatus` cmdlet as described in the section "[Encrypting OS drive on a running Linux VM](#encrypting-os-drive-on-a-running-linux-vm)". When the machine returns status `VMRestartPending`, restart the VM.
+
 You can see the Resource Manager template parameters details for new VM from Azure gallery scenario using Azure AD Client ID in the table below:
 
 | Parameter                        | Description|
@@ -386,15 +388,13 @@ You can see the Resource Manager template parameters details for new VM from Azu
 | subnetName                    | Name of the subnet in the vNet to which the VM NIC should belong to                                                                                               |
 | AADClientID                   | Client ID of the Azure AD app that has permissions to write secrets to Key Vault                                                                                       |
 | AADClientSecret               | Client Secret of the Azure AD app that has permissions to write secrets to Key Vault                                                                                   |
-| keyVaultResourceID,ResourceID | Identify the key vault resource in ARM. You can get it using the PowerShell cmdlet: (Get-AzureRmKeyVault -VaultName,-ResourceGroupName ).ResourceId               |
 | keyVaultURL                   | URL of the Key Vault to which BitLocker key should be uploaded to. You can get it using the cmdlet: (Get-AzureRmKeyVault -VaultName,-ResourceGroupName ).VaultURI |
 | keyEncryptionKeyURL           | URL of the Key Encryption Key that's used to encrypt the generated BitLocker key. This is optional.                                                               |
+| keyVaultResourceGroup         | Resource Group of the key vault                                                               |
 | vmName                        | Name of the VM on which encryption operation is to be performed
 
 
 **Note:** KeyEncryptionKeyURL is an optional parameter. You can bring your own KEK to further safeguard the data encryption key (Passphrase secret) in Key Vault.
-
-You can create a fully-encrypted RedHat Linux 7.2 VM with a 2 TB RAID-0 array using [this](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel) published template as well. Once the template is deployed, verify the VM encryption status using the `Get-AzureRmVmDiskEncryptionStatus` cmdlet as described in the section "[Encrypting OS drive on a running Linux VM](#encrypting-os-drive-on-a-running-linux-vm)". Once the machine returns status `VMRestartPending`, restart the VM.
 
 ### Enable encryption on new IaaS VM’s created from Customer Encrypted VHD and encryption keys
 
