@@ -405,7 +405,10 @@ You can see the Resource Manager template parameters details for new VM from Azu
 
 In this scenario you can enable encrypting by using the Resource Manager template, PowerShell cmdlets or CLI commands. The sections below will explain in more details the Resource Manager template and CLI commands.
 
-Please follow the instructions from "[Preparing a pre-encrypted Linux VHD](#preparing-a-pre-encrypted-linux-vhd)" for preparing pre-encrypted images that can be used in Azure. Once the image is created, the following steps can be used for deployment.
+Follow the instructions from one of these sections for preparing pre-encrypted images that can be used in Azure. Once the image is created, the steps in the next section can be used for creating an encrypted Azure VM.
+
+- [Preparing a pre-encrypted Windows VHD](#preparing-a-pre-encrypted-windows-vhd)
+- [Preparing a pre-encrypted Linux VHD](#preparing-a-pre-encrypted-linux-vhd)
 
 #### Using Resource Manager template
 
@@ -424,8 +427,7 @@ The Resource Manager template parameters details for customer encrypted VHD scen
 | keyVaultResourceID    | ResourceID identifying the key vault resource in ARM. You can get it using the PowerShell cmdlet: (Get-AzureRmKeyVault -VaultName &lt;yourKeyVaultName&gt; -ResourceGroupName &lt;yourResourceGroupName&gt;).ResourceId |
 | keyVaultSecretUrl     | ​URL of the disk encryption key provisioned in key vault                                                                                                                                                                |
 | keyVaultKekUrl        | URL of the Key Encryption Key that’s to encrypt the generated disk encryption key                                                                                                                                       |
-| ​vmName               | ​Name of the IaaS VM   
-
+| ​vmName               | ​Name of the IaaS VM   |
 
 
 #### Using PowerShell cmdlets
