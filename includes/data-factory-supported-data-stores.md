@@ -9,5 +9,4 @@ Others | [Salesforce](../articles/data-factory/data-factory-salesforce-connector
 
 > [AZURE.NOTE] Data stores with * can be on-premises or on Azure IaaS, and require you to install [Data Management Gateway](../articles/data-factory/data-factory-data-management-gateway.md) on an on-premises/Azure IaaS machine.
 
-If you need to move data to/from a data store that Copy Activity doesn't support, use a **custom activity** in Data Factory with your own logic for copying/moving data. For details on creating and using a custom activity, see [Use custom activities in an Azure Data Factory pipeline](../articles/data-factory/data-factory-use-custom-activities.md).
 

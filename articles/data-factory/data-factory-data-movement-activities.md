@@ -56,6 +56,8 @@ You can also move data from/to supported data stores that are hosted on Azure Ia
 ## Supported data stores and formats
 [AZURE.INCLUDE [data-factory-supported-data-stores](../../includes/data-factory-supported-data-stores.md)]
 
+If you need to move data to/from a data store that Copy Activity doesn't support, use a **custom activity** in Data Factory with your own logic for copying/moving data. For details on creating and using a custom activity, see [Use custom activities in an Azure Data Factory pipeline](../articles/data-factory/data-factory-use-custom-activities.md).
+
 ### Supported file formats
 You can use Copy Activity to copy files as-is between two file-based data stores, such as Azure Blob, File System, and HDFS. To do so, you can skip the [format section](data-factory-create-datasets.md) in both the input and output dataset definitions. The data is copied efficiently without any serialization/deserialization.
 
