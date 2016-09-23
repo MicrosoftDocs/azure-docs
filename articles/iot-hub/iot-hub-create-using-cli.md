@@ -16,7 +16,7 @@
      ms.date="09/21/2016"
      ms.author="boltean"/>
 
-# Create an IoT hub using CLI
+# Create an IoT Hub using CLI
 
 To Add here other tabs for creating IoT Hub via Portal, PowerShell, REST
 
