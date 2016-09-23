@@ -54,7 +54,7 @@ Create an endpoint using Azure Active Directory for handling the authentication 
 azure ad app create --name <TestEncryptApp> \
   --home-page <http://testencrypt.contoso.com> \
   --identifier-uris <http://testencrypt.contoso.com> \
-  --password P@ssw0rd!
+  --password <P@ssw0rd!>
 ```
 
 Note the `applicationId` shown in the output from the preceding command. This application ID is used in the following steps:
@@ -82,7 +82,7 @@ azure keyvault key show <TestKeyVault> <TestEncryptKey>
 Encrypt your disks as follows:
 
 ```bash
-azure vm enable-disk-encryption --resource-group TestEncrypt --vm-name TestVM \
+azure vm enable-disk-encryption --resource-group <TestEncrypt> --vm-name <TestVM> \
   --aad-client-id <applicationId> --aad-client-secret <applicationPassword> \
   --disk-encryption-key-vault-url <keyvault vaultURI> \
   --disk-encryption-key-vault-id <keyvault Id> \
@@ -192,7 +192,7 @@ Create your Azure Active Directory application as follows:
 azure ad app create --name <TestEncryptApp> \
   --home-page <http://testencrypt.contoso.com> \
   --identifier-uris <http://testencrypt.contoso.com> \
-  --password P@ssw0rd!
+  --password <P@ssw0rd!>
 ```
 
 Make a note of the `applicationId` that is returned in the output from the preceding command. This application ID is used in some of the remaining steps. Next, create a service principal name (SPN) so that the application is accessible within your environment. To successfully encrypt or decrypt virtual disks, permissions on the cryptographic key stored in Key Vault must be set to permit the Azure Active Directory application to read the keys. 
@@ -217,7 +217,7 @@ azure vm disk attach-new --resource-group <TestEncrypt> --vm-name <TestVM> \
 The virtual disks are not currently encrypted. Review the current encryption status of your VM as follows:
 
 ```bash
-azure vm show-disk-encryption-status -g TestEncrypt -n TestVM
+azure vm show-disk-encryption-status -g <TestEncrypt> -n <TestVM>
 ```
 
 
@@ -239,7 +239,7 @@ azure keyvault key show <TestKeyVault> <TestEncryptKey>
 Encrypt your virtual disks using the output from the `azure keyvault show` and `azure keyvault key show` commands as follows:
 
 ```bash
-azure vm enable-disk-encryption --resource-group TestEncrypt --vm-name TestVM \
+azure vm enable-disk-encryption --resource-group <TestEncrypt> --vm-name <TestVM> \
   --aad-client-id <applicationId> --aad-client-secret <applicationPassword> \
   --disk-encryption-key-vault-url <keyvault vaultURI> \
   --disk-encryption-key-vault-id <keyvault Id> \
@@ -266,7 +266,7 @@ The Azure CLI doesn't provide verbose errors during the encryption process. For 
 Finally, lets review the encryption status again to confirm that your virtual disks have now been encrypted:
 
 ```bash
-azure vm show-disk-encryption-status -g TestEncrypt -n TestVM
+azure vm show-disk-encryption-status -g <TestEncrypt> -n <TestVM>
 ```
 
 
