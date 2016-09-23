@@ -124,7 +124,7 @@ Use this with an existing Azure AD "Native Client" Application; one is provided 
     var activeDirectoryClientSettings = ActiveDirectoryClientSettings.UsePromptOnly(nativeClientApp_clientId, new Uri("urn:ietf:wg:oauth:2.0:oob"));
     var creds = UserTokenProvider.LoginWithPromptAsync(domain, activeDirectoryClientSettings).Result;
 
-In the snippet above, we use an Azure AD domain and client ID that is available by default for any Azure subscription. If you want to use your own Azure AD domain and application client ID, you must create an Azure AD native application. See [Create an Active Directory Application](../resource-group-create-service-principal-portal.md#create-an-active-directory-application) for instructions.
+In the snippet above, we use an Azure AD domain and client ID that is available by default for all Azure subscriptions. If you want to use your own Azure AD domain and application client ID, you must create an Azure AD native application. See [Create an Active Directory Application](../resource-group-create-service-principal-portal.md#create-an-active-directory-application) for instructions.
 
 >[AZURE.NOTE] The instructions in the above links are for an Azure AD web application. However, the steps are exactly the same even if you chose to create a native client application instead. 
 
@@ -137,7 +137,7 @@ The following snippet can be used to authenticate your application non-interacti
     SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
     var domain = "<AAD-directory-domain>";
     var webApp_clientId = "<AAD-application-clientid>";
-    var clientSecret = "<AAD-application-clientid>";
+    var clientSecret = "<AAD-application-client-secret>";
     var clientCredential = new ClientCredential(webApp_clientId, clientSecret);
     var creds = ApplicationTokenProvider.LoginSilentAsync(domain, clientCredential).Result;
 
