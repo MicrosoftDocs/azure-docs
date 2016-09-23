@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="07/19/2016"
+	ms.date="09/23/2016"
 	ms.author="cephalin"/>
 
 # Deploy a Sails.js web app to Azure App Service
@@ -127,6 +127,12 @@ property should look like this:
             "sails-sqlserver": "<leave-as-is>"
         },
 
+3. In, package.json add the following `engines` property to set the Node.js version to one that we want.
+
+        "engines": {
+            "node": "6.6.0"
+        },
+
 6. Save your changes and test your changes to make sure that your app still runs locally. To do this, delete the
 `node_modules` folder and then run:
 
@@ -156,7 +162,7 @@ If it has started successfully, the stdout log should show you the familiar mess
                 .-..-.
 
     Sails              <|    .-..-.
-    v0.12.3             |\
+    v0.12.4             |\
                         /|.\
                         / || \
                     ,'  |'  \
@@ -166,44 +172,44 @@ If it has started successfully, the stdout log should show you the familiar mess
     ____---___--___---___--___---___--___-__
 
     Server lifted in `D:\home\site\wwwroot`
-    To see your app, visit http://localhost:\\.\pipe\a76e8111-663e-449d-956e-5c5deff2d304
+    To see your app, visit http://localhost:\\.\pipe\c775303c-0ebc-4854-8ddd-2e280aabccac
     To shut down Sails, press <CTRL> + C at any time.
 
 You can control granularity of the stdout logs in the [config/log.js](http://sailsjs.org/#!/documentation/concepts/Logging) file. 
 
 ## Connect to a database in Azure
 
-To connect to a database Azure, you create the database of your choice in Azure, such as Azure SQL Database,
+To connect to a database in Azure, you create the database of your choice in Azure, such as Azure SQL Database,
 MySQL, MongoDB, Azure (Redis) Cache, etc., and use the corresponding 
 [datastore adapter](https://github.com/balderdashy/sails#compatibility) to connect to it. The steps in this section
-shows you how to connect to an Azure SQL Database.
+shows you how to connect to a MySQL database in Azure.
 
-1. Follow the tutorial [here](../sql-database/sql-database-get-started.md) to create a blank Azure SQL Database in a new
-SQL Server. The default firewall settings allow Azure services (e.g. App Service) to connect to it.
+1. Follow the tutorial [here](../store-php-create-mysql-database.md) to create a MySQL database in Azure.
 
-2. From your command-line terminal, install the SQL Server adapter:
+2. From your command-line terminal, install the MySQL adapter:
 
-        npm install sails-sqlserver --save
+        npm install sails-mysql --save
 
 3. Open config/connections.js and add the following connection object to the list: 
 
-        sqlserver: {
-            adapter: 'sails-sqlserver',
+        mySql: {
+            adapter: 'sails-mysql',
             user: process.env.dbuser,
             password: process.env.dbpassword,
-            host: process.env.sqlserver, 
+            host: process.env.dbhost, 
             database: process.env.dbname,
             options: {
-                encrypt: true   // use this for Azure databases
+                encrypt: true
             }
         },
 
 4. For each environment variable (`process.env.*`), you need to set it in App Service. To do this, run the following commands 
-from your terminal:
+from your terminal. All connection information you need is in the Azure portal (see 
+[Connect to your MySQL database](../store-php-create-mysql-database.md#connect)).
 
-        azure site appsetting add dbuser="<database server administrator>"
-        azure site appsetting add dbpassword="<database server password>"
-        azure site appsetting add sqlserver="<database server name>.database.windows.net"
+        azure site appsetting add dbuser="<database user>"
+        azure site appsetting add dbpassword="<database password>"
+        azure site appsetting add dbhost="<database hostname>"
         azure site appsetting add dbname="<database name>"
         
     Putting your settings in Azure app settings keeps sensitive data out of your source control (Git). Next, you will
@@ -212,34 +218,34 @@ from your terminal:
 4. Open config/local.js and add the following connections object:
 
         connections: {
-            sqlserver: {
-                user: "<database server administrator>",
-                password: "<database server password>",
-                host: "<database server name>.database.windows.net", 
+            mySql: {
+                user: "<database user>",
+                password: "<database password>",
+                host: "<database hostname>", 
                 database: "<database name>",
             },
         },
     
     This configuration overrides the settings in your config/connections.js file for the local environement. This file
     is excluded by the default .gitignore in your project, so it will not be stored in Git. Now, you are able to connect
-    to your Azure SQL Database both from your Azure web app and from your local development environment.
+    to your MySQL database both from your Azure web app and from your local development environment.
 
 4. Open config/env/production.js to configure your production environment, and add the following `models` object:
 
         models: {
-            connection: 'sqlserver',
+            connection: 'mySql',
             migrate: 'safe'
         },
 
 4. Open config/env/development.js to configure your development environment, and add the following `models` object:
 
         models: {
-            connection: 'sqlserver',
+            connection: 'mySql',
             migrate: 'alter'
         },
 
-    `migrate: 'alter'` lets you use database migration features to create and update your database tables in your Azure
-    SQL Database easily. However, `migrate: 'safe'` is used for your Azure (production) environment because Sails.js
+    `migrate: 'alter'` lets you use database migration features to create and update your database tables in your
+    MySQL easily. However, `migrate: 'safe'` is used for your Azure (production) environment because Sails.js
     does not allow you to use `migrate: 'alter'` in a production environment (see 
     [Sails.js Documentation](http://sailsjs.org/documentation/concepts/models-and-orm/model-settings)).
 
@@ -260,7 +266,7 @@ create the database with Sails.js database migration. For example:
     The API should return the created entry back to you in the browser window, which means that your database is created
     successfully.
 
-        {"id":1,"createdAt":"2016-03-28T23:08:01.000Z","updatedAt":"2016-03-28T23:08:01.000Z"}
+        {"id":1,"createdAt":"2016-09-23T13:32:00.000Z","updatedAt":"2016-09-23T13:32:00.000Z"}
 
 5. Now, push your changes to Azure, and browse to your app to make sure it still works.
 
@@ -273,7 +279,7 @@ create the database with Sails.js database migration. For example:
 
         http://<appname>.azurewebsites.net/mywidget/create
 
-    If the API returns another new entry, then your Azure web app is talking to your Azure SQL Database.      
+    If the API returns another new entry, then your Azure web app is talking to your MySQL database.
 
 ## More resources
 

@@ -83,6 +83,12 @@ This tutorial shows how to create a simple [Node.js][NODEJS] application and dep
 
     This lets your Node.js app respond to web requests on the default port that iisnode listens.
     
+4. Open ./package.json and add the `engines` property to [specify the desired Node.js version](#version).
+
+    "engines": {
+        "node": "6.6.0"
+    }, 
+
 4. Save your changes, then use git to deploy your app to Azure:
 
         git add .
@@ -124,13 +130,14 @@ The following tutorials will show you how to work with a specific framework in A
 - [Create a Node.js chat application with Socket.IO in Azure App Service]
 - [How to use io.js with Azure App Service Web Apps]
 
+<a name="version"></a>
 ## Use a specific Node.js engine
 
-In your typical workflow, you can tell App Service to use a specific Node.js engine as you normally would in package.json.
+In your typical workflow, you tell App Service to use a specific Node.js engine as you normally would in package.json.
 For example:
 
     "engines": {
-        "node": "5.5.0"
+        "node": "6.6.0"
     }, 
 
 The Kudu deployment engine determines which Node.js engine to use in the following order:
@@ -138,6 +145,9 @@ The Kudu deployment engine determines which Node.js engine to use in the followi
 - First, look at iisnode.yml to see if `nodeProcessCommandLine` is specified. If yes, then use that.
 - Next, look at package.json to see if `"node": "..."` is specified in the `engines` object. If yes, then use that.
 - Choose a default Node.js version by default.
+
+It is recommended that you explicitly define the Node.js engine you want. The default Node.js version can change,
+and you may get errors in your Azure web app because the default Node.js version is not appropriate for your app.
 
 <a name="iisnodelog"></a>
 ## Get stdout and stderr logs from iisnode
