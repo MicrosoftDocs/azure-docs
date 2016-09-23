@@ -16,7 +16,12 @@
    ms.date="09/26/2016"
    ms.author="vturecek"/>
 
-# Getting started with Reliable Services
+# Get started with Reliable Services
+
+> [AZURE.SELECTOR]
+- [C# on Windows](service-fabric-reliable-services-quick-start.md)
+- [Java on Linux](service-fabric-reliable-services-quick-start-java.md)
+
 This article explains the basics of Azure Service Fabric Reliable Services and walks you through creating and deploying a simple Reliable Service application written in Java.
 
 ## Installation and setup
@@ -94,18 +99,52 @@ In this tutorial, we will focus on the `runAsync()` entry point method. This is 
 
 ### RunAsync
 
-The platform calls this method when an instance of a service is placed and ready to execute. For a stateless service, that simply means when the service instance is opened. A cancellation token is provided to coordinate when your service instance needs to be closed. In Service Fabric, this open/close cycle of a service instance can occur many times over the lifetime of the service as a whole. This can happen for various reasons, including:
+The platform calls this method when an instance of a service is placed and ready to execute. The open/close cycle of a service instance can occur many times over the lifetime of the service as a whole. This can happen for various reasons, including:
 
 - The system moves your service instances for resource balancing.
 - Faults occur in your code.
 - The application or system is upgraded.
 - The underlying hardware experiences an outage.
 
-This orchestration is managed by the system to keep your service highly available and properly balanced.
+This orchestration is managed by Service Fabric to keep your service highly available and properly balanced.
 
-`runAsync()` is executed in its own task. Note that in the code snippet above, we jumped right into a *while* loop. There is no need to schedule a separate task for your workload. Cancellation of your workload is a cooperative effort orchestrated by the provided cancellation token. The system will wait for your task to end (by successful completion, cancellation, or fault) before it moves on. It is important to honor the cancellation token, finish any work, and exit `runAsync()` as quickly as possible when the system requests cancellation.
+#### Cancellation
 
-In this stateless service example, the count is stored in a local variable. But because this is a stateless service, the value that's stored exists only for the current lifecycle of its service instance. When the service moves or restarts, the value is lost.
+It is vital that your code in `runAsync()` can stop execution when notified by Service Fabric. The `CompletableFuture` returned from `runAsync()` is canceled when Service Fabric requires your service to stop execution. The following example demonstrates how to handle a cancellation event: 
+
+```java
+    @Override
+    protected CompletableFuture<?> runAsync() {
+
+        CompletableFuture<?> completableFuture = new CompletableFuture<>();
+        ExecutorService service = Executors.newFixedThreadPool(1);
+        
+        Future<?> userTask = service.submit(() -> {
+            while (!Thread.currentThread().isInterrupted()) {
+            	try
+            	{
+                   logger.log(Level.INFO, this.context().serviceName().toString());
+                   Thread.sleep(1000);
+            	}
+            	catch (InterruptedException ex)
+            	{
+                    logger.log(Level.INFO, this.context().serviceName().toString() + " interrupted. Exiting");
+                    return;
+            	}
+            }
+         });
+ 
+        completableFuture.handle((r, ex) -> {
+            if (ex instanceof CancellationException) {
+                userTask.cancel(true);
+                service.shutdown();
+            }
+            return null;
+        });
+ 
+        return completableFuture;
+   }
+``` 
 
 ### Service registration
 
@@ -138,5 +177,3 @@ This will produce a Service Fabric application package that can be deployed usin
 ```bask
 $ ./install.sh
 ```
-
-## Next steps

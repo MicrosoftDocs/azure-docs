@@ -17,6 +17,11 @@
    ms.author="vturecek"/>
 
 # Getting started with Reliable Actors
+
+> [AZURE.SELECTOR]
+- [C# on Windows](service-fabric-reliable-actors-get-started.md)
+- [Java on Linux](service-fabric-reliable-actors-get-started-java.md)
+
 This article explains the basics of Azure Service Fabric Reliable Actors and walks you through creating and deploying a simple Reliable Actor application in Java.
 
 ## Installation and setup
@@ -27,8 +32,11 @@ If you need to set it up, see detailed instructions on [how to set up the develo
 To get started with Reliable Actors, you only need to understand a few basic concepts:
 
  * **Actor service**. Reliable Actors are packaged in Reliable Services that can be deployed in the Service Fabric infrastructure. Actor instances are activated in a named service instance.
+ 
  * **Actor registration**. Just as with Reliable Services, a the Reliable Actors service needs to be registered with the Service Fabric runtime. In addition, the actor type needs to be registered with the Actor runtime.
+ 
  * **Actor interface**. The actor interface is used to define a strongly-typed public interface of an actor. In the Reliable Actor model terminology, the actor interface defines the types of messages that the actor can understand and process. The actor interface is used by other actors and client applications to "send" (asynchronously) messages to the actor. Reliable Actors can implement multiple interfaces.
+ 
  * **ActorProxy class**. The ActorProxy class is used by client applications to invoke the methods exposed through the actor interface interface. The ActorProxy class provides two important functionalities:
 	* Name resolution: It is able to locate the actor in the cluster (find the node of the cluster where it is hosted).
 	* Failure handling: It can retry method invocations and re-resolve the actor location after, for example, a failure that requires the actor to be relocated to another node in the cluster.
@@ -182,5 +190,3 @@ This will produce a Service Fabric application package that can be deployed usin
 ```bask
 $ ./install.sh
 ```
-
-## Next steps
