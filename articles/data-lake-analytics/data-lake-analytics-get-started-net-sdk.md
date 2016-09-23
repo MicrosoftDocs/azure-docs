@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="06/22/2016"
+   ms.date="09/23/2016"
    ms.author="edmaca"/>
 
 # Tutorial: get started with Azure Data Lake Analytics using .NET SDK
@@ -81,7 +81,7 @@ A sample search log can be found in a public Azure Blob container. In the applic
     
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
-	>[AZURE.NOTE] There is currently a known issue with the Azure Data Lake Service.  If the sample app is interrupted or encounters an error, you may need to manually delete the Data Lake Store & Data Lake Analytics accounts that the script creates.  If you're not familiar with the Portal, the [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md) guide will get you started.       
+	>[AZURE.NOTE] There is currently a known issue with the Azure Data Lake Service.  If the sample app is interrupted or encounters an error, you may need to manually delete the Data Lake Store & Data Lake Analytics accounts that the script creates.  If you're not familiar with the Portal, the [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md) guide will get you started.       
        
 5. In Program.cs, paste the following code:
 
@@ -89,11 +89,8 @@ A sample search log can be found in a public Azure Blob container. In the applic
 		using System.IO;
 		using System.Collections.Generic;
 		using System.Threading;
-
 		using Microsoft.Rest;
 		using Microsoft.Rest.Azure.Authentication;
-
-		using Microsoft.Azure.Management.ResourceManager;
 		using Microsoft.Azure.Management.DataLake.Store;
 		using Microsoft.Azure.Management.DataLake.StoreUploader;
 		using Microsoft.Azure.Management.DataLake.Analytics;
@@ -240,7 +237,11 @@ A sample search log can be found in a public Azure Blob container. In the applic
 		  }
 		}
 
-6. Press **F5** to run the application.
+6. Press **F5** to run the application. The output is like:
+
+	![Azure Data Lake Analytics job U-SQL .NET SDK output](./media/data-lake-analytics-get-started-net-sdk/data-lake-analytics-dotnet-job-output.png)
+
+7. Check the output file.  The default path and file name is c:\Temp\SearchLog-from-Data-Lake.csv.
 
 ## See also
 
@@ -248,5 +249,5 @@ A sample search log can be found in a public Azure Blob container. In the applic
 - To see a more complex query, see [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 - To get started developing U-SQL applications, see [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 - To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md), and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
-- For management tasks, see [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md).
+- For management tasks, see [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md).
 - To get an overview of Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).

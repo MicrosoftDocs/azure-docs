@@ -3,7 +3,7 @@
    description="Learn how to manage Data Lake Analytics jobs, data sources, users. " 
    services="data-lake-analytics" 
    documentationCenter="" 
-   authors="edmacauley" 
+   authors="mumian" 
    manager="jhubbard" 
    editor="cgronlun"/>
  
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="05/16/2016"
-   ms.author="edmaca"/>
+   ms.date="09/23/2016"
+   ms.author="jgao"/>
 
 # Manage Azure Data Lake Analytics using Azure .NET SDK
 
@@ -218,7 +218,7 @@ The ARM group however can be located in a different data center.
 ##See also 
 
 - [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-- [Get started with Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md)
-- [Manage Azure Data Lake Analytics using Azure Portal](data-lake-analytics-manage-use-portal.md)
-- [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+- [Get started with Data Lake Analytics using Azure portal](data-lake-analytics-get-started-portal.md)
+- [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md)
+- [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
