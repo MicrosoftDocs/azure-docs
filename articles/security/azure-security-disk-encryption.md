@@ -120,12 +120,15 @@ The following are prerequisites to enable Azure Disk Encryption on Azure IaaS VM
 - Azure Disk Encryption is supported on the following Windows client SKU’s - Windows 8 Client and Windows 10 Client.
 
 **Note**: For Windows Server 2008 R2, .Net framework 4.5 MUST be installed before enabling encryption in Azure. You can install it from Windows update by installing the optional update "Microsoft .NET Framework 4.5.2 for Windows Server 2008 R2 x64-based Systems ([KB2901983](https://support.microsoft.com/kb/2901983))"
+
 - Azure Disk Encryption is supported on the following Linux server SKUs - Ubuntu, CentOS, SUSE and SUSE Linux Enterprise Server (SLES) and Red Hat Enterprise Linux.
 
 **Note**: Linux OS disk encryption is currently suported on the following Linux distributions - RHEL 7.2, CentOS 7.2, Ubuntu 16.04
+
 - All resources (Ex: Key Vault, Storage account, VM, etc.,) must belong to the same Azure region and subscription.
 
-**Note** - Azure disk encryption requires that the Key Vault and the VMs reside in the same Azure region. Configuring them in separate region will cause failure in enabling Azure disk encryption feature.
+**Note**: Azure disk encryption requires that the Key Vault and the VMs reside in the same Azure region. Configuring them in separate region will cause failure in enabling Azure disk encryption feature.
+
 - To set up and configure Azure Key Vault for Azure disk encryption usage, see section **Setting and Configuring Azure Key Vault for Azure disk encryption usage** in the *Prerequisites* section of this article.
 - To set up and configure Azure AD application in Azure Active directory for Azure disk encryption usage, see section **Setup the Azure AD Application in Azure Active Directory** in the *Prerequisites* section of this article.
 - To set up and configure Key Vault Access policy for the Azure AD Application, see section **Setting Key Vault Access policy for the Azure AD Application** in the *Prerequisites* section of this article.
