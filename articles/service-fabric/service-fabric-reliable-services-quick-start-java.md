@@ -25,7 +25,8 @@
 This article explains the basics of Azure Service Fabric Reliable Services and walks you through creating and deploying a simple Reliable Service application written in Java.
 
 ## Installation and setup
-Before you start, make sure that you have the Service Fabric development environment for Linux set up. See detailed instructions on [how to set up the development environment](service-fabric-get-started.md).
+Before you start, make sure you have the Service Fabric development environment set up on your machine.
+If you need to set it up, go to [getting started on Mac](service-fabric-get-started-mac.md) or [getting started on Linux](service-fabric-get-started-linux.md).
 
 ## Basic concepts
 To get started with Reliable Services, you only need to understand a few basic concepts:

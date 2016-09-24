@@ -25,8 +25,8 @@
 This article explains the basics of Azure Service Fabric Reliable Actors and walks you through creating and deploying a simple Reliable Actor application in Java.
 
 ## Installation and setup
-Before you start, ensure that you have the Service Fabric development environment set up on your machine.
-If you need to set it up, see detailed instructions on [how to set up the development environment](service-fabric-get-started.md).
+Before you start, make sure you have the Service Fabric development environment set up on your machine.
+If you need to set it up, go to [getting started on Mac](service-fabric-get-started-mac.md) or [getting started on Linux](service-fabric-get-started-linux.md).
 
 ## Basic concepts
 To get started with Reliable Actors, you only need to understand a few basic concepts:
