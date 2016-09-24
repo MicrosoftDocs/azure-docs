@@ -19,7 +19,7 @@
 # Secure a database in SQL Data Warehouse
 
 > [AZURE.SELECTOR]
-- [Overview](sql-data-warehouse-overview-manage-security.md)
+- [Security Overview](sql-data-warehouse-overview-manage-security.md)
 - [Authentication](sql-data-warehouse-authentication.md)
 - [Encryption (Portal)](sql-data-warehouse-encryption-tde.md)
 - [Encryption (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
@@ -81,13 +81,9 @@ Managing databases and logical servers from the Azure Classic Portal or using th
 
 ## Encryption
 
-Azure SQL Data Warehouse can help protect your data by encrypting your data when it is "at rest," or stored in database files and backups, using [Transparent Data Encryption][]. You must be an administrator or a member of the dbmanager role in the master database to enable TDE. To encrypt your database, connect to the master database on your server and execute:
+Azure SQL Data Warehouse Transparent Data Encryption (TDE) helps protect against the threat of malicious activity by performing real-time encryption and decryption of your data at rest.  When you encrypt your database, associated backups and transaction log files are encrypted without requiring any changes to your applications. TDE encrypts the storage of an entire database by using a symmetric key called the database encryption key. In SQL Database the database encryption key is protected by a built-in server certificate. The built-in server certificate is unique for each SQL Database server. Microsoft automatically rotates these certificates at least every 90 days. The encryption algorithm used by SQL Data Warehouse is AES-256. For a general description of TDE, see [Transparent Data Encryption][].
 
-```sql
-ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
-```
-
-You can also enable Transparent Data Encryption from database settings in the [Azure portal][]. For more information, see [Get started with Transparent Data Encryption (TDE)][].
+You can encrypt your database using the [Azure Portal][Encryption with Portal] or [T-SQL][Encryption with TSQL].
 
 ## Next steps
 
@@ -97,7 +93,8 @@ For details and examples on connecting to your SQL Data Warehouse with different
 
 <!--Article references-->
 [Connect to SQL Data Warehouse]: ./sql-data-warehouse-connect-overview.md
-[Get started with Transparent Data Encryption (TDE)]: ./sql-data-warehouse-encryption-tde.md
+[Encryption with Portal]: ./sql-data-warehouse-encryption-tde.md
+[Encryption with TSQL]: ./sql-data-warehouse-encryption-tde-tsql.md
 [Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication]: ./sql-data-warehouse-authentication.md
 
 <!--MSDN references-->
@@ -108,7 +105,7 @@ For details and examples on connecting to your SQL Data Warehouse with different
 [Managing databases and logins in Azure SQL Database]: https://msdn.microsoft.com/library/ee336235.aspx
 [Permissions]: https://msdn.microsoft.com/library/ms191291.aspx
 [Stored procedures]: https://msdn.microsoft.com/library/ms190782.aspx
-[Transparent Data Encryption]: https://go.microsoft.com/fwlink/?LinkId=526242
+[Transparent Data Encryption]: https://msdn.microsoft.com/library/bb934049.aspx
 [Azure portal]: https://portal.azure.com/
 
 <!--Other Web references-->
