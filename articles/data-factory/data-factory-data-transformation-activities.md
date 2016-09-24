@@ -24,6 +24,8 @@ This article explains data transformation activities in Azure Data Factory that 
  
 Data Factory supports the following data transformation activities that can be added to [pipelines](data-factory-create-pipelines.md) either individually or chained with another activity.
 
+> [AZURE.NOTE] For a walkthrough with step-by-step instructions, see [Create a pipeline with Hive transformation](data-factory-build-your-first-pipeline.md) article.  
+
 ## HDInsight Hive activity
 The HDInsight Hive activity in a Data Factory pipeline executes Hive queries on your own or on-demand Windows/Linux-based HDInsight cluster. See [Hive Activity](data-factory-hive-activity.md) article for details about this activity. 
 
@@ -52,9 +54,7 @@ You can use the SQL Server Stored Procedure activity in a Data Factory pipeline 
 Data Lake Analytics U-SQL Activity runs a U-SQL script on an Azure Data Lake Analytics cluster. See [Data Analytics U-SQL Activity](data-factory-usql-activity.md) article for details. 
 
 ## .NET custom activity
-If you need to transform data in a way that is not supported by Data Factory, you can create a custom activity with your own data processing logic and use the activity in the pipeline. You can configure the custom .NET activity to run using either an Azure Batch service or an Azure HDInsight cluster.
-
-See [Use custom activities](data-factory-use-custom-activities.md) article for details. 
+If you need to transform data in a way that is not supported by Data Factory, you can create a custom activity with your own data processing logic and use the activity in the pipeline. You can configure the custom .NET activity to run using either an Azure Batch service or an Azure HDInsight cluster. See [Use custom activities](data-factory-use-custom-activities.md) article for details. 
 
 You can create a custom activity to run R scripts on your HDInsight cluster with R installed. See [Run R Script using Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). 
 
