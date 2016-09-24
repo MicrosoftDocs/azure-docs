@@ -4,7 +4,7 @@
    	services="hdinsight"
    	documentationCenter=""
    	authors="Blackmist"
-   	manager="paulettm"
+   	manager="jhubbard"
    	editor="cgronlun"
 	tags="azure-portal"/>
 
@@ -14,7 +14,7 @@
    	ms.topic="article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="03/08/2016"
+   	ms.date="09/20/2016"
    	ms.author="larryfr"/>
 
 #Create Linux-based clusters in HDInsight using the Azure CLI
@@ -23,11 +23,11 @@
 
 The Azure CLI is a cross-platform command-line utility that allows you to manage Azure Services. It can be used, along with Azure Resource management templates, to create an HDInsight cluster, along with associated storage accounts and other services.
 
-Azure Resource Management templates are JSON documents that describe a __resource group__ and all resources in it (such as HDInsight.) This template based approach allows you to define all the resources that you need for HDInsight in one template, and to manage changes to the group as a whole through __deployments__ that apply changes to the group.
+Azure Resource Management templates are JSON documents that describe a __resource group__ and all resources in it (such as HDInsight.) This template-based approach allows you to define all the resources that you need for HDInsight in one template. It also lets you manage changes to the group as a whole through __deployments__, which apply changes to the entire group.
 
 The steps in this document walk through the process of creating a new HDInsight cluster using the Azure CLI and a template.
 
-> [AZURE.IMPORTANT] The steps in this document use the default number of worker nodes (4) for an HDInsight cluster. If you plan on more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, then you must select a head node size with at least 8 cores and 14GB ram.
+> [AZURE.IMPORTANT] The steps in this document use the default number of worker nodes (4) for an HDInsight cluster. If you plan on more than 32 worker nodes (during cluster creation or by scaling the cluster,) then you must select a head node size with at least 8 cores and 14 GB ram.
 >
 > For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -36,76 +36,73 @@ The steps in this document walk through the process of creating a new HDInsight 
 [AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- __Azure CLI__.
+- __Azure CLI__. The steps in this document were last tested with Azure CLI version 0.10.1.
 
     [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
 
-##Login to your Azure subscription
+##Log in to your Azure subscription
 
 Follow the steps documented in [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](../xplat-cli-connect.md) and connect to your subscription using the __login__ method.
 
 ##Create a cluster
 
-The following steps should be performed from a command-prompt, shell or terminal session after installing and configuring the Azure CLI.
+The following steps should be performed from a command-prompt, shell, or terminal session after installing and configuring the Azure CLI.
 
 1. Use the following command to authenticate to your Azure subscription:
 
         azure login
 
-    You will be prompted to provide your name and password. If you have multiple Azure subscriptions, you can use `azure account set <subscriptionname>` to set the subscription that the Azure CLI commands will use.
+    You are prompted to provide your name and password. If you have multiple Azure subscriptions, use `azure account set <subscriptionname>` to set the subscription that the Azure CLI commands use.
 
 3. Switch to Azure Resource Manager mode using the following command:
 
         azure config mode arm
 
-4. Create a template for your HDInsight cluster. The following are some basic example templates:
+4. Create a resource group. This resource group will contain the HDInsight cluster and associated storage account.
 
-    * [Linux-based cluster, using an SSH public key](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-publickey)
-    * [Linux-based cluster, using a password for the SSH account](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password)
+        azure group create groupname location
+        
+    * Replace __groupname__ with a unique name for the group. 
+    * Replace __location__ with the geographic region that you want to create the group in. 
+    
+        For a list of valid locations, use the `azure location list` command, and then use one of the locations from the __Name__ column.
 
-    Both of these templates also create the default Azure Storage Account used by HDInsight.
+5. Create a storage account. This storage account will be used as the default storage for the HDInsight cluster.
 
-    The files you will need are the __azuredeploy.json__ and __azuredeploy.parameters.json__. Copy these files locally before continuing.
+        azure storage account create -g groupname --sku-name RAGRS -l location --kind Storage storagename
+        
+     * Replace __groupname__ with the name of the group created in the previous step.
+     * Replace __location__ with the same location used in the previous step. 
+     * Replace __storagename__ with a unique name for the storage account.
+     
+     > [AZURE.NOTE] For more information on the parameters used in this command, use `azure storage account create -h` to view help for this command.
 
-5. Open the __azuredeploy.parameters.json__ file in an editor, and provide values for the items in the `parameters` section:
+5. Retrieve the key used to access the storage account.
 
-    * __location__: The data center that the resources will be created in. You can view the `location` section in the __azuredeploy.json__ file for a list of allowed locations.
-    * __clusterName__: The name of the HDInsight cluster. This name must be unique, or the deployment will fail.
-    * __clusterStorageAccountName__: The name of the Azure Storage Account that will be created for the HDInsight cluster. This name must be unique, or the deployment will fail.
-    * __clusterLoginPassword__: The password for the cluster admin user. This should be a secure password, as it is used to access web sites and REST services on the cluster.
-    * __sshUserName__: The name of the first SSH user to create for this cluster. SSH will be used to remotely access the cluster using this account.
-    * __sshPublicKey__: If you are using the template that requires an SSH public key, you must add your public key on this line. For more information on generating and working with public keys, see the following articles:
+        azure storage account keys list -g groupname storagename
+        
+    * Replace __groupname__ with the resource group name.
+    * Replace __storagename__ with the name of the storage account.
+    
+    In the data that is returned, save the __key__ value for __key1__.
 
-        * [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
-        * [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+6. Create an HDInsight cluster.
 
-    * __sshPassword__: If you are using the template that requires an SSH password, you must add a password on this line.
+        azure hdinsight cluster create -g groupname -l location -y Linux --clusterType Hadoop --defaultStorageAccountName storagename.blob.core.windows.net --defaultStorageAccountKey storagekey --defaultStorageContainer clustername --workerNodeCount 2 --userName admin --password httppassword --sshUserName sshuser --sshPassword sshuserpassword clustername
 
-    Once you are done, save and close the file.
+    * Replace __groupname__ with the resource group name.
+    * Replace __location__ with the same location used in previous steps.
+    * Replace __storagename__ with the storage account name.
+    * Replace __storagekey__ with the key obtained in the previous step. 
+    * For the `--defaultStorageContainer` parameter, use the same name as you are using for the cluster.
+    * Replace __admin__ and __httppassword__ with the name and password you wish to use when accessing the cluster through HTTPS.
+    * Replace __sshuser__ and __sshuserpassword__ with the username and password you wish to use when accessing the cluster using SSH
 
-5. Use the following to create an empty resource group. Replace __RESOURCEGROUPNAME__ with the name you wish to use for this group. Replace __LOCATION__ with the data center that you want to create your HDInsight cluster in:
-
-        azure group create RESOURCEGROUPNAME LOCATION
-
-    > [AZURE.NOTE] If the location name contains spaces, put it in quotes. For example "South Central US".
-
-6. Use the following command to create the initial deployment for this resource group. Replace __PATHTOTEMPLATE__ with the path to the __azuredeploy.json__ template file. Replace __PATHTOPARAMETERSFILE__ with the path to the __azuredeploy.parameters.json__ file. Replace __RESOURCEGROUPNAME__ with the name of the group you created in the previous step:
-
-        azure group deployment create -f PATHTOTEMPLATE -e PATHTOPARAMETERSFILE -g RESOURCEGROUPNAME -n InitialDeployment
-
-    Once the deployment has been accepted, you should see a message similar to `group deployment create command ok`.
-
-7. It may take some time for the deployment to complete, around 15 minutes. you can view information about the deployment using the following command. Replace __RESOURCEGROUPNAME__ with the name of the resource group used in the previous step:
-
-        azure group log show -l RESOURCEGROUPNAME
-
-    Once the deployment completes, the __Status__ field will contain the value __Succeeded__.  If a failure occurs during deployment, you can get more information on the failure using the following command
-
-        azure group log show -l -v RESOURCEGROUPNAME
+    It may take several minutes for the cluster creation process to finish. Usually around 15.
 
 ##Next steps
 
-Now that you have successfully created an HDInsight cluster, use the following to learn how to work with your cluster:
+Now that you have successfully created an HDInsight cluster using the Azure CLI, use the following to learn how to work with your cluster:
 
 ###Hadoop clusters
 

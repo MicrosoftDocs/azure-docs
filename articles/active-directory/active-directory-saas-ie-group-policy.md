@@ -3,8 +3,8 @@
     description="How to use group policy to deploy the Internet Explorer add-on for the My Apps portal."
     services="active-directory"
     documentationCenter=""
-    authors="liviodlc"
-    manager="stevenpo"
+    authors="MarkusVi"
+    manager="femila"
     editor=""/>
 <tags
     ms.service="active-directory"
@@ -12,8 +12,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="02/09/2016"
-    ms.author="liviodlc"/>
+    ms.date="08/16/2016"
+    ms.author="markvi"/>
 
 #How to Deploy the Access Panel Extension for Internet Explorer using Group Policy
 

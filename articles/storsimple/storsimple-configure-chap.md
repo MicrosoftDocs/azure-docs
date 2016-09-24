@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="TBD"
-   ms.date="02/12/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Configure CHAP for your StorSimple device
@@ -31,7 +31,7 @@ The CHAP settings on the StorSimple device can be configured in the following wa
 
 - Bidirectional or mutual or reverse authentication
 
-In each of these cases, the portal for the device and the server iSCSI initiator software need to be configured. The detailed steps for this configuration are described in the following tutorial.
+In each of these cases, the portal for the device and the server iSCSI initiator software needs to be configured. The detailed steps for this configuration are described in the following tutorial.
 
 ## Unidirectional or one-way authentication
 
@@ -54,6 +54,7 @@ In unidirectional authentication, the target authenticates the initiator. This a
 	3. Confirm the password.
 
 4. Click **Save**. A confirmation message will be displayed. Click **OK** to save the changes.
+
 #### To configure one-way authentication on the Windows host server
 
 1. On the Windows host server, start the iSCSI Initiator.
@@ -84,7 +85,7 @@ In unidirectional authentication, the target authenticates the initiator. This a
 
 	4. Click **OK**.
 
-		![Advanceds settings general](./media/storsimple-configure-chap/IC740946.png)
+		![Advanced settings general](./media/storsimple-configure-chap/IC740946.png)
 
 5. On the **Targets** tab of the **iSCSI Initiator Properties** window, the device status should appear as **Connected**. If you are using a StorSimple 1200 device, then each volume will be mounted as an iSCSI target as shown below. Hence, steps  3-4 will need to be repeated for each volume.
 
@@ -155,7 +156,7 @@ In bidirectional authentication, the target authenticates the initiator and then
 
 	4. Select the **Perform mutual authentication** check box.
 
-		![Advanceds settings mutual authentication](./media/storsimple-configure-chap/IC740950.png)
+		![Advanced settings mutual authentication](./media/storsimple-configure-chap/IC740950.png)
 
 	5. Click **OK** to complete the CHAP configuration
 	 

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/03/2016"
+   ms.date="05/13/2016"
    ms.author="alkohli" />
 
 # StorSimple Virtual Array release notes
@@ -40,4 +40,4 @@ The following table provides a summary of known issues in this release.
 | **10.** | Azure PowerShell | The StorSimple virtual devices cannot be managed through the Azure PowerShell in this release. | All the management of the virtual devices should be done through the Azure classic portal and the local web UI. |
 | **11.** | Password change | The virtual array device console only accepts input in en-US keyboard format. |   |
 | **12.** | CHAP | CHAP credentials once created cannot be removed. Additionally, if you modify the CHAP credentials, you will need to take the volumes offline and then bring them online for the change to take effect. | These will be addressed in a later release. |
-| **13.** | Locally pinned volumes  | The 'Used storage' displayed for a locally pinned volume may be different in the service and the iSCSI host. | The host has the filesystem  view.<br></br>The device sees the blocks allocated when the volume was at the maximum size.|
+| **13.** | iSCSI server  | The 'Used storage' displayed for an iSCSI volume may be different in the StorSimple Manager service and the iSCSI host. | The iSCSI host has the filesystem  view.<br></br>The device sees the blocks allocated when the volume was at the maximum size.|

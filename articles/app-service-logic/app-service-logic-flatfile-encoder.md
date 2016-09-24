@@ -1,14 +1,14 @@
 <properties 
    pageTitle="Using the BizTalk Flat File Encoder in a logic app| Microsoft Azure" 
    description="BizTalk Flat File Encoder API app or connector" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
    manager="erikre" 
    editor=""/>
 
 <tags
-   ms.service="app-service-logic" 	
+   ms.service="logic-apps" 	
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"

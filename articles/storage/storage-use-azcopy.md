@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/21/2016"
-	ms.author="micurd"/>
+	ms.date="09/02/2016"
+	ms.author="micurd;tamram"/>
 
 # Transfer data with the AzCopy Command-Line Utility
 
@@ -40,7 +40,7 @@ The basic syntax for AzCopy commands is:
 
 	AzCopy /Source:<source> /Dest:<destination> [Options]
 
-Open a command window and navigate to the AzCopy installation directory on your computer - where the `AzCopy.exe` executable is located. If desired, you can add the AzCopy installation location to your system path. By default, AzCopy is installed to `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` (64-bit Windows) or `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy` (32-bit Windows).
+Open a command window and navigate to the AzCopy installation directory on your computer - where the `AzCopy.exe` executable is located. If desired, you can add the AzCopy installation location to your system path. By default, AzCopy is installed to `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` or `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`.
 
 The following examples demonstrate a variety of scenarios for copying data to and from Microsoft Azure Blobs, Files, and Tables. Refer to the [AzCopy Parameters](#azcopy-parameters) section for a detailed explanation of the parameters used in each sample.
 
@@ -357,7 +357,7 @@ The option `/EntityOperation` indicates how to insert entities into the table. P
 
 Note that you cannot specify option `/PKRS` in the import scenario. Unlike the export scenario, in which you must specify option `/PKRS` to start concurrent operations, AzCopy will by default start concurrent operations when you import a table. The default number of concurrent operations started is equal to the number of core processors; however, you can specify a different number of concurrent with option `/NC`. For more details, type `AzCopy /?:NC` at the command line.
 
-Note that AzCopy only supports importing for JSON, not CSV.
+Note that AzCopy only supports importing for JSON, not CSV. AzCopy does not support table imports from user-created JSON and manifest files. Both of these files must come from an AzCopy table export. To avoid errors, please do not modify the exported JSON or manifest file.
 
 ### Import entities to table using blobs
 
@@ -381,6 +381,8 @@ The `/XO` and `/XN` parameters allow you to exclude older or newer source resour
 	/Source:C:\myfolder /Dest:http://myaccount.file.core.windows.net/myfileshare /DestKey:<destkey> /S /XO /XN
 
 	/Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:http://myaccount.blob.core.windows.net/mycontainer1 /SourceKey:<sourcekey> /DestKey:<destkey> /S /XO /XN
+
+Note: This is not supported when either the source or destination is a table.
 
 ### Use a response file to specify command-line parameters
 
@@ -583,7 +585,7 @@ AzCopy always sets the Content-MD5 property for an Azure blob or file after uplo
 
 Indicates whether to transfer snapshots. This option is only valid when the source is a blob.
 
-The transferred blob snapshots are renamed in this format: [blob-name] (snapshot-time)[extension].
+The transferred blob snapshots are renamed in this format: blob-name (snapshot-time).extension
 
 By default, snapshots are not copied.
 

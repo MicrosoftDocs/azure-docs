@@ -1,10 +1,10 @@
 <properties
-pageTitle="Use the SharePoint Online API in your Logic Apps or Power Apps| Microsoft Azure"
-description="Get started using the Azure App Service SharePoint Online API in your Logic apps and your PowerApps."
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Use the SharePoint Online Connector in your Logic Apps | Microsoft Azure"
+description="Get started using the Azure App Service SharePoint Online Connector  in your Logic apps."
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,27 +14,23 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/26/2016"
+ms.date="08/18/2016"
 ms.author="deonhe"/>
 
-# Get started with the SharePoint Online API
+# Get started with the SharePoint Online Connector 
 
-The SharePoint Connection Provider provides an API to work with Lists on SharePoint.
+The SharePoint Connector provides an way to work with Lists on SharePoint.
 
 >[AZURE.NOTE] This version of the article applies to logic apps 2015-08-01-preview schema version.
 
-With SharePoint, you can:
-
-* Use it to build logic apps
-* Use it to build PowerApps  
 
 To add an operation in logic apps, see [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Let's talk about triggers and actions
 
-The SharePoint API can be used as an action; it has trigger(s). All APIs support data in JSON and XML formats. 
+The SharePoint Connector  can be used as an action; it has trigger(s). All connectors support data in JSON and XML formats. 
 
-The SharePoint API has the following action(s) and/or trigger(s) available:
+The SharePoint Connector  has the following action(s) and/or trigger(s) available:
 
 ### SharePoint actions
 You can take these action(s):
@@ -66,13 +62,13 @@ You can listen for these event(s):
 
 
 ## Create a connection to SharePoint
-To use the SharePoint API, you first create a **connection** then provide the details for these properties: 
+To use the SharePoint Connector , you first create a **connection** then provide the details for these properties: 
 
 |Property| Required|Description|
 | ---|---|---|
 |Token|Yes|Provide SharePoint Credentials|
 
-In order to connect to **SharePoint Online**, you need to provide your identity (username and password, smart card credentials, etc.) to SharePoint Online. Once you've been authenticated, you can proceed to use the SharePoint Online API in your logic app. 
+In order to connect to **SharePoint Online**, you need to provide your identity (username and password, smart card credentials, etc.) to SharePoint Online. Once you've been authenticated, you can proceed to use the SharePoint Online Connector  in your logic app. 
 
 While on the designer of your logic app, follow these steps to sign into SharePoint to create the connection **connection** for use in your logic app:
 
@@ -88,7 +84,6 @@ While on the designer of your logic app, follow these steps to sign into SharePo
 6. You can then add other triggers and actions that you need to complete your logic app.   
 7. Save your work by selecting **Save** on the menu bar above.  
 
->[AZURE.TIP] You can use this connection in other logic apps or PowerApps or both.
 
 ## SharePoint REST API reference
 #### This documentation is for version: 1.0
@@ -698,10 +693,9 @@ None of the properties are required.
 
 ## Next Steps
 [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)  
-[Create a power app](../power-apps/powerapps-get-started-azure-portal.md)  
 
-[1]: ./media/connectors-create-api-sharepointonline/connectionconfig1.png
-[2]: ./media/connectors-create-api-sharepointonline/connectionconfig2.png 
-[3]: ./media/connectors-create-api-sharepointonline/connectionconfig3.png
-[4]: ./media/connectors-create-api-sharepointonline/connectionconfig4.png
-[5]: ./media/connectors-create-api-sharepointonline/connectionconfig5.png
+[1]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig1.png  
+[2]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig2.png 
+[3]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig3.png
+[4]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig4.png
+[5]: ../../includes/media/connectors-create-api-sharepointonline/connectionconfig5.png

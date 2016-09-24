@@ -1,23 +1,23 @@
 <properties 
     pageTitle="Service Bus architecture | Microsoft Azure"
-    description="Describes the message processing architecture of Azure Service Bus."
+    description="Describes the message and relay processing architecture of Azure Service Bus."
     services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
     manager="timlt"
-    editor="tysonn" />
+    editor="" />
 <tags 
     ms.service="service-bus"
     ms.devlang="na"
     ms.topic="get-started-article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="04/19/2016"
+    ms.date="07/11/2016"
     ms.author="sethm" />
 
 # Service Bus architecture
 
-This article describes the message processing architecture of Azure Service Bus.
+This article describes the message and relay processing architecture of Azure Service Bus.
 
 ## Service Bus scale units
 
@@ -53,7 +53,7 @@ When the relay connection is established, the clients can exchange messages via 
 
 ## Next steps
 
-Now that you've read an overview of how Service Bus works, to get started visit the following links:
+Now that you've read an overview of Service Bus architecture, to get started visit the following links:
 
 - [Service Bus messaging overview](service-bus-messaging-overview.md)
 - [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)

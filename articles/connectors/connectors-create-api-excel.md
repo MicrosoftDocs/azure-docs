@@ -1,10 +1,10 @@
 <properties
-pageTitle="Add the Excel API in PowerApps Enterprise | Microsoft Azure"
-description="Overview of the Excel API with REST API parameters"
-services=""	
-documentationCenter="" 	
-authors="msftman"	
-manager="erikre"	
+pageTitle="Add the Excel connector | Microsoft Azure"
+description="Overview of the Excel connector with REST API parameters"
+services=""    
+documentationCenter=""     
+authors="msftman"    
+manager="erikre"    
 editor=""
 tags="connectors"/>
 
@@ -14,20 +14,23 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="na"
-ms.date="02/25/2016"
+ms.date="08/23/2016"
 ms.author="deonhe"/>
 
-# Get started with the Excel API
+# Get started with the Excel connector
 
-Connect to Excel to insert a row, delete a row, and more. The Excel API can be be used from:
+Currently, there is no Excel connector in Logic Apps. 
 
-- PowerApps
+## To use Excel data
+You can store Excel data as a comma-separated value (CSV) file in a storage folder, such as [OneDrive](connectors-create-api-onedrive.md). You can also use this CSV file with the [flat-file connector](../app-service-logic/app-service-logic-enterprise-integration-flatfile.md).
 
-With Excel, you can:
+<!---
 
-- Add the Excel API to PowerApps Enterprise. Then, your users can use this API within their apps. 
+There is no Excel connector in Logic Apps. Originally, this topic only referenced PowerApps. Removed all PowerApps references. 
 
-For information on how to add an API in PowerApps Enterprise, go to [Register an API in PowerApps](../power-apps/powerapps-register-from-available-apis.md). 
+
+
+Connect to Excel to insert a row, delete a row, and more. 
 
 ## Triggers and actions
 Excel includes the following action. There are no triggers. 
@@ -36,7 +39,7 @@ Excel includes the following action. There are no triggers.
 |--- | ---|
 |None | <ul><li>Get rows</li><li>Insert row</li><li>Delete row</li><li>Get row</li><li>Get tables</li><li>Update row</li></ul>
 
-All APIs support data in JSON and XML formats. 
+All connectors support data in JSON and XML formats. 
 
 ## Swagger REST API reference
 Applies to version: 1.0.
@@ -207,4 +210,6 @@ Applies to version: 1.0.
 
 ## Next Steps
 [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md)  
-[Create a power app](../power-apps/powerapps-get-started-azure-portal.md)
+
+
+-->

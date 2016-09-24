@@ -4,7 +4,7 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="hning86"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/11/2016"
+	ms.date="09/06/2016"
 	ms.author="haining;chlovel;garye"/>
 
 # Microsoft Cortana Intelligence Competitions FAQ
@@ -33,7 +33,7 @@ forum](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning
 
 **How do I enter a competition?**
 
-Access the Competitions home page Competitions home page via the Cortana Intelligence Gallery. This page contains all competitions that are running. Each competition will have detailed instructions and participation rules, prizes, and duration on its sign up page. Please go [here](http://aka.ms/CIComp) to access the Competitions home page.  
+Access the Competitions home page via the Cortana Intelligence Gallery. This page contains all competitions that are running. Each competition will have detailed instructions and participation rules, prizes, and duration on its sign up page. Please go [here](http://aka.ms/CIComp) to access the Competitions home page.  
 
 1. Find the competition you’d like to participate in Cortana Intelligence Gallery, read all the instructions and watch the tutorial video, then click on the “Enter Competition” button to copy the Starter Experiment into your existing Azure Machine Learning workspace. If you don’t already have access to a workspace, you must create one beforehand. Run the Starter Experiment, observe the performance metric, then use your creativity to improve the performance of the model. You will likely spend majority of your time in this step.   
 
@@ -56,7 +56,7 @@ No. In fact, we encourage data enthusiasts, those curious about data science, an
 
 * Data Stewards: those who have the knowledge about the data, what it means, and how it is intended to be used and for which purpose.
 
-* Students & Researchers: those who are learning and gaining data related skills via academic programs in universities or participants of Massively Open Online Courses (MOOCs)
+* Students & Researchers: those who are learning and gaining data related skills via academic programs in universities or participants of Massive Open Online Courses (MOOCs)
 
 
 **Can I enter with my colleagues as a team?**
@@ -75,7 +75,7 @@ In most competitions, you will notice that you will receive a public score for e
 
 * The entire dataset used in the competition is randomly split with stratification into training and testing (the remaining) data. The random split is stratified to ensure that the distributions of labels in both training and testing data are consistent.
  
-* The training data is uploaded and given to you as part of the Starter Experiment in the Reader module configuration.
+* The training data is uploaded and given to you as part of the Starter Experiment in the Import Data module configuration.
 
 * The testing data is further split into public and private testing data, using the same stratification.
 

@@ -13,15 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/08/2016"   
+	ms.date="09/12/2016"   
 	ms.author="adsolank;juliako;johndeu"/>
 
 
 # Indexing Media Files with Azure Media Indexer
-
-> [AZURE.SELECTOR]
-- [Portal](media-services-manage-content.md#index)
-- [.NET](media-services-index-content.md)
 
 
 Azure Media Indexer enables you to make content of your media files searchable and to generate a full-text transcript for closed captioning and keywords. You can process one media file or multiple media files in a batch.  
@@ -50,7 +46,7 @@ You can specify more details for your indexing tasks by using a task configurati
 
 You can also process multiple media files at once by using a manifest file.
 
-For more information, see [Task Preset for Azure Media Indexer](#).
+For more information, see [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/library/dn783454.aspx).
 
 ## Index an asset
 
@@ -166,7 +162,7 @@ If not all input media files are indexed successfully, the indexing job will fai
 
 The following method uploads multiple media files as an asset, and creates a job to index all these files in a batch.
 
-A manifest file with the .lst extension is created and uploading into the asset. The manifest file contains the list of all the asset files. For more information, see [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/library/azure/dn783454.aspx).
+A manifest file with the .lst extension is created and uploading into the asset. The manifest file contains the list of all the asset files. For more information, see [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/library/dn783454.aspx).
 
 	static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
 	{
@@ -272,7 +268,7 @@ Code | Name | Possible Reasons
 2005 | Unsupported file type | Input media file type is not supported.
 2006 | Too many input files | There are more than 10 files in the input manifest.
 3000 | Failed to decode media file | Unsupported media codec <br/>or<br/> Corrupted media file <br/>or<br/> No audio stream in input media.
-4000 | Batch indexing partially succeeded | Some of the input media files are failed to be indexed. For more information, see <a href="output_files">Output files</a>.
+4000 | Batch indexing partially succeeded | Some of the input media files are failed to be indexed. For more information, see <a href="#output_files">Output files</a>.
 other | Internal errors | Please contact support team. indexer@microsoft.com
 
 

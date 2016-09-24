@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="03/28/2016"
+   ms.date="08/22/2016"
    ms.author="barbkess;sonyama"/>
 
 # System views
@@ -58,6 +58,14 @@
 - [sys.dm_pdw_wait_stats](http://msdn.microsoft.com/library/mt203909.aspx)
 - [sys.dm_pdw_waits](http://msdn.microsoft.com/library/mt203909.aspx)
 
+## SQL Server DMVs applicable to SQL Data Warehouse
+
+The following DMVs are applicable to SQL Data Warehouse, but must be executed by connecting to the **master** database.
+
+- [sys.database_service_objectives](https://msdn.microsoft.com/library/mt712619.aspx)
+- [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx)
+- [sys.fn_helpcollations()](https://msdn.microsoft.com/library/ms187963.aspx)
+
 ## SQL Server catalog views
 
 - [sys.all_columns](http://msdn.microsoft.com/library/ms177522.aspx)
@@ -81,7 +89,6 @@
 - [sys.database_role_members](http://msdn.microsoft.com/library/ms189780.aspx)
 - [sys.databases](http://msdn.microsoft.com/library/ms178534.aspx)
 - [sys.default_constraints](http://msdn.microsoft.com/library/ms173758.aspx)
-- [sys.extended_properties](http://msdn.microsoft.com/library/ms177541.aspx)
 - [sys.external_data_sources](http://msdn.microsoft.com/library/dn935019.aspx)
 - [sys.external_file_formats](http://msdn.microsoft.com/library/dn935025.aspx)
 - [sys.external_tables](http://msdn.microsoft.com/library/dn935029.aspx)
@@ -128,7 +135,7 @@
 
 ## SQL Server DMVs available in SQL Data Warehouse
 
-SQL Data Warehouse exposes many of the SQL Server dynamic management views (DMVs). These views, when queried in SQL Data Warehouse, are reporting the state of SQL Database running on the distributions.
+SQL Data Warehouse exposes many of the SQL Server dynamic management views (DMVs). These views, when queried in SQL Data Warehouse, are reporting the state of SQL Databases running on the distributions.
 
 Since SQL Data Warehouse is built on Microsoft's MPP technology, both SQL Data Warehouse and Analytics Platform System's Parallel Data Warehouse (PDW) use the same system views.
 

@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/11/2016"
+	ms.date="07/18/2016"
 	ms.author="jodebrui"/>
 
 
 # Monitor In-Memory OLTP Storage
 
-When using [In-Memory OLTP](sql-database-in-memory.md), data in memory-optimized tables and table variables resides in in-memory OLTP storage. Each Premium service tier has a maximum in-memory storage size, which is documented in the [SQL Database Service Tiers article](sql-database-service-tiers.md#service-tiers-for-single-databases). Once this limit is exceeded, insert and update operations may start failing (with error 41823). At that point you will need to either delete data to reclaim memory, or upgrade the performance tier of your database.
+When using [In-Memory OLTP](sql-database-in-memory.md), data in memory-optimized tables and table variables resides in In-Memory OLTP storage. Each Premium service tier has a maximum In-Memory OLTP storage size, which is documented in the [SQL Database Service Tiers article](sql-database-service-tiers.md#service-tiers-for-single-databases). Once this limit is exceeded, insert and update operations may start failing (with error 41823). At that point you will need to either delete data to reclaim memory, or upgrade the performance tier of your database.
 
 ## Determine whether data will fit within the in-memory storage cap
 
@@ -35,12 +35,12 @@ Note that the table and table variable rows, as well as indexes, count toward th
 You can monitor in-memory storage use as a percentage of the [storage cap for your performance tier](sql-database-service-tiers.md#service-tiers-for-single-databases) in the Azure [portal](https://portal.azure.com/): 
 
 - On the Database blade, locate the Resource utilization box and click on Edit.
-- Then select the metric In-Memory OLTP Storage percentage.
+- Then select the metric `In-Memory OLTP Storage percentage`.
 - To add an alert, click on the Resource Utilization box to open the Metric blade, then click on Add alert.
 
 Or use the following query to show the in-memory storage utilization:
 
-    select xtp_storage_percent from sys.dm_db_resource_stats
+    SELECT xtp_storage_percent FROM sys.dm_db_resource_stats
 
 
 ## Correct out-of-memory situations - Error 41823
@@ -56,4 +56,4 @@ To resolve this error, either:
 - Upgrade the service tier to one with enough in-memory storage for the data you need to keep in memory-optimized tables.
 
 ## Next steps
-Learn more about about [Monitoring Azure SQL Database using dynamic management views](sql-database-monitoring-with-dmvs.md)
+Additional resources about about [Monitoring Azure SQL Database using dynamic management views](sql-database-monitoring-with-dmvs.md)

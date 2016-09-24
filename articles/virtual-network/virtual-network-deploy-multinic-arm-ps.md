@@ -3,7 +3,7 @@
    description="Learn how to deploy multi NIC VMs using PowerShell in Resource Manager"
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor=""
    tags="azure-resource-manager"
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/02/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 #Deploy multi NIC VMs using PowerShell
 
@@ -27,7 +27,7 @@
 
 [AZURE.INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-Currently, you cannot have VMs with a single NIC and VMs with multiple NICs in the same resource group. Therefore, you need to implement the back end servers in a different resource group than all other components. The steps below use a resource group named *IaaSStory* for the main resource group, and *IaaSStory-BackEnd* for the back end servers.
+Currently, you cannot have VMs with a single NIC and VMs with multiple NICs in the same availability set. Therefore, you need to implement the back end servers in a different resource group than all other components. The steps below use a resource group named *IaaSStory* for the main resource group, and *IaaSStory-BackEnd* for the back end servers.
 
 ## Prerequisites
 
@@ -77,6 +77,7 @@ You can download the full PowerShell script used [here](https://raw.githubuserco
 		$vmNamePrefix          = "DB"
 		$osDiskPrefix          = "osdiskdb"
 		$dataDiskPrefix        = "datadisk"
+		$diskSize	           = "120"	
 		$nicNamePrefix         = "NICDB"
 		$ipAddressPrefix       = "192.168.2."
 		$numberOfVMs           = 2
@@ -139,12 +140,12 @@ You need to use a loop to create as many VMs as you want, and create the necessa
 
 5. Create two data disks per VM. Notice that the data disks are in the premium storage account created earlier.
 
-		    $dataDisk1Name = $vmName + "-" + $dataDiskSuffix + "-1"    
+		    $dataDisk1Name = $vmName + "-" + $osDiskPrefix + "-1"    
 		    $data1VhdUri = $prmStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $dataDisk1Name + ".vhd"
 		    Add-AzureRmVMDataDisk -VM $vmConfig -Name $dataDisk1Name -DiskSizeInGB $diskSize `
 				-VhdUri $data1VhdUri -CreateOption empty -Lun 0
 
-		    $dataDisk2Name = $vmName + "-" + $dataDiskSuffix + "-2"    
+		    $dataDisk2Name = $vmName + "-" + $dataDiskPrefix + "-2"    
 		    $data2VhdUri = $prmStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $dataDisk2Name + ".vhd"
 		    Add-AzureRmVMDataDisk -VM $vmConfig -Name $dataDisk2Name -DiskSizeInGB $diskSize `
 				-VhdUri $data2VhdUri -CreateOption empty -Lun 1

@@ -14,172 +14,139 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2016"
+	ms.date="07/14/2016"
 	ms.author="davidmu"/>
 
 # Manage virtual machines in a Virtual Machine Scale Set
 
-Azure PowerShell provides you with a lot of power and flexibility when managing resources in Microsoft Azure. Use the tasks in this article to manage virtual machine resources in your Virtual Machine Scale Set.
+Use the tasks in this article to manage virtual machine resources in your Virtual Machine Scale Set.
 
-- [Display information about a virtual machine scale set](#displayvm)
-- [Start a virtual machine in a scale set](#start)
-- [Stop a virtual machine in a scale set](#stop)
-- [Restart a virtual machine in a scale set](#restart)
-- [Delete a virtual machine from a scale set](#delete)
+All of the tasks that involve managing a virtual machine in a scale set require that you know the instance ID of the machine that you want to manage. You can use [Azure Resource Explorer](https://resources.azure.com) to find the instance ID of a virtual machine in a scale set. You also use Resource Explorer to verify the status of the tasks that you finish.
 
-All of the tasks that involve managing a virtual machine in a scale set require that you know the instance id of the machine that you want to manage. You can use [Azure Resource Explorer](https://resources.azure.com) to find the instance id of a virtual machine in a scale set. You also use Resource Explorer to verify the status of the tasks that you finish.
+See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for information about how to install the latest version of Azure PowerShell, select the subscription that you want to use, and sign in to your Azure account.
 
-[AZURE.INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
-
-## <a id="displayvm"></a>Display information about a virtual machine scale set
+## Display information about a virtual machine scale set
 
 You can get general information about a scale set, which is also referred to as the instance view. Or, you can get more specific information, such as information about the resources in the set.
 
-In this command, replace *resource group name* with the name of the resource group that contains the virtual machine scale set and *scale set name* with the name of the virtual machine scale set, and then run it:
+In this command, replace *resource group name* with the name of the resource group that contains the virtual machine scale set, *scale set name* with the name of the virtual machine scale set, and then run it:
 
     Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name"
 
 It returns something like this:
 
-    Sku                      :  {
-                                  "name": "Standard_A0",
-                                  "tier": "Standard",
-                                  "capacity": 4
-                                }
-    UpgradePolicy            :  {
-                                  "mode": "Manual"
-                                }
-    VirtualMachineProfile    :  {
-                                  "osProfile": {
-                                    "computerNamePrefix": "myvmss1",
-                                    "adminUserName": "user1",
-                                    "adminPassword": null,
-                                    "customData": null,
-                                    "windowsConfiguration": {
-                                      "provisionVMAgent": true,
-                                      "enableAutomaticUpdates": true,
-                                      "timeZone": null,
-                                      "additionalUnattendContent": null,
-                                      "winRM": null
-                                    }
-                                    "linuxConfiguration": null,
-                                    "secrets": []
-                                  },
-                                  "storageProfile": {
-                                    "imageReference": {
-                                      "publisher": "MicrosoftWindowsServer",
-                                      "offer": "WindowsServer",
-                                      "sku": "2012-R2-Datacenter",
-                                      "version": "latest"
-                                    },
-                                    "osDisk": {
-                                      "name": "vmssosdisk",
-                                      "caching": "ReadOnly",
-                                      "createOption": "FromImage",
-                                      "osType": null,
-                                      "image": null,
-                                      "vhdContainers": [
-                                        "https://amyst1.blob.core.windows.net/vmss",
-                                        "https://gmyst1.blob.core.windows.net/vmss",
-                                        "https://mmyst1.blob.core.windows.net/vmss",
-                                        "https://smyst1.blob.core.windows.net/vmss",
-                                        "https://ymyst1.blob.core.windows.net/vmss"
-                                      ]
-                                    }
-                                  },
-                                  "networkProfile": {
-                                    "networkInterfaceConfigurations": [
-                                      {
-                                        "name": "myresnc2",
-                                        "properties.primary": true,
-                                        "properties.ipConfigurations": [
-                                          {
-                                            "name": "ip1",
-                                            "properties.subnet": {
-                                              "id": "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/myresvn1/subnets/myressn1"
-                                            },
-                                            "properties.loadBalancerBackendAddressPools": [
-                                              {
-                                                "id": "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/myreslb1/backendAddressPools/bepool1"
-                                              }
-                                            ],
-                                            "properties.loadBalancerInboundNatPools": [
-                                              {
-                                                "id": "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/myreslb1/inboundNatPools/natpool1"
-                                              }
-                                            ],
-                                            "id": null
-                                          }
-                                        ],
-                                        "id": null
-                                      }
-                                    ]
-                                  },
-                                  "extensionProfile": {
-                                    "extensions": [
-                                      {
-                                        "name": "Microsoft.Insights.VMDiagnosticsSettings",
-                                        "properties.publisher": "Microsoft.Azure.Diagnostics",
-                                        "properties.type": "IaaSDiagnostics",
-                                        "properties.typeHandlerVersion": "1.5",
-                                        "properties.autoUpgradeMinorVersion": true,
-                                        "properties.settings": {
-                                          "xmlCfg": "{encoded configuration}",
-                                          "storageAccount": "amyst1"
-                                        },
-                                        "properties.protectedSettings": null,
-                                        "properties.provisioningState": null,
-                                        "id": null
-                                      }
-                                    ]
-                                  }
-                                }
-    ProvisioningState           : Succeeded
-    Id                          : /subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachineScaleSets/myvmss1
-    Name                        : myvmss1
-	Type                        : Microsoft.Compute/virtualMachineScaleSets
-	Location                    : westus
-	Tags.Count                  : 0
-	Tags                        :
+    Id                                          : /subscriptions/{sub-id}/resourceGroups/myrg1/providers/Microsoft.Compute/virtualMachineScaleSets/myvmss1
+    Name                                        : myvmss1
+    Type                                        : Microsoft.Compute/virtualMachineScaleSets
+    Location                                    : centralus
+    Sku                                         :
+      Name                                      : Standard_A0
+      Tier                                      : Standard
+      Capacity                                  : 3
+    UpgradePolicy                               :
+      Mode                                      : Manual
+    VirtualMachineProfile                       :
+      OsProfile                                 :
+        ComputerNamePrefix                      : vmss1
+        AdminUsername                           : admin1
+        WindowsConfiguration                    :
+          ProvisionVMAgent                      : True
+          EnableAutomaticUpdates                : True
+    StorageProfile                              :
+      ImageReference                            :
+        Publisher                               : MicrosoftWindowsServer
+        Offer                                   : WindowsServer
+        Sku                                     : 2012-R2-Datacenter
+        Version                                 : latest
+      OsDisk                                    :
+        Name                                    : vmssosdisk
+        Caching                                 : ReadOnly
+        CreateOption                            : FromImage
+        VhdContainers[0]                        : https://astore.blob.core.windows.net/vmss
+        VhdContainers[1]                        : https://gstore.blob.core.windows.net/vmss
+        VhdContainers[2]                        : https://mstore.blob.core.windows.net/vmss
+        VhdContainers[3]                        : https://sstore.blob.core.windows.net/vmss
+        VhdContainers[4]                        : https://ystore.blob.core.windows.net/vmss
+    NetworkProfile                              :
+      NetworkInterfaceConfigurations[0]         :
+        Name                                    : mync1
+        Primary                                 : True
+        IpConfigurations[0]                     :
+          Name                                  : ip1
+          Subnet                                :
+            Id                                  : /subscriptions/{sub-id}/resourceGroups/myrg1/providers/Microsoft.Network/virtualNetworks/myvn1/subnets/mysn1
+          LoadBalancerBackendAddressPools[0]    :
+            Id                                  : /subscriptions/{sub-id}/resourceGroups/myrg1/providers/Microsoft.Network/loadBalancers/mylb1/backendAddressPools/bepool1
+        LoadBalancerInboundNatPools[0]          :
+            Id                                  : /subscriptions/{sub-id}/resourceGroups/myrg1/providers/Microsoft.Network/loadBalancers/mylb1/inboundNatPools/natpool1
+    ExtensionProfile                            :
+      Extensions[0]                             :
+        Name                                    : Microsoft.Insights.VMDiagnosticsSettings
+        Publisher                               : Microsoft.Azure.Diagnostics
+        Type                                    : IaaSDiagnostics
+        TypeHandlerVersion                      : 1.5
+        AutoUpgradeMinorVersion                 : True
+        Settings                                : {"xmlCfg":"...","storageAccount":"astore"}
+    ProvisioningState                           : Succeeded
+    
+In this command, replace *resource group name* with the name of the resource group that contains the virtual machine scale set, *scale set name* with the name of the virtual machine scale set, and *#* with the instance identifier of the virtual machine that you want to get information about, and then run it:
 
-To get general information, replace *resource group name* with the name of the resource group that contains the virtual machine scale set and *scale set name* with the name of the virtual machine scale set, and then run it:
-
-	Get-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceView
-
+    Get-AzureRmVmssVM -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
+        
 It returns something like this:
 
-    VirtualMachine   :  {
-                          "statusesSummary": [
-                            {
-                              "code": "ProvisioningState/succeeded",
-                              "count": 4
-                            }
-                          ]
-                        }
-    Extensions.Count :  1
-    Extensions       :  {
-                          "name": "Microsoft.Insights.VMDiagnosticsSettings",
-                          "statusesSummary": [
-                            {
-                              "code": "ProvisioningState/succeeded",
-                              "count": 4
-                            }
-                          ]
-                        }
-	Statuses.Count   :  1
-	Statuses         :  {
-                          "code": "ProvisioningState/succeeded",
-                          "level": "Info",
-                          "displayStatus": "Provisioning succeeded",
-                          "message": null,
-                          "time": "2016-03-14T20:29:37.170809Z"
-                        }
+    Id                            : /subscriptions/{sub-id}/resourceGroups/myrg1/providers/Microsoft.Compute/
+                                    virtualMachineScaleSets/myvmss1/virtualMachines/0
+    Name                          : myvmss1_0
+    Type                          : Microsoft.Compute/virtualMachineScaleSets/virtualMachines
+    Location                      : centralus
+    InstanceId                    : 0
+    Sku                           :
+      Name                        : Standard_A0
+      Tier                        : Standard
+    LatestModelApplied            : True
+    StorageProfile                :
+      ImageReference              :
+        Publisher                 : MicrosoftWindowsServer
+        Offer                     : WindowsServer
+        Sku                       : 2012-R2-Datacenter
+        Version                   : 4.0.20160617
+      OsDisk                      :
+        OsType                    : Windows
+        Name                      : vmssosdisk-os-0-e11cad52959b4b76a8d9f26c5190c4f8
+        Vhd                       :
+          Uri                     : https://astore.blob.core.windows.net/vmss/vmssosdisk-os-0-e11cad52959b4b76a8d9f26c5190c4f8.vhd
+        Caching                   : ReadOnly
+        CreateOption              : FromImage
+    OsProfile                     :
+      ComputerName                : myvmss1-0
+      AdminUsername               : admin1
+      WindowsConfiguration        :
+        ProvisionVMAgent          : True
+        EnableAutomaticUpdates    : True
+    NetworkProfile                :
+      NetworkInterfaces[0]        :
+        Id                        : /subscriptions/{sub-id}/resourceGroups/myrg1/providers/Microsoft.Compute/virtualMachineScaleSets/
+                                    myvmss1/virtualMachines/0/networkInterfaces/mync1
+    ProvisioningState             : Succeeded
+    Resources[0]                  :
+      Id                          : /subscriptions/{sub-id}/resourceGroups/myrg1/providers/Microsoft.Compute/virtualMachines/
+                                    myvmss1_0/extensions/Microsoft.Insights.VMDiagnosticsSettings
+      Name                        : Microsoft.Insights.VMDiagnosticsSettings
+      Type                        : Microsoft.Compute/virtualMachines/extensions
+      Location                    : centralus
+      Publisher                   : Microsoft.Azure.Diagnostics
+      VirtualMachineExtensionType : IaaSDiagnostics
+      TypeHandlerVersion          : 1.5
+      AutoUpgradeMinorVersion     : True
+      Settings                    : {"xmlCfg":"...","storageAccount":"astore"}
+      ProvisioningState           : Succeeded
+        
+## Start a virtual machine in a scale set
 
-## <a id="start"></a>Start a virtual machine in a scale set
+In this command, replace *resource group name* with the name of the resource group that contains the virtual machine scale set, *scale set name* with the name of the scale set, *#* with the identifier of the virtual machine that you want to start, and then run it:
 
-In this command, replace *resource group name* with the name of the resource group that contains the virtual machine scale set, replace *VM scale set name* with the name of the scale set, replace *instance id* with the identifier of the virtual machine that you want to restart, and then run it:
-
-    Start-AzureRmVmssVM -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId "instance id"
+    Start-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
 
 In Resource Explorer, we can see that the status of the instance is **running**:
 
@@ -197,11 +164,13 @@ In Resource Explorer, we can see that the status of the instance is **running**:
       }
     ]
 
-## <a id="stop"></a>Stop a virtual machine in a scale set
+You can start all of the virtual machines in the set by not using the -InstanceId parameter.
+    
+## Stop a virtual machine in a scale set
 
-In this command, replace *resource group name* with the name of the resource group that contains the virtual machine scale set, replace *scale set name* with the name of the scale set, replace *instance id* with the identifier of the virtual machine that you want to stop, and then run it:
+In this command, replace *resource group name* with the name of the resource group that contains the virtual machine scale set, *scale set name* with the name of the scale set, *#* with the identifier of the virtual machine that you want to stop, and then run it:
 
-	Stop-AzureRmVmssVM -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId "instance id"
+	Stop-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
 
 In Resource Explorer, we can see that the status of the instance is **deallocated**:
 
@@ -218,15 +187,21 @@ In Resource Explorer, we can see that the status of the instance is **deallocate
         "displayStatus": "VM deallocated"
       }
     ]
+    
+To stop a virtual machine and not deallocate it, use the -StayProvisioned parameter. You can stop all of the virtual machines in the set by not using the -InstanceId parameter.
+    
+## Restart a virtual machine in a scale set
 
-## <a id="restart"></a>Restart a virtual machine in a scale set
+In this command, replace *resource group name* with the name of the resource group that contains the virtual machine scale set, *scale set name* with the name of the scale set, *#* with the identifier of the virtual machine that you want to restart, and then run it:
 
-In this command, replace *resource group name* with the name of the resource group that contains the virtual machine scale set, replace *scale set name* with the name of the scale set, replace *instance id* with the identifier of the virtual machine that you want to restart, and then run it:
+	Restart-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
+    
+You can restart all of the virtual machines in the set by not using the -InstanceId parameter.
 
-	Restart-AzureRmVmssVM -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId "instance id"
+## Remove a virtual machine from a scale set
 
-## <a id="delete"></a>Remove a virtual machine from a scale set
+In this command, replace *resource group name* with the name of the resource group that contains the virtual machine scale set, *scale set name* with the name of the scale set, *#* with the identifier of the virtual machine that you want to remove from the scale set, and then run it:  
 
-In this command, replace *resource group name* with the name of the resource group that contains the virtual machine scale set, replace *scale set name* with the name of the scale set, replace *instance id* with the identifier of the virtual machine that you want to remove from the scale set, and then run it:  
+	Remove-AzureRmVmss -ResourceGroupName "resource group name" –VMScaleSetName "scale set name" -InstanceId #
 
-	Remove-AzureRmVmssVM -ResourceGroupName "resource group name" –VMScaleSetName "scale set name" -InstanceId "instance id"
+You can remove the virtual machine scale set all at once by not using the -InstanceId parameter.

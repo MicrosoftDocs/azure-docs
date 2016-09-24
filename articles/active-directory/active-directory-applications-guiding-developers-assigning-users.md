@@ -3,8 +3,8 @@
 	description="How to implement user assignment for Azure applications."
 	services="active-directory"
 	documentationCenter=""
-	authors="IHenkel"
-	manager="stevenpo"
+	authors="femila"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/09/2015"
+	ms.date="08/15/2015"
 	ms.author="inhenk"/>
 
 # Azure AD and Applications: Assigning Users to an Application

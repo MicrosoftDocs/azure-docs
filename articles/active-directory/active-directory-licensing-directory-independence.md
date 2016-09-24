@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="01/05/2016"
+   ms.date="08/23/2016"
    ms.author="curtand"/>
 
 # Add and manage multiple Azure Active Directory directories

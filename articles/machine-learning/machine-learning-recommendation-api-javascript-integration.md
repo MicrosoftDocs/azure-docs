@@ -1,10 +1,10 @@
 <properties 
 	pageTitle="Machine Learning Recommendations: JavaScript Integration | Microsoft Azure" 
-	description="Azure Machine Learning Recommendations - JavaScript Integration ‚Äì documentation" 
+	description="Azure Machine Learning Recommendations - JavaScript Integration ñ documentation" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="AharonGumnik" 
-	manager="paulettm" 
+	authors="LuisCabrer" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,10 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="02/10/2016" 
+	ms.date="09/08/2016" 
 	ms.author="luisca"/>
 
 # Azure Machine Learning Recommendations - JavaScript Integration
+
+>[AZURE.NOTE] You should start using the Recommendations API Cognitive Service instead of this
+> version. The Recommendations Cognitive Service will be replacing this service, and all the new 
+> features will be developed there. It has new capabilities like batching support, a better API Explorer,
+> a cleaner API surface, more consistent signup/billing experience, etc.
+> Learn more about [Migrating to the new Cognitive Service](http://aka.ms/recomigrate)
+
 
 This document depict how to integrate your site using JavaScript. The JavaScript enables you to send Data Acquisition events and to consume recommendations once you build a recommendation model. All operations done via JS can be also done from server side.
 
@@ -59,7 +66,7 @@ The following steps facilitate sending events:
 1.	Include JQuery library in your code. You can download it from nuget in the following URL.
 
 		http://www.nuget.org/packages/jQuery/1.8.2
-2.	Include the Recommendations Java Script library from the following URL: http://1drv.ms/1Aoa1Zp
+2.	Include the Recommendations Java Script library from the following URL: http://aka.ms/RecoJSLib1
 
 3.	Initialize Azure ML Recommendations library with the appropriate parameters.
 
@@ -88,11 +95,11 @@ There are 5 types of event that the library supports: Click, Recommendation Clic
 This event should be used any time a user clicked on an item. Usually when user clicks on an item a new page is opened with the item details; in this page this event should be triggered.
 
 Parameters:
-- event (string, mandatory) ‚Äì ‚Äúclick‚Äù
-- item (string, mandatory) ‚Äì Unique identifier of the item
-- itemName (string, optional) ‚Äì the name of the item
-- itemDescription (string, optional) ‚Äì the description of the item
-- itemCategory (string, optional) ‚Äì the category of the item
+- event (string, mandatory) ñ ìclickî
+- item (string, mandatory) ñ Unique identifier of the item
+- itemName (string, optional) ñ the name of the item
+- itemDescription (string, optional) ñ the description of the item
+- itemCategory (string, optional) ñ the category of the item
 		
 		<script>
 			if (typeof AzureMLRecommendationsEvent == "undefined") { AzureMLRecommendationsEvent = []; }
@@ -111,13 +118,13 @@ Or with optional data:
 This event should be used any time a user clicked on an item that was received from Azure ML Recommendations as a recommended item. Usually when user clicks on an item a new page is opened with the item details; in this page this event should be triggered.
 
 Parameters:
-- event (string, mandatory) ‚Äì ‚Äúrecommendationclick‚Äù
-- item (string, mandatory) ‚Äì Unique identifier of the item
-- itemName (string, optional) ‚Äì the name of the item
-- itemDescription (string, optional) ‚Äì the description of the item
-- itemCategory (string, optional) ‚Äì the category of the item
-- seeds (string array, optional) ‚Äì the seeds that generated the recommendation query.
-- recoList (string array, optional) ‚Äì the result of the recommendation request that generated the item that was clicked.
+- event (string, mandatory) ñ ìrecommendationclickî
+- item (string, mandatory) ñ Unique identifier of the item
+- itemName (string, optional) ñ the name of the item
+- itemDescription (string, optional) ñ the description of the item
+- itemCategory (string, optional) ñ the category of the item
+- seeds (string array, optional) ñ the seeds that generated the recommendation query.
+- recoList (string array, optional) ñ the result of the recommendation request that generated the item that was clicked.
 		
 		<script>
 			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = []; }
@@ -135,11 +142,11 @@ Or with optional data:
 ####3.2.3. Add Shopping Cart Event
 This event should be used when the user add an item to the shopping cart.
 Parameters:
-* event (string, mandatory) ‚Äì ‚Äúaddshopcart‚Äù
-* item (string, mandatory) ‚Äì Unique identifier of the item
-* itemName (string, optional) ‚Äì the name of the item
-* itemDescription (string, optional) ‚Äì the description of the item
-* itemCategory (string, optional) ‚Äì the category of the item
+* event (string, mandatory) ñ ìaddshopcartî
+* item (string, mandatory) ñ Unique identifier of the item
+* itemName (string, optional) ñ the name of the item
+* itemDescription (string, optional) ñ the description of the item
+* itemCategory (string, optional) ñ the category of the item
 		
 		<script>
 			if (typeof AzureMLRecommendationsEvent == "undefined") { AzureMLRecommendationsEvent = []; }
@@ -150,11 +157,11 @@ Parameters:
 This event should be used when the user removes an item to the shopping cart.
 
 Parameters:
-* event (string, mandatory) ‚Äì ‚Äúremoveshopcart‚Äù
-* item (string, mandatory) ‚Äì Unique identifier of the item
-* itemName (string, optional) ‚Äì the name of the item
-* itemDescription (string, optional) ‚Äì the description of the item
-* itemCategory (string, optional) ‚Äì the category of the item
+* event (string, mandatory) ñ ìremoveshopcartî
+* item (string, mandatory) ñ Unique identifier of the item
+* itemName (string, optional) ñ the name of the item
+* itemDescription (string, optional) ñ the description of the item
+* itemCategory (string, optional) ñ the category of the item
 		
 		<script>
 			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = []; }
@@ -165,12 +172,12 @@ Parameters:
 This event should be used when the user purchased his shopping cart.
 
 Parameters:
-* event (string) ‚Äì ‚Äúpurchase‚Äù
-* items ( Purchased[] ) ‚Äì Array holding an entry for each item purchased.<br><br>
+* event (string) ñ ìpurchaseî
+* items ( Purchased[] ) ñ Array holding an entry for each item purchased.<br><br>
 Purchased format:
 	* item (string) - Unique identifier of the item.
-	* count (int or string) ‚Äì number of items that were purchased.
-	* price (float or string) ‚Äì optional field ‚Äì the price of the item.
+	* count (int or string) ñ number of items that were purchased.
+	* price (float or string) ñ optional field ñ the price of the item.
 
 The example below shows purchase of 3 items (33, 34, 35), two with all fields populated (item, count, price) and one (item 34) without a price.
 
@@ -185,15 +192,15 @@ Azure ML Recommendations Event library creates and use a cookie in order to iden
 This event should be used after the user login to your site.
 
 Parameters:
-* event (string) ‚Äì ‚Äúuserlogin‚Äù
-* user (string) ‚Äì unique identification of the user.
+* event (string) ñ ìuserloginî
+* user (string) ñ unique identification of the user.
 		<script>
 			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = []; }
-			AzureMLRecommendationsEvent.push({event: "userlogin", user: ‚ÄúABCD10AA‚Äù });
+			AzureMLRecommendationsEvent.push({event: "userlogin", user: ìABCD10AAî });
 		</script>
 
 ##4. Consume Recommendations via JavaScript
-The code that consumes the recommendation is triggered by some JavaScript event by the client‚Äôs webpage. The recommendation response includes the recommended items Ids, their names and their ratings. It‚Äôs best to use this option only for a list display of the recommended items ‚Äì more complex handling (such as adding the item‚Äôs metadata) should be done on the server side integration.
+The code that consumes the recommendation is triggered by some JavaScript event by the clientís webpage. The recommendation response includes the recommended items Ids, their names and their ratings. Itís best to use this option only for a list display of the recommended items ñ more complex handling (such as adding the itemís metadata) should be done on the server side integration.
 
 ###4.1 Consume Recommendations
 To consume recommendations you need to include the required JavaScript libraries in your page and to call AzureMLRecommendationsStart. See section 2.
@@ -201,16 +208,16 @@ To consume recommendations you need to include the required JavaScript libraries
 To consume recommendations for one or more items you need to call a method called: AzureMLRecommendationsGetI2IRecommendation.
 
 Parameters:
-* items (array of strings) ‚Äì One or more items to get recommendations for. If you consume an Fbt build then you can set here only one item.
-* numberOfResults (int) ‚Äì number of required results.
-* includeMetadata (boolean, optional) ‚Äì if set to ‚Äòtrue‚Äô indicates that the metadata field must be populated in the result.
-* Processing function ‚Äì a function that will handle the recommendations returned. The data is returned as an array of:
-	* Item ‚Äì item unique id
-	* name ‚Äì item name (if exist in catalog)
-	* rating ‚Äì recommendation rating
-	* metadata ‚Äì a string that represents the metadata of the item
+* items (array of strings) ñ One or more items to get recommendations for. If you consume an Fbt build then you can set here only one item.
+* numberOfResults (int) ñ number of required results.
+* includeMetadata (boolean, optional) ñ if set to ëtrueí indicates that the metadata field must be populated in the result.
+* Processing function ñ a function that will handle the recommendations returned. The data is returned as an array of:
+	* Item ñ item unique id
+	* name ñ item name (if exist in catalog)
+	* rating ñ recommendation rating
+	* metadata ñ a string that represents the metadata of the item
 
-Example: The following code requests 8 recommendations for item "64f6eb0d-947a-4c18-a16c-888da9e228ba" (and by not specifying includeMetadata ‚Äì it implicitly says that no metadata is required), it then concatenate the results into a buffer.
+Example: The following code requests 8 recommendations for item "64f6eb0d-947a-4c18-a16c-888da9e228ba" (and by not specifying includeMetadata ñ it implicitly says that no metadata is required), it then concatenate the results into a buffer.
 
 		<script>
  			var reco = AzureMLRecommendationsGetI2IRecommendation(["64f6eb0d-947a-4c18-a16c-888da9e228ba"], 8, false, function (reco) {

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="06/14/2016"
 	ms.author="douglasl"/>
 
 # Monitor and troubleshoot data migration (Stretch Database)
@@ -33,9 +33,6 @@ Select **Tasks | Stretch | Monitor** for a database in SQL Server Management Stu
 Open the dynamic management view **sys.dm\_db\_rda\_migration\_status** to see how many batches and rows of data have been migrated. For more info, see [sys.dm_db_rda_migration_status (Transact-SQL)](https://msdn.microsoft.com/library/dn935017.aspx).
 
 ## <a name="Firewall"></a>Troubleshoot data migration
-**The Azure firewall is blocking connections from my local server.**
-
-You may have to add a rule in the Azure firewall settings of the Azure server to let SQL Server communicate with the remote Azure server.
 
 **Rows from my Stretch-enabled table are not being migrated to Azure. What’s the problem?**
 
@@ -50,6 +47,10 @@ There are several problems that can affect migration. Check the following things
     -   For more info about the view, see [sys.dm_db_rda_migration_status (Transact-SQL)](https://msdn.microsoft.com/library/dn935017.aspx).
 
     -   For more info about the content of a SQL Server error message, see [sys.messages (Transact-SQL)](https://msdn.microsoft.com/library/ms187382.aspx).
+
+**The Azure firewall is blocking connections from my local server.**
+
+You may have to add a rule in the Azure firewall settings of the Azure server to let SQL Server communicate with the remote Azure server.
 
 ## See Also
 

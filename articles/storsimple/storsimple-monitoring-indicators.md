@@ -4,7 +4,7 @@
     services="storsimple"
     documentationCenter="NA"
     authors="alkohli"
-    manager="carolz"
+    manager="carmonm"
     editor="" />
  <tags 
     ms.service="storsimple"
@@ -12,7 +12,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="03/21/2016"
+    ms.date="08/18/2016"
     ms.author="alkohli" />
 
 # Use StorSimple monitoring indicators to manage your device   
@@ -81,7 +81,7 @@ LED legend:
 5. DC failure
 6. Battery good  
 
-The status of the PCM is indicated on the LED panel. The device PCM LED panel has six LEDs. Four of these LEDs display the status of the power supply and the fan. The remaining two LEDs indicate the status of the backup battery module in the PCM.You can use the following tables to determine the status of the PCM.  
+The status of the PCM is indicated on the LED panel. The device PCM LED panel has six LEDs. Four of these LEDs display the status of the power supply and the fan. The remaining two LEDs indicate the status of the backup battery module in the PCM. You can use the following tables to determine the status of the PCM.  
 
 ### PCM indicator LEDs for power supply and fan
 | Status | PCM OK (green) | AC fail (amber) | Fan fail (amber) | DC fail (amber) |

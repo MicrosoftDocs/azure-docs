@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="03/31/2016"
+   ms.date="09/21/2016"
    ms.author="maroche"/>
 
 # Azure Data Catalog terminology
@@ -40,7 +40,7 @@ Structural metadata is the metadata extracted from a data source that describes 
 
 ## Descriptive metadata
 
-Descriptive metadata is metadata that describes the purpose or intent of a data asset. Typically descriptive metadata is added by catalog users using the Azure Data Catalog portal, but it can also be extracted from the data source during registration. The Azure Data Catalog registration tool will extract descriptions from the Description property in SQL Server Analysis Services and SQL Server Reporting Services, and from the [ms_description extended property](https://technet.microsoft.com/library/ms190243.aspx) in SQL Server databases, if these properties have been populated with values.
+Descriptive metadata is metadata that describes the purpose or intent of a data asset. Typically descriptive metadata is added by catalog users using the Azure Data Catalog portal, but it can also be extracted from the data source during registration. For example, the Azure Data Catalog registration tool will extract descriptions from the Description property in SQL Server Analysis Services and SQL Server Reporting Services, and from the [ms_description extended property](https://technet.microsoft.com/library/ms190243.aspx) in SQL Server databases, if these properties have been populated with values.
 
 ## Request access
 
@@ -51,7 +51,7 @@ A data asset's descriptive metadata can include information on how to request ac
 - The URL of an identity and access management tool (such as Microsoft Identity Manager) that can be used to gain access to the data source.
 - A free-text entry that describes how users can gain access to the data source.
 
-## Previews
+## Preview
 
 A preview in Azure Data Catalog is a snapshot of up to 20 records that can be extracted from the data source during registration, and stored in the catalog with the data asset metadata. The preview can help users who discover a data asset better understand its function and purpose. In other words, seeing sample data can be more valuable than seeing just the column names and data types.
 Previews are only supported for tables and views, and must be explicitly selected by the user during registration.
@@ -74,7 +74,7 @@ An expert is a user who has been identified as having an informed “expert” p
 
 ## Owner
 
-An owner is a user who has additional privileges for managing a data asset in Azure Data Catalog. Users can take ownership of registered data assets, and owners can add other users as co-owners.
+An owner is a user who has additional privileges for managing a data asset in Azure Data Catalog. Users can take ownership of registered data assets, and owners can add other users as co-owners. For more information see  [How to manage data assets](data-catalog-how-to-manage.md)  
 > [AZURE.NOTE] Ownership and management are available only in the Standard Edition of Azure Data Catalog.
 
 ## Registration

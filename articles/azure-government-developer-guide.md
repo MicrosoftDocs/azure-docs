@@ -2,6 +2,7 @@
 	pageTitle="Azure Government Developers Guide" 
 	description="This provides a comparision of features and guidance on developing applications for Azure Government" 
 	services="" 
+	cloud="gov"
 	documentationCenter="" 
 	authors="Joharve2" 
 	manager="Chrisnie" 

@@ -1,7 +1,8 @@
-Data factory is a multi-tenant service that has the following default limits in place to make sure customer subscriptions are protected from each others workloads. Many of the limits can be easily raised for your subscription up to the maximum limit by contacting support. 
+Data factory is a multi-tenant service that has the following default limits in place to make sure customer subscriptions are protected from each other's workloads. Many of the limits can be easily raised for your subscription up to the maximum limit by contacting support. 
 
 **Resource** | **Default Limit** | **Maximum Limit**
 -------- | ------------- | -------------
+data factories in an Azure subscription | 50 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 pipelines within a data factory | 100 | 2500
 datasets within a data factory | 500 | 5000
 concurrent slices per dataset | 10 | 10
@@ -27,6 +28,6 @@ Retry timeout value | 1 second | 1 second
 
 ### Web service call limits
 
-Azure resource manager has limits for API calls. You can make API calls at a rate within the [Azure Resource Manager API limits](../azure-subscription-service-limits/#resource-group-limits). 
+Azure resource manager has limits for API calls. You can make API calls at a rate within the [Azure Resource Manager API limits](../azure-subscription-service-limits.md#resource-group-limits). 
 
 

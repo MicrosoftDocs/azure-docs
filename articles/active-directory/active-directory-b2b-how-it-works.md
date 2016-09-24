@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="identity"
-   ms.date="02/03/2016"
+   ms.date="05/09/2016"
    ms.author="viviali"/>
 
 # Azure AD B2B collaboration preview: How it works
@@ -34,7 +34,7 @@ While a paid Azure AD subscription (Basic or Premium) is not necessary to use Az
  - Admin tenant branding is used to brand the invitation emails and redemption experience, providing more context to invited partner users.
 
 ## Related articles
- Browse our other articles on Azure B2B collaboration
+ Browse our other articles on Azure AD B2B collaboration
 
  - [What is Azure AD B2B collaboration?](active-directory-b2b-what-is-azure-ad-b2b.md)
  - [Detailed walkthrough](active-directory-b2b-detailed-walkthrough.md)

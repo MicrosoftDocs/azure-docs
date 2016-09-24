@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="01/29/2016"
+   ms.date="08/18/2016"
    ms.author="alkohli@microsoft.com" />
 
 # Use Windows PowerShell for StorSimple to administer your device
@@ -111,7 +111,7 @@ This option is the same as option 1, except that you can connect (with the prope
 Similar to option 1, this option can also be used to allow Microsoft Support to access unrestricted runspace on a peer controller.
 
 3. **Connect with limited access**
-This option is used to access Windows PowerShell interface in limited mode. You are not prompted for access credentials. This option connects to a more restricted runspace compared to options 1 and 2.  Some of the tasks that are available through option 1 that cannot be performed in this runspace are:
+This option is used to access Windows PowerShell interface in limited mode. You are not prompted for access credentials. This option connects to a more restricted runspace compared to options 1 and 2.  Some of the tasks that are available through option 1 that **cannot* be performed in this runspace are:
 
 	- Reset to the factory settings
 	- Change the password
@@ -136,8 +136,8 @@ The display language is independent of the language that you set by using the **
 
 You can use HTTP or HTTPS to connect via Windows PowerShell remoting. Use the instructions in the following tutorials:
 
-- [Connect remotely using http](storsimple-remote-connect.md#connect-through-http)
-- [Connect remotely using https](storsimple-remote-connect.md#connect-through-https)
+- [Connect remotely using HTTP](storsimple-remote-connect.md#connect-through-http)
+- [Connect remotely using HTTPS](storsimple-remote-connect.md#connect-through-https)
 
 ## Connection security considerations
 
@@ -181,7 +181,7 @@ The following is a brief description of the types of Help for this Windows Power
 
 - To get online Help for any cmdlet, use the previous cmdlet with the `-Online` parameter: `Get-Help <cmdlet-name> -Online`
 
-- For full Help, you can use the –Full parameter, and for examples, use the `–Examples` parameter.
+- For full Help, you can use the `–Full` parameter, and for examples, use the `–Examples` parameter.
 
 #### To update Help
 
@@ -199,7 +199,7 @@ You can easily update the Help in the Windows PowerShell interface. Perform the 
 1. After the Help files are installed, type: `Get-Help Get-Command`. This will display a list of cmdlets for which Help is available.
 
 
->[AZURE.NOTE] To get a list of all the available cmdlets in any of the runspaces, log in to the corresponding menu option and run the `Get-Command` cmdlet.
+>[AZURE.NOTE] To get a list of all the available cmdlets in a runspace, log in to the corresponding menu option and run the `Get-Command` cmdlet.
 
 ## Next steps
 If you experience any issues with your StorSimple device when performing one of the above workflows, refer to [Tools for troubleshooting StorSimple deployments](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).

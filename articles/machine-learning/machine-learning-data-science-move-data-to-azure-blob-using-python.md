@@ -4,7 +4,7 @@
 	services="machine-learning,storage"
 	documentationCenter=""
 	authors="bradsev"
-	manager="paulettm"
+	manager="jhubbard"
 	editor="cgronlun" />
 
 <tags
@@ -13,15 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/04/2016"
+	ms.date="09/14/2016"
 	ms.author="bradsev" />
 
 # Move Data to and from Azure Blob Storage using Python
 
-## Introduction
-This topic describes how to list, upload and download blobs using the Python API.
-
-With the Python API provided in Azure SDK, you can
+This topic describes how to list, upload, and download blobs using the Python API. With the Python API provided in Azure SDK, you can:
 
 - Create a container
 - Upload a blob into a container
@@ -38,14 +35,17 @@ Guidance on technologies used to move data to and/or from Azure Blob storage are
 
 > [AZURE.NOTE] If you are using VM that was set up with the scripts provided by [Data Science Virtual machines in Azure](machine-learning-data-science-virtual-machines.md), then AzCopy is already installed on the VM.
 
-> [AZURE.NOTE] For a complete introduction to Azure blob storage, please refer to [Azure Blob Basics](../storage/storage-dotnet-how-to-use-blobs.md) and  [Azure Blob Service](https://msdn.microsoft.com/library/azure/dd179376.aspx).
+> [AZURE.NOTE] For a complete introduction to Azure blob storage, refer to [Azure Blob Basics](../storage/storage-dotnet-how-to-use-blobs.md) and to [Azure Blob Service](https://msdn.microsoft.com/library/azure/dd179376.aspx).
+
 
 ## Prerequisites
 
-This document assumes that you have an Azure subscription, a storage account and the corresponding storage key for that account. Before uploading/downloading data, you must know your Azure storage account name and account key.
+This document assumes that you have an Azure subscription, a storage account, and the corresponding storage key for that account. Before uploading/downloading data, you must know your Azure storage account name and account key.
 
 - To set up an Azure subscription, see [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+
 - For instructions on creating a storage account and for getting account and key information, see [About Azure storage accounts](../storage/storage-create-storage-account.md).
+
 
 ## Upload Data to Blob
 
@@ -92,6 +92,7 @@ The following sample code uploads all the files (excluding directories) in a loc
 	        blob_service.put_block_blob_from_path(CONTAINER_NAME, blob_name, local_file)
 	    except:
 	        print "something wrong happened when uploading the data %s"%blob_name
+
 
 ## Download Data from Blob
 

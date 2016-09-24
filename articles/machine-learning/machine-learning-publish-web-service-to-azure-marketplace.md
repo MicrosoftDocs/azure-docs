@@ -3,8 +3,8 @@
 	description="How to publish your Azure Machine Learning Web Service to the Azure Marketplace" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="LuisCabrer" 
-	manager="paulettm" 
+	authors="BharathS" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/12/2016" 
+	ms.date="09/08/2016" 
 	ms.author="bharaths"/>
 
 # Publish Azure Machine Learning Web Service to the Azure Marketplace 

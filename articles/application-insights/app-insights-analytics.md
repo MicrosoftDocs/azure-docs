@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Analytics - the powerful search tool of Application Insights" 
+	pageTitle="Analytics - the powerful search tool of Application Insights | Microsoft Azure" 
 	description="Overview of Analytics, 
 	             the powerful diagnostic search tool of Application Insights. " 
 	services="application-insights" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="07/25/2016" 
 	ms.author="awills"/>
 
 
@@ -22,10 +22,12 @@
 
 [Analytics](app-insights-analytics.md) is the powerful search feature of 
 [Application Insights](app-insights-overview.md). These pages describe the
- Analytics query lanquage.
+ Analytics query lanquage. 
 
-[AZURE.INCLUDE [app-insights-analytics-top-index](../../includes/app-insights-analytics-top-index.md)]
+* **[Watch the introductory video](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
+* **[Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo)** if your app isn't sending data to Application Insights yet.
 
+## Queries in Analytics
  
 A typical query is a *source* table followed by a series of *operators* separated by `|`. 
 
@@ -64,7 +66,6 @@ The language has many attractive features:
 
 
 
->[AZURE.NOTE] We recommend you start with the [language tour](app-insights-analytics-tour.md).
 
 
 
@@ -85,3 +86,8 @@ At present, query results are limited to just over a week of past data.
 
 [AZURE.INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
+
+## Next steps
+
+
+* We recommend you start with the [language tour](app-insights-analytics-tour.md).

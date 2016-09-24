@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="jeevansd"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/23/2016"
+	ms.date="07/19/2016"
 	ms.author="jeedes"/>
 
 
 # Tutorial: Azure Active Directory integration with Pluralsight
 
-The objective of this tutorial is to show you how to integrate Pluralsight with Azure Active Directory (Azure AD).<br>Integrating Pluralsight with Azure AD provides you with the following benefits:
+The objective of this tutorial is to show you how to integrate Pluralsight with Azure Active Directory (Azure AD).
+
+Integrating Pluralsight with Azure AD provides you with the following benefits:
 
 - You can control in Azure AD who has access to Pluralsight
 - You can enable your users to automatically get signed-on to Pluralsight (Single Sign-On) with their Azure AD accounts
@@ -32,7 +34,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 
 To configure Azure AD integration with Pluralsight, you need the following items:
 
-- An Azure AD subscription
+- An Azure subscription
 - A Pluralsight single-sign on enabled subscription
 
 
@@ -46,7 +48,8 @@ To test the steps in this tutorial, you should follow these recommendations:
 
 
 ## Scenario Description
-The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment. <br>
+The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment. 
+
 The scenario outlined in this tutorial consists of two main building blocks:
 
 1. Adding Pluralsight from the gallery
@@ -58,28 +61,34 @@ To configure the integration of Pluralsight into Azure AD, you need to add Plura
 
 **To add Pluralsight from the gallery, perform the following steps:**
 
-1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. <br><br>
-![Active Directory][1]<br>
+1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
+
+    ![Active Directory][1]
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
-3. To open the applications view, in the directory view, click **Applications** in the top menu.<br><br>
-![Applications][2]<br>
-4. Click **Add** at the bottom of the page.<br><br>
-![Applications][3]<br>
-5. On the **What do you want to do** dialog, click **Add an application from the gallery**.<br><br>
-![Applications][4]<br>
-6. In the search box, type **Pluralsight**.<br><br>
-![Creating an Azure AD test user](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_01.png)<br>
+3. To open the applications view, in the directory view, click **Applications** in the top menu.
+
+    ![Applications][2]
+
+4. Click **Add** at the bottom of the page.
+ 
+    ![Applications][3]
+
+5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
+
+    ![Applications][4]
+
+6. In the search box, type **Pluralsight**.
+ 
+    ![Creating an Azure AD test user](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_01.png)
+
 7. In the results pane, select **Pluralsight**, and then click **Complete** to add the application.
-<br><br>
-![Creating an Azure AD test user](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_06.png)<br>
+
+    ![Creating an Azure AD test user](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_06.png)
 
 ##  Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with Pluralsight based on a test user called "Britta Simon".
-
-For single sign-on to work, Azure AD needs to know what the counterpart user in Pluralsight to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in Pluralsight needs to be established.<br>
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Pluralsight.
 
 To configure and test Azure AD single sign-on with Pluralsight, you need to complete the following building blocks:
 
@@ -93,66 +102,134 @@ To configure and test Azure AD single sign-on with Pluralsight, you need to comp
 
 The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your Pluralsight application.
 
-Your Pluralsight application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. Please remove the default claims of givenname, surname and emailaddress. Then add the following claims and select the values from the drop down as shown. 
-<br><br> ![Configure Single Sign-On](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_02.png) <br>
+Your Pluralsight application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. 
 
-You can also add the **"Unique ID"** attribute with the appropriate value like EmployeeID or something else which suits for your organization. Also note that this is not the required attribute but can be added for identifying the unique user. 
+![Configure Single Sign-On](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_02.png) 
+
+You can also add the **"Unique ID"** attribute with the appropriate value like EmployeeID or something else which suits for your organization. Also note that this is not the required attribute; however, you can add it to  identify the unique user. 
 
 **To configure Azure AD single sign-on with Pluralsight, perform the following steps:**
 
+1. In the Azure classic portal, on the **Pluralsight** application integration page, in the menu on the top, click **Attributes**.
+
+	![Configure Single Sign-On](./media/active-directory-saas-pluralsight-tutorial/tutorial_general_81.png) 
+
+
+
+1. To remove the redundant **SAML token attributes**, perform the following steps: 
+
+	![Configure Single Sign-On](./media/active-directory-saas-pluralsight-tutorial/2829.png) 
+
+
+    a. For each user attribute in the red box of the table above, hover over the attribute, and then click delete. 
+
+
+
+
+1. To add the required **SAML token attributes**, for each row shown in the table below, perform the following steps:
+
+	| Attribute Name | Attribute Value |
+	| --- | --- |    
+	| First Name| user.givenname |
+    | Last Name  | user.surname |
+	| Email | user.mail |
+
+	a. Click **add user attribute** to open the **Add User Attribure** dialog.
+
+	![Configure Single Sign-On](./media/active-directory-saas-pluralsight-tutorial/tutorial_general_82.png) 
+
+
+	b. In the **Attrubute Name** textbox, type the attribute name shown for that row.
+
+    c. From the **Attribute Value** list, selsect the attribute value shown for that row.
+
+    d. Click **Complete**.	
+	
+
+
+1. Click **Apply Changes**.
+
+	![Configure Single Sign-On](./media/active-directory-saas-pluralsight-tutorial/3232.png)  
+
+
+
+1. In the menu on the top, click **Quick Start**.
+
+	![Configure Single Sign-On](./media/active-directory-saas-pluralsight-tutorial/tutorial_general_83.png)  
+
+
+
+
+
+
+
+
+
 1. In the Azure classic portal, on the **Pluralsight** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
-<br><br> ![Configure Single Sign-On][6] <br>
+
+    ![Configure Single Sign-On][6] 
 
 2. On the **How would you like users to sign on to Pluralsight** page, select **Azure AD Single Sign-On**, and then click **Next**.
-<br><br> ![Configure Single Sign-On](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_03.png) <br>
+
+    ![Configure Single Sign-On](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_03.png) 
 
 3. On the **Configure App Settings** dialog page, perform the following steps:.
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_04.png) <br>
+
+    ![Configure Single Sign-On](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_04.png) 
 
 
-    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Pluralsight application using the following pattern: **“https://\<instance name\>.pluralsight.com/sso/\<comapny name\>”**.
+    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Pluralsight application using the following pattern: `https://<instance name>.pluralsight.com/sso/<comapny name>`
 
     b. Click **Next**.
 
 
 4. On the **Configure single sign-on at Pluralsight** page, perform the following steps:
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_05.png) <br>
+    ![Configure Single Sign-On](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_05.png) 
 
     a. Click **Download metadata**, and then save the file on your computer.
 
     b. Click **Next**.
 
 
-5. To get SSO configured for your application, contact your Pluralsight sales rep and provide the downloaded metadata file.
+5. To get SSO configured for your application, contact Pluralsight [Professional Services](mailTo:professionalservices@pluralsight.com) team and provide the downloaded metadata file.
 
 
 6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
-<br><br>![Azure AD Single Sign-On][10]<br>
+  
+    ![Azure AD Single Sign-On][10]
 
 7. On the **Single sign-on confirmation** page, click **Complete**.  
-  <br><br>![Azure AD Single Sign-On][11]
+ 
+    ![Azure AD Single Sign-On][11]
 
 
 
 ### Creating an Azure AD test user
-The objective of this section is to create a test user in the Azure classic portal called Britta Simon.<br>
-In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<br>
+The objective of this section is to create a test user in the Azure classic portal called Britta Simon.
+
+In the Users list, select **Britta Simon**.
+
+![Create Azure AD User][20]
 
 **To create a test user in Azure AD, perform the following steps:**
 
 1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
-<br><br>![Creating an Azure AD test user](./media/active-directory-saas-pluralsight-tutorial/create_aaduser_09.png) <br>
+
+    ![Creating an Azure AD test user](./media/active-directory-saas-pluralsight-tutorial/create_aaduser_09.png) 
 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
 
 3. To display the list of users, in the menu on the top, click **Users**.
-<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-pluralsight-tutorial/create_aaduser_03.png) <br>
+
+    ![Creating an Azure AD test user](./media/active-directory-saas-pluralsight-tutorial/create_aaduser_03.png) 
 
 4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
-<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-pluralsight-tutorial/create_aaduser_04.png) <br>
+
+    ![Creating an Azure AD test user](./media/active-directory-saas-pluralsight-tutorial/create_aaduser_04.png) 
 
 5. On the **Tell us about this user** dialog page, perform the following steps:
-<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-pluralsight-tutorial/create_aaduser_05.png) <br>
+
+    ![Creating an Azure AD test user](./media/active-directory-saas-pluralsight-tutorial/create_aaduser_05.png) 
 
     a. As Type Of User, select New user in your organization.
 
@@ -161,7 +238,8 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
     c. Click **Next**.
 
 6.  On the **User Profile** dialog page, perform the following steps:
-<br><br>![Creating an Azure AD test user](./media/active-directory-saas-pluralsight-tutorial/create_aaduser_06.png) <br>
+
+    ![Creating an Azure AD test user](./media/active-directory-saas-pluralsight-tutorial/create_aaduser_06.png) 
 
     a. In the **First Name** textbox, type **Britta**.  
 
@@ -174,10 +252,12 @@ In the Users list, select **Britta Simon**.<br><br>![Create Azure AD User][20]<b
     e. Click **Next**.
 
 7. On the **Get temporary password** dialog page, click **create**.
-<br><br> ![Creating an Azure AD test user](./media/active-directory-saas-pluralsight-tutorial/create_aaduser_07.png) <br>
+
+    ![Creating an Azure AD test user](./media/active-directory-saas-pluralsight-tutorial/create_aaduser_07.png) 
 
 8. On the **Get temporary password** dialog page, perform the following steps:
-<br><br>![Creating an Azure AD test user](./media/active-directory-saas-pluralsight-tutorial/create_aaduser_08.png) <br>
+
+    ![Creating an Azure AD test user](./media/active-directory-saas-pluralsight-tutorial/create_aaduser_08.png) 
 
     a. Write down the value of the **New Password**.
 
@@ -197,29 +277,35 @@ The objective of this section is to create a user called Britta Simon in Plurals
 ### Assigning the Azure AD test user
 
 The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to Pluralsight.
-<br><br>![Assign User][200] <br>
+
+![Assign User][200] 
 
 **To assign Britta Simon to Pluralsight, perform the following steps:**
 
 1. On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
-<br><br>![Assign User][201] <br>
+
+    ![Assign User][201] 
 
 2. In the applications list, select **Pluralsight**.
-<br><br>![Configure Single Sign-On](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_50.png) <br>
+
+    ![Configure Single Sign-On](./media/active-directory-saas-pluralsight-tutorial/tutorial_pluralsight_50.png) 
 
 1. In the menu on the top, click **Users**.
-<br><br>![Assign User][203] <br>
+
+    ![Assign User][203] 
 
 1. In the Users list, select **Britta Simon**.
 
 2. In the toolbar on the bottom, click **Assign**.
-<br><br>![Assign User][205]
+
+    ![Assign User][205]
 
 
 
 ### Testing Single Sign-On
 
-The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.<br>
+The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.
+
 When you click the Pluralsight tile in the Access Panel, you should get automatically signed-on to your Pluralsight application.
 
 

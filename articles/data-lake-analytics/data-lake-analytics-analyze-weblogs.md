@@ -3,8 +3,8 @@
    description="Learn how to analyze website logs using Data Lake Analytics. "
    services="data-lake-analytics"
    documentationCenter=""
-   authors="mumian"
-   manager="paulettm"
+   authors="edmacauley"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="12/01/2015"
-   ms.author="jgao"/>
+   ms.date="05/16/2016"
+   ms.author="edmaca"/>
 
 # Tutorial: Analyze Website logs using Azure Data Lake Analytics
 

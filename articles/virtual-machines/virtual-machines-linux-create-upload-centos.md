@@ -14,14 +14,13 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="10/22/2015"
+	ms.date="05/09/2016"
 	ms.author="szarkos"/>
 
 # Prepare a CentOS-based virtual machine for Azure
 
-
-- [Prepare a CentOS 6.x virtual machine for Azure](#centos6)
-- [Prepare a CentOS 7.0+ virtual machine for Azure](#centos7)
+- [Prepare a CentOS 6.x virtual machine for Azure](#centos-6.x)
+- [Prepare a CentOS 7.0+ virtual machine for Azure](#centos-7.0+)
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -32,9 +31,11 @@ This article assumes that you have already installed a CentOS (or similar deriva
 
 **CentOS installation notes**
 
+- Please see also [General Linux Installation Notes](virtual-machines-linux-create-upload-generic.md#general-linux-installation-notes) for more tips on preparing Linux for Azure.
+
 - The VHDX format is not supported in Azure, only **fixed VHD**.  You can convert the disk to VHD format using Hyper-V Manager or the convert-vhd cmdlet.
 
-- When installing the Linux system it is recommended that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting.  LVM or [RAID](virtual-machines-linux-configure-raid.md) may be used on data disks if preferred.
+- When installing the Linux system it is recommended that you use standard partitions rather than LVM (often the default for many installations). This will avoid LVM name conflicts with cloned VMs, particularly if an OS disk ever needs to be attached to another VM for troubleshooting.  [LVM](virtual-machines-linux-configure-lvm.md) or [RAID](virtual-machines-linux-configure-raid.md) may be used on data disks if preferred.
 
 - NUMA is not supported for larger VM sizes due to a bug in Linux kernel versions below 2.6.37. This issue primarily impacts distributions using the upstream Red Hat 2.6.32 kernel. Manual installation of the Azure Linux agent (waagent) will automatically disable NUMA in the GRUB configuration for the Linux kernel. More information about this can be found in the steps below.
 
@@ -43,7 +44,7 @@ This article assumes that you have already installed a CentOS (or similar deriva
 - All of the VHDs must have sizes that are multiples of 1 MB.
 
 
-## <a id="centos6"> </a>CentOS 6.x ##
+## CentOS 6.x ##
 
 1. In Hyper-V Manager, select the virtual machine.
 
@@ -70,11 +71,10 @@ This article assumes that you have already installed a CentOS (or similar deriva
 		PEERDNS=yes
 		IPV6INIT=no
 
-6.	Move (or remove) udev rules to avoid generating static rules for the Ethernet interface. These rules cause problems when cloning a virtual machine in Microsoft Azure or Hyper-V:
+6.	Modify udev rules to avoid generating static rules for the Ethernet interface(s). These rules can cause problems when cloning a virtual machine in Microsoft Azure or Hyper-V:
 
-		# sudo mkdir -m 0700 /var/lib/waagent
-		# sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent/
-		# sudo mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent/
+		# sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
+		# sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
 
 
 7. Ensure the network service will start at boot time by running the following command:
@@ -205,7 +205,7 @@ This article assumes that you have already installed a CentOS (or similar deriva
 ----------
 
 
-## <a id="centos7"> </a>CentOS 7.0+ ##
+## CentOS 7.0+ ##
 
 **Changes in CentOS 7 (and similar derivatives)**
 
@@ -237,11 +237,9 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
 		PEERDNS=yes
 		IPV6INIT=no
 
-5.	Move (or remove) udev rules to avoid generating static rules for the Ethernet interface. These rules cause problems when cloning a virtual machine in Microsoft Azure or Hyper-V:
+6.	Modify udev rules to avoid generating static rules for the Ethernet interface(s). These rules can cause problems when cloning a virtual machine in Microsoft Azure or Hyper-V:
 
-		# sudo mkdir -m 0700 /var/lib/waagent
-		# sudo mv /lib/udev/rules.d/75-persistent-net-generator.rules /var/lib/waagent/ 2>/dev/null
-		# sudo mv /etc/udev/rules.d/70-persistent-net.rules /var/lib/waagent/ 2>/dev/null
+		# sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
 
 6. Ensure the network service will start at boot time by running the following command:
 
@@ -306,9 +304,9 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
 
 10.	Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this, open "/etc/default/grub" in a text editor and edit the `GRUB_CMDLINE_LINUX` parameter, for example:
 
-		GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
+		GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
 
-	This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. In addition to the above, it is recommended to *remove* the following parameters:
+	This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. It also turns off the new CentOS 7 naming conventions for NICs. In addition to the above, it is recommended to *remove* the following parameters:
 
 		rhgb quiet crashkernel=auto
 
@@ -335,6 +333,7 @@ Preparing a CentOS 7 virtual machine for Azure is very similar to CentOS 6, howe
 14. Install the Azure Linux Agent by running the following command:
 
 		# sudo yum install WALinuxAgent
+		# sudo systemctl enable waagent
 
 15.	Do not create swap space on the OS disk.
 

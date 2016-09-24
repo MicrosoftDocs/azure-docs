@@ -13,12 +13,10 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
-	ms.topic="support-article"
-	ms.date="04/21/2016"
+	ms.topic="article"
+	ms.date="07/11/2016"
 	ms.author="iainfou"/>
 
 # Troubleshoot access to an application running on an Azure virtual machine
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 [AZURE.INCLUDE [virtual-machines-common-troubleshoot-app-connection](../../includes/virtual-machines-common-troubleshoot-app-connection.md)]

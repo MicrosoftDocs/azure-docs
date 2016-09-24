@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/04/2016"
+	ms.date="08/24/2016"
 	ms.author="sdanie"/>
 
 # Customize the developer portal in Azure API Management
@@ -78,7 +78,7 @@ Click the **Welcome** page to edit what is displayed on the home page of the dev
 
 ## <a name="next-steps"> </a>Next steps
 
--	Check out the other topics in the [Get started with advanced API configuration][] tutorial.
+-	Learn how to customize the content of developer portal pages using [Developer portal templates](api-management-developer-portal-templates.md).
 
 [Change the text/logo in the page headers]: #change-page-headers
 [Change the styling of the headers]: #change-headers-styling
@@ -95,6 +95,5 @@ Click the **Welcome** page to edit what is displayed on the home page of the dev
 [api-management-customization-manage-content]: ./media/api-management-customize-portal/api-management-customization-manage-content.png
 
 
-[Get started with advanced API configuration]: api-management-get-started-advanced.md
 [bootstrap]: http://getbootstrap.com/
 [LESS variables]: http://getbootstrap.com/css/

@@ -3,8 +3,8 @@
 	description="Microsoft RECOMMENDATIONS API built with Azure Machine Learning FAQ" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="luisca" 
-	manager="paulettm" 
+	authors="LuisCabrer" 
+	manager="jhubbard" 
 	editor="cgronlun"/>
 
 <tags 
@@ -13,13 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/01/2016" 
+	ms.date="09/08/2016" 
 	ms.author="luisca"/> 
 
 #Setting up and using Machine Learning Recommendations API FAQ
 
 
 **What is RECOMMENDATIONS?**
+
+>[AZURE.NOTE] You should start using the Recommendations API Cognitive Service instead of this
+> version. The Recommendations Cognitive Service will be replacing this service, and all the new 
+> features will be developed there. It has new capabilities like batching support, a better API Explorer,
+> a cleaner API surface, more consistent signup/billing experience, etc.
+> Learn more about [Migrating to the new Cognitive Service](http://aka.ms/recomigrate)
 
 For organizations and businesses that rely on recommendations to cross-sell and up-sell products and services to their customers, RECOMMENDATIONS in Azure Machine Learning provides a self-service recommendations engine. It is an implementation of collaborative filtering that uses matrix factorization as its core algorithm. Application developers can access RECOMMENDATIONS by using REST APIs. 
 
@@ -101,17 +107,17 @@ Experimenting with Recommendations is designed to be fairly simple. The current 
 
 **What are the prerequisites for setting up Recommendations?**
 
-Recommendations requires that you have a log of user choices as it relates to your catalog. If you don‚Äôt have such a log and you do have a customer facing website, Recommendations can collect user activity for you. 
+Recommendations requires that you have a log of user choices as it relates to your catalog. If you donít have such a log and you do have a customer facing website, Recommendations can collect user activity for you. 
 
-Recommendations also requires a catalog of your products or services. If you don‚Äôt have the catalog, Recommendations can use the actual customer usage data and distill a catalog. An ‚Äúimplied‚Äù catalog will not include items that were not ‚Äúreported‚Äù as part of user transactions.
+Recommendations also requires a catalog of your products or services. If you donít have the catalog, Recommendations can use the actual customer usage data and distill a catalog. An ìimpliedî catalog will not include items that were not ìreportedî as part of user transactions.
 
 **How do I set up Recommendations for the first time?**
 
-After [subscribing] (https://datamarket.azure.com/dataset/amla/recommendations) to Recommendations, you should use the API documentation in the [Azure Machine Learning Recommendations ‚Äì Quick Start Guide](machine-learning-recommendation-api-quick-start-guide.md) to set up the service.
+After [subscribing] (https://datamarket.azure.com/dataset/amla/recommendations) to Recommendations, you should use the API documentation in the [Azure Machine Learning Recommendations ñ Quick Start Guide](machine-learning-recommendation-api-quick-start-guide.md) to set up the service.
 
 **Where can I find API documentation?** 
 
-The API documentation is [Azure Machine Learning Recommendations ‚Äì Quick Start Guide](machine-learning-recommendation-api-quick-start-guide.md).
+The API documentation is [Azure Machine Learning Recommendations ñ Quick Start Guide](machine-learning-recommendation-api-quick-start-guide.md).
 
 **What options do I have to upload catalog and usage data to Recommendations?**
 

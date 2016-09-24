@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="carolz"
+   manager="carmonm"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="12/28/2015"
+   ms.date="04/26/2016"
    ms.author="v-sharos" />
 
 
@@ -96,11 +96,11 @@ Use the following procedure to view jobs that are currently running.
     
     - **Elapsed** – the amount of time that has passed since the backup began. 
 
-    - **Average throughput (MB)** – the median amount of data delivered, expressed in megabytes (MBs).
+    - **Average throughput (MB)** – ratio of total bytes of data processed to that of total time taken for processing (MBs).
 
-    - **Bytes processed (MB)** – the amount of data from the volume group that was processed (in MBs).
+    - **Bytes processed (MB)** – total bytes of data processed (in MBs).
 
-    - **Bytes written (MB)** – the amount of data that was written to the backup (in MBs).
+    - **Bytes written (MB)** – total bytes of data written (in MBs). It includes the data as well as the metadata and hence is typically greater than the Bytes Processed.
 
     ![Jobs currently running](./media/storsimple-snapshot-manager-manage-backup-jobs/HCS_SSM_Jobs_running.png)
 

@@ -3,7 +3,7 @@ pageTitle="How to update a cloud service | Microsoft Azure"
 description="Learn how to update cloud services in Azure. Learn how an update on a cloud service proceeds to ensure availability."
 services="cloud-services"
 documentationCenter=""
-authors="kenazk"
+authors="Thraka"
 manager="timlt"
 editor=""/>
 <tags
@@ -12,8 +12,8 @@ ms.workload="tbd"
 ms.tgt_pltfrm="na"
 ms.devlang="na"
 ms.topic="article"
-ms.date="10/26/2015"
-ms.author="kenazk"/>
+ms.date="08/10/2016"
+ms.author="adegeo"/>
 
 # How to update a cloud service
 
@@ -26,7 +26,7 @@ Azure organizes your role instances into logical groupings called upgrade domain
 
 The default number of upgrade domains is 5. You can specify a different number of upgrade domains by including the upgradeDomainCount attribute in the service’s definition file (.csdef). For more information about the upgradeDomainCount attribute, see [WebRole Schema](https://msdn.microsoft.com/library/azure/gg557553.aspx) or [WorkerRole Schema](https://msdn.microsoft.com/library/azure/gg557552.aspx).
 
-When you perform an in-place update of one or more roles in your service, Azure updates sets of role instances according to the upgrade domain to which they belong. Azure updates all of the instances in a given upgrade domain – stopping them, updating them, bringing them back on-line – then moves onto the next domain. By stopping only the instances running in the current upgrade domain, Azure makes sure that an update occurs with the least possible impact to the running service. For more information, see [How the update proceeds](https://msdn.microsoft.com/library/azure/Hh472157.aspx#proceed) later in this article.
+When you perform an in-place update of one or more roles in your service, Azure updates sets of role instances according to the upgrade domain to which they belong. Azure updates all of the instances in a given upgrade domain – stopping them, updating them, bringing them back on-line – then moves onto the next domain. By stopping only the instances running in the current upgrade domain, Azure makes sure that an update occurs with the least possible impact to the running service. For more information, see [How the update proceeds](#howanupgradeproceeds) later in this article.
 
 > [AZURE.NOTE] While the terms **update** and **upgrade** have slightly different meaning in the context Azure, they can be used interchangeably for the processes and descriptions of the features in this document.
 
@@ -35,11 +35,12 @@ Your service must define at least two instances of a role for that role to be up
 This topic covers the following information about Azure updates:
 
 -   [Allowed service changes during an update](#AllowedChanges)
+-   [How an upgrade proceeds](#howanupgradeproceeds)
 -   [Rollback of an update](#RollbackofanUpdate)
 -   [Initiating multiple mutating operations on an ongoing deployment](#multiplemutatingoperations)
 -   [Distribution of roles across upgrade domains](#distributiondfroles)
--   [How an upgrade proceeds](#howanupgradeproceeds)
 
+<a name="AllowedChanges"></a>
 ## Allowed service changes during an update
 The following table shows the allowed changes to a service during an update:
 
@@ -47,17 +48,19 @@ The following table shows the allowed changes to a service during an update:
 |---|---|---|---|
 |Operating system version|Yes|Yes|Yes
 |.NET trust level|Yes|Yes|Yes|
-|Virtual machine size|Yes*|Yes|Yes|
-|Local storage settings|Increase only*|Yes|Yes|
+|Virtual machine size<sup>1</sup>|Yes<sup>2</sup>|Yes|Yes|
+|Local storage settings|Increase only<sup>2</sup>|Yes|Yes|
 |Add or remove roles in a service|Yes|Yes|Yes|
 |Number of instances of a particular role|Yes|Yes|Yes|
-|Number or type of endpoints for a service|Yes*|No|Yes|
+|Number or type of endpoints for a service|Yes<sup>2</sup>|No|Yes|
 |Names and values of configuration settings|Yes|Yes|Yes|
 |Values (but not names) of configuration settings|Yes|Yes|Yes|
 |Add new certificates|Yes|Yes|Yes|
 |Change existing certificates|Yes|Yes|Yes|
 |Deploy new code|Yes|Yes|Yes|
-\*Requires Azure SDK 1.5 or later versions.
+<sup>1</sup>Size change limited to the subset of sizes available for the cloud service.
+
+<sup>2</sup>Requires Azure SDK 1.5 or later versions.
 
 > [AZURE.WARNING] Changing the virtual machine size will destroy local data.
 
@@ -70,6 +73,7 @@ The following items are not supported during an update:
 
 If you are making other updates to your service's definition, such as decreasing the size of local resource, you must perform a VIP swap update instead. For more information, see [Swap Deployment](https://msdn.microsoft.com/library/azure/ee460814.aspx).
 
+<a name="howanupgradeproceeds"></a>
 ## How an upgrade proceeds
 You can decide whether you want to update all of the roles in your service or a single role in the service. In either case, all instances of each role that is being upgraded and belong to the first upgrade domain are stopped, upgraded, and brought back online. Once they are back online, the instances in the second upgrade domain are stopped, upgraded, and brought back online. A cloud service can have at most one upgrade active at a time. The upgrade is always performed against the latest version of the cloud service.
 
@@ -122,6 +126,7 @@ During an automatic update, the Azure Fabric Controller periodically evaluates t
 ### Role Instance Start Timeout
 The Fabric Controller will wait 30 minutes for each role instance to reach a Started state. If the timeout duration elapses, the Fabric Controller will continue walking to the next role instance.
 
+<a name="RollbackofanUpdate"></a>
 ## Rollback of an update
 Azure provides flexibility in managing services during an update by letting you initiate additional operations on a service, after the initial update request is accepted by the Azure Fabric Controller. A rollback can only be performed when an update (configuration change) or upgrade is in the **in progress** state on the deployment. An update or upgrade is considered to be in-progress as long as there is at least one instance of the service which has not yet been updated to the new version. To test whether a rollback is allowed, check the value of the RollbackAllowed flag, returned by [Get Deployment](https://msdn.microsoft.com/library/azure/ee460804.aspx) and [Get Cloud Service Properties](https://msdn.microsoft.com/library/azure/ee460806.aspx) operations, is set to true.
 
@@ -143,7 +148,7 @@ This functionally is provided by the following features:
 
 There are some situations where a rollback of an update or upgrade is not supported, these are as follows:
 
--   Reduction in local resources - If the update increases the local resources for a role the Azure platform does not allow rolling back. For more information about how to configure local resources for a role, see [Configure Local Storage Resources](https://msdn.microsoft.com/library/azure/ee758708.aspx).
+-   Reduction in local resources - If the update increases the local resources for a role the Azure platform does not allow rolling back. 
 -   Quota limitations - If the update was a scale down operation you may no longer have sufficient compute quota to complete the rollback operation. Each Azure subscription has a quota associated with it that specifies the maximum number of cores which can be consumed by all hosted services that belong to that subscription. If performing a rollback of a given update would put your subscription over quota then that a rollback will not be enabled.
 -   Race condition - If the initial update has completed, a rollback is not possible.
 
@@ -151,6 +156,7 @@ An example of when the rollback of an update might be useful is if you are using
 
 During the rollout of the upgrade you call [Upgrade Deployment](https://msdn.microsoft.com/library/azure/ee460793.aspx) in manual mode and begin to walk upgrade domains. If at some point, as you monitor the upgrade, you note some role instances in the first upgrade domains that you examine have become unresponsive, you can call the [Rollback Update Or Upgrade](https://msdn.microsoft.com/library/azure/hh403977.aspx) operation on the deployment, which will leave untouched the instances which had not yet been upgraded and rollback instances which had been upgraded to the previous service package and configuration.
 
+<a name="multiplemutatingoperations"></a>
 ## Initiating multiple mutating operations on an ongoing deployment
 In some cases you may want to initiate multiple simultaneous mutating operations on an ongoing deployment. For example, you may perform a service update and, while that update is being rolled out across your service, you want to make some change, e.g. to roll the update back, apply a different update, or even delete the deployment. A case in which this might be necessary is if a service upgrade contains buggy code which causes an upgraded role instance to repeatedly crash. In this case, the Azure Fabric Controller will not be able to make progress in applying that upgrade because an insufficient number of instances in the upgraded domain are healthy. This state is referred to as a *stuck deployment*. You can unstick the deployment by rolling back the update or applying a fresh update over top of the failing one.
 
@@ -164,8 +170,9 @@ Two operations, [Get Deployment](https://msdn.microsoft.com/library/azure/ee4608
 
 In order to call the version of these methods which returns the Locked flag, you must set request header to “x-ms-version: 2011-10-01” or a later. For more information about versioning headers, see [Service Management Versioning](https://msdn.microsoft.com/library/azure/gg592580.aspx).
 
+<a name="distributiondfroles"></a>
 ## Distribution of roles across upgrade domains
-Azure distributes instances of a role evenly across a set number of upgrade domains, which can be configured as part of the service definition (.csdef) file. The max number of upgrade domains is 20 and the default is 5. For more information about how to modify the service definition file, see [Azure Service Definition Schema (.csdef File)](https://msdn.microsoft.com/library/azure/ee758711.aspx).
+Azure distributes instances of a role evenly across a set number of upgrade domains, which can be configured as part of the service definition (.csdef) file. The max number of upgrade domains is 20 and the default is 5. For more information about how to modify the service definition file, see [Azure Service Definition Schema (.csdef File)](cloud-services-model-and-package.md#csdef).
 
 For example, if your role has ten instances, by default each upgrade domain contains two instances. If your role has 14 instances, then four of the upgrade domains contain three instances, and a fifth domain contains two.
 
@@ -178,6 +185,6 @@ The following diagram illustrates how a service than contains two roles are dist
 > [AZURE.NOTE] Note that Azure controls how instances are allocated across upgrade domains. It's not possible to specify which instances are allocated to which domain.
 
 ## Next steps
-[How to Manage Cloud Services](cloud-services-how-to-manage.md)<br>
-[How to Monitor Cloud Services](cloud-services-how-to-monitor.md)<br>
-[How to Configure Cloud Services](cloud-services-how-to-configure.md)<br>
+[How to Manage Cloud Services](cloud-services-how-to-manage.md)  
+[How to Monitor Cloud Services](cloud-services-how-to-monitor.md)  
+[How to Configure Cloud Services](cloud-services-how-to-configure.md)  

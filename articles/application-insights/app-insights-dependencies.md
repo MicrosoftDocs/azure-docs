@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/13/2016" 
+	ms.date="05/12/2016" 
 	ms.author="awills"/>
  
 # Diagnosing issues with dependencies in Application Insights
@@ -51,12 +51,26 @@ Install the appropriate agent for the host server.
 Platform | Install
 ---|---
 IIS Server | Either [install Status Monitor on your server](app-insights-monitor-performance-live-website-now.md) or [Upgrade your application to .NET framework 4.6 or later](http://go.microsoft.com/fwlink/?LinkId=528259) and install the [Application Insights SDK](app-insights-asp-net.md)  in your app.
-Azure Web App | [Application Insights Extension](../azure-portal/insights-perf-analytics.md)
+Azure Web App | [Application Insights Extension](app-insights-azure-web-apps.md)
 Java web server | [Java web apps](app-insights-java-agent.md)
 Web pages | [JavaScript monitor](app-insights-javascript.md) (No additional setup beyond web page monitoring)
 Azure Cloud Service |  [Use startup task](app-insights-cloudservices.md#dependencies) or [Install .NET framework 4.6+](../cloud-services/cloud-services-dotnet-install-dotnet.md)  
 
 The Status Monitor for IIS Servers doesn't need you to rebuild your source project with the Application Insights SDK. 
+
+## Application Map
+
+Application Map acts as a visual aid to discovering dependencies between the components of your application. 
+
+![Click Settings, Application Map](./media/app-insights-dependencies/08.png)
+
+From the boxes, you can navigate to relevant dependency and other charts.
+
+Click the small [x] to collapse a subtree.
+
+Pin the map to the [dashboard](app-insights-dashboards.md), where it will be fully functional.
+
+[Learn more](app-insights-app-map.md).
 
 ## <a name="diagnosis"></a> Diagnosing dependency performance issues in the web server
 

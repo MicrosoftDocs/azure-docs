@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Azure Active Directory Identity Protection flows| Microsoft Azure"
+	pageTitle="Sign-in experiences with Azure AD Identity Protection| Microsoft Azure"
 	description="Provides an overview of the user experience when Identity Protection has mitigated or remediated a user or when multi-factor authentication is required by a policy."
 	services="active-directory"
 	keywords="azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy"
 	documentationCenter=""
 	authors="markusvi"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/10/2016"
+	ms.date="08/16/2016"
 	ms.author="markvi"/>
 
-#Azure Active Directory Identity Protection flows
+# Sign-in experiences with Azure AD Identity Protection
 
 With Azure Active Directory Identity Protection, you can:
 

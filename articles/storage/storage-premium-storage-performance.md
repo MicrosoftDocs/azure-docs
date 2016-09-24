@@ -3,8 +3,8 @@
     description="Design high-performance applications using Azure Premium Storage. Premium Storage offers high-performance, low-latency disk support for I/O-intensive workloads running on Azure Virtual Machines."
     services="storage"
     documentationCenter="na"
-    authors="ms-prkhad"
-    manager=""
+    authors="aungoo-msft"
+    manager="tadb"
 	editor="tysonn" />
 
 <tags
@@ -13,8 +13,8 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="03/28/2016"
-    ms.author="prkhad"/>
+    ms.date="09/19/2016"
+    ms.author="aungoo;robinsh"/>
 
 # Azure Premium Storage: Design for High Performance
 
@@ -180,7 +180,7 @@ High Scale VMs are available in different sizes with a different number of CPU c
 | Standard_DS14 | 16 | 112 GB | OS = 1023 GB <br> Local SSD = 224 GB | 32 | 576 GB | 50,000 IOPS <br> 512 MB per second | 4,000 IOPS and 33 MB per second |
 | Standard_GS5 | 32 | 448 GB | OS = 1023 GB <br> Local SSD = 896 GB | 64 | 4224 GB | 80,000 IOPS <br> 2,000 MB per second | 5,000 IOPS and 50 MB per second |
 
-To view a complete list of all available Azure VM sizes, refer [Sizes for Azure Virtual Machines](../virtual-machines/virtual-machines-linux-sizes.md). Choose a VM size that can meet and scale to your desired application performance requirements. In addition to this, take into account following important considerations when choosing VM sizes.
+To view a complete list of all available Azure VM sizes, refer to [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md) or [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md). Choose a VM size that can meet and scale to your desired application performance requirements. In addition to this, take into account following important considerations when choosing VM sizes.
 
 
 *Scale Limits*  
@@ -238,6 +238,8 @@ Remember, the Premium Storage disks have higher performance capabilities compare
 
 ## Disk Caching  
 High Scale VMs that leverage Azure Premium Storage have a multi-tier caching technology called BlobCache. BlobCache uses a combination of the Virtual Machine RAM and local SSD for caching. This cache is available for the Premium Storage persistent disks and the VM local disks. By default, this cache setting is set to Read/Write for OS disks and ReadOnly for data disks hosted on Premium Storage. With disk caching enabled on the Premium Storage disks, the high scale VMs can achieve extremely high levels of performance that exceed the underlying disk performance.
+
+>[AZURE.WARNING] Changing the cache setting of an Azure disk detaches and re-attaches the target disk. If it is the operating system disk, the VM is restarted. Stop all applications/services that might be affected by this disruption before changing the disk cache setting.
 
 To learn more about how BlobCache works, refer to the Inside [Azure Premium Storage](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/) blog post.
 

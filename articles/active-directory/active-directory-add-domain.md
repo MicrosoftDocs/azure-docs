@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Add your custom domain name to simplify sign-in using Azure Active Directory | Microsoft Azure"
+	pageTitle="Add your custom domain name to Azure Active Directory | Microsoft Azure"
 	description="How to add your company's domain names to Azure Active Directory, and how to verify the domain name."
 	services="active-directory"
 	documentationCenter=""
 	authors="jeffsta"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,99 +13,80 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/20/2016"
+	ms.date="07/18/2016"
 	ms.author="curtand;jeffsta"/>
 
-# Add your custom domain name to simplify sign-in using Azure Active Directory
+# Add a custom domain name to Azure Active Directory
 
-When you first get your directory in Azure Active Directory (Azure AD), one of the important first tasks is to verify a custom domain name that your organization uses, such as 'contoso.com'. This lets you assign user names that are familiar to your users, such as 'alice@contoso.com.' Until you verify your custom domain name, your users will sign in with user names like 'alice@contoso.onmicrosoft.com' which use the initial domain name for your directory.
+You've got one or more domain names that your organization uses to do business, and your users sign in to your corporate network using your corporate domain name. Now that you're using Azure Active Directory (Azure AD), you can add your corporate domain name to Azure AD as well. This allows you to assign user names in the directory that are familiar to your users, such as ‘alice@contoso.com.’ The process is simple:
+
+1. Add the custom domain name to your directory
+2. Add a DNS entry for the domain name at the domain name registrar
+3. Verify the custom domain name in Azure AD
+
+> [AZURE.NOTE] If you plan to configure your custom domain name to be used with Active Directory Federation Services (AD FS) or a different security token service (STS) on your corporate network, follow the instructions in [Add and configure a domain for federation with Azure Active Directory](active-directory-add-domain-federated.md). This is useful if you plan to synchronize users from your corporate directory to Azure AD, and [password hash sync](active-directory-aadconnectsync-implement-password-synchronization.md) does not meet your requirements.
 
 ## Add a custom domain name to your directory
 
-To add a custom domain name to your directory:
-
 1. Sign in to the [Azure classic portal](https://manage.windowsazure.com/) with a user account that is a global administrator of your Azure AD directory.
 
-2. Select **Active Directory** on the left navigation bar, and open your directory.
+2. In **Active Directory**, open your directory and select the **Domains** tab.
 
-4. Select the **Domains** tab.
+3. On the command bar, select **Add**. Enter the name of your custom domain, such as 'contoso.com'. Be sure to include the .com, .net, or other top-level extension, and leave the checkbox for "single sign-on" (federation) cleared.
 
-5. On the command bar, select **Add.**
+4. Select **Add**.
 
-6. Enter the name of your custom domain, such as 'contoso.com'. Be sure to include the .com, .net, or other top-level extension.
+5. On the second page of the Add Domain wizard, get the DNS entry that Azure AD will use to verify that your organization owns the custom domain name.
 
-7. If you plan to configure this domain for [federated sign in](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Configuring-AD-FS-for-user-sign-in-with-Azure-AD-Connect) with your on-premises Active Directory, select the check box.
+Now that you've added the domain name, Azure AD must verify that your organization owns the domain name. Before Azure AD can perform this verification, you must add a DNS entry in the DNS zone file for the domain name. This task is performed at the website for domain name registrar for the domain name.
 
-8. Select **Add**.
+## Add the DNS entry at the domain name registrar for the domain
 
-Before you can assign user names that include your custom domain name, Azure AD must verify that your organization owns the domain name. To do perform this verification, you must add a DNS entry in the DNS zone file for the domain name. This task can be completed at the website for domain name registrar for the domain name.
+The next step to use your custom domain name with Azure AD is to update the DNS zone file for the domain. This enables Azure AD to verify that your organization owns the custom domain name.
 
-## Get the DNS entries for the domain name
+1.  Sign in to the domain name registrar for the domain. If you don't have access to update the DNS entry, ask the person or team who has this access to complete step 2 and to let you know when it is completed.
 
-If you selected the option to configure the domain for federation when you added the domain, you will see guidance to download the Azure AD Connect tool. Run the Azure AD Connect tool to [get the DNS entries you need to add at your domain name registrar](active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation).
+2.  Update the DNS zone file for the domain by adding the DNS entry provided to you by Azure AD. This DNS entry enables Azure AD to verify your ownership of the domain. The DNS entry doesn't change any behaviors such as mail routing or web hosting.
 
-If you did not select the option for federated sign in with Windows Server AD, you will see the DNS entries on the second page of the **Add domain** wizard.
-
-## Add the DNS entry to the DNS zone file
-
-To add the DNS entry required by Azure AD:
-
-1.  Sign in to the domain name registrar for the domain. If you do not have sufficient permissions to update the DNS zone file for the domain name, share the DNS entries with the person or team at your organization who has this access and ask them to add the DNS entry.
-
-2.  Update the DNS zone file for the domain by adding the DNS entry provided to you by Azure AD. This DNS entry will enable Azure AD to verify your ownership of the domain. The DNS entry will not change any behaviors such as mail routing or web hosting.
-
-[Instructions for adding a DNS entry at popular DNS registrars](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/)
+For help with this adding the DNS entry, read [Instructions for adding a DNS entry at popular DNS registrars](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/)
 
 ## Verify the domain name with Azure AD
 
-Once you have added the DNS entry, you can verify the domain name with Azure AD.
+Once you have added the DNS entry, you are ready to verify the domain name with Azure AD.
 
-If you selected the option to federate your custom domain name, the verification will be done automatically by the Azure AD Connect tool. Run the tool once you have completed the prerequisites. Otherwise, verify the domain in the Azure classic portal. If you still have the **Add domain** wizard open, you can click the verify button on the third page of the wizard. It can take up to an hour for the DNS records to propagate.
+If you still have the **Add domain** wizard open, select **Verify** on the third page of the wizard. When you select **Verify**, Azure AD will look for the DNS entry in the DNS zone file for the domain. Azure AD can verify the domain name only after the DNS records have propagated. This propagation often takes only seconds, but it can sometimes take an hour or more. If verification doesn’t work the first time, try again later.
 
-If the **Add domain** wizard is not still open, you can verify the domain in the [Azure classic portal](https://manage.windowsazure.com/):
+If the **Add domain** wizard isn't still open, you can verify the domain in the [Azure classic portal](https://manage.windowsazure.com/):
 
 1.  Sign in with a user account that is a global administrator of your Azure AD directory.
 
-2.  Select **Active Directory** on the left navigation bar.
+2.  Open your directory and select the **Domains** tab.
 
-3.  Open your directory.
+3.  Select the domain name that you want to verify and select **Verify** on the command bar.
 
-4.  Select the **Domains** tab.
-
-5.  In the list of domains, select the domain you want to verify.
-
-6.  Select **Verify** on the command bar.
-
-7.  Select **Verify** in the dialog box.
+4. Select **Verify** in the dialog box to complete the verification.
 
 Now you can [assign user names that include your custom domain name](active-directory-add-domain-add-users.md).
 
+## Troubleshooting
+
+If you can't verify a custom domain name, try the following. We'll start with the most common and work down to the least common.
+
+1.	**Wait an hour**. DNS records need to propagate before Azure AD can verify the domain. This can take an hour or more.
+
+2.	**Ensure the DNS record was entered, and that it is correct**. Complete this step at the website for the domain name registrar for the domain. Azure AD cannot verify the domain name if the DNS entry is not present in the DNS zone file, or if it is not an exact match with the DNS entry that Azure AD provided you. If you do not have access to update DNS records for the domain at the domain name registrar, share the DNS entry with the person or team at your organization who has this access, and ask them to add the DNS entry.
+
+3.	**Delete the domain name from another directory in Azure AD**. A domain name can be verified in only a single directory. If a domain name was previously verified in another directory, it must be deleted there before it can be verified in your new directory. To learn about deleting domain names, read [Manage custom domain names](active-directory-add-manage-domain-names.md).
+
+
 ## Add more custom domain names
 
-If your organization uses more than one custom domain name, such as 'contoso.com' and 'contosobank.com', you can add each of them to your Azure AD directory, up to a maximum of 900 domains. Use the same steps listed above to add each subsequent domain name.
-
-## Troubleshooting
-If you can't verify a custom domain name, there are a few potential causes. We'll start with the most common and work down to the least common.
-
-- You tried to verify the domain name before the DNS entry could propagate. Wait for a while and try again.
-
-- The DNS record was not entered at all. Verify the DNS entry and wait for it to propagate, and then try again.
-
-- The domain name was already verified in another directory. Locate the domain name and delete it from the other directory, and try again.
-
-- The DNS record contains an error. Correct the error and try again.
-
-- You don't have sufficient permission to update DNS records. Share the DNS entries with the person or team at your organization who has this access and ask them to add the DNS entry.
-
+If your organization uses multiple custom domain names, such as ‘contoso.com’ and ‘contosobank.com’, you can add them up to a maximum of 900 domain names. Use the same steps in this article to add each of your domain names.
 
 ## Next steps
 
 -   [Assign user names that include your custom domain name](active-directory-add-domain-add-users.md)
-
 -   [Manage custom domain names](active-directory-add-manage-domain-names.md)
-
--   [Show your company's branding when your users sign in](active-directory-add-company-branding.md)
-
--   [Use PowerShell to manage domain names in Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)
-
 -   [Learn about domain management concepts in Azure AD](active-directory-add-domain-concepts.md)
+-   [Show your company's branding when your users sign in](active-directory-add-company-branding.md)
+-   [Use PowerShell to manage domain names in Azure AD](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains)

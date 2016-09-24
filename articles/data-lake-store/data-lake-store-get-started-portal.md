@@ -4,7 +4,7 @@
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/07/2016"
+   ms.date="09/13/2016"
    ms.author="nitinme"/>
 
 # Get started with Azure Data Lake Store using the Azure Portal
@@ -35,15 +35,12 @@ Before you begin this tutorial, you must have the following:
 
 - **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="signup"></a>Enable your Azure subscription for Data Lake Store Public Preview
+## Do you learn fast with videos?
 
-You must first request your Azure subscription to be enabled for Data Lake Store Public Preview. Follow the steps below.
+Watch the following videos to get started with Data Lake Store.
 
-1. Sign on to the new [Azure Portal](https://portal.azure.com).
-2. Click **NEW**, click **Data + Storage**, and then click **Azure Data Lake Store**.
-3. In the **New Data Lake Store** blade, click **Sign up to preview**. Read the information and then click **OK**. You will receive an e-mail once your subscription has been enabled for the Public Preview.
-
-	![Sign up for Public Preview](./media/data-lake-store-get-started-portal/preview-signup.png "Create a new Azure Data Lake account")
+* [Create a Data Lake Store account](https://mix.office.com/watch/1k1cycy4l4gen)
+* [Manage data in Data Lake Store using the Data Explorer](https://mix.office.com/watch/icletrxrh6pc)
 
 ## Create an Azure Data Lake Store account
 
@@ -129,3 +126,4 @@ To delete an Azure Data Lake Store account, from your Data Lake Store blade, cli
 - [Secure data in Data Lake Store](data-lake-store-secure-data.md)
 - [Use Azure Data Lake Analytics with Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 - [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
+- [Access diagnostic logs for Data Lake Store](data-lake-store-diagnostic-logs.md)

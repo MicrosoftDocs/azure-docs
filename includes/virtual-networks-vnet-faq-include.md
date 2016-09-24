@@ -100,7 +100,7 @@ No.
 
 Yes. Subnets can be added to VNets at any time as long as the subnet address is not part of another subnet in the VNet.
 
-### Can I modify the size of my VNet size after I create it?
+### Can I modify the size of my subnet after I create it?
 
 You can add, remove, expand or shrink a subnet if there are no VMs or services deployed within it by using PowerShell cmdlets or the NETCFG file. You can also add, remove, expand or shrink any prefixes as long as the subnets that contain VMs or services are not affected by the change.
 
@@ -183,7 +183,7 @@ Yes. You can deploy any distro of Linux supported by Azure.
 
 ### Can I reserve an internal IP address for a VM that I will create at a later time?
 
-No. You cannot reserve an internal IP address. If an iternal IP address is available it will be assigned to a VM or role instance by the DHCP server. That VM may or may not be the one that you want the internal IP address to be assigned to. You can, however, change the internal IP address of an already created VM to any available internal IP address. 
+No. You cannot reserve an internal IP address. If an internal IP address is available it will be assigned to a VM or role instance by the DHCP server. That VM may or may not be the one that you want the internal IP address to be assigned to. You can, however, change the internal IP address of an already created VM to any available internal IP address. 
 
 ### Do internal IP addresses change for VMs in a VNet?
 

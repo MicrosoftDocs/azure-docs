@@ -1,14 +1,14 @@
 <properties
    pageTitle="Learn about and create a BizTalk Rules API app in your Logic App | Microsoft Azure"
    description="This topic covers the features of BizTalk Rules connector and provides instructions on its usage"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="anuragdalmia"
    manager="erikre"
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"

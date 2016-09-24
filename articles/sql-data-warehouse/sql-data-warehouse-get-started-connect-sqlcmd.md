@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Get started: Connect to Azure SQL Data Warehouse | Microsoft Azure"
-   description="Get started with connecting to SQL Data Warehouse and running some queries."
+   pageTitle="Query Azure SQL Data Warehouse (sqlcmd)| Microsoft Azure"
+   description="Querying Azure SQL Data Warehouse with the sqlcmd Command-line Utility."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sonyam"
@@ -13,72 +13,81 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="04/20/2016"
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.date="09/06/2016"
+   ms.author="barbkess;sonyama"/>
 
-# Connect and query with SQLCMD
+# Query Azure SQL Data Warehouse (sqlcmd)
 
 > [AZURE.SELECTOR]
-- [Visual Studio](sql-data-warehouse-get-started-connect.md)
-- [SQLCMD](sql-data-warehouse-get-started-connect-sqlcmd.md)
+- [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
+- [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+- [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+- [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 
-This walkthrough shows you how to connect and query an Azure SQL Data Warehouse database in just a few minutes by using the sqlcmd.exe utility. In this walkthrough, you will:
+This walkthrough uses the [sqlcmd][] command-line utility to query an Azure SQL Data Warehouse.  
 
-+ Install prerequisite software
-+ Connect to a database that contains the AdventureWorksDW sample database
-+ Execute a query against the sample database  
+## 1. Connect
 
-## Prerequisites
-
-+ [sqlcmd.exe](https://msdn.microsoft.com/library/azure/ms162773.aspx) - To download sqlcmd.exe, please see the [Microsoft Command Line Utilities 11 for SQL Server](http://go.microsoft.com/fwlink/?LinkId=321501).
-
-## Get your fully qualified Azure SQL server name
-
-To connect to your database you need the full name  of the server (***servername**.database.windows.net*) that contains the database you want to connect to.
-
-1. Go to the [Azure Portal](https://portal.azure.com).
-2. Browse to the database you want to connect to.
-3. Locate the full server name (we'll use this in the steps below):
-
-![][1]
-
-
-## Connect to SQL Data Warehouse with sqlcmd
-
-To connect to a specific instance of SQL Data Warehouse when using sqlcmd you will need to open the command prompt and enter **sqlcmd** followed by the connection string for your SQL Data Warehouse database. The connection string will need following required parameters:
+To get started with [sqlcmd][], open the command prompt and enter **sqlcmd** followed by the connection string for your SQL Data Warehouse database. The connection string requires the following parameters:
 
 + **Server (-S):** Server in the form `<`Server Name`>`.database.windows.net
 + **Database (-d):** Database name.
++ **Enable Quoted Identifiers (-I):** Quoted identifiers must be enabled to connect to a SQL Data Warehouse instance.
+
+To use SQL Server Authentication, you need to add the username/password parameters:
+
 + **User (-U):** Server user in the form `<`User`>`
 + **Password (-P):** Password associated with the user.
-+ **Enable Quoted Identifiers (-I):** Quoted identifiers must be enabled in order to connect to a SQL Data Warehouse instance.
 
-Therefore, to connect to a SQL Data Warehouse instance, you would enter the following:
+For example, your connection string might look like the following:
 
 ```sql
-C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Password> -I
+C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
 ```
 
-## Run sample queries
+To use Azure Active Directory Integrated authentication, you need to add the Azure Active Directory parameters:
 
-After connection, you can issue any supported Transact-SQL statements against the instance.
++ **Azure Active Directory Authentication (-G):** use Azure Active Directory for authentication
+
+For example, your connection string might look like the following:
 
 ```sql
-C:\>sqlcmd -S <Server Name>.database.windows.net -d <Database> -U <User> -P <Password> -I
+C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
+```
+
+> [AZURE.NOTE] You need to [enable Azure Active Directory Authentication](sql-data-warehouse-authentication.md) to authenticate using Active Directory.
+
+## 2. Query
+
+After connection, you can issue any supported Transact-SQL statements against the instance.  In this example, queries are submitted in interactive mode.
+
+```sql
+C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
 1> SELECT name FROM sys.tables;
 2> GO
 3> QUIT
 ```
 
-For additional information about sqlcmd refer to the [sqlcmd documentation](https://msdn.microsoft.com/library/azure/ms162773.aspx).
+These next examples show how you can run your queries in batch mode using the -Q option or piping your SQL to sqlcmd.
 
+```sql
+sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I -Q "SELECT name FROM sys.tables;"
+```
+
+```sql
+"SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
+```
 
 ## Next steps
 
-Now that you can connect and query, try [connecting with PowerBI][].
-
-[connecting with PowerBI]: ./sql-data-warehouse-integrate-power-bi.md
-
+See [sqlcmd documentation][sqlcmd] for more about details about the options available in sqlcmd.
 
 <!--Image references-->
-[1]: ./media/sql-data-warehouse-get-started-connect/get-server-name.png
+
+<!--Article references-->
+
+<!--MSDN references--> 
+[sqlcmd]: https://msdn.microsoft.com/library/ms162773.aspx
+[Azure portal]: https://portal.azure.com
+
+<!--Other Web references-->

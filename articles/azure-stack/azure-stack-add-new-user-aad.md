@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/08/2016"
+	ms.date="09/26/2016"
 	ms.author="erikje"/>
 
 # Add a new Azure Stack tenant account in Azure Active Directory
@@ -24,7 +24,7 @@ After [deploying the Azure Stack POC](azure-stack-run-powershell-script.md), you
 
 You must have an Azure subscription to use the Azure portal.
 
-1. Log in to [Azure](https://portal.azure.com).
+1. Log in to [Azure](http://manage.windowsazure.com).
 
 2.  In Microsoft Azure left navigation bar, click **Active Directory**.
 
@@ -71,18 +71,18 @@ If you don't have an Azure subscription, you can't use the Azure portal to add a
 
 
 
-```
-# Provide the AAD credential you use to deploy Azure Stack PoC
-		
-		$msolcred = get-credential
-
-# Add a tenant account "Tenant Admin <username>@<yourdomainname>" with the initial password "<password>".
-
-		connect-msolservice -credential $msolcred
-		$user = new-msoluser -DisplayName "Tenant Admin" -UserPrincipalName <username>@<yourdomainname> -Password <password>
-		Add-MsolRoleMember -RoleName "Company Administrator" -RoleMemberType User -RoleMemberObjectId $user.ObjectId
-
-```
+    ```powershell
+    # Provide the AAD credential you use to deploy Azure Stack PoC
+   
+    		$msolcred = get-credential
+    
+    # Add a tenant account "Tenant Admin <username>@<yourdomainname>" with the initial password "<password>".
+    
+    		connect-msolservice -credential $msolcred
+    		$user = new-msoluser -DisplayName "Tenant Admin" -UserPrincipalName <username>@<yourdomainname> -Password <password>
+    		Add-MsolRoleMember -RoleName "Company Administrator" -RoleMemberType User -RoleMemberObjectId $user.ObjectId
+    
+    ```
 
 4.  Sign in to Microsoft Azure with the new account. Change the password when prompted.
 
@@ -90,6 +90,3 @@ If you don't have an Azure subscription, you can't use the Azure portal to add a
 
 
 
-## Next steps
-
-[Enable multiple concurrent user connections](azure-stack-enable-multiple-concurrent-users.md)

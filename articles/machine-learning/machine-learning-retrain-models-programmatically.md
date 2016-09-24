@@ -1,6 +1,6 @@
-﻿<properties
+<properties
 	pageTitle="Retrain Machine Learning models programmatically | Microsoft Azure"
-	description="Learn how to programmatically retrain a model and update the web service to use the newly trained model in Azure Machine Learning."
+	description="Learn how to programmatically retrain a model and update the Web service to use the newly trained model in Azure Machine Learning."
 	services="machine-learning"
 	documentationCenter=""
 	authors="raymondlaghaeian"
@@ -13,152 +13,157 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/17/2016"
-	ms.author="raymondl;garye"/>
+	ms.date="08/29/2016"
+	ms.author="raymondl;garye;v-donglo"/>
 
 
 #Retrain Machine Learning models programmatically  
 
-As part of the process of operationalization of machine learning models in Azure Machine Learning, a model needs to be trained and saved, then used to create a predictive web service. The web service can then be consumed in web sites, dashboards, and mobile apps.  
+As part of the process of operationalization of machine learning models in Azure Machine Learning, your model is trained and saved. You then use it to create a predicative Web service. The Web service can then be consumed in web sites, dashboards, and mobile apps. 
 
-Frequently, you need to retrain the model created in the first step with new data. Previously, this was only possible through the Azure ML UI, but with the introduction of the Programmatic Retraining API feature, you now can retrain the model and update the Web Service with the newly trained model, programmatically using the Retraining APIs.
+Models you create using Machine Learning are typically not static. As new data becomes available or when the consumer of the API has their own data the model needs to be retrained. Or, you may need to apply filters obtain a subset of the data and retrain the model. 
 
-This document describes the above process, and shows how to use the Retraining APIs.
+Retraining may occur frequently. With the Programmatic Retraining API feature, you can programmatically retrain the model using the Retraining APIs and update the Web service with the newly trained model. 
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]  
+This document describes the retraining process, and shows you how to use the Retraining APIs.
 
+## Why retrain: defining the problem  
 
-##Why retrain: defining the problem  
-As part of the ML training process, a model is trained using a set of data. The models needs to be retrained in scenarios where new data becomes available, or when the consumer of the API has their own data to train the model, or when the data needs to be filtered and the model trained with the subset of data, etc.  
+As part of the machine learning training process, a model is trained using a set of data. Models you create using Machine Learning are typically not static. As new data becomes available or when the consumer of the API has their own data the model needs to be retrained. Additional scenarios may require you to apply filters obtain a subset of the data and retrain the model. 
 
-In these scenarios, a programmatic API provides a convenient way to allow you or the consumer of your APIs to create a client that can, on a one-time or regular basis, retrain the model using their own data. They can then evaluate the results of retraining, and update the Web Service API to use the newly trained model.  
+In these scenarios, a programmatic API provides a convenient way to allow you or the consumer of your APIs to create a client that can, on a one-time or regular basis, retrain the model using their own data. They can then evaluate the results of retraining, and update the Web service API to use the newly trained model.  
 
 ##How to retrain: the end to end process  
-To start, the process involves the following components: a Training Experiment and a Predictive Experiment published as a Web Service. To enable retraining of a trained model, the Training Experiment has to also be published as a Web Service with the output of a trained model. This enables API access to the model for retraining. The process for setting up retraining involves the following steps:  
 
-![][1]
+To start, the process involves the following components: A Training Experiment and a Predictive Experiment published as a Web service. To enable retraining of a trained model, the Training Experiment must be published as a Web service with the output of a trained model. This enables API access to the model for retraining. 
 
-Diagram 1: Retraining process overview  
+The process for setting up retraining for a Classic Web service involves the following steps:
 
-1. *Create a Training Experiment*  
-	We will be using experiment “Sample 5 (Train, Test, Evaluate for Binary Classification: Adult Dataset)” from the Azure ML sample experiments for this example. As you will see below, I have simplified the sample by removing some modules. I have also named the experiment “Census Model”.
+![Retraining process overview][1]
 
- 	![][2]
+Diagram 1: Retraining process for a Classic Web service overview  
 
-	With these pieces in place, we can now click Run on the bottom of the screen to run this experiment.  
-2. *Create a Scoring Experiment and publish as a Web Service*  
+The process for setting up retraining for a New Web service involves the following steps:
 
-	![][3]
+![Retraining process overview][7]
 
-	After experiment run is completed, we click on Create Predictive Experiment. This creates a Predictive Experiment, saves the model as a Trained Model and adds Web Service Input and Output modules as shown below. Next, we click Run.  
+Diagram 1: Retraining process for a New Web service overview  
 
-	After experiment run is completed, clicking on “Publish Web Service” will publish the Predictive Experiment as a Web Service and create a default endpoint. The trained model in this webservice is updatable, as shown below. The details for this endpoint will then show up on the screen.
-3. *Publish the Training Experiment as a Web Service*:
-	To re-train the trained model, we need to publish the Training Experiment we created in step 1 above as a Web Service. This Web Service will need a Web Service Output module connected to the [Train Model][train-model] module, to be able to produce new trained models.
-Click on the Experiments icon in the left pane, then click on the experiment called Census Model to go back to the training experiment.  
-
-	We then add one Web Service Input and two Web Service Output modules to the workflow. The Web Service output for Train Model will give us the new trained model. The output attached to Evaluate Model will return that module’s Evaluate Model output.
-
-	We can now click Run. After experiment has completed running, the resulting workflow should look as below:
-
-	![][4]
-
-	We next click on the Deploy Web Service button, then click Yes. This will deploy the Training Experiment as a Web Service that produces a trained model and model evaluation results. The Web Service Dashboard will be displayed with the API Key and the API help page for Batch Execution. Note that only the Batch Execution method can be used for creating Trained Models.  
-4. *Add a new Endpoint*  
-	The Predictive Web Service we published in Step 2 above is the default scoring endpoint. The default endpoints are kept in sync with the original training and scoring experiments, and therefore a default endpoint's trained model cannot be replaced.
-To create a new scoring endpoint with an update-able model, visit the Azure Classic Portal and click on Add Endpoint (more details [here](machine-learning-create-endpoint.md)).
-You can also add scoring endpoints using the sample code provided [here](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs).
-
-5. *Retrain the model with new data and BES*  
-	To call the Retraining APIs, we create a new C# Console Application in Visual Studio (New->Project->Windows Desktop->Console Application).  
-
-	We then copy the sample C# code from the Training Web Service's API help page for batch execution (created in Step 3 above) and paste it into the Program.cs file, making sure the namespace remains intact.  
-
-	Note that sample code has comments which indicate parts of the code that need updates.
-	Also, when specifiying the "output1" location in the Reqeust Payload, the file extention of the "RelativeLocation" has to be changed to an ".ilearner" as in:
-
-	```c#
-	Outputs = new Dictionary<string, AzureBlobDataReference>()
-	{
-		{
-			"output1",
-			new AzureBlobDataReference()
-			{
-				ConnectionString = "DefaultEndpointsProtocol=https;AccountName=mystorageacct;AccountKey=Dx9WbMIThAvXRQWap/aLnxT9LV5txxw==",
-				RelativeLocation = "mycontainer/output1results.ilearner"
-			}
-		},
-	},
-	```
-	1. Provide Azure Storage info
-The sample code for BES will upload a file from a local drive (e.g. “C:\temp\CensusIpnput.csv”) to Azure Storage, process it, and write the results back to Azure Storage.  
-
-		To accomplish that, you need to retrieve the Storage account name, key, and container information from the Azure Classic Portal for your Storage account and the update the code here. You also need to ensure the input file is available at the location you specify in the code.  
-
-		We had set up this Training Experiment with two outputs, so the results will include storage location information for both of them, as seen below. “output1” is the output of the Trained Model, “output2” the output of Evaluate Model.  Also note that the file extention of the Output for the Trained Model (Output1) is ".ilearner" and not ".csv".
-
-		![][6]
-
-6. *Evaluate the Retraining Results*  
-	Using the combination of the BaseLocation, RelativeLocation and SasBlobToken from the above output results for “output2” we can see the performance results of the retrained model by pasting the complete URL in the browser address bar.  
-
-	This will tell us if the newly trained model performs well enough to replace the existing one.
-
-7. *Update the added endpoint’s Trained Model*  
-	To complete the process, we need to update the trained model of the predictive (scoring) endpoint we created in Step 4 above.  
-
-	(If you added the new endpoint using the Azure Portal, you can click on the new endpoint's name, then the UpdateResource link to get the URL you would need to update the endpoint's model. If you added the endpoint using code, the output of that call will have the endpoint URL.)
-
-	The BES output above shows the information for the result of retraining for “output1” which contains the retrained model location information. We now need to take this trained model and update the scoring endpoint (created  in step 4 above). Sample code follows:
-
-	```C#
-	private async Task OverwriteModel()
-	{
-		var resourceLocations = new
-		{
-			Resources = new[]
-			{
-				new
-				{
-					Name = "Census Model [trained model]",
-					Location = new AzureBlobDataReference()
-					{
-						BaseLocation = "https://esintussouthsus.blob.core.windows.net/",
-						RelativeLocation = "your endpoint relative location", //from the output, for example: “experimentoutput/8946abfd-79d6-4438-89a9-3e5d109183/8946abfd-79d6-4438-89a9-3e5d109183.ilearner”
-						SasBlobToken = "your endpoint SAS blob token" //from the output, for example: “?sv=2013-08-15&sr=c&sig=37lTTfngRwxCcf94%3D&st=2015-01-30T22%3A53%3A06Z&se=2015-01-31T22%3A58%3A06Z&sp=rl”
-					}
-				}
-			}
-		};
-
-		using (var client = new HttpClient())
-		{
-			client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
-
-			using (var request = new HttpRequestMessage(new HttpMethod("PATCH"), endpointUrl))
-			{
-				request.Content = new StringContent(JsonConvert.SerializeObject(resourceLocations), System.Text.Encoding.UTF8, "application/json");
-				HttpResponseMessage response = await client.SendAsync(request);
-
-				if (!response.IsSuccessStatusCode)
-				{
-					await WriteFailedResponse(response);
-				}
-
-				// Do what you want with a successful response here.
-			}
-		}
-	}
-	```
-
-	The “apiKey” and the “endpointUrl” for this call are visible on the endpoint dashboard. The "Name" parameter in Resources should match the name of the Saved Trained Model in the Predictive Experiment.
+## Create a Training Experiment
+ 
+For this example, you will use "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset" from the Microsoft Azure Machine Learning samples. 
 	
-	Note that the SAS token expires after 1 hour (55 minutes). You would need to do a GET with the Job Id to get a fresh token.
+To create the experiment:
 
-	With the success of this call, the new endpoint will start using a retrained model approximately within 15 seconds.  
+1.	Sign into to Microsoft Azure Machine Learning Studio. 
+2.	On the bottom right corner of the dashboard, click **New**.
+3.	From the Microsoft Samples, select Sample 5.
+4.	To rename the experiment, at the top of the experiment canvas, select the experiment name "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset".
+5.	Type Census Model.
+6.	At the bottom of the experiment canvas, click **Run**.
+7.	Click **Set Up Web service** and select **Retraining Web service**. 
 
-##Summary  
-Using the Retraining APIs, we can update the trained model of a predictive Web Service enabling scenarios such as periodic model retraining with new data or distribution of models to customers with the goal of letting them retrain the model using their own data.  
+ 	![Initial experiment.][2]
+
+Diagram 2: Initial experiment.
+
+## Create a Scoring Experiment and publish as a Web service  
+
+Next you create a Predicative Experiment.
+
+1.	At the bottom of the experiment canvas, click **Set Up Web Service** and select **Predictive Web Service**. This saves the model as a Trained Model and adds Web service Input and Output modules. 
+2.	Click **Run**. 
+3.	After experiment has finished running, click **Deploy Web Service [Classic]** or **Deploy Web Service [New]**.
+
+## Deploy the Training Experiment as a Training Web service
+
+To retrain the trained model, you must deploy the Training Experiment that you created as a Retraining Web service. This Web service needs a *Web Service Output* module connected to the *[Train Model][train-model]* module, to be able to produce new trained models.
+
+1. To return to the training experiment, click the Experiments icon in the left pane, then click the experiment named Census Model. 
+2. In the Search Experiment Items search box, type Web service. 
+3. Drag a *Web Service Input* module onto the experiment canvas and connect its output to the *Clean Missing Data* module. 
+4. Drag two *Web service Output* modules onto the experiment canvas. Connect the output of the *Train Model* module to one and the output of the *Evaluate Model* module to the other. The Web service output for **Train Model** gives us the new trained model. The output attached to **Evaluate Model** returns that module’s output.
+5. Click **Run**. 
+
+Next you must deploy the Training Experiment as a web service that produces a trained model and model evaluation results. To accomplish this, your next set of actions are dependent on whether you are working with a Classic Web service or a New Web service.  
+  
+**Classic Web service**
+
+At the bottom of the experiment canvas, click **Set Up Web Service** and select **Deploy Web Service [Classic]**. The Web Service **Dashboard** is displayed with the API Key and the API help page for Batch Execution. Only the Batch Execution method can be used for creating Trained Models.
+
+**New Web service**
+
+At the bottom of the experiment canvas, click **Set Up Web Service** and select **Deploy Web Service [New]**. The Web Service Azure Machine Learning Web Services portal opens to the Deploy Web service page. Type a name for your Web service and choose a payment plan, then click **Deploy**. Only the Batch Execution method can be used for creating Trained Models
+
+In either case, after experiment has completed running, the resulting workflow should look as follows:
+
+![Resulting workflow after run.][4]
+
+Diagram 3: Resulting workflow after run.
+
+## Retrain the model with new data using BES
+
+To call the Retraining APIs:
+
+1. Create a C# Console Application in Visual Studio (New->Project->Windows Desktop->Console Application).
+2.	Sign in to the Machine Learning Web Service portal.
+3.	If you are working with a Classic Web service, click **Classic Web Services**.
+	1.	Click the Web service you are working with.
+	2.	Click the default endpoint.
+	3.	Click **Consume**.
+	4.	At the bottom of the **Consume** page, in the **Sample Code** section, click **Batch**.
+	5.	Continue to step 5 of this procedure.
+4.	If you are working with a New Web service, click **Web Services**.
+	1.	Click the Web service you are working with.
+	2.	Click **Consume**.
+	3.	At the bottom of the Consume page, in the **Sample Code** section, click **Batch**.
+5.	Copy the sample C# code for batch execution and paste it into the Program.cs file, making sure the namespace remains intact.
+7. When specifying the output location in the Request Payload, the extension of the file specified in *RelativeLocation* must be changed from csv to ilearner. See the following example.
+
+		Outputs = new Dictionary<string, AzureBlobDataReference>()
+		{
+			{
+				"output1",
+				new AzureBlobDataReference()
+				{
+					ConnectionString = "DefaultEndpointsProtocol=https;AccountName=mystorageacct;AccountKey=Dx9WbMIThAvXRQWap/aLnxT9LV5txxw==",
+					RelativeLocation = "mycontainer/output1results.ilearner"
+				}
+			},
+		},
+
+>[AZURE.NOTE] The names of your output locations may be different from the ones in this walkthrough based on the order in which you added the Web service output modules. Since you set up this Training Experiment with two outputs, the results include storage location information for both of them. 
+
+### Update the Azure Storage information
+
+The BES sample code uploads a file from a local drive (For example "C:\temp\CensusIpnput.csv") to Azure Storage, processes it, and writes the results back to Azure Storage.  
+
+To accomplish this task, you must retrieve the Storage account name, key, and container information from the Azure classic portal for your Storage account and the update corresponding values in the code. 
+
+You also must ensure the input file is available at the location you specify in the code.  
+
+![Retraining output][6]
+
+Diagram 4: Retraining output.
+
+## Evaluate the Retraining Results
+ 
+When you run the application, the output includes the URL and SAS token necessary to access the evaluation results.
+
+You can see the performance results of the retrained model by combining the *BaseLocation*, *RelativeLocation*, and *SasBlobToken* from the output results for *output2* (as shown in the preceding retraining output image) and pasting the complete URL in the browser address bar.  
+
+Examine the results to determine whether the newly trained model performs well enough to replace the existing one.
+
+Copy the *BaseLocation*, *RelativeLocation*, and *SasBlobToken* from the output results, you will use them during the retraining process.
+
+## Next steps
+
+[Retrain a Classic Web service](machine-learning-retrain-a-classic-web-service.md)
+
+[Retrain a New Web service using the Machine Learning Management cmdlets](machine-learning-retrain-new-web-service-using-powershell.md)
+
+<!-- Retrain a New Web service using the Machine Learning Management REST API -->
+
 
 [1]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE01.png
 [2]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE02.png
@@ -166,6 +171,7 @@ Using the Retraining APIs, we can update the trained model of a predictive Web S
 [4]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE04.png
 [5]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE05.png
 [6]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE06.png
+[7]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE07.png
 
 
 <!-- Module References -->

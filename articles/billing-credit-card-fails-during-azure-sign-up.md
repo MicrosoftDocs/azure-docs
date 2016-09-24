@@ -1,12 +1,13 @@
 <properties
-	pageTitle="My credit card doesn't go through when I try to sign up for Azure | Microsoft Azure"
-	description="Discusses common causes of Microsoft Azure sign-up issues using a credit or debit card"
-	services="billing"
+	pageTitle="If your credit or debit card is declined at sign up | Microsoft Azure"
+	description="Learn how to resolve issues when your credit or debit card is declined when you try to sign up for Azure."
+	services=""
 	documentationCenter=""
-	authors="jiangchen79"
+	authors="JiangChen79"
 	manager="felixwu"
 	editor=""
-	tags="top-support-issue"/>
+	tags="billing,top-support-issue"
+	keywords="credit card declined, debit card declined, your credit card was declined, do not honor credit card"/>
 
 <tags
 	ms.service="billing"
@@ -14,77 +15,61 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/14/2016"
+	ms.date="08/31/2016"
 	ms.author="cjiang"/>
 
-# My credit card doesn’t go through when I try to sign up for Azure
-This article discusses common causes of sign-up issues using a credit or debit card.
+# If your credit or debit card is declined at sign up
 
-[AZURE.INCLUDE [support-disclaimer](../includes/support-disclaimer.md)]
+> [AZURE.NOTE] If you are trying to change or remove an exisiting card, learn how to [manage your payment information](billing-how-to-change-credit-card.md).
 
-## Are any other options to pay besides a credit or debit card?
-Azure payment options include:
+> If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
-- Credit or debit card (except for virtual and prepaid cards)
-- Invoice. Once you opt for the invoice option, you can't move to the credit card option for the same Azure subscription. If you are a company and you are interested to learn about alternate payment method being invoiced, please read [Azure Billing - How to invoice](https://azure.microsoft.com/pricing/invoicing/). Invoicing payment methods include check, overnight check, and wire transfers.
+If your credit card or debit card was declined when you try to sign up for Azure, you might have issues because of one of the reasons below.
 
-##  Are you using a supported credit card for Azure activations or payments?
-- Currently only credit/debit card that are not virtual and not prepaid are accepted.
-- Accepted credit/debit card providers vary based on your country.
+- [The accepted credit card and debit card providers vary based on your country, so you may need to use an international card](#credit-or-debit-card-details). In the drop-down list for choosing a credit card, you will only see the options that are valid in the country that you selected. 
 
-Suggestions:
+- [Your credit or debit card information is inaccurate or incomplete](#credit-or-debit-card-details). You must update your payment info to proceed.
 
-- Do not use a virtual or prepaid debit/credit card.
-- Try to use an alternate valid and supported credit card if payment or activation fails.
-- Be sure that the payment method is active and that your bank is not blocking any online transaction for security policies.
+- [You're trying to activate a second free trial](#azure-free-trial); the Azure Free Trial offer is limited to one per user.
 
-## Is the credit card information correct and complete?
-- Credit card details must be correct and match the credit card bank billing information.
-- The name being entered must exactly match the name imprinted on the credit card without any symbols/characters.
-- The address entered is the one the bill is sent to and is entered exactly as it appears on the credit card statement including street address, city, state, and zip/postal code.
-- The CVV code is inserted as it appears on the back or front of the credit card.
-- Work with your bank to correct any spelling or other issues with information on your card.
+- You’re using a virtual or prepaid card. Virtual or prepaid credit or debit cards are not accepted as valid payment options. 
 
-Suggestions:
+- Your card might be inactive or blocked. If you are indeed using a valid credit card or debit card, make sure that the card is active and your bank is not blocking online transactions due to its security policies. Contact your bank to resolve this issue.
 
-- Always provide accurate information on sign-up, as profile details are also used to generate billing statements.
+## Credit or debit card details
 
-## Is your account profile information correct and complete?
+Follow the steps below to make sure your credit or debit card information is valid:
 
-- The account owner must insert all the relevant information requested during sign-up in order to identify the person owning the account and to be able to generate correct billing statements when needed.
-- Examples of incorrect or incomplete fields are: missing name or surname, wrong phone number, non-standard (special) characters.
+- The credit or debit card you’re using should be listed in the drop-down list for the country you choose. 
+	
+	- In some cases, although you’re paying for Azure services in your local/preferred currency, you are purchasing services through a non-local Microsoft entity and your credit card is being processed by a non-local bank. Please contact your bank or card issuer to confirm if your credit card is enabled for international transactions.
+	
+	- See [supported countries and currencies](billing-countries-and-currencies.md).
 
-Suggestions:
+- The name you enter must exactly match the name printed on the credit/debit card, without any additional symbols/characters.
 
-- Double check each field in your profile at sign-up or at [your profile setting]( https://account.windowsazure.com/Profile/) if you already created an Azure account.
-- Provide accurate information, as profile details are also used to generate billing statements.
+- The address you enter must exactly match the address that appears on the credit/debit card statement, including street address, city, state, country, and zip/postal code.
 
-## Are you trying to activate an Azure benefit plan like MSDN, BizSpark, or MPN?  
-Verify through your benefit program channel if you are eligible for the chosen plan:
+- The CVV code you enter must exactly match the code that appears on the back or front of the credit/debit card.
 
-- MSDN:
+After you update your payment information, you can try signing up again.
 
-  - Verify your eligibility status in your [MSDN account page](https://msdn.microsoft.com/subscriptions/manage/deult.aspx).
-  - If you cannot verify your status, contact the [MSDN Subscriptions Customer Service Centers](https://msdn.microsoft.com/subscriptions/contactus.aspx)
-- MPN
+## Azure Free Trial
 
-  - Sign in to the [MPN portal](https://mspartner.microsoft.com/en/us/Pages/Locale.aspx) and verify your eligibility status. You may be eligible for additional benefits if you have the appropriate [Cloud Platform Competencies](https://mspartner.microsoft.com/en/us/pages/membership/cloud-platform-competency.aspx).
-  - If you cannot verify your status, contact [MPN support](https://mspartner.microsoft.com/en/us/Pages/Support/Premium/contact-support.aspx).
-- Bizpark:
-
-  - Sign in to the [BizSpark portal](https://www.microsoft.com/bizspark/default.aspx#start-two) and verify your eligibility status for BizSpark and BizSpark Plus.
-  If you cannot verify your status, contact BizSpark Support sending an email to [Contact BizSpark Team](mailto:bizspark@microsoft.com?subject=BizSpark%20Support&body=Thank%20you%20for%20contacting%20BizSpark.%20Please%20provide%20as%20much%20of%20the%20following%20information%20as%20possible,%20as%20it%20will%20help%20expedite%20our%20response%20to%20you.%0aContact%20name:%0aStartup%20name:%0aMicrosoft%20Account/Live%20ID:%0aSpecific%20description%20of%20issue%20experienced%20or%20question:%0a%0aThank%20you,%0a%0aThe%20BizSpark%20Team)
-
-Suggestions:
-
-If you get an error signing up for a new benefit subscription, you can go to the [Azure subscription page]( http://account.windowsazure.com/Subscriptions) to see if the subscription was created. Some types of subscriptions may show as pending, and will become active in a few minutes. If the status does not change after a few minutes you can contact [Azure Support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) for assistance at no charge.
-
-## Have you already used an Azure subscription in the past and now you are trying to activate an Azure Free Trial?
-The Azure Free Trial offer is limited to one free trial activation.
-
-Suggestions:
-
-If a free trial activation fails because you already activated an Azure subscription in the past, please use another available Azure plan listed in the [Microsoft Azure offer details](https://azure.microsoft.com/support/legal/offer-details/) instead of the Azure Free Trial plan.
+The Azure Free Trial offer is limited to one free trial activation per user. If you have already activated a free trial earlier with this credit card or had an Azure subscription in the past that was linked to this credit card, the system will not allow you to activate a free trial now. Instead, use one of the other available Azure plans listed on the [Microsoft Azure Offer Details](https://azure.microsoft.com/support/legal/offer-details/) page.
 
 ## Next steps
-Have billing or subscription questions on Microsoft Azure? Check out the [Azure Billing and Subscription FAQ](billing-subscription-faq.md#what-payment-options-do-i-have-in-purchasing-azure).
+
+### Set up invoicing
+
+You can also pay for your Azure subscription via invoicing payment methods such as checks, overnight checks, and wire transfers.
+
+To use the invoice payment option, you must represent a business. This option is not available for individual subscribers. Once your business is set up to pay using the invoice option, you cannot change to a different payment option later.
+
+To start the process of setting up an invoice, see [Azure Billing - How to invoice](https://azure.microsoft.com/pricing/invoicing/) for details.
+
+### Update your credit or debit card information
+
+If you would like to update card details, change or remove a card, learn how to [manage your payment information](billing-how-to-change-credit-card.md).
+
+> [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.

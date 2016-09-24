@@ -12,7 +12,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/20/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Deploy your on-premises StorSimple device (Update 1)
@@ -285,7 +285,7 @@ For MPIO installation instructions for a StorSimple device connected to a Linux 
 
 ## Next steps
 
-- Configure a [virtual device](storsimple-virtual-device.md).
+- Configure a [virtual device](storsimple-virtual-device-u2.md).
 
 - Use the [StorSimple Manager service](storsimple-manager-service-administration.md) to manage your StorSimple device.
  

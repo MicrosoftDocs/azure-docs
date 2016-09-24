@@ -25,7 +25,7 @@ _Select one of the following disclaimers depending on your scenario. If your art
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] classic deployment model.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../learn-about-deployment-models-both-include.md)]
 
@@ -45,6 +45,10 @@ _When you try to connect to Azure SQL Database, the common connection errors you
 
 _These errors occur because you don’t have permission to access the data source._
 
+_If it is an article on the billing topic, include the following note (the note below is slightly different than the one at the bottom of this article):_
+> [AZURE.NOTE] If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+
+_If it is NOT a billing article, include the following reference:_
 [AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## Troubleshooting guidance (optional)
@@ -60,10 +64,13 @@ _List the solutions in the order of usability and simplicity, meaning the simple
 
 _Select one of the versions that apply to your situation._
 
-| <em>Version 1: Your article is deployment model agnostic</em> | <em>Version 2: Steps for Resource Manager and Classic are largely the same</em> | <em>Version 3: Steps for Resource Manager and Classic are mostly different. <br />In this case, use the <a href="https://github.com/Azure/azure-content-pr/blob/master/contributor-guide/custom-markdown-extensions.md#simple-selectors">Simple Selectors technique in Github</a>.</em> |
+| <em>Version 1: Your article is deployment model agnostic</em> | <em>Version 2: Steps for Resource Manager and Classic are largely the same</em> | <em>Version 3: Steps for Resource Manager and Classic are mostly different. <br />In this case, use the <a href="https://github.com/Azure/azure-content-pr/blob/master/contributor-guide/custom-markdown-extensions.md#simple-selectors">Simple Selectors technique in Github</a>. <br />Note: VM articles for ARM are exceptions and should not use the ARM/Classic selector.</em> |
 |:------------------------------------------------------|:-----------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | <p><h3>[Issue 1] \| [Error 1]</h3><h4>Cause</h4>[Cause details]</p><p><h4>Solution 1</h4><em>(the simplest and most effective)</em></p><ol><li>[Step 1]</li><li>[Step 2]</li></ol><p><h4>Solution 2</h4><em>(the less simple or effective)</em></p><ol><li>[Step 1]</li><li>[Step 2]</li></ol><p><h3>[Issue 2] \| [Error 2]</h3><h4>Cause</h4>[Cause details]</p><p><h4>Solution 1</h4><em>(the simplest and most effective)</em></p><ol><li>[Step 1]</li><li>[Step 2]</li></ol><p><h4>Solution 2</h4><em>(the simplest and most effective)</em></p><ol><li>[Step 1]</li><li>[Step 2]</li></ol><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> | <p><h3>[Issue 1] \| [Error 1]</h3><h4>Cause</h4>[Cause details]</p><p><h4>Solution 1</h4><em>(the simplest and most effective)</em></p><ol><li>[Step 1]</li><li>If you use the classic deployment model, [do this].<br />If you use the Resource Manager deployment model, [do this].</li><li>[Step 3]</li></ol><p><h4>Solution 2</h4><em>(the less simple or effective)</em></p><ol><li>[Step 1]</li><li>If you use the classic deployment model, [do this].<br />If you use the Resource Manager deployment model, [do this].</li><li>[Step 3]</li></ol><p><h3>[Issue 2] \| [Error 2]</h3><h4>Cause</h4>[Cause details]</p><p><h4>Solution 1</h4><em>(the simplest and most effective)</em></p><ol><li>[Step 1]</li><li>If you use the classic deployment model, [do this].<br />If you use the Resource Manager deployment model, [do this].</li><li>[Step 3]</li></ol><p><h4>Solution 2</h4><em>(the simplest and most effective)</em></p><ol><li>[Step 1]</li><li>If you use the classic deployment model, [do this].<br />If you use the Resource Manager deployment model, [do this].</li><li>[Step 3]</li></ol>  | <img src="media/markdown-template-for-support-articles-troubleshoot/rm-classic.png" alt="ARM-Classic"><p><h3>[Issue 1] \| [Error 1]</h3><h4>Cause</h4>[Cause details]</p><p><h4>Solution 1</h4><em>(the simplest and most effective)</em></p><ol><li>[Step 1]</li><li>[Step 2]</li></ol><p><h4>Solution 2</h4><em>(the less simple or effective)</em></p><ol><li>[Step 1]</li><li>[Step 2]</li></ol><p><h3>[Issue 2] \| [Error 2]</h3><h4>Cause</h4>[Cause details]</p><p><h4>Solution 1</h4><em>(the simplest and most effective)</em></p><ol><li>[Step 1]</li><li>[Step 2]</li></ol><p><h4>Solution 2</h4><em>(the simplest and most effective)</em></p><ol><li>[Step 1]</li><li>[Step 2]</li></ol><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> |
 
 
 ## Next steps
 _Include this section if there are 1 -3 concrete, highly relevant next steps the user should take. Delete if there are no next steps. This is not a place for a list of links. If you include links to next steps, make sure to include text to explain why the next steps are relevant/ important._
+
+_If it is an article on the billing topic, include the following note (the note below is slightly different than the one at the beginning of this article):_
+> [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.

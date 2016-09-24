@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/27/2016"    
+	ms.date="08/30/2016"   
 	ms.author="juliako"/>
 
 
@@ -31,6 +31,9 @@ The custom presets that perform the following encoding tasks are demonstrated:
 - [Insert a silent audio track when input has no audio](media-services-custom-mes-presets-with-dotnet.md#silent_audio)
 - [Disable auto de-interlacing](media-services-custom-mes-presets-with-dotnet.md#deinterlacing)
 - [Audio-only presets](media-services-custom-mes-presets-with-dotnet.md#audio_only)
+- [Concatenate two or more video files](media-services-custom-mes-presets-with-dotnet.md#concatenate)
+- [Crop videos with Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md#crop)
+- [Insert a video track when input has no video](media-services-custom-mes-presets-with-dotnet.md#no_video)
 
 ##<a id="encoding_with_dotnet"></a>Encoding with Media Services .NET SDK
 
@@ -40,11 +43,11 @@ The following code example uses Media Services .NET SDK to perform the following
 - Get a reference to the Media Encoder Standard encoder.
 - Load the custom XML or JSON preset. You can save the XML or JSON (for example, [XML](media-services-custom-mes-presets-with-dotnet.md#xml) or [JSON](media-services-custom-mes-presets-with-dotnet.md#json) in a file and use the following code to load the file.
 
-			// Load the XML (or JSON) from the local file.
-		    string configuration = File.ReadAllText(fileName);  
+		// Load the XML (or JSON) from the local file.
+	    string configuration = File.ReadAllText(fileName);  
 - Add an encoding task to the job. 
 - Specify the input asset to be encoded.
-- Create an output asset that will contain the encoded asset.
+- Create an output asset that contains the encoded asset.
 - Add an event handler to check the job progress.
 - Submit the job.
 	
@@ -235,11 +238,25 @@ The following code example uses Media Services .NET SDK to perform the following
 		}
 
 
+##Support for relative sizes
+
+When generating thumbnails of it, you do not need to always specify output width and height in pixels. You can specify them in percentages, in the range [1%, …, 100%].
+
+###JSON preset 
+	
+	"Width": "100%",
+	"Height": "100%"
+
+###XML preset
+	
+	<Width>100%</Width>
+	<Height>100%</Height>
+	
 ##<a id="thumbnails"></a>Generate thumbnails
 
 This section shows how to customize a preset that generates thumbnails. The preset defined below contains information on how you want to encode your file as well as information needed to generate thumbnails. You can take any of the MES presets documented [here](https://msdn.microsoft.com/library/mt269960.aspx) and add code that generates thumbnails.  
 
->[AZURE.NOTE]The **SceneChangeDetection** setting in the following preset can only be set to true if you are encoding to a single  bitrate video. If you are encoding to a multi-bitrate video and set **SceneChangeDetection** to true, the encoder will return an error.  
+>[AZURE.NOTE]The **SceneChangeDetection** setting in the following preset can only be set to true if you are encoding to a single  bitrate video. If you are encoding to a multi-bitrate video and set **SceneChangeDetection** to true, the encoder returns an error.  
 
 
 For information about schema, see [this](https://msdn.microsoft.com/library/mt269962.aspx) topic.
@@ -428,11 +445,11 @@ Make sure to review the [Considerations](media-services-custom-mes-presets-with-
 The following considerations apply:
 
 - The use of explicit timestamps for Start/Step/Range assumes that the input source is at least 1 minute long.
-- Jpg/Png/BmpImage elements have Start, Step and Range string attributes – these can be interpreted as:
+- Jpg/Png/BmpImage elements have Start, Step, and Range string attributes – these can be interpreted as:
 
-	- Frame Number if they are non-negative integers, eg. "Start": "120",
-	- Relative to source duration if expressed as %-suffixed, eg. "Start": "15%", OR
-	- Timestamp if expressed as HH:MM:SS… format. Eg. "Start" : "00:01:00"
+	- Frame Number if they are non-negative integers, for example "Start": "120",
+	- Relative to source duration if expressed as %-suffixed, for example "Start": "15%", OR
+	- Timestamp if expressed as HH:MM:SS… format, for example "Start" : "00:01:00"
 
 	You can mix and match notations as you please.
 	
@@ -440,13 +457,13 @@ The following considerations apply:
 	NOTE: (Step and Range are ignored when Start is set to {Best})
 	
 	- Defaults: Start:{Best}
-- Output format needs to be explicitly provided for each Image format: Jpg/Png/BmpFormat. When present, MES will match JpgVideo to JpgFormat and so on. OutputFormat introduces a new image-codec specific Macro: {Index}, which needs to be present (once and only once) for image output formats.
+- Output format needs to be explicitly provided for each Image format: Jpg/Png/BmpFormat. When present, MES matches JpgVideo to JpgFormat and so on. OutputFormat introduces a new image-codec specific Macro: {Index}, which needs to be present (once and only once) for image output formats.
 
 ##<a id="trim_video"></a>Trim a video (clipping)
 
-This section talks about modifying the encoder presets to clip or trim the input video where the input is a so-called mezzanine file or on-demand file. The encoder can also be used to clip or trim an asset which is captured or archived from a live stream – the details for this are available in [this blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
+This section talks about modifying the encoder presets to clip or trim the input video where the input is a so-called mezzanine file or on-demand file. The encoder can also be used to clip or trim an asset, which is captured or archived from a live stream – the details for this are available in [this blog](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/).
 
-To trim your videos, you can take any of the MES presets documented [here](https://msdn.microsoft.com/library/mt269960.aspx) and modify the **Sources** element (as shown below). The value of StartTime needs to match the absolute timestamps of the input video. For example, if the first frame of the input video has a timestamp of 12:00:10.000, then StartTime should be at least 12:00:10.000 and greater. In the example below, we assume that the input video has a starting timestamp of zero. Note that **Sources** should be placed at the top of the schema. 
+To trim your videos, you can take any of the MES presets documented [here](https://msdn.microsoft.com/library/mt269960.aspx) and modify the **Sources** element (as shown below). The value of StartTime needs to match the absolute timestamps of the input video. For example, if the first frame of the input video has a timestamp of 12:00:10.000, then StartTime should be at least 12:00:10.000 and greater. In the example below, we assume that the input video has a starting timestamp of zero. **Sources** should be placed at the beginning of the preset. 
  
 ###<a id="json"></a>JSON preset
 	
@@ -699,7 +716,7 @@ The .NET example above defines two functions: **UploadMediaFilesFromFolder** and
 >
 >The overlay opacity setting is not supported.
 >
->Your source video file and the overlay file have to be in the same asset.
+>Your source video file and the overlay image file have to be in the same asset, and the video file needs to be set as the primary file in this asset.
 
 ###JSON preset
 	
@@ -748,7 +765,7 @@ The .NET example above defines two functions: **UploadMediaFilesFromFolder** and
 	      "KeyFrameInterval": "00:00:02",
 	      "H264Layers": [
 	        {
-	          "Profile": "Baseline",
+	          "Profile": "Auto",
 	          "Level": "auto",
 	          "Bitrate": 1045,
 	          "MaxBitrate": 1045,
@@ -757,8 +774,8 @@ The .NET example above defines two functions: **UploadMediaFilesFromFolder** and
 	          "EntropyMode": "Cavlc",
 	          "AdaptiveBFrame": true,
 	          "Type": "H264Layer",
-	          "Width": "400",
-	          "Height": "400",
+	          "Width": "640",
+	          "Height": "360",
 	          "FrameRate": "0/1"
 	        }
 	      ],
@@ -777,6 +794,7 @@ The .NET example above defines two functions: **UploadMediaFilesFromFolder** and
 	    }
 	  ]
 	}
+
 
 ###XML preset
 	
@@ -817,10 +835,10 @@ The .NET example above defines two functions: **UploadMediaFilesFromFolder** and
 	      <H264Layers>
 	        <H264Layer>
 	          <Bitrate>1045</Bitrate>
-	          <Width>400</Width>
-	          <Height>400</Height>
+	          <Width>640</Width>
+	          <Height>360</Height>
 	          <FrameRate>0/1</FrameRate>
-	          <Profile>Baseline</Profile>
+	          <Profile>Auto</Profile>
 	          <Level>auto</Level>
 	          <BFrames>0</BFrames>
 	          <ReferenceFrames>3</ReferenceFrames>
@@ -841,9 +859,10 @@ The .NET example above defines two functions: **UploadMediaFilesFromFolder** and
 	  </Outputs>
 	</Preset>
 
+
 ##<a id="silent_audio"></a>Insert a silent audio track when input has no audio
 
-By default, if you send an input to the encoder that contains only video, and no audio, then the output asset will contain files that contain only video data. Some players may not be able to handle such output streams. You can use this setting to force the encoder to add a silent audio track to the output in that scenario.
+By default, if you send an input to the encoder that contains only video, and no audio, then the output asset contains files that contain only video data. Some players may not be able to handle such output streams. You can use this setting to force the encoder to add a silent audio track to the output in that scenario.
 
 To force the encoder to produce an asset that contains a silent audio track when input has no audio, specify the "InsertSilenceIfNoAudio" value.
 
@@ -947,6 +966,171 @@ This section demonstrates two audio-only MES presets: AAC Audio and AAC Good Qua
 	    }
 	  ]
 	}
+
+##<a id="concatenate"></a>Concatenate two or more video files
+
+The following example illustrates how you can generate a preset to concatenate two or more video files. The most common scenario is when you want to add a header or a trailer to the main video. The intended use is when the video files being edited together share  properties (video resolution, frame rate, audio track count, etc.). You should take care not to mix videos of different frame rates, or with different number of audio tracks.
+
+###Requirements and considerations
+
+- Input videos should only have one audio track.
+- Input videos should all have the same frame rate.
+- You must upload your videos into separate assets and set the videos as the primary file in each asset.
+- You need to know the duration of your videos.
+- The preset examples below assumes that all the input videos start with a timestamp of zero. You need to modify the StartTime values if the videos have different starting timestamp, as is typically the case with live archives.
+- The JSON preset makes explicit references to the AssetID values of the input assets.
+- The sample code assumes that the JSON preset has been saved to a local file, such as "C:\supportFiles\preset.json". It also assumes that two assets have been created by uploading two video files, and that you know the resultant AssetID values.
+- The code snippet and JSON preset shows an example of concatenating two video files. You can extend it to more than two videos by:
+
+	1. Calling task.InputAssets.Add() repeatedly to add more videos, in order.
+	2. Making corresponding edits to the "Sources" element in the JSON, by adding more entries, in the same order. 
+
+
+###.NET code
+
+	
+	IAsset asset1 = _context.Assets.Where(asset => asset.Id == "nb:cid:UUID:606db602-efd7-4436-97b4-c0b867ba195b").FirstOrDefault();
+	IAsset asset2 = _context.Assets.Where(asset => asset.Id == "nb:cid:UUID:a7e2b90f-0565-4a94-87fe-0a9fa07b9c7e").FirstOrDefault();
+	
+	// Declare a new job.
+	IJob job = _context.Jobs.Create("Media Encoder Standard Job for Concatenating Videos");
+	// Get a media processor reference, and pass to it the name of the 
+	// processor to use for the specific task.
+	IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
+	
+	// Load the XML (or JSON) from the local file.
+	string configuration = File.ReadAllText(@"c:\supportFiles\preset.json");
+	
+	// Create a task
+	ITask task = job.Tasks.AddNew("Media Encoder Standard encoding task",
+	    processor,
+	    configuration,
+	    TaskOptions.None);
+	
+	// Specify the input videos to be concatenated (in order).
+	task.InputAssets.Add(asset1);
+	task.InputAssets.Add(asset2);
+	// Add an output asset to contain the results of the job. 
+	// This output is specified as AssetCreationOptions.None, which 
+	// means the output asset is not encrypted. 
+	task.OutputAssets.AddNew("Output asset",
+	    AssetCreationOptions.None);
+	
+	job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
+	job.Submit();
+	job.GetExecutionProgressTask(CancellationToken.None).Wait();
+
+###JSON preset
+
+Update your custom preset with ids of the assets that you want to concatenate, and with the appropriate time segment for each video.
+
+	{
+	  "Version": 1.0,
+	  "Sources": [
+	    {
+	      "AssetID": "606db602-efd7-4436-97b4-c0b867ba195b",
+	      "StartTime": "00:00:01",
+	      "Duration": "00:00:15"
+	    },
+	    {
+	      "AssetID": "a7e2b90f-0565-4a94-87fe-0a9fa07b9c7e",
+	      "StartTime": "00:00:02",
+	      "Duration": "00:00:05"
+	    }
+	  ],
+	  "Codecs": [
+	    {
+	      "KeyFrameInterval": "00:00:02",
+	      "SceneChangeDetection": true,
+	      "H264Layers": [
+	        {
+	          "Level": "auto",
+	          "Bitrate": 1800,
+	          "MaxBitrate": 1800,
+	          "BufferWindow": "00:00:05",
+	          "BFrames": 3,
+	          "ReferenceFrames": 3,
+	          "AdaptiveBFrame": true,
+	          "Type": "H264Layer",
+	          "Width": "640",
+	          "Height": "360",
+	          "FrameRate": "0/1"
+	        }
+	      ],
+	      "Type": "H264Video"
+	    },
+	    {
+	      "Channels": 2,
+	      "SamplingRate": 48000,
+	      "Bitrate": 128,
+	      "Type": "AACAudio"
+	    }
+	  ],
+	  "Outputs": [
+	    {
+	      "FileName": "{Basename}_{Width}x{Height}_{VideoBitrate}.mp4",
+	      "Format": {
+	        "Type": "MP4Format"
+	      }
+	    }
+	  ]
+	}
+
+##<a id="crop"></a>Crop videos with Media Encoder Standard
+
+See the [Crop videos with Media Encoder Standard](media-services-crop-video.md) topic.
+
+##<a id="no_video"></a>Insert a video track when input has no video
+
+By default, if you send an input to the encoder that contains only audio, and no video, then the output asset contains files that contain only audio data. Some players, including Azure Media Player (see [this](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/8082468-audio-only-scenarios)) may not be able to handle such streams. You can use this setting to force the encoder to add a monochrome video track to the output in that scenario. 
+
+>[AZURE.NOTE]Forcing the encoder to insert an output video track increases the size of the output Asset, and thereby the cost incurred for the encoding Task. You should run tests to verify that this resultant increase has only a modest impact on your monthly charges.
+
+### Inserting video at only the lowest bitrate
+
+Suppose you are using a multiple bitrate encoding preset such as ["H264 Multiple Bitrate 720p"](https://msdn.microsoft.com/library/mt269960.aspx) to encode your entire input catalog for streaming, which contains a mix of video files and audio-only files. In this scenario, when the input has no video, you may want to force the encoder to insert a monochrome video track at just the lowest bitrate, as opposed to inserting video at every output bitrate. To achieve this, you need to specify the "InsertBlackIfNoVideoBottomLayerOnly" flag.
+
+You can take any of the MES presets documented [here](https://msdn.microsoft.com/library/mt269960.aspx), and make the following modification:
+
+#### JSON preset
+
+	{
+	      "KeyFrameInterval": "00:00:02",
+	      "StretchMode": "AutoSize",
+	      "Condition": "InsertBlackIfNoVideoBottomLayerOnly",
+	      "H264Layers": [
+	      …
+	      ]
+	}
+
+#### XML preset
+
+	<KeyFrameInterval>00:00:02</KeyFrameInterval>
+	<StretchMode>AutoSize</StretchMode>
+	<Condition>InsertBlackIfNoVideoBottomLayerOnly</Condition>
+
+### Inserting video at all output bitrates
+
+Suppose you are using a multiple bitrate encoding preset such as ["H264 Multiple Bitrate 720p](https://msdn.microsoft.com/library/mt269960.aspx) to encode your entire input catalog for streaming, which contains a mix of video files and audio-only files. In this scenario, when the input has no video, you may want to force the encoder to insert a monochrome video track at all the output bitrates. This ensures that your output Assets are all homogenous with respect to number of video tracks and audio tracks. To achieve this, you need to specify the "InsertBlackIfNoVideo" flag.
+
+You can take any of the MES presets documented [here](https://msdn.microsoft.com/library/mt269960.aspx), and make the following modification:
+
+#### JSON preset
+
+	{
+	      "KeyFrameInterval": "00:00:02",
+	      "StretchMode": "AutoSize",
+	      "Condition": "InsertBlackIfNoVideo",
+	      "H264Layers": [
+	      …
+	      ]
+	}
+
+#### XML preset
+	
+	<KeyFrameInterval>00:00:02</KeyFrameInterval>
+	<StretchMode>AutoSize</StretchMode>
+	<Condition>InsertBlackIfNoVideo</Condition>
 
 ##Media Services learning paths
 

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="09/16/2016"
 	ms.author="dastrock"/>
 
 # Should I use the v2.0 endpoint?
@@ -56,6 +56,32 @@ Similarly, apps registered in the new App Registration Portal will not work agai
 
 Apps that are registered in the new Application Registration Portal are currently restricted to a limited set of redirect_uri values.  The redirect_uri for web apps and services must begin with the scheme or `https`, while the redirect_uri for all other platforms must use the hard-coded value of `urn:ietf:oauth:2.0:oob`.
 
+## Restrictions on Redirect URIs
+For web apps, redirect_uri values must all share a single DNS domain.  For example, it is not possible to register a web app that has redirect_uris:
+
+`https://login-east.contoso.com`  
+`https://login-west.contoso.com`
+
+The registration system compares the whole DNS name of the existing redirect_uri with the DNS name of the redirect_uri that you are adding.  If the whole DNS name of the new redirect_uri does not exactly match the DNS name of the existing redirect_uri, or if the whole DNS name of the new redirect_uri is not a sub-domain of the existing redirect_uri, the request to add will fail.  For example, if the app currently has redirect_uri:
+
+`https://login.contoso.com`
+
+Then it is possible to add:
+
+`https://login.contoso.com/new`
+
+which exactly matches the DNS name, or:
+
+`https://new.login.contoso.com`
+
+which is a DNS subdomain of login.contoso.com.  If you want to have an app that has login-east.contoso.com and login-west.contoso.com as redirect_uris, then you must add the following redirect_uris in order:
+
+`https://contoso.com`  
+`https://login-east.contoso.com`  
+`https://login-west.contoso.com`  
+
+The latter two can be added because they are subdomains of the first redirect_uri, contoso.com. This limitation will be removed in an upcoming release.
+
 To learn how to register an app in the new Application Registration Portal, refer to [this article](active-directory-v2-app-registration.md).
 
 ## Restrictions on services & APIs
@@ -68,7 +94,7 @@ The v2.0 endpoint currently supports sign-in for any app registered in the new A
 No other services are supported at this time.  More Microsoft Online services will be added in the future, as well as support for your own custom built Web APIs and services.
 
 ## Restrictions on libraries & SDKs
-To help you try things out, we have provided an experimental version of the Active Directory Authentcation Library that is compatible with the v2.0 endpoint.  However, this version of ADAL is in a preview state - it is not supported and it will change dramatically over the next few months.  There are code samples using ADAL for .NET, iOS, Android, and Javascript available in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section if you'd like to quickly get an app running with the v2.0 endpoint.
+To help you try things out, we have provided an experimental version of the Active Directory Authentication Library that is compatible with the v2.0 endpoint.  However, this version of ADAL is in a preview state - it is not supported and it will change dramatically over the next few months.  There are code samples using ADAL for .NET, iOS, Android, and Javascript available in our [Getting Started](active-directory-appmodel-v2-overview.md#getting-started) section if you'd like to quickly get an app running with the v2.0 endpoint.
 
 If you want to use the v2.0 endpoint in a production application, you have the following options:
 
@@ -87,7 +113,7 @@ If you want to use the v2.0 endpoint in a production application, you have the f
 ## Restrictions on protocols
 The v2.0 endpoint only supports Open ID Connect & OAuth 2.0.  However, not all features and capabilities of each protocol have been incorporated into the v2.0 endpoint.  Some examples include:
 
-- The OpenID Connect `end_sesssion_endpoint`
+- The OpenID Connect `end_session_endpoint`
 - The OAuth 2.0 client credentials grant
 
 To better understand the scope of protocol functionality supported in the v2.0 endpoint, read through our [OpenID Connect & OAuth 2.0 Protocol Reference](active-directory-v2-protocols.md).

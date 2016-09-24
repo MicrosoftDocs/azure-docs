@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/01/2016" 
+	ms.date="09/12/2016" 
 	ms.author="spelluru"/>
 
 # Invoke MapReduce Programs from Data Factory
-The HDInsight MapReduce activity in a Data Factory [pipeline](data-factory-create-pipelines.md) executes MapReduce programs on [your own](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux-based HDInsight cluster. This article builds on the [data transformation activities](data-factory-data-transformation-activities.md) article which presents a general overview of data transformation and the supported transformation activities.
+The HDInsight MapReduce activity in a Data Factory [pipeline](data-factory-create-pipelines.md) executes MapReduce programs on [your own](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux-based HDInsight cluster. This article builds on the [data transformation activities](data-factory-data-transformation-activities.md) article, which presents a general overview of data transformation and the supported transformation activities.
 
 ## Introduction 
-A pipeline in an Azure data factory processes data in linked storage services by using linked compute services. It contains a sequence of activities where each activity performs  a specific processing operation. This article describes using the HDInsight MapReduce Activity.
+A pipeline in an Azure data factory processes data in linked storage services by using linked compute services. It contains a sequence of activities where each activity performs a specific processing operation. This article describes using the HDInsight MapReduce Activity.
  
-See [Pig](data-factory-pig-activity.md) and [Hive](data-factory-hive-activity.md) article for details about running Pig/Hive scripts on a Windows/Linux-based HDInsight cluster from an Azure data factory pipeline by using HDInsight Pig and Hive activities. 
+See [Pig](data-factory-pig-activity.md) and [Hive](data-factory-hive-activity.md) for details about running Pig/Hive scripts on a Windows/Linux-based HDInsight cluster from a pipeline by using HDInsight Pig and Hive activities. 
 
 ## JSON for HDInsight MapReduce Activity 
 
@@ -32,7 +32,7 @@ In the JSON definition for the HDInsight Activity:
 3. Specify the name of the class for **className** property.
 4. Specify the path to the JAR file including the file name for **jarFilePath** property.
 5. Specify the linked service that refers to the Azure Blob Storage that contains the JAR file for **jarLinkedService** property.   
-6. Specify any arguments for the MapReduce program in the **arguments** section. At runtime, you will see a few extra arguments (for example: mapreduce.job.tags) from the MapReduce framework. To differentiate your arguments with the MapReduce arguments, consider using both option and value as arguments as shown in the following example (-s, --input, --output etc... are options immediately followed by  their values).
+6. Specify any arguments for the MapReduce program in the **arguments** section. At runtime, you see a few extra arguments (for example: mapreduce.job.tags) from the MapReduce framework. To differentiate your arguments with the MapReduce arguments, consider using both option and value as arguments as shown in the following example (-s, --input, --output etc., are options immediately followed by their values).
 
 		{
 		    "name": "MahoutMapReduceSamplePipeline",
@@ -134,7 +134,7 @@ Next, you create a linked service to link your Azure HDInsight cluster to the Az
 ### Datasets
 
 #### Output dataset
-The pipeline in this example does not take any inputs. You will need to specify an output dataset for the HDInsight MapReduce Activity. This is just a dummy dataset that is required to drive the pipeline schedule.  
+The pipeline in this example does not take any inputs. You specify an output dataset for the HDInsight MapReduce Activity. This dataset is just a dummy dataset that is required to drive the pipeline schedule.  
 
 	{
 	    "name": "MROutput",
@@ -163,8 +163,8 @@ Property | Notes
 :-------- | :-----
 type | The type must be set to **HDInsightMapReduce**. 
 className | Name of the class is: **wordcount**
-jarFilePath | Path to the jar file containing the above class. If you copy/paste the following code, don't forget to change the name of the cluster. 
-jarLinkedService | Azure Storage linked service that contains the jar file. This is the storage that is associated with the HDInsight cluster. 
+jarFilePath | Path to the jar file containing the class. If you copy/paste the following code, don't forget to change the name of the cluster. 
+jarLinkedService | Azure Storage linked service that contains the jar file. This linked service refers to the storage that is associated with the HDInsight cluster. 
 arguments | The wordcount program takes two arguments, an input and an output. The input file is the davinci.txt file.
 frequency/interval | The values for these properties match the output dataset. 
 linkedServiceName | refers to the HDInsight linked service you had created earlier.   
@@ -215,9 +215,8 @@ You can use MapReduce activity to run Spark programs on your HDInsight Spark clu
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
 
-[adfgetstarted]: data-factory-get-started.md
-[adfgetstartedmonitoring]:data-factory-get-started.md#monitor-pipelines 
-[adftutorial]: data-factory-tutorial.md
+[adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
+[adfgetstartedmonitoring]:data-factory-copy-data-from-azure-blob-storage-to-sql-database.md#monitor-pipelines 
 
 [Developer Reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [Azure Portal]: http://portal.azure.com
