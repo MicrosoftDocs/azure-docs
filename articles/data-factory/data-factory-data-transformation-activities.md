@@ -34,6 +34,8 @@ The HDInsight Pig activity in a Data Factory pipeline executes Pig queries on yo
 ## HDInsight MapReduce activity
 The HDInsight MapReduce activity in a Data Factory pipeline executes MapReduce programs on your own or on-demand Windows/Linux-based HDInsight cluster. See [MapReduce Activity](data-factory-map-reduce.md) article for details about this activity.
 
+You can use MapReduce activity to run Spark programs on your HDInsight Spark cluster. See [Invoke Spark programs from Azure Data Factory](data-factory-spark.md) for details.
+
 ## HDInsight Streaming activity
 The HDInsight Streaming Activity in a Data Factory pipeline executes Hadoop Streaming programs on your own or on-demand Windows/Linux-based HDInsight cluster. See [HDInsight Streaming activity](data-factory-hadoop-streaming-activity.md) for details about this activity.
 
@@ -51,7 +53,27 @@ You can use the SQL Server Stored Procedure activity in a Data Factory pipeline 
 Data Lake Analytics U-SQL Activity runs a U-SQL script on an Azure Data Lake Analytics cluster. See [Data Analytics U-SQL Activity](data-factory-usql-activity.md) article for details. 
 
 ## .NET custom activity
+If you need to move data to/from a data store that is not supported by Azure Data Factory, you can create a custom .NET activity with your own data movement logic and use the activity in the pipeline.
 
+Similarly, if you need to transform/process data in a way that is not supported by Data Factory, you can create a custom activity with your own data processing logic and use the activity in the pipeline.
+
+You can configure the custom .NET activity to run using either an Azure Batch service or an Azure HDInsight cluster.
+
+See [Use custom activities](data-factory-use-custom-activities.md) article for details. 
+
+You can create a custom activity to run R scripts on your HDInsight cluster with R installed. See [Run R Script using Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). 
+
+## Compute environments
+You create a linked service for the compute environment and then use the linked service when defining a transformation activity. There are two types of compute environments supported by Data Factory. 
+
+1. **On-Demand**:  In this case, the computing environment is fully managed by Data Factory. It is automatically created by the Data Factory service before a job is submitted to process data and removed when the job is completed. You can configure and control granular settings of the on-demand compute environment for job execution, cluster management, and bootstrapping actions. 
+2. **Bring Your Own**: In this case, you can register your own computing environment (for example HDInsight cluster) as a linked service in Data Factory. The computing environment is managed by you and the Data Factory service uses it to execute the activities. 
+
+See [Compute Linked Services](data-factory-compute-linked-services.md) article to learn about compute services supported by Data Factory. 
+
+
+## Summary
+Azure Data Factory supports the following data transformation activities and the compute environments for the activities. The transformation activities can be added to pipelines either individually or chained with another activity.
 
 Data transformation activity |  Compute environment 
 :----------------------- | :--------------------
@@ -64,15 +86,4 @@ Data transformation activity |  Compute environment
 [Data Lake Analytics U-SQL](data-factory-usql-activity.md) | Azure Data Lake Analytics 
 [DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] or Azure Batch
    
-You can use MapReduce activity to run Spark programs on your HDInsight Spark cluster. See [Invoke Spark programs from Azure Data Factory](data-factory-spark.md) for details.
 
-You can create a custom activity to run R scripts on your HDInsight cluster with R installed. See [Run R Script using Azure Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). 
- 
-
-
-You create a linked service for the compute environment and then use the linked service when defining a transformation activity. There are two types of compute environments supported by Data Factory. 
-
-1. **On-Demand**:  In this case, the computing environment is fully managed by Data Factory. It is automatically created by the Data Factory service before a job is submitted to process data and removed when the job is completed. You can configure and control granular settings of the on-demand compute environment for job execution, cluster management, and bootstrapping actions. 
-2. **Bring Your Own**: In this case, you can register your own computing environment (for example HDInsight cluster) as a linked service in Data Factory. The computing environment is managed by you and the Data Factory service uses it to execute the activities. 
-
-See [Compute Linked Services](data-factory-compute-linked-services.md) article to learn about compute services supported by Data Factory. 
