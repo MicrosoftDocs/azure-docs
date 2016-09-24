@@ -71,7 +71,7 @@ Example path: `resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resour
 ### Logs
 
 The logs blobs contain your search service traffic logs.
-Each blob has one root object called **records** that contains an array of log objects
+Each blob has one root object called **records** that contains an array of log objects.
 Each blob has records on all the operation that took place during the same hour.
 
 ####Log schema
@@ -86,7 +86,7 @@ category |string |"OperationLogs" |constant
 resultType |string |"Success" |Possible values: Success or Failure 
 resultSignature |int |200 |HTTP result code 
 durationMS |int |50 |Duration of the operation in milliseconds 
-properties |object |see the following table |Object containing operation specific data
+properties |object |see the following table |Object containing operation-specific data
 
 ####Properties schema
 
@@ -124,12 +124,12 @@ Available metrics:
 |count |int |4 |The number of raw samples used to generate the metric |
 |timegrain |string |"PT1M" |The time grain of the metric in ISO 8601|
 
-All metrics are reported in one-minute intervals. This means that each of the metrics will expose the minimum, maximum and average values per minute.
+All metrics are reported in one-minute intervals, every metric will expose the minimum, maximum and average values per minute.
 
-In the case of the SearchQueriesPerSecond metric, minimum will be the lowest value for search queries per second that was registered during that minute; same applies to the maximum value. Average, will be the the aggregate across the entire minute. 
-Think about this scenario: during one minute you can have 1 second of very high load, which will be you maximum for SearchQueriesPerSecond, followed by 58 seconds of mid load, and then one second with only one query, which will be the minimum.
+For the SearchQueriesPerSecond metric, minimum is the lowest value for search queries per second that was registered during that minute. The same applies to the maximum value. Average, is the aggregate across the entire minute. 
+Think about this scenario during one minute: one second of high load which is the maximum for SearchQueriesPerSecond, followed by 58 seconds of average load, and finally one second with only one query, which is the minimum.
 
-For ThrottledSearchQueriesPercentage, minimum, maximum, average and total will all be the same value, which is the percentage of search queries that were throttled, based on the total number of search queries during one minute.
+For ThrottledSearchQueriesPercentage, minimum, maximum, average and total, all have the same value, which is the percentage of search queries that were throttled, from the total number of search queries during one minute.
 
 ## Analyzing your data
 
@@ -145,7 +145,7 @@ As a starting point, we recommend using [Power BI](https://powerbi.microsoft.com
 
 #### Power BI Desktop
 
-[Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop): Explore your data and create your own visualizations for your data. See the starter query in the following section.
+[Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop): Explore your data and create your own visualizations for your data. See the starter query in the following section:
 
 1. Open a new PowerBI Desktop report
 2. Select Get Data -> More...
