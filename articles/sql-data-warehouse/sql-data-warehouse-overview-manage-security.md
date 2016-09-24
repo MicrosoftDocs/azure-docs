@@ -13,13 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/30/2016"
+   ms.date="09/24/2016"
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Secure a database in SQL Data Warehouse
 
 > [AZURE.SELECTOR]
-- [Security Overview](sql-data-warehouse-overview-manage-security.md)
+- [Overview](sql-data-warehouse-overview-manage-security.md)
+- [Authentication](sql-data-warehouse-authentication.md)
 - [Threat detection](sql-data-warehouse-security-threat-detection.md)
 - [Auditing Overview](sql-data-warehouse-auditing-overview.md)
 - [Auditing downlevel clients](sql-data-warehouse-auditing-downlevel-clients.md)
