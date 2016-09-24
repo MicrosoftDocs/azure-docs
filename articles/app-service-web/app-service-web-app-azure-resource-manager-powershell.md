@@ -12,11 +12,15 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.topic="article"#  #
+	ms.date="09/26/2016"
 	ms.author="aelnably"/>
 
 # Using Azure Resource Manager-Based PowerShell to Manage Azure Web Apps#
+
+> [AZURE.SELECTOR]
+- [Azure CLI](app-service-web-app-azure-resource-manager-xplat-cli.md)
+- [Azure PowerShell](app-service-web-app-azure-resource-manager-powershell.md)
 
 With the release of Microsoft Azure PowerShell version 1.0.0 new commands have been added, that give the user the ability to use Azure Resource Manager-based PowerShell commands to manage Web Apps.
 
@@ -155,7 +159,7 @@ Example (1): use this cmdlet to change connection strings
 	$connectionstrings = @{ ContosoConn1 = @{ Type = “MySql”; Value = “MySqlConn”}; ContosoConn2 = @{ Type = “SQLAzure”; Value = “SQLAzureConn”} }
 	Set-AzureRmWebApp -Name ContosoWebApp -ResourceGroupName ContosoAzureResourceGroup -ConnectionStrings $connectionstrings
 
-Example (2): add example for app settings
+Example (2): add or change app settings
 
 	$appsettings = @{appsetting1 = "appsetting1value"; appsetting2 = "appsetting2value"}
 	Set-AzureRmWebApp -Name ContosoWebApp -ResourceGroupName ContosoAzureResourceGroup -AppSettings $appsettings
@@ -208,9 +212,9 @@ To reset both the publishing password for FTP and web deploy for a web app, use:
 To learn about how to manage web app certificates, see [SSL Certificates binding using PowerShell](app-service-web-app-powershell-ssl-binding.md)
 
 
-
 ### Next Steps ###
 - To learn about Azure Resource Manager PowerShell support, see [Using Azure PowerShell with Azure Resource Manager.](../powershell-azure-resource-manager.md)
 - To learn about App Service Environments, see [Introduction to App Service Environment.](app-service-app-service-environment-intro.md)
 - To learn about managing App Service SSL certificates using PowerShell, see [SSL Certificates binding using PowerShell.](app-service-web-app-powershell-ssl-binding.md)
 - To learn about the full list of Azure Resource Manager-based PowerShell cmdlets for Azure Web Apps, see [Azure Cmdlet Reference of Web Apps Azure Resource Manager PowerShell Cmdlets.](https://msdn.microsoft.com/library/mt619237.aspx)
+- - To learn about managing App Service using CLI, see [sing Azure Resource Manager-Based XPlat Cli for Azure Web App.](app-service-web-app-azure-resource-manager-xplat-cli.md)
