@@ -62,7 +62,7 @@ If your organization deploys an enterprise public key infrastructure (PKI), you 
 
 When requesting a certificate, ensure that you follow the requirements outlined in [Requirement for the secure LDAP certificate](#requirements-for-the-secure-ldap-certificate).
 
-> AZURE.NOTE Client computers that need to connect to the managed domain using secure LDAP must trust the issuer of the LDAPS certificate.
+> [AZURE.NOTE] Client computers that need to connect to the managed domain using secure LDAP must trust the issuer of the LDAPS certificate.
 
 
 ### Option B - Create a self-signed certificate for secure LDAP
