@@ -20,7 +20,7 @@
 
 
 > [AZURE.SELECTOR]
-- [Overview](sql-data-warehouse-overview-manage-security.md)
+- [Security Overview](sql-data-warehouse-overview-manage-security.md)
 - [Authentication](sql-data-warehouse-authentication.md)
 - [Encryption (Portal)](sql-data-warehouse-encryption-tde.md)
 - [Encryption (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
