@@ -21,8 +21,6 @@
 > [AZURE.SELECTOR]
 - [Overview](sql-data-warehouse-overview-manage-security.md)
 - [Authentication](sql-data-warehouse-authentication.md)
-- [Threat detection](sql-data-warehouse-security-threat-detection.md)
-- [Auditing](sql-data-warehouse-auditing-overview.md)
 - [Encryption (Portal)](sql-data-warehouse-encryption-tde.md)
 - [Encryption (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 
@@ -85,16 +83,11 @@ Managing databases and logical servers from the Azure Classic Portal or using th
 
 Azure SQL Data Warehouse can help protect your data by encrypting your data when it is "at rest," or stored in database files and backups, using [Transparent Data Encryption][]. You must be an administrator or a member of the dbmanager role in the master database to enable TDE. To encrypt your database, connect to the master database on your server and execute:
 
-
 ```sql
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 ```
 
 You can also enable Transparent Data Encryption from database settings in the [Azure portal][]. For more information, see [Get started with Transparent Data Encryption (TDE)][].
-
-## Auditing
-
-Auditing and tracking database events can help you maintain regulatory compliance and identify suspicious activity. SQL Data Warehouse Auditing allows you to record events in your database to an audit log in your Azure Storage account. SQL Data Warehouse Auditing also integrates with Microsoft Power BI to facilitate drill-down reports and analyses. For more information, see [Get started with SQL Database Auditing][].
 
 ## Next steps
 
@@ -104,7 +97,6 @@ For details and examples on connecting to your SQL Data Warehouse with different
 
 <!--Article references-->
 [Connect to SQL Data Warehouse]: ./sql-data-warehouse-connect-overview.md
-[Get started with SQL Database Auditing]: ./sql-data-warehouse-auditing-overview.md
 [Get started with Transparent Data Encryption (TDE)]: ./sql-data-warehouse-encryption-tde.md
 [Connecting to SQL Data Warehouse By Using Azure Active Directory Authentication]: ./sql-data-warehouse-authentication.md
 
