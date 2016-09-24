@@ -13,19 +13,20 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="08/29/2016"
+   ms.date="09/24/2016"
    ms.author="rortloff;barbkess;sonyama"/>
 
 # Get started with Transparent Data Encryption (TDE)
 
 
 > [AZURE.SELECTOR]
-- [Security Overview](sql-data-warehouse-overview-manage-security.md)
+- [Overview](sql-data-warehouse-overview-manage-security.md)
+- [Authentication](sql-data-warehouse-authentication.md)
 - [Threat detection](sql-data-warehouse-security-threat-detection.md)
-- [Encryption (Portal)](sql-data-warehouse-encryption-tde.md)
-- [Encryption (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 - [Auditing Overview](sql-data-warehouse-auditing-overview.md)
 - [Auditing downlevel clients](sql-data-warehouse-auditing-downlevel-clients.md)
+- [Transparent Data Encryption (Portal)](sql-data-warehouse-encryption-tde.md)
+- [Transparent Data Encryption (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 
 
 Azure SQL Data Warehouse transparent Data Encryption (TDE) helps protect against the threat of malicious activity by performing real-time encryption and decryption of the database, associated backups, and transaction log files at rest without requiring changes to the application.
