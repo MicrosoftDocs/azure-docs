@@ -55,15 +55,15 @@ The retention period is determined by the service tier of the database while it 
 
 ## Using automated database backups
 
-The primary use for automated backups is to restore a database after data loss or the database becomes unavailable. The restore is on a backup within the [retention period](sql-database-service-tiers.md). With an automated backup you can restore a database to a point-in-time, restore a deleted database to the time it was deleted, or restore a database to another geographical region. 
+The primary use for automated backups is to be able to restore a database to a point-in-time within the retention period. With an automated backup you can restore a database to a point-in-time, restore a deleted database to the time it was deleted, or restore a database to another geographical region. 
 
-- For more information about restoring a database, see [restore a database from automated backups](sql-database-recovery-using-backups.md).
+- For more information about database restore, see [restore a database from automated backups](sql-database-recovery-using-backups.md).
 
 You can use an automated backup to copy a database to a logical SQL server in any geographical region. The copy is transactionally consistent with the current SQL Database. 
 
 - For more information about copying a database, see [database copy](sql-database-copy.md).
 
-You can also archive automated backups beyond the retention period by creating a database copy that you  [export to a BACPAC](sql-database-export.md) file. Once you have the BACPAC file, you can archive it to long-term storage and store it beyond your retention period. Or, use the BACPAC to transfer a copy of your database to SQL Server, either on-premises or in an Azure virtual machine (VM).
+You can also archive automated backups beyond the retention period by creating a database copy that you [export to a BACPAC](sql-database-export.md) file. Once you have the BACPAC file, you can archive it to long-term storage and store it beyond your retention period. Or, use the BACPAC to transfer a copy of your database to SQL Server, either on-premises or in an Azure virtual machine (VM).
 
 - For more information about archiving an automatic backup, see [database copy](sql-database-copy.md)
 
