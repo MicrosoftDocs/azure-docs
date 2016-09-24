@@ -28,7 +28,7 @@ Data Factory supports the following data transformation activities that can be a
 The HDInsight Hive activity in a Data Factory pipeline executes Hive queries on your own or on-demand Windows/Linux-based HDInsight cluster. See [Hive Activity](data-factory-hive-activity.md) article for details about this activity. 
 
 ## HDInsight Pig activity
-The HDInsight Pig activity in a Data Factory pipeline executes Pig queries on your own or on-demand Windows/Linux-based HDInsight cluster.See [Pig Activity](data-factory-pig-activity.md) article for details about this activity. 
+The HDInsight Pig activity in a Data Factory pipeline executes Pig queries on your own or on-demand Windows/Linux-based HDInsight cluster. See [Pig Activity](data-factory-pig-activity.md) article for details about this activity. 
 
 ## HDInsight MapReduce activity
 The HDInsight MapReduce activity in a Data Factory pipeline executes MapReduce programs on your own or on-demand Windows/Linux-based HDInsight cluster. See [MapReduce Activity](data-factory-map-reduce.md) article for details about this activity.
@@ -52,7 +52,7 @@ You can use the SQL Server Stored Procedure activity in a Data Factory pipeline 
 Data Lake Analytics U-SQL Activity runs a U-SQL script on an Azure Data Lake Analytics cluster. See [Data Analytics U-SQL Activity](data-factory-usql-activity.md) article for details. 
 
 ## .NET custom activity
-If you need to transform/process data in a way that is not supported by Data Factory, you can create a custom activity with your own data processing logic and use the activity in the pipeline. You can configure the custom .NET activity to run using either an Azure Batch service or an Azure HDInsight cluster.
+If you need to transform data in a way that is not supported by Data Factory, you can create a custom activity with your own data processing logic and use the activity in the pipeline. You can configure the custom .NET activity to run using either an Azure Batch service or an Azure HDInsight cluster.
 
 See [Use custom activities](data-factory-use-custom-activities.md) article for details. 
 
