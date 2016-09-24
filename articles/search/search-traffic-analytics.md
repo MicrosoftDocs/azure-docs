@@ -21,7 +21,7 @@
 
 # Enabling and using Search Traffic Analytics
 
-Search traffic analytics is an Azure Search feature that lets you gain visibility into your search service and unlock insights about your users and their behavior. When you enable this feature, your search service data is copied to a storage account of your choosing. This data includes your search service logs and aggregated operational metrics which, you can process and manipulate for further analysis.
+Search traffic analytics is an Azure Search feature that lets you gain visibility into your search service and unlock insights about your users and their behavior. When you enable this feature, your search service data is copied to a storage account of your choosing. This data includes your search service logs and aggregated operational metrics that, you can process and manipulate for further analysis.
 
 ## How to enable Search Traffic Analytics
 
@@ -36,7 +36,7 @@ You can enable search traffic analytics on the portal or via PowerShell. Once en
 
 
 ### A. Using the portal
-Open your Azure Search service in the [Azure Portal](http://portal.azure.com). Under Settings, find the Search traffic analytics option. 
+Open your Azure Search service in the [Azure portal](http://portal.azure.com). Under Settings, find the Search traffic analytics option. 
 
 ![][1]
 
@@ -124,10 +124,10 @@ Available metrics:
 |count |int |4 |The number of raw samples used to generate the metric |
 |timegrain |string |"PT1M" |The time grain of the metric in ISO 8601|
 
-All metrics are reported in one-minute intervals, every metric will expose the minimum, maximum and average values per minute.
+All metrics are reported in one-minute intervals. Every metric exposes minimum, maximum and average values per minute.
 
 For the SearchQueriesPerSecond metric, minimum is the lowest value for search queries per second that was registered during that minute. The same applies to the maximum value. Average, is the aggregate across the entire minute. 
-Think about this scenario during one minute: one second of high load which is the maximum for SearchQueriesPerSecond, followed by 58 seconds of average load, and finally one second with only one query, which is the minimum.
+Think about this scenario during one minute: one second of high load that is the maximum for SearchQueriesPerSecond, followed by 58 seconds of average load, and finally one second with only one query, which is the minimum.
 
 For ThrottledSearchQueriesPercentage, minimum, maximum, average and total, all have the same value, which is the percentage of search queries that were throttled, from the total number of search queries during one minute.
 
