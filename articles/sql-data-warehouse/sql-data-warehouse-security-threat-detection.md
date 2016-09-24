@@ -20,13 +20,8 @@
 # Get started with threat detection
 
 > [AZURE.SELECTOR]
-- [Overview](sql-data-warehouse-overview-manage-security.md)
-- [Authentication](sql-data-warehouse-authentication.md)
-- [Threat detection](sql-data-warehouse-security-threat-detection.md)
 - [Auditing](sql-data-warehouse-auditing-overview.md)
-- [Encryption (Portal)](sql-data-warehouse-encryption-tde.md)
-- [Encryption (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
-
+- [Threat detection](sql-data-warehouse-security-threat-detection.md)
 
 ## Overview
 
