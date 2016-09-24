@@ -22,8 +22,7 @@
 ## Overview 
 This article explains data transformation activities in Azure Data Factory that you can use to transform and processes your raw data into predictions and insights. A transformation activity executes in a computing environment such as Azure HDInsight cluster or an Azure Batch. It provides links to articles with detailed information on each transformation activity.
  
-## Data transformation activities 
-Azure Data Factory supports the following data transformation activities that can be added to [pipelines](data-factory-create-pipelines.md) either individually or chained with another activity.
+Data Factory supports the following data transformation activities that can be added to [pipelines](data-factory-create-pipelines.md) either individually or chained with another activity.
 
 ## HDInsight Hive activity
 The HDInsight Hive activity in a Data Factory pipeline executes Hive queries on your own or on-demand Windows/Linux-based HDInsight cluster. See [Hive Activity](data-factory-hive-activity.md) article for details about this activity. 
@@ -40,9 +39,9 @@ You can use MapReduce activity to run Spark programs on your HDInsight Spark clu
 The HDInsight Streaming Activity in a Data Factory pipeline executes Hadoop Streaming programs on your own or on-demand Windows/Linux-based HDInsight cluster. See [HDInsight Streaming activity](data-factory-hadoop-streaming-activity.md) for details about this activity.
 
 ## Machine Learning activities
-Azure Data Factory enables you to easily create pipelines that use a published Azure Machine Learning web service for predictive analytics. Using the [Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md#invoking-a-web-service-using-batch-execution-activity) in an Azure Data Factory pipeline, you can invoke an Azure ML web service to make predictions on the data in batch.
+Azure Data Factory enables you to easily create pipelines that use a published Azure Machine Learning web service for predictive analytics. Using the [Batch Execution Activity](data-factory-azure-ml-batch-execution-activity.md#invoking-a-web-service-using-batch-execution-activity) in an Azure Data Factory pipeline, you can invoke a Machine Learning web service to make predictions on the data in batch.
 
-Over time, the predictive models in the Azure ML scoring experiments need to be retrained using new input datasets. After you are done with retraining, you want to update the scoring web service with the retrained ML model. You can use the [Update Resource Activity](data-factory-azure-ml-batch-execution-activity.md#updating-models-using-update-resource-activity) to update the web service with the newly trained model.  
+Over time, the predictive models in the Machine Learning scoring experiments need to be retrained using new input datasets. After you are done with retraining, you want to update the scoring web service with the retrained Machine Learning model. You can use the [Update Resource Activity](data-factory-azure-ml-batch-execution-activity.md#updating-models-using-update-resource-activity) to update the web service with the newly trained model.  
 
 See [Use Machine Learning activities](data-factory-azure-ml-batch-execution-activity.md) for details about these Machine Learning activities. 
 
@@ -53,11 +52,7 @@ You can use the SQL Server Stored Procedure activity in a Data Factory pipeline 
 Data Lake Analytics U-SQL Activity runs a U-SQL script on an Azure Data Lake Analytics cluster. See [Data Analytics U-SQL Activity](data-factory-usql-activity.md) article for details. 
 
 ## .NET custom activity
-If you need to move data to/from a data store that is not supported by Azure Data Factory, you can create a custom .NET activity with your own data movement logic and use the activity in the pipeline.
-
-Similarly, if you need to transform/process data in a way that is not supported by Data Factory, you can create a custom activity with your own data processing logic and use the activity in the pipeline.
-
-You can configure the custom .NET activity to run using either an Azure Batch service or an Azure HDInsight cluster.
+If you need to transform/process data in a way that is not supported by Data Factory, you can create a custom activity with your own data processing logic and use the activity in the pipeline. You can configure the custom .NET activity to run using either an Azure Batch service or an Azure HDInsight cluster.
 
 See [Use custom activities](data-factory-use-custom-activities.md) article for details. 
 
