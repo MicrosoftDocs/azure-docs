@@ -113,7 +113,7 @@ If your environment DOES NOT have DHCP enabled, you will need to include the fol
     -NatIPv4Subnet 10.10.10.0/24 -NatIPv4Address 10.10.10.3 -NatIPv4DefaultGateway 10.10.10.1
 
 
-### DeployAzureStack.ps1 optional parameters
+### InstallAzureStack.ps1 optional parameters
 
 | Parameter | Required/Optional | Description |
 | --------- | ----------------- | ----------- |
