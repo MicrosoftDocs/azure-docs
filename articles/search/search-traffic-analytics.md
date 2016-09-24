@@ -129,7 +129,7 @@ All metrics are reported in one-minute intervals. Every metric exposes minimum, 
 For the SearchQueriesPerSecond metric, minimum is the lowest value for search queries per second that was registered during that minute. The same applies to the maximum value. Average, is the aggregate across the entire minute. 
 Think about this scenario during one minute: one second of high load that is the maximum for SearchQueriesPerSecond, followed by 58 seconds of average load, and finally one second with only one query, which is the minimum.
 
-For ThrottledSearchQueriesPercentage, minimum, maximum, average and total, all have the same value, which is the percentage of search queries that were throttled, from the total number of search queries during one minute.
+For ThrottledSearchQueriesPercentage, minimum, maximum, average and total, all have the same value: the percentage of search queries that were throttled, from the total number of search queries during one minute.
 
 ## Analyzing your data
 
