@@ -13,7 +13,7 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
-   ms.workload=""
+   ms.workload="infrastructure-services"
    ms.date="09/23/2016"
    ms.author="rclaus"/>
 
@@ -304,20 +304,14 @@ With Microsoft Azure virtual machine services, and SAP HANA on Azure large insta
 
 SAP Product | Supported OS | Azure Offerings 
 ---------- | ------------ | ------------- 
-SAP HANA Developer Edition (including the HANA client software comprised of SQLODBC, ODBO-Windows only, ODBC, JDBC drivers, HANA studio, and HANA database) | Red Hat Enterprise Linux 
-SUSE Linux Enterprise | A7, A8 
-MHANA One | Red Hat Enterprise Linux 
-SUSE Linux Enterprise | DS14_v2 (upon general availability)
-SAP S/4HANA | Red Hat Enterprise Linux 
-SUSE Linux Enterprise | Controlled Availability for GS5
+SAP HANA Developer Edition (including the HANA client software comprised of SQLODBC, ODBO-Windows only, ODBC, JDBC drivers, HANA studio, and HANA database) | Red Hat Enterprise Linux, SUSE Linux Enterprise | A7, A8 
+MHANA One | Red Hat Enterprise Linux, SUSE Linux Enterprise | DS14_v2 (upon general availability)
+SAP S/4HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | Controlled Availability for GS5
 SAP HANA on Azure (Large instances)
-Suite on HANA, OLTP | Red Hat Enterprise Linux 
-SUSE Linux Enterprise | SAP HANA on Azure (Large instances)
-HANA Enterprise for BW, OLAP | Red Hat Enterprise Linux 
-SUSE Linux Enterprise | GS5 for single node deployments
+Suite on HANA, OLTP | Red Hat Enterprise Linux, SUSE Linux Enterprise | SAP HANA on Azure (Large instances)
+HANA Enterprise for BW, OLAP | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5 for single node deployments
 SAP HANA on Azure (Large instances) 
-SAP BW/4HANA | Red Hat Enterprise Linux 
-SUSE Linux Enterprise | GS5 for single node deployments
+SAP BW/4HANA | Red Hat Enterprise Linux, SUSE Linux Enterprise | GS5 for single node deployments
 SAP HANA on Azure (Large instances)
 
 ## SAP NetWeaver Certifications
