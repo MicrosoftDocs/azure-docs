@@ -77,6 +77,7 @@ You can also archive automated backups beyond the retention period by creating a
 ### Features
 
 To learn about:
+
 - Using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md).
 - Using automated backups for archiving, see [database copy](sql-database-copy.md).
 - Faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md).
