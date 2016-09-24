@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/02/2016"
+   ms.date="09/26/2016"
    ms.author="amitsriva" />
 
 # Diagnostics Logging for Application Gateway
@@ -28,6 +28,7 @@ You can use different types of logs in Azure to manage and troubleshoot Applicat
 >[AZURE.WARNING] Logs are only available for resources deployed in the Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For a better understanding of the two models, reference the [Understanding Resource Manager deployment and classic deployment](../resource-manager-deployment-model.md) article.
 
 ## Enable logging
+
 Audit logging is automatically enabled for every Resource Manager resource. You must enable access and performance logging to start collecting the data available through those logs. To enable logging, see the following steps. 
 
 1. Note your storage account's Resource ID, where the log data is stored. This would be of the form: /subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Storage/storageAccounts/\<storage account name\>. Any storage account in your subscription can be used. You can use the preview portal to find this information.
@@ -93,6 +94,29 @@ This log is only generated if you have enabled it on a per Application Gateway b
 			"failedRequestCount":"0",
 			"throughput":"119427"
 		}
+	}
+
+
+## Firewall log
+
+This log is only generated if you have enabled it on a per application gateway basis as detailed in the preceding steps. This log also requires that web application firewall be configured on an application gateway. The data is stored in the storage account you specified when you enabled the logging. The following data is logged:
+
+	{
+		"resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<applicationGatewayName>",
+		"operationName": "ApplicationGatewayFirewall",
+		"time": "2016-09-20T00:40:04.9138513Z",
+		"category": "ApplicationGatewayFirewallLog",
+		"properties":     {
+			"instanceId":"ApplicationGatewayRole_IN_0",
+			"clientIp":"108.41.16.164",
+			"clientPort":1815,
+			"requestUri":"/wavsep/active/RXSS-Detection-Evaluation-POST/",
+			"ruleId":"OWASP_973336",
+			"message":"XSS Filter - Category 1: Script Tag Vector",
+			"action":"Logged",
+			"site":"Global",
+			"message":"XSS Filter - Category 1: Script Tag Vector",
+			"details":{"message":" Warning. Pattern match "(?i)(<script","file":"/owasp_crs/base_rules/modsecurity_crs_41_xss_attacks.conf","line":"14"}}
 	}
 
 ## View and analyze the audit log
