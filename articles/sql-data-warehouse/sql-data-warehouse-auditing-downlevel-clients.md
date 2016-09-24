@@ -18,15 +18,6 @@
 
 # SQL Data Warehouse -  Downlevel clients support for auditing and Dynamic Data Masking
 
-> [AZURE.SELECTOR]
-- [Overview](sql-data-warehouse-overview-manage-security.md)
-- [Authentication](sql-data-warehouse-authentication.md)
-- [Threat detection](sql-data-warehouse-security-threat-detection.md)
-- [Auditing Overview](sql-data-warehouse-auditing-overview.md)
-- [Auditing downlevel clients](sql-data-warehouse-auditing-downlevel-clients.md)
-- [Transparent Data Encryption (Portal)](sql-data-warehouse-encryption-tde.md)
-- [Transparent Data Encryption (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
-
 [Auditing](sql-data-warehouse-auditing-overview.md) works with SQL clients that support TDS redirection.
 
 Any client which implements TDS 7.4 should also support redirection. Exceptions to this include JDBC 4.0 in which the redirection feature is not fully supported and Tedious for Node.JS in which redirection was not implemented.
