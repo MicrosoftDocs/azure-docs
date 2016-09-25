@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/21/2016"
-   ms.author="ryanwi"/>
+   ms.author="seanmck"/>
 
 # Create your first Azure Service Fabric application on Linux with Java
 
@@ -28,6 +28,13 @@ Before you get started, make sure that you have [set up your Linux development e
 
 A Service Fabric application can contain one or more services, each with a specific role in delivering the application's functionality. The Service Fabric SDK for Linux includes a [Yeoman](http://yeoman.io/) generator that makes it easy to create your first service and to add more later. Let's look at how to use Yeoman to create a new application with a single service.
 
-1. In a terminal window, type **yo azuresf**.
+1. In a terminal, type **yo azuresf**.
 
 	>[AZURE.NOTE] For more information about the options, see [Service Fabric programming model overview](service-fabric-choose-framework.md).
+
+2.
+
+
+## Next steps
+
+//todo

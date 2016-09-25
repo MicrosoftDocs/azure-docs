@@ -13,10 +13,11 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/23/2016"
+   ms.date="09/24/2016"
    ms.author="seanmck"/>
 
 # Prepare your development environment on Linux
+
  To build and run [Azure Service Fabric applications](service-fabric-application-model.md) on your Linux development machine, install the runtime and common SDK. You can also install optional SDKs for Java and .NET Core.
 
 ## Prerequisites
@@ -60,6 +61,37 @@ Once your sources are updated, you can install the SDK.
 2. Run the SDK setup script.
   ```bash
   $ sudo /opt/microsoft/sdk/servicefabric/common/sdkcommonsetup.sh
+  ```
+
+## Set up the Azure cross-platform CLI
+
+The [Azure cross-platform CLI](azure-xplat-cli-github) includes a number of commands for interacting with Service Fabric clusters and applications. It is based on Node.js so [please ensure that you have installed Node](install-node) before proceeding with the instructions below.
+
+1. Clone the github repo to your development machine.
+
+  ```bash
+  $ git clone https://github.com/Azure/azure-xplat-cli.git
+  ```
+
+2. Switch into the cloned repo and install the CLI's dependencies using the Node Package Manager (npm).
+
+  ```bash
+  $ cd azure-xplat-cli
+  $ npm install
+  ```
+
+3. Create a symlink from the bin/azure folder of the cloned repo to /usr/bin/azure so that it's added to your path and commands are available from any directory.
+
+  ```bash
+  $ sudo ln -s $(pwd)/bin/azure /usr/bin/azure/
+  ```
+
+4. Finally, enable auto-completion Service Fabric commands.
+
+  ```bash
+  $ azure --completion >> ~/azure.completion.sh
+  $ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
+  $ source ~/azure.completion.sh
   ```
 
 ## Set up a local cluster
@@ -132,3 +164,5 @@ Commenting out until this article is live
 <!--Images -->
 
 [sf-eclipse-plugin]: ./media/service-fabric-get-started-linux/service-fabric-eclipse-plugin.png
+[azure-xplat-cli-github]: https://github.com/Azure/azure-xplat-cli
+[install-node]: https://nodejs.org/en/download/package-manager/#installing-node-js-via-package-manager
