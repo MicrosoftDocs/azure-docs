@@ -24,12 +24,12 @@
 - [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 - [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
-Monitoring, detecting, diagnosing, and troubleshooting allow for services to continue with minimal disruption to the user experience. While monitoring and diagnostics are critical in an actual deployed production environment, the efficacy will depend on adopting a similar model during development of services to ensure they work when you move to a real-world setup. Service Fabric makes it easy for service developers to implement diagnostics that can seamlessly work across both single-machine local development setups and real-world production cluster setups.
+Monitoring, detecting, diagnosing, and troubleshooting allow for services to continue with minimal disruption to the user experience. Monitoring and diagnostics are critical in an actual deployed production environment. Adopting a similar model during development of services ensures that the diagnostic pipeline works when you move to a production environment.. Service Fabric makes it easy for service developers to implement diagnostics that can seamlessly work across both single-machine local development setups and real-world production cluster setups.
 
 
-Please refer to the code examples in github on using the Java.Util.Logging framework for Java applications, and EventSource for C# applications.
+Refer to the code examples in github on using the Java.Util.Logging framework for Java applications, and EventSource for C# applications.
 
 
 ## Next steps
-The same tracing code that you added to your application above for local diagnostics will work with tools that you can use to view these events when running your application on an Azure cluster. Check out these articles that discuss the different options for the tools and describe how you can set them up.
+The same tracing code added to your application also works with the diagnostics of your application on an Azure cluster. Check out these articles that discuss the different options for the tools and describe how you can set them up.
 * [How to collect logs with Azure Diagnostics](service-fabric-diagnostics-how-to-setup-lad.md)
