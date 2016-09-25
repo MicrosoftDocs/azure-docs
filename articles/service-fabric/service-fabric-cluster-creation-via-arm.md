@@ -476,10 +476,14 @@ The -ifile parameter can take a .pfx or a .pem file as input, with the certifica
 The parameter -h prints out the help text.
 ```
 
-This command returns the following three strings as the output:
-1. A SourceVaultID, which is the ID for the new KeyVault ResourceGroup it created for you.
-2. A CertificateUrl for accessing the certificate
+This command returns the following three strings as the output: 
+
+1. A SourceVaultID, which is the ID for the new KeyVault ResourceGroup it created for you. 
+
+2. A CertificateUrl for accessing the certificate.
+
 3. A CertificateThumbprint, which is used for authentication.
+
 
 The following example shows how to use the command:
 
