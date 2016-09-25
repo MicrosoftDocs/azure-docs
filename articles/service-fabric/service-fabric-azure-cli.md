@@ -61,7 +61,7 @@ To use named parameters, and find what they are, you can type --help after a com
  azure servicefabric application create --help
 ```
 
-When connecting to a multi-machine cluster created in Azure (using ARM or the portal) from a machine **that is not part of the cluster**, use the following command:
+When connecting to a multi-machine cluster from a machine **that is not part of the cluster**, use the following command:
 ```
  azure servicefabric cluster connect http://PublicIPorFQDN:19080
 ```
@@ -85,12 +85,12 @@ The following Azure CLI commands describe how to connect to a secure cluster. Th
 azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert
 ```
  
-If your certificate has Certificate Authorities (CAs), you need to add the --ca-cert-path parameter like the following example. If you have multiple CAs, use a comma as the delimiter.
+If your certificate has Certificate Authorities (CAs), you need to add the --ca-cert-path parameter like the following example: 
 
 ```
  azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 
 ```
-
+If you have multiple CAs, use a comma as the delimiter.
  
 If your Common Name in the certificate does not match the connection endpoint, you could use the parameter **--strict-ssl** to bypass the verification. 
 ```
