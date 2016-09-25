@@ -156,20 +156,20 @@ $ sudo apt-get install openssh-server openssh-client**
 If the problem persists, try disabling PAM for ssh by executing the following:
 
 ```
-$ sudo vi /etc/ssh/sshd\_config**
-#Change the line with UsePAM to the following: UsePAM no**
-$ sudo service sshd reload**
+$ sudo vi /etc/ssh/sshd_config
+$#Change the line with UsePAM to the following: UsePAM no
+$ sudo service sshd reload
 ```
 
 If the problem still persists, try increasing the number of ssh sessions by executing the following commands:
 
 
 ```
-$ sudo vi /etc/ssh/sshd\_config**
-# Add the following to lines:**
-# MaxSessions 500**
-# MaxStartups 300:30:500**
-$ sudo service sshd reload**
+$ sudo vi /etc/ssh/sshd\_config
+$# Add the following to lines:
+$# MaxSessions 500
+$# MaxStartups 300:30:500
+$ sudo service sshd reload
 ```
 Using keys for ssh authentication (as opposed to passwords) isn't yet supported (since the platform uses ssh to copy packages), so please use password based authentication.
 
