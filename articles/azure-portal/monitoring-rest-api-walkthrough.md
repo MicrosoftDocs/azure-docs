@@ -86,6 +86,7 @@ Once the authentication setup step is complete, queries can then be executed aga
 
 ## Retrieve Metric Definitions
 >[AZURE.NOTE] To retrieve metric definitions using the Azure Monitor REST API, use "2016-03-01" as the API version.
+
 ```PowerShell
 $apiVersion = "2016-03-01"
 $request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/${resourceProviderNamespace}/${resourceType}/${resourceName}/providers/microsoft.insights/metricDefinitions?api-version=${apiVersion}"
