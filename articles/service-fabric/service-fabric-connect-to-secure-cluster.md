@@ -51,7 +51,7 @@ If your certificate has Certificate Authorities (CAs), you need to add the param
 ```
  azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 
 ```
-If you have multiple CAs, comma delimit them. 
+If you have multiple CAs, use commas as the delimiter. 
 
  
 If your Common Name in the certificate does not match the connection endpoint, you could use the parameter `--strict-ssl` to bypass the verification. 
