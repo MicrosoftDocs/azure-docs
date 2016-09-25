@@ -16,12 +16,12 @@
    ms.date="09/24/2016"
    ms.author="subramar"/>
 
-> [AZURE.SELECTOR]
-- [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
-- [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
 
 # How to collect logs with Azure Diagnostics
 
+> [AZURE.SELECTOR]
+- [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
+- [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
 When you're running an Azure Service Fabric cluster, it's a good idea to collect the logs from all the nodes in a central location. Having the logs in a central location makes it easy to analyze and troubleshoot issues in your cluster or in the applications and services running in that cluster. One way to upload and collect logs is to use the Azure Diagnostics extension, which uploads logs to Azure Storage. The logs are really not that useful directly in storage, but an external process can be used to read the events from storage and place them into a product such as [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) or another log parsing solution.
 
 ## Different log sources that you may want to collect
