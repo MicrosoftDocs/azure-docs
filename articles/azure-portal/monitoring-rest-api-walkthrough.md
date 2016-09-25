@@ -141,7 +141,7 @@ $request = "https://management.azure.com/subscriptions/${subscriptionId}/resourc
 ### Use ARMClient
 An alternative to using PowerShell (as shown above), is to use [ARMClient](https://github.com/projectkudu/ARMClient) on your Windows machine. The following steps outline use of ARMClient:
 1. Install [Chocolatey](https://chocolatey.org/) and [ARMClient](https://github.com/projectkudu/ARMClient).
-2. In a terminal window, type _armclient.exe login_. This will prompt you to login to Azure
+2. In a terminal window, type _armclient.exe login_. This prompts you to log in to Azure.
 3. Type _armclient GET [your_resource_id]/providers/microsoft.insights/metricdefinitions?api-version=2016-03-01_
 4. Type _armclient GET [your_resource_id]/providers/microsoft.insights/metrics?api-version=2016-06-01_
 
@@ -178,17 +178,17 @@ The following list contains a few examples of resource ID formats for various Az
 * **VMs** - /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}
 * **Event Hubs** - /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventHub/namespaces/{eventhub-namespace}
 
-There are a few alternative approaches to retrieving the resource ID, including using Azure Resource Explorer, viewing the desired resource in the Azure Portal, and via PowerShell or the Azure CLI.
+There are alternative approaches to retrieving the resource ID, including using Azure Resource Explorer, viewing the desired resource in the Azure portal, and via PowerShell or the Azure CLI.
 
 ### Azure Resource Explorer
 To find the resource ID for a desired resource, one helpful approach is to use the [Azure Resource Explorer](https://resources.azure.com) tool. Navigate to the desired resource and then look at the ID shown, as in the following screenshot:
 
 ![Alt "Azure Resource Explorer"](./media/monitoring-rest-api-walkthrough/azure_resource_explorer.png)
 
-### Azure Portal
-The resource ID can also be obtained from the Azure Portal. To do so, navigate to the desired resource and then select Properties. The Resource ID will be displayed in the Properties blade, as seen in the following screenshot:
+### Azure portal
+The resource ID can also be obtained from the Azure portal. To do so, navigate to the desired resource and then select Properties. The Resource ID is displayed in the Properties blade, as seen in the following screenshot:
 
-![Alt "Resource ID displayed in the Properties blade in the Azure Portal"](./media/monitoring-rest-api-walkthrough/resourceid_azure_portal.png)
+![Alt "Resource ID displayed in the Properties blade in the Azure portal"](./media/monitoring-rest-api-walkthrough/resourceid_azure_portal.png)
 
 ### Azure PowerShell
 The resource ID can be retrieved using Azure PowerShell cmdlets as well. For example, to obtain the resource ID for an Azure Web App, execute the Get-AzureRmWebApp cmdlet, as in the following screenshot:
