@@ -22,6 +22,7 @@
 - [PowerShell](service-fabric-deploy-remove-applications.md)
 - [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 
+<br/>
 
 Once an [application type has been packaged][10], it's ready for deployment into an Azure Service Fabric cluster. Deployment involves the following three steps:
 
