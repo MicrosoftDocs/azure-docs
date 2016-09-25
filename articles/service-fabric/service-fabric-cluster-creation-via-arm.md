@@ -31,6 +31,8 @@ This is a step-by-step guide that walks you through the steps of setting up a se
 
 A secure cluster is a cluster that prevents unauthorized access to management operations, which includes deploying, upgrading, and deleting applications, services, and the data they contain. An unsecure cluster is a cluster that anyone can connect to at any time and perform management operations. Although it is possible to create an unsecure cluster, it is **highly recommended to create a secure cluster**. An unsecure cluster **cannot be secured later** - a new cluster must be created.
 
+The concepts are the same for creating secure clusters, whether the clusters are Linux clusters or Windows clusters. For more information and helper scripts for creating secure Linux clusters, please see [Creating secure clusters on Linux][#secure-linux-clusters]
+
 ## Log in to Azure
 This guide uses [Azure PowerShell][azure-powershell]. When starting a new PowerShell session, log in to your Azure account and select your subscription before executing Azure commands.
 
@@ -366,7 +368,7 @@ The AAD configuration created earlier can be inserted directly into your Resourc
 }
 ```
 
-### Configure Resource Manager template parameters
+### <a "configure-arm" ></a>Configure Resource Manager template parameters
 
 Finally, use the output values from the Key Vault and AAD PowerShell commands to populate the parameters file:
 
@@ -445,7 +447,7 @@ If the Resource Manager template test passes, use the following PowerShell comma
 New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
-## Assign users to roles
+## <a name="assign-roles"></a>Assign users to roles
 
 Once you have created the applications to represent your cluster, you will need to assign your users to the roles supported by Service Fabric: read-only and admin. You can do this using the [Azure classic portal][azure-classic-portal].
 
@@ -462,6 +464,43 @@ Once you have created the applications to represent your cluster, you will need 
 
 >[AZURE.NOTE] For more information about roles in Service Fabric, see [Role-based access control for Service Fabric clients](service-fabric-cluster-security-roles.md).
 
+## <a name="secure-linux-cluster"></a> Create secure clusters on Linux
+
+To make the process easier, a helper script has been provided [here](http://www.microsoft.com). For using this helper script, it is assumed that you have already Azure CLI installed, and it is in your path. If you already have a CA signed certificate, please run the following command
+
+```bash
+./helper-module.py [-h] -sub SUBSCRIPTION_ID -rgname RESOURCE_GROUP_NAME -kv  KEY_VAULT_NAME -ifile INPUT_CERT_FILE -ctype CERTIFICATE_TYPE -sname CERTIFICATE_NAME -l LOCATION -p PASSWORD
+
+The -ifile parameter can take a .pfx or a .pem file as input, with the certificate type (pfx or pem) specified by the -ctype parameter.
+The parameter -h prints out the help text.
+```
+
+This command will return the following three strings as the output:
+1. A SourceVaultID, which is the ID for the new KeyVault ResourceGroup it created for you.
+2. A CertificateUrl for accessing the certificate
+3. A CertificateThumbprint, which is used for authentication.
+
+The following example show how to use the command:
+```bash
+./helper-module.py -sub "fffffff-ffff-ffff-ffff-ffffffffffff"  -rgname "mykvrg" -kv "mykevname" -ifile "/home/test/cert.pfx" -ctype pfx -sname "mycert" -l "East US" -p "pfxtest"
+```
+Executing the preceding command will provide you with the three strings as follows:
+
+SourceVault: /subscriptions/fffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/mykvrg/providers/Microsoft.KeyVault/vaults/mykvname
+CertificateUrl: /subscriptions/fffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/mykvrg/providers/Microsoft.KeyVault/vaults/mykvname
+CertificateThumbprint: 0xfffffffffffffffffffffffffffffffffffffffff
+
+These are the entries needed for creating a secure service fabric cluster (without AAD) as described at [Configure Resource Manager template parameters](#configure-arm). You can connnect to the secure cluster via instructions at [Authenticates client access to a cluster]("service-fabric-connect-to-secure-cluster.md"). Linux preview clusters do not support AAD uathentication. You can assign admin and client roles as described in the section [Assign roles to users]("assign-roles"). When specifying admin and client roles for a Linux preview cluster, you have to provide certificate thumbprints for authentication (as opposed to subject name).
+
+
+If you wish to use a self-signed certificate for testing, you could use the same script to generate a self-signed certificate and upload it to KeyVault, by providing the flag -ss instead of providing the certificate path and certificate name. For example, see the following command for creating and uploading a self-signed certificate:
+
+```bash
+./helper-module.py -ss -subj "CN=testcluster.cloudapp.westus.com" -rgname "mykvrg" -sub "fffffff-ffff-ffff-ffff-ffffffffffff" -kv "mykevname"  -ctype pem -sname "mycert" -l "East US" -p "selftest"
+```
+It is recommended to keep the Common Name of the certificate to match the url of the cluster to be created. This command will return the same three strings, SourceVault, CertificateUrl and CertificateThumbprint, which is used to create a secure Linux cluster.
+
+The parameters obtained by the helper script provided can be input directly into the portal as described in the section [Create a cluster in the Azure portal](service-fabric-cluster-creation-via-portal.md/#create-cluster-portal)
 
 ## Next steps
 
