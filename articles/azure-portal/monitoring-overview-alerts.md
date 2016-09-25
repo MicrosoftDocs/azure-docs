@@ -18,6 +18,7 @@
 
 # Overview of alerts in Microsoft Azure 
 
+
 This article describes what alerts are, their benefits, and how to get started using them.  
 
 ## What are alerts?
@@ -32,7 +33,7 @@ Alerts are available across different services
 
 - **Application Insights** - Allows web test and metric alerts. See [Set Alerts in Application Insights](../app-sights/app-insights-alerts.md) and [Monitor availability and responsiveness of any web site](../app-sights/app-insights-monitor-web-app-availability.md). 
 - **OMS Log Analytics** - You can route diagnostic logs Log Analytics. OMS allows metric, log and other alert types. For more information, see [Alerts in Log Analytics](../log-analytics/log-analytics-alerts.md).   
-- **Azure Monitor** - Azure Monitor allows alerts based on both metric values and activity log events. Azure Monitor includes the [Azure Insights REST API](https://msdn.microsoft.com/en-us/library/dn931943.aspx).  Also see [Using the Azure portal to 
+- **Azure Monitor** - Azure Monitor allows alerts based on both metric values and activity log events. Azure Monitor includes the [Azure Insights REST API](https://msdn.microsoft.com/library/dn931943.aspx).  Also see [Using the Azure portal to 
 
 
 You can configure an alert to do the following when it triggers: 
@@ -51,7 +52,7 @@ Get information about alert rules and configuring them using
 
 - [The Azure portal](insights-alerts-portal.md)
 - [PowerShell](insights-alerts-powershell.md) 
-- [command-line interface (CLI)](insights-alerts-command-line-interface.md) 
+- [Command-line interface (CLI)](insights-alerts-command-line-interface.md) 
 - [The Azure Insights REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 
