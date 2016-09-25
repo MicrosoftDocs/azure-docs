@@ -40,7 +40,7 @@ Configure Linux Azure Diagnostics (LAD) to collect the files and place them into
 
 You can also deploy the diagnostics extension using the Azure Resource Manager. The process is similar for Windows and Linux and is documented for Windows clusters at [How to collect logs with Azure Diagnostics](service-fabric-diagnostics-how-to-setup-wad.md).
 
-You can also use OMS as described in [OMS log analytics with linux](https://blogs.technet.microsoft.com/hybridcloud/2016/01/28/operations-management-suite-log-analytics-with-linux/)
+You can also use OMS as described in [OMS log analytics with linux](https://blogs.technet.microsoft.com/hybridcloud/2016/01/28/operations-management-suite-log-analytics-with-linux/).
 
 After this configuration is done, the LAD agent monitors the log files specified.  Whenever a new line is appended to the file, it creates a syslog entry that is sent to the storage specified by the customer.
 

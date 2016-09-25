@@ -446,7 +446,8 @@ If the Resource Manager template test passes, use the following PowerShell comma
 New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
-## <a name="assign-roles"></a>Assign users to roles
+<a name="assign-roles"></a>
+## Assign users to roles
 
 Once you have created the applications to represent your cluster, you need to assign your users to the roles supported by Service Fabric: read-only and admin. You can do this using the [Azure classic portal][azure-classic-portal].
 
@@ -463,11 +464,12 @@ Once you have created the applications to represent your cluster, you need to as
 
 >[AZURE.NOTE] For more information about roles in Service Fabric, see [Role-based access control for Service Fabric clients](service-fabric-cluster-security-roles.md).
 
-## <a name="secure-linux-cluster"></a> Create secure clusters on Linux
+ <a name="secure-linux-cluster"></a> 
+##  Create secure clusters on Linux
 
-To make the process easier, a helper script has been provided [here](http://github.com/ChackDan/Servie-Fabric/tree/master/Scripts/CertUpload4Linux). For using this helper script, it is assumed that you have already Azure CLI installed, and it is in your path. If you already have a CA signed certificate, run the following command:
+To make the process easier, a helper script has been provided [here](http://github.com/ChackDan/Servie-Fabric/tree/master/Scripts/CertUpload4Linux). For using this helper script, it is assumed that you have already Azure CLI installed, and it is in your path. Make sure that the script has permissions to execute by running `chmod +x cert_helper.py` after downloading it. The first step is to log into your Azure account using the CLI with the `azure login` command. After logging into your Azure account, use the helper with your CA signed certificate, as the following command shows:
 
-```bash
+```sh
 ./cert_helper.py [-h] CERT_TYPE [-ifile INPUT_CERT_FILE] [-sub SUBSCRIPTION_ID] [-rgname RESOURCE_GROUP_NAME] [-kv KEY_VAULT_NAME] [-sname CERTIFICATE_NAME] [-l LOCATION] [-p PASSWORD]
 
 The -ifile parameter can take a .pfx or a .pem file as input, with the certificate type (pfx or pem, or ss if it is a self-signed cert).
@@ -480,14 +482,17 @@ This command returns the following three strings as the output:
 3. A CertificateThumbprint, which is used for authentication.
 
 The following example shows how to use the command:
-```bash
+
+```sh
 ./cert_helper.py -sub "fffffff-ffff-ffff-ffff-ffffffffffff"  -rgname "mykvrg" -kv "mykevname" -ifile "/home/test/cert.pfx" -ctype pfx -sname "mycert" -l "East US" -p "pfxtest"
 ```
 Executing the preceding command provides you with the three strings as follows:
 
+```sh
 SourceVault: /subscriptions/fffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/mykvrg/providers/Microsoft.KeyVault/vaults/mykvname
 CertificateUrl: https://myvault.vault.azure.net/secrets/mycert/00000000000000000000000000000000
 CertificateThumbprint: 0xfffffffffffffffffffffffffffffffffffffffff
+```
 
  The certificate's subject name must match the domain used to access the Service Fabric cluster. This is required to provide SSL for the cluster's HTTPS management endpoints and Service Fabric Explorer. You cannot obtain an SSL certificate from a certificate authority (CA) for the `.cloudapp.azure.com` domain. You must acquire a custom domain name for your cluster. When you request a certificate from a CA the certificate's subject name must match the custom domain name used for your cluster.
 
@@ -496,7 +501,7 @@ These are the entries needed for creating a secure service fabric cluster (witho
 
 If you wish to use a self-signed certificate for testing, you could use the same script to generate a self-signed certificate and upload it to KeyVault, by providing the flag -ss instead of providing the certificate path and certificate name. For example, see the following command for creating and uploading a self-signed certificate:
 
-```bash
+```sh
 ./cert_helper.py ss -rgname "mykvrg" -sub "fffffff-ffff-ffff-ffff-ffffffffffff" -kv "mykevname"  -ctype pem -sname "mycert" -l "East US" -p "selftest"
 ```
 

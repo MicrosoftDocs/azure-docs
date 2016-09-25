@@ -32,11 +32,13 @@ The first step is get the latest version of the CLI from the git rep and set it 
 ```
 
 For each command, it supports, you can type the name of the command to obtain the help for that command. Auto-completion is supported for the commands. For example, the following command gives you help for all the application commands. 
+
 ```sh
  azure servicefabric application 
 ```
 
 You can further filter the help to a specific command, as the following example shows:
+
 ```sh
  azure servicefabric application  create
 ```
@@ -50,23 +52,27 @@ source ~/azure.completion.sh
 ```
 
 The following commands connect to the cluster and show you the nodes in the cluster:
+
 ```sh
  azure servicefabric cluster connect http://localhost:19080
  azure servicefabric node show
 ```
 
 To use named parameters, and find what they are, you can type --help after a command. For example:
+
 ```sh
  azure servicefabric node show --help
  azure servicefabric application create --help
 ```
 
 When connecting to a multi-machine cluster from a machine **that is not part of the cluster**, use the following command:
-```
+
+```sh
  azure servicefabric cluster connect http://PublicIPorFQDN:19080
 ```
 
 Replace the PublicIPorFQDN tag with the real IP or FQDN as appropriate. When connecting to a multi-machine cluster from a machine **that is part of the cluster**, use the following command:
+
 ```sh
  azure servicefabric cluster connect --connection-endpoint http://localhost:19080 --client-connection-endpoint PublicIPorFQDN:19000
 ```
@@ -93,11 +99,13 @@ If your certificate has Certificate Authorities (CAs), you need to add the --ca-
 If you have multiple CAs, use a comma as the delimiter.
  
 If your Common Name in the certificate does not match the connection endpoint, you could use the parameter `--strict-ssl` to bypass the verification as shown in the following command: 
+
 ```
 azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl false 
 ```
  
 If you would like to skip the CA verification, you could add the --reject-unauthorized parameter as shown in the following command: 
+
 ```
 azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --reject-unauthorized false 
 ```
@@ -163,6 +171,7 @@ If the problem persists, try disabling PAM for ssh by changing the **sshd_config
 ```
 
 If the problem still persists, try increasing the number of ssh sessions by executing the following commands:
+
 ```sh
  sudo vi /etc/ssh/sshd\_config
 # Add the following to lines:
