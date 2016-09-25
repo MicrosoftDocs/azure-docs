@@ -32,20 +32,25 @@ To install the SDK and the associated runtime package via apt-get, you must firs
 
 1. Open a terminal.
 2. Add the Service Fabric repo to your sources list.
+
   ```bash
   $ sudo sh -c 'echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ trusty main" > /etc/apt/sources.list.d/servicefabric.list'
   ```
+
 3. Add the new GPG key to your apt keyring.
+
   ```bash
   $ sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
   $ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 68576280
   ```
 4. Add an apt source for NodeJS (required for the Azure CLI)
+
   ```bash
   $ echo -e "deb https://deb.nodesource.com/node_4.x $(lsb_release -sc) main \ndeb-src https://deb.nodesource.com/node_4.x $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/nodesource.list
 
   ```
 5. Refresh your package lists based on the newly added repositories.
+
   ```bash
   $ sudo apt-get update
   ```
@@ -55,17 +60,20 @@ To install the SDK and the associated runtime package via apt-get, you must firs
 Once your sources are updated, you can install the SDK.
 
 1. Install the Service Fabric SDK package. You will be asked to confirm the installation and to agree to a license agreement.
+
   ```bash
   $ sudo apt-get install servicefabricsdk
   ```
+
 2. Run the SDK setup script.
+
   ```bash
   $ sudo /opt/microsoft/sdk/servicefabric/common/sdkcommonsetup.sh
   ```
 
 ## Set up the Azure cross-platform CLI
 
-The [Azure cross-platform CLI](azure-xplat-cli-github) includes a number of commands for interacting with Service Fabric clusters and applications. It is based on Node.js so [please ensure that you have installed Node](install-node) before proceeding with the instructions below.
+The [Azure cross-platform CLI](azure-xplat-cli-github) includes commands for interacting with Service Fabric entities, including clusters and applications. It is based on Node.js so [ensure that you have installed Node](install-node) before proceeding with the instructions below.
 
 1. Clone the github repo to your development machine.
 
@@ -96,7 +104,7 @@ The [Azure cross-platform CLI](azure-xplat-cli-github) includes a number of comm
 
 ## Set up a local cluster
 
-If everything installed successfully, you should be able to start a local cluster.
+If everything has   installed successfully, you should be able to start a local cluster.
 
 1. Run the cluster setup script.
   ```bash
@@ -104,7 +112,7 @@ If everything installed successfully, you should be able to start a local cluste
   ```
 2. Open a web browser and navigate to http://localhost:19080/Explorer. If the cluster has started, you should see the Service Fabric Explorer dashboard.
 
-At this point, you will be able to deploy pre-built Service Fabric application packages or new ones based on guest containers or guest executables. To build new services using the Java or .NET Core SDKs, follow the optional setup steps below.
+At this point, you are able to deploy pre-built Service Fabric application packages or new ones based on guest containers or guest executables. To build new services using the Java or .NET Core SDKs, follow the optional setup steps below.
 
 ## Install the Java SDK and Eclipse plugin (optional)
 
