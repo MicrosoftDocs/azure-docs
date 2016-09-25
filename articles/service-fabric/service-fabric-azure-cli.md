@@ -92,7 +92,7 @@ If your certificate has Certificate Authorities (CAs), you need to add the --ca-
 ```
 If you have multiple CAs, use a comma as the delimiter.
  
-If your Common Name in the certificate does not match the connection endpoint, you could use the parameter **--strict-ssl** to bypass the verification. 
+If your Common Name in the certificate does not match the connection endpoint, you could use the parameter `--strict-ssl` to bypass the verification as shown in the following command: 
 ```
 azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl false 
 ```
@@ -148,7 +148,7 @@ You can now monitor the application upgrade using SFX. In a few minutes, the app
 
 ### Copying of the application package does not succeed
 
-Check if **openssh** is installed. By default, Ubuntu Desktop doesn't have it installed. Install it using the following command:
+Check if `openssh` is installed. By default, Ubuntu Desktop doesn't have it installed. Install it using the following command:
 
 ```
  sudo apt-get install openssh-server openssh-client**

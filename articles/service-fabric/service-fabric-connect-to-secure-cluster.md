@@ -45,14 +45,15 @@ The following Azure CLI commands describe how to connect to a secure cluster. Th
 azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert
 ```
  
-If you certificate has Certificate Authorities (CAs), you will need to add the --ca-cert-path parameter like the example below. You could use comma as delimiter if you have multiple CAs. 
+If your certificate has Certificate Authorities (CAs), you will need to add the parameter `--ca-cert-path` as shown in the following example: 
 
 ```
  azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 
 ```
+If you have multiple CAs, comma delimit them. 
 
  
-If your Common Name in the certificate does not match the connection endpoint, you could use the parameter --strict-ssl to bypass the verification. 
+If your Common Name in the certificate does not match the connection endpoint, you could use the parameter `--strict-ssl` to bypass the verification. 
 ```
 azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl false 
 ```
