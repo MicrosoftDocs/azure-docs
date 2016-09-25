@@ -465,13 +465,12 @@ Once you have created the applications to represent your cluster, you need to as
 
 ## <a name="secure-linux-cluster"></a> Create secure clusters on Linux
 
-To make the process easier, a helper script has been provided [here](http://www.microsoft.com). For using this helper script, it is assumed that you have already Azure CLI installed, and it is in your path. If you already have a CA signed certificate, run the following command:
+To make the process easier, a helper script has been provided [here](http://github.com/ChackDan/Servie-Fabric/tree/master/Scripts/CertUpload4Linux). For using this helper script, it is assumed that you have already Azure CLI installed, and it is in your path. If you already have a CA signed certificate, run the following command:
 
 ```bash
-./helper-module.py [-h] -subj CLUSTER_COMMON_NAME -sub SUBSCRIPTION_ID -rgname RESOURCE_GROUP_NAME -kv  KEY_VAULT_NAME -ifile INPUT_CERT_FILE -ctype CERTIFICATE_TYPE -sname CERTIFICATE_NAME -l LOCATION -p PASSWORD
+./cert_helper.py [-h] CERT_TYPE [-ifile INPUT_CERT_FILE] [-sub SUBSCRIPTION_ID] [-rgname RESOURCE_GROUP_NAME] [-kv KEY_VAULT_NAME] [-sname CERTIFICATE_NAME] [-l LOCATION] [-p PASSWORD]
 
-The -ifile parameter can take a .pfx or a .pem file as input, with the certificate type (pfx or pem) specified by the -ctype parameter.
-The -subj name includes the name of the cluster you are going to create.
+The -ifile parameter can take a .pfx or a .pem file as input, with the certificate type (pfx or pem, or ss if it is a self-signed cert).
 The parameter -h prints out the help text.
 ```
 
@@ -482,12 +481,12 @@ This command returns the following three strings as the output:
 
 The following example shows how to use the command:
 ```bash
-./helper-module.py -sub "fffffff-ffff-ffff-ffff-ffffffffffff"  -rgname "mykvrg" -kv "mykevname" -ifile "/home/test/cert.pfx" -ctype pfx -sname "mycert" -l "East US" -p "pfxtest"
+./cert_helper.py -sub "fffffff-ffff-ffff-ffff-ffffffffffff"  -rgname "mykvrg" -kv "mykevname" -ifile "/home/test/cert.pfx" -ctype pfx -sname "mycert" -l "East US" -p "pfxtest"
 ```
 Executing the preceding command provides you with the three strings as follows:
 
 SourceVault: /subscriptions/fffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/mykvrg/providers/Microsoft.KeyVault/vaults/mykvname
-CertificateUrl: /subscriptions/fffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/mykvrg/providers/Microsoft.KeyVault/vaults/mykvname
+CertificateUrl: https://myvault.vault.azure.net/secrets/mycert/00000000000000000000000000000000
 CertificateThumbprint: 0xfffffffffffffffffffffffffffffffffffffffff
 
  The certificate's subject name must match the domain used to access the Service Fabric cluster. This is required to provide SSL for the cluster's HTTPS management endpoints and Service Fabric Explorer. You cannot obtain an SSL certificate from a certificate authority (CA) for the `.cloudapp.azure.com` domain. You must acquire a custom domain name for your cluster. When you request a certificate from a CA the certificate's subject name must match the custom domain name used for your cluster.
@@ -498,11 +497,11 @@ These are the entries needed for creating a secure service fabric cluster (witho
 If you wish to use a self-signed certificate for testing, you could use the same script to generate a self-signed certificate and upload it to KeyVault, by providing the flag -ss instead of providing the certificate path and certificate name. For example, see the following command for creating and uploading a self-signed certificate:
 
 ```bash
-./helper-module.py -ss -subj "CN=testcluster.microsoft.com" -rgname "mykvrg" -sub "fffffff-ffff-ffff-ffff-ffffffffffff" -kv "mykevname"  -ctype pem -sname "mycert" -l "East US" -p "selftest"
+./cert_helper.py ss -rgname "mykvrg" -sub "fffffff-ffff-ffff-ffff-ffffffffffff" -kv "mykevname"  -ctype pem -sname "mycert" -l "East US" -p "selftest"
 ```
 
-This command returns the same three strings, SourceVault, CertificateUrl and CertificateThumbprint, which is used to create a secure Linux cluster.
- The certificate's subject name must match the domain used to access the Service Fabric cluster. This is required to provide SSL for the cluster's HTTPS management endpoints and Service Fabric Explorer. You cannot obtain an SSL certificate from a certificate authority (CA) for the `.cloudapp.azure.com` domain. You must acquire a custom domain name for your cluster. When you request a certificate from a CA the certificate's subject name must match the custom domain name used for your cluster.
+This command returns the same three strings, SourceVault, CertificateUrl and CertificateThumbprint, which is used to create a secure Linux cluster, along with the location where the self-signed certificate was placed. You will need the self-signed certificate to connect to the cluster.
+The certificate's subject name must match the domain used to access the Service Fabric cluster. This is required to provide SSL for the cluster's HTTPS management endpoints and Service Fabric Explorer. You cannot obtain an SSL certificate from a certificate authority (CA) for the `.cloudapp.azure.com` domain. You must acquire a custom domain name for your cluster. When you request a certificate from a CA the certificate's subject name must match the custom domain name used for your cluster.
 
 
 The parameters provided by the helper script can be filled in the portal as described in the section [Create a cluster in the Azure portal](service-fabric-cluster-creation-via-portal.md/#create-cluster-portal)
