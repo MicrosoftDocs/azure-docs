@@ -18,6 +18,11 @@
 
 # Publish an application to a remote cluster by using Visual Studio
 
+> [AZURE.SELECTOR]
+- [PowerShell](service-fabric-deploy-remove-applications.md)
+- [Visual Studio](service-fabric-publish-app-remote-cluster.md)
+
+
 The Azure Service Fabric extension for Visual Studio provides an easy, repeatable, and scriptable way to publish an application to a Service Fabric cluster.
 
 ## The artifacts required for publishing
