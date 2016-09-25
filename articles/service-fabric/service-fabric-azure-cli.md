@@ -23,7 +23,7 @@ You can interact with Service Fabric cluster from Linux machines using the Azure
 
 The first step is get the latest version of the CLI from the git rep and set it up in your path using the commands below:
 
-```
+```bash
 $ git clone https://github.com/Azure/azure-xplat-cli.git
 $ cd azure-xplat-cli
 $ npm install
@@ -31,14 +31,15 @@ $ sudo ln -s \$(pwd)/bin/azure /usr/bin/azure
 $ azure servicefabric
 ```
 
-For each command, it supports, you can type the name of the command to obtain the help for that command. Auto-completion is supported for the commands. For example, the following command will give you help for all the application related commands. 
-```
+For each command, it supports, you can type the name of the command to obtain the help for that command. Auto-completion is supported for the commands. For example, the following command will give you help for all the application commands. 
+```bash
 $ azure servicefabric application 
 ```
 
 You can further filter the help to a specific command, as the following example shows:
-```
+```bash
 $ azure servicefabric application  create
+```
 
 To enable auto-completion in the CLI, please run the commands below:
 
