@@ -73,7 +73,7 @@ Once your sources are updated, you can install the SDK.
 
 ## Set up the Azure cross-platform CLI
 
-The [Azure cross-platform CLI](azure-xplat-cli-github) includes commands for interacting with Service Fabric entities, including clusters and applications. It is based on Node.js so [ensure that you have installed Node](install-node) before proceeding with the instructions below.
+The [Azure cross-platform CLI][azure-xplat-cli-github] includes commands for interacting with Service Fabric entities, including clusters and applications. It is based on Node.js so [ensure that you have installed Node][install-node] before proceeding with the instructions below.
 
 1. Clone the github repo to your development machine.
 
