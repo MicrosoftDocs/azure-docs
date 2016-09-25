@@ -16,6 +16,9 @@
    ms.date="06/24/2016"
    ms.author="toddabel"/>
 
+> [AZURE.SELECTOR]
+- [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
+- [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
 
 # How to collect logs with Azure Diagnostics
 
