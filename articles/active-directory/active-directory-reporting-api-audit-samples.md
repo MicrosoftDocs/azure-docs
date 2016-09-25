@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="09/18/2016"
+    ms.date="09/25/2016"
     ms.author="dhanyahk;markvi"/>
 
 # Azure Active Directory reporting audit API samples

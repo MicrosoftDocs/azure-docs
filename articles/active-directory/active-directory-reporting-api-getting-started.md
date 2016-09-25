@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity"
-    ms.date="09/21/2016"
+    ms.date="09/25/2016"
     ms.author="dhanyahk;markvi"/>
 
 # Getting started with the Azure Active Directory reporting API
