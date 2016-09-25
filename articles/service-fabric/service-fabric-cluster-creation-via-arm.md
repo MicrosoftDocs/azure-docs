@@ -469,9 +469,10 @@ Once you have created the applications to represent your cluster, you will need 
 To make the process easier, a helper script has been provided [here](http://www.microsoft.com). For using this helper script, it is assumed that you have already Azure CLI installed, and it is in your path. If you already have a CA signed certificate, please run the following command
 
 ```bash
-./helper-module.py [-h] -sub SUBSCRIPTION_ID -rgname RESOURCE_GROUP_NAME -kv  KEY_VAULT_NAME -ifile INPUT_CERT_FILE -ctype CERTIFICATE_TYPE -sname CERTIFICATE_NAME -l LOCATION -p PASSWORD
+./helper-module.py [-h] -subj CLUSTER_COMMON_NAME -sub SUBSCRIPTION_ID -rgname RESOURCE_GROUP_NAME -kv  KEY_VAULT_NAME -ifile INPUT_CERT_FILE -ctype CERTIFICATE_TYPE -sname CERTIFICATE_NAME -l LOCATION -p PASSWORD
 
 The -ifile parameter can take a .pfx or a .pem file as input, with the certificate type (pfx or pem) specified by the -ctype parameter.
+The -subj name includes the name of the cluster you are going to create.
 The parameter -h prints out the help text.
 ```
 
@@ -482,7 +483,7 @@ This command will return the following three strings as the output:
 
 The following example show how to use the command:
 ```bash
-./helper-module.py -sub "fffffff-ffff-ffff-ffff-ffffffffffff"  -rgname "mykvrg" -kv "mykevname" -ifile "/home/test/cert.pfx" -ctype pfx -sname "mycert" -l "East US" -p "pfxtest"
+./helper-module.py -subj "CN=mysecurecluster.westus.cloudapp.azure.com"-sub "fffffff-ffff-ffff-ffff-ffffffffffff"  -rgname "mykvrg" -kv "mykevname" -ifile "/home/test/cert.pfx" -ctype pfx -sname "mycert" -l "East US" -p "pfxtest"
 ```
 Executing the preceding command will provide you with the three strings as follows:
 
