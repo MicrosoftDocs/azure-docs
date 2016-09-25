@@ -493,8 +493,6 @@ CertificateThumbprint: 0xfffffffffffffffffffffffffffffffffffffffff
 
  The certificate's subject name must match the domain used to access the Service Fabric cluster. This is required to provide SSL for the cluster's HTTPS management endpoints and Service Fabric Explorer. You cannot obtain an SSL certificate from a certificate authority (CA) for the `.cloudapp.azure.com` domain. You must acquire a custom domain name for your cluster. When you request a certificate from a CA the certificate's subject name must match the custom domain name used for your cluster.
 
-### Application certificates (optional)
-
 These are the entries needed for creating a secure service fabric cluster (without AAD) as described at [Configure Resource Manager template parameters](#configure-arm). You can connnect to the secure cluster via instructions at [Authenticates client access to a cluster]("service-fabric-connect-to-secure-cluster.md"). Linux preview clusters do not support AAD uathentication. You can assign admin and client roles as described in the section [Assign roles to users]("assign-roles"). When specifying admin and client roles for a Linux preview cluster, you have to provide certificate thumbprints for authentication (as opposed to subject name).
 
 
@@ -506,9 +504,6 @@ If you wish to use a self-signed certificate for testing, you could use the same
 
 This command will return the same three strings, SourceVault, CertificateUrl and CertificateThumbprint, which is used to create a secure Linux cluster.
  The certificate's subject name must match the domain used to access the Service Fabric cluster. This is required to provide SSL for the cluster's HTTPS management endpoints and Service Fabric Explorer. You cannot obtain an SSL certificate from a certificate authority (CA) for the `.cloudapp.azure.com` domain. You must acquire a custom domain name for your cluster. When you request a certificate from a CA the certificate's subject name must match the custom domain name used for your cluster.
-
-### Application certificates (optional)
-
 
 
 The parameters obtained by the helper script provided can be input directly into the portal as described in the section [Create a cluster in the Azure portal](service-fabric-cluster-creation-via-portal.md/#create-cluster-portal)
