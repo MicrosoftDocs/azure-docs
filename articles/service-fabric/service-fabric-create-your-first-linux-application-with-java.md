@@ -28,12 +28,37 @@ Before you get started, make sure that you have [set up your Linux development e
 
 A Service Fabric application can contain one or more services, each with a specific role in delivering the application's functionality. The Service Fabric SDK for Linux includes a [Yeoman](http://yeoman.io/) generator that makes it easy to create your first service and to add more later. Let's look at how to use Yeoman to create a new application with a single service.
 
-1. In a terminal, type **yo azuresf**.
+1. In a terminal, type **yo azuresfjava**.
 
-	>[AZURE.NOTE] For more information about the options, see [Service Fabric programming model overview](service-fabric-choose-framework.md).
+2. Name your application.
 
-2.
+3. Choose the type of your first service and name it. For the purposes of this tutorial, we will choose a Reliable Actor Service.
 
+>[AZURE.NOTE] For more information about the options, see [Service Fabric programming model overview](service-fabric-choose-framework.md).
+
+## Build the application
+
+The Service Fabric Yeoman templates include a build script for [Gradle](https://gradle.org/), which you can use to build the app from the terminal.
+
+```bash
+$ gradle
+```
+
+## Install the application
+
+
+
+1. Connect to the local Service Fabric cluster.
+
+  ```bash
+  $ azuresfcli servicefabric cluster connect
+  ```
+
+2. Install the application. This will copy the application package to the cluster's image store, register the application type, and create an instance of the application.
+
+  ```bash
+  $ install.sh
+  ```
 
 ## Next steps
 
