@@ -52,37 +52,6 @@ The recommendations for troubleshooting issues that are described in this sectio
 ### Deployment failure
 If you experience a failure during installation, the Azure Stack installer allows you to continue a failed installation by following the [rerun deployment steps](azure-stack-rerun-deploy.md).
 
-
-## Azure Active Directory
-
-### JavaScript error when attempting to connect via AAD and Azure PowerShell
-
-Two options are possible to work around this:
-
-1. Disable Internet Explorer Enhanced Security Configuration on the Host / MAS-Con01 (wherever PowerShell will be executed that pops up the AAD login).
-
-2. Add three websites to the trusted list:
-  - https://login.microsoftonline.com 
-  - https://*.microsoftonline-p.com 
-  - https://login.live.com
-
-Also, depending on your current actions, please ensure you are running PowerShell as the regular Azure Stack user (default user when leveraging the MAS-Con01) and are not using “Run As Administrator” (different context). Logging in temporarily as the administrator, you could also set these options in this other user context.
-
-### Cookies error when attempting to connect via AAD and AzureRM PowerShell
-
-If you encounter this issue, the workaround is: 
-
-1. In Internet Explorer, Open Internet Settings 
-2. Privacy Tab 
-3. Click on Advanced 
-4. Click On Ok immediately 
-5. Close Browser 
-6. Try again
-
->[AZURE.NOTE] You may need to manually find iexplore.exe in the Program Files\Internet Explorer directory.
-
-## Deployment
-
 ### At the end of the deployment, the PowerShell session is still open and doesn’t show any output
 
 This is probably just the result of the default behavior of a PowerShell command window, when it has been selected. The POC deployment had actually succeeded but the script was paused when selecting the window. Please press the ESC key to unselect it, and the completion message should be shown after it.
@@ -100,7 +69,7 @@ As a workaround if this is not a separate entry you have control over within you
 
 ###  My deployment fails with an error about a time and/or date difference between the client and server
 
-Please check your BIOS settings, in case there is an option to synchronize time. We have seen this issue with HP servers (DL380 G9), using the “Coordinated Universal Time” feature. This is what step #8 in the deployment guide means: “Configure the BIOS to use Local Time instead of UTC.” 
+Please check your BIOS settings, in case there is an option to synchronize time. We have seen this issue with HP servers (DL380 G9), using the “Coordinated Universal Time” feature. 
 
 ### Installing .NET Framework 3.5 on a Windows Server 2012 R2 machine, from the command line
 
@@ -129,9 +98,38 @@ Mount the Windows Server 2012R2 ISO and run:
 ### The POC deployment fails with AAD error “User realm discovery failed”
 
 This error indicates that deployment script is unable to connect to the Internet for Azure Active Directory (AAD) authentication via the NATVM. Please verify the PortalVM has Internet connectivity by browsing to https://login.windows.net
-- If you are using a static IP / gateway, you need to specify the NATVM static IP / gateway as parameters (NATVMStaticIP and  NATVMStaticGateway) when running the deployment script.
+
+If you are using a static IP / gateway, you need to specify the NATVM static IP / gateway as parameters (*NATVMStaticIP* and  *NATVMStaticGateway*) when running the deployment script.
 
 Information about the NATVMStaticIP and NATVMStaticGateway parameters can be found in the [deployment documentation](azure-stack-run-powershell-script.md).
+
+## Azure Active Directory
+
+### JavaScript error when attempting to connect via AAD and Azure PowerShell
+
+Two options are possible to work around this:
+
+1. Disable Internet Explorer Enhanced Security Configuration on the Host / MAS-Con01 (wherever PowerShell will be executed that pops up the AAD login).
+
+2. Add three websites to the trusted list:
+  - https://login.microsoftonline.com 
+  - https://*.microsoftonline-p.com 
+  - https://login.live.com
+
+Also, depending on your current actions, please ensure you are running PowerShell as the regular Azure Stack user (default user when leveraging the MAS-Con01) and are not using “Run As Administrator” (different context). Logging in temporarily as the administrator, you could also set these options in this other user context.
+
+### Cookies error when attempting to connect via AAD and AzureRM PowerShell
+
+If you encounter this issue, the workaround is: 
+
+1. In Internet Explorer, Open Internet Settings 
+2. Privacy Tab 
+3. Click on Advanced 
+4. Click On Ok immediately 
+5. Close Browser 
+6. Try again
+
+>[AZURE.NOTE] You may need to manually find iexplore.exe in the Program Files\Internet Explorer directory.
 
 
 ## Portal
