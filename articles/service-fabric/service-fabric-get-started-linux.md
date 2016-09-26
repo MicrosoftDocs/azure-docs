@@ -112,7 +112,7 @@ If everything has installed successfully, you should be able to start a local cl
 
 At this point, you are able to deploy pre-built Service Fabric application packages or new ones based on guest containers or guest executables. To build new services using the Java or .NET Core SDKs, follow the optional setup steps below.
 
-## Install the Java SDK and Eclipse plugin (optional)
+## Install the Java SDK and Eclipse Neon plugin (optional)
 
 The Java SDK provides the libraries and templates required to build Service Fabric services using Java.
 
@@ -128,19 +128,21 @@ The Java SDK provides the libraries and templates required to build Service Fabr
     sudo /opt/microsoft/sdk/servicefabric/java/servicefabricsdkjava.sh
     ```
 
-You can install the Eclipse plugin for Service Fabric from within the Eclipse IDE.
+You can install the Eclipse plugin for Service Fabric from within the Eclipse Neon IDE.
 
-1. In Eclipse, choose **Help > Install New Software...**
+1. In Eclipse, ensure that you have Buildship version 1.0.17 or later installed. You can check the versions of installed components by choosing **Help > Installation Details**. You can update Buildship using the instructions [here][buildship-update].
 
-2. In the "Work with" textbox, enter: http://dl.windowsazure.com/eclipse/servicefabric
+2. To install the Service Fabric plugin, choose **Help > Install New Software...**
 
-3. Click Add.
+3. In the "Work with" textbox, enter: http://dl.windowsazure.com/eclipse/servicefabric
+
+4. Click Add.
 
     ![Eclipse plugin][sf-eclipse-plugin]
 
-4. Choose the Service Fabric plugin and click next.
+5. Choose the Service Fabric plugin and click next.
 
-5. Proceed through the installation and accept the end-user license agreement.
+6. Proceed through the installation and accept the end-user license agreement.
 
 ## Install the .NET Core SDK (optional)
 
@@ -167,6 +169,7 @@ The .NET Core SDK provides the libraries and templates required to build Service
 
 [azure-xplat-cli-github]: https://github.com/Azure/azure-xplat-cli
 [install-node]: https://nodejs.org/en/download/package-manager/#installing-node-js-via-package-manager
+[buildship-update]: https://projects.eclipse.org/projects/tools.buildship
 
 <!--Images -->
 

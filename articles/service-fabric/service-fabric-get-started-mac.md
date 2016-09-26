@@ -67,21 +67,23 @@ To create the local VM containing a 5-node Service Fabric cluster, do the follow
     ![Service Fabric Explorer viewed from the host Mac][sfx-mac]
 
 
-## Install the Service Fabric plugin for Eclipse Neon
+## Install the Service Fabric plugin for Eclipse Neon (optional)
 
 Service Fabric provides a plugin for the Eclipse Neon IDE that can simplify the process of building and deploying Java services.
 
-1. In Eclipse, choose **Help > Install New Software...**
+1. In Eclipse, ensure that you have Buildship version 1.0.17 or later installed. You can check the versions of installed components by choosing **Help > Installation Details**. You can update Buildship using the instructions [here][buildship-update].
 
-2. In the "Work with" textbox, enter: http://dl.windowsazure.com/eclipse/servicefabric.
+2. To install the Service Fabric plugin, choose **Help > Install New Software...**
 
-3. Click Add.
+3. In the "Work with" textbox, enter: http://dl.windowsazure.com/eclipse/servicefabric.
+
+4. Click Add.
 
     ![Eclipse Neon plugin for Service Fabric][sf-eclipse-plugin-install]
 
-4. Choose the Service Fabric plugin and click next.
+5. Choose the Service Fabric plugin and click next.
 
-5. Proceed through the installation and accept the end-user license agreement.
+6. Proceed through the installation and accept the end-user license agreement.
 
 ## Next steps
 
@@ -97,3 +99,4 @@ Service Fabric provides a plugin for the Eclipse Neon IDE that can simplify the 
 [cluster-setup-script]: ./media/service-fabric-get-started-mac/cluster-setup-mac.png
 [sfx-mac]: ./media/service-fabric-get-started-mac/sfx-mac.png
 [sf-eclipse-plugin-install]: ./media/service-fabric-get-started-mac/sf-eclipse-plugin-install.png
+[buildship-update]: https://projects.eclipse.org/projects/tools.buildship

@@ -84,6 +84,16 @@ Actor projects do not do anything on their own. They require another service or 
 
 3. Click the node you found in the previous step, then select **Deactivate (restart)** from the Actions menu. This will restart one of the five nodes in your local cluster and force a failover to one of the secondary replicas running on another node. As you do this, pay attention to the output from the test client and note that the counter continues to increment despite the failover.
 
+## Create an application using Eclipse Neon
+
+If you installed the Service Plugin for Eclipse Neon, you can use it to create, build, and deploy Service Fabric applications built with Java.
+
+1. In Eclipse, choose **File > Other > Service Fabric**. You see a set of options, including Reliable Actor and Reliable Service.
+
+    ![Service Fabric templates in Eclipse][sf-eclipse-templates]
+
+2.
+
 ## Next steps
 
 - [Learn more about Reliable Actors](service-fabric-reliable-actors-introduction.md)
@@ -91,3 +101,4 @@ Actor projects do not do anything on their own. They require another service or 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-yeoman.png
 [sfx-primary]: ./media/service-fabric-create-your-first-linux-application-with-java/sfx-primary.png
+[sf-eclipse-templates]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-eclipse-templates.png
