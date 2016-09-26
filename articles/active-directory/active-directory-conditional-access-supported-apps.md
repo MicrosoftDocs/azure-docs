@@ -31,22 +31,18 @@ The following applications support conditional access when accessing Office 365 
 
 | Target Service  | Platform  | Application                                                  |
 |--------------|-----------------|----------------------------------------------------------------|
-| Office 365 Exchange Online | Windows 10        |  Mail/Calendar/People app, Outlook 2016, Outlook 2013 (with modern auth enabled), Skype for Business (with modern auth)
-  |
-| Office 365 Exchange Online| Windows 7, Windows 8.1, |Outlook 2016, Outlook 2013 (with modern auth enabled), Skype for Business (with modern auth)
-|
-|Office 365 Exchange Online|iOS, Android|  Outlook mobile app |
-|Office 365 Exchange Online|Mac OSX| Outlook 2016 for MFA/location only; device-based policies support coming in the future, Skype for Business support coming in the future
-|
-|Office 365 SharePoint Online|Windows 10| Office 2016 apps, Office Universal apps
-Office 2013 (with modern auth enabled), OneDrive for Business app (NGSC or next generation sync client) support coming in the future, Office Groups support coming in the future
+|Office 365 Exchange Online | Windows 10|Mail/Calendar/People app, Outlook 2016, Outlook 2013 (with modern auth enabled), Skype for Business (with modern auth)|
+|Office 365 Exchange Online| Windows 7, Windows 8.1, |Outlook 2016, Outlook 2013 (with modern auth enabled), Skype for Business (with modern auth)|
+|Office 365 Exchange Online|iOS, Android|  Outlook mobile app|
+|Office 365 Exchange Online|Mac OSX| Outlook 2016 for MFA/location only; device-based policies support coming in the future, Skype for Business support coming in the future|
+|Office 365 SharePoint Online|Windows 10| Office 2016 apps, Office Universal apps, Office 2013 (with modern auth enabled), OneDrive for Business app (NGSC or next generation sync client) support coming in the future, Office Groups support coming in the future
 SharePoint app support coming in the future|
-| Office 365 SharePoint Online| Windows 7, Windows 8.1, |Office 2016 apps, Office 2013 (with modern auth enabled), OneDrive for Business app (Groove sync client)|
+|Office 365 SharePoint Online|Windows 7, Windows 8.1,|Office 2016 apps, Office 2013 (with modern auth enabled), OneDrive for Business app (Groove sync client)|
 |Office 365 SharePoint Online|iOS, Android|  Office mobile apps |
 |Office 365 SharePoint Online|Mac OSX| Office 2016 apps for MFA/location only; device-based policies support coming in the future|
 |Office 365 Yammer|Windows 10, iOS and Android | Office Yammer app|
 |Dynamics CRM|Windows 10, 7, 8.1, iOS and Android | Dynamics CRM app|
-| PowerBI service|Windows 10, 7, 8.1, iOS and Android | PowerBI app|
+|PowerBI service|Windows 10, 7, 8.1, iOS and Android | PowerBI app|
 |Azure Remote App service|Windows 10, 7, 8.1, iOS and Android, Mac OSX |Azure Remote app|
 |Any My Apps app service|Android and iOS|Any My Apps app service |
 
