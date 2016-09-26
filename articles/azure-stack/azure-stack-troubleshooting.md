@@ -73,7 +73,7 @@ Please check your BIOS settings, in case there is an option to synchronize time.
 
 ### The POC deployment fails with AAD error “User realm discovery failed”
 
-This error indicates that deployment script is unable to connect to the Internet for Azure Active Directory (AAD) authentication via the NATVM. Please verify the PortalVM has Internet connectivity by browsing to https://login.windows.net
+This error indicates that deployment script is unable to connect to the Internet for Azure Active Directory (AAD) authentication.
 
 If you are using a static IP / gateway, you need to specify the NATVM static IP / gateway as parameters (*NATVMStaticIP* and *NATVMStaticGateway*) when running the deployment script.
 
