@@ -71,7 +71,7 @@ For other inputs/outputs, proceed with Part 2.
 
 ###SQL Database
 
->[AZURE.NOTE] Note: you will need to connect to the SQL Database Service. We are going to show how to do this using the management experience on the Azure Management Portal but you may choose to use some client-side tool such as SQL Server Management Studio as well.
+>[AZURE.NOTE] Note: you will need to connect to the SQL Database Service. We are going to show how to do this using the management experience on the Azure Management portal but you may choose to use some client-side tool such as SQL Server Management Studio as well.
 
 1.  Go to the SQL Databases extension on the Azure Management portal:  
 ![graphic14][graphic14]
@@ -81,7 +81,7 @@ For other inputs/outputs, proceed with Part 2.
 ![graphic16][graphic16]
 4.  Type Database Master:  
 ![graphic17][graphic17]
-5.  Type in your User Name, Password and click Log on:  
+5.  Type in your User Name, Password, and click Log on:  
 ![graphic18][graphic18]
 6.  Click New Query:  
 ![graphic19][graphic19]
@@ -93,7 +93,7 @@ For other inputs/outputs, proceed with Part 2.
 ![graphic21][graphic21]
 10. Click the Manage command:  
 ![graphic22][graphic22]
-11. type in your User Name, Password, and click Log on:  
+11. type in your User Name, Password, and click Logon:  
 ![graphic23][graphic23]
 12. Click New Query:  
 ![graphic24][graphic24]
@@ -101,7 +101,7 @@ For other inputs/outputs, proceed with Part 2.
 `CREATE USER <user_name> FROM LOGIN <login_name>`
 14. Click Run:  
 ![graphic25][graphic25]
-15. You should now provide your new user with the same roles and privledges your original user had.
+15. You should now provide your new user with the same roles and privileges your original user had.
 16. Continue to Part 2.
 
 ##Part 2: Stopping the Stream Analytics Job
