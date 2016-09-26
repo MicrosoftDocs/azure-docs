@@ -50,7 +50,7 @@ The recommendations for troubleshooting issues that are described in this sectio
 ## Deployment
 
 ### Deployment failure
-If you experience a failure during installation, the Azure Stack installer allows you to continue a failed installation by following the rerun deployment steps.
+If you experience a failure during installation, the Azure Stack installer allows you to continue a failed installation by following the [rerun deployment steps](azure-stack-rerun-deploy.md).
 
 ### At the end of the deployment, the PowerShell session is still open and doesn’t show any output
 
@@ -60,7 +60,7 @@ This is probably just the result of the default behavior of a PowerShell command
 
 POC deployment fails if your DNS server resolves AzureStack.local to another address external to the POC environment.
 
-As a workaround if this is not a separate entry you have control over within your environment, you can add an entry in the hosts file on the POC host machine to point to the ADVM:
+As a workaround if this is not a separate entry you have control over within your environment, you can add an entry in the hosts file on the POC host machine to point to MAS-DC01:
 
 1.  Add the following entry in the hosts file under C:\Windows\System32\drivers\etc (you need local administrator privileges to do so)
 '192.168.100.2       Azurestack.local'
