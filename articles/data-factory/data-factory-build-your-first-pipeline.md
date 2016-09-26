@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="09/06/2016"
+	ms.date="09/26/2016"
 	ms.author="spelluru"/>
 
 # Tutorial: Build your first pipeline to process data using Hadoop cluster 
@@ -215,3 +215,11 @@ This section provides instructions on using **AzCopy** tool to copy input.log an
 5. Run the following command to upload the **partitionweblogs.hql** file to the **script** folder of the **adfgetstarted** container. Here is the command: 
 	
 		AzCopy /Source:. /Dest:https://<storageaccountname>.blob.core.windows.net/adfgetstarted/script /DestKey:<storageaccesskey>  /Pattern:partitionweblogs.hql
+
+You have completed the prerequisites. You can create a data factory using one of the following ways. Click one of the tabs at the top or the following links to perform the tutorial. 
+
+- [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
+- [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+- [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+- [Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
+- [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)

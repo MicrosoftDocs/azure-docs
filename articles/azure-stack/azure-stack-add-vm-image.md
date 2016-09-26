@@ -146,4 +146,4 @@ step for the ‘Login to Azure’ step.
     Resource Manager template. To make the VM image
     more readily available for tenant consumption in the UI, it is best
     to [create a
-    Marketplace item](azure-stack-create-marketplace-item.md).
+    Marketplace item](azure-stack-create-and-publish-marketplace-item.md).

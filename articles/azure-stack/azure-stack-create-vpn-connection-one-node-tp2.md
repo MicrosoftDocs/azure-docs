@@ -453,12 +453,9 @@ POC1 now and put it on our VM subnet in our virtual network.
 
      ![](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
 
-2.  Select **Compute** from the Marketplace menu.
+2.  Select **Virtual Machines** from the Marketplace menu.
 
-3.  In the list of virtual machine images, select the **Windows Server
-    2012 R2 Datacenter** image.
-
-     ![](media/azure-stack-create-vpn-connection-one-node-tp2/image6.png)
+3.  In the list of virtual machine images, select the **Windows Server 2012 R2 Datacenter** image.
 
 4.  On the **Basics** blade, in the **Name** field enter the value
     **VM01**.
@@ -674,12 +671,9 @@ network.
 
 	 ![](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
 
-2.  Select **Compute** from the Marketplace menu.
+2.  Select **Virtual Machines** from the Marketplace menu.
 
-3.  In the list of virtual machine images, select the **Windows Server
-    2012 R2 Datacenter** image.
-
-     ![](media/azure-stack-create-vpn-connection-one-node-tp2/image6.png)
+3.  In the list of virtual machine images, select the **Windows Server 2012 R2 Datacenter** image.
 
 4.  On the **Basics** blade, in the **Name** field enter the value
     **VM02**.
