@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Monitoring REST API Walkthrough"
+	pageTitle="Azure Monitoring REST API Walkthrough | Microsoft Azure"
 	description="How to authenticate requests to and use the Azure Monitoring REST API."
 	authors="mcollier, rboucher"
 	manager=""
