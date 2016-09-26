@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Use Office 365 tenant with an Azure subscription | Microsoft Azure"
+	pageTitle="Use an Office 365 tenant with an Azure subscription | Microsoft Azure"
 	description="Learn how to add an Office 365 directory (tenant) to an Azure subscription to make the association."
 	services=""
 	documentationCenter=""
@@ -30,7 +30,7 @@ In this scenario, Kelley Wall is a user who has an Azure subscription under the 
 
 ![Screenshot of Azure Active Directory status](./media/billing-add-office-365-tenant-to-azure-subscription/s31_msa-aad-status.png)
 
-![Screenshot of Office 365 admin center](./media/billing-add-office-365-tenant-to-azure-subscription/s32_office-365-user.png)
+![Screenshot of Office 365 admin center active users](./media/billing-add-office-365-tenant-to-azure-subscription/s32_office-365-user.png)
 
 ### Prerequisites
 For the association to work properly, the following prerequisites are necessary:
@@ -68,53 +68,52 @@ To associate the Office 365 tenant with the Azure subscription, follow these ste
 
 	a. Select **NEW** > **DIRECTORY** > **CUSTOM CREATE**.
 
-		![Screenshot of Azure Active Directory custom create](./media/billing-add-office-365-tenant-to-azure-subscription/s37-aad-custom-create.png)
+	![Screenshot of Azure Active Directory custom create](./media/billing-add-office-365-tenant-to-azure-subscription/s37-aad-custom-create.png)
 
 	b. On the **Add directory** page, under **DIRECTORY**, select **Use existing directory**. Then select **I am ready to be signed out now**, and select **Complete** ![complete-icon](./media/billing-add-office-365-tenant-to-azure-subscription/s38_complete-icon.png).
 
-		![Screenshot of "Use existing directory"](./media/billing-add-office-365-tenant-to-azure-subscription/s39_add-directory-use-existing.png)
+	![Screenshot of "Use existing directory"](./media/billing-add-office-365-tenant-to-azure-subscription/s39_add-directory-use-existing.png)
 
 	c. After you are signed out, sign in with the global administrator’s credentials of your Office 365 tenant.
 
-		![Screenshot of Office 365 global administrator sign-in](./media/billing-add-office-365-tenant-to-azure-subscription/s310_sign-in-global-admin-office-365.png)
+	![Screenshot of Office 365 global administrator sign-in](./media/billing-add-office-365-tenant-to-azure-subscription/s310_sign-in-global-admin-office-365.png)
 
-	d. Click **Continue**.
+	d. Select **Continue**.
 
-		![Screenshot of verification](./media/billing-add-office-365-tenant-to-azure-subscription/s311_use-contoso-directory-azure-verify.png)
+	![Screenshot of verification](./media/billing-add-office-365-tenant-to-azure-subscription/s311_use-contoso-directory-azure-verify.png)
 
-	e. Click **Sign out now**.
+	e. Select **Sign out now**.
 
-		![Screenshot of sign-out](./media/billing-add-office-365-tenant-to-azure-subscription/s312_use-contoso-directory-azure-confirm-and-sign-out.png)
+	![Screenshot of sign-out](./media/billing-add-office-365-tenant-to-azure-subscription/s312_use-contoso-directory-azure-confirm-and-sign-out.png)
 
 	f. Sign in to the [Account Management Portal](https://account.windowsazure.com/subscriptions) with the service administrator credentials.
 
-		![Screenshot of Azure sign-in](./media/billing-add-office-365-tenant-to-azure-subscription/s313_azure-sign-in-service-admin.png)
+	![Screenshot of Azure sign-in](./media/billing-add-office-365-tenant-to-azure-subscription/s313_azure-sign-in-service-admin.png)
 
 	g. You should see your Office 365 tenant in the dashboard.
 
-		![Screenshot of dashboard](./media/billing-add-office-365-tenant-to-azure-subscription/s314_office-365-tenant-appear-in-azure.png)
+	![Screenshot of dashboard](./media/billing-add-office-365-tenant-to-azure-subscription/s314_office-365-tenant-appear-in-azure.png)
 
 4. Change the directory associated with the Azure subscription.
 
 	a. Select **Settings**.
 
-		![azure-classic-portal-settings-icon](./media/billing-add-office-365-tenant-to-azure-subscription/s315_azure-classic-portal-settings-icon.png)
+	![azure-classic-portal-settings-icon](./media/billing-add-office-365-tenant-to-azure-subscription/s315_azure-classic-portal-settings-icon.png)
 
 	b. Select your Azure subscription, and then select **EDIT DIRECTORY**.
-
-		![azure-subscription-edit-directory](./media/billing-add-office-365-tenant-to-azure-subscription/s316_azure-subscription-edit-directory.png)
+	![Screenshot of Azure subscription edit directory](./media/billing-add-office-365-tenant-to-azure-subscription/s316_azure-subscription-edit-directory.png)
 
 	c. Select **Next** ![next-icon](./media/billing-add-office-365-tenant-to-azure-subscription/s317_next-icon.png).
 
-		![azure-change-associated-directory](./media/billing-add-office-365-tenant-to-azure-subscription/s318_azure-change-associated-directory.png)
+	![Screenshot of "Change the associated directory"](./media/billing-add-office-365-tenant-to-azure-subscription/s318_azure-change-associated-directory.png)
 
 		> [AZURE.WARNING] You will receive a warning that all co-administrators will be removed.
 
-		![azure-confirm-directory-mapping](./media/billing-add-office-365-tenant-to-azure-subscription/s322_azure-confirm-directory-mapping.png)
+	![azure-confirm-directory-mapping](./media/billing-add-office-365-tenant-to-azure-subscription/s322_azure-confirm-directory-mapping.png)
 
 		>[AZURE.WARNING] Additionally, all [Role-Based Access Control (RBAC)](./active-directory/role-based-access-control-configure.md) users with Assigned access in the existing resource groups will also be removed. However, the warning you receive only mentions the removal of co-administrators.
 
-		![assigned-users-removed-resource-groups](./media/billing-add-office-365-tenant-to-azure-subscription/s325_assigned-users-removed-resource-groups.png)
+	![assigned-users-removed-resource-groups](./media/billing-add-office-365-tenant-to-azure-subscription/s325_assigned-users-removed-resource-groups.png)
 
 	d. Select **Complete** ![complete-icon](./media/billing-add-office-365-tenant-to-azure-subscription/s38_complete-icon.png).
 
@@ -122,15 +121,15 @@ To associate the Office 365 tenant with the Azure subscription, follow these ste
 
 	a. Select the **ADMINISTRATORS** tab, and then select **ADD**.
 
-		![azure-classic-portal-settings-administrators](./media/billing-add-office-365-tenant-to-azure-subscription/s319_azure-classic-portal-settings-administrators.png)
+	![Screenshot of Azure Classic portal settings administrators tab](./media/billing-add-office-365-tenant-to-azure-subscription/s319_azure-classic-portal-settings-administrators.png)
 
 	b. Enter an organizational account of your Office 365 tenant, select the Azure subscription, and then select **Complete** ![complete-icon](./media/billing-add-office-365-tenant-to-azure-subscription/s38_complete-icon.png).
 
-		![Screenshot of Azure add co-administrator dialog box](./media/billing-add-office-365-tenant-to-azure-subscription/s320_azure-add-co-administrator.png)
+	![Screenshot of Azure add co-administrator dialog box](./media/billing-add-office-365-tenant-to-azure-subscription/s320_azure-add-co-administrator.png)
 
 	c. Go back to the **ADMINISTRATORS** tab. You should see the organizational account displayed as co-administrator.
 
-		![Screenshot of Administrators tab](./media/billing-add-office-365-tenant-to-azure-subscription/s321_azure-co-administrator-added.png)
+	![Screenshot of administrators tab](./media/billing-add-office-365-tenant-to-azure-subscription/s321_azure-co-administrator-added.png)
 
 6. Next you can test access with the co-administrator.
 
@@ -140,11 +139,11 @@ To associate the Office 365 tenant with the Azure subscription, follow these ste
 
 	c. If the Azure sign-in page has a link of **Sign in with your organization account**, select the link. Otherwise, skip this step.
 
-		![Screenshot of Azure sign-in page](./media/billing-add-office-365-tenant-to-azure-subscription/3-sign-in-to-azure.png)
+	![Screenshot of Azure sign-in page](./media/billing-add-office-365-tenant-to-azure-subscription/3-sign-in-to-azure.png)
 
 	d. Enter the credentials of the co-administrator, and then select **Sign in**.
 
-		![Screenshot of Azure sign-in page](./media/billing-add-office-365-tenant-to-azure-subscription/s324_azure-sign-in-with-co-admin.png)
+	![Screenshot of Azure sign-in page](./media/billing-add-office-365-tenant-to-azure-subscription/s324_azure-sign-in-with-co-admin.png)
 
 ## Next steps
 Related scenarios include:
