@@ -35,13 +35,15 @@ The SDK provides an abstraction layer that enables you to build gateways to run 
 
 ### Messages
 
-Although thinking about modules passing messages to each other is a convenient way to conceptualize how a gateway functions, it does not accurately reflect what happens. Modules use a message bus to communicate with each other, they publish messages to the bus, and the bus broadcasts the messages to all the modules connected to the bus.
+Although thinking about modules passing messages to each other is a convenient way to conceptualize how a gateway functions, it does not accurately reflect what happens. Modules use a broker to communicate with each other, they publish messages to the broker (bus, pubsub, or any other messaging pattern) and then let the broker route the message to the modules connected to it.
 
-A module uses the **MessageBus_Publish** function to publish a message to the message bus. The message bus delivers messages to a module by invoking a callback function. A message consists of a set of key/value properties and content passed as a block of memory.
+A modules uses the **Broker_Publish** function to publish a message to the broker. The broker delivers messages to a module by invoking a callback function. A message consists of a set of key/value properties and content passed as a block of memory.
 
 ![][3]
 
-Each module is responsible for filtering the messages because the message bus uses a broadcast mechanism to deliver each message to every module connected to it. A module should only act on messages that are intended for it. The message filtering effectively creates the message pipeline. A module typically filters the messages it receives using the message properties to identify messages it should process.
+### Message routing and filtering
+
+There are two ways of directing messages to the correct modules. A set of links can be passed to the broker so the broker knows the source and sink for each module, or the module can filter on the properties of the message. A module should only act upon a message if the message is intended for it. The links and message filtering is what effectively creates a message pipeline.
 
 ## Hello World sample architecture
 
@@ -52,11 +54,11 @@ The Hello World sample illustrates the concepts described in the previous sectio
 
 ![][4]
 
-As described in the previous section, the Hello World module does not pass messages directly to the logger module every five seconds. Instead, it publishes a message to the message bus every five seconds.
+As described in the previous section, the Hello World module does not pass messages directly to the logger module every five seconds. Instead, it publishes a message to the broker every five seconds.
 
-The logger module receives the message from the message bus and inspects its properties in a filter. If the logger module determines that it should process the message, it writes the contents of the message to a file.
+The logger module receives the message from the broker and acts upon it, writing the contents of the message to a file.
 
-The logger module only consumes messages from the message bus, it never publishes new messages to the bus.
+The logger module only consumes messages from the broker, it never publishes new messages to the broker.
 
 ![][5]
 
