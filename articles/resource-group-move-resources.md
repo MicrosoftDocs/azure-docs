@@ -64,6 +64,7 @@ For now, the services that support moving to both a new resource group and subsc
 - Redis Cache
 - Scheduler
 - Search
+- Service Bus
 - Storage
 - Storage (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 - SQL Database server - The database and server must reside in the same resource group. When you move a SQL server, all of its databases are also moved.
