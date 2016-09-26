@@ -85,7 +85,7 @@ Go through the following steps to complete the publishing:
 2. Choose Guest Executable as the Service Template.
 3. Click Browse to select the folder with your executable and fill in the rest of the parameters to create the service.
 	- *Code Package Behavior* can be set to copy all the content of your folder to the Visual Studio Project, which is useful if the executable does not change. If you expect the executable to change and want the ability to pick up new builds dynamically, you can choose to link to the folder instead.</br>
-	> [AZURE.NOTE] You can use linked folders when creating the application project in Visual Studio. This links to the source location from within the project, making it possible for you to update the guest executable in its source destination, having those updates become part of the application package on build.
+> [AZURE.NOTE] You can use linked folders when creating the application project in Visual Studio. This links to the source location from within the project, making it possible for you to update the guest executable in its source destination, having those updates become part of the application package on build.
 	- *Program* - Choose the executable that should be run to start the service.
 	- *Arguments* - Specify the arguments that should be passed to the executable. It can be a list of parameters with arguments.
 	- *WorkingFolder* - Specifies the working directory for the process that is going to be started. You can specify three values:
