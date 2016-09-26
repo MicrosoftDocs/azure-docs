@@ -65,12 +65,12 @@ Regardless of the option you choose, the deployment will begin again from the sp
 1.	If the failure is recoverable, the deployment will continue through completion.
 
 2.	If the deployment fails again at…
+    
+    - the same place: the failure is probably not recoverable, and further investigation is required.
 
-a.	the same place: the failure is probably not recoverable, and further investigation is required.
+    - a new place AFTER where it failed this time:  you can attempt these same steps to get it going again.
 
-b.	a new place AFTER where it failed this time:  you can attempt these same steps to get it going again.
-
-c.	a new place BEFORE where it failed this time: something else went wrong with an idempotent call, which requires further investigation.
+    - a new place BEFORE where it failed this time: something else went wrong with an idempotent call, which requires further investigation.
 
 
 
