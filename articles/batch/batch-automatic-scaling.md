@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="07/21/2016"
+	ms.date="09/27/2016"
 	ms.author="marsma"/>
 
 # Automatically scale compute nodes in an Azure Batch pool
@@ -63,7 +63,7 @@ You can **get** and **set** the values of these service-defined variables to man
 | Read-write service-defined variables | Description |
 | --- | --- |
 | $TargetDedicated | The **target** number of **dedicated compute nodes** for the pool. This is the number of compute nodes that the pool should be scaled to. It is a "target" number since it's possible for a pool not to reach the target number of nodes. This can occur if the target number of nodes is modified again by a subsequent autoscale evaluation before the pool has reached the initial target. It can also happen if a Batch account node or core quota is reached before the target number of nodes is reached. |
-| $NodeDeallocationOption | The action that occurs when compute nodes are removed from a pool. Possible values are:<br/><br/>**requeue**--Terminates tasks immediately and puts them back on the job queue so that they are rescheduled.<br/>**terminate**--Terminates tasks immediately and removes them from the job queue.<br/>**taskcompletion**--Waits for currently running tasks to finish and then removes the node from the pool.<br/>**retaineddata**--Waits for all the local task-retained data on the node to be cleaned up before removing the node from the pool. |
+| $NodeDeallocationOption | The action that occurs when compute nodes are removed from a pool. Possible values are:<ul><li>**requeue**--Terminates tasks immediately and puts them back on the job queue so that they are rescheduled.<li>**terminate**--Terminates tasks immediately and removes them from the job queue.<li>**taskcompletion**--Waits for currently running tasks to finish and then removes the node from the pool.<li>**retaineddata**--Waits for all the local task-retained data on the node to be cleaned up before removing the node from the pool.</ul> |
 
 You can **get** the value of these service-defined variables to make adjustments that are based on metrics from the Batch service:
 
@@ -182,44 +182,13 @@ Autoscale formulas act on metrics data (samples) that is provided by the Batch s
 
 `$CPUPercent.GetSample(TimeInterval_Minute * 5)`
 
-<table>
-  <tr>
-    <th>Method</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>GetSample()</td>
-    <td><p>The <b>GetSample()</b> method returns a vector of data samples.
-	<p>A sample is 30 seconds worth of metrics data. In other words, samples are obtained every 30 seconds. But as noted below, there is a delay between when a sample is collected and when it is available to a formula. As such, not all samples for a given time period may be available for evaluation by a formula.
-        <ul>
-          <li><p><b>doubleVec GetSample(double count)</b>--Specifies the number of samples to obtain from the most recent samples that were collected.</p>
-				  <p>GetSample(1) returns the last available sample. For metrics like $CPUPercent, however, this should not be used because it is impossible to know <em>when</em> the sample was collected. It might be recent, or, because of system issues, it might be much older. It is better in such cases to use a time interval as shown below.</p></li>
-          <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime [, double samplePercent])</b>--Specifies a time frame for gathering sample data. Optionally, it also specifies the percentage of samples that must be available in the requested time frame.</p>
-          <p><em>$CPUPercent.GetSample(TimeInterval_Minute * 10)</em> would return 20 samples if all samples for the last ten minutes are present in the CPUPercent history. If the last minute of history was not available, however, only 18 samples would be returned. In this case:<br/>
-		  &nbsp;&nbsp;&nbsp;&nbsp;<em>$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)</em> would fail because only 90 percent of the samples are available.<br/>
-		  &nbsp;&nbsp;&nbsp;&nbsp;<em>$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)</em> would succeed.</p></li>
-          <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime, (timestamp | timeinterval) endTime [, double samplePercent])</b>--Specifies a time frame for gathering data, with both a start time and an end time.</p></li></ul>
-		  <p>As mentioned above, there is a delay between when a sample is collected and when it is available to a formula. This must be considered when you use the <em>GetSample</em> method. See <em>GetSamplePercent</em> below.</td>
-  </tr>
-  <tr>
-    <td>GetSamplePeriod()</td>
-    <td>Returns the period of samples that were taken in a historical sample data set.</td>
-  </tr>
-	<tr>
-		<td>Count()</td>
-		<td>Returns the total number of samples in the metric history.</td>
-	</tr>
-  <tr>
-    <td>HistoryBeginTime()</td>
-    <td>Returns the time stamp of the oldest available data sample for the metric.</td>
-  </tr>
-  <tr>
-    <td>GetSamplePercent()</td>
-    <td><p>Returns the percentage of samples that are available for a given time interval. For example:</p>
-    <p><b>doubleVec GetSamplePercent( (timestamp | timeinterval) startTime [, (timestamp | timeinterval) endTime] )</b>
-	<p>Because the GetSample method fails if the percentage of samples returned is less than the samplePercent specified, you can use the GetSamplePercent method to check first. Then you can perform an alternate action if insufficient samples are present, without halting the automatic scaling evaluation.</p></td>
-  </tr>
-</table>
+| Method | Description |
+| --- | --- |
+| GetSample() | The `GetSample()` method returns a vector of data samples.<br/><br/>A sample is 30 seconds worth of metrics data. In other words, samples are obtained every 30 seconds. But as noted below, there is a delay between when a sample is collected and when it is available to a formula. As such, not all samples for a given time period may be available for evaluation by a formula.<ul><li>`doubleVec GetSample(double count)`<br/>Specifies the number of samples to obtain from the most recent samples that were collected.<br/><br/>`GetSample(1)` returns the last available sample. For metrics like `$CPUPercent`, however, this should not be used because it is impossible to know *when* the sample was collected. It might be recent, or, because of system issues, it might be much older. It is better in such cases to use a time interval as shown below.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Specifies a time frame for gathering sample data. Optionally, it also specifies the percentage of samples that must be available in the requested time frame.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` would return 20 samples if all samples for the last ten minutes are present in the CPUPercent history. If the last minute of history was not available, however, only 18 samples would be returned. In this case:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` would fail because only 90 percent of the samples are available.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` would succeed.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Specifies a time frame for gathering data, with both a start time and an end time.<br/><br/>As mentioned above, there is a delay between when a sample is collected and when it is available to a formula. This must be considered when you use the `GetSample` method. See `GetSamplePercent` below.|
+| GetSamplePeriod() | Returns the period of samples that were taken in a historical sample data set. |
+| Count() | Returns the total number of samples in the metric history. |
+| HistoryBeginTime() | Returns the time stamp of the oldest available data sample for the metric. |
+| GetSamplePercent() |Returns the percentage of samples that are available for a given time interval. For example:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Because the `GetSample` method fails if the percentage of samples returned is less than the `samplePercent` specified, you can use the `GetSamplePercent` method to check first. Then you can perform an alternate action if insufficient samples are present, without halting the automatic scaling evaluation.|
 
 ### Samples, sample percentage, and the *GetSample()* method
 
