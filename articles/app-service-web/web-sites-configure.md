@@ -150,7 +150,7 @@ To view your domain names, click **All Settings** > **Custom domains and SSL**.
 
 ### Deployments
 
-- Set up continuous deployment. See [Using Git to deploy Web Apps in Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-deploy/).
+- Set up continuous deployment. See [Using Git to deploy Web Apps in Azure App Service](./web-sites-deploy.md).
 - Deployment slots. See [Deploy to Staging Environments for Web Apps in Azure App Service].
 
 
