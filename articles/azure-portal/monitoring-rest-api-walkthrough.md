@@ -171,13 +171,20 @@ For the preceding code, the resource ID to use is the full path to the desired A
 */subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{site-name}/*
 
 The following list contains a few examples of resource ID formats for various Azure resources:
-* **IoT Hub** - /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Devices/IotHubs/{iot-hub-name}
-* **Elastic SQL Pool** - /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{pool-db}/elasticpools/{sql-pool-name}
-* **SQL Database (v12)** - /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}
-* **Service Bus** - /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.ServiceBus/{namespace}/{servicebus-name}
-* **VM Scale Sets** - /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Compute/virtualMachineScaleSets/{vm-name}
-* **VMs** - /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}
-* **Event Hubs** - /subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventHub/namespaces/{eventhub-namespace}
+* **IoT Hub** - /subscriptions/_{subscription-id}_/resourceGroups/_{resource-group-name}_/providers/Microsoft.Devices/IotHubs/_{iot-hub-name}_
+
+* **Elastic SQL Pool** - /subscriptions/_{subscription-id}_/resourceGroups/_{resource-group-name}_/providers/Microsoft.Sql/servers/_{pool-db}_/elasticpools/_{sql-pool-name}_
+
+* **SQL Database (v12)** - /subscriptions/_{subscription-id}_/resourceGroups/_{resource-group-name}_/providers/Microsoft.Sql/servers/_{server-name}_/databases/_{database-name}_
+
+* **Service Bus** - /subscriptions/_{subscription-id}_/resourceGroups/_{resource-group-name}_/providers/Microsoft.ServiceBus/_{namespace}_/_{servicebus-name}_
+
+* **VM Scale Sets** - /subscriptions/_{subscription-id}_/resourceGroups/_{resource-group-name}_/providers/Microsoft.Compute/virtualMachineScaleSets/_{vm-name}_
+
+* **VMs** - /subscriptions/_{subscription-id}_/resourceGroups/_{resource-group-name}_/providers/Microsoft.Compute/virtualMachines/_{vm-name}_
+
+* **Event Hubs** - /subscriptions/_{subscription-id}_/resourceGroups/_{resource-group-name}_/providers/Microsoft.EventHub/namespaces/_{eventhub-namespace}_
+
 
 There are alternative approaches to retrieving the resource ID, including using Azure Resource Explorer, viewing the desired resource in the Azure portal, and via PowerShell or the Azure CLI.
 
@@ -202,6 +209,6 @@ To retrieve the resource ID using the Azure CLI, execute the 'azure webapp show'
 ![Alt "Resource ID obtained via PowerShell"](./media\monitoring-rest-api-walkthrough\resourceid_azurecli.png)
 
 ## Next steps
-* Review the [Overview of Monitoring](../monitoring-overview.md).
+* Review the [Overview of Monitoring](monitoring-overview.md).
 * Review the [Microsoft Azure Monitor REST API Reference](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 * Review the [Azure Management Library](https://msdn.microsoft.com/library/azure/mt417623.aspx).
