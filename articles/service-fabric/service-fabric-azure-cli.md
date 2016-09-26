@@ -125,7 +125,7 @@ azure servicefabric application create [applicationName] [applicationTypeName] [
 
 ## Upgrading your application
 
-The process is similar to the [process in Windows](https://azure.microsoft.com/documentation/articles/service-fabric-application-upgrade-tutorial-powershell/)).
+The process is similar to the [process in Windows](service-fabric-application-upgrade-tutorial-powershell.md)).
 
 Build, copy, register, and create your application from project root directory. If your application instance is named fabric:/MySFApp, and the type is MySFApp, the commands would be as follows:
 

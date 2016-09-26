@@ -35,7 +35,7 @@ The first step in collecting logs is to deploy the Diagnostics extension on each
 ### Deploy the diagnostics extension as part of cluster creation 
 To deploy diagnostics extension to the VMs in the cluster as part of cluster creation, set "Diagnostics" to **On**. After the cluster has been created, this setting cannot be changed using the portal. 
 
-Configure Linux Azure Diagnostics (LAD) to collect the files and place them into the customers storage account. This process is explained as scenario 3("Upload your own log files") in the article [Using LAD to monitor and diagnose Linux VMs](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-classic-diagnostic-extension/). Following this process gets you access to the traces, which can be uploaded to a visualizer of your choice.
+Configure Linux Azure Diagnostics (LAD) to collect the files and place them into the customers storage account. This process is explained as scenario 3("Upload your own log files") in the article [Using LAD to monitor and diagnose Linux VMs](../virtual-machines/virtual-machines-linux-classic-diagnostic-extension/). Following this process gets you access to the traces, which can be uploaded to a visualizer of your choice.
 
 
 You can also deploy the diagnostics extension using the Azure Resource Manager. The process is similar for Windows and Linux and is documented for Windows clusters at [How to collect logs with Azure Diagnostics](service-fabric-diagnostics-how-to-setup-wad.md).
@@ -46,6 +46,6 @@ After this configuration is done, the LAD agent monitors the log files specified
 
 
 ## Next steps
-Check out [LTTng documentation](http://lttng.org/docs) and [Using LAD](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-classic-diagnostic-extension/) to understand in more detail what events you should look into while troubleshooting issues.
+Check out [LTTng documentation](http://lttng.org/docs) and [Using LAD](../virtual-machines/virtual-machines-linux-classic-diagnostic-extension/) to understand in more detail what events you should look into while troubleshooting issues.
 
 

@@ -27,7 +27,7 @@
 Monitoring, detecting, diagnosing, and troubleshooting allow for services to continue with minimal disruption to the user experience. Monitoring and diagnostics are critical in an actual deployed production environment. Adopting a similar model during development of services ensures that the diagnostic pipeline works when you move to a production environment. Service Fabric makes it easy for service developers to implement diagnostics that can seamlessly work across both single-machine local development setups and real-world production cluster setups.
 
 
-Refer to the code examples in github on using the Java.Util.Logging framework for Java applications, and EventSource for C# applications.
+Refer to the [code examples in github](http://github.com/Azure-Samples/service-fabric-java-getting-started) on using the Java.Util.Logging framework for Java applications, and EventSource for C# applications.
 
 
 ## Next steps
