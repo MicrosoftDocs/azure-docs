@@ -41,7 +41,7 @@ PreviewMode (Optional) | Execute the runbook to see which resource groups would 
 
 ### Prerequisites
 
-The runbook works with an [Azure Run As account](automation-sec-configure-azure-runas-account.md).  The Run As account is the preferred authentication method since it uses certificate authentication instead of a password that may expire or change frequently.  
+This runbook authenticates using the [Azure Run As account](automation-sec-configure-azure-runas-account.md).    
 
 ### Install and publish the runbooks
 
