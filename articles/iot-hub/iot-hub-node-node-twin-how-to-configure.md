@@ -27,7 +27,7 @@ In this tutorial, you learn how to use the the twin's *desired properties* in co
 At a high level, this tutorial follows the *desired state pattern* for device management. The fundamental idea of this pattern is to have the solution back end specify the desired state for the managed devices, instead of sending specific commands. This puts the device in charge of establishing the best way to reach the desired state (very important in IoT scenarios where specific device conditions affect the ability to immediately carry out specific commands), while continually reporting to the back end the current state and potential error conditions. This enables the back end to have full visibility of the state of the configuration process across large sets of devices.
 You can find more information regarding the role of the desired state pattern in device management in [Overview of Azure IoT Hub device management][lnk-dm-overview].
 
->AZURE.NOTE In scenarios where devices are controlled in a more interactive fashion (turn on a fan from a user-controlled app), consider using [cloud-to-device methods][lnk-methods].
+> AZURE.NOTE In scenarios where devices are controlled in a more interactive fashion (turn on a fan from a user-controlled app), consider using [cloud-to-device methods][lnk-methods].
 
 In this tutorial, the application back end changes the telemetry configuration of a target device. The configuration is represented in the device twin's desired properties in the following way:
 

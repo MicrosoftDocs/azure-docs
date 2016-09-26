@@ -29,7 +29,7 @@ Common use cases include:
 * Device apps and back ends synchronizing the state of long-running workflows (for example,firmware or configuration updates).
 * Solution back ends querying devices based on meta-data, configuration, or conditions.
 
->AZURE.NOTE Twins are designed for synchronization and for querying  device configurations and conditions. Use [device-to-cloud messages][lnk-d2c] for sequences of timestamped events (such as telemetry streams of time-based sensor data) and [cloud-to-device methods][lnk-methods] for interactive control of devices, such as turning on a fan from a user-controlled app.
+> AZURE.NOTE Twins are designed for synchronization and for querying  device configurations and conditions. Use [device-to-cloud messages][lnk-d2c] for sequences of timestamped events (such as telemetry streams of time-based sensor data) and [cloud-to-device methods][lnk-methods] for interactive control of devices, such as turning on a fan from a user-controlled app.
 
 A device twin contains *tags*, device meta-data accessible only by the back end, and *desired properties* in a JSON object modifiable by the back end and observable by the device app. A device twin contains *reported properties* in a JSON object modifiable by the device app and readable by the back end. Tags and properties cannot contain arrays, but objects can be nested. Additionally, the app back end can query device twins based on all the above data. 
 
