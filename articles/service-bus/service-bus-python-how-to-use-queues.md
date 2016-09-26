@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
-	ms.author="sethm"/>
+	ms.date="09/21/2016" 
+	ms.author="sethm;lmazuel"/>
 
 
 # How to use Service Bus queues
 
 [AZURE.INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-This article describes how to use Service Bus queues. The samples are written in Python and use the [Python Azure package][]. The scenarios covered include **creating queues, sending and receiving messages**, and **deleting queues**.
+This article describes how to use Service Bus queues. The samples are written in Python and use the [Python Azure Service Bus package][]. The scenarios covered include **creating queues, sending and receiving messages**, and **deleting queues**.
 
 [AZURE.INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-> [AZURE.NOTE] To install Python or the [Python Azure package][], see the [Python Installation Guide](../python-how-to-install.md).
+> [AZURE.NOTE] To install Python or the [Python Azure Service Bus package][], see the [Python Installation Guide](../python-how-to-install.md).
 
 ## Create a queue
 
@@ -111,7 +111,7 @@ Now that you have learned the basics of Service Bus queues, follow these links t
 -   See [Queues, topics, and subscriptions][].
 
 [Azure classic portal]: https://manage.windowsazure.com
-[Python Azure package]: https://pypi.python.org/pypi/azure  
+[Python Azure Service Bus package]: https://pypi.python.org/pypi/azure-servicebus  
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Service Bus quotas]: service-bus-quotas.md
  

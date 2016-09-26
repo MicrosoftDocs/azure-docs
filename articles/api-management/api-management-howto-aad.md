@@ -48,7 +48,7 @@ Enter a name for the application, select **Web application and/or Web API**, and
 
 ![New Azure Active Directory application][api-management-new-aad-application-1]
 
-For **Sign-on URL**, copy the **Redirect URL** from the **Azure Active Directory** section of the **External Identities** tab in the publisher portal and remove the **-aad** suffix from the end of the URL. In this example, the **Sign-on URL** is `https://aad03.portal.current.int-azure-api.net/signin`. 
+For **Sign-on URL**, enter the sign-on URL of your developer portal. In this example, the **Sign-on URL** is `https://aad03.portal.current.int-azure-api.net/signin`. 
 
 For the **App ID URL**, enter either the default domain or a custom domain for the Azure Active Directory, and append a unique string to it. In this example the default domain of **https://contoso5api.onmicrosoft.com** is used with the suffix of **/api** specified.
 

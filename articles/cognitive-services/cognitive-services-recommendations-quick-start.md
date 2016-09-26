@@ -63,8 +63,8 @@ This product will allow you to start a subscription for any of the cognitive ser
 
 1. On **API type**, select **Recommendations**.
 
-1. On **Pricing tier**, you can select a plan. You may select the **Free** tier for 10,000 transactions/month**. This is a free plan, so it is a good way to start trying the system. Once you go to production, we recommend you consider your request volume
-and change the plan type accordingly.
+1. On **Pricing tier**, you can select a plan. You may select the **Free** tier for 10,000 transactions/month. This is a free plan, so it is a good way to start trying the system. Once you go to production, we recommend you consider your request volume
+and change the plan type accordingly. (Note: You can have only one Free tier subscription at a time)
 
 1. Select a **Resource Group**, or create a new one if you don't have one already.
 
