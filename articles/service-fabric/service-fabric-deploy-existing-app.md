@@ -88,16 +88,13 @@ Go through the following steps to complete the publishing:
   >[AZURE.NOTE] You can use linked folders when creating the application project in Visual Studio. This links to the source location from within the project, making it possible for you to update the guest executable in its source destination, having those updates become part of the application package on build.
   - *Program* - Choose the executable that should be run to start the service.
   - *Arguments* - Specify the arguments that should be passed to the executable. It can be a list of parameters with arguments.
-- *WorkingFolder* - Specifies the working directory for the process that is going to be started. You can specify three values:
+  - *WorkingFolder* - Specifies the working directory for the process that is going to be started. You can specify three values:
 	- `CodeBase` specifies that the working directory is going to be set to the code directory in the application package (`Code` directory in the file structure shown preceding).
 	- `CodePackage` specifies that the working directory is going to be set to the root of the application package	(`GuestService1Pkg` in the file structure shown preceding).
   - `Work` specifies that the files are placed in a subdirectory called work
 4. Give your service a name and click OK.
-5. If your service needs an endpoint for communication, you can now add the Protocol, Port and Type to the ServiceManifest.xml file. e.g.
-
- ```<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />```.
+5. If your service needs an endpoint for communication, you can now add the Protocol, Port and Type to the ServiceManifest.xml file. e.g. `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
 6. You can now use the package and publish action against your local cluster by debugging the solution in Visual Studio. When ready you can publish the application to a remote cluster or check-in the solution to source control.
-
 7. Go to the end of this article to see how to view you guest executable service running in Service Fabric Explorer.
 
 <a id="manually"></a>
