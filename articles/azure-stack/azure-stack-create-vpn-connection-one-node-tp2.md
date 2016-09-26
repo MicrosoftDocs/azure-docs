@@ -29,7 +29,7 @@ people who are evaluating Site-to-Site gateways understand how to set up
 VPN connections between virtual networks in two different Azure Stack
 deployments.  In the process of doing so, you will gain an understanding how VPN Gateways work in Azure Stack.
 
-> This document applies specifically to the Azure Stack TP2 POC.
+>[Azure.Note] This document applies specifically to the Azure Stack TP2 POC.
 
 ### Connection diagram
 
@@ -66,7 +66,7 @@ complete this configuration.
     address range, which requires changing settings in files in the
     Cloud Deployment files **before you deploy the POC**.
 
-**Note**: It is important that you make changes to the Deployment
+>[Azure.Note] It is important that you make changes to the Deployment
 before you deploy the second POC because you cannot change this after it
 has been deployed.
 
@@ -206,7 +206,7 @@ You need to configure Quotas for Compute, Network and Storage so
 that these services can be associated with a Plan and then an Offer that
 tenants can subscribe to.
 
-**Note:** You need to do these steps for each Azure Stack POC
+>[Azure.Note] You need to do these steps for each Azure Stack POC
 environment.
 
 The experience to create Quotas for Services has changed from TP1. The
@@ -221,7 +221,7 @@ groupings of one or more services. As a provider, you can create plans
 to offer to your tenants. In turn, your tenants subscribe to your offers
 to use the plans and services they include.
 
-**Note:** You will need to do these steps for each Azure Stack POC
+>[Azure.Note] You will need to do these steps for each Azure Stack POC
 environment.
 
 1.  First create a Plan. To do this, you can follow the steps in the
@@ -704,11 +704,12 @@ Because the POC was designed to be self-contained and isolated from the
 network on which the physical host is deployed, the “External” VIP network
 that the gateways are connected to is not actually external, but instead
 is hidden behind a router doing Network Address Translation (NAT). The
-router is actually a Windows Server VM (**MAS\_BGPNAT01**) running the
+router is actually a Windows Server VM (**MAS-BGPNAT01**) running the
 Routing and Remote Access Services (RRAS) role in the POC
 infrastructure. We need to configure NAT on the MAS-BGPNAT01 VM to allow
 the Site-to-Site VPN Connection to connect on both ends.
-> **NOTE: This configuration is required for POC environments only.**
+
+>[Azure.Note] This configuration is required for POC environments only.
 
 ### Configure NAT
 
