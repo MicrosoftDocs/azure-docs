@@ -28,7 +28,7 @@ Service Fabric on Linux is conceptually equivalent to Service Fabric on Windows 
 
 The limited preview supports the creation of one-box development clusters in addition to multi-machine clusters in Azure running Ubuntu Server 16.04. The preview supports the Reliable Actors and the Reliable Stateless Services frameworks in Java and C# in addition to guest executables and orchestrating Docker containers.  
 
->[AZURE.NOTE] Reliable Collections are not supported in Linux yet.
+>[AZURE.NOTE] Reliable Collections are not supported in Linux yet. Stand alone clusters aren't supported either - only one box and Azure Linux multi-machine clusters are supported in the preview.
 
 ## Supported tooling
 
