@@ -1,6 +1,6 @@
 <properties
-	pageTitle="VMware solution in Log Analytics | Microsoft Azure"
-	description="Learn about how the VMware solution can help manage logs and monitor ESXi hosts."
+	pageTitle="VMware Monitoring solution in Log Analytics | Microsoft Azure"
+	description="Learn about how the VMware Monitoring solution can help manage logs and monitor ESXi hosts."
 	services="log-analytics"
 	documentationCenter=""
 	authors="bandersmsft"
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2016"
+	ms.date="09/23/2016"
 	ms.author="banders"/>
 
-# VMware (Preview) solution in Log Analytics
+# VMware Monitoring (Preview) solution in Log Analytics
 
-The VMware solution in Log Analytics is a solution that helps you create a centralized logging and monitoring approach for large VMware logs. This article describes how you can troubleshoot, capture, and manage the ESXi hosts in a single location using the solution. With the solution, you can see detailed data for all your ESXi hosts in a single location. You can see top event counts, status, and trends of VM and ESXi hosts provided through the ESXi host logs. You can troubleshoot by viewing and searching centralized ESXi host logs. And, you can create alerts based on log search queries.
+The VMware Monitoring solution in Log Analytics is a solution that helps you create a centralized logging and monitoring approach for large VMware logs. This article describes how you can troubleshoot, capture, and manage the ESXi hosts in a single location using the solution. With the solution, you can see detailed data for all your ESXi hosts in a single location. You can see top event counts, status, and trends of VM and ESXi hosts provided through the ESXi host logs. You can troubleshoot by viewing and searching centralized ESXi host logs. And, you can create alerts based on log search queries.
 
 ## Installing and configuring the solution
 
 Use the following information to install and configure the solution.
 
-- Add the VMware solution to your OMS workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
+- Add the VMware Monitoring solution to your OMS workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
 
 #### Supported VMware ESXi hosts
 vSphere ESXi Host 5.5 and 6.0
@@ -58,13 +58,56 @@ Create a Linux operating system VM to receive all syslog data from the ESXi host
 
 6. Download and install the OMS Agent for Linux on the Linux server. See [documentation for OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) for more information.
 
-7. In the OMS Portal, perform a log search for `Type=VMware_CL`. When OMS collects the syslog data, it retains the syslog format. In the portal, some specific fields are captured, such as *Hostname* and *ProcessName*.  
+7. After the OMS Agent for Linux is installed, go to the  /etc/opt/microsoft/omsagent/sysconf/omsagent.d directory and copy the vmware_esxi.conf file to the /etc/opt/microsoft/omsagent/conf/omsagent.d directory and the change the owner/group and permissions of the file. For example:
+
+    ```
+    sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/vmware_esxi.conf /etc/opt/microsoft/omsagent/conf/omsagent.d
+sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf
+    ```
+
+8.  Restart the OMS Agent for Linux by running `sudo /opt/microsoft/omsagent/bin/service_control restart`.
+
+9. In the OMS Portal, perform a log search for `Type=VMware_CL`. When OMS collects the syslog data, it retains the syslog format. In the portal, some specific fields are captured, such as *Hostname* and *ProcessName*.  
 
     ![type](./media/log-analytics-vmware/type.png)  
 
-    If your view log search results are similar to the image above, you're set to use the OMS VMware solution dashboard.  
+    If your view log search results are similar to the image above, you're set to use the OMS VMware Monitoring solution dashboard.  
 
-## VMware solution overview
+## VMware data collection details
+
+The VMware Monitoring solution collects various performance metrics and log data from ESXi hosts using the OMS Agents for Linux that you have enabled.
+
+The following table shows data collection methods and other details about how data is collected.
+
+| platform | OMS Agent for Linux | SCOM agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | collection frequency |
+|---|---|---|---|---|---|---|
+|Linux|![Yes](./media/log-analytics-vmware/oms-bullet-green.png)|![No](./media/log-analytics-vmware/oms-bullet-red.png)|![No](./media/log-analytics-vmware/oms-bullet-red.png)|            ![No](./media/log-analytics-containers/oms-bullet-red.png)|![No](./media/log-analytics-vmware/oms-bullet-red.png)| every 3 minutes|
+
+
+The following table show examples of data fields collected by the VMware Monitoring solution:
+
+| field name | description |
+| --- | --- |
+| Device_s| VMware storage devices |
+| ESXIFailure_s | failure types |
+| EventTime_t | time when event occurred |
+| HostName_s | ESXi host name |
+| Operation_s | create VM or delete VM |
+| ProcessName_s | event name |
+| ResourceId_s | name of the VMware host |
+| ResourceLocation_s | VMware |
+| ResourceName_s | VMware |
+| ResourceType_s | Hyper-V |
+| SCSIStatus_s | VMware SCSI status |
+| SyslogMessage_s | Syslog data |
+| UserName_s | user who created or deleted VM |
+| VMName_s | VM name |
+| Computer | host computer |
+| TimeGenerated | time the data was generated |
+| DataCenter_s | VMware datacenter |
+| StorageLatency_s | storage latency (ms) |
+
+## VMware Monitoring solution overview
 
 The VMware tile appears in the OMS portal. It provides a high-level view of any failures. When you click the tile, you go into a dashboard view.
 
@@ -91,7 +134,7 @@ From here, you can edit the search query to modify it for something specific. Fo
 
 #### Find ESXi host events
 
-A single ESXi host generates multiple logs, based on their processes. The VMware solution centralizes them and summarizes the event counts. This centralized view helps you understand which ESXi host has a high volume of events and what events occur most frequently in your environment.
+A single ESXi host generates multiple logs, based on their processes. The VMware Monitoring solution centralizes them and summarizes the event counts. This centralized view helps you understand which ESXi host has a high volume of events and what events occur most frequently in your environment.
 
 ![event](./media/log-analytics-vmware/events.png)
 

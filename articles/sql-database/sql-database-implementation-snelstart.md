@@ -18,7 +18,7 @@
 
 # With Azure, SnelStart has rapidly expanded its business services at a rate of 1,000 new Azure SQL Databases per month
 
-![Logo](./media/sql-database-case-study-snelstart/snelstartlogo.png)
+![SnelStartLogo](./media/sql-database-implementation-snelstart/snelstartlogo.png)
 
 SnelStart makes popular financial- and business-management software for small- and medium-sized businesses (SMBs) in the Netherlands. Its 55,000 customers are serviced by a staff of 110 employees, including an IT staff of 35. By moving from desktop software to a software-as-a-service (SaaS) offering built on Azure, SnelStart made the most of built-in services, automating management using familiar environment in C#, and optimizing performance and scalability by neither over- or under-provisioning businesses using elastic database pools. Using Azure provides SnelStart the fluidity of moving customers between on-premises and the cloud.
 
@@ -80,7 +80,7 @@ By using Azure, SnelStart can serve its customers and their accountants more sea
 
 In addition, SnelStart web services allow both customers and accountants to easily access data in Azure SQL Database elastic pools. This SaaS model, coupled with database elasticity and Azure Resource Manager, provides SnelStart with scalability features that complement every Azure deployment. The implementation is fully automated using C# management libraries.
 
-![Figure 1](./media/sql-database-case-study-snelstart/figure1.png)
+![SnelStart architecture](./media/sql-database-implementation-snelstart/figure1.png)
 
 Figure 1. As of June 2016, SnelStart has more than 11,000 databases and more than 50 elastic database pools
  

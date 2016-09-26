@@ -18,7 +18,7 @@
    
 # Daxko/CSI used Azure to accelerate its development cycle and to enhance its customer services and performance
 
-![Logo](./media/sql-database-case-study-daxko/csidaxkologo25.png)
+![Daxko/CSI Logo](./media/sql-database-implementation-daxko/csidaxkologo25.png)
 
 Daxko/CSI Software faced a challenge: its customer base of fitness and recreation centers was growing rapidly, thanks to the success of its comprehensive enterprise-software solution, but keeping up with the IT-infrastructure needs for that growing customer base was testing the company’s IT staff. The company was increasingly constrained by rising operations overhead, particularly for managing its growing databases. Worse, that operations overhead was cutting into development resources for new initiatives, like new mobility features for the company’s software.
 
@@ -76,7 +76,7 @@ SpectrumNG uses web roles. Because the application is multi-tenant, a WCF servic
 For the web tier of its service, CSI Software takes advantage of Azure automatic scaling, based on day and time. Available resources are automatically increased to accommodate higher usage during business hours, according to the time zone of each regional datacenter. Resources are also set to scale down on weekends, when customer needs are lower.
 
      
-![Figure 1](./media/sql-database-case-study-daxko/figure1.png)
+![Daxko/CSI Architecture](./media/sql-database-implementation-daxko/figure1.png)
 
 Figure 1. A cloud services worker role draws structured data from Azure SQL Database and semi-structured data from table storage. SpectrumNG users interact with that data through a cloud services web role.
 

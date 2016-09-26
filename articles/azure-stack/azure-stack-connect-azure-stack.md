@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/01/2016"
+	ms.date="09/26/2016"
 	ms.author="erikje"/>
 
 # Log in to the Azure Stack POC virtual machine
@@ -30,15 +30,11 @@ or
 
 1.  Log in to the Azure Stack POC physical machine.
 
-2.  Double-click the **ClientVM.AzureStack.local.rdp** desktop icon to open a Remote Desktop Connection to the client virtual machine.
- 
-    ![](media/azure-stack-connect-azure-stack/clientvmazurestacklocalicon.png)
-    
-    This automatically uses the AzureStack\\AzureStackUser account that was created by the deployment script. Use the admin password you gave in step 5 of the script process at the **Enter the password for the built-in administrator** prompt.
+2.  Open a Remote Desktop Connection and connect to MAS-CON01. Use the admin password you gave in step 5 of the script process at the **Enter the password for the built-in administrator** prompt.
 
-3.  On the ClientVM.AzureStack.local desktop, double-click **Microsoft Azure Stack POC Portal** icon (https://portal.azurestack.local/) to open the [portal](azure-stack-key-features.md#portal).
+3.  On the ClientVM.AzureStack.local desktop, double-click **Microsoft Azure Stack Portal** icon (https://portal.azurestack.local/) to open the [portal](azure-stack-key-features.md#portal).
 
-    ![](media/azure-stack-connect-azure-stack/microsoftazurestackpocprtalicon.png)
+    ![](media/azure-stack-connect-azure-stack/microsoftazurestackportalicon.png)
 
 4.  Log in using the service administrator account.
 
@@ -49,19 +45,15 @@ If you don’t already have one, [Create a tenant account](azure-stack-add-new-u
 
 1.  Log in to the Azure Stack physical machine.
 
-2.  Double-click the **ClientVM.AzureStack.local.rdp** desktop icon to open a Remote Desktop Connection to the client virtual machine. 
-
-    ![](media/azure-stack-connect-azure-stack/clientvmazurestacklocalicon.png)
-
-    This automatically uses the AzureStack\\AzureStackUser account that was created by the deployment script. Use the admin password you gave in step 5 of the script process at the **Enter the password for the built-in administrator** prompt.
+2.  Open a Remote Desktop Connection and connect to MAS-CON01. Use the admin password you gave in step 5 of the script process at the **Enter the password for the built-in administrator** prompt.
 
 3.  On the ClientVM.AzureStack.local desktop, double-click **Microsoft Azure Stack POC Portal** icon (https://portal.azurestack.local/) to open the [portal](azure-stack-key-features.md#portal).
 
-    ![](media/azure-stack-connect-azure-stack/microsoftazurestackpocprtalicon.png)
+    ![](media/azure-stack-connect-azure-stack/microsoftazurestackportalicon.png)
 
 4.  Log in using a tenant account.
 
-RDP may restrict how many users can access the physical Microsoft Azure POC host. To enable multiple users, see [Enable multiple concurrent user connections](azure-stack-enable-multiple-concurrent-users.md).
+RDP may restrict how many users can access the physical Microsoft Azure POC host.
 
 ## Next steps
 
