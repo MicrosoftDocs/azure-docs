@@ -101,12 +101,11 @@ Now, prepare your Azure blob storage and Azure SQL database for the tutorial by 
 
 	If your client is not allowed to access the Azure SQL server, you need to configure firewall for your Azure SQL server to allow access from your machine (IP Address). See [this article](../sql-database/sql-database-configure-firewall-settings.md) for steps to configure the firewall for your Azure SQL server.
 
-You have completed the prerequisites. Click a tab at the top to perform the tutorial using one of the options:   
+You have completed the prerequisites. Click one of the tabs at the top or the following links to perform the tutorial.     
 
-- Azure portal
-- Visual Studio
-- PowerShell
-- REST API
-- .NET API
-- Copy Wizard
-
+- [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
