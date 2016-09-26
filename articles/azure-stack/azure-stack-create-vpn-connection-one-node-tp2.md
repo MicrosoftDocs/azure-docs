@@ -458,7 +458,7 @@ POC1 now and put it on our VM subnet in our virtual network.
 3.  In the list of virtual machine images, select the **Windows Server
     2012 R2 Datacenter** image.
 
-    ![](media/azure-stack-create-vpn-connection-one-node-tp2/image6.png)
+     ![](media/azure-stack-create-vpn-connection-one-node-tp2/image6.png)
 
 4.  On the **Basics** blade, in the **Name** field enter the value
     **VM01**.
@@ -537,7 +537,7 @@ you log in.
 3.  Click the **Gateway Subnet** button to add a Gateway Subnet to
     the Virtual network.
 
- ![](media/azure-stack-create-vpn-connection-one-node-tp2/image4.png)
+     ![](media/azure-stack-create-vpn-connection-one-node-tp2/image4.png)
 
 4.  The name of the Subnet is set to **GatewaySubnet** by default.
     Gateway subnets are special and must have this specific name in
@@ -553,7 +553,7 @@ you log in.
 1. In the Azure portal, click the
     **New** icon.
 
-      ![](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
+     ![](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
 
 2.  Select **Networking** from the Marketplace menu.
 
@@ -639,7 +639,7 @@ you log in.
 1. In the Azure portal, click the
     **New** icon.
 
-	  ![](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
+	 ![](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
 
 2.  Select **Networking** from the Marketplace menu.
 
@@ -672,14 +672,14 @@ network.
 1.  In the Azure portal, click on the
     **New** icon.
 
-	![](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
+	 ![](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
 
 2.  Select **Compute** from the Marketplace menu.
 
 3.  In the list of virtual machine images, select the **Windows Server
     2012 R2 Datacenter** image.
 
- ![](media/azure-stack-create-vpn-connection-one-node-tp2/image6.png)
+     ![](media/azure-stack-create-vpn-connection-one-node-tp2/image6.png)
 
 4.  On the **Basics** blade, in the **Name** field enter the value
     **VM02**.
@@ -736,27 +736,24 @@ You need to follow these steps in BOTH POC environments.
     my environment, it’s **10.16.169.131** (circled in red below), but
     yours will be something different.
 
- ![](media/azure-stack-create-vpn-connection-one-node-tp2/image16.png)
+     ![](media/azure-stack-create-vpn-connection-one-node-tp2/image16.png)
 
 7.  Enter the following PowerShell command to designate the external NAT
     address for the ports that the IKE authentication. Remember to
     change the IP Address to the one that matches your environment.
 
- >        Add-NetNatExternalAddress -NatName BGPNAT -IPAddress 10.16.169.131 PortStart 499 -PortEnd 501
+        Add-NetNatExternalAddress -NatName BGPNAT -IPAddress 10.16.169.131 PortStart 499 -PortEnd 501
 
 8. Next, we will create a static NAT mapping to map the external
     address to the Gateway Public IP Address to map the ISAKMP port 500
     for PHASE 1 of the IPSEC tunnel.
 
- >      Add-NetNatStaticMapping -NatName BGPNAT -Protocol UDP -ExternalIPAddress 10.16.169.131 -InternalIPAddress 192.168.102.1
- >     -ExternalPort 500 -InternalPort 500
+        Add-NetNatStaticMapping -NatName BGPNAT -Protocol UDP -ExternalIPAddress 10.16.169.131 -InternalIPAddress 192.168.102.1 -ExternalPort 500 -InternalPort 500
 
 9.  Finally, we will need to do NAT traversal which uses port 4500 to
     successfully establish the complete IPEC tunnel over NAT devices.
 
- >     Add-NetNatStaticMapping -NatName BGPNAT -Protocol UDP
- >     -ExternalIPAddress 10.16.169.131 -InternalIPAddress 192.168.102.1
- >     -ExternalPort 4500 -InternalPort 4500
+         Add-NetNatStaticMapping -NatName BGPNAT -Protocol UDP -ExternalIPAddress 10.16.169.131 -InternalIPAddress 192.168.102.1 -ExternalPort 4500 -InternalPort 4500
 
 10.  Repeat steps 1-9 in POC2.
 
@@ -790,10 +787,10 @@ need to find out what the address is on the other end of our connection.
 6.  Open a Command Prompt from inside the VM and type **IPConfig /all**.
 
 7.  Find the **IPv4 Address** in the output and take note of it. This is
-    the address you will ping from POC2. In my test environment, the
+    the address you will ping from POC2. In this environment, the
     address is **10.0.0.4**, but in your environment it might
     be different. It should however fall within the **10.0.0.0/24**
-    subnet that we created earlier.
+    subnet that was created earlier.
 
 ### Log in to the tenant VM in POC2
 
@@ -819,7 +816,7 @@ need to find out what the address is on the other end of our connection.
     In my lab this is 10.0.0.4, but be sure to ping the address you
     found in your lab. You should see a result that looks like this.
 
- ![](media/azure-stack-create-vpn-connection-one-node-tp2/image16.png)
+     ![](media/azure-stack-create-vpn-connection-one-node-tp2/image16.png)
 
 9.  A reply from the remote VM indicates a successful test! You can
     close the VM Connect window or, if you like, try doing some other
@@ -845,4 +842,4 @@ went through the VPN connection.
     ping would account for. That’s because we did some file transfers
     as well. You should see some non-zero values there.
 
- ![](media/azure-stack-create-vpn-connection-one-node-tp2/image20.png)
+     ![](media/azure-stack-create-vpn-connection-one-node-tp2/image20.png)
