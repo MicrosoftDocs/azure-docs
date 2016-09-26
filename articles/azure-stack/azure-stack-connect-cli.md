@@ -63,5 +63,7 @@ In the following steps, you configure Azure CLI to connect to Azure Stack. Then 
 ## Next steps
 
 [Deploy templates with Azure CLI](azure-stack-deploy-template-command-line.md)
+
 [Connect with PowerShell](azure-stack-connect-powershell.md)
+
 [Manage user permissions](azure-stack-manage-permissions.md)
