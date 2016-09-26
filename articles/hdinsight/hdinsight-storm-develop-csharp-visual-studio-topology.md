@@ -25,7 +25,9 @@ You will also learn how to create hybrid topologies that use C# and Java compone
 
 > [AZURE.NOTE] While the steps in this document rely on a Windows development environment with Visual Studio, the compiled project can be submitted to either a Linux or Windows-based HDInsight cluster.
 >
-> To use a C# topology with a Linux-based cluster, you should update the Microsoft.SCP.Net.SDK NuGet package used by your project to version 0.10.0.6 or higher. 
+> To use a C# topology with a Linux-based cluster, you should update the Microsoft.SCP.Net.SDK NuGet package used by your project to version 0.10.0.6 or higher.
+> 
+> C# topologies on Linux-based clusters must be built against .NET 4.5, and use Mono to run on the HDInsight cluster. Most things should work, however you should check the [Mono Compatibility](http://www.mono-project.com/docs/about-mono/compatibility/) document for potential incompatibilities.
 
 ##Prerequisites
 
