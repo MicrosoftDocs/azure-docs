@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/19/2016" 
+	ms.date="09/21/2016" 
 	ms.author="mimig"/>
 
 # Performance tips for DocumentDB
@@ -95,7 +95,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 4. **Tuning parallel queries for partitioned collections**
 
-    DocumentDB .NET SDK version 1.9.0 and above support parallel queries, which enable you to query a partitioned collection in parallel. For more information, see Working with the SDKs and the related code samples). They are designed to improve query latency and throughput. Parallel queries provide two parameters that users can tune to custom-fit their requirements, (a) MaxDegreeOfParallelism: to control the maximum number of partitions than can be queried in parallel, and (b) MaxBufferedItemCount: to control the number of pre-fetched results.
+     DocumentDB .NET SDK version 1.9.0 and above support parallel queries, which enable you to query a partitioned collection in parallel (see [Working with the SDKs](documentdb-partition-data.md#working-with-the-sdks) and the related [code samples](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) for more info). Parallel queries are designed to improve query latency and throughput over their serial counterpart. Parallel queries provide two parameters that users can tune to custom-fit their requirements, (a) MaxDegreeOfParallelism: to control the maximum number of partitions than can be queried in parallel, and (b) MaxBufferedItemCount: to control the number of pre-fetched results. 
     
     (a) ***Tuning MaxDegreeOfParallelism\:***
     Parallel query works by querying multiple partitions in parallel. However, data from an individual partitioned collect is fetched serially with respect to the query. So, setting the MaxDegreeOfParallelism to the number of partitions has the maximum chance of achieving the most performant query, provided all other system conditions remain the same. If you don't know the number of partitions, you can set the MaxDegreeOfParallelism to a high number, and the system will choose the minimum (number of partitions, user provided input) as the MaxDegreeOfParallelism. 

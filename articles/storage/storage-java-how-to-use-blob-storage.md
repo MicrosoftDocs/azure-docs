@@ -5,16 +5,16 @@
 	documentationCenter="java"
 	authors="rmcmurray"
 	manager="wpickett"
-	editor=""/>
+	editor="tysonn"/>
 
 <tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
+	ms.devlang="java"
 	ms.topic="article"
 	ms.date="08/11/2016"
-	ms.author="robmcm"/>
+	ms.author="jwillis;robmcm"/>
 
 # How to use Blob storage from Java
 

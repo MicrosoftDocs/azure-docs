@@ -29,7 +29,7 @@ This procedure describes the simplest way to activate Engagement's Analytics and
 The Engagement SDK requires iOS6+ and Xcode 8: the deployment target of your application must be at least iOS 6.
 
 > [AZURE.NOTE]
-> If you really depends on XCode 7 then you may use the [iOS Engagement SDK v3.2.4](https://aka.ms/r6oouh). There is a known bug on the Reach module of this previous version while running on iOS 10 devices see [the reach module integration](mobile-engagement-ios-integrate-engagement-reach.md) for more details. If you choose to use the SDK v3.2.4 then just skip the `UserNotifications.framework` import in the next step.
+> If you really depend on XCode 7 then you may use the [iOS Engagement SDK v3.2.4](https://aka.ms/r6oouh). There is a known bug on the Reach module of this previous version while running on iOS 10 devices see [the reach module integration](mobile-engagement-ios-integrate-engagement-reach.md) for more details. If you choose to use the SDK v3.2.4 then just skip the `UserNotifications.framework` import in the next step.
 
 The following steps are enough to activate the report of logs needed to compute all statistics regarding Users, Sessions, Activities, Crashes and Technicals. The report of logs needed to compute other statistics like Events, Errors and Jobs must be done manually using the Engagement API  (see [How to use the advanced Mobile Engagement tagging API in your iOS app](mobile-engagement-ios-use-engagement-api.md) since these statistics are application dependent.
 

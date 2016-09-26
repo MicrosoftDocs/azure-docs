@@ -13,20 +13,32 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/01/2016"
+   ms.date="09/21/2016"
    ms.author="cherylmc" />
 
 # About VPN Gateway
 
 
-A virtual network gateway is used to send network traffic between Azure virtual networks and on-premises locations, as well as between virtual networks within Azure (VNet-to-VNet). To create a connection, you add a virtual network gateway to a VNet, along with additional resources and their settings. 
+A virtual network gateway is used to send network traffic between Azure virtual networks and on-premises locations and also between virtual networks within Azure (VNet-to-VNet). When you configure a VPN gateway, you must create and configure a virtual network gateway and a virtual network gateway connection.
 
-When you create a virtual network gateway resource, you specify several settings. One of the required settings is '-GatewayType'. The gateway type specifies how the gateway connects. There are two virtual network gateway types: Vpn and ExpressRoute. When network traffic is sent on a dedicated private connection, you use the gateway type 'ExpressRoute'. This is also referred to as an ExpressRoute gateway. When network traffic is sent encrypted across a public connection, you use the gateway type 'Vpn'. This is referred to as a VPN gateway. Site-to-Site, Point-to-Site, and VNet-to-VNet connections all use a VPN gateway.
+In the Resource Manager deployment model, when you create a virtual network gateway resource, you specify several settings. One of the required settings is '-GatewayType'. There are two virtual network gateway types: Vpn and ExpressRoute. 
 
-Each virtual network can have only one virtual network gateway per gateway type. For example, you can have one virtual network gateway that uses -GatewayType Vpn, and one that uses -GatewayType ExpressRoute. This article focuses primarily on VPN Gateway. For more information about ExpressRoute, see the [ExpressRoute Technical Overview](../expressroute/expressroute-introduction.md).
+When network traffic is sent on a dedicated private connection, you use the gateway type 'ExpressRoute'. This is also referred to as an ExpressRoute gateway. When network traffic is sent encrypted across a public connection, you use the gateway type 'Vpn'. This is referred to as a VPN gateway. Site-to-Site, Point-to-Site, and VNet-to-VNet connections all use a VPN gateway.
 
-For information regarding gateway requirements, see [Gateway Requirements](vpn-gateway-about-vpn-gateway-settings.md#requirements). For estimated aggregate throughput, see [About VPN Gateway Settings](vpn-gateway-about-vpn-gateway-settings.md#aggthroughput). For pricing, see [VPN Gateway Pricing](https://azure.microsoft.com/pricing/details/vpn-gateway). For subscriptions and service limits, see [Networking Limits](../articles/azure-subscription-service-limits.md#networking-limits).
+Each virtual network can have only one virtual network gateway per gateway type. For example, you can have one virtual network gateway that uses -GatewayType ExpressRoute, and one that uses -GatewayType Vpn. This article focuses primarily on VPN Gateway. For more information about ExpressRoute, see the [ExpressRoute Technical Overview](../expressroute/expressroute-introduction.md).
 
+## Pricing
+
+[AZURE.INCLUDE [vpn-gateway-about-pricing-include](../../includes/vpn-gateway-about-pricing-include.md)] 
+
+
+## Gateway SKUs
+
+[AZURE.INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)] 
+
+The following table shows the gateway types and the estimated aggregate throughput. This table applies to both the Resource Manager and classic deployment models.
+
+[AZURE.INCLUDE [vpn-gateway-table-gwtype-aggthroughput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)] 
 
 ## Configuring a VPN Gateway
 
@@ -34,7 +46,7 @@ When you configure a VPN gateway, the instructions you use depend on the deploym
 
 A VPN gateway connection relies on multiple resources that are configured with specific settings. Most of the resources can be configured separately, although they must be configured in a certain order in some cases. You can start out creating and configuring resources using one configuration tool, such as the Azure portal. You can then later decide to switch to another tool, such as PowerShell, to configure additional resources, or to modify existing resources when applicable. Currently, you can't configure every resource and resource setting in the Azure portal. The instructions in the articles for each connection topology specify when a specific configuration tool is needed. For information about individual resources and settings for VPN Gateway, see [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md).
 
-The sections below contain tables that list the following:
+The following sections contain tables that list:
 
 - available deployment model
 - available configuration tools

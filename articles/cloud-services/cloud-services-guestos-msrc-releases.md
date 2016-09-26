@@ -33,7 +33,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | MS16-115 | [3188733] | Security Update for PDF | 4.35, 3.43 | Sept 13, 2016 |
 | MS16-116 | [3188724] | Security Update in OLE Automation for VBScript Scripting Engine | 4.36, 3.43, 2.55 | Sept 13, 2016 |
 |  | [3174644] | Updated Support for Diffie-Hellman Key Exchange | 4.36, 3.43, 2.55 | Sept 13, 2016 |
-|  | [3172614] | Timezone Update - Egypt cancels DST | 4.36, 3.43, 2.55 | Sept 13, 2016 |
+|  | [3177723] | Timezone Update - Egypt cancels DST | 4.36, 3.43, 2.55 | Sept 13, 2016 |
 |  | [3179573] | August 2016 update rollup for Windows 7 SP1 and Windows Server 2008 R2 SP1 | 2.55 | Sept 13, 2016 |
 |  | [3179575] | August 2016 update rollup for Windows Server 2012 | 3.43 | Sept 13, 2016 |
 |  | [3179574] | August 2016 update rollup for Windows RT 8.1, Windows 8.1, and Windows Server 2012 R2 | 4.36 | Sept 13, 2016 |
@@ -377,7 +377,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [3188733]: http://support.microsoft.com/kb/3188733
 [3188724]: http://support.microsoft.com/kb/3188724
 [3174644]: http://support.microsoft.com/kb/3174644
-[3172614]: http://support.microsoft.com/kb/3172614
+[3177723]: http://support.microsoft.com/kb/3177723
 [3179573]: http://support.microsoft.com/kb/3179573
 [3179575]: http://support.microsoft.com/kb/3179575
 [3179574]: http://support.microsoft.com/kb/3179574

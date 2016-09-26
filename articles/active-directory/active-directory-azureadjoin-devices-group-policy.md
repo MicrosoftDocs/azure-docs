@@ -123,24 +123,15 @@ Windows 10 computers will authenticate by using Windows Integrated authenticatio
 
 ### Step 2: Configure automatic device registration via Group Policy in Active Directory
 
-You can use Group Policy in Active Directory to configure your Windows 10 domain-joined devices to automatically register with Azure AD. To do this, use the following step-by-step instructions:
+You can use Group Policy in Active Directory to configure your Windows 10 domain-joined devices to automatically register with Azure AD. 
 
-1. 	Open Server Manager and navigate to **Tools** > **Group Policy Management**.
-2.	From Group Policy Management, navigate to the domain node that corresponds to the domain in which you would like to enable Azure AD Join.
-3.	Right-click **Group Policy Objects**, and then select **New**. Give your Group Policy object a name, for example, Automatic Azure AD Join. Click **OK**.
-4.	Right-click your new Group Policy object, and then select **Edit**.
-5.	Navigate to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Workplace Join**.
-6.	Right-click **Automatically workplace join client computers**, and then select **Edit**.
-7.	Select the **Enabled** option button, and then click **Apply**. Click **OK**.
-8.	Link the Group Policy object to a location of your choice. To enable this policy for all of the domain-joined Windows 10 devices at your organization, link the Group Policy object to the domain. For example:
- - A specific organizational unit (OU) in Active Directory where Windows 10 domain-joined computers will be located
- - A specific security group containing Windows 10 domain-joined computers that will be auto-registered with Azure AD
-
->[AZURE.NOTE]
-This Group Policy template has been renamed in Windows 10. If you are running the Group Policy tool from a Windows 10 computer, the policy will appear as: <br>
-**Register domain joined computers as devices**<br>
-The policy is in the following location:<br>
-***Computer Configuration/Policies/Administrative Templates/Windows Components/Device Registration***
+> [AZURE.NOTE]
+> For latest instructions on how to set up automatic device registration see, [How to set up automatic registration of Windows domain joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
+>
+> This Group Policy template has been renamed in Windows 10. If you are running the Group Policy tool from a Windows 10 computer, the policy will appear as: <br>
+> **Register domain joined computers as devices**<br>
+> The policy is in the following location:<br>
+> ***Computer Configuration/Policies/Administrative Templates/Windows Components/Device Registration***
 
 
 ## Additional information
