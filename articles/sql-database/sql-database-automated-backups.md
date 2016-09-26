@@ -18,7 +18,7 @@
 
 # SQL Database backups
 
-SQL Database creates database backups automatically as part of the service offering, with no requirement to opt in and no additional cost. Use database backups to restore an SQL Database to a previous point in time or copy a database to a new database in a different geographic region. Read this article to learn more about how database backups work in SQL Database.
+SQL Database creates database backups automatically as part of the service offering, with no requirement to opt in and no additional cost. Use database backups to restore a database to a previous point in time or copy a database to a new database in a different geographic region. Read this article to learn more about how database backups work in SQL Database.
 
 Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. For more information, see [Business continuity overview](sql-database-business-continuity.md).
 
