@@ -82,7 +82,7 @@ You can **get** the value of these service-defined variables to make adjustments
 | $SampleNodeCount | The count of compute nodes. |
 | $ActiveTasks | The number of tasks in an active state. |
 | $RunningTasks | The number of tasks in a running state. |
-| $PendingTasks | The sum of $ActiveTasks and $Runningtasks. |
+| $PendingTasks | The sum of $ActiveTasks and $RunningTasks. |
 | $SucceededTasks | The number of tasks that finished successfully. |
 | $FailedTasks | The number of tasks that failed. |
 | $CurrentDedicated | The current number of dedicated compute nodes. |
