@@ -112,6 +112,6 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 [lnk-CLI-arm]: ../xplat-cli-azure-resource-manager.md
 
-[lnk-sdks]: iot-hub-sdks-summary.md
+[lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-portal]: iot-hub-manage-through-portal.md
+[lnk-portal]: iot-hub-create-through-portal.md

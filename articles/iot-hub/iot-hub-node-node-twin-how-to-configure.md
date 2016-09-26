@@ -294,7 +294,7 @@ In this section, you create a Node.js console app that updates the *desired prop
 
 > [AZURE.IMPORTANT] There is a delay of up to a minute between the device report operation and the query result. This is to enable the query infrastructure to work at very high scale. To retrieve consistent views of a single twin use the **getDeviceTwin** method in the **Registry** class.
 
-# Next steps
+## Next steps
 
 In this tutorial, you set a desired configuration as *desired properties* from a back-end application, and wrote a simulated device app to detect that change and simulate a multi-step update process reporting its status as *reported properties* to the twin.
 
@@ -322,3 +322,4 @@ To learn how to extend your IoT solution to send telemetry from devices follow t
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 [lnk-device-management]: iot-hub-device-management-get-started.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
+[lnk-iothub-getstarted]: iot-hub-node-node-getstarted.md

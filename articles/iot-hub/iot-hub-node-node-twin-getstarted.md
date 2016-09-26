@@ -146,7 +146,7 @@ In this section, you create a Node.js console app that adds location meta-data t
 
 In the next section you create a device app that reports the connectivity information and changes the result of the query in the previous section.
 
-# Create the device app
+## Create the device app
 
 In this section, you create a Node.js console app that connects to your hub as **myDeviceId**, and then updates its twin's reported properties to contain the information that it is connected using a cellular network.
 
@@ -218,7 +218,7 @@ In this section, you create a Node.js console app that connects to your hub as *
 
     ![][3]
 
-# Next steps
+## Next steps
 In this tutorial, you configured a new IoT hub in the portal, and then created a device identity in the hub's identity registry. You added device meta-data as tags from a back-end application, and wrote a simulated device app to report device connectivity information in the device twin. You also learned how to query this information using the IoT Hub SQL-like query language.
 
 To continue getting started with IoT Hub and to explore other IoT scenarios see:
