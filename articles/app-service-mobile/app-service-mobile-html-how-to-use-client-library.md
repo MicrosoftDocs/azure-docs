@@ -24,6 +24,14 @@ This guide teaches you to perform common scenarios using the latest [JavaScript 
 Apps, first complete [Azure Mobile Apps Quick Start] to create a backend and create a table. In this guide, we focus on using the mobile
 backend in HTML/JavaScript Web applications.
 
+## Supported Platforms
+
+We limit browser support to the current and last versions of the major browsers:  Google Chrome, Microsoft Edge,
+Microsoft Internet Explorer, and Mozilla Firefox.  We expect the SDK to function with any relatively modern
+browser.
+
+The package is distributed as a Universal JavaScript Module, so it supports globals, AMD, and CommonJS formats.
+
 ##<a name="Setup"></a>Setup and Prerequisites
 
 This guide assumes that you have created a backend with a table. This guide assumes that the table has the same schema as the tables in those
@@ -84,7 +92,7 @@ the server locally:
 4. Click **Go** to open the resource explorer for your Mobile App backend in a new tab or window.
 5. Expand the **config** > **authsettings** node for your app.
 6. Click the **Edit** button to enable editing of the resource.
-7. Find the **allowedExternalRedirectUrls** element, which should be null. Change it to the following:
+7. Find the **allowedExternalRedirectUrls** element, which should be null. Add your URLs in an array:
 
          "allowedExternalRedirectUrls": [
              "http://localhost:3000",
