@@ -4,7 +4,7 @@
    services="service-fabric"
    documentationCenter=".net"
    authors="msfussell"
-   manager="timlt"
+   manager=""
    editor=""/>
 
 <tags
@@ -14,14 +14,14 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/25/2016"
-   ms.author="mfussell"/>
+   ms.author="msfussell"/>
 
 # Preview: Service Fabric and containers 
 
 >[AZURE.NOTE] This feature is in preview for Linux and not currently available on Windows Server. This will be in preview for Windows Server on the next release of Service Fabric after Windows Server 2016 GA and fully support in the subsequent release after that.
 
 ## Introduction
-Service Fabric is an [orchestrator](service-fabric-resource-manager-introduction.md) of services across a cluster of machines. Services can be developed in many ways from the [Service Fabric programming models ](service-fabric-choose-framework.md) to deploying [guest executables](service-fabric-deploy-existing-app.md). By default Service Fabric deploys and activates these services as processes on the machines. Processes provide the fastest activation and highest density usage of the resources in cluster. Service Fabric can also deploy services in container images and importantly you can mix both services in processes and services in containers together in the same application. You get the best of both worlds dependending on your scenarion.
+Service Fabric is an [orchestrator](service-fabric-cluster-resource-manager-introduction.md) of services across a cluster of machines. Services can be developed in many ways from the [Service Fabric programming models ](service-fabric-choose-framework.md) to deploying [guest executables](service-fabric-deploy-existing-app.md). By default Service Fabric deploys and activates these services as processes on the machines. Processes provide the fastest activation and highest density usage of the resources in cluster. Service Fabric can also deploy services in container images and importantly you can mix both services in processes and services in containers together in the same application. You get the best of both worlds dependending on your scenarion.
 
 ## What are containers?
 Containers are encapsulated, individually deployable components running as isolated instances on the same kernel, leveraging operating system level virtualization. This means that each application, its runtime, dependencies, and system libraries run inside a container with full, private access to their own isolated view of operating system constructs. Along with portability, this degree of security and resource isolation is the main benefit for using containers with Service Fabric, which otherwise runs services in processes. 
@@ -49,7 +49,7 @@ The following figure shows the the different types of virtualization and isolati
 ## Scenarios for using containers
 Some typiccaly examples of when to use containers include
 
-1) **IIS lift and shift**. If you have some existing ASP.NET MVC apps that you would like to continue to use, rather than migrate them to ASP.NET core, put them into a container. These ASP.NET MVC apps are dependent on IIS. You can package these into container images from the pre-created IIS image and deploy them with Service Fabric. See [Container Images on Windows Server](https://msdn.microsoft.com/en-us/virtualization/windowscontainers/quick_start/quick_start_images) on how to create IIS images.
+1) **IIS lift and shift**. If you have some existing ASP.NET MVC apps that you would like to continue to use, rather than migrate them to ASP.NET core, put them into a container. These ASP.NET MVC apps are dependent on IIS. You can package these into container images from the pre-created IIS image and deploy them with Service Fabric. See [Container Images on Windows Server](https://msdn.microsoft.com/virtualization/windowscontainers/quick_start/quick_start_images) on how to create IIS images.
 
 
 2) **Mix containers and Service Fabric microservices**. Use an existing container image for part of your application. For example you could use the [NGINX container](https://hub.docker.com/_/nginx/) for the web frontend of your application and stateful services built with Reliable Services for the more intensive backend computation. An example of this scenario includes gaming applications

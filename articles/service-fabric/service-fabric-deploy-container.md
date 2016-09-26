@@ -1,6 +1,7 @@
 <properties
    pageTitle="Service Fabric and Deploying Containers | Microsoft Azure"
-   description="Service Fabric and the use of containers to deploy microservice applications. This article the capabilities that Service Fabric provides for containers and how to deploy a container image into a cluster "
+   description="Service Fabric and the use of containers to deploy microservice applications. This article the capabilities that Service Fabric provides for containers and how to deploy a container image into a cluster"
+   services="service-fabric"
    documentationCenter=".net"
    authors="msfussell"
    manager=""
@@ -13,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="09/25/2016"
-   ms.author="mfussell"/>
+   ms.author="msfussell"/>
 
 # Preview: Deploy a container to Service Fabric
 
