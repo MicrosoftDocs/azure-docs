@@ -56,21 +56,6 @@ If you experience a failure during installation, the Azure Stack installer allow
 
 This is probably just the result of the default behavior of a PowerShell command window, when it has been selected. The POC deployment had actually succeeded but the script was paused when selecting the window. Please press the ESC key to unselect it, and the completion message should be shown after it.
 
-### POC Deployment fails at “DomainJoin” step
-
-POC deployment fails if your DNS server resolves AzureStack.local to another address external to the POC environment.
-
-As a workaround if this is not a separate entry you have control over within your environment, you can add an entry in the hosts file on the POC host machine to point to MAS-DC01:
-
-1.  Add the following entry in the hosts file under C:\Windows\System32\drivers\etc (you need local administrator privileges to do so)
-'192.168.100.2       Azurestack.local'
-
-3.  Rerun the POC deployment script. You do not need to reinstall the host machine
-
-###  My deployment fails with an error about a time and/or date difference between the client and server
-
-Please check your BIOS settings, in case there is an option to synchronize time. We have seen this issue with HP servers (DL380 G9), using the “Coordinated Universal Time” feature. 
-
 ### The POC deployment fails with AAD error “User realm discovery failed”
 
 This error indicates that deployment script is unable to connect to the Internet for Azure Active Directory (AAD) authentication.
@@ -94,17 +79,6 @@ Two options are possible to work around this error:
 
 Also, depending on your current actions, please ensure you are running PowerShell as the regular Azure Stack user (default user when leveraging the MAS-Con01) and are not using “Run As Administrator” (different context). Logging in temporarily as the administrator, you could also set these options in this other user context.
 
-### Cookies error when attempting to connect via AAD and AzureRM PowerShell
-
-If you encounter this issue, the workaround is: 
-
-1. In Internet Explorer, Open Internet Settings 
-2. Privacy Tab 
-3. Click on Advanced 
-4. Click On Ok immediately 
-5. Close Browser 
-6. Try again
-
 >[AZURE.NOTE] You may need to manually find iexplore.exe in the Program Files\Internet Explorer directory.
 
 
@@ -114,19 +88,8 @@ If you encounter this issue, the workaround is:
 
 When creating a storage account in the portal, you must select a subscription first (before entering a name).
 
-## PowerShell
-
-### When creating a storage account in PowerShell, I get an error about the “specific argument was out of the range of valid values”
-
-Please ensure you use minimal caps for the storage account. This behavior is consistent with Microsoft Azure (public cloud).
-
 ## Templates
 
-### Template deployment fails using Visual Studio
-
-A deployment in Visual Studio may time out after one hour with an access token expiration (UTC is earlier than current UTC time). This is a known issue with Visual Studio.
-
-Workaround:  publish the template using PowerShell.
 
 ### Azure template won't deploy to Azure Stack
 
@@ -138,22 +101,11 @@ Make sure that:
 
 You can also use the Azure Stack templates already provided in the [GitHub repository](http://aka.ms/AzureStackGitHub/) to help you get started.
 
-
-## Tenant
-
-### Tenant can't change plan's status to "public"
-
-If the service admin sets an offer/plan to private, the tenant admin cannot change it to public.
-
-Workaround: Change the plan and offer to public at the service admin level.  The tenant admin can then flip it to public or private.
-
 ## Virtual machines
 
 ### After starting my Microsoft Azure Stack POC host, all my tenants VMs are gone from Hyper-V Manager, and come back automatically after waiting a bit?
 
 As the system comes back up the Azure-consistent Storage subsystem and RPs need to determine consistency. The time needed depends on the hardware and specs being used, but it may sometimes take ~45 minutes after a reboot of the host for tenant VMs to come back and be recognized.
-
-Please note this would not happen in a multi-system deployment because you would not have a single box running the Azure Consistent Storage layer unless you restarted all nodes at the same time, similar to a full restart of an all up integrated system.
 
 ### I have deleted some virtual machines, but still see the VHD files on disk. Is this expected?
 
