@@ -18,7 +18,7 @@
 
 # Microsoft Azure Stack troubleshooting
 
-If you experience issues while deploying or using Microsoft Azure Stack, refer to the guidance below. But first, make sure that your deployment environment complies with all [requirements](azure-stack-deploy.md) and [preparations](azure-stack-run-powershell-script.md). In particular, make sure you comply with the storage configuration requirements and this note:
+If you experience issues while deploying or using Microsoft Azure Stack, refer to the following guidance. But first, make sure that your deployment environment complies with all [requirements](azure-stack-deploy.md) and [preparations](azure-stack-run-powershell-script.md). In particular, make sure you comply with the storage configuration requirements and this note:
 
 >[AZURE.IMPORTANT] Only one NIC is allowed during the deployment process. If you want to use a specific NIC, you must disable all the others.
 
@@ -26,14 +26,14 @@ The recommendations for troubleshooting issues that are described in this sectio
 
 ## Known Issues
 
- - You may see the following non-terminating errors during deployment, these do not impact deployment success:
+ - You may see the following non-terminating errors during deployment, which will not affect deployment success:
      - “The term 'C:\WinRM\Start-Logging.ps1' is not recognized”
-     - “Invoke-EceAction : Cannot index into a null array” 
-	 - “InvokeEceAction : Cannot bind argument to parameter 'Message' because it is an empty string.”
- - You will see that the **Availability Set** resource in the Marketplace shows up under the **virtualMachine-ARM** category – this is only a cosmetic issue.
- - When creating a new virtual machine in the portal, in the **Basics** step, the storage option defaults to SSD.  This must be changed to HDD or on the **Size** step of VM deployment, you will not see VM sizes available to select and continue deployment. 
- - You will see AzureRM PowerShell modules are no longer installed by default on the MAS-CON01 VM (in TP1 this was named ClientVM). This is now by design, because there is an alternate method to [install these modules and connect](azure-stack-connect-powershell.md).  
- - You will see that the **Microsoft.Insights** resource provider is not automatically registered for tenant subscriptions. If you would like to see monitoring data for a VM deployed as a tenant, you will have to run the following command from PowerShell (after you [install and connect](azure-stack-connect-powershell.md) as a tenant): 
+     - “Invoke-EceAction: Cannot index into a null array” 
+	 - “InvokeEceAction: Cannot bind argument to parameter 'Message' because it is an empty string.”
+ - You will see that the **Availability Set** resource in the Marketplace shows up under the **virtualMachine-ARM** category – this appearance is only a cosmetic issue.
+ - When creating a new virtual machine in the portal, in the **Basics** step, the storage option defaults to SSD.  This setting must be changed to HDD or on the **Size** step of VM deployment, you will not see VM sizes available to select and continue deployment. 
+ - You will see AzureRM PowerShell modules are no longer installed by default on the MAS-CON01 VM (in TP1 this was named ClientVM). This behavior is by design, because there is an alternate method to [install these modules and connect](azure-stack-connect-powershell.md).  
+ - You will see that the **Microsoft.Insights** resource provider is not automatically registered for tenant subscriptions. If you would like to see monitoring data for a VM deployed as a tenant, run the following command from PowerShell (after you [install and connect](azure-stack-connect-powershell.md) as a tenant): 
        
 	    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Insights 
 
@@ -65,7 +65,7 @@ As a workaround if this is not a separate entry you have control over within you
 1.  Add the following entry in the hosts file under C:\Windows\System32\drivers\etc (you need local administrator privileges to do so)
 '192.168.100.2       Azurestack.local'
 
-3.  Re-run the POC deployment script. You do not need to reinstall the host machine
+3.  Rerun the POC deployment script. You do not need to reinstall the host machine
 
 ###  My deployment fails with an error about a time and/or date difference between the client and server
 
@@ -134,7 +134,7 @@ Make sure that:
 
 - The template must be using a Microsoft Azure service that is already available or in preview in Azure Stack.
 - The APIs used for a specific resource are supported by the local Azure Stack instance, and that you are targeting a valid location (“local” in Azure Stack Technical Preview (TP) 2, vs the “East US” or “South India” in Azure).
-- You review [this article](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/README.md) about the Test-AzureRmResourceGroupDeployment cmdlets, which catch small differences in azure Resource Manager syntax.
+- You review [this article](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/README.md) about the Test-AzureRmResourceGroupDeployment cmdlets, which catch small differences in Azure Resource Manager syntax.
 
 You can also use the Azure Stack templates already provided in the [GitHub repository](http://aka.ms/AzureStackGitHub/) to help you get started.
 
