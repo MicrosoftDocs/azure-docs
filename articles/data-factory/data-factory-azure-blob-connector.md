@@ -4,7 +4,7 @@
     keywords="blob data, azure blob copy"
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/25/2016" 
-	ms.author="spelluru"/>
+	ms.author="jingwang"/>
 
 # Move data to and from Azure Blob using Azure Data Factory
 This article explains how to use the Copy Activity in Azure Data Factory to move data to and from Azure Blob by sourcing blob data from another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity and the supported data store combinations.
