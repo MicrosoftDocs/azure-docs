@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Cloud business continuity - Built-in backup - SQL Database | Microsoft Azure"
-   description="Learn about SQL Database built-in backups that enable you to roll back an Azure SQL Database to a previous point in time or copy a database to a new database in an geographic region (up to 35 days)."
+   pageTitle="Cloud business continuity - Built-in database backup - SQL Database | Microsoft Azure"
+   description="Learn about SQL Database built-in database backups that enable you to roll back an Azure SQL Database to a previous point in time or copy a database to a new database in an geographic region (up to 35 days)."
    services="sql-database"
    documentationCenter=""
    authors="CarlRabeler"
@@ -18,12 +18,12 @@
 
 # SQL Database backups
 
-SQL Database creates full, differential, and transaction log backups of each database on a weekly, hourly, and 5-minute basis respectively. SQL Database creates database backups automatically as part of the service offering, with no requirement to opt in and no additional cost. Use database backups to restore a database to a point-in-time. They are a must have for your business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. 
+SQL Database creates database backups automatically as part of the service offering, with no requirement to opt in and no additional cost. Use database backups to restore a database to a point-in-time. This reference article explains the details of SQL database backups. 
 
-This reference article explains the details of SQL database backups. For disaster recover and business continuity strategy information, see [Business continuity overview](sql-database-business-continuity.md).
+Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. For more information, see [Business continuity overview](sql-database-business-continuity.md).
 
 
-## What is database backup?  
+## What is a database backup?  
 
 A database backup is a file that stores information about the state of the database at a specific point in time. A SQL Database creates full, differential, and transaction log backups. Restoring a database always requires restoring a full backup. Additionally it can require restoring one differential backup and multiple transaction log backups. 
 
