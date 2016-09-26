@@ -125,7 +125,7 @@ The Java SDK provides the libraries and templates required to build Service Fabr
 2. Run the SDK setup script.
 
     ```bash
-    sudo /opt/microsoft/sdk/servicefabric/java/servicefabricsdkjava.sh
+    sudo /opt/microsoft/sdk/servicefabric/java/sdkjavasetup.sh
     ```
 
 You can install the Eclipse plugin for Service Fabric from within the Eclipse Neon IDE.
@@ -157,7 +157,7 @@ The .NET Core SDK provides the libraries and templates required to build Service
 2. Run the SDK setup script.
 
     ```bash
-    sudo  /opt/microsoft/sdk/servicefabric/csharp/servicefabricsdkcsharp.sh
+    sudo /opt/microsoft/sdk/servicefabric/csharp/sdkcsharpsetup.sh
     ```
 
 ## Next steps
