@@ -101,7 +101,7 @@ When the Umbraco developers initially made the decision to move to a SaaS model,
 
 One important goal for the Umbraco developers was to provide a way for UaaS customers to provision environments quickly and without capacity limitations. But providing a dedicated hosted service in Umbraco datacenters would have required lots of excess capacity to handle bursts in processing. That would have meant adding considerable compute infrastructure that would have been regularly underutilized.
 
-In addition, the Umbraco development team wanted a solution that would allow them to reuse as much of their existing code as possible. As Umbraco developer Mikkel Hansen states, “We were happy with the Microsoft development tools that we were already familiar with, like Microsoft SQL Server, Microsoft Azure SQL Database, ASP.net, and Internet Information Services (IIS). Before investing in an IaaS or a PaaS cloud solution, we wanted to make sure that it would support our Microsoft tools and platforms, so we wouldn’t have to make massive changes to our code base.”
+In addition, the Umbraco development team wanted a solution that would allow them to reuse as much of their existing code as possible. As Umbraco developer Mikkel Madsen states, “We were happy with the Microsoft development tools that we were already familiar with, like Microsoft SQL Server, Microsoft Azure SQL Database, ASP.net, and Internet Information Services (IIS). Before investing in an IaaS or a PaaS cloud solution, we wanted to make sure that it would support our Microsoft tools and platforms, so we wouldn’t have to make massive changes to our code base.”
 
 To meet all of its criteria, Umbraco looked for a cloud partner with the following qualifications:
 
@@ -117,7 +117,7 @@ Morten continues, “Before, we had to provision servers for web databases manua
 
 Morten is also happy with the scaling capabilities provided by Azure. “Elastic database pools are a perfect fit for our SaaS offering because we can dial capacity up and down as needed. Provisioning is easy, and with our setup, we can keep utilization at a maximum.” Morten states, “The simplicity of elastic pools, along with the assurance of service-tier-based DTUs, gives us the power to provision new resource pools on demand. Recently, one of our larger customers peaked to 100 DTUs in its live environment. Using Azure, our elastic pools provided the customer’s databases with the resources that they needed in real time without having to predict DTU requirements. Simply put, our customers get the turn-around time that they expect, and we can meet our performance service-level agreements.”
 
-Mikkel Hansen sums it up: “We’ve embraced the powerful Azure algorithm that connects a common SaaS scenario (onboarding new customers in real time at scale) to our application pattern (pre-provisioning databases, both development and live) on top of the underlying technology (using Azure Service Bus queues in conjunction with Azure SQL Database).”
+Mikkel Madsen sums it up: “We’ve embraced the powerful Azure algorithm that connects a common SaaS scenario (onboarding new customers in real time at scale) to our application pattern (pre-provisioning databases, both development and live) on top of the underlying technology (using Azure Service Bus queues in conjunction with Azure SQL Database).”
 
 ##With Azure, UaaS is exceeding customer expectations
 
