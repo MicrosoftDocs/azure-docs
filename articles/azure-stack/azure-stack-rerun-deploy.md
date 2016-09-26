@@ -49,8 +49,8 @@ Now that you have the step that the deployment failed on, you can attempt a -Rer
 
 1. From an elevated PS console, import the following Modules:
 
-    Import-Module C:\CloudDeployment\CloudDeployment.psd1 -Force
-    Import-Module C:\CloudDeployment\ECEngine\EnterpriseCloudEngine.psd1 -Force 
+        Import-Module C:\CloudDeployment\CloudDeployment.psd1 -Force
+        Import-Module C:\CloudDeployment\ECEngine\EnterpriseCloudEngine.psd1 -Force 
 
 2. Then execute the following command (example from above used here):
 
