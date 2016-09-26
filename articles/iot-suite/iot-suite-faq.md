@@ -14,7 +14,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="06/27/2016"
+  ms.date="09/26/2016"
   ms.author="araguila"/>
    
 # Frequently asked questions for IoT Suite
