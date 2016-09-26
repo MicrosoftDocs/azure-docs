@@ -400,14 +400,14 @@ The following sections list the supported operating systems for the Dependency A
 
 
 #### Red Hat Linux 7
-| OS Version	Kernel Version |
+| OS Version | Kernel Version |
 |:--|:--|
 | 7.0 | 3.10.0-123 |
 | 7.1 | 3.10.0-229 |
 | 7.2 | 3.10.0-327 |
 
 #### Red Hat Linux 6
-| OS Version	Kernel Version |
+| OS Version | Kernel Version |
 |:--|:--|
 | 6.0 | 2.6.32-71 |
 | 6.1 | 2.6.32-131 |
@@ -420,7 +420,7 @@ The following sections list the supported operating systems for the Dependency A
 | 6.8 | 2.6.32-642 |
 
 #### Red Hat Linux 5
-| OS Version	Kernel Version |
+| OS Version | Kernel Version |
 |:--|:--|
 | 5.8 | 2.6.18-308 |
 | 5.9 | 2.6.18-348 |
@@ -430,7 +430,7 @@ The following sections list the supported operating systems for the Dependency A
 #### Oracle Enterprise Linux w/ Unbreakable Kernel (UEK)
 
 #### Oracle Linux 6
-| OS Version	Kernel Version
+| OS Version | Kernel Version
 |:--|:--|
 | 6.2 | Oracle 2.6.32-300 (UEK R1) |
 | 6.3 | Oracle 2.6.39-200 (UEK R2) |
@@ -440,7 +440,7 @@ The following sections list the supported operating systems for the Dependency A
 
 #### Oracle Linux 5
 
-| OS Version	Kernel Version
+| OS Version | Kernel Version
 |:--|:--|
 | 5.8 | Oracle 2.6.32-300 (UEK R1) |
 | 5.9 | Oracle 2.6.39-300 (UEK R2) |
@@ -450,7 +450,7 @@ The following sections list the supported operating systems for the Dependency A
 #### SUSE Linux Enterprise Server
 
 #### SUSE Linux 11
-| OS Version	Kernel Version
+| OS Version | Kernel Version
 |:--|:--|
 | 11 | 2.6.27 |
 | 11 SP1 | 2.6.32 |
@@ -459,8 +459,8 @@ The following sections list the supported operating systems for the Dependency A
 | 11 SP4 | 3.0.101 |
 
 #### SUSE Linux 10
-|:--|:--|
 | OS Version | Kernel Version
+|:--|:--|
 | 10 SP4 | 2.6.16.60 |
 
 ## Diagnostic and usage data
