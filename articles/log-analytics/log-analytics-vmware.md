@@ -65,7 +65,7 @@ Create a Linux operating system VM to receive all syslog data from the ESXi host
 sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf
     ```
 
-8.  Restart the OMS Agent for Linux by running `systemctl restart omsagent.service`.
+8.  Restart the OMS Agent for Linux by running `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 
 9. In the OMS Portal, perform a log search for `Type=VMware_CL`. When OMS collects the syslog data, it retains the syslog format. In the portal, some specific fields are captured, such as *Hostname* and *ProcessName*.  
 
