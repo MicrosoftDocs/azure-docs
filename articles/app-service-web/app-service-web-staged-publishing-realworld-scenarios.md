@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Use DevOps environments effectively for your web app"
    description="Learn how to use deployment slots to setup and manage multiple development environments for your application"
    services="app-service\web"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="web"
-   ms.date="09/24/2015"
+   ms.date="10/26/2015"
    ms.author="sumuth"/>
 
 # Use DevOps environments effectively for your web apps
