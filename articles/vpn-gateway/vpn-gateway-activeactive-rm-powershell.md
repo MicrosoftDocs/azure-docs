@@ -188,7 +188,7 @@ A couple of things to note regarding the local network gateway parameters:
 
 - If BGP is enabled, the prefix you need to declare for the local network gateway is the host address of your BGP Peer IP address on your VPN device. In this case, it's a /32 prefix of "10.52.255.253/32".
 
-- As a reminder, you must use different BGP ASNs between your on-premises networks and Azure VNet. If they are the same, you need to change your VNet ASN if your on-premises VPN device already use the ASN to peer with other BGP neighbors.
+- As a reminder, you must use different BGP ASNs between your on-premises networks and Azure VNet. If they are the same, you need to change your VNet ASN if your on-premises VPN device already uses the ASN to peer with other BGP neighbors.
 
 #### 2. Create the local network gateway for Site5
 	
@@ -339,7 +339,7 @@ In this example, both gateways are in the same subscription. You can complete th
 
 #### 1. Get both gateways
 
-Make sure you login and connect to Subscription 1.
+Make sure you log in and connect to Subscription 1.
 
 	$vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
 	$vnet2gw = Get-AzureRmVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2
