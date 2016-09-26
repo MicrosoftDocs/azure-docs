@@ -488,7 +488,7 @@ This command returns the following three strings as the output:
 The following example shows how to use the command:
 
 ```sh
-./cert_helper.py -sub "fffffff-ffff-ffff-ffff-ffffffffffff"  -rgname "mykvrg" -kv "mykevname" -ifile "/home/test/cert.pfx" -ctype pfx -sname "mycert" -l "East US" -p "pfxtest"
+./cert_helper.py pfx -sub "fffffff-ffff-ffff-ffff-ffffffffffff"  -rgname "mykvrg" -kv "mykevname" -ifile "/home/test/cert.pfx" -sname "mycert" -l "East US" -p "pfxtest"
 ```
 Executing the preceding command provides you with the three strings as follows:
 
@@ -506,7 +506,7 @@ These are the entries needed for creating a secure service fabric cluster (witho
 If you wish to use a self-signed certificate for testing, you could use the same script to generate a self-signed certificate and upload it to KeyVault, by providing the flag -ss instead of providing the certificate path and certificate name. For example, see the following command for creating and uploading a self-signed certificate:
 
 ```sh
-./cert_helper.py ss -rgname "mykvrg" -sub "fffffff-ffff-ffff-ffff-ffffffffffff" -kv "mykevname"  -ctype pem -sname "mycert" -l "East US" -p "selftest"
+./cert_helper.py ss -rgname "mykvrg" -sub "fffffff-ffff-ffff-ffff-ffffffffffff" -kv "mykevname"   -sname "mycert" -l "East US" -p "selftest"
 ```
 
 This command returns the same three strings, SourceVault, CertificateUrl and CertificateThumbprint, which is used to create a secure Linux cluster, along with the location where the self-signed certificate was placed. You will need the self-signed certificate to connect to the cluster.
