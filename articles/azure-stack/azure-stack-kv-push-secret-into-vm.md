@@ -196,8 +196,8 @@ As an added benefit, you now have one convenient place in Key Vault to
 manage all your certificates, including the all the versions that were
 deployed over time.
 
-Next Steps
+## Next Steps
 
-[Deploy a vm with a Key Vault password](azure-stack-kv-deploy-vm-with-secret.md)
+[Deploy a VM with a Key Vault password](azure-stack-kv-deploy-vm-with-secret.md)
 
 [Allow an application to access Key Vault](azure-stack-kv-sample-app.md)
