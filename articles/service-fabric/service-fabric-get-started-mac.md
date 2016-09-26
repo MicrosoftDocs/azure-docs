@@ -85,9 +85,9 @@ Service Fabric provides a plugin for the Eclipse Neon IDE that can simplify the 
 
 ## Next steps
 
-<!-- todo
 - [Create your first Service Fabric application for Linux](service-fabric-create-your-first-linux-application)
--->
+
+<!-- Links -->
 
 - [Create a Service Fabric cluster in the Azure portal](service-fabric-cluster-creation-via-portal)
 - [Create a Service Fabric cluster using the Azure resource manager](service-fabric-cluster-creation-via-arm)

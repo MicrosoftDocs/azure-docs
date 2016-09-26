@@ -158,12 +158,7 @@ The .NET Core SDK provides the libraries and templates required to build Service
 
 ## Next steps
 
-<!--
-Commenting out until this article is live
 - [Create your first Java application on Linux](service-fabric-create-your-first-java-application-on-linux.md)
-
-- [Create your first .NET Core application on Linux](service-fabric-create-your-first-csharp-application-on-linux.md)
--->
 
 <!--Images -->
 
