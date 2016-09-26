@@ -34,13 +34,13 @@ To create the local VM containing a 5-node Service Fabric cluster, do the follow
 1. Clone the Vagrantfile repo
 
     ```bash
-    $ git clone https://github.com/seanmck/sf-linux-vagrant
+    $ git clone https://github.com/azure/service-fabric-linux-vagrant-onebox.git
     ```
 
 2. Navigate to the local clone of the repo
 
     ```bash
-    $ cd sf-linux-vagrant
+    $ cd service-fabric-linux-vagrant-onebox
     ```
 
 3. (Optional) Modify the default VM settings
