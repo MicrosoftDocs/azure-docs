@@ -60,7 +60,7 @@ If your Common Name in the certificate does not match the connection endpoint, y
 azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl-false 
 ```
  
-If you would like to skip the CA verification, you could add the ``--reject-unauthorized`` parameter, like the following command:
+If you would like to skip the CA verification, you could add the ``--reject-unauthorized-false`` parameter, like the following command:
 
 ```
 azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --reject-unauthorized-false 
