@@ -92,18 +92,6 @@ We recommend that you create local working branches that target a specific scope
 * Spelling and grammar edits on an article.
 * Applying a single formatting change across a large set of articles (e.g. new copyright footer).
 
-### Labels
-
-Each Pull Request can be labeled and managed by Microsoft.
-
-* Contribution License Agreement related
-    * cla-not-required: Mark as minor change that  does not required.
-    * cla-required: The PR has large changes and contributor does not recognized as CLA signee.
-    * cla-signed: The contributor recognized as CLA signee.
-* Blue labels with three-letter acronyms: Remarks for the area of Microsoft work that the topic falls into
-* Change sent to author: PR will be reviewed by author.
-
-
 ## How to use markdown to format your topic
 
 All the articles in this repository use GitHub flavored markdown.  Here's a list of resources.
@@ -117,6 +105,17 @@ All the articles in this repository use GitHub flavored markdown.  Here's a list
 ## Article metadata
 
 Article metadata enables certain functionalities on the azure.microsoft.com web site, such as author attribution, contributor attribution, breadcrumbs, article descriptions, and SEO optimizations as well as reporting Microsoft uses to evaluate the performance of the content. So, the metadata is important! [Here's the guidance for making sure your metadata is done right](./contributor-guide/article-metadata.md).
+
+### Labels
+
+Automated labels are assigned to pull requests to help us manage the pull request workflow and to help let you know what's going on with your pull request:
+
+* Contribution License Agreement related
+    * cla-not-required: The change is relatively minor and does not require that you sign a CLA.
+    * cla-required: The scope of the change is relatively large and requires that you sign a CLA.
+    * cla-signed: The contributor signed the CLA, so the pull request can now move forward for review.
+* Pillar labels: Labels such as PnP, Modern Apps, and TDC help categorize the pull requests by the internal organization that needs to review the pull request.
+* Change sent to author: The author has been notified of the pending pull request.
 
 ## More resources
 
