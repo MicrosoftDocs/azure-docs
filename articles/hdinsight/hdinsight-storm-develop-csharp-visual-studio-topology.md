@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/19/2016"
+   ms.date="09/26/2016"
    ms.author="larryfr"/>
 
 # Develop C# topologies for Apache Storm on HDInsight using Hadoop tools for Visual Studio
@@ -453,6 +453,17 @@ The following example demonstrates loading the configuration values from the top
             }
             ...
         }
+
+### System.TypeLoadException
+
+When using a C# topology with a Linux-based HDInsight cluster, you may encounter the following error:
+
+    System.TypeLoadException: Failure has occurred while loading a type.
+
+This usually occurrs when you are using a binary that is not compatible with the version of .NET that mono supports.
+
+For Linux-based HDInsight clusters, you should make sure that your project uses binaries compiled for .NET 4.5.
+
 
 ### Test a topology locally
 

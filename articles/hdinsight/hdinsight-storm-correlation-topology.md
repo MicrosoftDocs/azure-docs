@@ -14,7 +14,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="09/19/2016"
+ ms.date="09/26/2016"
  ms.author="larryfr"/>
 
 # Correlate events over time with Storm and HBase on HDInsight
@@ -23,15 +23,11 @@ By using a persistent data store with Apache Storm, you can correlate data entri
 
 In this document, you will learn how to create a basic C# Storm topology that tracks login and logout events for user sessions, and calculates the duration of the session. The topology uses HBase as a persistent data store. HBase also allows you to perform batch queries on the historical data to produce additional insights, such as how many user sessions were started or ended during a specific time period.
 
-> [AZURE.NOTE] While the steps in this document rely on a Windows development environment with Visual Studio, the compiled project can be submitted to either a Linux or Windows-based HDInsight cluster.
->
-> To use a C# topology with a Linux-based cluster, you should update the Microsoft.SCP.Net.SDK NuGet package used by your project to version 0.10.0.6 or higher. 
-
 ## Prerequisites
 
 -	Visual Studio and the HDInsight tools for Visual Studio: See [Get started using the HDInsight tools for Visual Studio](../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md) for installation information.
 
--	Apache Storm on HDInsight cluster (Linux or Windows-based). This runs the Storm topology, which processes incoming data and stores it to HBase.
+-	Apache Storm on HDInsight cluster (Windows-based). This runs the Storm topology, which processes incoming data and stores it to HBase.
 
 -	Apache HBase on HDInsight cluster (Linux or Windows-based). This is the data store for this example.
 
