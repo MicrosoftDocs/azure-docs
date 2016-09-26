@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="08/29/2016"
+	ms.date="09/22/2016"
 	ms.author="heidist"/>
 
 #Azure Search: code samples, demos, videos and tutorials
@@ -25,18 +25,19 @@ Get up to speed faster with the following videos, demos, tutorials, and sample a
 
 - [**Code sample for the demo site: NYC Jobs Website**](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) provides source for the live demo Azure Search site over NYC jobs data, using ASP.NET MVC.
 
+- [**Code sample for the demo site: Tate Art Gallery**](https://github.com/liamca/azure-search-tate-art-gallery/) provides source for the live demo Azure Search site over art gallery data, showing the Collections data type and nested data structures, facets and filters, people names, and thumbnail images.
+
 - [**Code sample for .NET client library**](https://github.com/Azure-Samples/search-dotnet-getting-started) is an ASP.NET MVC 5 application that uses the .NET client library for search operations.
 
 - [**Code sample for  the REST API**](https://github.com/Azure-Samples/search-rest-api-getting-started) provides sample code illustrating how to use the REST API.
 
 All of the above code samples can be found on the Azure Sample Github repo, along with other samples showing how to use Azure Search in specific scenarios: [**Azure Samples > Azure Search**](https://github.com/azure-samples?utf8=%E2%9C%93&query=search).
 
-##Demo sites
+## Online demo sites
 
 These sites are fully functional web applications that use Azure Search for the search experience. 
 
 [**New York City (NYC) Jobs portal demo for Azure Search**](http://aka.ms/azjobsdemo) is a live ASP.NET web site that demonstrates Azure Search capabilities using data from the NYC Open Data Initiative. This app uses the [simple query syntax](https://msdn.microsoft.com/library/azure/dn798920.aspx). You can modify code to try out the [Lucene syntax](https://msdn.microsoft.com/library/azure/mt589323.aspx). 
-
 
 [**Azure Search Demo Site**](https://searchsamples.azurewebsites.net/#/) is a collection of demo apps for Azure Search. Test-drive media search, geo search and product inventory apps using Azure Search.
 

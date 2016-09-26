@@ -148,7 +148,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
     e. On the Azure classic portal, copy the **Change Password URL**, and then paste it into the **Change Password URL** textbox.
 
-    e. Click **Save**.
+    f. Click **Save**.
 
 6. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**. 
 
