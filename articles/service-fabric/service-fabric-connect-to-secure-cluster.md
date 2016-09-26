@@ -41,10 +41,6 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 ## Connect to a secure cluster using Azure CLI without AAD
 
 The following Azure CLI commands describe how to connect to a secure cluster. The certificate details must match a certificate on the cluster nodes. 
-
-```
-azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert
-```
  
 If your certificate has Certificate Authorities (CAs), you need to add the parameter `--ca-cert-path` as shown in the following example: 
 
@@ -57,7 +53,7 @@ If you have multiple CAs, use commas as the delimiter.
 If your Common Name in the certificate does not match the connection endpoint, you could use the parameter `--strict-ssl-false` to bypass the verification. 
 
 ```
-azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl-false 
+azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 --strict-ssl-false 
 ```
  
 If you would like to skip the CA verification, you could add the ``--reject-unauthorized-false`` parameter, like the following command:
@@ -71,7 +67,6 @@ For connecting to a cluster secured with a self-signed certificate, use the foll
 ```
 azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl-false --reject-unauthorized-false
 ```
-For a self-signed cluster, both the key and cert might point to the same pem certificate that you created.  
 
 After you connect, you should be able to run other CLI commands to interact with the cluster. 
 
