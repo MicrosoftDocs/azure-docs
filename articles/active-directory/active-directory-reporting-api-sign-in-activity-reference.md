@@ -101,7 +101,7 @@ To specify the type of records you care about, you can build a filter statement 
 - [loginStatus](#loginStatus) - defines the status of the logins (success / failure)
 
 
-AZURE.NOTE When using Graph Explorer, you the need to use the correct case for each letter is your filter fields.
+> [AZURE.NOTE] When using Graph Explorer, you the need to use the correct case for each letter is your filter fields.
 
 
 To narrow down the scope of the returned data, you can build combinations of the supported filters and filter fields. For example, the following statement returns the top 10 records between July 1st 2016 and July 6th 2016:
