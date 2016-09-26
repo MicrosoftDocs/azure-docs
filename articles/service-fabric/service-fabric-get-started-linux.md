@@ -151,7 +151,7 @@ The .NET Core SDK provides the libraries and templates required to build Service
 1. Install the .NET Core SDK package.
 
     ```bash
-    $ sudo apt-get install servicefabricsdkcsharp
+    sudo apt-get install servicefabricsdkcsharp
     ```
 
 2. Run the SDK setup script.
