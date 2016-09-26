@@ -296,7 +296,7 @@ Solutions:
 
 
 ## Next Steps
-[Learn more about DSC and VMSS](virtual-machines-scale-sets-dsc.md)
+[Learn more about DSC and VMSS](../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md)
 
 Find more details on [DSC's secure credential management](virtual-machines-windows-extensions-dsc-credentials.md). 
 
