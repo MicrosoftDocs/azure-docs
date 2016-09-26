@@ -56,7 +56,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Reader `
 
 ```
 
-To query the Azure Monitor API, the client application should use the previously created service principal to authenticate. The following example PowerShell script shows one approach, using the Active Directory Authentication Library (ADAL) to help get the JWT authentication token. The JWT token is passed as part of an HTTP Authorization parameter in requests to the Azure Insights API.
+To query the Azure Monitor API, the client application should use the previously created service principal to authenticate. The following example PowerShell script shows one approach, using the [Active Directory Authentication Library](../active-directory/active-directory-authentication-libraries.md) (ADAL) to help get the JWT authentication token. The JWT token is passed as part of an HTTP Authorization parameter in requests to the Azure Insights API.
 
 ```PowerShell
 $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://localhost/azure-monitor"
@@ -81,8 +81,11 @@ $authHeader = @{
 ```
 
 Once the authentication setup step is complete, queries can then be executed against the Azure Monitor REST API. There are two helpful queries:
+
 1. List the metric definitions for a resource
+
 2. Retrieve the metric values
+
 
 ## Retrieve Metric Definitions
 >[AZURE.NOTE] To retrieve metric definitions using the Azure Monitor REST API, use "2016-03-01" as the API version.
@@ -109,7 +112,7 @@ Once the available metric definitions are known, it is then possible to retrieve
 
 **Method**: GET
 
-**Request URI**: https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider-namespace}/{resource-type}/{resource-name}/providers/microsoft.insights/metrics?$filter={filter}$api-version={apiVersion}
+**Request URI**: https://management.azure.com/subscriptions/_{subscription-id}_/resourceGroups/_{resource-group-name}_/providers/_{resource-provider-namespace}_/_{resource-type}_/_{resource-name}_/providers/microsoft.insights/metrics?$filter=_{filter}_&api-version=_{apiVersion}_
 
 For example, to retrieve the RunsSucceeded metric data points for the given time range and for a time grain of 1 hour, the request would be as follows:
 
@@ -141,10 +144,15 @@ $request = "https://management.azure.com/subscriptions/${subscriptionId}/resourc
 
 ### Use ARMClient
 An alternative to using PowerShell (as shown above), is to use [ARMClient](https://github.com/projectkudu/ARMClient) on your Windows machine. The following steps outline use of ARMClient:
+
 1. Install [Chocolatey](https://chocolatey.org/) and [ARMClient](https://github.com/projectkudu/ARMClient).
+
 2. In a terminal window, type _armclient.exe login_. This prompts you to log in to Azure.
+
 3. Type _armclient GET [your_resource_id]/providers/microsoft.insights/metricdefinitions?api-version=2016-03-01_
+
 4. Type _armclient GET [your_resource_id]/providers/microsoft.insights/metrics?api-version=2016-06-01_
+
 
 ![Alt "Using ARMClient to work with the Azure Monitoring REST API"](./media/monitoring-rest-api-walkthrough/armclient_metricdefinitions.png)
 
@@ -163,7 +171,7 @@ $request = "https://management.azure.com/subscriptions/${subscriptionId}/provide
                    -Verbose).Value | ConvertTo-Json
 ```
 
-## Resource ID
+## Retrieve the Resource ID
 Using the REST API can really help to understand the available metric definitions, granularity, and related values. That information is helpful when using the [Azure Management Library](https://msdn.microsoft.com/library/azure/mt417623.aspx).
 
 For the preceding code, the resource ID to use is the full path to the desired Azure resource. For example, to query against an Azure Web App, the resource ID would be:
@@ -171,6 +179,7 @@ For the preceding code, the resource ID to use is the full path to the desired A
 */subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{site-name}/*
 
 The following list contains a few examples of resource ID formats for various Azure resources:
+
 * **IoT Hub** - /subscriptions/_{subscription-id}_/resourceGroups/_{resource-group-name}_/providers/Microsoft.Devices/IotHubs/_{iot-hub-name}_
 
 * **Elastic SQL Pool** - /subscriptions/_{subscription-id}_/resourceGroups/_{resource-group-name}_/providers/Microsoft.Sql/servers/_{pool-db}_/elasticpools/_{sql-pool-name}_
