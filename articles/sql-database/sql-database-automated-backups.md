@@ -13,22 +13,35 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/23/2016"
+   ms.date="09/26/2016"
    ms.author="carlrab"/>
 
-# SQL Database automated backups
+# SQL Database backups
 
-An automated backup is a database backup that the service performs automatically with no need to opt in and no additional charges. Use an automated backup to restore a database to a point-in-time. Automated backups and point-in-time restore provide a zero-cost, zero-admin way to protect databases from accidental corruption or deletion, whatever the cause.  Read this feature article to understand how automated backups work and how you can use them.
+SQL Database creates full, differential, and transaction log backups of each database on a weekly, hourly, and 5-minute basis respectively. SQL Database creates database backups automatically as part of the service offering, with no requirement to opt in and no additional cost. Use database backups to restore a databases to a point-in-time. They are a must have for your business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. 
 
-For more information about disaster recovery, see [Business continuity overview](sql-database-business-continuity.md).
+This is a reference article that explains the details of database backups. For disaster recover and business continuity strategy information, see [Business continuity overview](sql-database-business-continuity.md).
 
 
-## What is an automated backup?  
+## What is database backup?  
 
-An automated backup is a database backup that the service performs automatically with no need to opt in and no additional charges. Backup files are stored in a geo-redundant storage account with read access (RA-GRS) to ensure availability for disaster recovery purposes. This storage feature ensures that the backup files are replicated to a [paired data center](../best-practices-availability-paired-regions.md). The following shows the geo-replication of weekly and daily backups stored in a geo-redundant storage account with read access (RA-GRS) to ensure availability for disaster recovery purposes.
+A database backup is a file that stores information about the state of the database at a specific point in time. A SQL Database creates full, differential, and transaction log backups. Restoring a database always requires restoring a full backup. Additionally it can require restoring one differential backup and multiple transaction log backups. 
+
+To learn more about:
+
+- Full database backups, see [Full database backups](https://msdn.microsoft.com/library/ms186289.aspx).
+- Differential backups, see [Differential backups](https://msdn.microsoft.com/library/ms175526.aspx ).
+- Transaction log backups, see [Transaction log backups](https://msdn.microsoft.com/en-us/library/ms191429.aspx).
+
+The SQL Database service stores database backup files in a geo-redundant storage account with read access (RA-GRS). The Azure Storage RA-GRS feature replicates the backup files to a [paired data center](../best-practices-availability-paired-regions.md). This ensures you can restore a database in case you cannot access the database backup from your primary database region. In the following example, SQL Database creates database backups in the US East region and stores them in a RA-GRS account. Then, Azure Storage geo-replicates the backups to a paired data center in the US West region. 
 
 ![geo-restore](./media/sql-database-geo-restore/geo-restore-1.png)
 
+>[AZURE.NOTE] In Azure storage, the term *replication* refers to copying files from one location to another. This is different from SQL's *database replication* that refers to keeping a secondary database online and up-to-date with the latest changes to the primary database. 
+
+To learn more about:
+- Geo-redundant storage, see [Azure Storage replication](../azure-storage/azure-storage-storage-redundancy).
+- RA-GRS storage, see [Read-access geo-redundant storage](../azure-storage/azure-storage-storage-redundancy.md#read-access-geo-redundant-storage).
 
 ## Automated backup costs
 
@@ -36,7 +49,7 @@ Microsoft Azure SQL Database provides up to 200% of your maximum provisioned dat
 
 ## Automated backup schedule
 
-All Basic, Standard, and Premium databases are protected by automatic backups. Full database backups are taken every week, differential database backups are taken hourly, and transaction log backups are taken every five minutes. The first full backup is scheduled immediately after a database is created. It usually completes within 30 minutes, but it can take longer when the database is of a significant size. For example, the initial backup can take longer on a restored database or a database copy. After the first full backup, all further backups are scheduled automatically and managed silently in the background. Exact timing of full and differential backups is determined by the system to balance overall load. 
+All Basic, Standard, and Premium databases are protected by automatic backups. Full database backups are taken every week, differential database backups are taken hourly, and transaction log backups are taken every five minutes. The first full backup is scheduled immediately after a database is created. It usually completes within 30 minutes, but it can take longer when the database is of a significant size. For example, the initial backup can take longer on a restored database or a database copy. After the first full backup, all further backups are scheduled automatically and managed silently in the background. Exact timing of full and [differential](https://msdn.microsoft.com/library/ms175526.aspx) database backups  is determined by the system to balance overall load. 
 
 ## Automated backup retention period
 
@@ -78,8 +91,8 @@ You can also archive automated backups beyond the retention period by creating a
 
 To learn about:
 
-- Using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md).
-- Using automated backups for archiving, see [database copy](sql-database-copy.md).
+- Restoring a database backup, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md).
+- Archiving a database backup, see [database copy](sql-database-copy.md).
 - Faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md).
 
 <!-- ### Tasks -->
