@@ -17,159 +17,65 @@
 	ms.date="09/12/2016" 
 	ms.author="spelluru"/>
 
-# Pipelines and Activities in Azure Data Factory: Create/Schedule Pipelines and Chain Activities
+# Pipelines and Activities in Azure Data Factory
 This article helps you understand pipelines and activities in Azure Data Factory and use them to construct end-to-end data-driven workflows for your scenario.  
 
-> [AZURE.NOTE] This article assumes that you have gone through [Introduction to Azure Data Factory](data-factory-introduction.md) and [Creating Datasets](data-factory-create-datasets.md) articles. If you do not have hands-on-experience with creating data factories, going through [Build your first data factory](data-factory-build-your-first-pipeline.md) tutorial would help you understand this article better.  
+> [AZURE.NOTE] This article assumes that you have gone through [Introduction to Azure Data Factory](data-factory-introduction.md). If you do not have hands-on-experience with creating data factories, going through [Build your first data factory](data-factory-build-your-first-pipeline.md) tutorial would help you understand this article better.  
 
 ## What is a data pipeline?
-**Pipeline is a logical grouping of Activities**. They are used to group activities into a unit that performs a task. To understand pipelines better, you need to understand an activity first. 
+**Pipeline** is a grouping of logically related **activities**. It is used to group activities into a unit that performs a task. To understand pipelines better, you need to understand an activity first. 
 
 ## What is an activity?
-Activities define the actions to perform on your data. Each activity takes zero or more [datasets](data-factory-create-datasets.md) as inputs and produces one or more datasets as output. **An activity is a unit of orchestration in Azure Data Factory.** 
+Activities define the actions to perform on your data. Each activity takes zero or more [datasets](data-factory-create-datasets.md) as inputs and produces one or more datasets as output. 
 
-For example, you may use a Copy activity to orchestrate copying data from one dataset to another. Similarly you may use a HDInsight Hive activity to run a Hive query on an Azure HDInsight cluster to transform or analyze your data. Azure Data Factory provides a wide range of [data transformation, analysis](data-factory-data-transformation-activities.md), and [data movement activities](data-factory-data-movement-activities.md). You may also choose to create a custom .NET activity to run your own code. 
+For example, you may use a Copy activity to orchestrate copying data from one data store to another data store. Similarly, you may use a HDInsight Hive activity to run a Hive query on an Azure HDInsight cluster to transform your data. Azure Data Factory provides a wide range of [data transformation](data-factory-data-transformation-activities.md), and [data movement](data-factory-data-movement-activities.md) activities. You may also choose to create a custom .NET activity to run your own code. 
 
-Consider the following two datasets:
-
-**Azure SQL Dataset**
-
-Table ‘MyTable’ contains a column ‘timestampcolumn’, which helps in specifying the datetime of when the data was inserted into the database. 
+## Sample pipeline
+In the following sample pipeline, the Copy activity copies data from an Azure Blob storage to an Azure SQL database. 
 
 	{
-	  "name": "AzureSqlInput",
+	  "name": "ADFTutorialPipeline",
 	  "properties": {
-	    "type": "AzureSqlTable",
-	    "linkedServiceName": "AzureSqlLinkedService",
-	    "typeProperties": {
-	      "tableName": "MyTable"
-	    },
-	    "external": true,
-	    "availability": {
-	      "frequency": "Hour",
-	      "interval": 1
-	    },
-	    "policy": {
-	      "externalData": {
-	        "retryInterval": "00:01:00",
-	        "retryTimeout": "00:10:00",
-	        "maximumRetry": 3
-	      }
-	    }
-	  }
-	}
-
-**Azure Blob Dataset** 
-
-Data is copied to a new blob every hour. The path for the blob reflects the specific date-time with hour granularity.
-
-	{
-	  "name": "AzureBlobOutput",
-	  "properties": {
-	    "type": "AzureBlob",
-	    "linkedServiceName": "StorageLinkedService",
-	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
-	      "partitionedBy": [
-	        {
-	          "name": "Year",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "yyyy"
-	          }
-	        },
-	        {
-	          "name": "Month",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "%M"
-	          }
-	        },
-	        {
-	          "name": "Day",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "%d"
-	          }
-	        },
-	        {
-	          "name": "Hour",
-	          "value": {
-	            "type": "DateTime",
-	            "date": "SliceStart",
-	            "format": "%H"
-	          }
-	        }
-	      ],
-	      "format": {
-	        "type": "TextFormat",
-	        "columnDelimiter": "\t",
-	        "rowDelimiter": "\n"
-	      }
-	    },
-	    "availability": {
-	      "frequency": "Hour",
-	      "interval": 1
-	    }
-	  }
-	}
-
-
-The Copy activity in the following pipeline copies data from Azure SQL to Azure Blob Storage. It takes Azure SQL table as the input dataset with hourly frequency and writes the data to Azure Blob storage represented by the ‘AzureBlobOutput’ dataset. The output dataset also has an hourly frequency. Refer to the [Scheduling and Execution section](#scheduling-and-execution) to understand how the data is copied over the unit of time. This pipeline has an active period of three hours from “2015-01-01T08:00:00” to “2015-01-01T11:00:00”. 
-
-**Pipeline:**
-	
-	{  
-	    "name":"SamplePipeline",
-	    "properties":{  
-	    "start":"2015-01-01T08:00:00",
-	    "end":"2015-01-01T11:00:00",
-	    "description":"pipeline for copy activity",
-	    "activities":[  
+	    "description": "Copy data from a blob to Azure SQL table",
+	    "activities": [
 	      {
-	        "name": "AzureSQLtoBlob",
-	        "description": "copy activity",
+	        "name": "CopyFromBlobToSQL",
 	        "type": "Copy",
 	        "inputs": [
 	          {
-	            "name": "AzureSQLInput"
+	            "name": "InputDataset"
 	          }
 	        ],
 	        "outputs": [
 	          {
-	            "name": "AzureBlobOutput"
+	            "name": "OutputDataset"
 	          }
 	        ],
 	        "typeProperties": {
 	          "source": {
-	            "type": "SqlSource",
-	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+	            "type": "BlobSource"
 	          },
 	          "sink": {
-	            "type": "BlobSink"
+	            "type": "SqlSink",
+	            "writeBatchSize": 10000,
+	            "writeBatchTimeout": "60:00:00"
 	          }
 	        },
-	       "scheduler": {
-	          "frequency": "Hour",
-	          "interval": 1
-	        },
-	        "policy": {
+	        "Policy": {
 	          "concurrency": 1,
-	          "executionPriorityOrder": "OldestFirst",
+	          "executionPriorityOrder": "NewestFirst",
 	          "retry": 0,
 	          "timeout": "01:00:00"
 	        }
 	      }
-	     ]
-	   }
-	}
+	    ],
+	    "start": "2016-07-12T00:00:00Z",
+	    "end": "2016-07-13T00:00:00Z"
+	  }
+	} 
 
 Now that we have a brief understanding on what an activity is, let’s revisit the pipeline.
- 
-Pipeline is a logical grouping of Activities. They are used to group activities into a unit that performs a task. **A pipeline is also the unit of deployment and management for activities.** For example, you may wish to put logically related activities together as one pipeline such that they can be in active or paused state together. 
+
 
 An output dataset from an activity in a pipeline can be the input dataset to another activity in the same/different pipeline by defining dependencies among activities. See [scheduling and execution](#chaining-activities) for details. 
 
@@ -289,7 +195,6 @@ See [Scheduling and Execution](data-factory-scheduling-and-execution.md) to unde
 
 ### Parallel processing of slices
 Set **concurrency** in the activity JSON definition to a value higher than 1 so that multiple slices are processed in parallel by multiple instances of the activity at runtime. This feature is helpful when processing back-filled slices from the past. 
-
 
 ## Authoring and managing a pipeline
 Azure Data Factory provides various mechanisms to author and deploy pipelines (which in turn contain one or more activities in it). 
