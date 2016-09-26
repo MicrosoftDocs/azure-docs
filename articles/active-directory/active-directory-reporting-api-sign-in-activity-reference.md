@@ -215,7 +215,7 @@ There are two options for the loginStatus: 0 - success, 1 - failure
 
 
 
-## Next Steps
+## Next steps
 
 - Do you want to see examples for filtered sign-in activities? Check out the [Azure Active Directory sign-in activity report API samples](active-directory-reporting-api-sign-in-activity-samples.md).
 
