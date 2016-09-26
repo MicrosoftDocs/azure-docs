@@ -4,7 +4,7 @@
    services="service-fabric"
    documentationCenter=".net"
    authors="motanv"
-   manager="timlt"
+   manager="rsinha"
    editor="toddabel"/>
 
 <tags
@@ -20,6 +20,8 @@
 Large distributed systems like cloud infrastructures are inherently unreliable. Azure Service Fabric gives developers the ability to write services to run on top of unreliable infrastructures. In order to write high-quality services, developers need to be able to induce such unreliable infrastructure to test the stability of their services.
 
 The Fault Analysis Service gives developers the ability to induce fault actions to test services in the presence of failures. However, targeted simulated faults will get you only so far. To take the testing further, you can use the test scenarios in Service Fabric: a chaos test and a failover test. These scenarios simulate continuous interleaved faults, both graceful and ungraceful, throughout the cluster over extended periods of time. Once a test is configured with the rate and kind of faults, it can be started through either C# APIs or PowerShell, to generate faults in the cluster and your service.
+
+>[AZURE.WARNING] ChaosTestScenario is being replaced by a more resilient, service-based Chaos. Please refer to the new article [Controlled Chaos](service-fabric-controlled-chaos.md) for more details.
 
 ## Chaos test
 The chaos scenario generates faults across the entire Service Fabric cluster. The scenario compresses faults generally seen in months or years to a few hours. The combination of interleaved faults with the high fault rate finds corner cases that are otherwise missed. This leads to a significant improvement in the code quality of the service.

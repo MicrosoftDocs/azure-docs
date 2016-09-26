@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Use mobile phone as your contact method with Azure MFA" 
-	description="This page will show users how to use their mobile phone as the primary contact method for Azure MFA." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenp" 
+<properties
+	pageTitle="Use mobile phone as your contact method with Azure MFA"
+	description="This page will show users how to use their mobile phone as the primary contact method for Azure MFA."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
 	ms.date="08/04/2016"
-	ms.author="billmath"/>
+	ms.author="kgremban"/>
 
 # Use mobile phone as your contact method with Azure Multi-Factor Authentication
 
@@ -43,6 +43,3 @@ If you want to use your mobile phone as your primary contact method you can use 
 
 
 <center>![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-phone/app.png)</center>
-
-
- 

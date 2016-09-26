@@ -28,7 +28,7 @@ This article will cover the mechanics of using indexers, but we’ll also drill 
 
 To set up and configure an Azure SQL indexer, you can call the [Azure Search REST API](http://go.microsoft.com/fwlink/p/?LinkID=528173) to create and manage **indexers** and **data sources**. 
 
-You can also use the [Indexer class](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.indexer.aspx) in the [.NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx), or Import Data wizard in the [Azure Classic Portal](https://portal.azure.com) to create and schedule an indexer.
+You can also use the [Indexer class](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.indexer.aspx) in the [.NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx), or Import Data wizard in the [Azure portal](https://portal.azure.com) to create and schedule an indexer.
 
 A **data source** specifies which data to index, credentials needed to access the data, and policies that enable Azure Search to efficiently identify changes in the data (new, modified or deleted rows). It's defined as an independent resource so that it can be used by multiple indexers.
 
@@ -259,10 +259,10 @@ Note that the **softDeleteMarkerValue** must be a string – use the string repr
 
 **Q:** Can I use Azure SQL indexer with SQL databases running on IaaS VMs in Azure?
 
-A: Yes. However, you need to allow your search service to connect to your database: 
+A: Yes. However, you need to allow your search service to connect to your database by doing the following two things. Please see article [Configure a connection from an Azure Search indexer to SQL Server on an Azure VM](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md) for more information.
 
-1. Configure the firewall to allow access to the IP address of your search service. 
-2. You may also need to configure your database with a trusted certificate so that the search service can open SSL connections to the database.
+1. You may need to configure your database with a trusted certificate so that the search service can open SSL connections to the database.
+2. Configure the firewall to allow access to the IP address of your search service.
 
 **Q:** Can I use Azure SQL indexer with SQL databases running on-premises? 
 

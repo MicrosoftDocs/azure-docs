@@ -242,6 +242,8 @@ if (-not $is_emulated){
 
 #### Modify LaunchWorker.ps1
 
+>[AZURE.NOTE] In the case of a **worker role** project, **LauncherWorker.ps1** file is required to execute the startup file. In a **web role** project, the startup file is instead defined in the project properties.
+
 The **bin\LaunchWorker.ps1** was originally created to do a lot of prep work but it doesn't really work. Replace the contents in that file with the following script.
 
 This script calls the **worker.py** file from your python project. If the **PYTHON2** enviornment variable is set to **on** then Python 2.7 will be used, otherwise Python 3.5 will be used.

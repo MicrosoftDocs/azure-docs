@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/10/2016"
+	ms.date="09/22/2016"
 	ms.author="curtand"/>
 
 

@@ -80,7 +80,7 @@ The following cmdlet snippet shows how to create an authorization:
 	Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
 	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
 
-        $circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName = MyRG"
+        $circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 	$auth1 = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
 		
 
