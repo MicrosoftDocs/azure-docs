@@ -20,8 +20,6 @@
 
 Now that you've [deployed](azure-stack-deploy.md) and [logged in](azure-stack-connect-azure-stack.md) to Azure Stack POC, you can create some resources.
 
-Then, [sign in as a tenant](azure-stack-connect-azure-stack.md#log-in-as-a-tenant) and:
-
 1.  [Provision a virtual machine](azure-stack-subscribe-plan-provision-vm.md).
 
 2.  [Create a storage account](azure-stack-provision-storage-account.md).
