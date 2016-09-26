@@ -50,7 +50,7 @@ The recommendations for troubleshooting issues that are described in this sectio
 ## Deployment
 
 ### Deployment failure
-If you experience a failure during installation, the Azure Stack installer allows you to continue a failed installation by following the [re-deployment steps](azure-stack-rerun-deploy.md).
+If you experience a failure during installation, the Azure Stack installer allows you to continue a failed installation by following the [rerun deployment steps](azure-stack-rerun-deploy.md).
 
 
 ## Azure Active Directory
@@ -59,14 +59,14 @@ If you experience a failure during installation, the Azure Stack installer allow
 
 Two options are possible to work around this:
 
-1. Disable Internet Explorer Enhanced Security Configuration on the Host / ClientVM (wherever PowerShell will be executed that pops up the AAD login).
+1. Disable Internet Explorer Enhanced Security Configuration on the Host / MAS-Con01 (wherever PowerShell will be executed that pops up the AAD login).
 
 2. Add three websites to the trusted list:
   - https://login.microsoftonline.com 
   - https://*.microsoftonline-p.com 
   - https://login.live.com
 
-Also, depending on your current actions, please ensure you are running PowerShell as the regular Azure Stack user (default user when leveraging the ClientVM) and are not using “Run As Administrator” (different context). Logging in temporarily as the administrator, you could also set these options in this other user context.
+Also, depending on your current actions, please ensure you are running PowerShell as the regular Azure Stack user (default user when leveraging the MAS-Con01) and are not using “Run As Administrator” (different context). Logging in temporarily as the administrator, you could also set these options in this other user context.
 
 ### Cookies error when attempting to connect via AAD and AzureRM PowerShell
 
@@ -80,7 +80,6 @@ If you encounter this issue, the workaround is:
 6. Try again
 
 >[AZURE.NOTE] You may need to manually find iexplore.exe in the Program Files\Internet Explorer directory.
-
 
 ## Deployment
 
