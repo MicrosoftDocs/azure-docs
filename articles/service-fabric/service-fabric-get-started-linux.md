@@ -34,19 +34,19 @@ To install the SDK and the associated runtime package via apt-get, you must firs
 2. Add the Service Fabric repo to your sources list.
 
     ```bash
-    $ sudo sh -c 'echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ trusty main" > /etc/apt/sources.list.d/servicefabric.list'
+    sudo sh -c 'echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ trusty main" > /etc/apt/sources.list.d/servicefabric.list'
     ```
 
 3. Add the new GPG key to your apt keyring.
 
     ```bash
-    $ sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
+    sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
     ```
 
 4. Refresh your package lists based on the newly added repositories.
 
     ```bash
-    $ sudo apt-get update
+    sudo apt-get update
     ```
 
 ## Install and set up the SDK
@@ -56,13 +56,13 @@ Once your sources are updated, you can install the SDK.
 1. Install the Service Fabric SDK package. You will be asked to confirm the installation and to agree to a license agreement.
 
     ```bash
-    $ sudo apt-get install servicefabricsdkcommon
+    sudo apt-get install servicefabricsdkcommon
     ```
 
 2. Run the SDK setup script.
 
     ```bash
-    $ sudo /opt/microsoft/sdk/servicefabric/common/sdkcommonsetup.sh
+    sudo /opt/microsoft/sdk/servicefabric/common/sdkcommonsetup.sh
     ```
 
 ## Set up the Azure cross-platform CLI
@@ -72,28 +72,28 @@ The [Azure cross-platform CLI][azure-xplat-cli-github] includes commands for int
 1. Clone the github repo to your development machine.
 
     ```bash
-    $ git clone https://github.com/Azure/azure-xplat-cli.git
+    git clone https://github.com/Azure/azure-xplat-cli.git
     ```
 
 2. Switch into the cloned repo and install the CLI's dependencies using the Node Package Manager (npm).
 
     ```bash
-    $ cd azure-xplat-cli
-    $ npm install
+    cd azure-xplat-cli
+    npm install
     ```
 
 3. Create a symlink from the bin/azure folder of the cloned repo to /usr/bin/azure so that it's added to your path and commands are available from any directory.
 
     ```bash
-    $ sudo ln -s $(pwd)/bin/azure /usr/bin/azure/
+    sudo ln -s $(pwd)/bin/azure /usr/bin/azure/
     ```
 
 4. Finally, enable auto-completion Service Fabric commands.
 
     ```bash
-    $ azure --completion >> ~/azure.completion.sh
-    $ echo 'source ~/azure.completion.sh' >> ~/.bash_profile
-    $ source ~/azure.completion.sh
+    azure --completion >> ~/azure.completion.sh
+    echo 'source ~/azure.completion.sh' >> ~/.bash_profile
+    source ~/azure.completion.sh
     ```
 
 ## Set up a local cluster
@@ -103,7 +103,7 @@ If everything has installed successfully, you should be able to start a local cl
 1. Run the cluster setup script.
 
     ```bash
-    $ sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
+    sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
 
 2. Open a web browser and navigate to http://localhost:19080/Explorer. If the cluster has started, you should see the Service Fabric Explorer dashboard.
@@ -117,13 +117,13 @@ The Java SDK provides the libraries and templates required to build Service Fabr
 1. Install the Java SDK package.
 
     ```bash
-    $ sudo apt-get install servicefabricsdkjava
+    sudo apt-get install servicefabricsdkjava
     ```
 
 2. Run the SDK setup script.
 
     ```bash
-    $ sudo /opt/microsoft/sdk/servicefabric/java/servicefabricsdkjava.sh
+    sudo /opt/microsoft/sdk/servicefabric/java/servicefabricsdkjava.sh
     ```
 
 You can install the Eclipse plugin for Service Fabric from within the Eclipse IDE.
@@ -153,7 +153,7 @@ The .NET Core SDK provides the libraries and templates required to build Service
 2. Run the SDK setup script.
 
     ```bash
-    $ sudo  /opt/microsoft/sdk/servicefabric/csharp/servicefabricsdkcsharp.sh
+    sudo  /opt/microsoft/sdk/servicefabric/csharp/servicefabricsdkcsharp.sh
     ```
 
 ## Next steps

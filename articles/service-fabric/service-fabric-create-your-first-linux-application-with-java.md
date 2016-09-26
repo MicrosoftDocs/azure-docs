@@ -43,7 +43,7 @@ A Service Fabric application can contain one or more services, each with a speci
 The Service Fabric Yeoman templates include a build script for [Gradle](https://gradle.org/), which you can use to build the app from the terminal.
 
   ```bash
-  $ gradle
+  gradle
   ```
 
 ## Deploy the application
@@ -53,14 +53,14 @@ Once the application is built, you can deploy it to the local cluster using the 
 1. Connect to the local Service Fabric cluster.
 
     ```bash
-    $ azuresfcli servicefabric cluster connect
+    azuresfcli servicefabric cluster connect
     ```
 
 2. Use the install script provided in the template to copy the application package to the cluster's image store, register the application type, and create an instance of the application.
 
     ```bash
-    $ cd myapp
-    $ ./install.sh
+    cd myapp
+    ./install.sh
     ```
 
 3. Open a browser and navigate to Service Fabric Explorer at http://localhost:19080/Explorer (replace localhost with the private IP of the VM if using Vagrant on Mac OS X).
@@ -83,10 +83,6 @@ Actor projects do not do anything on their own. They require another service or 
     ![Finding the primary replica in Service Fabric Explorer][sfx-primary]
 
 3. Click the node you found in the previous step, then select **Deactivate (restart)** from the Actions menu. This will restart one of the five nodes in your local cluster and force a failover to one of the secondary replicas running on another node. As you do this, pay attention to the output from the test client and note that the counter continues to increment despite the failover.
-
-## Building an application with Eclipse Neon
-
-// todo
 
 ## Next steps
 
