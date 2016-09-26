@@ -236,8 +236,11 @@ The following is an example service manifest (specified in the preceding applica
         </Resources>
     </ServiceManifest>
 
+<!--
 ## Next steps
 
 For more information on containers in Azure
 
-[Virtual machines and containers in Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-containers/)
+[Virtual machines and containers in Azure](../virtual-machines/virtual-machines-windows-containers/)
+[Virtual machines and containers in Azure](../virtual-machines/virtual-machines-linux-containers/)
+-->
