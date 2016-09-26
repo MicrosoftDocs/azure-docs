@@ -500,7 +500,7 @@ CertificateThumbprint: 0xfffffffffffffffffffffffffffffffffffffffff
 
  The certificate's subject name must match the domain used to access the Service Fabric cluster. This is required to provide SSL for the cluster's HTTPS management endpoints and Service Fabric Explorer. You cannot obtain an SSL certificate from a certificate authority (CA) for the `.cloudapp.azure.com` domain. You must acquire a custom domain name for your cluster. When you request a certificate from a CA the certificate's subject name must match the custom domain name used for your cluster.
 
-These are the entries needed for creating a secure service fabric cluster (without AAD) as described at [Configure Resource Manager template parameters](#configure-arm). You can connect to the secure cluster via instructions at [Authenticates client access to a cluster]("service-fabric-connect-to-secure-cluster.md"). Linux preview clusters do not support AAD authentication. You can assign admin and client roles as described in the section [Assign roles to users]("assign-roles"). When specifying admin and client roles for a Linux preview cluster, you have to provide certificate thumbprints for authentication (as opposed to subject name).
+These are the entries needed for creating a secure service fabric cluster (without AAD) as described at [Configure Resource Manager template parameters](#configure-arm). You can connect to the secure cluster via instructions at [authenticating client access to a cluster](service-fabric-connect-to-secure-cluster.md). Linux preview clusters do not support AAD authentication. You can assign admin and client roles as described in the section [Assign roles to users]("assign-roles"). When specifying admin and client roles for a Linux preview cluster, you have to provide certificate thumbprints for authentication (as opposed to subject name, since no chain validation or revocation is being performed in this preview release).
 
 
 If you wish to use a self-signed certificate for testing, you could use the same script to generate a self-signed certificate and upload it to KeyVault, by providing the flag -ss instead of providing the certificate path and certificate name. For example, see the following command for creating and uploading a self-signed certificate:
@@ -513,7 +513,7 @@ This command returns the same three strings, SourceVault, CertificateUrl and Cer
 The certificate's subject name must match the domain used to access the Service Fabric cluster. This is required to provide SSL for the cluster's HTTPS management endpoints and Service Fabric Explorer. You cannot obtain an SSL certificate from a certificate authority (CA) for the `.cloudapp.azure.com` domain. You must acquire a custom domain name for your cluster. When you request a certificate from a CA the certificate's subject name must match the custom domain name used for your cluster.
 
 
-The parameters provided by the helper script can be filled in the portal as described in the section [Create a cluster in the Azure portal](service-fabric-cluster-creation-via-portal.md/#create-cluster-portal)
+The parameters provided by the helper script can be filled in the portal as described in the section [Create a cluster in the Azure portal](service-fabric-cluster-creation-via-portal.md/#create-cluster-portal).
 
 ## Next steps
 
