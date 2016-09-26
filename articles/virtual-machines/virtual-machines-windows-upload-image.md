@@ -30,8 +30,8 @@ For more details about disks and VHDs in Azure, see [About disks and VHDs for vi
 You can upload both generalized and specialized VHDs to Azure. Each type requires that you prepare the VM before starting.
 
 - **Generalized VHD** - a generalized VHD has had all of your personal account information removed using Sysprep. If you intend to use the VHD as an image to create new VMs from, you should:
-- [Prepare a Windows VHD to upload to Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md). 
-- [Generalize the virtual machine using Sysprep](virtual-machines-windows-generalize-vhd.md). 
+	- [Prepare a Windows VHD to upload to Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md). 
+	- [Generalize the virtual machine using Sysprep](virtual-machines-windows-generalize-vhd.md). 
 
 - **Specialized VHD** - a specialized VHD maintains the user accounts, applications and other state data from your original VM. If you intend to use the VHD as-is to create a new VM, ensure the following steps are completed. 
 	- [Prepare a Windows VHD to upload to Azure](virtual-machines-windows-prepare-for-upload-vhd-image.md). **Do not** generalize the VM using Sysprep.
@@ -48,7 +48,7 @@ If you don't already have PowerShell version 1.4 or above installed, read [How t
 	Login-AzureRmAccount
 ```
 
-	A pop-up window opens for you to enter your Azure account credentials.
+A pop-up window opens for you to enter your Azure account credentials.
 
 2. Get the subscription IDs for your available subscriptions.
 
@@ -76,19 +76,19 @@ If you want to use an existing storage account, proceed to the [Upload the VM im
 
 If you want to create a storage account, follow these steps:
 
-1. Make sure that you have a resource group for this storage account. Find out all the resource groups that are in your subscription by using:
+1. You need the name of the resource group where the storage account should be created. To find out all the resource groups that are in your subscription, type:
 
 ```powershell
 		Get-AzureRmResourceGroup
 ```
 
-2. To create a resource group, use this command:
+	To create a resource group, use this command:
 
 ```powershell
 		New-AzureRmResourceGroup -Name <resourceGroupName> -Location <location>
 ```
 
-3. Create a storage account in this resource group by using the [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) cmdlet:
+2. Create a storage account in this resource group by using the [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) cmdlet:
 
 ```powershell
 	New-AzureRmStorageAccount -ResourceGroupName <resourceGroupName> -Name <storageAccountName> -Location "<location>" -SkuName "<skuName>" -Kind "Storage"
@@ -110,8 +110,8 @@ Use the [Add-AzureRmVhd](https://msdn.microsoft.com/library/mt603554.aspx) cmdle
 
 ```powershell
 		$rgName = "<resourceGroupName>"
-		$urlOfUploadedImageVhd = "<storageAccount>/<blobContainer>/<targetVHDName>.vhd"
-		Add-AzureRmVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd -LocalFilePath <localPathOfVHDFile>
+		$urlOfUploadedImageVhd = "https://<storageAccount>.blob.core.windows.net/<blobContainer>/<targetVHDName>.vhd"
+		Add-AzureRmVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd -LocalFilePath <localPathOfVHDFile.vhd>
 ```
 
 Where:
