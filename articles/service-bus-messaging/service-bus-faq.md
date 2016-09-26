@@ -46,7 +46,7 @@ A topic can be visualized as a queue and when using multiple subscriptions, it b
 
 ### What is the Azure Service Bus relay service?
 
-The [relay service](service-bus-relay-overview.md) provides the ability to transparently host and access WCF services from anywhere. In other words, this enables hybrid applications that run in both an Azure datacenter and an on-premises enterprise environment.
+The [relay service](../service-bus-relay/service-bus-relay-overview.md) provides the ability to transparently host and access WCF services from anywhere. In other words, this enables hybrid applications that run in both an Azure datacenter and an on-premises enterprise environment.
 
 ### What is a partitioned entity?
 
@@ -198,13 +198,13 @@ To learn more about Service Bus messaging, see the following topics.
 - [Introducing Azure Service Bus Premium messaging (blog post)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 - [Introducing Azure Service Bus Premium messaging (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 - [Service Bus messaging overview](service-bus-messaging-overview.md)
-- [Azure Service Bus architecture overview](service-bus-fundamentals-hybrid-solutions.md)
+- [Azure Service Bus architecture overview](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
 - [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 
 [Best practices for performance improvements using Service Bus brokered messaging]: service-bus-performance-improvements.md
-[Best practices for insulating applications against Service Bus outages and disasters]: service-bus-outages-disasters.md
+[Best practices for insulating applications against Service Bus outages and disasters]: ../service-bus/service-bus-outages-disasters.md
 [Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
-[Quotas overview]: service-bus-quotas.md
-[here]: service-bus-powershell-how-to-provision.md#migrate-a-namespace-to-another-azure-subscription
-[Exceptions overview]: service-bus-messaging-exceptions.md
-[Shared Access Signatures]: service-bus-sas-overview.md
+[Quotas overview]: ../service-bus/service-bus-quotas.md
+[here]: ../service-bus/service-bus-powershell-how-to-provision.md#migrate-a-namespace-to-another-azure-subscription
+[Exceptions overview]: ../service-bus/service-bus-messaging-exceptions.md
+[Shared Access Signatures]: ../service-bus/service-bus-sas-overview.md

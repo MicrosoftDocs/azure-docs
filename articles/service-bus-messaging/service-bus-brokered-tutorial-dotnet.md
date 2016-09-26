@@ -21,7 +21,7 @@ Azure Service Bus provides two comprehensive messaging solutions – one, throug
 
 The second messaging solution enables "brokered" messaging capabilities. These can be thought of as asynchronous, or decoupled messaging features that support publish-subscribe, temporal decoupling, and load balancing scenarios using the Service Bus messaging infrastructure. Decoupled communication has many advantages; for example, clients and servers can connect as needed and perform their operations in an asynchronous fashion.
 
-This tutorial is intended to give you an overview and hands-on experience with queues, one of the core components of Service Bus brokered messaging. After you work through the sequence of topics in this tutorial, you will have an application that populates a list of messages, creates a queue, and sends messages to that queue. Finally, the application receives and displays the messages from the queue, then cleans up its resources and exits. For a corresponding tutorial that describes how to build an application that uses the Service Bus "relayed" messaging capabilities, see the [Service Bus relayed messaging tutorial](service-bus-relay-tutorial.md).
+This tutorial is intended to give you an overview and hands-on experience with queues, one of the core components of Service Bus brokered messaging. After you work through the sequence of topics in this tutorial, you will have an application that populates a list of messages, creates a queue, and sends messages to that queue. Finally, the application receives and displays the messages from the queue, then cleans up its resources and exits. For a corresponding tutorial that describes how to build an application that uses the Service Bus "relayed" messaging capabilities, see the [Service Bus relayed messaging tutorial](../service-bus-relay/service-bus-relay-tutorial.md).
 
 ## Introduction and prerequisites
 
@@ -649,12 +649,12 @@ In Visual Studio, from the **Build** menu, click **Build Solution**, or press **
 
 ## Next steps
 
-This tutorial showed how to build a Service Bus client application and service using the Service Bus brokered messaging capabilities. For a similar tutorial that uses Service Bus [relayed messaging](service-bus-messaging-overview.md#Relayed-messaging), see the [Service Bus relayed messaging tutorial](service-bus-relay-tutorial.md).
+This tutorial showed how to build a Service Bus client application and service using the Service Bus brokered messaging capabilities. For a similar tutorial that uses Service Bus [relayed messaging](service-bus-messaging-overview.md#Relayed-messaging), see the [Service Bus relayed messaging tutorial](../service-bus-relay/service-bus-relay-tutorial.md).
 
 To learn more about [Service Bus](https://azure.microsoft.com/services/service-bus/), see the following topics.
 
 - [Service Bus messaging overview](service-bus-messaging-overview.md)
-- [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
-- [Service Bus architecture](service-bus-architecture.md)
+- [Service Bus fundamentals](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+- [Service Bus architecture](../service-bus/service-bus-architecture.md)
 
 [Azure classic portal]: http://manage.windowsazure.com

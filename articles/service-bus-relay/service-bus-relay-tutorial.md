@@ -17,7 +17,7 @@
 
 # Service Bus relayed messaging tutorial
 
-This tutorial describes how to build a simple Service Bus client application and service using the Service Bus "relay" capabilities. For a corresponding tutorial that uses Service Bus [brokered messaging](service-bus-messaging-overview.md#Brokered-messaging), see the [Service Bus Brokered Messaging .NET Tutorial](service-bus-brokered-tutorial-dotnet.md).
+This tutorial describes how to build a simple Service Bus client application and service using the Service Bus "relay" capabilities. For a corresponding tutorial that uses Service Bus [brokered messaging](../service-bus-messaging/service-bus-messaging-overview.md#Brokered-messaging), see the [Service Bus Brokered Messaging .NET Tutorial](../service-bus-messaging/service-bus-brokered-tutorial-dotnet.md).
 
 Working through this tutorial gives you an understanding of the steps that are required to create a Service Bus client and service application. Like their WCF counterparts, a service is a construct that exposes one or more endpoints, each of which exposes one or more service operations. The endpoint of a service specifies an address where the service can be found, a binding that contains the information that a client must communicate with the service, and a contract that defines the functionality provided by the service to its clients. The main difference between a WCF and a Service Bus service is that the endpoint is exposed in the cloud instead of locally on your computer.
 
@@ -769,13 +769,13 @@ namespace Microsoft.ServiceBus.Samples
 
 ## Next steps
 
-This tutorial showed how to build a Service Bus client application and service using the Service Bus "relay" capabilities. For a similar tutorial that uses Service Bus [brokered messaging](service-bus-messaging-overview.md#Brokered-messaging), see the [Service Bus Brokered Messaging .NET Tutorial](service-bus-brokered-tutorial-dotnet.md).
+This tutorial showed how to build a Service Bus client application and service using the Service Bus "relay" capabilities. For a similar tutorial that uses Service Bus [brokered messaging](../service-bus-messaging/service-bus-messaging-overview.md#Brokered-messaging), see the [Service Bus Brokered Messaging .NET Tutorial](../service-bus-messaging/service-bus-brokered-tutorial-dotnet.md).
 
 To learn more about Service Bus, see the following topics.
 
-- [Service Bus messaging overview](service-bus-messaging-overview.md)
-- [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
-- [Service Bus architecture](service-bus-architecture.md)
+- [Service Bus messaging overview](../service-bus-messaging/service-bus-messaging-overview.md)
+- [Service Bus fundamentals](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+- [Service Bus architecture](../service-bus/service-bus-architecture.md)
 
 [Azure classic portal]: http://manage.windowsazure.com
 

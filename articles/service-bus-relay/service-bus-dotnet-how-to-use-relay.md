@@ -239,9 +239,9 @@ you must replace the placeholders with your Service Bus namespace and SAS key.
 Now that you've learned the basics of the Service Bus relay service, follow these links to learn more.
 
 - [Service Bus relayed messaging overview](service-bus-relay-overview.md)
-- [Azure Service Bus architectural overview](service-bus-fundamentals-hybrid-solutions.md)
+- [Azure Service Bus architectural overview](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
 - Download Service Bus samples from [Azure samples][] or see the [overview of Service Bus samples][].
 
-  [Shared Access Signature Authentication with Service Bus]: service-bus-shared-access-signature-authentication.md
+  [Shared Access Signature Authentication with Service Bus]: ../service-bus/service-bus-shared-access-signature-authentication.md
   [Azure samples]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
-  [overview of Service Bus samples]: service-bus-samples.md
+  [overview of Service Bus samples]: ../service-bus/service-bus-samples.md

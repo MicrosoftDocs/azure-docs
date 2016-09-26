@@ -29,7 +29,7 @@ Service Bus supports two distinct messaging patterns: *relayed* messaging and *b
 
 ## Relayed messaging
 
-The [relay](service-bus-relay-overview.md) component of Service Bus is a centralized (but highly load-balanced) service that supports a variety of different transport protocols and Web services standards. This includes SOAP, WS-*, and even REST. The [relay service](service-bus-dotnet-how-to-use-relay.md) provides a variety of different relay connectivity options and can help negotiate direct peer-to-peer connections when it is possible. Service Bus is optimized for .NET developers who use the Windows Communication Foundation (WCF), both with regard to performance and usability, and provides full access to its relay service through SOAP and REST interfaces. This makes it possible for any SOAP or REST programming environment to integrate with Service Bus.
+The [relay](../service-bus-relay/service-bus-relay-overview.md) component of Service Bus is a centralized (but highly load-balanced) service that supports a variety of different transport protocols and Web services standards. This includes SOAP, WS-*, and even REST. The [relay service](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md) provides a variety of different relay connectivity options and can help negotiate direct peer-to-peer connections when it is possible. Service Bus is optimized for .NET developers who use the Windows Communication Foundation (WCF), both with regard to performance and usability, and provides full access to its relay service through SOAP and REST interfaces. This makes it possible for any SOAP or REST programming environment to integrate with Service Bus.
 
 The relay service supports traditional one-way messaging, request/response messaging, and peer-to-peer messaging. It also supports event distribution at Internet-scope to enable publish-subscribe scenarios and bi-directional socket communication for increased point-to-point efficiency. In the relayed messaging pattern, an on-premises service connects to the relay service through an outbound port and creates a bi-directional socket for communication tied to a particular rendezvous address. The client can then communicate with the on-premises service by sending messages to the relay service targeting the rendezvous address. The relay service will then "relay" messages to the on-premises service through the bi-directional socket already in place. The client does not need a direct connection to the on-premises service, nor is it required to know where the service resides, and the on-premises service does not need any inbound ports open on the firewall.
 
@@ -49,9 +49,9 @@ As with the relayed messaging infrastructure, the brokered messaging capability 
 
 To learn more about Service Bus messaging, see the following topics.
 
-- [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
+- [Service Bus fundamentals](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
 - [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
-- [Service Bus architecture](service-bus-architecture.md)
+- [Service Bus architecture](../service-bus/service-bus-architecture.md)
 - [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 - [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
