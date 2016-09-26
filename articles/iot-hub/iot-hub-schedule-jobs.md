@@ -270,11 +270,14 @@ To continue getting started with IoT Hub and device management patterns such as 
 
 [Tutorial: How to do a firmware update][lnk-fwupdate]
 
-To learn how to extend your IoT solution and schedule method calls on multiple devices, see the [Schedule and broadcast jobs][lnk-tutorial-jobs] tutorial.
-
 To continue getting started with IoT Hub, see [Getting started with the Gateway SDK][lnk-gateway-SDK].
 
-[lnk-get-started-twin]: iot-hub-node-node-getstarted.md
-[lnk-twin-props]: iot-hub-twin-properties.md
+[lnk-get-started-twin]: iot-hub-node-node-twin-getstarted.md
+[lnk-twin-props]: iot-hub-node-node-twin-how-to-configure.md
 [lnk-c2d-methods]: iot-hub-c2d-methods.md
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
+[lnk-fwupdate]: iot-hub-firmware-update.md
+[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
