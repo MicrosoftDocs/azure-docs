@@ -68,8 +68,8 @@ Follow these steps to set up the application:
 
 	The TwitterClient.exe.config file should contain your settings as the example below:
 
-	<add key="EventHubConnectionString" value="Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey" />
-    <add key="EventHubName" value="yourhub" />
+	add key="EventHubConnectionString" value="Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey"
+    add key="EventHubName" value="yourhub"
 
 	It is important to note that the text "EntityPath=" does NOT appear in the EventHubName value.
 	
