@@ -55,7 +55,7 @@ items so make sure you have these things before you get started.
 ## Deploying the POC environments
 
 
-You need to deploy **two** Azure Stack POC environments to
+You will deploy two Azure Stack POC environments to
 complete this configuration.
 
 -   For the first POC, you can simply follow the deployment instructions
@@ -93,30 +93,30 @@ environment so that it is different from the other.
 
 ### Change the External Address (VIP) Range
 
-1.  Open the One Node Customer Configuration Template from the
+1.  Open the One-Node Customer Configuration Template from the
     CloudDeployment package. If you downloaded the package to your C:
     drive, the path to this file looks like this.
 
-> C:\\CloudDeployment\\CustomerConfig.xml
+     > C:\\CloudDeployment\\CustomerConfig.xml
 
-1.  Open the file with your preferred text editor.
+2.  Open the file with your preferred text editor.
 
-2.  Find the Network Configuration section, which should be near the top
+3.  Find the Network Configuration section, which should be near the top
     of the document. Find the network with the name “External”.
 
-> &lt;Network Id="External" Name="External" VLanId="0"&gt;
->
-> &lt;!-- Default Gateway should be .0 --&gt;
->
-> &lt;IPv4 Subnet="192.168.102.0/24" DefaultGateway="192.168.102.0"
-> /&gt;
->
-> &lt;/Network&gt;
+     > &lt;Network Id="External" Name="External" VLanId="0"&gt;
+     >
+     > &lt;!-- Default Gateway should be .0 --&gt;
+     >
+     > &lt;IPv4 Subnet="192.168.102.0/24" DefaultGateway="192.168.102.0"
+     > /&gt;
+     >
+     > &lt;/Network&gt;
 
-1.  Change the **Subnet** entry to **192.168.112.0/24** and the
+4.  Change the **Subnet** entry to **192.168.112.0/24** and the
     **DefaultGateway** entry to **192.168.112.0**.
 
-2.  Be sure to save the file.
+5.  Be sure to save the file.
 
 ### Change the Gateway Pool Public IP Address
 
@@ -127,20 +127,20 @@ Gateway
     text editor. If you downloaded your POC deployment package to your
     C: drive, you would find this file in the following location.
 
-> C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\Gateway\\OneNodeRole.xml
+     > C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\Gateway\\OneNodeRole.xml
 
 2.  Look for the following entry.
 
-> &lt;PublicInfo&gt;
->
-> &lt;VIPs&gt;
->
-> &lt;VIP Id="GatewayPublicIPaddress" Name="PublicIPExternaVIP"
-> NetworkId="External" IPv4Address="192.168.102.1/24" /&gt;
->
-> &lt;/VIPs&gt;
->
-> &lt;/PublicInfo&gt;
+     > &lt;PublicInfo&gt;
+     >
+     > &lt;VIPs&gt;
+     >
+     > &lt;VIP Id="GatewayPublicIPaddress" Name="PublicIPExternaVIP"
+     > NetworkId="External" IPv4Address="192.168.102.1/24" /&gt;
+     >
+     > &lt;/VIPs&gt;
+     >
+     > &lt;/PublicInfo&gt;
 
 3.  Change the value for **Ipv4Address** from **192.168.102.1/24** to
     **192.168.112.1/24**.
@@ -158,40 +158,43 @@ deployment.  In our example, we're going to change each entry from 192.168.102.0
 
 #### Active Directory Federation Services (ADFS)
 
-| **Path to config file:** |  C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\ADFS\\OneNodeRole.xml |
+|||
 |---------------------------|---------------------------------------------------------------------------|
-| **Default Value:**       | &lt;VIP Id="Adfs" Name="Active Directory Federation Services" NetworkId="External" IPv4Address="192.168.102.2/24" EnableOutboundNat="True"&gt; |
-| **New Value:**           | &lt;VIP Id="Adfs" Name="Active Directory Federation Services" NetworkId="External" IPv4Address="192.168.112.2/24" EnableOutboundNat="True"&gt; |
-| **Default Value:**        | &lt;VIP Id="Graph" Name="Azure Stack Graph" NetworkId="External" IPv4Address="192.168.102.8/24" EnableOutboundNat="True"&gt; |
-| **New Value:**             | &lt;VIP Id="Graph" Name="Azure Stack Graph" NetworkId="External" IPv4Address="192.168.112.8/24" EnableOutboundNat="True"&gt; |
+| **Path to config file** |  C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\ADFS\\OneNodeRole.xml |
+| **Default Value**       | &lt;VIP Id="Adfs" Name="Active Directory Federation Services" NetworkId="External" IPv4Address="192.168.102.2/24" EnableOutboundNat="True"&gt; |
+| **New Value**           | &lt;VIP Id="Adfs" Name="Active Directory Federation Services" NetworkId="External" IPv4Address="192.168.112.2/24" EnableOutboundNat="True"&gt; |
+| **Default Value**        | &lt;VIP Id="Graph" Name="Azure Stack Graph" NetworkId="External" IPv4Address="192.168.102.8/24" EnableOutboundNat="True"&gt; |
+| **New Value**             | &lt;VIP Id="Graph" Name="Azure Stack Graph" NetworkId="External" IPv4Address="192.168.112.8/24" EnableOutboundNat="True"&gt; |
 
 #### Fabric Ring Services
-
-|**Path to config file:**  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\FabricRingServices\\OneNodeRole.xml |
+|||
 | --------------------------| ---------------------------------------------------------------------------------------|
-|**Default Value:**        | &lt;VIP Id="XrpExternal" Name="XRP External (extension)" NetworkId="External" IPv4Address="192.168.102.7/24" EnableOutboundNat="True"&gt; |
-| **New Value:**            | &lt;VIP Id="XrpExternal" Name="XRP External (extension)" NetworkId="External" IPv4Address="192.168.112.7/24" EnableOutboundNat="True"&gt; |
+|**Path to config file**  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\FabricRingServices\\OneNodeRole.xml |
+|**Default Value**        | &lt;VIP Id="XrpExternal" Name="XRP External (extension)" NetworkId="External" IPv4Address="192.168.102.7/24" EnableOutboundNat="True"&gt; |
+| **New Value**            | &lt;VIP Id="XrpExternal" Name="XRP External (extension)" NetworkId="External" IPv4Address="192.168.112.7/24" EnableOutboundNat="True"&gt; |
 
 #### Key Vault Service
-
-| **Path to config file:**  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\KeyVault\\OneNodeRole.xml |
+|||
 | ---------------------------|------------------------------------------------------------------------------|
-| **Default Value:**        | &lt;VIP Id="KeyVaultDataPlane" Name="Key Vault Data Plane API" NetworkId="External" IPv4Address="192.168.102.3/24" EnableOutboundNat="True"&gt; |
-| **New Value:**            | &lt;VIP Id="KeyVaultDataPlane" Name="Key Vault Data Plane API" NetworkId="External" IPv4Address="192.168.112.3/24" EnableOutboundNat="True"&gt; |
+| **Path to config file**  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\KeyVault\\OneNodeRole.xml |
+| **Default Value**        | &lt;VIP Id="KeyVaultDataPlane" Name="Key Vault Data Plane API" NetworkId="External" IPv4Address="192.168.102.3/24" EnableOutboundNat="True"&gt; |
+| **New Value**            | &lt;VIP Id="KeyVaultDataPlane" Name="Key Vault Data Plane API" NetworkId="External" IPv4Address="192.168.112.3/24" EnableOutboundNat="True"&gt; |
 
 #### Microsoft Azure Stack Resource Manager
 
-| **Path to config file:**  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\WAS\\OneNodeRole.xml |
+|||
 | ---------------------------| ------------------------------------------------------------------------|
-|**Default Value:**         |&lt;VIP Id="WapApi" Name="Azure Stack Resource Manager" NetworkId="External" IPv4Address="192.168.102.4/24" EnableOutboundNat="True"&gt; |
-| **New Value:**             | &lt;VIP Id="WapApi" Name="Azure Stack Resource Manager" NetworkId="External" IPv4Address="192.168.112.4/24" EnableOutboundNat="True"&gt; |
+| **Path to config file**  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\WAS\\OneNodeRole.xml |
+|**Default Value**         |&lt;VIP Id="WapApi" Name="Azure Stack Resource Manager" NetworkId="External" IPv4Address="192.168.102.4/24" EnableOutboundNat="True"&gt; |
+| **New Value**             | &lt;VIP Id="WapApi" Name="Azure Stack Resource Manager" NetworkId="External" IPv4Address="192.168.112.4/24" EnableOutboundNat="True"&gt; |
 
 #### Azure-consistent Storage Services (WOSS)
 
-| **Path to config file:**  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\WOSS\\OneNodeRole.xml |
+|||
 |--------------------------- | -------------------------------------------------------------------------|
-| **Default Value:**         | &lt;VIP Id="AcsRestApi" Name="Acs Rest API" NetworkId="External" IPv4Address="192.168.102.6/24" EnableOutboundNat="True" InterfaceName="SLBTraffic" &gt; |
-| **New Value:**             | &lt;VIP Id="AcsRestApi" Name="Acs Rest API" NetworkId="External" IPv4Address="192.168.112.6/24" EnableOutboundNat="True" InterfaceName="SLBTraffic" &gt; |
+| **Path to config file**  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\WOSS\\OneNodeRole.xml |
+| **Default Value**         | &lt;VIP Id="AcsRestApi" Name="Acs Rest API" NetworkId="External" IPv4Address="192.168.102.6/24" EnableOutboundNat="True" InterfaceName="SLBTraffic" &gt; |
+| **New Value**             | &lt;VIP Id="AcsRestApi" Name="Acs Rest API" NetworkId="External" IPv4Address="192.168.112.6/24" EnableOutboundNat="True" InterfaceName="SLBTraffic" &gt; |
 
 Once you have made the necessary changes and saved them, you can proceed
 with the second POC deployment. From here it should work exactly like
@@ -263,7 +266,7 @@ you log in.
 2.  In the Azure portal, click the
     **New** icon.
 
- ![](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
+     ![](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
 3.  Select **Networking** from the Marketplace menu.
 
 4.  Click the **Virtual network** item on the menu.
@@ -272,22 +275,22 @@ you log in.
     description blade. Enter the following values into the appropriate
     fields according to this table.
 
-| **Field**             | **Value** |
-|----------------------- | ------ |
-| Name                  |vnet-01 |
-| Address space         | 10.0.0.0/16 |
-| Subnet name           | subnet-01 |
-| Subnet address range  | 10.0.0.0/24 |
+    | **Field**             | **Value** |
+    |----------------------- | ------ |
+    | Name                  |vnet-01 |
+    | Address space         | 10.0.0.0/16 |
+    | Subnet name           | subnet-01 |
+    | Subnet address range  | 10.0.0.0/24 |
 
-1.  You should see the Subscription you created earlier populated in the
+6.  You should see the Subscription you created earlier populated in the
     **Subscription** field.
 
-2.  For Resource Group, you can either create a new Resource Group or if
+7.  For Resource Group, you can either create a new Resource Group or if
     you already have one, select Use existing.
 
-3.  Verify the default location.
+8.  Verify the default location.
 
-4.  Click the **Create** button.
+9.  Click the **Create** button.
 
 ### Create the Gateway Subnet
 
@@ -300,7 +303,7 @@ you log in.
 3.  Click the **Gateway Subnet** button to add a Gateway Subnet to
     the Virtual network.
 
- ![](media/azure-stack-create-vpn-connection-one-node-tp2/image4.png)
+     ![](media/azure-stack-create-vpn-connection-one-node-tp2/image4.png)
 4.  The name of the Subnet is set to **GatewaySubnet** by default.
     Gateway subnets are special and must have this specific name in
     order to function properly.
@@ -344,7 +347,6 @@ you log in.
     the resource to the Dashboard if you like. Click **Create**.
 
 ### Create the Local Network Gateway
-
 
 The Local Network Gateway resource is a little weird in our scenario.
 It’s the same resource you find in Azure, however in Azure it’s
@@ -417,7 +419,7 @@ make sure that both ends are connected properly.
 1.  In the Azure portal, click the
     **New** icon.
 
-  ![](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
+     ![](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
 
 2.  Select **Networking** from the Marketplace menu.
 
@@ -456,7 +458,7 @@ POC1 now and put it on our VM subnet in our virtual network.
 3.  In the list of virtual machine images, select the **Windows Server
     2012 R2 Datacenter** image.
 
- ![](media/azure-stack-create-vpn-connection-one-node-tp2/image6.png)
+    ![](media/azure-stack-create-vpn-connection-one-node-tp2/image6.png)
 
 4.  On the **Basics** blade, in the **Name** field enter the value
     **VM01**.
@@ -506,12 +508,12 @@ you log in.
     description blade. Enter the following values for the appropriate
     fields listed in the table below.
 
-|**Field**              |**Value** |
-| ----------------------|----------|
-| Name                  | vnet-02 |
-| Address space         | 20.0.0.0/16 |
-| Subnet name           | subnet-02 |
-| Subnet address range  | 20.0.0.0/24 |
+    |**Field**              |**Value** |
+    | ----------------------|----------|
+    | Name                  | vnet-02 |
+    | Address space         | 20.0.0.0/16 |
+    | Subnet name           | subnet-02 |
+    | Subnet address range  | 20.0.0.0/24 |
 
 6.  You should see the Subscription you created earlier populated in the
     **Subscription** field.
