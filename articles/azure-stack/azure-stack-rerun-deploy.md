@@ -30,7 +30,7 @@ This is the deployment step where you will start the rerun of the deployment.
 
 ## Find more detail on the Failure
 
-If you want more details on the error, find the associated summary.YYYY-MM-DD.tt.N.log.xml in the C:\CloudDeployment\Logs\ folder.
+If you want more details on the error, find the associated **summary.YYYY-MM-DD.tt.N.log.xml** in the **C:\CloudDeployment\Logs\** folder.
 Search for the string “Error”, and follow it down through the output until you see a large amount of non-XML formatted text containing the error message (this section often coincides with the last instance of the string “Error”). For example:
 
 ![](media/azure-stack-rerun-deployimage01.png)
