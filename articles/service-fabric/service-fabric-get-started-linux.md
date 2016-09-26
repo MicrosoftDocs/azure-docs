@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/24/2016"
+   ms.date="09/25/2016"
    ms.author="seanmck"/>
 
 # Prepare your development environment on Linux
@@ -42,13 +42,8 @@ To install the SDK and the associated runtime package via apt-get, you must firs
     ```bash
     $ sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
     ```
-4. Add an apt source for NodeJS (required for the Azure CLI)
 
-    ```bash
-    $ echo -e "deb https://deb.nodesource.com/node_4.x $(lsb_release -sc) main \ndeb-src https://deb.nodesource.com/node_4.x $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/nodesource.list
-    ```
-
-5. Refresh your package lists based on the newly added repositories.
+4. Refresh your package lists based on the newly added repositories.
 
     ```bash
     $ sudo apt-get update
