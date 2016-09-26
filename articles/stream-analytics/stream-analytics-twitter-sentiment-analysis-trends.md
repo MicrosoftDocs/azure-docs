@@ -62,9 +62,11 @@ Follow these steps to set up the application:
 	[Steps to generate an OAuth access token](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)  
 
 	Note that you will need to make an empty application to generate a token.  
-3.	Replace the EventHubConnectionString and EventHubName values in TwitterClient.exe.config with your Event Hub connection string and name. The connection string you copied earlier gives you both the Event hub connection string and the name, so be aware to separate them and put each in the correct field. For example:
-    Given a connection string of ````Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey;EntityPath=yourhub````
-	The config file will look like this:
+3.	Replace the EventHubConnectionString and EventHubName values in TwitterClient.exe.config with your Event Hub connection string and name. The connection string you copied earlier gives you both the Event hub connection string and the name, so be aware to separate them and put each in the correct field. For example given a connection string of:
+
+    Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey;EntityPath=yourhub
+
+	The TwitterClient.exe.config file should contain your settings as the example below:
 
 	<add key="EventHubConnectionString" value="Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey" />
     <add key="EventHubName" value="yourhub" />
