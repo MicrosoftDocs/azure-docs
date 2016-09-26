@@ -50,7 +50,7 @@ The recommendations for troubleshooting issues that are described in this sectio
 ## Deployment
 
 ### Deployment failure
-If you experience a failure during installation, the Azure Stack installer allows you to continue a failed installation by following the [rerun deployment steps](azure-stack-rerun-deploy.md).
+If you experience a failure during installation, the Azure Stack installer allows you to continue a failed installation by following the rerun deployment steps.
 
 ### At the end of the deployment, the PowerShell session is still open and doesn’t show any output
 
