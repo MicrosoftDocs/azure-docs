@@ -36,17 +36,17 @@ To resolve this issue, try the following methods, in the given order. After you 
 
 	A.	Click **Tools** ![tools button](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Safety** > **InPrivate Browsing**.
 
-	B.	Browse to the [Azure portal](https://portal.azure.com) or the [Azure classic portal](https://manage.windowsazure.com), and then sign in to the portal.
+	B.	Browse to the [Azure portal](https://portal.azure.com), and then sign in to the portal.
 
 ## Error message "No subscriptions found”
 
-This issue can occur if the account doesn’t have sufficient user rights. An account administrator can only access the [Account Center](https://account.windowsazure.com/) whereas service administrators (SA) and co-administrators (CA) only have access to the [Azure portal](https://portal.azure.com) or the [Azure classic portal](https://manage.windowsazure.com/).
+This issue can occur if the account doesn’t have sufficient user rights. An account administrator can only access the [Account Center](https://account.windowsazure.com/) whereas service administrators (SA) and co-administrators (CA) only have access to the [Azure portal](https://portal.azure.com).
 
-**Scenario 1: Error message is received in the Azure portal or the Azure classic portal**
+**Scenario 1: Error message is received in the [Azure portal]((https://portal.azure.com)**
 
 To resolve this issue, [add the co-administrator or owner role](billing-add-change-azure-subscription-administrator.md) for the account.
 
-**Scenario 2: Error message is received in the Azure Account Center**
+**Scenario 2: Error message is received in the [Azure Account Center](https://account.windowsazure.com/Subscriptions)**
 
 Check whether the account that you used is the account administrator. To verify who the account administrator is, follow these steps:
 
@@ -67,14 +67,6 @@ To resolve the issue, try one of the following methods:
 -	Reset the Internet Explorer settings to revert any personal settings that you’ve made. To do this, click **Tools** ![tools button](./media/billing-cannot-login-subscription/Toolsbutton.png)> **Internet Options** > **Advanced** >select the **Delete personal settings** box > **Reset**.
 
 -	Browse to the Azure portal in InPrivate Browsing mode. To do this, click **Tools** ![tools button](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Safety** > **InPrivate Browsing**.
-
-## Azure portals
-
-| Name  | Description  |  URL |
-|---|---|---|
-| Azure portal |A central place where you can provision and manage your Azure resources   | [https://portal.azure.com](https://portal.azure.com)  |
-| Azure classic portal  | The old Azure portal |[https://manage.windowsazure.com](https://manage.windowsazure.com)   |
-| Azure Account Center | A central place where you can track your Azure usage and manage your subscription |[https://account.windowsazure.com/Subscriptions](https://account.windowsazure.com/Subscriptions)   ||
 
 ## Microsoft account vs Organizational account
 
