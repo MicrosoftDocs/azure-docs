@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="09/23/2016" 
+	ms.date="09/26/2016" 
 	ms.author="heidist"/>
 
 # Service administration for Azure Search in the Azure portal
@@ -25,9 +25,9 @@
 
 Azure Search is a fully-managed, cloud-based search service used for building a rich search experience into custom apps. This article covers the *service administration* tasks that you can perform in in the [Azure Portal](https://portal.azure.com) for a search service that you've already provisioned. *Service administration* is light-weight by design, limited to the following tasks:
 
-- Authentication: Managing and securing access to the *api-keys* used for read or write access to your service.
-- Scale: Adjusting service capacity by allocating partitions and replicas.
-- Resource burn rate: Monitoring resource usage, relative to maximum limits of your service tier.
+- Manage and secure access to the *api-keys* used for read or write access to your service.
+- Adjust service capacity by changing the allocation of partitions and replicas.
+- Monitor resource usage, relative to maximum limits of your service tier.
 
 **Not in scope** 
 
@@ -35,19 +35,21 @@ Azure Search is a fully-managed, cloud-based search service used for building a 
 
 *Query performance* is also beyond the scope of this article. See [Performance and optimization in Azure Search](search-performance-optimization.md) for more information.
 
-> [AZURE.NOTE] Azure Search does not provide built-in solutions for disaster recovery or backup-and-restore. For customers who push objects to their service, the source code for creating and populating an index is the de facto restore option. For disaster recovery, customers opt for redundancy via an additional service in a different regional data center.
+Azure Search does not provide built-in solutions for disaster recovery or backup-and-restore. For customers who push objects and data to their service, the source code for creating and populating an index is the de facto restore option. For disaster recovery, customers can opt-in for redundancy via an additional service in a different regional data center. See [Performance and optimization in Azure Search](search-performance-optimization.md) for guidance on geo-distribution of workloads.
 
 <a id="admin-rights"></a>
 ## Administrator rights in Azure Search
 
-Provisioning or decommissioning the service itself can be done by an Azure subscription administrator or a subscription contributor who created the service (also referred to as a service owner).
+Provisioning or decommissioning the service itself can be done by an Azure subscription administrator or co-administrator.
 
-Within a service, anyone with access to the service URL and an admin api-key has read-write access to the service, or the ability to add, delete, or modify server objects such as api-keys, indexes, indexers, data sources, schedules, and role assignments as implemented through [RBAC-defined roles](#rbac).
+Within a service, anyone with access to the service URL and an admin api-key has read-write access to the service, with commensurate ability to add, delete, or modify server objects such as api-keys, indexes, indexers, data sources, schedules, and role assignments as implemented through [RBAC-defined roles](#rbac).
+
+All user interaction with Azure Search falls within one one of thse modes: read-write access to the service (administrator rights), or read-only access to the service (query rights).
 
 <a id="sys-info"></a>
 ## Logging in Azure Search and system information
 
-Azure Search does not expose log files for an individual service either through the portal or programmatic interfaces. At the Basic tier and above, Microsoft monitors all Azure Search services for 99.9% availability per service level agreements (SLA). If the service is slow or request throughput falls below SLA thresholds, support teams will address the issue and review log files available to them.
+Azure Search does not expose log files for an individual service either through the portal or programmatic interfaces. At the Basic tier and above, Microsoft monitors all Azure Search services for 99.9% availability per service level agreements (SLA). If the service is slow or request throughput falls below SLA thresholds, support teams will review log files available to them and address the issue.
 
 In terms of general information about your service, you can obtain information in the following ways:
 
@@ -60,18 +62,18 @@ In terms of general information about your service, you can obtain information i
 
 All requests to a search service will need an api-key that was generated specifically for your service. This api-key is the sole mechanism for authenticating access to your search service endpoint. 
 
-An api-key is string composed of randomly generated numbers and letters. It is generated exclusively by your service. Through RBAC permissions, you can delete or read them, but you can't specify a user-defined string (specifically, if you have passwords that you routinely use, you can't override the generated value with a user-defined password). 
+An api-key is a string composed of randomly generated numbers and letters. It is generated exclusively by your service. Through RBAC permissions, you can delete or read the keys, but you can't specify a user-defined string (specifically, if you have passwords that you routinely use, you can't override the generated value with a user-defined password). 
 
 Two types of keys are used to access your search service:
 
 +	Admin (valid for any read-write operation against the service)
 +	Query (valid for read-only operations such as queries against an index)
 
-An admin api-key is created when the service is provisioned. There are two admin keys. Each one is designated as *primary* and *secondary* to keep them straight, but in fact they are interchangeable. Each service has two admin keys so that you can roll one over without losing access to your service. You can regenerate either admin key, but you cannot add to the total admin key count. There is a maximum of two admin keys per search service.
+An admin api-key is created when the service is provisioned. There are two admin keys, designated as *primary* and *secondary* to keep them straight, but in fact they are interchangeable. Each service has two admin keys so that you can roll one over without losing access to your service. You can regenerate either admin key, but you cannot add to the total admin key count. There is a maximum of two admin keys per search service.
 
-Query keys are designed for client applications that call Search directly. You can create up to 50 query keys. In application code, you specify the search URL and a query api-key to allow read-only access to the service.
+Query keys are designed for client applications that call Search directly. You can create up to 50 query keys. In application code, you specify the search URL and a query api-key to allow read-only access to the service. Your application code also specifies the index used by your application. Together, the endpoint, an api-key for read-only access, and a target index define the scope and access level of the connection from your client application.
 
-To get or regenerate api-keys, open the service dashboard. Click **KEYS** to slide open the key management page. Commands for regenerating or creating keys are at the top of the page.
+To get or regenerate api-keys, open the service dashboard. Click **KEYS** to slide open the key management page. Commands for regenerating or creating keys are at the top of the page. By default, only admin keys are created. Query api-keys must be created manually.
 
  ![][9]
 
@@ -88,14 +90,13 @@ Owner|Create or delete the service or any object on the service, including api-k
 Contributor|Has the same level of access as Owner, except for RBAC role management. For example, a Contributor can view and regenerate `api-key`, but he or she cannot modify role memberships.
 Reader|View service status and query keys. Members of this role cannot change service configuration, nor can they view admin keys.
 
-Note that roles do not grant access rights to the service endpoint. Search service operations, such as index management, index population, and queries on search data, are controlled through api-keys, not roles. See "Authorization for management versus data operations" in [Role-based access control in Azure Portal](../active-directory/role-based-access-control-configure.md) for more information.
+Note that roles do not grant access rights to the service endpoint. Search service operations, such as index management, index population, and queries on search data, are controlled through api-keys, not roles. See "Authorization for management versus data operations" in [What is Role-based access control](../active-directory/\role-based-access-control-what-is/) for more information.
 
-Roles provide access control after the service is created. Only subscription administrators can add a Search service to a subscription.
 
 <a id="secure-keys"></a>
 ## Secure the api-keys
 
-Securing keys is a function of limiting access to the keys via the portal or Azure Resource Management (ARM) interfaces. As noted, subscription administrators and service owners can view and regenerate admin and query api-keys. As a precaution review role assignments to understand who has access to the admin keys.
+Key security is ensured by restricting access via the portal or Azure Resource Management (ARM) interfaces. As noted, subscription administrators can view and regenerate all api-keys. As a precaution, review role assignments to understand who has access to the admin keys.
 
 1. In the service dashboard, click the Access icon to slide open the Users blade.
    ![][7]
