@@ -158,43 +158,43 @@ deployment.  In our example, we're going to change each entry from 192.168.102.0
 
 #### Active Directory Federation Services (ADFS)
 
-|||
+| Item | Configuration |
 |---------------------------|---------------------------------------------------------------------------|
-| **Path to config file** |  C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\ADFS\\OneNodeRole.xml |
-| **Default Value**       | &lt;VIP Id="Adfs" Name="Active Directory Federation Services" NetworkId="External" IPv4Address="192.168.102.2/24" EnableOutboundNat="True"&gt; |
-| **New Value**           | &lt;VIP Id="Adfs" Name="Active Directory Federation Services" NetworkId="External" IPv4Address="192.168.112.2/24" EnableOutboundNat="True"&gt; |
-| **Default Value**        | &lt;VIP Id="Graph" Name="Azure Stack Graph" NetworkId="External" IPv4Address="192.168.102.8/24" EnableOutboundNat="True"&gt; |
-| **New Value**             | &lt;VIP Id="Graph" Name="Azure Stack Graph" NetworkId="External" IPv4Address="192.168.112.8/24" EnableOutboundNat="True"&gt; |
+| Path to config file |  C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\ADFS\\OneNodeRole.xml |
+| Default Value       | &lt;VIP Id="Adfs" Name="Active Directory Federation Services" NetworkId="External" IPv4Address="192.168.102.2/24" EnableOutboundNat="True"&gt; |
+| New Value           | &lt;VIP Id="Adfs" Name="Active Directory Federation Services" NetworkId="External" IPv4Address="192.168.112.2/24" EnableOutboundNat="True"&gt; |
+| Default Value        | &lt;VIP Id="Graph" Name="Azure Stack Graph" NetworkId="External" IPv4Address="192.168.102.8/24" EnableOutboundNat="True"&gt; |
+| New Value             | &lt;VIP Id="Graph" Name="Azure Stack Graph" NetworkId="External" IPv4Address="192.168.112.8/24" EnableOutboundNat="True"&gt; |
 
 #### Fabric Ring Services
-|||
+| Item | Configuration |
 |---------------------------|---------------------------------------------------------------------------|
-|**Path to config file**  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\FabricRingServices\\OneNodeRole.xml |
-|**Default Value**        | &lt;VIP Id="XrpExternal" Name="XRP External (extension)" NetworkId="External" IPv4Address="192.168.102.7/24" EnableOutboundNat="True"&gt; |
-| **New Value**            | &lt;VIP Id="XrpExternal" Name="XRP External (extension)" NetworkId="External" IPv4Address="192.168.112.7/24" EnableOutboundNat="True"&gt; |
+| Path to config file  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\FabricRingServices\\OneNodeRole.xml |
+| Default Value        | &lt;VIP Id="XrpExternal" Name="XRP External (extension)" NetworkId="External" IPv4Address="192.168.102.7/24" EnableOutboundNat="True"&gt; |
+| New Value            | &lt;VIP Id="XrpExternal" Name="XRP External (extension)" NetworkId="External" IPv4Address="192.168.112.7/24" EnableOutboundNat="True"&gt; |
 
 #### Key Vault Service
-|||
+| Item | Configuration |
 |---------------------------|---------------------------------------------------------------------------|
-| **Path to config file**  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\KeyVault\\OneNodeRole.xml |
-| **Default Value**        | &lt;VIP Id="KeyVaultDataPlane" Name="Key Vault Data Plane API" NetworkId="External" IPv4Address="192.168.102.3/24" EnableOutboundNat="True"&gt; |
-| **New Value**            | &lt;VIP Id="KeyVaultDataPlane" Name="Key Vault Data Plane API" NetworkId="External" IPv4Address="192.168.112.3/24" EnableOutboundNat="True"&gt; |
+| Path to config file  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\KeyVault\\OneNodeRole.xml |
+| Default Value        | &lt;VIP Id="KeyVaultDataPlane" Name="Key Vault Data Plane API" NetworkId="External" IPv4Address="192.168.102.3/24" EnableOutboundNat="True"&gt; |
+| New Value          | &lt;VIP Id="KeyVaultDataPlane" Name="Key Vault Data Plane API" NetworkId="External" IPv4Address="192.168.112.3/24" EnableOutboundNat="True"&gt; |
 
 #### Microsoft Azure Stack Resource Manager
 
-|||
+| Item | Configuration |
 |---------------------------|---------------------------------------------------------------------------|
-| **Path to config file**  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\WAS\\OneNodeRole.xml |
-|**Default Value**         |&lt;VIP Id="WapApi" Name="Azure Stack Resource Manager" NetworkId="External" IPv4Address="192.168.102.4/24" EnableOutboundNat="True"&gt; |
-| **New Value**             | &lt;VIP Id="WapApi" Name="Azure Stack Resource Manager" NetworkId="External" IPv4Address="192.168.112.4/24" EnableOutboundNat="True"&gt; |
+| Path to config file  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\WAS\\OneNodeRole.xml |
+| Default Value         |&lt;VIP Id="WapApi" Name="Azure Stack Resource Manager" NetworkId="External" IPv4Address="192.168.102.4/24" EnableOutboundNat="True"&gt; |
+| New Value             | &lt;VIP Id="WapApi" Name="Azure Stack Resource Manager" NetworkId="External" IPv4Address="192.168.112.4/24" EnableOutboundNat="True"&gt; |
 
 #### Azure-consistent Storage Services (WOSS)
 
-|||
+| Item | Configuration |
 |---------------------------|---------------------------------------------------------------------------|
-| **Path to config file**  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\WOSS\\OneNodeRole.xml |
-| **Default Value**         | &lt;VIP Id="AcsRestApi" Name="Acs Rest API" NetworkId="External" IPv4Address="192.168.102.6/24" EnableOutboundNat="True" InterfaceName="SLBTraffic" &gt; |
-| **New Value**             | &lt;VIP Id="AcsRestApi" Name="Acs Rest API" NetworkId="External" IPv4Address="192.168.112.6/24" EnableOutboundNat="True" InterfaceName="SLBTraffic" &gt; |
+| Path to config file  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\WOSS\\OneNodeRole.xml |
+| Default Value         | &lt;VIP Id="AcsRestApi" Name="Acs Rest API" NetworkId="External" IPv4Address="192.168.102.6/24" EnableOutboundNat="True" InterfaceName="SLBTraffic" &gt; |
+| New Value             | &lt;VIP Id="AcsRestApi" Name="Acs Rest API" NetworkId="External" IPv4Address="192.168.112.6/24" EnableOutboundNat="True" InterfaceName="SLBTraffic" &gt; |
 
 Once you have made the necessary changes and saved them, you can proceed
 with the second POC deployment. From here it should work exactly like
