@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="09/23/2016"
+	ms.date="09/27/2016"
 	ms.author="marsma"/>
 
 # Get started with the Azure Batch Python client
