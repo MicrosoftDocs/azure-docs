@@ -14,32 +14,32 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/23/2016"
+   ms.date="09/26/2016"
    ms.author="telmos"/>
 
 # Implementing Azure Active Directory
 
 [AZURE.INCLUDE [pnp-RA-branding](../../includes/guidance-pnp-header-include.md)]
 
-This article describes best practices for integrating on-premises Active Directory (AD) domains and forests with Azure Active Directory to provide cloud-based identity federation.
+This article describes best practices for integrating on-premises Active Directory (AD) domains and forests with Azure Active Directory to provide cloud-based identity authentication.
 
 > [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This reference architecture uses Resource Manager, which Microsoft recommends for new deployments.
 
-You can use directory and identity services, such as those provided by AD Directory Services (AD DS) and AD Federation Services (AD FS), to authenticate identities. These identities can belong to users, computers, applications, or other resources that form part of a security domain. You can host directory and identity services on-premises, but in a hybrid scenario where elements of an application are located in Azure it can be more efficient to replicate this functionality to the cloud. This approach can help  reduce the latency caused by sending authentication and local authorization requests from the cloud back to the directory and identity services running on-premises.
+You can use directory and identity services, such as those provided by AD Directory Services (AD DS) to authenticate identities. These identities can belong to users, computers, applications, or other resources that form part of a security domain. You can host directory and identity services on-premises, but in a hybrid scenario where elements of an application are located in Azure it can be more efficient to extend this functionality into the cloud. This approach can help  reduce the latency caused by sending authentication and local authorization requests from the cloud back to the directory and identity services running on-premises.
 
 Azure provides two solutions for implementing directory and identity services in the cloud:
 
-1. You can use [Azure Active Directory (AAD)][azure-active-directory] to create a new AD domain in the cloud and link it to an on-premises AD domain. Then set up [Azure AD Connect][azure-ad-connect] on-premises to replicate objects and identities held in the the on-premises repository to the cloud. Note that the directory in the cloud is **not** an extension of the on-premises system, rather it's a copy that contains the same objects and identities. Changes made to these items on-premises will be copied to the cloud, but changes made in the cloud **may not** be replicated back to the on-premises domain. Also, note that the same instance of AAD can be linked to more than one instance of AD DS; AAD will contain the data from each AD repository to which it is linked.
+1. You can use [Azure Active Directory (AAD)][azure-active-directory] to create a new AD domain in the cloud and link it to an on-premises AD domain. AAD enables you to configure single sign-on (SSO) for users running applications accessed through the cloud. AAD utilizes [Azure AD Connect][azure-ad-connect] running on-premises to replicate objects and identities held in the the on-premises repository to the cloud.
 
-	>[AZURE.NOTE] Azure Active Directory Premium edition enables write-back of user passwords, enabling your on-premises users to perform self-service password resets.
+	You can also implement AAD without using an on-premises directory. In this case, AAD acts as the primary source of all identity information rather than containing data replicated from an on-premises directory.
 
-	It is also important to understand that AAD combines directory and identity services, enabling you to configure single sign-on (SSO) for users running applications accessed through the cloud.
+	Note that the directory in the cloud is **not** an extension of an on-premises directory. Rather, it's a copy that contains the same objects and identities. Changes made to these items on-premises will be copied to the cloud, but changes made in the cloud **will not** be replicated back to the on-premises domain.
 
-2. You can deploy a VM running AD DS as a domain controller in Azure, extending your existing AD infrastructure from your on-premises datacenter, and you can deploy AD FS servers in the cloud as part of the same domain. This approach is more common for scenarios where the on-premises network and Azure virtual network are connected by a VPN and/or ExpressRoute connection. This solution also supports bi-directional replication enabling you make changes in the cloud and on-premises, wherever it is most appropriate.
+	>[AZURE.NOTE] The Azure Active Directory Premium editions support write-back of users' passwords, enabling your on-premises users to perform self-service password resets in the cloud. This is the only information that AAD will synchronize back to the on-premises directory. For more information about the different editions of AAD and the features that each provides, see [Azure Active Directory Editions][aad-editions].
+
+2. You can deploy a VM running AD DS as a domain controller in Azure, extending your existing AD infrastructure (including AD DS and AD FS) from your on-premises datacenter. This approach is more common for scenarios where the on-premises network and Azure virtual network are connected by a VPN and/or ExpressRoute connection. This solution also supports bi-directional replication enabling you make changes in the cloud and on-premises, wherever it is most appropriate.
 
 This architecture focuses on solution 1. For more information about the second solution, see [Federating with a customer's AD FS for multitenant apps in Azure][adfs-multitenant].
-
->[AZURE.NOTE] You can also implement AAD without using an on-premises directory. In this case, AAD acts as the primary source of all identity information rather than containing data replicated from an on-premises directory.
 
 Typical use cases for this architecture include:
 
@@ -53,7 +53,7 @@ Typical use cases for this architecture include:
 
 - Situations where the on-premises network and Azure virtual network hosting cloud applications are not directly linked by using a VPN tunnel or ExpressRoute circuit.
 
-You should note that AAD does not provide all the functionality of AD. For example, AAD currently only handles user authentication rather than computer authentication. Some applications and services, such as SQL Server, may require computer authentication in which case this solution is not appropriate. Additionally, AAD might not be suitable for systems where components could migrate across the on-premises/cloud boundary as this could require reconfiguration of AAD.
+You should note that AAD does not provide all the functionality of AD. For example, AAD currently only handles user authentication rather than computer authentication. Some applications and services, such as SQL Server, may require computer authentication in which case this solution is not appropriate. Additionally, AAD might not be suitable for systems where components could migrate across the on-premises/cloud boundary rather than just being copied.
 
 > [AZURE.NOTE] For a detailed explanation of how Azure Active Directory works, watch [Microsoft Active Directory Explained][aad-explained].
 
@@ -65,9 +65,7 @@ The following diagram highlights the important components in this architecture (
 
 [![0]][0]
 
-- **Azure Active Directory tenant**. This is an instance of AAD created by your organization. It acts as a simple directory service for cloud applications, and can also provide identity services.
-
-- **Cloud Office 365**, **Public Cloud**, **SaaS**, **Azure**. These are examples of cloud-based applications and services for which AAD can act as an identity broker.
+- **Azure Active Directory tenant**. This is an instance of AAD created by your organization. It acts as a simple directory service for cloud applications (it holds objects copied from the on-premises AD), and provides identity services.
 
 - **Web tier subnet**. This subnet holds VMs that implement a custom cloud-based application developed by your organization and for which AAD can act as an identity broker.
 
@@ -75,35 +73,55 @@ The following diagram highlights the important components in this architecture (
 
 	>[AZURE.NOTE] The application proxy connector opens an outbound network connection to the Azure AD application proxy. Remote users requests are routed back from AAD through this connection to the web apps. This mechanism removes the need to open inbound ports in the on-premises firewall, reducing the attack surface exposed by your organization.
 
-- **On-premises AD FS server** and **on-premises AD DS server**. Your organization will likely already have an existing directory service such as AD DS, and may implement identity federation through AD FS. If necessary, you can configure AAD to perform authentication through an on-premises AD FS server, which can, in turn, utilize the on-premises AD DS server.
+- **On-premises AD DS server**. Your organization will likely already have an existing directory service such as AD DS. You can synchronize many of the items in your AD DS directory (such as user and group information) with AAD, to enable AAD to use this information to authenticate identities.
 
 - **Azure AD Connect sync server**. This is an on-premises computer that runs the Azure AD Connect sync service. You install this service by using the Azure AD Connect software. The Azure AD Connect sync service synchronizes information (Users, Groups, Contacts, etc) held in the on-premises AD to AAD in the cloud. For example, you can provision or deprovision groups and users on-premises and these changes will be propagated to AAD. The Azure AD Connect sync service passes information to the AAD tenant.
 
-	>[AZURE.NOTE] For security reasons, user's passwords are not stored directly in AAD. Rather, AAD holds a hash each password; this is sufficient to verify a user's password. If a user requires a password reset, this must be performed on-premises and the new hash sent to AAD. AAD Premium includes features that can automate this task to enable users to reset their own passwords.
+	>[AZURE.NOTE] For security reasons, user's passwords are not stored directly in AAD. Rather, AAD holds a hash each password; this is sufficient to verify a user's password. If a user requires a password reset, this must be performed on-premises and the new hash sent to AAD. AAD Premium editions include features that can automate this task to enable users to reset their own passwords.
 
 ## Recommendations
 
 This section summarizes recommendations for implementing AAD.
 
-### VM recommendations
+### Azure AD Connect sync service recommendations
 
-You can run the Azure AD Connect sync service using a VM or a computer hosted on-premises. Depending on the volatility of the information in your AD directory, once the initial synchronization with AAD has been performed the load on the Azure AD Connect sync service is unlikely to be high. Using a VM enables you to more easily scale the server (monitor the activity as described in the [Monitoring considerations](#monitoring-considerations) section to determine whether this is necessary), and to also implement high availability for the AD Connect sync service by running a secondary staging server. For more information, see the [Topology considerations](#topology-considerations) section.
+Synchronization is concerned with ensuring that users identity information in the cloud is consistent with that held on premises. The purpose of the Azure AD Connect sync service is to maintain this consistency. The following points summarize recommendations for implementing the Azure AD Connect sync service:
+
+- Prior to implementing Azure AD Connect sync, you should determine the synchronization requirements of your organization (what to synchronize, from which domains, and how frequently. The article [Determine directory synchronization requirements][aad-sync-requirements] describes the points that you should consider.
+
+- You can run the Azure AD Connect sync service using a VM or a computer hosted on-premises. Depending on the volatility of the information in your AD directory, once the initial synchronization with AAD has been performed the load on the Azure AD Connect sync service is unlikely to be high. Using a VM enables you to more easily scale the server (monitor the activity as described in the [Monitoring considerations](#monitoring-considerations) section to determine whether this is necessary).
+
+- If you have multiple on-premises domains in a forest, you can store and synchronize information for the entire forest to a single AAD tenant (this is the recommended approach). Filter information for identities that occur in more than one domain so that each identity appears only once in AAD rather then being duplicated as this can lead to inconsistencies when data is synchronized. This approach requires implementing multiple Azure AD Connect sync servers. For more information, see the Multiple AAD scenario in the [Topology considerations](#topology-considerations) section. 
+
+- Use filtering to limit the data stored in AAD to only that which is necessary. For example, your organization might not want to store information about inactive or non-personal accounts in AAD. Filtering can be group-based, domain-based, OU-based, or attribute-based, and you can combine filters to generate more complex rules. For example, you could select to synchronize only objects held in a domain that have a specific value in a selected attribute. For detailed information, see [Azure AD Connect sync: Configure Filtering][aad-filtering].
+
+- To implement high availability for the AD Connect sync service, run a secondary staging server. For more information, see the [Topology considerations](#topology-considerations) section.
 
 ### Security recommendations
 
-Use conditional access control to deny authentication requests from unexpected sources:
+The items below summarize the primary security recommendations for implementing AAD, depending on the requirements of your organization:
 
-- Trigger [Azure Multi-Factor Authentication (MFA)][azure-multifactor-authentication] if a user attempts to connect from a non-trusted location (such as across the Internet) rather than a trusted network.
+- Managing users' passwords.
 
-- Use the device platform type of the user (iOS, Android, Windows Mobile, Windows) to determine access policy to applications and features.
+	If you are using a premium edition of AAD, you can enable password write-back from AAD to your on-premises directory by performing a custom installation of Azure AD Connect:
 
-- Record the enabled/disabled state of users' devices, and incorporate this information into the access policy checks. For example, if a user's phone is lost or stolen it should be recorded as disabled to prevent it from being used to gain access.
+	[![9]][9]
 
-- Control the level of access to a user based on group membership. Use [AAD dynamic membership rules][aad-dynamic-membership-rules] to simplify group administration. For a brief overview of how this works, see [Introduction to Dynamic Memberships for Groups][aad-dynamic-memberships].
+	This feature enables users to reset their own passwords from within the Azure portal, but should only be enabled after reviewing your organization's password security policy. For example, you can restrict which users can change their passwords, and you can tailor the password management experience. For more information, see [Customizing Password Management to fit your organization's needs][aad-password-management].
 
-- Use conditional access risk policies with AAD Identity Protection to provide advanced protection based on unusual sign-in activities or other events.
+- Maintaining protection for on-premises applications that can be accessed externally.
 
-For more information, see [Azure Active Directory conditional access][aad-conditional-access].
+	Use the Azure AD Application Proxy to provide controlled access to on-premises web applications from external users through AAD. This approach protects your applications by not exposing them directly to the Internet. Only users that have valid credentials in you Azure directory will be able to reacch your applications. For more information, see the article [Enable Application Proxy in the Azure portal][aad-application-proxy].
+
+- Actively monitoring AAD for signs of suspicious activity.
+
+	Consider using AAD Premium P2 edition, which includes AAD Identity Protection. Identity Protection uses adaptive machine learning algorithms and heuristics to detect anomalies and risk events that may indicate that an identity has been compromised. For example, it can detect potentially anomalous activity such as irregular sign-in activities, sign-ins from unknown sources or from IP addresses with suspicious activity, or sign-ins from devices that may be infected. Using this data, Identity Protection generates reports and alerts that enables you to investigate these risk events and take appropriate remediation or mitigation action. For more information, see [Azure Active Directory Identity Protection][aad-identity-protection].
+
+	You can also use the reporting feature of AAD in the Azure portal to monitor suspicious and other security-related activities occurring within your system. AAD can generate a series of summary reports:
+
+	[![17]][17]
+
+	For more information about using these reports, see [Azure Active Directory Reporting Guide][aad-reporting-guide].
 
 ## Topology considerations
 
@@ -133,13 +151,13 @@ If you are integrating an on-premises directory with AAD, configure Azure AD Con
 
 	- Introducing a new server and decommissioning an old configuration. 
 
-	In these scenarios, the second instance runs in *staging mode*. The server records imported objects and synchronization data in its database, but does not pass the data to AAD. Only when you disable staging mode does the server start writing data to AAD, and also starts performing writebacks into the on-premises directories where appropriate:
+	In these scenarios, the second instance runs in *staging mode*. The server records imported objects and synchronization data in its database, but does not pass the data to AAD. Only when you disable staging mode does the server start writing data to AAD, and also starts performing password write-backs into the on-premises directories where appropriate:
 
 	[![4]][4]
 
 	For more information, see [Azure AD Connect sync: Operational tasks and considerations][aad-connect-sync-operational-tasks].
 
-- **Multiple AAD directories**. It is recommended that you create a single AAD directory for an organization, but there may be situations where you need to partition information across separate AAD directories. In this case, you should ensure that each object from the on-premises forest appears only in one AAD directory, to avoid synchronization and writeback issues.
+- **Multiple AAD directories**. It is recommended that you create a single AAD directory for an organization, but there may be situations where you need to partition information across separate AAD directories. In this case, you should ensure that each object from the on-premises forest appears only in one AAD directory, to avoid synchronization and password write-back issues.
 
 	To implement this scenario, configure separate Azure AD Connect sync servers for each AAD directory, and use filtering so each Azure AD Connect sync server operates on a mutually exclusive set of objects: 
 
@@ -151,21 +169,13 @@ For more information about these topologies, see [Topologies for Azure AD Connec
 
 By default, the AAD service assumes that users will log in by providing the same password that they use on-premises, and the Azure AD Connect sync server configures password synchronization between the on-premises domain and AAD. For many organizations, this is appropriate, but you should consider your organization's existing policies and infrastructure. For example:
 
-- Your organization might already have AD FS or a 3rd party federation provider deployed.
-
 - The security policy of your organization might prohibit synchronizing password hashes to the cloud.
 
 - You might require that users experience seamless SSO (without additional password prompts) when accessing cloud resources from domain joined machines on the corporate network.
 
+- Your organization might already have AD FS or a 3rd party federation provider deployed. You can configure AAD to use this infrastructure to implement authentication and SSO rather than by using password information held in the cloud.
+
 For more information, see [Azure AD Connect User Sign on options][aad-user-sign-in].
-
-If you use AD FS on-premises to provide single sign-on, you can configure AAD to use your installation of AD FS to identify users. You have two options in this case:
-
-- *Federation Server with AD FS*. This option to enables you to install and configure a new instance of AD FS with Azure AD Connect. For detailed information, see [Custom installation of Azure AD Connect: Configuring federation with AD FS][aad-adfs]. Note that this architecture requires you to add a custom domain to AD FS that corresponds to your on-premises domain, and you must verify your domain before AAD can establish a trust relationship with it. For more information, see [Add a custom domain name to Azure Active Directory][aad-custom-domain].
-
-- *Do not configure*. Select this option if you already have a 3rd party federation server or another existing solution in place.
-
-[![7]][7]
 
 ## Object synchronization considerations
 
@@ -175,31 +185,23 @@ You can filter by domain or OU to limit the objects to be synchronized by perfor
 
 [![8]][8]
 
+You can also implement complex custom filtering, as described in the article [Azure AD Connect sync: Configure Filtering][aad-filtering].
+
 ## Security considerations
 
-Security concerns address the following aspects of AAD:
+Use conditional access control to deny authentication requests from unexpected sources:
 
-- Managing users' passwords.
+- Trigger [Azure Multi-Factor Authentication (MFA)][azure-multifactor-authentication] if a user attempts to connect from a non-trusted location (such as across the Internet) rather than a trusted network.
 
-	If you are using a premium version of AAD, you can enable password writeback from AAD to your on-premises directory by performing a custom installation of Azure AD Connect:
+- Use the device platform type of the user (iOS, Android, Windows Mobile, Windows) to determine access policy to applications and features.
 
-	[![9]][9]
+- Record the enabled/disabled state of users' devices, and incorporate this information into the access policy checks. For example, if a user's phone is lost or stolen it should be recorded as disabled to prevent it from being used to gain access.
 
-	This feature enables users to reset their own passwords from within the Azure portal, but should only be enabled after reviewing your organization's password security policy. For example, you can restrict which users can change their passwords, and you can tailor the password management experience. For more information, see [Customizing Password Management to fit your organization's needs][aad-password-management].
+- Control the level of access to a user based on group membership. Use [AAD dynamic membership rules][aad-dynamic-membership-rules] to simplify group administration. For a brief overview of how this works, see [Introduction to Dynamic Memberships for Groups][aad-dynamic-memberships].
 
-- Maintaining protection for on-premises applications that can be accessed externally.
+- Use conditional access risk policies with AAD Identity Protection to provide advanced protection based on unusual sign-in activities or other events.
 
-	Use the Azure AD Application Proxy to provide controlled access to on-premises web applications from external users through AAD. This approach protects your applications by not exposing them directly to the Internet. Only users that have valid credentials in you Azure directory will be able to reacch your applications. For more information, see the article [Enable Application Proxy in the Azure portal][https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-enable/].
-
-- Actively monitoring AAD for signs of suspicious activity.
-
-	Consider using AAD Premium P2 edition, which includes AAD Identity Protection. Identity Protection uses adaptive machine learning algorithms and heuristics to detect anomalies and risk events that may indicate that an identity has been compromised. For example, it can detect potentially anomalous activity such as irregular sign-in activities, sign-ins from unknown sources or from IP addresses with suspicious activity, or sign-ins from devices that may be infected. Using this data, Identity Protection generates reports and alerts that enables you to investigate these risk events and take appropriate remediation or mitigation action. For more information, see [Azure Active Directory Identity Protection][aad-identity-protection].
-
-	You can also use the reporting feature of AAD in the Azure portal to monitor suspicious and other security-related activities occurring within your system. AAD can generate a series of summary reports:
-
-	[![17]][17]
-
-	For more information about using these reports, see [Azure Active Directory Reporting Guide][aad-reporting-guide].
+For more information, see [Azure Active Directory conditional access][aad-conditional-access].
 
 ## Scalability considerations
 
@@ -245,7 +247,7 @@ AAD provides the following options for managing domains and directories in the c
 
 Azure AD Connect installs the following tools that you use to maintain the Azure AD Connect sync services from your on-premises machines:
 
-- The Microsoft Azure Active Directory Connect console. This tool enables you to modify the configuration of the Azure AD Sync server, customize the way in which synchronization occurs, enable or disable staging mode, and switch the user sign-in mode (you can enable AD FS sign-in if you did not specify this previously):
+- The Microsoft Azure Active Directory Connect console. This tool enables you to modify the configuration of the Azure AD Sync server, customize the way in which synchronization occurs, enable or disable staging mode, and switch the user sign-in mode (you can enable AD FS sign-in using your on-premises infrastructure):
 
 	[![11]][11]
 
@@ -281,9 +283,7 @@ Health monitoring is performed by using a series of agents installed on-premises
 
 	For more information, see [Using Azure AD Connect Health with AD DS][aad-health-adds]
 
-- Install the Azure AD Connect Health for AD FS agent to monitor the health of AD FS running on on-premises, and use the the Azure Active Directory Connect Health blade in the Azure portal to monitor AD DS:
-
-	[![17]][17]
+- Install the Azure AD Connect Health for AD FS agent to monitor the health of AD FS running on on-premises, and use the the Azure Active Directory Connect Health blade in the Azure portal to monitor AD DS.
 
 	For more information, see [Using Azure AD Connect Health with AD FS][aad-health-adfs]
 
@@ -304,12 +304,6 @@ The scenarios that these steps demonstrate are:
 - Enabling access to the n-tier web application running in the cloud to external users, with AAD providing password authentication.
 
 - Enabling access to the n-tier web application running in the cloud to users running within the organization, with AAD providing password authentication and SSO.
-
-	**THE FOLLOWING TWO SCENARIOS TBD ?**
-
-- Enabling access to the n-tier web application running in the cloud to users running within the organization, with AAD utilizing AD FS running on-premises to provide authentication and SSO.
-
-- Enabling access to a web application running on-premises to external users, with AAD providing authentication.
 
 ### Prerequisites
 
@@ -354,12 +348,22 @@ The steps that follow assume the following prerequisites:
     $resourceGroupName = "ra-aad-ntier-rg"
     ```
 
-6. Edit each of the JSON files in the Parameters/Windows folder and set the `resourceGroup` value in the `virtualNetworkSettings` section in each of the parameter files to be the same as that you specified in the Deploy-ReferenceArchitecture.ps1 script file.
+6. Edit the following files in the Parameters/Windows folder and set the `resourceGroup` value in the `virtualNetworkSettings` section in each of these files to be the same as that you specified in the Deploy-ReferenceArchitecture.ps1 script file.
+
+    - networkSecurityGroup.parameters.json
+
+    - webTierParameters.json
+
+    - businessTierParameters.json
+
+    - dataTierParameters.json
+
+    - managementTierParameters.json
 
 7. Open an Azure PowerShell window, move to the Scripts folder, and run the following command:
 
     ```powershell
-    .\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> Windows
+    .\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> Windows ntier
     ```
 
     Replace `<subscription id>` with your Azure subscription ID.
@@ -535,7 +539,48 @@ The steps that follow assume the following prerequisites:
 
 ### Create a simulated on-premises environment with Active Directory
 
-**TBD**
+1. In File Explorer, return to the Scripts folder containing the script used to create the N-tier web application.
+
+2. In the Parameters folder, add another sub folder named `Onpremise`.
+
+3. Download the following files to Parameters/Onpremise folder:
+
+    - [add-adds-domain-controller.parameters.json][add-adds-domain-controller-parameters]
+
+    - [create-adds-forest-extension.parameters.json][create-adds-forest-extension-parameters]
+
+    - [virtualMachines-adds.parameters.json][virtualMachines-adds-parameters]
+
+    - [virtualNetwork.parameters.json][virtualNetwork-parameters]
+
+    - [virtualNetwork-adds-dns.parameters.json][virtualNetwork-adds-dns-parameters]
+
+5. Edit the Deploy-ReferenceArchitecture.ps1 file in the Scripts folder, and change the following line to specify the resource group that should be created or used to hold the VM and resources created by the script:
+
+    ```powershell
+    # PowerShell
+    $resourceGroupName = "ra-aad-onpremise-rg"
+    ```
+
+6. Edit the following files in the Parameters/Onpremise folder and set the `resourceGroup` value in the `virtualNetworkSettings` section in each of these files to be the same as that you specified in the Deploy-ReferenceArchitecture.ps1 script file.
+
+    - virtualMachines-adds.parameters.json
+
+    - virtualNetwork.parameters.json
+
+    - virtualNetwork-adds-dns.parameters.json
+
+7. Open an Azure PowerShell window, move to the Scripts folder, and run the following command:
+
+    ```powershell
+    .\Deploy-ReferenceArchitecture.ps1 <subscription id> <location> Windows onpremise
+    ```
+
+    Replace `<subscription id>` with your Azure subscription ID.
+
+    For `<location>`, specify an Azure region, such as `eastus` or `westus`.
+
+**TBC - THERE ARE SOME OUTSTANDING QS CONCERNING THE ON-PREMISES SETUP**
 
 ## Next steps
 
@@ -549,6 +594,7 @@ The steps that follow assume the following prerequisites:
 [azure-ad-connect]: ../active-directory/active-directory-aadconnect.md
 [ad-azure-guidelines]: https://msdn.microsoft.com/library/azure/jj156090.aspx
 [aad-explained]: https://youtu.be/tj_0d4tR6aM
+[aad-editions]: https://azure.microsoft.com/documentation/articles/active-directory-editions/
 [adfs-multitenant]: ./guidance-multitenant-identity-adfs.md
 [sla-aad]: https://azure.microsoft.com/support/legal/sla/active-directory/v1_0/
 [azure-multifactor-authentication]: https://azure.microsoft.com/documentation/articles/multi-factor-authentication/
@@ -556,11 +602,14 @@ The steps that follow assume the following prerequisites:
 [aad-dynamic-membership-rules]: https://azure.microsoft.com/documentation/articles/active-directory-accessmanagement-groups-with-advanced-rules/
 [aad-dynamic-memberships]: https://youtu.be/Tdiz2JqCl9Q
 [aad-user-sign-in]: https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-user-signin/
+[aad-sync-requirements]: https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-directory-sync-requirements/
 [aad-topologies]: https://azure.microsoft.com/documentation/articles/active-directory-aadconnect-topologies/
+[aad-filtering]: https://azure.microsoft.com/documentation/articles/active-directory-aadconnectsync-configure-filtering/
 [aad-scalability]: https://blogs.technet.microsoft.com/enterprisemobility/2014/09/02/azure-ad-under-the-hood-of-our-geo-redundant-highly-available-distributed-cloud-directory/
 [aad-connect-sync-default-rules]: https://azure.microsoft.com/documentation/articles/active-directory-aadconnectsync-understanding-default-configuration/
 [aad-identity-protection]: https://azure.microsoft.com/documentation/articles/active-directory-identityprotection/
 [aad-password-management]: https://azure.microsoft.com/documentation/articles/active-directory-passwords-customize/
+[aad-application-proxy]: https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-enable/
 [aad-connect-sync-operational-tasks]: https://azure.microsoft.com/documentation/articles/active-directory-aadconnectsync-operations/#staging-mode
 [aad-custom-domain]: https://azure.microsoft.com/documentation/articles/active-directory-add-domain/
 [aad-powershell]: https://msdn.microsoft.com/library/azure/mt757189.aspx
@@ -582,6 +631,11 @@ The steps that follow assume the following prerequisites:
 [datatier-parameters-windows]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-aad/parameters/windows/dataTier.parameters.json
 [managementtier-parameters-windows]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-aad/parameters/windows/managementTier.parameters.json
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/aa386968(v=vs.85).aspx
+[add-adds-domain-controller-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-aad/parameters/onpremise/add-adds-domain-controller.parameters.json
+[create-adds-forest-extension-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-aad/parameters/onpremise/create-adds-forest-extension.parameters.json
+[virtualMachines-adds-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-aad/parameters/onpremise/virtualMachines-adds.parameters.json
+[virtualNetwork-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-aad/parameters/onpremise/virtualNetwork.parameters.json
+[virtualNetwork-adds-dns-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-aad/parameters/onpremise/virtualNetwork-adds-dns.parameters.json
 [0]: ./media/guidance-ra-identity-aad/figure1.png "Cloud identity architecture using Azure Active Directory"
 [1]: ./media/guidance-ra-identity-aad/figure2.png "Single forest, single AAD directory topology"
 [2]: ./media/guidance-ra-identity-aad/figure3.png "Multiple forests, single AAD directory topology"
@@ -590,7 +644,7 @@ The steps that follow assume the following prerequisites:
 [6]: ./media/guidance-ra-identity-aad/figure7.png "Selecting a custom installation of Azure AD Connect Sync with a specific instance of SQL Server"
 [7]: ./media/guidance-ra-identity-aad/figure8.png "Specifying the SSO method for user sign-in"
 [8]: ./media/guidance-ra-identity-aad/figure9.png "Specifying Domain and OU filtering options"
-[9]: ./media/guidance-ra-identity-aad/figure10.png "Enabling password writeback"
+[9]: ./media/guidance-ra-identity-aad/figure10.png "Enabling password write-back"
 [10]: ./media/guidance-ra-identity-aad/figure11.png "The Azure AD management blade in the portal"
 [11]: ./media/guidance-ra-identity-aad/figure12.png "The Azure AD Connect console"
 [12]: ./media/guidance-ra-identity-aad/figure13.png "The Operations tab in the Synchronization Service Manager"
