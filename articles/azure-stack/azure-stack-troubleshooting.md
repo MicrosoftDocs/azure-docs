@@ -32,8 +32,8 @@ The recommendations for troubleshooting issues that are described in this sectio
 	 - “InvokeEceAction : Cannot bind argument to parameter 'Message' because it is an empty string.”
  - You will see that the **Availability Set** resource in the Marketplace shows up under the **virtualMachine-ARM** category – this is a only cosmetic issue.
  - When creating a new virtual machine in the portal, in the **Basics** step, the storage option defaults to SSD.  This must be changed to HDD or on the **Size** step of VM deployment, you will not see VM sizes available to select and continue deployment. 
- - You will see that there AzureRM PowerShell modules are no longer installed by default on the MAS-CON01 VM (in TP1 this was named ClientVM). This is now by design, because there is an alternate method to [install these modules and connect](azure-stack-connect-powershell.md).  
-  - You will see that the **Microsoft.Insights** resource provider is not automatically registered for tenant subscriptions. If you would like to see monitoring data for a VM deployed as a tenant, you will have to run the following command from PowerShell (after you [install and connect](azure-stack-connect-powershell.md) as a tenant): 
+ - You will see AzureRM PowerShell modules are no longer installed by default on the MAS-CON01 VM (in TP1 this was named ClientVM). This is now by design, because there is an alternate method to [install these modules and connect](azure-stack-connect-powershell.md).  
+ - You will see that the **Microsoft.Insights** resource provider is not automatically registered for tenant subscriptions. If you would like to see monitoring data for a VM deployed as a tenant, you will have to run the following command from PowerShell (after you [install and connect](azure-stack-connect-powershell.md) as a tenant): 
        
 	    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Insights 
 
@@ -46,6 +46,11 @@ The recommendations for troubleshooting issues that are described in this sectio
  - When you delete a plan, offer, or subscription, VMs may not be deleted.
  - You will see the VM extensions in the marketplace.
  - You can not deploy a VM from a saved VM image.
+
+## Deployment
+
+### Deployment failure
+If you experience a failure during installation, the Azure Stack installer allows you to continue a failed installation by following the [re-deployment steps](azure-stack-rerun-deploy.md).
 
 
 ## Azure Active Directory
@@ -127,51 +132,7 @@ Mount the Windows Server 2012R2 ISO and run:
 This error indicates that deployment script is unable to connect to the Internet for Azure Active Directory (AAD) authentication via the NATVM. Please verify the PortalVM has Internet connectivity by browsing to https://login.windows.net
 - If you are using a static IP / gateway, you need to specify the NATVM static IP / gateway as parameters (NATVMStaticIP and  NATVMStaticGateway) when running the deployment script.
 
-
-Note: TP1 doesn’t support scenarios where the proxy requires authentication.
-
-Repair actions: If you hit this error, ensure NATVM and PortalVM can connect to the Internet and re-run the deployment script, for example, assign proper IP / Gateway on the NATVM, and configure HTTP Proxy on PortalVM and ClientVM. If this does not succeed, you may try to redeploy POC on a clean machine with the correct parameters.
-
-Information about the NATVMStaticIP,  NATVMStaticGateway, and ProxyServer parameters can be found in the [deployment documentation](azure-stack-run-powershell-script.md).
-
-
-## PaaS resource providers
-
-### Failures when deploying the Web Apps RP template via the portal
-
-Line 410 of the template still has a comment that should have been removed. This line should be deleted before deploying the template from the portal. This should be corrected in the next update for the installation files for the Web Apps RP
-
-### Failures when deploying the Web Apps RP template via PowerShell
-
-If you receive a message about secure strings being expected for passwords, when deploying the template with PowerShell, you can use this syntax to pass a secure string:
-
-`-adminPassword (“MyPassword” | ConvertTo-SecureString –AsPlainText –Force)`
-
-There are other ways to do this via PowerShell, like using the Get-Credential cmdlet.
-
-### Configuring the .NET 3.5-enabled image to use when deploying the PaaS RPs
-
-The SQL Server Resource Provider and the Web Apps Resource Providers both require a Windows Server image with .NET 3.5 installed.
-By leveraging the steps mentioned just before in this document, you create such an image, and the documentation tells you to replace the default Windows Server 2012 R2 image with this new .NET 3.5-enabled image. Those steps are accurate and, if you follow them, things should be working.
-
-However, you may want to keep one image without .NET 3.5 and one with .NET 3.5. For this, you can [add](azure-stack-add-vm-image.md) your new .NET 3.5-enabled image, and change the “SKU”, “Publisher”, “Offer” fields from the SQL Server RP and Web Apps RP templates, to match your new values.
-
-### Can't delete resource groups hosting a SQL Server "virtual server"
-
-The SQL Server resource provider includes the notion of a “virtual server”, that you can create/reuse when you create a database. This creates a Contained Database authentication user, and provides tenant-scoped virtual servers that can be used to connect to specific databases on the underlying SQL Server hosting servers.
-
-When creating a database, you can specify credentials (username/password), and those credentials will be used for all the databases on the logical server you create, but you can’t specify existing wellknown logins on the backing hosting server (due to the access scoping that happens with the chosen account).  
-
-In particular, if you use a well-known login on the underlying hosting server (like “sa”), there is a known issue where the hosting resource group cannot be deleted afterwards. 
-
-### SQL Server or MySQL Server gallery package fails to publish
-
-If publishing fails for a SQL Server or MySQL Server gallery package with multiple subscriptions fails, change the script to explicitly select the **Default Provider Subscription**.
-
-
-### "Signature verification failed on downloaded file" error during Web Apps resource provider deployment
-
-Workaround: Clear any previous cache (C:/Users/<your username>/AppData/Local/Temp/Websites/WebsitesSetup/) you may have and try the download again.
+Information about the NATVMStaticIP and NATVMStaticGateway parameters can be found in the [deployment documentation](azure-stack-run-powershell-script.md).
 
 
 ## Portal
@@ -187,12 +148,6 @@ When creating a storage account in the portal, you must select a subscription fi
 Please ensure you use minimal caps for the storage account. This behavior is consistent with Microsoft Azure (public cloud).
 
 ## Templates
-
-### The SQL Server VM templates are failing to deploy SQL Server
-
-SQL Server requires .NET Framework 3.5, and the image used in the template must contain that component. The default image provided with TP1 does not include the .NET Framework 3.5.
-
-To create a new image with this component, see [Add an VM Image in Azure Stack](azure-stack-add-vm-image.md).
 
 ### Template deployment fails using Visual Studio
 
@@ -223,7 +178,7 @@ Workaround: Change the plan and offer to public at the service admin level.  The
 
 ### After starting my Microsoft Azure Stack POC host, all my tenants VMs are gone from Hyper-V Manager, and come back automatically after waiting a bit?
 
-As the system comes back up the Azure Consistent Storage subsystem and RPs need to determine consistency. The time needed depends on the hardware and specs being used, but it may sometimes take ~45 minutes after a reboot of the host for tenant VMs to come back and be recognized.
+As the system comes back up the Azure-consistent Storage subsystem and RPs need to determine consistency. The time needed depends on the hardware and specs being used, but it may sometimes take ~45 minutes after a reboot of the host for tenant VMs to come back and be recognized.
 
 Please note this would not happen in a multi system deployment because you would not have a single box running the Azure Consistent Storage layer unless you restarted all nodes at the same time, similar to a full restart of an all up integrated system.
 
@@ -250,17 +205,7 @@ Example flow:
 
 The garbage collector lets the Storage service administrator "undelete" a storage account and get all the data back (see the Azure Consistent Storage/Storage Resource Provider document).
 
-   
-### Performance issues while deploying or deleting tenant virtual machines
-
-If you see performance issues while deploying or deleting tenant virtual machines, try this workaround:
-
-1. Restart the WinRM service on the Hyper-V Host 2.
-
-2. If that doesn’t work, restart the CRP service on the xRPVM.
-
-3. If that doesn’t work, restart the xRPVM.
-
+You can read more about configuring the undeletion threshold in [manage storage accounts](azure-stack-manage-storage-accounts.md).
 
 ## Next steps
 
