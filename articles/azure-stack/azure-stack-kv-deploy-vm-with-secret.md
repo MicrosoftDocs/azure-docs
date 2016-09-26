@@ -39,5 +39,5 @@ You reference the secret from within a parameters file, which passes values to y
 ## Next Steps
 [Deploy a sample app with Key Vault](azure-stack-kv-sample-app.md)
 
-[Deploy a VM with a Key Vault password](azure-stack-kv-deploy-vm-with-secret)
+[Deploy a VM with a Key Vault certificate](azure-stack-kv-push-secret-into-vm.md)
 
