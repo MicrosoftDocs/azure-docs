@@ -124,7 +124,7 @@ You can view a a detailed list of all the supported services and their metrics a
 
 ## Next steps
 
-Refer to the links throughout this article. Additionally, you can learn  
+Refer to the links throughout this article. Additionally, learn:  
 
 - About [common metrics for autoscaling](insights-autoscale-common-metrics.md)
 - How to [create alert rules](insights-alerts-portal.md)
