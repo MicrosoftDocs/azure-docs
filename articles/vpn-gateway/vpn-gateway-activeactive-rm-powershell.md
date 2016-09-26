@@ -30,7 +30,7 @@ This article walks you through the steps to create active-active cross-premises 
 
 To achieve high availability for cross-premises and VNet-to-VNet connectivity, you should deploy multiple VPN gateways and establish multiple parallel connections between your networks and Azure. Please see [Highly Available Cross-Premises and VNet-to-VNet Connectivity](./vpn-gateway-highlyavailable.md) for an overview of connectivity options and topology.
 
-This article provides the instructions to setup an active-active cross-premises VPN connection, and active-active connection between two virtual networks:
+This article provides the instructions to set up an active-active cross-premises VPN connection, and active-active connection between two virtual networks:
 
 - [Part 1 - Create and configure your Azure VPN gateway in active-active mode](#aagateway)
 
@@ -153,7 +153,7 @@ Use the following cmdlets to show the two public IP addresses allocated for your
 	  "PeerWeight": 0
 	}
 
-The order of the public IP addresses for the gateway instances and the corresponding BGP Peering Addresses are the same. In this example, the gateway VM with public IP of 40.112.190.5 will use 10.12.255.4 as its BGP Peering Address, and the gateway with 138.91.156.129 will use 10.12.255.5. This information is needed when you setup your on premises VPN devices connecting to the active-active gateway. The gateway is shown in the diagram below with all addresses:
+The order of the public IP addresses for the gateway instances and the corresponding BGP Peering Addresses are the same. In this example, the gateway VM with public IP of 40.112.190.5 will use 10.12.255.4 as its BGP Peering Address, and the gateway with 138.91.156.129 will use 10.12.255.5. This information is needed when you set up your on premises VPN devices connecting to the active-active gateway. The gateway is shown in the diagram below with all addresses:
 
 ![active-active gateway](./media/vpn-gateway-activeactive-rm-powershell/active-active-gw.png)
 
@@ -184,7 +184,7 @@ A couple of things to note regarding the local network gateway parameters:
 
 - The local network gateway can be in the same or different location and resource group as the VPN gateway. This example shows them in different resource groups but in the same Azure location.
 
-- If there is only one on premises VPN device as shown above, the active-active connection can work with or without BGP protocol. This example uses BGP for the cross-premises connection.
+- If there is only one on-premises VPN device as shown above, the active-active connection can work with or without BGP protocol. This example uses BGP for the cross-premises connection.
 
 - If BGP is enabled, the prefix you need to declare for the local network gateway is the host address of your BGP Peer IP address on your VPN device. In this case, it's a /32 prefix of "10.52.255.253/32".
 
@@ -280,7 +280,7 @@ The instructions below continue from the previous steps listed above. You must c
 
 It is important to make sure that the IP address space of the new virtual network, TestVNet2, does not overlap with any of your VNet ranges.
 
-In this example, the virtual networks belong to the same subscription. You can setup VNet-to-VNet connections between different subscriptions; please refer to [Configure a VNet-to-VNet connection](./vpn-gateway-vnet-vnet-rm-ps.md) to learn more details. Make sure you add the "-EnableBgp $True" when creating the connections to enable BGP.
+In this example, the virtual networks belong to the same subscription. You can set up VNet-to-VNet connections between different subscriptions; please refer to [Configure a VNet-to-VNet connection](./vpn-gateway-vnet-vnet-rm-ps.md) to learn more details. Make sure you add the "-EnableBgp $True" when creating the connections to enable BGP.
 
 #### 1. Declare your variables
 
@@ -368,7 +368,7 @@ The last section will describe how you can configure an existing Azure VPN gatew
 
 #### 1. Gateway parameters
 
-The following example convert an active-standby gateway into an active-active gateway. You need to create another public IP address, then add a second Gateway IP configuration. Below shows the parameters used:
+The following example converts an active-standby gateway into an active-active gateway. You need to create another public IP address, then add a second Gateway IP configuration. Below shows the parameters used:
 
 	$GWName     = "TestVNetAA1GW"
 	$VNetName   = "TestVNetAA1"
@@ -392,7 +392,7 @@ You must set the gateway object in PowerShell to trigger the actual update.
 
 	Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -EnableActiveActiveFeature
 
-This update can take up to 30 to  45 minutes.
+This update can take 30 to 45 minutes.
 
 ### Configure an active-active gateway to active-standby gateway
 
