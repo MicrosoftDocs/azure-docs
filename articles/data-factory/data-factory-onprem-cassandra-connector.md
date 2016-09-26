@@ -3,7 +3,7 @@
 	description="Learn about how to move data from an on-premises Cassandra database using Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2016" 
-	ms.author="spelluru"/>
+	ms.date="09/07/2016" 
+	ms.author="jingwang"/>
 
 # Move data from an on-premises Cassandra database using Azure Data Factory
 This article outlines how you can use the Copy Activity in an Azure data factory to copy data from an on-premises Cassandra database to any data store listed under Sink column in the [Supported Sources and Sinks](data-factory-data-movement-activities.md#supported-data-stores) section. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
