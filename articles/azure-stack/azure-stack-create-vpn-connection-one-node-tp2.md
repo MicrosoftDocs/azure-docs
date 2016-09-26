@@ -158,7 +158,7 @@ deployment.  In our example, we're going to change each entry from 192.168.102.0
 
 #### Active Directory Federation Services (ADFS)
 
-| **Path to config file: ** |  C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\ADFS\\OneNodeRole.xml |
+| **Path to config file:** |  C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\ADFS\\OneNodeRole.xml |
 |---------------------------|---------------------------------------------------------------------------|
 | **Default Value:**       | &lt;VIP Id="Adfs" Name="Active Directory Federation Services" NetworkId="External" IPv4Address="192.168.102.2/24" EnableOutboundNat="True"&gt; |
 | **New Value:**           | &lt;VIP Id="Adfs" Name="Active Directory Federation Services" NetworkId="External" IPv4Address="192.168.112.2/24" EnableOutboundNat="True"&gt; |
@@ -167,28 +167,28 @@ deployment.  In our example, we're going to change each entry from 192.168.102.0
 
 #### Fabric Ring Services
 
-|**Path to config file: **  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\FabricRingServices\\OneNodeRole.xml |
+|**Path to config file:**  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\FabricRingServices\\OneNodeRole.xml |
 | --------------------------| ---------------------------------------------------------------------------------------|
 |**Default Value:**        | &lt;VIP Id="XrpExternal" Name="XRP External (extension)" NetworkId="External" IPv4Address="192.168.102.7/24" EnableOutboundNat="True"&gt; |
 | **New Value:**            | &lt;VIP Id="XrpExternal" Name="XRP External (extension)" NetworkId="External" IPv4Address="192.168.112.7/24" EnableOutboundNat="True"&gt; |
 
 #### Key Vault Service
 
-| **Path to config file: **  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\KeyVault\\OneNodeRole.xml |
+| **Path to config file:**  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\KeyVault\\OneNodeRole.xml |
 | ---------------------------|------------------------------------------------------------------------------|
 | **Default Value:**        | &lt;VIP Id="KeyVaultDataPlane" Name="Key Vault Data Plane API" NetworkId="External" IPv4Address="192.168.102.3/24" EnableOutboundNat="True"&gt; |
 | **New Value:**            | &lt;VIP Id="KeyVaultDataPlane" Name="Key Vault Data Plane API" NetworkId="External" IPv4Address="192.168.112.3/24" EnableOutboundNat="True"&gt; |
 
 #### Microsoft Azure Stack Resource Manager
 
-| **Path to config file: **  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\WAS\\OneNodeRole.xml |
+| **Path to config file:**  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\WAS\\OneNodeRole.xml |
 | ---------------------------| ------------------------------------------------------------------------|
 |**Default Value:**         |&lt;VIP Id="WapApi" Name="Azure Stack Resource Manager" NetworkId="External" IPv4Address="192.168.102.4/24" EnableOutboundNat="True"&gt; |
 | **New Value:**             | &lt;VIP Id="WapApi" Name="Azure Stack Resource Manager" NetworkId="External" IPv4Address="192.168.112.4/24" EnableOutboundNat="True"&gt; |
 
 #### Azure-consistent Storage Services (WOSS)
 
-| **Path to config file: **  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\WOSS\\OneNodeRole.xml |
+| **Path to config file:**  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\WOSS\\OneNodeRole.xml |
 |--------------------------- | -------------------------------------------------------------------------|
 | **Default Value:**         | &lt;VIP Id="AcsRestApi" Name="Acs Rest API" NetworkId="External" IPv4Address="192.168.102.6/24" EnableOutboundNat="True" InterfaceName="SLBTraffic" &gt; |
 | **New Value:**             | &lt;VIP Id="AcsRestApi" Name="Acs Rest API" NetworkId="External" IPv4Address="192.168.112.6/24" EnableOutboundNat="True" InterfaceName="SLBTraffic" &gt; |
