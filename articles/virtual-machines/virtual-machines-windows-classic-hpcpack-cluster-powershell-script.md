@@ -298,11 +298,10 @@ forwarder DNS server doesn’t resolve properly.
     forwarder DNS server. To do this, in Server Manager click **Tools** >
     **DNS** to open DNS Manager, and then double-click **Forwarders**.
 
-* **Problem accessing RDMA network from size A8 or A9 VMs** - If you add Windows Server compute node or broker node VMs of size A8 or
-A9 by using the deployment script, you may experience problems
+* **Problem accessing RDMA network from compute-intensive VMs** - If you add Windows Server compute node or broker node VMs using a compute-intensive size such as A8 or A9, you may experience problems
 connecting those VMs to the RDMA application network. One reason this
 can occur is if the HpcVmDrivers extension is not properly installed
-when the size A8 or A9 VMs are added to the cluster. For example, the
+when the compute-intensive VMs are added to the cluster. For example, the
 extension might be stuck in the installing state.
 
     To work around this problem, first check the state of the extension in

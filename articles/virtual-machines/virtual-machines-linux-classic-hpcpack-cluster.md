@@ -53,7 +53,7 @@ For an overview of HPC Pack cluster deployment options in Azure, see [Options to
 
 
 
-    >[AZURE.TIP]To use the Azure RDMA network with size A8 and A9 compute node VMs, specify one of the SUSE Linux Enterprise Server 12 HPC or CentOS-based HPC images from the Marketplace. For more information, see [About the A8, A9, A10, and A11 compute-intensive instances](virtual-machines-linux-a8-a9-a10-a11-specs.md).
+    >[AZURE.TIP]To use the Azure RDMA network with one of the RDMA-capable VM sizes, specify a SUSE Linux Enterprise Server 12 HPC or CentOS-based HPC image from the Azure Marketplace. For more information, see [About H-series and compute-intensive A-series VMs](virtual-machines-linux-a8-a9-a10-a11-specs.md).
 
 Additional prerequisites to deploy the cluster by using the HPC Pack IaaS deployment script:
 

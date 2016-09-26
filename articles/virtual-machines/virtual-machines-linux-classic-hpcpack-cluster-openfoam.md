@@ -30,11 +30,11 @@ Microsoft HPC Pack provides features to run a variety of large-scale HPC and par
 
 ## Prerequisites
 
-*   **HPC Pack cluster with size A8 or A9 Linux compute nodes** - Deploy an HPC Pack cluster with size A8 or A9 Linux compute nodes on Azure using either an [Azure Resource Manager template](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) or an [Azure PowerShell script](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md). See [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md) for the prerequisites and steps for either option. If you choose the PowerShell script deployment option, see the sample configuration file in the sample files at the end of this article to deploy an Azure-based HPC Pack cluster consisting of a size A8 Windows Server 2012 R2 head node and 2 size A8 SUSE Linux Enterprise Server 12 compute nodes. Substitute appropriate values for your subscription and service names. 
+*   **HPC Pack cluster with RDMA-capable Linux compute nodes** - Deploy an HPC Pack cluster with size A8, A9, H16r, or H16rm Linux compute nodes on Azure using either an [Azure Resource Manager template](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) or an [Azure PowerShell script](virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md). See [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md) for the prerequisites and steps for either option. If you choose the PowerShell script deployment option, see the sample configuration file in the sample files at the end of this article to deploy an Azure-based HPC Pack cluster consisting of a size A8 Windows Server 2012 R2 head node and 2 size A8 SUSE Linux Enterprise Server 12 compute nodes. Substitute appropriate values for your subscription and service names. 
 
     **Additional things to know**
 
-    *   Currently, Linux RDMA networking in Azure is only supported on size A8 or A9 VMs running a SUSE Linux Enterprise Server (SLES) 12 for HPC, SLES 12 for HPC (Premium), CentOS-based 7.1 HPC, or CentOS-based 6.5 HPC distribution deployed from an Azure Marketplace image. For additional considerations, see [About the A8, A9, A10, and A11 compute-intensive instances](virtual-machines-windows-a8-a9-a10-a11-specs.md).
+    *   For Linux RDMA networking prerequisites in Azure, see [About H-series and compute-intensive A-series VMs](virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
     *   If you use the Powershell script deployment option, deploy all the Linux compute nodes within one cloud service to use the RDMA network connection.
 

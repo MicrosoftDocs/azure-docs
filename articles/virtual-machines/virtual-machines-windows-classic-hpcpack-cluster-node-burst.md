@@ -36,8 +36,8 @@ detailed guidance and considerations for production deployments, see
 [Burst to Azure with Microsoft HPC
 Pack](https://technet.microsoft.com/library/gg481749.aspx).
 
-For considerations to use the A8 or A9 compute intensive instance size for the burst nodes, see
-[About the A8, A9, A10, and A11 compute-intensive instances](virtual-machines-windows-a8-a9-a10-a11-specs.md).
+For considerations to use a intensive-instance size for the burst nodes, see
+[About the H-series and compute-intensive A-series VMs](virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
 ## Prerequisites
 
