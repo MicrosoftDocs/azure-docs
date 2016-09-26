@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="09/23/2016"
+    ms.date="09/26/2016"
     ms.author="magoedte"/>
 
 # Azure Automation scenario - automate removal of Resource Groups
@@ -34,8 +34,7 @@ The following input parameters are defined for this runbook:
 
 Parameter | Description|
 ----------|------------|
-NameFilter (Required) | Allows you to specify a name filter to limit the resource groups that you intend on deleting. You can pass multiple values using a comma separated list.<br>
-The filter is not case sensitive and will match any resource group that contains the string.|
+NameFilter (Required) | Allows you to specify a name filter to limit the resource groups that you intend on deleting. You can pass multiple values using a comma separated list.<br>The filter is not case sensitive and will match any resource group that contains the string.|
 PreviewMode (Optional) with default of $true | Execute the runbook to see which resource groups would be deleted but take no action.
 
 ## Installing and configuring this scenario
