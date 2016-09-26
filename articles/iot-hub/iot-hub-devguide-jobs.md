@@ -20,9 +20,19 @@
 
 ## Overview
 
+As described by previous articles, Azure IoT Hub enables a number of building blocks ([device twin properties and tags][[lnk-twin-devguide] and [cloud-to-device (C2D) methods][lnk-dev-methods]).  Typically, IoT back end applications enable device administrators and operators to update and interact with IoT devices in bulk and at a scheduled time.  Jobs encapsulate the execution of device twin updates and C2D methods against a set of devices at a schedule time.  For example, an operator would use a back end application that would initiate and track a job to reboot a set of devices in building 43 and floor 3 at a time that would not be disruptive to the operations of the building.
+
 ### When to use
 
-## L2 Guidance topics go here 
+Consider using jobs when: a solution back end needs to schedule and track progress any of the following activities on a set of device:
+
+- Update device twin desired properties
+- Update device twin tags
+- Invoke C2D methods
+
+## Job lifecycle
+
+Jobs are initiated by the solution back end and maintained by IoT Hub.  
 
 ## Reference
 
@@ -52,3 +62,7 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 [lnk-jobs-tutorial]: iot-hub-schedule-jobs.md
+[lnk-c2d-methods]: iot-hub-c2d-methods.md
+[lnk-dev-methods]: iot-hub-devguide-direct-methods.md
+[lnk-get-started-twin]: iot-hub-node-node-twin-getstarted.md
+[lnk-twin-devguide]: iot-hub-devguide-device-twins.md
