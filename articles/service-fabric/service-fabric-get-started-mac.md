@@ -22,7 +22,7 @@ You can build Service Fabric applications to run on Linux clusters using Mac OS 
 
 ## Prerequisites
 
-Service Fabric does not run natively on OS X. To run a local Service Fabric cluster, we provide a pre-configured Ubuntu virtual machine using Vagrant and VirtualBox. Before you get started, you will need the following:
+Service Fabric does not run natively on OS X. To run a local Service Fabric cluster, we provide a pre-configured Ubuntu virtual machine using Vagrant and VirtualBox. Before you get started, you need:
 
 - [Vagrant (v1.8.4 or later)](http://wwww.vagrantup.com/downloads)
 - [VirtualBox](http://www.virtualbox.org/wiki/Downloads)
@@ -47,7 +47,7 @@ To create the local VM containing a 5-node Service Fabric cluster, do the follow
 
     By default, the local VM is configured as follows:
 
-    - 3GB of memory allocated
+    - 3 GB of memory allocated
     - Private host network configured at IP 192.168.50.50 enabling passthrough of traffic from the Mac host
 
     You can change either of these settings or add other configuration to the VM in the Vagrantfile. See the [Vagrant documentation](http://www.vagrantup.com/docs) for the full list of configuration options.
@@ -58,7 +58,7 @@ To create the local VM containing a 5-node Service Fabric cluster, do the follow
     vagrant up
     ```
 
-    This step will download the preconfigured VM image, boot it locally, and then set up a local Service Fabric cluster in it. You should expect it to take a few minutes. If setup completes successfully, you will see a message in the output indicating that the cluster is starting up.
+    This step downloads the preconfigured VM image, boot it locally, and then set up a local Service Fabric cluster in it. You should expect it to take a few minutes. If setup completes successfully, you will see a message in the output indicating that the cluster is starting up.
 
     ![Cluster setup starting following VM provisioning][cluster-setup-script]
 
@@ -90,7 +90,7 @@ Service Fabric provides a plugin for the Eclipse Neon IDE that can simplify the 
 <!-- Links -->
 
 - [Create a Service Fabric cluster in the Azure portal](service-fabric-cluster-creation-via-portal.md)
-- [Create a Service Fabric cluster using the Azure resource manager](service-fabric-cluster-creation-via-arm.md)
+- [Create a Service Fabric cluster using the Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 - [Understand the Service Fabric application model](service-fabric-application-model.md)
 
 <!-- Images -->
