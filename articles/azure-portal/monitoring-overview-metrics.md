@@ -28,6 +28,7 @@ Azure Monitor enables you to consume telemetry to gain visibility into the perfo
 ## What can you do with Metrics?
 
 Metrics are a valuable source of telemetry and allow you to do the following:
+
 - **Track the performance** of your resource (such as a VM, Website, or Logic App) by plotting its metrics on a portal chart and pinning that chart to a dashboard.
 - **Get notified of an issue** impacting the performance of your resource when a metric crosses a certain threshold.
 - **Configure automated actions**, such as autoscaling a resource or firing a runbook when a metric crosses a certain threshold.
@@ -36,11 +37,13 @@ Metrics are a valuable source of telemetry and allow you to do the following:
 
 ##  Metric Characteristics
 Metrics have the following characteristics:
+
 - All metrics have **1-minute frequency**. You receive a metric value every minute from your resource, giving you near real-time visibility into the state and health of your resource.
 - Metrics are **available out-of-the-box without needing to opt in** or setting up additional diagnostics.
 - You can access **30 days of history** for each metric. You can quickly look at the recent and monthly trends in the performance or health of your resource.
 
 You can:
+
 - Easily discover, access, and **view all metrics** via the Azure portal when you select a resource and plot them on a chart. 
 - Configure a metric **alert rule that sends a notification or takes automated action** when the metric crosses the threshold you have set. Autoscale is a special automated action that allows you to scale out your resource to meet the incoming requests or load on your web site or compute resources. You can configure an Autoscale setting rule to scale out/in based on a metric crossing a threshold.
 - **Archive** metrics for longer or use them for offline reporting. You can route your metrics to blob storage when you configure diagnostic settings for your resource.
@@ -87,7 +90,7 @@ You can go to the Diagnostics logs blade under the Monitor tab and view the expo
 
  ![Export options for metrics](./media/monitoring-overview-metrics/MetricsOverview3.png)	
 
-You can configure this via Resource Manager templates, PowerShell, CLI or APIs. [Link to the reference articles]
+You can configure this via Resource Manager templates, [PowerShell](insights-powershell-samples.md), [CLI](insights-cli-samples.md) or [REST APIs](https://msdn.microsoft.com/library/dn931943.aspx). 
 
 ## Take Action on Metrics
 You can receive notifications or take automated actions on metric data. You can configure Alert rules or Autoscale settings to do so.
@@ -104,6 +107,7 @@ Some Azure resources support multiple instances to scale out or in to handle you
 
 ## Supported Services and Metrics
 Azure Monitor is a new metrics infrastructure. It provides support for the following Azure services in the Azure portal and the new version of the Azure Monitor API:
+
 - VMs (Azure Resource Manager based)
 - VM Scale Sets
 - Batch
