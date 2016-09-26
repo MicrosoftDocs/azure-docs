@@ -71,30 +71,6 @@ As a workaround if this is not a separate entry you have control over within you
 
 Please check your BIOS settings, in case there is an option to synchronize time. We have seen this issue with HP servers (DL380 G9), using the “Coordinated Universal Time” feature. 
 
-### Installing .NET Framework 3.5 on a Windows Server 2012 R2 machine, from the command line
-
-Here are two methods:
-
-Method 1:
-
-1. Download Windows Server 2012 R2 ISO, and copy the “sources\sxs” folder to local machine (e.g. “c:\sources\ws2012r2\sxs”)
-2. Mount Image:
-`Dism /Mount-Image /ImageFile:C:\ClusterStorage\Volume1\Share\CRP\PlatformImages\WindowsServer2012R2DatacenterEval\WindowsServer2012R2DatacenterEval.vhd /index:1 /MountDir:C:\OfflineImg`
-3. Check if .Net Framework 3.5 is installed (NetFx3)
-`DISM /Image:c:\OfflineImg /Get-Features /Format:Table`
-4. Install .Net Framework 3.5 specifying the “sxs” sources
-`DISM /Image:c:\OfflineImg /Enable-Feature /FeatureName:NetFx3 /All /LimitAccess /Source:C:\Sources\WS2012R2\sxs`
-5. Check .Net Framework 3.5 was installed (NetFx3)
-`DISM /Image:c:\OfflineImg /Get-Features /Format:Table`
-A status of “Enable Pending” indicates that the image must be brought online to complete the installation.
-6. Unmount image and commit changes
-`Dism /Unmount-Image /MountDir:c:\OfflineImg /commit`
-
-Method 2:
-
-Mount the Windows Server 2012R2 ISO and run:
-`Install-WindowsFeature -Vhd C:\ClusterStorage\Volume1\Share\CRP\PlatformImages\WindowsServer2012R2DatacenterEval\WindowsServer2012R2DatacenterEval.vhd -Name NET-Framework-Core -Source X:\sources\sxs\`
-
 ### The POC deployment fails with AAD error “User realm discovery failed”
 
 This error indicates that deployment script is unable to connect to the Internet for Azure Active Directory (AAD) authentication via the NATVM. Please verify the PortalVM has Internet connectivity by browsing to https://login.windows.net
