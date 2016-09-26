@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="09/22/2016"
+	ms.date="09/26/2016"
 	ms.author="jroth"/>
 
 # Configure Azure Key Vault Integration for SQL Server on Azure VMs (Classic)
@@ -37,7 +37,11 @@ When this feature is enabled, it automatically installs the SQL Server Connector
 ## Configure AKV Integration
 Use PowerShell to configure Azure Key Vault Integration. The following sections provide an overview of the required parameters and then a sample PowerShell script.
 
-### Input parameters
+### Install the SQL Server IaaS Extension
+
+First, [install the SQL Server IaaS Extension](virtual-machines-windows-classic-sql-server-agent-extension.md).
+
+### Understand the input parameters
 The following table lists the parameters required to run the PowerShell script in the next section.
 
 |Parameter|Description|Example|
