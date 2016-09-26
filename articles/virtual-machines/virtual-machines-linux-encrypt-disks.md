@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="09/22/2016"
+   ms.date="09/26/2016"
    ms.author="iainfou"/>
 
 # Encrypting disks on a Linux VM
@@ -139,13 +139,13 @@ Supported scenarios and requirements for disk encryption:
 
 - The following Linux server SKUs - Ubuntu, CentOS, SUSE and SUSE Linux Enterprise Server (SLES), and Red Hat Enterprise Linux.
 - All resources (such as Key Vault, Storage account, and VM) must be in the same Azure region and subscription.
-- Standard A, D, and G series VMs.
+- Standard A, D, DS, G, and GS series VMs.
 
 Disk encryption is not currently supported in the following scenarios:
 
-- Basic-tier VMs and Standard DS (Premium storage) VMs.
+- Basic tier VMs.
 - VMs created using the Classic deployment model.
-- Disabling disk encryption on Linux VMs.
+- Disabling OS disk encryption on Linux VMs.
 - Updating the cryptographic keys on an already encrypted Linux VM.
 
 
