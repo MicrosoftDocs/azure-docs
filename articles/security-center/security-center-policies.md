@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/26/2016"
+   ms.date="09/22/2016"
    ms.author="yurid"/>
 
 # Set security policies in Azure Security Center
@@ -64,7 +64,7 @@ You can configure security policies for each subscription or resource group. To 
 
 9. In the **Security Policy** blade, click **On** to enable the security recommendations that you want to use on this subscription. Click **Prevention policy** to see options like those in the following screenshot:
 
-	![Selecting the security policies](./media/security-center-policies/security-center-policies-fig4-ga.png)
+	![Selecting the security policies](./media/security-center-policies/security-center-policies-fig4-ga-new.png)
 
 Use the following table as a reference to understand each option:
 
@@ -77,8 +77,9 @@ Use the following table as a reference to understand each option:
 | Network security groups | Recommends that [network security groups](../virtual-network/virtual-networks-nsg.md) be configured to control inbound and outbound traffic to VMs that have public endpoints. Network security groups that are configured for a subnet will be inherited by all virtual machine network interfaces unless otherwise specified. In addition to checking that a network security group has been configured, this policy assesses inbound security rules to identify rules that allow incoming traffic. |
 | Web application firewall | Recommends that a web application firewall be provisioned on virtual machines when either of the following is true:</br></br>[Instance-level public IP](../virtual-network/virtual-networks-instance-level-public-ip.md) (ILPIP) is used and the inbound security rules for the associated network security group are configured to allow access to port 80/443.</br></br>Load-balanced IP is used and the associated load balancing and inbound network address translation (NAT) rules are configured to allow access to port 80/443. (For more information, see [Azure Resource Manager support for Load Balancer](../load-balancer/load-balancer-arm.md). |
 | Next generation firewall | Extends network protections beyond network security groups, which are built into Azure. Security Center will discover deployments for which a next generation firewall is recommended and enable you to provision a virtual appliance. |
-| SQL auditing | Recommends that auditing of access to Azure Database be enabled for compliance, advanced detection, and investigation purposes. |
+| SQL auditing & Threat detection | Recommends that auditing of access to Azure Database be enabled for compliance and also advanced threat detection, for investigation purposes. |
 | SQL transparent data encryption | Recommends that encryption at rest be enabled for your Azure SQL Database, associated backups, and transaction log files. Even if your data is breached, it will not be readable. |
+| Vulnerability assessment | Recommends that you install a vulnerability assessment solution on your VM. |
 
 After you configure all options, click **OK** in the **Security Policy** blade that has the recommendations, and then click **Save** in the **Security Policy** blade that  has the initial settings.
 

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/17/2016"
+	ms.date="09/22/2016"
 	ms.author="danlep"/>
     
 # Install the Azure CLI
@@ -23,11 +23,11 @@
 - [PowerShell](powershell-install-configure.md)
 - [Azure CLI](xplat-cli-install.md)
 
-Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of open-source shell-based commands for creating and managing resources in Microsoft Azure. You have several choices to install the latest version: 
+Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of open-source shell-based commands for creating and managing resources in Microsoft Azure. You have several options to install these cross-platform tools on your computer: 
 
-* Install from an npm package (requires Node.js and npm)
-* Use one of the provided installer packages for different operating systems
-* Install the Azure CLI as a container in a Docker host
+* **npm package** - Run npm (the package manager for JavaScript) to install the latest Azure CLI package on your Linux distribution or OS. Requires node.js and npm on your computer.
+* **Installer** - Download an installer for easy installation on Mac or Windows.
+* **Docker container** - Start using the latest CLI in a ready-to-run Docker container. Requires Docker host on your computer.
     
 For more options and background, see the project repository on [GitHub](https://github.com/azure/azure-xplat-cli).
 
@@ -37,33 +37,35 @@ Once the Azure CLI is installed, [connect it with your Azure subscription](xplat
 
 ## Option 1. Install an npm package
 
-To install the CLI from an npm package, you need the latest Node.js and npm installed on your system. Then, run the following command to install the Azure CLI package. (On Linux distributions, you might need to use **sudo** to successfully run the __npm__ command.)
+To install the CLI from an npm package, you need the latest Node.js and npm installed on your system. Then, run the following command to install the Azure CLI package published at [npmjs.com](https://www.npmjs.com). (On Linux distributions, you might need to use **sudo** to successfully run the __npm__ command.)
 
-	npm install azure-cli -g
+	npm install -g azure-cli
 
-> [AZURE.NOTE]If you need to install or update Node.js and npm for your operating system, see the documentation at [Nodejs.org](https://nodejs.org/en/download/package-manager/). We recommend that you install the most recent Node.js LTS version (4.x). If you use an older version, you might get installation errors. More information about npm is at [npmjs.com](https://www.npmjs.com/).
+> [AZURE.NOTE]If you need to install or update Node.js and npm on your Linux distribution or OS, see the documentation at [Nodejs.org](https://nodejs.org/en/download/package-manager/). We recommend that you install the most recent Node.js LTS version (4.x). If you use an older version, you might get installation errors. 
+
+If you prefer, download the latest Linux [tar file][linux-installer] for the npm package locally. Then, install the downloaded npm package as follows (on Linux distributions you might need to use **sudo**):
+
+    npm install -g <path to downloaded tar file>
 
 ## Option 2. Use an installer
 
-The following CLI installer packages are also available for download:
-
+If you use a Mac or Windows computer, the following CLI installers are available for download:
 
 * [Mac OS X installer][mac-installer]
 
-* [Windows installer][windows-installer]
+* [Windows MSI][windows-installer] 
 
-* [Linux tar file][linux-installer] (requires Node.js and npm) - install by running `sudo npm install -g <path to downloaded tar file>`
+>[AZURE.TIP]On Windows, you can also download the [Web Platform Installer](https://go.microsoft.com/?linkid=9828653) to install the CLI. This installer gives you the option to install additional Azure SDK and command-line tools after installing the CLI. 
 
 
 ## Option 3. Use a Docker container
 
-If you have set up a Docker host, you can run the Azure CLI in a Docker container. Run:
+If you have set up your computer as a [Docker](https://docs.docker.com/engine/understanding-docker/) host, you can run the latest Azure CLI in a Docker container. Run:
 
 ```
 docker run -it microsoft/azure-cli
 ```
 
-More information about Docker is at [docker.com](https://docs.docker.com/engine/understanding-docker/).
 
 ## Run Azure CLI commands
 After the Azure CLI is installed, run the **azure** command from your command-line user interface (Bash, Terminal, Command prompt, and so on). For example, to run the help command, type the following:
@@ -71,7 +73,7 @@ After the Azure CLI is installed, run the **azure** command from your command-li
 ```
 azure help
 ```
-> [AZURE.NOTE]On some Linux distributions, you may receive an error similar to `/usr/bin/env: ‘node’: No such file or directory`. This error comes from recent installations of nodejs being installed at /usr/bin/nodejs. To fix it, create a symbolic link to /usr/bin/node by running this command:
+> [AZURE.NOTE]On some Linux distributions, you may receive an error similar to `/usr/bin/env: ‘node’: No such file or directory`. This error comes from recent installations of Node.js being installed at /usr/bin/nodejs. To fix it, create a symbolic link to /usr/bin/node by running this command:
 
 ```
 sudo ln -s /usr/bin/nodejs /usr/bin/node
@@ -85,7 +87,7 @@ azure --version
 
 Now you are ready! To access all the CLI commands to work with your own resources, [connect to your Azure subscription from the Azure CLI](xplat-cli-connect.md).
 
->[AZURE.NOTE] When you first use Azure CLI, you see a message asking if you want to allow Microsoft to collect information about how you use the CLI. Participation is voluntary. If you choose to participate, you can stop at any time by running `azure telemetry --disable`. To enable participation at any time, run `azure telemetry --enable`.
+>[AZURE.NOTE] When you first use Azure CLI, you see a message asking if you want to allow Microsoft to collect usage information. Participation is voluntary. If you choose to participate, you can stop at any time by running `azure telemetry --disable`. To enable participation at any time, run `azure telemetry --enable`.
 
 
 ## Update the CLI
