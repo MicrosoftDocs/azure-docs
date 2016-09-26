@@ -19,8 +19,8 @@
 
 # Create a Site-to-Site VPN connection between two Virtual Networks in different Azure Stack PoC Environments
 
-Overview
-=========
+## Overview
+
 
 This article walks you through the steps to create a Site-to-Site
 VPN Connection between two virtual networks in two separate Azure Stack
@@ -31,16 +31,16 @@ deployments.  In the process of doing so, you will gain an understanding how VPN
 
 > This document applies specifically to the Azure Stack TP2 POC.
 
-Connection diagram
-==================
+### Connection diagram
+
 
 Following is a diagram that shows what our configuration should look like
 when we’re done.
 
 ![](media/azure-stack-create-vpn-connection-one-node-tp2/image1.png)
 
-Before you begin
-================
+### Before you begin
+
 
 To complete this configuration, you need the following
 items so make sure you have these things before you get started.
@@ -52,8 +52,8 @@ items so make sure you have these things before you get started.
 
 -   The Azure Stack Technical Preview 2 Deployment Package.
 
-Deploying the POC environments
-==============================
+## Deploying the POC environments
+
 
 You need to deploy **two** Azure Stack POC environments to
 complete this configuration.
@@ -70,16 +70,16 @@ complete this configuration.
 before you deploy the second POC because you cannot change this after it
 has been deployed.
 
-Deploying POC Environment 1
----------------------------
+### Deploying POC Environment 1
+
 
 For the first POC deployment, you must first prepare the deployment
 machine and then run the PowerShell deployment script. You can find
 step-by-step instructions online on [How to Deploy Azure Stack
 POC](azure-stack-run-powershell-script.md).
 
-Deploying POC Environment 2
----------------------------
+### Deploying POC Environment 2
+
 
 Before you deploy the second POC, you must change the
 external (VIP) address range, and the hardcoded IP addresses of
@@ -158,40 +158,40 @@ deployment.  In our example, we're going to change each entry from 192.168.102.0
 
 #### Active Directory Federation Services (ADFS)
 
-  | **Path to config file: ** |  C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\ADFS\\OneNodeRole.xml |
-  |---------------------------|---------------------------------------------------------------------------|
-  | **Default Value: **       | &lt;VIP Id="Adfs" Name="Active Directory Federation Services" NetworkId="External" IPv4Address="192.168.102.2/24" EnableOutboundNat="True"&gt; |
-  | **New Value: **           | &lt;VIP Id="Adfs" Name="Active Directory Federation Services" NetworkId="External" IPv4Address="192.168.112.2/24" EnableOutboundNat="True"&gt; |
-  | **Default Value:**        | &lt;VIP Id="Graph" Name="Azure Stack Graph" NetworkId="External" IPv4Address="192.168.102.8/24" EnableOutboundNat="True"&gt; |
-  | **New Value:**             | &lt;VIP Id="Graph" Name="Azure Stack Graph" NetworkId="External" IPv4Address="192.168.112.8/24" EnableOutboundNat="True"&gt; |
+| **Path to config file: ** |  C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\ADFS\\OneNodeRole.xml |
+|---------------------------|---------------------------------------------------------------------------|
+| **Default Value:**       | &lt;VIP Id="Adfs" Name="Active Directory Federation Services" NetworkId="External" IPv4Address="192.168.102.2/24" EnableOutboundNat="True"&gt; |
+| **New Value:**           | &lt;VIP Id="Adfs" Name="Active Directory Federation Services" NetworkId="External" IPv4Address="192.168.112.2/24" EnableOutboundNat="True"&gt; |
+| **Default Value:**        | &lt;VIP Id="Graph" Name="Azure Stack Graph" NetworkId="External" IPv4Address="192.168.102.8/24" EnableOutboundNat="True"&gt; |
+| **New Value:**             | &lt;VIP Id="Graph" Name="Azure Stack Graph" NetworkId="External" IPv4Address="192.168.112.8/24" EnableOutboundNat="True"&gt; |
 
 #### Fabric Ring Services
 
-  |**Path to config file: **  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\FabricRingServices\\OneNodeRole.xml |
-  | --------------------------| ---------------------------------------------------------------------------------------|
-  |**Default Value: **        | &lt;VIP Id="XrpExternal" Name="XRP External (extension)" NetworkId="External" IPv4Address="192.168.102.7/24" EnableOutboundNat="True"&gt; |
-  | **New Value: **            | &lt;VIP Id="XrpExternal" Name="XRP External (extension)" NetworkId="External" IPv4Address="192.168.112.7/24" EnableOutboundNat="True"&gt; |
+|**Path to config file: **  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\FabricRingServices\\OneNodeRole.xml |
+| --------------------------| ---------------------------------------------------------------------------------------|
+|**Default Value:**        | &lt;VIP Id="XrpExternal" Name="XRP External (extension)" NetworkId="External" IPv4Address="192.168.102.7/24" EnableOutboundNat="True"&gt; |
+| **New Value:**            | &lt;VIP Id="XrpExternal" Name="XRP External (extension)" NetworkId="External" IPv4Address="192.168.112.7/24" EnableOutboundNat="True"&gt; |
 
 #### Key Vault Service
 
-  | **Path to config file: **  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\KeyVault\\OneNodeRole.xml |
-  | ---------------------------|------------------------------------------------------------------------------|
-  | **Default Value: **        | &lt;VIP Id="KeyVaultDataPlane" Name="Key Vault Data Plane API" NetworkId="External" IPv4Address="192.168.102.3/24" EnableOutboundNat="True"&gt; |
-  | **New Value: **            | &lt;VIP Id="KeyVaultDataPlane" Name="Key Vault Data Plane API" NetworkId="External" IPv4Address="192.168.112.3/24" EnableOutboundNat="True"&gt; |
+| **Path to config file: **  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\KeyVault\\OneNodeRole.xml |
+| ---------------------------|------------------------------------------------------------------------------|
+| **Default Value:**        | &lt;VIP Id="KeyVaultDataPlane" Name="Key Vault Data Plane API" NetworkId="External" IPv4Address="192.168.102.3/24" EnableOutboundNat="True"&gt; |
+| **New Value:**            | &lt;VIP Id="KeyVaultDataPlane" Name="Key Vault Data Plane API" NetworkId="External" IPv4Address="192.168.112.3/24" EnableOutboundNat="True"&gt; |
 
 #### Microsoft Azure Stack Resource Manager
 
-  | **Path to config file: **  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\WAS\\OneNodeRole.xml |
-  | ---------------------------| ------------------------------------------------------------------------|
-  |**Default Value:**         |&lt;VIP Id="WapApi" Name="Azure Stack Resource Manager" NetworkId="External" IPv4Address="192.168.102.4/24" EnableOutboundNat="True"&gt; |
-  | **New Value:**             | &lt;VIP Id="WapApi" Name="Azure Stack Resource Manager" NetworkId="External" IPv4Address="192.168.112.4/24" EnableOutboundNat="True"&gt; |
+| **Path to config file: **  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\WAS\\OneNodeRole.xml |
+| ---------------------------| ------------------------------------------------------------------------|
+|**Default Value:**         |&lt;VIP Id="WapApi" Name="Azure Stack Resource Manager" NetworkId="External" IPv4Address="192.168.102.4/24" EnableOutboundNat="True"&gt; |
+| **New Value:**             | &lt;VIP Id="WapApi" Name="Azure Stack Resource Manager" NetworkId="External" IPv4Address="192.168.112.4/24" EnableOutboundNat="True"&gt; |
 
-#### Azure Consistent Storage Services (WOSS)
+#### Azure-consistent Storage Services (WOSS)
 
-  | **Path to config file: **  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\WOSS\\OneNodeRole.xml |
-  |--------------------------- | -------------------------------------------------------------------------|
-  | **Default Value:**         | &lt;VIP Id="AcsRestApi" Name="Acs Rest API" NetworkId="External" IPv4Address="192.168.102.6/24" EnableOutboundNat="True" InterfaceName="SLBTraffic" &gt; |
-  | **New Value:**             | &lt;VIP Id="AcsRestApi" Name="Acs Rest API" NetworkId="External" IPv4Address="192.168.112.6/24" EnableOutboundNat="True" InterfaceName="SLBTraffic" &gt; |
+| **Path to config file: **  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\WOSS\\OneNodeRole.xml |
+|--------------------------- | -------------------------------------------------------------------------|
+| **Default Value:**         | &lt;VIP Id="AcsRestApi" Name="Acs Rest API" NetworkId="External" IPv4Address="192.168.102.6/24" EnableOutboundNat="True" InterfaceName="SLBTraffic" &gt; |
+| **New Value:**             | &lt;VIP Id="AcsRestApi" Name="Acs Rest API" NetworkId="External" IPv4Address="192.168.112.6/24" EnableOutboundNat="True" InterfaceName="SLBTraffic" &gt; |
 
 Once you have made the necessary changes and saved them, you can proceed
 with the second POC deployment. From here it should work exactly like
@@ -199,8 +199,8 @@ the first POC deployment. Again, you can find step-by-step instructions
 online on [How to Deploy Azure Stack
 POC](azure-stack-run-powershell-script.md).
 
-Configure Quotas for Compute, Network and Storage
-=================================================
+## Configure Quotas for Compute, Network and Storage
+
 
 You need to configure Quotas for Compute, Network and Storage so
 that these services can be associated with a Plan and then an Offer that
@@ -214,8 +214,7 @@ steps on how to create Quotas in TP2 can be found at
 <http://aka.ms/mas-create-quotas>. You can accept the defaults for all
 quota settings for this exercise.
 
-Create a Plan and Offer
-=======================
+## Create a Plan and Offer
 
 [Plans](azure-stack-key-features.md) are
 groupings of one or more services. As a provider, you can create plans
@@ -238,8 +237,8 @@ environment.
     Offer you
     created](azure-stack-subscribe-plan-provision-vm.md.
 
-Create the Network Resources in POC 1
-=====================================
+## Create the Network Resources in POC 1
+
 
 Now we are going to actually create the resources we need to set up
 our configuration. The following steps illustrate what we’ll be doing. These
@@ -247,8 +246,8 @@ instructions will be showing how to create resources via the Portal, but
 the same thing can be accomplished via PowerShell.
 
 ![](media/azure-stack-create-vpn-connection-one-node-tp2/image2.png)
-Log in as a tenant
------------------
+
+### Log in as a tenant
 
 A service administrator can log in as a tenant to test the plans,
 offers, and subscriptions that their tenants might use. If you don’t
@@ -256,8 +255,8 @@ already have one, [Create a tenant
 account](azure-stack-add-new-user-aad.md) before
 you log in.
 
-Create the virtual network & VM subnet
---------------------------------------
+### Create the virtual network & VM subnet
+
 
 1.  Log in using a tenant account.
 
@@ -290,8 +289,8 @@ Create the virtual network & VM subnet
 
 4.  Click the **Create** button.
 
-Create the Gateway Subnet
--------------------------
+### Create the Gateway Subnet
+
 
 1.  Open the Virtual network resource you just created (Vnet-01) from
     the Dashboard.
@@ -310,8 +309,8 @@ Create the Gateway Subnet
 
 6.  Click on the **Create** button to create the Gateway subnet.
 
-Create the Virtual Network Gateway
-----------------------------------
+### Create the Virtual Network Gateway
+
 
 1.  In the Azure portal, click on the
     **New** icon.
@@ -344,8 +343,8 @@ Create the Virtual Network Gateway
 11. Verify **Subscription** and **Location** are correct. You can pin
     the resource to the Dashboard if you like. Click **Create**.
 
-Create the Local Network Gateway
---------------------------------
+### Create the Local Network Gateway
+
 
 The Local Network Gateway resource is a little weird in our scenario.
 It’s the same resource you find in Azure, however in Azure it’s
@@ -412,8 +411,8 @@ make sure that both ends are connected properly.
 9.  Verify that your **Subscription**, **Resource Group** and
     **location** are all correct and click **Create**.
 
-Create the Connection
-----------------------
+### Create the Connection
+
 
 1.  In the Azure portal, click the
     **New** icon.
@@ -440,8 +439,8 @@ Create the Connection
 
 9.  In the **Shared Key (PSK)** field enter **12345**. Click **Ok**.
 
-Create a VM
------------
+### Create a VM
+
 
 In order to validate data traveling through the VPN Connection, you
 need VMs to send and receive data in each POC. Let’s create a VM in
@@ -477,11 +476,11 @@ POC1 now and put it on our VM subnet in our virtual network.
 
 9.  Review the settings on the **Summary** blade and click **Ok**.
 
-Create the Network Resources in POC 2
-=====================================
+## Create the Network Resources in POC 2
 
-Log in as a tenant
------------------
+
+### Log in as a tenant
+
 
 A service administrator can log in as a tenant to test the plans,
 offers, and subscriptions that their tenants might use. If you don’t
@@ -489,8 +488,8 @@ already have one, [Create a tenant
 account](azure-stack-add-new-user-aad.md) before
 you log in.
 
-Create the virtual network & VM subnet
---------------------------------------
+### Create the virtual network & VM subnet
+
 
 1. Log in using a tenant account.
 
@@ -525,8 +524,8 @@ Create the virtual network & VM subnet
 
 9.  Click the **Create** button.
 
-Create the Gateway Subnet
--------------------------
+### Create the Gateway Subnet
+
 
 1.  Open the Virtual network resource you created (**Vnet-02**)
     from the Dashboard.
@@ -546,8 +545,8 @@ Create the Gateway Subnet
 
 6.  Click the **Create** button to create the Gateway subnet.
 
-Create the Virtual Network Gateway
-----------------------------------
+### Create the Virtual Network Gateway
+
 
 1. In the Azure portal, click the
     **New** icon.
@@ -580,10 +579,10 @@ Create the Virtual Network Gateway
 11. Verify **Subscription** and **Location** are correct. You can pin
     the resource to the Dashboard if you like. Click **Create**.
 
-Create the Local Network Gateway
---------------------------------
+### Create the Local Network Gateway
 
-### Get the IP address of the external Adapter of the NAT VM
+
+#### Get the IP address of the external Adapter of the NAT VM
 
 1.  Log in to the Azure Stack physical machine for POC1.
 
@@ -606,7 +605,7 @@ Create the Local Network Gateway
 7.  Record this address. This is what we will later use as the Public IP
     Address of the Local Network Gateway resource we create in POC1.
 
-### Create the Local Network Gateway Resource
+#### Create the Local Network Gateway Resource
 
 1.  Log in to the Azure Stack physical machine for POC2.
 
@@ -633,8 +632,7 @@ Create the Local Network Gateway
 9.  Verify that your **Subscription**, **Resource Group** and
     **location** are all correct and click **Create**.
 
-Create the Connection
-----------------------
+## Create the Connection
 
 1. In the Azure portal, click the
     **New** icon.
@@ -663,8 +661,8 @@ Create the Connection
     different value, remember that it MUST match the value for Shared
     Key you assigned in POC1. Click **Ok**.
 
-Create a VM
------------
+## Create a VM
+
 
 Create a VM in POC1 now and put it on our VM subnet in our virtual
 network.
@@ -699,8 +697,8 @@ network.
 
 9.  Review the settings on the **Summary** blade and click **Ok**.
 
-Configure the NAT VM in each POC for gateway traversal
-======================================================
+## Configure the NAT VM in each POC for gateway traversal
+
 
 Because the POC was designed to be self-contained and isolated from the
 network on which the physical host is deployed, the “External” VIP network
@@ -712,8 +710,8 @@ infrastructure. We need to configure NAT on the MAS-BGPNAT01 VM to allow
 the Site-to-Site VPN Connection to connect on both ends.
 > **NOTE: This configuration is required for POC environments only.**
 
-Configure NAT
--------------
+### Configure NAT
+
 
 You need to follow these steps in BOTH POC environments.
 
@@ -759,8 +757,8 @@ You need to follow these steps in BOTH POC environments.
 
 10.  Repeat steps 1-9 in POC2.
 
-Test the connection
-===================
+## Test the connection
+
 
 Now that the Site-to-Site connection has been established we should
 validate that we can get traffic flowing through it. This task is simple
@@ -771,8 +769,8 @@ connection, we want to make sure that we ping the Direct IP (DIP)
 address of the VM on the remote subnet, not the VIP. To do this, we will
 need to find out what the address is on the other end of our connection.
 
-Log in to the tenant VM in POC1
-------------------------------
+### Log in to the tenant VM in POC1
+
 
 1.  Log in to the Azure Stack physical machine for POC1, and Log in to the Portal using a tenant account.
 
@@ -794,8 +792,7 @@ Log in to the tenant VM in POC1
     be different. It should however fall within the **10.0.0.0/24**
     subnet that we created earlier.
 
-Log in to the tenant VM in POC2
-------------------------------
+### Log in to the tenant VM in POC2
 
 1.  Log in to the Azure Stack physical machine for POC2 and Log in to the portal using a tenant account.
 
@@ -825,8 +822,8 @@ Log in to the tenant VM in POC2
     close the VM Connect window or, if you like, try doing some other
     data transfers to test your connection (like a file copy).
 
-Viewing data transfer statistics through the gateway connection
----------------------------------------------------------------
+### Viewing data transfer statistics through the gateway connection
+
 
 If you want to know how much data is passing through your Site-to-Site
 connection, this information is available in the Connection blade. This test
