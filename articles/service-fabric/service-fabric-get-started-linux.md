@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/25/2016"
+   ms.date="09/26/2016"
    ms.author="seanmck"/>
 
 # Prepare your development environment on Linux
@@ -108,6 +108,8 @@ If everything has installed successfully, you should be able to start a local cl
 
 2. Open a web browser and navigate to http://localhost:19080/Explorer. If the cluster has started, you should see the Service Fabric Explorer dashboard.
 
+    ![Service Fabric Explorer on Linux][sfx-linux]
+
 At this point, you are able to deploy pre-built Service Fabric application packages or new ones based on guest containers or guest executables. To build new services using the Java or .NET Core SDKs, follow the optional setup steps below.
 
 ## Install the Java SDK and Eclipse plugin (optional)
@@ -160,8 +162,13 @@ The .NET Core SDK provides the libraries and templates required to build Service
 
 - [Create your first Java application on Linux](service-fabric-create-your-first-java-application-on-linux.md)
 
+
+<!-- Links -->
+
+[azure-xplat-cli-github]: https://github.com/Azure/azure-xplat-cli
+[install-node]: https://nodejs.org/en/download/package-manager/#installing-node-js-via-package-manager
+
 <!--Images -->
 
 [sf-eclipse-plugin]: ./media/service-fabric-get-started-linux/service-fabric-eclipse-plugin.png
-[azure-xplat-cli-github]: https://github.com/Azure/azure-xplat-cli
-[install-node]: https://nodejs.org/en/download/package-manager/#installing-node-js-via-package-manager
+[sfx-linux]: ./media/service-fabric-get-started-linux/sfx-linux.png
