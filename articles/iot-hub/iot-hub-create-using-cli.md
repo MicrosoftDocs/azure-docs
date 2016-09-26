@@ -18,9 +18,7 @@
 
 # Create an IoT Hub using CLI
 
-To Add here other tabs for creating IoT Hub via Portal, PowerShell, REST
-
-[AZURE.INCLUDE iot-hub-resource-manager-selector]
+[AZURE.INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## Introduction
 
