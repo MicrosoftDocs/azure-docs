@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="09/08/2016"
+	ms.date="09/27/2016"
 	ms.author="marsma"/>
 
 # Get started with the Azure Batch Python client
@@ -45,9 +45,33 @@ The Python tutorial [code sample][github_article_samples] is one of the many Bat
 
 ### Python environment
 
-To run the *python_tutorial_client.py* sample script on your local workstation, you need a **Python interpreter** compatible with version **2.7** or **3.3-3.5**. The script has been tested on both Linux and Windows.
+To run the *python_tutorial_client.py* sample script on your local workstation, you need a **Python interpreter** compatible with version **2.7** or **3.3+**. The script has been tested on both Linux and Windows.
 
-You also need to install the **Azure Batch** and **Azure Storage** Python packages. You can do this with **pip** and the *requirements.txt* found here:
+### cryptography dependencies
+
+You must install the dependencies for the [cryptography][crypto] library, required by the `azure-batch` and `azure-storage` Python packages. Perform one of the following operations appropriate for your platform, or refer to the [cryptography installation][crypto_install] details for more information:
+
+* Ubuntu
+
+    `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython-dev python-dev`
+
+* CentOS
+
+    `yum update && yum install -y gcc openssl-dev libffi-devel python-devel`
+
+* SLES/OpenSUSE
+
+    `zypper ref && zypper -n in libopenssl-dev libffi48-devel python-devel`
+
+* Windows
+
+    `pip install cryptography`
+
+>[AZURE.NOTE] If installing for Python 3.3+ on Linux, use the python3 equivalents for the Python dependencies. For example, on Ubuntu: `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython3-dev python3-dev`
+
+### Azure packages
+
+Next, install the **Azure Batch** and **Azure Storage** Python packages. You can do this with **pip** and the *requirements.txt* found here:
 
 `/azure-batch-samples/Python/Batch/requirements.txt`
 
@@ -57,8 +81,8 @@ Issue following **pip** command to install the Batch and Storage packages:
 
 Or, you can install the [azure-batch][pypi_batch] and [azure-storage][pypi_storage] Python packages manually:
 
-`pip install azure-batch==0.30.0rc4`<br/>
-`pip install azure-storage==0.30.0`
+`pip install azure-batch`<br/>
+`pip install azure-storage`
 
 > [AZURE.TIP] You may need to prefix your commands with `sudo` if you are using an unprivileged account. For example, `sudo pip install -r requirements.txt`. For more information on installing Python packages, see [Installing Packages][pypi_install] on readthedocs.io.
 
@@ -270,7 +294,7 @@ Next, a pool of compute nodes is created in the Batch account with a call to `cr
 
 ```python
 def create_pool(batch_service_client, pool_id,
-                resource_files, distro, version):
+                resource_files, publisher, offer, sku):
     """
     Creates a pool of compute nodes with the specified OS settings.
 
@@ -279,10 +303,9 @@ def create_pool(batch_service_client, pool_id,
     :param str pool_id: An ID for the new pool.
     :param list resource_files: A collection of resource files for the pool's
     start task.
-    :param str distro: The Linux distribution that should be installed on the
-    compute nodes, e.g. 'Ubuntu' or 'CentOS'.
-    :param str version: The version of the operating system for the compute
-    nodes, e.g. '15' or '14.04'.
+    :param str publisher: Marketplace image publisher
+    :param str offer: Marketplace image offer
+    :param str sku: Marketplace image sku
     """
     print('Creating pool [{}]...'.format(pool_id))
 
@@ -298,24 +321,32 @@ def create_pool(batch_service_client, pool_id,
         # Copy the python_tutorial_task.py script to the "shared" directory
         # that all tasks that run on the node have access to.
         'cp -r $AZ_BATCH_TASK_WORKING_DIR/* $AZ_BATCH_NODE_SHARED_DIR',
-        # Install pip and then the azure-storage module so that the task
-        # script can access Azure Blob storage
+        # Install pip and the dependencies for cryptography
         'apt-get update',
         'apt-get -y install python-pip',
+        'apt-get -y install build-essential libssl-dev libffi-dev python-dev',
+        # Install the azure-storage module so that the task script can access
+        # Azure Blob storage
         'pip install azure-storage']
 
-    # Get the virtual machine configuration for the desired distro and version.
+    # Get the node agent SKU and image reference for the virtual machine
+    # configuration.
     # For more information about the virtual machine configuration, see:
     # https://azure.microsoft.com/documentation/articles/batch-linux-nodes/
-    vm_config = get_vm_config_for_distro(batch_service_client, distro, version)
+    sku_to_use, image_ref_to_use = \
+        common.helpers.select_latest_verified_vm_image_with_node_agent_sku(
+            batch_service_client, publisher, offer, sku)
 
     new_pool = batch.models.PoolAddParameter(
         id=pool_id,
-        virtual_machine_configuration=vm_config,
+        virtual_machine_configuration=batchmodels.VirtualMachineConfiguration(
+            image_reference=image_ref_to_use,
+            node_agent_sku_id=sku_to_use),
         vm_size=_POOL_VM_SIZE,
         target_dedicated=_POOL_NODE_COUNT,
         start_task=batch.models.StartTask(
-            command_line=wrap_commands_in_shell('linux', task_commands),
+            command_line=
+            common.helpers.wrap_commands_in_shell('linux', task_commands),
             run_elevated=True,
             wait_for_success=True,
             resource_files=resource_files),
@@ -326,7 +357,6 @@ def create_pool(batch_service_client, pool_id,
     except batchmodels.batch_error.BatchErrorException as err:
         print_batch_exception(err)
         raise
-}
 ```
 
 When you create a pool, you define a [PoolAddParameter][py_pooladdparam] that specifies several properties for the pool:
@@ -335,7 +365,7 @@ When you create a pool, you define a [PoolAddParameter][py_pooladdparam] that sp
 
 - **Number of compute nodes** (*target_dedicated* - required)<p/>This property specifies how many VMs should be deployed in the pool. It is important to note that all Batch accounts have a default **quota** that limits the number of **cores** (and thus, compute nodes) in a Batch account. You can find the default quotas and instructions on how to [increase a quota](batch-quota-limit.md#increase-a-quota) (such as the maximum number of cores in your Batch account) in [Quotas and limits for the Azure Batch service](batch-quota-limit.md). If you find yourself asking "Why won't my pool reach more than X nodes?" this core quota may be the cause.
 
-- **Operating system** for nodes (*virtual_machine_configuration* **or** *cloud_service_configuration* - required)<p/>In *python_tutorial_client.py*, we create a pool of Linux nodes using a [VirtualMachineConfiguration][py_vm_config] obtained with our `get_vm_config_for_distro` helper function. This helper function uses [list_node_agent_skus][py_list_skus] to obtain and select an image from a list of compatible [Azure Virtual Machines Marketplace][vm_marketplace] images. You can instead specify a [CloudServiceConfiguration][py_cs_config] and create pool of Windows nodes from Cloud Services. See [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) for more information about the two configurations.
+- **Operating system** for nodes (*virtual_machine_configuration* **or** *cloud_service_configuration* - required)<p/>In *python_tutorial_client.py*, we create a pool of Linux nodes using a [VirtualMachineConfiguration][py_vm_config]. The `select_latest_verified_vm_image_with_node_agent_sku` function in `common.helpers` simplifies working with [Azure Virtual Machines Marketplace][vm_marketplace] images. See [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) for more information about using Marketplace images.
 
 - **Size of compute nodes** (*vm_size* - required)<p/>Since we're specifying Linux nodes for our [VirtualMachineConfiguration][py_vm_config], we specify a VM size (`STANDARD_A1` in this sample) from [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md). Again, see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md) for more information.
 
@@ -574,7 +604,9 @@ if query_yes_no('Delete pool?') == 'yes':
 
 When you run the *python_tutorial_client.py* script from the tutorial [code sample][github_article_samples], the console output is similar to the following. There is a pause at `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` while the pool's compute nodes are created, started, and the commands in the pool's start task are executed. Use the [Azure portal][azure_portal] to monitor your pool, compute nodes, job, and tasks during and after execution. Use the [Azure portal][azure_portal] or the [Microsoft Azure Storage Explorer][storage_explorer] to view the Storage resources (containers and blobs) that are created by the application.
 
-Typical execution time is **approximately 5-7 minutes** when you run the application in its default configuration.
+>[AZURE.TIP] Run the *python_tutorial_client.py*  script from within the `azure-batch-samples/Python/Batch/article_samples` directory. It uses a relative path for the `common.helpers` module import, so you might see `ImportError: No module named 'common'` if you don't run the the script from within this directory.
+
+Typical execution time is **approximately 5-7 minutes** when you run the sample in its default configuration.
 
 ```
 Sample start: 2016-05-20 22:47:10
@@ -619,6 +651,8 @@ Now that you're familiar with the basic workflow of a Batch solution, it's time 
 [azure_portal]: https://portal.azure.com
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
 [blog_linux]: http://blogs.technet.com/b/windowshpc/archive/2016/03/30/introducing-linux-support-on-azure-batch.aspx
+[crypto]: https://cryptography.io/en/latest/
+[crypto_install]: https://cryptography.io/en/latest/installation/
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_zip]: https://github.com/Azure/azure-batch-samples/archive/master.zip
 [github_topnwords]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords
