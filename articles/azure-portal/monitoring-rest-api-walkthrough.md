@@ -103,7 +103,7 @@ For an Azure Logic App, the metric definitions would appear similar to the follo
 
 ![Alt "JSON view of metric definition response."](./media/monitoring-rest-api-walkthrough/available_metric_definitions_logic_app_json_response_clean.png)
 
-For more information, see the [List the metric definitions for a resource in Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931939.aspx) documentation.
+For more information, see the [List the metric definitions for a resource in Azure Monitor REST API](https://msdn.microsoft.com/library/azure/mt743621.aspx) documentation.
 
 ## Retrieve Metric Values
 Once the available metric definitions are known, it is then possible to retrieve the related metric values. Use the metric’s name ‘value’ (not the ‘localizedValue’) for any filtering requests (for example, retrieve the ‘CpuTime’ and ‘Requests’ metric data points). If no filters are specified, the default metric is returned.
