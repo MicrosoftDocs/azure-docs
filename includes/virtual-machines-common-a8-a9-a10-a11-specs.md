@@ -1,61 +1,35 @@
 
-Key features of these instances include:
+## Key features
 
-* **High-performance hardware** – The Azure datacenter hardware that runs these instances is designed and optimized for compute-intensive and network-intensive applications, including high-performance computing (HPC) and batch applications, modeling, and large-scale simulations.
+* **High-performance hardware** – These instances are designed and optimized for compute-intensive and network-intensive applications, including high-performance computing (HPC) and batch applications, modeling, and large-scale simulations. 
 
-* **RDMA network connection for MPI applications** – Set up the A8 and A9 instances to communicate with other A8 and A9 instances over a low-latency, high-throughput network in Azure that is based on remote direct memory access (RDMA) technology. This feature can boost the performance of certain Linux and Windows Message Passing Interface (MPI) applications.
+    For basic specs, storage capacities, and disk details, see [Sizes for virtual machines](virtual-machines-linux-sizes.md). Details about the Intel Xeon E5-2667 v3 processor (used in the H-series) and Intel Xeon E5-2670 processor (in A8 - A11), including supported instruction set extensions, are at the Intel.com website. 
 
-* **Support for HPC clusters** – Deploy cluster management and job scheduling software on the A8, A9, A10, and A11 instances in Azure to create a stand-alone HPC cluster or to add capacity to an on-premises cluster.
+* **Designed for HPC clusters** – Deploy multiple compute-intensive instances in Azure to create a stand-alone HPC cluster or to add capacity to an on-premises cluster. If you want to, deploy cluster management and job scheduling tools. Or, use the instances for compute-intensive work in another Azure service such as Azure Batch.
 
->[AZURE.NOTE]A10 and A11 instances have the same performance optimizations and specifications as the A8 and A9 instances. However, they do not include access to the RDMA network in Azure. They are designed for HPC applications that do not require constant and low-latency communication between nodes, also known as parametric or embarrassingly parallel applications.
+* **RDMA network connection for MPI applications** – A subset of the compute-intensive instances (H16r, H16mr, A8, and A9) feature a second network interface for remote direct memory access (RDMA) connectivity. This interface is in addition to the standard Azure network interface available to other VM sizes. 
 
-
-## Specs
-
-### CPU and memory
-
-The Azure A8, A9, A10, and A11 compute-intensive instances feature high-speed, multicore CPUs and large amounts of memory, as shown in the following table.
-
-Size | CPU | Memory
-------------- | ----------- | ----------------
-A8 and A10 | Intel Xeon E5-2670<br/>8 cores @ 2.6 GHz | DDR3-1600 MHz<br/>56 GB
-A9 and A11 | Intel Xeon E5-2670<br/>16 cores @ 2.6 GHz | DDR3-1600 MHz<br/>112 GB
+    This interface allows RDMA-capable instances to communicate with each other over an InfiniBand network, operating at FDR rates for H16r and H16mr virtual machines, and QDR rates for A8 and A9 virtual machines. The RDMA capabilities exposed in these virtual machines can boost the scalability and performance of certain Linux and Windows Message Passing Interface (MPI) applications. See [Access to the RDMA network](#access-to-the-rdma-network) in this article for requirements.
 
 
->[AZURE.NOTE]Additional processor details, including supported instruction set extensions, are at the Intel.com website. 
-
-### Network adapters
-
-A8 and A9 instances have two network adapters, which connect to the following two back-end Azure networks.
-
-
-Network | Description
--------- | -----------
-10-Gbps Ethernet | Connects to Azure services (such as Azure Storage and Azure Virtual Network) and to the Internet.
-32-Gbps back end, RDMA capable | Enables low-latency, high-throughput application communication between instances within a single cloud service or availability set. Reserved for MPI traffic only.
-
-
->[AZURE.IMPORTANT]See [Access to the RDMA network](#access-to-the-rdma-network) in this article for additional requirements for MPI applications to access the RDMA network.
-
-A10 and A11 instances have a single, 10-Gbps Ethernet network adapter that connects to Azure services and the Internet.
 
 ## Deployment considerations
 
 * **Azure subscription** – If you want to deploy more than a small number of compute-intensive instances, consider a pay-as-you-go subscription or other purchase options. If you're using an [Azure free account](https://azure.microsoft.com/free/), you can use only a limited number of Azure compute cores.
 
-* **Cores quota** – You might need to increase the cores quota in your Azure subscription from the default of 20 cores per subscription (if you use the classic deployment model) or 20 cores per region (if you use the Resource Manager deployment model). To request a quota increase, open a support ticket at no charge as shown in [Understanding Azure limits and increases](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). (Default limits may vary depending on your subscription category.)
+* **Pricing and availability** - The compute-intensive VM sizes are offered only in the Standard pricing tier. Check [Products available by region](https://azure.microsoft.com/regions/services/) for availability in Azure regions. 
 
-    >[AZURE.NOTE]Contact Azure Support if you have large-scale capacity needs. Azure quotas are credit limits, not capacity guarantees. Regardless of your quota, you are charged only for cores that you use.
+* **Cores quota** – You might need to increase the cores quota in your Azure subscription from the default of 20 cores per subscription (if you use the classic deployment model) or 20 cores per region (if you use the Resource Manager deployment model). Your subscription might also limit the number of cores you can deploy in certain VM size families, including the H-series. To request a quota increase, [open an online customer support request](../articles/azure-supportability/how-to-create-azure-support-request.md) at no charge. (Default limits may vary depending on your subscription category.)
 
-* **Virtual network** – An Azure [virtual network](https://azure.microsoft.com/documentation/services/virtual-network/) is not required to use the compute-intensive instances. However, you may need at least a cloud-based Azure virtual network for many scenarios, or a site-to-site connection if you need to access on-premises resources such as an application license server. If one is needed, create a new virtual network to deploy the instances. Adding an A8, A9, A10, or A11 VM to a virtual network in an affinity group is not supported.
+    >[AZURE.NOTE]Contact Azure Support if you have large-scale capacity needs. Azure quotas are credit limits, not capacity guarantees. Regardless of your quota, you are only charged for cores that you use.
 
-* **Cloud service or availability set** – To connect through the RDMA network, size A8 or A9 VMs must be deployed in the same cloud service (if you use the classic deployment model) or the same availability set (if you use the Azure Resource Manager deployment model).
+* **Virtual network** – An Azure [virtual network](https://azure.microsoft.com/documentation/services/virtual-network/) is not required to use the compute-intensive instances. However, you may need at least a cloud-based Azure virtual network for many deployment scenarios, or a site-to-site connection if you need to access on-premises resources such as an application license server. If one is needed, create a new virtual network to deploy the instances. Adding compute-intensive VMs to a virtual network in an affinity group is not supported.
 
-* **Pricing** - The A8–A11 VM sizes are available only in the Standard pricing tier.
+* **Cloud service or availability set** – To use the Azure RDMA network, deploy the RDMA-capable VMs in the same cloud service (if you use the classic deployment model) or the same availability set (if you use the Azure Resource Manager deployment model). If you use Azure Batch, the RDMA-capable VMs must be in the same pool.
 
-* **Resizing** – You can't resize an instance of size other than A8–A11 to one of the compute-intensive instance sizes (A8-11), and you can’t resize a compute-intensive instance to a non-compute-intensive size. This is because of the specialized hardware and the performance optimizations that are specific to compute-intensive instances.
+* **Resizing** – Because of the specialized hardware used in the compute-intensive instances, you can only resize compute-intensive instances within the same size family (H-series or compute-intensive A-series). For example, you can only resize an H-series VM from one H-series size to another. In addition, resizing from a non-compute-intensive size to a compute-intensive size is not supported.  
 
-* **RDMA network address space** - The RDMA network in Azure reserves the address space 172.16.0.0/16. If you plan to run MPI applications on A8 and A9 instances in an Azure virtual network, make sure that the virtual network address space does not overlap the RDMA network.
+* **RDMA network address space** - The RDMA network in Azure reserves the address space 172.16.0.0/16. To run MPI applications on instances deployed in an Azure virtual network, make sure that the virtual network address space does not overlap the RDMA network.
 
 
 

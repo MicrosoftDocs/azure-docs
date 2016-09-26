@@ -1,6 +1,6 @@
 <properties
    pageTitle="Connect to Azure SQL Data Warehouse | Microsoft Azure"
-   description="Connection overview for connecting to Azure SQL Data Warehouse"
+   description="How to find the server name and connection string for your to Azure SQL Data Warehouse"
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="sonyam"
@@ -13,33 +13,57 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="08/27/2016"
+   ms.date="09/24/2016"
    ms.author="sonyama;barbkess"/>
 
 # Connect to Azure SQL Data Warehouse
 
-> [AZURE.SELECTOR]
-- [Overview](sql-data-warehouse-connect-overview.md)
-- [Authentication](sql-data-warehouse-authentication.md)
-- [Drivers](sql-data-warehouse-connection-strings.md)
+This article helps you get connected to SQL Data Warehouse for the first time.
 
-Overview of connecting to Azure SQL Data Warehouse. 
+## Find your server name
 
-## Discover connection string from portal
-
-Your SQL Data Warehouse is associated with an Azure SQL server. To connect, you need the fully qualified name of the server.  For example, **myserver**.database.windows.net.
-
-To find the fully qualified server name:
+The first step to connecting to SQL Data Warehouse is knowing how to find your server name.  For example, the server name in the following example is sample.database.windows.net. To find the fully qualified server name:
 
 1. Go to the [Azure portal][].
-2. Click **SQL databases** and click the database you want to connect to. This example uses the AdventureWorksDW sample database.
-3. Locate the full server name.
+2. Click on **SQL databases** 
+3. Click on the database you want to connect to.
+4. Locate the full server name.
 
     ![Full server name][1]
 
+## Supported drivers and connection strings
+
+ Azure SQL Data Warehouse supports [ADO.NET][], [ODBC][], [PHP][], and [JDBC][]. Click on one of these drivers to find the latest version of each of these drivers.  To connect with one of these drivers, you can click on the **Show database connection strings** in the preceding example to have the portal automatically generate the connection string for the driver that you are using.  Following are also some examples of what a connection string looks like for each driver.
+
+> [AZURE.NOTE] Consider setting the connection timeout to 300 seconds to allow the connection to survive short periods of unavailability.
+
+### ADO.NET connection string example
+
+```C#
+Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};User ID={your_user_name};Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+```
+
+### ODBC connection string example
+
+```C#
+Driver={SQL Server Native Client 11.0};Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};Uid={your_user_name};Pwd={your_password_here};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
+```
+
+### PHP connection string example
+
+```PHP
+Server: {your_server}.database.windows.net,1433 \r\nSQL Database: {your_database}\r\nUser Name: {your_user_name}\r\n\r\nPHP Data Objects(PDO) Sample Code:\r\n\r\ntry {\r\n   $conn = new PDO ( \"sqlsrv:server = tcp:{your_server}.database.windows.net,1433; Database = {your_database}\", \"{your_user_name}\", \"{your_password_here}\");\r\n    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );\r\n}\r\ncatch ( PDOException $e ) {\r\n   print( \"Error connecting to SQL Server.\" );\r\n   die(print_r($e));\r\n}\r\n\rSQL Server Extension Sample Code:\r\n\r\n$connectionInfo = array(\"UID\" => \"{your_user_name}\", \"pwd\" => \"{your_password_here}\", \"Database\" => \"{your_database}\", \"LoginTimeout\" => 30, \"Encrypt\" => 1, \"TrustServerCertificate\" => 0);\r\n$serverName = \"tcp:{your_server}.database.windows.net,1433\";\r\n$conn = sqlsrv_connect($serverName, $connectionInfo);
+```
+
+### JDBC connection string example
+
+```Java
+jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user={your_user_name};password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+```
+
 ## Connection settings
 
-SQL Data Warehouse standardizes a few settings during connection and object creation. These cannot be overridden.
+SQL Data Warehouse standardizes a few settings during connection and object creation. These settings cannot be overridden.
 
 | Database Setting       | Value                        |
 | :--------------------- | :--------------------------- |
@@ -48,19 +72,19 @@ SQL Data Warehouse standardizes a few settings during connection and object crea
 | [DATEFORMAT][]         | mdy                          |
 | [DATEFIRST][]          | 7                            |
 
-## Monitoring connections and queries
-
-Once a connection has been made and a session has been established, you are ready to write and submit queries to SQL Data Warehouse.  To learn how to monitor sessions and queries, see [Monitor your workload using DMVs][].
-
 ## Next steps
 
-To start querying your data warehouse with Visual Studio and other applications, see [Query with Visual Studio][]. 
+To learn how to connect and query with Visual Studio, see [Query with Visual Studio][]. To learn more about authentication options, see [Authentication to Azure SQL Data Warehouse][].
 
 <!--Articles-->
 [Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
-[Monitor your workload using DMVs]: ./sql-data-warehouse-manage-monitor.md
+[Authentication to Azure SQL Data Warehouse]: ./sql-data-warehouse-authentication.md
 
 <!--MSDN references-->
+[ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx
+[ODBC]: https://msdn.microsoft.com/library/jj730314.aspx
+[PHP]: https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396
+[JDBC]: https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx
 [ANSI_NULLS]: https://msdn.microsoft.com/library/ms188048.aspx
 [QUOTED_IDENTIFIERS]: https://msdn.microsoft.com/library/ms174393.aspx
 [DATEFORMAT]: https://msdn.microsoft.com/library/ms189491.aspx
