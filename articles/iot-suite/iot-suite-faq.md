@@ -51,7 +51,7 @@ Two. You can create only two Internal Transactions Level 1 Bing Maps for Enterpr
 
 4. After you've run a local or cloud deployment, look in your root folder for the *.user.config file created during deployment. Open this file in a text editor. 
 
-5. Change the following line to include the value you copied fror your QueryKey: 
+5. Change the following line to include the value you copied from your QueryKey: 
    
   `<setting name="MapApiQueryKey" value="" />`
 
