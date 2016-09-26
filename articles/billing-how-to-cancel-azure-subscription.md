@@ -22,6 +22,8 @@
 
 Cancelling your azure subscription means you will no longer be able to access the Azure services and resources you have. Make sure you take the time to back up your data and stop your services safely.
 
+>[AZURE.NOTE] An [Azure Support plan](https://azure.microsoft.com/en-us/support/plans/) has a 6-month term and Microsoft requires continued monetary commitment for the duration of the term. Cancellation before the term expires does not forgive the remaining commitment or provide refunds any pre-paid amount.
+
 ## Before you cancel your subscription
 
 - Back up your data. For example, if you're storing data in Azure storage or SQL, download a copy. If you have a virtual machine, you may want to obtain an image of it and save it locally.
