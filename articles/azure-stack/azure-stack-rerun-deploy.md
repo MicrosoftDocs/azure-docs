@@ -20,7 +20,7 @@
   
 If you experience a failure during deployment, you can attempt the following steps to rerun the deployment from where it failed.
 
-## Find the Failure
+## Find the failure
 
 Take note of the failure, specifically the portion that calls out at which step the invocation failed. For example,
 
@@ -28,7 +28,7 @@ Take note of the failure, specifically the portion that calls out at which step 
 
 This is the deployment step where you will start the rerun of the deployment.
 
-## Find more detail on the Failure
+## Find more detail on the failure
 
 If you want more details on the error, find the associated **summary.YYYY-MM-DD.tt.N.log.xml** in the **C:\CloudDeployment\Logs\** folder.
 Search for the string “Error”, and follow it down through the output until you see a large amount of non-XML formatted text containing the error message (this section often coincides with the last instance of the string “Error”). For example:
@@ -41,7 +41,7 @@ You can also use this information to track the rerun step, follow the “Index�
 
 Putting this all together (now from the top down), you get 60.140.143, just like in the PS console output of the failure (as seen in the “Find the Failure” section above).
 
-## Rerun the Deployment at a specific Step
+## Rerun the deployment at a specific step
 
 Now that you have the step that the deployment failed on, you can attempt a -Rerun of the deployment from that step. 
 
