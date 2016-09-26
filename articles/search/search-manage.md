@@ -80,7 +80,7 @@ To get or regenerate api-keys, open the service dashboard. Click **KEYS** to sli
 <a id="rbac"></a>
 ## Set RBAC roles on administrative access for Azure Search
 
-Azure provides a [global role-based authorization model](../active-directory/role-based-access-control-configure.md) for all services managed through the Portal or ARM APIs. Owner, Contributor, and Reader roles determine the level of service administration for Active Directory users, groups, and security principals assigned to each role. 
+Azure provides a [global role-based authorization model](../active-directory/role-based-access-control-configure.md) for all services managed through the Portal or Resource Manager APIs. Owner, Contributor, and Reader roles determine the level of service administration for Active Directory users, groups, and security principals assigned to each role. 
 
 In terms of Azure Search, role-based access controls determine the following administrative tasks:
 
@@ -90,13 +90,13 @@ Owner|Create or delete the service or any object on the service, including api-k
 Contributor|Has the same level of access as Owner, except for RBAC role management. For example, a Contributor can view and regenerate `api-key`, but he or she cannot modify role memberships.
 Reader|View service status and query keys. Members of this role cannot change service configuration, nor can they view admin keys.
 
-Note that roles do not grant access rights to the service endpoint. Search service operations, such as index management, index population, and queries on search data, are controlled through api-keys, not roles. See "Authorization for management versus data operations" in [What is Role-based access control](../active-directory/\role-based-access-control-what-is/) for more information.
+Note that roles do not grant access rights to the service endpoint. Search service operations, such as index management, index population, and queries on search data, are controlled through api-keys, not roles. See "Authorization for management versus data operations" in [What is Role-based access control](../active-directory/role-based-access-control-what-is.md) for more information.
 
 
 <a id="secure-keys"></a>
 ## Secure the api-keys
 
-Key security is ensured by restricting access via the portal or Azure Resource Management (ARM) interfaces. As noted, subscription administrators can view and regenerate all api-keys. As a precaution, review role assignments to understand who has access to the admin keys.
+Key security is ensured by restricting access via the portal or Resource Manager interfaces (PowerShell or command line interface). As noted, subscription administrators can view and regenerate all api-keys. As a precaution, review role assignments to understand who has access to the admin keys.
 
 1. In the service dashboard, click the Access icon to slide open the Users blade.
    ![][7]
