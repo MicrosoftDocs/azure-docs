@@ -38,7 +38,7 @@ Alerts are available across different services
 
 You can configure an alert to do the following when it triggers: 
 
-- send email notifications to the service administrator, co-administrators and additional emails that you specify.
+- send email notifications to the service administrator, co-administrators and/or additional emails that you specify.
 - call a webhook, which allows you to launch additional automation actions
 
  ![Alerts explained.](./media/monitoring-overview-alerts/AlertsOverviewResource3.png)

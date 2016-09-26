@@ -41,7 +41,7 @@ Metrics have the following characteristics:
 - You can access **30 days of history** for each metric. You can quickly look at the recent and monthly trends in the performance or health of your resource.
 
 You can:
-- Easily discover, access, and **view** all metrics via the Azure portal when you select a resource and plot them on a chart. 
+- Easily discover, access, and **view all metrics** via the Azure portal when you select a resource and plot them on a chart. 
 - Configure a metric **alert rule that sends a notification or takes automated action** when the metric crosses the threshold you have set. Autoscale is a special automated action that allows you to scale out your resource to meet the incoming requests or load on your web site or compute resources. You can configure an Autoscale setting rule to scale out/in based on a metric crossing a threshold.
 - **Archive** metrics for longer or use them for offline reporting. You can route your metrics to blob storage when you configure diagnostic settings for your resource.
 - **Stream** metrics to an Event Hub, enabling you to then route them to Azure Stream Analytics or custom apps for near-real time analysis. You can do the using diagnostic settings.
@@ -92,12 +92,12 @@ You can configure this via Resource Manager templates, PowerShell, CLI or APIs. 
 ## Take Action on Metrics
 You can receive notifications or take automated actions on metric data. You can configure Alert rules or Autoscale settings to do so.
 
-## Alert Rules
+### Alert Rules
 You can configure alert rules on metrics. These alert rules can check if a metric has crossed a certain threshold and notify you via email or fire a webhook that can then be used to execute any custom script. You can also use the webhook to configure 3rd product integrations.
 
  ![Metrics and alert rules](./media/monitoring-overview-metrics/MetricsOverview4.png)
 
-## Autoscale
+### Autoscale
 Some Azure resources support multiple instances to scale out or in to handle your workloads. Autoscale applies to App Services (Web apps), Virtual Machine Scale Sets (VMSS) and classic Cloud Services. You can configure autoscale rules to scale out or in when a certain metric impacting your workload crosses a threshold you specify. For more information, see [Overview of autoscaling](monitoring-overview-autoscale.md).
 
  ![Metrics and autoscale](./media/monitoring-overview-metrics/MetricsOverview5.png)
@@ -126,8 +126,8 @@ You can view a a detailed list of all the supported services and their metrics a
 
 Refer to the links throughout this article. Additionally, learn:  
 
-- About [common metrics for autoscaling](insights-autoscale-common-metrics.md)
-- How to [create alert rules](insights-alerts-portal.md)
+- about [common metrics for autoscaling](insights-autoscale-common-metrics.md)
+- how to [create alert rules](insights-alerts-portal.md)
 
 
 
