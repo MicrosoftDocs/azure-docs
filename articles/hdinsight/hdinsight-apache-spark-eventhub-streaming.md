@@ -35,7 +35,7 @@ You must have the following:
 - Oracle Java Development kit. You can install it from [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 - A Java IDE. This article uses IntelliJ IDEA 15.0.1. You can install it from [here](https://www.jetbrains.com/idea/download/).
 - Microsoft JDBC driver for SQL Server, v4.1 or later. This is required to write the event data into a SQL Server database. You can install it from [here](https://msdn.microsoft.com/sqlserver/aa937724.aspx).
-- An Azure SQL database. For instructions, see [Create a SQL database in minutes](../sql-database/sql-database-get-started.md)
+- An Azure SQL database. For instructions, see [Create a SQL database in minutes](../sql-database/sql-database-get-started.md).
 
 ## What does this solution do?
 
