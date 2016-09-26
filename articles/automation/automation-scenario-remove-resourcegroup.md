@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="09/23/2016"
+    ms.date="09/26/2016"
     ms.author="magoedte"/>
 
-# Azure Automation scenario - automate removal of Resource Groups
+# Azure Automation scenario - automate removal of resource groups
 
 Many customers create more than one resource group, where some are for dedicated for managing production applications and others may be development, testing and staging environments. Automating the deployment of these resources is one thing, but being able to decommission a resource group with a click of the button is another.  Using Automation to handle it is a perfect use case and opportunity to streamline such a common management task. This also becomes helpful if you are working with an Azure subscription that has a spending limit through a member offer like MSDN or the Microsoft Partner Network Cloud Essentials program, for example. 
 
-This scenario is based on a PowerShell runbook and is designed to remove one or more resource groups that you specify from your subscription.  The runbook supports testing first before proceeding, which is its default value.  This way you don't accidentally delete it without making absolutely sure your ready to complete this procedure.   
+This scenario is based on a PowerShell runbook and is designed to remove one or more resource groups that you specify from your subscription.  The runbook supports testing first before proceeding, which is its default value.  This way you don't accidentally delete it without making absolutely sure you're ready to complete this procedure.   
 
 ## Getting the scenario
 
@@ -34,15 +34,14 @@ The following input parameters are defined for this runbook:
 
 Parameter | Description|
 ----------|------------|
-NameFilter (Required) | Allows you to specify a name filter to limit the resource groups that you intend on deleting. You can pass multiple values using a comma separated list.<br>
-The filter is not case sensitive and will match any resource group that contains the string.|
-PreviewMode (Optional) with default of $true | Execute the runbook to see which resource groups would be deleted but take no action.
+NameFilter (Required) | Allows you to specify a name filter to limit the resource groups that you intend on deleting. You can pass multiple values using a comma separated list.<br>The filter is not case sensitive and will match any resource group that contains the string.|
+PreviewMode (Optional) | Execute the runbook to see which resource groups would be deleted but take no action.<br>The default is **true** to help avoid accidental deletion of one or more resource groups passed to the runbook.  
 
 ## Installing and configuring this scenario
 
 ### Prerequisites
 
-The runbook works with an [Azure Run As account](automation-sec-configure-azure-runas-account.md).  The Run As account is the preferred authentication credential since it uses certificate authentication instead of a password that may expire or change frequently.  
+This runbook authenticates using the [Azure Run As account](automation-sec-configure-azure-runas-account.md).    
 
 ### Install and publish the runbooks
 
@@ -68,4 +67,4 @@ The **Job Summary** includes messages from the output, warning, and error stream
 ## Next steps
 
 - To get started with creating your own runbook, see [Creating or importing a runbook in Azure Automation](automation-creating-importing-runbook.md)
-- To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md)
+- To get started with PowerShell Workflow runbooks, see [My first PowerShell Workflow runbook](automation-first-runbook-textual.md)
