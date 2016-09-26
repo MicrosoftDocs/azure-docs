@@ -18,7 +18,7 @@
 
 # Preview: Deploy a container to Service Fabric
 
->[AZURE.NOTE] This feature is in preview for Linux and not currently available on Windows Server. This will be in preview for Windows Server on the next release of Service Fabric after Windows Server 2016 GA and fully support in the subsequent release after that.
+>[AZURE.NOTE] This feature is in preview for Linux and not currently available on Windows Server. This will be in preview for Windows Server on the next release of Service Fabric after Windows Server 2016 GA and supported in the subsequent release after that.
 
 Service Fabric has several container capabilities that help you with building applications that are composed of microservices that are containerized. These are called containerized services. The capabilities include;
 
@@ -235,3 +235,9 @@ The following is an example service manifest (specified in the preceding applica
             </Eendpoints>
         </Resources>
     </ServiceManifest>
+
+## Next steps
+
+For more information on containers in Azure
+
+[Virtual machines and containers in Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-containers/)
