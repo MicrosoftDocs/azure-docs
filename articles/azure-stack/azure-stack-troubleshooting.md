@@ -72,7 +72,7 @@ You can also use the Azure Stack templates already provided in the [GitHub repos
 
 ### After starting my Microsoft Azure Stack POC host, all my tenants VMs are gone from Hyper-V Manager, and come back automatically after waiting a bit?
 
-As the system comes back up the storage subsystem and RPs need to determine consistency. The time needed depends on the hardware and specs being used, but it may some time after a reboot of the host for tenant VMs to come back and be recognized.
+As the system comes back up the storage subsystem and RPs need to determine consistency. The time needed depends on the hardware and specs being used, but it may be some time after a reboot of the host for tenant VMs to come back and be recognized.
 
 ### I have deleted some virtual machines, but still see the VHD files on disk. Is this expected?
 
