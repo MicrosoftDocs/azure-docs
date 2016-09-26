@@ -32,11 +32,79 @@ Consider using jobs when: a solution back end needs to schedule and track progre
 
 ## Job lifecycle
 
-Jobs are initiated by the solution back end and maintained by IoT Hub.  You initiate a job through a service-facing URI (`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-09-30-preview`)
+Jobs are initiated by the solution back end and maintained by IoT Hub.  You can initiate a job through a service-facing URI (`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-09-30-preview`) and query for progress on an executing job through a service-facing URI (`{iot hub}/jobs/v2/<jobId>?api-version=2016-09-30-preview`).  Once a job is initiated, querying for jobs will enable the back end application to refresh the status of running jobs.
+
+> [AZURE.NOTE] When you initiate a job, property names and values can only contain US-ASCII printable alphanumeric, except any in the following set: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
 
 ## Reference
 
-### Article specific reference topics go here
+For all HTTP requests, see the following references:
+
+- Query condition: [Details for querying of twins][lnk-query]
+- Method details: [Details for C2D methods][lnk-dev-methods]
+
+## Jobs to execute C2D methods
+
+The following is the HTTP 1.1 request details for executing a C2D method on a set of devices using a job:
+
+    ```
+    PUT /jobs/v2/<jobId>?api-version=2016-09-30-preview
+    
+    Authorization: <config.sharedAccessSignature>
+    Content-Type: application/json; charset=utf-8
+    Request-Id: <guid>
+    User-Agent: <sdk-name>/<sdk-version>
+
+    {
+        jobId: '<jobId>',
+        type: 'scheduleDirectRequest', 
+        cloudToDeviceMethod: {
+            methodName: '<methodName>',
+            payload: <payload>,                 
+            timeoutInSeconds: methodTimeoutInSeconds 
+        },
+        queryCondition: '<queryOrDevices>', // if the queryOrDevices parameter is a string
+        deviceIds: '<queryOrDevices>',      // if the queryOrDevices parameter is an array
+        startTime: <jobStartTime>,          // as an ISO-8601 date string
+        maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        
+    }
+    ```
+    
+## Jobs to update device twin properties
+
+The following is the HTTP 1.1 request details for updating device twin properties using a job:
+
+    ```
+    PUT /jobs/v2/<jobId>?api-version=2016-09-30-preview
+    Authorization: <config.sharedAccessSignature>
+    Content-Type: application/json; charset=utf-8
+    Request-Id: <guid>
+    User-Agent: <sdk-name>/<sdk-version>
+
+    {
+        jobId: '<jobId>',
+        type: 'scheduleTwinUpdate', 
+        updateTwin: <patch>                 // Valid JSON object
+        queryCondition: '<queryOrDevices>', // if the queryOrDevices parameter is a string
+        deviceIds: '<queryOrDevices>',      // if the queryOrDevices parameter is an array
+        startTime: <jobStartTime>,          // as an ISO-8601 date string
+        maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        // format TBD
+    }
+    ```
+
+## Querying for progress on jobs
+
+The following is the HTTP 1.1 request details for querying for jobs:
+
+    ```
+    GET /jobs/v2/<jobId>?api-version=2016-09-30-preview
+    
+    Authorization: <config.sharedAccessSignature>
+    Content-Type: application/json; charset=utf-8
+    Request-Id: <guid>
+    User-Agent: <sdk-name>/<sdk-version>
+    ```
+
 
 ### Additional reference material
 
