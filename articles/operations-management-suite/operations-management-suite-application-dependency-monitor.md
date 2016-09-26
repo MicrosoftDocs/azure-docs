@@ -12,11 +12,20 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2016"
+   ms.date="09/26/2016"
    ms.author="daseidma;bwren" />
 
 # Application Dependency Monitor solution in Operations Management Suite (OMS)
 ![Alert Management icon](media/operations-management-suite-application-dependency-monitor/icon.png) Application Dependency Monitor (ADM) is an Operations Management Suite (OMS) solution that automatically discovers application components on Windows and Linux systems and maps the communication between services. It allows you to view your servers as you think of them – as interconnected systems that rely on other systems to deliver critical services.  Application Dependency Monitor shows connections between servers, processes, and ports across any TCP-connected architecture with no configuration required other than installation of an agent.
+
+>[AZURE.NOTE]ADM is currently in private preview.  You can request access to the ADM private preview at [https://www.surveymonkey.com/r/MGNQRG2](https://www.surveymonkey.com/r/MGNQRG2).
+>
+>During private preview, all OMS accounts have unlimited access to ADM, and ADM nodes are free.  Log Analytics data for AdmComputer_CL and AdmProcess_CL types will still be metered like any other solution.
+>
+>After ADM enters public preview, it will be available only to free and paid customers of Insight & Analytics in the OMS Pricing Plan.  Free tier accounts will be limited to 5 ADM nodes.  If you are participating in the private preview and are not enrolled in the OMS Pricing Plan when ADM enters public preview, ADM will be disabled at that time. 
+
+
+
 
 ## Use Cases: Make Your IT Processes Dependency Aware
 
@@ -35,124 +44,6 @@ If you are using Azure Site Recovery and need help defining the recovery sequenc
 ### Patch Management
 ADM enhances your use of OMS System Update Assessment by showing you which other teams and servers depend on your service, so you can notify them in advance before you take your systems down for patching.  ADM also enhances patch management in OMS by showing you whether your services are available and properly connected after they are patched and restarted. 
 
-## Connected sources
-The following table describes the connected sources that are supported by the ADM solution.
-
-| Connected Source | Supported | Description |
-|:--|:--|:--|
-| [Windows agents](../log-analytics/log-analytics-windows-agents.md) | Yes | ADM analyzes and collects data from Windows agent computers.  <br><br>Note that in addition to the OMS agent, Windows agents require the Microsoft Dependency Agent.  Please see the [Supported Operating Systems](Supported Operating Systems) for a complete list of operating system versions. |
-| [Linux agents](../log-analytics/log-analytics-limux-agents.md) | Yes | ADM analyzes and collects data from Windows agent computers.  <br><br>Note that in addition to the OMS agent, Linux agents require the Microsoft Dependency Agent.  Please see the [Supported Operating Systems](Supported Operating Systems) for a complete list of operating system versions. |
-| [SCOM management group](../log-analytics/log-analytics-om-agents.md) | Yes | ADM analyzes and collects data from Windows and Linux agents in a connected SCOM management group. <br><br>A direct connection from the SCOM agent computer to OMS is required. Data is sent directly from forwarded from the management group to the OMS repository.|
-| [Azure storage account](../log-analytics/log-analytics-azure-storage.md) | No | ADM collects data from agent computers, so there is no data from it to collect from Azure storage. |
-
-In addition to the Microsoft Monitoring Agent, Windows and Linux computers require the Microsoft Dependency Agent.  The Dependency Agent passes its data locally on-box to the OMS-connected agents, which then sends it to OMS where it is processed by ADM. Application components and other details will only be discovered on servers with agents installed. Details will not be discovered for systems without an agent although connections between them and agent servers will be discovered.
-
-You can use ADM on servers with OMS Direct Agents or on servers that are attached to OMS via SCOM Management Groups.  However, in both cases, ADM data is always sent directly from MMA to OMS (i.e. ADM data does not flow through a SCOM Management Group), so the server must be able to connect to OMS.  Each OMS agent therefore requires internet connectivity to the OMS cloud or the use of an OMS Gateway.  This may require configuration of a firewall or proxy.
-
-Using both configurations with the same workspace in each will cause duplication of data. Using both with different workspaces can result in conflicting configuration (one with ADM solution enabled and the other without) that may prevent data from flowing to ADM completely.
-NOTE: Even if the machine itself isn’t specified in the SCOM Console’s OMS configuration, if an Instance Group such as “Windows Server Instances Group” is active, it may still result in the machine receiving OMS configuration via SCOM.
-
-![ADM Agents](media/operations-management-suite-application-dependency-monitor/agents.png)
-
-
-## Management packs
-When ADM is activated in an OMS workspace, a 300KB Management Pack is sent to all the Microsoft Monitoring Agents in that workspace.  If you are using SCOM agents in a [connected management group](../log-analytics/log-analytics-om-agents.md), the ADM Management Pack will be deployed from SCOM.  If the agents are directly connected, the MP will be delivered by OMS.
-
-The MP is named Microsoft.IntelligencePacks.ApplicationDependencyMonitor*.  It is written to *%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\*.  The data source used by the management pack is *%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll*.
-
-
-## Data collection
-You can expect each agent to transmit roughly 25MB per day, depending on how complex your system dependencies are.  ADM dependency data is sent by each agent every 15 seconds.
-
-
-
-## Configuration
->[AZURE.NOTE] While Application Dependency Monitor is in [public preview](../log-analytics/log-analytics-add-solutions.md#log-analytics-preview-solutions-and-features), you must add it to your workspace by selecting **Preview Features** in the **Settings** section of the OMS portal.
-
-Add the Application Dependency Monitor solution to your OMS workspace using the process described in [Add solutions](../log-analytics/log-analytics-add-solutions.md). 
-
-In addition to Windows and Linux computers have an agent installed and connected to OMS, the Dependency Agent installer must be downloaded from the ADM solution and then installed as root or Admin on each managed server.  Once the ADM agent is installed on a server reporting to OMS, ADM dependency maps will appear within 10 minutes.  If you have any issues, please email [oms-adm-support@microsoft.com](mailto:oms-adm-support@microsoft.com).
-
-
-### Migrating from BlueStripe FactFinder
-Application Dependency Monitor will deliver BlueStripe technology into OMS in phases. FactFinder is still supported for existing customers but is no longer available for individual purchase.  This preview version of the Dependency Agent can only communicate with OMS.  If you are a current FactFinder customer, please identify a set of test servers for ADM that are not managed by FactFinder. 
-
-### Download the Dependency Agent
-In addition to the Microsoft Management Agent (MMA) and OMS Linux Agent which provide the connection between the computer and OMS, all computers analyzed by Application Dependency Monitor must have the Dependency Agent installed.  On Linux, the OMS Agent for Linux must be installed before the Dependency Agent. 
-
-![Application Dependency Monitor tile](media/operations-management-suite-application-dependency-monitor/tile.png)
-
-In order to download the Dependency Agent, click **Configure Solution** in the **Application Dependency Monitor** tile to open the **Dependency Agent** blade.  The Dependency Agent blade has links for the Windows and the Linux agents. Click the appropriate link to download each agent. See the following sections for details on installing the agent on different systems.
-
-### Install the Dependency Agent
-
-#### Microsoft Windows
-Administrator privileges are required to install or uninstall the agent.
-
-The Dependency Agent is installed on Windows computers with ADM-Agent-Windows.exe. If you run this executable without any options, then it will start a wizard that you can follow to perform the installation interactively.  
-
-Use the following steps to install the Dependency Agent on each Windows computer.
-
-1.	Ensure that the OMS agent is installed using the instructions at Connect computers directly to OMS.
-2.	Download the Windows agent and run it with the following command.<br>*ADM-Agent-Windows.exe*
-3.	Follow the wizard to install the agent.
-4.	If the Dependency Agent fails to start, check the logs for detailed error information. On Windows agents, the log directory is *C:\Program Files\BlueStripe\Collector\logs*. 
-
-The Dependency Agent for Windows can be uninstalled by an Administrator through the Control Panel.
-
-
-#### Linux
-Root access is required to install or configure the agent.
-
-The Dependency Agent is installed on Linux computers with ADM-Agent-Linux64.bin, a shell script with a self-extracting binary. You can run the file with sh or add execute permissions to the file itself.
- 
-Use the following steps to install the Dependency Agent on each Linux computer.
-
-1.	Ensure that the OMS agent is installed using the instructions at [Collect and manage data from Linux computers.  This needs to be installed before the Linux Dependency Agent](https://technet.microsoft.com/library/mt622052.aspx).
-2.	Install the Linux Dependency agent as root using the following command.<br>*sh ADM-Agent-Linux64.bin*.
-3.	If the Dependency Agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is */var/opt/microsoft/dependency-agent/log*.
-
-### Uninstalling the Dependency Agent on Linux
-To completely uninstall the Dependency Agent from Linux, you must remove the agent itself and the proxy which is installed automatically with the agent.  You can uninstall both with the following single command.
-
-	rpm -e dependency-agent dependency-agent-connector
-
-
-### Installing from a Command Line
-The previous section provides guidance on installing the Dependency Monitor agent using default options.  The sections below provide guidance for installing the agent from a command line using custom options.
-
-#### Windows
-Use options from the table below to perform the installation from a command line. To see a list of the installation flags run the installer with the /? flag as follows.
-
-	ADM-Agent-Windows.exe /?
-
-| Flag | Description |
-|:--|:--|
-| /S | Perform a silent installation with no user prompts. |
-
-Files for the Windows Dependency Agent are placed in *C:\Program Files\BlueStripe\Collector* by default.
-
-
-#### Linux
-Use options from the table below to perform the installation. To see a list of the installation flags run the installation program with the -help flag as follows.
-
-	ADM-Agent-Linux64.bin -help
-
-| Flag	Description
-|:--|:--|
-| -s | Perform a silent installation with no user prompts. |
-| --check | Checks permissions and operating system but does not install the agent. |
-
-Files for the Dependency Agent are placed in the following directories.
-
-| Files | Location |
-|:--|:--|
-| Core files | /usr/lib/bluestripe-collector |
-| Log files | /var/opt/microsoft/dependency-agent/log |
-| Config files | /etc/opt/microsoft/dependency-agent/config |
-| Service executables | /sbin/bluestripe-collector<br>/sbin/bluestripe-collector-manager |
-| Binary storage files | /var/opt/microsoft/dependency-agent/storage |
-
 
 ## Using Application Dependency Monitor
 
@@ -163,18 +54,25 @@ ADM agents gather information about all TCP-connected processes on the server wh
 
 Machines can be expanded in the map to show the running processes with active network connections during the selected time range.  When a remote machine with an ADM agent is expanded to show process details, only those processes communicating with the focus machine are shown.  The count of agentless front-end machines connecting into the focus machine is indicated on the left side of the processes they connect to.  If the focus machine is making a connection to a back-end machine without an agent, that back-end is represented with a node in the map that shows its IPv4 address, and the node can be expanded to show individual ports and services that the focus machine is communicating with.
 
-By default, ADM maps show the last 10 minutes of dependency information.  Using the time controls in the upper left, maps can be queried for historical time ranges, up to one-hour wide, to show how dependencies looked in the past, e.g. during an incident or before a change occurred.
+By default, ADM maps show the last 10 minutes of dependency information.  Using the time controls in the upper left, maps can be queried for historical time ranges, up to one-hour wide, to show how dependencies looked in the past, e.g. during an incident or before a change occurred.    ADM data is stored for 30 days in paid workspaces, and for 7 days in free workspaces.
 
 ![Machine map with selected machine properties](media/operations-management-suite-application-dependency-monitor/machine-map.png)
+
+### Failed Connections
+Failed Connections are shown in ADM maps for processes and computers, with a dashed red line showing if a client system is failing to reach a process or port.  Failed connections are reported from any system with a deployed ADM agent if that system is the one attempting the failed connection.  ADM measures this by observing TCP sockets that fail to establish a connection.  This could be due to a firewall, a misconfiguration in the client or server, or a remote service being unavailable. 
+
+![Failed connections](media/operations-management-suite-application-dependency-monitor/failed-connections.png)
+
+Understanding failed connections can help with troubleshooting, migration validation, security analysis, and overall architectural understanding.  Sometimes failed connections are harmless, but they often point directly to a problem, such as a failover environment suddenly becoming unreachable, or two application tiers not being able to talk after a cloud migration. 
 
 ### Computer and Process Properties
 When navigating an ADM map, you can select machines and processes to gain additional context about their properties.  Machines provide information about DNS name, IPv4 addresses, CPU and Memory capacity, VM Type, Operating System version, Last Reboot time, and the IDs of their OMS and ADM agents.
 
 Process	 details are gathered from Operating System metadata about running processes, including process name, process description, user name and domain (on Windows), company name, product name, product version, working directory, command line, and process start time.
 
-The Process Summary panel provides additional information about that process’s connectivity, including its bound ports, inbound and outbound connections, and failed connections. 
-
 ![Process properties](media/operations-management-suite-application-dependency-monitor/process-properties.png)
+
+The Process Summary panel provides additional information about that process’s connectivity, including its bound ports, inbound and outbound connections, and failed connections. 
 
 ![Process summary](media/operations-management-suite-application-dependency-monitor/process-summary.png)
 
@@ -182,6 +80,7 @@ The Process Summary panel provides additional information about that process’s
 ADM’s integration with Change Tracking is automatic when both solutions are enabled and configured in your OMS workspace.
 
 The Machine Summary Panel indicates whether Change Tracking events have occurred on the selected machine during the selected time range.
+
 ![Machine Summary Panel](media/operations-management-suite-application-dependency-monitor/machine-summary.png)
 
 The Machine Change Tracking Panel shows a list of all changes, with the most recent first, along with a link to drill into Log Search for additional details.
@@ -293,6 +192,129 @@ Type=AdmProcess_CL Name_s=curl | Distinct ProductVersion_s
 ![ADM query example](media/operations-management-suite-application-dependency-monitor/adm-example-07.png)
 
 
+
+## Connected sources
+The following table describes the connected sources that are supported by the ADM solution.
+
+| Connected Source | Supported | Description |
+|:--|:--|:--|
+| [Windows agents](../log-analytics/log-analytics-windows-agents.md) | Yes | ADM analyzes and collects data from Windows agent computers.  <br><br>Note that in addition to the OMS agent, Windows agents require the Microsoft Dependency Agent.  Please see the [Supported Operating Systems](Supported Operating Systems) for a complete list of operating system versions. |
+| [Linux agents](../log-analytics/log-analytics-limux-agents.md) | Yes | ADM analyzes and collects data from Windows agent computers.  <br><br>Note that in addition to the OMS agent, Linux agents require the Microsoft Dependency Agent.  Please see the [Supported Operating Systems](Supported Operating Systems) for a complete list of operating system versions. |
+| [SCOM management group](../log-analytics/log-analytics-om-agents.md) | Yes | ADM analyzes and collects data from Windows and Linux agents in a connected SCOM management group. <br><br>A direct connection from the SCOM agent computer to OMS is required. Data is sent directly from forwarded from the management group to the OMS repository.|
+| [Azure storage account](../log-analytics/log-analytics-azure-storage.md) | No | ADM collects data from agent computers, so there is no data from it to collect from Azure storage. |
+
+Note that ADM only supports 64-bit platforms.
+
+In addition to the Microsoft Monitoring Agent, Windows and Linux computers require the Microsoft Dependency Agent.  The Dependency Agent passes its data locally on-box to the OMS-connected agents, which then sends it to OMS where it is processed by ADM. Application components and other details will only be discovered on servers with agents installed. Details will not be discovered for systems without an agent although connections between them and agent servers will be discovered.
+
+You can use ADM on servers with OMS Direct Agents or on servers that are attached to OMS via SCOM Management Groups.  However, in both cases, ADM data is always sent directly from MMA to OMS (i.e. ADM data does not flow through a SCOM Management Group), so the server must be able to connect to OMS.  Each OMS agent therefore requires internet connectivity to the OMS cloud or the use of an OMS Gateway.  This may require configuration of a firewall or proxy.
+
+Using both configurations with the same workspace in each will cause duplication of data. Using both with different workspaces can result in conflicting configuration (one with ADM solution enabled and the other without) that may prevent data from flowing to ADM completely.
+NOTE: Even if the machine itself isn’t specified in the SCOM Console’s OMS configuration, if an Instance Group such as “Windows Server Instances Group” is active, it may still result in the machine receiving OMS configuration via SCOM.
+
+![ADM Agents](media/operations-management-suite-application-dependency-monitor/agents.png)
+
+
+## Management packs
+When ADM is activated in an OMS workspace, a 300KB Management Pack is sent to all the Microsoft Monitoring Agents in that workspace.  If you are using SCOM agents in a [connected management group](../log-analytics/log-analytics-om-agents.md), the ADM Management Pack will be deployed from SCOM.  If the agents are directly connected, the MP will be delivered by OMS.
+
+The MP is named Microsoft.IntelligencePacks.ApplicationDependencyMonitor*.  It is written to *%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\*.  The data source used by the management pack is *%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll*.
+
+
+## Data collection
+You can expect each agent to transmit roughly 25MB per day, depending on how complex your system dependencies are.  ADM dependency data is sent by each agent every 15 seconds.  
+
+The ADM Agent typically consumes 0.1% of system memory and 0.1% of system CPU.
+
+## Configuration
+>[AZURE.NOTE] While Application Dependency Monitor is in [public preview](../log-analytics/log-analytics-add-solutions.md#log-analytics-preview-solutions-and-features), you must add it to your workspace by selecting **Preview Features** in the **Settings** section of the OMS portal.
+
+Add the Application Dependency Monitor solution to your OMS workspace using the process described in [Add solutions](../log-analytics/log-analytics-add-solutions.md). 
+
+In addition to Windows and Linux computers have an agent installed and connected to OMS, the Dependency Agent installer must be downloaded from the ADM solution and then installed as root or Admin on each managed server.  Once the ADM agent is installed on a server reporting to OMS, ADM dependency maps will appear within 10 minutes.  If you have any issues, please email [oms-adm-support@microsoft.com](mailto:oms-adm-support@microsoft.com).
+
+
+### Migrating from BlueStripe FactFinder
+Application Dependency Monitor will deliver BlueStripe technology into OMS in phases. FactFinder is still supported for existing customers but is no longer available for individual purchase.  This preview version of the Dependency Agent can only communicate with OMS.  If you are a current FactFinder customer, please identify a set of test servers for ADM that are not managed by FactFinder. 
+
+### Download the Dependency Agent
+In addition to the Microsoft Management Agent (MMA) and OMS Linux Agent which provide the connection between the computer and OMS, all computers analyzed by Application Dependency Monitor must have the Dependency Agent installed.  On Linux, the OMS Agent for Linux must be installed before the Dependency Agent. 
+
+![Application Dependency Monitor tile](media/operations-management-suite-application-dependency-monitor/tile.png)
+
+In order to download the Dependency Agent, click **Configure Solution** in the **Application Dependency Monitor** tile to open the **Dependency Agent** blade.  The Dependency Agent blade has links for the Windows and the Linux agents. Click the appropriate link to download each agent. See the following sections for details on installing the agent on different systems.
+
+### Install the Dependency Agent
+
+#### Microsoft Windows
+Administrator privileges are required to install or uninstall the agent.
+
+The Dependency Agent is installed on Windows computers with ADM-Agent-Windows.exe. If you run this executable without any options, then it will start a wizard that you can follow to perform the installation interactively.  
+
+Use the following steps to install the Dependency Agent on each Windows computer.
+
+1.	Ensure that the OMS agent is installed using the instructions at Connect computers directly to OMS.
+2.	Download the Windows agent and run it with the following command.<br>*ADM-Agent-Windows.exe*
+3.	Follow the wizard to install the agent.
+4.	If the Dependency Agent fails to start, check the logs for detailed error information. On Windows agents, the log directory is *C:\Program Files\BlueStripe\Collector\logs*. 
+
+The Dependency Agent for Windows can be uninstalled by an Administrator through the Control Panel.
+
+
+#### Linux
+Root access is required to install or configure the agent.
+
+The Dependency Agent is installed on Linux computers with ADM-Agent-Linux64.bin, a shell script with a self-extracting binary. You can run the file with sh or add execute permissions to the file itself.
+ 
+Use the following steps to install the Dependency Agent on each Linux computer.
+
+1.	Ensure that the OMS agent is installed using the instructions at [Collect and manage data from Linux computers.  This needs to be installed before the Linux Dependency Agent](https://technet.microsoft.com/library/mt622052.aspx).
+2.	Install the Linux Dependency agent as root using the following command.<br>*sh ADM-Agent-Linux64.bin*.
+3.	If the Dependency Agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is */var/opt/microsoft/dependency-agent/log*.
+
+### Uninstalling the Dependency Agent on Linux
+To completely uninstall the Dependency Agent from Linux, you must remove the agent itself and the proxy which is installed automatically with the agent.  You can uninstall both with the following single command.
+
+	rpm -e dependency-agent dependency-agent-connector
+
+
+### Installing from a Command Line
+The previous section provides guidance on installing the Dependency Monitor agent using default options.  The sections below provide guidance for installing the agent from a command line using custom options.
+
+#### Windows
+Use options from the table below to perform the installation from a command line. To see a list of the installation flags run the installer with the /? flag as follows.
+
+	ADM-Agent-Windows.exe /?
+
+| Flag | Description |
+|:--|:--|
+| /S | Perform a silent installation with no user prompts. |
+
+Files for the Windows Dependency Agent are placed in *C:\Program Files\BlueStripe\Collector* by default.
+
+
+#### Linux
+Use options from the table below to perform the installation. To see a list of the installation flags run the installation program with the -help flag as follows.
+
+	ADM-Agent-Linux64.bin -help
+
+| Flag	Description
+|:--|:--|
+| -s | Perform a silent installation with no user prompts. |
+| --check | Checks permissions and operating system but does not install the agent. |
+
+Files for the Dependency Agent are placed in the following directories.
+
+| Files | Location |
+|:--|:--|
+| Core files | /usr/lib/bluestripe-collector |
+| Log files | /var/opt/microsoft/dependency-agent/log |
+| Config files | /etc/opt/microsoft/dependency-agent/config |
+| Service executables | /sbin/bluestripe-collector<br>/sbin/bluestripe-collector-manager |
+| Binary storage files | /var/opt/microsoft/dependency-agent/storage |
+
+
+
 ## Troubleshooting
 If you encounter problems with Application Dependency Monitor, you can gather troubleshooting information from multiple components using the following information.
 
@@ -301,8 +323,8 @@ If you encounter problems with Application Dependency Monitor, you can gather tr
 #### Microsoft Dependency Agent
 To generate troubleshooting data from the Dependency Agent, open a Command Prompt as administrator and run the CollectBluestripeData.vbs script using the following command.  You can add the --help flag to show additional options.
 
-	cd C:\Program Files\Bluestripe\Collector
-	cscript CollectBluestripeData.vbs
+	cd C:\Program Files\Bluestripe\Collector\scripts
+	cscript CollectDependencyData.vbs
 
 The Support Data Package is saved in the %USERPROFILE% directory for the current user.  You can use the --file <filename> option to save it to a different location.
 
@@ -356,7 +378,7 @@ The log for the OMI and SCX components which provide performance metrics data ar
 
 
 ## Supported Operating Systems
-The following sections list the supported operating systems for the Dependency Agent.
+The following sections list the supported operating systems for the Dependency Agent.   32-bit architectures are not supported for any operating system.
 
 ### Windows Server
 - Windows Server 2012 R2
@@ -426,7 +448,6 @@ The following sections list the supported operating systems for the Dependency A
 | 5.11 | Oracle 2.6.39-400 (UEK R2) |
 
 #### SUSE Linux Enterprise Server
-- SUSE Linux is only supported for 64-bit
 
 #### SUSE Linux 11
 | OS Version	Kernel Version
@@ -441,6 +462,11 @@ The following sections list the supported operating systems for the Dependency A
 |:--|:--|
 | OS Version | Kernel Version
 | 10 SP4 | 2.6.16.60 |
+
+## Diagnostic and usage data
+Microsoft automatically collects usage and performance data through your use of the Application Dependency Monitor service. Microsoft uses this Data to provide and improve the quality, security and integrity of the Application Dependency Monitor service. Data includes information about the configuration of your software like operating system and version and also includes IP address, DNS name, and Workstation name in order to provide accurate and efficient troubleshooting capabilities. We do not collect names, addresses or other contact information.
+
+For more information on data collection and usage, please see the [Microsoft Online Services Privacy Statement](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx).
 
 
 
