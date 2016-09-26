@@ -65,7 +65,7 @@ Sample OEM configurations are available.
 
 | | **Requirements**  |
 |---|---|
-| **OS Version** | Windows Server 2016 R2 or later. The operating system version isn’t critical before the deployment starts, as you'll boot the host computer into the VHD that's included in Azure Stack installation zip. The OS and all required patches are already integrated into the image.|
+| **OS Version** | Windows Server 2016. The operating system version isn’t critical before the deployment starts, as you'll boot the host computer into the VHD that's included in Azure Stack installation zip. The OS and all required patches are already integrated into the image.|
 | **Domain joined?** | No. |
 
 ## Deployment requirements check tool
