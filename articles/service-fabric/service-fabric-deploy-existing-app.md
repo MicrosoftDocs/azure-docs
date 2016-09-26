@@ -84,14 +84,14 @@ Go through the following steps to complete the publishing:
 1. Choose File -> New Project and create a Service Fabric Application.
 2. Choose Guest Executable as the Service Template.
 3. Click Browse to select the folder with your executable and fill in the rest of the parameters to create the service.
-  - *Code Package Behavior* can be set to copy all the content of your folder to the Visual Studio Project, which is useful if the executable does not change. If you expect the executable to change and want the ability to pick up new builds dynamically, you can choose to link to the folder instead.
-  >[AZURE.NOTE] You can use linked folders when creating the application project in Visual Studio. This links to the source location from within the project, making it possible for you to update the guest executable in its source destination, having those updates become part of the application package on build.
-  - *Program* - Choose the executable that should be run to start the service.
-  - *Arguments* - Specify the arguments that should be passed to the executable. It can be a list of parameters with arguments.
-  - *WorkingFolder* - Specifies the working directory for the process that is going to be started. You can specify three values:
-	- `CodeBase` specifies that the working directory is going to be set to the code directory in the application package (`Code` directory in the file structure shown preceding).
-	- `CodePackage` specifies that the working directory is going to be set to the root of the application package	(`GuestService1Pkg` in the file structure shown preceding).
-  - `Work` specifies that the files are placed in a subdirectory called work
+	- *Code Package Behavior* can be set to copy all the content of your folder to the Visual Studio Project, which is useful if the executable does not change. If you expect the executable to change and want the ability to pick up new builds dynamically, you can choose to link to the folder instead.
+		> [AZURE.NOTE] You can use linked folders when creating the application project in Visual Studio. This links to the source location from within the project, making it possible for you to update the guest executable in its source destination, having those updates become part of the application package on build.
+	- *Program* - Choose the executable that should be run to start the service.
+	- *Arguments* - Specify the arguments that should be passed to the executable. It can be a list of parameters with arguments.
+	- *WorkingFolder* - Specifies the working directory for the process that is going to be started. You can specify three values:
+		- `CodeBase` specifies that the working directory is going to be set to the code directory in the application package (`Code` directory in the file structure shown preceding).
+		- `CodePackage` specifies that the working directory is going to be set to the root of the application package	(`GuestService1Pkg` in the file structure shown preceding).
+		- `Work` specifies that the files are placed in a subdirectory called work
 4. Give your service a name and click OK.
 5. If your service needs an endpoint for communication, you can now add the Protocol, Port and Type to the ServiceManifest.xml file. e.g. `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
 6. You can now use the package and publish action against your local cluster by debugging the solution in Visual Studio. When ready you can publish the application to a remote cluster or check-in the solution to source control.
