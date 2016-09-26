@@ -13,7 +13,7 @@ ms.service="virtual-machines-windows"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="big-compute"
- ms.date="09/23/2016"
+ ms.date="09/26/2016"
  ms.author="danlep"/>
 
 # Options with HPC Pack to create and manage a Windows HPC cluster in Azure
@@ -66,6 +66,8 @@ This article focuses on options to create HPC Pack clusters to run Windows workl
 * [Grow and shrink Azure compute resources in an HPC Pack cluster](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md)
 
 * [Submit jobs to an HPC Pack cluster in Azure](virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
+
+* [Job management in HPC Pack](https://technet.microsoft.com/library/jj899585.aspx)
 
 
 ## Add worker role nodes to an HPC Pack cluster

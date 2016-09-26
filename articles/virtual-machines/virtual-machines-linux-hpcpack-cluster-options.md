@@ -13,7 +13,7 @@ ms.service="virtual-machines-linux"
  ms.topic="article"
  ms.tgt_pltfrm="vm-linux"
  ms.workload="big-compute"
- ms.date="09/23/2016"
+ ms.date="09/26/2016"
  ms.author="danlep"/>
 
 # Options with HPC Pack to create and manage an HPC cluster in Azure for Linux workloads
@@ -49,6 +49,8 @@ This article focuses on options to use HPC Pack to run Linux workloads. There ar
 ### Cluster management
 
 * [Submit jobs to an HPC Pack cluster in Azure](virtual-machines-windows-hpcpack-cluster-submit-jobs.md)
+
+* [Job management in HPC Pack](https://technet.microsoft.com/library/jj899585.aspx)
 
 
 ## Create RDMA clusters for MPI workloads
