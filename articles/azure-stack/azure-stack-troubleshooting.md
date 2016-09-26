@@ -56,36 +56,6 @@ If you experience a failure during installation, the Azure Stack installer allow
 
 This is probably just the result of the default behavior of a PowerShell command window, when it has been selected. The POC deployment had actually succeeded but the script was paused when selecting the window. Please press the ESC key to unselect it, and the completion message should be shown after it.
 
-### The POC deployment fails with AAD error “User realm discovery failed”
-
-This error indicates that deployment script is unable to connect to the Internet for Azure Active Directory (AAD) authentication.
-
-If you are using a static IP / gateway, you need to specify the NATVM static IP / gateway as parameters (*NATVMStaticIP* and *NATVMStaticGateway*) when running the deployment script.
-
-Information about the NATVMStaticIP and NATVMStaticGateway parameters can be found in the [deployment documentation](azure-stack-run-powershell-script.md).
-
-## Azure Active Directory
-
-### JavaScript error when attempting to connect via AAD and Azure PowerShell
-
-Two options are possible to work around this error:
-
-1. Disable Internet Explorer Enhanced Security Configuration on the Host / MAS-Con01 (wherever PowerShell will be executed that pops up the AAD login).
-
-2. Add three websites to the trusted list:
-  - https://login.microsoftonline.com 
-  - https://*.microsoftonline-p.com 
-  - https://login.live.com
-
->[AZURE.NOTE] You may need to manually find iexplore.exe in the Program Files\Internet Explorer directory.
-
-
-## Portal
-
-### Error when creating a storage account
-
-When creating a storage account in the portal, you must select a subscription first (before entering a name).
-
 ## Templates
 
 ### Azure template won't deploy to Azure Stack
