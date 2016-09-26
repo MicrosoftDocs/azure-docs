@@ -22,19 +22,19 @@
 
 This article describes how you can roll out an OS update to an Azure virtual machine scale set without any downtime. In this context, an OS update involves changing the version or SKU of the OS or changing the URI of a custom image. Updating without downtime means updating virtual machines one at a time or in groups (such as one fault domain at a time) rather than all at once. By doing so, any virtual machines that are not being upgraded can keep running.
 
-There are three types of OS update:
+To avoid ambiguity, let’s distinguish three types of OS update you might want to perform:
 
 - Changing the version or SKU of a platform image. For example, changing Ubuntu 14.04.2-LTS version from 14.04.201506100 to 14.04.201507060, or changing the Ubuntu 15.10/latest SKU to 16.04.0-LTS/latest. This scenario is covered in this article.
 
 - Changing the URI that points to a new version of a custom image you built (**properties > virtualMachineProfile > storageProfile > osDisk > image > uri**). This scenario is covered in this article.
 
-- Patching the OS from within a virtual machine (for example, installing a security patch or by using Windows Update). This scenario is supported but not covered in this article.
+- Patching the OS from within a virtual machine (examples of this include installing a security patch and running Windows Update). This scenario is supported but not covered in this article.
 
 The first two options are supported requirements covered by this article. You'll need to create a new scale set to execute the third option.
 
 Virtual machine scale sets that are deployed as part of a [Service Fabric](https://azure.microsoft.com/services/service-fabric/) cluster are not covered here.
 
-Following is the basic sequence for changing the OS version or SKU of a platform image or the URI of a custom image:
+The basic sequence for changing the OS version/SKU of a platform image or the URI of a custom image looks as follows:
 
 1. Get the virtual machine scale set model.
 
@@ -45,7 +45,7 @@ Following is the basic sequence for changing the OS version or SKU of a platform
 4. Do a *manualUpgrade* call on the virtual machines in the scale set. This step is only relevant if *upgradePolicy* is set to **Manual** in your scale set. If it is set to **Automatic**, all the virtual machines are upgraded at once, thus causing downtime.
 
 
-With this background information in mind, you can update the version of a scale set in PowerShell by using the REST API. These examples cover the case of a platform image, but this article provides enough information for you to adapt this process to a custom image.
+With this background information in mind, let’s see how you could update the version of a scale set in PowerShell, and by using the REST API. These examples cover the case of a platform image, but this article provides enough information for you to adapt this process to a custom image.
 
 ## PowerShell##
 
