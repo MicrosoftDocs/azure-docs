@@ -23,7 +23,7 @@ Azure DocumentDB automatically takes backups of all your data at regular interva
 
 This article starts with a quick recap of the data redundancy and availability in DocumentDB, and then discusses backups. 
 
-## High availability with DocumentDB - a recap 
+## High availability with DocumentDB - a recap
 
 DocumentDB is designed to be [globally distributed](documentdb-distribute-data-globally.md) – it allows you to scale throughput across multiple Azure regions along with policy driven failover and transparent multi-homing APIs. As a database system offering [99.99% availability SLAs](https://azure.microsoft.com/support/legal/sla/documentdb/v1_0/), all the writes in DocumentDB are durably committed to local disks by a quorum of replicas within a local data center before acknowledging to the client. Note that the high availability of DocumentDB relies on local storage and does not depend on any external storage technologies. Additionally, if your database account is associated with more than one Azure region, your writes are replicated across other regions as well. To scale your throughput and access data at low latencies, you can have as many read regions associated with your database account as you like. In each read region, the (replicated) data is durably persisted across a replica set.  
 
