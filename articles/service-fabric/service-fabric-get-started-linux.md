@@ -41,7 +41,6 @@ To install the SDK and the associated runtime package via apt-get, you must firs
 
     ```bash
     $ sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
-    $ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 68576280
     ```
 4. Add an apt source for NodeJS (required for the Azure CLI)
 
@@ -61,15 +60,15 @@ Once your sources are updated, you can install the SDK.
 
 1. Install the Service Fabric SDK package. You will be asked to confirm the installation and to agree to a license agreement.
 
-  ```bash
-  $ sudo apt-get install servicefabricsdk
-  ```
+    ```bash
+    $ sudo apt-get install servicefabricsdkcommon
+    ```
 
 2. Run the SDK setup script.
 
-  ```bash
-  $ sudo /opt/microsoft/sdk/servicefabric/common/sdkcommonsetup.sh
-  ```
+    ```bash
+    $ sudo /opt/microsoft/sdk/servicefabric/common/sdkcommonsetup.sh
+    ```
 
 ## Set up the Azure cross-platform CLI
 
