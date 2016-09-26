@@ -33,7 +33,7 @@ To use the Java agent, you install it on your server. Your web apps must be inst
 
 ## Install the Application Insights agent for Java
 
-1. On the machine running your Java server, [download the agent](https://azuredownloads.blob.core.windows.net/applicationinsights/sdk.html).
+1. On the machine running your Java server, [download the agent](https://aka.ms/aijavasdk).
 2. Edit the application server startup script, and add the following JVM:
 
     `javaagent:`*full path to the agent JAR file*
