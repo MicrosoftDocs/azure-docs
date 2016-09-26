@@ -31,7 +31,7 @@ To learn more about:
 
 - Full database backups, see [Full database backups](https://msdn.microsoft.com/library/ms186289.aspx).
 - Differential backups, see [Differential backups](https://msdn.microsoft.com/library/ms175526.aspx ).
-- Transaction log backups, see [Transaction log backups](https://msdn.microsoft.com/en-us/library/ms191429.aspx).
+- Transaction log backups, see [Transaction log backups](https://msdn.microsoft.com/library/ms191429.aspx).
 
 The SQL Database service stores database backup files in a geo-redundant storage account with read access (RA-GRS). The Azure Storage RA-GRS feature replicates the backup files to a [paired data center](../best-practices-availability-paired-regions.md). This geo-replication ensures you can restore a database in case you cannot access the database backup from your primary database region. In the following example, SQL Database creates database backups in the US East region and stores them in a RA-GRS account. Then, Azure Storage geo-replicates the backups to a paired data center in the US West region. 
 
@@ -40,8 +40,8 @@ The SQL Database service stores database backup files in a geo-redundant storage
 >[AZURE.NOTE] In Azure storage, the term *replication* refers to copying files from one location to another. SQL's *database replication* refers to keeping to multiple secondary databases synchronized with a primary database. 
 
 To learn more about:
-- Geo-redundant storage, see [Azure Storage replication](../azure-storage/azure-storage-storage-redundancy).
-- RA-GRS storage, see [Read-access geo-redundant storage](../azure-storage/azure-storage-storage-redundancy.md#read-access-geo-redundant-storage).
+- Geo-redundant storage, see [Azure Storage replication](../storage/storage-redundancy.md).
+- RA-GRS storage, see [Read-access geo-redundant storage](../storage/storage-redundancy.md#read-access-geo-redundant-storage).
 
 ## Automated backup costs
 
