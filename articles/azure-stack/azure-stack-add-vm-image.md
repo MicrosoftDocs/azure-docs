@@ -44,7 +44,7 @@ If the VM image VHD is available locally on the console VM (or another externall
 2. Clone the [Azure Stack Tools repository](https://aka.ms/azurestackaddvmimage), and then import the **ComputeAdmin** module
 
     ```powershell
-    Import-Module .\Add-VMImage.psm1
+    Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
     ```
 
 3. Add the VM image by invoking the Add-VMImage cmdlet.
