@@ -18,9 +18,9 @@
 
 # SQL Database backups
 
-SQL Database creates full, differential, and transaction log backups of each database on a weekly, hourly, and 5-minute basis respectively. SQL Database creates database backups automatically as part of the service offering, with no requirement to opt in and no additional cost. Use database backups to restore a databases to a point-in-time. They are a must have for your business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. 
+SQL Database creates full, differential, and transaction log backups of each database on a weekly, hourly, and 5-minute basis respectively. SQL Database creates database backups automatically as part of the service offering, with no requirement to opt in and no additional cost. Use database backups to restore a database to a point-in-time. They are a must have for your business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. 
 
-This is a reference article that explains the details of database backups. For disaster recover and business continuity strategy information, see [Business continuity overview](sql-database-business-continuity.md).
+This reference article explains the details of SQL database backups. For disaster recover and business continuity strategy information, see [Business continuity overview](sql-database-business-continuity.md).
 
 
 ## What is database backup?  
@@ -33,11 +33,11 @@ To learn more about:
 - Differential backups, see [Differential backups](https://msdn.microsoft.com/library/ms175526.aspx ).
 - Transaction log backups, see [Transaction log backups](https://msdn.microsoft.com/en-us/library/ms191429.aspx).
 
-The SQL Database service stores database backup files in a geo-redundant storage account with read access (RA-GRS). The Azure Storage RA-GRS feature replicates the backup files to a [paired data center](../best-practices-availability-paired-regions.md). This ensures you can restore a database in case you cannot access the database backup from your primary database region. In the following example, SQL Database creates database backups in the US East region and stores them in a RA-GRS account. Then, Azure Storage geo-replicates the backups to a paired data center in the US West region. 
+The SQL Database service stores database backup files in a geo-redundant storage account with read access (RA-GRS). The Azure Storage RA-GRS feature replicates the backup files to a [paired data center](../best-practices-availability-paired-regions.md). This geo-replication ensures you can restore a database in case you cannot access the database backup from your primary database region. In the following example, SQL Database creates database backups in the US East region and stores them in a RA-GRS account. Then, Azure Storage geo-replicates the backups to a paired data center in the US West region. 
 
 ![geo-restore](./media/sql-database-geo-restore/geo-restore-1.png)
 
->[AZURE.NOTE] In Azure storage, the term *replication* refers to copying files from one location to another. This is different from SQL's *database replication* that refers to keeping a secondary database online and up-to-date with the latest changes to the primary database. 
+>[AZURE.NOTE] In Azure storage, the term *replication* refers to copying files from one location to another. SQL's *database replication* refers to keeping to multiple secondary databases synchronized with a primary database. 
 
 To learn more about:
 - Geo-redundant storage, see [Azure Storage replication](../azure-storage/azure-storage-storage-redundancy).
@@ -45,15 +45,15 @@ To learn more about:
 
 ## Automated backup costs
 
-Microsoft Azure SQL Database provides up to 200% of your maximum provisioned database storage of backup storage at no additional cost. For example, if you have a Standard DB instance with a provisioned DB size of 250 GB, you have 500 GB of backup storage at no additional charge. If your database exceeds the provided backup storage, you can choose to reduce the retention period by contacting Azure Support. Another option is to pay for extra backup storage that is billed at the standard Read-Access Geographically Redundant Storage (RA-GRS) rate. 
+Microsoft Azure SQL Database provides up to 200% of your maximum provisioned database storage as backup storage at no additional cost. For example, if you have a Standard DB instance with a provisioned DB size of 250 GB, you have 500 GB of backup storage at no additional charge. If your database exceeds the provided backup storage, you can choose to reduce the retention period by contacting Azure Support. Another option is to pay for extra backup storage that is billed at the standard Read-Access Geographically Redundant Storage (RA-GRS) rate. 
 
 ## Automated backup schedule
 
-All Basic, Standard, and Premium databases are protected by automatic backups. Full database backups are taken every week, differential database backups are taken hourly, and transaction log backups are taken every five minutes. The first full backup is scheduled immediately after a database is created. It usually completes within 30 minutes, but it can take longer when the database is of a significant size. For example, the initial backup can take longer on a restored database or a database copy. After the first full backup, all further backups are scheduled automatically and managed silently in the background. Exact timing of full and [differential](https://msdn.microsoft.com/library/ms175526.aspx) database backups  is determined by the system to balance overall load. 
+All Basic, Standard, and Premium databases are protected by automatic backups. Full database backups are taken every week, differential database backups are taken hourly, and transaction log backups are taken every five minutes. The first full backup is scheduled immediately after a database is created. It usually completes within 30 minutes, but it can take longer when the database is of a significant size. For example, the initial backup can take longer on a restored database or a database copy. After the first full backup, all further backups are scheduled automatically and managed silently in the background. The exact timing of full and [differential](https://msdn.microsoft.com/library/ms175526.aspx) database backups is determined as it balances the overall system workload. 
 
 ## Automated backup retention period
 
-An automated backup is retained for 7 days for Basic, 35 days for Standard, and 35 days for Premium. For more information on features available with each service tier, see [Service-tiers](sql-database-service-tiers.md). 
+Each SQL Database backup is retained for 7 days for Basic, 35 days for Standard, and 35 days for Premium. For more information on features available with each service tier, see [Service-tiers](sql-database-service-tiers.md). 
 
 ### What happens to my restore point retention period when I downgrade/upgrade by service tier?
 
