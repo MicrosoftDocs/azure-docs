@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2016"
+	ms.date="09/26/2016"
 	ms.author="jeedes"/>
 
 
@@ -143,7 +143,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
     a. Click **Download certificate**, and then save the file on your computer.
 
     
-6. Navigate to the following URL: https://<your-subdomain>.deputy.com/exec/config/system_config. Go to **Security Settings** and click **Edit**.
+6. Navigate to the following URL: https://(your-subdomain).deputy.com/exec/config/system_config. Go to **Security Settings** and click **Edit**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_004.png)
 
