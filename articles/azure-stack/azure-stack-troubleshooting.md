@@ -83,7 +83,7 @@ Information about the NATVMStaticIP and NATVMStaticGateway parameters can be fou
 
 ### JavaScript error when attempting to connect via AAD and Azure PowerShell
 
-Two options are possible to work around this:
+Two options are possible to work around this error:
 
 1. Disable Internet Explorer Enhanced Security Configuration on the Host / MAS-Con01 (wherever PowerShell will be executed that pops up the AAD login).
 
