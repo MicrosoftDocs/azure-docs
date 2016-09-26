@@ -16,11 +16,11 @@
     ms.date="09/26/2016"
     ms.author="magoedte"/>
 
-# Azure Automation scenario - automate removal of Resource Groups
+# Azure Automation scenario - automate removal of resource groups
 
 Many customers create more than one resource group, where some are for dedicated for managing production applications and others may be development, testing and staging environments. Automating the deployment of these resources is one thing, but being able to decommission a resource group with a click of the button is another.  Using Automation to handle it is a perfect use case and opportunity to streamline such a common management task. This also becomes helpful if you are working with an Azure subscription that has a spending limit through a member offer like MSDN or the Microsoft Partner Network Cloud Essentials program, for example. 
 
-This scenario is based on a PowerShell runbook and is designed to remove one or more resource groups that you specify from your subscription.  The runbook supports testing first before proceeding, which is its default value.  This way you don't accidentally delete it without making absolutely sure your ready to complete this procedure.   
+This scenario is based on a PowerShell runbook and is designed to remove one or more resource groups that you specify from your subscription.  The runbook supports testing first before proceeding, which is its default value.  This way you don't accidentally delete it without making absolutely sure you're ready to complete this procedure.   
 
 ## Getting the scenario
 
@@ -41,7 +41,7 @@ PreviewMode (Optional) | Execute the runbook to see which resource groups would 
 
 ### Prerequisites
 
-The runbook works with an [Azure Run As account](automation-sec-configure-azure-runas-account.md).  The Run As account is the preferred authentication credential since it uses certificate authentication instead of a password that may expire or change frequently.  
+The runbook works with an [Azure Run As account](automation-sec-configure-azure-runas-account.md).  The Run As account is the preferred authentication method since it uses certificate authentication instead of a password that may expire or change frequently.  
 
 ### Install and publish the runbooks
 
