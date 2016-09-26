@@ -28,6 +28,8 @@ You can receive alerts based on:
     
 - Metric values - The alert triggers when the value of a specified metric crosses a threshold you assign in either direction. That is, it triggers both when the condition is first met and then afterwards when that condition is no longer being met.
 - Activity log events - An alert can trigger on every event, or, only when a certain number of events occur.
+
+## Alerts in different Azure services
  
 Alerts are available across different services
 
@@ -35,7 +37,7 @@ Alerts are available across different services
 - **OMS Log Analytics** - You can route diagnostic logs Log Analytics. OMS allows metric, log and other alert types. For more information, see [Alerts in Log Analytics](../log-analytics/log-analytics-alerts.md).   
 - **Azure Monitor** - Azure Monitor allows alerts based on both metric values and activity log events. Azure Monitor includes the [Azure Insights REST API](https://msdn.microsoft.com/library/dn931943.aspx).  Also see [Using the Azure portal, PowerShell or the Command Line Interface to create alerts](insights-alerts-portal.md)
 
-
+## Alert Actions
 You can configure an alert to do the following when it triggers: 
 
 - send email notifications to the service administrator, co-administrators and/or additional emails that you specify.
