@@ -60,99 +60,32 @@ The tables below show both read-write and read-only variables that are defined b
 
 You can **get** and **set** the values of these service-defined variables to manage the number of compute nodes in a pool:
 
-<table>
-  <tr>
-    <th>Read-write<br/>service-defined variables</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>$TargetDedicated</td>
-    <td>The <b>target</b> number of <b>dedicated compute nodes</b> for the pool. This is the number of compute nodes that the pool should be scaled to. It is a "target" number since it's possible for a pool not to reach the target number of nodes. This can occur if the target number of nodes is modified again by a subsequent autoscale evaluation before the pool has reached the initial target. It can also happen if a Batch account node or core quota is reached before the target number of nodes is reached.</td>
-  </tr>
-  <tr>
-    <td>$NodeDeallocationOption</td>
-    <td>The action that occurs when compute nodes are removed from a pool. Possible values are:
-      <br/>
-      <ul>
-        <li><p><b>requeue</b>--Terminates tasks immediately and puts them back on the job queue so that they are rescheduled.</p></li>
-        <li><p><b>terminate</b>--Terminates tasks immediately and removes them from the job queue.</p></li>
-        <li><p><b>taskcompletion</b>--Waits for currently running tasks to finish and then removes the node from the pool.</p></li>
-        <li><p><b>retaineddata</b>--Waits for all the local task-retained data on the node to be cleaned up before removing the node from the pool.</p></li>
-      </ul></td>
-   </tr>
-</table>
+| Read-write service-defined variables | Description |
+| --- | --- |
+| $TargetDedicated | The **target** number of **dedicated compute nodes** for the pool. This is the number of compute nodes that the pool should be scaled to. It is a "target" number since it's possible for a pool not to reach the target number of nodes. This can occur if the target number of nodes is modified again by a subsequent autoscale evaluation before the pool has reached the initial target. It can also happen if a Batch account node or core quota is reached before the target number of nodes is reached. |
+| $NodeDeallocationOption | The action that occurs when compute nodes are removed from a pool. Possible values are:<br/><br/>**requeue**--Terminates tasks immediately and puts them back on the job queue so that they are rescheduled.<br/>**terminate**--Terminates tasks immediately and removes them from the job queue.<br/>**taskcompletion**--Waits for currently running tasks to finish and then removes the node from the pool.<br/>**retaineddata**--Waits for all the local task-retained data on the node to be cleaned up before removing the node from the pool. |
 
 You can **get** the value of these service-defined variables to make adjustments that are based on metrics from the Batch service:
 
-<table>
-  <tr>
-    <th>Read-only<br/>service-defined<br/>variables</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>$CPUPercent</td>
-    <td>The average percentage of CPU usage.</td>
-  </tr>
-  <tr>
-    <td>$WallClockSeconds</td>
-    <td>The number of seconds consumed.</td>
-  </tr>
-  <tr>
-    <td>$MemoryBytes</td>
-    <td>The average number of megabytes used.</td>
-  <tr>
-    <td>$DiskBytes</td>
-    <td>The average number of gigabytes used on the local disks.</td>
-  </tr>
-  <tr>
-    <td>$DiskReadBytes</td>
-    <td>The number of bytes read.</td>
-  </tr>
-  <tr>
-    <td>$DiskWriteBytes</td>
-    <td>The number of bytes written.</td>
-  </tr>
-  <tr>
-    <td>$DiskReadOps</td>
-    <td>The count of read disk operations performed.</td>
-  </tr>
-  <tr>
-    <td>$DiskWriteOps</td>
-    <td>The count of write disk operations performed.</td>
-  </tr>
-  <tr>
-    <td>$NetworkInBytes</td>
-    <td>The number of inbound bytes.</td>
-  </tr>
-  <tr>
-    <td>$NetworkOutBytes</td>
-    <td>The number of outbound bytes.</td>
-  </tr>
-  <tr>
-    <td>$SampleNodeCount</td>
-    <td>The count of compute nodes.</td>
-  </tr>
-  <tr>
-    <td>$ActiveTasks</td>
-    <td>The number of tasks in an active state.</td>
-  </tr>
-  <tr>
-    <td>$RunningTasks</td>
-    <td>The number of tasks in a running state.</td>
-  </tr>
-  <tr>
-    <td>$SucceededTasks</td>
-    <td>The number of tasks that finished successfully.</td>
-  </tr>
-  <tr>
-    <td>$FailedTasks</td>
-    <td>The number of tasks that failed.</td>
-  </tr>
-  <tr>
-    <td>$CurrentDedicated</td>
-    <td>The current number of dedicated compute nodes.</td>
-  </tr>
-</table>
+| Read-only service-defined variables | Description |
+| --- | --- |
+| $CPUPercent | The average percentage of CPU usage. |
+| $WallClockSeconds | The number of seconds consumed. |
+| $MemoryBytes | The average number of megabytes used. |
+| $DiskBytes | The average number of gigabytes used on the local disks. |
+| $DiskReadBytes | The number of bytes read. |
+| $DiskWriteBytes | The number of bytes written. |
+| $DiskReadOps | The count of read disk operations performed. |
+| $DiskWriteOps | The count of write disk operations performed. |
+| $NetworkInBytes | The number of inbound bytes. |
+| $NetworkOutBytes | The number of outbound bytes. |
+| $SampleNodeCount | The count of compute nodes. |
+| $ActiveTasks | The number of tasks in an active state. |
+| $RunningTasks | The number of tasks in a running state. |
+| $PendingTasks | The sum of $ActiveTasks and $Runningtasks. |
+| $SucceededTasks | The number of tasks that finished successfully. |
+| $FailedTasks | The number of tasks that failed. |
+| $CurrentDedicated | The current number of dedicated compute nodes. |
 
 > [AZURE.TIP] The read-only, service-defined variables that are shown above are *objects* that provide various methods to access data associated with each. See [Obtain sample data](#getsampledata) below for more information.
 
@@ -361,6 +294,7 @@ You can use both **resource** and **task** metrics when you're defining a formul
     <p><ul>
       <li>$ActiveTasks</li>
       <li>$RunningTasks</li>
+      <li>$PendingTasks</li>
       <li>$SucceededTasks</li>
 			<li>$FailedTasks</li></ul></p>
 		</td>
