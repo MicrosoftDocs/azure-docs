@@ -27,7 +27,7 @@ A Stream Analytics job definition includes inputs, a query, and output. Inputs a
 A job requires at least one input source for data streaming. The data stream input source can be stored in an Azure Service Bus Event Hub or in Azure Blob storage. For more information, see [Introduction to Azure Stream Analytics](stream-analytics-introduction.md) and [Get started using Azure Stream Analytics](stream-analytics-get-started.md).
 
 ## Configuring streaming units
-Streaming units (SUs) represent the resources and computing power to execute an Azure Stream Analytics job. SUs provide a way to describe the relative event processing capacity based on a blended measure of CPU, memory, and read and write rates. Each streaming unit corresponds to roughly 1MB/second of throughput. 
+Streaming units (SUs) represent the resources and computing power required to execute an Azure Stream Analytics job. SUs provide a way to describe the relative event processing capacity based on a blended measure of CPU, memory, and read and write rates. Each streaming unit corresponds to roughly 1MB/second of throughput. 
 
 Choosing how many SUs are required for a particular job depends on the partition configuration for the inputs and the query defined for the job. You can select up to your quota in streaming units for a job by using the Azure Classic Portal. Each Azure subscription by default has a quota of up to 50 streaming units for all the analytics jobs in a specific region. To increase streaming units for your subscriptions, contact [Microsoft Support](http://support.microsoft.com).
 
