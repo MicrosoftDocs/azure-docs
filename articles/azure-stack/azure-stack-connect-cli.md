@@ -23,11 +23,11 @@ In this document, we guide you through the process of using the Azure command-li
 ## Install Azure CLI
 Quickly install the Azure CLI to use a set of open-source, shell-based commands for creating and managing resources in Microsoft Azure Stack.
 
-  	[Download the Windows CLI](http://aka.ms/azstack-windows-cli)
+[Download the Windows CLI](http://aka.ms/azstack-windows-cli)
 
-  	[Download the Mac CLI](http://aka.ms/azstack-linux-cli)
+[Download the Mac CLI](http://aka.ms/azstack-linux-cli)
 
-  	[Download the Linux CLI](http://aka.ms/azstack-mac-cli)
+[Download the Linux CLI](http://aka.ms/azstack-mac-cli)
 
 
   If you’re on Mac or Linux, you can also get the CLI by using the following command:
@@ -40,7 +40,7 @@ In the following steps, you configure Azure CLI to connect to Azure Stack. Then 
 
 1.  Retrieve the value for active-directory-resource-id by executing this PowerShell:
         
-         Invoke-RestMethod -Uri https://api.azurestack.local/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
+          (Invoke-RestMethod -Uri https://api.azurestack.local/metadata/endpoints?api-version=1.0 -Method Get).authentication.audiences[0]
 
 2.  Use the following CLI command to add the Azure Stack environment, making sure to update *--active-directory-resource-id* with the data URL retrieved above:
 
@@ -63,5 +63,7 @@ In the following steps, you configure Azure CLI to connect to Azure Stack. Then 
 ## Next steps
 
 [Deploy templates with Azure CLI](azure-stack-deploy-template-command-line.md)
+
 [Connect with PowerShell](azure-stack-connect-powershell.md)
+
 [Manage user permissions](azure-stack-manage-permissions.md)

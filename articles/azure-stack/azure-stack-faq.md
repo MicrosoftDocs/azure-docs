@@ -55,13 +55,6 @@ While Storage Spaces Direct supports NVMe disks, with Azure Stack Technical Prev
 
 More specifically, the deployment script does not support NVMe based on the way bus types are discovered. While it is possible to edit the deployment script to make it run, keep in mind we would recommend using the disks/bus types combinations that have been tested for this release.
 
-
-## PaaS resource providers
-
-### Is there an offline installation method for the Web Apps resource provider?  
-
-Not at this time.
-
 ## Tenant
 
 ### Can I deploy my own images as a tenant?
@@ -79,8 +72,6 @@ It is possible to deploy Microsoft Azure Stack POC TP2 leveraging Nested Virtual
 ### Does Azure Stack support dynamic disks for virtual machines?
 
 Azure Stack does not support dynamic disks.
-
-
 
 ## Next steps
 
