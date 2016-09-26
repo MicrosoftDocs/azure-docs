@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="09/19/2016" 
 	ms.author="bradsev" /> 
 
 
 # How to identify scenarios and plan for advanced analytics data processing
 
-What resources should you plan to include when setting up an environment to do advanced analytics processing on a dataset? This article suggests a series of questions to ask that will help identify the tasks and resources relevant your scenario. The order of high-level steps for predictive analytics is outlined in the [What is the Team Data Science Process (TDSP)?](data-science-process-overview.md) document. Each of these steps will require specific resources for the  tasks relevant to your particular scenario. The key questions to identify your scenario concern data logistics, characteristics, the quality of the datasets, and the tools and languages you prefer to do the analysis.
+What resources should you plan to include when setting up an environment to do advanced analytics processing on a dataset? This article suggests a series of questions to ask that will help identify the tasks and resources relevant your scenario. The order of high-level steps for predictive analytics is outlined in [What is the Team Data Science Process (TDSP)?](data-science-process-overview.md). Each of these steps will require specific resources for the  tasks relevant to your particular scenario. The key questions to identify your scenario concern data logistics, characteristics, the quality of the datasets, and the tools and languages you prefer to do the analysis.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 

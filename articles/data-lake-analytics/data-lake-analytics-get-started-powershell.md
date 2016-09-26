@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="05/16/2016"
+   ms.date="09/21/2016"
    ms.author="edmaca"/>
 
 # Tutorial: get started with Azure Data Lake Analytics using Azure PowerShell
@@ -23,8 +23,6 @@
 Learn how to use the Azure PowerShell to create Azure Data Lake Analytics accounts, define Data Lake Analytics jobs in [U-SQL](data-lake-analytics-u-sql-get-started.md), and submit jobs to Data Lake Analytic accounts. For more  information about Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).
 
 In this tutorial, you will develop a job that reads a tab separated values (TSV) file and converts it into a comma separated values (CSV) file. To go through the same tutorial using other supported tools, click the tabs on the top of this section.
-
-[AZURE.INCLUDE [basic-process-include](../../includes/data-lake-analytics-basic-process.md)]
 
 ##Prerequisites
 
@@ -125,7 +123,8 @@ The following PowerShell script shows you how to get the default Data Lake Store
 
 	$resourceGroupName = "<ResourceGroupName>"
 	$dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
-	$dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticName).Properties.DefaultDataLakeAccount
+	$dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticsName).Properties.DefaultDataLakeAccount
+	echo $dataLakeStoreName
 
 >[AZURE.NOTE] The Azure Portal provides an user interface to copy the sample data files to the default Data Lake Store account. For instructions, see [Get Started with Azure Data Lake Analytics using Azure Portal](data-lake-analytics-get-started-portal.md#upload-data-to-the-default-data-lake-store-account).
 
@@ -177,13 +176,10 @@ The Data Lake Analytics jobs are written in the U-SQL language. To learn more ab
 		$dataLakeAnalyticsName = "<DataLakeAnalyticsAccountName>"
 		$usqlScript = "c:\tutorials\data-lake-analytics\copyFile.usql"
 		
-		Submit-AzureRmDataLakeAnalyticsJob -Name "convertTSVtoCSV" -AccountName $dataLakeAnalyticsName –ScriptPath $usqlScript 
-		                
-		While (($t = Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticsName -JobId $job.JobId).State -ne "Ended"){
-			Write-Host "Job status: "$t.State"..."
-			Start-Sleep -seconds 5
-		}
-		
+		$job = Submit-AzureRmDataLakeAnalyticsJob -Name "convertTSVtoCSV" -AccountName $dataLakeAnalyticsName –ScriptPath $usqlScript 
+
+		Wait-AdlJob -Account $dataLakeAnalyticsName -JobId $job.JobId
+
 		Get-AzureRmDataLakeAnalyticsJob -AccountName $dataLakeAnalyticsName -JobId $job.JobId
 
 	In the script, the U-SQL script file is stored at c:\tutorials\data-lake-analytics\copyFile.usql. Update the file path accordingly.

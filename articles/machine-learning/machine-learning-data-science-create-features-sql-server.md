@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2016" 
+	ms.date="09/19/2016" 
 	ms.author="bradsev;fashah;garye" /> 
 
 
@@ -32,7 +32,7 @@ This **menu** links to topics that describe how to create features for data in v
 This article assumes that you have:
 
 * Created an Azure storage account. If you need instructions, see [Create an Azure Storage account](../hdinsight-get-started.md#storage)
-* Stored your data is in SQL Server. If it is not, see [Move data to an Azure SQL Database for Azure Machine Learning](machine-learning-data-science-move-sql-azure.md) for instructions on how to move the data there.
+* Stored your data in SQL Server. If you have not, see [Move data to an Azure SQL Database for Azure Machine Learning](machine-learning-data-science-move-sql-azure.md) for instructions on how to move the data there.
 
 
 ##<a name="sql-featuregen"></a>Feature Generation with SQL
@@ -96,9 +96,7 @@ The above location based features can be further used to generate additional cou
 
 
 > [AZURE.TIP] You can programmatically insert the records using your language of choice. You may need to insert the data in chunks to improve write efficiency [Check out the example of how to do this using pyodbc here](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python). 
- 
-
-> [AZURE.TIP] Another alternative is to insert data in the database using [BCP utility](https://msdn.microsoft.com/library/ms162802.aspx)
+Another alternative is to insert data in the database using [BCP utility](https://msdn.microsoft.com/library/ms162802.aspx)
 
 ###<a name="sql-aml"></a>Connecting to Azure Machine Learning
 
