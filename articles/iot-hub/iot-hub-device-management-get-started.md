@@ -51,9 +51,6 @@ An active Azure account. (If you don't have an account, you can create a free tr
 
 [AZURE.INCLUDE [iot-hub-get-started-create-hub-pp](../../includes/iot-hub-get-started-create-hub-pp.md)]
 
-## Create a device identity
-TODO: get markdown from Elio. 
-
 ## Create a simulated device app
 
 In this section, you create a Node.js console app that responds to a direct method called by the cloud, which triggers a simulated device reboot and uses the device twin reported properties to enable device twin queries to identify devices and when they last rebooted.
@@ -257,6 +254,9 @@ To continue getting started with IoT Hub and device management patterns such as 
 
 To learn how to extend your IoT solution and schedule method calls on multiple devices, see the [Schedule and broadcast jobs][lnk-tutorial-jobs] tutorial.
 
+To continue getting started with IoT Hub, see [Getting started with the Gateway SDK][lnk-gateway-SDK].
+
+
 <!-- images and links -->
 [img-new-hub]: media/iot-hub-get-started-with-dm/image1.png
 [img-configure-hub]: media/iot-hub-get-started-with-dm/image2.png
@@ -274,9 +274,8 @@ To learn how to extend your IoT solution and schedule method calls on multiple d
 [Using resource groups to manage your Azure resources]: ../azure-portal/resource-group-portal.md
 [lnk-dm-github]: https://github.com/Azure/azure-iot-device-management
 [lnk-tutorial-jobs]: iot-hub-schedule-jobs.md
-[lnk-sample-ui]: iot-hub-device-management-ui-sample.md
-
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md
+[lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx

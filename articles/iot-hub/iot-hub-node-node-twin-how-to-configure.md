@@ -27,7 +27,7 @@ In this tutorial, you learn how to use the the twin's *desired properties* in co
 At a high level, this tutorial follows the *desired state pattern* for device management. The fundamental idea of this pattern is to have the solution back end specify the desired state for the managed devices, instead of sending specific commands. This puts the device in charge of establishing the best way to reach the desired state (very important in IoT scenarios where specific device conditions affect the ability to immediately carry out specific commands), while continually reporting to the back end the current state and potential error conditions. This enables the back end to have full visibility of the state of the configuration process across large sets of devices.
 You can find more information regarding the role of the desired state pattern in device management in [Overview of Azure IoT Hub device management][lnk-dm-overview].
 
->AZURE.NOTE In scenarios where devices are controlled in a more interactive fashion (turn on a fan from a user-controlled app), consider using [cloud-to-device methods][lnk-methods].
+> AZURE.NOTE In scenarios where devices are controlled in a more interactive fashion (turn on a fan from a user-controlled app), consider using [cloud-to-device methods][lnk-methods].
 
 In this tutorial, the application back end changes the telemetry configuration of a target device. The configuration is represented in the device twin's desired properties in the following way:
 
@@ -294,7 +294,7 @@ In this section, you create a Node.js console app that updates the *desired prop
 
 > [AZURE.IMPORTANT] There is a delay of up to a minute between the device report operation and the query result. This is to enable the query infrastructure to work at very high scale. To retrieve consistent views of a single twin use the **getDeviceTwin** method in the **Registry** class.
 
-# Next steps
+## Next steps
 
 In this tutorial, you set a desired configuration as *desired properties* from a back-end application, and wrote a simulated device app to detect that change and simulate a multi-step update process reporting its status as *reported properties* to the twin.
 
@@ -318,3 +318,8 @@ To learn how to extend your IoT solution to send telemetry from devices follow t
 [lnk-dm-overview]: iot-hub-device-management-overview.md
 [lnk-twin-tutorial]: iot-hub-node-node-twin-getstarted.md
 [lnk-schedule-jobs]: iot-hub-schedule-jobs.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-connect-device]: https://azure.microsoft.com/develop/iot/
+[lnk-device-management]: iot-hub-device-management-get-started.md
+[lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
+[lnk-iothub-getstarted]: iot-hub-node-node-getstarted.md

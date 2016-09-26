@@ -18,9 +18,7 @@
 
 # Create an IoT Hub using CLI
 
-To Add here other tabs for creating IoT Hub via Portal, PowerShell, REST
-
-[AZURE.INCLUDE iot-hub-resource-manager-selector]
+[AZURE.INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## Introduction
 
@@ -112,6 +110,6 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-azure-rm-overview]: ../resource-group-overview.md
 [lnk-CLI-arm]: ../xplat-cli-azure-resource-manager.md
 
-[lnk-sdks]: iot-hub-sdks-summary.md
+[lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-portal]: iot-hub-manage-through-portal.md
+[lnk-portal]: iot-hub-create-through-portal.md

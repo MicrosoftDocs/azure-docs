@@ -120,7 +120,7 @@ The `telemetryConfig` desired and reported properties are used by the back end a
 
 3. The app back end can keep track the results of the configuration operation across many devices, by [querying][lnk-query] twins.
 
-In many cases twins are used to synchronize long-running operations such as firmware updates. Refer to [Use desired properties to configure devices][lnk-twin-synchronization] for more information on how to use properties to synchronize and track long running operations across devices.
+In many cases twins are used to synchronize long-running operations such as firmware updates. Refer to [Use desired properties to configure devices][lnk-twin-properties] for more information on how to use properties to synchronize and track long running operations across devices.
 
 ### Back-end facing operations
 
@@ -262,8 +262,8 @@ Now you have learned about device twins, you may be interested in the following 
 
 If you would like to try out some of the concepts described in this article, you may be interested in the following IoT Hub tutorials:
 
-- [How to use the device twin][lnk-tutorial-use-twin]
-- [How to use twin properties][lnk-tutorial-use-twin]
+- [How to use the device twin][lnk-twin-tutorial]
+- [How to use twin properties][lnk-twin-properties]
 
 <!-- links and images -->
 

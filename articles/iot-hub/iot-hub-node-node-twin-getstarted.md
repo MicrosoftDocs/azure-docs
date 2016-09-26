@@ -29,7 +29,7 @@ Common use cases include:
 * Device apps and back ends synchronizing the state of long-running workflows (for example,firmware or configuration updates).
 * Solution back ends querying devices based on meta-data, configuration, or conditions.
 
->AZURE.NOTE Twins are designed for synchronization and for querying  device configurations and conditions. Use [device-to-cloud messages][lnk-d2c] for sequences of timestamped events (such as telemetry streams of time-based sensor data) and [cloud-to-device methods][lnk-methods] for interactive control of devices, such as turning on a fan from a user-controlled app.
+> AZURE.NOTE Twins are designed for synchronization and for querying  device configurations and conditions. Use [device-to-cloud messages][lnk-d2c] for sequences of timestamped events (such as telemetry streams of time-based sensor data) and [cloud-to-device methods][lnk-methods] for interactive control of devices, such as turning on a fan from a user-controlled app.
 
 A device twin contains *tags*, device meta-data accessible only by the back end, and *desired properties* in a JSON object modifiable by the back end and observable by the device app. A device twin contains *reported properties* in a JSON object modifiable by the device app and readable by the back end. Tags and properties cannot contain arrays, but objects can be nested. Additionally, the app back end can query device twins based on all the above data. 
 
@@ -146,7 +146,7 @@ In this section, you create a Node.js console app that adds location meta-data t
 
 In the next section you create a device app that reports the connectivity information and changes the result of the query in the previous section.
 
-# Create the device app
+## Create the device app
 
 In this section, you create a Node.js console app that connects to your hub as **myDeviceId**, and then updates its twin's reported properties to contain the information that it is connected using a cellular network.
 
@@ -218,7 +218,7 @@ In this section, you create a Node.js console app that connects to your hub as *
 
     ![][3]
 
-# Next steps
+## Next steps
 In this tutorial, you configured a new IoT hub in the portal, and then created a device identity in the hub's identity registry. You added device meta-data as tags from a back-end application, and wrote a simulated device app to report device connectivity information in the device twin. You also learned how to query this information using the IoT Hub SQL-like query language.
 
 To continue getting started with IoT Hub and to explore other IoT scenarios see:
@@ -235,7 +235,7 @@ To learn how to extend your IoT solution to send telemetry from devices follow t
 
 
 <!-- links -->
-[lnk-hub-sdks]: iot-hub-sdks-summary.md
+[lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
@@ -249,6 +249,6 @@ To learn how to extend your IoT solution to send telemetry from devices follow t
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 [lnk-twin-how-to-configure]: iot-hub-node-node-twin-how-to-configure.md
-
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 
 
