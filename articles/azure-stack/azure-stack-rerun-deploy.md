@@ -15,6 +15,8 @@
 	ms.topic="get-started-article"
 	ms.date="09/26/2016"
 	ms.author="erikje"/>
+	
+# Rerun a deployment from a failed step
   
 If you experience a failure during deployment, you can attempt the following steps to rerun the deployment from where it failed.
 
