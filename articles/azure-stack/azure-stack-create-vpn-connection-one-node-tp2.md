@@ -29,7 +29,7 @@ people who are evaluating Site-to-Site gateways understand how to set up
 VPN connections between virtual networks in two different Azure Stack
 deployments.  In the process of doing so, you will gain an understanding how VPN Gateways work in Azure Stack.
 
->[Azure.Note] This document applies specifically to the Azure Stack TP2 POC.
+>[AZURE.NOTE] This document applies specifically to the Azure Stack TP2 POC.
 
 ### Connection diagram
 
@@ -66,7 +66,7 @@ complete this configuration.
     address range, which requires changing settings in files in the
     Cloud Deployment files **before you deploy the POC**.
 
->[Azure.Note] It is important that you make changes to the Deployment
+>[AZURE.NOTE] It is important that you make changes to the Deployment
 before you deploy the second POC because you cannot change this after it
 has been deployed.
 
@@ -158,8 +158,8 @@ deployment.  In our example, we're going to change each entry from 192.168.102.0
 
 #### Active Directory Federation Services (ADFS)
 
-|||
-|---------------------------|---------------------------------------------------------------------------|
+| | |
+| - | - |
 | **Path to config file** |  C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\ADFS\\OneNodeRole.xml |
 | **Default Value**       | &lt;VIP Id="Adfs" Name="Active Directory Federation Services" NetworkId="External" IPv4Address="192.168.102.2/24" EnableOutboundNat="True"&gt; |
 | **New Value**           | &lt;VIP Id="Adfs" Name="Active Directory Federation Services" NetworkId="External" IPv4Address="192.168.112.2/24" EnableOutboundNat="True"&gt; |
@@ -167,31 +167,31 @@ deployment.  In our example, we're going to change each entry from 192.168.102.0
 | **New Value**             | &lt;VIP Id="Graph" Name="Azure Stack Graph" NetworkId="External" IPv4Address="192.168.112.8/24" EnableOutboundNat="True"&gt; |
 
 #### Fabric Ring Services
-|||
-| --------------------------| ---------------------------------------------------------------------------------------|
+| | |
+| - | - |
 |**Path to config file**  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\FabricRingServices\\OneNodeRole.xml |
 |**Default Value**        | &lt;VIP Id="XrpExternal" Name="XRP External (extension)" NetworkId="External" IPv4Address="192.168.102.7/24" EnableOutboundNat="True"&gt; |
 | **New Value**            | &lt;VIP Id="XrpExternal" Name="XRP External (extension)" NetworkId="External" IPv4Address="192.168.112.7/24" EnableOutboundNat="True"&gt; |
 
 #### Key Vault Service
-|||
-| ---------------------------|------------------------------------------------------------------------------|
+| | |
+| - | - |
 | **Path to config file**  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\KeyVault\\OneNodeRole.xml |
 | **Default Value**        | &lt;VIP Id="KeyVaultDataPlane" Name="Key Vault Data Plane API" NetworkId="External" IPv4Address="192.168.102.3/24" EnableOutboundNat="True"&gt; |
 | **New Value**            | &lt;VIP Id="KeyVaultDataPlane" Name="Key Vault Data Plane API" NetworkId="External" IPv4Address="192.168.112.3/24" EnableOutboundNat="True"&gt; |
 
 #### Microsoft Azure Stack Resource Manager
 
-|||
-| ---------------------------| ------------------------------------------------------------------------|
+| | |
+| - | -|
 | **Path to config file**  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\WAS\\OneNodeRole.xml |
 |**Default Value**         |&lt;VIP Id="WapApi" Name="Azure Stack Resource Manager" NetworkId="External" IPv4Address="192.168.102.4/24" EnableOutboundNat="True"&gt; |
 | **New Value**             | &lt;VIP Id="WapApi" Name="Azure Stack Resource Manager" NetworkId="External" IPv4Address="192.168.112.4/24" EnableOutboundNat="True"&gt; |
 
 #### Azure-consistent Storage Services (WOSS)
 
-|||
-|--------------------------- | -------------------------------------------------------------------------|
+| | |
+| - | - |
 | **Path to config file**  | C:\\CloudDeployment\\Configuration\\Roles\\Fabric\\WOSS\\OneNodeRole.xml |
 | **Default Value**         | &lt;VIP Id="AcsRestApi" Name="Acs Rest API" NetworkId="External" IPv4Address="192.168.102.6/24" EnableOutboundNat="True" InterfaceName="SLBTraffic" &gt; |
 | **New Value**             | &lt;VIP Id="AcsRestApi" Name="Acs Rest API" NetworkId="External" IPv4Address="192.168.112.6/24" EnableOutboundNat="True" InterfaceName="SLBTraffic" &gt; |
@@ -209,7 +209,7 @@ You need to configure Quotas for Compute, Network and Storage so
 that these services can be associated with a Plan and then an Offer that
 tenants can subscribe to.
 
->[Azure.Note] You need to do these steps for each Azure Stack POC
+>[AZURE.NOTE] You need to do these steps for each Azure Stack POC
 environment.
 
 The experience to create Quotas for Services has changed from TP1. The
@@ -224,7 +224,7 @@ groupings of one or more services. As a provider, you can create plans
 to offer to your tenants. In turn, your tenants subscribe to your offers
 to use the plans and services they include.
 
->[Azure.Note] You will need to do these steps for each Azure Stack POC
+>[AZURE.NOTE] You will need to perform these steps for each Azure Stack POC
 environment.
 
 1.  First create a Plan. To do this, you can follow the steps in the
@@ -711,7 +711,7 @@ Routing and Remote Access Services (RRAS) role in the POC
 infrastructure. We need to configure NAT on the MAS-BGPNAT01 VM to allow
 the Site-to-Site VPN Connection to connect on both ends.
 
->[Azure.Note] This configuration is required for POC environments only.
+>[AZURE.NOTE] This configuration is required for POC environments only.
 
 ### Configure NAT
 
