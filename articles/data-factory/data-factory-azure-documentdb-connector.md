@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/25/2016" 
+	ms.date="09/26/2016" 
 	ms.author="jingwang"/>
 
 # Move data to and from DocumentDB using Azure Data Factory
@@ -354,7 +354,7 @@ The following table provides description for JSON elements specific to Azure Doc
 
 ## Azure DocumentDB Dataset type properties
 
-For a full list of sections & properties available for defining datasets please refer to the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
+For a full list of sections & properties available for defining datasets please refer to the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
  
 The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for the dataset of type **DocumentDbCollection** has the following properties.
 
@@ -391,7 +391,7 @@ Therefore, for schema-free data sources, the best practice is to specify the str
 
 ## Azure DocumentDB Copy Activity type properties
 
-For a full list of sections & properties available for defining activities please refer to the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc are available for all types of activities.
+For a full list of sections & properties available for defining activities please refer to the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities.
  
 **Note:** The Copy Activity takes only one input and produces only one output.
 
@@ -402,7 +402,7 @@ the following properties are available in **typeProperties** section:
 
 | **Property** | **Description** | **Allowed values** | **Required** |
 | ------------ | --------------- | ------------------ | ------------ |
-| query | Specify the query to read data. | Query string supported by DocumentDB. <br/><br/>Example: SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\" | No <br/><br/>If not specified, the SQL statement that is executed: select <columns defined in structure> from mycollection 
+| query | Specify the query to read data. | Query string supported by DocumentDB. <br/><br/>Example: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` | No <br/><br/>If not specified, the SQL statement that is executed: `select <columns defined in structure> from mycollection` 
 | nestingSeparator | Special character to indicate that the document is nested | Any character. <br/><br/>DocumentDB is a NoSQL store for JSON documents, where nested structures are allowed. Azure Data Factory enables user to denote hierarchy via nestingSeparator, which is “.” in the above examples. With the separator, the copy activity will generate the “Name” object with three children elements First, Middle and Last, according to “Name.First”, “Name.Middle” and “Name.Last” in the table definition. | No
 
 **DocumentDbCollectionSink** supports the following properties:
