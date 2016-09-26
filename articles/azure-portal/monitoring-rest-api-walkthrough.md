@@ -21,7 +21,7 @@ This article shows you how to perform authentication so your code can use the [M
 
 The Azure Monitor API makes it possible to programmatically retrieve the available default metric definitions (the type of metric such as CPU Time, Requests, etc.), granularity, and metric values. Once retrieved, the data can be saved in a separate data store such as Azure SQL Database, DocumentDB, or Azure Data Lake. From there additional analysis can be performed as needed.
 
-Besides working with various metric data points, the Monitor API makes it possible to execute various options list alert rules, view activity logs, and much more. For a full list of available operations, see the [Microsoft Azure Monitor REST API Reference](https://msdn.microsoft.com/library/azure/dn931943.aspx).
+Besides working with various metric data points, as the this article demonstrates, the Monitor API makes it possible to list alert rules, view activity logs, and much more. For a full list of available operations, see the [Microsoft Azure Monitor REST API Reference](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
 ## Authenticating Azure Monitor Requests
 
@@ -143,7 +143,7 @@ $request = "https://management.azure.com/subscriptions/${subscriptionId}/resourc
 ```
 
 ### Use ARMClient
-An alternative to using PowerShell (as shown above), is to use [ARMClient](https://github.com/projectkudu/ARMClient) on your Windows machine. The following steps outline use of ARMClient:
+An alternative to using PowerShell (as shown above), is to use [ARMClient](https://github.com/projectkudu/ARMClient) on your Windows machine. ARMClient handles the Azure AD authentication (and resulting JWT token) automatically. The following steps outline use of ARMClient for retrieving metric data:
 
 1. Install [Chocolatey](https://chocolatey.org/) and [ARMClient](https://github.com/projectkudu/ARMClient).
 
@@ -156,20 +156,6 @@ An alternative to using PowerShell (as shown above), is to use [ARMClient](https
 
 ![Alt "Using ARMClient to work with the Azure Monitoring REST API"](./media/monitoring-rest-api-walkthrough/armclient_metricdefinitions.png)
 
-## Retrieve Activity Log Data
-In addition to working with metric definitions and related values, it is also possible to retrieve additional interesting insights related to Azure resources. As an example, it is possible to programmatically retrieve [Azure management event data (activity or audit logs)](https://msdn.microsoft.com/library/azure/dn931927.aspx).
-
-```PowerShell
-$resourceProviderNamespace = "microsoft.insights"
-$resourceType = "eventtypes"
-$apiVersion = "2014-04-01"
-$filter = "eventTimestamp ge '2016-09-23' and eventTimestamp le '2016-09-24'"
-$request = "https://management.azure.com/subscriptions/${subscriptionId}/providers/${resourceProviderNamespace}/${resourceType}/management/values?api-version=${apiVersion}&`$filter=${filter}"
-(Invoke-RestMethod -Uri $request `
-                   -Headers $authHeader `
-                   -Method Get `
-                   -Verbose).Value | ConvertTo-Json
-```
 
 ## Retrieve the Resource ID
 Using the REST API can really help to understand the available metric definitions, granularity, and related values. That information is helpful when using the [Azure Management Library](https://msdn.microsoft.com/library/azure/mt417623.aspx).
@@ -216,6 +202,19 @@ The resource ID can be retrieved using Azure PowerShell cmdlets as well. For exa
 To retrieve the resource ID using the Azure CLI, execute the 'azure webapp show' command, specifying the '--json' option, as shown in the following screenshot:
 
 ![Alt "Resource ID obtained via PowerShell"](./media\monitoring-rest-api-walkthrough\resourceid_azurecli.png)
+
+## Retrieve Activity Log Data
+In addition to working with metric definitions and related values, it is also possible to retrieve additional interesting insights related to Azure resources. As an example, it is possible to query [activity log](https://msdn.microsoft.com/library/azure/dn931934.aspx) data. The following sample demonstrates using the Azure Monitor REST API to query activity log data within a specific date range for an Azure subscription: 
+
+```PowerShell
+$apiVersion = "2014-04-01"
+$filter = "eventTimestamp ge '2016-09-23' and eventTimestamp le '2016-09-24'and eventChannels eq 'Admin, Operation'"
+$request = "https://management.azure.com/subscriptions/${subscriptionId}/providers/microsoft.insights/eventtypes/management/values?api-version=${apiVersion}&`$filter=${filter}"
+(Invoke-RestMethod -Uri $request `
+                   -Headers $authHeader `
+                   -Method Get `
+                   -Verbose).Value | ConvertTo-Json
+```
 
 ## Next steps
 * Review the [Overview of Monitoring](monitoring-overview.md).
