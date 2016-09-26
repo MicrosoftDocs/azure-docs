@@ -3,7 +3,7 @@
 	description="Learn about the key features and concepts in Azure Stack."
 	services="azure-stack"
 	documentationCenter=""
-	authors="heathl17"
+	authors="Heathl17"
 	manager="byronr"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/15/2016"
+	ms.date="09/26/2016"
 	ms.author="helaw"/>
 
 # Key features and concepts in Azure Stack
@@ -24,9 +24,12 @@ If you’re new to Microsoft Azure Stack, these terms and feature descriptions m
 
 There are two varieties of users for Microsoft Azure Stack, the service administrator and the tenant (customer).
 
+                                                                                           |
+
 | ![](media/azure-stack-key-features/image1.png) | A **service administrator** can configure and manage resource providers, tenant offers, plans, services, quotas, and pricing.                                                                                           |
 |---|---|
 | ![](media/azure-stack-key-features/image2.png) | A **tenant** purchases (or acquires) services that the service administrator offers. Tenants can provision, monitor, and manage services that they have subscribed to, such as Web Apps, Storage, and Virtual Machines. |
+
 
 ## Portal
 
@@ -36,13 +39,16 @@ The primary method of interacting with Microsoft Azure Stack is the portal.
 
 The Microsoft Azure Stack portal, which is consistent with the Azure portal, is a web page that provides a self-service experience for both service administrators and tenants with role-based access control (RBAC) to resources and cloud capacity, enabling quick application and service development and deployment.
 
-## Services, plans, offers, and subscriptions
+## Regions, services, plans, offers, and subscriptions
 
-In Azure Stack, services are delivered to tenants using subscriptions, offers, and plans. Tenants can subscribe to multiple offers. Offers can have one or more plans, and plans can have one or more services.
+In Azure Stack, services are delivered to tenants using regions, subscriptions, offers, and plans. Tenants can subscribe to multiple offers. Offers can have one or more plans, and plans can have one or more services.
 
 ![](media/azure-stack-key-features/image4.png)
 
 Example hierarchy of a tenant’s subscriptions to offers, each with varying plans and services.
+
+### Regions
+Azure Stack regions are the basic element of scale and management.  An organization may have multiple regions with resources available in each region.  Regions may also have different service offerings available.
 
 ### Services
 
@@ -106,11 +112,11 @@ With Azure Resource Manager, you can create a simple template (in JSON format) t
 
 Resource providers are web services that form the foundation for all Azure-based IaaS and PaaS services. Azure Resource Manager relies on different RPs to provide access to a hoster’s services.
 
-There are three main RPs: Network, Storage, and Compute. Each of these RPs helps you configure and control its respective resources. Administrators can also add new custom resource providers.
+There are three main RPs: Network, Storage, and Compute. Each of these RPs helps you configure and control its respective resources. Service administrators can also add new custom resource providers.
 
 ### Compute RP
 
-The Compute Resource Provider (CRP) allows Azure Stack tenants to create their own virtual machines. It also provides functionality for the administrator to setup and configure the resource provider for tenants. The CRP includes the ability to create virtual machines as well as Virtual Machine extensions. The Virtual Machine extension service helps provide IaaS capabilities for Windows and Linux virtual machines.
+The Compute Resource Provider (CRP) allows Azure Stack tenants to create their own virtual machines. It also provides functionality for the service administrator to setup and configure the resource provider for tenants. The CRP includes the ability to create virtual machines as well as Virtual Machine extensions. The Virtual Machine extension service helps provide IaaS capabilities for Windows and Linux virtual machines.
 
 ### Network RP
 
@@ -118,7 +124,7 @@ The Network Resource Provider (NRP) delivers a series of Software Defined Networ
 
 ### Storage RP
 
-The Storage RP delivers three Azure-consistent storage services: blob, table, and account management. It also offers a storage cloud administration service to facilitate service provider administration of Azure-consistent Storage services. Azure Storage provides the flexibility to store and retrieve large amounts of unstructured data, such as documents and media files with Azure Blobs, and structured NoSQL based data with Azure Tables. For more information on Azure Storage, see [Introduction to Microsoft Azure Storage](../storage/storage-introduction.md) on Azure.com or [download the Azure Stack Azure-consistent Storage Validation Guide](http://aka.ms/azurestacktp1doc).
+The Storage RP delivers four Azure-consistent storage services: blob, table, queue, and account management. It also offers a storage cloud administration service to facilitate service provider administration of Azure-consistent Storage services. Azure Storage provides the flexibility to store and retrieve large amounts of unstructured data, such as documents and media files with Azure Blobs, and structured NoSQL based data with Azure Tables. For more information on Azure Storage, see [Introduction to Microsoft Azure Storage](../storage/storage-introduction.md).
 
 #### Blob storage
 
@@ -129,6 +135,9 @@ Every blob is organized under a container. Containers also provide a useful way 
 #### Table storage
 
 Table storage is Microsoft’s NoSQL key/attribute store – it has a design without schemas, making it different from traditional relational databases. Since data stores lack schemas, it's easy to adapt your data as the needs of your application evolve. Table storage is easy to use, so developers can create applications quickly. Table storage is a key-attribute store, meaning that every value in a table is stored with a typed property name. The property name can be used for filtering and specifying selection criteria. A collection of properties and their values comprise an entity. Since Table storage lack schemas, two entities in the same table can contain different collections of properties, and those properties can be of different types. You can use Table storage to store flexible datasets, such as user data for web applications, address books, device information, and any other type of metadata that your service requires. You can store any number of entities in a table, and a storage account may contain any number of tables, up to the capacity limit of the storage account.
+
+#### Queue Storage
+Azure Queue storage provides cloud messaging between application components. In designing applications for scale, application components are often decoupled, so that they can scale independently. Queue storage delivers asynchronous messaging for communication between application components, whether they are running in the cloud, on the desktop, on an on-premises server, or on a mobile device. Queue storage also supports managing asynchronous tasks and building process work flows.
 
 ## Role Based Access Control (RBAC)
 
@@ -142,4 +151,4 @@ Microsoft Azure Stack collects and aggregates usage data across all resource pro
 
 ## Next steps
 
-[Deploy Azure Stack Technical Preview 1 (POC)](azure-stack-deploy.md)
+[Deploy Azure Stack Technical Preview 2 (POC)](azure-stack-deploy.md)
