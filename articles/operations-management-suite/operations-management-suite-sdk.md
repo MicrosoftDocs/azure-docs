@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/23/2016"
+   ms.date="09/26/2016"
    ms.author="bwren" />
 
 # Operations Management Suite (OMS) SDK
@@ -22,7 +22,7 @@
 ## Automation
 - [Azure Automation documentation](http://azure.microsoft.com/documentation/services/automation)
 - [Automation PowerShell Cmdlets](http://msdn.microsoft.com/library/dn690262.aspx)
-- [Automation REST API Reference](http://msdn.microsoft.com/library/mt662285.aspx)
+- [Automation REST API](http://msdn.microsoft.com/library/mt662285.aspx)
 - [Community runbooks](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure)
 
 
@@ -30,6 +30,7 @@
 ## Backup
 - [Azure Backup documentation](http://azure.microsoft.com/documentation/services/backup)
 - [Backup PowerShell Cmdlets](https://msdn.microsoft.com/library/mt619253.aspx)
+- [Backup REST API](https://msdn.microsoft.com/library/azure/mt772375.aspx)
 - [Deploy and manage backup to Azure for Windows Server/Windows Client using PowerShell](../backup/backup-client-automation.md)
 
 
@@ -43,7 +44,7 @@
 
 ## Site Recovery
 - [Site Recovery PowerShell cmdlets](https://msdn.microsoft.com/library/mt637930.aspx)
-- [Site Recovery REST API Reference](https://msdn.microsoft.com/library/azure/mt750497.aspx)
+- [Site Recovery REST API](https://msdn.microsoft.com/library/azure/mt750497.aspx)
 - [Add Azure Automation runbooks to recovery plans](../site-recovery/site-recovery-runbook-automation.md)
 - [Replicate between on-premises Hyper-V virtual machines and Azure by using PowerShell and Azure Resource Manager](../site-recovery/site-recovery-deploy-with-powershell-resource-manager.md)
 
