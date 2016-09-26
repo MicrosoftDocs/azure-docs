@@ -509,11 +509,10 @@ If you wish to use a self-signed certificate for testing, you could use the same
 ./cert_helper.py ss -rgname "mykvrg" -sub "fffffff-ffff-ffff-ffff-ffffffffffff" -kv "mykevname"   -sname "mycert" -l "East US" -p "selftest"
 ```
 
-This command returns the same three strings, SourceVault, CertificateUrl and CertificateThumbprint, which is used to create a secure Linux cluster, along with the location where the self-signed certificate was placed. You will need the self-signed certificate to connect to the cluster.
+This command returns the same three strings, SourceVault, CertificateUrl and CertificateThumbprint, which is used to create a secure Linux cluster, along with the location where the self-signed certificate was placed. You will need the self-signed certificate to connect to the cluster.  You can connect to the secure cluster via instructions at [authenticating client access to a cluster](service-fabric-connect-to-secure-cluster.md). 
 The certificate's subject name must match the domain used to access the Service Fabric cluster. This is required to provide SSL for the cluster's HTTPS management endpoints and Service Fabric Explorer. You cannot obtain an SSL certificate from a certificate authority (CA) for the `.cloudapp.azure.com` domain. You must acquire a custom domain name for your cluster. When you request a certificate from a CA the certificate's subject name must match the custom domain name used for your cluster.
 
-
-The parameters provided by the helper script can be filled in the portal as described in the section [Create a cluster in the Azure portal](service-fabric-cluster-creation-via-portal.md/#create-cluster-portal).
+The parameters provided by the helper script can be filled in the portal as described in the section [Create a cluster in the Azure portal](service-fabric-cluster-creation-via-portal.md#create-cluster-portal).
 
 ## Next steps
 
