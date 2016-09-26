@@ -1,6 +1,6 @@
 <properties 
-    pageTitle="Partitioned messaging entities | Microsoft Azure"
-    description="Describes how to partition messaging entities by using multiple message brokers."
+    pageTitle="Partitioned queues and topics | Microsoft Azure"
+    description="Describes how to partition Service Bus queues and topics by using multiple message brokers."
     services="service-bus"
     documentationCenter="na"
     authors="sethmanheim"
@@ -12,16 +12,16 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="na"
-    ms.date="07/01/2016"
+    ms.date="09/02/2016"
     ms.author="sethm;hillaryc" />
 
-# Partitioned messaging entities
+# Partitioned queues and topics
 
 Azure Service Bus employs multiple message brokers to process messages and multiple messaging stores to store messages. A conventional queue or topic is handled by a single message broker and stored in one messaging store. Service Bus also enables queues or topics to be partitioned across multiple message brokers and messaging stores. This means that the overall throughput of a partitioned queue or topic is no longer limited by the performance of a single message broker or messaging store. In addition, a temporary outage of a messaging store does not render a partitioned queue or topic unavailable. Partitioned queues and topics can contain all advanced Service Bus features, such as support for transactions and sessions.
 
 For more details about Service Bus internals, see the [Service Bus architecture][] topic.
 
-## Partitioned queues and topics
+## How it works
 
 Each partitioned queue or topic consists of multiple fragments. Each fragment is stored in a different messaging store and handled by a different message broker. When a message is sent to a partitioned queue or topic, Service Bus assigns the message to one of the fragments. The selection is done randomly by Service Bus or by using a partition key that the sender can specify.
 
@@ -33,7 +33,7 @@ There is no additional cost when sending a message to, or receiving a message fr
 
 To use partitioned queues and topics with Azure Service Bus, use the Azure SDK version 2.2 or later, or specify `api-version=2013-10` in your HTTP requests.
 
-You can create Service Bus queues and topics in 1, 2, 3, 4, or 5 GB sizes (the default is 1 GB). With partitioning enabled, Service Bus creates 16 partitions for each GB you specify. As such, if you create a queue that's 5 GB in size, with 16 partitions the maximum queue size becomes (5 \* 16) = 80 GB. You can see the maximum size of your partitioned queue or topic by looking at its entry on the [Azure classic portal][].
+You can create Service Bus queues and topics in 1, 2, 3, 4, or 5 GB sizes (the default is 1 GB). With partitioning enabled, Service Bus creates 16 partitions for each GB you specify. As such, if you create a queue that's 5 GB in size, with 16 partitions the maximum queue size becomes (5 \* 16) = 80 GB. You can see the maximum size of your partitioned queue or topic by looking at its entry on the [Azure portal][].
 
 There are several ways to create a partitioned queue or topic. When you create the queue or topic from your application, you can enable partitioning for the queue or topic by respectively setting the [QueueDescription.EnablePartitioning][] or [TopicDescription.EnablePartitioning][] property to **true**. These properties must be set at the time the queue or topic is created. It is not possible to change these properties on an existing queue or topic. For example:
 
@@ -45,13 +45,13 @@ td.EnablePartitioning = true;
 ns.CreateTopic(td);
 ```
 
-Alternatively, you can create a partitioned queue or topic in Visual Studio or in the [Azure classic portal][]. When you create a new queue or topic in the portal, check the **Enable Partitioning** option in the **Configure** tab of the queue or topic window. In Visual Studio, click the **Enable Partitioning** checkbox in the **New Queue** or **New Topic** dialog box.
+Alternatively, you can create a partitioned queue or topic in Visual Studio or in the [Azure portal][]. When you create a new queue or topic in the portal, set the **Enable Partitioning** option in the **General settings** blade of the queue or topic **Settings** window to **true**. In Visual Studio, click the **Enable Partitioning** checkbox in the **New Queue** or **New Topic** dialog box.
 
 ## Use of partition keys
 
 When a message is enqueued into a partitioned queue or topic, Service Bus checks for the presence of a partition key. If it finds one, it selects the fragment based on that key. If it does not find a partition key, it selects the fragment based on an internal algorithm.
 
-### Use a partition key
+### Using a partition key
 
 Some scenarios, such as sessions or transactions, require messages to be stored in a specific fragment. All of these scenarios require the use of a partition key. All messages that use the same partition key are assigned to the same fragment. If the fragment is temporarily unavailable, Service Bus returns an error.
 
@@ -89,7 +89,7 @@ committableTransaction.Commit();
 
 If any of the properties that serve as a partition key are set, Service Bus pins the message to a specific fragment. This behavior occurs whether or not a transaction is used. It is recommended that you do not specify a partition key if it is not necessary.
 
-## Use sessions with partitioned entities
+## Using sessions with partitioned entities
 
 To send a transactional message to a session-aware topic or queue, the message must have the [BrokeredMessage.SessionId][] property set. If the [BrokeredMessage.PartitionKey][] property is specified as well, it must be identical to the [SessionId][] property. If they differ, Service Bus returns an **InvalidOperationException** exception.
 
@@ -126,18 +126,17 @@ Azure Service Bus supports automatic message forwarding from, to, or between par
 
 ## Partitioned entities limitations
 
-In its current implementation, Service Bus imposes the following limitations on partitioned queues and topics:
+Currently Service Bus imposes the following limitations on partitioned queues and topics:
 
 -   Partitioned queues and topics do not support sending messages that belong to different sessions in a single transaction.
--   Service Bus currently allows up to 100 partitioned queues or topics per namespace. Each partitioned queue or topic counts towards the quota of 10,000 entities per namespace.
--   Partitioned queues and topics are not supported on Service Bus for Windows Server versions 1.0 and 1.1.
+-   Service Bus currently allows up to 100 partitioned queues or topics per namespace. Each partitioned queue or topic counts towards the quota of 10,000 entities per namespace (does not apply to Premium tier).
 
 ## Next steps
 
 See the discussion of [AMQP 1.0 support for Service Bus partitioned queues and topics][] to learn more about partitioning messaging entities. 
 
   [Service Bus architecture]: service-bus-architecture.md
-  [Azure classic portal]: http://manage.windowsazure.com
+  [Azure portal]: https://portal.azure.com
   [QueueDescription.EnablePartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.enablepartitioning.aspx
   [TopicDescription.EnablePartitioning]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicdescription.enablepartitioning.aspx
   [BrokeredMessage.SessionId]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.sessionid.aspx

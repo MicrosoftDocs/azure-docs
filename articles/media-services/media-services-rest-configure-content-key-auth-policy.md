@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Configure Content Key Authorization Policy using Media Services REST API" 
+	pageTitle="Configure Content Key Authorization Policy using Media Services REST API | Microsoft Azure" 
 	description="Learn how to configure an authorization policy for a content key using Media Services REST API." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,28 +13,28 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/19/2016"  
 	ms.author="juliako"/>
 
 
-#Dynamic encryption: Configure Content Key Authorization Policy 
-[AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)] 
- 
+#Dynamic encryption: Configure Content Key Authorization Policy
+[AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
+
 
 ##Overview
 
-Microsoft Azure Media Services enables you to deliver your content encrypted (dynamically) with Advanced Encryption Standard (AES) (using 128-bit encryption keys) and PlayReady or Widevine DRM. Media Services also provides a service for delivering keys and PlayReady/Widevine licenses to authorized clients. 
+Microsoft Azure Media Services enables you to deliver your content encrypted (dynamically) with Advanced Encryption Standard (AES) (using 128-bit encryption keys) and PlayReady or Widevine DRM. Media Services also provides a service for delivering keys and PlayReady/Widevine licenses to authorized clients.
 
-If you want for Media Services to encrypt an asset, you need to associate an encryption key (**CommonEncryption** or **EnvelopeEncryption**) with the asset (as described [here](media-services-rest-create-contentkey.md)) and also configure authorization policies for the key (as described in this article). 
+If you want for Media Services to encrypt an asset, you need to associate an encryption key (**CommonEncryption** or **EnvelopeEncryption**) with the asset (as described [here](media-services-rest-create-contentkey.md)) and also configure authorization policies for the key (as described in this article).
 
 
 When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content using AES or PlayReady encryption. To decrypt the stream, the player will request the key from the key delivery service. To decide whether or not the user is authorized to get the key, the service evaluates the authorization policies that you specified for the key.
 
-Media Services supports multiple ways of authenticating users who make key requests. The content key authorization policy could have one or more authorization restrictions: **open** or **token** restriction. The token restricted policy must be accompanied by a token issued by a Secure Token Service (STS). Media Services supports tokens in the **Simple Web Tokens** ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) format and **JSON Web Token **(JWT) format.  
+Media Services supports multiple ways of authenticating users who make key requests. The content key authorization policy could have one or more authorization restrictions: **open** or **token** restriction. The token restricted policy must be accompanied by a token issued by a Secure Token Service (STS). Media Services supports tokens in the **Simple Web Tokens** ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) format and **JSON Web Token **(JWT) format.
 
 Media Services does not provide Secure Token Services. You can create a custom STS or leverage Microsoft Azure ACS to issue tokens. The STS must be configured to create a token signed with the specified key and issue claims that you specified in the token restriction configuration (as described in this article). The Media Services key delivery service will return the encryption key to the client if the token is valid and the claims in the token match those configured for the content key.
 
-For more information, see 
+For more information, see
 
 [JWT token authenitcation](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
 
@@ -44,8 +44,8 @@ For more information, see
 
 ###Some considerations apply:
 
-- To be able to use dynamic packaging and dynamic encryption, you must make sure to have at least one  streaming reserved unit. For more information, see [How to Scale a Media Service](media-services-manage-origins.md#scale_streaming_endpoints). 
-- Your asset must contain a set of adaptive bitrate MP4s or  adaptive bitrate Smooth Streaming files. For more information, see [Encode an asset](media-services-encode-asset.md).  
+- To be able to use dynamic packaging and dynamic encryption, you must make sure to have at least one  streaming reserved unit. For more information, see [How to Scale a Media Service](media-services-portal-manage-streaming-endpoints.md).
+- Your asset must contain a set of adaptive bitrate MP4s or  adaptive bitrate Smooth Streaming files. For more information, see [Encode an asset](media-services-encode-asset.md).
 - Upload and encode your assets using **AssetCreationOptions.StorageEncrypted** option.
 - If you plan to have multiple content keys that require the same policy configuration, it is strongly recommended to create a single authorization policy and reuse it with multiple content keys.
 - The Key Delivery service caches ContentKeyAuthorizationPolicy and its related objects (policy options and restrictions) for 15 minutes.  If you create a ContentKeyAuthorizationPolicy and specify to use a “Token” restriction, then test it, and then update the policy to “Open” restriction, it will take roughly 15 minutes before the policy switches to the “Open” version of the policy.
@@ -53,13 +53,13 @@ For more information, see
 - Currently, you cannot encrypt HDS streaming format, or progressive downloads.
 
 
-##AES-128 Dynamic Encryption 
+##AES-128 Dynamic Encryption
 
 >[AZURE.NOTE] When working with the Media Services REST API, the following considerations apply:
 >
 >When accessing entities in Media Services, you must set specific header fields and values in your HTTP requests. For more information, see [Setup for Media Services REST API Development](media-services-rest-how-to-use.md).
 
->After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Connecting to Media Services using REST API](media-services-rest-connect-programmatically.md). 
+>After successfully connecting to https://media.windows.net, you will receive a 301 redirect specifying another Media Services URI. You must make subsequent calls to the new URI as described in [Connecting to Media Services using REST API](media-services-rest-connect-programmatically.md).
 
 
 ###Open Restriction

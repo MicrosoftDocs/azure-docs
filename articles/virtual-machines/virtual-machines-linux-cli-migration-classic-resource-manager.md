@@ -58,8 +58,26 @@ Now switch CLI to the `asm` mode.
 
 	azure config mode asm
 
+## Step 3: Make sure you have enough Azure Resource Manager Virtual Machine cores in the Azure region of your current deployment or VNET
 
-## Step 3: Option 1 - Migrate virtual machines in a cloud service 
+For this step you'll need to switch to `arm` mode. Do this with the following command.
+
+```
+azure config mode arm
+```
+
+You can use the following CLI command to check the current amount of cores you have in Azure Resource Manager. To learn more about core quotas, see [Limits and the Azure Resource Manager](../articles/azure-subscription-service-limits.md#limits-and-the-azure-resource-manager)
+
+```
+azure vm list-usage -l "<Your VNET or Deployment's Azure region"
+```
+
+Once you're done verifying this step, you can switch back to `asm` mode.
+
+	azure config mode asm
+
+
+## Step 4: Option 1 - Migrate virtual machines in a cloud service 
 
 Get the list of cloud services by using the following command, and then pick the cloud service that you want to migrate. Note that if the VMs in the cloud service are in a virtual network or if they have web/worker roles, you will get an error message.
 
@@ -93,7 +111,7 @@ If the prepared configuration looks good, you can move forward and commit the re
 
 
 	
-## Step 3: Option 2 -  Migrate virtual machines in a virtual network
+## Step 4: Option 2 -  Migrate virtual machines in a virtual network
 
 Pick the virtual network that you want to migrate. Note that if the virtual network contains web/worker roles or VMs with unsupported configurations, you will get a validation error message.
 
@@ -119,7 +137,7 @@ If the prepared configuration looks good, you can move forward and commit the re
 
 	azure network vnet commit-migration <virtualNetworkName>
 
-## Step 4: Migrate a storage account
+## Step 5: Migrate a storage account
 
 Once you're done migrating the virtual machines, we recommend you migrate the storage account.
 

@@ -4,7 +4,7 @@
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="08/25/2016"
+   ms.date="09/13/2016"
    ms.author="nitinme"/>
 
 # Manage Azure Data Lake Store using Azure SDK for Node.js
@@ -35,6 +35,12 @@ Right now it supports:
   *  **Node.js version: 0.10.0 or higher**
   *  **REST API version for Account: 2015-10-01-preview**
   *  **REST API version for FileSystem: 2015-10-01-preview**
+
+##Prerequisites
+
+Before you begin this article, you must have the following:
+
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Features
 

@@ -223,6 +223,8 @@ In this case, the template below will ask for:
 - A domain name for the outside world to use.
 - An Ubuntu Server version number -- but it will accept only one of a list.
 
+See more about [username and password requirements](virtual-machines-linux-faq.md#what-are-the-username-requirements-when-creating-a-vm).
+
 Once you decide on these values, you're ready to create a group for and deploy this template into your Azure subscription.
 
     {

@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/05/2016" 
+	ms.date="09/20/2016" 
 	ms.author="spelluru"/>
 
 # Hadoop Streaming Activity
 You can use the HDInsightStreamingActivity Activity invoke a Hadoop Streaming job from an Azure Data Factory pipeline. The following JSON snippet shows the syntax for using the HDInsightStreamingActivity in a pipeline JSON file. 
 
-The HDInsight Streaming Activity in a Data Factory [pipeline](data-factory-create-pipelines.md) executes Hadoop Streaming programs on [your own](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux-based HDInsight cluster. This article builds on the [data transformation activities](data-factory-data-transformation-activities.md) article which presents a general overview of data transformation and the supported transformation activities.
+The HDInsight Streaming Activity in a Data Factory [pipeline](data-factory-create-pipelines.md) executes Hadoop Streaming programs on [your own](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux-based HDInsight cluster. This article builds on the [data transformation activities](data-factory-data-transformation-activities.md) article, which presents a general overview of data transformation and the supported transformation activities.
 
 ## JSON sample
 The HDInsight cluster is automatically populated with example programs (wc.exe and cat.exe) and data (davinci.txt). By default, name of the container that is used by the HDInsight cluster is the name of the cluster itself. For example, if your cluster name is myhdicluster, name of the blob container associated would be myhdicluster. 
@@ -68,20 +68,20 @@ The HDInsight cluster is automatically populated with example programs (wc.exe a
 	    }
 	}
 
-Note the following:
+Note the following points:
 
-1. Set the **linkedServiceName** to the name of the linked service that points to your HDInsight cluster on which the streaming mapreduce job will be run.
+1. Set the **linkedServiceName** to the name of the linked service that points to your HDInsight cluster on which the streaming mapreduce job is run.
 2. Set the type of the activity to **HDInsightStreaming**.
-3. For the **mapper** property, specify the name of mapper executable. In the above example, cat.exe is the mapper executable.
-4. For the **reducer** property , specify the name of reducer executable. In the above example, wc.exe is the reducer executable.
-5. For the **input** type property, specify the input file (including the location) for the mapper. In the example: "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt": adfsample is the blob container, example/data/Gutenberg is the folder and davinci.txt is the blob.
-6. For the **output** type property, specify the output file (including the location) for the reducer. The output of the Hadoop Streaming job will be written to the location specified for this property.
+3. For the **mapper** property, specify the name of mapper executable. In the example, cat.exe is the mapper executable.
+4. For the **reducer** property, specify the name of reducer executable. In the example, wc.exe is the reducer executable.
+5. For the **input** type property, specify the input file (including the location) for the mapper. In the example: "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt": adfsample is the blob container, example/data/Gutenberg is the folder, and davinci.txt is the blob.
+6. For the **output** type property, specify the output file (including the location) for the reducer. The output of the Hadoop Streaming job is written to the location specified for this property.
 7. In the **filePaths** section, specify the paths for the mapper and reducer executables. In the example: "adfsample/example/apps/wc.exe", adfsample is the blob container, example/apps is the folder, and wc.exe is the executable.
 8. For the **fileLinkedService** property, specify the Azure Storage linked service that represents the Azure storage that contains the files specified in the filePaths section.
 9. For the **arguments** property, specify the arguments for the streaming job.
 10. The **getDebugInfo** property is an optional element. When it is set to Failure, the logs are downloaded only on failure. When it is set to All, logs are always downloaded irrespective of the execution status.
 
-> [AZURE.NOTE] As shown in the example, you will need to specify an output dataset for the Hadoop Streaming Activity for the **outputs** property. This is just a dummy dataset that is required to drive the pipeline schedule. You do not need to specify any input dataset for the activity for the **inputs** property.  
+> [AZURE.NOTE] As shown in the example, you specify an output dataset for the Hadoop Streaming Activity for the **outputs** property. This dataset is just a dummy dataset that is required to drive the pipeline schedule. You do not need to specify any input dataset for the activity for the **inputs** property.  
 
 	
 ## Example
@@ -121,7 +121,7 @@ Next, you create a linked service to link your Azure HDInsight cluster to the Az
 ### Datasets
 
 #### Output dataset
-The pipeline in this example does not take any inputs. You will need to specify an output dataset for the HDInsight Streaming Activity. This is just a dummy dataset that is required to drive the pipeline schedule. 
+The pipeline in this example does not take any inputs. You specify an output dataset for the HDInsight Streaming Activity. This dataset is just a dummy dataset that is required to drive the pipeline schedule. 
 
 	{
 	    "name": "StreamingOutputDataset",

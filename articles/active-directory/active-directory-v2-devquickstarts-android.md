@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="09/16/2016"
 	ms.author="brandwe"/>
 
 #  Add sign-in to an Android app using a third-party library with Graph API using the v2.0 endpoint
@@ -49,7 +49,8 @@ Create a new app at the [Application registration portal](https://apps.dev.micro
 
 - Copy the **Application Id** that's assigned to your app because you'll need it soon.
 - Add the **Mobile** platform for your app.
-- Copy the **Redirect URI** from the portal. You must use the default value of `https://login.microsoftonline.com/common/oauth2/nativeclient`.
+
+> Note: The Application registration portal provides a **Redirect URI** value. However, in this example you must use the default value of `https://login.microsoftonline.com/common/oauth2/nativeclient`.
 
 
 ## Download the NXOAuth2 third-party library and create a workspace

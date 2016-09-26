@@ -75,6 +75,8 @@ The Azure log integration service collects telemetry data from the machine on wh
 
 6. Point the standard SIEM file forwarder connector to the appropriate folder to pipe the data to the SIEM instance. Please refer to [SIEM configurations](https://azsiempublicdrops.blob.core.windows.net/drops/ALL.htm) on your SIEM configuration.
 
+If you have questions about Azure Log Integration, please send an email to [AzSIEMteam@microsoft.com] (mailto:AzSIEMteam@microsoft.com)
+
 ## Next steps
 
 To learn more about Azure Audit Logs and property definitions, see:

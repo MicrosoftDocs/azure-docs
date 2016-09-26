@@ -723,6 +723,6 @@ To learn more general information about Notification Hubs, see our [Notification
 [Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Azure Classic Portal]: https://manage.windowsazure.com/
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
-[Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-android-notify-users.md
-[Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-breaking-news.md
+[Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
+[Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
 [Azure Portal]: https://portal.azure.com

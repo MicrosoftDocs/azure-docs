@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="06/10/2016"
+   ms.date="08/26/2016"
    ms.author="ryanwi"/>
 
 # Create your first Azure Service Fabric application in Visual Studio
@@ -110,6 +110,14 @@ Now that you have an application, try running it.
 
     ![Diagnostic events viewer after failover][diagnostic-events-viewer-detail-post-failover]
 
+## Switch cluster mode
+
+By default, the local development cluster is configured to run as a 5 node cluster which is useful for debugging services deployed across multiple nodes. Deploying an application to the 5 node development cluster can take some time, however. If you want to iterate code changes quickly, without running your app on 5 nodes, you can switch the development cluster to 1-Node mode. To run your code on a cluster with one node, right-click on the Local Cluster Manager in the system tray and select **Switch Cluster Mode -> 1 Node**.  
+
+![Switch cluster mode][switch-cluster-mode]
+
+When you change cluster mode the development cluster resets and all applications provisioned or running on the cluster will be removed.
+
 ## Cleaning up
 
   Before wrapping up, it's important to remember that the local cluster is very real. Stopping the debugger removes your application instance and unregisters the application type. The cluster continues to run in the background, however. You have several options to manage the cluster:
@@ -123,6 +131,7 @@ Now that you have an application, try running it.
 - Learn how to create a [cluster in Azure](service-fabric-cluster-creation-via-portal.md) or a [standalone cluster on Windows](service-fabric-cluster-creation-for-windows-server.md).
 - Try creating a service using the [Reliable Services](service-fabric-reliable-services-quick-start.md) or [Reliable Actors](service-fabric-reliable-actors-get-started.md) programming models.
 - Learn how you can expose your services to the Internet with a [web service front end](service-fabric-add-a-web-frontend.md).
+- Walk through a [hands-on-lab](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) and create a stateless service, configure monitoring and health reports, and perform an application upgrade.
 
 <!-- Image References -->
 
@@ -137,3 +146,4 @@ Now that you have an application, try running it.
 [systray-launch-sfx]: ./media/service-fabric-create-your-first-application-in-visual-studio/launch-sfx.png
 [diagnostic-events-viewer-detail-post-failover]: ./media/service-fabric-create-your-first-application-in-visual-studio/diagnostic-events-viewer-detail-post-failover.png
 [sfe-delete-application]: ./media/service-fabric-create-your-first-application-in-visual-studio/sfe-delete-application.png
+[switch-cluster-mode]: ./media/service-fabric-create-your-first-application-in-visual-studio/switch-cluster-mode.png

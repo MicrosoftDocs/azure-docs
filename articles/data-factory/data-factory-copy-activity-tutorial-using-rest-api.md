@@ -13,22 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/17/2016" 
+	ms.date="09/16/2016" 
 	ms.author="spelluru"/>
 
 # Tutorial: Create a pipeline with Copy Activity using REST API
 > [AZURE.SELECTOR]
-- [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Using Data Factory Editor](data-factory-copy-activity-tutorial-using-azure-portal.md)
-- [Using PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-- [Using Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-- [Using REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
-- [Using .NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
-- [Using Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
+- [Overview and prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+- [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+- [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+- [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
+- [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+- [Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
 
 This tutorial shows you how to create and monitor an Azure data factory using the REST API. The pipeline in the data factory uses a Copy Activity to copy data from Azure Blob Storage to Azure SQL Database.
-
-The Copy Activity performs the data movement in Azure Data Factory. The activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity.   
 
 > [AZURE.NOTE] 
 > This article does not cover all the Data Factory REST API. See [Data Factory REST API Reference](https://msdn.microsoft.com/library/azure/dn906738.aspx) for comprehensive documentation on Data Factory cmdlets.
@@ -36,13 +34,13 @@ The Copy Activity performs the data movement in Azure Data Factory. The activity
 
 ## Prerequisites
 
-- Go through [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+- Go through [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) and complete the **prerequisite** steps.
 - Install [Curl](https://curl.haxx.se/dlwiz/) on your machine. You use the Curl tool with REST commands to create a data factory. 
 - Follow instructions from [this article](../resource-group-create-service-principal-portal.md) to: 
-	1. Create a Web application named **ADFCopyTutotiralApp** in Azure Active Directory.
+	1. Create a Web application named **ADFCopyTutorialApp** in Azure Active Directory.
 	2. Get **client ID** and **secret key**. 
 	3. Get **tenant ID**. 
-	4. Assign the **ADFCopyTutotiralApp** application to the **Data Factory Contributor** role.  
+	4. Assign the **ADFCopyTutorialApp** application to the **Data Factory Contributor** role.  
 - Install [Azure PowerShell](../powershell-install-configure.md).  
 - Launch **PowerShell** and run the following command. Keep Azure PowerShell open until the end of this tutorial. If you close and reopen, you need to run the commands again.
 	1. Run the following command and enter the user name and password that you use to sign in to the Azure portal.
@@ -136,7 +134,7 @@ Create following JSON files in the folder where curl.exe is located.
 
 The JSON definition defines a dataset named **AzureBlobInput**, which represents input data for an activity in the pipeline. In addition, it specifies that the input data is located in the file **emp.txt** that is in blob container **adftutorial**. 
 
- Note the following: 
+ Note the following points: 
 
 - dataset **type** is set to **AzureBlob**.
 - **linkedServiceName** is set to **AzureStorageLinkedService**. 
@@ -147,7 +145,7 @@ The JSON definition defines a dataset named **AzureBlobInput**, which represents
 
 if you don't specify a **fileName** for an input dataset, all files/blobs from the input folder (**folderPath**) are considered as inputs. If you specify a fileName in the JSON, only the specified file/blob is considered as an input.
 
-If you do not specify a **fileName** for an **output table**, the generated files in the **folderPath** are named in the following format: Data.&lt;Guid\&gt;.txt (example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+If you do not specify a **fileName** for an **output table**, the generated files in the **folderPath** are named in the following format: Data.&lt;Guid&gt;.txt (example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
 To set **folderPath** and **fileName** dynamically based on the **SliceStart** time, use the **partitionedBy** property. In the following example, folderPath uses Year, Month, and Day from the SliceStart (start time of the slice being processed) and fileName uses Hour from the SliceStart. For example, if a slice is being produced for 2014-10-20T08:00:00, the folderName is set to wikidatagateway/wikisampledataout/2014/10/20 and the fileName is set to 08.csv. 
 
@@ -192,7 +190,7 @@ To set **folderPath** and **fileName** dynamically based on the **SliceStart** t
 
 The JSON definition defines a dataset named **AzureSqlOutput**, which represents output data for an activity in the pipeline. In addition, it specifies that the results are stored in the table: **emp** in the database represented by the AzureSqlLinkedService. The **availability** section specifies that the output dataset is produced on an hourly (frequency: hour and interval: 1) basis.
 
-Note the following: 
+Note the following points: 
 
 - dataset **type** is set to **AzureSQLTable**.
 - **linkedServiceName** is set to **AzureSqlLinkedService**.
@@ -245,7 +243,7 @@ Note the following:
 	}
 
 
-Note the following:
+Note the following points:
 
 - In the activities section, there is only one activity whose **type** is set to **CopyActivity**.
 - Input for the activity is set to **AzureBlobInput** and output for the activity is set to **AzureSqlOutput**.
@@ -259,7 +257,7 @@ If you do not specify value for the **end** property, it is calculated as "**sta
 
 In the example, there are 24 data slices as each data slice is produced hourly.
 	
-> [AZURE.NOTE] See [Anatomy of a Pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline) for details about JSON properties used in the example above.
+> [AZURE.NOTE] See [Anatomy of a Pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline) for details about JSON properties used in the preceding example.
 
 ## Set global variables
 
@@ -298,11 +296,11 @@ In this step, you create an Azure Data Factory named **ADFCopyTutorialDF**. A da
 		$results = Invoke-Command -scriptblock $cmd;
 3. View the results. If the data factory has been successfully created, you see the JSON for the data factory in the **results**; otherwise, you see an error message.  
 
-		$results
+		Write-Host $results
 
-Note the following:
+Note the following points:
  
-- The name of the Azure Data Factory must be globally unique. If you see the error in results: **Data factory name “ADFCopyTutorialDF” is not available**, do the following:  
+- The name of the Azure Data Factory must be globally unique. If you see the error in results: **Data factory name “ADFCopyTutorialDF” is not available**, do the following steps:  
 	1. Change the name (for example, yournameADFCopyTutorialDF) in the **datafactory.json** file.
 	2. In the first command where the **$cmd** variable is assigned a value, replace ADFCopyTutorialDF with the new name and run the command. 
 	3. Run the next two commands to invoke the REST API to create the data factory and print the results of the operation. 
@@ -339,7 +337,7 @@ In this step, you link your Azure Storage account to your data factory. With thi
 		$results = Invoke-Command -scriptblock $cmd;
 3. View the results. If the linked service has been successfully created, you see the JSON for the linked service in the **results**; otherwise, you see an error message.
   
-		$results
+		Write-Host $results
 
 ### Create Azure SQL linked service
 In this step, you link your Azure SQL database to your data factory. With this tutorial, you use the same Azure SQL database to store the output data.
@@ -352,7 +350,7 @@ In this step, you link your Azure SQL database to your data factory. With this t
 		$results = Invoke-Command -scriptblock $cmd;
 3. View the results. If the linked service has been successfully created, you see the JSON for the linked service in the **results**; otherwise, you see an error message.
   
-		$results
+		Write-Host $results
 
 ## Create datasets
 
@@ -404,7 +402,7 @@ In this step, you create a dataset named **AzureBlobInput** that points to a blo
 		$results = Invoke-Command -scriptblock $cmd;
 3. View the results. If the dataset has been successfully created, you see the JSON for the dataset in the **results**; otherwise, you see an error message.
   
-		$results
+		Write-Host $results
 
 ### Create output dataset
 In this step, you create an output table named **AzureSqlOutput**. This dataset points to a SQL table (**emp**) in the Azure SQL database represented by **AzureSqlLinkedService**. The pipeline copies data from the input blob to the **emp** table. 
@@ -417,7 +415,7 @@ In this step, you create an output table named **AzureSqlOutput**. This dataset 
 		$results = Invoke-Command -scriptblock $cmd;
 3. View the results. If the dataset has been successfully created, you see the JSON for the dataset in the **results**; otherwise, you see an error message.
   
-		$results 
+		Write-Host $results 
 
 ## Create pipeline
 In this step, you create a pipeline with a **Copy Activity** that uses **AzureBlobInput** as input and **AzureSqlOutput** as output.
@@ -430,7 +428,7 @@ In this step, you create a pipeline with a **Copy Activity** that uses **AzureBl
 		$results = Invoke-Command -scriptblock $cmd;
 3. View the results. If the dataset has been successfully created, you see the JSON for the dataset in the **results**; otherwise, you see an error message.  
 
-		$results
+		Write-Host $results
 
 **Congratulations!** You have successfully created an Azure data factory, with a pipeline that copies data from Azure Blob Storage to Azure SQL database.
 

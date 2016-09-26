@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/18/2016"
+	ms.date="09/16/2016"
 	ms.author="brandwe"/>
 
 # Integrate Azure AD into an iOS App

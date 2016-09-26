@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="article"
-   ms.date="05/31/2016" 
+   ms.date="08/29/2016" 
    ms.author="rortloff;barbkess;sonyama"/>
 
 # SQL Data Warehouse -  Downlevel clients support for auditing and Dynamic Data Masking
