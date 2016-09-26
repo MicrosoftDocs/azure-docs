@@ -35,7 +35,7 @@ The following input parameters are defined for this runbook:
 Parameter | Description|
 ----------|------------|
 NameFilter (Required) | Allows you to specify a name filter to limit the resource groups that you intend on deleting. You can pass multiple values using a comma separated list.<br>The filter is not case sensitive and will match any resource group that contains the string.|
-PreviewMode (Optional) with default of $true | Execute the runbook to see which resource groups would be deleted but take no action.
+PreviewMode (Optional) | Execute the runbook to see which resource groups would be deleted but take no action.<br>The default is $true to help avoid accidental deletion of resource group(s) passed to the runbook.  
 
 ## Installing and configuring this scenario
 
