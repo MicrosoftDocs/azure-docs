@@ -64,7 +64,7 @@ The following table depicts some of the scenarios where Key Vault can help meet 
 **Statement:** Customers can import their own keys into Azure Stack, and manage them. I want customers to own and manage their keys so that I can concentrate on doing what I do best, which is providing the core software features.
 
 
-### Chief security officer (CSO)
+### Chief Security Officer (CSO)
 
 **Problem:** I want to make sure that my organization is in control of the key life cycle and can monitor key usage.
 
