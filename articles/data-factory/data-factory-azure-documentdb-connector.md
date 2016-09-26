@@ -3,7 +3,7 @@
 	description="Learn how move data to/from Azure DocumentDB collection using Azure Data Factory" 
 	services="data-factory, documentdb" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/25/2016" 
-	ms.author="spelluru"/>
+	ms.author="jingwang"/>
 
 # Move data to and from DocumentDB using Azure Data Factory
 
