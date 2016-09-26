@@ -235,7 +235,7 @@ To learn how to extend your IoT solution to send telemetry from devices follow t
 
 
 <!-- links -->
-[lnk-hub-sdks]: iot-hub-sdks-summary.md
+[lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
@@ -249,6 +249,6 @@ To learn how to extend your IoT solution to send telemetry from devices follow t
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
 
 [lnk-twin-how-to-configure]: iot-hub-node-node-twin-how-to-configure.md
-
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 
 
