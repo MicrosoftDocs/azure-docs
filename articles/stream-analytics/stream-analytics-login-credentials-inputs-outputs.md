@@ -35,7 +35,7 @@ This part is applicable to the following inputs/outputs:
 For other inputs/outputs, proceed with Part 2.
 
 ###Blob storage/Table storage
-1.  Go to the Storage extention on the Azure Management Portal:  
+1.  Go to the Storage extention on the Azure Management portal:  
 ![graphic1][graphic1]
 2.  Locate the storage used by your job and go into it:  
 ![graphic2][graphic2]
@@ -49,7 +49,7 @@ For other inputs/outputs, proceed with Part 2.
 7.  Continue to Part 2.
 
 ###Event hubs
-1.  Go to the Service Bus extension on the Azure Management Portal:  
+1.  Go to the Service Bus extension on the Azure Management portal:  
 ![graphic6][graphic6]
 2.  Locate the Service Bus Namespace used by your job and go into it:  
 ![graphic7][graphic7]
@@ -71,9 +71,9 @@ For other inputs/outputs, proceed with Part 2.
 
 ###SQL Database
 
->[AZURE.NOTE] Note: you will need to connect to the SQL Databse Service. We are going to show how to do this using the management experience on the Azure Management Portal but you may choose to use some client-side tool such as SQL Server Management Studio as well.
+>[AZURE.NOTE] Note: you will need to connect to the SQL Database Service. We are going to show how to do this using the management experience on the Azure Management Portal but you may choose to use some client-side tool such as SQL Server Management Studio as well.
 
-1.  Go to the SQL Databases extension on the Azure Management Portal:  
+1.  Go to the SQL Databases extension on the Azure Management portal:  
 ![graphic14][graphic14]
 2.  Locate the SQL Database used by your job and **click on the server** link on the same line:  
 ![graphic15][graphic15]
@@ -105,7 +105,7 @@ For other inputs/outputs, proceed with Part 2.
 16. Continue to Part 2.
 
 ##Part 2: Stopping the Stream Analytics Job
-1.  Go to the Stream Analytics extension on the Azure Management Portal:  
+1.  Go to the Stream Analytics extension on the Azure Management portal:  
 ![graphic26][graphic26]
 2.  Locate your job and go into it:  
 ![graphic27][graphic27]
