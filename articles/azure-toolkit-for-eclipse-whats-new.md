@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="09/20/2016" 
-	ms.author="robmcm;asirveda"/>
+	ms.date="08/26/2016" 
+	ms.author="robmcm;asirveda;martinsawicki"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694270.aspx -->
 
@@ -25,6 +25,18 @@
 This article contains information on the various releases and latest updates to the Azure Toolkit for Eclipse.
 
 > [AZURE.NOTE] There is also an Azure Toolkit for the IntelliJ IDE. For more information, see [Azure Toolkit for IntelliJ].
+
+### August 26, 2016
+
+The Azure Toolkit for Eclipse - August 2016 release includes the following enhancements:
+
+* **Custom JDK Distributions**. The Azure Toolkit for Eclipse now supports specifying and deploying an arbitrary JDK version to your Azure WebApp container:
+  - In addition to the JDKs provided by Azure, you can also choose from a wide selection of Zulu OpenJDK versions made available on Azure by Azul Systems.
+  - You can also specify your own JDK distribution if you upload it as a ZIP file to your storage account.
+* **Enhancements to the Azure Explorer view**:
+  - Support for Virtual Machine management using Azure's new Resource Manager model: you can list, create and delete resource manager-based virtual machines without leaving the IDE.
+  - Support for Storage Account blob management using Azure's Resource Manager, which complements the existing functionality for managing "classic" storage accounts.
+* **Microsoft JDBC Driver 6.0 for SQL Server**. This update includes the latest JDBC driver for Microsoft SQL Server (v6.0), which is now included as a library that you can easily add to your Java projects, thereby replacing the older version.
 
 ### June 29, 2016
 

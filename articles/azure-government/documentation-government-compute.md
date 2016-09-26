@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="azure-government"
-	ms.date="08/25/2016"
+	ms.date="09/14/2016"
 	ms.author="ryansoc"/>
 
 
@@ -22,6 +22,7 @@
 
 ##  Virtual Machines
 
+###  Data Considerations
 
 The following information identifies the Azure Government boundary for Azure Virtual Machines:
 
