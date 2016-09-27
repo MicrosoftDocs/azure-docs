@@ -22,12 +22,12 @@
 
 Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of IoT devices and an application back end. In [Get started with IoT Hub twins][lnk-twin-tutorial], you learned how to set device meta-data from your solution back end using *tags*, report device conditions from a device app using *reported properties*, and query this information using a SQL-like language.
 
-In this tutorial, you learn how to use the the twin's *desired properties* in conjunction with *reported properties*, to remotely configure large sets of devices. More specifically, this tutorial shows how twin's reported and desired properties enable a multi-step configuration of a device application setting, and provide the required visibility to the solution back end of the status of this operation across all devices.
+In this tutorial, you learn how to use the the twin's *desired properties* in conjunction with *reported properties*, to remotely configure device apps. More specifically, this tutorial shows how twin's reported and desired properties enable a multi-step configuration of a device application setting, and provide the required visibility to the solution back end of the status of this operation across all devices.
 
-At a high level, this tutorial follows the *desired state pattern* for device management. The fundamental idea of this pattern is to have the solution back end specify the desired state for the managed devices, instead of sending specific commands. This puts the device in charge of establishing the best way to reach the desired state (very important in IoT scenarios where specific device conditions affect the ability to immediately carry out specific commands), while continually reporting to the back end the current state and potential error conditions. This enables the back end to have full visibility of the state of the configuration process across large sets of devices.
+At a high level, this tutorial follows the *desired state pattern* for device management. The fundamental idea of this pattern is to have the solution back end specify the desired state for the managed devices, instead of sending specific commands. This puts the device in charge of establishing the best way to reach the desired state (very important in IoT scenarios where specific device conditions affect the ability to immediately carry out specific commands), while continually reporting to the back end the current state and potential error conditions. The desired state pattern is instrumental to the management of large sets of devices, as it enables the back end to have full visibility of the state of the configuration process across all devices.
 You can find more information regarding the role of the desired state pattern in device management in [Overview of Azure IoT Hub device management][lnk-dm-overview].
 
-> AZURE.NOTE In scenarios where devices are controlled in a more interactive fashion (turn on a fan from a user-controlled app), consider using [cloud-to-device methods][lnk-methods].
+> [AZURE.NOTE] In scenarios where devices are controlled in a more interactive fashion (turn on a fan from a user-controlled app), consider using [cloud-to-device methods][lnk-methods].
 
 In this tutorial, the application back end changes the telemetry configuration of a target device. The configuration is represented in the device twin's desired properties in the following way:
 
@@ -86,7 +86,7 @@ At the end of this tutorial, you have two Node.js console applications:
 
 To complete this tutorial you need the following:
 
-+ Node.js version 0.12.x or later. <br/> [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
++ Node.js version 0.12.x or later.
 
 + An active Azure account. (If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].)
 
@@ -199,7 +199,7 @@ In this section, you create a Node.js console app that connects to your hub as *
 
         node SimulateDeviceConfiguration.js
 
-    You should see the message `retrieve device twin`. Keep the app running.
+    You should see the message `retrieved device twin`. Keep the app running.
 
 ## Create the service app
 

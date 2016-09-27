@@ -29,11 +29,11 @@ Common use cases include:
 * Device apps and back ends synchronizing the state of long-running workflows (for example,firmware or configuration updates).
 * Solution back ends querying devices based on meta-data, configuration, or conditions.
 
-> AZURE.NOTE Twins are designed for synchronization and for querying  device configurations and conditions. Use [device-to-cloud messages][lnk-d2c] for sequences of timestamped events (such as telemetry streams of time-based sensor data) and [cloud-to-device methods][lnk-methods] for interactive control of devices, such as turning on a fan from a user-controlled app.
+> [AZURE.NOTE] Twins are designed for synchronization and for querying  device configurations and conditions. Use [device-to-cloud messages][lnk-d2c] for sequences of timestamped events (such as telemetry streams of time-based sensor data) and [cloud-to-device methods][lnk-methods] for interactive control of devices, such as turning on a fan from a user-controlled app.
 
-A device twin contains *tags*, device meta-data accessible only by the back end, and *desired properties* in a JSON object modifiable by the back end and observable by the device app. A device twin contains *reported properties* in a JSON object modifiable by the device app and readable by the back end. Tags and properties cannot contain arrays, but objects can be nested. Additionally, the app back end can query device twins based on all the above data. 
+A device twin contains *tags*, device meta-data accessible only by the back end; *desired properties*, JSON objects modifiable by the back end and observable by the device app; and *reported properties*, JSON objects modifiable by the device app and readable by the back end. Tags and properties cannot contain arrays, but objects can be nested. Additionally, the app back end can query device twins based on all the above data. 
 
-Refer to [Use device twins to synchronize state and configurations][lnk-twins] for more information about twins and to the [IoT Hub query language][lnk-query] reference for querying.
+Refer to [Understand device twins][lnk-twins] for more information about twins and to the [IoT Hub query language][lnk-query] reference for querying.
 
 This tutorial shows you how to:
 
@@ -51,7 +51,7 @@ At the end of this tutorial, you have two Node.js console applications:
 
 To complete this tutorial you need the following:
 
-+ Node.js version 0.12.x or later. <br/> [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
++ Node.js version 0.12.x or later.
 
 + An active Azure account. (If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].)
 
@@ -122,7 +122,7 @@ In this section, you create a Node.js console app that adds location meta-data t
                 }
             });
             
-            query = registry.createQuery("SELECT * FROM devices WHERE tags.building = '43' AND properties.reported.connectivity.type = 'cellular'", 100);
+            query = registry.createQuery("SELECT * FROM devices WHERE tags.location.plant = 'Redmond43' AND properties.reported.connectivity.type = 'cellular'", 100);
             query.nextAsTwin(function(err, results) {
                 if (err) {
                     console.error('Failed to fetch the results: ' + err.message);

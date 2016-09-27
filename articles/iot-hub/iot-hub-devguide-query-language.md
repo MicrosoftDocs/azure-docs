@@ -23,10 +23,56 @@
 ## Reference sections
 organization.
 
-Examples (twins, jobs)
+Examples (twins)
+
+        {                                                                      
+            "deviceId": "myDeviceId",                                            
+            "etag": "AAAAAAAAAAc=",                                              
+            "tags": {                                                            
+                "location": {                                                      
+                    "region": "US",                                                  
+                    "plant": "Redmond43"                                             
+                }                                                                  
+            },                                                                   
+            "properties": {                                                      
+                "desired": {                                                       
+                    "telemetryConfig": {                                             
+                        "configId": "db00ebf5-eeeb-42be-86a1-458cccb69e57",            
+                        "sendFrequencyInSecs": 300                                          
+                    },                                                               
+                    "$metadata": {                                                   
+                    ...                                                     
+                    },                                                               
+                    "$version": 4                                                    
+                },                                                                 
+                "reported": {                                                      
+                    "connectivity": {                                                
+                        "type": "cellular"                            
+                    },                                                               
+                    "telemetryConfig": {                                             
+                        "configId": "db00ebf5-eeeb-42be-86a1-458cccb69e57",            
+                        "sendFrequencyInSecs": 300,                                         
+                        "status": "Success"                                            
+                    },                                                               
+                    "$metadata": {                                                   
+                    ...                                                
+                    },                                                               
+                    "$version": 7                                                    
+                }                                                                  
+            }                                                                    
+        }
+
 // Running example and snippets (filters, projection, aggregation)
 number operators, string = and IN (array) on tags and prop.
 project and aggregation (simple and group by).
+
+SELECT * FROM devices
+
+SELECT * FROM devices WHERE tags.location.region = 'US'
+
+SELECT * FROM devices WHERE tags.location.region = 'US' AND NOT plant = 'Redmond43'
+
+SELECT 
 
 // job example
 select from single device, from multiple devices, aggregate

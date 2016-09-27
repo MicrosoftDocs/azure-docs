@@ -28,6 +28,7 @@ Currently, device twins are accessible only from devices that connect to IoT Hub
 ### When to use
 
 Consider using device twins when:
+
 * A solution back end must store device meta-data.
 * Device apps must report current state information such as available capabilities and conditions (for example, the connectivity method used).
 * Device apps and back ends must synchronize the state of long-running workflows (such as firmware and configuration updates).
@@ -55,7 +56,7 @@ Here is an example of a device twin JSON document:
 
         {
             "deviceId: "devA",
-            "generationId: "123",
+            "generationId": "123",
             "status": "enabled",
             "statusReason": "provisioned",
             "connectionState": "connected",
@@ -241,7 +242,7 @@ IoT Hub does not preserve desired properties update notifications for disconnect
 
 The device app can ignore all notifications with `$version` less or equal than the version of the full retrieved document. This is possible because IoT Hub guarantees that versions always increment.
 
->AZURE.NOTE This reconnection logic is already implemented in the [IoT Hub SDKs][lnk-sdks]. This description is useful only if the device app cannot use any of IoT Hub SDKs and must program the MQTT interface directly.
+> [AZURE.NOTE] This reconnection logic is already implemented in the [IoT Hub SDKs][lnk-sdks]. This description is useful only if the device app cannot use any of IoT Hub SDKs and must program the MQTT interface directly.
 
 ### Additional reference material
 
