@@ -207,6 +207,9 @@ HealthEvents            : None
 
 ```
 
+### REST
+You can get cluster health with a [GET request](https://msdn.microsoft.com/library/azure/dn707669.aspx) or a [POST request](https://msdn.microsoft.com/library/azure/dn707696.aspx) which includes health policies described in the body.
+
 ## Get node health
 This returns the health of a node entity and contains the health events reported on the node. Input:
 
@@ -274,6 +277,9 @@ _Node_1                     Ok
 _Node_3                     Ok
 _Node_4                     Ok
 ```
+
+### REST
+You can get node health with a [GET request](https://msdn.microsoft.com/library/azure/dn707650.aspx) or a [POST request](https://msdn.microsoft.com/library/azure/dn707665.aspx) which includes health policies described in the body.
 
 ## Get application health
 This returns the health of an application entity. It contains the health states of the deployed application and service children. Input:
@@ -420,6 +426,9 @@ DeployedApplicationHealthStates : None
 HealthEvents                    : None
 ```
 
+### REST
+You can get application health with a [GET request](https://msdn.microsoft.com/library/azure/dn707681.aspx) or a [POST request](https://msdn.microsoft.com/library/azure/dn707643.aspx) which includes health policies described in the body.
+
 ## Get service health
 This returns the health of a service entity. It contains the partition health states. Input:
 
@@ -521,6 +530,9 @@ HealthEvents          :
                         IsExpired             : False
 ```
 
+### REST
+You can get service health with a [GET request](https://msdn.microsoft.com/library/azure/dn707609.aspx) or a [POST request](https://msdn.microsoft.com/library/azure/dn707646.aspx) which includes health policies described in the body.
+
 ## Get partition health
 This returns the health of a partition entity. It contains the replica health states. Input:
 
@@ -581,6 +593,9 @@ HealthEvents          :
                         Transitions           : Error->Warning = 3/22/2016 7:57:48 PM, LastOk = 1/1/0001 12:00:00 AM
 ```
 
+### REST
+You can get partition health with a [GET request](https://msdn.microsoft.com/library/azure/dn707683.aspx) or a [POST request](https://msdn.microsoft.com/library/azure/dn707680.aspx) which includes health policies described in the body.
+
 ## Get replica health
 This returns the health of a stateful service replica or a stateless service instance. Input:
 
@@ -622,6 +637,9 @@ HealthEvents          :
                         IsExpired             : False
                         Transitions           : Error->Ok = 3/22/2016 7:57:12 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
+
+### REST
+You can get replica health with a [GET request](https://msdn.microsoft.com/library/azure/dn707673.aspx) or a [POST request](https://msdn.microsoft.com/library/azure/dn707641.aspx) which includes health policies described in the body.
 
 ## Get deployed application health
 This returns the health of an application deployed on a node entity. It contains the deployed service package health states. Input:
@@ -674,6 +692,9 @@ HealthEvents                       :
                                      IsExpired             : False
                                      Transitions           : Error->Ok = 3/22/2016 7:57:12 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
+
+### REST
+You can get deployed application health with a [GET request](https://msdn.microsoft.com/library/azure/dn707644.aspx) or a [POST request](https://msdn.microsoft.com/library/azure/dn707688.aspx) which includes health policies described in the body.
 
 ## Get deployed service package health
 This returns the health of a deployed service package entity. Input:
@@ -742,6 +763,9 @@ HealthEvents          :
                         IsExpired             : False
                         Transitions           : Error->Ok = 3/22/2016 7:57:12 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
+
+### REST
+You can get deployed service package health with a [GET request](https://msdn.microsoft.com/library/azure/dn707677.aspx) or a [POST request](https://msdn.microsoft.com/library/azure/dn707689.aspx) which includes health policies described in the body.
 
 ## Health chunk queries
 The health chunk queries can return multi-level cluster children (recursively), per input filters. It supports advanced filters that allow a lot of flexibility to express which specific children to be returned, identified by their unique identifier or other group identifier and/or health state. By default, no children are included, as opposed to health commands that always include first level children.
@@ -978,6 +1002,9 @@ ApplicationHealthStateChunks :
                                        ServiceManifestName   : WordCountWebServicePkg
                                        HealthState           : Ok
 ```
+
+### REST
+You can get cluster health chunk with a [GET request](https://msdn.microsoft.com/library/azure/mt656722.aspx) or a [POST request](https://msdn.microsoft.com/library/azure/mt656721.aspx) which includes health policies and advanced filters described in the body.
 
 ## General queries
 General queries return a list of Service Fabric entities of a specified type. They are exposed through the API (via the methods on **FabricClient.QueryManager**), PowerShell cmdlets, and REST. These queries aggregate subqueries from multiple components. One of them is the [health store](service-fabric-health-introduction.md#health-store), which populates the aggregated health state for each query result.  

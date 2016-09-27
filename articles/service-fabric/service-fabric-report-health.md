@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/11/2016"
+   ms.date="09/27/2016"
    ms.author="oanapl"/>
 
 # Add custom Service Fabric health reports
 Azure Service Fabric introduces a [health model](service-fabric-health-introduction.md) designed to flag unhealthy cluster and application conditions on specific entities. This is accomplished by using **health reporters** (system components and watchdogs). The goal is easy and fast diagnosis and repair. Service writers need to think upfront about health. Any condition that can impact health should be reported on, especially if it can help flag problems close to the root. This can save a lot of time and effort on debugging and investigation once the service is up and running at scale in the cloud (private or Azure).
 
-The Service Fabric reporters monitor identified conditions of interest. They report on those conditions based on their local view. The [health store](service-fabric-health-introduction.md#Health-Store) aggregates health data sent by all reporters to determine whether entities are globally healthy. The model is intended to be rich, flexible, and easy to use. The quality of the health reports determines the accuracy of the health view of the cluster. False positives that wrongly show unhealthy issues can negatively impact upgrades or other services that use health data. These can include repair services and alerting mechanisms. Therefore, some thought is needed to provide reports that capture conditions of interest in the best possible way.
+The Service Fabric reporters monitor identified conditions of interest. They report on those conditions based on their local view. The [health store](service-fabric-health-introduction.md#health-store) aggregates health data sent by all reporters to determine whether entities are globally healthy. The model is intended to be rich, flexible, and easy to use. The quality of the health reports determines the accuracy of the health view of the cluster. False positives that wrongly show unhealthy issues can negatively impact upgrades or other services that use health data. These can include repair services and alerting mechanisms. Therefore, some thought is needed to provide reports that capture conditions of interest in the best possible way.
 
 To design and implement health reporting, watchdogs and system components must:
 
@@ -47,7 +47,7 @@ As mentioned above, reporting can be done from:
 
 > [AZURE.NOTE] Out of the box, the cluster is populated with health reports sent by the system components. Read more at [Using system health reports for troubleshooting](service-fabric-understand-and-troubleshoot-with-system-health-reports.md). The user reports must be sent on [health entities](service-fabric-health-introduction.md#health-entities-and-hierarchy) that have already been created by the system.
 
-Once the health reporting design is clear, health reports can be sent easily. You can use `FabricClient` to report health if the cluster is not [secure](service-fabric-cluster-security.md) or if the fabric client has admin privileges. This can be done through the API by using [FabricClient.HealthManager.ReportHealth](https://msdn.microsoft.com/library/system.fabric.fabricclient.healthclient.reporthealth.aspx), through PowerShell, or through REST. Configuration knobs batch reports for improved performance.
+Once the health reporting design is clear, health reports can be sent easily. You can use [FabricClient](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.aspx) to report health if the cluster is not [secure](service-fabric-cluster-security.md) or if the fabric client has admin privileges. This can be done through the API by using [FabricClient.HealthManager.ReportHealth](https://msdn.microsoft.com/library/system.fabric.fabricclient.healthclient.reporthealth.aspx), through PowerShell, or through REST. Configuration knobs batch reports for improved performance.
 
 > [AZURE.NOTE] Report health is synchronous, and it represents only the validation work on the client side. The fact that the report is accepted by the health client or the `Partition` or `CodePackageActivationContext` objects doesn't mean that it is applied in the store. It will be sent asynchronously and possibly batched with other reports. The processing on the server may still fail (e.g. a sequence number is stale, the entity on which the report must be applied has been deleted, etc.).
 
@@ -283,6 +283,9 @@ HealthEvents          :
                         IsExpired             : False
                         Transitions           : ->Warning = 4/21/2015 9:12:32 PM
 ```
+
+### REST
+Users can send health reports using REST with POST requests that go to the desired entity and have in the body the health report description. For example, see how to send REST [cluster health reports](https://msdn.microsoft.com/library/azure/dn707640.aspx) or [service health reports](https://msdn.microsoft.com/library/azure/dn707640.aspx). All entities are supported.
 
 ## Next steps
 

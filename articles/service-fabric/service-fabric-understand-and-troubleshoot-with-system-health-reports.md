@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/11/2016"
+   ms.date="09/27/2016"
    ms.author="oanapl"/>
 
 # Use system health reports to troubleshoot
@@ -476,13 +476,13 @@ Visual Studio 2015 diagnostic events: RunAsync failure in **fabric:/HelloWorldSt
 
 **System.NamingService** reports health on its primary replica when a Naming operation takes longer than acceptable. Example of Naming operations are [CreateServiceAsync](https://msdn.microsoft.com/library/azure/mt124028.aspx) or [DeleteServiceAsync](https://msdn.microsoft.com/library/azure/mt124029.aspx). More methods can be found under FabricClient, for example under [service management methods](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.aspx) or [property management methods](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.propertymanagementclient.aspx).
 
-> [AZURE.NOTE] The Naming service resolves service names to a location in the cluster and enables users to manage service names and properties. It is a Service Fabric partitioned persisted service. One of the partition represents the Authority Owner, which contains metadata about all Service Fabric names and services. The Service Fabric names are mapped to different partitions, called Name Owner partitions, so the service is extensible. Read more about [Naming service](service-fabric-architecture.md). 
+> [AZURE.NOTE] The Naming service resolves service names to a location in the cluster and enables users to manage service names and properties. It is a Service Fabric partitioned persisted service. One of the partition represents the Authority Owner, which contains metadata about all Service Fabric names and services. The Service Fabric names are mapped to different partitions, called Name Owner partitions, so the service is extensible. Read more about [Naming service](service-fabric-architecture.md).
 
 When a Naming operation takes longer than expected, the operation is flagged with a Warning report on the *primary replica of the Naming service partition that serves the operation*. If the operation completes successfully, the Warning is cleared. If the operation completes with an error, the health report includes details about the error.
 
 - **SourceId**: System.NamingService
 - **Property**: Starts with prefix **Duration_** and identifies the slow operation and the Service Fabric name on which the operation is applied. For example, if create service at name fabric:/MyApp/MyService takes too long, the property is Duration_AOCreateService.fabric:/MyApp/MyService. AO points to the role of the Naming partition for this name and operation.
-- **Next steps**: Check why the Naming operation fails. Each operation can have different root causes. For example, delete service may be stuck on a node because the application host keeps crashing on a node due to a user bug in the service code. 
+- **Next steps**: Check why the Naming operation fails. Each operation can have different root causes. For example, delete service may be stuck on a node because the application host keeps crashing on a node due to a user bug in the service code.
 
 The following shows a create service operation. The operation took longer than the configured duration. AO retries and sends work to NO. NO completed the last operation with Timeout. In this case, the same replica is primary for both the AO and NO roles.
 
@@ -490,10 +490,10 @@ The following shows a create service operation. The operation took longer than t
 PartitionId           : 00000000-0000-0000-0000-000000001000
 ReplicaId             : 131064359253133577
 AggregatedHealthState : Warning
-UnhealthyEvaluations  : 
+UnhealthyEvaluations  :
                         Unhealthy event: SourceId='System.NamingService', Property='Duration_AOCreateService.fabric:/MyApp/MyService', HealthState='Warning', ConsiderWarningAsError=false.
-                        
-HealthEvents          : 
+
+HealthEvents          :
                         SourceId              : System.RA
                         Property              : State
                         HealthState           : Ok
@@ -505,7 +505,7 @@ HealthEvents          :
                         RemoveWhenExpired     : False
                         IsExpired             : False
                         Transitions           : Error->Ok = 4/29/2016 8:39:08 PM, LastWarning = 1/1/0001 12:00:00 AM
-                        
+
                         SourceId              : System.NamingService
                         Property              : Duration_AOCreateService.fabric:/MyApp/MyService
                         HealthState           : Warning
@@ -517,7 +517,7 @@ HealthEvents          :
                         RemoveWhenExpired     : True
                         IsExpired             : False
                         Transitions           : Error->Warning = 4/29/2016 8:39:38 PM, LastOk = 1/1/0001 12:00:00 AM
-                        
+
                         SourceId              : System.NamingService
                         Property              : Duration_NOCreateService.fabric:/MyApp/MyService
                         HealthState           : Warning
@@ -529,7 +529,7 @@ HealthEvents          :
                         RemoveWhenExpired     : True
                         IsExpired             : False
                         Transitions           : Error->Warning = 4/29/2016 8:39:38 PM, LastOk = 1/1/0001 12:00:00 AM
-``` 
+```
 
 ## DeployedApplication system health reports
 **System.Hosting** is the authority on deployed entities.
