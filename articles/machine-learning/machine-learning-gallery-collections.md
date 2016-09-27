@@ -21,10 +21,6 @@
 
 [AZURE.INCLUDE [machine-learning-gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
 
-<!-- separating these 2 includes -->
-
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
 ## Collections
 
 A 
@@ -36,3 +32,5 @@ allows you to group together experiments, APIs, and other Gallery items that add
 
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**
+
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]

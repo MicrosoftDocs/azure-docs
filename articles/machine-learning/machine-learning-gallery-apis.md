@@ -21,10 +21,6 @@
 
 [AZURE.INCLUDE [machine-learning-gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
 
-<!-- separating these 2 includes -->
-
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
 ## Machine Learning APIs
 
 A solution developed in Azure Machine Learning can be launched as a web service so that the analytics model can be accessed by others through a set of REST APIs. A variety of these 
@@ -36,3 +32,5 @@ are available in the Gallery, such as a product recommendation engine or cloud-b
 
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**
+
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]

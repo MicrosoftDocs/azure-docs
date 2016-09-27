@@ -21,10 +21,6 @@
 
 [AZURE.INCLUDE [machine-learning-gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
 
-<!-- separating these 2 includes -->
-
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
 ## Jupyter Notebooks
 
 **[Jupyter Notebooks](https://gallery.cortanaintelligence.com/notebooks)**
@@ -36,3 +32,5 @@ Notebooks in the Gallery provide tutorials and detailed explanations of advanced
 
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**
+
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]

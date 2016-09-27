@@ -21,10 +21,6 @@
 
 [AZURE.INCLUDE [machine-learning-gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
 
-<!-- separating these 2 includes -->
-
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
 ## Experiments for Machine Learning Studio
 
 The Gallery contains a wide variety of 
@@ -36,3 +32,5 @@ that have been developed in Azure Machine Learning Studio. These range from quic
 
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**
+
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]

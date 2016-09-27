@@ -21,10 +21,6 @@
 
 [AZURE.INCLUDE [machine-learning-gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
 
-<!-- separating these 2 includes -->
-
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
-
 ## Tutorials
 
 A number of 
@@ -35,3 +31,5 @@ are available to walk you through machine learning technologies and concepts, or
 [AZURE.INCLUDE [machine-learning-gallery-discover-and-learn](../../includes/machine-learning-gallery-discover-and-learn.md)]
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**
+
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]

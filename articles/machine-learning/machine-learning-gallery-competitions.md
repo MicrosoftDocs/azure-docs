@@ -19,12 +19,7 @@
 
 # Discover competitions in the Cortana Intelligence Gallery
 
-
 [AZURE.INCLUDE [machine-learning-gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
-
-<!-- separating these 2 includes -->
-
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## Cortana Intelligence Competitions
 
@@ -36,3 +31,5 @@ provide an exciting opportunity to compete with the community of data scientsts 
 
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**
+
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
