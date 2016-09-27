@@ -31,7 +31,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 
 [Frequently asked question about Azure Virtual Machines created with the classic deployment model](virtual-machines-windows-classic-faq.md)
 
-[Compare VMs, websites and cloud services](../app-service-web/choose-web-site-cloud-service-vm.md)
+[Compare VMs, websites, and cloud services](../app-service-web/choose-web-site-cloud-service-vm.md)
 
 [Virtual Machines and Containers in Azure](virtual-machines-windows-containers.md)
 
