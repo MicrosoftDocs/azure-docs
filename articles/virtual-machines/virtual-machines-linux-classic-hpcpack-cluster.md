@@ -71,7 +71,7 @@ Additional prerequisites to deploy the cluster by using the HPC Pack IaaS deploy
 
     ![Portal creation][portal]
 
-3. On the **Basics** blade, enter a name for the cluster, which also names the head node VM. You can choose an existing resource group or create a new group for the deployment.
+3. On the **Basics** blade, enter a name for the cluster, which also names the head node VM. You can choose an existing resource group or create a group for the deployment.
 
 4. On the **Head node settings** blade, for a first deployment, you can generally accept the default settings. 
 
@@ -162,7 +162,7 @@ The HPC Pack IaaS deployment script uses an XML configuration file as input to d
 
 After the deployment finishes successfully, [connect by Remote Desktop to the head node](virtual-machines-windows-connect-logon.md) using the domain credentials you provided when you deployed the cluster (for example, *hpc\clusteradmin*). 
 
-On the head node, start HPC Cluster Manager to check the status of the HPC Pack cluster. You can manage and monitor Linux compute nodes the same way you work with Windows compute nodes. For example, you'll see the Linux nodes listed in **Resource Management** (these nodes are deployed with the **LinuxNode** template).
+On the head node, start HPC Cluster Manager to check the status of the HPC Pack cluster. You can manage and monitor Linux compute nodes the same way you work with Windows compute nodes. For example, you see the Linux nodes listed in **Resource Management** (these nodes are deployed with the **LinuxNode** template).
 
 ![Node Management][management]
 
@@ -197,7 +197,7 @@ In this example, allvhdsje is your storage account name, storageaccountkey is yo
 
 To mount the Azure File share on Linux nodes, run a **clusrun** command on the head node. **[Clusrun](https://technet.microsoft.com/library/cc947685.aspx)** is a useful HPC Pack tool to carry out administrative tasks on multiple nodes. (See also [Clusrun for Linux nodes](#Clusrun-for-Linux-nodes) in this article.)
 
-Open a Windows PowerShell window and enter the following commands.
+Open a Windows PowerShell window and enter the following commands:
 
 ```
 PS > clusrun /nodegroup:LinuxNodes mkdir -p /rdma
@@ -211,7 +211,7 @@ The first command creates a folder named /rdma on all nodes in the LinuxNodes gr
 
 ### Head node share
 
-Alternatively, mount a shared folder of the head node on Linux nodes. A share provides the simplest way to share files, but the head node and all Linux nodes have to be deployed in the same virtual network. Here are the steps.
+Alternatively, mount a shared folder of the head node on Linux nodes. A share provides the simplest way to share files, but the head node and all Linux nodes must be deployed in the same virtual network. Here are the steps.
 
 1. Create a folder on the head node and share it to Everyone with Read/Write permissions. For example, share D:\OpenFOAM on the head node as \\CentOS7RDMA-HN\OpenFOAM. Here CentOS7RDMA-HN is the hostname of the head node.
 

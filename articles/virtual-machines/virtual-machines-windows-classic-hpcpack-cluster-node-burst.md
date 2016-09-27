@@ -28,8 +28,8 @@ existing HPC Pack head node in Azure. With burst node, you scale up or scale dow
 
 ![Burst nodes][burst]
 
-The steps in this article will help you add Azure nodes quickly to a
-cloud-based HPC Pack head node VM for a test or proof of concept deployment. The procedure is essentially the
+The steps in this article help you add Azure nodes quickly to a
+cloud-based HPC Pack head node VM for a test or proof-ofconcept deployment. The procedure is essentially the
 same as the one to “burst to Azure” to add cloud compute capacity to an
 on-premises HPC Pack cluster. For a tutorial, see [Set up a hybrid compute cluster with Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). For
 detailed guidance and considerations for production deployments, see
@@ -56,7 +56,7 @@ subscription (or subscriptions).
 
 ## Step 1: Create a cloud service and a storage account for the Azure nodes
 
-Use the Azure classic portal or equivalent tools to configure the following, which are needed to deploy
+Use the Azure classic portal or equivalent tools to configure the following resources that are needed to deploy
 your Azure nodes:
 
 * A new Azure cloud service

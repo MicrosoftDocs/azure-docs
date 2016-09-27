@@ -40,7 +40,7 @@ Microsoft HPC Pack provides features to run large-scale HPC and parallel applica
 
     *   After deploying the Linux nodes, connect by SSH to perform any additional administrative tasks. Find the SSH connection details for each Linux VM in the Azure portal.  
         
-*   **Intel MPI** - To run OpenFOAM on SLES 12 HPC compute nodes in Azure, you need to install the Intel MPI Library 5 runtime from the [Intel.com site](https://software.intel.com/en-us/intel-mpi-library/). (Intel MPI 5 is preinstalled on CentOS-based HPC images.)  In a later step, if necessary, you'll install Intel MPI on your Linux compute nodes. To prepare for this step, after you register with Intel, follow the link in the confirmation email to the related web page. Then, copy the download link for the .tgz file for the appropriate version of Intel MPI. This article is based on Intel MPI version 5.0.3.048.
+*   **Intel MPI** - To run OpenFOAM on SLES 12 HPC compute nodes in Azure, you need to install the Intel MPI Library 5 runtime from the [Intel.com site](https://software.intel.com/en-us/intel-mpi-library/). (Intel MPI 5 is preinstalled on CentOS-based HPC images.)  In a later step, if necessary, install Intel MPI on your Linux compute nodes. To prepare for this step, after you register with Intel, follow the link in the confirmation email to the related web page. Then, copy the download link for the .tgz file for the appropriate version of Intel MPI. This article is based on Intel MPI version 5.0.3.048.
 
 *   **OpenFOAM Source Pack** - Download the OpenFOAM Source Pack software for Linux from the [OpenFOAM Foundation site](http://openfoam.org/download/2-3-1-source/). This article is based on Source Pack version 2.3.1, available for download as OpenFOAM-2.3.1.tgz. Follow the instructions later in this article to unpack and compile OpenFOAM on the Linux compute nodes.
 
@@ -140,7 +140,7 @@ Save the downloaded installation package for Intel MPI (l_mpi_p_5.0.3.048.tgz in
 
 2.  To install Intel MPI Library silently, use a silent.cfg file. You can find an example in the sample files at the end of this article. Place this file in the shared folder /openfoam. For details about the silent.cfg file, see [Intel MPI Library for Linux Installation Guide - Silent Installation](http://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html#silentinstall).
 
-    >[AZURE.TIP]Make sure that you save your silent.cfg file as a text file with Linux line endings (LF only, not CR LF). This ensures that it runs properly on the Linux nodes.
+    >[AZURE.TIP]Make sure that you save your silent.cfg file as a text file with Linux line endings (LF only, not CR LF). This step ensures that it runs properly on the Linux nodes.
 
 3.  Install Intel MPI Library in silent mode.
  
@@ -206,7 +206,7 @@ Now get ready to run an MPI job called sloshingTank3D, which is one of the OpenF
 
 ### Set up the runtime environment
 
-o set up the runtime environments for MPI and OpenFOAM on the Linux nodes, run the following command in a Windows PowerShell window on the head node. (This command is valid for SUSE Linux only.)
+To set up the runtime environments for MPI and OpenFOAM on the Linux nodes, run the following command in a Windows PowerShell window on the head node. (This command is valid for SUSE Linux only.)
 
 ```
 clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
@@ -232,7 +232,7 @@ Use the head node share you configured previously to share files among the Linux
     $ cd /openfoam/sloshingTank3D
     ```
 
-4.  When you use the default parameters of this sample, it can take tens of minutesto run, so you might want to modify some parameters to make it run faster. One simple choice is to modify the time step variables deltaT and writeInterval in the system/controlDict file. This file stores all input data relating to the control of time and reading and writing solution data. For example, you could change the value of deltaT from 0.05 to 0.5 and the value of writeInterval from 0.05 to 0.5.
+4.  When you use the default parameters of this sample, it can take tens of minutes to run, so you might want to modify some parameters to make it run faster. One simple choice is to modify the time step variables deltaT and writeInterval in the system/controlDict file. This file stores all input data relating to the control of time and reading and writing solution data. For example, you could change the value of deltaT from 0.05 to 0.5 and the value of writeInterval from 0.05 to 0.5.
 
     ![Modify step variables][step_variables]
 
@@ -271,7 +271,7 @@ In this step, you create a host file (a list of compute nodes) which the **mpiru
     SUSE12RDMA-LN2
     ```
     
-    >[AZURE.TIP]You can also create this file at C:\OpenFoam\hostfile on the head node. If you do this, save it as a text file with Linux line endings (LF only, not CR LF). This ensures that it runs properly on the Linux nodes.
+    >[AZURE.TIP]You can also create this file at C:\OpenFoam\hostfile on the head node. If you choose this option, save it as a text file with Linux line endings (LF only, not CR LF). This ensures that it runs properly on the Linux nodes.
 
     **Bash script wrapper**
 
@@ -390,7 +390,7 @@ Now you can submit a job in HPC Cluster Manager. You need to pass the script hpc
 
     ![Heat map][heat_map]
 
-    On each node eight processes are started.
+    On each node, eight processes are started.
 
     ![Linux processes][linux_processes]
 
@@ -405,7 +405,7 @@ Optionally use [EnSight](https://www.ceisoftware.com/) to visualize and analyze 
 
 2.  Open C:\OpenFoam\sloshingTank3D\EnSight\sloshingTank3D.case.
 
-    You will see a tank in the viewer.
+    You see a tank in the viewer.
 
     ![Tank in EnSight][tank]
 

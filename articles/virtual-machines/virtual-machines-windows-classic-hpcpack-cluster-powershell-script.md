@@ -150,7 +150,7 @@ in an existing domain forest. The cluster contains one head node, one
 database server with a 500 GB data disk, 2 broker nodes running the Windows
 Server 2012 R2 operating system, and five compute nodes running the Windows
 Server 2012 R2 operating system. The cloud service MyHPCCNService is
-created in the affinity group *MyIBAffinityGroup*, and  the other cloud
+created in the affinity group *MyIBAffinityGroup*, and the other cloud
 services are created in the affinity group *MyAffinityGroup*. The HPC Job
 Scheduler REST API and HPC web portal are enabled on the head node.
 
@@ -285,7 +285,7 @@ clusters in Azure concurrently under one subscription, one or more
 deployments may fail with the error “VNet *VNet\_Name* doesn't exist”.
 If this error occurs, run the script again for the failed deployment.
 
-* **Problem accessing the Internet from the Azure virtual network** - If you create acluster with a new domain controller by using
+* **Problem accessing the Internet from the Azure virtual network** - If you create a cluster with a new domain controller by using
 the deployment script, or you manually promote a head node VM to domain
 controller, you may experience problems connecting the VMs to the Internet. This problem can occur if a forwarder DNS
 server is automatically configured on the domain controller, and this
@@ -293,7 +293,7 @@ forwarder DNS server doesn’t resolve properly.
 
     To work around this problem, log on to the domain controller and either
     remove the forwarder configuration setting or configure a valid
-    forwarder DNS server. To do this, in Server Manager click **Tools** >
+    forwarder DNS server. To configure this setting, in Server Manager click **Tools** >
     **DNS** to open DNS Manager, and then double-click **Forwarders**.
 
 * **Problem accessing RDMA network from compute-intensive VMs** - If you add Windows Server compute or broker node VMs using an RDMA-capable size such as A8 or A9, you may experience problems
@@ -311,7 +311,7 @@ extension might be stuck in the installing state.
 
 * Try running a test workload on the cluster. For an example, see the HPC Pack [getting started guide](https://technet.microsoft.com/library/jj884144).
 
-* For a tutorial to script the deployment of a cluster and run an HPC workload, see [Get started with an HPC Pack cluster in Azure to run Excel and SOA workloads](virtual-machines-windows-excel-cluster-hpcpack.md).
+* For a tutorial to script the cluster deployment and run an HPC workload, see [Get started with an HPC Pack cluster in Azure to run Excel and SOA workloads](virtual-machines-windows-excel-cluster-hpcpack.md).
 
 * Try HPC Pack's tools to start, stop, add, and remove compute nodes from a cluster you create. See [Manage compute nodes in an HPC Pack cluster in Azure](virtual-machines-windows-classic-hpcpack-cluster-node-manage.md).
 
