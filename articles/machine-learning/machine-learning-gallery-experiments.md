@@ -25,7 +25,7 @@
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-# Experiments for Machine Learning Studio
+## Experiments for Machine Learning Studio
 
 The Gallery contains a wide variety of 
 **[Experiments](https://gallery.cortanaintelligence.com/experiments)** 
