@@ -95,9 +95,9 @@ You must use the [Import-AzureRmMlWebService](https://msdn.microsoft.com/library
 
 ### Update the Web service with new Web Service Definition
 
-Finally, you use [New-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767943.aspx) cmdlet to update the Predictive experiment. New-AzureRmMlWebService is used to both create new Web Services and update existing services.
+Finally, you use [Update-AzureRmMlWebService](https://msdn.microsoft.com/en-us/library/azure/mt767922.aspx) cmdlet to update the Predictive experiment.
 
-	New-AzureRmMlWebService -Location 'South Central US'  -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -NewWebServiceDefinition $wsd -ResourceGroupName 'Default-MachineLearning-SouthCentralUS' 
+	Update-AzureRmMlWebService -Name 'RetrainingExampl.2016.9.26.18.40.41.777' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'  -ServiceUpdates $wsd 
 
 ##Summary
 

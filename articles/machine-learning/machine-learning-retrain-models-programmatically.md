@@ -123,11 +123,11 @@ Add the Nuget package Microsoft.AspNet.WebApi.Client as specified in the comment
 
 ### Update the apikey declaration
 
-Locate the **apikey** declation.
+Locate the **apikey** declaration.
 
 	const string apiKey = "abc123"; // Replace this with the API key for the web service
 
-In the **Basic consumption info** section of the **Consume** page, locate the primary key and copy it to the the **apikey** declaration.
+In the **Basic consumption info** section of the **Consume** page, locate the primary key and copy it to the **apikey** declaration.
 
 ### Update the Azure Storage information
 
