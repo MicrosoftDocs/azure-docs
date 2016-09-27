@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Make the D drive of a VM a data disk | Microsoft Azure"
+	pageTitle="Make the D: drive of a VM a data disk | Microsoft Azure"
 	description="Describes how to change drive letters for a Windows VM so that you can use the D: drive as a data drive."
 	services="virtual-machines-windows"
 	documentationCenter=""
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
-# Use the D drive as a data drive on a Windows VM 
+# Use the D: drive as a data drive on a Windows VM 
 
 If your application needs to use the D drive to store data, follow these instructions to use a different drive letter for the temporary disk. Never use the temporary disk to store data that you need to keep.
 

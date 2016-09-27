@@ -61,10 +61,11 @@ Limitations
 * You may not upgrade existing VMs to use IPv6 addresses. You must deploy new VMs.
 * A single IPv6 address can be assigned to a single network interface in each VM.
 * The public IPv6 addresses cannot be assigned to a VM. They can only be assigned to a load balancer.
+* The VMs with the IPv6 addresses cannot be members of an Azure Cloud Service. They can be connected to an Azure Virtual Network (VNet) and communicate with each other over their IPv4 addresses.
 * Private IPv6 addresses can be deployed on individual VMs in a resource group but cannot be deployed into a resource group via Scale Sets.
 * Azure VMs cannot connect over IPv6 to other VMs, other Azure services, or on-premises devices. They can only communicate with the Azure load balancer over IPv6. However, they can communicate with these other resources using IPv4.
-* The VMs with the IPv6 addresses cannot be members of an Azure Cloud Service. They can be connected to an Azure Virtual Network (VNet) and communicate with each other over their IPv4 addresses.
-* The VMs with the IPv6 addresses cannot have a network security group applied to them or the subnet they’re assigned to. Only port defined in the load balancer rules are accessible. To secure port access, use the software firewall within the guest operating system.
+* Network Security Group (NSG) protection for IPv4 is supported in dual-stack (IPv4+IPv6) deployments. NSGs do not apply to the IPv6 endpoints.
+* The IPv6 endpoint on the VM is not exposed directly to the internet. It is behind a load balancer. Only the ports specified in the load balancer rules are accessible over IPv6.
 * Changing the IdleTimeout parameter for IPv6 is **not currently supported**. The default is four minutes.
 
 ## Next steps

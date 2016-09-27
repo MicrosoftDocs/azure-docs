@@ -24,15 +24,7 @@ This article guides you through some of the most common methods to resolve login
 
 > [AZURE.NOTE] If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
 
-## Azure portals
-
-| Name  | Description  |  URL |
-|---|---|---|
-| Azure portal |A central place where you can provision and manage your Azure resources   | [https://portal.azure.com](https://portal.azure.com)  |
-| Azure classic portal  | The old Azure portal |[https://manage.windowsazure.com](https://manage.windowsazure.com)   |
-| Azure Account Center | A central place where you can track your Azure usage and manage your subscription |[https://account.windowsazure.com/Subscriptions](https://account.windowsazure.com/Subscriptions)   ||
-
-## Symptom: The page hangs in the loading status
+## The page hangs in the loading status
 
 This issue can be caused a problem that affects your Internet browser.
 
@@ -44,17 +36,17 @@ To resolve this issue, try the following methods, in the given order. After you 
 
 	A.	Click **Tools** ![tools button](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Safety** > **InPrivate Browsing**.
 
-	B.	Browse to the [Azure portal](https://portal.azure.com) or the [Azure classic portal](https://manage.windowsazure.com), and then sign in to the portal.
+	B.	Browse to the [Azure portal](https://portal.azure.com), and then sign in to the portal.
 
-## Symptom: Error message "No subscriptions found”
+## Error message "No subscriptions found”
 
-This issue can occur if the account doesn’t have sufficient user rights. An account administrator can only access the [Account Center](https://account.windowsazure.com/) whereas service administrators (SA) and co-administrators (CA) only have access to the [Azure portal](https://portal.azure.com) or the [Azure classic portal](https://manage.windowsazure.com/).
+This issue can occur if the account doesn’t have sufficient user rights. An account administrator can only access the [Account Center](https://account.windowsazure.com/) whereas service administrators (SA) and co-administrators (CA) only have access to the [Azure portal](https://portal.azure.com).
 
-**Scenario 1: Error message is received in the Azure portal or the Azure classic portal**
+**Scenario 1: Error message is received in the [Azure portal](https://portal.azure.com)**
 
 To resolve this issue, [add the co-administrator or owner role](billing-add-change-azure-subscription-administrator.md) for the account.
 
-**Scenario 2: Error message is received in the Azure Account Center**
+**Scenario 2: Error message is received in the [Azure Account Center](https://account.windowsazure.com/Subscriptions)**
 
 Check whether the account that you used is the account administrator. To verify who the account administrator is, follow these steps:
 
@@ -63,7 +55,7 @@ Check whether the account that you used is the account administrator. To verify 
 3.	Select the subscription that you want to check, and then select **Settings**.
 4.	Select **Properties**. The account administrator of the subscription is displayed in the **Account Admin** box.
 
-## Symptom: You are automatically signed in as a different user
+## You are automatically signed in as a different user
 
 This issue can occur if you're using more than one user account in an Internet browser.
 
@@ -76,11 +68,11 @@ To resolve the issue, try one of the following methods:
 
 -	Browse to the Azure portal in InPrivate Browsing mode. To do this, click **Tools** ![tools button](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Safety** > **InPrivate Browsing**.
 
-## Microsoft account vs Organizational account
+## You need to sign in to an organizational account
 
 Your Microsoft account is the email address you use, along with your password, to sign in to any Windows Live program or service, such as Outlook, Hotmail, MSN or OneDrive. You may set up a Microsoft account using any email address belonging to you, including your company email. Please see [www.microsoft.com/account](http://www.microsoft.com/account) for more details.
 
-If your account is associated with an Organizational account, then please select the correct login option as shown below. For more information on using an Organizational account, see [Sign up for Azure as an organization](./active-directory/sign-up-organization.md):
+The default sign-in page of the Azure portal is for Microsoft account. If your account is associated with an Organizational account, then please select the correct login option as shown below. For more information on using an Organizational account, see [Sign up for Azure as an organization](./active-directory/sign-up-organization.md):
 
 ![sign in page](./media/billing-cannot-login-subscription/signin.png)
 
