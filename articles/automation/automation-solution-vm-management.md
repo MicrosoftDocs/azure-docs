@@ -71,7 +71,7 @@ Schedule | Description|
 StartByResourceGroup-Schedule-MS-Mgmt | Schedule for StartByResourceGroup runbook.|
 StopByResourceGroup-Schedule-MS-Mgmt | Schedule for StopByResourceGroup runbook.|
 
-# Configuration
+## Configuration
 
 Perform the following steps to add the VM Management solution to your Automation account and then configure the variables to customize the solution.
 
