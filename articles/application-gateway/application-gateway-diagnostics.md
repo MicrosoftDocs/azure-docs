@@ -19,11 +19,18 @@
 
 # Diagnostics Logging and Metrics for Application Gateway
 
+Azure provides the capability to monitor resource with logging and metrics
+
+[**Logging**](#enable-logging-with-powershell) - Logging allows for performance, access and other logs to be saved or consumed from a resource for monitoring purposes.
+
+[**Metrics**](#metrics) - Application currently one metric. This metric measures the throughput of the application gateway in Bytes per second.
+
 You can use different types of logs in Azure to manage and troubleshoot Application Gateways. Some of these logs can be accessed through the portal, and all logs can be extracted from an Azure blob storage, and viewed in different tools, such as [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Excel, and PowerBI. You can learn more about the different types of logs from the following list:
 
 - **Audit logs:** You can use [Azure Audit Logs](../azure-portal/insights-debugging-with-events.md) (formerly known as Operational Logs) to view all operations being submitted to your Azure subscription, and their status. Audit logs are enabled by default, and can be viewed in the Azure preview portal.
 - **Access logs:** You can use this log to view Application Gateway access pattern and analyze important information including caller's IP, URL requested, response latency, return code, bytes in and out. Access log is collected every 300 seconds. This log contains one record per instance of Application Gateway. The Application Gateway instance can be identified by 'instanceId' property.
 - **Performance logs:** You can use this log to view how Application Gateway instances are performing. This log captures performance information on per instance basis including total request served, throughput in bytes, total requests served, failed request count, healthy and unhealthy back-end instance count. Performance log is collected every 60 seconds.
+- **Firewall logs:** You can use this log to view the requests that are logged through either detection or prevention mode of an application gateway that is configured with web application firewall.
 
 >[AZURE.WARNING] Logs are only available for resources deployed in the Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For a better understanding of the two models, reference the [Understanding Resource Manager deployment and classic deployment](../resource-manager-deployment-model.md) article.
 
@@ -174,23 +181,31 @@ You can also connect to your storage account and retrieve the JSON log entries f
 
 Metrics is a feature for certain Azure resources where you can view performance counters in the portal. For Application Gateway, one metric is available at the time of writing this article. This metric is throughput, and can be seen in the portal. Navigate to an application gateway and click **Metrics**.  Select throughput in the **Available metrics** section to view the values. In the following image, you can see an example with the filters that can be used to display the data in different time ranges.
 
+To see a list of the current support metrics, visit [Supported metrics with Azure Monitor](../azure-portal/monitoring-supported-metrics.md)
+
 ![metric view][5]
 
 ## Alert rules
 
-Alert rules can be started based of on metrics on a resource. This means for application gateway, an alert can call a webhook or email an administrator if throughput is above, below or within a threshold.
+Alert rules can be started based of on metrics on a resource. This means for application gateway, an alert can call a webhook or email an administrator if the throughput of the application gateway is above, below or at a threshold for a specified period of time.
 
 The following example will walk you through creating an alert rule that sends an email to an administrator after a throughput threshold has been breached.
 
 ### Step 1
 
-Click **Add metric alert** to start.
+Click **Add metric alert** to start. This blade can also be reached from the metrics blade.
 
 ![alert rules blade][6]
 
 ### Step 2
 
 In the **Add rule** blade, fill out the name, condition, and notify sections and click **OK** when done.
+
+The **Condition** selector allows for 4 values, **Greater than**, **Greater than or equal**, **Less than**, or **Less than or equal to**.
+
+The **Period** selector, allows for picking of a period from 5 minutes to 6 hours.
+
+By selecting **Email owners, contributors, and readers** the email can be dynamic based on the users that have access to that resource. Otherwise a comma separated list of users can be provided in the **Additional administrator email(s)** textbox.
 
 ![add rule blade][7]
 
