@@ -3,7 +3,7 @@
 	description="Learn about how to move data from Amazon Redshift using Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/23/2016" 
-	ms.author="spelluru"/>
+	ms.author="jingwang"/>
 
 # Move data From Amazon Redshift using Azure Data Factory
 

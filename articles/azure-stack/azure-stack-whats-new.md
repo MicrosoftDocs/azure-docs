@@ -48,7 +48,7 @@ This release provides new features for both tenants and administrators.
  - You can now preview the updates interface.
 
 ## Key Vault
-- [Azure Key Vault](azure-stack-kv-intro.md) provides secure management of your keys and passwords for cloud apps.
+- [Key Vault in Azure Stack](azure-stack-kv-intro.md) provides secure management of your keys and passwords for cloud apps.
 - You can audit and monitor key usage by apps and VMs.
 
 ## Billing and usage
