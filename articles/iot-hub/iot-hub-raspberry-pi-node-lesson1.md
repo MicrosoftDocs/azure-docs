@@ -26,7 +26,7 @@ In this lesson, you configure your Raspberry Pi 3 device with an operating syste
 ## Configure your device
 Configure your Raspberry Pi 3 for first time use and install the Raspbian OS, a free operating system that is optimized for the Raspberry Pi hardware.
 
-[Estimated time to complete: 30 minutes. Go to 'Configure your device'](iot-hub-raspberry-pi-node-lesson1_configure-your-device.md)
+[Estimated time to complete: 30 minutes. Go to 'Configure your device'](iot-hub-raspberry-pi-node-lesson1-configure-your-device.md)
 
 ## Get the tools
 Download the tools and software to build and deploy your first application for the Raspberry Pi 3.
