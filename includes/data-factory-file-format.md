@@ -241,12 +241,27 @@ If the format is set to OrcFormat, you do not need to specify any properties in 
 
 	"format":
 	{
-	    "type": "OrcFormat",
+	    "type": "OrcFormat"
 	}
 
 > [AZURE.IMPORTANT] If you are not copying ORC files **as-is** between on-premises and cloud data stores, you need to install the JRE 8 (Java Runtime Environment) on your gateway machine. A 64-bit gateway requires 64-bit JRE and 32-bit gateway requires 32-bit JRE. You can find both versions from [here](http://go.microsoft.com/fwlink/?LinkId=808605). Choose the appropriate one.
 
-Note the following:
+Note the following points:
 
 -	Complex data types are not supported (STRUCT, MAP, LIST, UNION)
 -	ORC file has three [compression-related options](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory supports reading data from ORC file in any of these compressed formats. It uses the compression codec is in the metadata to read the data. However, when writing to an ORC file, Data Factory chooses ZLIB, which is the default for ORC. Currently, there is no option to override this behavior. 
+
+### Specifying ParquetFormat
+If the format is set to ParquetFormat, you do not need to specify any properties in the Format section within the typeProperties section. Example:
+
+	"format":
+	{
+	    "type": "ParquetFormat"
+	}
+
+> [AZURE.IMPORTANT] If you are not copying Parquet files **as-is** between on-premises and cloud data stores, you need to install the JRE 8 (Java Runtime Environment) on your gateway machine. A 64-bit gateway requires 64-bit JRE and 32-bit gateway requires 32-bit JRE. You can find both versions from [here](http://go.microsoft.com/fwlink/?LinkId=808605). Choose the appropriate one.
+
+Note the following points:
+
+-	Complex data types are not supported (MAP, LIST)
+-	Parquet file has the following compression-related options: NONE, SNAPPY, GZIP and LZO. Data Factory supports reading data from ORC file in any of these compressed formats. It uses the compression codec is in the metadata to read the data. However, when writing to a Parquet file, Data Factory chooses SNAPPY, which is the default for Parquet format. Currently, there is no option to override this behavior. 
