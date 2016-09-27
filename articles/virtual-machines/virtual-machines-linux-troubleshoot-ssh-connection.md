@@ -26,18 +26,31 @@ There are various reasons that you encounter Secure Shell (SSH) errors, SSH conn
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and Stack Overflow forums](http://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](http://azure.microsoft.com/support/options/) and select **Get support**. For information about using Azure Support, read the [Microsoft Azure support FAQ](http://azure.microsoft.com/support/faq/).
 
 
+## Quick troubleshooting steps
+After each troubleshooting step, try reconnecting to the VM.
+
+1. Reset the SSH configuration.
+2. Reset the credentials for the user.
+3. Restart the VM.
+4. Redeploy the VM.
+5. Verify the [Network Security Group](../virtual-network/virtual-networks-nsg.md) rules permit SSH traffic.
+6. Check the [VM resource health](../resource-health/resource-health-overview.md).
+
+Continue reading for more detailed troubleshooting steps and explanations.
+
+
 ## VMs created by using the Resource Manager deployment model
 
 You can reset credentials or SSH configuration using one of the following methods:
 
-- [Azure portal](#azure-portal) - great if you need to quickly reset the SSH configuration or SSH key and you don't have the Azure tools installed.
-- [Azure CLI commands](#azure-cli) - if you are already on the command line, quickly reset the SSH configuration or credentials.
-- [Azure VMAccessForLinux extension](#vmaccess-extension) - create and reuse json definition files to reset the SSH configuration or user credentials.
+- [Azure portal](#using-the-azure-portal) - great if you need to quickly reset the SSH configuration or SSH key and you don't have the Azure tools installed.
+- [Azure CLI commands](#using-the-azure-cli) - if you are already on the command line, quickly reset the SSH configuration or credentials.
+- [Azure VMAccessForLinux extension](#using-the-vmaccess-extension) - create and reuse json definition files to reset the SSH configuration or user credentials.
 
 After each troubleshooting step, try connecting to your VM again. If you still cannot connect, try the next step.
 
 
-## Azure portal
+## Using the Azure portal
 The Azure portal provides a quick way to reset the SSH configuration or user credentials without installing any tools on your local computer.
 
 Select your VM in the Azure portal. Scroll down to the **Support + Troubleshooting** section and select **Reset password** as in the following example:
@@ -53,7 +66,7 @@ To reset the credentials of an existing user, select either `Reset SSH public ke
 You can also create a user with sudo privileges on the VM. Enter a new username and associated password or SSH key, and then click the **Reset** button.
 
 
-## Azure CLI
+## Using the Azure CLI
 
 If you haven't already, [install the Azure CLI and connect to your Azure subscription](../xplat-cli-install.md). Sign in by using the `azure login` command and make sure you are in Resource Manager mode (`azure config mode arm`).
 
@@ -83,7 +96,7 @@ azure vm reset-access --resource-group <resource group> --name <vm name> \
 ```
 
 
-## VMAccess extension
+## Using the VMAccess extension
 The VM Access Extension for Linux reads in a json file that defines actions to carry out. These actions include resetting SSHD, resetting an SSH key, or adding a user. You still use the Azure CLI to call the VMAccess extension, but you can reuse the json files across multiple VMs if desired. This approach allows you to create a repository of json files that can then be called for given scenarios.
 
 ### Reset SSHD
