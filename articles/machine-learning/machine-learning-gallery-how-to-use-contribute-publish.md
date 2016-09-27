@@ -19,11 +19,9 @@
 
 # Share and discover solutions in the Cortana Intelligence Gallery
 
-Separator line.
-
 [AZURE.INCLUDE [gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
 
-Separator line.
+<!-- separating these 2 includes -->
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
