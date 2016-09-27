@@ -110,7 +110,7 @@ Since scopes are hierarchical, when a user has permissions at a certain scope, t
 ### How do I create a role to allow users to perform a specific task?
 A comprehensive article about how to create custom roles and assign permissions to that role can be found here. Here is an example of a script that creates the role "DevTest Labs Advanced User", which has permission to start and stop all VMs in the lab:
  
-	$policyRoleDef = (Get-AzureRmRoleDefinition "DevTest Labs User") 
+	$policyRoleDef = Get-AzureRmRoleDefinition "DevTest Labs User" 
 	$policyRoleDef.Actions.Remove('Microsoft.DevTestLab/Environments/*') 
 	$policyRoleDef.Id = $null 
 	$policyRoleDef.Name = "DevTest Labs Advance User" 
@@ -119,7 +119,7 @@ A comprehensive article about how to create custom roles and assign permissions 
 	$policyRoleDef.AssignableScopes.Add("subscriptions/<subscription Id>") 
 	$policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/virtualMachines/Start/action") 
 	$policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/virtualMachines/Stop/action") 
-	$policyRoleDef = (New-AzureRmRoleDefinition -Role $policyRoleDef)  
+	$policyRoleDef = New-AzureRmRoleDefinition -Role $policyRoleDef  
  
 ### Does Azure DevTest Labs integrate with my CI/CD toolchain? 
 If you are using VSTS, there is an [Azure DevTest Labs Tasks extension](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) that allows you to automate your release pipeline in Azure DevTest Labs. Some of the uses of this extension include:

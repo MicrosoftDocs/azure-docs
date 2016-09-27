@@ -108,7 +108,7 @@ The following libraries are required to run this example. You can install by run
     PM> Install-Package Microsoft.Azure.Management.Resources –Pre
     PM> Install-Package Microsoft.Azure.Common.Authentication –Pre
 
-Create a console app and replace the contents of Program.cs with the following. To get the required client id and related values, see [Register your app and get the required client values for connecting your app to SQL Database](sql-database-client-id-keys.md).
+Create a console app and replace the contents of Program.cs with the following. To get the required client id and related values, see [Use Azure PowerShell to create a service principal to access resources](../resource-group-authenticate-service-principal.md).
 
     using Microsoft.Azure;
     using Microsoft.Azure.Management.Resources;

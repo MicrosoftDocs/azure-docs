@@ -1,7 +1,7 @@
 <properties
    pageTitle="Use Azure Functions to perform a scheduled clean-up task | Microsoft Azure"
    description="Use Azure Functions create a C# function that runs based on an event timer."
-   services="azure-functions"
+   services="functions"
    documentationCenter="na"
    authors="ggailey777"
    manager="erikre"
@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="multiple"
    ms.workload="na"
-   ms.date="06/05/2016"
+   ms.date="09/26/2016"
    ms.author="glenga"/>
    
 # Use Azure Functions to perform a scheduled clean-up task

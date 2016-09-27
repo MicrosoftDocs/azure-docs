@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Advanced encoding with Media Encoder Premium Workflow" 
+	pageTitle="Advanced encoding with Media Encoder Premium Workflow | Microsoft Azure" 
 	description="Learn how to encode with Media Encoder Premium Workflow. Code samples are written in C# and use the Media Services SDK for .NET." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/26/2016" 
 	ms.author="juliako"/>
 
 #Advanced encoding with Media Encoder Premium Workflow

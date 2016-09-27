@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/12/2016"
+   ms.date="09/25/2016"
    ms.author="markvi"/>
 
 # Azure Active Directory reporting - preview
@@ -26,7 +26,7 @@ There are two main areas of reporting:
 
 - **Sign-in activities** – Information about the usage of managed applications and user sign-in activities
 
-- **System activities** - Audit information about users and group management, your managed applications and directory activities
+- **Audit logs** - System activity information about users and group management, your managed applications and directory activities
 
 Depending on the scope of the data you are looking for, you can access these reports either by clicking **Users and groups** or **Enterprise applications** in the services list in the [Azure portal](https://portal.azure.com).
 
@@ -119,7 +119,7 @@ The search method enables you to scope your sign-ins around specific **users**, 
 
 ![Reporting](./media/active-directory-reporting-azure-portal/84.png "Reporting")
 
-## System activities
+## Audit logs
 
 The auditing logs in Azure Active Directory provide records of system activities for compliance.
 

@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/01/2016"
+	ms.date="09/26/2016"
 	ms.author="anwestg"/>
 	
 # Before you get started with Azure Stack Web Apps
+
+> [AZURE.NOTE] The following information only applies to Azure Stack TP1 deployments.
 
 You will need a few items to install Azure Stack Web Apps:
 

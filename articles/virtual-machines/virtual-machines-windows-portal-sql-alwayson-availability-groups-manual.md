@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Configure Always On availability group in Azure VM manually - Resource Manager"
+	pageTitle="Configure Always On availability group in Azure VM manually - Microsoft Azure"
 	description="Create an Always On Availability Group with Azure Virtual Machines. This tutorial primarily uses the user interface and tools rather than scripting."
 	services="virtual-machines"
 	documentationCenter="na"
@@ -13,13 +13,13 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="06/15/2016"
+	ms.date="09/22/2016"
 	ms.author="MikeRayMSFT" />
 
 # Configure Always On availability group in Azure VM manually - Resource Manager
 
 > [AZURE.SELECTOR]
-- [Resource Manager: Auto](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+- [Resource Manager: Template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 - [Resource Manager: Manual](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)
 - [Classic: UI](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 - [Classic: PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
@@ -28,7 +28,7 @@
 
 This end-to-end tutorial shows you how to implement SQL Server availability groups on Azure resource manager virtual machines. 
 
-At the end of the tutorial, your solution will consist of the following elements:
+In this tutorial, you create the following elements:
 
 - A virtual network containing two subnets, including a front-end and a back-end subnet
 
@@ -38,17 +38,17 @@ At the end of the tutorial, your solution will consist of the following elements
 
 - A 3-node WSFC cluster with the Node Majority quorum model
 
-- An internal load balancer to provide an IP address to the availabiltiy groups
+- An internal load balancer to provide an IP address to the availability groups
 
 - An availability group with two synchronous-commit replicas of an availability database
 
 The figure below is a graphical representation of the solution.
 
-![Architecture for AG in ARM](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/00-EndstateSampleNoELB.png)
+![Architecture for AG in Azure Resource Manager](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/00-EndstateSampleNoELB.png)
 
-Note that this is one possible configuration. For example, you can minimize the number of VMs for a two-replica availability group in order to save on compute hours in Azure by using the domain controller as the quorum file share witness in a 2-node WSFC cluster. This method reduces the VM count by one from the above configuration.
+This is one possible configuration. You can modify it for for your requirements. For example, you can reduce the number of virtual machines by using a domain controller as the quorum file share witness. This would reduce the number of VMs for a two-replica availability group. This method reduces the VM count by one from the solution.
 
->[AZURE.NOTE] Completing this tutorial takes a significant amount of time. You can also automatically build this entire solution. In the Azure Portal, there is a gallery setup for Always On availability groups with a listener. This configures everything you need for availability groups automatically. For more information, see [Portal - Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md). 
+Completing this tutorial takes a few hours because you must build and configure several Azure virtual machines. You can also automatically build this entire solution. In the Azure Portal, there is a gallery setup for Always On availability groups with a listener. The gallery setup configures everything you need for availability groups automatically. For more information, see [Portal - Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md). 
 
 [AZURE.INCLUDE [availability-group-template](../../includes/virtual-machines-windows-portal-sql-alwayson-ag-template.md)]
 
@@ -68,11 +68,11 @@ This tutorial assumes the following:
 
 1. Click **+New** and then type **Resource group** in the **Marketplace** search window.
 
-    ![Resource Group](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/01-resourcegroupsymbol.png)
+  ![Resource Group](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/01-resourcegroupsymbol.png)
 
 1. Click **Resource group** 
 
-    ![New Resource Group](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/01-newresourcegroup.png)
+  ![New Resource Group](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/01-newresourcegroup.png)
 
 1. Click **Create**. 
 
@@ -80,85 +80,85 @@ This tutorial assumes the following:
 
 1. If you have multiple Azure subscriptions, verify that the subscription is the Azure subscription you want to create the availability group in. 
 
-1. Select a location. The location is the Azure location where the availability group will run. For this tutorial we are going to build all resourcs in one Azure location. 
+1. Select a location. The location is the Azure region where you want to create the availability group. For this tutorial, we are going to build all resources in one Azure location. 
 
 1. Verify **Pin to dashboard** is checked. This optional setting places a shortcut for the resource group on the Azure portal dashboard. 
 
 1. Click **Create** to create the resource group.
 
-Azure will create the new resource group and pin a shortcut to the resource group in the portal.
+Azure creates the resource group and pins a shortcut to the resource group in the portal.
 
 ## Create network and subnets
 
 The next step is to create the networks and subnets in the Azure resource group.
 
-The solution uses one virtual network with two subnets. You should understand the basics of networks and how networks work in Azure. The [Virtual Network Overview](../virtual-network/virtual-networks-overview.md) provides more information about networks in Azure.
+The solution uses one virtual network with two subnets. The [Virtual Network Overview](../virtual-network/virtual-networks-overview.md) provides more information about networks in Azure.
 
 To create the virtual network:
 
-1. On the Azure portal click click on the new resource group and click **+** to add a new item to the resource group. Azure opens the **Everything** blade. 
+1. On the Azure portal click on the new resource group and click **+** to add a new item to the resource group. Azure opens the **Everything** blade. 
 
-    ![New Item](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/02-newiteminrg.png)
+  ![New Item](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/02-newiteminrg.png)
 
 1. Search for **virtual network**.
 
-    ![Search Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/04-findvirtualnetwork.png)
+  ![Search Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/04-findvirtualnetwork.png)
 
 1. Click **Virtual network**.
 
-1. In the **Virtual network** blade, click the **Resource Manager**  deployment model and click **Create**.
+1. In the **Virtual network** blade, click the **Resource Manager** deployment model and click **Create**.
 
-    ![Create Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/05-createvirtualnetwork.png)
+  ![Create Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/05-createvirtualnetwork.png)
  
 
  
 1. Configure the virtual network on the **Create virtual network** blade. 
 
-    The table below shows the settings for the virtual network. 
+  The following table shows the settings for the virtual network. 
 
-    | **Field** | Value |
+  | **Field** | Value |
 | ----- | ----- |
 | **Name** | autoHAVNET |
 | **Address space** | 10.0.0.0/16 |
 | **Subnet name** | Subnet-1 |
 | **Subnet address range** | 10.0.0.0/24 |
-| **Subscription** | Specify the subscription that you intend to use. If you only have one subscription this may be blank. |
-| **Location** | Specify the Azure location where you will deploy your availability group |
+| **Subscription** | Specify the subscription that you intend to use. If you only have one subscription, this may be blank. |
+| **Location** | Specify the Azure location. |
 
-    Note that your address space and subnet address range may be different from the table. Depending on your subscription Azure will automatically specify an available address space and corresponding subnet address range. If no sufficient address space is available use a different subscription. 
+  Your address space and subnet address range may be different from the table. Depending on your subscription, Azure will specifies an available address space and corresponding subnet address range. If no sufficient address space is available, use a different subscription. 
 
 1. Click **Create**
 
-    ![Configure Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/06-configurevirtualnetwork.png)
+  ![Configure Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/06-configurevirtualnetwork.png)
 
-Azure will return you to the portal dashboard and notify you when the new network is created.
+Azure returns you to the portal dashboard and notifies you when the new network is created.
 
 ### Create the second subnet
 
-At this point your virtual network contains one subnet, named Subnet-1. The domain controllers will use this subnet. The SQL Servers will use a second subnet named **Subnet-2**. To configure Subnet-2
+At this point your virtual network contains one subnet, named Subnet-1. The domain controllers use this subnet. The SQL Servers use a second subnet named **Subnet-2**. To configure Subnet-2:
 
-1. On your dashboard, click on the resource group that you created, **SQL-HA-RG**. Locate the network in the resource group under **Resources**.
+1. On your dashboard, click the resource group that you created, **SQL-HA-RG**. Locate the network in the resource group under **Resources**.
 
-  If **SQL-HA-RG** is not visible you can find it by clicking **Resource Groups** and filtering by the resource group name that you created.
+ If **SQL-HA-RG** is not visible, find it by clicking **Resource Groups** and filtering by the resource group name.
 
-1.  Click **autoHAVNET** on the list of resources to open the network configuration blade.
+1. Click **autoHAVNET** on the list of resources. Azure opens the network configuration blade.
 
-1.  On **autoHAVNET** virtual network, click **All settings*.
+1. On **autoHAVNET** virtual network, click **All settings*.
 
 1. On the **Settings** blade, click **Subnets**.
 
-    Notice the subnet that you already created. 
+  Notice the subnet that you already created. 
 
-    ![Configure Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/07-addsubnet.png)
+  ![Configure Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/07-addsubnet.png)
 
 1. Create a second subnet. Click **+ Subnet**. 
 
-    In the **Add Subnet** blade configure the subnet by typing **subnet-2** under **Name**. Azure will automatically specify a valid **Address range**. Verify that this address range has at least 10 addresses in it. In a production environment you may require more addresses. 
+  In the **Add Subnet** blade, configure the subnet by typing **subnet-2** under **Name**. Azure automatically specifies a valid **Address range**. Verify that this address range has at least 10 addresses in it. In a production environment, you may require more addresses. 
 
 1. Click **OK**.
  
 ![Configure Virtual Network](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/08-configuresubnet.png)
-   
+  
 Here is a summary of the configuration settings for the virtual network and both subnets.
 
 | **Field** | Value |
@@ -175,17 +175,17 @@ Here is a summary of the configuration settings for the virtual network and both
 
 ## Create availability sets
 
-Before creating virtual machines, you need to create availability sets. Availablity sets reduce downtime for planned or unplanned maintenance events. An Azure availablity set is a logical group of resources that Azure places on physical fault domains and update domains. A fault domain ensures that the members of the availablity set have separate power and network resouces. An update domain ensures that members of the availabilty set are not brought down for maintenance at the same time. [Manage the availability of virtual machines](virtual-machines-windows-manage-availability.md).
+Before creating virtual machines, you need to create availability sets. Availability sets reduce downtime for planned or unplanned maintenance events. An Azure availability set is a logical group of resources that Azure places on physical fault domains and update domains. A fault domain ensures that the members of the availability set have separate power and network resources. An update domain ensures that members of the availability set are not brought down for maintenance at the same time. [Manage the availability of virtual machines](virtual-machines-windows-manage-availability.md).
 
-You will need two availability sets. One is for the domain controllers, the second is for the SQL Servers.
+You need two availability sets. One is for the domain controllers. The second is for the SQL Servers.
 
-To create an availablity set go to the resource group and click **Add**. Filter the results by typing **Availabilty Set**. Click **Availability Set** in the results. Click **Create**.
+To create an availability set, go to the resource group and click **Add**. Filter the results by typing **availability Set**. Click **Availability Set** in the results. Click **Create**.
 
-Configure two availablity sets according to the parameters in the following table.
+Configure two availability sets according to the parameters in the following table.
 
-| **Field** | Domain Controller Availabiltiy Set | SQL Server Availablity Set |
+| **Field** | Domain Controller Availability Set | SQL Server availability Set |
 | ----- | ----- | ----- |
-| **Name**  | adAvailablitySet | sqlAvailabilitySet|
+| **Name** | adavailabilitySet | sqlAvailabilitySet|
 | **Resource group** | SQL-HA-RG | SQL-HA-RG |
 | **Fault domains** | 3 | 3 |
 | **Update domains** | 5 | 3 |
@@ -194,9 +194,9 @@ After you create the availability sets, return to the resource group in the Azur
 
 ## Create domain controllers
 
-At this point you have created the network, subnets, availablity sets and an internet facing load balancer. You are ready to create the virtual machines for the domain controllers.
+After you have created the network, subnets, availability sets, and an internet facing load balancer. You are ready to create the virtual machines for the domain controllers.
 
-### Create the virutal machines for the domain controllers
+### Create the virtual machines for the domain controllers
 
 To create and configure the domain controllers, return to the **SQL-HA-RG** resource group.
 
@@ -204,9 +204,9 @@ To create and configure the domain controllers, return to the **SQL-HA-RG** reso
 
 1. Type **Windows Server 2012 R2 Datacenter**. 
 
-1. Click **Windows Server 2012 R2 Datacenter**. In the **Windows Server 2012 R2 Datacenter** blade verify that the deployment model is set to **Resource Manager** and click **Create**. Azure opens the **Create virtual machine** blade. 
+1. Click **Windows Server 2012 R2 Datacenter**. In the **Windows Server 2012 R2 Datacenter** blade, verify that the deployment model is **Resource Manager** and click **Create**. Azure opens the **Create virtual machine** blade. 
 
-You will go through that process twice to create two virtual machines. Name the two virtual machine:
+Complete the preceeding steps twice to create two virtual machines. Name the two virtual machines:
 
 - ad-primary-dc
 - ad-secondary-dc
@@ -217,7 +217,7 @@ The following table shows the settings for these two machines.
 
 | **Field** | Value 
 | ----- | ---- 
-| **User name**  | DomainAdmin
+| **User name** | DomainAdmin
 | **Password** | Contoso!0000 |
 | **Subscription** | *your subscription* |
 | **Resource group** | SQL-HA-RG |
@@ -227,15 +227,15 @@ The following table shows the settings for these two machines.
 | **Storage account** | *Automatically created*
 | **Virtual network** | autoHAVNET
 | **Subnet** | subnet-1
-| **Public IP address** |  *Same name as the VM*
+| **Public IP address** | *Same name as the VM*
 | **Network Security Group** | *Same name as the VM*
 | **Diagnostics** | Enabled
 | **Diagnostics storage account** | *Automatically created*
 | **Availability set** | adAvailabilitySet
 
->[AZURE.NOTE] You cannot change the availabilty set on a VM after it is created.
+>[AZURE.NOTE] You cannot change the availability set on a VM after it is created.
 
-Azure will create the virtual machines.
+Azure creates the virtual machines.
 
 After the virtual machines are created, configure the domain controller.
 
@@ -243,9 +243,9 @@ After the virtual machines are created, configure the domain controller.
 
 In the following steps, configure the **ad-primary-dc** machine as a domain controller for corp.contoso.com.
 
-1. In the portal open the **SQL-HA-RG** resource group and select the **ad-primary-dc** machine. On the **ad-primary-dc** blade, click **Connect** to open an RDP file for remote desktop access.
+1. In the portal, open the **SQL-HA-RG** resource group and select the **ad-primary-dc** machine. On the **ad-primary-dc** blade, click **Connect** to open an RDP file for remote desktop access.
 
-	![Connect to Vritual Machine](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/20-connectrdp.png)
+	![Connect to Virtual Machine](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/20-connectrdp.png)
 
 1. Log in with your configured administrator account (**\DomainAdmin**) and password (**Contoso!0000**).
 
@@ -259,7 +259,7 @@ In the following steps, configure the **ad-primary-dc** machine as a domain cont
 
 1. Select the **Active Directory Domain Services** and **DNS Server** roles. When prompted, add any additional features required by these roles.
 
-	>[AZURE.NOTE] You will get a validation warning that there is no static IP address. If you are testing the configuration, click continue. For production scenarios set the IP address to static in the Azure portal or [use PowerShell to set the static IP address of the domain controller machine](./virtual-network/virtual-networks-reserved-private-ip.md).
+	>[AZURE.NOTE] Windows warns you that there is no static IP address. If you are testing the configuration, click continue. For production scenarios, set the IP address to static in the Azure portal or [use PowerShell to set the static IP address of the domain controller machine](./virtual-network/virtual-networks-reserved-private-ip.md).
 
 	![Add Roles Dialog](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784624.png)
 
@@ -286,19 +286,19 @@ In the following steps, configure the **ad-primary-dc** machine as a domain cont
 
 1. Click **Next** to go through the other pages in the wizard. On the **Prerequisites Check** page, verify that you see the following message: **All prerequisite checks passed successfully**. Note that you should review any applicable warning messages, but it is possible to continue with the install.
 
-1. Click **Install**. The **ad-primary-dc** virtual machine will automatically reboot.
+1. Click **Install**. The **ad-primary-dc** virtual machine automatically reboots.
 
 ### Configure the second domain controller
 
-After the primary domain controller reboots, you can configure the second domain controller. This optional step is for high availability. To complete this step, you will need to know the private IP address for the domain controller. You can get this from the Azure portal.  Follow these steps to configure the second domain controller.
+After the primary domain controller reboots, you can configure the second domain controller. This optional step is for high availability. To complete this step, you need to know the private IP address for the domain controller. You can get this from the Azure portal. Follow these steps to configure the second domain controller.
 
-1. Log back into the **ad-primary-dc** machine. 
+1. Log in to the **ad-primary-dc** machine. 
 
 1. Open Remote desktop and connect to the secondary domain controller by IP address. If you do not know the IP address of the secondary domain controller, go to the Azure portal and check the address assigned to the network interface for the secondary domain controller. 
 
 1. Change the preferred DNS server address to the address for the domain controller. 
 
-1. Launch the RDP file to the primary domain controller (**ad-primary-dc**) and log into the VM using your configured administrator account (**BUILTIN\DomainAdmin**) and password (**Contoso!0000**).
+1. Launch the RDP file to the primary domain controller (**ad-primary-dc**) and log in to the VM using your configured administrator account (**BUILTIN\DomainAdmin**) and password (**Contoso!0000**).
 
 1. From the primary domain controller, launch a remote desktop to **ad-secondary-dc** using the IP address. Use the same account and password.
 
@@ -320,7 +320,7 @@ After the primary domain controller reboots, you can configure the second domain
 
 	![Use NSLOOKUP to find IP address for DC](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC664954.png)
 
-  >[AZURE.NOTE] After setting the DNS, you may loose the RDP session to the member server. If you do, reboot the VM from the Azure portal.
+ >[AZURE.NOTE] After setting the DNS, you may lose the RDP session to the member server. If you do, reboot the VM from the Azure portal.
 
 
 1. Click **OK** and then **Close** to commit the changes. You are now able to join the VM to **corp.contoso.com**.
@@ -337,7 +337,7 @@ After the primary domain controller reboots, you can configure the second domain
 
 The next steps configure the Active Directory (AD) accounts for later use.
 
-1. Log back into the **ad-primary-dc** machine.
+1. Log back in to the **ad-primary-dc** machine.
 
 1. In **Server Manager** select **Tools** and then click **Active Directory Administrative Center**.
 
@@ -356,9 +356,9 @@ The next steps configure the Active Directory (AD) accounts for later use.
 |**Other password options**|Selected|
 |**Password never expires**|Checked|
 
-1. Click **OK** to create the **Install** user. This account will be used to configure the failover cluster and the availability group.
+1. Click **OK** to create the **Install** user. Use this account to configure the failover cluster and the availability group.
 
-1. Create two additional users with the same steps: **CORP\SQLSvc1** and **CORP\SQLSvc2**. These accounts will be used for the SQL Server instances. Next, you need to give **CORP\Install** the necessary permissions for configuring Windows Service Failover Clustering (WSFC).
+1. Create two additional users with the same steps: **CORP\SQLSvc1** and **CORP\SQLSvc2**. The SQL Server services use these accounts. Next, give **CORP\Install** the necessary permissions to configure Windows Service Failover Clustering (WSFC).
 
 1. In the **Active Directory Administrative Center**, select **corp (local)** in the left pane. Then in the right-hand **Tasks** pane, click **Properties**.
 
@@ -376,7 +376,7 @@ The next steps configure the Active Directory (AD) accounts for later use.
 
 1. Click **OK**, and then click **OK** again. Close the corp properties window.
 
-Now that you have finished configuring Active Directory and the user objects, you will create two SQL Server VMs, and a witness server VM, and join all three to this domain.
+Now that you have finished configuring Active Directory and the user objects, create two SQL Server VMs, a witness server VM. Then join all three to the domain.
 
 ## Create SQL Servers
 
@@ -387,9 +387,9 @@ Next, create three VMs, including two SQL Server VMs, and a WSFC cluster node. T
 |Page|VM1|VM2|VM3|
 |---|---|---|---|
 |Select the appropriate gallery item|**Windows Server 2012 R2 Datacenter**|**SQL Server 2014 SP1 Enterprise on Windows Server 2012 R2**|**SQL Server 2014 SP1 Enterprise on Windows Server 2012 R2**|
-| Virtual machine configuraiton **Basics**  | **Name** = cluster-fsw<br/>**User Name** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Subscription** = Your subscription<br/>**Resource group** = SQL-HA-RG<br/>**Location** = Your azure location | **Name** = sqlserver-0<br/>**User Name** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Subscription** = Your subscription<br/>**Resource group** = SQL-HA-RG<br/>**Location** = Your azure location  | **Name** = sqlserver-1<br/>**User Name** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Subscription** = Your subscription<br/>**Resource group** = SQL-HA-RG<br/>**Location** = Your azure location |
+| Virtual machine configuration **Basics** | **Name** = cluster-fsw<br/>**User Name** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Subscription** = Your subscription<br/>**Resource group** = SQL-HA-RG<br/>**Location** = Your azure location | **Name** = sqlserver-0<br/>**User Name** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Subscription** = Your subscription<br/>**Resource group** = SQL-HA-RG<br/>**Location** = Your azure location | **Name** = sqlserver-1<br/>**User Name** = DomainAdmin<br/>**Password** = Contoso!0000<br/>**Subscription** = Your subscription<br/>**Resource group** = SQL-HA-RG<br/>**Location** = Your azure location |
 |Virtual machine configuration **Size** |DS1 (1 core, 3.5 GB memory)|**SIZE** = DS 2 (2 cores, 7 GB memory)|**SIZE** = DS 2 (2 cores, 7 GB memory)|
-|Virtual machine configuration **Settings**|**Storage** = Premium (SSD)<br/>**NETWORK SUBNETS** = autoHAVNET<br/>**STORAGE ACCOUNT** = Use an automatically generated storage account<br/>**Subnet** = subnet-2(10.1.1.0/24)<br/>**Public IP address** = None<br/>**Network security group** = None<br/>**Monitoring Diagnostics** = Enabled<br/>**Diagnostics storage acccount** = Use an automatically generated storage account<br/>**AVAILABILITY SET** =  sqlAvailabilitySet<br/>|**Storage** = Premium (SSD)<br/>**NETWORK SUBNETS** = autoHAVNET<br/>**STORAGE ACCOUNT** = Use an automatically generated storage account<br/>**Subnet** = subnet-2(10.1.1.0/24)<br/>**Public IP address** = None<br/>**Network security group** = None<br/>**Monitoring Diagnostics** = Enabled<br/>**Diagnostics storage acccount** = Use an automatically generated storage account<br/>**AVAILABILITY SET** =  sqlAvailabilitySet<br/>|**Storage** = Premium (SSD)<br/>**NETWORK SUBNETS** = autoHAVNET<br/>**STORAGE ACCOUNT** = Use an automatically generated storage account<br/>**Subnet** = subnet-2(10.1.1.0/24)<br/>**Public IP address** = None<br/>**Network security group** = None<br/>**Monitoring Diagnostics** = Enabled<br/>**Diagnostics storage acccount** = Use an automatically generated storage account<br/>**AVAILABILITY SET** =  sqlAvailabilitySet<br/>
+|Virtual machine configuration **Settings**|**Storage** = Premium (SSD)<br/>**NETWORK SUBNETS** = autoHAVNET<br/>**STORAGE ACCOUNT** = Use an automatically generated storage account<br/>**Subnet** = subnet-2(10.1.1.0/24)<br/>**Public IP address** = None<br/>**Network security group** = None<br/>**Monitoring Diagnostics** = Enabled<br/>**Diagnostics storage account** = Use an automatically generated storage account<br/>**AVAILABILITY SET** = sqlAvailabilitySet<br/>|**Storage** = Premium (SSD)<br/>**NETWORK SUBNETS** = autoHAVNET<br/>**STORAGE ACCOUNT** = Use an automatically generated storage account<br/>**Subnet** = subnet-2(10.1.1.0/24)<br/>**Public IP address** = None<br/>**Network security group** = None<br/>**Monitoring Diagnostics** = Enabled<br/>**Diagnostics storage account** = Use an automatically generated storage account<br/>**AVAILABILITY SET** = sqlAvailabilitySet<br/>|**Storage** = Premium (SSD)<br/>**NETWORK SUBNETS** = autoHAVNET<br/>**STORAGE ACCOUNT** = Use an automatically generated storage account<br/>**Subnet** = subnet-2(10.1.1.0/24)<br/>**Public IP address** = None<br/>**Network security group** = None<br/>**Monitoring Diagnostics** = Enabled<br/>**Diagnostics storage account** = Use an automatically generated storage account<br/>**AVAILABILITY SET** = sqlAvailabilitySet<br/>
 |Virtual machine configuration **SQL Server settings**|Not applicable|**SQL connectivity** = Private (within Virtual Network)<br/>**Port** = 1433<br/>**SQL Authentication** = Disable<br/>**Storage configuration** = General<br/>**Automated patching** = Sunday at 2:00<br/>**Automated backup** = Disabled</br>**Azure Key Vault integration** = Disabled|**SQL connectivity** = Private (within Virtual Network)<br/>**Port** = 1433<br/>**SQL Authentication** = Disable<br/>**Storage configuration** = General<br/>**Automated patching** = Sunday at 2:00<br/>**Automated backup** = Disabled</br>**Azure Key Vault integration** = Disabled|
 
 <br/>
@@ -400,7 +400,8 @@ Next, create three VMs, including two SQL Server VMs, and a WSFC cluster node. T
 
 Once the three VMs are fully provisioned, you need to join them to the **corp.contoso.com** domain and grant CORP\Install administrative rights to the machines.
 
-To help you proceed, write  down the Azure virtual IP address for each VM. Get the IP address for each server. In the Azure SQL-HA-RG resource group click the **autohaVNET** resource. The **autohaVNET** blade will show the IP addresses for each machine in your network.
+To help you proceed, write down the Azure virtual IP address for each VM. Get the IP address for each server. In the Azure SQL-HA-RG resource group click the **autohaVNET** resource. The **autohaVNET** blade shows the IP addresses for each machine in your network.
+
 Record the IP addresses for the following devices: 
 
 | VM Role | Device | IP Address
@@ -411,12 +412,12 @@ Record the IP addresses for the following devices:
 | SQL Server | sqlserver-0 | 
 | SQL Server | sqlserver-1 | 
 
-You will use these addresses to configure the DNS service for each VM. To do this, use the following steps for each of the three VMs.
+Use these addresses to configure the DNS service for each VM. Do the following steps for each of the three VMs.
 
 
 1. First, change the preferred DNS server address for each member server. 
 
-1. Launch the RDP file to the primary domain controller (**ad-primary-dc**) and log into the VM using your configured administrator account (**BUILTIN\DomainAdmin**) and password (**Contoso!0000**).
+1. Launch the RDP file to the primary domain controller (**ad-primary-dc**) and log in to the VM using your configured administrator account (**BUILTIN\DomainAdmin**) and password (**Contoso!0000**).
 
 1. From the primary domain controller, launch a remote desktop to **sqlserver-0** using the IP address. Use the same account and password.
 
@@ -438,7 +439,7 @@ You will use these addresses to configure the DNS service for each VM. To do thi
 
 	![Use NSLOOKUP to find IP address for DC](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC664954.png)
 
-  >[AZURE.NOTE] After setting the DNS, you may loose the RDP session to the member server. If you do, reboot the VM from the Azure portal.
+ >[AZURE.NOTE] After setting the DNS, you may lose the RDP session to the member server. If you do, reboot the VM from the Azure portal.
 
 
 1. Click **OK** and then **Close** to commit the changes. You are now able to join the VM to **corp.contoso.com**.
@@ -459,7 +460,7 @@ You will use these addresses to configure the DNS service for each VM. To do thi
 
 ### Add the Corp\Install user as an administrator on each cluster VM:
 
-1. Wait until the VM is restarted, then launch the RDP file again from the primary domain controller to log into **sqlserver-0** using the **BUILTIN\DomainAdmin** account.
+1. Wait until the VM is restarted, then launch the RDP file again from the primary domain controller to log in to **sqlserver-0** using the **BUILTIN\DomainAdmin** account.
 
 1. In **Server Manager** select **Tools**, and then click **Computer Management**.
 
@@ -503,7 +504,7 @@ The SQL Server VMs are now provisioned and running, but they are installed with 
 
 ### Create the WSFC Cluster
 
-In this section, you create the WSFC cluster that will host the availability group you will create later. By now, you should have done the following to each of the three VMs you will use in the WSFC cluster:
+In this section, you create the WSFC cluster to host the availability group. By now, you should have done the following to each of the three VMs in the WSFC cluster:
 
 - Fully provisioned in Azure
 
@@ -525,7 +526,7 @@ Also, note that the Azure virtual network does not behave in the same way as an 
 
 1. Add the other nodes (**sqlserver-1** and **cluster-fsw**).
 
-Follow the steps below to accomplish these tasks that fully configures the cluster.
+Follow the steps below to configure the cluster.
 
 1. Launch the RDP file for **sqlserver-0** and log in using the domain account **CORP\Install**.
 
@@ -545,7 +546,7 @@ Follow the steps below to accomplish these tasks that fully configures the clust
 |Access Point for Administering the Cluster|Type **Cluster1** in **Cluster Name**|
 |Confirmation|Use defaults unless you are using Storage Spaces. See the note following this table.|
 
->[AZURE.NOTE] If you are using [Storage Spaces](https://technet.microsoft.com/library/hh831739), which groups multiple disks into storage pools, you must uncheck the **Add all eligible storage to the cluster** checkbox on the **Confirmation** page. If you do not uncheck this option, the virtual disks will be detached during the clustering process. As a result, they will also not appear in Disk Manager or Explorer until the storage spaces are removed from cluster and reattached using PowerShell.
+>[AZURE.NOTE] If you are using [Storage Spaces](https://technet.microsoft.com/library/hh831739), which groups multiple disks in to storage pools, you must uncheck the **Add all eligible storage to the cluster** checkbox on the **Confirmation** page. If you do not uncheck this option, Windows detatches the virtual disks during the clustering process. As a result, they will not appear in Disk Manager or Explorer until the storage spaces are removed from the cluster and reattached using PowerShell.
 
 Now that you have created the cluster, verify the configuration and add the remaining nodes. 
 
@@ -557,7 +558,7 @@ Now that you have created the cluster, verify the configuration and add the rema
 
 1. Select **Static IP Address** and specify an available address from subnet-2 in the Address text box. Then, click **OK**.
 
-1. In the **Cluster Core Resources** section, right-click **Name: Cluster1** and click **Bring Online**. Then, wait until both resources are online. When the cluster name resource comes online, it updates the DC server with a new AD computer account. This AD account will be used to run the availability group clustered service later.
+1. In the **Cluster Core Resources** section, right-click **Name: Cluster1** and click **Bring Online**. Then, wait until both resources are online. When the cluster name resource comes online, it updates the DC server with a new AD computer account. Use this AD account to run the availability group clustered service later.
 
 1. Finally, you add the remaining nodes to the cluster. In the browser tree, right-click **Cluster1.corp.contoso.com** and click **Add Node**, as shown below.
 
@@ -569,7 +570,7 @@ Now that you have created the cluster, verify the configuration and add the rema
 
 1. In the **Confirmation** page, click **Next** to add the nodes.
 
-	>[AZURE.WARNING] If you are using [Storage Spaces](https://technet.microsoft.com/library/hh831739), which groups multiple disks into storage pools, you must uncheck the **Add all eligible storage to the cluster** checkbox. If you do not uncheck this option, the virtual disks will be detached during the clustering process. As a result, they will also not appear in Disk Manager or Explorer until the storage spaces are removed from cluster and reattached using PowerShell.
+	>[AZURE.WARNING] If you are using [Storage Spaces](https://technet.microsoft.com/library/hh831739), which groups multiple disks in to storage pools, you must uncheck the **Add all eligible storage to the cluster** checkbox. If you do not uncheck this option, the virtual disks will be detached during the clustering process. As a result, they will also not appear in Disk Manager or Explorer until the storage spaces are removed from cluster and reattached using PowerShell.
 
 1. Once the nodes are added to the cluster, click **Finish**. Failover Cluster Manager should now show that your cluster has three nodes and list them in the **Nodes** container.
 
@@ -581,7 +582,7 @@ In this section, you will do the following on both **sqlserver-0** and **sqlserv
 
 - Add **CORP\Install** as a sysadmin role to the default SQL Server instance
 
-- Open the firewall for remote access to SQL Server for the SQL Server process and the probe port 
+- Open the firewall for remote access to SQL Server for the SQL Server, the database mirroring endpoint, and the Azure load balancer probe port 
 
 - Enable the availability groups feature
 
@@ -620,6 +621,7 @@ This solution requires two firewall rules on each SQL Server. The first rule pro
 1. In the **Name** page, specify a rule name, such as **SQL Server (Program Rule)** in the **Name** text box, then click **Finish**.
 
 1. Create an additional inbound firewall rule for the probe port. This rule is an inbound rule to TCP port 59999, for the purposes of this tutorial. Name the rule **SQL Server Listener**.
+
 
 Complete all steps on both SQL Servers.
 
@@ -687,7 +689,7 @@ You are now ready to configure an availability group. Below is an outline of wha
 
 1. In the **Destination** section, click **Add**.
 
-1. In the **File name** text box, type **\\\\sqlserver-0\backup\MyDB1.bak**. Then, click **OK**, and then click **OK** again to backup the database. When the backup operation completes, click **OK** again to close the dialog.
+1. In the **File name** text box, type **\\\\sqlserver-0\backup\MyDB1.bak**. Then, click **OK**, and then click **OK** again to back up the database. When the backup operation completes, click **OK** again to close the dialog.
 
 1. Next, you take a transaction log backup of the database. In the **Object Explorer**, expand **Databases**, then right-click **MyDB1**, then point to **Tasks**, and then click **Back Up**.
 
@@ -725,19 +727,24 @@ You are now ready to configure an availability group. Below is an outline of wha
 
 	![New AG Wizard, Specify Replicas](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665526.png)
 
+
 1. The **Connect to Server** dialog pops up. Type **sqlserver-1** in **Server name**, then click **Connect**.
 
 	![New AG Wizard, Connect to Server](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665527.png)
 
-1. Back in the **Specify Replicas** page, you should now see **sqlserver-1** listed in **Availability Replicas**. Configure the replicas as shown below. When you are finished, click **Next**.
+1. Back in the **Specify Replicas** page, you should now see **sqlserver-1** listed in **Availability Replicas**. Configure the replicas as shown below. 
 
 	![New AG Wizard, Specify Replicas (Complete)](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665528.png)
+
+1. Click **Endpoints** to see the database mirroring endpoint that will be used by this availability group. Each instance of SQL Server must have one database mirroring endpoint. Note the TCP port that wizard specifies for this endpoint. Create an inbound firewall rule on each server for this TCP port.
+	
+	When you are finished, click **Next**.
 
 1. In the **Select Initial Data Synchronization** page, select **Join only** and click **Next**. You have already performed data synchronization manually when you took the full and transaction backups on **sqlserver-0** and restored them on **sqlserver-1**. You can instead choose not to perform the backup and restore operations on your database and select **Full** to let the New Availability Group Wizard perform data synchronization for you. However, this is not recommended for very large databases that are found in some enterprises.
 
 	![New AG Wizard, Select Initial Data Synchronization](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665529.png)
 
-1. In the **Validation** page, click **Next**. This page should look similar to below. There is a warning for the listener configuration because you have not configured an availability group listener. You can ignore this warning, because this tutorial does not configure a listener. This tutorial will have you create the listener later. For details on how to configure a listener, see [Configure an internal load balancer for an AlwaysOn availability group in Azure](virtual-machines-windows-portal-sql-alwayson-int-listener.md).
+1. In the **Validation** page, click **Next**. This page should look similar to below. There is a warning for the listener configuration because you have not configured an availability group listener. You can ignore this warning, because this tutorial does not configure a listener. This tutorial will have you create the listener later.
 
 	![New AG Wizard, Validation](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC665530.gif)
 
@@ -763,7 +770,9 @@ You are now ready to configure an availability group. Below is an outline of wha
 
 ## Configure internal load balancer
 
-In order to connect to the availability group directly, you need to configure an internal load balancer in Azure and then create the listener on the cluster. This section provides a high level overview of those steps. For detailed instructions, see [Configure an internal load balancer for an AlwaysOn availability group in Azure](virtual-machines-windows-portal-sql-alwayson-int-listener.md).  
+In order to connect to the availability group directly, you need to configure a load balancer. The load balancer directs client traffic to the VM that is bound to the listener IP address and on the probe port. For this tutorial uses an internal load balancer, or ILB. The ILB allows traffic from within the same virtual network to connect to SQL Server. Applications that need to connect to SQL Server over the internet require an internet facing - or external - load balancer. For more information, see [Azure Load Balancer overview](../load-balancer/load-balancer-overview.md).
+
+>[AZURE.NOTE] You can create a load balancer with a single IP address in the Azure portal. If you have more than one availability group on a virtual machine, you need an IP address for each availability group. If you need multiple IP addresses use PowerShell. For instructions see [Create availability group listener and load balancer | Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md). 
 
 ### Create the load balancer in Azure
 
@@ -778,7 +787,7 @@ In order to connect to the availability group directly, you need to configure an
 | **Name** | sqlLB
 | **Scheme** | Internal
 | **Virtual network** | autoHAVNET
-| **Subnet** | subnet-2. This is the IP address that you will set for the listener in the cluster resource.  
+| **Subnet** | subnet-2. This is the IP address that you will set for the listener in the cluster resource. 
 | **IP address assignment** | Static
 | **IP address** | Use an available address from subnet-2.
 | **Subscription** | Use the same subscription as all other resources in this solution.
@@ -802,21 +811,22 @@ Make the following settings on the load balancer:
 | **Probe Used by** | SQLAlwaysOnEndPointListener
 | **Load balancing rules** Name | SQLAlwaysOnEndPointListener
 | **Load balancing rules Protocol** | TCP
-| **Load balancing rules Port** | 1433 - Note that this is because this is the SQL Server default port.
-| **Load balancing rules Port** | 1433 - Note that this is because this is the SQL Server default port.
+| **Load balancing rules Port** | 1433 * 
 | **Load balancing rules Backend Port** | 1433
 | **Load balancing rules Probe** | SQLAlwaysOnEndPointProbe
 | **Load balancing rules Session Persistence** | None
 | **Load balancing rules Idle Timeout** | 4
 | **Load balancing rules Floating IP (direct server return)** | Enabled
 
+> * 1433 is the default SQL Server port. Use for the front end port for the default instance. If you require multiple availability groups you will need to create additional IP addresses for each availability group. Each availability group will need its own front end port. See [Create availability group listener and load balancer | Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md).
+
 >[AZURE.NOTE] You must enable direct server return in the load balancing rules at creation time.
 
 After you have configured the load balancer, configure the listener on the failover cluster. 
 
-### Configure the load balancer on the failover cluster
+## Configure the listener
 
-The next thing to do is to configure an AlwaysOn availability group listener on the failover cluster. 
+The next thing to do is to configure an availability group listener on the failover cluster. 
 
 1. RDP to the SQL Server from ad-primary-dc to sqlserver-0.
 
@@ -824,31 +834,36 @@ The next thing to do is to configure an AlwaysOn availability group listener on 
 
 1. In Failover Cluster Manager, expand the cluster name and click **Roles**.
 
-1. In **Roles**, right click the availability group name and then select **Add Resource** > **Client Access Point**. 
+1. In **Roles**, right-click the availability group name and then select **Add Resource** > **Client Access Point**. 
 
 1. For **Name**, type **aglistener**. Click **Next** twice and then click **Finish**. Do not bring the listener or resource online at this point.
 
-1. Click the **Resources** tab, then expand the Client Access Point you just created. Right-click the IP resource and click properties. Note the name of the IP address. You will use this name in the `$IPResourceName` variable in the PowerShell script.
+1. Click the **Resources** tab, then expand the Client Access Point you just created. Right-click the IP resource and click properties. Note the name of the IP address. Use this name in the `$IPResourceName` variable in the PowerShell script.
 
-1. Under **IP Address** click **Static IP Address** and set the static IP address to the same address that you used on the Azure Portal for **sqlLB** load balancer. Note that you will also use this same IP address in the `$ILBIP` variable in the Powershell script.  Enable NetBIOS for this address and click OK. 
+1. Under **IP Address** click **Static IP Address** and set the static IP address to the same address that you used on the Azure Portal for **sqlLB** load balancer. Use this same IP address in the `$ILBIP` variable in the Powershell script. 
 
-1. On the cluster node that currently hosts the primary replica, open an elevated PowerShell ISE and paste the following commands into a new script.
+1. Disable NetBIOS for this address and click **OK**. 
 
-        $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
-        $IPResourceName = "<IPResourceName>" # the IP Address resource name
-        $ILBIP = "<X.X.X.X>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
+1. On the cluster node that currently hosts the primary replica, open an elevated PowerShell ISE and paste the following commands in to a new script.
 
-        Import-Module FailoverClusters
+    ```
+    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+    $IPResourceName = "<IPResourceName>" # the IP Address resource name
+    $ILBIP = "<X.X.X.X>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
+	[int]$ProbePort = <nnnnn> # In this sample we've using 59999 for the probe port. 
 
-        Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
-    
+    Import-Module FailoverClusters
+
+    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+    ```
+
 1. Update the variables and run the PowerShell script to configure the IP address and port for the new listener.
 
-1. In **Failover Cluster Manager**, right-click the availability group resource, and click **Properties**. On the **Dependencies** tab, set the resource group to be dependent on the listener network name.  
+1. In **Failover Cluster Manager**, right-click the availability group resource, and click **Properties**. On the **Dependencies** tab, set the resource group to be dependent on the listener network name. 
 
-1. Set the listener port property to 1433. To do this, open SQL Server Management Studio, right click on the availability group listener, and select properties. Set **Port** to 1433.
+1. Set the listener port property to 1433. To do this, open SQL Server Management Studio, right-click on the availability group listener, and select properties. Set **Port** to 1433. You should use the same port number that you configured for the SQL Server. 
 
-1. At this point you can [bring the listener online](virtual-machines-windows-portal-sql-alwayson-int-listener.md#2-bring-the-listener-online).
+1. At this point you can bring the listener online. Right-click the listener name and click **Bring Online**.
 
 ### Test the connection to the listener
 
@@ -858,7 +873,11 @@ To test the connection:
 
 1. Use sqlcmd utility to test the connection. For example, the following script establishes a sqlcmd connection to the primary replica through the listener with Windows authentication:
 
-        sqlcmd -S "<listenerName>" -E
+    sqlcmd -S "<listenerName>" -E
+
+  If the listener is using a port besides 1433, you need to specify the port number in the test. For example, the following query tests connectivity to the listener name using port 1435:
+
+		sqlcmd -S "<listenerName>",1435 -E
 
 
 
