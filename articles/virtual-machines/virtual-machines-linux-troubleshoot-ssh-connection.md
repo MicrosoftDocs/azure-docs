@@ -60,7 +60,7 @@ If you haven't already, [install the Azure CLI and connect to your Azure subscri
 If you created and uploaded a custom Linux disk image, make sure the [Microsoft Azure Linux Agent](virtual-machines-linux-agent-user-guide.md) version 2.0.5 or later is installed. For VMs created using Gallery images, this access extension is already installed and configured for you.
 
 ### Reset SSH configuration
-The SSHD configuration itself may be misconfigured or the service encountered an error. You can reset SSHD to make sure the SSH configuration itself is valid. This should be the first troubleshooting step you take.
+The SSHD configuration itself may be misconfigured or the service encountered an error. You can reset SSHD to make sure the SSH configuration itself is valid. Resetting SSHD should be the first troubleshooting step you take.
 
 ```bash
 azure vm reset-access --resource-group <resource group> --name <vm name> \
@@ -84,7 +84,7 @@ azure vm reset-access --resource-group <resource group> --name <vm name> \
 
 
 ## VMAccess extension
-The VM Access Extension for Linux reads in a json file that defines actions to carry out, such as resetting SSH, resetting an SSH key, adding a new user, etc. You still use the Azue CLI to call the VMAccess extension, but you can reuse the json files across multiple VMs if desired. This approach allows you to create a repository of json files that can then be called for given scenarios.
+The VM Access Extension for Linux reads in a json file that defines actions to carry out. These actions include resetting SSHD, resetting an SSH key, or adding a new user. You still use the Azure CLI to call the VMAccess extension, but you can reuse the json files across multiple VMs if desired. This approach allows you to create a repository of json files that can then be called for given scenarios.
 
 ### Reset SSHD
 Create a file named PrivateConf.json with the following content:
@@ -102,7 +102,7 @@ azure vm extension set <resource group> <vm name> VMAccessForLinux Microsoft.OST
 ```
 
 ### Reset SSH credentials for a user
-If SSHD appears to functioning correctly, you can reset the credentials for a giver user. To reset the password for a user, create a file named PrivateConf.json with the following contents:
+If SSHD appears to function correctly, you can reset the credentials for a giver user. To reset the password for a user, create a file named PrivateConf.json with the following contents:
 
 ```bash
 {
