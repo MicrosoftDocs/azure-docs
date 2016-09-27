@@ -39,7 +39,7 @@ After each troubleshooting step, try reconnecting to the VM.
 Continue reading for more detailed troubleshooting steps and explanations.
 
 
-## VMs created by using the Resource Manager deployment model
+## Available methods to troubleshoot SSH connection issues
 
 You can reset credentials or SSH configuration using one of the following methods:
 
