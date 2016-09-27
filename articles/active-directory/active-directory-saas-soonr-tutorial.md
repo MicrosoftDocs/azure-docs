@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2016"
+	ms.date="09/27/2016"
 	ms.author="jeedes"/>
 
 
@@ -90,7 +90,6 @@ The objective of this section is to show you how to configure and test Azure AD 
 
 For single sign-on to work, Azure AD needs to know what the counterpart user in Soonr Workplace to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in Soonr Workplace needs to be established.  
 
-
 To configure and test Azure AD single sign-on with Soonr Workplace, you need to complete the following building blocks:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
@@ -103,8 +102,6 @@ To configure and test Azure AD single sign-on with Soonr Workplace, you need to 
 
 The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your Soonr Workplace application.
 
-
-
 **To configure Azure AD single sign-on with Soonr Workplace, perform the following steps:**
 
 1. In the Azure classic portal, on the **Soonr Workplace** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
@@ -115,32 +112,41 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 	![Configure Single Sign-On](./media/active-directory-saas-soonr-tutorial/tutorial_soonr_03.png) 
 
-3. On the **Configure App Settings** dialog page, perform the following steps:.
+3. On the **Configure App Settings** dialog page, If you wish to configure the application in **IDP initiated mode**, perform the following steps and click **Next**:
 
-	![Configure Single Sign-On](./media/active-directory-saas-soonr-tutorial/tutorial_soonr_04.png) 
+    ![Configure Single Sign-On](./media/active-directory-saas-soonr-tutorial/tutorial_soonr_04.png)
 
+	a. In the **Identifier** textbox, type a URL using the following pattern: `https://<server name>.soonr.com/singlesignon/saml/metadata`
 
-    a. In the Sign On URL textbox, type the URL used by your users to sign-on to your Soonr Workplace application using the following pattern: **“https://\<server-name\>.soonr.com/singlesignon/saml/SSO”**.
+    b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<server name>.soonr.com/singlesignon/saml/SSO`
 
-    b. Click **Next**.
+	c. Click **Next**
 
-4. On the **Configure single sign-on at Soonr Workplace** page, perform the following steps:
+4. If you wish to configure the application in **SP initiated mode** on the **Configure App Settings** dialog page, then click on the **“Show advanced settings (optional)”** and then enter the **Sign On URL** and click **Next**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-soonr-tutorial/tutorial_soonr_05.png) 
+	![Configure Single Sign-On](./media/active-directory-saas-soonr-tutorial/tutorial_soonr_05.png)
+
+	a. In the **Sign On URL** textbox, type a URL using the following pattern: `https://<server name>.soonr.com/singlesignon/saml/SSO`
+
+	b. Click **Next**
+
+	> [AZURE.NOTE] Please note that these are not the real values. You have to update these values with the actual Sign On URL, Identifier and Reply URL. Contact Soonr Workplace support team via [support@autotask.com](emailTo:support@autotask.com) to get these values.
+
+5. On the **Configure single sign-on at Soonr Workplace** page, perform the following steps:
+
+	![Configure Single Sign-On](./media/active-directory-saas-soonr-tutorial/tutorial_soonr_06.png) 
 
     a. Click **Download metadata**, and then save the file on your computer.
 
     b. Click **Next**.
 
+6. To get SSO configured for your application, refer to the Soonr Workplace SSO Integration guide or you can refer to integration partners for more details.
 
-5. To get SSO configured for your application, refer to the Soonr Workplace SSO Integration guide or you can refer to integration partners for more details.
-
-
-6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+7. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 
 	![Azure AD Single Sign-On][10]
 
-7. On the **Single sign-on confirmation** page, click **Complete**.  
+8. On the **Single sign-on confirmation** page, click **Complete**.  
   
 	![Azure AD Single Sign-On][11]
 
