@@ -1,5 +1,5 @@
 <properties
-    pageTitle="VM Management Solution | Microsoft Azure"
+    pageTitle="Start/Stop VMs during off-hours (Preview) Solution | Microsoft Azure"
     description="The VM Management solutions starts and stops your Azure Resource Manager Virtual Machines on a schedule and proactively monitor from Log Analytics."
     services="automation"
     documentationCenter=""
@@ -16,9 +16,9 @@
     ms.date="09/22/2016"
     ms.author="magoedte"/>
 
-# ![VM Management Solution in Automation](media/automation-solution-vm-management/vm-management-solution-icon.png) VM Management solution in Automation
+# Start/Stop VMs during off-hours (Preview) solution in Automation
 
-The VM Management solutions starts and stops your Azure Resource Manager virtual machines on a user-defined schedule and provides insight into the success of the Automation jobs that start and stop your virtual machines with OMS Log Analytics.  
+The Start/Stop VMs during off-hours (Preview) solution starts and stops your Azure Resource Manager virtual machines on a user-defined schedule and provides insight into the success of the Automation jobs that start and stop your virtual machines with OMS Log Analytics.  
 
 ## Prerequisites
 
@@ -80,26 +80,29 @@ StopByResourceGroup-Schedule-MS-Mgmt | Schedule for StopByResourceGroup runbook.
 
 ## Configuration
 
-Perform the following steps to add the VM Management solution to your Automation account and then configure the variables to customize the solution.
+Perform the following steps to add the Start/Stop VMs during off-hours (Preview) solution to your Automation account and then configure the variables to customize the solution.
 
 1. From the home-screen in the Azure portal, select the **Marketplace** tile.  If the tile is no longer pinned to your home-screen, from the left navigation pane, select **New**.  
-2. In the Marketplace blade, type **Start VM** in the search box, and then select the solution **Start/Stop VMs during off-hours preview** from the search results.  
+2. In the Marketplace blade, type **Start VM** in the search box, and then select the solution **Start/Stop VMs during off-hours (Preview)** from the search results.  
 3. In the **Start/Stop VMs during off-hours preview** blade for the selected solution, review the summary information and then click **Create**, and the **Add Soultion** blade appears where you are prompted to configure three items before you can import the solution into your Automation subscription.<br> ![VM Management Add Solution blade](media/automation-solution-vm-management/vm-management-solution-add-solution-blade.png)
   
 4. On the **Add Solution** blade, you are required to configure the following before the solution can be created in your Automation account:
 
     a. Workspace: you can select an OMS workspace that is linked to the same Azure subscription that the Automation account is in.  If you do not have an OMS workpace, you can select  **Create New Workspace** and in the **OMS Workspace** blade you are asked to provide: 
+
       - **OMS Workspace** - Provide a name for a new workspace.  
       - **Subscription** - A subscription to link to by selecting from the drop-down list if the default selected is not appropriate.
       - **Resource Group** - Select either an existing Resource Group or a new Resource Group.
       - **Location** - Currently the only locations provided for selection are **Australia Southeast**, **East US**, **Southeast Asia**, and **West Europe**.
-      - **Pricing tear** - <provide brief description>.
+      - **Pricing tier** - The solution offered in three tiers: free, standalone, and OMS.  and two paid. The free tier has a limit on the amount of data collected daily, retention period, and runbook job runtime minutes. The Standard paid tier has <x>.  The OMS paid tier does not have a limit on the amount of data collected daily.
 
     b. Automation Account:  If you are creating a new OMS workspace, you will be required to also create a new Automation account that will be tied to the new OMS workspace specified above, including the Azure subscription, resource group and region.  You can select  **Create an Automation account** and in the **Add Automation account** blade you are asked to provide:
+
       - **Name** - the name of the Automation account.
       
       All other options are automatically populated based on the OMS workspace selected and an Azure Run As account is the default authentication method for the runbooks included in this solution. These options cannot be modified.  Once you click **OK**, the configuration options are validated and the Automation account is created.  
     c. Configuration: on the **Parameters** blade, you are asked to provide:
+
       - **Target ResourceGroup Names** - The resource group name that contain VMs to be managed by this solution.  You can enter more than one name and separate each using a semi-colon (values are case-sensitive).  Using a wildcard is supported if you want to target VMs in all resource groups in the subscription.  
       - **Schedule** - Enter a recurring date and time for starting and stopping the VM's in the target resource group(s).  
   
@@ -111,7 +114,7 @@ Automation job log and job stream data is ingested into the OMS repository every
 
 ## Using the solution
 
-When you add the VM Management solution, in your OMS workspace the **StartStopVM View** tile will be added to your OMS dashboard.  This tile displays a count and graphical representation of the 
+When you add the VM Management solution, in your OMS workspace the **StartStopVM View** tile will be added to your OMS dashboard.  This tile displays a count and graphical representation of the runbooks jobs for the solution that have started and have completed successfully.<br><br> ![VM Management StartStopVM View Tile](media/automation-solution-vm-management/vm-management-solution-startstopvm-view-tile.png)  
 
 ## Log Analytics records
 
@@ -129,22 +132,25 @@ resultDescription | Describes the runbook job result state.  Possible values are
 CorrelationId | GUID that is the Correlation Id of the runbook job.|
 Category | Classification of the type of data.  For Automation, the value is JobLogs.|
 RunbookName | The name of the runbook.|
+SourceSystem | Specifies the source system for the data submitted.  For Automation, the value will be :OpsManager|
 JobId | GUID that is the Id of the runbook job.|
 Caller |  Who initiated the operation.  Possible values are either an email address or system for scheduled jobs.|
 
 ### Job Streams
+
 Property | Description|
 ----------|----------|
 Time | Date and time when the runbook job executed.|
-resourceId | Specifies the resource type in Azure.  For Automation, the value is the Automation account associated with the runbook.|
+resourceId | Specifies the resource Id in Azure.  For Automation, the value is the Automation account associated with the runbook.|
+ResourceType | Specifies the resource type in Azure.  For Automation, the value is the Automation account associated with the runbook.|
 operationName | Specifies the type of operation performed in Azure.  For Automation, the value will be Job.|
-resultType | The status of the runbook job.  Possible values are:<br>- InProgress|
+resultType | The result of the runbook job at the time the event was generated.  Possible values are:<br>- InProgress|
 resultDescription | Includes the output stream from the runbook.|
-CorrelationId | GUID that is the Correlation Id of the runbook job.|
 Category | Classification of the type of data.  For Automation, the value is JobStreams.|
 RunbookName | The name of the runbook.|
 JobId | GUID that is the Id of the runbook job.|
 Caller | Who initiated the operation.  Possible values are either an email address or system for scheduled jobs.| 
+SourceSystem | Specifies the source system for the data submitted.  For Automation, the value will be :OpsManager|
 StreamType | The type of job stream. Possible values are:<br>-Progress<br>- Output<br>- Warning<br>- Error<br>- Debug<br>- Verbose|
    
 
