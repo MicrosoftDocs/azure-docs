@@ -1,9 +1,9 @@
 <properties
-    pageTitle="System Update Management solution in OMS | Microsoft Azure"
-    description="This article is intended to help you understand how to use this solution to manage system updates for your Windows and Linux computers."
+    pageTitle="Update Management solution in OMS | Microsoft Azure"
+    description="This article is intended to help you understand how to use this solution to manage updates for your Windows and Linux computers."
     services="operations-management-suite"
     documentationCenter=""
-    authors="mgoedtel"
+    authors="MGoedtel"
     manager="jwhit"
     editor=""
 	/>
@@ -13,60 +13,38 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="09/12/2016"
+    ms.date="09/27/2016"
     ms.author="magoedte"/>
 
-# ![System Update Management Solution in OMS](./media/oms-solution-system-update-management/system-update-management-solution-icon.png) System Update Management solution in OMS
+# ![Update Management Solution in OMS](/media/oms-solution-update-management/update-management-solution-icon.png) Update Management solution in OMS
 
-The System Update Management solution in OMS allows you to manage system updates for your Windows and Linux computers.  You can quickly assess the status of available updates on all agent computers and initiate the process of installing required updates for Windows servers. 
+The Update Management solution in OMS allows you to manage updates for your Windows and Linux computers.  You can quickly assess the status of available updates on all agent computers and initiate the process of installing required updates for servers. 
 
 ## Prerequisites
 
 -   Windows agents must either be configured to communicate with a Windows Server Update Services (WSUS) server or have access to Microsoft Update.  
 
-    >[AZURE.NOTE] The Windows agent cannot be managed concurrently by System Center Configuration Manager.  The System Center Configuration Manager client will need to be removed before adding this solution to your workspace.  
+    >[AZURE.NOTE] The Windows agent cannot be managed concurrently by System Center Configuration Manager.  
   
--	Linux agents must have access to an update repository.
+-	Linux agents must have access to an update repository.  The OMS Agent for Linux can be downloaded from [GitHub](https://github.com/microsoft/oms-agent-for-linux). 
 
 ## Configuration
 
-Perform the following steps to add the System Update Management solution to your OMS workspace and add Linux agents.  Windows agents are added automatically with no additional configuration.
+Perform the following steps to add the Update Management solution to your OMS workspace and add Linux agents.  Windows agents are added automatically with no additional configuration.
 
-1.	Add the System Update Management solution to your OMS workspace using the process described in [Add OMS solutions](../log-analytics/log-analytics-add-solutions.md) from the Solutions Gallery.  
+1.	Add the Update Management solution to your OMS workspace using the process described in [Add OMS solutions](../log-analytics/log-analytics-add-solutions.md) from the Solutions Gallery.  
 2.	In the OMS portal, select **Settings** and then **Connected Sources**.  Note the **Workspace ID** and either the **Primary Key** or **Secondary Key**.
 3.	Perform the following steps for each Linux computer.
 
-    a.	Install the latest version of Microsoft Management Agent (MMA) by running the following commands.  Replace <Workspace ID> with the Workspace ID and <Key> with either the Primary or Secondary Key.
+    a.	Install the latest version of the OMS Agent for Linux by running the following commands.  Replace <Workspace ID> with the Workspace ID and <Key> with either the Primary or Secondary Key.
 
         cd ~
-        wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.1.0-234/omsagent-1.1.0-234.universal.x64.sh
-        sudo bash omsagent-1.1.0-234.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
+        wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh
+        sudo bash omsagent-1.2.0-75.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
 
-     b. Copy the configuration files with the following commands.
+     b. To remove the agent, run the following command.
 
-        sudo su -c 
-        "if [ -f /etc/opt/microsoft/omsagent/conf/omsagent.d/patch_management_inventory.mof ]; then \
-        rm /etc/opt/microsoft/omsagent/conf/omsagent.d/patch_management_inventory.mof; fi; \
-        cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/patch_management_inventory.mof \ 
-        /etc/opt/microsoft/omsagent/conf/omsagent.d/patch_management_inventory.mof;"
-
-        sudo su -c 
-        "if [ -f /etc/opt/microsoft/omsagent/conf/omsagent.d/patch_management.conf ]; then \
-        rm /etc/opt/microsoft/omsagent/conf/omsagent.d/patch_management.conf; fi; \
-        cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/patch_management.conf \     
-        /etc/opt/microsoft/omsagent/conf/omsagent.d/patch_management.conf;"
-
-      c. Restart the service using the following command.
-
-        sudo service omsagent restart 
-       
-       If your system is RHEL 5.x or SLES 11 then use the following command.
-
-        sudo /etc/init.d/omsagent restart 
-
-      d. To remove the agent, run the following command.
-
-        sudo bash omsagent-1.1.0-234.universal.x64.sh --purge
+        sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
 
 ## Management packs
 
@@ -93,15 +71,15 @@ Azure storage account | No | Azure storage does not include information about sy
 
 ### Collection frequency
 
-A scan of each managed computer is performed twice per day. When an update is installed, its information is updated within 15 minutes.
+A scan of each managed computer is performed every three hours. When an update is installed, its information is updated within 30 minutes.
 
 ## Using the solution
 
-When you add the System Update Management solution to your OMS workspace, the **System Update Management** tile will be added to your OMS dashboard. This tile displays a count and graphical representation of the number of computers in your environment currently requiring system updates.<br><br>
-![System Update Management Summary Tile](./media/oms-solution-system-update-management/system-update-update-management-summary-tile.png)  
+When you add the Update Management solution to your OMS workspace, the **Update Management** tile will be added to your OMS dashboard. This tile displays a count and graphical representation of the number of computers in your environment currently requiring system updates.<br><br>
+![Update Management Summary Tile](media/oms-solution-update-management/update-management-summary-tile.png)  
 
 ## Viewing Update Assessments
-Click on the **System Update Management** tile to open the **System Update Management** dashboard. The dashboard includes the columns in the following table. Each column lists up to ten items matching that column's criteria for the specified scope and time range. You can run a log search that returns all records by clicking **See all** at the bottom of the column or by clicking the column header.
+Click on the **Update Management** tile to open the **Update Management** dashboard. The dashboard includes the columns in the following table. Each column lists up to ten items matching that column's criteria for the specified scope and time range. You can run a log search that returns all records by clicking **See all** at the bottom of the column or by clicking the column header.
 
 Column | Description|
 ----------|----------|
@@ -113,19 +91,19 @@ Critical or Security Updates | Lists classifications of updates that computers a
 Update Runs||
 Update Runs | Number of currently scheduled update runs and the duration until the next scheduled run.  Click on the tile to view schedules, currently running, and completed updates or to schedule a new run.|  
 <br><br>  
-![System Update Management Dashboard Example 1](./media/oms-solution-system-update-management/system-update-update-management-dashboard-1.png)<br>  
+![Update Management Dashboard Example 1](./media/oms-solution-update-management/update-management-dashboard-1.png)<br>  
 <br>  
-![System Update Management Dashboard Example 2](./media/oms-solution-system-update-management/system-update-update-management-dashboard-2.png)
+![Update Management Dashboard Example 2](./media/oms-solution-update-management/update-management-dashboard-2.png)
 
 ## Installing updates
 
-Once updates have been assessed for the Windows computers in your environment, you can have required updates installed by creating an *Update Run*.  An Update Run is a scheduled installation of required updates for one or more computers.  You specify the date and time for the run in addition to a computer or group of computers that should be included.  
+Once updates have been assessed for all of the computers in your environment, you can have required updates installed by creating an *Update Run*.  An Update Run is a scheduled installation of required updates for one or more Windows computers.  You specify the date and time for the run in addition to a computer or group of computers that should be included.  
 
 Updates are installed by runbooks in Azure Automation.  You cannot currently view these runbooks, and they don’t require any configuration.  When an Update Run is created, it creates a schedule in that starts a master update runbook at the specified time for the included computers.  This master runbook starts a child runbook on each Windows agent that performs installation of required updates.  
 
 ### Viewing update runs
 
-Click the **Update Runs** tile to view the list of existing Update Runs.  They are grouped by status – **Scheduled**, **Running**, and **Completed**.<br><br> ![Update Runs Schedule Page](./media/oms-solution-system-update-management/system-update-updaterun-schedule-page.png)<br>  
+Click the **Update Runs** tile to view the list of existing Update Runs.  They are grouped by status – **Scheduled**, **Running**, and **Completed**.<br><br> ![Update Runs Schedule Page](./media/oms-solution-update-management/update-updaterun-schedule-page.png)<br>  
 
 The properties displayed for each Update Run are described in the following table.
 
@@ -147,7 +125,7 @@ Completed Successfully | Lists the number of computers in the Update Run by stat
 Computer Installation Status| Lists the computers involved in the Update Run and the percentage of updates that successfully installed. Click on one of the entries to run a log search returning all missing and critical updates.|
 **Update Instance Results**||
 Instance Installation Status | Lists classifications of updates that computers are missing sorted by the number of computers missing updates in the category. Click a computer to run a log search returning all update records for that computer.|  
-<br><br> ![Overview of Update Run Results](./media/oms-solution-system-update-management/system-update-la-updaterunresults.page.png)
+<br><br> ![Overview of Update Run Results](./media/oms-solution-update-management/update-la-updaterunresults-page.png)
 
 ### Creating an Update Run
 
@@ -160,13 +138,13 @@ Time Zone | Time zone to use for the start time.|
 Start Time | Date and time to start the update run.|
 Duration | Number of minutes the Update Run is allowed to run.  If all updates are not installed within this duration, then the remaining updates must wait until the next Update Run.|
 Computers | Names of computers or computer groups to include in the Update Run.  Select one or more entries from the drop down list.|
-<br><br> ![New Update Run Page](./media/oms-solution-system-update-management/system-update-newupdaterun-page.png)
+<br><br> ![New Update Run Page](./media/oms-solution-update-management/update-newupdaterun-page.png)
 
 ### Time range
 
-By default, the scope of the data analyzed in the System Update Assessment solution is from all connected management groups generated within the last 1 day. 
+By default, the scope of the data analyzed in the System Update Management solution is from all connected management groups generated within the last 1 day. 
 
-To change the time range of the data, select **Data based on** at the top of the dashboard. You can select records created or updated within the last 7 days, 1 day, or 6 hours. Or you can select **Custom** and specify a custom date range.<br><br> ![Custom Time Range Option](./media/oms-solution-system-update-management/system-update-la-time-range-scope-databasedon.png)  
+To change the time range of the data, select **Data based on** at the top of the dashboard. You can select records created or updated within the last 7 days, 1 day, or 6 hours. Or you can select **Custom** and specify a custom date range.<br><br> ![Custom Time Range Option](./media/oms-solution-update-management/update-la-time-range-scope-databasedon.png)  
 
 ## Log Analytics records
 
@@ -179,9 +157,10 @@ A record with a type of **Update** is created for each update that is either ins
 Property | Description|
 ----------|----------|
 Type | *Update*|
-SourceSystem | The source that approved installation of the update.<br>Possible values are:<br>- Microsoft Update<br>-	Windows Update<br>-	SCCM|
-Approved | Specifies whether the update has been approved for installation.|
-Classification | Classification of the update.<br>Possible values are:<br>-	Applications<br>- Critical Updates<br>- Definition Updates<br>- Feature Packs<br>- Security Updates<br>- Service Packs<br>- Update Rollups<br>- Updates|
+SourceSystem | The source that approved installation of the update.<br>Possible values are:<br>- Microsoft Update<br>-	Windows Update<br>-	SCCM<br>- Linux Servers (Fetched from Package Managers)|
+Approved | Specifies whether the update has been approved for installation.<br> For Linux servers this is currently optional as patching is not managed by OMS.|
+Classification for Windows | Classification of the update.<br>Possible values are:<br>-	Applications<br>- Critical Updates<br>- Definition Updates<br>- Feature Packs<br>- Security Updates<br>- Service Packs<br>- Update Rollups<br>- Updates|
+Classification for Linux | Cassification of the update.<br>Possible values are:<br>-Critical Updates<br>- Security Updates<br>- Other Updates|
 Computer | Name of the computer.|
 InstallTimeAvailable | Specifies whether the installation time is available from other agents that installed the same update.|
 InstallTimePredictionSeconds | Estimated installation time in seconds based on other agents that installed the same update.|
@@ -203,15 +182,15 @@ UpdateState | Specifies whether the update is installed on this computer.<br>Pos
 <br>
 When you perform any log search that returns records with a type of **Update** you can select the **Updates** view which displays a set of tiles summarizing the updates returned by the search. You can click on the entries in the **Missing and applied updates** and **Required and optional updates** tiles to scope the view to that set of updates. Select the **List** or **Table** view to return the individual records.<br> 
 
-![Log Search Update View with Record Type Update](./media/oms-solution-system-update-management/system-update-la-view-updates.png)  
+![Log Search Update View with Record Type Update](./media/oms-solution-update-management/update-la-view-updates.png)  
 
 In the **Table** view, you can click on the **KBID** for any record to open a browser with the KB article. This allows you to quickly read about the details of the particular update.<br> 
 
-![Log Search Table View With Tiles Record Type Updates](./media/oms-solution-system-update-management/system-update-la-view-table.png)
+![Log Search Table View With Tiles Record Type Updates](./media/oms-solution-update-management/update-la-view-table.png)
 
 In the **List** view, you click the **View** link next to the KBID to open the KB article.<br>
 
-![Log Search List View With Tiles Record Type Updates](./media/oms-solution-system-update-management/system-update-la-view-list.png)
+![Log Search List View With Tiles Record Type Updates](./media/oms-solution-update-management/update-la-view-list.png)
 
 
 ###UpdateSummary records
