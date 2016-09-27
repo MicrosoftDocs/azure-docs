@@ -45,7 +45,14 @@ The basic structure of a Resource Manager Template is as follows.  Each of the f
 
 ### Parameters
 
-The **parameters** element defines values that you require from the user when they install the solution.  The standard set of parameters below is required for every solution.  You can add other parameters as required for your particular solution.    
+The **parameters** element defines values that you require from the user when they install the solution.  
+
+The parameters below are required for every solution in order to support the user interface of the Azure Marketplace.  When a solution is deployed from the marketplace, the user is prompted to provide information such as a Log Analytics workspace and an Automation account, and these values are used to populate the corresponding parameters.
+
+For 
+  
+
+You can add other parameters as required for your particular solution.    
 
 
 	"parameters": {
@@ -81,7 +88,8 @@ The **parameters** element defines values that you require from the user when th
 		},
 	}
 
-
+- The Log Analytics workspace and Automation accounts must exist before the solution is deployed.  If your solution is deployed from the Azure Marketplace, the user will either select an existing workspace and account or a new one will be created for them.  In either case, you can be guaranteed that they will be created and the 
+- The region
 
 
 You refer to parameter values in other elements of the solution with the syntax **parameters('parameter name')**.  For example, to access the workspace name, you would use **parameters('WorkspaceName')** 
@@ -137,7 +145,7 @@ Each solution requires a resource entry in the **resources** element that define
       "type": "Microsoft.OperationsManagement/solutions",
       "apiVersion": "[variables('LogAnalyticsApiVersion')]",
 
-The solution resource should have a [dependency](../resource-group-define-dependencies.md) on every other resource in the solution.  That ensures that all resources are created before the solution is created.  You do this by adding an entry for each resource in the **dependsOn** element.
+The solution resource must have a [dependency](../resource-group-define-dependencies.md) on every other resource in the solution since they need to exist before the solution can be created.  That ensures that all resources are created before the solution is created.  You do this by adding an entry for each resource in the **dependsOn** element.
 
 For example, a solution with a runbook, a schedule, and view would have a **dependsOn** element like the following.
 
