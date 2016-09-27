@@ -36,7 +36,7 @@ The following image illustrates the high degree of redundancy with DocumentDB.
 
 ![High degree of redundancy with DocumentDB](./media/documentdb-online-backup-and-restore/azure-documentdb-nosql-database-global-distribution.png)
 
-## Automatic online backups - Oops scenarios
+## Full, automatic, online backups
 
 Oops, I deleted my collection or database! With DocumentDB, not only your data, but the backups of your data are also made highly redundant and resilient to regional disasters. These automated backups are currently taken approximately every four hours. 
 
