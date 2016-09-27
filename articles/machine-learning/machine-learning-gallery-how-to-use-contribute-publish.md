@@ -23,6 +23,7 @@ Separator line.
 
 [AZURE.INCLUDE [gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
 
+Separator line.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
