@@ -4,7 +4,7 @@
 	keywords="copy data, data movement, data migration, transfer data"
 	services="data-factory"
 	documentationCenter=""
-	authors="spelluru"
+	authors="linda33wj"
 	manager="jhubbard"
 	editor="monicar"/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/22/2016"
-	ms.author="spelluru"/>
+	ms.author="jingwang"/>
 
 # Move data by using Copy Activity
 
