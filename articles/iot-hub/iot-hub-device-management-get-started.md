@@ -151,7 +151,7 @@ In this section, you create a Node.js console app that initiates a remote reboot
 2. At your command-prompt in the **triggerrebootondevice** folder, run the following command to install the **azure-iothub** Device SDK package and **azure-iot-device-mqtt** package:
 
     ```
-    npm install azure-iot-hub --save
+    npm install azure-iothub --save
     ```
     
 3. Using a text editor, create a new **dmpatterns_getstarted_service.js** file in the **triggerrebootondevice** folder.
