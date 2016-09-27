@@ -72,7 +72,7 @@ Show the available storage accounts.
 		Get-AzureRmStorageAccount
 ```
 
-If you want to use an existing storage account, proceed to the [Upload the VM image](#upload-the-vm-image-to-your-storage-account) section.
+If you want to use an existing storage account, proceed to the [Upload the VM image](#upload-the-vm-vhd-to-your-storage-account) section.
 
 If you want to create a storage account, follow these steps:
 
@@ -104,7 +104,7 @@ Valid values for -SkuName are:
 
 
 
-## Upload the VM image to your storage account
+## Upload the VHD to your storage account
 
 Use the [Add-AzureRmVhd](https://msdn.microsoft.com/library/mt603554.aspx) cmdlet to upload the image to a container in your storage account:
 
@@ -144,6 +144,6 @@ This command may take a while to complete, depending on your network connection 
 ## Next steps
 
 - Create a VM from a generalized VHD
-- [Create a VM from a specialized VHD](virtual-machines-windows-create-vm-specialized) by attaching it as an OS disk when you create a new VM.
+- [Create a VM from a specialized VHD](virtual-machines-windows-create-vm-specialized.md) by attaching it as an OS disk when you create a new VM.
 
 
