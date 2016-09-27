@@ -30,7 +30,7 @@ Create your free Azure account, provision your Azure IoT hub and create your fir
 
 [Click to start Lesson 2](iot-hub-raspberry-pi-node-lesson2.md)
 
-## Lesson 3 Send device-to-cloud messages
+## Lesson 3: Send device-to-cloud messages
 Send messages from your Pi to your Azure IoT hub. You also create an Azure function app that picks up incoming messages from your IoT hub and writes them to Azure table storage.
 
 [Click to start Lesson 3](iot-hub-raspberry-pi-node-lesson3.md)
