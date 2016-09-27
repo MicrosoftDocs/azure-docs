@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/11/2016"
+	ms.date="08/09/2016"
 	ms.author="banders"/>
 
 
@@ -53,8 +53,9 @@ Here's a look at the process:
 
 1. Go to the [Operations Management Suite](http://microsoft.com/oms) website and click **Try for free**. Sign in with your Microsoft account such as Outlook.com, or with an organizational account provided by your company or educational institution to use with Office 365 or other Microsoft services.
 2. Provide a unique workspace name. A workspace is a logical container where your management data is stored. It provides you a way to partition data between different teams in your organization, as the data is exclusive to its workspace. Specify an email address and the region where you want to have your data stored.  
-    ![create workspace and link subscription](./media/log-analytics-get-started/oms-onboard-create-workspace-link.png)
-3. Next, you can create a new Azure subscription or link to an existing Azure subscription. If you would like to proceed using the Free Trial, click **Not Now**.
+    ![create workspace and link subscription](./media/log-analytics-get-started/oms-onboard-create-workspace-link01.png)
+3. Next, you can create a new Azure subscription or link to an existing Azure subscription. If you would like to proceed using the Free Trial, click **Not Now**.  
+  ![create workspace and link subscription](./media/log-analytics-get-started/oms-onboard-create-workspace-link02.png)
 
 You're ready to get started with the Operations Management Suite portal.
 

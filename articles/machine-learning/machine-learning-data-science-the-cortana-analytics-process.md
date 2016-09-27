@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="What is the Cortana Analytics Process?  | Microsoft Azure" 
-	description="The Cortana Analytics Process is a systematic data science method for building intelligent applications that leverage advanced analytics." 
+	pageTitle="What is Team Data Science Process?  | Microsoft Azure" 
+	description="The Team Data Science Process is a systematic method for building intelligent applications that leverage advanced analytics." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="bradsev"
@@ -13,37 +13,37 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="06/14/2016" 
 	ms.author="bradsev;gopitk" /> 
 
 
-# What is the Cortana Analytics Process (CAP)?
+# What is the Team Data Science Process (TDSP)?
 
-The Cortana Analytics Process (CAP) is a systematic data science method that outlines a sequence of steps that leverages advanced analytics to build intelligent applications. The CAP steps provide **guidance** on how to define the problem, analyze relevant data, build  and evaluate predictive models, and then deploy those models in intelligent applications. 
+The Team Data Science Process (TDSP) provides a systematic approach to building intelligent applications that enables teams of data scientists to collaborate effectively over the full lifecycle of activities needed to turn these applications into products. The TDSP outlines a sequence of steps that provide **guidance** on how to define the problem, set up the tools and environment needed, analyze relevant data, build and evaluate predictive models, and then deploy those models in enterprise applications. 
 
-Here are the steps in **Cortana Analytics Process**:  
+Here are the steps in **Team Data Science Process**:  
 
 ![CAP-workflow](./media/machine-learning-data-science-the-cortana-analytics-process/CAP-workflow.png)
 
-The process is **iterative**: the understanding of new and existing or refinements in the model evolves and requires reworking steps previously completed in the sequence. Existing organizational development and project planning processes are **easily adapted** to work with the CAP-defined sequence of steps. 
+The process is **iterative**: the understanding of new and existing or refinements in the model evolves and requires reworking steps previously completed in the sequence. Existing organizational development and project planning processes are **easily adapted** to work with the TDSP-defined sequence of steps. 
 
-The steps in the process are diagrammed and linked in the [CAP learning path](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) and described below.  
+The steps in the process are diagrammed and linked in the [TDSP learning path](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) and described below.  
 
 ## Preparation Steps 
 
 ## P1. Plan the analytics project 
 
-Start an analytics project by defining your business goals and problems. They are specified in terms of **business requirements**. A central objective of this step is to identify the key business variables (sales forecast or the probability of an order being fraudulent, for example) that the analysis needs to predict to satisfy these requirements. Additional planning is then usually essential to develop an understanding of the **data sources** needed to address the objectives of the project from an analytical perspective. It is not uncommon, for example, to find that existing systems need to collect and log additional kinds of data to address the problem and achieve the project goals. For guidance, see [Plan your environment for the Cortana Analytics Process](machine-learning-data-science-plan-your-environment.md) and [Scenarios for advanced analytics in Azure Machine Learning](machine-learning-data-science-plan-sample-scenarios.md).  
+Start an analytics project by defining your business goals and problems. They are specified in terms of **business requirements**. A central objective of this step is to identify the key business variables (sales forecast or the probability of an order being fraudulent, for example) that the analysis needs to predict to satisfy these requirements. Additional planning is then usually essential to develop an understanding of the **data sources** needed to address the objectives of the project from an analytical perspective. It is not uncommon, for example, to find that existing systems need to collect and log additional kinds of data to address the problem and achieve the project goals. For guidance, see [Plan your environment for the Team Data Science Process](machine-learning-data-science-plan-your-environment.md) and [Scenarios for advanced analytics in Azure Machine Learning](machine-learning-data-science-plan-sample-scenarios.md).  
 
 ## P2. Setup analytics environment 
 
-An analytics environment for the Cortana Analytics Process involves several components: 
+An analytics environment for the Team Data Science Process involves several components: 
 
 - **data workspaces** where the data is staged for analysis and modeling, 
 - a **processing infrastructure** for pre-processing, exploring, and modeling the data
 - a **runtime infrastructure** to operationalize the analytical models and run the intelligent client applications that consume the models.  
 
-The analytics infrastructure that needs to be setup is often part of an environment that is separate from core operational systems. But it typically leverages data from multiple systems within the enterprise as well as from sources external to the company. The analytics infrastructure can be purely cloud-based, or an on-premises setup, or a hybrid of the two. For options, see [Set up data science environments for use in the Cortana Analytics Process](machine-learning-data-science-environment-setup.md).
+The analytics infrastructure that needs to be setup is often part of an environment that is separate from core operational systems. But it typically leverages data from multiple systems within the enterprise as well as from sources external to the company. The analytics infrastructure can be purely cloud-based, or an on-premises setup, or a hybrid of the two. For options, see [Set up data science environments for use in the Team Data Science Process](machine-learning-data-science-environment-setup.md).
 
 ## Analytics Steps:  
 
@@ -61,12 +61,12 @@ The next step is to obtain a deeper understanding of the data by investigating i
 
 ## 3. Develop Features 
 
-Data scientists, in collaboration with domain experts,  must identify the features that capture the salient properties of the data set and that can best be used to predict the key business variables identified during planning. These new features can be derived from existing data or may require additional data to be collected. This process is known as **feature engineering** and is one of the key steps in building an effective predictive analytics system. This step requires a creative combination of domain expertise and the insights obtained from the data exploration step. For guidance, see [Feature engineering in the Cortana Analytics Process](machine-learning-data-science-create-features.md).
+Data scientists, in collaboration with domain experts,  must identify the features that capture the salient properties of the data set and that can best be used to predict the key business variables identified during planning. These new features can be derived from existing data or may require additional data to be collected. This process is known as **feature engineering** and is one of the key steps in building an effective predictive analytics system. This step requires a creative combination of domain expertise and the insights obtained from the data exploration step. For guidance, see [Feature engineering in the Team Data Science Process](machine-learning-data-science-create-features.md).
 
 
 ## 4. Create predictive models 
 
-Data scientists build analytical models to predict the key variables identified by the business requirements defined in the planning step using data that has been cleaned and featurized. Machine learning systems support multiple **modeling algorithms** that are applicable to a wide variety of cases. For guidance, see [How to choose algorithms for Microsoft Azure Machine Learning](machine-learning-algorithm-choice.md).
+Data scientists build analytical models to predict the key variables identified by the business requirements defined in the planning step using data that has been cleaned and featurized. Machine learning systems support multiple **modeling algorithms** that are applicable to a wide variety of cases. For guidance, see [How to choose algorithms for Team Azure Machine Learning](machine-learning-algorithm-choice.md).
 
 Data scientists must choose the most appropriate model for their prediction task and it is not uncommon that results from multiple models need to be combined to obtain the best results. The input data for modeling is usually divided randomly into three parts:
 
@@ -83,14 +83,14 @@ Once we have a set of models that perform well, they can be **operationalized** 
 
 ## Summary and next steps
 
-The [Cortana Analytics Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) is modeled as a sequence of iterated steps that **provide guidance** on the tasks needed to use advanced analytics to build  an intelligent applications. Each step also provides details on how to use various Microsoft technologies to complete the tasks described. 
+The [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) is modeled as a sequence of iterated steps that **provide guidance** on the tasks needed to use advanced analytics to build  an intelligent applications. Each step also provides details on how to use various Microsoft technologies to complete the tasks described. 
 
-While CAP does not prescribe specific types of **documentation** artifacts, it is a best practice to document the results of the data exploration, modeling and evaluation, and to save the pertinent code so that the analysis can iterated when required. This also allows reuse of the analytics work when working on other applications involving similar data and prediction tasks.
+While TDSP does not prescribe specific types of **documentation** artifacts, it is a best practice to document the results of the data exploration, modeling and evaluation, and to save the pertinent code so that the analysis can iterated when required. This also allows reuse of the analytics work when working on other applications involving similar data and prediction tasks.
 
 Full end-to-end walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. See, for example:
 
-- [The Cortana Analytics Process in action: using SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
-- [The Cortana Analytics Process in action: using HDInsight Hadoop clusters](machine-learning-data-science-process-hive-walkthrough.md).
+- [The Team Data Science Process in action: using SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
+- [The Team Data Science Process in action: using HDInsight Hadoop clusters](machine-learning-data-science-process-hive-walkthrough.md).
 - [Data Science using Spark on Azure HD.mdnsight](machine-learning-data-science-spark-overview.md)
 - [Scalable Data Science in Azure Data Lake: An end-to-end Walkthrough](machine-learning-data-science-process-data-lake-walkthrough.md)
 

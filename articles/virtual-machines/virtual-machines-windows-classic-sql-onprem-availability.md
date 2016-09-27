@@ -14,8 +14,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/08/2016"
-	ms.author="mikeray" />
+	ms.date="07/12/2016"
+	ms.author="MikeRayMSFT" />
 
 # Extend on-premises Always On Availability Groups to Azure
 
@@ -31,7 +31,7 @@ This tutorial assumes you have the following:
 
 - Connectivity between the on-premises network and your Azure virtual network. For more information about creating this virtual network, see [Configure a Site-to-Site VPN in the Azure classic portal](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ## Add Azure Replica Wizard
 

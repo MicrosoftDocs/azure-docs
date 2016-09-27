@@ -13,13 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="06/23/2016"
 	ms.author="priyamo"/>
 
 
 # Federation metadata
-
-[AZURE.INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
 
 Azure Active Directory (Azure AD) publishes a federation metadata document for services that configured to accept the security tokens that Azure AD issues. The federation metadata document format is described in the [Web Services Federation Language (WS-Federation) Version 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html), which extends [Metadata for the OASIS Security Assertion Markup Language (SAML) v2.0](http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).
 
@@ -44,7 +42,7 @@ For **tenant-independent endpoints**, the `TenantDomainName` is `common`. This d
 
 For example, a tenant-specific endpoint might be `https:// login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`. The tenant-independent endpoint is [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml). You can view the federation metadata document by typing this URL in a browser.
 
-## Contents of federation eetadata
+## Contents of federation Metadata
 
 The following section provides information needed by services that consume the tokens issued by Azure AD.
 

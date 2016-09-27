@@ -4,7 +4,7 @@
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="stevenpo" 
+	manager="femila" 
 	editor="curtand"/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="05/12/2016" 
+	ms.date="08/15/2016" 
 	ms.author="billmath"/>
 
 # Getting started with Azure Multi-Factor Authentication in the cloud
@@ -63,7 +63,7 @@ Use the following procedure to enable MFA for your users.
 
 ## Automate turning on multi-factor authentication using PowerShell
 
-To change the [state](multi-factor-authentication-whats-next.md) using [Azure AD PowerShell](powershell-install-configuremd), you can use the following.  You can change `$st.State` to equal one of the following states:
+To change the [state](multi-factor-authentication-whats-next.md) using [Azure AD PowerShell](../powershell-install-configure.md), you can use the following.  You can change `$st.State` to equal one of the following states:
 
 
 - Enabled

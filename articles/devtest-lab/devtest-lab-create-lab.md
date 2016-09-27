@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Create a lab in DevTest Labs | Microsoft Azure"
-	description="Create a new lab in DevTest Labs for virtual machines"
+	pageTitle="Create a lab in Azure DevTest Labs | Microsoft Azure"
+	description="Create a lab in Azure DevTest Labs for virtual machines"
 	services="devtest-lab,virtual-machines"
 	documentationCenter="na"
 	authors="tomarcher"
@@ -13,38 +13,46 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/08/2016"
+	ms.date="09/12/2016"
 	ms.author="tarcher"/>
 
 # Create a lab in Azure DevTest Labs
 
 ## Prerequisites
 
-To create a lab, you will need:
+To create a lab, you need:
 
 - An Azure subscription. To learn about Azure purchase options, see [How to buy Azure](https://azure.microsoft.com/pricing/purchase-options/) or [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/). You must be the owner of the subscription to create the lab.
-- An Azure Resource Group for the lab. See [Azure Resource Manager Overview](../resource-group-overview.md) and [Azure Role-based Access Control](../active-directory/role-based-access-control-configure.md).
 
-## Create a lab
+## Steps to create a lab in Azure DevTest Labs
+
+The following steps illustrate how to use the Azure portal to create a lab in Azure DevTest Labs. 
 
 1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Tap **Browse**.
+1. Select **More services**, and then select **DevTest Labs** from the list.
 
-1. Tap **DevTest Labs** from the list.
-
-1. On the **DevTest Labs** blade, tap **Add**.
+1. On the **DevTest Labs** blade, select **Add**.
 
     ![Add a lab](./media/devtest-lab-create-lab/add-lab-button.png)
 
 1. On the **Create a DevTest Lab** blade:
 
     1. Enter a **Lab Name** for the new lab.
-    1. Select the **Subscription** to associate with the lab.
-    1. Select a **Location** in which to store the lab.
-    1. Tap **Create**.
+    
+	1. Select the **Subscription** to associate with the lab.
+    
+	1. Select a **Location** in which to store the lab.
+    
+	1. Select **Auto-shutdown** to specify if you want to enable - and define the parameters for - the automatic shutting down of all the lab's VMs.
+	
+	1. Select the **Storage type** to indicate the storage disk type for the lab's VMs. 
+    
+	1. Select **Create**.
 
     ![Create a lab blade](./media/devtest-lab-create-lab/create-devtestlab-blade.png)
+
+[AZURE.INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## Next steps
 

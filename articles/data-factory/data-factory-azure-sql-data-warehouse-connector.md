@@ -13,19 +13,26 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2016" 
+	ms.date="07/05/2016" 
 	ms.author="spelluru"/>
 
 # Move data to and from Azure SQL Data Warehouse using Azure Data Factory
 
-This article outlines how you can use Copy Activity in Azure Data Factory to move data from Azure SQL Data Warehouse to another data store and from another data store to Azure SQL Data Warehouse. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data sources and sinks for SQL Data Warehouse. 
+This article outlines how you can use Copy Activity in Azure Data Factory to move data from Azure SQL Data Warehouse to another data store and from another data store to Azure SQL Data Warehouse. 
 
-The following sample(s) show how to copy data to and from Azure SQL Data Warehouse and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated in the [Data Movement Activities](data-factory-data-movement-activities.md#supported-data-stores) article using the Copy Activity in Azure Data Factory.  
+You can specify whether you want to use PolyBase while loading data into Azure SQL Data Warehouse. We suggest that you use PolyBase to achieve best performance when loading data into Azure SQL Data Warehouse. The [Use PolyBase to load data into Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) section has  details. 
+
+
+## Copy data wizard
+The easiest way to create a pipeline that copies data to/from Azure SQL Data Warehouse is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
+
+The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from Azure SQL Data Warehouse and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.
+
 
 > [AZURE.NOTE] 
 > For an overview of the Azure Data Factory service, see [Introduction to Azure Data Factory](data-factory-introduction.md). 
 > 
-> This article provides JSON examples but does not provide step-by-step instructions for creating a data factory. See [Tutorial: Copy data from Azure Blob to Azure SQL Database](data-factory-get-started.md) for a quick walkthrough with step-by-step instructions for using the Copy Activity in Azure Data Factory. 
+> This article provides JSON examples but does not provide step-by-step instructions for creating a data factory. See [Tutorial: Copy data from Azure Blob to Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for a quick walkthrough with step-by-step instructions for using the Copy Activity in Azure Data Factory. 
 
 
 ## Sample: Copy data from Azure SQL Data Warehouse to Azure Blob
@@ -118,7 +125,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%M"
+	            "format": "MM"
 	          }
 	        },
 	        {
@@ -126,7 +133,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%d"
+	            "format": "dd"
 	          }
 	        },
 	        {
@@ -134,7 +141,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%H"
+	            "format": "HH"
 	          }
 	        }
 	      ],
@@ -270,7 +277,7 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%M"
+	            "format": "MM"
 	          }
 	        },
 	        {
@@ -278,7 +285,7 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%d"
+	            "format": "dd"
 	          }
 	        },
 	        {
@@ -286,7 +293,7 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%H"
+	            "format": "HH"
 	          }
 	        }
 	      ],
@@ -460,8 +467,8 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
-| writeBatchSize | Inserts data into the SQL table when the buffer size reaches writeBatchSize | Integer. (unit = Row Count) | No (Default = 10000) |
-| writeBatchTimeout | Wait time for the batch insert operation to complete before it times out. | (Unit = timespan) Example: “00:30:00” (30 minutes). | No | 
+| writeBatchSize | Inserts data into the SQL table when the buffer size reaches writeBatchSize | Integer (number of rows) | No (default: 10000) |
+| writeBatchTimeout | Wait time for the batch insert operation to complete before it times out. | timespan<br/><br/> Example: “00:30:00” (30 minutes). | No | 
 | sqlWriterCleanupScript | User specified query for Copy Activity to execute such that data of a specific slice will be cleaned up. See repeatability section below for more details. | A query statement.  | No |
 | allowPolyBase | Indicates whether to use PolyBase (when applicable) instead of BULKINSERT mechanism to load data into Azure SQL Data Warehouse. <br/><br/>Note that only **Azure blob** dataset with **format** set to **TextFormat** as a source dataset is supported at this time and support for other source types will come shortly. <br/><br/>See [Use PolyBase to load data into Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) section for constraints and details. | True <br/>False (default) | No |  
 | polyBaseSettings | A group of properties that can be specified when the **allowPolybase** property is set to **true**. | &nbsp; | No |  
@@ -481,11 +488,9 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
     }
 
 ## Use PolyBase to load data into Azure SQL Data Warehouse
-**PolyBase** is an efficient way of loading large amount of data from Azure Blob Storage to Azure SQL Data Warehouse with high throughput.  You can see a large gain in the throughput by using PolyBase instead of the default BULKINSERT mechanism.   
+Using **PolyBase** is an efficient way of loading large amount of data into Azure SQL Data Warehouse with high throughput.  You can see a large gain in the throughput by using PolyBase instead of the default BULKINSERT mechanism.
 
-If your source data store is not Azure Blob Storage, then you could consider copying the data from the source data store to Azure Blob Storage first as staging and then use PolyBase to load the data into Azure SQL Data Warehouse from the staging store. In this scenario, you will use two copy activities with first copy activity configured to copy data from source data store to Azure Blob Storage and the second copy activity to copy data from Azure Blob Storage to Azure SQL Data Warehouse using PolyBase. 
-
-Set the **allowPolyBase** property to **true** as shown in the following example for Azure Data Factory to use PolyBase to copy data from Azure Blob Storage to Azure SQL Data Warehouse. When you set allowPolyBase to true, you can specify PolyBase specific properties using the **polyBaseSettings** property group. see the [SqlDWSink](#SqlDWSink) section above for details about properties that you can use with polyBaseSettings.   
+Set the **allowPolyBase** property to **true** as shown in the following example for Azure Data Factory to use PolyBase to copy data into Azure SQL Data Warehouse. When you set allowPolyBase to true, you can specify PolyBase specific properties using the **polyBaseSettings** property group. see the [SqlDWSink](#SqlDWSink) section above for details about properties that you can use with polyBaseSettings.   
 
 
     "sink": {
@@ -494,23 +499,25 @@ Set the **allowPolyBase** property to **true** as shown in the following example
 		"polyBaseSettings":
 		{
 			"rejectType": "percentage",
-			"rejectValue": 10,
+			"rejectValue": 10.0,
 			"rejectSampleValue": 100,
 			"useTypeDefault": true 
 		}
 
     }
 
-Azure Data Factory verifies whether the data fulfills the following requirements before using PolyBase to copy data to Azure SQL Data Warehouse. If the requirements are not met, it will automatically fall back to the BULKINSERT mechanism for the data movement.
+### Direct copy using PolyBase
+If your source data meets the criteria below, you can directly copy from source data store to Azure SQL Data Warehouse using PolyBase referring to above sample configuration. Otherwise, you can leverage [Staged Copy using PolyBase](#staged-copy-using-polybase).
 
-1.	**Source linked service** is of type: **Azure Storage** and it is not configured to use SAS (Shared Access Signature) authentication. See [Azure Storage Linked Service](data-factory-azure-blob-connector.md#azure-storage-linked-service) for details.  
-2. The **input dataset** is of type: **Azure Blob** and the type properties of dataset meet the following criteria: 
-	1. **Type** must be **TextFormat**. 
-	2. **rowDelimiter** must be **\n**. 
-	3. **nullValue** is set to **empty string** (""). 
-	4. **encodingName** is set to **utf-8**, which is **default** value, so do not set it to a different value. 
-	5. **escapeChar** and **quoteChar** are not specified. 
-	6. **Compression** is not **BZIP2**.
+Note that Azure Data Factory checks the settings and automatically fall back to the BULKINSERT mechanism for the data movement if the requirements are not met.
+
+1.	**Source linked service** is of type: **Azure Storage** and it is not configured to use SAS (Shared Access Signature) authentication. See [Azure Storage linked service](data-factory-azure-blob-connector.md#azure-storage-linked-service) for details.  
+2. The **input dataset** is of type: **Azure Blob** and the format type under type properties is **OrcFormat** or **TextFormat** with below configurations:
+	1. **rowDelimiter** must be **\n**. 
+	2. **nullValue** is set to **empty string** (""). 
+	3. **encodingName** is set to **utf-8**, which is **default** value, so do not set it to a different value. 
+	4. **escapeChar** and **quoteChar** are not specified. 
+	5. **Compression** is not **BZIP2**.
 	 
 			"typeProperties": {
 				"folderPath": "<blobpath>",
@@ -529,6 +536,36 @@ Azure Data Factory verifies whether the data fulfills the following requirements
 3.	There is no **skipHeaderLineCount** setting under **BlobSource** for the Copy activity in the pipeline. 
 4.	There is no **sliceIdentifierColumnName** setting under **SqlDWSink** for the Copy activity in the piepline. (PolyBase guarantees that all data is updated or nothing is updated in a single run. To achieve **repeatability**, you could use **sqlWriterCleanupScript**.
 5.	There is no **columnMapping** being used in the associated in Copy activity. 
+
+### Staged Copy using PolyBase
+When your source data doesn’t meet the criteria introduced in the section above, you can enable copying data via an interim staging Azure blob storage, in which case Azure Data Factory performs transformations on the data to meet data format requirements of PolyBase, and then use PolyBase to load data into SQL Data Warehouse. See [Staged Copy](data-factory-copy-activity-performance.md#staged-copy) for details on how copying data via a staging Azure Blob works in general.
+
+> [AZURE.IMPORTANT] If you are copying data from an on-prem data store into Azure SQL Data Warehouse using PolyBase and staging, you need to install the JRE 8 (Java Runtime Environment) on your gateway machine which will be used to transform your source data into proper format. Note that a 64-bit gateway requires 64-bit JRE and a 32-bit gateway requires 32-bit JRE. Download the appropriate version from  [Java Downloads location](http://go.microsoft.com/fwlink/?LinkId=808605).
+
+To use this feature, create an [Azure Storage linked service](data-factory-azure-blob-connector.md#azure-storage-linked-service) that refers to the Azure Storage Account that has the interim blob storage, then specify the **enableStaging** and **stagingSettings** properties for the Copy Activity as shown below:
+
+	"activities":[  
+	{
+		"name": "Sample copy activity from SQL Server to SQL Data Warehouse via PolyBase",
+		"type": "Copy",
+		"inputs": [{ "name": "OnpremisesSQLServerInput" }],
+		"outputs": [{ "name": "AzureSQLDWOutput" }],
+		"typeProperties": {
+			"source": {
+				"type": "SqlSource",
+			},
+			"sink": {
+				"type": "SqlDwSink",
+				"allowPolyBase": true
+			},
+    		"enableStaging": true,
+			"stagingSettings": {
+				"linkedServiceName": "MyStagingBlob"
+			}
+		}
+	}
+	]
+
 
 ### Best practices when using PolyBase
 
@@ -559,31 +596,6 @@ Currently, PolyBase feature in Data Factory only accepts the same number of colu
 	All columns of the table must be specified in the INSERT BULK statement.
 
 NULL value is a special form of default value. If the column is nullable, the input data (in blob) for that column could be empty (cannot be missing from the input dataset). PolyBase will insert NULL for them in the Azure SQL Data Warehouse.  
-
-#### Leveraging two stage copy in order to use PolyBase
-PolyBase has limitations on the data stores and formats that it can operate with. If your scenario does not meet the requirements, you should leverage the Copy Activity to copy data to a data store supported by PolyBase and/or convert the data into a format that PolyBase supports. Here are examples of the transformations you can do:
-
--	Convert source files in other encodings to Azure blobs in UTF-8
--	Serialize data in SQL Server/Azure SQL Database into Azure blobs in CSV format.
--	Change the order of columns by specifying the columnMapping property.
-
-Here are some tips when doing the transformations:
-
-- Selecting an appropriate delimiter when converting tabular data into CSV files.
-
-	It is recommended to use characters that are very unlikely to appear in the data as the column delimiter. Common delimiters include comma (,), tilde (~), pipe (|) and TAB(\t). If your data contains them, you can set column delimiter to be non-printable characters such as “\u0001”. Polybase accepts multi-char column delimiters which would allow you to construct more complex column delimiters.	
-- Format of datetime objects
-
-	When datetime objects are serialized, the Copy Activity, by default, uses the format: "yyyy-MM-dd HH:mm:ss.fffffff", which is, by default, not supported by PolyBase. The supported datetime formats can be found here: [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). Failing to meet Polybase expectation on datetime format would result in an error as shown below:
-
-		Query aborted-- the maximum reject threshold (0 rows) was reached while reading from an external source: 1 rows rejected out of total 1 rows processed.
-		(/AccountDimension)Column ordinal: 97, Expected data type: DATETIME NOT NULL, Offending value: 2010-12-17 00:00:00.0000000  (Column Conversion Error), Error: Conversion failed when converting the NVARCHAR value '2010-12-17 00:00:00.0000000' to data type DATETIME.
-
-	In order to resolve this error, specify the datetime format as shown in the following example:
-	
-		"structure": [
-    		{ "name" : "column", "type" : "int", "format": "yyyy-MM-dd HH:mm:ss" }
-		]
 
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)] 

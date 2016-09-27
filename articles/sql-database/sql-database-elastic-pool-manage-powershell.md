@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="powershell"
     ms.workload="data-management" 
-    ms.date="05/27/2016"
+    ms.date="06/22/2016"
     ms.author="srinia"/>
 
 # Monitor and manage an elastic database pool with PowerShell 
@@ -84,7 +84,7 @@ Metrics that can be retrieved as a percentage of the resource pool limit:
 **Metrics granularity/retention periods:**
 
 * Data will be returned at 5 minute granularity.  
-* Data retention is 14 days.  
+* Data retention is 35 days.  
 
 This cmdlet and API limits the number of rows that can be retrieved in one call to 1000 rows (about 3 days of data at 5 minute granularity). But this command can be called multiple times with different start/end time intervals to retrieve more data 
 
@@ -107,6 +107,8 @@ To retrieve the metrics:
 
 You can add alert rules to resources to send email notifications or alert strings to [URL endpoints](https://msdn.microsoft.com/library/mt718036.aspx) when the resource hits a utilization threshold that you set up. Use the Add-AzureRmMetricAlertRule cmdlet. 
 
+> [AZURE.IMPORTANT]Resource utilization monitoring for Elastic Pools has a lag of at least 20 minutes. Setting alerts of less than 30 minutes for Elastic Pools is not currently supported. Any alerts set for Elastic Pools with a period (parameter called “-WindowSize” in PowerShell API) of less than 30 minutes may not be triggered. Please make sure that any alerts you define for Elastic Pools use a period (WindowSize) of 30 minutes or more.
+
 This example adds an alert for getting notified when a pool’s eDTU consumption goes above certain threshold.
 
     # Set up your resource ID configurations
@@ -126,11 +128,13 @@ This example adds an alert for getting notified when a pool’s eDTU consumption
     $alertName = $poolName + "- DTU consumption rule"
 
     # Create an alert rule for DTU_consumption_percent
-    Add-AzureRMMetricAlertRule -Name $alertName -Location $location -ResourceGroup $resourceGroupName -TargetResourceId $ResourceID -MetricName "DTU_consumption_percent"  -Operator GreaterThan -Threshold 80 -TimeAggregationOperator Average -WindowSize 00:05:00 -Actions $actionEmail 
+    Add-AzureRMMetricAlertRule -Name $alertName -Location $location -ResourceGroup $resourceGroupName -TargetResourceId $ResourceID -MetricName "DTU_consumption_percent"  -Operator GreaterThan -Threshold 80 -TimeAggregationOperator Average -WindowSize 00:60:00 -Actions $actionEmail 
 
 ## Add alerts to all databases in a pool
 
 You can add alert rules to all database in an elastic pool to send email notifications or alert strings to [URL endpoints](https://msdn.microsoft.com/library/mt718036.aspx) when a resource hits a utilization threshold set up by the alert. 
+
+> [AZURE.IMPORTANT] Resource utilization monitoring for Elastic Pools has a lag of at least 20 minutes. Setting alerts of less than 30 minutes for Elastic Pools is not currently supported. Any alerts set for Elastic Pools with a period (parameter called “-WindowSize” in PowerShell API) of less than 30 minutes may not be triggered. Please make sure that any alerts you define for Elastic Pools use a period (WindowSize) of 30 minutes or more.
 
 This example adds an alert to each of the databases in a pool for getting notified when that database’s DTU consumption goes above certain threshold.
 
@@ -156,7 +160,7 @@ This example adds an alert to each of the databases in a pool for getting notifi
     $alertName = $db.DatabaseName + "- DTU consumption rule"
 
     # Create an alert rule for DTU_consumption_percent
-    Add-AzureRMMetricAlertRule -Name $alertName  -Location $location -ResourceGroup $resourceGroupName -TargetResourceId $dbResourceId -MetricName "dtu_consumption_percent"  -Operator GreaterThan -Threshold 80 -TimeAggregationOperator Average -WindowSize 00:05:00 -Actions $actionEmail
+    Add-AzureRMMetricAlertRule -Name $alertName  -Location $location -ResourceGroup $resourceGroupName -TargetResourceId $dbResourceId -MetricName "dtu_consumption_percent"  -Operator GreaterThan -Threshold 80 -TimeAggregationOperator Average -WindowSize 00:60:00 -Actions $actionEmail
 
     # drop the alert rule
     #Remove-AzureRmAlertRule -ResourceGroup $resourceGroupName -Name $alertName

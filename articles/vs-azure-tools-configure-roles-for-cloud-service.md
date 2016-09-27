@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="multiple"
-   ms.date="05/08/2016"
+   ms.date="08/15/2016"
    ms.author="tarcher" />
 
 # Configure the Roles for an Azure Cloud Service with Visual Studio
@@ -183,7 +183,7 @@ By using a different value for each service configuration, you do not have to us
 
 ## Manage local storage for each role instance
 
-You can add local file system storage for each instance of a role. You can store local data here that does not need to be accessed by other roles. Any data that you do not need to save into table, blob, or SQL Database storage can be stored in here. For example, you could use this local storage to cache data that might need to be used again. This stored data can’t be accessed by other instances of a role. For more information about local storage resources, see [Configure Local Storage Resources](cloud-services/cloud-services-configure-local-storage-resources.md).
+You can add local file system storage for each instance of a role. You can store local data here that does not need to be accessed by other roles. Any data that you do not need to save into table, blob, or SQL Database storage can be stored in here. For example, you could use this local storage to cache data that might need to be used again. This stored data can’t be accessed by other instances of a role. 
 
 Local storage settings apply to all service configurations. You can only add, remove, or modify local storage for all service configurations.
 
@@ -235,7 +235,7 @@ Local storage settings apply to all service configurations. You can only add, re
 
 1. (Optional) To view this file that you created when you run your cloud service locally, use the following steps:
 
-  1. Run the web role and click on **Button1** to make sure that the code inside `Button1_Click` gets called.
+  1. Run the web role and select **Button1** to make sure that the code inside `Button1_Click` gets called.
 
   1. In the notification area, open the shortcut menu for the Azure icon and choose **Show Compute Emulator UI**. The **Azure Compute Emulator** dialog box appears.
 

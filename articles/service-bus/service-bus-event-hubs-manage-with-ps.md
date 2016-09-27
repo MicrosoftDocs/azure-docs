@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Use PowerShell to manage Service Bus and Event Hubs resources"
-   description="Using PowerShell to create and manage Service Bus and Event Hubs resources"
-   services="service-bus"
-   documentationCenter=".NET"
-   authors="sethmanheim"
-   manager="timlt"
-   editor=""/>
+    pageTitle="Use PowerShell to manage Service Bus and Event Hubs resources | Microsoft Azure"
+    description="Using PowerShell to create and manage Service Bus and Event Hubs resources"
+    services="service-bus"
+    documentationCenter=".NET"
+    authors="sethmanheim"
+    manager="timlt"
+    editor=""/>
 
 <tags
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="03/09/2016"
-   ms.author="sethm"/>
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="06/24/2016"
+    ms.author="sethm"/>
 
 # Use PowerShell to manage Service Bus and Event Hubs resources
 

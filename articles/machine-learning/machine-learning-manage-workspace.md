@@ -13,11 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="07/06/2016"
 	ms.author="garye"/>
 
 
 # Manage an Azure Machine Learning workspace
+
+>[AZURE.NOTE] The procedures in this article are relevant to Azure Machine Learning Classic web services. For information on managing new web services, see [Manage a New Machine Learning Web Service](machine-learning-manage-new-webservice.md).
+
 Using the Azure classic portal, you can manage your Machine Learning workspaces to:
 
 - Monitor how the workspace is being used
@@ -64,7 +67,6 @@ Click the **CONFIGURE** tab.
 From the configuration tab you can
 
 - Suspend access to the Machine Learning workspace by clicking DENY. Users will no longer be able to open the workspace in Machine Learning Studio. To restore access, click ALLOW.
-- Change the workspace owner by specifying a different Microsoft Account.
 
 To manage additional accounts who have access to the workspace in Machine Learning Studio, click **Sign-in to ML Studio** in the **DASHBOARD** tab (see note above regarding **Sign-in to ML Studio**). This opens the workspace in Machine Learning Studio. From here, click the **SETTINGS** tab and then **USERS**. You can click **INVITE MORE USERS** to give users access to the workspace, or select a user and click **REMOVE**.
 

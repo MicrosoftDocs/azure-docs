@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="07/25/2016"
 	ms.author="jgao"/>
 
 #Run Hadoop MapReduce samples in Windows-based HDInsight
@@ -51,7 +51,7 @@ Nowadays, a lot of people choose Hive and Pig over MapReduce.  For more informat
 
 ## <a name="hdinsight-sample-wordcount"></a>Word count - Java 
 
-To submit a MapReduce project, you first create a MapReduce job definition. In the job definition, you specify the MapReduce program jar file and the location of the jar file, which is **wasb:///example/jars/hadoop-mapreduce-examples.jar**, the class name, and the arguments.  The wordcount MapReduce program takes two arguments: the source file that will be used to count words, and the location for output.
+To submit a MapReduce project, you first create a MapReduce job definition. In the job definition, you specify the MapReduce program jar file and the location of the jar file, which is **wasbs:///example/jars/hadoop-mapreduce-examples.jar**, the class name, and the arguments.  The wordcount MapReduce program takes two arguments: the source file that will be used to count words, and the location for output.
 
 The source code can be found in the [Appendix A](#apendix-a---the-word-count-MapReduce-program-in-java).
 
@@ -70,9 +70,9 @@ For the procedure of developing a Java MapReduce program, see - [Develop Java Ma
 		
 		# Define the MapReduce job
 		$mrJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
-									-JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
+									-JarFile "wasbs:///example/jars/hadoop-mapreduce-examples.jar" `
 									-ClassName "wordcount" `
-									-Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput1"
+									-Arguments "wasbs:///example/data/gutenberg/davinci.txt", "wasbs:///example/data/WordCountOutput1"
 		
 		# Submit the job and wait for job completion
 		$cred = Get-Credential -Message "Enter the HDInsight cluster HTTP user credential:" 
@@ -160,7 +160,7 @@ The script provided for this sample submits a Hadoop jar job and is set up to ru
 - Follow the procdure in [Word count - Java](#word-count-java), and replace the job definition with the following:
 
 		$mrJobJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
-									-JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
+									-JarFile "wasbs:///example/jars/hadoop-mapreduce-examples.jar" `
 									-ClassName "pi" `
 									-Arguments "16", "10000000"
 

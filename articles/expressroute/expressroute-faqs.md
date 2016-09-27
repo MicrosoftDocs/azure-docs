@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/11/2016"
+   ms.date="08/04/2016"
    ms.author="cherylmc"/>
 
 # ExpressRoute FAQ
@@ -31,7 +31,7 @@ ExpressRoute supports most Microsoft Azure services today including Office 365. 
 See this page for service location and availability: [ExpressRoute partners and locations](expressroute-locations.md).
 
 ### How can I use ExpressRoute to connect to Microsoft if I don’t have partnerships with one of the ExpressRoute-carrier partners?
-You can select a regional carrier and land Ethernet connections to one of the supported exchange provider locations. You can then peer with Microsoft at the provider location. Check the last section of [ExpressRoute partners and locations](expressroute-locations.md) to see if your service provider is present in any of the Exchange locations. You can then order an ExpressRoute circuit through the service provider to connect to Azure.
+You can select a regional carrier and land Ethernet connections to one of the supported exchange provider locations. You can then peer with Microsoft at the provider location. Check the last section of [ExpressRoute partners and locations](expressroute-locations.md) to see if your service provider is present in any of the exchange locations. You can then order an ExpressRoute circuit through the service provider to connect to Azure.
 
 ### How much does ExpressRoute cost?
 Check [pricing details](https://azure.microsoft.com/pricing/details/expressroute/) for pricing information.
@@ -61,6 +61,7 @@ Most Azure services are supported over ExpressRoute.
 	- CDN
 	- Visual Studio Team Services Load Testing
 	- Multi-factor Authentication
+	- Traffic Manager
 
 ## Data and connections
 
@@ -177,27 +178,16 @@ You can update the bandwidth of the ExpressRoute circuit using the update dedica
 ### What is ExpressRoute premium?
 ExpressRoute premium is a collection of features listed below.
 
- - Increased routing table limit from 4000 routes to 10,000 routes for public peering and private peering.
+ - Increased routing table limit from 4000 routes to 10,000 routes for private peering.
  - Increased number of VNets that can be connected to the ExpressRoute circuit (default is 10). See table below for more details.
  - Global connectivity over the Microsoft core network. You will now be able to link a VNet in one geopolitical region with an ExpressRoute circuit in another region. **Example:** You can link a VNet created in Europe West to an ExpressRoute circuit created in Silicon Valley.
  - Connectivity to Office 365 services and CRM Online.
 
 ### How many VNets can I link to an ExpressRoute circuit if I enabled ExpressRoute premium?
-The table below provides the increased limits for the number of VNets you can link to an ExpressRoute circuit. Default limit is 10.
+The tables below show the ExpressRoute limits and the number of VNets per ExpressRoute circuit.
 
-**Limits for circuits**
 
-| **Circuit Size** | **Number of VNet links for default setup** | **Number of VNet Links with ExpressRoute Premium** |
-|--------------|----------------------------------------|-----------------------------------------------|
-| 50 Mbps      | 10                                     | 10                                            |
-| 100 Mbps     | 10                                     | 20                                            |
-| 200 Mbps     | 10                                     | 25                                            |
-| 500 Mbps     | 10                                     | 40                                            |
-| 1 Gbps       | 10                                     | 50											|
-| 2 Gbps	   | 10										| 60											|
-| 5 Gbps       | 10                                		| 75											|
-| 10 Gbps      | 10                                		| 100                                          |
-
+[AZURE.INCLUDE [expressroute-limits](../../includes/expressroute-limits.md)]
 
 
 ### How do I enable ExpressRoute premium?
@@ -216,6 +206,8 @@ Refer to [pricing details](https://azure.microsoft.com/pricing/details/expressro
 Yes. ExpressRoute premium charges apply on top of ExpressRoute circuit charges and charges required by the connectivity provider.
 
 ## ExpressRoute and Office 365 Services and CRM Online
+
+[AZURE.INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
 ### How do I create an ExpressRoute circuit to connect to Office 365 services and CRM Online?
 
@@ -245,5 +237,5 @@ Refer to [ExpressRoute partners and locations](expressroute-locations.md) for mo
 ### Can I access Office 365 over the internet even if ExpressRoute was configured for my organization?
 Yes. Office 365 service endpoints are reachable through the internet even though ExpressRoute has been configured for your network. If you are in a location that is configured to connect to Office 365 services through ExpressRoute, you will connect through ExpressRoute.
 
-### Can Dynamics AX be accessed over an ExpressRoute connection?
+### Can Dynamics AX Online be accessed over an ExpressRoute connection?
 No, it is not supported.

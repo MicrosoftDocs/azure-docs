@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/14/2016"
+   ms.date="08/08/2016"
    ms.author="ganesr" />
 
 # Link a virtual network to an ExpressRoute circuit
@@ -40,7 +40,9 @@ This article will help you link virtual networks (VNets) to Azure ExpressRoute c
 	- Ensure that Azure private peering is configured and the BGP peering between your network and Microsoft is up so that you can enable end-to-end connectivity.
 	- Ensure that you have a virtual network and a virtual network gateway created and fully provisioned. Follow the instructions to create a [VPN gateway](../articles/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), but be sure to use `-GatewayType ExpressRoute`.
 
-You can link up to 10 virtual networks to an ExpressRoute circuit. All ExpressRoute circuits must be in the same geopolitical region. You can link a larger number of virtual networks to your ExpressRoute circuit if you enabled the ExpressRoute premium add-on. Check the [FAQ](expressroute-faqs.md) for more details about the premium add-on.
+You can link up to 10 virtual networks to a standard ExpressRoute circuit. All virtual networks must be in the same geopolitical region when using a standard ExpressRoute circuit. 
+
+You can link a virtual networks outside of the geopolitical region of the ExpressRoute circuit, or connect a larger number of virtual networks to your ExpressRoute circuit if you enabled the ExpressRoute premium add-on. Check the [FAQ](expressroute-faqs.md) for more details on the premium add-on.
 
 ## Connect a virtual network in the same subscription to a circuit
 
@@ -78,7 +80,8 @@ The following cmdlet snippet shows how to create an authorization:
 	Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
 	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
 
-	$auth1 = Get-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit -Name "MyAuthorization1"
+        $circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName = MyRG"
+	$auth1 = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit -Name "MyAuthorization1"
 		
 
 The response to this will contain the authorization key and status:
@@ -97,7 +100,7 @@ The response to this will contain the authorization key and status:
 The circuit owner can review all authorizations that are issued on a particular circuit by running the following cmdlet:
 
 	$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-	$authorizations = Get-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit
+	$authorizations = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit
 	
 
 #### Adding authorizations
@@ -109,7 +112,7 @@ The circuit owner can add authorizations by using the following cmdlet:
 	Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit
 	
 	$circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
-	$authorizations = Get-AzureRmExpressRouteCircuitAuthorization -Circuit $circuit
+	$authorizations = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit
 
 	
 #### Deleting authorizations
@@ -123,11 +126,16 @@ The circuit owner can revoke/delete authorizations to the user by running the fo
 
 The circuit user needs the peer ID and an authorization key from the circuit owner. The authorization key is a GUID.
 
+Peer ID is, can be checked from the following command.
+
+	Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
+
 #### Redeeming connection authorizations
 
 The circuit user can run the following cmdlet to redeem a link authorization:
 
 	$id = "/subscriptions/********************************/resourceGroups/ERCrossSubTestRG/providers/Microsoft.Network/expressRouteCircuits/MyCircuit"	
+	$gw = Get-AzureRmVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
 	$connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "RemoteResourceGroup" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $id -ConnectionType ExpressRoute -AuthorizationKey "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
 
 #### Releasing connection authorizations

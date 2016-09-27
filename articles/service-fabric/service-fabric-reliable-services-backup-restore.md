@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/13/2016"
+   ms.date="06/19/2016"
    ms.author="mcoskun"/>
 
 # Back up and restore Reliable Services and Reliable Actors
@@ -72,7 +72,7 @@ await this.BackupAsync(myBackupDescription);
 
 ```
 
-Request to take an incremental backup can fail with **FabricFullBackupMissingException** which indicates that either the replica has never taken a full backup or some of the log records since that last back has been truncated.
+Request to take an incremental backup can fail with **FabricMissingFullBackupException** which indicates that either the replica has never taken a full backup or some of the log records since that last back has been truncated.
 Users can modify the truncation rate by modifying the **CheckpointThresholdInMB**.
 
 **BackupInfo** provides information regarding the backup, including the location of the folder where the runtime saved the backup (**BackupInfo.Directory**). The callback function can move the **BackupInfo.Directory** to an external store or another location.  This function also returns a bool that indicates whether it was able to successfully move the backup folder to its target location.
@@ -145,7 +145,7 @@ protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, C
 **RestoreDescription** passed in to the **RestoreContext.RestoreAsync** call contains a member called **BackupFolderPath**.
 When restoring a single full backup, this **BackupFolderPath** should be set to the local path of the folder that contains your full backup.
 When restoring a full backup and a number of incremental backups, **BackupFolderPath** should be set to the local path of the folder that not only contains the full backup, but also all the incremental backups.
-**RestoreAsync** call can throw **FabricFullBackupMissingException** if the **BackupFolderPath** provided does not contain a full backup.
+**RestoreAsync** call can throw **FabricMissingFullBackupException** if the **BackupFolderPath** provided does not contain a full backup.
 It can also throw **ArgumentException** if **BackupFolderPath** has a broken chain of incremental backups.
 For example, if it contains the full backup, the first incremental and the third incremental backup but no the second incremental backup.
 
@@ -217,3 +217,9 @@ Next, the Reliable objects are instructed to restore from their checkpoints in t
 Finally, the Reliable State Manager recovers its own state from the log records in the backup folder and performs recovery.  
 As part of the recovery process, operations starting from the "starting point" that have commit log records in the backup folder are replayed to the Reliable objects.  
 This step ensures that the recovered state is consistent.
+
+## Next steps
+
+- [Reliable Services quick start](service-fabric-reliable-services-quick-start.md)
+- [Reliable Services notifications](service-fabric-reliable-services-notifications.md)
+- [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

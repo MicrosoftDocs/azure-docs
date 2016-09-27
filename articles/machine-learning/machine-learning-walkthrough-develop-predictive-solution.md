@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="03/09/2016"
+	ms.date="06/10/2016"
 	ms.author="garye"/>
 
 
@@ -27,6 +27,8 @@ Credit risk assessment is a complex problem, of course, but let's simplify the p
 In this detailed walkthrough, we'll follow the process of developing a predictive analytics model in Machine Learning Studio and then deploying it as an Azure Machine Learning web service. We'll start with publicly available credit risk data, develop and train a predictive model based on that data, and then deploy the model as a web service that can be used by others for credit risk assessment.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+
+<!-- -->
 
 >[AZURE.TIP] To download and print a diagram that gives an overview of the capabilities of Machine Learning Studio, see [Overview diagram of Azure Machine Learning Studio capabilities](machine-learning-studio-overview-diagram.md).
 

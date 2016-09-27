@@ -1,19 +1,19 @@
 <properties
    pageTitle="Using the Azure Resource Connector in Logic apps | Microsoft Azure App Service"
    description="How to create and configure the Azure Resource Connector or API app and use it in a Logic app in Azure App Service"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="stepsic-microsoft-com"
    manager="erikre"
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="05/31/2016"
+   ms.date="09/01/2016"
    ms.author="stepsic"/>
 
 # Get started with the Azure Resource Connector and add it to your Logic app

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2016"  
+	ms.date="07/11/2016"  
 	ms.author="xstof;xpouyat;juliako"/>
 
 #Advanced Media Encoder Premium Workflow tutorials
@@ -977,7 +977,7 @@ With the below simple guard clause, we can check if trimming is required and dec
 
 [Media Encoder Premium Workflow Formats and Codecs](media-services-premium-workflow-encoder-formats.md)
 
-[Sample workflow files](https://github.com/AzureMediaServicesSamples/Encoding-Presets/tree/master/VoD/MediaEncoderPremiumWorkfows)
+[Sample workflow files](http://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)
 
 [Azure Media Services Explorer tool](http://aka.ms/amse)
 

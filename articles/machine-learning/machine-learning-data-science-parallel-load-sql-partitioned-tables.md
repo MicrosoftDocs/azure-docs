@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/10/2016" 
+	ms.date="06/14/2016" 
 	ms.author="bradsev" /> 
 
 # Parallel Bulk Data Import Using SQL Partition Tables

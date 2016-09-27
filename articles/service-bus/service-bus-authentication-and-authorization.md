@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Service Bus Authentication and Authorization | Microsoft Azure"
-   description="Overview of Shared Access Signature (SAS) authentication."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+    pageTitle="Service Bus Authentication and Authorization | Microsoft Azure"
+    description="Overview of Shared Access Signature (SAS) authentication."
+    services="service-bus"
+    documentationCenter="na"
+    authors="sethmanheim"
+    manager="timlt"
+    editor="" />
 <tags 
-   ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="03/09/2016"
-   ms.author="sethm" />
+    ms.service="service-bus"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="na"
+    ms.date="06/22/2016"
+    ms.author="sethm" />
 
 # Service Bus authentication and authorization
 
@@ -67,7 +67,7 @@ ACS authentication support for Service Bus is included in the Azure .NET SDK ver
 
 ## Next steps
 
-Continue reading [Shared Access Signature Authentication with Service Bus](service-bus-shared-access-signature-authentication.md) for more details about SAS.
+Continue reading [Shared Access Signature authentication with Service Bus](service-bus-shared-access-signature-authentication.md) for more details about SAS.
 
 For a high-level overview of SAS in Service Bus, see [Shared Access Signatures](service-bus-sas-overview.md).
 

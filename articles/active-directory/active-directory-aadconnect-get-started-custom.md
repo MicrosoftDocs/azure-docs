@@ -5,7 +5,7 @@
     keywords="what is Azure AD Connect, install Active Directory, required components for Azure AD"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
+	manager="femila"
 	editor="curtand"/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/31/2016"
+	ms.date="09/13/2016"
 	ms.author="billmath;andkjell"/>
 
 # Custom installation of Azure AD Connect
@@ -27,10 +27,10 @@ If customized settings does not match your topology, for example to upgrade DirS
 ## Custom settings installation of Azure AD Connect
 
 ### Express Settings
-On this page, click on **Customize** to start a customized settings installation.
+On this page, click **Customize** to start a customized settings installation.
 
 ### Install required components
-When you install the synchronization services, you can leave the optional configuration section unchecked and Azure AD Connect sets everything up automatically. It sets up a SQL Server 2012 Express LocalDB instance, create the appropriate groups, and assign permissions. If you wish to change the defaults, you can use the following table to understand the optional configuration options that are available.
+When you install the synchronization services, you can leave the optional configuration section unchecked and Azure AD Connect sets up everything automatically. It sets up a SQL Server 2012 Express LocalDB instance, create the appropriate groups, and assign permissions. If you wish to change the defaults, you can use the following table to understand the optional configuration options that are available.
 
 ![Required Components](./media/active-directory-aadconnect-get-started-custom/requiredcomponents.png)
 
@@ -43,7 +43,7 @@ Specify custom sync groups | By default Azure AD Connect creates four groups loc
 ### User sign-in
 After installing the required components, you are asked to select your users single sign-on method. The following table provides a brief description of the available options. For a full description of the sign-in methods, see [User sign-in](active-directory-aadconnect-user-signin.md).
 
-![User Signin](./media/active-directory-aadconnect-get-started-custom/usersignin.png)
+![User Sign in](./media/active-directory-aadconnect-get-started-custom/usersignin.png)
 
 Single Sign On option | Description
 ------------- | -------------
@@ -55,32 +55,32 @@ Do not configure | Neither feature is installed and configured. Choose this opti
 On the Connect to Azure AD screen, enter a global admin account and password. If you selected **Federation with AD FS** on the previous page, do not sign in with an account in a domain you plan to enable for federation. A recommendation is to use an account in the default **onmicrosoft.com** domain, which comes with your Azure AD directory.
 
 This account is only used to create a service account in Azure AD and is not used after the wizard has completed.  
-![User Signin](./media/active-directory-aadconnect-get-started-custom/connectaad.png)
+![User Sign in](./media/active-directory-aadconnect-get-started-custom/connectaad.png)
 
 If your global admin account has MFA enabled, then you need to provide the password again in the sign-in popup and complete the MFA challenge. The challenge could be a providing a verification code or a phone call.  
-![User Signin MFA](./media/active-directory-aadconnect-get-started-custom/connectaadmfa.png)
+![User Sign in MFA](./media/active-directory-aadconnect-get-started-custom/connectaadmfa.png)
 
 The global admin account can also have [Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md) enabled.
 
-If you receive an error and have problems with connectivity, please see [Troubleshoot connectivity problems](active-directory-aadconnect-troubleshoot-connectivity.md).
+If you receive an error and have problems with connectivity, then see [Troubleshoot connectivity problems](active-directory-aadconnect-troubleshoot-connectivity.md).
 
 ## Pages under the section Sync
 
 ### Connect your directories
-To connect to your Active Directory Domain Service, Azure AD Connect needs the credentials of an account with sufficient permissions. You can enter the domain part in either NetBios or FQDN format, i.e. FABRIKAM\syncuser or fabrikam.com\syncuser. This account can be a regular user account because it only needs the default read permissions. However, depending on your scenario, you may need more permissions. For more information, see [Azure AD Connect Accounts and permissions](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account)
+To connect to your Active Directory Domain Service, Azure AD Connect needs the credentials of an account with sufficient permissions. You can enter the domain part in either NetBios or FQDN format, that is, FABRIKAM\syncuser or fabrikam.com\syncuser. This account can be a regular user account because it only needs the default read permissions. However, depending on your scenario, you may need more permissions. For more information, see [Azure AD Connect Accounts and permissions](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account)
 
 ![Connect Directory](./media/active-directory-aadconnect-get-started-custom/connectdir.png)
 
 ### Azure AD sign-in configuration
-This page will allow you to review the UPN domains present in on-premises AD DS and which have been verified in Azure AD. This page will also allow you to configure the attribute to use for the userPrincipalName.
+This page allows you to review the UPN domains present in on-premises AD DS and which have been verified in Azure AD. This page also allows you to configure the attribute to use for the userPrincipalName.
 
 ![Unverified domains](./media/active-directory-aadconnect-get-started-custom/aadsigninconfig.png)  
-Review every domain marked **Not Added** and **Not Verified**. Make sure those you use have been verified in Azure AD. Click on the Refresh symbol when you have verified your domains. For more information, see [add and verify the domain](active-directory-add-domain.md)
+Review every domain marked **Not Added** and **Not Verified**. Make sure those domains you use have been verified in Azure AD. Click the Refresh symbol when you have verified your domains. For more information, see [add and verify the domain](active-directory-add-domain.md)
 
-**UserPrincipalName** - The attribute userPrincipalName is the attribute users use when they sign in to Azure AD and Office 365. The domains used, also known as the UPN-suffix, should be verified in Azure AD before the users are synchronized. Microsoft recommendeds to keep the default attribute userPrincipalName. If this attribute is non-routable and cannot be verified, then it is possible to select another attribute. You can for example select email as the attribute holding the sign-in ID. Using another attribute than userPrincipalName is known as **Alternate ID**. The Alternate ID attribute value must follow the RFC822 standard. An Alternate ID can be used with both password sync and federation.
+**UserPrincipalName** - The attribute userPrincipalName is the attribute users use when they sign in to Azure AD and Office 365. The domains used, also known as the UPN-suffix, should be verified in Azure AD before the users are synchronized. Microsoft recommends to keep the default attribute userPrincipalName. If this attribute is non-routable and cannot be verified, then it is possible to select another attribute. You can for example select email as the attribute holding the sign-in ID. Using another attribute than userPrincipalName is known as **Alternate ID**. The Alternate ID attribute value must follow the RFC822 standard. An Alternate ID can be used with both password sync and federation.
 
 >[AZURE.WARNING]
-Using an Alternate ID is not compatible with all Office 365 workloads. For more information, please refer to [Configuring Alternate Login ID](https://technet.microsoft.com/library/dn659436.aspx).
+Using an Alternate ID is not compatible with all Office 365 workloads. For more information, refer to [Configuring Alternate Login ID](https://technet.microsoft.com/library/dn659436.aspx).
 
 ### Domain and OU filtering
 By default all domains and OUs are synchronized. If there are some domains or OUs you do not want to synchronize to Azure AD, you can unselect these domains and OUs.  
@@ -144,7 +144,7 @@ Based on the services selected in the previous step, this page shows all attribu
 ![Optional features Attributes](./media/active-directory-aadconnect-get-started-custom/azureadattributes2.png)
 
 >[AZURE.WARNING]
-Removing attributes can impact impact functionality. For best practices and recommendations, see [attributes synchronized](active-directory-aadconnectsync-attributes-synchronized.md#attributes-to-synchronize).
+Removing attributes can impact functionality. For best practices and recommendations, see [attributes synchronized](active-directory-aadconnectsync-attributes-synchronized.md#attributes-to-synchronize).
 
 ### Directory Extension attribute sync
 You can extend the schema in Azure AD with custom attributes added by your organization or other attributes in Active Directory. To use this feature, select **Directory Extension attribute sync** on the **Optional Features** page. You can select more attributes to sync on this page.
@@ -158,10 +158,10 @@ Configuring AD FS with Azure AD Connect is simple with just a few clicks. The fo
 
 - A Windows Server 2012 R2 server for the federation server with remote management enabled
 - A Windows Server 2012 R2 server for the Web Application Proxy server with remote management enabled
-- An SSL certificate for the federation service name you intend to use (e.g. sts.contoso.com)
+- An SSL certificate for the federation service name you intend to use (for example sts.contoso.com)
 
 ### AD FS configuration pre-requisites
-To configure your AD FS farm using Azure AD Connect, please ensure WinRM is enabled on the remote servers. In addition, please go through the ports requirement listed in [Table 3 - Azure AD Connect and Federation Servers/WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-federation-serverswap).
+To configure your AD FS farm using Azure AD Connect, ensure WinRM is enabled on the remote servers. In addition, go through the ports requirement listed in [Table 3 - Azure AD Connect and Federation Servers/WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-federation-serverswap).
 
 ### Create a new AD FS farm or use an existing AD FS farm
 You can use an existing AD FS farm or you can choose to create a new AD FS farm. If you choose to create a new one, you are required to provide the SSL certificate. If the SSL certificate is protected by a password, you are prompted for the password.
@@ -171,7 +171,7 @@ You can use an existing AD FS farm or you can choose to create a new AD FS farm.
 If you choose to use an existing AD FS farm, you are taken directly to the configuring the trust relationship between AD FS and Azure AD screen.
 
 ### Specify the AD FS servers
-Enter the servers that you want to install AD FS on. You can add one or more servers based on your capacity planning needs. Join all servers to Active Directory before you perform this configuration. Microsoft recommends to install a single AD FS server for test and pilot deployments. Then add and deploy more servers to meet your scaling needs by running Azure AD Connect again after initial configuration.
+Enter the servers that you want to install AD FS on. You can add one or more servers based on your capacity planning needs. Join all servers to Active Directory before you perform this configuration. Microsoft recommends installing a single AD FS server for test and pilot deployments. Then add and deploy more servers to meet your scaling needs by running Azure AD Connect again after initial configuration.
 
 >[AZURE.NOTE]
 Ensure that all your servers are joined to an AD domain before you do this configuration.
@@ -179,7 +179,7 @@ Ensure that all your servers are joined to an AD domain before you do this confi
 ![AD FS Servers](./media/active-directory-aadconnect-get-started-custom/adfs2.png)
 
 ### Specify the Web Application Proxy servers
-Enter the servers that you want as your Web Application proxy servers. The web application proxy server is deployed in your DMZ (extranet facing) and supports authentication requests from the extranet. You can add one or more servers based on your capacity planning needs. Microsoft recommends to install a single Web application proxy server for test and pilot deployments. Then add and deploy more servers to meet your scaling needs by running Azure AD Connect again after initial configuration. We recommend having an equivalent number of proxy servers to satisfy authentication from the intranet.
+Enter the servers that you want as your Web Application proxy servers. The web application proxy server is deployed in your DMZ (extranet facing) and supports authentication requests from the extranet. You can add one or more servers based on your capacity planning needs. Microsoft recommends installing a single Web application proxy server for test and pilot deployments. Then add and deploy more servers to meet your scaling needs by running Azure AD Connect again after initial configuration. We recommend having an equivalent number of proxy servers to satisfy authentication from the intranet.
 
 >[AZURE.NOTE]
 <li> If the account you use is not a local admin on the AD FS servers, then you are prompted for admin credentials.</li>
@@ -233,7 +233,7 @@ While in staging mode, it is possible to make required changes to the sync engin
 For more information, see [Staging mode](active-directory-aadconnectsync-operations.md#staging-mode).
 
 ### Verify your federation configuration
-Azure AD Connect verifies the DNS settings for you when you click on the Verify button.
+Azure AD Connect verifies the DNS settings for you when you click the Verify button.
 
 ![Complete](./media/active-directory-aadconnect-get-started-custom/completed.png)
 

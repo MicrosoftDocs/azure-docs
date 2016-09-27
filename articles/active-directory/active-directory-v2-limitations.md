@@ -56,6 +56,32 @@ Similarly, apps registered in the new App Registration Portal will not work agai
 
 Apps that are registered in the new Application Registration Portal are currently restricted to a limited set of redirect_uri values.  The redirect_uri for web apps and services must begin with the scheme or `https`, while the redirect_uri for all other platforms must use the hard-coded value of `urn:ietf:oauth:2.0:oob`.
 
+## Restrictions on Redirect URIs
+For web apps, redirect_uri values must all share a single DNS domain.  For example, it is not possible to register a web app that has redirect_uris:
+
+`https://login-east.contoso.com`  
+`https://login-west.contoso.com`
+
+The registration system compares the whole DNS name of the existing redirect_uri with the DNS name of the redirect_uri that you are adding.  If the whole DNS name of the new redirect_uri does not exactly match the DNS name of the existing redirect_uri, or if the whole DNS name of the new redirect_uri is not a sub-domain of the existing redirect_uri, the request to add will fail.  For example, if the app currently has redirect_uri:
+
+`https://login.contoso.com`
+
+Then it is possible to add:
+
+`https://login.contoso.com/new`
+
+which exactly matches the DNS name, or:
+
+`https://new.login.contoso.com`
+
+which is a DNS subdomain of login.contoso.com.  If you want to have an app that has login-east.contoso.com and login-west.contoso.com as redirect_uris, then you must add the following redirect_uris in order:
+
+`https://contoso.com`  
+`https://login-east.contoso.com`  
+`https://login-west.contoso.com`  
+
+The latter two can be added because they are subdomains of the first redirect_uri, contoso.com. This limitation will be removed in an upcoming release.
+
 To learn how to register an app in the new Application Registration Portal, refer to [this article](active-directory-v2-app-registration.md).
 
 ## Restrictions on services & APIs

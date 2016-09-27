@@ -1,14 +1,14 @@
 <properties
    pageTitle="Logic apps content type handling | Microsoft Azure"
    description="Understand how Logic Apps deals with content-types at design and runtime"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="dwrede"
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -26,7 +26,7 @@ To start simple, let's look at the two `Content-Types` that don't require any co
 
 ### Application/json
 
-The workflow engine relies on the `Content-Type` header from HTTP calls to determine the appropriate handling.  Any request of with the content type `application/json` will be stored and handled as a JSON Object.  In addition, JSON content can be parsed by default without needing any casting.  So a request that has the content-type header `application/json ` like this:
+The workflow engine relies on the `Content-Type` header from HTTP calls to determine the appropriate handling.  Any request with the content type `application/json` will be stored and handled as a JSON Object.  In addition, JSON content can be parsed by default without needing any casting.  So a request that has the content-type header `application/json ` like this:
 
 ```
 {

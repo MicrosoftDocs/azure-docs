@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/31/2016"
+    ms.date="07/06/2016"
     ms.author="magoedte;bwren"/>
 
 # My first graphical runbook
@@ -115,10 +115,10 @@ Now that we have a variable to hold our subscription ID, we can configure our ru
 10.  **Add-AzureRmAccount** has multiple parameter sets, so we need to select one before we can provide parameter values.  Click **Parameter Set** and then select the **ServicePrincipalCertificate** parameter set. 
 11.  Once you select the parameter set, the parameters are displayed in the Activity Parameter Configuration blade.  Click **APPLICATIONID**.<br> ![Add Azure RM account parameters](media/automation-first-runbook-graphical/add-azurermaccount-parameterset.png)
 12.  In the Parameter Value blade, select **Activity output** for the **Data source** and select **Get Run As Connection** from the list, in the **Field path** textbox type **ApplicationId**, and then click **OK**.  We are specifying the name of the property for the Field path because the activity outputs an object with multiple properties.
-13.  Click **CERTIFICATETHUMBPRINT**, and in the Parameter Value blade, select **Activity output** for the **Data source**.  Select **Get Run As Connection** from the list, in the **Field path** textbox type **CertificateThumbrprint**, and then click **OK**. 
+13.  Click **CERTIFICATETHUMBPRINT**, and in the Parameter Value blade, select **Activity output** for the **Data source**.  Select **Get Run As Connection** from the list, in the **Field path** textbox type **CertificateThumbprint**, and then click **OK**. 
 14.  Click **SERVICEPRINCIPAL**, and in the Parameter Value blade, select **ConstantValue** for the **Data source**, click the option **True**, and then click **OK**.
 15.  Click **TENANTID**, and in the Parameter Value blade, select **Activity output** for the **Data source**.  Select **Get Run As Connection** from the list, in the **Field path** textbox type **TenantId**, and then click **OK** twice.  
-16.  In the Library control, type **Get-AzureRmContext** in the search textbox.
+16.  In the Library control, type **Set-AzureRmContext** in the search textbox.
 17.	 Add **Set-AzureRmContext** to the canvas.
 18.	 On the canvas, select **Set-AzureRmContext** and in the Configuration control pane type **Specify Subscription Id** in the **Label** textbox.
 19.	 Click **Parameters** and the Activity Parameter Configuration blade appears. 
@@ -210,8 +210,8 @@ We will now modify the runbook so that it will only attempt to start the virtual
 29.	Save the runbook and open the Test pane.
 30.	Start the runbook with the virtual machine stopped, and it should start.
 
-## Next Steps
+## Next steps
 
 -	To learn more about Graphical Authoring, see [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md)
 -	To get started with PowerShell runbooks, see [My first PowerShell runbook](automation-first-runbook-textual-powershell.md)
--	To get started with PowerShell workflow runbooks, see  [My first PowerShell workflow runbook](automation-first-runbook-textual.md)
+-	To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md)

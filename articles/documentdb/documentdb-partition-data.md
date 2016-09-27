@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2016" 
+	ms.date="07/21/2016" 
 	ms.author="arramac"/> 
 
 # Partitioning and scaling in Azure DocumentDB
@@ -247,6 +247,24 @@ The following query does not have a filter on the partition key (DeviceId) and i
         UriFactory.CreateDocumentCollectionUri("db", "coll"), 
         new FeedOptions { EnableCrossPartitionQuery = true })
         .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
+
+### Parallel Query Execution
+
+The DocumentDB SDKs 1.9.0 and above support parallel query execution options, which allow you to perform low latency queries against partitioned collections, even when they need to touch a large number of partitions. For example, the following query is configured to run in parallel across partitions.
+
+    // Cross-partition Order By Queries
+    IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<DeviceReading>(
+        UriFactory.CreateDocumentCollectionUri("db", "coll"), 
+        new FeedOptions { EnableCrossPartitionQuery = true, MaxDegreeOfParallelism = 10, MaxBufferedItemCount = 100})
+        .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100)
+        .OrderBy(m => m.MetricValue);
+
+You can manage parallel query execution by tuning the following parameters:
+
+- By setting `MaxDegreeOfParallelism`, you can control the degree of parallelism i.e., the maximum number of simultaneous network connections to the collection's partitions. If you set this to -1, the degree of parallelism is managed by the SDK.
+- By setting `MaxBufferedItemCount`, you can trade off query latency and client side memory utilization. If you omit this parameter or set this to -1, the number of items buffered during parallel query execution is managed by the SDK.
+
+Given the same state of the collection, a parallel query will return results in the same order as in serial execution. When performing a cross-partition query that includes sorting (ORDER BY and/or TOP), the DocumentDB SDK issues the query in parallel across partitions and merges partially sorted results in the client side to produce globally ordered results.
 
 ### Executing stored procedures
 

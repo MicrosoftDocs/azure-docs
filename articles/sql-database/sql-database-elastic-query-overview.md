@@ -133,6 +133,8 @@ Once you have defined your external data sources and your external tables, you c
 ## Connectivity for tools
 You can use regular SQL Server connection strings to connect your applications and BI or data integration tools to databases that have external tables. Make sure that SQL Server is supported as a data source for your tool. Once connected, refer to the elastic query database and the external tables in that database just like you would do with any other SQL Server database that you connect to with your tool.
 
+> [AZURE.IMPORTANT] Authentication using Azure Active Directory with elastic queries is not currently supported.
+
 ## Cost
 
 Elastic query is included into the cost of Azure SQL Database databases. Note that topologies where your remote databases are in a different data center than the elastic query endpoint are supported, but data egress from remote databases are charged regular [Azure rates](https://azure.microsoft.com/pricing/details/data-transfers/).

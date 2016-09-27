@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="DocumentDB Java SDK | Microsoft Azure" 
-	description="Learn all about the Java SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Java SDK." 
+	pageTitle="DocumentDB Java API & SDK | Microsoft Azure" 
+	description="Learn all about the Java API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Java SDK." 
 	services="documentdb" 
 	documentationCenter="java" 
-	authors="aliuy" 
+	authors="rnagpal" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -13,28 +13,39 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="05/02/2016" 
-	ms.author="andrl"/>
+	ms.date="08/09/2016" 
+	ms.author="rnagpal"/>
 
-# DocumentDB SDK
+# DocumentDB APIs and SDKs
 
 > [AZURE.SELECTOR]
-- [.NET SDK](documentdb-sdk-dotnet.md)
-- [Node.js SDK](documentdb-sdk-node.md)
-- [Java SDK](documentdb-sdk-java.md)
-- [Python SDK](documentdb-sdk-python.md)
+- [.NET](documentdb-sdk-dotnet.md)
+- [Node.js](documentdb-sdk-node.md)
+- [Java](documentdb-sdk-java.md)
+- [Python](documentdb-sdk-python.md)
+- [REST](https://go.microsoft.com/fwlink/?LinkId=402413)
+- [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 
-##DocumentDB Java SDK
+## DocumentDB Java API and SDK
 
 <table>
-<tr><td>**Download**</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr>
-<tr><td>**Contribute**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
-<tr><td>**Documentation**</td><td>[Java SDK Reference Documentation](http://azure.github.io/azure-documentdb-java/)</td></tr>
-<tr><td>**Get Started**</td><td>[Get started with the Java SDK](documentdb-java-application.md)</td></tr>
-<tr><td>**Current Supported Runtime**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
+<tr><td>**SDK Download**</td><td>[Maven](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb)</td></tr>
+<tr><td>**API documentation**</td><td>[Java API reference documentation](http://azure.github.io/azure-documentdb-java/)</td></tr>
+<tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
+<tr><td>**Get started**</td><td>[Get started with the Java SDK](documentdb-java-application.md)</td></tr>
+<tr><td>**Current supported runtime**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
 </table></br>
 
 ## Release Notes
+
+### <a name="1.8.1"/>[1.8.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.8.1)
+  - Fixed a bug in PartitionKeyDefinitionMap to cache single partition collections and not make extra fetch partition key requests.
+  - Fixed a bug to not retry when an incorrect partition key value is provided.
+
+### <a name="1.8.0"/>[1.8.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.8.0)
+  - Added the support for multi-region database accounts.
+  - Added support for automatic retry on throttled requests with options to customize the max retry attempts and max retry wait time.  See RetryOptions and ConnectionPolicy.getRetryOptions(). 
+  - Deprecated IPartitionResolver based custom partitioning code. Please use partitioned collections for higher storage and throughput.
 
 ### <a name="1.7.1"/>[1.7.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.7.1)
 - Added retry policy support for throttling.  
@@ -83,6 +94,8 @@ All versions of the Azure DocumentDB SDK for Java prior to version **1.0.0** wil
 
 | Version | Release Date | Retirement Date 
 | ---	  | ---	         | ---
+| [1.8.1](#1.8.1) | June 30, 2016 |---
+| [1.8.0](#1.8.0) | June 14, 2016 |---
 | [1.7.1](#1.7.1) | April 30, 2016 |---
 | [1.7.0](#1.7.0) | April 27, 2016 |---
 | [1.6.0](#1.6.0) | March 29, 2016 |---

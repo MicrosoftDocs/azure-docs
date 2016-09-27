@@ -1,14 +1,14 @@
 <properties
    pageTitle="Tutorial: Process EDIFACT Invoices Using Azure BizTalk Services | Microsoft Azure BizTalk Services"
    description="How to create and configure the Box Connector or API app and use it in a logic app in Azure App Service"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="msftman"
    manager="erikre"
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"

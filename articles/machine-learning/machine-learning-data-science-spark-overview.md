@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2016"
+	ms.date="06/14/2016"
 	ms.author="bradsev" />
 
 # Overview of Data Science using Spark on Azure HDInsight
@@ -37,6 +37,7 @@ The setup steps and code provided in this walkthrough is for HDInsight 3.4 Spark
 
 ![](./media/machine-learning-data-science-spark-overview/spark-cluster-on-portal.png)
 
+> [AZURE.NOTE] For a topic that shows how to use Scala rather than Python to complete tasks for an end-to-end data science process, see the [Data Science using Scala with Spark on Azure](machine-learning-data-science-process-scala-walkthrough.md).
 
 >[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 

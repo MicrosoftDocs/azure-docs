@@ -1,9 +1,9 @@
-<properties 
+﻿<properties 
 	pageTitle="Machine Learning Recommendations: JavaScript Integration | Microsoft Azure" 
 	description="Azure Machine Learning Recommendations - JavaScript Integration – documentation" 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="AharonGumnik" 
+	authors="LuisCabrer" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,10 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="05/03/2016" 
+	ms.date="09/08/2016" 
 	ms.author="luisca"/>
 
 # Azure Machine Learning Recommendations - JavaScript Integration
+
+>[AZURE.NOTE] You should start using the Recommendations API Cognitive Service instead of this
+> version. The Recommendations Cognitive Service will be replacing this service, and all the new 
+> features will be developed there. It has new capabilities like batching support, a better API Explorer,
+> a cleaner API surface, more consistent signup/billing experience, etc.
+> Learn more about [Migrating to the new Cognitive Service](http://aka.ms/recomigrate)
+
 
 This document depict how to integrate your site using JavaScript. The JavaScript enables you to send Data Acquisition events and to consume recommendations once you build a recommendation model. All operations done via JS can be also done from server side.
 
@@ -59,7 +66,7 @@ The following steps facilitate sending events:
 1.	Include JQuery library in your code. You can download it from nuget in the following URL.
 
 		http://www.nuget.org/packages/jQuery/1.8.2
-2.	Include the Recommendations Java Script library from the following URL: http://1drv.ms/1Aoa1Zp
+2.	Include the Recommendations Java Script library from the following URL: http://aka.ms/RecoJSLib1
 
 3.	Initialize Azure ML Recommendations library with the appropriate parameters.
 

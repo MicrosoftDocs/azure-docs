@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/04/2016"
+	ms.date="08/19/2016"
 	ms.author="jroth"/>
 
 # Use Azure Premium Storage with SQL Server on Virtual Machines
@@ -24,10 +24,10 @@
 
 [Azure Premium Storage](../storage/storage-premium-storage.md) is the next generation of storage that provides low latency and high throughput IO. It works best for key IO intensive workloads, such as SQL Server on IaaS [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 
-This article provides planning and guidance for migrating a Virtual Machine running SQL Server to use Premium Storage. This includes Azure infrastructure (networking, storage) and guest Windows VM steps. The example in the [Appendix](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) shows a full comphrensive end to end migration of how to move larger VMs to take advantage of improved local SSD storage with PowerShell.
+This article provides planning and guidance for migrating a Virtual Machine running SQL Server to use Premium Storage. This includes Azure infrastructure (networking, storage) and guest Windows VM steps. The example in the [Appendix](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) shows a full comprehensive end to end migration of how to move larger VMs to take advantage of improved local SSD storage with PowerShell.
 
 It is important to understand the end-to-end process of utilizing Azure Premium Storage with SQL Server on IAAS VMs. This includes:
 
@@ -35,7 +35,7 @@ It is important to understand the end-to-end process of utilizing Azure Premium 
 - Examples of deploying SQL Server on IaaS to Premium Storage for new deployments.
 - Examples of migrating existing deployments, both stand-alone servers and deployments using SQL Always On Availability Groups.
 - Possible migration approaches.
-- Full end-to-end example showing Azure, Windows, and SQL Server steps for  the migration of an existing Always On implementation.
+- Full end-to-end example showing Azure, Windows, and SQL Server steps for the migration of an existing Always On implementation.
 
 For more background information on SQL Server in Azure Virtual Machines, see [SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
 
@@ -48,7 +48,7 @@ There are several prerequisites for using Premium Storage.
 
 ### Machine size
 
-For using Premium Storage you will need to use DS series Virtual Machines (VM). If you have not used DS Series machines in your cloud service before, you must delete the existing VM, keep the attached disks, and then create a new cloud service before recreating  the VM as DS* role size. For more information on Virtual Machine sizes, see [Virtual Machine and Cloud Service Sizes for Azure](virtual-machines-linux-sizes.md).
+For using Premium Storage you will need to use DS series Virtual Machines (VM). If you have not used DS Series machines in your cloud service before, you must delete the existing VM, keep the attached disks, and then create a new cloud service before recreating the VM as DS* role size. For more information on Virtual Machine sizes, see [Virtual Machine and Cloud Service Sizes for Azure](virtual-machines-linux-sizes.md).
 
 ### Cloud services
 
@@ -58,7 +58,7 @@ You can only use DS* VMs with Premium Storage when they are created in a new clo
 
 ### Regional VNETS
 
-For  DS* VMs you must configure the Virtual Network (VNET) hosting your VMs to be regional. This “widens” the VNET is to allow the larger VMs to be provisioned in other clusters and allow communication between them. In the following screenshot, the highlighted Location shows regional VNETs, whereas the first result shows a “narrow” VNET.
+For DS* VMs you must configure the Virtual Network (VNET) hosting your VMs to be regional. This “widens” the VNET is to allow the larger VMs to be provisioned in other clusters and allow communication between them. In the following screenshot, the highlighted Location shows regional VNETs, whereas the first result shows a “narrow” VNET.
 
 ![RegionalVNET][1]
 
@@ -127,7 +127,7 @@ For each disk, use the following steps:
 
 	![DisknameAndLUN][2]
 
-1. Remote desktop into the VM. Then go to **Computer Management** | **Device Manager** | **Disk Drives**. Look at the  properties of each of the ‘Microsoft Virtual Disks’
+1. Remote desktop into the VM. Then go to **Computer Management** | **Device Manager** | **Disk Drives**. Look at the properties of each of the ‘Microsoft Virtual Disks’
 
 	![VirtualDiskProperties][3]
 
@@ -136,7 +136,7 @@ For each disk, use the following steps:
 
 	![VirtualDiskPropertyDetails][4]
 
-2. For each storage pool dump out the associated disks:
+2. For each storage pool, dump out the associated disks:
 
     Get-StoragePool -FriendlyName AMS1pooldata | Get-PhysicalDisk
 
@@ -351,20 +351,20 @@ Here you are building the VM from your image and attaching two Premium Storage V
 
 > [AZURE.NOTE] For existing deployments, first see the [Prerequisites](#prerequisites-for-premium-storage) section of this topic.
 
-There are different considerations for SQL Server deployments that do not use Always On Availbility Groups and those that do. If you are not using Always On and have an existing standalone SQL Server, you can upgrade to Premium Storage by using a new cloud service and storage account. Consider the following options:
+There are different considerations for SQL Server deployments that do not use Always On Availability Groups and those that do. If you are not using Always On and have an existing standalone SQL Server, you can upgrade to Premium Storage by using a new cloud service and storage account. Consider the following options:
 
 - **Create a new SQL Server VM**. You can create a new SQL Server VM that uses a Premium Storage account, as documented in New Deployments. Then backup and restore your SQL Server configuration and user databases. The application will need to be updated to reference the new SQL Server if it is being accessed internally or externally. You would need to copy all ‘out of db’ objects as if you were doing a Side by Side (SxS) SQL Server migration. This includes objects such as logins, certificates, and linked servers.
 - **Migrate an existing SQL Server VM**. This will require taking the SQL Server VM offline, then transferring it to a new cloud service, which includes copying all of its attached VHDs to the Premium Storage account. When the VM comes online, the application will reference the server host name as before. Be aware that the size of the existing disk will affect the performance characteristics. For example, a 400 GB disk gets rounded up to a P20. If you know that you do not require that disk performance, then you could recreate the VM as a DS Series VM, and attach Premium Storage VHDs of the size/performance specification you require. Then you could detach and reattach the SQL DB files.
 
-> [AZURE.NOTE] When copying the VHD disks you should beaware of the size, depending on the size will mean what Premium Storage Disk type they fall into, this determines disk performance specification. Azure will round up to the nearest disk size, so if you have a 400GB disk, this will be rounded up to a P20. Depending on your existing IO requirements of the OS VHD, you might not need to migrate this to a Premium Storage account.
+> [AZURE.NOTE] When copying the VHD disks you should be aware of the size, depending on the size will mean what Premium Storage Disk type they fall into, this determines disk performance specification. Azure will round up to the nearest disk size, so if you have a 400GB disk, this will be rounded up to a P20. Depending on your existing IO requirements of the OS VHD, you might not need to migrate this to a Premium Storage account.
 
-If your SQL Server is accessed externally, then the cloud service VIP will change. You will also have to update endptoints, ACLs, and DNS settings.
+If your SQL Server is accessed externally, then the cloud service VIP will change. You will also have to update end points, ACLs, and DNS settings.
 
 ## Existing deployments that use Always On Availability Groups
 
 > [AZURE.NOTE] For existing deployments, first see the [Prerequisites](#prerequisites-for-premium-storage) section of this topic.
 
-Intially in this section we will look at how Always On interacts with Azure Networking. We will then break down migrations in to two scenarios: migrations where some downtime can be tolerated and migrations where you must achieve minimal downtime.
+Initially in this section we will look at how Always On interacts with Azure Networking. We will then break down migrations in to two scenarios: migrations where some downtime can be tolerated and migrations where you must achieve minimal downtime.
 
 On-premises SQL Server Always On Availability Groups use a Listener on-premises that registers a virtual DNS name along with an IP address that is shared between one or more SQL Servers. When clients connect they are routed through the listener IP to the Primary SQL Server. This is the server that owns the Always On IP resource at that time.
 
@@ -396,8 +396,8 @@ You should provision time where you can perform manual failover and chaos testin
 
 ![DeploymentUseAlways On2][7]
 
-> [AZURE.NOTE] You should stop all instances of SQL Server where the Storage Pools are used before the Validaion runs.
-##### High level steps
+> [AZURE.NOTE] You should stop all instances of SQL Server where the Storage Pools are used before the Validation runs.
+##### High-level steps
 
 1. Create two new SQL Servers in new cloud service with attached Premium Storage.
 1. Copy over FULL backups and restore with **NORECOVERY**.
@@ -410,7 +410,7 @@ You should provision time where you can perform manual failover and chaos testin
 1. Add new Nodes to cluster and run full validation.
 1. Once Validation is successful, start all SQL Server Services.
 1. Backup Transaction logs, and restore user databases.
-1. Add new nodes into the Always On Availability Group and place replication into **Syncronous**.
+1. Add new nodes into the Always On Availability Group and place replication into **Synchronous**.
 1. Add the IP address resource of the new Cloud Service ILB/ELB through PowerShell for Always On based on the Multi-site example in the [Appendix](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage). In Windows clustering, set the **Possible owners** of the **IP Address** resource to the new nodes old. See the ‘Adding IP Address Resource on Same Subnet’ section of the [Appendix](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
 1. Failover to one of the new nodes.
 1. Make the new nodes Auto Failover Partners and test failovers.
@@ -426,7 +426,7 @@ You should provision time where you can perform manual failover and chaos testin
 - When using Windows Storage Pools, there is Cluster downtime during the Full Cluster Validation for the new additional nodes.
 - Depending on the SQL Server Version and the existing number of secondary replicas, you might not be able to add more secondary replicas without removing existing secondaries.
 - There could be long SQL data transfer time while setting up the secondaries.
-- There is additional cost during migration while you have new machines running in paralell.
+- There is additional cost during migration while you have new machines running in parallel.
 
 #### 2. Migrate to a new Always On Cluster
 
@@ -465,9 +465,9 @@ One strategy for minimal downtime is to take an existing cloud secondary and rem
 
 ##### Points of downtime
 
-- There is downtime when you update the final node with the Load Balanaced endpoint.
+- There is downtime when you update the final node with the Load Balanced endpoint.
 - Your client reconnection might be delayed depending on your client/DNS configuration.
-- There is additional downtime if you choose to take the Always On Cluster group offline to swap out the IP addresses. You can avoid this by using an OR dependancy and Possible Owners for the added IP Address resource. See the ‘Adding IP Address Resource on Same Subnet’ section of the [Appendix](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
+- There is additional downtime if you choose to take the Always On Cluster group offline to swap out the IP addresses. You can avoid this by using an OR dependency and Possible Owners for the added IP Address resource. See the ‘Adding IP Address Resource on Same Subnet’ section of the [Appendix](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
 
 > [AZURE.NOTE] When you want the added node to partake in as an Always On Failover Partner, you need to add an Azure Endpoint with a reference to the Load Balanced Set. When you run the **Add-AzureEndpoint** command to do this, current connections to remain open, but new connections to the listener will not be able to be established until the load balancer has updated. In testing this was seen to last 90-120seconds, this should be tested.
 
@@ -487,7 +487,7 @@ One strategy for minimal downtime is to take an existing cloud secondary and rem
 	- Run the migration outside of Azure scheduled maintenance.
 	- Ensure you have configured your cluster quorum correctly.  
 
-##### High level steps
+##### High-level steps
 
 This document does not demonstrate a complete end to end example, however the [Appendix](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) provides details that can be leveraged to perform this.
 
@@ -499,7 +499,7 @@ This document does not demonstrate a complete end to end example, however the [A
 - Configure ILB / ELB and add Endpoints.
 - Update Listener by either:
 	- Taking the Always On Group offline and updating the Always On Listener with new ILB / ELB IP address.
-	- Or adding the IP addess resource of new Cloud Service ILB/ELB through PowerShell into Windows clustering. Then set the Possible owners of the IP Address resource to the migrated node, SQL2, and set this as OR dependency in the Network Name. See the ‘Adding IP Address Resource on Same Subnet’ section of the [Appendix](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
+	- Or adding the IP address resource of new Cloud Service ILB/ELB through PowerShell into Windows clustering. Then set the Possible owners of the IP Address resource to the migrated node, SQL2, and set this as OR dependency in the Network Name. See the ‘Adding IP Address Resource on Same Subnet’ section of the [Appendix](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage).
 - Check DNS configuration/propogation to the clients.
 - Migrate SQL1 VM, and go through steps 2 – 4.
 - If using steps 5ii, then add SQL1 as a Possible Owner for the added IP Address Resource
@@ -529,7 +529,7 @@ Consider the following example of a hybrid Always On configuration:
 ##### Disadvantages
 
 - Depending on client access to SQL Server, there might be increased latency when SQL Server is running in an alternative DC to the application.
-- The copy time of VHDs to Premium storage could be long. This might affect your decision on whether to keep the node in the Availability Group. Consider this for when log intensive work loads are running during the migrationis required, since the Primary node will have to keep the unreplicated transactions in its transaction log. Therefore this could grow significantly.
+- The copy time of VHDs to Premium storage could be long. This might affect your decision on whether to keep the node in the Availability Group. Consider this for when log intensive work loads are running during the migration is required, since the Primary node will have to keep the unreplicated transactions in its transaction log. Therefore this could grow significantly.
 - This scenario would use the Azure **Start-AzureStorageBlobCopy** commandlet, which is asynchronous. There is no SLA on completion. The time of the copies varies, while this depends on wait in queue, it will also depend on the amount of data to transfer. Therefore you just have one node in your 2nd data center, you should take mitigation steps in case the copy takes longer than in testing. This could include the following ideas.
 	- Add a temporary 2nd SQL node for HA before the migration with agreed downtime.
 	- Run the migration outside of Azure scheduled maintenance.
@@ -537,7 +537,7 @@ Consider the following example of a hybrid Always On configuration:
 
 This scenario assumes that you have documented your install and know how the storage is mapped in order to make changes for optimal disk cache settings.
 
-##### High level steps
+##### High-level steps
 ![Multisite2][10]
 
 - Make the on-premises / alternate Azure DC the SQL Server Primary, and make it the other Auto Failover Partner (AFP).
@@ -625,13 +625,13 @@ If you have only one IP address for the Cluster Group and this is aligned to the
 
 #### Step 4: DNS configuration
 
-To implement a smooth transition depends on how DNS is being utilised and updated.
+To implement a smooth transition depends on how DNS is being utilized and updated.
 When Always On is installed, it creates a Windows Cluster Resource group, if you open Failover Cluster Manager, you will see that at a minimum it will have three resources, the two that the document refers to are:
 
 - Virtual Network Name (VNN) – This is the DNS name that client connect to when wanting to connect to SQL Servers via Always On.
 - IP Address Resource – This is the IP address that associated with the VNN, you can have more than one, and in a multisite configuration you will have an IP address per site/subnet.
 
-When connecting to SQL Sevrer, the SQL Server Client driver will retrieve the DNS records associated with the listener and try to connect to each Always On associated IP address, below we discuss some factors that can influence this.
+When connecting to SQL Server, the SQL Server Client driver will retrieve the DNS records associated with the listener and try to connect to each Always On associated IP address, below we discuss some factors that can influence this.
 
 The number of concurrent DNS records that are associated with the listener name depends not only on the number of IP addresses associated, but the ‘RegisterAllIpProviders’setting in Failover Clustering for the Always ON VNN resource.
 
@@ -645,7 +645,7 @@ If ‘RegisterAllIpProviders’ is 1:
 
 ![Appendix5][15]
 
-The code below will dump out the VNN settings and set it for you, please note, for the change to take effect you will need to take the the VNN offline and turn it back online, this taking the Listener offline causing client connectivity disruption.
+The code below will dump out the VNN settings and set it for you, please note, for the change to take effect you will need to take the VNN offline and turn it back online, this taking the Listener offline causing client connectivity disruption.
 
     ##Always On Listener Name
     $ListenerName = "Mylistener"
@@ -656,7 +656,7 @@ The code below will dump out the VNN settings and set it for you, please note, f
 
 In a later migration step you will need to update the Always On listener with an updated IP address that will reference a load balancer, this will involve an IP Address resource removal and addition. After the IP update, you need to ensure the new IP address has been updated in DNS Zone and that the clients are updating their local DNS cache.
 
-If you clients reside in a different network segment and reference a different DNS server, you need to consider what happens about DNS Zone Transfer during the migration, as the application reconnect time will be constrained by at least the Zone Transfer Time of any new IP addresses for the listener. If you are under time constraint here, you should discuss and test forcing an incremental zone transfer with your Windows teams, and also put the DNS host record to a lower Time To Live (TTL), so the clients update. For more information, see [Incremental Zone Transfers](https://technet.microsoft.com/library/cc958973.aspx) and [Start-DnsServerZoneTransfer](https://technet.microsoft.com/library/jj649917.aspx).
+If your clients reside in a different network segment and reference a different DNS server, you need to consider what happens about DNS Zone Transfer during the migration, as the application reconnect time will be constrained by at least the Zone Transfer Time of any new IP addresses for the listener. If you are under time constraint here, you should discuss and test forcing an incremental zone transfer with your Windows teams, and also put the DNS host record to a lower Time To Live (TTL), so the clients update. For more information, see [Incremental Zone Transfers](https://technet.microsoft.com/library/cc958973.aspx) and [Start-DnsServerZoneTransfer](https://technet.microsoft.com/library/jj649917.aspx).
 
 By default the TTL for DNS Record that is associated with the Listener in Always On in Azure is 1200 seconds. You may wish to reduce this if you are under time constraint during your migration to ensure the clients update their DNS with the updated IP address for the listener. You can see and modify the configuration by dumping out the configuration of the VNN:
 
@@ -678,7 +678,7 @@ For more information regarding the settings above, please see [MultiSubnetFailov
 
 #### Step 5: Cluster quorum settings
 
-As you are going to be taking out at least one SQL Server down at a time, you should modify the cluster quorum setting, if using File Share Witnes (FSW) with 2 nodes, you should set the quorum to allow node majority and utilise dynamic voting, and this is to allow for a single node to remain standing.
+As you are going to be taking out at least one SQL Server down at a time, you should modify the cluster quorum setting, if using File Share Witness (FSW) with 2 nodes, you should set the quorum to allow node majority and utilize dynamic voting, and this is to allow for a single node to remain standing.
 
 
     Set-ClusterQuorum -NodeMajority  
@@ -913,7 +913,7 @@ You should now check DNS Servers on your SQL Server client networks and make sur
 
 #### Step 16: Reconfigure Always On
 
-At this point you wait for the secondary that node that was migrated to fully resynchronise with the on-premise node and switch to synchronous replication node and make it the AFP.  
+At this point you wait for the secondary that node that was migrated to fully resynchronize with the on-premise node and switch to synchronous replication node and make it the AFP.  
 
 #### Step 17: Migrate second node
     $vmNameToMigrate="dansqlams1"
@@ -1103,7 +1103,7 @@ For information for individual blobs:
 
 #### Step 23: Test failover
 
-You should now let the migrated node synchronise with the on-premise Always On node, place it in to synchronous replication mode and wait until it is synchronised. Then failover from on-prem to the first node migrated, which is the AFP. Once that has worked, change the last migrated node to the AFP.
+You should now let the migrated node synchronize with the on-premise Always On node, place it in to synchronous replication mode and wait until it is synchronized. Then failover from on-prem to the first node migrated, which is the AFP. Once that has worked, change the last migrated node to the AFP.
 
 You should test failovers between all nodes and run though chaos tests to ensure failovers work as expected and in a timely manor.
 
@@ -1116,11 +1116,11 @@ Once you have brought up the migrated secondary and added in the new IP Address 
 
 To add in IP Address, see the [Appendix](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage), step 14.
 
-1. For the current IP Address resource change the possible owner to ‘Existing Primary SQL Server’, in the example below, ‘dansqlams4’:
+1. For the current IP Address resource, change the possible owner to ‘Existing Primary SQL Server’, in the example below, ‘dansqlams4’:
 
 	![Appendix13][23]
 
-1. For the new IP Address resource  change the possible owner to ‘Migrated secondary SQL Server’, in the example below, ‘dansqlams5’:
+1. For the new IP Address resource, change the possible owner to ‘Migrated secondary SQL Server’, in the example below, ‘dansqlams5’:
 
 	![Appendix14][24]
 

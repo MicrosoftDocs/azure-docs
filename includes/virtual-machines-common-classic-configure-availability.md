@@ -18,7 +18,7 @@ You can use either the Azure portal or Azure PowerShell commands to do this.
 
 To use the Azure portal:
 
-1. If you haven't already done so, sign in to the Azure portal.
+1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com).
 
 2. On the hub menu, click **+ New**, and then click **Virtual Machine**.
     
@@ -49,7 +49,7 @@ To use Azure PowerShell commands to create an Azure virtual machine and add it t
 In the Azure portal, you can add existing classic virtual machines to an existing availability set
  or create a new one for them. (Keep in mind that the virtual machines in the same availability set must belong to the same cloud service.) The steps are almost the same. With Azure PowerShell, you can add the virtual machine to an existing availability set.
 
-1. If you have not already done so, sign in to the Azure portal.
+1. If you have not already done so, sign in to the [Azure portal](https://portal.azure.com).
 
 2. On the Hub menu, click **Virtual Machines (classic)**.
     
@@ -73,9 +73,6 @@ To use Azure PowerShell commands, open an administrator-level Azure PowerShell s
 
 >[AZURE.NOTE] The virtual machine might have to be restarted to finish adding it to the availability set.
 
-## Additional resources
-
-[Articles for classic virtual machines] []
 
 <!-- LINKS -->
 [Option 1: Create a virtual machine and an availability set at the same time]: #createset
@@ -86,4 +83,4 @@ To use Azure PowerShell commands, open an administrator-level Azure PowerShell s
 
 [Create a virtual machine running Windows]: ../articles/virtual-machines/virtual-machines-windows-hero-tutorial.md
 [Virtual Network overview]: ../articles/virtual-network/virtual-networks-overview.md
-[Articles for classic virtual machines]: https://azure.microsoft.com/documentation/articles/?tag=azure-service-management&service=virtual-machines 
+

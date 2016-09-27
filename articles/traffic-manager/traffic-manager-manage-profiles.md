@@ -3,7 +3,7 @@
    description="This article will help you create, disable, enable, delete, and view the history of a Azure Traffic Manager profile."
    services="traffic-manager"
    documentationCenter=""
-   authors="joaoma"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="03/17/2016"
-   ms.author="joaoma" />
+   ms.author="sewhee" />
 
 # Manage an Azure Traffic Manager profile
 

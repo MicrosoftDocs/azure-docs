@@ -1,14 +1,14 @@
 <properties
-	pageTitle="How to configure Azure alerts to send to other systems"
+	pageTitle="How to configure Azure alerts to send to other systems | Microsoft Azure"
 	description="Reroute Azure alerts to other non-Azure systems."
 	authors="kamathashwin"
 	manager=""
 	editor=""
-	services="azure-portal"
-	documentationCenter="na"/>
+	services="monitoring-and-diagnostics"
+	documentationCenter="monitoring-and-diagnostics"/>
 
 <tags
-	ms.service="azure-portal"
+	ms.service="monitoring-and-diagnostics"
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -65,7 +65,7 @@ The POST operation will contain the following JSON payload and schema for all me
             "resourceType": "microsoft.foo/sites",
             "resourceId": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1",
             "resourceRegion": "centralus",
-            "portalLink": “https://portal.azure.com/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1”                                
+            "portalLink": "https://portal.azure.com/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1"
 },
 "properties": {
               "key1": "value1",
@@ -73,8 +73,6 @@ The POST operation will contain the following JSON payload and schema for all me
               }
 }
 ```
-
->[AZURE.NOTE] In our next refresh, we will add support for alerts on Events (“conditionType” : “Event”)
 
 
 | Field | Mandatory? | Fixed Set of Value(s)? | Notes |

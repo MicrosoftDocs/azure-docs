@@ -4,7 +4,7 @@
    keywords=""
    services="sql-database"
    documentationCenter=""
-   authors="carlrabeler"
+   authors="CarlRabeler"
    manager="jhubbard"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management"
-   ms.date="05/04/2016"
+   ms.date="07/19/2016"
    ms.author="carlrab"/>
 
 # Builds Multi-tenant Apps with Azure SQL Database With Isolation and Efficiency
@@ -59,11 +59,11 @@ In addition to elastic pools, there are SQL Database features to help manage ope
 Go to the homepage to see what else SQL Database has to offer.
 [Check it out](https://azure.microsoft.com/services/sql-database/) 
 
-## Next Steps
+## Next steps
 
 Get a [free Azure subscription](https://azure.microsoft.com/get-started/) and [create your first Azure SQL Database](sql-database-get-started.md).
 
-## Learn More
+## Additional resources
 
 Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/).
  

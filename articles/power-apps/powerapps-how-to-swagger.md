@@ -14,11 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na" 
-   ms.date="04/12/2016"
+   ms.date="07/12/2016"
    ms.author="mandia"/>
 
 
 # Customize your Swagger definition for PowerApps and Logic Flows
+
+>[AZURE.IMPORTANT] This topic has moved to powerapps.microsoft.com at [Customize your Swagger definition for PowerApps and Flows](https://powerapps.microsoft.com/tutorials/customapi-how-to-swagger/). Please go to PowerApps for the latest version. This Azure link is being archived.
+
 
 ## Author Swagger 2.0 API definition for your API
 

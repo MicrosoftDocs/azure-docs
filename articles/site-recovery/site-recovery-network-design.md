@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="03/08/2016"
+	ms.date="06/21/2016"
 	ms.author="pratshar"/>
 
 #  Designing your network infrastructure for disaster recovery

@@ -3,8 +3,8 @@
    description="Learn how to restore from a Windows Server or Windows Client."
    services="backup"
    documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
+   authors="saurabhsensharma"
+   manager="shivamg"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	 ms.tgt_pltfrm="na"
 	 ms.devlang="na"
 	 ms.topic="article"
-	 ms.date="05/09/2016"
+	 ms.date="08/02/2016"
 	 ms.author="trinadhk; jimpark; markgal;"/>
 
 # Restore files to a Windows server or Windows client machine using the classic deployment model
@@ -29,7 +29,7 @@ This article covers the steps required to perform two types of restore operation
 
 In both cases, the data is retrieved from the Azure Backup vault.
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager deployment model.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ## Recover data to the same machine
 If you accidentally deleted a file and wish to restore it to the same machine (from which the backup is taken), the following steps will help you recover the data.

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2016"
+	ms.date="08/15/2016"
 	ms.author="genemi"/>
 
 
@@ -53,7 +53,7 @@ A key goal for SQL Database V12 was to improve the compatibility with Microsoft 
 
 - [ALTER DATABASE SCOPED CONFIGURATION (Transact-SQL)](http://msdn.microsoft.com/library/mt629158.aspx)
 
-Please see [here](sql-database-transact-sql-information.md) for the small set of features not yet supported in SQL Database.
+See [here](sql-database-transact-sql-information.md) for the small set of features not yet supported in SQL Database.
 
 
 ### Compatibility level 130
@@ -61,7 +61,7 @@ Please see [here](sql-database-transact-sql-information.md) for the small set of
 
 > [AZURE.IMPORTANT] Starting in **June 2016**, *newly* created databases on Azure SQL Database V12 have their compatibility level start at 130, which matches Microsoft SQL Server 2016 GA.
 > 
-> Of course, you can use `ALTER DATABASE YourDatabase SET COMPATIBILITY_LEVEL = 120` if you prefer.
+> You can use `ALTER DATABASE YourDatabase SET COMPATIBILITY_LEVEL = 120` if you prefer.
 > 
 > Databases created before June 2016 do not have their compatibility level changed by this change of default. Nor is the level of a database changed by upgrading it from V11 to V12.
 
@@ -99,11 +99,10 @@ Click [here](sql-database-develop-direct-route-ports-adonet-v12.md) for details 
 ## Better support for cloud SaaS vendors
 
 
-Only in V12, we released the new Standard performance level S3 and the public preview of [elastic database pools](sql-database-elastic-pool.md).
-This is a solution specifically designed for cloud SaaS vendors.  With elastic database pools, you can:
+Only in V12, we released the new Standard performance level S3 and the public preview of [elastic database pools](sql-database-elastic-pool.md). Elastic database pools is a solution designed for cloud SaaS vendors.  With elastic database pools, you can:
 
 
-- Share DTUs amongst databases to reduce costs for large numbers of databases.
+- Share DTUs among databases to reduce costs for large numbers of databases.
 - Execute [elastic database jobs](sql-database-elastic-jobs-overview.md) to manage databases at scale.
 
 
@@ -126,13 +125,13 @@ Security is a primary concern for anyone who runs their business in the cloud. T
 ## Increased business continuity when recovery is needed
 
 
-V12 offers significantly improved recovery point objectives (RPOs) and estimated recovery times (ERTs):
+V12 offers improved recovery point objectives (RPOs) and estimated recovery times (ERTs):
 
 
 | Business continuity feature | Earlier version | V12 |
 | :-- | :-- | :-- |
 | Geo-restore | • RPO < 24 hours.<br/>• ERT <  12 hours. | • RPO < 1 hour.<br/>• ERT < 12 hours. |
-| Active geo-replication | • RPO < 5 minutes.<br/>• ERT < 1 hour. | • RPO < 5 seconds.<br/>• ERT < 30 seconds. |
+| Active Geo-Replication | • RPO < 5 minutes.<br/>• ERT < 1 hour. | • RPO < 5 seconds.<br/>• ERT < 30 seconds. |
 
 
 See [SQL Database business continuity](sql-database-business-continuity.md) for more information.
@@ -144,7 +143,7 @@ See [SQL Database business continuity](sql-database-business-continuity.md) for 
 There are many good reasons why customers should upgrade now to Azure SQL Database V12 from V11:
 
 
-- SQL Database V12 has a long list of features beyond those of V11.
+- SQL Database V12 has a long list of features beyond the features of V11.
 - We continue to add new features to V12, but no new features will be added to V11.
 - Most new features are released on SQL Database V12 before they are being released for Microsoft SQL Server.
 

@@ -19,6 +19,16 @@
 
 # Get started with threat detection
 
+> [AZURE.SELECTOR]
+- [Security Overview](sql-data-warehouse-overview-manage-security.md)
+- [Threat detection](sql-data-warehouse-security-threat-detection.md)
+- [Encryption (Portal)](sql-data-warehouse-encryption-tde.md)
+- [Encryption (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+- [Auditing Overview](sql-data-warehouse-auditing-overview.md)
+- [Auditing downlevel clients](sql-data-warehouse-auditing-downlevel-clients.md)
+
+
+
 ## Overview
 
 Threat Detection detects anomalous database activities indicating potential security threats to the database. Threat Detection is in preview and is supported for SQL Data Warehouse.

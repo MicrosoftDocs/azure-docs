@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/04/2016" 
+	ms.date="08/02/2016" 
 	ms.author="stbaro"/>
 
 # Deploy DocumentDB and Azure App Service Web Apps using an Azure Resource Manager Template

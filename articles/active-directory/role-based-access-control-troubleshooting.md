@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Role based access control troubleshooting"
-	description="Working with different resource types for role based access control."
+	pageTitle="Role based access control troubleshooting | Microsoft Azure"
+	description="Get help with issues or questions about Role Based Access Control resources."
 	services="azure-portal"
 	documentationCenter="na"
 	authors="kgremban"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/18/2016"
+	ms.date="07/12/2016"
 	ms.author="kgremban"/>
 
 # Role-Based Access Control troubleshooting
@@ -22,7 +22,7 @@
 
 [Role-Based Access Control](role-based-access-control-configure.md) is a powerful feature that allows you to delegate fine-grained access to resources in Azure. This means you can feel confident granting a specific person the right to use exactly what they need, and no more. However, at times the resource model for Azure resources can be complicated and it can be difficult to understand exactly what you are granting permissions to.
 
-This document will let you know what to expect when using some of the roles in the Azure portal. These three included roles cover all resource types:
+This document will let you know what to expect when using some of the roles in the Azure portal. These three roles cover all resource types:
 
 - Owner  
 - Contributor  

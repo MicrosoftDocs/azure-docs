@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/09/2016"
+	ms.date="06/22/2016"
 	ms.author="ninarn"
 	ms.workload="data-management"
 	ms.topic="article"
@@ -104,6 +104,8 @@ In the database list in the **Database Resource Utilization** blade, you can fin
 ## Add an alert to a pool resource
 
 You can add rules to resources that send email to people or alert strings to URL endpoints when the resource hits a utilization threshold that you set up.
+
+> [AZURE.IMPORTANT]Resource utilization monitoring for Elastic Pools has a lag of at least 20 minutes. Setting alerts of less than 30 minutes for Elastic Pools is not currently supported. Any alerts set for Elastic Pools with a period (parameter called “-WindowSize” in PowerShell API) of less than 30 minutes may not be triggered. Please make sure that any alerts you define for Elastic Pools use a period (WindowSize) of 30 minutes or more.
 
 **To add an alert to any resource:**
 

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure Media Services Analytics Overview"
-	description="Azure Media Services offers the public preview of Azure Media Analytics, a collection of speech and computer vision services at enterprise scale, compliance, security and global reach. Azure Media Analytics services are built using the core Azure Media Services platform components and hence are ready to handle media processing at scale on day one.. "
+	pageTitle="Azure Media Services Analytics Overview | Microsoft Azure"
+	description="Azure Media Services offers the public preview of Azure Media Analytics, a collection of speech and computer vision services at enterprise scale, compliance, security and global reach. Azure Media Analytics services are built using the core Azure Media Services platform components and hence are ready to handle media processing at scale on day one. "
 	services="media-services"
 	documentationCenter=""
 	authors="juliako"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/22/2016"   
+	ms.date="06/27/2016"   
 	ms.author="milanga;juliako;johndeu"/>
 
 # Azure Media Services Analytics Overview
@@ -43,6 +43,9 @@ The following diagram shows **Media Analytics** and other major parts of the Med
  
 - **Video summarization** – Video summarization can help you create summaries of long videos by automatically selecting interesting snippets from the source video. This is useful when you want to provide a quick overview of what to expect in a long video. For detailed information and examples, see [Use Azure Media Video Thumbnails to Create a Video Summarization](media-services-video-summarization.md)
 
+- **Optical character recognition** - Azure Media Analytics OCR (optical character recognition) enables you to convert text content in video files into editable, searchable digital text. This allows you to automate the extraction of meaningful metadata from the video signal of your media.
+ 
+ 
 ## Common scenarios
 
 Below are a couple of scenarios where Azure Media Analytics can help organizations and enterprises across industries glean new insights from video to create more personalized audience and employee engagements, as well as more effectively manage large volume of video content:
@@ -52,6 +55,73 @@ Below are a couple of scenarios where Azure Media Analytics can help organizatio
 - **User generated content moderation** – From news media outlets to police departments, many organizations have public facing portals where they accept UGC media, such as videos and images. The volume of content can spike due to unexpected events. In these scenarios, it is near impossible to conduct an effective manual review of the content for appropriateness. Customers can rely on the content moderation service to focus on the content that is appropriate.
 
 - **Surveillance** -  With the growth of IP cameras, there is an explosion of surveillance videos. Manually reviewing surveillance video is time intensive and prone to human error. Azure Media Analytics provides several components such as motion detection, face detection, and Hyperlapse to make the process of reviewing, managing and creating derivatives easier.
+
+## Media Services Analytics Media Processors 
+
+This section lists all the Media Services Analytics Media Processors (MP) and shows how use .NET or REST to get a MP object.
+
+### MP names
+
+
+- Azure Media Indexer 2 Preview
+- Azure Media Indexer
+- Azure Media Hyperlapse
+- Azure Media Face Detector
+- Azure Media Motion Detector
+- Azure Media Video Thumbnails
+- Azure Media OCR
+
+### .NET
+
+The following function takes one of the specified MP names and return an MP object.
+
+    static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+    {
+        var processor = _context.MediaProcessors
+            .Where(p => p.Name == mediaProcessorName)
+            .ToList()
+            .OrderBy(p => new Version(p.Version))
+            .LastOrDefault();
+
+        if (processor == null)
+            throw new ArgumentException(string.Format("Unknown media processor",
+                                                       mediaProcessorName));
+
+        return processor;
+    }
+
+
+## REST
+
+Request:
+
+	GET https://media.windows.net/api/MediaProcessors()?$filter=Name%20eq%20'Azure%20Media%20OCR' HTTP/1.1
+	DataServiceVersion: 1.0;NetFx
+	MaxDataServiceVersion: 3.0;NetFx
+	Accept: application/json
+	Accept-Charset: UTF-8
+	User-Agent: Microsoft ADO.NET Data Services
+	Authorization: Bearer <token>
+	x-ms-version: 2.12
+	Host: media.windows.net
+	
+Response:
+		
+	. . .
+	
+	{  
+	   "odata.metadata":"https://media.windows.net/api/$metadata#MediaProcessors",
+	   "value":[  
+	      {  
+	         "Id":"nb:mpid:UUID:074c3899-d9fb-448f-9ae1-4ebcbe633056",
+	         "Description":"Azure Media OCR",
+	         "Name":"Azure Media OCR",
+	         "Sku":"",
+	         "Vendor":"Microsoft",
+	         "Version":"1.1"
+	      }
+	   ]
+	}
 
 ##Demos
 

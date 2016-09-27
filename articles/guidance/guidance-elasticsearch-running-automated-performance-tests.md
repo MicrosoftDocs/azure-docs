@@ -15,7 +15,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/18/2016"
+   ms.date="05/18/2016"
    ms.author="masashin"/>
    
 # Running the automated Elasticsearch performance tests
@@ -60,7 +60,7 @@ You can use these test plans as a basis for your own scenarios if you need fewer
 The test plans use a JUnit Request Sampler to generate and upload the test data. The JMeter test plan creates and runs this sampler, and monitors each of the Elasticsearch nodes for performance data. For more information, see the appendices to the documents [Tuning Data Ingestion Performance for Elasticsearch on Azure] and [Tuning Data Aggregation and Query Performance for Elasticsearch on Azure].
 
 ## Building and Deploying the JUnit JAR and Dependencies
-Before running the Resilience Tests you should download, compile, and deploy the JUnit tests located under the performance/junitcode folder. These tests are referenced by the JMeter test plan. For more information, see the procedure Importing an Existing JUnit Test Project into Eclipse in the document [Deploying a JMeter JUnit Sampler for Testing Elasticsearch Performance].
+Before running the Performance Tests you should download, compile, and deploy the JUnit tests located under the performance/junitcode folder. These tests are referenced by the JMeter test plan. For more information, see the procedure Importing an Existing JUnit Test Project into Eclipse in the document [Deploying a JMeter JUnit Sampler for Testing Elasticsearch Performance].
 
 There are two versions of the JUnit tests:
 - [Elasticsearch1.73](https://github.com/mspnp/azure-guidance/tree/master/ingestion-and-query-tests/junitcode/elasticsearch1.73). Use this code for performing the ingestion tests. These tests use Elasticsearch 1.73
@@ -100,13 +100,13 @@ Copy the following test script parameter files to the JMeter server machine:
   [RUN]
   pathreports=C:\Users\administrator1\jmeter\test-results\ #path where tests results are saved.
   jmx=C:\Users\administrator1\testplan.jmx #path to the JMeter test plan.
-  machines=10.0.0.1,10.0.02,10.0.0.3 #IPs of the Elasticsearch data nodes separated by commas.
+  machines=10.0.0.1,10.0.0.2,10.0.0.3 #IPs of the Elasticsearch data nodes separated by commas.
   reports=aggr,err,tps,waitio,cpu,network,disk,response,view #Name of the reports separated by commas.
-  tests=idx1 #Elasticsearch index name to test.
+  tests=idx1,idx2 #Elasticsearch index(es) name(s) to test, comma delimited if more than one.
   properties=run.properties #Name of the properties file.
   ```
 
-  Edit this file to specify the locations of the test results, the name of the JMeter test plan to run, the IP addresses of the Elasticsearch data nodes, the reports containing the raw performance data that will be generated, and the name (or names) of the index under test. If the *run.properties* file is located in a different folder or directory, specify the full path to this file.
+  Edit this file to specify the locations of the test results, the name of the JMeter test plan to run, the IP addresses of the Elasticsearch data nodes from which you are collecting performance metrics, the reports containing the raw performance data that will be generated, and the name (or names comma delimited) of the index(es) under test, if more than one,  tests will run one after another. With  If the *run.properties* file is located in a different folder or directory, specify the full path to this file.
 
 ## Running the Tests
 

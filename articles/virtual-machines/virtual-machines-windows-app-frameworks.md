@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure"
-   ms.date="02/03/2016"
+   ms.date="08/29/2016"
    ms.author="rasquill"/>
 
 # Deploy popular application frameworks using Azure Resource Manager templates

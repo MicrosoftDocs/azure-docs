@@ -1,4 +1,4 @@
-Caches can be accessed in the [Azure Portal](https://portal.azure.com) using the **Browse** blade.
+Caches can be accessed in the [Azure portal](https://portal.azure.com) using the **Browse** blade.
 
 ![Azure Redis Cache Browse Blade](media/redis-cache-browse/redis-cache-browse.png)
 

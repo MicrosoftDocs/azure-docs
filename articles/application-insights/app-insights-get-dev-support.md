@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="How to get technical support from Application Insights development team" 
+	pageTitle="How to get technical support from Application Insights development team | Microsoft Azure" 
 	description="When you have a case that requires special support from Application Insights development team, this is how you can submit the details to get support." 
 	services="application-insights" 
     documentationCenter=""
@@ -42,7 +42,7 @@ If you don't have a support plan, our development team is happy to offer best ef
 
 1. In the [Application Insights portal](https://portal.azure.com), click the smiley face at the top right corner:  
 
-    ![image](./media/app-insights-get-dev-support/01.png)   
+    ![Feedback button](./media/app-insights-get-dev-support/01.png)   
 
 2. In the comment box please make sure to specify **AppInsights** as the first line and then include the following information:   
 
@@ -51,17 +51,16 @@ If you don't have a support plan, our development team is happy to offer best ef
     AppInsights   
     ikey: <instrumentation key>   
     sdk: <SDK that you are using, including name and version>  
-    email: <email address that we should use to contact you. This is the most important field>  
     issue: <please describe the problem you are having>
 
     ```   
 
-    ![image](./media/app-insights-get-dev-support/02.png)   
+    ![Feedback dialog](./media/app-insights-get-dev-support/02.png)   
 
 3. Check "Yes, it is ok to email you". 
 
-    ![image](./media/app-insights-get-dev-support/03.png)  
+    ![Submit section](./media/app-insights-get-dev-support/03.png)  
 
-An engineer on Application Insights team will get in touch with you soon. As we are providing this service on best effort basis, no formal SLA can be given at this point.
+An engineer on the Application Insights team will get in touch with you soon. As we are providing this service on best effort basis, no formal SLA can be given at this point.
 
 

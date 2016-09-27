@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="stevenpo"
+	manager="swadhwa"
 	editor=""
 	tags="azure-classic-portal"/>
 
@@ -14,10 +14,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/26/2016"
+	ms.date="06/23/2016"
 	ms.author="femila"/>
 
 # Using Windows 10 devices in your workplace
+
+Applies to: Windows 10 PCs
 
 Windows 10 offers three models for organizations that enable users to access work resources in a secure and convenient way.
 

@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="04/06/2016" 
+    ms.date="07/11/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Azure Active Directory integration with Coupa
@@ -38,7 +38,7 @@ The objective of this section is to outline how to enable the application integr
 
 ###To enable the application integration for Coupa, perform the following steps:
 
-1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-coupa-tutorial/IC700993.png "Active Directory")
 
@@ -81,7 +81,7 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
 
     ![Coupa SP metadata](./media/active-directory-saas-coupa-tutorial/IC791901.png "Coupa SP metadata")
 
-4.  In a different browser window, sign on to the Azure Active Directory portal.
+4.  In a different browser window, sign on to the Azure classic portal.
 
 5.  On the **Coupa** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
@@ -116,7 +116,7 @@ If you are not familiar with this procedure, see [How to retrieve a certificate'
     2.  Click **Browse** to upload your downloaded Azure Active metadata file.
     3.  Click **Save**.
 
-11. On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+11. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure Single Sign-On](./media/active-directory-saas-coupa-tutorial/IC791907.png "Configure Single Sign-On")
 ##Configuring user provisioning
@@ -153,7 +153,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 ###To assign users to Coupa, perform the following steps:
 
-1.  In the Azure AD portal, create a test account.
+1.  In the Azure classic portal, create a test account.
 
 2.  On the **Coupa **application integration page, click **Assign users**.
 

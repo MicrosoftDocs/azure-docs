@@ -19,7 +19,7 @@
 
 # DocumentDB server-side programming: Stored procedures, database triggers, and UDFs
 
-Learn how DocumentDB’s language integrated, transactional execution of JavaScript lets developers write **stored procedures**, **triggers** and **user defined functions (UDFs)** natively in JavaScript. This allows you to write database program application logic that can be shipped and executed directly on the database storage partitions 
+Learn how Azure DocumentDB’s language integrated, transactional execution of JavaScript lets developers write **stored procedures**, **triggers** and **user defined functions (UDFs)** natively in JavaScript. This allows you to write database program application logic that can be shipped and executed directly on the database storage partitions 
 
 We recommend getting started by watching the following video, where Andrew Liu provides a brief introduction to DocumentDB's server-side database programming model. 
 

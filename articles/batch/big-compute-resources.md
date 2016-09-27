@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="04/29/2016"
+   ms.date="06/08/2016"
    ms.author="danlep"/>
 
 # Big Compute in Azure: Technical resources for batch and high performance computing (HPC)
@@ -34,11 +34,11 @@ Learn about Big Compute options in Azure, and choose the right approach for your
 
 * [Documentation](https://azure.microsoft.com/documentation/services/batch/)
 
-* [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx), [Python](http://azure-sdk-for-python.readthedocs.io/latest/), [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/), and [REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) API reference
+* [.NET](https://msdn.microsoft.com/library/azure/mt348682.aspx), [Python](http://azure-sdk-for-python.readthedocs.io/latest/), [Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/), [Java](http://azure.github.io/azure-sdk-for-java/), and [REST](https://msdn.microsoft.com/library/azure/dn820158.aspx) API reference
 
 * [Batch management .NET library](https://msdn.microsoft.com/library/mt463120.aspx) reference
 
-* [Tutorial: Get started with Azure Batch library for .NET](batch-dotnet-get-started.md)
+* Tutorials: Get started with [Azure Batch library for .NET](batch-dotnet-get-started.md) and [Batch Python client](batch-python-tutorial.md)
 
 * [Batch forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebatch)
 

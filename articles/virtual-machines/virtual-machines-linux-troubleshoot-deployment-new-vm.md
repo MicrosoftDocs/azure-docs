@@ -14,12 +14,10 @@
   ms.tgt_pltfrm="vm-linux"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="05/06/2016"
+  ms.date="09/09/2016"
   ms.author="cjiang"/>
 
 # Troubleshoot Resource Manager deployment issues with creating a new Linux virtual machine in Azure
-
-[AZURE.INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-selectors](../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-selectors-include.md)]
 
 [AZURE.INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
 
@@ -81,3 +79,6 @@ This error arises in situations when the new VM request is pinned to a cluster t
 - If the new VM can be part of a different availability set
   - Create a new VM in a different availability set (in the same region).
   - Add the new VM to the same virtual network.
+
+## Next steps
+If you encounter issues when you start a stopped Linux VM or resize an existing Linux VM in Azure, see [Troubleshoot Resource Manager deployment issues with restarting or resizing an existing Linux Virtual Machine in Azure](virtual-machines-linux-restart-resize-error-troubleshooting.md).

@@ -20,6 +20,10 @@
 
 # Azure Functions NodeJS developer reference
 
+> [AZURE.SELECTOR]
+- [C# script](../articles/azure-functions/functions-reference-csharp.md)
+- [Node.js](../articles/azure-functions/functions-reference-node.md)
+
 The Node/JavaScript experience for Azure Functions makes it easy to export a function which is passed a `context` object for communicating with the runtime, and for receiving and sending data via bindings.
 
 This article assumes that you've already read the [Azure Functions developer reference](functions-reference.md).

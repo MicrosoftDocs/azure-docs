@@ -12,7 +12,7 @@
    ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/02/2016"
+   ms.date="06/13/2016"
    ms.author="cherylmc"/>
 
 # ExpressRoute technical overview
@@ -69,6 +69,8 @@ Each ExpressRoute circuit consists of two connections to two Microsoft Enterpris
 
 ### Connectivity to Microsoft cloud services
 
+[AZURE.INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
+
 ExpressRoute connections enable access to the following services:
 
 - Microsoft Azure services
@@ -97,7 +99,7 @@ Microsoft operates isolated cloud environments for special geopolitical regions 
 
 ### Supported bandwidth options
 
-You can purchase ExpressRoute circuits for a wide range of bandwidths. The list of supported bandwidths are listed below. Be sure to check with your connectivity provider to determine the list of supported bandwidths they provide.
+You can purchase ExpressRoute circuits for a wide range of bandwidths. The list of supported bandwidths is listed below. Be sure to check with your connectivity provider to determine the list of supported bandwidths they provide.
 
 - 50 Mbps
 - 100 Mbps

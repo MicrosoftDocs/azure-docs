@@ -13,14 +13,14 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="03/16/2016"
+	ms.date="07/12/2016"
 	ms.author="bsiva"/>
 
 # Replicate between on-premises Hyper-V virtual machines and Azure by using PowerShell and Azure Resource Manager
 
 > [AZURE.SELECTOR]
 - [Azure Portal](site-recovery-hyper-v-site-to-azure.md)
-- [PowerShell - ARM](site-recovery-deploy-with-powershell-resource-manager.md)
+- [PowerShell - Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
 - [Classic Portal](site-recovery-hyper-v-site-to-azure-classic.md)
 
 
@@ -47,7 +47,7 @@ You can also read more about [Using Azure PowerShell with Azure Resource Manager
 
 Make sure you have these prerequisites in place:
 
-- A [Microsoft Azure](https://azure.microsoft.com/) account. You can start with a [free trial](pricing/free-trial/). In addition, you can read about [Azure Site Recovery Manager pricing](https://azure.microsoft.com/pricing/details/site-recovery/).
+- A [Microsoft Azure](https://azure.microsoft.com/) account. You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/). In addition, you can read about [Azure Site Recovery Manager pricing](https://azure.microsoft.com/pricing/details/site-recovery/).
 - Azure PowerShell 1.0. For information about this release and how to install it, see [Azure PowerShell 1.0.](https://azure.microsoft.com/)
 - The [AzureRM.SiteRecovery](https://www.powershellgallery.com/packages/AzureRM.SiteRecovery/) and [AzureRM.RecoveryServices](https://www.powershellgallery.com/packages/AzureRM.RecoveryServices/) modules. You can get the latest versions of these modules from the [PowerShell gallery](https://www.powershellgallery.com/)
 
@@ -82,19 +82,10 @@ This article illustrates how to use Azure Powershell with Azure Resource Manager
 
 	In the output of these commands, if the **RegistrationState** is set to **Registered**, you can proceed to Step 2. If not, you should register the missing provider in your subscription.
 
-	To register the Azure provider for Site Recovery, run the following command:
+	To register the Azure provider for Site Recovery and Recovery Services, run the following commands:
 
     	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.SiteRecovery
-
-	Similarly, if you are using the Recovery Services cmdlets for the first time in your subscription, you should register the Azure provider for Recovery Services. Before you can do this, first enable access to the Recovery Services provider on your subscription, by running the following command:
-
-		Register-AzureRmProviderFeature -FeatureName betaAccess -ProviderNamespace Microsoft.RecoveryServices
-
-	>[AZURE.TIP] After successful completion of this command, it may take up to an hour to enable access to the Recovery Services provider on your subscription. Attempts to register the Recovery Services provider in your subscription by using the `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices` command might fail in the interim. If this happens, wait for an hour and retry.
-
-	Once you've enabled access to the Recovery Services provider on your subscription, register the provider in your subscription by running the following command:
-
-		Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+    	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
 
 	Verify that the providers registered successfully by using the following commands: `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices` and `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery`.
 
@@ -260,3 +251,9 @@ This article illustrates how to use Azure Powershell with Azure Resource Manager
 3. Complete the test failover, as follows:
 
     	$TFjob = Resume-AzureRmSiteRecoveryJob -Job $TFjob
+
+
+##Next Steps
+
+[Read more](https://msdn.microsoft.com/library/azure/mt637930.aspx) about Azure Site Recovery with Azure Resource Manager PowerShell cmdlets.
+

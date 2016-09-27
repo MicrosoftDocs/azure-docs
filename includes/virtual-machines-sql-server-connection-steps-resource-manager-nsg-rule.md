@@ -4,13 +4,11 @@ If you want to be able to connect to SQL Server over the internet, you have to c
 
 1. In the portal, select **Virtual machines**, and then select your SQL Server VM.
 
-2. Click the **All settings** link.
-
-3. Expand **Nework interfaces**.
+3. Then select the **Nework interfaces**.
 
 	![network interface](./media/virtual-machines-sql-server-connection-steps/rm-network-interface.png)
 
-4. Then select the Network Interface for your VM. 
+4. Then select the Network Interface for your VM.
 
 4. Click the **Network security group** link.
 
@@ -24,11 +22,10 @@ If you want to be able to connect to SQL Server over the internet, you have to c
 
 7. Change **Protocol** to **TCP**.
 
-8. Specify a **Destination port range** of 1433 (or the port that your SQL Server Instance is listening on). 
+8. Specify a **Destination port range** of 1433 (or the port that your SQL Server Instance is listening on).
 
 9. Verify that **Action** is set to **Allow**. The security rule dialog should look similar to the following screenshot.
 
 	![network security rule](./media/virtual-machines-sql-server-connection-steps/rm-network-security-rule.png)
 
 9. Click **OK** to save the rule for your VM.
-

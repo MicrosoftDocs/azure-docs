@@ -36,7 +36,7 @@ Hybrid cloud/on-premises applications are a reality of modern IT environments. M
 ## Popular
 
 - [Service Bus Pricing Info](https://azure.microsoft.com/pricing/details/service-bus/)
-- [Service Bus Pricing FAQ](service-bus-pricing-faq.md)
+- [Service Bus FAQ](service-bus-faq.md)
 - [Service Bus REST API Reference](http://msdn.microsoft.com/library/azure/hh780717.aspx)
 - [Sign up for a free Azure account](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)
  

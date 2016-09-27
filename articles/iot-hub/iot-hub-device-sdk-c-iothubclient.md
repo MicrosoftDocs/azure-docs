@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="05/17/2016"
+     ms.date="09/06/2016"
      ms.author="obloch"/>
 
 # Microsoft Azure IoT device SDK for C – more about IoTHubClient
@@ -25,6 +25,8 @@ The previous article described how to use the **IoTHubClient** library to send e
 The article concludes by covering a couple of miscellaneous topics, including more about device credentials and how to change the behavior of the **IoTHubClient** through configuration options.
 
 We'll use the **IoTHubClient** SDK samples to explain these topics. If you want to follow along, see the **iothub\_client\_sample\_http** and **iothub\_client\_sample\_amqp** applications that are included in the Azure IoT device SDK for C. Everything described in the following sections is demonstrated in these samples.
+
+You can find the **Azure IoT device SDK for C** in the [Microsoft Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks) GitHub repository and view details of the API in the [C API reference](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html).
 
 ## The lower-level APIs
 
@@ -67,7 +69,7 @@ However there are companion functions to each of these APIs:
 
 These functions all include “LL” in the API name. Other than that, the parameters of each of these functions are identical to their non-LL counterparts. However, the behavior of these functions is different in one important way.
 
-When you call **IoTHubClient\_CreateFromConnectionString**, the underlying libraries create a new thread that runs in the background. This thread sends events to, and receives messages from, IoT Hub. No such thread is created when working with the "LL" APIs. The creation of the background thread is a convenience to the developer. You don’t have to worry about explicitly sending events and receiving messages from IoT Hub -- it happens automatically in the background. In constrast, the "LL" APIs give you explicit control over communication with IoT Hub, if you need it.
+When you call **IoTHubClient\_CreateFromConnectionString**, the underlying libraries create a new thread that runs in the background. This thread sends events to, and receives messages from, IoT Hub. No such thread is created when working with the "LL" APIs. The creation of the background thread is a convenience to the developer. You don’t have to worry about explicitly sending events and receiving messages from IoT Hub -- it happens automatically in the background. In contrast, the "LL" APIs give you explicit control over communication with IoT Hub, if you need it.
 
 To understand this better, let’s look at an example:
 
@@ -77,7 +79,7 @@ Similarly, when you register a callback function for messages using **IoTHubClie
 
 The "LL" APIs don’t create a background thread. Instead, a new API must be called to explicitly send and receive data from IoT Hub. This is demonstrated in the following example.
 
-The **iothub\_client\_sample\_http** application that’s included in the SDK demonstrates the lower-level APIs. In that sample, we send events to IoT Hub with code such as the the following:
+The **iothub\_client\_sample\_http** application that’s included in the SDK demonstrates the lower-level APIs. In that sample, we send events to IoT Hub with code such as the following:
 
 ```
 EVENT_INSTANCE message;
@@ -115,7 +117,7 @@ while ((IoTHubClient_LL_GetSendStatus(iotHubClientHandle, &status) == IOTHUB_CLI
 }
 ```
 
-This code calls **IoTHubClient\_LL\_DoWork** until all events in the buffer have been sent to IoT Hub. Note that this does not also imply that all queued messages have been received. Part of the reason for this is that checking for "all" messages isn’t as deterministic an action. What happens if you retrieve "all" of the messages, but then another one is sent to the device immediately after? A better way to deal with that is with a programmed timeout. For example, the message callback function could reset a timer every time it’s invoked. You can then write logic to continue processing if, for example, no messages have been received in the last *X* seconds.
+This code calls **IoTHubClient\_LL\_DoWork** until all events in the buffer have been sent to IoT Hub. Note this does not also imply that all queued messages have been received. Part of the reason for this is that checking for "all" messages isn’t as deterministic an action. What happens if you retrieve "all" of the messages, but then another one is sent to the device immediately after? A better way to deal with that is with a programmed timeout. For example, the message callback function could reset a timer every time it’s invoked. You can then write logic to continue processing if, for example, no messages have been received in the last *X* seconds.
 
 When you’re finished ingressing events and receiving messages, be sure to call the corresponding function to clean up resources.
 
@@ -123,9 +125,9 @@ When you’re finished ingressing events and receiving messages, be sure to call
 IoTHubClient_LL_Destroy(iotHubClientHandle);
 ```
 
-Basically there’s only one set of APIs to send and receive data with a background thread and another set of APIs that does the same thing without the background thread. A lot of developers may prefer the non-LL APIs, but the lower level APIs are useful when the developer wants explicit control over network transmissions. For example, some devices collect data over time and only ingress events at specified intervals (for example, once an hour or once a day). The lower-level APIs give you the ability to explicitly control when you send and receive data from IoT Hub. Others will simply prefer the simplicity that the lower level APIs provide. Everything happens on the main thread rather than some work happening in the background.
+Basically there’s only one set of APIs to send and receive data with a background thread and another set of APIs that does the same thing without the background thread. A lot of developers may prefer the non-LL APIs, but the lower-level APIs are useful when the developer wants explicit control over network transmissions. For example, some devices collect data over time and only ingress events at specified intervals (for example, once an hour or once a day). The lower-level APIs give you the ability to explicitly control when you send and receive data from IoT Hub. Others will simply prefer the simplicity that the lower-level APIs provide. Everything happens on the main thread rather than some work happening in the background.
 
-Whichever model you choose, be sure to be consistent in which APIs you use. If you start by calling **IoTHubClient\_LL\_CreateFromConnectionString**, be sure you only use the corresponding lower level APIs for any follow-up work:
+Whichever model you choose, be sure to be consistent in which APIs you use. If you start by calling **IoTHubClient\_LL\_CreateFromConnectionString**, be sure you only use the corresponding lower-level APIs for any follow-up work:
 
 -   IoTHubClient\_LL\_SendEventAsync
 
@@ -137,7 +139,7 @@ Whichever model you choose, be sure to be consistent in which APIs you use. If y
 
 The opposite is true as well. If you start with **IoTHubClient\_CreateFromConnectionString**, then use the non-LL APIs for any additional processing.
 
-In the Azure IoT device SDK for C, see the **iothub\_client\_sample\_http** application for a complete example of the lower level APIs. The **iothub\_client\_sample\_amqp** application can be referenced for a full example of the non-LL APIs.
+In the Azure IoT device SDK for C, see the **iothub\_client\_sample\_http** application for a complete example of the lower-level APIs. The **iothub\_client\_sample\_amqp** application can be referenced for a full example of the non-LL APIs.
 
 ## Property handling
 
@@ -268,7 +270,7 @@ IoTHubClient_LL_SetOption(iotHubClientHandle, "timeout", &timeout);
 
 There are a couple of options that are commonly used:
 
--   **SetBatching** (bool) – If **true**, then data sent to IoT Hub is sent in batches. If **false**, then messages are sent individually. The default is **false**.
+-   **SetBatching** (bool) – If **true**, then data sent to IoT Hub is sent in batches. If **false**, then messages are sent individually. The default is **false**. Note that the **SetBatching** option only applies to the HTTP protocol and not to the AMQP or MQTT protocols.
 
 -   **Timeout** (unsigned int) – This value is represented in milliseconds. If sending an HTTP request or receiving a response takes longer than this time, then the connection times out.
 
@@ -277,3 +279,19 @@ The batching option is important. By default, the library ingresses events indiv
 ## Next steps
 
 This article describes in detail the behavior of the **IoTHubClient** library found in the **Azure IoT device SDK for C**. With this information, you should have a good understanding of the capabilities of the **IoTHubClient** library. The [next article](iot-hub-device-sdk-c-serializer.md) provides similar detail on the **serializer** library.
+
+To learn more about developing for IoT Hub, see the [IoT Hub SDKs][lnk-sdks].
+
+To further explore the capabilities of IoT Hub, see:
+
+- [Designing your solution][lnk-design]
+- [Exploring device management using the sample UI][lnk-dmui]
+- [Simulating a device with the Gateway SDK][lnk-gateway]
+- [Using the Azure Portal to manage IoT Hub][lnk-portal]
+
+[lnk-sdks]: iot-hub-sdks-summary.md
+
+[lnk-design]: iot-hub-guidance.md
+[lnk-dmui]: iot-hub-device-management-ui-sample.md
+[lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-portal]: iot-hub-manage-through-portal.md

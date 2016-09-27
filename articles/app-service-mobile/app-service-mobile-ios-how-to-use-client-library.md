@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="06/30/2016"
 	ms.author="krisragh"/>
 
 # How to Use iOS Client Library for Azure Mobile Apps
 
 [AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-This guide teaches you to perform common scenarios using the latest [Azure Mobile Apps iOS SDK](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409). If you are new to Azure Mobile Apps, first complete [Azure Mobile Apps Quick Start] to create a backend, create a table, and download a pre-built iOS Xcode project. In this guide, we focus on the client-side iOS SDK. To learn more about the .NET server-side SDK for the backend, see [Work with .NET Backend](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
+This guide teaches you to perform common scenarios using the latest [Azure Mobile Apps iOS SDK](https://github.com/Azure/azure-mobile-apps-ios-client/blob/master/README.md#ios-client-sdk). If you are new to Azure Mobile Apps, first complete [Azure Mobile Apps Quick Start] to create a backend, create a table, and download a pre-built iOS Xcode project. In this guide, we focus on the client-side iOS SDK. To learn more about the .NET server-side SDK for the backend, see [Work with .NET Backend](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
 
 ## Reference documentation
 
-The reference documentation for the iOS client SDK is located here: [Azure Mobile Apps iOS Client Reference](http://azure.github.io/azure-mobile-services/iOS/v3/).
+The reference documentation for the iOS client SDK is located here: [Azure Mobile Apps iOS Client Reference](http://azure.github.io/azure-mobile-apps-ios-client/).
 
 ##<a name="Setup"></a>Setup and Prerequisites
 
@@ -393,19 +393,21 @@ To call a custom API, call `MSClient.invokeAPI` as shown below. The request and 
 To make a `GET` request instead of a `POST` request, set parameter `HTTPMethod` to `"GET"` and parameter `body` to `nil` (since GET requests do not have message bodies.) If your custom API supports other HTTP verbs, change `HTTPMethod` appropriately.
 
 **Objective-C**:
+
+
 ```
-    [self.client invokeAPI:@"sendEmail"
-                      body:@{ @"contents": @"Hello world!" }
-                HTTPMethod:@"POST"
-                parameters:@{ @"to": @"bill@contoso.com", @"subject" : @"Hi!" }
-                   headers:nil
-                completion: ^(NSData *result, NSHTTPURLResponse *response, NSError *error) {
-                    if(error) {
-                        NSLog(@"ERROR %@", error);
-                    } else {
-                        // Do something with result
-                    }
-                }];
+[self.client invokeAPI:@"sendEmail"
+                  body:@{ @"contents": @"Hello world!" }
+            HTTPMethod:@"POST"
+            parameters:@{ @"to": @"bill@contoso.com", @"subject" : @"Hi!" }
+               headers:nil
+            completion: ^(NSData *result, NSHTTPURLResponse *response, NSError *error) {
+                if(error) {
+                    NSLog(@"ERROR %@", error);
+                } else {
+                    // Do something with result
+                }
+            }];
 ```
 
 **Swift**:
@@ -502,7 +504,7 @@ if (error.code == MSErrorPreconditionFailed) {
 
 ## <a name="adal"></a>How to: Authenticate users with the Active Directory Authentication Library
 
-You can use the Active Directory Authentication Library (ADAL) to sign users into your application using Azure Active Directory. This is often preferable to using the `loginAsync()` methods, as it provides a more native UX feel and allows for additional customization.
+You can use the Active Directory Authentication Library (ADAL) to sign users into your application using Azure Active Directory. This is often preferable to using the `loginWithProvider:completion:` method, as it provides a more native UX feel and allows for additional customization.
 
 1. Configure your mobile app backend for AAD sign-in by following the [How to configure App Service for Active Directory login](app-service-mobile-how-to-configure-active-directory-authentication.md) tutorial. Make sure to complete the optional step of registering a native client application. For iOS, it is recommended (but not required) that the redirect URI is of the form `<app-scheme>://<bundle-id>`. Please see the [ADAL iOS quickstart](active-directory-devquickstarts-ios.md#em1-determine-what-your-redirect-uri-will-be-for-iosem) for more details.
 
@@ -540,7 +542,7 @@ and the Pod:
 	    NSString *clientId = @"INSERT-CLIENT-ID-HERE";
 	    NSURL *redirectUri = [[NSURL alloc]initWithString:@"INSERT-REDIRECT-URI-HERE"];
 	    ADAuthenticationError *error;
-	    ADAuthenticationContext authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority error:&error];
+	    ADAuthenticationContext *authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority error:&error];
 	    authContext.parentController = parent;
 	    [ADAuthenticationSettings sharedInstance].enableFullScreen = YES;
 	    [authContext acquireTokenWithResource:resourceId
@@ -591,7 +593,7 @@ and the Pod:
 
 ## <a name="facebook-sdk"></a>How to: Authenticate users with the Facebook SDK for iOS
 
-You can use the Facebook SDK for iOS to sign users into your application using Facebook. This is often preferable to using the `loginAsync()` methods, as it provides a more native UX feel and allows for additional customization.
+You can use the Facebook SDK for iOS to sign users into your application using Facebook. This is often preferable to using the `loginWithProvider:completion:` method, as it provides a more native UX feel and allows for additional customization.
 
 1. Configure your mobile app backend for Facebook sign-in by following the [How to configure App Service for Facebook login](app-service-mobile-how-to-configure-facebook-authentication.md) tutorial.
 
@@ -669,7 +671,7 @@ You can use the Facebook SDK for iOS to sign users into your application using F
 
 ## <a name="twitter-fabric"></a>How to: Authenticate users with Twitter Fabric for iOS
 
-You can use Fabric for iOS to sign users into your application using Twitter. This is often preferable to using the `loginAsync()` methods, as it provides a more native UX feel and allows for additional customization.
+You can use Fabric for iOS to sign users into your application using Twitter. This is often preferable to using the `loginWithProvider:completion:` method, as it provides a more native UX feel and allows for additional customization.
 
 1. Configure your mobile app backend for Twitter sign-in by following the [How to configure App Service for Twitter login](app-service-mobile-how-to-configure-twitter-authentication.md) tutorial.
 
@@ -741,6 +743,68 @@ You can use Fabric for iOS to sign users into your application using Twitter. Th
 		}
 	}
 
+## <a name="google-sdk"></a>How to: Authenticate users with the Google Sign-In SDK for iOS
+
+You can use the Google Sign-In SDK for iOS to sign users into your application using a Google account. This is often preferable to using the `loginWithProvider:completion:` method, as it provides a more native UX feel and allows for additional customization.
+
+1. Configure your mobile app backend for Google sign-in by following the [How to configure App Service for Google login](app-service-mobile-how-to-configure-google-authentication.md) tutorial.
+
+2. Install the Google SDK for iOS by following the [Google Sign-In for iOS - Start integrating](https://developers.google.com/identity/sign-in/ios/start-integrating) documentation. You may skip the "Authenticate with a Backend Server" section, as App Service will handle this for you.
+
+3. In addition to the code follow, add the following to your delegate's `signIn:didSignInForUser:withError:` method, according to the language you are using.
+
+**Objective-C**:
+
+	    NSDictionary *payload = @{
+	                              @"id_token":user.authentication.idToken,
+	                              @"authorization_code":user.serverAuthCode
+	                              };
+	    
+	    [client loginWithProvider:@"google" token:payload completion:^(MSUser *user, NSError *error) {
+	        // ...
+	    }];
+
+**Swift**:
+
+		let payload: [String: String] = ["id_token": user.authentication.idToken, "authorization_code": user.serverAuthCode]
+		client.loginWithProvider("google", token: payload) { (user, error) in
+			// ...
+		}
+
+4. Make sure you also add the following to `application:didFinishLaunchingWithOptions:` in your app delegate, replacing "SERVER_CLIENT_ID" with the same ID that you used to configure App Service in step 1.
+
+**Objective-C**:
+
+ 		[GIDSignIn sharedInstance].serverClientID = @"SERVER_CLIENT_ID";
+ 
+ 
+ **Swift**:
+ 
+		GIDSignIn.sharedInstance().serverClientID = "SERVER_CLIENT_ID"
+
+ 
+ 5. Add the below code to your application in a UIViewController that implements the `GIDSignInUIDelegate` protocol, according to the language you are using. Note that the user is signed out before being signed in again, and although they won't need to enter their credentials a second time, they will see a consent dialog. This is required to obtain a new server auth code, which is needed in a previous step. Only call this method when the session token has expired.
+ 
+ **Objective-C**:
+
+		#import <Google/SignIn.h>
+		// ...
+		- (void)authenticate
+		{
+			    [GIDSignIn sharedInstance].uiDelegate = self;
+				[[GIDSignIn sharedInstance] signOut];
+			    [[GIDSignIn sharedInstance] signIn];
+ 		}
+ 
+ **Swift**:
+ 	
+		// ...
+		func authenticate() {
+			GIDSignIn.sharedInstance().uiDelegate = self
+			GIDSignIn.sharedInstance().signOut()
+			GIDSignIn.sharedInstance().signIn()
+		}
+ 		
 <!-- Anchors. -->
 
 [What is Mobile Services]: #what-is

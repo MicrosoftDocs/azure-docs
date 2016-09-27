@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="xibingao;bradsev" />
 
 # Set up an Azure virtual machine as an IPython Notebook server for advanced analytics
@@ -125,9 +125,9 @@ The virtual machine will be deallocated but not deleted. You may restart your vi
 
 ## Your Azure VM is ready to use: what's next?
 
-Your virtual machine is now ready to use in your data science exercises. The virtual machine is also ready for use as an IPython Notebook server for the exploration and processing of data, and other tasks in conjunction with Azure Machine Learning and the Cortana Analytics Process.
+Your virtual machine is now ready to use in your data science exercises. The virtual machine is also ready for use as an IPython Notebook server for the exploration and processing of data, and other tasks in conjunction with Azure Machine Learning and the Team Data Science Process.
 
-The next steps in the Cortana Analytics Process are mapped in the [Learning Path](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) and may include steps that move data into HDInsight, process and sample it there in preparation for learning from the data with Azure Machine Learning.
+The next steps in the Team Data Science Process are mapped in the [Learning Path](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) and may include steps that move data into HDInsight, process and sample it there in preparation for learning from the data with Azure Machine Learning.
 
 
 [15]: ./media/machine-learning-data-science-setup-virtual-machine/vmshutdown.png

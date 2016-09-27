@@ -4,11 +4,11 @@
 	authors="stepsic-microsoft-com" 
 	manager="dwrede" 
 	editor="" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -219,6 +219,7 @@ If you host your Web API on **App Service** then it will automatically show up i
 If you previously deployed an API app, you can call it via the **HTTP** action.
 
 For example, if you use Dropbox to list files, you may have something like this in your **2014-12-01-preview** schema version definition:
+
 ```
 {
     "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",

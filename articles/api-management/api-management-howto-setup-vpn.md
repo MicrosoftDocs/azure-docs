@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/25/2016"
+	ms.date="08/09/2016"
 	ms.author="antonba"/>
 
 # How to setup VPN connections in Azure API Management
 
 API Management's VPN support allows you to connect your API Management gateway to an Azure Virtual Network (classic). This allows API Management customers to securely connect to their backend web services that are on-premises or are otherwise inaccessible to the public internet.
 
->[AZURE.NOTE] Azure API Management works with classic VNETs. For information on creating a classic VNET, see [Create a virtual network (classic) by using the Azure Portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). For information on connecting classic VNETs to ARM VNETS, see [Connecting classic VNets to new VNets](../virtual-network/virtual-networks-arm-asm-s2s.md).
+>[AZURE.NOTE] Azure API Management works with classic VNETs. For information on creating a classic VNET, see [Create a virtual network (classic) by using the Azure Portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). For information on connecting classic VNETs to ARM VNETS, see [Connecting classic VNets to new VNets](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
 ## <a name="enable-vpn"> </a>Enable VPN connections
 
@@ -62,6 +62,9 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 | 6381, 6382, 6383             | Inbound/Outbound | UDP                | API Management dependencies on Redis Cache                       | VIRTUAL_NETWORK / VIRTUAL_NETWORK |
 | 445                          | Outbound         | TCP                | API Management Dependency on Azure File Share for GIT            | VIRTUAL_NETWORK / INTERNET        |
 
+## <a name="custom-dns"> </a>Custom DNS server setup
+
+API Management depends on a number of Azure services. When an API Management service instance is hosted in a VNET where a custom DNS server is used, it needs to be able to resolve hostnames of those Azure services. Please follow [this](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) guidance on custom DNS setup.  
 
 ## <a name="related-content"> </a>Related content
 

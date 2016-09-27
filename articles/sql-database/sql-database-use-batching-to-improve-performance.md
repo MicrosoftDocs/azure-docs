@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="02/04/2016"
+	ms.date="07/12/2016"
 	ms.author="annemill" />
 
 # How to use batching to improve SQL Database application performance

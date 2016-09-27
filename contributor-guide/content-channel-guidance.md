@@ -6,7 +6,7 @@
 
 GitHub is a relatively easy way (once you get over the Git hump) to author and publish technical content. But we need to ensure that content stays within the boundaries of technical documentation - there are other channels for other types of information.
 
-- **Conceptual and procedural articles** belong in the azure-content​/azure-content-pr repositories for publication to http://azure.microsoft.com/documentation/articles​.
+- **Technical articles about using the product** belong in the azure-content​/azure-content-pr repositories for publication to http://azure.microsoft.com/documentation/articles. They should contain conceptual or procedural information required to understand and use the product. The technical content channel is for technical content showing people **how** to do something. You can talk about the "what" and "why" to help customers understand intent, but the articles should focus on the actual content telling people how to do the task or complete the scenario.
 
 - **Reference content**: managed reference, REST APIs, PowerShell cmdlet help, schema reference, and error reference belongs in the MSDN scoped Azure library (http://msdn.microsoft.com/library/azure/). Node, Ruby, and other language reference content belongs on http://azure.github.io/​.
 

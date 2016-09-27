@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="get-started-article" 
-	ms.date="05/23/2016"
+	ms.date="07/21/2016"
 	ms.author="tamram"/>
 
 # Get started with Azure Storage in five minutes 
@@ -97,13 +97,14 @@ Next, run the sample application in the Azure Storage Emulator:
 
 1.	Press the **Start** button or the Windows key, search for *Microsoft Azure Storage emulator*, and start the application. When the emulator starts, you'll see an icon and a notification in the Windows Task View area.
 2.	In Visual Studio, click **Build Solution** on the **Build** menu. 
-3.	On the **Debug** menu, Press **F11** to run the solution step by step, or press **F5** to run the solution from start to finish.
+3.	On the **Debug** menu, press **F11** to run the solution step by step, or press **F5** to run the solution from start to finish.
 
 ## Next Steps
 
 See these resources to learn more about Azure Storage:
 
 * [Introduction to Microsoft Azure Storage](storage-introduction.md)
+* [Get started with Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md)
 * [Get started with Azure Table storage using .NET](storage-dotnet-how-to-use-tables.md)
 * [Get started with Azure Queue Storage using .NET](storage-dotnet-how-to-use-queues.md)

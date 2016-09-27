@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="data-lake-analytics"
    authors="edmacauley"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/26/2016"
+   ms.date="05/16/2016"
    ms.author="edmaca"/>
 
 # Azure Data Lake Analytics Documentation Backlog

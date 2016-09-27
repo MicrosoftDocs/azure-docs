@@ -1,8 +1,8 @@
 <properties
-	pageTitle="Azure CDN Overview"
+	pageTitle="Azure CDN Overview | Microsoft Azure"
 	description="Learn what the Azure Content Delivery Network (CDN) is and how to use it to deliver high-bandwidth content by caching blobs and static content."
 	services="cdn"
-	documentationCenter=".NET"
+	documentationCenter=""
 	authors="camsoper"
 	manager="erikre"
 	editor=""/>
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/24/2016"
+	ms.date="09/01/2016"
 	ms.author="casoper"/>
 
 # Overview of the Azure Content Delivery Network (CDN)
@@ -39,9 +39,9 @@ The benefits of using the CDN to cache web site assets include:
 
 3. The origin returns the file to the edge server, including optional HTTP headers describing the file's Time-to-Live (TTL).
 
-4. The edge server caches the file and returns the file to the original requestor (Alice).  The file will remain cached on the edge server until the TTL expires.  If the origin didn't specify a TTL, the default TTL is 7 days.
+4. The edge server caches the file and returns the file to the original requestor (Alice).  The file remains cached on the edge server until the TTL expires.  If the origin didn't specify a TTL, the default TTL is seven days.
 
-5. Additional users (like Bob) may then request the same file using that same URL, and may also be directed to that same POP.
+5. Additional users may then request the same file using that same URL, and may also be directed to that same POP.
 
 6. If the TTL for the file hasn't expired, the edge server returns the file from the cache.  This results in a faster, more responsive user experience.
 
@@ -53,27 +53,36 @@ There are three Azure CDN products:  **Azure CDN Standard from Akamai**, **Azure
 |       | Standard Akamai | Standard Verizon | Premium Verizon |
 |-------|-----------------|------------------|-----------------|
 | Easy integration with Azure services such as [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/cdn-websites-with-cdn.md), and [Media Services](../media-services/media-services-manage-origins.md#enable_cdn) | **&#x2713;** | **&#x2713;** | **&#x2713;**|
+| Management via [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](./cdn-app-dev-net.md), [Node.js](./cdn-app-dev-node.md), or [PowerShell](./cdn-manage-powershell.md). | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | HTTPS support | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | Load balancing | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| DDOS protection | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| [DDOS](https://www.us-cert.gov/ncas/tips/ST04-015) protection | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| IPv4/IPv6 dual-stack | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Custom domain name support](cdn-map-content-to-custom-domain.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Query string caching](cdn-query-string.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Country filtering](cdn-restrict-access-by-country.md) |  | **&#x2713;** | **&#x2713;** |
 | [Fast purge](cdn-purge-endpoint.md) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
 | [Asset pre-loading](cdn-preload-endpoint.md) |  | **&#x2713;** | **&#x2713;** |
 | [Core analytics](cdn-analyze-usage-patterns.md) |  | **&#x2713;** | **&#x2713;** |
-| [Management via REST API](https://msdn.microsoft.com/library/mt634456.aspx) | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| [Customizable, rule-based content delivery engine](cdn-rules-engine.md) | | | **&#x2713;** |
+| [HTTP/2 support](https://msdn.microsoft.com/library/mt762901.aspx) | **&#x2713;**  |  |  |
 | [Advanced HTTP reports](cdn-advanced-http-reports.md) | | | **&#x2713;** |
 | [Real-time stats](cdn-real-time-stats.md) | | | **&#x2713;** |
+| [Real-time alerts](cdn-real-time-alerts.md) | | | **&#x2713;** |
+| [Customizable, rule-based content delivery engine](cdn-rules-engine.md) | | | **&#x2713;** |
+| Cache/header settings (using [rules engine](cdn-rules-engine.md))  | | | **&#x2713;** |
+| URL redirect/rewrite  (using [rules engine](cdn-rules-engine.md)) | | | **&#x2713;** |
+| Mobile device rules (using [rules engine](cdn-rules-engine.md))  | | | **&#x2713;** |
 
+>[AZURE.TIP] Is there a feature you'd like to see in Azure CDN?  [Give us feedback](https://feedback.azure.com/forums/169397-cdn)! 
 
 ## Next steps
 
 To get started with CDN, see [Using Azure CDN](./cdn-create-new-endpoint.md).
 
-If you are an existing CDN customer, you can now manage your CDN endpoints through the [Microsoft Azure Portal](https://portal.azure.com).
+If you are an existing CDN customer, you can now manage your CDN endpoints through the [Microsoft Azure portal](https://portal.azure.com) or with [PowerShell](cdn-manage-powershell.md).
 
 To see the CDN in action, check out the [video of our Build 2016 session](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
+
+Learn how to automate Azure CDN with [.NET](./cdn-app-dev-net.md) or [Node.js](./cdn-app-dev-node.md).
 
 For pricing information, see [CDN Pricing](https://azure.microsoft.com/pricing/details/cdn/).

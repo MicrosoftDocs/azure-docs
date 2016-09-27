@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="andkjell"
-	manager="stevenpo"
+	manager="femila"
 	editor="curtand"/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/26/2016"
+	ms.date="09/13/2016"
 	ms.author="billmath;andkjell"/>
 
 # Getting started with Azure AD Connect using express settings
@@ -27,20 +27,20 @@ If express settings does not match your topology, see [related documentation](#r
 You can see these steps in action in the [videos](#videos) section.
 
 1. Sign in as a local administrator to the server you wish to install Azure AD Connect on. You should do this on the server you wish to be the sync server.
-2. Navigate to and double-click on **AzureADConnect.msi**.
+2. Navigate to and double-click **AzureADConnect.msi**.
 3. On the Welcome screen, select the box agreeing to the licensing terms and click **Continue**.  
 4. On the Express settings screen, click **Use express settings**.  
 ![Welcome to Azure AD Connect](./media/active-directory-aadconnect-get-started-express/express.png)
 5. On the Connect to Azure AD screen, enter the username and password of a global administrator for your Azure AD. Click **Next**.  
 ![Connect to Azure AD](./media/active-directory-aadconnect-get-started-express/connectaad.png)
-If you receive an error and have problems with connectivity, please see [Troubleshoot connectivity problems](active-directory-aadconnect-troubleshoot-connectivity.md).
-6. On the Connect to AD DS screen, enter the username and password for an enterprise admin account. You can enter the domain part in either NetBios or FQDN format, i.e. FABRIKAM\administrator or fabrikam.com\administrator. Click **Next**.  
+If you receive an error and have problems with connectivity, then see [Troubleshoot connectivity problems](active-directory-aadconnect-troubleshoot-connectivity.md).
+6. On the Connect to AD DS screen, enter the username and password for an enterprise admin account. You can enter the domain part in either NetBios or FQDN format, that is, FABRIKAM\administrator or fabrikam.com\administrator. Click **Next**.  
 ![Connect to AD DS](./media/active-directory-aadconnect-get-started-express/connectad.png)
-7. The [**Azure AD sign-in configuration**](active-directory-aadconnect-user-signin.md#azure-ad-sign-in-configuration) page will only show if you did not complete [verify your domains](active-directory-add-domain.md) in the [prerequisites](active-directory-aadconnect-prerequisites.md).
+7. The [**Azure AD sign-in configuration**](active-directory-aadconnect-user-signin.md#azure-ad-sign-in-configuration) page only shows if you did not complete [verify your domains](active-directory-add-domain.md) in the [prerequisites](active-directory-aadconnect-prerequisites.md).
 ![Unverified domains](./media/active-directory-aadconnect-get-started-express/unverifieddomain.png)  
-If you see this page, then review every domain marked **Not Added** and **Not Verified**. Make sure those you use have been verified in Azure AD. Click on the Refresh symbol when you have verified your domains.
+If you see this page, then review every domain marked **Not Added** and **Not Verified**. Make sure those domains you use have been verified in Azure AD. Click the Refresh symbol when you have verified your domains.
 8. On the Ready to configure screen, click **Install**.
-	- Optionally on the Ready to configure page, you can unselect the **Start the synchronization process as soon as configuration completes** checkbox. You should unselect this checkbox if you want to do additional configuration, such as [filtering](active-directory-aadconnectsync-configure-filtering.md). If you unselect this option, the wizard configures sync but leaves the scheduler disabled. It will not run until you enable it manually by [re-running the installation wizard](active-directory-aadconnectsync-installation-wizard.md).
+	- Optionally on the Ready to configure page, you can unselect the **Start the synchronization process as soon as configuration completes** checkbox. You should unselect this checkbox if you want to do additional configuration, such as [filtering](active-directory-aadconnectsync-configure-filtering.md). If you unselect this option, the wizard configures sync but leaves the scheduler disabled. It does not run until you enable it manually by [rerunning the installation wizard](active-directory-aadconnectsync-installation-wizard.md).
 	- If you have Exchange in your on-premises Active Directory, then you also have an option to enable [**Exchange Hybrid deployment**](https://technet.microsoft.com/library/jj200581.aspx). Enable this option if you plan to have Exchange mailboxes both in the cloud and on-premises at the same time.
 ![Ready to configure Azure AD Connect](./media/active-directory-aadconnect-get-started-express/readytoconfigure.png)
 9. When the installation completes, click **Exit**.

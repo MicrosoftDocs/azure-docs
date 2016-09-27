@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="03/07/2016"
+   ms.date="07/25/2016"
    ms.author="dhanyahk"/>
 
 # Azure Active Directory audit report events
@@ -48,9 +48,9 @@ Add service principal                | Added a service principal to the director
 Remove service principal             | Removed a service principal from the directory.
 Add service principal credentials    | Added credentials to a service principal.
 Remove service principal credentials | Removed credentials from a service principal.
-Add delegation entry                 | Created an [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) in the directory.
-Set delegation entry                 | Updated an [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) in the directory.
-Remove delegation entry              | Deleted an [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionGrantEntity) in the directory.
+Add delegation entry                 | Created an [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) in the directory.
+Set delegation entry                 | Updated an [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) in the directory.
+Remove delegation entry              | Deleted an [OAuth2PermissionGrant](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) in the directory.
 **Role events**                      |
 Add role member to Role              | Added a user to a directory role.
 Remove role member from Role         | Removed a user from a directory role.

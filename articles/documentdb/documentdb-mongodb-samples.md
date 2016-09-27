@@ -14,13 +14,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
+	ms.date="08/23/2016" 
 	ms.author="stbaro"/>
 
 # DocumentDB protocol support for MongoDB examples
 To use these examples, you must:
 
-- [Create](documentdb-create-mongodb-account.md) a DocumentDB account with protocol support for MongoDB.
+- [Create](documentdb-create-mongodb-account.md) an Azure DocumentDB account with protocol support for MongoDB.
 - Retrieve your DocumentDB account with protocol support for MongoDB [connection string](documentdb-connect-mongodb-account.md) information.
 
 ## Get started with a sample ASP.NET MVC task list application

@@ -3,7 +3,7 @@
    description="Learn about the distributed firewall in Azure using Network Security Groups (NSGs), and how to use NSGs to isolate and control traffic flow within your virtual networks (VNets)."
    services="virtual-network"
    documentationCenter="na"
-   authors="telmosampaio"
+   authors="jimdial"
    manager="carmonm"
    editor="tysonn" />
 <tags 
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="02/11/2016"
-   ms.author="telmos" />
+   ms.author="jdial" />
 
 # What is a Network Security Group (NSG)?
 
@@ -42,8 +42,8 @@ NSG rules contain the following properties.
 |**Protocol**|Protocol to match for the rule|TCP, UDP, or \*|Using \* as a protocol includes ICMP (East-West traffic only), as well as UDP and TCP and may reduce the number of rules you need<br/>At the same time, using \* might be too broad an approach, so make sure you only use when really necessary|
 |**Source port range**|Source port range to match for the rule|Single port number from 1 to 65535, port range (i.e. 1-65635), or \* (for all ports)|Source ports could be ephemeral. Unless your client program is using a specific port, please use "*" in most cases.<br/>Try to use port ranges as much as possible to avoid the need for multiple rules<br/>Multiple ports or port ranges cannot be grouped by a comma
 |**Destination port range**|Destination port range to match for the rule|Single port number from 1 to 65535, port range (i.e. 1-65535), or \* (for all ports)|Try to use port ranges as much as possible to avoid the need for multiple rules<br/>Multiple ports or port ranges cannot be grouped by a comma
-|**Source address prefix**|Source address prefix or tag to match for the rule|Single IP address (i.e. 10.10.10.10), IP subnet (i.e. 192.168.1.0/24), [default tag](#Default-Tags), or * (for all addresses)|Consider using ranges, default tags, and * to reduce the number of rules|
-|**Destination address prefix**|Destination address prefix or tag to match for the rule|single IP address (i.e. 10.10.10.10), IP subnet (i.e. 192.168.1.0/24), [default tag](#Default-Tags), or * (for all addresses)|Consider using ranges, default tags, and * to reduce the number of rules|
+|**Source address prefix**|Source address prefix or tag to match for the rule|Single IP address (i.e. 10.10.10.10), IP subnet (i.e. 192.168.1.0/24), [default tag](#default-tags), or * (for all addresses)|Consider using ranges, default tags, and * to reduce the number of rules|
+|**Destination address prefix**|Destination address prefix or tag to match for the rule|single IP address (i.e. 10.10.10.10), IP subnet (i.e. 192.168.1.0/24), [default tag](#default-tags), or * (for all addresses)|Consider using ranges, default tags, and * to reduce the number of rules|
 |**Direction**|Direction of traffic to match for the rule|inbound or outbound|Inbound and outbound rules are processed separately, based on direction|
 |**Priority**|Rules are checked in the order of priority, once a rule applies, no more rules are tested for matching|Number between 100 and 4096|Consider creating rules jumping priorities by 100 for each rule, to leave space for new rules to come between existing rules|
 |**Access**|Type of access to apply if the rule matches|allow or deny|Keep in mind that if an allow rule is not found for a packet, the packet is dropped|
@@ -115,7 +115,7 @@ You can associate different NSGs to a VM (or NIC, depending on the deployment mo
 	   
            If subnet NSG has a matching rule to deny traffic, packet will be dropped here, although VM\NIC NSG has a matching rule to allow traffic.
 
-![NSG ACLs](./media/virtual-network-nsg-overview/figure2.png)
+	![NSG ACLs](./media/virtual-network-nsg-overview/figure2.png)
 
 >[AZURE.NOTE] Although you can only associate a single NSG to a subnet, VM, or NIC; you can associate the same NSG to as many resources as you want.
 
@@ -124,13 +124,13 @@ You can implement NSGs in the classic or Resource Manager deployment models usin
 
 |Deployment tool|Classic|Resource Manager|
 |---|---|---|
-|Classic portal|![No][red]|![No][red]|
-|Azure portal|![Yes][green]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-pportal">![Yes][green]</a>|
-|PowerShell|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-ps">![Yes][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-ps">![Yes][green]</a>|
-|Azure CLI|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-classic-cli">![Yes][green]</a>|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-cli">![Yes][green]</a>|
-|ARM template|![No][red]|<a href="https://azure.microsoft.com/documentation/articles/virtual-networks-create-nsg-arm-template">![Yes][green]</a>|
+|Classic portal|![No](./media/virtual-network-nsg-overview/red.png)|![No](./media/virtual-network-nsg-overview/red.png)|
+|Azure portal|![Yes](./media/virtual-network-nsg-overview/green.png)|[![Yes][green]](virtual-networks-create-nsg-arm-pportal.md)|
+|PowerShell|[![Yes][green]](virtual-networks-create-nsg-classic-ps.md)|[![Yes][green]](virtual-networks-create-nsg-arm-ps.md)|
+|Azure CLI|[![Yes][green]](virtual-networks-create-nsg-classic-cli.md)|[![Yes][green]](virtual-networks-create-nsg-arm-cli.md)|
+|ARM template|![No](./media/virtual-network-nsg-overview/red.png)|[![Yes][green]](virtual-networks-create-nsg-arm-template.md)|
 
-|**Key**|![Yes][green] Supported. Click for article.|![No][red] Not Supported.|
+|**Key**|![Yes](./media/virtual-network-nsg-overview/green.png) Supported.|![No](./media/virtual-network-nsg-overview/red.png) Not Supported.|
 |---|---|---|
 
 ## Planning

@@ -23,6 +23,8 @@
 
 App Service includes the web and mobile capabilities that we previously delivered separately as Azure Websites and Azure Mobile Services.  It also includes new capabilities for automating business processes and hosting cloud APIs. As a single integrated service, App Service lets you compose various components -- websites, mobile app back ends, RESTful APIs, and business processes -- into a single solution.
 
+The following 4-minute video provides a brief explanation of how App Service relates to earlier Azure offerings and what's new in it.
+
 +[AZURE.VIDEO app-service-history-lesson] 
 
 ## Why use App Service?
@@ -31,9 +33,9 @@ Here are some key features and capabilities of App Service:
 
 - **Multiple languages and frameworks** - App Service has first-class support for ASP.NET, Node.js, Java, PHP, and Python. You can also run [Windows PowerShell and other scripts or executables](../app-service-web/web-sites-create-web-jobs.md) on App Service VMs.
 
-- **DevOps optimization** - Set up [continuous integration and deployment](../app-service-web/app-service-continous-deployment.md) with Visual Studio Team Services, GitHub, or BitBucket. Promote updates through [test and staging environments](../app-service-web/web-sites-staged-publishing.md). Perform [A/B testing](../app-service-web/app-service-web-test-in-production-get-start.md). Manage your apps in App Service by using [Azure PowerShell](../powershell-install-configure.md) or the [cross-platform command-line interface (CLI)](../xplat-cli-install.md).
+- **DevOps optimization** - Set up [continuous integration and deployment](../app-service-web/app-service-continuous-deployment.md) with Visual Studio Team Services, GitHub, or BitBucket. Promote updates through [test and staging environments](../app-service-web/web-sites-staged-publishing.md). Perform [A/B testing](../app-service-web/app-service-web-test-in-production-get-start.md). Manage your apps in App Service by using [Azure PowerShell](../powershell-install-configure.md) or the [cross-platform command-line interface (CLI)](../xplat-cli-install.md).
  
-- **Global scale with high availability** - Scale [up](../app-service/app-service-scale.md) or [out](../azure-portal/insights-how-to-scale.md) manually or automatically. Host your apps anywhere in Microsoft's global datacenter infrastructure, and the App Service [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) promises high availability.
+- **Global scale with high availability** - Scale [up](../app-service-web/web-sites-scale.md) or [out](../azure-portal/insights-how-to-scale.md) manually or automatically. Host your apps anywhere in Microsoft's global datacenter infrastructure, and the App Service [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) promises high availability.
 
 - **Connections to SaaS platforms and on-premises data** - Choose from more than 50 [connectors](../connectors/apis-list.md) for enterprise systems (such as SAP, Siebel, and Oracle), SaaS services (such as Salesforce and Office 365), and internet services (such as Facebook and Twitter). Access on-premises data using [Hybrid Connections](../biztalk-services/integration-hybrid-connection-overview.md) and [Azure Virtual Networks](../app-service-web/web-sites-integrate-with-vnet.md).
 
@@ -55,7 +57,7 @@ App Service offers several *app types*, each of which is  intended to host a spe
  
 - [**Logic Apps**](../app-service-logic/app-service-logic-what-are-logic-apps.md) - For automating the access and use of data across clouds without writing code.
 
-The word *app* here refers to the hosting resources dedicated to running a workload. "Web app" in general refers to both compute resources and application code that together deliver functionality to a browser. But in App Service a *web app* is the compute resources that Azure provides for hosting your application code. If your application is composed of a web front-end and a RESTful API back end, you could deploy both to a web app or you could deploy your front-end code to a web app and your back end code to an API app. Your application may be composed of multiple App Service apps of different kinds.
+The word *app* here refers to the hosting resources dedicated to running a workload. Taking “web app” as an example, you’re probably accustomed to thinking of a web app as both the compute resources and application code that together deliver functionality to a browser. But in App Service a *web app* is the compute resources that Azure provides for hosting your application code. If your application is composed of a web front-end and a RESTful API back end, you could deploy both to a web app or you could deploy your front-end code to a web app and your back end code to an API app. Your application may be composed of multiple App Service apps of different kinds.
 
 ## App Service Plans
 

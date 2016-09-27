@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/09/2016"
+	ms.date="07/06/2016"
 	ms.author="garye"/>
 
 
@@ -63,9 +63,9 @@ Converting to a predictive experiment involves three steps:
 2. Trim the experiment to remove modules that were only needed for training
 3. Define where the web service will accept input and where it will generate output
 
-Fortunately, all three steps can be accomplished by just clicking **Deploy Web Service** at the bottom of the experiment canvas (select the **Predictive Web Service** option).
+Fortunately, all three steps can be accomplished by just clicking **Set Up Web Service** at the bottom of the experiment canvas (select the **Predictive Web Service** option).
 
-When you click **Deploy Web Service**, several things happen:
+When you click **Set Up Web Service**, several things happen:
 
 - The model we trained is saved as a single **Trained Model** module into the module palette to the left of the experiment canvas (you can find it under **Trained Models**).
 - Modules that were used for training are removed. Specifically:
@@ -95,27 +95,64 @@ Run the experiment one last time (click **Run**). If you want to verify that the
 
 ## Deploy the web service
 
-To deploy a web service derived from our experiment, click **Deploy Web Service** below the canvas. Machine Learning Studio deploys the experiment as a web service and takes you to the dashboard for that web service. From here you can return to the experiment (**View snapshot** or **View latest**) and run a simple test of the web service (**Test** button - see **Test the web service** below). There is also information here for creating applications that can access the web service (more on that in the next step of this walkthrough).
+You can deploy the experiment as either a classic web service or a new web service based on Azure Resource Manager.
+
+### Deploy as a classic web service ###
+
+To deploy a classic web service derived from our experiment, click **Deploy Web Service**  below the canvas and select **Deploy Web Service [New]**. Machine Learning Studio deploys the experiment as a web service and takes you to the dashboard for that web service. From here you can return to the experiment (**View snapshot** or **View latest**) and run a simple test of the web service (**Test** button - see **Test the web service** below). There is also information here for creating applications that can access the web service (more on that in the next step of this walkthrough).
 
 ![Web service dashboard][6]
-
-> [AZURE.TIP] You can update the web service after you've deployed it. For example, if you want to change your model, just edit the training experiment, tweak the model parameters, and click **Deploy Web Service**. When you deploy the experiment again, it will replace the web service, now using your updated model.  
 
 You can configure the service by clicking the **CONFIGURATION** tab. Here you can modify the service name (it's given the experiment name by default) and give it a description. You can also give more friendly labels for the input and output columns.  
 
 ![Configure the web service][5]  
 
+### Deploy as a new web service
+
+To deploy a new web service derived from our experiment, click **Deploy Web Service**  below the canvas and **Deploy Web Service [New]**. Machine Learning Studio transfers you to the Azure Machine Learning Web Services Deploy Experiment page.
+
+Enter a name for the web service and elect a pricing plan. If you have an existing pricing plan you can select it, otherwise you must create a new price plan for the service. 
+
+1.	In the **Price Plan** drop down, select an existing plan or select the **Select new plan** option.
+2.	In **Plan Name**, type a name that will identify the plan on your bill.
+3.	Select one of the **Monthly Plan Tiers**. Note that the plan tiers default to the plans for your default region and your web service is deployed to that region.
+
+Click **Deploy** and the **Quickstart** page for your web service opens.
+
+You can configure the service by clicking the **Configure** menu option. Here you can modify the service name (it's given the experiment name by default) and give it a description. You can also enable or disable error logging and sample data that can be used to test the service.
+
+To test the web service select click the **Test** menu option (see **Test the web service** below). For information on creating applications that can access the web service, click the **Consume** menu option (more on that in the next step of this walkthrough).
+
+
+> [AZURE.TIP] You can update the web service after you've deployed it. For example, if you want to change your model, just edit the training experiment, tweak the model parameters, and click **Deploy Web Service**. Then select **Deploy Web Service [Classic]** or **Deploy Web Service [New]**. When you deploy the experiment again, it will replace the web service, now using your updated model.  
+
+
 ## Test the web service
+
+**Test a classic web service**
 On the **DASHBOARD** page, click the **Test** button under **Default Endpoint**. A dialog will pop up and ask you for the input data for the service. These are the same columns that appeared in the original German credit risk dataset.  
 
 Enter a set of data and then click **OK**.  
 
 In the web service, the data enters through the **Web service input** module, through the [Metadata Editor][metadata-editor] module, and to the [Score Model][score-model] module where it's scored. The results are then output from the web service through the **Web service output**.
 
+**Test a new web service**
+
+In the Azure Machine Learning Web Services portal, click the **Test** menu option at the top of the page. The Test page opens and the you can input data for the service. The input fields displayed correspond to the columns that appeared in the original German credit risk dataset. 
+
+Enter a set of data and then click **Test Request-Response**.
+
+You can also enable sample data that you can use to test the your Request-Response service. If you created the web service in Machine Learning Studio, the sample data is taken from the data your used to train your model.
+
+The results of the test will display on the right hand side of the page in the output column. 
+
 > [AZURE.TIP] The way we have the predictive experiment configured, the entire results from the [Score Model][score-model] module are returned. This includes all the input data plus the credit risk value and the scoring probability. If you wanted to return something different - for example, only the credit risk value - then you could insert a [Project Columns][project-columns] module between [Score Model][score-model] and the **Web service output** to eliminate columns you don't want the web service to return. 
 
 ## Manage the web service
-Once you've deployed your web service, you can manage it from the [Azure classic portal](https://manage.windowsazure.com).
+
+**Manage a classic web service**
+
+Once you've deployed your classic web service, you can manage it from the [Azure classic portal](https://manage.windowsazure.com).
 
 1. Sign-in to the [Azure classic portal](https://manage.windowsazure.com).
 2. In the Microsoft Azure services panel, click **MACHINE LEARNING**.
@@ -132,6 +169,16 @@ For more details, see:
 - [Creating Endpoints](machine-learning-create-endpoint.md)
 - [Scaling web service](machine-learning-scaling-webservice.md)
 - [Publish Azure Machine Learning Web Service to the Azure Marketplace](machine-learning-publish-web-service-to-azure-marketplace.md)
+
+**Manage a new web service**
+
+Once you've deployed your new web service, you can manage it from the [Azure Machine Learning Web Services portal](https://servics.azureml.net).
+
+To monitor the performance of your web service:
+1. Sign-in to the [Azure Machine Learning Web Services portal](https://servics.azureml.net).
+2. Click click **Web Services**.
+3. Click your web service.
+4. Click the **Dashboard**.
 
 ----------
 

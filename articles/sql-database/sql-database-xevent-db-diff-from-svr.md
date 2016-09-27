@@ -15,12 +15,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/25/2016"
+	ms.date="08/23/2016"
 	ms.author="genemi"/>
 
 
 # Extended events in SQL Database
 
+[AZURE.INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
 This topic explains how the implementation of extended events in Azure SQL Database is slightly different compared to extended events in Microsoft SQL Server.
 
@@ -36,6 +37,12 @@ This topic explains how the implementation of extended events in Azure SQL Datab
 > [AZURE.NOTE] As of October 2015, the extended event session feature is activated in Azure SQL Database at the Preview level. The General Availability (GA) date is not yet set.
 >
 > The Azure [Service Updates](https://azure.microsoft.com/updates/?service=sql-database) page has posts when GA announcements are made.
+
+
+Additional information about extended events, for Azure SQL Database and Microsoft SQL Server, is available at:
+
+- [Quick Start: Extended events in SQL Server](http://msdn.microsoft.com/library/mt733217.aspx)
+- [Extended Events](http://msdn.microsoft.com/library/bb630282.aspx)
 
 
 ## Prerequisites
@@ -193,10 +200,10 @@ The [Event Tracing for Windows (ETW)](http://msdn.microsoft.com/library/ms751538
 ## Restrictions
 
 
-There are a couple security related differences befitting the cloud environment of SQL Database:
+There are a couple of security-related differences befitting the cloud environment of SQL Database:
 
 
-- Extended events is founded on the single-tenant isolation model. An event session in one database cannot access data or events from another database.
+- Extended events are founded on the single-tenant isolation model. An event session in one database cannot access data or events from another database.
 
 - You cannot issue a **CREATE EVENT SESSION** statement in the context of the **master** database.
 
@@ -210,7 +217,7 @@ You must have **Control** permission on the database to issue a **CREATE EVENT S
 ### Storage container authorizations
 
 
-The SAS token you generate for your Azure Storage container must specify **rwl** for the permissions. This provides the following permissions:
+The SAS token you generate for your Azure Storage container must specify **rwl** for the permissions. The **rwl** value provides the following permissions:
 
 
 - Read

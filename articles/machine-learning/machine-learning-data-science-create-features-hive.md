@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/10/2016"
+	ms.date="06/14/2016"
 	ms.author="hangzh;bradsev" />
 
 
@@ -26,7 +26,7 @@ The operations needed to create features can be memory intensive. The performanc
 Examples of the queries that are presented are specific to the [NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) scenarios are also provided in [Github repository](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts). These queries already have data schema specified and are ready to be submitted to run. In the final section, parameters that users can tune so that the performance of Hive queries can be improved are  also discussed.
 
 [AZURE.INCLUDE [cap-create-features-data-selector](../../includes/cap-create-features-selector.md)]
-This **menu** links to topics that describe how to create features for data in various environments. This task is a step in the [Cortana Analytics Process (CAP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+This **menu** links to topics that describe how to create features for data in various environments. This task is a step in the [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 
 ## Prerequisites

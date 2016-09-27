@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="html"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="05/03/2016"
+	ms.date="09/12/2016"
 	ms.author="adrianha;ricksal"/>
 
 # How to Use the JavaScript Client Library for Azure Mobile Apps
@@ -55,8 +55,8 @@ import * as WindowsAzure from 'azure-mobile-apps-client';
 
 ##<a name="auth"></a>How to: Authenticate Users
 
-Azure App Service supports authenticating and authorizing app users using a variety of external identity
-providers: Facebook, Google, Microsoft Account, and Twitter.   You can set permissions on tables to restrict
+Azure App Service supports authenticating and authorizing app users using various external identity
+providers: Facebook, Google, Microsoft Account, and Twitter. You can set permissions on tables to restrict
 access for specific operations to only authenticated users. You can also use the identity of authenticated
 users to implement authorization rules in server scripts. For more information, see the [Get started with authentication] tutorial.
 
@@ -66,63 +66,51 @@ deeper integration with device-specific capabilities such as single-sign-on as i
 
 [AZURE.INCLUDE [app-service-mobile-html-js-auth-library](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-##<a name="register-for-push"></a>How to: Register for Push Notifications
+###<a name="configure-external-redirect-urls"></a>How to: Configure your Mobile App Service for External Redirect URLs.
 
-Install the [phonegap-plugin-push] to handle push notifications.  This can be easily added using the `cordova plugin add`
-command on the command line, or via the Git plugin installer within Visual Studio.  The following code in your Apache
-Cordova app will register your device for push notifications:
+Several types of JavaScript applications use a loopback capability to handle OAuth UI flows.  These capabilities include:
 
-```
-var pushOptions = {
-    android: {
-        senderId: '<from-gcm-console>'
-    },
-    ios: {
-        alert: true,
-        badge: true,
-        sound: true
-    },
-    windows: {
-    }
-};
-pushHandler = PushNotification.init(pushOptions);
+* Running your service locally
+* Using Live Reload with the Ionic Framework
+* Redirecting to App Service for authentication. 
 
-pushHandler.on('registration', function (data) {
-    registrationId = data.registrationId;
-    // For cross-platform, you can use the device plugin to determine the device
-    // Best is to use device.platform
-    var name = 'gcm'; // For android - default
-    if (device.platform.toLowerCase() === 'ios')
-        name = 'apns';
-    if (device.platform.toLowerCase().substring(0, 3) === 'win')
-        name = 'wns';
-    client.push.register(name, registrationId);
-});
+Running locally can cause problems because, by default, App Service authentication is only configured to allow access from 
+your Mobile App backend. Use the following steps to change the App Service settings to enable authentication when running 
+the server locally:
 
-pushHandler.on('notification', function (data) {
-    // data is an object and is whatever is sent by the PNS - check the format
-    // for your particular PNS
-});
+1. Log in to the [Azure portal]
+2. Navigate to your Mobile App backend.
+3. Select **Resource explorer** in the **DEVELOPMENT TOOLS** menu.
+4. Click **Go** to open the resource explorer for your Mobile App backend in a new tab or window.
+5. Expand the **config** > **authsettings** node for your app.
+6. Click the **Edit** button to enable editing of the resource.
+7. Find the **allowedExternalRedirectUrls** element, which should be null. Change it to the following:
 
-pushHandler.on('error', function (error) {
-    // Handle errors
-});
-```
+         "allowedExternalRedirectUrls": [
+             "http://localhost:3000",
+             "https://localhost:3000"
+         ],
 
-Use the Notification Hubs SDK to send push notifications from the server.  You should never
-send push notifications directly from clients as that could be used to trigger a denial of
-service attack against Notification Hubs or the PNS.
+    Replace the URLs in the array with the URLs of your service, which in this example is `http://localhost:3000` for the local Node.js sample service. You could also use `http://localhost:4400` for the Ripple service or some other URL, depending on how your app is configured.
+
+8. At the top of the page, click **Read/Write**, then click **PUT** to save your updates.
+
+You also need to add the same loopback URLs to the CORS whitelist settings:
+
+1. Navigate back to the [Azure portal].
+2. Navigate to your Mobile App backend.
+3. Click **CORS** in the **API** menu.
+4. Enter each URL in the empty **Allowed Origins** text box.  A new text box is created.
+5. Click **SAVE**
+    
+After the backend updates, you will be able to use the new loopback URLs in your app.
 
 <!-- URLs. -->
 [Azure Mobile Apps Quick Start]: app-service-mobile-cordova-get-started.md
 [Get started with authentication]: app-service-mobile-cordova-get-started-users.md
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
-[Apache Cordova Plugin for Azure Mobile Apps]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
-[your first Apache Cordova app]: http://cordova.apache.org/#getstarted
-[phonegap-facebook-plugin]: https://github.com/wizcorp/phonegap-facebook-plugin
-[phonegap-plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push
-[cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
-[cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
+[Azure portal]: https://portal.azure.com/
+[JavaScript SDK for Azure Mobile Apps]: https://www.npmjs.com/package/azure-mobile-apps-client
 [Query object documentation]: https://msdn.microsoft.com/en-us/library/azure/jj613353.aspx
 

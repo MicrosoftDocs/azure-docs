@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2016"
+	ms.date="06/10/2016"
 	ms.author="piyushjo" />
 
 # Azure Mobile Engagement demo app
@@ -37,7 +37,7 @@ This app is available in the following app stores:
 - **Windows Universal demo app**:
 
 	- Download the app at the [Windows App store](https://www.microsoft.com/en-us/store/apps/azure-mobile-engagement/9nblggh4qmh2).
-	- The app was developed as a Windows 10 Universal app. The source code is available on [GitHub](https://github.com/Azure/azure-mobile-engagement-app-ios).
+	- The app was developed as a Windows 10 Universal app. The source code is available on [GitHub](https://github.com/Azure/azure-mobile-engagement-app-windows).
 
 - **iOS demo app**:
 

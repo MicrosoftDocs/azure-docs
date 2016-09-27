@@ -81,4 +81,4 @@ See the following articles for more information about Service Bus queues:
 - [Auto-forward sample](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/AutoForward)
 - [Atomic Transactions with Service Bus sample](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/AtomicTransactions)
 - [Azure Queues and Service Bus queues compared](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-- [How to use Service Bus queues](service-bus-dotnet-how-to-use-queues.md)
+- [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md)

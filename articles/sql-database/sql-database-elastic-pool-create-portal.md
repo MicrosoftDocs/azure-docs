@@ -11,7 +11,7 @@
 <tags
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="05/06/2016"
+	ms.date="07/20/2016"
 	ms.author="ninarn"
 	ms.workload="data-management"
 	ms.topic="get-started-article"
@@ -29,13 +29,15 @@ This article shows you how to create a scalable [elastic database pool](sql-data
 
 You can add multiple pools to a server, but you can't add databases from different servers into the same pool. To create a pool, you need at least one database in a V12 server. If you don't have one, see [Create your first Azure SQL database](sql-database-get-started.md). You can create a pool with only one database, but pools are only cost-efficient with multiple databases. See [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md).
 
-> [AZURE.NOTE] Pools are only available with SQL Database V12 servers. If you have databases on a V11 server, you can [use a PowerShell script to identify them as candidates for a pool](sql-database-elastic-pool-database-assessment-powershell.md) on a V12 server, and then [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server-powershell.md) in one step.
+> [AZURE.NOTE] Elastic pools are generally available (GA) in all Azure regions except North Central US and West India where it is currently in preview.  GA of elastic pools in these regions will be provided as soon as possible. Also, elastic pools do not currently support databases using [in-memory OLTP or in-memory analytics](sql-database-in-memory.md).
 
 ## Step 1: Create a new pool
 
-Create an elastic database pool by adding a new pool to a server. You can add multiple pools to a server, but you can't add databases from different servers into the same pool.
+This article shows how to create a new pool from an existing **server** blade in the portal, which is the easiest way to move existing databases into a pool. 
 
-1. In the [Azure portal](http://portal.azure.com/) click **SQL servers**, and then click the server that contains the databases you want to add to a pool.
+> [AZURE.NOTE] Whether you already have a server or not, you can also create a new pool from the **SQL elastic pools** blade (below the list on the left side of the portal, click **Browse** **>** **SQL elastic pools**). Clicking **+Add** on the **SQL elastic pools** blade provides steps to create a new server during the pool provisioning workflow.
+
+1. In the [Azure portal](http://portal.azure.com/) below the list on the left side, click **Browse** **>** **SQL servers**, and then click the server that contains the databases you want to add to a pool.
 2. Click **New pool**.
 
     ![Add pool to a server](./media/sql-database-elastic-pool-create-portal/new-pool.png)

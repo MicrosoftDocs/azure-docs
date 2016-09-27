@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="05/18/2016"
+	ms.date="07/14/2016"
 	ms.author="jroth" />
 
 # Automated Backup for SQL Server in Azure Virtual Machines (Classic)
@@ -24,7 +24,7 @@
 
 Automated Backup automatically configures [Managed Backup to Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) for all existing and new databases on an Azure VM running SQL Server 2014 Standard or Enterprise. This enables you to configure regular database backups that utilize durable Azure blob storage. Automated Backup depends on the [SQL Server IaaS Agent Extension](virtual-machines-windows-classic-sql-server-agent-extension.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] Resource Manager model. To view the Resource Manager version of this article, see [Automated Backup for SQL Server in Azure Virtual Machines Resource Manager](virtual-machines-windows-sql-automated-backup.md).
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] To view the Resource Manager version of this article, see [Automated Backup for SQL Server in Azure Virtual Machines Resource Manager](virtual-machines-windows-sql-automated-backup.md).
 
 ## Prerequisites
 
@@ -39,8 +39,6 @@ To use Automated Backup, consider the following prerequisites:
 
 - SQL Server 2014 Standard
 - SQL Server 2014 Enterprise
-- SQL Server 2016 Standard
-- SQL Server 2016 Enterprise
 
 **Database configuration**:
 
@@ -65,13 +63,16 @@ The following table describes the options that can be configured for Automated B
 |**Password**|Password text (None)|A password for encryption keys. This is only required if encryption is enabled. In order to restore an encrypted backup, you must have the correct password and related certificate that was used at the time the backup was taken.|
 
 ## Configuration in the Portal
+You can use the Azure Portal to configure Automated Backup during provisioning or for existing VMs.
 
-You can use the Azure portal to configure Automated Backup when you create a new SQL Server 2014 Virtual Machine in the classic deployment model.
+### New VMs
+Use the Azure portal to configure Automated Backup when you create a new SQL Server 2014 Virtual Machine in the classic deployment model.
 
 The following Azure portal screenshot shows these options under **OPTIONAL CONFIGURATION** | **SQL AUTOMATED BACKUP**.
 
 ![SQL Automatic Backup configuration in Azure portal](./media/virtual-machines-windows-classic-sql-automated-backup/IC778483.jpg)
 
+### Existing VMs
 For existing SQL Server 2014 virtual machines, select the **Auto backup** settings in the **Configuration** section of the virtual machine properties. In the **Automated backup** window, you can enable the feature, set the retention period, select the storage account, and set encryption. This is shown in the following screenshot.
 
 ![Automated Backup Configuration in Azure portal](./media/virtual-machines-windows-classic-sql-automated-backup/IC792133.jpg)

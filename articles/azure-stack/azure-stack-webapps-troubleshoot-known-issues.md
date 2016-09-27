@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/16/2016"
+	ms.date="08/01/2016"
 	ms.author="anwestg"/>
     
 # Web Apps Resource Provider - Known Issues and Troubleshooting

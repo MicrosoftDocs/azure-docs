@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/12/2016"
+	ms.date="07/05/2016"
 	ms.author="adhurwit"/>
 
 # Use SQL Server Management Studio in Azure RemoteApp to connect to SQL Database

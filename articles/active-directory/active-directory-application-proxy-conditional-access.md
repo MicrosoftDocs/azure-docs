@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="kgremban"
-	manager="StevenPo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,11 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/09/2016"
+	ms.date="06/22/2016"
 	ms.author="kgremban"/>
 
 # Working with conditional access
-> [AZURE.NOTE] Application Proxy is a feature that is available only if you upgraded to the Premium or Basic edition of Azure Active Directory. For more information, see [Azure Active Directory editions](active-directory-editions.md).
 
 You can configure access rules to grant conditional access to applications published using Application Proxy. This enables you to:
 

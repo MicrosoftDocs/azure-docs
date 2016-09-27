@@ -4,17 +4,17 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="LuisBosquez"
-	manager="jeffreyg"
+	manager="jhubbard"
 	editor="genemi"/>
 
 
 <tags
 	ms.service="sql-database"
-	ms.workload="data-management"
+	ms.workload="drivers"
 	ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="04/27/2016"
+	ms.date="06/16/2016"
 	ms.author="lbosq"/>
 
 
@@ -46,4 +46,11 @@ See the [getting started page](sql-database-get-started.md) to learn how to crea
 
 ## Next steps
 
-For more information, see the [Java Developer Center](/develop/java/).
+* Visit the [Java Developer Center](/develop/java/).
+* Review the [SQL Database Development Overview](sql-database-develop-overview.md)
+* More information on the [Microsoft JDBC Driver for SQL Server](https://msdn.microsoft.com/library/mt484311.aspx)
+
+## Additional resources 
+
+* [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
+* Explore all the [capabilities of SQL Database](https://azure.microsoft.com/services/sql-database/)

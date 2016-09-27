@@ -3,8 +3,8 @@
 	description="Learn about SQL Database downlevel clients support and IP endpoint changes for Auditing."
 	services="sql-database"
 	documentationCenter=""
-	authors="nadavhelfman"
-	manager="jeffreyg"
+	authors="ronitr"
+	manager="jhubbard"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
-	ms.author="nadavh;ronitr"/>
+	ms.date="07/10/2016"
+	ms.author="ronitr"/>
 
 # SQL Database -  Downlevel clients support and IP endpoint changes for Auditing
 

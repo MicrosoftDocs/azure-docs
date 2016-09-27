@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/03/2016"
+	ms.date="06/30/2016"
 	ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>I use Mobile Services, how does App Service help?

@@ -13,15 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/18/2016" 
+	ms.date="07/05/2016" 
 	ms.author="spelluru"/>
 
 # Move data to and from Azure SQL Database using Azure Data Factory
 
 This article outlines how you can use the Copy Activity in an Azure data factory to move data to Azure SQL from another data store and move data from another data store to Azure SQL. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
 
-The following sample(s) show how to copy data to and from Azure SQL Database and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
+## Copy data wizard
+The easiest way to create a pipeline that copies data to/from Azure SQL Database is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
 
+The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from Azure SQL Database and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.
 
 ## Sample: Copy data from Azure SQL Database to Azure Blob
 
@@ -119,7 +121,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%M"
+	            "format": "MM"
 	          }
 	        },
 	        {
@@ -127,7 +129,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%d"
+	            "format": "dd"
 	          }
 	        },
 	        {
@@ -135,7 +137,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%H"
+	            "format": "HH"
 	          }
 	        }
 	      ],
@@ -278,7 +280,7 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%M"
+	            "format": "MM"
 	          }
 	        },
 	        {
@@ -286,7 +288,7 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%d"
+	            "format": "dd"
 	          }
 	        },
 	        {
@@ -294,7 +296,7 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 	          "value": {
 	            "type": "DateTime",
 	            "date": "SliceStart",
-	            "format": "%H"
+	            "format": "HH"
 	          }
 	        }
 	      ],
@@ -474,8 +476,8 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
-| writeBatchTimeout | Wait time for the batch insert operation to complete before it times out. | (Unit = timespan) Example: “00:30:00” (30 minutes). | No | 
-| writeBatchSize | Inserts data into the SQL table when the buffer size reaches writeBatchSize. | Integer. (unit = Row Count) | No (Default = 10000)
+| writeBatchTimeout | Wait time for the batch insert operation to complete before it times out. | timespan<br/><br/> Example: “00:30:00” (30 minutes). | No | 
+| writeBatchSize | Inserts data into the SQL table when the buffer size reaches writeBatchSize. | Integer (number of rows)| No (default: 10000)
 | sqlWriterCleanupScript | User specified query for Copy Activity to execute such that data of a specific slice will be cleaned up. See repeatability section below for more details. | A query statement.  | No |
 | sliceIdentifierColumnName | User specified column name for Copy Activity to fill with auto generated slice identifier, which will be used to clean up data of a specific slice when rerun. See repeatability section below for more details. | Column name of a column with data type of binary(32). | No |
 | sqlWriterStoredProcedureName | Name of the stored procedure that upserts (updates/inserts) data into the target table. | Name of the stored procedure. | No |

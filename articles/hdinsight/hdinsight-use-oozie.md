@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/18/2016"
+	ms.date="07/25/2016"
 	ms.author="jgao"/>
 
 
@@ -128,7 +128,7 @@ The RunHiveScript has several variables. You will pass the values when you submi
 <table border = "1">
 <tr><th>Workflow variables</th><th>Description</th></tr>
 <tr><td>${jobTracker}</td><td>Specifies the URL of the Hadoop job tracker. Use <strong>jobtrackerhost:9010</strong> in HDInsight version 3.0 and 2.1.</td></tr>
-<tr><td>${nameNode}</td><td>Specifies the URL of the Hadoop name node. Use the default file system address, for example, <i>wasb://&lt;containerName&gt;@&lt;storageAccountName&gt;.blob.core.windows.net</i>.</td></tr>
+<tr><td>${nameNode}</td><td>Specifies the URL of the Hadoop name node. Use the default file system address, for example, <i>wasbs://&lt;containerName&gt;@&lt;storageAccountName&gt;.blob.core.windows.net</i>.</td></tr>
 <tr><td>${queueName}</td><td>Specifies the queue name that the job will be submitted to. Use the <strong>default</strong>.</td></tr>
 </table>
 
@@ -190,9 +190,9 @@ The PowerShell script in this section performs the following steps:
 
 	Both files are stored in a public Blob container.
 	
-	- Copy the HiveQL script (useoozie.hql) to Azure Storage (wasb:///tutorials/useoozie/useoozie.hql).
-	- Copy workflow.xml to wasb:///tutorials/useoozie/workflow.xml.
-	- Copy the data file (/example/data/sample.log) to wasb:///tutorials/useoozie/data/sample.log.
+	- Copy the HiveQL script (useoozie.hql) to Azure Storage (wasbs:///tutorials/useoozie/useoozie.hql).
+	- Copy workflow.xml to wasbs:///tutorials/useoozie/workflow.xml.
+	- Copy the data file (/example/data/sample.log) to wasbs:///tutorials/useoozie/data/sample.log.
 	 
 6. Submit an Oozie job.
 
@@ -448,7 +448,7 @@ Here is the script.  You can run the script from Windows PowerShell ISE. You onl
 	
 	#region - submit Oozie job
 	
-	$storageUri="wasb://$defaultBlobContainerName@$defaultStorageAccountName.blob.core.windows.net"
+	$storageUri="wasbs://$defaultBlobContainerName@$defaultStorageAccountName.blob.core.windows.net"
 	
 	$oozieJobName = $namePrefix + "OozieJob"
 	

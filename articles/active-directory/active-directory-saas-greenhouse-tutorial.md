@@ -4,14 +4,14 @@
     services="active-directory" 
     authors="jeevansd"  
     documentationCenter="na" 
-    manager="stevenpo"/>
+    manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="04/06/2016" 
+    ms.date="07/09/2016" 
     ms.author="jeedes" />
 
 #Tutorial: Azure Active Directory integration with Greenhouse
@@ -38,7 +38,7 @@ The objective of this section is to outline how to enable the application integr
 
 ###To enable the application integration for Greenhouse, perform the following steps:
 
-1.  In the Azure Management Portal, on the left navigation pane, click **Active Directory**.
+1.  In the Azure classic portal, on the left navigation pane, click **Active Directory**.
 
     ![Active Directory](./media/active-directory-saas-greenhouse-tutorial/IC700993.png "Active Directory")
 
@@ -69,7 +69,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
 ###To configure single sign-on, perform the following steps:
 
-1.  In the Azure AD portal, on the **Greenhouse** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1.  In the Azure classic portal, on the **Greenhouse** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
 
     ![Configure single sign-on](./media/active-directory-saas-greenhouse-tutorial/IC790786.png "Configure single sign-on")
 
@@ -89,7 +89,7 @@ The objective of this section is to outline how to enable users to authenticate 
 
     >[AZURE.NOTE] Single sign-on has to be enabled by the Greenhouse support team.
 
-6.  On the Azure AD portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
+6.  On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
 
     ![Configure single sign-on](./media/active-directory-saas-greenhouse-tutorial/IC790790.png "Configure single sign-on")
 ##Configuring user provisioning
@@ -126,7 +126,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 ###To assign users to Greenhouse, perform the following steps:
 
-1.  In the Azure AD portal, create a test account.
+1.  In the Azure classic portal, create a test account.
 
 2.  On the **Greenhouse **application integration page, click **Assign users**.
 

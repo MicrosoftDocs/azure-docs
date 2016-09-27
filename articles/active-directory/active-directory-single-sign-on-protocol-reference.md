@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/31/2016"
+	ms.date="06/23/2016"
 	ms.author="priyamo"/>
 
 # Single Sign-On SAML protocol
-
-[AZURE.INCLUDE [active-directory-protocols](../../includes/active-directory-protocols.md)]
 
 In this article, we will learn the SAML 2.0 authentication requests and responses that Azure Active Directory (Azure AD) supports for Single Sign-On.
 

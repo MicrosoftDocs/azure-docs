@@ -3,7 +3,7 @@
 	description="How to use the Azure CLI to manage Hadoop clusters in HDIsight"
 	services="hdinsight"
 	editor="cgronlun"
-	manager="paulettm"
+	manager="jhubbard"
 	authors="mumian"
 	tags="azure-portal"
 	documentationCenter=""/>
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/05/2016"
+	ms.date="08/10/2016"
 	ms.author="jgao"/>
 
 # Manage Hadoop clusters in HDInsight using the Azure CLI
@@ -61,9 +61,14 @@ Use the following commands to list and show cluster details:
 
 
 ##Delete clusters
+
 Use the following command to delete a cluster:
 
 	azure hdinsight cluster delete <Cluster Name>
+
+You can also delete a cluster by deleting the resource group that contains the cluster. Please note, this will delete all the resources in the group including the default storage account.
+
+	azure group delete <Resource Group Name>
 
 ##Scale clusters
 
