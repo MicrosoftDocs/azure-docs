@@ -72,10 +72,8 @@ To resolve the issue, try one of the following methods:
 
 Your Microsoft account is the email address you use, along with your password, to sign in to any Windows Live program or service, such as Outlook, Hotmail, MSN or OneDrive. You may set up a Microsoft account using any email address belonging to you, including your company email. Please see [www.microsoft.com/account](http://www.microsoft.com/account) for more details.
 
-If your account is associated with an Organizational account, then please select the correct login option as shown below. For more information on using an Organizational account, see [Sign up for Azure as an organization](./active-directory/sign-up-organization.md):
+The default sign-in page of the Azure portal is for Microsoft account. If your account is associated with an Organizational account, then please select the correct login option as shown below. For more information on using an Organizational account, see [Sign up for Azure as an organization](./active-directory/sign-up-organization.md):
 
 ![sign in page](./media/billing-cannot-login-subscription/signin.png)
-
-The default sign-in page of the Azure portal is for Microsoft account.
 
 > [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
