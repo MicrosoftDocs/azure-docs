@@ -27,7 +27,7 @@ SQL Data Warehouse allows up to 1,024 concurrent connections. All 1,024 connecti
 Concurrency limits are governed by two concepts: *concurrent queries* and *concurrency slots*. For a query to execute, it must execute within both the query concurrency limit and the concurrency slot allocation.
 
 - Concurrent queries are the queries executing at the same time. SQL Data Warehouse supports up to 32 concurrent queries on the larger DWU sizes.
-- Concurrency slots are allocated based on DWU. Each 100 DWU provides 4 concurrency slots. For example, a DW100 allocates 4 concurrency slots and DW1000 allocates 40. Each query consumes one or more concurrency slots, dependent on the [resource class](#resource-classes) of the query. Queries running in the smallrc resource class consume one concurrency slot. Queries running in a higher resource class  consume more concurrency slots.
+- Concurrency slots are allocated based on DWU. Each 100 DWU provides 4 concurrency slots. For example, a DW100 allocates 4 concurrency slots and DW1000 allocates 40. Each query consumes one or more concurrency slots, dependent on the [resource class](#resource-classes) of the query. Queries running in the smallrc resource class consume one concurrency slot. Queries running in a higher resource class consume more concurrency slots.
 
 The following table describes the limits for both concurrent queries and concurrency slots at the various DWU sizes.
 
@@ -48,9 +48,9 @@ The following table describes the limits for both concurrent queries and concurr
 | DW3000 |           32            |              120            |
 | DW6000 |           32            |              240            |
 
-When one of these thresholds is met, new queries are queued and executed on a first-in, first-out basis as queries finish and the number of queries and slots falls below the limits. 
+When one of these thresholds is met, new queries are queued and executed on a first-in, first-out basis.  As a queries finishes and the number of queries and slots falls below the limits, queued queries are released. 
 
-> [AZURE.NOTE]  *Select* queries executing exclusively on dynamic management views (DMVs) or catalog views are not governed by any of the concurrency limits. Users can monitor the system regardless of the number of queries executing on it.
+> [AZURE.NOTE]  *Select* queries executing exclusively on dynamic management views (DMVs) or catalog views are not governed by any of the concurrency limits. You can monitor the system regardless of the number of queries executing on it.
 
 ## Resource classes
 
@@ -97,7 +97,7 @@ The following table maps the memory allocated to each distribution by DWU and re
 | DW3000 |   100   |  1,600   |  3,200  |  6,400   |
 | DW6000 |   100   |  3,200   |  6,400  |  12,800  |
 
-From the preceding table, you can see that a query running on a DW2000 in the xlargerc resource class would have access to 6,400 MB of memory within each of the 60 distributed databases.  In SQL Data Warehouse, there are 60 distributions. Therfore, to calculate the total memory allocation for a query in a given resource class, the above values should be multiplied by 60.
+From the preceding table, you can see that a query running on a DW2000 in the xlargerc resource class would have access to 6,400 MB of memory within each of the 60 distributed databases.  In SQL Data Warehouse, there are 60 distributions. Therefore, to calculate the total memory allocation for a query in a given resource class, the above values should be multiplied by 60.
 
 ### Memory allocations system-wide (GB)
 
@@ -120,7 +120,7 @@ From this table of system-wide memory allocations, you can see that a query runn
 
 ## Concurrency slot consumption
 
-SQL Data Warehouse grants more memory to queries running in higher resource classes. Memory is a fixed resource.  Therfore, the more memory allocated per query, the fewer concurrent queries can execute. The following table reiterates all of the previous concepts in a single view that shows the number of concurrency slots available by DWU and the slots consumed by each resource class.
+SQL Data Warehouse grants more memory to queries running in higher resource classes. Memory is a fixed resource.  Therefore, the more memory allocated per query, the fewer concurrent queries can execute. The following table reiterates all of the previous concepts in a single view that shows the number of concurrency slots available by DWU and the slots consumed by each resource class.
 
 ### Allocation and consumption of concurrency slots
 
@@ -242,7 +242,7 @@ To reiterate, the following statements honor resource classes:
 
 ## Query exceptions to concurrency limits
 
-Some queries do not honor the resource class to which the user is assigned. These exceptions to the concurrency limits are made when the memory resources needed for a particular command are low, often because the command is a metadata operation. The goal of these exceptions is to avoid larger memory allocations for queries that will never need them. In these cases, the default small resource class (smallrc) is always used regardless of the actual resource class assigned to the user. For example, `CREATE LOGIN` will always run in smallrc. The resources required to fulfil this operation are very low, so it does not make sense to include the query in the concurrency slot model.  These queries are also not limited by the 32 user concurrency limit, an unlimited number of these queries can run up to the session limit of 1,024 sessions.
+Some queries do not honor the resource class to which the user is assigned. These exceptions to the concurrency limits are made when the memory resources needed for a particular command are low, often because the command is a metadata operation. The goal of these exceptions is to avoid larger memory allocations for queries that will never need them. In these cases, the default small resource class (smallrc) is always used regardless of the actual resource class assigned to the user. For example, `CREATE LOGIN` will always run in smallrc. The resources required to fulfill this operation are very low, so it does not make sense to include the query in the concurrency slot model.  These queries are also not limited by the 32 user concurrency limit, an unlimited number of these queries can run up to the session limit of 1,024 sessions.
 
 The following statements do not honor resource classes:
 
