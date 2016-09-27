@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/07/2016"
-	ms.author="tamram"/>
+	ms.date="09/21/2016"
+	ms.author="jutang;tamram"/>
 
 # Azure Storage replication
 
@@ -37,6 +37,8 @@ The following table provides a quick overview of the differences between LRS, ZR
 | Number of copies of data maintained on separate nodes.                             | 3   | 3   | 6   | 6      |
 
 See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) for pricing information for the different redundancy options.
+
+>[AZURE.NOTE] Premium Storage supports only locally redundant storage (LRS). For information about Premium Storage, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](storage-premium-storage.md).
 
 ## Locally redundant storage
 

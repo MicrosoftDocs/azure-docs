@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="How to perform live streaming using Azure Media Services to create multi-bitrate streams with .NET" 
+	pageTitle="How to perform live streaming using Azure Media Services to create multi-bitrate streams with .NET  | Microsoft Azure" 
 	description="This tutorial walks you through the steps of creating a Channel that receives a single-bitrate live stream and encodes it to multi-bitrate stream using .NET SDK." 
 	services="media-services" 
 	documentationCenter="" 
-	authors="juliako,anilmur" 
+	authors="anilmur" 
 	manager="erikre" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article"
-	ms.date="06/22/2016"
-	ms.author="juliako"/>
+	ms.date="09/15/2016"
+	ms.author="juliako;anilmur"/>
 
 
 #How to perform live streaming using Azure Media Services to create multi-bitrate streams with .NET
@@ -518,7 +518,9 @@ Add the appSettings section to the app.config file, and set the values for your 
 	}	
 
 
-##Next steps: Media Services learning paths
+##Next step
+
+Review Media Services learning paths.
 
 [AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
