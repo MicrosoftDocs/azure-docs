@@ -51,10 +51,10 @@ The following rules that pertain to actor interfaces are worth mentioning:
 Start by creating a new Service Fabric application. The Service Fabric SDK for Linux includes a Yeoman generator to provide the scaffolding for a Service Fabric application with a stateless service. Start by running the following Yeoman command:
 
 ```bash
-$ yo azuresf
+$ yo azuresfjava
 ```
 
-Follow the instructions to create a **Reliable Actor Service - Java**. For this tutorial, we will name the application "HelloWorldActorApplication" and the actor "HelloWorldActor." The following scaffolding will be created:
+Follow the instructions to create a **Reliable Actor Service**. For this tutorial, name the application "HelloWorldActorApplication" and the actor "HelloWorldActor." The following scaffolding will be created:
 
 ```bash
 HelloWorldActorApplication/

@@ -44,10 +44,10 @@ To get started with Reliable Services, you only need to understand a few basic c
 Start by creating a new Service Fabric application. The Service Fabric SDK for Linux includes a Yeoman generator to provide the scaffolding for a Service Fabric application with a stateless service. Start by running the following Yeoman command:
 
 ```bash
-$ yo azuresf
+$ yo azuresfjava
 ```
 
-Follow the instructions to create a **Reliable Stateless Service - Java**. For this tutorial, we will name the application "HelloWorldApplication" and the service "HelloWorld". The result will include directories for the `HelloWorldApplication` and `HelloWorld`.
+Follow the instructions to create a **Reliable Stateless Service**. For this tutorial, name the application "HelloWorldApplication" and the service "HelloWorld". The result will include directories for the `HelloWorldApplication` and `HelloWorld`.
 
 ```bash
 HelloWorldApplication/
