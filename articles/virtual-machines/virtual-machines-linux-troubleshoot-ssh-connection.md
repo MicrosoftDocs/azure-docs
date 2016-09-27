@@ -126,24 +126,46 @@ azure vm extension set <resource group> <vmname> VMAccessForLinux Microsoft.OSTC
 ```
 
 
-### Redeploy a VM
+## Restart a VM
+If you have reset the SSH configuration and user credentials, or encountered an error in doing so, you can try restarting the VM to address underlying
+
+### Azure portal
+To restart a VM using the Azure portal, select **Browse** > **Virtual machines** > *your VM* > ***Restart** as in the following example:
+
+![Restart a VM in the Azure portal](./media/virtual-machines-linux-troubleshoot-ssh-connection/restart-vm-using-portal.png)
+
+### Azure CLI
+To redeploy a VM using the Azure CLI, specify the resource group name and VM name as follows:
+
+```bash
+azure vm redeploy --resource-group <resource group> --name <vm name>
+```
+
+
+## Redeploy a VM
 You can redeploy a VM to another node within Azure, which may correct any underlying networking issues. For information about redeploying a VM, see [Redeploy virtual machine to new Azure node](virtual-machines-windows-redeploy-to-new-node.md).
 
 > [AZURE.NOTE] Note that after this operation finishes, ephemeral disk data will be lost and dynamic IP addresses that are associated with the virtual machine will be updated.
 
-#### Azure portal
-To redeploy a VM using the Azure portal, select **Browse** > **Virtual machines** > *your Linux virtual machine* > **Support + Troubleshooting** > **Redeploy**.
+### Azure portal
+To redeploy a VM using the Azure portal, select **Browse** > **Virtual machines** > *your VM* > **Support + Troubleshooting** > **Redeploy** as in the following example:
 
-#### Azure CLI
+![Redeploy a VM in the Azure portal](./media/virtual-machines-linux-troubleshoot-ssh-connection/redeploy-vm-using-portal.png)
 
+### Azure CLI
+To redeploy a VM using the Azure CLI, specify the resource group name and VM name as follows:
+
+```bash
+azure vm redeploy --resource-group <resource group> --name <vm name>
+```
 
 ## VMs created by using the Classic deployment model
 
 Try these steps to resolve the most common SSH connection failures for VMs that were created by using the classic deployment model. After each step, try reconnecting to the VM.
 
-- Reset remote access from the [Azure portal](https://portal.azure.com). On the Azure portal, select **Browse** > **Virtual machines (classic)** > *your Linux virtual machine* > **Reset Remote...**.
+- Reset remote access from the [Azure portal](https://portal.azure.com). On the Azure portal, select **Browse** > **Virtual machines (classic)** > *your VM* > **Reset Remote...**.
 
-- Restart the VM. On the [Azure portal](https://portal.azure.com), select **Browse** > **Virtual machines (classic)** > *your Linux virtual machine* > **Restart**.
+- Restart the VM. On the [Azure portal](https://portal.azure.com), select **Browse** > **Virtual machines (classic)** > *your VM* > **Restart**.
 
 	-OR-
 
@@ -159,7 +181,7 @@ Try these steps to resolve the most common SSH connection failures for VMs that 
 	- Reset the SSH configuration.
 
 - Check the VM's resource health for any platform issues.<br>
-	 Select **Browse** > **Virtual Machines (classic)** > *your Linux virtual machine* > **Settings** > **Check Health**.
+	 Select **Browse** > **Virtual Machines (classic)** > *your VM* > **Settings** > **Check Health**.
 
 
 ## Additional resources
