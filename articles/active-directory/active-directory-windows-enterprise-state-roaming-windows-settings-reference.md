@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 
 # Windows 10 roaming settings reference

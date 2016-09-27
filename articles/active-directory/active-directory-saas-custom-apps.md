@@ -3,7 +3,7 @@
     description="Learn how to self-service connect apps to Azure Active Directory using SAML and password-based SSO" 
     services="active-directory" 
     authors="asmalser-msft"  
-    documentationCenter="na" manager="stevenpo"/>
+    documentationCenter="na" manager="femila"/>
 <tags 
     ms.service="active-directory" 
     ms.devlang="na" 
