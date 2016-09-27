@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/19/2016"
+	ms.date="09/26/2016"
 	ms.author="cynthn"/>
 	
 	
@@ -39,5 +39,10 @@ This section shows you how to generalize your Windows virtual machine for use as
 	3. Click **OK**.
 
 	![Start Sysprep](./media/virtual-machines-windows-upload-image/sysprepgeneral.png)
+	
+	4. When Sysprep completes, it will shutdown the virtual machine. 
+	
+## Next Steps
 
-</br>
+- If the VM is on-premises, you can now [upload the VHD to Azure](virtual-machines-windows-upload-image.md).
+- If the VM is already in Azure, you can now [create a VM from the generalized VHD](virtual-machines-windows-create-vm-generalized.md).
