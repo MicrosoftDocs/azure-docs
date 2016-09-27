@@ -62,7 +62,7 @@ The [Azure portal](https://portal.azure.com) allows you to quickly create a VM s
 
 
 ## Operating system and image choices
-When creating a VM, you choose an image based on the operating system you want to run. Azure and its partners offer many images, some of which include applications and tools pre-installed. Or, upload one of your own images (see below).
+When creating a VM, you choose an image based on the operating system you want to run. Azure and its partners offer many images, some of which include applications and tools pre-installed. Or, upload one of your own images (see [the following section](#use-your-own-image)).
 
 ### Azure images
 Use the `azure vm image` CLI commands to see what's available by publisher, distro release, and builds.
