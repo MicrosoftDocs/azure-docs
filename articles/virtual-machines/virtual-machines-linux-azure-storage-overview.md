@@ -62,11 +62,20 @@ File storage is built on the same technology as Blob, Table, and Queue storage, 
 
 ## Hot Storage
 
-The Azure hot storage tier is optimized for storing data that is accessed frequently.
+The Azure hot storage tier is optimized for storing data that is accessed frequently.  Hot storage is the default storage type for blob stores.
 
 ## Cool Storage
 
-The Azure cool storage tier is optimized for storing data that is infrequently accessed and long-lived. 
+The Azure cool storage tier is optimized for storing data that is infrequently accessed and long-lived. Example use cases for cool storage include backups, media content, scientific data, compliance, and archival data. In general, any data that is seldom accessed is a perfect candidate for cool storage.
+
+|                             | Hot storage tier      | Cool storage tier     |
+|:----------------------------|:---------------------:|:---------------------:|
+| Availability                | 99.9%                 | 99%                   |
+| Availability (RA-GRS reads) | 99.99%                | 99.9%                 |
+| Usage charges               | Higher storage costs  | Lower storage costs   |
+|                             | Lower access          | Higher access         |
+|                             | and transaction costs | and transaction costs |
+
 
 ## Redundancy
 
