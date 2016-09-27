@@ -27,7 +27,7 @@ Apps that use the v2.0 endpoint can also consume REST APIs from the [Microsoft G
 ## Getting Started
 [AZURE.VIDEO build-2016-getting-started-with-microsoft-identities-enterprise-grade-sign-in-for-your-apps]
 
-Choose your favorite platform below to build an app using our open source libraries & frameworks.  Alternatively, you can use our OAuth 2.0 & OpenID Connect protocol documentation to send & receive protocol messages directly without using an auth library.
+Choose your favorite platform from the following list to build an app using our open source libraries & frameworks.  Alternatively, you can use our OAuth 2.0 & OpenID Connect protocol documentation to send & receive protocol messages directly without using an auth library.
 
 <!-- TODO: Finalize this table  -->
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
@@ -36,7 +36,7 @@ Choose your favorite platform below to build an app using our open source librar
 The conceptual information here will be useful in understanding what is & what isn't possible with the v2.0 endpoint.
 
 - Learn about the [types of apps you can build with the v2.0 endpoint](active-directory-v2-flows.md).
-- Understand the [limitations, restrictions and constraints](active-directory-v2-limitations.md) with the v2.0 endpoint.
+- Understand the [limitations, restrictions, and constraints](active-directory-v2-limitations.md) with the v2.0 endpoint.
 - We've recently added support for [admin restricted scopes](active-directory-v2-scopes.md) and the [OAuth2 client credentials grant](active-directory-v2-protocols-oauth-client-creds.md).  Try them out!
 
 ## Reference
