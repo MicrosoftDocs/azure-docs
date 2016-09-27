@@ -33,6 +33,8 @@ This is a step-by-step guide that walks you through the steps of setting up a se
 
 A secure cluster is a cluster that prevents unauthorized access to management operations, which includes deploying, upgrading, and deleting applications, services, and the data they contain. An unsecure cluster is a cluster that anyone can connect to at any time and perform management operations. Although it is possible to create an unsecure cluster, it is **highly recommended to create a secure cluster**. An unsecure cluster **cannot be secured later** - a new cluster must be created.
 
+The concepts are the same for creating secure clusters, whether the clusters are Linux clusters or Windows clusters. For more information and helper scripts for creating secure Linux clusters, please see [Creating secure clusters on Linux](service-fabric-cluster-creation-via-arm.md#secure-linux-clusters). The parameters obtained by the helper script provided can be input directly into the portal as described in the section [Create a cluster in the Azure portal](#create-cluster-portal).
+
 ## Log in to Azure
 This guide uses [Azure PowerShell][azure-powershell]. When starting a new PowerShell session, log in to your Azure account and select your subscription before executing Azure commands.
 
@@ -195,6 +197,7 @@ These are all the Key Vault prerequisites for configuring a Service Fabric clust
    - Key Vault
      - Cluster server authentication certificate
 
+</a "create-cluster-portal" ></a>
 ## Create cluster in the Azure portal
 
 ### Search for the Service Fabric cluster resource

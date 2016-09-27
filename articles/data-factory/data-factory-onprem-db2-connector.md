@@ -3,7 +3,7 @@
 	description="Learn about how move data from DB2 Database using Azure Data Factory" 
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/06/2016" 
-	ms.author="spelluru"/>
+	ms.author="jingwang"/>
 
 # Move data from DB2 using Azure Data Factory
 This article outlines how you can use the Copy Activity in an Azure data factory to move data to from DB2 to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with copy activity and supported data store combinations.

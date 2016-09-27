@@ -3,7 +3,7 @@
 	description="Learn how to move data to/from on-premises File System using Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/01/2016" 
-	ms.author="spelluru"/>
+	ms.author="jingwang"/>
 
 # Move data to and from On-premises file system using Azure Data Factory
 
