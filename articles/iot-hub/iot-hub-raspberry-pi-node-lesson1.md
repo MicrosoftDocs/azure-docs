@@ -1,3 +1,22 @@
+<properties
+ pageTitle="Get started with your Raspberry Pi 3 device"
+ description="In this lesson, you configure your Raspberry Pi 3 device with an operating system, set up your development environment, and deploy a simple application to the Pi."
+ services="iot-hub"
+ documentationCenter=""
+ authors="shizn"
+ manager="timlt"
+ tags=""
+ keywords=""/>
+
+<tags
+ ms.service="iot-hub"
+ ms.devlang="multiple"
+ ms.topic="article"
+ ms.tgt_pltfrm="na"
+ ms.workload="na"
+ ms.date="09/28/2016" 
+ ms.author="xshi"/>
+
 # Lesson 1 - Get started with your Raspberry Pi 3 device
 
 In this lesson, you configure your Raspberry Pi 3 device with an operating system, set up your development environment, and deploy a simple application to the Pi.

@@ -1,3 +1,22 @@
+<properties
+ pageTitle="Get the tools (Ubuntu 16.04)"
+ description="Download the tools and software to build and deploy your first application for the Raspberry Pi 3."
+ services="iot-hub"
+ documentationCenter=""
+ authors="shizn"
+ manager="timlt"
+ tags=""
+ keywords=""/>
+
+<tags
+ ms.service="iot-hub"
+ ms.devlang="multiple"
+ ms.topic="article"
+ ms.tgt_pltfrm="na"
+ ms.workload="na"
+ ms.date="09/28/2016" 
+ ms.author="xshi"/>
+
 # 1.2 Get the tools (Ubuntu 16.04)
 
 > [AZURE.SELECTOR]

@@ -1,7 +1,26 @@
+<properties
+ pageTitle="Create and deploy the blink sample application"
+ description="Clone the sample Node.js application from Github, and gulp to deploy this application to your Raspberry Pi 3 board. This sample application blinks the LED connected to the board every two seconds."
+ services="iot-hub"
+ documentationCenter=""
+ authors="shizn"
+ manager="timlt"
+ tags=""
+ keywords=""/>
+
+<tags
+ ms.service="iot-hub"
+ ms.devlang="multiple"
+ ms.topic="article"
+ ms.tgt_pltfrm="na"
+ ms.workload="na"
+ ms.date="09/28/2016" 
+ ms.author="xshi"/>
+
 # 1.3 Create and deploy the blink sample application
 
 ## 1.3.1 What you will do
-Clone the sample Node.js application from Github, and gulp to deploy this application to your Raspberry Pi 3 board. This sample application blinks the LED connected to the board every 3 seconds.
+Clone the sample Node.js application from Github, and gulp to deploy this application to your Raspberry Pi 3 board. This sample application blinks the LED connected to the board every two seconds.
 
 ## 1.3.2 What you will learn
 In this section, you will learn:
@@ -81,7 +100,7 @@ gulp deploy && gulp run
 ```
 
 ### 1.3.8.3 Verify the application is working
-You should now see the LED on your Pi blinking every three seconds.  If you don’t see the LED flashing, take a look at the [Troubleshooting](iot-hub-raspberry-pi-node-troubleshooting.md) guide for solutions to common problems.
+You should now see the LED on your Pi blinking every two seconds.  If you don’t see the LED flashing, take a look at the [Troubleshooting](iot-hub-raspberry-pi-node-troubleshooting.md) guide for solutions to common problems.
 ![LED blinking](media/iot-hub-raspberry-pi-lessons/lesson1/led_blinking.jpg)
 
     > [AZURE.NOTE] You can use `Ctrl - C` to terminate the application.

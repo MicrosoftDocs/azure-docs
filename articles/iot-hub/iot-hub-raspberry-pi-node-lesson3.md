@@ -1,3 +1,22 @@
+<properties
+ pageTitle="Send device-to-cloud messages"
+ description="In this lesson, you deploy a sample application to you Raspberry Pi 3 to send messages from your Pi to your Azure IoT hub. You also create an Azure function app that picks up incoming messages from your IoT hub and writes them to Azure table storage."
+ services="iot-hub"
+ documentationCenter=""
+ authors="shizn"
+ manager="timlt"
+ tags=""
+ keywords=""/>
+
+<tags
+ ms.service="iot-hub"
+ ms.devlang="multiple"
+ ms.topic="article"
+ ms.tgt_pltfrm="na"
+ ms.workload="na"
+ ms.date="09/28/2016" 
+ ms.author="xshi"/>
+
 # Lesson 3 - Send device-to-cloud messages
 In this lesson, you deploy a sample application to you Raspberry Pi 3 to send messages from your Pi to your Azure IoT hub. You also create an Azure function app that picks up incoming messages from your IoT hub and writes them to Azure table storage.
 

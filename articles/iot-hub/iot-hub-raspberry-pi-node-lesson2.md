@@ -1,3 +1,22 @@
+<properties
+ pageTitle="Create your Azure IoT hub"
+ description="In this lesson, you create your Azure IoT hub and register your first device in Azure IoT Hub with CLI experience."
+ services="iot-hub"
+ documentationCenter=""
+ authors="shizn"
+ manager="timlt"
+ tags=""
+ keywords=""/>
+
+<tags
+ ms.service="iot-hub"
+ ms.devlang="multiple"
+ ms.topic="article"
+ ms.tgt_pltfrm="na"
+ ms.workload="na"
+ ms.date="09/28/2016" 
+ ms.author="xshi"/>
+
 # Lesson 2 - Create your Azure IoT hub
 In this lesson, you create your Azure IoT hub and register your first device in Azure IoT Hub with CLI experience.
 

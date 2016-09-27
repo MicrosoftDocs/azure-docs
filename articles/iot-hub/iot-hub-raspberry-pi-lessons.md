@@ -1,12 +1,12 @@
 <properties
  pageTitle="Get Started with Raspberry Pi 3"
- description="TBD"
+ description="Get Started with Raspberry Pi 3, Create your Azure IoT Hub and connect your Pi to the IoT hub"
  services="iot-hub"
  documentationCenter=""
  authors="shizn"
  manager="timlt"
- tags="TBD"
- keywords="TBD"/>
+ tags=""
+ keywords=""/>
 
 <tags
  ms.service="iot-hub"

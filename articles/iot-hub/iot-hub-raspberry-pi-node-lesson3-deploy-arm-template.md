@@ -1,3 +1,22 @@
+<properties
+ pageTitle="Create an Azure function app and a storage account to process and store IoT hub messages"
+ description="Use an Azure Resource Manager (ARM) template to create an Azure function app and a storage account. The Azure function app listens to Azure IoT hub events, processes incoming messages, and writes them to Azure table storage."
+ services="iot-hub"
+ documentationCenter=""
+ authors="shizn"
+ manager="timlt"
+ tags=""
+ keywords=""/>
+
+<tags
+ ms.service="iot-hub"
+ ms.devlang="multiple"
+ ms.topic="article"
+ ms.tgt_pltfrm="na"
+ ms.workload="na"
+ ms.date="09/28/2016" 
+ ms.author="xshi"/>
+
 # 3.1 Create an Azure function app and a storage account to process and store IoT hub messages
 
 ## 3.1.1 What you will do

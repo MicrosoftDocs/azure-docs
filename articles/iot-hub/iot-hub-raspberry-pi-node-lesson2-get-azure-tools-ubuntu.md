@@ -1,3 +1,22 @@
+<properties
+ pageTitle="Get Azure tools (Ubuntu 16.04)"
+ description="Install Azure Command-Line Interface (Azure CLI). You might need 10 minutes to complete this section."
+ services="iot-hub"
+ documentationCenter=""
+ authors="shizn"
+ manager="timlt"
+ tags=""
+ keywords=""/>
+
+<tags
+ ms.service="iot-hub"
+ ms.devlang="multiple"
+ ms.topic="article"
+ ms.tgt_pltfrm="na"
+ ms.workload="na"
+ ms.date="09/28/2016" 
+ ms.author="xshi"/>
+
 # 2.1 Get Azure tools (Ubuntu 16.04)
 
 > [AZURE.SELECTOR]

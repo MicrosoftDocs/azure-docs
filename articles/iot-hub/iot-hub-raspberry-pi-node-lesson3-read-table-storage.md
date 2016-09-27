@@ -1,3 +1,22 @@
+<properties
+ pageTitle="Read messages persisted in Azure Storage"
+ description="Monitor the device-to-cloud messages as they are written to your Azure storage."
+ services="iot-hub"
+ documentationCenter=""
+ authors="shizn"
+ manager="timlt"
+ tags=""
+ keywords=""/>
+
+<tags
+ ms.service="iot-hub"
+ ms.devlang="multiple"
+ ms.topic="article"
+ ms.tgt_pltfrm="na"
+ ms.workload="na"
+ ms.date="09/28/2016" 
+ ms.author="xshi"/>
+
 # 3.3 Read messages persisted in Azure Storage
 
 ## 3.3.1 What you will do

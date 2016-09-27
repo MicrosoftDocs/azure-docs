@@ -1,4 +1,23 @@
-# 1.2 Get the tools (Windows)
+<properties
+ pageTitle="Get the tools (Windows 7 +)"
+ description="Download the tools and software to build and deploy your first application for the Raspberry Pi 3."
+ services="iot-hub"
+ documentationCenter=""
+ authors="shizn"
+ manager="timlt"
+ tags=""
+ keywords=""/>
+
+<tags
+ ms.service="iot-hub"
+ ms.devlang="multiple"
+ ms.topic="article"
+ ms.tgt_pltfrm="na"
+ ms.workload="na"
+ ms.date="09/28/2016" 
+ ms.author="xshi"/>
+
+# 1.2 Get the tools (Windows 7 +)
 
 > [AZURE.SELECTOR]
 - [Windows 7 +](iot-hub-raspberry-pi-node-lesson1-get-the-tools-win32.md)

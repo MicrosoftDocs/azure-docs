@@ -1,3 +1,22 @@
+<properties
+ pageTitle="Run the Azure blink sample application on your Raspberry Pi 3"
+ description="Deploy and run a sample application to your Raspberry Pi 3 device that sends messages to IoT hub."
+ services="iot-hub"
+ documentationCenter=""
+ authors="shizn"
+ manager="timlt"
+ tags=""
+ keywords=""/>
+
+<tags
+ ms.service="iot-hub"
+ ms.devlang="multiple"
+ ms.topic="article"
+ ms.tgt_pltfrm="na"
+ ms.workload="na"
+ ms.date="09/28/2016" 
+ ms.author="xshi"/>
+
 # 3.2 Run the Azure blink sample application on your Raspberry Pi 3
 ## 3.2.1 What you will do
 Deploy and run a sample application to your Raspberry Pi 3 device that sends messages to IoT hub.

@@ -1,3 +1,22 @@
+<properties
+ pageTitle="Troubleshooting"
+ description="Troubleshooting page for Raspberry Pi Node.js experience"
+ services="iot-hub"
+ documentationCenter=""
+ authors="shizn"
+ manager="timlt"
+ tags=""
+ keywords=""/>
+
+<tags
+ ms.service="iot-hub"
+ ms.devlang="multiple"
+ ms.topic="article"
+ ms.tgt_pltfrm="na"
+ ms.workload="na"
+ ms.date="09/28/2016" 
+ ms.author="xshi"/>
+
 # Troubleshooting
 
 ## Hardware issues
