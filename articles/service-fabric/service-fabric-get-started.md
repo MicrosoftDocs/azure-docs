@@ -17,6 +17,12 @@
    ms.author="ryanwi"/>
 
 # Prepare your development environment
+
+> [AZURE.SELECTOR]
+-[ Windows](service-fabric-get-started.md)
+- [Linux](service-fabric-get-started-linux.md)
+- [OSX](service-fabric-get-started-mac.md)
+
  To build and run [Azure Service Fabric applications][1] on your development machine, install the runtime, SDK, and tools. You also need to enable execution of the Windows PowerShell scripts included in the SDK.
 
 ## Prerequisites
