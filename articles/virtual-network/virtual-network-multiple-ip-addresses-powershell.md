@@ -36,7 +36,7 @@ To register for the preview, send an email to [Multiple IPs](mailto:MultipleIPsP
 
 2. Change the "values" of the following $Variables to what you want to name the NIC, the [resource group](../resource-group-overview.md#resource-groups) you want to assign it to, and the Azure [location](https://azure.microsoft.com/regions) you want to create it in.
 
-		$NicName     = "VM1-NI1"
+		$NicName     = "VM1-NIC1"
 		$NicRgName   = "RG1"
 		$NicLocation = "westus"
 
@@ -117,7 +117,7 @@ To register for the preview, send an email to [Multiple IPs](mailto:MultipleIPsP
 
 6. Create the NIC using the IP configurations defined in the previous step.
 
-		$nic = New-AzureRmNetworkInterface -Name $NICName -ResourceGroupName $NiRgName -Location $NiLocation -IpConfiguration $IpConfig1,$IpConfig2,$IpConfig3
+		$nic = New-AzureRmNetworkInterface -Name $NicName -ResourceGroupName $NicRgName -Location $NicLocation -IpConfiguration $IpConfig1,$IpConfig2,$IpConfig3
 
 7. Attach the NIC when creating a VM by following the steps in the [Create a VM](../virtual-machines/virtual-machines-windows-ps-create.md) article. Though the article creates a VM running Windows Server, the steps are the same for a Linux VM, other than selecting a different operating system. Complete steps 1-3 of the article. Skip steps 4 and 5 and then complete step 6 in the Create a VM article.
 
@@ -146,11 +146,11 @@ To register for the preview, send an email to [Multiple IPs](mailto:MultipleIPsP
 
 	**Linux (Ubuntu)**
 
-	
 	1. Open a terminal window.
  	2. Make sure you are the root user. If you are not, you can do this by using the following command:
 
 			sudo -i 
+	
 	3. Update the configuration file of the network interface (assuming ‘eth0’). 
 		- Keep the existing line item for dhcp. This will configure the primary IP address as it used to be earlier.
 		- Add a configuration for an additional static IP address with the following commands:
@@ -159,6 +159,7 @@ To register for the preview, send an email to [Multiple IPs](mailto:MultipleIPsP
 				ls
 
 		You should see a .cfg file.
+		
 	4. Open the file: vi *filename*.
 
 		You should see the following lines at the end of the file:
@@ -190,6 +191,7 @@ To register for the preview, send an email to [Multiple IPs](mailto:MultipleIPsP
 	**Linux (Redhat, CentOS, and others)**
 
 	1. Open a terminal window.
+	
 	2. Make sure you are the root user. If you are not, you can do this by using the following command:
 
 			sudo -i
