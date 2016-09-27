@@ -147,6 +147,7 @@ To register for the preview, send an email to [Multiple IPs](mailto:MultipleIPsP
 	**Linux (Ubuntu)**
 
 	1. Open a terminal window.
+	
  	2. Make sure you are the root user. If you are not, you can do this by using the following command:
 
 			sudo -i 
