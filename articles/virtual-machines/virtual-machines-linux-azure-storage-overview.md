@@ -141,4 +141,4 @@ We will talk about Storage Service Encryption (SSE), and how you can enable it f
 - [Storage cost calculator](https://azure.microsoft.com/pricing/calculator/?service=storage)
 ## Storage limits
 
-- [Storage Service limits](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#storage-limits)
+- [Storage Service limits](../azure-subscription-service-limits/#storage-limits)
