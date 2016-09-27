@@ -232,7 +232,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 The id_tokens are short lived. You must refresh them after they expire to continue being able to access resources. You can do so by submitting another `POST` request to the `/token` endpoint. This time, provide the `refresh_token` instead of the `code`:
 
 ```
-POST fabrikamb2c.onmicrosoft.com/v2.0/oauth2/token?p=b2c_1_sign_in HTTP/1.1
+POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
 Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
