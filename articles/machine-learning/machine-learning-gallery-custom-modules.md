@@ -25,6 +25,8 @@
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
+## Custom modules for Machine Learning Studio
+
 A number of 
 **[Custom Modules](https://gallery.cortanaintelligence.com/notebooks)** 
 are available in the Cortana Intelligence Gallery that expand the capabilities of Azure Machine Learning Studio to allow you to develop even more advanced predictive analytics solutions.

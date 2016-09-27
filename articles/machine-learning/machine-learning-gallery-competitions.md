@@ -26,6 +26,8 @@
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
+## Cortana Intelligence Competitions
+
 **[Competitions](https://gallery.cortanaintelligence.com/competitions)** 
 provide an exciting opportunity to compete with the community of data scientsts to solve complex problems using Cortana Intelligence Suite.
   

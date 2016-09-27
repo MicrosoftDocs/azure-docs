@@ -25,6 +25,8 @@
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
+## Solution templates
+
 A 
 **[Solution Template](https://gallery.cortanaintelligence.com/solutionTemplates)** 
 provides a starting point to quickly build a complete end-to-end solution for an industry-specific problem using preconfigured solutions, reference architectures and design patterns. These templates include extensive documentation and all the tools you need to get you going on your own solution.

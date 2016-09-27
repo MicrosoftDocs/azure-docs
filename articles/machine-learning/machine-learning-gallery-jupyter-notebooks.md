@@ -17,13 +17,15 @@
 	ms.author="roopalik;garye"/>
 
 
-# Discover Jupyter notebooks in the Cortana Intelligence Gallery
+# Discover Jupyter Notebooks in the Cortana Intelligence Gallery
 
 [AZURE.INCLUDE [machine-learning-gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
 
 <!-- separating these 2 includes -->
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+
+## Jupyter Notebooks
 
 **[Jupyter Notebooks](https://gallery.cortanaintelligence.com/notebooks)**
 include code, data visualizations, and documentation in a single, interactive canvas. 

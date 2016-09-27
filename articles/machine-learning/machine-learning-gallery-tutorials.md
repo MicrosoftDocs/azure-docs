@@ -25,6 +25,8 @@
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
+## Tutorials
+
 A number of 
 **[Tutorials](https://gallery.cortanaintelligence.com/tutorials)** 
 are available to walk you through machine learning technologies and concepts, or to describe advanced methods for solving various machine learning problems.

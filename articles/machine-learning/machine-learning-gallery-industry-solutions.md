@@ -25,6 +25,8 @@
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
+## Industry-specific Cortana Intelligence solutions 
+
 The 
 **[Industries](https://gallery.cortanaintelligence.com/industries)** 
 section of the Gallery brings together various resources that are specific to such industries as 

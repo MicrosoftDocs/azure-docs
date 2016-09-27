@@ -25,6 +25,8 @@
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
+## Collections
+
 A 
 **[Collection](https://gallery.cortanaintelligence.com/collections)**
 allows you to group together experiments, APIs, and other Gallery items that address a specific solution or concept.

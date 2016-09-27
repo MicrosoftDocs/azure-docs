@@ -25,6 +25,8 @@
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
+# Experiments for Machine Learning Studio
+
 The Gallery contains a wide variety of 
 **[Experiments](https://gallery.cortanaintelligence.com/experiments)** 
 that have been developed in Azure Machine Learning Studio. These range from quick proof-of-concept experiments that demonstrate a specific machine learning technique, to fully-developed solutions for complex machine learning problems.

@@ -25,6 +25,8 @@
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
+## Machine Learning APIs
+
 A solution developed in Azure Machine Learning can be launched as a web service so that the analytics model can be accessed by others through a set of REST APIs. A variety of these 
 **[Machine Learning APIs](https://gallery.cortanaintelligence.com/machineLearningAPIs)** 
 are available in the Gallery, such as a product recommendation engine or cloud-based face and speech recognition.
