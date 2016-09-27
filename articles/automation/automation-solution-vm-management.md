@@ -18,7 +18,7 @@
 
 # ![VM Management Solution in Automation](media/automation-solution-vm-management/vm-management-solution-icon.png) VM Management solution in Automation
 
-The VM Management solutions starts and stops your Azure Resource Manager Virtual Machines on a user-defined schedule and provides insight into the success of the Automation jobs that start and stop your Virtual Machines with OMS Log Analytics.  
+The VM Management solutions starts and stops your Azure Resource Manager virtual machines on a user-defined schedule and provides insight into the success of the Automation jobs that start and stop your virtual machines with OMS Log Analytics.  
 
 ## Prerequisites
 
@@ -34,6 +34,8 @@ The VM Management solutions starts and stops your Azure Resource Manager Virtual
 
 This solution consists of the following resources that will be imported and added to your Automation account.
 
+### Runbooks
+
 Runbook | Description|
 ----------|------------|
 CleanSolution-MS-Mgmt-VM | This runbook will remove all contained resources, remove all locks, and schedules when you go to delete the solution from your subscription.|  
@@ -41,6 +43,8 @@ SendMailO365-MS-Mgmt | This runbook sends an email through Office 365 Exchange.|
 StartByResourceGroup-MS-Mgmt-VM | This runbook is intended to start VMs (both classic and ARM based VMs) that resides in a given list of Azure resource group(s).
 StopByResourceGroup-MS-Mgmt-VM | This runbook is intended to stop VMs (both classic and ARM based VMs) that resides in a given list of Azure resource group(s).|
 <br>
+
+### Variables
 
 Variable | Description|
 ----------|------------|
@@ -65,6 +69,9 @@ StopByResourceGroup-SendMailO365-EmailSubject-MS-Mgmt | Specifies the text for t
 StopByResourceGroup-SendMailO365-EmailToAddress-MS-Mgmt | Specifies the recipient(s) of the email.  Enter separate names by using semi-colon(;).|
 StopByResourceGroup-TargetResourceGroups-MS-Mgmt-VM | Enter VM names to be excluded from management operation; separate names by using semi-colon(;). Values are case-sensitive and wildcard (asterisk) is supported.  Default value (asterisk) will include all resource groups in the subscription.|
 StopByResourceGroup-TargetSubscriptionID-MS-Mgmt-VM | Specifies the subscription that contains VMs to be managed by this solution.  This must be the same subscription where the Automation account of this solution resides.|  
+<br>
+
+### Schedules
 
 Schedule | Description|
 ----------|------------|
@@ -105,6 +112,38 @@ Automation job log and job stream data is ingested into OMS repository every fiv
 ## Using the solution
 
 
+## Log Analytics records
 
+Automation creates two types of records in the OMS repository.
+
+### Job Logs
+
+Property | Description|
+----------|----------|
+Time | Date and time when the runbook job executed.|
+resourceId | Specifies the resource type in Azure.  For Automation, the value is the Automation account associated with the runbook.|
+operationName | Specifies the type of operation performed in Azure.  For Automation, the value will be Job.|
+resultType | The status of the runbook job.  Possible values are:<br>- Started<br>- Stopped<br>- Suspended<br>- Failed<br>- Succeeded|
+resultDescription | Describes the runbook job result state.  Possible values are:<br>- Job is started<br>- Job Failed<br>- Job Completed|
+CorrelationId | GUID that is the Correlation Id of the runbook job.|
+Category | Classification of the type of data.  For Automation, the value is JobLogs.|
+RunbookName | The name of the runbook.|
+JobId | GUID that is the Id of the runbook job.|
+Caller |  Who initiated the operation.  Possible values are either an email address or system for scheduled jobs.|
+
+### Job Streams
+Property | Description|
+----------|----------|
+Time | Date and time when the runbook job executed.|
+resourceId | Specifies the resource type in Azure.  For Automation, the value is the Automation account associated with the runbook.|
+operationName | Specifies the type of operation performed in Azure.  For Automation, the value will be Job.|
+resultType | The status of the runbook job.  Possible values are:<br>- InProgress|
+resultDescription | Includes the output stream from the runbook.|
+CorrelationId | GUID that is the Correlation Id of the runbook job.|
+Category | Classification of the type of data.  For Automation, the value is JobStreams.|
+RunbookName | The name of the runbook.|
+JobId | GUID that is the Id of the runbook job.|
+Caller | Who initiated the operation.  Possible values are either an email address or system for scheduled jobs.| 
+StreamType | The type of job stream. Possible values are:<br>-Progress<br>- Output<br>- Warning<br>- Error<br>- Debug<br>- Verbose|
    
 
