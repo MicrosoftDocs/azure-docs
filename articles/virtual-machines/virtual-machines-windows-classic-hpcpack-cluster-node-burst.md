@@ -37,7 +37,7 @@ detailed guidance and considerations for production deployments, see
 Pack](https://technet.microsoft.com/library/gg481749.aspx).
 
 For considerations to use a intensive-instance size for the burst nodes, see
-[About the H-series and compute-intensive A-series VMs](virtual-machines-windows-a8-a9-a10-a11-specs.md).
+[About H-series and compute-intensive A-series VMs](virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
 ## Prerequisites
 
