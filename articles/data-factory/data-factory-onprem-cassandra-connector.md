@@ -241,7 +241,7 @@ VARCHAR | String
 VARINT | Decimal
 
 > [AZURE.NOTE]  
-> For collection types (map, set, list, etc...), refer to [Work with Cassandra collection types using virtual table](#work-with-collections-using-virtual-table) section. 
+> For collection types (map, set, list, etc.), refer to [Work with Cassandra collection types using virtual table](#work-with-collections-using-virtual-table) section. 
 > 
 > User-defined types are not supported.
 > 
