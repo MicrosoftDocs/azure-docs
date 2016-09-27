@@ -42,7 +42,7 @@ To resolve this issue, try the following methods, in the given order. After you 
 
 This issue can occur if the account doesn’t have sufficient user rights. An account administrator can only access the [Account Center](https://account.windowsazure.com/) whereas service administrators (SA) and co-administrators (CA) only have access to the [Azure portal](https://portal.azure.com).
 
-**Scenario 1: Error message is received in the [Azure portal]((https://portal.azure.com)**
+**Scenario 1: Error message is received in the [Azure portal](https://portal.azure.com)**
 
 To resolve this issue, [add the co-administrator or owner role](billing-add-change-azure-subscription-administrator.md) for the account.
 
@@ -68,7 +68,7 @@ To resolve the issue, try one of the following methods:
 
 -	Browse to the Azure portal in InPrivate Browsing mode. To do this, click **Tools** ![tools button](./media/billing-cannot-login-subscription/Toolsbutton.png) > **Safety** > **InPrivate Browsing**.
 
-## Microsoft account vs Organizational account
+## You need to sign in to an organizational account
 
 Your Microsoft account is the email address you use, along with your password, to sign in to any Windows Live program or service, such as Outlook, Hotmail, MSN or OneDrive. You may set up a Microsoft account using any email address belonging to you, including your company email. Please see [www.microsoft.com/account](http://www.microsoft.com/account) for more details.
 
