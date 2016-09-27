@@ -3,7 +3,7 @@
 	description="Find examples for DocumentDB's protocol support for MongoDB." 
 	keywords="mongodb examples"
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="" 
 	documentationCenter=""/>
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/23/2016" 
-	ms.author="stbaro"/>
+	ms.author="mimig"/>
 
 # DocumentDB protocol support for MongoDB examples
 To use these examples, you must:

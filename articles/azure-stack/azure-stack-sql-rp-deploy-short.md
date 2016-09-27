@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/27/2016"
+	ms.date="09/26/2016"
 	ms.author="dumagar"/>
 
 # Use SQL databases on Azure Stack
+
+> [AZURE.NOTE] The following information only applies to Azure Stack TP1 deployments.
 
 Use the SQL Server resource provider adapter to expose SQL databases as a service of Azure Stack. After you install the resource provider, you and your users can create databases for cloud-native apps, website that are based on SQL, and workloads that are based on SQL without having to provision a virtual machine (VM) that hosts SQL Server each time.
 

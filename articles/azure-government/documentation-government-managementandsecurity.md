@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="azure-government"
-	ms.date="08/25/2016"
+	ms.date="09/23/2016"
 	ms.author="ryansoc"/>
 
 
@@ -32,5 +32,48 @@ Key Vault is generally available in Azure Government. Just as in public, there i
 
 For additional information, please see the [Azure Key Vault public documentation](/key-vault-get-started).
 
-For supplemental information and updates please subscribe to the
+## Log Analytics
+
+Log Analytics is in preview in Azure Government. 
+
+### Differences from public Azure
+
+The following Log Analytics features and solutions are not currently available in Azure Government. This list is updated when the status of features / solutions changes.
+
++ Near real-time metrics
+  - When viewing metric graphs with a time range of less than six hours, the graph does not automatically update with new metric values
++ Export of data to PowerBI
++ Network Monitoring solution
++ Office 365 solution
++ Windows 10 Upgrade Analytics solution
++ Application Dependency Monitoring
++ Update Assessment
++ Azure portal integration
+  - Selecting Azure storage accounts to monitor must be done through PowerShell or Resource Manager templates
+  - Selecting virtual machines to enable the Log Analytics agent must be done through PowerShell or Resource Manager templates
++ Linux monitoring
++ OMS Mobile applications
++ Microsoft Monitoring Agent VM Extension
++ OMS Linux Agent VM Extension
++ Usage data
++ Alerting emails and remediation using Azure Automation
+
+The following Log Analytics features have different behavior in Azure Government:
+
++ The Windows agent must be downloaded from the Log Analytics portal for Azure Government.
++ The Security and Audit solution does not have support for Malicious IP detection.
++ Uploading data using the Data Collector API requires the use of the Azure Government URL.
+
+### Frequently asked questions
+
++ Can I migrate data from Log Analytics in public Azure to Azure Government?
+  - No. It is not possible to move data or your workspace from public Azure to Azure Government.
++ Can I switch between public Azure and Azure Government workspaces from the OMS Log Analytics portal?
+  - No. The portals for public Azure and Azure Government are separate and do not share information. 
+
+For more information, see [Log Analytics public documentation](../log-analytics/log-analytics-overview.md).
+
+## Next Steps
+
+For supplemental information and updates, subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>

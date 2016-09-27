@@ -22,7 +22,7 @@ Microsoft Azure is Microsoft's application platform for the public cloud.  The g
 
 **How to read this article**
 
-Azure is growing all the time so it's easy to get overloaded.  The basic services are listed earlier in the paper. Start with just those, then go through the additional services. That doesn't mean you can't use just the additional services by themselves, but the basic services make up the core of an application running in Azure.
+Azure is growing all the time so it's easy to get overloaded.  Start with the basic services, which are listed first in this article, and then go on to additional services. That doesn't mean you can't use just the additional services by themselves, but the basic services make up the core of an application running in Azure.
 
 **Give feedback**
 
@@ -33,7 +33,7 @@ Your feedback is important. This article should give you an effective overview o
 
 Azure groups services into categories in the Management Portal and on various visual aids like the [What Is Azure Infographic](https://azure.microsoft.com/documentation/infographics/azure/) . The Management Portal is what you use to manage most (but not all) services in Azure.
 
-This paper will use a **different organization** to talk about services based on similar function, and to call out important sub-services that are part of larger ones.  
+This article will use a **different organization** to talk about services based on similar function, and to call out important sub-services that are part of larger ones.  
 
 ![Azure components](./media/fundamentals-introduction-to-azure/AzureComponentsIntroNew780.png)   
  *Figure: Azure provides Internet-accessible application services running in Azure datacenters.*
