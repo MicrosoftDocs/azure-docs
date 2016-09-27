@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/26/2016"
+   ms.date="09/27/2016"
    ms.author="telmos"/>
 
 # Implementing Azure Active Directory
@@ -539,6 +539,8 @@ The steps that follow assume the following prerequisites:
 
 ### Create a simulated on-premises environment with Active Directory
 
+The on-premises environment comprises a pair of domain controllers for the `contoso.com` domain together with two further servers for hosting the Azure AD Connect sync service. The servers for hosting Azure AD Connect are not domain-joined.
+
 1. In File Explorer, return to the Scripts folder containing the script used to create the N-tier web application.
 
 2. In the Parameters folder, add another sub folder named `Onpremise`.
@@ -548,6 +550,10 @@ The steps that follow assume the following prerequisites:
     - [add-adds-domain-controller.parameters.json][add-adds-domain-controller-parameters]
 
     - [create-adds-forest-extension.parameters.json][create-adds-forest-extension-parameters]
+
+    - [virtualMachines-adc.parameters.json][virtualMachines-adc-parameters]
+
+    - [virtualMachines-adc-joindomain.parameters.json][virtualMachines-adc-joindomain-parameters]
 
     - [virtualMachines-adds.parameters.json][virtualMachines-adds-parameters]
 
@@ -566,6 +572,8 @@ The steps that follow assume the following prerequisites:
 
     - virtualMachines-adds.parameters.json
 
+    - virtualMachines-adc.parameters.json
+
     - virtualNetwork.parameters.json
 
     - virtualNetwork-adds-dns.parameters.json
@@ -580,7 +588,111 @@ The steps that follow assume the following prerequisites:
 
     For `<location>`, specify an Azure region, such as `eastus` or `westus`.
 
-**TBC - THERE ARE SOME OUTSTANDING QS CONCERNING THE ON-PREMISES SETUP**
+### Install and configure the Azure AD Connect sync service
+
+The configuration illustrated in these steps consists of two instances of the Azure AD Connect sync service; the first is active while the second is configured in staging mode to provide rapid failover and high availability if the first server fails.
+
+1. Using the Azure portal, navigate to the resource group holding the VMs for the Azure AD Connect sync services (*ra-aad-onpremise-rg* by default), and connect to the *ra-aad-onpremise-adc-vm1* VM. Log in as *testuser* with password *AweS0me@PW*.
+
+2. Download Azure AD Connect from [here][aad-connect-download].
+
+3. Run the Azure AD Connect installer and perform an installation using the *Customize* option.
+
+	>[AZURE.NOTE] You cannot use the *Express Settings* option because the VM hosting the Azure AD Connect sync service is not domain-joined.
+
+4. On the *Install required components* page, leave the optional configuration settings blank to accept the default options.
+
+5. On the *User sign-in* page, select *Password Synchronization*.
+
+6. On the *Connect to Azure AD* page, enter  admin@*myaadname*.onmicrosoft.com, where *myaadname* is the name of your AAD tenant. Enter the password for the admin account.
+
+7. On the *Connect your directories* page, specify contoso.com for the forest (type the value in because it won't appear in the drop-down list), enter CONTOSO\testuser for the user name, specify AweS0me@PW for the password, and then click *Add Directory*.
+
+8. On the *Azure AD sign-in configuration* page, accept the default value for the user principal name. Check *Continue without any verified domains*.
+
+	>[AZURE.NOTE] The contoso.com directory will be listed as *Not Verified*. To verify a domain name you must create a new TXT record for your domain-name registrar. In this example, the on-premises domain is not registered externally. For more information, see [Add a custom domain name to Azure Active Directory][aad-custom-directory].
+
+9. On the *Domain and OU filtering* page, select *Sync all domains and OUs* (the default).
+
+10. On the *Uniquely identifying your users* page, accept the default values.
+
+11. On the *Filter users and devices* page, select *Synchronize all users and devices* (the default).
+
+12. On the *Optional features* page, select *Password writeback*.
+
+13. On the *Ready to configure* page, select *Start the synchronization process when configuration completes*, but leave *Enable staging mode* deselected.
+
+14. Verify that the configuration process completes without errors and then exit the installer.
+
+15. From the Azure portal, connect to the *ra-aad-onpremise-adc-vm2* VM. Log in as *testuser* with password *AweS0me@PW*.
+
+16. Download Azure AD Connect and then run the installer.
+
+17. Step through the wizard, and respond as described in steps 3 through 12 above.
+
+18. On the *Ready to configure* page, select *Start the synchronization process when configuration completes*, and **also select** *Enable staging mode*. This will cause the Azure AD Connect sync service to retrieve details about accounts and objects from the contoso.com domain and store them in its database, but it will not transmit these details to your AAD tenant.
+
+14. Verify that the configuration process completes without errors and then exit the installer.
+
+### Test the AAD configuration
+
+1. Using the Azure portal, switch to your AAD directory, open the Azure Active Directory blade, click *Users and Groups*, and then click *All users* to display the list of users and groups synchronized with the directory. You should see users for the following accounts:
+
+	- admin (admin@*myaadname*.onmicrosoft.com)
+
+	- On-Premises Directory Synchronization Service Account (Sync_ADC1_*nnnnnnnnnnnn*@*myaadname*.onmicrosoft.com)
+
+	- On-Premises Directory Synchronization Service Account (Sync_ADC2_*nnnnnnnnnnnn*@*myaadname*.onmicrosoft.com)
+
+	- Test User (TestUser@*myaadname*.onmicrosoft.com)
+
+2. In the Azure portal, navigate to the resource group holding the VMs for the AD DS domain controllers (*ra-aad-onpremise-rg* by default), and connect to the *ra-aad-onpremise-ad-vm1* VM. Log in as *testuser* with password *AweS0me@PW*.
+
+3. Using the *Active Directory Users and Computers* console, add a new domain user named John Smith, with logon name jsmith@contoso.com. Specify a password of your choice. Make the user a member of the local Administrators group (this is only so you can log locally on as this user later - the only machines in the domain are DCs).
+
+4. Switch to the *ra-aad-onpremise-adc-vm1* VM, open a PowerShell window, and run the following commands:
+
+	```[powershell]
+	Import-Module ADSync
+	Start-ADSyncSyncCycle -PolicyType Delta
+	```
+
+	Verify that the command returns *Success*.
+
+	>[AZURE.NOTE] This step is necessary because by default the synchronization process is scheduled to run at 30 minute intervals. These commands force a synchronization to occur immediately.
+
+5. Return to the Azure portal, switch to your AAD directory, open the Azure Active Directory blade, click *Users and Groups*, and then click *All users*. You should now see John Smith (jsmith@*myaadname*.onmicrosoft.com) appear in the list of users.
+
+6. In the Azure Active Directory blade, click *Enterprise Applications*, and then click *All applications*.  Click the *ContosoWebApp1* application, and then click *Users and groups*. In the toolbar, click *Add*. Click *Users and groups*, and select *John Smith*. Click *Assign*.
+
+7. Using Internet Explorer, navigate to the site https://account.activedirectory.windowsazure.com. Log in as jsmith@*myaadname*.onmicrosoft.com with the password you specified earlier.
+
+	>[AZURE.NOTE] Do not click the ContosoWebApp icon in the list of applications. AAD will try and find the web application at the publicly listed DNS address for www.contoso.com, which is different from the address of your web-tier load balancer.
+
+8. Click the *profile* tab. The details of the user (if you specified any when it was created) should be displayed.
+
+	>[AZURE.NOTE] If you click *Change password*, you will not be allowed to perform this task as this operation must be enabled by an administrator first. For more information, see [Getting started with Password Management][aad-password-management].
+
+### Enable users to run the application by using SSO through AAD
+
+1. Return to the *ra-aad-onpremise-ad-vm1* domain controller VM.
+
+2. Open the *DNS Manager* console and add a new host record for www.contoso.com. Specify the public IP address of the web-tier load balancer.
+
+3. Copy the file *MyFakeRootCertificateAuthority.cer* from the test client computer (you created this files in the procedure [Simulate configuration of a public web site](#simulate-configuration-of-a-public-web-site)
+	
+4. Open a command prompt as Administrator, move to the folder holding the file that you just copied, and run the following command:
+
+	```
+	certutil.exe -addstore Root MyFakeRootCertificateAuthority.cer
+	```
+5. Using Internet Explorer, navigate to https://www.contoso.com. Verify that the AAD sign-in page for the ContosoWebApp1 web application appears.
+
+6. Log in as jsmith@*myaadname*.onmicrosoft.com. The application should run and sign you in correctly.
+
+	Each time you run the web application, you will be prompted for your name and password. The following steps configure the application to support SSO, so AAD can use your domain credentials instead. Note that these changes are made to the application configuration, and not to AAD.
+
+7. **TBD**
 
 ## Next steps
 
@@ -636,6 +748,11 @@ The steps that follow assume the following prerequisites:
 [virtualMachines-adds-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-aad/parameters/onpremise/virtualMachines-adds.parameters.json
 [virtualNetwork-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-aad/parameters/onpremise/virtualNetwork.parameters.json
 [virtualNetwork-adds-dns-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-aad/parameters/onpremise/virtualNetwork-adds-dns.parameters.json
+[virtualMachines-adc-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-aad/parameters/onpremise/virtualMachines-adc.parameters.json
+[virtualMachines-adc-joindomain-parameters]: https://raw.githubusercontent.com/mspnp/reference-architectures/master/guidance-identity-aad/parameters/onpremise/virtualMachines-adc-joindomain.parameters.json
+[aad-connect-download]: http://www.microsoft.com/download/details.aspx?id=47594
+[aad-custom-directory]: https://azure.microsoft.com/documentation/articles/active-directory-add-domain/
+[aad-password-management]: https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-their-azure-ad-passwords
 [0]: ./media/guidance-ra-identity-aad/figure1.png "Cloud identity architecture using Azure Active Directory"
 [1]: ./media/guidance-ra-identity-aad/figure2.png "Single forest, single AAD directory topology"
 [2]: ./media/guidance-ra-identity-aad/figure3.png "Multiple forests, single AAD directory topology"
