@@ -17,11 +17,11 @@
 	ms.date="09/27/2016"
 	ms.author="davidmu"/>
 
-# Automatically scale machines in a Virtual Machine Scale Set
+# Automatically scale machines in a virtual machine scale set
 
 Virtual machine scale sets make it easy for you to deploy and manage identical virtual machines as a set. Scale sets provide a highly scalable and customizable compute layer for hyperscale applications, and they support Windows platform images, Linux platform images, custom images, and extensions. For more information about scale sets, see [Virtual Machine Scale Sets](virtual-machine-scale-sets-overview.md).
 
-This tutorial shows you how to create a scale set of Windows virtual machines and automatically scale the machines in the set. You do this by creating an Azure Resource Manager template and deploying it using Azure PowerShell. For more information about templates, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md). To learn more about automatic scaling of scale sets, see [Automatic scaling and Virtual Machine Scale Sets](virtual-machine-scale-sets-autoscale-overview.md).
+This tutorial shows you how to create a scale set of Windows virtual machines and automatically scale the machines in the set. You create the scale set and set up scaling by creating an Azure Resource Manager template and deploying it using Azure PowerShell. For more information about templates, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md). To learn more about automatic scaling of scale sets, see [Automatic scaling and Virtual Machine Scale Sets](virtual-machine-scale-sets-autoscale-overview.md).
 
 In this article, you deploy the following resources and extensions:
 
@@ -39,7 +39,7 @@ For more information about Resource Manager resources, see [Azure Compute, Netwo
 
 ## Step 1: Install Azure PowerShell
 
-See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for information about how to install the latest version of Azure PowerShell, select the subscription that you want to use, and sign in to your Azure account.
+See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to Azure.
 
 ## Step 2: Create a resource group and a storage account
 
@@ -104,7 +104,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
 	- Storage account names for the accounts associated with the machines in the scale set.
 	- Settings for the Diagnostics extension that is installed on the virtual machines. For more information about the Diagnostics extension, see [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](../virtual-machines/virtual-machines-extensions-diagnostics-windows-template.md).
     
-4. Add the storage account resource under the resources parent element that you added to the template. This template uses a loop to create the recommended 5 storage accounts where the operating system disks and diagnostic data are stored. This set of accounts can support up to 100 virtual machines in a scale set, which is the current maximum. Each storage account is named with a letter designator that was defined in the variables combined with the prefix that you provide in the parameters for the template.
+4. Add the storage account resource under the resources parent element that you added to the template. This template uses a loop to create the recommended five storage accounts where the operating system disks and diagnostic data are stored. This set of accounts can support up to 100 virtual machines in a scale set, which is the current maximum. Each storage account is named with a letter designator that was defined in the variables combined with the prefix that you provide in the parameters for the template.
 
         {
           "type": "Microsoft.Storage/storageAccounts",
@@ -202,7 +202,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
           }
         },
 
-8. Add the network interface resource that is used by the separate virtual machine. Because machines in a virtual machine scale set are not directly accessible using a public IP address, a separate virtual machine is created in the same virtual network as the scale set and is used to remotely access the machines in the set.
+8. Add the network interface resource that is used by the separate virtual machine. Because machines in a scale set aren't accessible through a public IP address, a separate virtual machine is created in the same virtual network and is used to remotely access the machines.
 
         {
           "apiVersion": "2016-03-30",
@@ -275,7 +275,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
           }
         },
 
-10.	Add the virtual machine scale set resource and specify the diagnostics extension that is installed on all virtual machines in the scale set. Many of the settings for this resource are similar with the virtual machine resource. The main differences are the addition of the capacity element that specifies how many virtual machines should be initialized in the scale set, and upgradePolicy that specifies how updates are made to virtual machines in the scale set. The scale set is not created until all of the storage accounts are created as specified with the dependsOn element.
+10.	Add the virtual machine scale set resource and specify the diagnostics extension that is installed on all virtual machines in the scale set. Many of the settings for this resource are similar with the virtual machine resource. The main differences are the addition of the capacity element that specifies the number of virtual machines in the scale set, and upgradePolicy that specifies how updates are made to virtual machines in the scale set. The scale set is not created until all of the storage accounts are created as specified with the dependsOn element.
 
             {
               "type": "Microsoft.Compute/virtualMachineScaleSets",
@@ -426,26 +426,26 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
               }
             }
 
-    For this tutorial, these are the important values:
+    For this tutorial, these values are important:
 
-    - **metricName** - This is the same as the performance counter that we defined in the wadperfcounter variable. Using that variable, the Diagnostics extension collects the  **Processor(_Total)\% Processor Time** counter.
-    - **metricResourceUri** - This is the resource identifier of the virtual machine scale set.
-    - **timeGrain** – This is the granularity of the metrics that are collected. In this template, it is set to 1 minute.
-    - **statistic** – This determines how the metrics are combined to accommodate the automatic scaling action. The possible values are: Average, Min, Max. In this template we are looking for the average total CPU usage among the virtual machines in the scale set.
-    - **timeWindow** – This if the range of time in which instance data is collected. It must be between 5 minutes and 12 hours.
-    - **timeAggregation** –This determines how the data that is collected should be combined over time. The default value is Average. The possible values are: Average, Minimum, Maximum, Last, Total, Count.
-    - **operator** – This is the operator that is used to compare the metric data and the threshold. The possible values are: Equals, NotEquals, GreaterThan, GreaterThanOrEqual, LessThan, LessThanOrEqual.
-    - **threshold** – This is the value that triggers the scale action. In this template, machines are added to the scale set when the average CPU usage among machines in the set is over 50%.
-    - **direction** – This determines the action that is taken when the threshold value is achieved. The possible values are Increase or Decrease. In this template, the number of virtual machines in the scale set is increased if the threshold is over 50% in the defined time window.
-    - **type** – This is the type of action that should occur, this must be set to ChangeCount.
-    - **value** – This is the number of virtual machines that are added or removed from the scale set. This value must be 1 or greater. The default value is 1. In this template, the number of machines in the scale set increases by 1 when the threshold is met.
-    - **cooldown** – This is the amount of time to wait since the last scaling action before the next action occurs. This must be between 1 minute and I week.
+    - **metricName** - This value is the same as the performance counter that we defined in the wadperfcounter variable. Using that variable, the Diagnostics extension collects the  **Processor(_Total)\% Processor Time** counter.
+    - **metricResourceUri** - This value is the resource identifier of the virtual machine scale set.
+    - **timeGrain** – This value is the granularity of the metrics that are collected. In this template, it is set to one minute.
+    - **statistic** – This value determines how the metrics are combined to accommodate the automatic scaling action. The possible values are: Average, Min, Max. In this template, the average total CPU usage of the virtual machines is collected.
+    - **timeWindow** – This value is the range of time in which instance data is collected. It must be between 5 minutes and 12 hours.
+    - **timeAggregation** –This value determines how the data that is collected should be combined over time. The default value is Average. The possible values are: Average, Minimum, Maximum, Last, Total, Count.
+    - **operator** – This value is the operator that is used to compare the metric data and the threshold. The possible values are: Equals, NotEquals, GreaterThan, GreaterThanOrEqual, LessThan, LessThanOrEqual.
+    - **threshold** – This value is the value that triggers the scale action. In this template, machines are added to the scale set when the average CPU usage among machines in the set is over 50%.
+    - **direction** – This value determines the action that is taken when the threshold value is achieved. The possible values are Increase or Decrease. In this template, the number of virtual machines in the scale set is increased if the threshold is over 50% in the defined time window.
+    - **type** – This value is the type of action that should occur and must be set to ChangeCount.
+    - **value** – This value is the number of virtual machines that are added or removed from the scale set. This value must be 1 or greater. The default value is 1. In this template, the number of machines in the scale set increases by 1 when the threshold is met.
+    - **cooldown** – This value is the amount of time to wait since the last scaling action before the next action occurs. This must be between one minute and one week.
 
 12.	Save the template file.    
 
 ## Step 4: Upload the template to storage
 
-The template can be uploaded from the Microsoft Azure PowerShell window as long as you know the account name and the primary key of the storage account that you created in step 1.
+The template can be uploaded as long as you know the name and primary key of the storage account that you created in step 1.
 
 1.	In the Microsoft Azure PowerShell window, set a variable that specifies the name of the storage account that you created in step 1.
 
@@ -461,7 +461,7 @@ The template can be uploaded from the Microsoft Azure PowerShell window as long 
 
             $ctx = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 
-4.	Create a new templates container where the template that you created can be stored.
+4.	Create the container for storing the template.
 
             $containerName = "templates"
             New-AzureStorageContainer -Name $containerName -Context $ctx  -Permission Blob
@@ -481,15 +481,15 @@ Now that you created the template, you can start deploying the resources. Use th
 When you press enter, you are prompted to provide values for the variables you assigned. Provide these values:
 
     vmName: vmsstestvm1
-	vmSSName: vmsstest1
-	instanceCount: 5
-	adminUserName: vmadmin1
-	adminPassword: VMpass1
-	resourcePrefix: vmsstest
+	  vmSSName: vmsstest1
+	  instanceCount: 5
+	  adminUserName: vmadmin1
+	  adminPassword: VMpass1
+	  resourcePrefix: vmsstest
 
-It should take about 15 minutes for all of the resources to successfully be deployed.
+It should take about 15 minutes for all the resources to successfully be deployed.
 
->[AZURE.NOTE] You can also make use of the portal’s ability to deploy the resources. To do this, use this link:
+>[AZURE.NOTE] You can also use the portal’s ability to deploy the resources. Use this link:
 "https://portal.azure.com/#create/Microsoft.Template/uri/<link to VM Scale Set JSON template>"
 
 ## Step 6: Monitor resources
@@ -497,7 +497,7 @@ It should take about 15 minutes for all of the resources to successfully be depl
 You can get some information about virtual machine scale sets using these methods:
 
  - The Azure portal - You can currently get a limited amount of information using the portal.
- - The [Azure Resource Explorer](https://resources.azure.com/) - This is the best tool to explore the current state of your scale set. Follow this path and you should see the instance view of the scale set that you created:
+ - The [Azure Resource Explorer](https://resources.azure.com/) - This tool is the best for exploring the current state of your scale set. Follow this path and you should see the instance view of the scale set that you created:
 
         subscriptions > {your subscription} > resourceGroups > vmsstestrg1 > providers > Microsoft.Compute > virtualMachineScaleSets > vmsstest1 > virtualMachines
 
@@ -515,7 +515,7 @@ You can get some information about virtual machine scale sets using these method
 
 ## Step 7: Remove the resources
 
-Because you are charged for resources used in Azure, it is always a good practice to delete resources that are no longer needed. You don’t need to delete each resource separately from a resource group. You can delete the resource group and all of its resources will automatically be deleted.
+Because you are charged for resources used in Azure, it is always a good practice to delete resources that are no longer needed. You don’t need to delete each resource separately from a resource group. You can delete the resource group and all its resources are automatically deleted.
 
 	Remove-AzureRmResourceGroup -Name vmsstestrg1
 
@@ -528,4 +528,5 @@ If you want to keep your resource group, you can delete the scale set only.
 - Manage the scale set that you just created using the information in [Manage virtual machines in a Virtual Machine Scale Set](virtual-machine-scale-sets-windows-manage.md).
 - Learn more about vertical scaling by reviewing [Vertical autoscale with Virtual Machine Scale sets](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 - Find examples of Azure Insights monitoring features in [Azure Insights PowerShell quick start samples](../azure-portal/insights-powershell-samples.md)
-- Learn about notification features in [Use autoscale actions to send email and webhook alert notifications in Azure Insights](../azure-portal/insights-autoscale-to-webhook-email.md) and [Use audit logs to send email and webhook alert notifications in Azure Insights](../azure-portal/insights-auditlog-to-webhook-email.md)
+- Learn about notification features in [Use autoscale actions to send email and webhook alert notifications in Azure Insights](../azure-portal/insights-autoscale-to-webhook-email.md) 
+- Learn how to [Use audit logs to send email and webhook alert notifications in Azure Insights](../azure-portal/insights-auditlog-to-webhook-email.md)
