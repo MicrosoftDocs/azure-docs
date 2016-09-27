@@ -67,7 +67,7 @@ This example uses the Web linked service with anonymous authentication. See [Web
 	}
 
 **WebTable input dataset**
-Setting **external**  to **true** informs the Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
+Setting **external** to **true** informs the Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
 
 > [AZURE.NOTE] See [Get index of a table in an HTML page](#get-index-of-a-table-in-an-html-page) section for steps to getting index of a table in an HTML page.  
 
