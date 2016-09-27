@@ -202,7 +202,7 @@ The next example shows a variable that is a complex JSON type, and variables tha
 
 ## Resources
 
-In the resources section, you define the resources are deployed or updated. This is where your template can get more complicated because you must understand the types you are deploying to provide the right values. To learn 
+In the resources section, you define the resources that are deployed or updated. This is where your template can get more complicated because you must understand the types you are deploying to provide the right values. To learn 
 much of what you need to know about resource providers, see [Resource Manager providers, regions, API versions and schemas](resource-manager-supported-services.md).
 
 You define resources with the following structure:

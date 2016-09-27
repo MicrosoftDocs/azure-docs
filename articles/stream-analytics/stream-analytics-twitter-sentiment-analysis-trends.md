@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="08/11/2016"
+	ms.date="09/26/2016"
 	ms.author="jeffstok"/>
 
 
@@ -62,7 +62,17 @@ Follow these steps to set up the application:
 	[Steps to generate an OAuth access token](https://dev.twitter.com/oauth/overview/application-owner-access-tokens)  
 
 	Note that you will need to make an empty application to generate a token.  
-3.	Replace the EventHubConnectionString and EventHubName values in TwitterClient.exe.config with your Event Hub connection string and name. The connection string you copied earlier gives you both the Event hub connection string and the name, so be aware to separate them and put each in the correct field.
+3.	Replace the EventHubConnectionString and EventHubName values in TwitterClient.exe.config with your Event Hub connection string and name. The connection string you copied earlier gives you both the Event hub connection string and the name, so be aware to separate them and put each in the correct field. For example given a connection string of:
+
+    Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey;EntityPath=yourhub
+
+	The TwitterClient.exe.config file should contain your settings as the example below:
+
+	add key="EventHubConnectionString" value="Endpoint=sb://your.servicebus.windows.net/;SharedAccessKeyName=yourpolicy;SharedAccessKey=yoursharedaccesskey"
+    add key="EventHubName" value="yourhub"
+
+	It is important to note that the text "EntityPath=" does NOT appear in the EventHubName value.
+	
 4.	*Optional:* Adjust the keywords to search for.  As a default, this application looks for "Azure,Skype,XBox,Microsoft,Seattle".  You can adjust the values for twitter_keywords in TwitterClient.exe.config, if desired.
 5.	Run **TwitterClient.exe** to start your application. You will see Tweet events with the CreatedAt, Topic, and SentimentScore values being sent to your Event Hub:
 
