@@ -17,13 +17,13 @@
    ms.author="oanapl"/>
 
 # Add custom Service Fabric health reports
-Azure Service Fabric introduces a [health model](service-fabric-health-introduction.md) designed to flag unhealthy cluster and application conditions on specific entities. This is accomplished by using **health reporters** (system components and watchdogs). The goal is easy and fast diagnosis and repair. Service writers need to think upfront about health. Any condition that can impact health should be reported on, especially if it can help flag problems close to the root. This can save a lot of time and effort on debugging and investigation once the service is up and running at scale in the cloud (private or Azure).
+Azure Service Fabric introduces a [health model](service-fabric-health-introduction.md) designed to flag unhealthy cluster and application conditions on specific entities. This is accomplished by using **health reporters** (system components and watchdogs). The goal is easy and fast diagnosis and repair. Service writers need to think upfront about health. Any condition that can impact health should be reported on, especially if it can help flag problems close to the root. The health information can save a lot of time and effort on debugging and investigation once the service is up and running at scale in the cloud (private or Azure).
 
-The Service Fabric reporters monitor identified conditions of interest. They report on those conditions based on their local view. The [health store](service-fabric-health-introduction.md#health-store) aggregates health data sent by all reporters to determine whether entities are globally healthy. The model is intended to be rich, flexible, and easy to use. The quality of the health reports determines the accuracy of the health view of the cluster. False positives that wrongly show unhealthy issues can negatively impact upgrades or other services that use health data. These can include repair services and alerting mechanisms. Therefore, some thought is needed to provide reports that capture conditions of interest in the best possible way.
+The Service Fabric reporters monitor identified conditions of interest. They report on those conditions based on their local view. The [health store](service-fabric-health-introduction.md#health-store) aggregates health data sent by all reporters to determine whether entities are globally healthy. The model is intended to be rich, flexible, and easy to use. The quality of the health reports determines the accuracy of the health view of the cluster. False positives that wrongly show unhealthy issues can negatively impact upgrades or other services that use health data. Example of such services are repair services and alerting mechanisms. Therefore, some thought is needed to provide reports that capture conditions of interest in the best possible way.
 
-To design and implement health reporting, watchdogs and system components must:
+To design and implement health reporting, watchdogs, and system components must:
 
-- Define the condition they are interested in, the way it is monitored, and the impact on the cluster or application functionality. This defines the health report property and health state.
+- Define the condition they are interested in, the way it is monitored, and the impact on the cluster or application functionality. Based on this information, decide on the health report property and health state.
 
 - Determine the [entity](service-fabric-health-introduction.md#health-entities-and-hierarchy) that the report applies to.
 
@@ -33,7 +33,7 @@ To design and implement health reporting, watchdogs and system components must:
 
 - Choose a reporting strategy, either periodically or on transitions. The recommended way is periodically, as it requires simpler code and is less prone to errors.
 
-- Determine how long the report for unhealthy conditions should stay in the health store and how it should be cleared. This defines the report's time to live and remove-on-expiration behavior.
+- Determine how long the report for unhealthy conditions should stay in the health store and how it should be cleared. Using this information, decide the report's time to live and remove-on-expiration behavior.
 
 As mentioned above, reporting can be done from:
 
@@ -49,12 +49,12 @@ As mentioned above, reporting can be done from:
 
 Once the health reporting design is clear, health reports can be sent easily. You can use [FabricClient](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.aspx) to report health if the cluster is not [secure](service-fabric-cluster-security.md) or if the fabric client has admin privileges. This can be done through the API by using [FabricClient.HealthManager.ReportHealth](https://msdn.microsoft.com/library/system.fabric.fabricclient.healthclient.reporthealth.aspx), through PowerShell, or through REST. Configuration knobs batch reports for improved performance.
 
-> [AZURE.NOTE] Report health is synchronous, and it represents only the validation work on the client side. The fact that the report is accepted by the health client or the `Partition` or `CodePackageActivationContext` objects doesn't mean that it is applied in the store. It will be sent asynchronously and possibly batched with other reports. The processing on the server may still fail (e.g. a sequence number is stale, the entity on which the report must be applied has been deleted, etc.).
+> [AZURE.NOTE] Report health is synchronous, and it represents only the validation work on the client side. The fact that the report is accepted by the health client or the `Partition` or `CodePackageActivationContext` objects doesn't mean that it is applied in the store. It is sent asynchronously and possibly batched with other reports. The processing on the server may still fail (e.g. a sequence number is stale, the entity on which the report must be applied has been deleted, etc.).
 
 ## Health client
 The health reports are sent to the health store through a health client, which lives inside the fabric client. The health client can be configured with the following:
 
-- **HealthReportSendInterval**: The delay between the time the report is added to the client and the time it is sent to the health store. This is used to batch reports into a single message, rather than sending one message for each report. This improves performance. Default: 30 seconds.
+- **HealthReportSendInterval**: The delay between the time the report is added to the client and the time it is sent to the health store. Used to batch reports into a single message, rather than sending one message for each report. The batching improves performance. Default: 30 seconds.
 
 - **HealthReportRetrySendInterval**: The interval at which the health client resends accumulated health reports to the health store. Default: 30 seconds.
 
@@ -62,10 +62,10 @@ The health reports are sent to the health store through a health client, which l
 
 > [AZURE.NOTE] When the reports are batched, the fabric client must be kept alive for at least the HealthReportSendInterval to ensure that they are sent. If the message is lost or the health store cannot apply them due to transient errors, the fabric client must be kept alive longer to give it a chance to retry.
 
-The buffering on the client takes the uniqueness of the reports into consideration. For example, if a particular bad reporter is reporting 100 reports per second on the same property of the same entity, the reports will be replaced with the last version. Only one such report exists in the client queue at most. If batching is configured, the number of reports sent to the health store is just one per send interval. This is the last added report, which reflects the most current state of the entity.
+The buffering on the client takes the uniqueness of the reports into consideration. For example, if a particular bad reporter is reporting 100 reports per second on the same property of the same entity, the reports are replaced with the last version. Only one such report exists in the client queue at most. If batching is configured, the number of reports sent to the health store is just one per send interval. This report is the last added report, which reflects the most current state of the entity.
 All configuration parameters can be specified when `FabricClient` is created by passing [FabricClientSettings](https://msdn.microsoft.com/library/azure/system.fabric.fabricclientsettings.aspx) with the desired values for health-related entries.
 
-The following creates a fabric client and specifies that the reports should be sent as soon as they are added. On timeouts and errors that can be retried, retries happen every 40 seconds.
+The following creates a fabric client and specifies that the reports should be sent when they are added. On timeouts and errors that can be retried, retries happen every 40 seconds.
 
 ```csharp
 var clientSettings = new FabricClientSettings()
@@ -105,14 +105,14 @@ GatewayInformation   : {
                        }
 ```
 
-> [AZURE.NOTE] To ensure that unauthorized services can't report health against the entities in the cluster, the server can be configured to accept requests only from secured clients. Since the reporting is done through `FabricClient`, this means that `FabricClient` must have security enabled to be able to communicate with the cluster (e.g. with Kerberos or certificate authentication). Read more about [cluster security](service-fabric-cluster-security.md).
+> [AZURE.NOTE] To ensure that unauthorized services can't report health against the entities in the cluster, the server can be configured to accept requests only from secured clients. The `FabricClient` used for reporting must have security enabled to be able to communicate with the cluster (e.g. with Kerberos or certificate authentication). Read more about [cluster security](service-fabric-cluster-security.md).
 
 ## Report from within low privilege services
 From within Service Fabric services that do not have admin access to the cluster, you can report health on entities from the current context through `Partition` or `CodePackageActivationContext`.
 
 - For stateless services, use [IStatelessServicePartition.ReportInstanceHealth](https://msdn.microsoft.com/library/system.fabric.istatelessservicepartition.reportinstancehealth.aspx) to report on the current service instance.
 
-- For stateful services, use  [IStatefulServicePartition.ReportReplicaHealth](https://msdn.microsoft.com/library/system.fabric.istatefulservicepartition.reportreplicahealth.aspx) to report on current replica.
+- For stateful services, use [IStatefulServicePartition.ReportReplicaHealth](https://msdn.microsoft.com/library/system.fabric.istatefulservicepartition.reportreplicahealth.aspx) to report on current replica.
 
 - Use [IServicePartition.ReportPartitionHealth](https://msdn.microsoft.com//library/system.fabric.iservicepartition.reportpartitionhealth.aspx) to report on the current partition entity.
 
@@ -160,7 +160,7 @@ By using the health reporting model, watchdogs can send reports periodically or 
 
 For periodic reporting, the watchdog can be implemented with a timer. On a timer callback, the watchdog can check the state and send a report based on the current state. There is no need to see which report was sent previously or make any optimizations in terms of messaging. The health client has batching logic to help with that. As long as the health client is kept alive, it will retry internally until the report is acknowledged by the health store or until the watchdog generates a newer report with the same entity, property, and source.
 
-Reporting on transitions requires careful handling of state. The watchdog monitors some conditions and reports only when the conditions change. The upside side of this approach is that fewer reports are needed. The downside is that the logic of the watchdog is complex. The conditions or the reports must also be maintained, so that they can be inspected to determine state changes. On failover, care must be taken when a report is sent that may have not be sent previously (queued, but not yet sent to the health store). The sequence number must be ever-increasing. If not, the reports will be rejected as stale. In the rare cases where data loss is incurred, synchronization may be needed between the state of the reporter and the state of the health store.
+Reporting on transitions requires careful handling of state. The watchdog monitors some conditions and reports only when the conditions change. The upside side of this approach is that fewer reports are needed. The downside is that the logic of the watchdog is complex. The conditions or the reports must also be maintained, so that they can be inspected to determine state changes. On failover, care must be taken when a report is sent that may have not been sent previously (queued, but not yet sent to the health store). The sequence number must be ever-increasing. If not, the reports will be rejected as stale. In the rare cases where data loss is incurred, synchronization may be needed between the state of the reporter and the state of the health store.
 
 Reporting on transitions makes sense for services reporting on themselves, through `Partition` or `CodePackageActivationContext`. When the local object (replica or deployed service package / deployed application) is removed, all its reports are also removed. This relaxes the need for synchronization between reporter and health store. If the report is for parent partition or parent application, care must be taken on failover to avoid stale reports in the health store. Logic must be added to maintain the correct state and clear the report from store when not needed anymore.
 
