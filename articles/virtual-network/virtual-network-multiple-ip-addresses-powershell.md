@@ -145,13 +145,11 @@ To register for the preview, send an email to [Multiple IPs](mailto:MultipleIPsP
 	4. From a command prompt, type *ipconfig /all*. All IP addresses you added are shown and DHCP is turned off.
 
 	**Linux (Ubuntu)**
-
+	
 	1. Open a terminal window.
+	2. Make sure you are the root user. If you are not, you can do this by using the following command:
 	
- 	2. Make sure you are the root user. If you are not, you can do this by using the following command:
-
 			sudo -i 
-	
 	3. Update the configuration file of the network interface (assuming ‘eth0’). 
 		- Keep the existing line item for dhcp. This will configure the primary IP address as it used to be earlier.
 		- Add a configuration for an additional static IP address with the following commands:
@@ -160,29 +158,24 @@ To register for the preview, send an email to [Multiple IPs](mailto:MultipleIPsP
 				ls
 
 		You should see a .cfg file.
-		
 	4. Open the file: vi *filename*.
 
 		You should see the following lines at the end of the file:
 
 			auto eth0
 			iface eth0 inet dhcp
-
 	5. Add the following lines after the lines that exist in this file:
 
 			iface eth0 inet static
 			address <your private IP address here>
-
 	6. Save the file by using the following command:
 
 			:wq
-
 	7.  Reset the network interface with the following command: 
 
 			sudo ifdown eth0 && sudo ifup eth0
 
 		>[AZURE.IMPORTANT]Run both ifdown and ifup in the same line if using a remote connection.
-
 	8. Verify the IP address is added to the network interface with the following command:
 
 			ip addr list eth0
@@ -190,48 +183,38 @@ To register for the preview, send an email to [Multiple IPs](mailto:MultipleIPsP
 		You should see the IP address you added as part of the list.
 
 	**Linux (Redhat, CentOS, and others)**
-
-	1. Open a terminal window.
 	
+	1. Open a terminal window.
 	2. Make sure you are the root user. If you are not, you can do this by using the following command:
 
 			sudo -i
-
 	3. Enter your password and follow instructions as prompted. Once you are the root user, navigate to the network scripts folder with the following command:
 
 			cd /etc/sysconfig/network-scripts
-
 	4. List the related ifcfg files using the following command:
 
 			ls ifcfg-*
 
 		You should see *ifcfg-eth0* as one of the files.
-
 	5. Copy the *ifcfg-eth0* file and name it *ifcfg-eth0:0* with the following command:
 
 			cp ifcfg-eth0 ifcfg-eth0:0
-
 	6. Edit the *ifcfg-eth0:0* file with the following command:
 
 			vi ifcfg-eth1
-
 	7. Change the device to the appropriate name in the file; *eth0:0* in this case, with the following command:
 
 			DEVICE=eth0:0
-
 	8. Change the *IPADDR = YourPrivateIPAddress* line to reflect the IP address.
-
 	9. Save the file with the following command:
 
 			(:wq)
-
 	10. Restart the network services and make sure the changes are successful by running the following commands:
 
 			/etc/init.d/network restart
 			Ipconfig
 
 		You should see the IP address you added, *eth0:0*, in the list returned.
-
 
 ## <a name="add"></a>Add IP addresses to an existing VM
 
