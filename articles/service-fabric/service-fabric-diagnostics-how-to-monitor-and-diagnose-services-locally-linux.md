@@ -45,14 +45,14 @@ java.util.logging.FileHandler.count = 10
 java.util.logging.FileHandler.pattern = /tmp/servicefabric/logs/mysfapp%u.%g.log             
 ```
 
-The folder pointed to by the `app.properties` file must exist. After, the `app.properties` file is created, you need to also  modify your entrypoint script, `entrypoint.sh` in the `<applicationfolder>/<servicePkg>/Code/` folder to set the property `java.util.logging.config.file` to `app.propertes` file. The entry should look like the following snippet:
+The folder pointed to by the `app.properties` file must exist. After, the `app.properties` file is created, you need to also modify your entry point script, `entrypoint.sh` in the `<applicationfolder>/<servicePkg>/Code/` folder to set the property `java.util.logging.config.file` to `app.propertes` file. The entry should look like the following snippet:
 
 ```sh 
 java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path to app.properties> -jar <service name>.jar
 ```
  
  
-This configuration results in logs being collected in a rotating fashion at `/tmp/servicefabric/logs/` as set above. The **%u** and **%g** allow for creating  more files, with filenames mysfapp0.log and mysfapp1.log and so on with file names mysfapplog0.log mysfapp1.log and so on.  By default if no handler is explicitly configured, the console handler is registered. One can view the logs in syslog under /var/log/syslog.
+This configuration results in logs being collected in a rotating fashion at `/tmp/servicefabric/logs/`. The **%u** and **%g** allow for creating more files, with filenames mysfapp0.log, mysfapp1.log, and so on with file names mysfapplog0.log mysfapp1.log and so on.  By default if no handler is explicitly configured, the console handler is registered. One can view the logs in syslog under /var/log/syslog.
  
 For more information, see the [code examples in github](http://github.com/Azure-Samples/service-fabric-java-getting-started).  
 
