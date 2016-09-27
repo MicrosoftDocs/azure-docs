@@ -13,15 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2016"
+	ms.date="09/26/2016"
 	ms.author="roopalik;garye"/>
 
 
 # Share and discover solutions in the Cortana Intelligence Gallery
 
-The Cortana Intelligence Gallery is a community driven site for discovering and sharing solutions built with the Cortana Intelligence Suite set of products. It is a destination for users looking to learn from others, to get started developing their own solutions, or to contribute their own work to the advanced analytics community.
+[AZURE.INCLUDE [gallery-item-selector](../includes/machine-learning-gallery-item-selector.md)]
 
-**[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
