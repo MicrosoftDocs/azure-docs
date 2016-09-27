@@ -85,7 +85,7 @@ The [Azure cross-platform CLI][azure-xplat-cli-github] includes commands for int
 3. Create a symlink from the bin/azure folder of the cloned repo to /usr/bin/azure so that it's added to your path and commands are available from any directory.
 
     ```bash
-    sudo ln -s $(pwd)/bin/azure /usr/bin/azure/
+    sudo ln -s $(pwd)/bin/azure /usr/bin/azure
     ```
 
 4. Finally, enable auto-completion Service Fabric commands.
