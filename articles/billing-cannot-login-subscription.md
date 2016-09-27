@@ -76,4 +76,6 @@ If your account is associated with an Organizational account, then please select
 
 ![sign in page](./media/billing-cannot-login-subscription/signin.png)
 
+The default sign-in page of the Azure portal is for Microsoft account.
+
 > [AZURE.NOTE] If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
