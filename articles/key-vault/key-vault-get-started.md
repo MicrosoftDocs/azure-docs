@@ -85,7 +85,7 @@ When you use Azure Resource Manager, all related resources are created inside a 
 
 ## <a id="vault"></a>Create a key vault ##
 
-Use the [New-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt743647\(v=azure.200\).aspx) cmdlet to create a key vault. This cmdlet has three mandatory parameters: a **resource group name**, a **key vault name**, and the **geographic location**.
+Use the [New-AzureRmKeyVault](https://msdn.microsoft.com/library/azure/mt603736\(v=azure.200\).aspx).aspx) cmdlet to create a key vault. This cmdlet has three mandatory parameters: a **resource group name**, a **key vault name**, and the **geographic location**.
 
 For example, if you use the vault name of **ContosoKeyVault**, the resource group name of **ContosoResourceGroup**, and the location of **East Asia**, type:
 
