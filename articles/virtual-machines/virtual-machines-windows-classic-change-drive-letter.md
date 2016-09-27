@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2016"
+	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
 # Use the D drive as a data drive on a Windows VM 
