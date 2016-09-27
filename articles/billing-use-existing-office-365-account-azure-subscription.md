@@ -3,7 +3,7 @@
 	description="Learn how to share your Office 365 Azure AD tenant and its users with your Azure subscription, or vice versa"
 	services=""
 	documentationCenter=""
-	authors="jiangchen79"
+	authors="JiangChen79"
 	manager="mbaldwin"
 	editor=""
 	tags="billing,top-support-issue"/>

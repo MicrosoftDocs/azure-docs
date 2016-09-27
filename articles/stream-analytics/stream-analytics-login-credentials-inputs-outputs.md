@@ -14,7 +14,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/27/2016" 
+	ms.date="09/26/2016" 
 	ms.author="jeffstok"/>
 
 #Rotate login credentials for inputs and outputs in Stream Analytics Jobs
@@ -35,7 +35,7 @@ This part is applicable to the following inputs/outputs:
 For other inputs/outputs, proceed with Part 2.
 
 ###Blob storage/Table storage
-1.  Go to the Storage extention on the Azure Management Portal:  
+1.  Go to the Storage extention on the Azure Management portal:  
 ![graphic1][graphic1]
 2.  Locate the storage used by your job and go into it:  
 ![graphic2][graphic2]
@@ -49,7 +49,7 @@ For other inputs/outputs, proceed with Part 2.
 7.  Continue to Part 2.
 
 ###Event hubs
-1.  Go to the Service Bus extension on the Azure Management Portal:  
+1.  Go to the Service Bus extension on the Azure Management portal:  
 ![graphic6][graphic6]
 2.  Locate the Service Bus Namespace used by your job and go into it:  
 ![graphic7][graphic7]
@@ -71,9 +71,9 @@ For other inputs/outputs, proceed with Part 2.
 
 ###SQL Database
 
->[AZURE.NOTE] Note: you will need to connect to the SQL Databse Service. We are going to show how to do this using the management experience on the Azure Management Portal but you may choose to use some client-side tool such as SQL Server Management Studio as well.
+>[AZURE.NOTE] Note: you will need to connect to the SQL Database Service. We are going to show how to do this using the management experience on the Azure Management portal but you may choose to use some client-side tool such as SQL Server Management Studio as well.
 
-1.  Go to the SQL Databases extension on the Azure Management Portal:  
+1.  Go to the SQL Databases extension on the Azure Management portal:  
 ![graphic14][graphic14]
 2.  Locate the SQL Database used by your job and **click on the server** link on the same line:  
 ![graphic15][graphic15]
@@ -81,7 +81,7 @@ For other inputs/outputs, proceed with Part 2.
 ![graphic16][graphic16]
 4.  Type Database Master:  
 ![graphic17][graphic17]
-5.  Type in your User Name, Password and click Log on:  
+5.  Type in your User Name, Password, and click Log on:  
 ![graphic18][graphic18]
 6.  Click New Query:  
 ![graphic19][graphic19]
@@ -93,7 +93,7 @@ For other inputs/outputs, proceed with Part 2.
 ![graphic21][graphic21]
 10. Click the Manage command:  
 ![graphic22][graphic22]
-11. type in your User Name, Password, and click Log on:  
+11. type in your User Name, Password, and click Logon:  
 ![graphic23][graphic23]
 12. Click New Query:  
 ![graphic24][graphic24]
@@ -101,11 +101,11 @@ For other inputs/outputs, proceed with Part 2.
 `CREATE USER <user_name> FROM LOGIN <login_name>`
 14. Click Run:  
 ![graphic25][graphic25]
-15. You should now provide your new user with the same roles and privledges your original user had.
+15. You should now provide your new user with the same roles and privileges your original user had.
 16. Continue to Part 2.
 
 ##Part 2: Stopping the Stream Analytics Job
-1.  Go to the Stream Analytics extension on the Azure Management Portal:  
+1.  Go to the Stream Analytics extension on the Azure Management portal:  
 ![graphic26][graphic26]
 2.  Locate your job and go into it:  
 ![graphic27][graphic27]
