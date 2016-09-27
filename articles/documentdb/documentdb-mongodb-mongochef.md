@@ -3,7 +3,7 @@
 	description="Learn how to use MongoChef with a DocumentDB account with protocol support for MongoDB, now available for preview." 
 	keywords="mongochef"
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="" 
 	documentationCenter=""/>
@@ -15,7 +15,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/25/2016" 
-	ms.author="stbaro"/>
+	ms.author="mimig"/>
 
 # Use MongoChef with a DocumentDB account with protocol support for MongoDB
 

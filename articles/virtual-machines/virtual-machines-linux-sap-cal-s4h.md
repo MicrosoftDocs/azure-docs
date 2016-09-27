@@ -1,6 +1,6 @@
 <properties 
-pageTitle="Deploying S/4 HANA or BW/4 HANA on Microsoft Azure | Microsoft Azure" 
-description="Deploying S/4 HANA or BW/4 HANA on Microsoft Azure" 
+pageTitle="Deploying S/4 HANA or BW/4 HANA on an Azure VM | Microsoft Azure" 
+description="Deploying S/4 HANA or BW/4 HANA on an Azure VM" 
 services="virtual-machines-linux" 
 documentationCenter="" 
 authors="hermanndms" 
