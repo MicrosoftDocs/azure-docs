@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Using  Azure Media Packager to accomplish static packaging tasks" 
+	pageTitle="Using  Azure Media Packager to accomplish static packaging tasks | Microsoft Azure" 
 	description="This topic shows various tasks that are accomplished with Azure Media Packager." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
- 	ms.date="06/22/2016"    
+ 	ms.date="09/26/2016"    
 	ms.author="juliako"/>
 
 
