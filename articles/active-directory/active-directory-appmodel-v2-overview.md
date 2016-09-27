@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/26/2016"
+	ms.date="09/27/2016"
 	ms.author="dastrock"/>
 
 # Sign-in Microsoft Account & Azure AD users in a single app
@@ -50,12 +50,4 @@ These links will be useful for exploring the platform in depth:
 - [The Microsoft App Registration Portal](https://apps.dev.microsoft.com)
 - [Office 365 REST API Reference](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
 - [The Microsoft Graph](https://graph.microsoft.io)
-- Below are the Open source client libraries and samples that have been tested with the v2.0 endpoint.
-
-  - [Java WSO2 Identity Server](https://docs.wso2.com/display/IS500/Introducing+the+Identity+Server)
-  - [Java Gluu Federation](https://github.com/GluuFederation/oxAuth)
-  - [Node.Js passport-openidconnect](https://www.npmjs.com/package/passport-openidconnect)
-  - [PHP OpenID Connect Basic Client](https://github.com/jumbojett/OpenID-Connect-PHP)
-  - [iOS OAuth2 Client](https://github.com/nxtbgthng/OAuth2Client)
-  - [Android OAuth2 Client](https://github.com/wuman/android-oauth-client)
-  - [Android OpenID Connect Client](https://github.com/kalemontes/OIDCAndroidLib)
+- [Azure Active Directory (AD) v2.0 and authentication libraries](active-directory-v2-libraries.md)
