@@ -202,7 +202,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
           }
         },
 
-8. Add the network interface resource that is used by the separate virtual machine. Because machines in a scale set aren't accessible through a public IP address, a separate virtual machine is created in the same virtual network and is used to remotely access the machines.
+8. Add the network interface resource that is used by the separate virtual machine. Because machines in a scale set aren't accessible through a public IP address, a separate virtual machine is created in the same virtual network to remotely access the machines.
 
         {
           "apiVersion": "2016-03-30",
@@ -275,7 +275,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
           }
         },
 
-10.	Add the virtual machine scale set resource and specify the diagnostics extension that is installed on all virtual machines in the scale set. Many of the settings for this resource are similar with the virtual machine resource. The main differences are the addition of the capacity element that specifies the number of virtual machines in the scale set, and upgradePolicy that specifies how updates are made to virtual machines in the scale set. The scale set is not created until all of the storage accounts are created as specified with the dependsOn element.
+10.	Add the virtual machine scale set resource and specify the diagnostics extension that is installed on all virtual machines in the scale set. Many of the settings for this resource are similar with the virtual machine resource. The main differences are the capacity element that specifies the number of virtual machines in the scale set, and upgradePolicy that specifies how updates are made to virtual machines. The scale set is not created until all the storage accounts are created as specified with the dependsOn element.
 
             {
               "type": "Microsoft.Compute/virtualMachineScaleSets",
@@ -439,7 +439,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
     - **direction** – This value determines the action that is taken when the threshold value is achieved. The possible values are Increase or Decrease. In this template, the number of virtual machines in the scale set is increased if the threshold is over 50% in the defined time window.
     - **type** – This value is the type of action that should occur and must be set to ChangeCount.
     - **value** – This value is the number of virtual machines that are added or removed from the scale set. This value must be 1 or greater. The default value is 1. In this template, the number of machines in the scale set increases by 1 when the threshold is met.
-    - **cooldown** – This value is the amount of time to wait since the last scaling action before the next action occurs. This must be between one minute and one week.
+    - **cooldown** – This value is the amount of time to wait since the last scaling action before the next action occurs. This value must be between one minute and one week.
 
 12.	Save the template file.    
 

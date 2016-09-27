@@ -212,7 +212,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
           }
         },
 
-8. Add the network interface resource that is used by the separate virtual machine. Because machines in a scale set aren't accessible through a public IP address, a separate virtual machine is created in the same virtual network and is used to remotely access the machines.
+8. Add the network interface resource that is used by the separate virtual machine. Because machines in a scale set aren't accessible through a public IP address, a separate virtual machine is created in the same virtual network to remotely access the machines.
 
         {
           "apiVersion": "2016-03-30",
@@ -438,7 +438,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
     
     For this tutorial, these values are important:
     
-    - **metricName** - This value is the same as the performance counter that we defined in the wadperfcounter variable. Using that variable, the Diagnostics extension collects the  **Processor\PercentProcessorTime** counter.
+    - **metricName** - This value is the same as the performance counter that we defined in the wadperfcounter variable. Using that variable, the Diagnostics extension collects the **Processor\PercentProcessorTime** counter.
     - **metricResourceUri** - This value is the resource identifier of the virtual machine scale set.
     - **timeGrain** – This value is the granularity of the metrics that are collected. In this template, it is set to one minute.
     - **statistic** – This value determines how the metrics are combined to accommodate the automatic scaling action. The possible values are: Average, Min, Max. In this template, the average total CPU usage of the virtual machines is collected.
@@ -449,7 +449,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
     - **direction** – This value determines the action that is taken when the threshold value is achieved. The possible values are Increase or Decrease. In this template, the number of virtual machines in the scale set is increased if the threshold is over 50% in the defined time window.
     - **type** – This value is the type of action that should occur and must be set to ChangeCount.
     - **value** – This value is the number of virtual machines that are added or removed from the scale set. This value must be 1 or greater. The default value is 1. In this template, the number of machines in the scale set increases by 1 when the threshold is met.
-    - **cooldown** – This value is the amount of time to wait since the last scaling action before the next action occurs. This must be between one minute and one week.
+    - **cooldown** – This value is the amount of time to wait since the last scaling action before the next action occurs. This value must be between one minute and one week.
 
 12.	Save the template file.    
 
