@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="06/29/2016"
+	ms.date="09/28/2016"
 	ms.author="marsma" />
 
 # Task dependencies in Azure Batch
@@ -24,13 +24,13 @@ The task dependencies feature of Azure Batch is a good fit if you want to proces
 - Jobs whose data processing tasks can be expressed as a directed acyclic graph (DAG).
 - Any other job in which downstream tasks depend on the output of upstream tasks.
 
-With this feature, you can create tasks that are scheduled for execution on compute nodes only after the successful completion of one or more other tasks. For example, you can create a job that renders each frame of a 3D movie with separate, parallel tasks. The final task--the "merge task"--merges the rendered frames into the complete movie only after all of the frames have been successfully rendered.
+Batch task dependencies allow you to create tasks that are scheduled for execution on compute nodes only after the successful completion of one or more other tasks. For example, you can create a job that renders each frame of a 3D movie with separate, parallel tasks. The final task--the "merge task"--merges the rendered frames into the complete movie only after all of the frames have been successfully rendered.
 
 You can create tasks that depend on other tasks in a one-to-one or one-to-many relationship. You can even create a range dependency where a task depends on the successful completion of a group of tasks within a specific range of task IDs. You can combine these three basic scenarios to create many-to-many relationships.
 
 ## Task dependencies with Batch .NET
 
-In this article, we discuss how to configure task dependencies by using the [Batch .NET][net_msdn] library. We first show you how to [enable task dependency](#enable-task-dependencies) on your jobs, and we then briefly demonstrate how to [configure a task with dependencies](#create-dependent-tasks). Finally, we discuss the [dependency scenarios](#dependency-scenarios) that Batch supports.
+In this article, we discuss how to configure task dependencies by using the [Batch .NET][net_msdn] library. We first show you how to [enable task dependency](#enable-task-dependencies) on your jobs, and then demonstrate how to [configure a task with dependencies](#create-dependent-tasks). Finally, we discuss the [dependency scenarios](#dependency-scenarios) that Batch supports.
 
 ## Enable task dependencies
 
