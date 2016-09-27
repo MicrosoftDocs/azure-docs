@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Detailed troubleshooting: Cannot connect to remote desktop of VM | Microsoft Azure"
-	description="Troubleshoot remote desktop errors where you cannot use remote desktop to connect to Windows virtual machines in Azure"
+	pageTitle="Detailed remote desktop troubleshooting | Microsoft Azure"
+	description="Review detailed troubleshooting steps for remote desktop errors where you cannot to a Windows virtual machines in Azure"
 	services="virtual-machines-windows"
 	documentationCenter=""
 	authors="iainfoulds"
@@ -16,10 +16,10 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2016"
+	ms.date="09/27/2016"
 	ms.author="iainfou"/>
 
-# Troubleshoot in details problems with remote desktop that cannot connect to Windows VMs in Azure
+# Detailed troubleshooting steps for remote desktop connction issues to Windows VMs in Azure
 
 This article provides detailed troubleshooting steps to diagnose and fix complex Remote Desktop errors for Windows-based Azure virtual machines.
 
@@ -48,24 +48,24 @@ Before proceeding, it might help to mentally review what has changed since the l
 
 Before proceeding to the detailed troubleshooting,
 
-- Check the status of the virtual machine in the Azure classic portal or the Azure portal for any obvious issues
-- Follow the [quick fix steps for common RDP errors in the basic troubleshooting guide](virtual-machines-windows-troubleshoot-rdp-connection.md)
+- Check the status of the virtual machine in the Azure classic portal or the Azure portal for any obvious issues.
+- Follow the [quick fix steps for common RDP errors in the basic troubleshooting guide](virtual-machines-windows-troubleshoot-rdp-connection.md#quick-troubleshooting-steps).
 
 
 Try reconnecting to the VM via Remote Desktop after these steps.
 
 
-## Detailed troubleshooting
+## Detailed troubleshooting steps
 
 The Remote Desktop client may not be able to reach the Remote Desktop service on the Azure VM due to issues at the following sources:
 
-- Remote Desktop client computer
-- Organization intranet edge device
-- Cloud service endpoint and access control list (ACL)
-- Network security groups
-- Windows-based Azure virtual machine
+- [Remote Desktop client computer](#source-1-remote-desktop-client-computer)
+- [Organization intranet edge device](#source-2-organization-intranet-edge-device)
+- [Cloud service endpoint and access control list (ACL)](#source-3-cloud-service-endpoint-and-acl)
+- [Network security groups](#source-4-network-security-groups)
+- [Windows-based Azure VM](#source-5-windows-based-azure-vm)
 
-### Source 1: Remote Desktop client computer
+## Source 1: Remote Desktop client computer
 
 Verify that your computer can make Remote Desktop connections to another on-premises, Windows-based computer.
 
@@ -73,14 +73,14 @@ Verify that your computer can make Remote Desktop connections to another on-prem
 
 If you cannot, check for the following on your computer:
 
-- A local firewall setting that is blocking Remote Desktop traffic
-- Locally installed client proxy software that is preventing Remote Desktop connections
-- Locally installed network monitoring software that is preventing Remote Desktop connections
-- Other types of security software that either monitor traffic or allow/disallow specific types of traffic that is preventing Remote Desktop connections
+- A local firewall setting that is blocking Remote Desktop traffic.
+- Locally installed client proxy software that is preventing Remote Desktop connections.
+- Locally installed network monitoring software that is preventing Remote Desktop connections.
+- Other types of security software that either monitor traffic or allow/disallow specific types of traffic that is preventing Remote Desktop connections.
 
 In all of these cases, temporarily disable the software and try to connect to an on-premises computer via Remote Desktop. If you can find out the actual cause this way, work with your network administrator to correct the software settings to allow Remote Desktop connections.
 
-### Source 2: Organization intranet edge device
+## Source 2: Organization intranet edge device
 
 Verify that a computer directly connected to the Internet can make Remote Desktop connections to your Azure virtual machine.
 
@@ -90,19 +90,19 @@ If you do not have a computer that is directly connected to the Internet, create
 
 If you can create a Remote Desktop connection with a computer directly attached to the Internet, check your organization intranet edge device for:
 
-- An internal firewall blocking HTTPS connections to the Internet
-- A proxy server preventing Remote Desktop connections
-- Intrusion detection or network monitoring software running on devices in your edge network that is preventing Remote Desktop connections
+- An internal firewall blocking HTTPS connections to the Internet.
+- A proxy server preventing Remote Desktop connections.
+- Intrusion detection or network monitoring software running on devices in your edge network that is preventing Remote Desktop connections.
 
 Work with your network administrator to correct the settings of your organization intranet edge device to allow HTTPS-based Remote Desktop connections to the Internet.
 
-### Source 3: Cloud service endpoint and ACL
+## Source 3: Cloud service endpoint and ACL
 
 For virtual machines created using the classic deployment model, verify that another Azure virtual machine that is in the same cloud service or virtual network can make Remote Desktop connections to your Azure virtual machine.
 
 ![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_3.png)
 
-> [AZURE.NOTE] For virtual machines created in Resource Manager, skip to [Source 4: Network Security Groups](#nsgs).
+> [AZURE.NOTE] For virtual machines created in Resource Manager, skip to [Source 4: Network Security Groups](#source-4-network-security-groups).
 
 If you do not have another virtual machine in the same cloud service or virtual network, you can create a new one by using the steps in [Create a virtual machine running Windows in Azure](virtual-machines-windows-hero-tutorial.md). Delete the extra virtual machine after the test is completed.
 
@@ -113,7 +113,7 @@ If you can connect via Remote Desktop to a virtual machine in the same cloud ser
 
 To check if the endpoint is the source of the problem, remove the current endpoint and create a new one, choosing a random port in the range 49152–65535 for the external port number. For more information, see [How to set up endpoints to a virtual machine](virtual-machines-windows-classic-setup-endpoints.md).
 
-### <a id="nsgs"></a>Source 4: Network Security Groups
+## Source 4: Network Security Groups
 
 Network Security Groups allow more granular control of allowed inbound and outbound traffic. You can create rules spanning subnets and cloud services in an Azure virtual network. Check your Network Security Group rules to ensure that Remote Desktop traffic from the Internet is allowed:
 
@@ -127,7 +127,7 @@ Network Security Groups allow more granular control of allowed inbound and outbo
 
 For more information, see [What is a Network Security Group (NSG)?](../virtual-network/virtual-networks-nsg.md).
 
-### Source 5: Windows-based Azure virtual machine
+## Source 5: Windows-based Azure VM
 
 ![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_5.png)
 
