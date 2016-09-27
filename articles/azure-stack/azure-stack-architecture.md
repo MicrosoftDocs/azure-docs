@@ -20,13 +20,13 @@
 
 The Azure Stack POC is a one-node deployment of Azure Stack Technical Preview 2. All the components are installed on the host machine, and in the virtual machines of the deployment. 
 
-## Architecture Diagram
+## Logical architecture diagram
 The following diagram illustrates the logical architecture of the Azure Stack POC and its components.
 
 ![](media/azure-stack-architecture/image1.png)
 
 
-## Virtual Machine roles
+## Virtual machine roles
 The Azure Stack POC offers services using the following VMs on the POC host:
 
  - **MAS-ACS01** Virtual machine hosting Azure Stack storage services.
