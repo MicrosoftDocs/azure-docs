@@ -17,8 +17,14 @@
 	ms.author="spelluru"/>
 
 # Data Factory scheduling and execution
+This article explains the scheduling and execution aspects of the Azure Data Factory application model. 
 
-This article explains the scheduling and execution aspects of the Azure Data Factory application model. This article builds on [Creating pipelines](data-factory-create-pipelines.md) and [Creating datasets](data-factory-create-datasets.md). It assumes that you understand basics of Data Factory application model concepts, including activity, pipelines, linked services, and datasets.
+## Prerequisites
+This article assumes that you understand basics of Data Factory application model concepts, including activity, pipelines, linked services, and datasets. For basic concepts of Azure Data Factory, see the following articles:
+
+- [Introduction to Data Factory](data-factory-introduction.md)
+- [Pipelines](data-factory-create-pipelines.md)
+- [Datasets](data-factory-create-datasets.md) 
 
 ## Schedule an activity
 
@@ -37,13 +43,13 @@ For the currently executing activity window, you can access the time interval as
 
 The **scheduler** property supports the same subproperties as the **availability** property in a dataset. See [Dataset availability](data-factory-create-datasets.md#Availability) for details. Examples: scheduling at a specific time offset, or setting the mode to align processing at the beginning or end of the interval for the activity window.
 
-You can specify scheduler properties for an activity, but this is optional. If you do specify a property, it must match the cadence you specify in the output dataset definition. Currently, output dataset is what drives the schedule, so you must create an output dataset even if the activity does not produce any output. If the activity doesn't take any input, you can skip creating the input dataset.
+You can specify **scheduler** properties for an activity, but this is **optional**. If you do specify a property, it must match the cadence you specify in the output dataset definition. Currently, output dataset is what drives the schedule, so you must create an output dataset even if the activity does not produce any output. If the activity doesn't take any input, you can skip creating the input dataset.
 
 ## Time series datasets and data slices
 
 Time series data is a continuous sequence of data points that typically consists of successive measurements made over a time interval. Common examples of time series data include sensor data and application telemetry data.
 
-With Data Factory, you can process time series data in batched fashion with activity runs. Typically, there is a recurring cadence at which input data arrives and output data needs to be produced. This cadence is modeled by specifying **availability** in the dataset as follows:
+With Data Factory, you can process time series data in a batched fashion with activity runs. Typically, there is a recurring cadence at which input data arrives and output data needs to be produced. This cadence is modeled by specifying **availability** in the dataset as follows:
 
     "availability": {
       "frequency": "Hour",
@@ -62,7 +68,7 @@ Currently, Data Factory requires that the schedule specified in the activity exa
 
 For more information on different properties available for the availability section, refer to [Creating datasets](data-factory-create-datasets.md).
 
-## Move data from Azure SQL Database to Azure Blob storage with Copy Activity
+## Move data from SQL Database to Blob storage
 
 Let’s put some things together and in action by creating a pipeline that copies data from an Azure SQL Database table to Azure Blob storage every hour.
 
@@ -216,26 +222,23 @@ After the pipeline deploys, the Azure blob is populated as follows:
 -	File mypath/2015/1/1/10/Data.&lt;Guid&gt;.txt with no data.
 
 
-## Create a data slice, set the active period for a pipeline, and execute slices concurrently
+## Active period for pipeline
 
 [Creating pipelines](data-factory-create-pipelines.md) introduced the concept of an active period for a pipeline specified by setting the **start** and **end** properties.
 
 You can set the start date for the pipeline active period in the past. Data Factory automatically calculates (back fills) all data slices in the past and begins processing them.
 
+## Parallel processing of data slices
 You can configure back-filled data slices to be run in parallel. You can do this by setting the **concurrency** property in the policy section of the activity JSON as shown in [Creating pipelines](data-factory-create-pipelines.md).
 
-## Rerun a failed data slice and track data dependency automatically
-
+## Rerun a failed data slice 
 You can monitor execution of slices in a rich, visual way. See [Monitoring and managing pipelines using Azure portal blades](data-factory-monitor-manage-pipelines.md) or [Monitoring and Management app](data-factory-monitor-manage-app.md) for details.
 
 Consider the following example, which shows two activities. Activity1 produces a time series dataset with slices as output that is consumed as input by Activity2 to produce the final output time series dataset.
 
 ![Failed slice](./media/data-factory-scheduling-and-execution/failed-slice.png)
 
-<br/>
-
 The diagram shows that out of three recent slices, there was a failure producing the 9-10 AM slice for Dataset2. Data Factory automatically tracks dependency for the time series dataset. As a result, it does not start the activity run for the 9-10 AM downstream slice.
-
 
 Data Factory monitoring and management tools allow you to drill into the diagnostic logs for the failed slice to easily find the root cause for the issue and fix it. After you have fixed the issue, you can easily start the activity run to produce the failed slice. For more details on how to rerun and understand state transitions for data slices, see [Monitoring and managing pipelines using Azure portal blades](data-factory-monitor-manage-pipelines.md) or [Monitoring and Management app](data-factory-monitor-manage-app.md).
 
