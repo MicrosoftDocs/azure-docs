@@ -16,7 +16,7 @@
     ms.date="09/27/2016"
     ms.author="magoedte"/>
 
-# ![Update Management Solution in OMS](/media/oms-solution-update-management/update-management-solution-icon.png) Update Management solution in OMS
+# ![Update Management Solution in OMS](./media/oms-solution-update-management/update-management-solution-icon.png) Update Management solution in OMS
 
 The Update Management solution in OMS allows you to manage updates for your Windows and Linux computers.  You can quickly assess the status of available updates on all agent computers and initiate the process of installing required updates for servers. 
 
