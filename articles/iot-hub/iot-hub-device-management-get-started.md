@@ -182,7 +182,7 @@ In this section, you create a Node.js console app that initiates a remote reboot
         var methodName = "reboot";
         var timeout = 30;
         
-        client.invokeDeviceMethod(deviceToReboot, methodName, {}, timeout, function(err, result) {
+        client.invokeDeviceMethod(deviceToReboot, methodName, '', timeout, function(err, result) {
             if (err) { 
                 console.error("Direct method error: "+err.message);
             } else {
