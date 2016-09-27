@@ -60,7 +60,7 @@ Apps that are registered in the new Application Registration Portal are currentl
 `https://login-east.contoso.com`  
 `https://login-west.contoso.com`
 
-The registration system compares the whole DNS name of the existing redirect_uri with the DNS name of the redirect_uri you are adding. The request to add the DNS name will fail if either of the following conditions are not met:  
+The registration system compares the whole DNS name of the existing redirect_uri with the DNS name of the redirect_uri you are adding. The request to add the DNS name will fail if either of the following conditions are met:  
 
 - If the whole DNS name of the new redirect_uri does not match the DNS name of the existing redirect_uri
 - if the whole DNS name of the new redirect_uri is not a subdomain of the existing redirect_uri
