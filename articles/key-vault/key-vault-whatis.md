@@ -61,7 +61,7 @@ For a getting started tutorial for an administrator, see [Get Started with Azure
 
 For more information about usage logging for Key Vault, see [Azure Key Vault Logging](key-vault-logging.md).
 
-For more information about using keys and secrets with Azure Key Vault, see [About Keys and Secrets](https://msdn.microsoft.com/library/azure/dn903623.aspx).
+For more information about using keys and secrets with Azure Key Vault, see [About Keys, Secrets, and Certificates](https://msdn.microsoft.com/library/azure/dn903623\(v=azure.1\).aspx).
 
 
 <!--Image references-->
