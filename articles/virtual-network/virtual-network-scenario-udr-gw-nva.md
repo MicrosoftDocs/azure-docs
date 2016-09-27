@@ -64,7 +64,7 @@ In this example there is a subscription that contains the following:
 	- **GatewaySubnet**. Azure hybrid connection subnet required for ExpressRoute and VPN Gateway to provide connectivity between Azure VNets and other networks. 
 - There are 3 firewall virtual appliances in the **azurevnet** network. 
 	- **AZF1**. External firewall exposed to the public Internet by using a public IP address resource in Azure. You need to ensure you have a template from the Marketplace, or directly from your appliance vendor, that provisions a 3-NIC virtual appliance.
-	- **AZF2**. Internal firewall used to contrl traffic between **azsn2** and **azsn3**. This is also a 3-NIC virtual appliance.
+	- **AZF2**. Internal firewall used to control traffic between **azsn2** and **azsn3**. This is also a 3-NIC virtual appliance.
 	- **AZF3**. Management firewall accessible to administrators from the on-premises datacenter, and connected to a management subnet used to manage all firewall appliances. You can find 2-NIC virtual appliance templates in the Marketplace, or request one directly from your appliance vendor.
 
 ## User Defined Routing (UDR)
