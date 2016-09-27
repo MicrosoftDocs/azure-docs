@@ -17,7 +17,7 @@
 	ms.date="09/27/2016"
 	ms.author="cynthn"/>
 
-# Create a custom virtual machine running Windows
+# Create a custom virtual machine running Windows using the classic deployment model
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)] If you want to use the new Azure portal, see [Create your first Windows virtual machine in the Azure portal](virtual-machines-windows-hero-tutorial.md).
 
