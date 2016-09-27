@@ -46,8 +46,8 @@ These links will be useful for exploring the platform in depth:
 - Get help on Stack Overflow using the [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) or [adal](http://stackoverflow.com/questions/tagged/adal) tags.
 - [v2.0 Protocol Reference](active-directory-v2-protocols.md)
 - [v2.0 Token Reference](active-directory-v2-tokens.md)
+- [v2.0 Library Reference](active-directory-v2-libraries.md)
 - [Scopes and Consent in the v2.0 endpoint](active-directory-v2-scopes.md)
 - [The Microsoft App Registration Portal](https://apps.dev.microsoft.com)
 - [Office 365 REST API Reference](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
 - [The Microsoft Graph](https://graph.microsoft.io)
-- [Azure Active Directory (AD) v2.0 and authentication libraries](active-directory-v2-libraries.md)
