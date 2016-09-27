@@ -23,7 +23,7 @@
 - [PowerShell](search-manage-powershell.md)
 - [REST API](search-get-started-management-api.md)
 
-Azure Search is a fully-managed, cloud-based search service used for building a rich search experience into custom apps. This article covers the *service administration* tasks that you can perform in in the [Azure Portal](https://portal.azure.com) for a search service that you've already provisioned. *Service administration* is light-weight by design, limited to the following tasks:
+Azure Search is a fully-managed, cloud-based search service used for building a rich search experience into custom apps. This article covers the *service administration* tasks that you can perform in the [Azure Portal](https://portal.azure.com) for a search service that you've already provisioned. *Service administration* is light-weight by design, limited to the following tasks:
 
 - Manage and secure access to the *api-keys* used for read or write access to your service.
 - Adjust service capacity by changing the allocation of partitions and replicas.
@@ -35,7 +35,7 @@ Azure Search is a fully-managed, cloud-based search service used for building a 
 
 *Query performance* is also beyond the scope of this article. See [Performance and optimization in Azure Search](search-performance-optimization.md) for more information.
 
-Azure Search does not provide built-in solutions for disaster recovery or backup-and-restore. For customers who push objects and data to their service, the source code for creating and populating an index is the de facto restore option. For disaster recovery, customers can opt-in for redundancy via an additional service in a different regional data center. See [Performance and optimization in Azure Search](search-performance-optimization.md) for guidance on geo-distribution of workloads.
+Azure Search does not provide built-in solutions for disaster recovery or backup-and-restore. For customers who push objects and data to their service, the source code for creating and populating an index is the de facto restore option if you delete an index by mistake. For disaster recovery, customers can opt-in for redundancy via an additional service in a different regional data center. See [Performance and optimization in Azure Search](search-performance-optimization.md) for guidance on geo-distribution of workloads.
 
 <a id="admin-rights"></a>
 ## Administrator rights in Azure Search
@@ -44,7 +44,7 @@ Provisioning or decommissioning the service itself can be done by an Azure subsc
 
 Within a service, anyone with access to the service URL and an admin api-key has read-write access to the service, with commensurate ability to add, delete, or modify server objects such as api-keys, indexes, indexers, data sources, schedules, and role assignments as implemented through [RBAC-defined roles](#rbac).
 
-All user interaction with Azure Search falls within one one of thse modes: read-write access to the service (administrator rights), or read-only access to the service (query rights).
+All user interaction with Azure Search falls within one one of thse modes: read-write access to the service (administrator rights), or read-only access to the service (query rights). See [Manage the api-keys](#manage-keys) for more information.
 
 <a id="sys-info"></a>
 ## Logging in Azure Search and system information
@@ -55,14 +55,14 @@ In terms of general information about your service, you can obtain information i
 
 - In the portal, on the service dashboard, through notifications, properties, and status messages.
 - Using [PowerShell](search-manage-powershell.md) or the [Management REST API](https://msdn.microsoft.com/library/azure/dn832684.aspx) to [get service properties](https://msdn.microsoft.com/library/azure/dn832694.aspx), or status on index resource usage.
-- Using [search traffic analytics](search-traffic-analytics.md), as noted previously.
+- Via [search traffic analytics](search-traffic-analytics.md), as noted previously.
 
 <a id="manage-keys"></a>
 ## Manage the api-keys
 
 All requests to a search service will need an api-key that was generated specifically for your service. This api-key is the sole mechanism for authenticating access to your search service endpoint. 
 
-An api-key is a string composed of randomly generated numbers and letters. It is generated exclusively by your service. Through RBAC permissions, you can delete or read the keys, but you can't specify a user-defined string (specifically, if you have passwords that you routinely use, you can't override the generated value with a user-defined password). 
+An api-key is a string composed of randomly generated numbers and letters. It is generated exclusively by your service. Through [RBAC permissions](#rbac), you can delete or read the keys, but you can't override a generated key with a user-defined string (specifically, if you have passwords that you routinely use, you can't substitute an api-key with a user-defined password). 
 
 Two types of keys are used to access your search service:
 
@@ -82,12 +82,12 @@ To get or regenerate api-keys, open the service dashboard. Click **KEYS** to sli
 
 Azure provides a [global role-based authorization model](../active-directory/role-based-access-control-configure.md) for all services managed through the Portal or Resource Manager APIs. Owner, Contributor, and Reader roles determine the level of service administration for Active Directory users, groups, and security principals assigned to each role. 
 
-In terms of Azure Search, role-based access controls determine the following administrative tasks:
+For Azure Search, RBAC permissions determine the following administrative tasks:
 
 Role|Task
 ---|---
 Owner|Create or delete the service or any object on the service, including api-keys, indexes, indexers, indexer data sources, and indexer schedules.<p>View service status, including counts and storage size.<p>Add or delete role membership (only an Owner can manage role membership).<p>Subscription administrators and service owners have automatic membership in the Owners role.
-Contributor|Has the same level of access as Owner, except for RBAC role management. For example, a Contributor can view and regenerate `api-key`, but he or she cannot modify role memberships.
+Contributor|Same level of access as Owner, minus RBAC role management. For example, a Contributor can view and regenerate `api-key`, but he or she cannot modify role memberships.
 Reader|View service status and query keys. Members of this role cannot change service configuration, nor can they view admin keys.
 
 Note that roles do not grant access rights to the service endpoint. Search service operations, such as index management, index population, and queries on search data, are controlled through api-keys, not roles. See "Authorization for management versus data operations" in [What is Role-based access control](../active-directory/role-based-access-control-what-is.md) for more information.
