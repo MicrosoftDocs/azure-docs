@@ -33,13 +33,13 @@ The following steps show how to create an Internet-facing load balancer by using
 
 You need to create and configure the following objects to deploy a load balancer:
 
-- **Front-end IP configuration** -- contains public IP addresses for incoming network traffic
-- **Back-end address pool** -- contains network interfaces (NICs) that enable the virtual machines to receive network traffic from the load balancer
-- **Load-balancing rules** -- contains rules that map a public port on the load balancer to port in the back-end address pool
-- Inbound NAT rules -- contains rules that map a public port on the load balancer to a port for a specific virtual machine in the back-end address pool.
-- **Probes** -- contains health probes that are used to check the availability of virtual machines instances in the back-end address pool
+- **Front-end IP configuration**: contains public IP addresses for incoming network traffic
+- **Back-end address pool**: contains network interfaces (NICs) that enable the virtual machines to receive network traffic from the load balancer
+- **Load-balancing rules**: contains rules that map a public port on the load balancer to port in the back-end address pool
+- **Inbound NAT rules**: contains rules that map a public port on the load balancer to a port for a specific virtual machine in the back-end address pool
+- **Probes**: contains health probes that are used to check the availability of virtual machines instances in the back-end address pool
 
-For more information see, [Azure Resource Manager support for Load Balancer](load-balancer-arm.md).
+For more information, see [Azure Resource Manager support for Load Balancer](load-balancer-arm.md).
 
 ## Set up CLI to use Resource Manager
 
@@ -55,7 +55,7 @@ For more information see, [Azure Resource Manager support for Load Balancer](loa
 
 ## Create an internal load balancer step by step
 
-1. Sign into Azure.
+1. Sign in to Azure.
 
         azure login
 
@@ -89,12 +89,12 @@ All resources in Azure Resource Manager are associated with a resource group. If
 
     Parameters used:
 
-    * **-g** -- resource group
-    * **-l** -- name of the internal load balancer set
-    * **-n** -- name of the front end IP
-    * **-a** -- private IP address within the subnet range
-    * **-e** -- subnet name
-    * **-m** -- virtual network name
+    * **-g**: resource group
+    * **-l**: name of the internal load balancer set
+    * **-n**: name of the front end IP
+    * **-a**: private IP address within the subnet range
+    * **-e**: subnet name
+    * **-m**: virtual network name
 
 3. Create the back-end address pool.
 
@@ -102,11 +102,11 @@ All resources in Azure Resource Manager are associated with a resource group. If
 
     Parameters used:
 
-    * **-g** -- resource group
-    * **-l** -- name of the internal load balancer set
-    * **-n** -- name of the back end address pool
+    * **-g**: resource group
+    * **-l**: name of the internal load balancer set
+    * **-n**: name of the back end address pool
 
-    After defining a front-end IP address and a back-end address pool, you can create load balancer rules, inbound NAT rules, and customized health probes.
+    After you define a front-end IP address and a back-end address pool, you can create load balancer rules, inbound NAT rules, and customized health probes.
 
 4. Create a load balancer rule for the internal load balancer.
 
@@ -116,12 +116,12 @@ All resources in Azure Resource Manager are associated with a resource group. If
 
     Parameters used:
 
-    * **-g** -- resource group
-    * **-l** -- name of the internal load balancer set
-    * **-n** -- name of the load balancer rule
-    * **-p** -- protocol that is used for the rule
-    * **-f** -- port that listens to incoming network traffic in the load balancer front end
-    * **-b** -- port that receives the network traffic in the back-end address pool
+    * **-g**: resource group
+    * **-l**: name of the internal load balancer set
+    * **-n**: name of the load balancer rule
+    * **-p**: protocol that is used for the rule
+    * **-f**: port that listens to incoming network traffic in the load balancer front end
+    * **-b**: port that receives the network traffic in the back-end address pool
 
 5. Create inbound NAT rules.
 
@@ -133,27 +133,27 @@ All resources in Azure Resource Manager are associated with a resource group. If
 
     Parameters used:
 
-    * **-g** -- resource group
-    * **-l** -- name of the internal load balancer set
-    * **-n** -- name of the inbound NAT rule
-    * **-p** -- protocol that is used for the rule
-    * **-f** -- port that listens to incoming network traffic in the load balancer front end
-    * **-b** -- port that receives the network traffic in the back-end address pool
+    * **-g**: resource group
+    * **-l**: name of the internal load balancer set
+    * **-n**: name of the inbound NAT rule
+    * **-p**: protocol that is used for the rule
+    * **-f**: port that listens to incoming network traffic in the load balancer front end
+    * **-b**: port that receives the network traffic in the back-end address pool
 
 5. Create health probes for the load balancer.
 
-    A health probe checks all virtual machine instances to make sure they can send network traffic. The virtual machine instance with failed probe checks is removed from the load balancer until it goes back online and a probe checks determines that it's healthy.
+    A health probe checks all virtual machine instances to make sure they can send network traffic. The virtual machine instance with failed probe checks is removed from the load balancer until it goes back online and a probe check determines that it's healthy.
 
         azure network lb probe create -g nrprg -l ilbset -n ilbprobe -p tcp -i 300 -c 4
 
     Parameters used:
 
-    * **-g** -- resource group
-    * **-l** -- name of the internal load-balancer set
-    * **-n** -- name of the health probe
-    * **-p** -- protocol used by health probe
-    * **-i** -- probe interval in seconds
-    * **-c** -- number of checks
+    * **-g**: resource group
+    * **-l**: name of the internal load-balancer set
+    * **-n**: name of the health probe
+    * **-p**: protocol used by health probe
+    * **-i**: probe interval in seconds
+    * **-c**: number of checks
 
 
     >[AZURE.NOTE] The Microsoft Azure platform uses a static, publicly routable IPv4 address for a variety of administrative scenarios. The IP address is 168.63.129.16. This IP address should not be blocked by any firewalls, because this can cause unexpected behavior.
@@ -169,12 +169,12 @@ You need to create NICs (or modify existing ones) and associate them to NAT rule
 
     Parameters:
 
-    * **-g** -- resource group name
-    * **-n** -- name for the NIC resource
-    * **--subnet-name** -- name of the subnet
-    * **--subnet-vnet-name** -- name of the virtual network
-    * **-d** -- ID of the back-end pool resource, which starts with /subscription/{subscriptionID/resourcegroups/<resourcegroup-name>/providers/Microsoft.Network/loadbalancers/<load-balancer-name>/backendaddresspools/<name-of-the-backend-pool>
-    * **-e** -- ID of the NAT rule to be associated to the NIC resource--starts with /subscriptions/####################################/resourceGroups/<resourcegroup-name>/providers/Microsoft.Network/loadBalancers/<load-balancer-name>/inboundNatRules/<nat-rule-name>
+    * **-g**: resource group name
+    * **-n**: name for the NIC resource
+    * **--subnet-name**: name of the subnet
+    * **--subnet-vnet-name**: name of the virtual network
+    * **-d**: ID of the back-end pool resource, which starts with /subscription/{subscriptionID/resourcegroups/<resourcegroup-name>/providers/Microsoft.Network/loadbalancers/<load-balancer-name>/backendaddresspools/<name-of-the-backend-pool>
+    * **-e**: ID of the NAT rule to be associated to the NIC resource--starts with /subscriptions/####################################/resourceGroups/<resourcegroup-name>/providers/Microsoft.Network/loadBalancers/<load-balancer-name>/inboundNatRules/<nat-rule-name>
 
 Expected output:
 
@@ -227,6 +227,6 @@ In this example, **nrprg** is the resource group and **ilbset** is the internal 
 
 ## Next steps
 
-[Configure a load balancer distribution mode using source IP affinity](load-balancer-distribution-mode.md)
+[Configure a load balancer distribution mode by using source IP affinity](load-balancer-distribution-mode.md)
 
 [Configure idle TCP timeout settings for your load balancer](load-balancer-tcp-idle-timeout.md)
