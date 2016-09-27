@@ -28,11 +28,11 @@ If you need more help at any point in this article, you can contact the Azure ex
 
 ## VMs created by using the Resource Manager deployment model
 
-You can reset credentials or SSH configuration using:
+You can reset credentials or SSH configuration using one of the following methods:
 
-- [Azure portal](#azure-portal) - great if you need to quickly reset SSH configuration or SSH key and you don't have the Azure tools installed
-- [Azure CLI commands](#azure-cli) - if you already on the command line, quickly reset SSH configuration or credentials
-- [Azure VMAccessForLinux extension](#vmaccess-extension)
+- [Azure portal](#azure-portal) - great if you need to quickly reset the SSH configuration or SSH key and you don't have the Azure tools installed.
+- [Azure CLI commands](#azure-cli) - if you are already on the command line, quickly reset the SSH configuration or credentials.
+- [Azure VMAccessForLinux extension](#vmaccess-extension) - create and reuse json definition files to reset the SSH configuration or user credentials.
 
 After each troubleshooting step, try connecting to your VM again. If you still cannot connect, try the next step.
 
@@ -84,7 +84,7 @@ azure vm reset-access --resource-group <resource group> --name <vm name> \
 
 
 ## VMAccess extension
-The VM Access Extension for Linux reads in a json file that defines actions to carry out. These actions include resetting SSHD, resetting an SSH key, or adding a new user. You still use the Azure CLI to call the VMAccess extension, but you can reuse the json files across multiple VMs if desired. This approach allows you to create a repository of json files that can then be called for given scenarios.
+The VM Access Extension for Linux reads in a json file that defines actions to carry out. These actions include resetting SSHD, resetting an SSH key, or adding a user. You still use the Azure CLI to call the VMAccess extension, but you can reuse the json files across multiple VMs if desired. This approach allows you to create a repository of json files that can then be called for given scenarios.
 
 ### Reset SSHD
 Create a file named PrivateConf.json with the following content:
@@ -170,7 +170,7 @@ Try these steps to resolve the most common SSH connection failures for VMs that 
 
 	On the [Azure classic portal](https://manage.windowsazure.com), select **Virtual machines** > **Instances** > **Restart**.
 
-- Redeploy the VM to a new Azure node. For information about how redeploy a VM, see [Redeploy virtual machine to new Azure node](virtual-machines-windows-redeploy-to-new-node.md).
+- Redeploy the VM to a new Azure node. For information about how to redeploy a VM, see [Redeploy virtual machine to new Azure node](virtual-machines-windows-redeploy-to-new-node.md).
 
 	After this operation finishes, ephemeral disk data will be lost and dynamic IP addresses that are associated with the virtual machine will be updated.
 
