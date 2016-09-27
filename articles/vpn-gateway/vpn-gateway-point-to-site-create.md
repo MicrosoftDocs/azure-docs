@@ -30,7 +30,7 @@ This article walks you through creating a VNet with a Point-to-Site connection i
 Point-to-Site connections do not require a VPN device or a public-facing IP address to work. A VPN connection is established by starting the connection from the client computer. For more information about Point-to-Site connections, see the [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#point-to-site-connections) and [Planning and Design](vpn-gateway-plan-design.md).
 
 
-### Deployment methods for Point-to-Site connections
+### Deployment models and methods for P2S connections
 
 [AZURE.INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)] 
 
