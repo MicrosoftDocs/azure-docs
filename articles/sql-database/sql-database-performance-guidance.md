@@ -56,18 +56,6 @@ Most Premium service tier use cases have one or more of these characteristics:
 
 The service level that you need for your SQL database depends on the peak load requirements for each resource dimension. Some applications use a trivial amount of a single resource, but have significant requirements for other resources.
 
-## Billing and pricing
-
-Elastic database pools are billed based on these characteristics:
-
-- An elastic database pool is billed when it's created, even if the pool doesn't have any databases.
-- An elastic database pool is billed hourly. This same metering frequency is used for performance levels of single databases.
-- If an elastic database pool is resized to a new number of elastic database throughput units (eDTUs), the database pool is not billed based on the new level of eDTUs until the resizing operation finishes. This billing pattern follows the same pattern as changing the performance level of a standalone database.
-- The price of an elastic database pool is based on the number of pool eDTUs. The price of an elastic database pool is not based on how much you use the elastic databases in it.
-- Price is computed by (number of pool eDTUs) x (unit price per eDTU).
-
-The unit eDTU price for an elastic database pool is higher than the unit DTU price for a standalone database in the same service tier. For details, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).  
-
 ## Service tier capabilities and limits
 Each service tier and performance level is associated with different limits and performance characteristics. This table describes these characteristics for a single database.
 
