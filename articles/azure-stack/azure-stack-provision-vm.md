@@ -20,11 +20,11 @@
 
 Now that you've [created a subscription](azure-stack-subscribe-plan-provision-vm.md), test that your tenants can provision a virtual machine.
 
-1.  On the Azure Stack POC computer, log in to `https://portal.azurestack.local` as [a tenant](azure-stack-connect-azure-stack.md#log-in-as-a-tenant), and then click **New** > **Virtual machines** > **WindowsServer-2012-R2-Datacenter**.  
+1.  On the Azure Stack POC computer, log in to `https://portal.azurestack.local` as [an admin](azure-stack-connect-azure-stack.md#log-in-as-a-service-administrator), and then click **New** > **Virtual machines** > **WindowsServer-2012-R2-Datacenter**.  
 
 	![](media/azure-stack-provision-vm/image01.png)
 
-2.  In the **Basics** blade, type a **Name**, **User name**, and **Password**. Create a new **Resource group**, or select an existing one, and then click **OK**.  
+2.  In the **Basics** blade, type a **Name**, **User name**, and **Password**. For **VM disk type**, chose **HDD**. Choose a **Subscription**. Create a new **Resource group**, or select an existing one, and then click **OK**.  
 
 3.  In the **Choose a size** blade, click **A1 Basic**, and then click **Select**.  
 
