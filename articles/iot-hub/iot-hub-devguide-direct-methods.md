@@ -63,16 +63,16 @@ Direct method invocations on a device are HTTP calls which comprise:
 - *Headers* which contain the authorization, request ID, content type, and content encoding
 - A transparent JSON *body* in the following format:
 
-  ```
-  {
-    "methodName": "reboot",
-    "timeoutInSeconds": 200,
-    "payload": {
-      "input1": "someInput",
-      "input2": "anotherInput"
+    ```
+    {
+        "methodName": "reboot",
+        "timeoutInSeconds": 200,
+        "payload": {
+            "input1": "someInput",
+            "input2": "anotherInput"
+        }
     }
-  }
-  ```
+    ```
 
   Timeout is in seconds. If timeout is not set, it defaults to 30 seconds.
   
@@ -83,12 +83,12 @@ The back-end receives a response which comprises:
 - *Headers* which contain the etag, request ID, content type, and content encoding
 - A JSON *body* in the following format:
 
-  ```
-  {
-    "status" : "OK",
-    "payload" : {...}
-  }
-  ```
+    ```
+    {
+        "status" : "OK",
+        "payload" : {...}
+    }
+    ```
   
    Both `status` and `body` are provided by the device and used to respond with the device's own status code and/or description.
 
@@ -102,8 +102,8 @@ The body which the device receives is in the following format:
 
 ```
 {
-  "input1": "someInput",
-  "input2": "anotherInput"
+    "input1": "someInput",
+    "input2": "anotherInput"
 }
 ```
 
