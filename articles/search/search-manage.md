@@ -23,7 +23,7 @@
 - [PowerShell](search-manage-powershell.md)
 - [REST API](search-get-started-management-api.md)
 
-Azure Search is a fully managed, cloud-based search service used for building a rich search experience into custom apps. This article covers the *service administration* tasks that you can perform in the [Azure Portal](https://portal.azure.com) for a search service that you've already provisioned. *Service administration* is light weight by design, limited to the following tasks:
+Azure Search is a fully managed, cloud-based search service used for building a rich search experience into custom apps. This article covers the *service administration* tasks that you can perform in the [Azure portal](https://portal.azure.com) for a search service that you've already provisioned. *Service administration* is lightweight by design, limited to the following tasks:
 
 - Manage and secure access to the *api-keys* used for read or write access to your service.
 - Adjust service capacity by changing the allocation of partitions and replicas.
@@ -80,7 +80,7 @@ To get or regenerate api-keys, open the service dashboard. Click **KEYS** to sli
 <a id="rbac"></a>
 ## Set RBAC roles on administrative access for Azure Search
 
-Azure provides a [global role-based authorization model](../active-directory/role-based-access-control-configure.md) for all services managed through the Portal or Resource Manager APIs. Owner, Contributor, and Reader roles determine the level of service administration for Active Directory users, groups, and security principals assigned to each role. 
+Azure provides a [global role-based authorization model](../active-directory/role-based-access-control-configure.md) for all services managed through the portal or Resource Manager APIs. Owner, Contributor, and Reader roles determine the level of service administration for Active Directory users, groups, and security principals assigned to each role. 
 
 For Azure Search, RBAC permissions determine the following administrative tasks:
 
