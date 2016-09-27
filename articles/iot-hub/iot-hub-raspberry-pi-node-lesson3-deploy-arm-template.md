@@ -23,9 +23,9 @@
 Use an Azure Resource Manager (ARM) template to create an Azure function app and a storage account. The Azure function app listens to Azure IoT hub events, processes incoming messages, and writes them to Azure table storage.
 
 ## 3.1.2 What you will learn
-- How to use [Azure Resource Manager](https://azure.microsoft.com/en-us/documentation/articles/resource-group-overview/) to deploy Azure resources
+- How to use [Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-overview/) to deploy Azure resources
 - How to use an Azure function app to process IoT hub messages and write them to a table
- - [Azure Functions](https://azure.microsoft.com/en-us/documentation/articles/functions-overview/) is a solution for easily running small piece of code, or “functions”, in the cloud. An Azure function app hosts the execution of your functions in Azure.
+ - [Azure Functions](https://azure.microsoft.com/documentation/articles/functions-overview/) is a solution for easily running small piece of code, or “functions”, in the cloud. An Azure function app hosts the execution of your functions in Azure.
 
 ## 3.1.3 What you need
 - You must have successfully completed the previous lessons: [Get started with your Raspberry Pi 3 device](iot-hub-raspberry-pi-node-lesson1.md) and [Create your Azure IoT Hub](iot-hub-raspberry-pi-node-lesson2.md)
