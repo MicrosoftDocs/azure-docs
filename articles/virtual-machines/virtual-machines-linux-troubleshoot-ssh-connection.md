@@ -19,8 +19,7 @@
 	ms.author="iainfou"/>
 
 # Troubleshoot SSH connections to an Azure Linux VM that fails, errors out, or is refused
-
-There are various reasons that you might get Secure Shell (SSH) errors, SSH connection fails, or SSH is refused when you try to connect to a Linux-based Azure virtual machine (VM). This article helpa you find and correct the problems.
+There are various reasons that you encounter Secure Shell (SSH) errors, SSH connection failures, or SSH is refused when you try to connect to a Linux virtual machine (VM). This article helps you find and correct the problems. You can use the Azure portal, Azure CLI, or VM Access Extension for Linux to troubleshoot and resolve connection problems.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -49,16 +48,16 @@ Select your VM in the Azure portal. Scroll down to the **Support + Troubleshooti
 As a first step, select `Reset SSH configuration only` from the **Mode** drop-down menu, then click the **Reset** button. Once this action has completed, try to access your VM again.
 
 ### Reset SSH credentials for a user
-To reset the credentials of an existing user, select either `Reset SSH public key` or `Reset password`. Specify the username and a SSH key or new password, then click the **Reset** button.
+To reset the credentials of an existing user, select either `Reset SSH public key` or `Reset password`. Specify the username and an SSH key or new password, then click the **Reset** button.
 
-You can also create a new user with sudo privileges on the VM. Enter a new username and associated password or SSH key, and then click the **Reset** button.
+You can also create a user with sudo privileges on the VM. Enter a new username and associated password or SSH key, and then click the **Reset** button.
 
 
 ## Azure CLI
 
 If you haven't already, [install the Azure CLI and connect to your Azure subscription](../xplat-cli-install.md). Sign in by using the `azure login` command and make sure you are in Resource Manager mode (`azure config mode arm`).
 
-If you created and uploaded a custom Linux disk image, make sure the [Microsoft Azure Linux Agent](virtual-machines-linux-agent-user-guide.md) version 2.0.5 or later is installed. For VMs created using Gallery images, this is already installed and configured for you.
+If you created and uploaded a custom Linux disk image, make sure the [Microsoft Azure Linux Agent](virtual-machines-linux-agent-user-guide.md) version 2.0.5 or later is installed. For VMs created using Gallery images, this access extension is already installed and configured for you.
 
 ### Reset SSH configuration
 The SSHD configuration itself may be misconfigured or the service encountered an error. You can reset SSHD to make sure the SSH configuration itself is valid. This should be the first troubleshooting step you take.
@@ -69,7 +68,7 @@ azure vm reset-access --resource-group <resource group> --name <vm name> \
 ```
 
 ### Reset SSH credentials for a user
-If SSHD appears to functioning correctly, you can reset the password for a giver user.
+If SSHD appears to function correctly, you can reset the password for a giver user.
 
 ```bash
 azure vm reset-access --resource-group <resource group> --name <vm name> \
@@ -145,7 +144,7 @@ azure vm redeploy --resource-group <resource group> --name <vm name>
 ## Redeploy a VM
 You can redeploy a VM to another node within Azure, which may correct any underlying networking issues. For information about redeploying a VM, see [Redeploy virtual machine to new Azure node](virtual-machines-windows-redeploy-to-new-node.md).
 
-> [AZURE.NOTE] Note that after this operation finishes, ephemeral disk data will be lost and dynamic IP addresses that are associated with the virtual machine will be updated.
+> [AZURE.NOTE] After this operation finishes, ephemeral disk data will be lost and dynamic IP addresses that are associated with the virtual machine will be updated.
 
 ### Azure portal
 To redeploy a VM using the Azure portal, select **Browse** > **Virtual machines** > *your VM* > **Support + Troubleshooting** > **Redeploy** as in the following example:
@@ -171,13 +170,13 @@ Try these steps to resolve the most common SSH connection failures for VMs that 
 
 	On the [Azure classic portal](https://manage.windowsazure.com), select **Virtual machines** > **Instances** > **Restart**.
 
-- Redeploy the VM to a new Azure node. For information about how to do this, see [Redeploy virtual machine to new Azure node](virtual-machines-windows-redeploy-to-new-node.md).
+- Redeploy the VM to a new Azure node. For information about how redeploy a VM, see [Redeploy virtual machine to new Azure node](virtual-machines-windows-redeploy-to-new-node.md).
 
-	Note that after this operation finishes, ephemeral disk data will be lost and dynamic IP addresses that are associated with the virtual machine will be updated.
+	After this operation finishes, ephemeral disk data will be lost and dynamic IP addresses that are associated with the virtual machine will be updated.
 
 - Follow the instructions in [How to reset a password or SSH for Linux-based virtual machines](virtual-machines-linux-classic-reset-access.md) to:
 	- Reset the password or SSH key.
-	- Create a new _sudo_ user account.
+	- Create a _sudo_ user account.
 	- Reset the SSH configuration.
 
 - Check the VM's resource health for any platform issues.<br>
@@ -186,7 +185,7 @@ Try these steps to resolve the most common SSH connection failures for VMs that 
 
 ## Additional resources
 
-- If you are still unable to SSH to your VM after following the after steps, you can follow [more detailed troubleshooting steps](virtual-machines-linux-detailed-troubleshoot-ssh-connection.md) to review additional networking configurations and steps to resolve your issue.
+- If you are still unable to SSH to your VM after following the after steps, see [more detailed troubleshooting steps](virtual-machines-linux-detailed-troubleshoot-ssh-connection.md) to review additional steps to resolve your issue.
 
 - For more information about troubleshooting application access, see [Troubleshoot access to an application running on an Azure virtual machine](virtual-machines-linux-troubleshoot-app-connection.md)
 
