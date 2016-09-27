@@ -1,6 +1,6 @@
 <properties
   pageTitle="Azure and Linux VM Storage | Microsoft Azure"
-  description="Describes Azure Storage with Linux virtual machines."
+  description="Describes Azure Standard and Premium Storage with Linux virtual machines."
   services="virtual-machines-linux"
   documentationCenter="virtual-machines-linux"
   authors="vlivech"
@@ -18,7 +18,7 @@
 
 # Azure and Linux VM storage
 
-Azure Storage is the cloud storage solution for modern applications that rely on durability, availability, and scalability to meet the needs of their customers.  In addition to making it possible for developers to build large-scale applications to support new scenarios, Azure Storage also provides the storage foundation for Azure Virtual Machines, a further testament to its robustness.
+Azure Storage is the cloud storage solution for modern applications that rely on durability, availability, and scalability to meet the needs of their customers.  In addition to making it possible for developers to build large-scale applications to support new scenarios, Azure Storage also provides the storage foundation for Azure Virtual Machines.
 
 ## Premium storage
 
@@ -60,6 +60,14 @@ File storage is built on the same technology as Blob, Table, and Queue storage, 
 
 - [How to use Azure File Storage with Linux](../storage/storage-how-to-use-files-linux.md)
 
+## Hot Storage
+
+The Azure hot storage tier is optimized for storing data that is accessed frequently.
+
+## Cool Storage
+
+The Azure cool storage tier is optimized for storing data that is infrequently accessed and long-lived. 
+
 ## Redundancy
 
 The data in your Microsoft Azure storage account is always replicated to ensure durability and high availability, meeting the Azure Storage SLA even in the face of transient hardware failures.
@@ -71,19 +79,19 @@ When you create a storage account, you must select one of the following replicat
 - Geo-redundant storage (GRS)
 - Read-access geo-redundant storage (RA-GRS)
 
-## Locally redundant storage
+### Locally redundant storage
 
 Locally redundant storage (LRS) replicates your data within the region in which you created your storage account. To maximize durability, every request made against data in your storage account is replicated three times. These three replicas each reside in separate fault domains and upgrade domains.  A request returns successfully only once it has been written to all three replicas.
 
-## Zone-redundant storage
+### Zone-redundant storage
 
 Zone-redundant storage (ZRS) replicates your data across two to three facilities, either within a single region or across two regions, providing higher durability than LRS. If your storage account has ZRS enabled, then your data is durable even in the case of failure at one of the facilities.
 
-## Geo-redundant storage
+### Geo-redundant storage
 
 Geo-redundant storage (GRS) replicates your data to a secondary region that is hundreds of miles away from the primary region. If your storage account has GRS enabled, then your data is durable even in the case of a complete regional outage or a disaster in which the primary region is not recoverable.
 
-## Read-access geo-redundant storage
+### Read-access geo-redundant storage
 
 Read-access geo-redundant storage (RA-GRS) maximizes availability for your storage account, by providing read-only access to the data in the secondary location, in addition to the replication across two regions provided by GRS. In the event that data becomes unavailable in the primary region, your application can read data from the secondary region.
 
@@ -109,6 +117,13 @@ For premium storage accounts: A premium storage account has a maximum total thro
 
 
 ## Regions
+
+Azure is generally available in 30 regions around the world, and has announced plans for 4 additional regions. Geographic expansion is a priority for Azure because it enables our customers to achieve higher performance and it support their requirements and preferences regarding data location.  Azures latest region to launch is in Germany.
+
+The Microsoft Cloud Germany provides a differentiated option to the Microsoft Cloud services already available across Europe, creating increased opportunities for innovation and economic growth for highly regulated partners and customers in Germany, the European Union (EU) and the European Free Trade Association (EFTA).
+
+Customer data in these new datacenters, in Magdeburg and Frankfurt, is managed under the control of a data trustee, T-Systems International, an independent German company and subsidiary of Deutsche Telekom. Microsoft’s commercial cloud services in these datacenters adhere to German data handling regulations and give customers additional choices of how and where data is processed.
+
 
 - [Azure regions map](https://azure.microsoft.com/regions/)
 
