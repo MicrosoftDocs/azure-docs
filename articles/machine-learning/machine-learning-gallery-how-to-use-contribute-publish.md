@@ -66,7 +66,7 @@ You can comment, provide feedback, or ask questions through the comments section
 You can even share a solution of interest with friends or colleagues using the share capabilities of LinkedIn or Twitter.
 You may also email links to these solutions to invite other users to view the pages.
 
-### Download experiments
+### Download
 
 The Cortana Intelligence Gallery allows you to easily copy predictive analytics experiments to your Machine Learning Studio workspace with a single click and immediately start customizing and using it for your purpose.
 If you're not already signed in while browsing, you will be prompted to sign in using your Microsoft account before the experiment is copied to your workspace.
