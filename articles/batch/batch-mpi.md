@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="big-compute"
-	ms.date="08/29/2016"
+	ms.date="09/28/2016"
 	ms.author="marsma" />
 
 # Use multi-instance tasks to run Message Passing Interface (MPI) applications in Azure Batch
@@ -144,25 +144,18 @@ cmd /c ""%MSMPI_BIN%\mpiexec.exe"" -c 1 -wdir %AZ_BATCH_TASK_SHARED_DIR% MyMPIAp
 
 ## Environment variables
 
-These environment variables are available on the compute node to applications and scripts executed by the primary task's application command:
+Batch creates several [environment variables][msdn_env_var] specific to multi-instance tasks on the compute nodes allocated to a multi-instance task. The command lines of the primary and subtasks can reference these environment variables, as can the scripts and programs launched by those command lines.
+
+The following environment variables are created by the Batch service for use by multi-instance tasks:
 
 * `CCP_NODES`
-
-  * **Availability**: CloudServiceConfiguration and VirtualMachineConfiguration pools
-  * **Format**: `numNodes<space>nodeIP<space>numCores<space>`
-  * **Example**: `2 10.0.0.4 1 10.0.0.5 1`
-
 * `AZ_BATCH_NODE_LIST`
-
-  * **Availability**: CloudServiceConfiguration and VirtualMachineConfiguration pools
-  * **Format**: `nodeIP;nodeIP`
-  * **Example**: `10.0.0.4;10.0.0.5`
-
 * `AZ_BATCH_HOST_LIST`
+* `AZ_BATCH_MASTER_NODE`
+* `AZ_BATCH_TASK_SHARED_DIR`
+* `AZ_BATCH_IS_CURRENT_NODE_MASTER`
 
-  * **Availability**: VirtualMachineConfiguration pools
-  * **Format**: `nodeIP,nodeIP`
-  * **Example**: `10.0.0.4,10.0.0.5`
+For details on these and the other Batch compute node environment variables, including their visibility and contents, see [Compute node environment variables][msdn_env_var].
 
 ## Resource files
 
@@ -237,18 +230,24 @@ await subtasks.ForEachAsync(async (subtask) =>
 
 ## Next steps
 
-- You may want to build a simple MS-MPI application to use while testing multi-instance tasks in Batch. The Microsoft HPC & Azure Batch Team blog article, [How to compile and run a simple MS-MPI program][msmpi_howto], contains a walk-through for creating a simple MPI application using MS-MPI.
+- The Microsoft HPC & Azure Batch Team blog discusses [MPI support for Linux on Azure Batch][blog_mpi_linux], and includes information on using [OpenFOAM][openfoam] with Batch. You can find Python code samples for the [OpenFOAM example on GitHub][github_mpi].
+
+- You may want to build a simple MS-MPI application to use while testing multi-instance tasks in Batch. Another blog article, [How to compile and run a simple MS-MPI program][msmpi_howto], contains a walk-through for creating a simple MPI application using MS-MPI.
 
 - Check out the [Microsoft MPI][msmpi_msdn] page on MSDN for the latest information on MS-MPI.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
 [batch_explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[blog_mpi_linux]: https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/
 [cmd_start]: https://technet.microsoft.com/library/cc770297.aspx
+[github_mpi]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch/article_samples/mpi
 [github_samples]: https://github.com/Azure/azure-batch-samples
+[msdn_env_var]: https://msdnstage.redmond.corp.microsoft.com/library/mt743623.aspx
 [msmpi_msdn]: https://msdn.microsoft.com/library/bb524831.aspx
 [msmpi_sdk]: http://go.microsoft.com/FWLink/p/?LinkID=389556
 [msmpi_howto]: http://blogs.technet.com/b/windowshpc/archive/2015/02/02/how-to-compile-and-run-a-simple-ms-mpi-program.aspx
+[openfoam]: http://www.openfoam.com/
 
 [net_jobprep]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobpreparationtask.aspx
 [net_multiinstance_class]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.multiinstancesettings.aspx
