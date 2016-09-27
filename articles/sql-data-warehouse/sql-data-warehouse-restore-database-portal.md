@@ -60,7 +60,7 @@ To restore a database:
 8. Click **OK**
 9. The database restore process will begin and can be monitored using **NOTIFICATIONS**
 
->[AZURE.NOTE] After the restore has completed, you can configure your recovered database by following the [Finalize a recovered database][] guide.
+>[AZURE.NOTE] After the restore has completed, you can configure your recovered database by following [Configure your database after recovery][].
 
 
 ## Restore a deleted database

@@ -4,7 +4,7 @@
 	keywords="copy data, data movement, data migration, transfer data"
 	services="data-factory"
 	documentationCenter=""
-	authors="spelluru"
+	authors="linda33wj"
 	manager="jhubbard"
 	editor="monicar"/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/22/2016"
-	ms.author="spelluru"/>
+	ms.author="jingwang"/>
 
 # Move data by using Copy Activity
 
@@ -61,7 +61,7 @@ If you need to move data to/from a data store that Copy Activity doesn't support
 ### Supported file formats
 You can use Copy Activity to copy files as-is between two file-based data stores, such as Azure Blob, File System, and HDFS. To do so, you can skip the [format section](data-factory-create-datasets.md) in both the input and output dataset definitions. The data is copied efficiently without any serialization/deserialization.
 
-Copy Activity also reads from and writes to files in specified formats: text, Avro, ORC, and JSON. You can do the following copy activities, for example:
+Copy Activity also reads from and writes to files in specified formats: text, Avro, ORC, Parquet, and JSON. You can do the following copy activities, for example:
 
 -	Copy data in text (CSV) format from Azure Blob and write to Azure SQL Database.
 -	Copy files in text (CSV) format from File System on-premises and write to Azure Blob in Avro format.
@@ -162,7 +162,7 @@ Here's a sample JSON definition:
 
 The schedule that is defined in the output dataset determines when the activity runs (for example: **daily**, frequency as **day**, and interval as **1**). The activity copies data from an input dataset (**source**) to an output dataset (**sink**).
 
-You can specify more than one input dataset to Copy Activity. They are used to verify the dependencies before the activity is run. However, only the data from the first dataset is copied to the destination dataset. For more details, see [Scheduling and execution](data-factory-scheduling-and-execution.md).  
+You can specify more than one input dataset to Copy Activity. They are used to verify the dependencies before the activity is run. However, only the data from the first dataset is copied to the destination dataset. For more information, see [Scheduling and execution](data-factory-scheduling-and-execution.md).  
 
 ## Performance and tuning
 See the [Copy Activity performance and tuning guide](data-factory-copy-activity-performance.md), which describes key factors that affect the performance of data movement (Copy Activity) in Azure Data Factory. It also lists the observed performance during internal testing and discusses various ways to optimize the performance of Copy Activity.
@@ -176,7 +176,7 @@ Different data stores have different native type systems. Copy Activity performs
 1. Convert from native source types to a .NET type.
 2. Convert from a .NET type to a native sink type.
 
-The mapping for a native type system to a .NET type for a data store is in the respective data store article. (Click the specific link in the [Supported data stores](#supported-data-stores) table). You can use these mappings to determine appropriate types while creating your tables, so that Copy Activity performs the right conversions.
+The mapping from a native type system to a .NET type for a data store is in the respective data store article. (Click the specific link in the [Supported data stores](#supported-data-stores) table). You can use these mappings to determine appropriate types while creating your tables, so that Copy Activity performs the right conversions.
 
 
 ## Next steps

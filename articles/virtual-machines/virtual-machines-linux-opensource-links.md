@@ -41,7 +41,7 @@ Find all the documentation you need to create and manage Linux-based virtual mac
 
 - [Install the LAMP Stack on a Linux virtual machine in Azure](virtual-machines-linux-create-lamp-stack.md)
 - [Ruby on Rails Web application on an Azure VM](virtual-machines-linux-classic-ruby-rails-web-app.md)
-- [How to: Install Apache Qpid Proton-C for AMQP and Service Bus](../service-bus/service-bus-amqp-apache.md)
+- [How to: Install Apache Qpid Proton-C for AMQP and Service Bus](../service-bus-messaging/service-bus-amqp-apache.md)
 
 ### Databases
 - [Optimize Performance of MySQL on Azure](virtual-machines-linux-classic-optimize-mysql.md)
