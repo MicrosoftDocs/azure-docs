@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="09/19/2016"
+	ms.date="09/27/2016"
 	ms.author="ricksal"/>
 
 # Add Push Notifications to your Android App
@@ -31,9 +31,9 @@ The following items are needed to complete this tutorial:
 
 * An IDE depending on your project's backend:
 
-		* [Android Studio](https://developer.android.com/sdk/index.html) if this app will have a Node.js backend.
+	* [Android Studio](https://developer.android.com/sdk/index.html) if this app will have a Node.js backend.
 
-		* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) if this app will have a .Net backend.
+	* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) if this app will have a .Net backend.
 
 * Complete the [quickstart tutorial](app-service-mobile-android-get-started.md).
 
