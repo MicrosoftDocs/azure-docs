@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Program won’t open or listening port blocked on VM | Microsoft Azure"
-	description="If you are unable to start, or use a program that is running on an Azure VM, use these steps to isolate the source of the problem."
+	pageTitle="Troubleshoot Linux VM application access | Microsoft Azure"
+	description="Use these detailed troubleshooting steps to isolate issues in connecting to applications running on Linux virtual machines in Azure."
 	services="virtual-machines-linux"
 	documentationCenter=""
 	authors="iainfoulds"
@@ -18,6 +18,6 @@
 	ms.date="09/27/2016"
 	ms.author="iainfou"/>
 
-# Troubleshoot: cannot start, access or connect to an application running on an Azure virtual machine
+# Troubleshoot application connectivity issues on a Linux Azure virtual machine
 
 [AZURE.INCLUDE [virtual-machines-common-troubleshoot-app-connection](../../includes/virtual-machines-common-troubleshoot-app-connection.md)]

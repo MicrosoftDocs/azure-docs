@@ -35,7 +35,9 @@ There are four main areas to troubleshoot the access of an application that is r
 	- Is the application itself running correctly?
 2.	The Azure virtual machine.
 	- Is the VM itself running correctly and responding to requests?
-3.	Azure endpoints for the cloud service that contains the virtual machine (for virtual machines in classic deployment model), inbound NAT rules (for virtual machines in Resource Manager deployment model), and Network Security Groups.
+3.	Azure network endpoints.
+	- Cloud service endpoints for virtual machines in the Classic deployment model.
+	- Network Security Groups and inbound NAT rules for virtual machines in Resource Manager deployment model.
 	- Can traffic flow from users to the VM/application on the expected ports?
 4.	Your Internet edge device.
 	- Are firewall rules in place preventing traffic from flowing correctly?
@@ -53,7 +55,7 @@ For example, if the application is a web server, open a browser on the VM and tr
 
 If you can access the application, go to [Step 2](#step2).
 
-If you cannot access the application, verify the following:
+If you cannot access the application, verify the following settings:
 
 - The application is running on the target virtual machine.
 - The application is listening on the expected TCP and UDP ports.
@@ -70,7 +72,7 @@ For example, if the application is a web server, try to access a web page from a
 
 If you can access the application, go to [Step 3](#step3).
 
-If you cannot access the application, verify the following:
+If you cannot access the application, verify the following settings:
 
 - The host firewall on the target VM is allowing the inbound request and outbound response traffic.
 - Intrusion detection or network monitoring software running on the target VM is allowing the traffic.
@@ -83,13 +85,13 @@ On a Windows-based virtual machine, use Windows Firewall with Advanced Security 
 
 ## <a id="step3"></a>Step 3: Access application from outside the virtual network
 
-Try to access the application from a computer outside the virtual network as the VM on which the application is running, but is not on the same network as your original client computer.
+Try to access the application from a computer outside the virtual network as the VM on which the application is running. Use a different network as your original client computer.
 
 ![start application from a computer outside the virtual network](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access4.png)
 
 For example, if the application is a web server, try to access the web page from a browser running on a computer that is not in the virtual network.
 
-If you cannot access the application, verify the following:
+If you cannot access the application, verify the following settings:
 
 - For VMs created using the classic deployment model:
 	- That the endpoint configuration for the VM is allowing the incoming traffic, especially the protocol (TCP or UDP) and the public and private port numbers.
@@ -99,7 +101,7 @@ If you cannot access the application, verify the following:
 - For VMs created using the Resource Manager deployment model:
 	- That the inbound NAT rule configuration for the VM is allowing the incoming traffic, especially the protocol (TCP or UDP) and the public and private port numbers.
 	- That Network Security Groups are allowing the inbound request and outbound response traffic.
-	- For more information, see [What is a Network Security Group (NSG)?](../articles/virtual-network/virtual-networks-nsg.md).
+	- For more information, see [What is a Network Security Group (NSG)?](../articles/virtual-network/virtual-networks-nsg.md)
 
 If the virtual machine or endpoint is a member of a load-balanced set:
 
