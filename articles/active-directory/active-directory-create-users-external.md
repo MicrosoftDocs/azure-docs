@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/02/2016"
+	ms.date="09/22/2016"
 	ms.author="curtand"/>
 
 # Add users from other directories or partner companies in Azure Active Directory
 
 > [AZURE.SELECTOR]
-- [Azure portal](active-directory-create-users-external-azure-portal.md)
+- [Azure portal](active-directory-users-create-external-azure-portal.md)
 - [Azure classic portal](active-directory-create-users-external.md)
 
 This article explains how to add users from other directories in Azure Active Directory or add users from partner companies. For information about adding new users in your organization, and adding users who have Microsoft accounts, see [Add new users to Azure Active Directory](active-directory-create-users.md). Added users don't have administrator permissions by default, but you can assign roles to them at any time.
@@ -70,7 +70,7 @@ If a user is deleted in their home directory or they cancel their Microsoft acco
 - **Azure classic portal**: allows an external user who's an administrator of multiple directories to manage each of those directories.
 - **SharePoint Online**: if external sharing is enabled, allows an external user to access SharePoint Online authorized resources.
 - **Dynamics CRM**: if the user is licensed via PowerShell, allows an external user to access authorized resources in Dynamics CRM.
-- **Dynamics AX**: if the user is licensed via PowerShell, allows an external user to access authorized resources in Dynamics AX. The limitations for [Azure AD external users](#known-limitations-of-azure-ad-external-users) and [Guest users](#guest-user-management-and-limitations) apply to external users in Dynamics AX as well.
+- **Dynamics AX**: if the user is licensed via PowerShell, allows an external user to access authorized resources in Dynamics AX. The limitations for [Azure AD external users](#known-limitations-of-azure-ad-external-users) apply to external users in Dynamics AX as well.
 
 ### Known limitations of Azure AD external users
 

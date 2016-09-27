@@ -14,7 +14,7 @@
 	ms.devlang="ruby" 
 	ms.topic="article" 
 	ms.date="08/11/2016" 
-	ms.author="robmcm"/>
+	ms.author="cbrooks;robmcm"/>
 
 
 # How to use Queue storage from Ruby

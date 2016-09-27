@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/27/2016"
+	ms.date="09/26/2016"
 	ms.author="dumagar"/>
 
 
 # Deploy the MySQL Resource Provider on Azure Stack to use with WebApps
+
+> [AZURE.NOTE] The following information only applies to Azure Stack TP1 deployments.
 
 Use this article to follow the detailed steps for setting up the MySQL Resource Provider on the Azure Stack proof of concept (POC) so that you can start [using MySQL databases](azure-stack-mysql-rp-deploy-short.md) on Azure Stack, including using MySQL as the backend for WordPress sites created with [Azure Web Apps](azure-stack-webapps-deploy.md).
 
@@ -33,7 +35,7 @@ Before you deploy the resource provider, you need to:
 
 You can skip this step if you downloaded the Azure Stack bits after 2/23/2016 because the default base Windows Server 2012 R2 image includes .NET 3.5 framework in this download and later.
 
-If you downloaded before 2/23/2016, you need to create a Windows Server 2012 R2 Datacenter VHD with .NET 3.5 image and set is as the default image in the Platform Image Repository. For more information, see [Create an image of Windows Server 2012R2 including .NET 3.5](azure-stack-add-image-pir.md#create-an-image-of-windowsserver2012r2-including-&#046;net-3&#046;5).
+If you downloaded before 2/23/2016, you need to create a Windows Server 2012 R2 Datacenter VHD with .NET 3.5 image and set is as the default image in the Platform Image Repository.
 
 ### Turn off IE enhanced security and enable cookies
 

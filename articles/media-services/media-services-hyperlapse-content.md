@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Hyperlapse Media Files with Azure Media Hyperlapse"
+	pageTitle="Hyperlapse Media Files with Azure Media Hyperlapse  | Microsoft Azure"
 	description="Azure Media Hyperlapse creates smooth time-lapsed videos from first-person or action-camera content. This topic shows how to use Media Indexer."
 	services="media-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/22/2016"  
+	ms.date="09/19/2016"  
 	ms.author="adsolank"/>
 
 
@@ -29,7 +29,7 @@ For the latest Azure Media Hyperlapse updates, see [Media Services blogs](https:
 
 ## Hyperlapse an asset
 
-First you will need to upload your desired input file to Azure Media Services.  To learn more about the concepts involved with uploading and managing content, read the [content management article](media-services-manage-content.md#upload).
+First you will need to upload your desired input file to Azure Media Services.  To learn more about the concepts involved with uploading and managing content, read the [content management article](media-services-portal-vod-get-started.md).
 
 ###  <a id="configuration"></a>Configuration Preset for Hyperlapse
 
@@ -73,66 +73,66 @@ The following is an example of a conformant configuration file in XML and JSON:
 
 ###  <a id="sample_code"></a> Microsoft Hyperlapse with the AMS .NET SDK
 
-The following method uploads a media file as an asset and creates a job with the Azure Media Hyperlapse Media Processor.  
+The following method uploads a media file as an asset and creates a job with the Azure Media Hyperlapse Media Processor.
 
-> [AZURE.NOTE] You should already have a CloudMediaContext in scope with the name "context" for this code to work.  To learn more about this, read the [content management article](media-services-manage-content.md).
+> [AZURE.NOTE] You should already have a CloudMediaContext in scope with the name "context" for this code to work.  To learn more about this, read the [content management article](media-services-dotnet-get-started.md).
 
 > [AZURE.NOTE] The string argument "hyperConfig" is expected to be a conformant configuration preset in either JSON or XML as described above.
 
-	static bool RunHyperlapseJob(string input, string output, string hyperConfig)
-	{
-		// create asset with input file
-		IAsset asset = context
-					   .Assets
-					   .CreateAssetAndUploadSingleFile(input, "My Hyperlapse Input", AssetCreationOptions.None);
+static bool RunHyperlapseJob(string input, string output, string hyperConfig)
+{
+// create asset with input file
+IAsset asset = context
+.Assets
+.CreateAssetAndUploadSingleFile(input, "My Hyperlapse Input", AssetCreationOptions.None);
 
-		// grab instances of Azure Media Hyperlapse MP
-		IMediaProcessor mp = context
-							 .MediaProcessors
-							 .GetLatestMediaProcessorByName("Azure Media Hyperlapse");
+// grab instances of Azure Media Hyperlapse MP
+IMediaProcessor mp = context
+.MediaProcessors
+.GetLatestMediaProcessorByName("Azure Media Hyperlapse");
 
-		// create Job with Hyperlapse task
-		IJob job = context
-				   .Jobs
-				   .Create(String.Format("Hyperlapse {0}", input));
+// create Job with Hyperlapse task
+IJob job = context
+.Jobs
+.Create(String.Format("Hyperlapse {0}", input));
 
-		if (String.IsNullOrEmpty(hyperConfig))
-		{
-			// config cannot be empty
-			return false;
-		}
+if (String.IsNullOrEmpty(hyperConfig))
+{
+// config cannot be empty
+return false;
+}
 
-		hyperConfig = File.ReadAllText(hyperConfig);
+hyperConfig = File.ReadAllText(hyperConfig);
 
-		ITask hyperlapseTask = job.Tasks.AddNew("Hyperlapse task",
-												mp,
-												hyperConfig,
-												TaskOptions.None);
-		hyperlapseTask.InputAssets.Add(asset);
-		hyperlapseTask.OutputAssets.AddNew("Hyperlapse output",
-											AssetCreationOptions.None);
+ITask hyperlapseTask = job.Tasks.AddNew("Hyperlapse task",
+mp,
+hyperConfig,
+TaskOptions.None);
+hyperlapseTask.InputAssets.Add(asset);
+hyperlapseTask.OutputAssets.AddNew("Hyperlapse output",
+AssetCreationOptions.None);
 
 
-		job.Submit();
+job.Submit();
 
-		// Create progress printing and querying tasks
-			Task progressPrintTask = new Task(() =>
-			{
+// Create progress printing and querying tasks
+Task progressPrintTask = new Task(() =>
+{
 
-				IJob jobQuery = null;
-				do
-				{
-					var progressContext = context;
-					jobQuery = progressContext.Jobs
-											  .Where(j => j.Id == job.Id)
-											  .First();
-					Console.WriteLine(string.Format("{0}\t{1}\t{2}",
-									  DateTime.Now,
-									  jobQuery.State,
-									  jobQuery.Tasks[0].Progress));
-					Thread.Sleep(10000);
-				}
-				while (jobQuery.State != JobState.Finished &&
+IJob jobQuery = null;
+do
+{
+var progressContext = context;
+jobQuery = progressContext.Jobs
+.Where(j => j.Id == job.Id)
+.First();
+Console.WriteLine(string.Format("{0}\t{1}\t{2}",
+DateTime.Now,
+jobQuery.State,
+jobQuery.Tasks[0].Progress));
+Thread.Sleep(10000);
+}
+while (jobQuery.State != JobState.Finished &&
 					   jobQuery.State != JobState.Error &&
 					   jobQuery.State != JobState.Canceled);
 			});

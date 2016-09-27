@@ -1,21 +1,21 @@
 
-<properties 
-	pageTitle="Signing in to the mobile app using notification with Azure Multi-Factor Authentication" 
-	description="This page will describe how a user can signin using mobile app notification with Azure MFA." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="stevenpo" 
+<properties
+	pageTitle="Signing in to the mobile app using notification with Azure Multi-Factor Authentication"
+	description="This page will describe how a user can signin using mobile app notification with Azure MFA."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="kgremban"
+	manager="femila"
 	editor="curtland"/>
 
-<tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
+<tags
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
 	ms.date="08/04/2016"
-	ms.author="billmath"/>
+	ms.author="kgremban"/>
 
 # Signing in to the mobile app using notification with Azure Multi-Factor Authentication
 
@@ -37,6 +37,3 @@ The following information will describe the experience of using multi-factor aut
 
 
 <li>You should now be signed in.</li>
-
-
- 

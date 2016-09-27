@@ -3,7 +3,7 @@
 	description="Learn how to resolve issues when your credit or debit card is declined when you try to sign up for Azure."
 	services=""
 	documentationCenter=""
-	authors="jiangchen79"
+	authors="JiangChen79"
 	manager="felixwu"
 	editor=""
 	tags="billing,top-support-issue"

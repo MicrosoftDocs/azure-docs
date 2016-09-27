@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Tutorial: Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault | Microsoft Azure"
-   description="This tutorial walks you through how to encrypt and decrypt a blob using client-side encryption for Microsoft Azure Storage with Azure Key Vault."
-   services="storage"
-   documentationCenter=""
-   authors="adhurwit"
-   manager=""
-   editor="tysonn"/>
+	pageTitle="Tutorial: Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault | Microsoft Azure"
+	description="This tutorial walks you through how to encrypt and decrypt a blob using client-side encryption for Microsoft Azure Storage with Azure Key Vault."
+	services="storage"
+	documentationCenter=""
+	authors="adhurwit"
+	manager=""
+	editor="tysonn"/>
 
 <tags
-   ms.service="storage"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="required"
-   ms.date="03/31/2016"
-   ms.author="lakasa"/>
+	ms.service="storage"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="required"
+	ms.date="09/20/2016"
+	ms.author="lakasa;robinsh"/>
 
 # Tutorial: Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault
 
@@ -202,7 +202,7 @@ The way to use a secret with client-side encryption is via the SymmetricKey clas
 - The key in a SymmetricKey should be Base64 encoded.
 - A Key Vault secret that will be used as a SymmetricKey needs to have a Content Type of "application/octet-stream" in Key Vault.
 
-Here is an example in PowerShell of creating a secret in Key Vault that can be used as a SymmetricKey. 
+Here is an example in PowerShell of creating a secret in Key Vault that can be used as a SymmetricKey.
 NOTE: The hard coded value, $key, is for demonstration purpose only. In your own code you'll want to generate this key.
 
 	// Here we are making a 128-bit key so we have 16 characters.
