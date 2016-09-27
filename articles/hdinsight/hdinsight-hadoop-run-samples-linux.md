@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="09/27/2016"
 	ms.author="larryfr"/>
 
 
@@ -118,7 +118,7 @@ Linux-based HDInsight clusters provide a set of MapReduce samples that can be us
         zwanzig 1
         zweite  1
 
-    Each line represents a word and how many times it occured in the input data.
+    Each line represents a word and how many times it occurred in the input data.
 
 ## Sudoku
 
