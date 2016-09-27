@@ -107,10 +107,11 @@ Perform the following steps to add the VM Management solution to your Automation
 
 ## Collection frequency
 
-Automation job log and job stream data is ingested into OMS repository every five (5) minutes.  
+Automation job log and job stream data is ingested into the OMS repository every five (5) minutes.  
 
 ## Using the solution
 
+When you add the VM Management solution, in your OMS workspace the **StartStopVM View** tile will be added to your OMS dashboard.  This tile displays a count and graphical representation of the 
 
 ## Log Analytics records
 
