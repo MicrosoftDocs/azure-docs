@@ -3,7 +3,7 @@
 	description="Learn about how to move data from Salesforce by using Azure Data Factory."
 	services="data-factory"
 	documentationCenter=""
-	authors="spelluru"
+	authors="linda33wj"
 	manager="jhubbard"
 	editor="monicar"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2016"
-	ms.author="spelluru"/>
+	ms.date="09/26/2016"
+	ms.author="jingwang"/>
 
 # Move data from Salesforce by using Azure Data Factory
 This article outlines how you can use Copy Activity in an Azure data factory to copy data from Salesforce to any data store that is listed under the Sink column in the [supported sources and sinks](data-factory-data-movement-activities.md#supported-data-stores) table. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with Copy Activity and supported data store combinations.
@@ -194,7 +194,7 @@ The following table provides descriptions for JSON elements that are specific to
 
 ## Salesforce dataset properties
 
-For a full list of sections and properties that are available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections like the structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, and so on).
+For a full list of sections and properties that are available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, and so on).
 
 The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for a dataset of the type **RelationalTable** has the following properties:
 
@@ -209,21 +209,21 @@ The **typeProperties** section is different for each type of dataset and provide
 ## RelationalSource type properties
 For a full list of sections and properties that are available for defining activities, see the [Creating pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, and various policies are available for all types of activities.
 
-The properties that are available in the typeProperties section of the activity, on the other hand, vary with each activity type--and in the case of Copy Activity, they vary depending on the types of sources and sinks.
+The properties that are available in the typeProperties section of the activity, on the other hand, vary with each activity type. For Copy Activity, they vary depending on the types of sources and sinks.
 
-In the case of Copy Activity, when the source is of the type **RelationalSource** (which includes Salesforce), the following properties are available in typeProperties section:
+In copy activity, when the source is of the type **RelationalSource** (which includes Salesforce), the following properties are available in typeProperties section:
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
-| query | Use the custom query to read data. | A SQL-92 query or [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query. For example:  select * from MyTable__c. | No (if the **tableName** of the **dataset** is specified) |
+| query | Use the custom query to read data. | A SQL-92 query or [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query. For example:  `select * from MyTable__c`. | No (if the **tableName** of the **dataset** is specified) |
 
 > [AZURE.IMPORTANT] The "__c" part of the API Name is needed for any custom object.<br>
-When you specify a query that includes the **where** clause on the DateTime column, use SOQL. For example: $$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd), or SQL query e.g. $$Text.Format('SELECT * FROM Account  WHERE LastModifiedDate   >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate  < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd).
+When you specify a query that includes the **where** clause on the DateTime column, use SOQL. For example: `$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd), or SQL query e.g. $$Text.Format('SELECT * FROM Account  WHERE LastModifiedDate   >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate  < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`.
 
 ![Data Factory - Salesforce connection - API name](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
 ## Retrieving data from Salesforce Report
-You can retrieve data from Salesforce reports by specifying query as {call "<report name>"}, e.g. "query": "{call \"TestReport\"}".
+You can retrieve data from Salesforce reports by specifying query as `{call "<report name>"}`, e.g. `"query": "{call \"TestReport\"}"`.
 
 ## Salesforce request limits
 Salesforce has limits for both total API requests and concurrent API requests. See the "API Request Limits" section in the [Salesforce Developer Limits](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) article for details.
