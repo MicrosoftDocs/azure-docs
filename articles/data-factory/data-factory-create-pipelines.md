@@ -172,7 +172,7 @@ Azure Data Factory provides various mechanisms to author and deploy pipelines (w
 You can use Data Factory editor in the Azure portal to create a pipeline. See [Get started with Azure Data Factory (Data Factory Editor)](data-factory-build-your-first-pipeline-using-editor.md) for an end-to-end walkthrough. 
 
 ### Using Visual Studio 
-You can use Visual Studio to author and deploy pipelines to Azure Data Factory. See [Get started with Azure Data Factory (Visual Studio)](data-factory-build-your-first-pipeline-using-vs.md) for an end-to-end walkthrough for creating a data factory with a pipeline. 
+You can use Visual Studio to author and deploy pipelines to Azure Data Factory. See [Get started with Azure Data Factory (Visual Studio)](data-factory-build-your-first-pipeline-using-vs.md) for an end-to-end walkthrough. 
 
 ### Using Azure PowerShell
 You can use the Azure PowerShell to create pipelines in Azure Data Factory. Say, you have defined the pipeline JSON in a file at c:\DPWikisample.json. You can upload it to your Azure Data Factory instance as shown in the following example:
@@ -195,11 +195,9 @@ You can create and deploy pipeline using REST APIs too. This mechanism can be us
 ## Monitor and manage pipelines  
 Once a pipeline is deployed, you can manage and monitor your pipelines, slices, and runs. Read more about it here: [Monitor and Manage Pipelines](data-factory-monitor-manage-pipelines.md).
 
-Let us take a closer look on how a pipeline is defined.
 
-## Pipeline JSON definition  
-
-The generic structure for a pipeline looks as follows:
+## Pipeline JSON   
+Let us take a closer look on how a pipeline is defined in JSON format. The generic structure for a pipeline looks as follows:
 
 	{
 	    "name": "PipelineName",
