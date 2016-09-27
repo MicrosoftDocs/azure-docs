@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Create an internal load balancer using the Azure CLI in Resource Manager | Microsoft Azure"
-   description="Learn how to create an internal load balancer using the Azure CLI in Resource Manager"
+   pageTitle="Create an internal load balancer by using the Azure CLI in Resource Manager | Microsoft Azure"
+   description="Learn how to create an internal load balancer by using the Azure CLI in Resource Manager"
    services="load-balancer"
    documentationCenter="na"
    authors="sdwheeler"
