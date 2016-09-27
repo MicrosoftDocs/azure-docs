@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="09/26/2016"
+     ms.date="09/27/2016"
      ms.author="hegate"/>
 
 # OS Platforms and hardware compatibility with device SDKs
@@ -274,10 +274,12 @@ Each device has been certified to work with our SDK in the OS and language chose
 |[Libelium Meshlium Xtreme](http://www.libelium.com/products/meshlium/) |Debian | Java|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/Debian-meshlium-java.md)|
 |[MDS Technology IDM-IWP-HW-2](http://mdstec.com/en/contents/?no=326) |Windows | Java|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-idm-iwp-hw-2-java.md)|
 |[MechaTracks 3GPI](http://www.mechatrax.com/products/3gpi) |Raspbian | C|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/raspbian-3gpi-c.md)|
+|[Micro-Star Int'l Co. Ltd. NB31](https://www.msi.com/product/tablet/NB31.html#hero-overview) |Windows 10 | C#|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-nb31-csharp.md)|
 |[Minnowboard Max](http://www.minnowboard.org/meet-minnowboard-max/) |Windows 7,8, 10 | C#|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-minnowboard-max-csharp.md)|
 |[MiTAC Computing Technology Pluto E220](http://client.mitac.com/products-Embedded-Box-PC-PlutoE220.html ) |Windows 10 | C#|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows10-pluto-e220-csharp.md)|
 |[Motion Control Henry Board](http://www.runele.com/ca1/38/p-r-s/) |Yocto | Javascript|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-henry-board-javascript.md)|
 |[Moxa ioPAC5542-C](http://www.moxa.com.tw/Product/ioPAC_5500.htm) |Linux | C|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-iopac5542-c-c.md)|
+|[MSC Technologies Baytrail Family](https://www.msc-technologies.eu/de/support/boards/qseven/msc-q7-bt.html) |Linux (MSC-LDK) | C|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/linux-msc-ldk-baytrail-c.md)|
 |[Nexcom NDiS B535]( http://www.nexcom.com.tw/Products/multi-media-solutions/digital-signage-player/high-performance-player/digital-signage-player-ndis-b535 ) |Windows 10 IoT Core | C#|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-10-iot-core-ndis-b535-csharp.md)|
 |[Nexcom NIFE100](http://www.nexcom.com.tw/Products/industrial-computing-solutions/pc-based-factory-automation/industr) |Windows 10 IoT Core | C#|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-10-iot-core-NIFE100-csharp.md)|
 |[Nexcom NIFE200](http://www.nexcom.com.tw/Products/industrial-computing-solutions/pc-based-factory-automation/industr) |Windows 10 IoT Core | C#|[Get started](https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/windows-10-iot-core-NIFE200-csharp.md)|
