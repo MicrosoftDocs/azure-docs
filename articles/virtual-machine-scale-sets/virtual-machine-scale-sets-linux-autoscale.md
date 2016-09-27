@@ -285,7 +285,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
           }
         },
 
-10.	Add the virtual machine scale set resource and specify the diagnostics extension that is installed on all virtual machines in the scale set. Many of the settings for this resource are similar with the virtual machine resource. The main differences are the addition of the capacity element that specifies the number of virtual machines in the scale set, and upgradePolicy that specifies how updates are made to virtual machines in the scale set. The scale set is not created until all the storage accounts are created as specified with the dependsOn element.
+10.	Add the virtual machine scale set resource and specify the diagnostics extension that is installed on all virtual machines in the scale set. Many of the settings for this resource are similar with the virtual machine resource. The main differences are the capacity element that specifies the number of virtual machines in the scale set and upgradePolicy that specifies how updates are made to virtual machines. The scale set is not created until all the storage accounts are created as specified with the dependsOn element.
 
             {
               "type": "Microsoft.Compute/virtualMachineScaleSets",

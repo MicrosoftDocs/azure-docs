@@ -21,7 +21,7 @@
 
 Automatic scaling of virtual machines in a scale set is the creation or deletion of machines in the set as needed to match performance requirements. As the volume of work grows, an application may require additional resources to enable it to effectively perform tasks.
 
-Automatic scaling is an automated process that helps ease management overhead. By reducing overhead, you won't need to continually monitor system performance or make decisions about managing resources. Scaling is an elastic process. More resources can be added as the load increases, but as demand decreases resources can be removed to minimize costs and maintain performance levels.
+Automatic scaling is an automated process that helps ease management overhead. By reducing overhead, you don't need to continually monitor system performance or decide how to manage resources. Scaling is an elastic process. More resources can be added as the load increases, but as demand decreases resources can be removed to minimize costs and maintain performance levels.
 
 Set up automatic scaling on a scale set by using an Azure Resource Manager template, by using Azure PowerShell, or by using Azure CLI.
 
@@ -39,7 +39,7 @@ In the template, you specify the capacity element:
 
 Capacity identifies the number of virtual machines in the set. You can manually change the capacity by deploying a template with a different value. If you are deploying a template to only change the capacity, you can include only the SKU element with the updated capacity.
 
-Automatically change the capacity of your scale set by using a combination of resources. These resources are the autoscaleSettings resource in Azure Resource Manager and the diagnostics extension installed on the machines in the scale set.
+Automatically change the capacity of your scale set by using the combination of the autoscaleSettings resource and the diagnostics extension.
 
 ### Configure the Azure Diagnostics extension
 
