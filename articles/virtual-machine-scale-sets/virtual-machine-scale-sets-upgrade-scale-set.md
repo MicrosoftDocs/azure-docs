@@ -26,13 +26,13 @@ To avoid ambiguity, let’s distinguish three types of OS update you might want 
 
 - Changing the version or SKU of a platform image. For example, changing Ubuntu 14.04.2-LTS version from 14.04.201506100 to 14.04.201507060, or changing the Ubuntu 15.10/latest SKU to 16.04.0-LTS/latest. This scenario is covered in this article.
 
-- Changing the URI that points to a new version of a custom image you built (**properties > virtualMachineProfile > storageProfile > osDisk > image > uri**). This scenario is covered in this article.
+- Changing the URI that points to a new version of a custom image you built (**properties** > **virtualMachineProfile** > **storageProfile** > **osDisk** > **image** > **uri**). This scenario is covered in this article.
 
 - Patching the OS from within a virtual machine (examples of this include installing a security patch and running Windows Update). This scenario is supported but not covered in this article.
 
 The first two options are supported requirements covered by this article. You'll need to create a new scale set to execute the third option.
 
-Virtual machine scale sets that are deployed as part of a [Service Fabric](https://azure.microsoft.com/services/service-fabric/) cluster are not covered here.
+Virtual machine scale sets that are deployed as part of an [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) cluster are not covered here.
 
 The basic sequence for changing the OS version/SKU of a platform image or the URI of a custom image looks as follows:
 
@@ -84,7 +84,7 @@ Here are a couple of Python examples that use the Azure REST API to roll out an 
 
 ### Vmssupgrade
 
- [Vmssupgrade](https://github.com/gbowerman/vmsstools) is Python script used to roll out an OS upgrade to a running virtual machine scale set one update domain at a time.
+ [Vmssupgrade](https://github.com/gbowerman/vmsstools) is a Python script that's used to roll out an OS upgrade to a running virtual machine scale set one update domain at a time.
 
 ![Vmssupgrade script for choosing virtual machines or an update domain](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssupgrade-screenshot.png)
 
@@ -98,6 +98,6 @@ The following screenshot shows a model of a scale set for Ubuntu 14.04-2LTS vers
 
 ![Vmsseditor model of a scale set for Ubuntu 14.04-2LTS](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor1.png)
 
-After clicking **Upgrade** and then **Get Details**, virtual machines in UD 0 start to update.
+After you click **Upgrade** and then **Get Details**, virtual machines in UD 0 start to update.
 
 ![Vmsseditor showing update in progress](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor2.png)
