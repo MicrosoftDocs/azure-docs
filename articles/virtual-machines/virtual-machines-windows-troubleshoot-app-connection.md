@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="support-article"
-	ms.date="09/27/16/2016"
+	ms.date="09/27/2016"
 	ms.author="iainfou"/>
 
 # Troubleshoot access to an application running on an Azure virtual machine

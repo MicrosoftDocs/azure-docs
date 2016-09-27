@@ -34,7 +34,7 @@ If you need more help at any point in this article, you can contact the Azure ex
 
 ## Components of a Remote Desktop connection
 
-These are the components involved in an RDP connection:
+The following components are involved in an RDP connection:
 
 ![](./media/virtual-machines-windows-detailed-troubleshoot-rdp/tshootrdp_0.png)
 
@@ -109,7 +109,7 @@ If you do not have another virtual machine in the same cloud service or virtual 
 If you can connect via Remote Desktop to a virtual machine in the same cloud service or virtual network, check for these settings:
 
 - The endpoint configuration for Remote Desktop traffic on the target VM: The private TCP port of the endpoint must match the TCP port on which the VM's Remote Desktop service is listening (default is 3389).
-- The ACL for the Remote Desktop traffic endpoint on the target VM: ACLs allow you to specify allowed or denied incoming traffic from the Internet based on its source IP address. Misconfigured ACLs can prevent incoming Remote Desktop traffic to the endpoint. Check your ACLs to ensure that incoming traffic from your public IP addresses of your proxy or other edge server is allowed. For more information, see [What is a Network Access Control List (ACL)?](../virtual-network/virtual-networks-acl.md).
+- The ACL for the Remote Desktop traffic endpoint on the target VM: ACLs allow you to specify allowed or denied incoming traffic from the Internet based on its source IP address. Misconfigured ACLs can prevent incoming Remote Desktop traffic to the endpoint. Check your ACLs to ensure that incoming traffic from your public IP addresses of your proxy or other edge server is allowed. For more information, see [What is a Network Access Control List (ACL)?](../virtual-network/virtual-networks-acl.md)
 
 To check if the endpoint is the source of the problem, remove the current endpoint and create a new one, choosing a random port in the range 49152–65535 for the external port number. For more information, see [How to set up endpoints to a virtual machine](virtual-machines-windows-classic-setup-endpoints.md).
 
