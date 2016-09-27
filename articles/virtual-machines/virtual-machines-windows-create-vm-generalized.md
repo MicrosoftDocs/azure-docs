@@ -23,6 +23,24 @@ A generalized VHD image has had all of your personal account information removed
 
 Once the VHD has been generalized, you can use that VHD image to create a new VM using Azure PowerShell.
 
+
+
+## Set the VHD to generalized and create an image
+
+1. Set the VHD to generalized using [Set-AzureRmVM](https://msdn.microsoft.com/en-us/library/mt603688.aspx).
+
+```powershell
+	Set-AzureRmVM -ResourceGroupName <resourceGroup> -Name <vmName> -Generalized
+```
+
+2. Create an image from the VHD file using [Save-AzureRMVMImage](https://msdn.microsoft.com/en-us/library/mt619423.aspx).
+
+```powershell
+	Save-AzureRmVMImage -ResourceGroupName <resourceGroup> -VMName <vmName> -DestinationContainerName <containerName> -VHDNamePrefix <vhdNamePrefix>
+```
+
+
+
 ## Create a virtual network
 
 Create the vNet and subNet of the [virtual network](../virtual-network/virtual-networks-overview.md).
