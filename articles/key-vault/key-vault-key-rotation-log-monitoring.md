@@ -241,7 +241,7 @@ Once this is enabled, then audit logs will start collecting into the designated 
 
 > \[AZURE.NOTE\] You can access your logging information at most, 10 minutes after the key vault operation. In most cases, it will be quicker than this.
 
-The next step is to [create an Azure Service Bus queue](../service-bus/service-bus-dotnet-get-started-with-queues.md). This will be where key vault audit logs are pushed. Once on the queue, the Logic App will pick them up and act on them. To create a Service Bus is relatively straight-forward and below are the high level steps:
+The next step is to [create an Azure Service Bus queue](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md). This will be where key vault audit logs are pushed. Once on the queue, the Logic App will pick them up and act on them. To create a Service Bus is relatively straight-forward and below are the high level steps:
 
 1. Create a Service Bus namespace (if you already have one that you want to use for this then skip to step 2).
 2. Browse to the Service Bus in the portal and select the namespace you want to create the queue in.

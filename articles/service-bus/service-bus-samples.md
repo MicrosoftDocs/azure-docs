@@ -130,6 +130,6 @@ The following samples demonstrate various other features of the service.
 
 See the following topics for conceptual overviews of Service Bus.
 
-- [Service Bus messaging overview](service-bus-messaging-overview.md)
+- [Service Bus messaging overview](../service-bus-messaging/service-bus-messaging-overview.md)
 - [Service Bus architecture](service-bus-architecture.md)
 - [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
