@@ -164,7 +164,7 @@ The results should appear similar to the following:
 
 ## Pi (π)
 
-The pi sample uses a statistical (quasi-Monte Carlo) method to estimate the value of pi. Points placed at random inside of a unit square also fall within a circle inscribed within that square, with a probability equal to the area of the circle &emdash; pi/4. The value of pi can be estimated from the value of 4R &emdash; where R is the ratio of the number of points that are inside the circle to the total number of points that are within the square. The larger the sample of points used, the better the estimate is.
+The pi sample uses a statistical (quasi-Monte Carlo) method to estimate the value of pi. Points placed at random inside of a unit square also fall within a circle inscribed within that square with a probability equal to the area of the circle, pi/4. The value of pi can be estimated from the value of 4R, where R is the ratio of the number of points that are inside the circle to the total number of points that are within the square. The larger the sample of points used, the better the estimate is.
 
 The mapper for this sample generates a number of points at random inside of a unit square and then counts the number of those points that are inside the circle.
 
