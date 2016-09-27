@@ -43,7 +43,7 @@ There are four main areas to troubleshoot the access of an application that is r
 For client computers that are accessing the application over a site-to-site VPN or ExpressRoute connection, the main areas that can cause problems are the application and the Azure virtual machine.
 To determine the source of the problem and its correction, follow these steps.
 
-## Step 1: Can you access the application from the target VM?
+## Step 1: Access application from target VM
 
 Try to access the application with the appropriate client program from the VM on which it is running. Use the local host name, the local IP address, or the loopback address (127.0.0.1).
 
@@ -60,7 +60,7 @@ If you cannot access the application, verify the following:
 
 On both Windows and Linux-based virtual machines, use the **netstat -a** command to show the active listening ports. Examine the output for the expected ports on which your application should be listening. Restart the application or configure it to use the expected ports as needed and try to access the application locally again.
 
-## <a id="step2"></a>Step 2: Can you access the application from another virtual machine in the same virtual network?
+## <a id="step2"></a>Step 2: Access application from another VM in the same virtual network
 
 Try to access the application from a different VM but in the same virtual network, using the VM's host name or its Azure-assigned public, private, or provider IP address. For virtual machines created using the classic deployment model, do not use the public IP address of the cloud service.
 
@@ -81,7 +81,7 @@ If you cannot access the application, verify the following:
 
 On a Windows-based virtual machine, use Windows Firewall with Advanced Security to determine whether the firewall rules exclude your application's inbound and outbound traffic.
 
-## <a id="step3"></a>Step 3: Can you access the application from a computer that is outside the virtual network, but not connected to the same network as your computer?
+## <a id="step3"></a>Step 3: Access application from outside the virtual network
 
 Try to access the application from a computer outside the virtual network as the VM on which the application is running, but is not on the same network as your original client computer.
 
