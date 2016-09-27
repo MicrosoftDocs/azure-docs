@@ -3,7 +3,7 @@
 	description="Learn about key factors that affect the performance of data movement in Azure Data Factory when you use Copy Activity."
 	services="data-factory"
 	documentationCenter=""
-	authors="spelluru"
+	authors="linda33wj"
 	manager="jhubbard"
 	editor="monicar"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/13/2016"
-	ms.author="spelluru"/>
+	ms.author="jingwang"/>
 
 
 # Copy Activity performance and tuning guide

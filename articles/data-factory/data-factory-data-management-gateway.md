@@ -3,7 +3,7 @@
 	description="Set up a data gateway to move data between on-premises and the cloud. Use Data Management Gateway in Azure Data Factory to move your data." 
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="08/30/2016" 
-	ms.author="spelluru"/>
+	ms.author="jingwang"/>
 
 # Data Management Gateway
 The Data Management Gateway is a client agent that you must install in your on-premises environment to copy data between cloud and on-premises data stores. The on-premises data stores supported by Data Factory are listed in the [Supported data sources](data-factory-data-movement-activities.md##supported-data-stores) section.
