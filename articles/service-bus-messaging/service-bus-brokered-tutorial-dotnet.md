@@ -406,7 +406,7 @@ In this step, you create a queue, then send the messages contained in the list o
     myQueue = namespaceClient.CreateQueue("IssueTrackingQueue");
 	```
 
-1. In the `Queue()` method, create a messaging factory object with a newly-created Service Bus URI as an argument. Add the following code directly after the management operations you added in the last step. Make sure to replace `<yourNamespace>` with the name of your service namespace::
+1. In the `Queue()` method, create a messaging factory object with a newly-created Service Bus URI as an argument. Add the following code directly after the management operations you added in the last step. Make sure to replace `<yourNamespace>` with the name of your service namespace:
 
 	```
 	MessagingFactory factory = MessagingFactory.Create(ServiceBusEnvironment.CreateServiceUri("sb", "<yourNamespace>", string.Empty), credentials);

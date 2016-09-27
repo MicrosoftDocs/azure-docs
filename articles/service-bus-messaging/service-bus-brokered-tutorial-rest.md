@@ -31,7 +31,7 @@ Service Bus queues enable you to store messages in a first-in, first-out queue. 
 
 The code in this tutorial does the following.
 
-- Uses your namespace and [Shared Access Signature](../service-bus/service-bus-sas-overview.md) (SAS) key to to gain access to your Service Bus namespace resources.
+- Uses your namespace and [Shared Access Signature](../service-bus/service-bus-sas-overview.md) (SAS) key to gain access to your Service Bus namespace resources.
 
 - Creates a queue, sends a message to the queue, and reads the message from the queue.
 
@@ -313,7 +313,7 @@ private static string CreateSubscription(string topicName, string subscriptionNa
 }
 ```
 
-## Retreive message resources
+## Retrieve message resources
 
 In this step, you add code that retrieves the message properties, then deletes the messaging resources you created in the previous steps.
 
