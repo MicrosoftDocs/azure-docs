@@ -18,14 +18,14 @@
 # Configuring Application Dependency Monitor solution in Operations Management Suite (OMS)
 ![Alert Management icon](media/operations-management-suite-application-dependency-monitor/icon.png) Application Dependency Monitor (ADM) is an Operations Management Suite (OMS) solution that automatically discovers application components on Windows and Linux systems and maps the communication between services. It allows you to view your servers as you think of them – as interconnected systems that rely on other systems to deliver critical services.  Application Dependency Monitor shows connections between servers, processes, and ports across any TCP-connected architecture with no configuration required other than installation of an agent.
 
+This article describes the details of configuring Applicant Dependency Monitor and onboarding agents.  For information on using ADM, see [Using Application Dependency Monitor solution in Operations Management Suite (OMS)](operations-management-suite-application-dependency-monitor.md)
+
 >[AZURE.NOTE]Application Dependency Monitor is currently in private preview.  You can request access to the ADM private preview at [https://www.surveymonkey.com/r/MGNQRG2](https://www.surveymonkey.com/r/MGNQRG2).
 >
 >During private preview, all OMS accounts have unlimited access to ADM, and ADM nodes are free.  Log Analytics data for AdmComputer_CL and AdmProcess_CL types will still be metered like any other solution.
 >
 >After ADM enters public preview, it will be available only to free and paid customers of Insight & Analytics in the OMS Pricing Plan.  Free tier accounts will be limited to 5 ADM nodes.  If you are participating in the private preview and are not enrolled in the OMS Pricing Plan when ADM enters public preview, ADM will be disabled at that time. 
 
-
-This article describes the details of configuring Applicant Dependency Monitor and onboarding agents.  For information on using ADM, see [Using Application Dependency Monitor solution in Operations Management Suite (OMS)](operations-management-suite-application-dependency-monitor.md)
 
 
 ## Connected sources
