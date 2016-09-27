@@ -23,9 +23,9 @@
 Use an Azure Resource Manager (ARM) template to create an Azure function app and a storage account. The Azure function app listens to Azure IoT hub events, processes incoming messages, and writes them to Azure table storage.
 
 ## 3.1.2 What you will learn
-- How to use [Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-overview/) to deploy Azure resources
+- How to use [Azure Resource Manager](../../articles/resource-group-overview.md) to deploy Azure resources
 - How to use an Azure function app to process IoT hub messages and write them to a table
- - [Azure Functions](https://azure.microsoft.com/documentation/articles/functions-overview/) is a solution for easily running small piece of code, or “functions”, in the cloud. An Azure function app hosts the execution of your functions in Azure.
+ - [Azure Functions](../../articles/azure-functions/functions-overview.md) is a solution for easily running small piece of code, or “functions”, in the cloud. An Azure function app hosts the execution of your functions in Azure.
 
 ## 3.1.3 What you need
 - You must have successfully completed the previous lessons: [Get started with your Raspberry Pi 3 device](iot-hub-raspberry-pi-node-lesson1.md) and [Create your Azure IoT Hub](iot-hub-raspberry-pi-node-lesson2.md)
@@ -56,7 +56,7 @@ Use VS Code to update your ARM template configuration file:
 
 ![ARM template parameters](media/iot-hub-raspberry-pi-lessons/lesson3/arm_para.png)
 
-- Replace **[your IoT Hub name]** with the **{my hub name}** you specified in [Lesson 2](iot-hub-raspberry-pi-node-lesson2-prepare_azure_iot_hub.md)
+- Replace **[your IoT Hub name]** with the **{my hub name}** you specified in [Lesson 2](iot-hub-raspberry-pi-node-lesson2-prepare-azure-iot-hub.md)
 - Replace **[prefix string for new resources]** with any prefix you want. The resource name is globally unique, so this prefix helps you avoid conflict (no dash, no number initial). 
 
 After you finished updating the `arm-template-param.json` file, change directory to `iot-hub-node-raspberrypi-azure-blink` and  run the following command to deploy to Azure:

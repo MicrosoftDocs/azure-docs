@@ -68,4 +68,4 @@ You should see the following output if installation is successful.
 You have now installed Azure CLI. Continue to the next section to create your Azure IoT Hub and device identity using the Azure CLI. 
 
 ## Next Steps
-[2.2 Create your Azure IoT Hub and the register your Raspberry Pi 3 device](iot-hub-raspberry-pi-node-lesson2-prepare_azure_iot_hub.md)
+[2.2 Create your Azure IoT Hub and the register your Raspberry Pi 3 device](iot-hub-raspberry-pi-node-lesson2-prepare-azure-iot-hub.md)

@@ -48,7 +48,7 @@ Update your device configuration file `config.json` using VS Code so you can dep
 1. Replace **[device hostname or IP address]** with the device IP address or hostname you got from device-discovery-cli. 
 2. Replace **[IoT device connection string]** with the `device connection string` you obtained.
 3. Replace **[IoT hub connection string]** with the `iot hub connection string` you obtained. 
-4. Replace **[resource group of your Azure Storage]** with the `resource group` you specified in [in Lesson 2](iot-hub-raspberry-pi-node-lesson2-prepare_azure_iot_hub.md). The default value should be `iot-sample`.
+4. Replace **[resource group of your Azure Storage]** with the `resource group` you specified in [in Lesson 2](iot-hub-raspberry-pi-node-lesson2-prepare-azure-iot-hub.md). The default value should be `iot-sample`.
 
 ## 3.2.6 Deploy and run the sample application
 Use the following command to deploy the sample application to your Pi and run it:

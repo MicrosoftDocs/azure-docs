@@ -59,7 +59,7 @@ Run the following command in your Terminal prompt:
 npm install -g device-discovery-cli gulp
 ```
 
-If you experience issues installing Node.js and additional tools on Ubuntu, click [here](preview_rpi_node_lesson1_troubleshooting.md) to follow a simple troubleshooting guide.
+If you experience issues installing Node.js and additional tools on Ubuntu, click [here](iot-hub-raspberry-pi-node-troubleshooting.md) to follow a simple troubleshooting guide.
 
 ## 1.2.6 Install Visual Studio Code
 Click [here](https://code.visualstudio.com/docs/setup/linux) to install VS Code, a lightweight but powerful source code editor which runs on your desktop and is available for Windows, Linux and OS X. You use this later in the tutorial to edit your sample code.

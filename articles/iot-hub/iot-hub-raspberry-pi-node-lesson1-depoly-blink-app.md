@@ -31,7 +31,7 @@ In this section, you will learn:
 
 
 ## 1.3.3 What you need
-- You must have successfully completed the previous sections, [Configure your device](iot-hub-raspberry-pi-node-lesson1_configure_your_device.md) and [Get the tools](iot-hub-raspberry-pi-node-lesson1-get-the-tools-win32.md), in this lesson.
+- You must have successfully completed the previous sections, [Configure your device](iot-hub-raspberry-pi-node-lesson1_configure-your-device.md) and [Get the tools](iot-hub-raspberry-pi-node-lesson1-get-the-tools-win32.md), in this lesson.
 
 ## 1.3.4 Obtain IP address of your Raspberry Pi 3 device
 Open a command prompt (Windows) or a terminal window (OS X / Ubuntu) and run the following command:

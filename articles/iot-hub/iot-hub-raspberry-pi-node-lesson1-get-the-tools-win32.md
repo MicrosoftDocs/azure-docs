@@ -55,7 +55,7 @@ Press `Windows + R`, type `cmd` and press Enter to open a command prompt window.
 npm install -g device-discovery-cli gulp
 ```
 
-If you experience issues installing Node.js and additional tools on your Windows PC, click [here](preview_rpi_node_lesson1_troubleshooting.md) to follow a simple troubleshooting guide.
+If you experience issues installing Node.js and additional tools on your Windows PC, click [here](iot-hub-raspberry-pi-node-troubleshooting.md) to follow a simple troubleshooting guide.
 
 ## 1.2.6 Install Visual Studio Code
 Click [here](https://code.visualstudio.com/docs/setup/windows) to install VS Code, a lightweight but powerful source code editor which runs on your desktop and is available for Windows, Linux and OS X. You use this later in the tutorial to edit your sample code.

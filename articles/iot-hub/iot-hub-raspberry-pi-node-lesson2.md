@@ -30,4 +30,4 @@ Install Azure Command-Line Interface (Azure CLI).
 ## Prepare your Azure IoT hub and the register your Raspberry Pi 3 device
 Create your resource group, provision your first Azure IoT hub, and add your first device to the Azure IoT Hub using Azure CLI. 
 
-[Estimated time to complete: 10 minutes. Go to 'Prepare your Azure IoT hub and the register your Raspberry Pi 3 device'](iot-hub-raspberry-pi-node-lesson2-prepare_azure_iot_hub.md)
+[Estimated time to complete: 10 minutes. Go to 'Prepare your Azure IoT hub and the register your Raspberry Pi 3 device'](iot-hub-raspberry-pi-node-lesson2-prepare-azure-iot-hub.md)
