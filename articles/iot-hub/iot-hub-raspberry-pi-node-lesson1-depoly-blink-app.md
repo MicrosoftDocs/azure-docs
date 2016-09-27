@@ -46,7 +46,7 @@ You should see output similar to the following:
 
 Take a note of the `IP Address` of your Raspberry Pi 3 device. You need this information later in this section.
 
-    > [AZURE.NOTE] Make sure that your Raspberry Pi 3 device is connected to the same network as your computer. For example, if your computer is connected to your work wireless network, and your Pi is using a wired connection, you may not be able to see it in the devdisco output.
+> [AZURE.NOTE] Make sure that your Raspberry Pi 3 device is connected to the same network as your computer. For example, if your computer is connected to your work wireless network, and your Pi is using a wired connection, you may not be able to see it in the devdisco output.
 
 
 ## 1.3.5 Clone the sample code
@@ -103,7 +103,7 @@ gulp deploy && gulp run
 You should now see the LED on your Pi blinking every two seconds.  If you don’t see the LED flashing, take a look at the [Troubleshooting](iot-hub-raspberry-pi-node-troubleshooting.md) guide for solutions to common problems.
 ![LED blinking](media/iot-hub-raspberry-pi-lessons/lesson1/led_blinking.jpg)
 
-    > [AZURE.NOTE] You can use `Ctrl - C` to terminate the application.
+> [AZURE.NOTE] You can use `Ctrl - C` to terminate the application.
 
 ## 1.3.9 Summary
 You have now installed all of the required tools you need to work with your Raspberry Pi 3 and deployed a simple app to your Pi to blink an LED. Now you can move to the next lesson to deploy, build, and run an application that connects your Pi to Azure IoT Hub to send and receive messages.

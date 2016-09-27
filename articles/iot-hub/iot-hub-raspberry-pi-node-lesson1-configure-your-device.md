@@ -67,7 +67,7 @@ Power on your Raspberry Pi 3 device by using the provided Micro USB cable and po
 
 ![Power on](media/iot-hub-raspberry-pi-lessons/lesson1/micro_usb_power_on.jpg)
 
-    > [AZURE.NOTE] It is important to use a power supply that is at least 2A rated to make sure that your Raspberry Pi 3 works correctly.
+> [AZURE.NOTE] It is important to use a power supply that is at least 2A rated to make sure that your Raspberry Pi 3 works correctly.
 
 ## 1.1.6 Connect your Raspberry Pi 3 device to the network
 The simplest way to connect your Raspberry Pi 3 device to the network is to use the provided Ethernet cable, but you can also connect using WiFi, if you prefer.

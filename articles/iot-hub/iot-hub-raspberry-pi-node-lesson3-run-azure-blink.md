@@ -58,7 +58,7 @@ npm install
 gulp
 ```
 
-    > [AZURE.NOTE] The default gulp task runs `install-tools`, `deploy`, and `run` tasks sequentially. In [Lesson 1](iot-hub-raspberry-pi-node-lesson1.md), you ran these tasks one after another manually.
+> [AZURE.NOTE] The default gulp task runs `install-tools`, `deploy`, and `run` tasks sequentially. In [Lesson 1](iot-hub-raspberry-pi-node-lesson1.md), you ran these tasks one after another manually.
 
 ## 3.2.7 Verify the application is working
 You should now see the LED on your Pi flashing every two seconds. Every time the LED flashes, it sends a message to your IoT hub and verifies that the message has been sent to IoT hub. In addition, every time a message is received by the IoT hub, it will be printed in the console window. This application terminates automatically after sending 20 messages.
