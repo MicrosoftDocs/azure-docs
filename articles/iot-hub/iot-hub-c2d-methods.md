@@ -66,14 +66,14 @@ In this section, you create a Node.js console app that responds to a method call
     ```
     'use strict';
 
-    var Mqtt = require(azure-iot-device-mqtt).Mqtt;
+    var Mqtt = require('azure-iot-device-mqtt').Mqtt;
     var DeviceClient = require('azure-iot-device').Client;
     ```
 
 5. Add a **connectionString** variable and use it to create a device client. Replace **{youriothostname}** with the name of the IoT hub you created the *Create an IoT Hub* section. Replace **{yourdevicekey}** with the device key value you generated in the *Create a device identity* section:
 
     ```
-    var connectionString = 'HostName={youriothostname};DeviceId=myFirstNodeDevice;SharedAccessKey={yourdevicekey}';
+    var connectionString = 'HostName={youriothostname};DeviceId=myDeviceId;SharedAccessKey={yourdevicekey}';
     var client = DeviceClient.fromConnectionString(connectionString, Mqtt);
     ```
 
@@ -82,18 +82,18 @@ In this section, you create a Node.js console app that responds to a method call
     ```
     function onWriteLine(request, response) {
         var requestbody = JSON.parse(request.body);
-	console.log(requestbody.input);
+        console.log(requestbody);
 
         // add some properties to the response
-	response.properties = {
+        response.properties = {
             'LineStatus': 'Written'
         };
 
-        response.write('Input was written to log.');
+        response.write('"Input was written to log."');
 
         response.end(200, function(err) {
             if(!!err) {
-	        console.error('An error ocurred when sending a method response:\n' + err.toString());
+                console.error('An error ocurred when sending a method response:\n' + err.toString());
             } else {
                 console.log('Response to method \'' + request.methodName + '\' sent successfully.' );
             }
@@ -109,7 +109,7 @@ In this section, you create a Node.js console app that responds to a method call
 			console.error('could not open IotHub client');
 		}  else {
 			console.log('client opened');
-			client.onDeviceMethod('writeLine', onWriteLine)'
+			client.onDeviceMethod('writeLine', onWriteLine);
 		}
 	});
 	```
@@ -154,28 +154,28 @@ In this section, you create a Node.js console app that calls a method on the sim
 
 6. Create the client to open the connection to your IoT hub.
 
-	```
-	var client = Client.fromConnectionString(connectionString);
-	```
+    ```
+    var client = Client.fromConnectionString(connectionString);
+    ```
 	
 7. Add the following function to invoke the device method and print the device response to the console:
 
-	```
-	var methodParams = {
-            methodName: methodName,
-            payload: 'a line to be written',
-            timeoutInSeconds: 30
-        };
+    ```
+    var methodParams = {
+        methodName: methodName,
+        payload: 'a line to be written',
+        timeoutInSeconds: 30
+    };
 
-        client.invokeDeviceMethod(deviceId, methodParams, function (err, result {
-		if (err) {
-			console.error('Failed to invoke method \'' + methodName + '\': ' + err.message);
-		} else {
-			console.log(methodName + ' on ' + deviceId + ':');
-			console.log(JSON.stringify(result, null, 2));
-		}
-	});
-	```
+    client.invokeDeviceMethod(deviceId, methodParams, function (err, result) {
+        if (err) {
+            console.error('Failed to invoke method \'' + methodName + '\': ' + err.message);
+        } else {
+            console.log(methodName + ' on ' + deviceId + ':');
+            console.log(JSON.stringify(result, null, 2));
+        }
+    });
+    ```
 
 7. Save and close the **CallMethodOnDevice.js** file.
 
