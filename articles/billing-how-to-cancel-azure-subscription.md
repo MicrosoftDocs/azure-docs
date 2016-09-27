@@ -20,7 +20,7 @@
 
 # How to cancel your Azure subscription
 
-Cancelling your azure subscription means you will no longer be able to access the Azure services and resources you have. Make sure you take the time to back up your data and stop your services safely.
+Canceling your azure subscription means you will no longer be able to access the Azure services and resources you have. Make sure you take the time to back up your data and stop your services safely.
 
 >[AZURE.NOTE] An [Azure Support plan](https://azure.microsoft.com/en-us/support/plans/) has a 6-month term and Microsoft requires continued monetary commitment for the duration of the term. Cancellation before the term expires does not forgive the remaining commitment or provide refunds any pre-paid amount.
 
@@ -50,7 +50,7 @@ Cancelling your azure subscription means you will no longer be able to access th
 
 ## After you cancel your subscription 
 
-If you cancelled your Pay-As-You-Go subscription accidentally, you can follow the [instructions outlined here] (billing-subscription-become-disable.md#how-to-re-enable-non-pay-as-you-go-subscriptions) to reactivate it.
+If you canceled your Pay-As-You-Go subscription accidentally, you can follow the [instructions outlined here] (billing-subscription-become-disable.md#how-to-re-enable-non-pay-as-you-go-subscriptions) to reactivate it.
 
 When you cancel your subscription, we wait 90 days before permanently deleting your data in case you need to access it or change your mind. [Learn more](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 
