@@ -69,7 +69,7 @@ In this example there is a subscription that contains the following:
 
 ## User Defined Routing (UDR)
 
-Each subnet in Azure can be linked to a UDR table used to define how traffic initiated in that subnet is routed. If no UDRs are defined, Azure uses default routes to allow traffic to flow from one subnet to another. To better understand UDRs, visit What are User Defined Routes and IP Forwarding.
+Each subnet in Azure can be linked to a UDR table used to define how traffic initiated in that subnet is routed. If no UDRs are defined, Azure uses default routes to allow traffic to flow from one subnet to another. To better understand UDRs, visit [What are User Defined Routes and IP Forwarding](./virtual-networks-udr-overview.md#ip-forwarding).
 
 To ensure communication is done through the right firewall appliance, based on the last requirement above, you need to create the following route table containing UDRs in **azurevnet**.
 
