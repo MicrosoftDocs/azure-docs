@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2016" 
+	ms.date="08/11/2016" 
 	ms.author="robmcm"/>
 
 # Configure web apps in Azure App Service #
@@ -183,7 +183,6 @@ For more information, see [How to: Monitor web endpoint status].
 [Scale a web app in Azure App Service]: ./web-sites-scale.md
 [socket.io]: ./web-sites-nodejs-chat-app-socketio.md
 [Try App Service]: http://go.microsoft.com/fwlink/?LinkId=523751
-[Using Git to deploy Web Apps in Azure App Service]: ./web-sites-publish-source-control.md
 
 <!-- IMG List -->
 

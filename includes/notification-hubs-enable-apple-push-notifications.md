@@ -43,13 +43,9 @@ To be able to send push notifications to an iOS app, you must register your appl
 
 	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
 
-   	This generates your app ID and requests you to confirm the information. Click **Submit**
+   	This generates your App ID and requests you to confirm the information. Click **Register** to confirm the new App ID.
 
-
-    ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-confirm-new-appid.png)
-
-
-   	Once you click **Submit**, you will see the **Registration complete** screen, as shown below. Click **Done**.
+   	Once you click **Register**, you will see the **Registration complete** screen, as shown below. Click **Done**.
 
 
     ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)

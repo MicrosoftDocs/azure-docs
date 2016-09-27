@@ -13,24 +13,24 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/27/2016" 
+	ms.date="08/25/2016" 
 	ms.author="mimig"/>
 
 # Supercharge your DocumentDB account
 
-Follow these steps to take advantage of increased throughput for your DocumentDB S1 account. With little to no additional cost, you can increase the throughput of your existing S1 account from 250 [RU/s](documentdb-request-units.md) to 400 RU/s, or more!  
+Follow these steps to take advantage of increased throughput for your Azure DocumentDB S1 account. With little to no additional cost, you can increase the throughput of your existing S1 account from 250 [RU/s](documentdb-request-units.md) to 400 RU/s, or more!  
 
 > [AZURE.VIDEO changedocumentdbcollectionperformance]
 
 ## Change to user-defined performance in the Azure portal
 
 1. In your browser, navigate to the [**Azure portal**](https://portal.azure.com). 
-2. Click **Browse** -> **DocumentDB Accounts**, then select the DocumentDB account to modify.   
+2. Click **Browse** -> **DocumentDB (NoSQL)**, then select the DocumentDB account to modify.   
 3. In the **Databases** lens, select the database to modify, and then in the **Database** blade, select the collection with the S1 pricing tier.
 
       ![Screen shot of the Database blade with an S1 collection](./media/documentdb-supercharge-your-account/documentdb-change-performance-S1.png)
 
-4. In the **Collections** blade, click **Settings** on the top bar.   
+4. In the **Collection** blade, click **More**, and then click **Settings**.   
 5. In the **Settings** blade, click **Pricing Tier** and notice that the monthly cost estimate for each plan is displayed. In the **Choose your pricing tier** blade, click **Standard**, and then click **Select** to save your change.
 
       ![Screen shot of the DocumentDB Settings and Choose your pricing tier blades](./media/documentdb-supercharge-your-account/documentdb-change-performance.png)

@@ -4,7 +4,7 @@
     services="hdinsight"
     documentationCenter=""
     authors="Blackmist"
-    manager="paulettm"
+    manager="jhubbard"
     editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="05/31/2016"
+    ms.date="09/13/2016"
     ms.author="larryfr"/>
 
 # Script action development with HDInsight
@@ -50,6 +50,7 @@ When you develop a custom script for an HDInsight cluster, there are several bes
 - [Configure the custom components to use Azure Blob storage](#bPS6)
 - [Write information to STDOUT and STDERR](#bPS7)
 - [Save files as ASCII with LF line endings](#bps8)
+- [Use retry logic to recover from transient errors](#bps9)
 
 > [AZURE.IMPORTANT] Script actions must complete within 60 minutes, or they will timeout. During node provisioning, the script is ran concurrently with other setup and configuration processes. Competition for resources such as CPU time or network bandwidth may cause the script to take longer to finish than it does in your development environment.
 
@@ -116,6 +117,40 @@ Bash scripts should be stored as ASCII format, with lines terminated by LF. If f
     $'\r': command not found
     line 1: #!/usr/bin/env: No such file or directory
 
+###<a name="bps9"></a> Use retry logic to recover from transient errors
+
+When downloading files, installing packages using apt-get, or other actions that transmit data over the internet, the action may fail due to transient networking errors. For example, the remote resource you are communicating with may be in the process of failing over to a backup node.
+
+To make your script resilient to transient errors, you can implement retry logic. The following is an example of a function that will run any command passed to it and (if the command fails,) retry up to three times. It will wait two seconds between each retry.
+
+    #retry
+    MAXATTEMPTS=3
+
+    retry() {
+        local -r CMD="$@"
+        local -i ATTMEPTNUM=1
+        local -i RETRYINTERVAL=2
+
+        until $CMD
+        do
+            if (( ATTMEPTNUM == MAXATTEMPTS ))
+            then
+                    echo "Attempt $ATTMEPTNUM failed. no more attempts left."
+                    return 1
+            else
+                    echo "Attempt $ATTMEPTNUM failed! Retrying in $RETRYINTERVAL seconds..."
+                    sleep $(( RETRYINTERVAL ))
+                    ATTMEPTNUM=$ATTMEPTNUM+1
+            fi
+        done
+    }
+
+The following are examples of using this function.
+
+    retry ls -ltr foo
+
+    retry wget -O ./tmpfile.sh https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh
+
 ## <a name="helpermethods"></a>Helper methods for custom scripts
 
 script action helper methods are utilities that you can use while writing custom scripts. These are defined in [https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh), and can be included in your scripts using the following:
@@ -132,6 +167,11 @@ This makes the following helpers available for use in your script:
 | `test_is_headnode` | If ran on a cluster head node, returns 1; otherwise, 0. |
 | `test_is_datanode` | If the current node is a data (worker) node, returns a 1; otherwise, 0. |
 | `test_is_first_datanode` | If the current node is the first data (worker) node (named workernode0,) returns a 1; otherwise, 0. |
+| `get_headnodes` | Returns the fully qualified domain name of the headnodes in the cluster. Names are comma delimited. An empty string is returned on error. |
+| `get_primary_headnode` | Gets the fully qualified domain name of the primary headnode. An empty string is returned on error. |
+| `get_secondary_headnode` | Gets the fully qualified domain name of the secondary headnode. An empty string is returned on error. |
+| `get_primary_headnode_number` | Gets the numeric suffix of the primary headnode. An empty string is returned on error. |
+| `get_secondary_headnode_number` | Gets the numeric suffix of the secondary headnode. An empty string is returned on error. |
 
 ## <a name="commonusage"></a>Common usage patterns
 

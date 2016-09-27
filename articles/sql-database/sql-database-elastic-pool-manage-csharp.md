@@ -13,7 +13,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="csharp"
     ms.workload="data-management"
-    ms.date="05/27/2016"
+    ms.date="07/05/2016"
     ms.author="srinia"/>
 
 # Monitor and manage an elastic database pool with C&#x23; 
@@ -29,9 +29,7 @@ Learn how to manage an [elastic database pool](sql-database-elastic-pool.md) usi
 
 For common error codes, see [SQL error codes for SQL Database client applications: Database connection error and other issues](sql-database-develop-error-messages.md).
 
-Elastic database pools are currently in preview and only available with SQL Database V12 servers. If you have a SQL Database V11 server you can [use PowerShell to upgrade to V12 and create a pool](sql-database-upgrade-server-portal.md) in one step.
-
-The examples use the [SQL Database Library for .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx) Install the library by running the following command in the [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
+The examples below use the [SQL Database Library for .NET](https://msdn.microsoft.com/library/azure/mt349017.aspx), so you need to install this library before continuing if it is not already installed. You can install this library by running the following command in the  [package manager console](http://docs.nuget.org/Consume/Package-Manager-Console) in Visual Studio (**Tools** > **NuGet Package Manager** > **Package Manager Console**):
 
     PM> Install-Package Microsoft.Azure.Management.Sql –Pre
 
@@ -110,7 +108,7 @@ The following libraries are required to run this example. You can install by run
     PM> Install-Package Microsoft.Azure.Management.Resources –Pre
     PM> Install-Package Microsoft.Azure.Common.Authentication –Pre
 
-Create a console app and replace the contents of Program.cs with the following. To get the required client id and related values, see [Register your app and get the required client values for connecting your app to SQL Database](sql-database-client-id-keys.md).
+Create a console app and replace the contents of Program.cs with the following. To get the required client id and related values, see [Use Azure PowerShell to create a service principal to access resources](../resource-group-authenticate-service-principal.md).
 
     using Microsoft.Azure;
     using Microsoft.Azure.Management.Resources;

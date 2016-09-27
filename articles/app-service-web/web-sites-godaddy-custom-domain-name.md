@@ -65,9 +65,9 @@ To associate your custom domain with a web app in App Service, you must add a ne
 	* When adding a **CNAME (alias) record** - you must set the **Host** field to the sub-domain you wish to use. For example, **www**. You must set the **Points to** field to the **.azurewebsites.net** domain name of your Azure web app. For example, **contoso.azurwebsites.net**.
 
 5. Click **Add Another**.
-6. Select **CNAME** as the record type, then specify a **Host** value of **awverify** and a **Points to** value of **awverify.&lt;yourwebappname&gt;.azurewebsites.net**.
+6. Select **TXT** as the record type, then specify a **Host** value of **@** and a **Points to** value of **&lt;yourwebappname&gt;.azurewebsites.net**.
 
-	> [AZURE.NOTE] This CNAME record is used by Azure to validate that you own the domain described by the A record or the first CNAME record. Once the domain has been mapped to the web app in the Azure Portal, the **awverify** entry can be removed.
+	> [AZURE.NOTE] This TXT record is used by Azure to validate that you own the domain described by the A record or the first TXT record. Once the domain has been mapped to the web app in the Azure Portal, this TXT record entry can be removed.
 
 5. When you have finished adding or modifying records, click **Finish** to save changes.
 

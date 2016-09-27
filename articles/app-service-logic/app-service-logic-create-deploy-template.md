@@ -1,14 +1,14 @@
 <properties
    pageTitle="Create a logic app deployment template | Microsoft Azure"
    description="Learn how to create a logic app deployment template and use it for release management"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"

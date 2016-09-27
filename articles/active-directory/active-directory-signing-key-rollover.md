@@ -13,14 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="07/18/2016"
 	ms.author="gsacavdm"/>
 
 # Signing key rollover in Azure Active Directory
 
-This topic discusses what you need to know about the public keys that are used in Azure Active Directory (Azure AD) to sign security tokens. It is important to note that these keys rollover on a periodic basis and, in an emergency, could be rolled over immediately. All applications that use Azure AD should be able to programmatically handle the key rollover process. Continue reading to understand how the keys work, how to assess the impact of the rollover to your application and how to update your application to handle key rollover if necessary.
-
-> [AZURE.IMPORTANT] The next signing key rollover will occur on August 15th, 2016 and will *not* affect Gallery Applications or application in B2C tenants.
+This topic discusses what you need to know about the public keys that are used in Azure Active Directory (Azure AD) to sign security tokens. It is important to note that these keys rollover on a periodic basis and, in an emergency, could be rolled over immediately. All applications that use Azure AD should be able to programmatically handle the key rollover process or establish a periodic manual rollover process. Continue reading to understand how the keys work, how to assess the impact of the rollover to your application and how to update your application or establish a periodic manual rollover process to handle key rollover if necessary.
 
 ## Overview of signing keys in Azure AD
 
@@ -34,17 +32,41 @@ There is always more than one valid key available in the OpenID Connect discover
 
 How your application handles key rollover depends on variables such as the type of application or what identity protocol and library was used. The sections below assess whether the most common types of applications are impacted by the key rollover and provide guidance on how to update the application to support automatic rollover or manually update the key.
 
-* [Web applications / APIs using .NET OWIN OpenID Connect, WS-Fed or WindowsAzureActiveDirectoryBearerAuthentication middleware](#owin)
-* [Web applications / APIs using .NET Core OpenID Connect or  JwtBearerAuthentication middleware](#owincore)
-* [Web applications / APIs using Node.js passport-azure-ad module](#passport)
-* [Web applications / APIs created with Visual Studio 2015](#vs2015)
-* [Web applications created with Visual Studio 2013](#vs2013)
-* [Web APIs created with Visual Studio 2013](#vs2013_webapi)
-* [Web applications created with Visual Studio 2012](#vs2012)
-* [Web applications created with Visual Studio 2010, 2008 o using Windows Identity Foundation](#vs2010)
-* [Web applications / APIs using any other libraries or manually implementing any of the supported protocols](#other)
+* [Native client applications accessing resources](#nativeclient)
+* [Web applications / APIs accessing resources](#webclient)
+* [Web applications / APIs protecting resources and built using Azure App Services](#appservices)
+* [Web applications / APIs protecting resources using .NET OWIN OpenID Connect, WS-Fed or WindowsAzureActiveDirectoryBearerAuthentication middleware](#owin)
+* [Web applications / APIs protecting resources using .NET Core OpenID Connect or  JwtBearerAuthentication middleware](#owincore)
+* [Web applications / APIs protecting resources using Node.js passport-azure-ad module](#passport)
+* [Web applications / APIs protecting resources and created with Visual Studio 2015](#vs2015)
+* [Web applications protecting resources and created with Visual Studio 2013](#vs2013)
+* [Web APIs protecting resources and created with Visual Studio 2013](#vs2013_webapi)
+* [Web applications protecting resources and created with Visual Studio 2012](#vs2012)
+* [Web applications protecting resources and created with Visual Studio 2010, 2008 o using Windows Identity Foundation](#vs2010)
+* [Web applications / APIs protecting resources using any other libraries or manually implementing any of the supported protocols](#other)
 
-### <a name="owin"></a> Web applications / APIs using .NET OWIN OpenID Connect, WS-Fed or WindowsAzureActiveDirectoryBearerAuthentication middleware
+This guidance is **not** applicable for:
+
+* Applications added from Azure AD Application Gallery (including Custom) have separate guidance with regards to signing keys. [More information.](active-directory-sso-certs.md)
+* On-premises applications published via application proxy don't have to worry about signing keys.
+
+### <a name="nativeclient"></a>Native client applications accessing resources
+
+Applications that are only accessing resources (i.e Microsoft Graph, KeyVault, Outlook API and other Microsoft APIs) generally only obtain a token and pass it along to the resource owner. Given that they are not protecting any resources, they do not inspect the token and therefore do not need to ensure it is properly signed.
+
+Native client applications, whether desktop or mobile, fall into this category and are thus not impacted by the rollover.
+
+### <a name="webclient"></a>Web applications / APIs accessing resources
+
+Applications that are only accessing resources (i.e Microsoft Graph, KeyVault, Outlook API and other Microsoft APIs) generally only obtain a token and pass it along to the resource owner. Given that they are not protecting any resources, they do not inspect the token and therefore do not need to ensure it is properly signed.
+
+Web applications and web APIs that are using the app-only flow (client credentials / client certificate), fall into this category and are thus not impacted by the rollover.
+
+### <a name="appservices"></a>Web applications / APIs protecting resources and built using Azure App Services
+
+Azure App Services' Authentication / Authorization (EasyAuth) functionality already has the necessary logic to handle key rollover automatically.
+
+### <a name="owin"></a>Web applications / APIs protecting resources using .NET OWIN OpenID Connect, WS-Fed or WindowsAzureActiveDirectoryBearerAuthentication middleware
 
 If your application is using the .NET OWIN OpenID Connect, WS-Fed or WindowsAzureActiveDirectoryBearerAuthentication middleware, it already has the necessary logic to handle key rollover automatically.
 
@@ -72,7 +94,7 @@ app.UseWsFederationAuthentication(
 	 });
 ```
 
-### <a name="owincore"></a> Web applications / APIs using .NET Core OWIN OpenID Connect or JwtBearerAuthentication middleware
+### <a name="owincore"></a>Web applications / APIs protecting resources using .NET Core OpenID Connect or  JwtBearerAuthentication middleware
 
 If your application is using the .NET Core OWIN OpenID Connect  or JwtBearerAuthentication middleware, it already has the necessary logic to handle key rollover automatically.
 
@@ -93,7 +115,7 @@ app.UseJwtBearerAuthentication(
  	});
 ```
 
-### <a name="passport"></a> Web applications / APIs using Node.js passport-ad module
+### <a name="passport"></a>Web applications / APIs protecting resources using Node.js passport-azure-ad module
 
 If your application is using the Node.js passport-ad module, it already has the necessary logic to handle key rollover automatically.
 
@@ -107,13 +129,13 @@ passport.use(new OIDCStrategy({
 ));
 ```
 
-### <a name="vs2015"></a> Web applications / APIs created with Visual Studio 2015
+### <a name="vs2015"></a>Web applications / APIs protecting resources and created with Visual Studio 2015
 
 If your application was built using a web application template in Visual Studio 2015 and you selected **Work And School Accounts** from the **Change Authentication** menu, it already has the necessary logic to handle key rollover automatically. This logic, embedded in the OWIN OpenID Connect middleware, retrieves and caches the keys from the OpenID Connect discovery document and periodically refreshes them.
 
 If you added authentication to your solution manually, your application might not have the necessary key rollover logic. You will need to write it yourself, or follow the steps in [Web applications / APIs using any other libraries or manually implementing any of the supported protocols.](#other).
 
-### <a name="vs2013"></a> Web applications created with Visual Studio 2013
+### <a name="vs2013"></a>Web applications protecting resources and created with Visual Studio 2013
 
 If your application was built using a web application template in Visual Studio 2013 and you selected **Organizational Accounts** from the **Change Authentication** menu, it already has the necessary logic to handle key rollover automatically. This logic stores your organization’s unique identifier and the signing key information in two database tables associated with the project. You can find the connection string for the database in the project’s Web.config file.
 
@@ -129,9 +151,11 @@ The following steps will help you verify that the logic is working properly in y
 6. Build and run the application. After you have logged in to your account, you can stop the application.
 7. Return to the **Server Explorer** and look at the values in the **IssuingAuthorityKeys** and **Tenants** table. You’ll notice that they have been automatically repopulated with the appropriate information from the federation metadata document.
 
-### <a name="vs2013"></a> Web APIs created using Visual Studio 2013
+### <a name="vs2013"></a>Web APIs protecting resources and created with Visual Studio 2013
 
-If you created a web API application in Visual Studio 2013 using the Web API template, and then selected **Organizational Accounts** from the **Change Authentication** menu, you already have the necessary logic in your application. If you manually configured authentication, follow the instructions below to learn how to configure your Web API to automatically update its key information.
+If you created a web API application in Visual Studio 2013 using the Web API template, and then selected **Organizational Accounts** from the **Change Authentication** menu, you already have the necessary logic in your application.
+
+If you manually configured authentication, follow the instructions below to learn how to configure your Web API to automatically update its key information.
 
 The following code snippet demonstrates how to get the latest keys from the federation metadata document, and then use the [JWT Token Handler](https://msdn.microsoft.com/library/dn205065.aspx) to validate the token. The code snippet assumes that you will use your own caching mechanism for persisting the key to validate future tokens from Azure AD, whether it be in a database, configuration file, or elsewhere.
 
@@ -223,7 +247,7 @@ namespace JWTValidation
 }
 ```
 
-### <a name="vs2012"></a> Web applications created with Visual Studio 2012
+### <a name="vs2012"></a>Web applications protecting resources and created with Visual Studio 2012
 
 If your application was built in Visual Studio 2012, you probably used the Identity and Access Tool to configure your application. It’s also likely that you are using the [Validating Issuer Name Registry (VINR)](https://msdn.microsoft.com/library/dn205067.aspx). The VINR is responsible for maintaining information about trusted identity providers (Azure AD) and the keys used to validate tokens issued by them. The VINR also makes it easy to automatically update the key information stored in a Web.config file by downloading the latest federation metadata document associated with your directory, checking if the configuration is out of date with the latest document, and updating the application to use the new key as necessary.
 
@@ -272,58 +296,31 @@ Follow the steps below to verify that the key rollover logic is working.
 3. Build the application, and then run it. If you can complete the sign-in process, your application is successfully updating the key by downloading the required information from your directory’s federation metadata document. If you are having issues signing in, ensure the changes in your application are correct by reading the [Adding Sign-On to Your Web Application Using Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) topic, or downloading and inspecting the following code sample: [Multi-Tenant Cloud Application for Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
 
 
-### <a name="vs2010"></a> Web applications created with Visual Studio 2008 or 2010 and Windows Identity Foundation (WIF) v1.0 for .NET 3.5
+### <a name="vs2010"></a>Web applications protecting resources and created with Visual Studio 2008 or 2010 and Windows Identity Foundation (WIF) v1.0 for .NET 3.5
 
-If you built an application on WIF v1.0, there is no provided mechanism to automatically refresh your application’s configuration to use a new key. The easiest way to update the key is to use the FedUtil tooling included in the WIF SDK, which can retrieve the latest metadata document and update your configuration. These instructions are included below. Alternatively, you can do one of the following:
+If you built an application on WIF v1.0, there is no provided mechanism to automatically refresh your application’s configuration to use a new key.
 
-- Follow the instructions in the Manually Retrieve the Latest Key and Update Your Application section below and write logic to perform the steps programmatically.
+- *Easiest way* Use the FedUtil tooling included in the WIF SDK, which can retrieve the latest metadata document and update your configuration.
 - Update your application to .NET 4.5, which includes the newest version of WIF located in the System namespace. You can then use the [Validating Issuer Name Registry (VINR)](https://msdn.microsoft.com/library/dn205067.aspx) to perform automatic updates of the application’s configuration.
+- Perform a manual rollover as per the instructions at the end of this guidance document.
 
+Instructions to use the FedUtil to update your configuration:
 
 1. Verify that you have the WIF v1.0 SDK installed on your development machine for Visual Studio 2008 or 2010. You can [download it from here](https://www.microsoft.com/en-us/download/details.aspx?id=4451) if you have not yet installed it.
 2. In Visual Studio, open the solution, and then right-click the applicable project and select **Update federation metadata**. If this option is not available, FedUtil and/or the WIF v1.0 SDK has not been installed.
 3. From the prompt, select **Update** to begin updating your federation metadata. If you have access to the server environment where the application is hosted, you can optionally use FedUtil’s [automatic metadata update scheduler](https://msdn.microsoft.com/library/ee517272.aspx).
 4. Click **Finish** to complete the update process.
 
-### <a name="other"></a> Web applications / APIs using any other libraries or manually implementing any of the supported protocols.
+### <a name="other"></a>Web applications / APIs protecting resources using any other libraries or manually implementing any of the supported protocols
 
 If you are using some other library or manually implemented any of the supported protocols, you'll need to review the library or your implementation to ensure that the key is being retrieved from either the OpenID Connect discovery document or the federation metadata document. One way to check for this is to do a search in your code or the library's code for any calls out to either the OpenID discovery document or the federation metadata document.
 
-If they key is being stored somewhere or hardcoded in your application, you can manually retrieve the key and update it accordingly. **It is strongly encouraged that you enhance your application to support automatic rollover** using any of the approaches outline in this article to avoid future disruptions and overhead if Azure AD increases it's rollover cadence or has an emergency out-of-band rollover.
+If they key is being stored somewhere or hardcoded in your application, you can manually retrieve the key and update it accordingly by perform a manual rollover as per the instructions at the end of this guidance document. **It is strongly encouraged that you enhance your application to support automatic rollover** using any of the approaches outline in this article to avoid future disruptions and overhead if Azure AD increases it's rollover cadence or has an emergency out-of-band rollover.
 
-To manually retrieve the latest key from the OpenID discovery document:
+## How to test your application to determine if it will be affected
 
-1. In your web browser, go to `https://login.microsoftonline.com/your_directory_name/.well-known/openid-configuration`. You will see the contents of the OpenID Connect discovery document. For more information about this document, see the [OpenID Discovery Document specification](http://openid.net/specs/openid-connect-discovery-1_0.html).
-2. Copy the link in value of jwks_uri
-3. Open a new tab in your browser, and go to the URL that you just copied. You will see the contents of the JSON Web Key Set document.
-4. For the purposes of updating an application to use a new key, locate each **x5c** element, and then copy the value of each. For example:
-```
-keys: [
-	{
-		kty: "RSA",
-		use: "sig",
-		kid: "MnC_VZcATfM5pOYiJHMba9goEKY",
-		x5t: "MnC_VZcATfM5pOYiJHMba9goEKY",
-		n: "vIqz-4-ER_vNW...ixLUQ",
-		e: "AQAB",
-		x5c: [
-			"MIIC4jCCAcqgAw...dhXsIIKvJQ=="
-		]
-	},
-```
-5. After you’ve copied the value of the **<X509Certificate>** element, open a plain text editor and paste the value. Make sure that you remove any trailing whitespace, and then save the file with a **.cer** extension.
+You can validate whether your application supports automatic key rollover by downloading the scripts and following the instructions in [this GitHub repository.](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey)
 
-To manually retrieve the latest key from the federation metadata document:
+## How to perform a manual rollover if you application does not support automatic rollover
 
-1. In your web browser, go to `https://login.microsoftonline.com/your_directory_name/federationmetadata/2007-06/federationmetadata.xml`. You will see the contents of the Federation Metadata XML document. For more information about this document, see the [Federation Metadata](active-directory-federation-metadata.md) topic.
-2. For the purposes of updating an application to use a new key, locate each **<RoleDescriptor>** block, and then copy the value of each block’s **<X509Certificate>** element. For example:
-```
-<RoleDescriptor xmlns:fed="http://docs.oasis-open.org/wsfed/federation/200706" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" protocolSupportEnumeration="http://docs.oasis-open.org/wsfed/federation/200706" xsi:type="fed:SecurityTokenServiceType">
-      <KeyDescriptor use="signing">
-            <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
-                <X509Data>
-                    <X509Certificate>MIIDPjC…BcXWLAIarZ</X509Certificate>
-```
-3. After you’ve copied the value of the **<X509Certificate>** element, open a plain text editor and paste the value. Make sure that you remove any trailing whitespace, and then save the file with a **.cer** extension.
-
-You’ve just created the X509 certificate that is used as the public key for Azure AD. Using the details of the certificate, such as its thumbprint and expiration date, you can manually or programmatically check that your application’s currently used certificate and thumbprint are valid.
+If your application does **not** support automatic rollover, you will need to establish a process that periodically monitors Azure AD's signing keys and performs a manual rollover accordingly. [This GitHub repository](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey) contains scripts and instructions on how to do this.

@@ -1,6 +1,10 @@
-## Preparation
+## Prerequisites
 
-Before we can write CDN management code, we need to do some preparation.  The first thing we're going to do is create a resource group to contain the CDN profile we create in this tutorial.  We will then setup Azure Active Directory to provide authentication for our application.  After that's done, we'll apply permissions to the resource group so that only authorized users from our Azure AD tenant can interact with our CDN profile.
+Before we can write CDN management code, we need to do some preparation to enable our code to interact with the Azure Resource Manager.  To do this, you'll need to:
+
+* Create a resource group to contain the CDN profile we create in this tutorial
+* Configure Azure Active Directory to provide authentication for our application
+* Apply permissions to the resource group so that only authorized users from our Azure AD tenant can interact with our CDN profile
 
 ### Creating the resource group
 
@@ -8,17 +12,17 @@ Before we can write CDN management code, we need to do some preparation.  The fi
 
 2. Click the **New** button in the upper left, and then **Management**, and **Resource Group**.
 	
-	![Creating a new resource group](./media/cdn-app-dev-prep/cdn-new-rg-1.png)
+	![Creating a new resource group](./media/cdn-app-dev-prep/cdn-new-rg-1-include.png)
 
 3. Call your resource group *CdnConsoleTutorial*.  Select your subscription and choose a location near you.  If you wish, you may click the **Pin to dashboard** checkbox to pin the resource group to the dashboard in the portal.  This will make it easier to find later.  After you've made your selections, click **Create**.
 
-	![Naming the resource group](./media/cdn-app-dev-prep/cdn-new-rg-2.png)
+	![Naming the resource group](./media/cdn-app-dev-prep/cdn-new-rg-2-include.png)
 
 4. After the resource group is created, if you didn't pin it to your dashboard, you can find it by clicking **Browse**, then **Resource Groups**.  Click the resource group to open it.  Make a note of your **Subscription ID**.  We'll need it later.
 
-	 ![Naming the resource group](./media/cdn-app-dev-prep/cdn-subscription-id.png)
+	![Naming the resource group](./media/cdn-app-dev-prep/cdn-subscription-id-include.png)
 
-### Creating the Azure AD application
+### Creating the Azure AD application and applying permissions
 
 There are two approaches to app authentication with Azure Active Directory: Individual users or a service principal. A service principal is similar to a service account in Windows.  Instead of granting a particular user permissions to interact with the CDN profiles, we instead grant the permissions to the service principal.  Service principals are generally used for automated, non-interactive processes.  Even though this tutorial is writing an interactive console app, we'll focus on the service principal approach.
 
@@ -32,18 +36,18 @@ Creating a service principal consists of several steps, including creating an Az
 
 Once you've created your service principal and assigned the **CDN Profile Contributor** role, the **Users** blade for your resource group should look similar to this.
 
-![Users blade](./media/cdn-app-dev-prep/cdn-service-principal.png)
+![Users blade](./media/cdn-app-dev-prep/cdn-service-principal-include.png)
 
 
 ### Interactive user authentication
 
 If, instead of a service principal, you'd rather have interactive individual user authentication, the process is very similar to that for a service principal.  In fact, you will need to follow the same procedure, but make a few minor changes.
 
->[AZURE.IMPORTANT] Only follow these next steps if you are choosing to use individual user authentication instead of a service principal.
+> [AZURE.IMPORTANT] Only follow these next steps if you are choosing to use individual user authentication instead of a service principal.
 
-1. When creating your application, instead of **Web App**, choose **Native application**. 
+1. When creating your application, instead of **Web Application**, choose **Native application**. 
 	
-	![Native application](./media/cdn-app-dev-prep/cdn-native-application.png)
+	![Native application](./media/cdn-app-dev-prep/cdn-native-application-include.png)
 	
 2. On the next page, you will be prompted for a **redirect URI**.  The URI won't be validated, but remember what you entered.  You'll need it later. 
 
@@ -51,5 +55,5 @@ If, instead of a service principal, you'd rather have interactive individual use
 
 4. Instead of assigning a service principal to the **CDN Profile Contributor** role, we're going to assign individual users or groups.  In this example, you can see that I've assigned  *CDN Demo User* to the **CDN Profile Contributor** role.  
 	
-	![Individual user access](./media/cdn-app-dev-prep/cdn-aad-user.png)
+	![Individual user access](./media/cdn-app-dev-prep/cdn-aad-user-include.png)
 

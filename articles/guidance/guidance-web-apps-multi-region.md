@@ -3,7 +3,7 @@
    description="Recommended architecture for web application with high availability, running in Microsoft Azure."
    services="app-service,app-service\web,sql-database" 
    documentationCenter="na"
-   authors="mikewasson"
+   authors="MikeWasson"
    manager="roshar"
    editor=""
    tags=""/>
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="06/27/2016"
-   ms.author="mikewasson"/>
+   ms.author="mwasson"/>
 
 # Azure reference architecture: Web application with high availability
 

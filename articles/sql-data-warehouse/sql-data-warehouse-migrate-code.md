@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/03/2016"
+   ms.date="08/02/2016"
    ms.author="lodipalm;barbkess;sonyama;jrj"/>
 
 # Migrate your SQL code to SQL Data Warehouse
@@ -80,7 +80,7 @@ Common table expressions have some limitations in SQL Data Warehouse including:
 
 Recursive CTEs are not supported in SQL Data Warehouse.  The migraion of recursive CTE can be somewhat complete and the best process is to break down the into multiple steps. You can typically use a loop and populate a temporary table as you iterate over the recursive interim queries. Once the temporary table is populated you can then return the data as a single result set. A similar approach has been used to solve `GROUP BY WITH CUBE` in the [group by clause with rollup / cube / grouping sets options][] article.
 
-## System functions
+## Unsupported system functions
 
 There are also some system functions that are not supported. Some of the main ones you might typically find used in data warehousing are:
 
@@ -91,21 +91,29 @@ There are also some system functions that are not supported. Some of the main on
 - ROWCOUNT_BIG
 - ERROR_LINE()
 
-Again many of these issues can be worked around.
+Some of these issues can be worked around.
 
-For example the code below is an alternative solution for retrieving @@ROWCOUNT information:
+## @@ROWCOUNT workaround
+
+To work around lack of support for @@ROWCOUNT, create a stored procedure that will retrieve the last row count from sys.dm_pdw_request_steps and then execute `EXEC LastRowCount` after a DML statement.
 
 ```sql
-SELECT  SUM(row_count) AS row_count
-FROM    sys.dm_pdw_sql_requests
-WHERE   row_count <> -1
-AND     request_id IN
-                    (   SELECT TOP 1    request_id
-                        FROM            sys.dm_pdw_exec_requests
-                        WHERE           session_id = SESSION_ID()
-                        AND             resource_class IS NOT NULL
-                        ORDER BY end_time DESC
-                    )
+CREATE PROCEDURE LastRowCount AS
+WITH LastRequest as 
+(   SELECT TOP 1    request_id
+    FROM            sys.dm_pdw_exec_requests
+    WHERE           session_id = SESSION_ID()
+    AND             resource_class IS NOT NULL
+    ORDER BY end_time DESC
+),
+LastRequestRowCounts as
+(
+    SELECT  step_index, row_count
+    FROM    sys.dm_pdw_request_steps
+    WHERE   row_count >= 0
+    AND     request_id IN (SELECT request_id from LastRequest)
+)
+SELECT TOP 1 row_count FROM LastRequestRowCounts ORDER BY step_index DESC
 ;
 ```
 
@@ -115,14 +123,14 @@ For a complete list of all supported T-SQL statements, see [Transact-SQL topics]
 <!--Image references-->
 
 <!--Article references-->
-[ANSI joins on updates]: ./sql-data-warehouse-develop-ctas.md
-[ANSI joins on deletes]: ./sql-data-warehouse-develop-ctas.md
-[merge statement]: ./sql-data-warehouse-develop-ctas.md
-[INSERT..EXEC]: ./sql-data-warehouse-develop-temporary-tables.md
+[ANSI joins on updates]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-update-statements
+[ANSI joins on deletes]: ./sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
+[merge statement]: ./sql-data-warehouse-develop-ctas.md#replace-merge-statements
+[INSERT..EXEC]: ./sql-data-warehouse-tables-temporary.md#modularizing-code
 [Transact-SQL topics]: ./sql-data-warehouse-reference-tsql-statements.md
 
 [cursors]: ./sql-data-warehouse-develop-loops.md
-[SELECT..INTO]: ./sql-data-warehouse-develop-ctas.md
+[SELECT..INTO]: ./sql-data-warehouse-develop-ctas.md#selectinto
 [group by clause with rollup / cube / grouping sets options]: ./sql-data-warehouse-develop-group-by-options.md
 [nesting levels beyond 8]: ./sql-data-warehouse-develop-transactions.md
 [updating through views]: ./sql-data-warehouse-develop-views.md

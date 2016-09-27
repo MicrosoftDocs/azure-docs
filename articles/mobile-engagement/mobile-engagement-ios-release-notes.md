@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Azure Mobile Engagement iOS SDK Release Notes"
+	pageTitle="Azure Mobile Engagement iOS SDK Release Notes | Microsoft Azure"
 	description="Latest updates and procedures for iOS SDK for Azure Mobile Engagement"
 	services="mobile-engagement"
 	documentationCenter="mobile"
-	authors="MehrdadMzfr"
-	manager="dwrede"
+	authors="piyushjo"
+	manager="erikre"
 	editor="" />
 
 <tags
@@ -13,10 +13,19 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/29/2016"
-	ms.author="MehrdadMzfr" />
+	ms.date="09/12/2016"
+	ms.author="piyushjo" />
 
-#Release notes
+#Azure Mobile Engagement iOS SDK release notes
+
+##4.0.0 (09/12/2016)
+
+-   Fixed notification not actioned on iOS 10 devices.
+-   Deprecate XCode 7.
+
+##3.2.4 (06/30/2016)
+
+-   Fixed aggregation between technical logs and other logs.
 
 ##3.2.3 (06/07/2016)
 

@@ -4,7 +4,7 @@
 	services="notification-hubs"
 	documentationCenter="windows"
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="erikre"
 	editor=""/>
 
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/28/2016"
+	ms.date="06/29/2016"
 	ms.author="wesmc"/>
 
 # Use Notification Hubs to send breaking news
@@ -115,7 +115,7 @@ The first step is to add the UI elements to your existing main page that enable 
 
 	Note that if a device registers multiple templates with the same tag, an incoming message targeting that tag will result in multiple notifications delivered to the device (one for each template). This behavior is useful when the same logical message has to result in multiple visual notifications, for instance showing both a badge and a toast in a Windows Store application.
 
-	For more information on templates, see [Templates](notification-hubs-templates.md).
+	For more information on templates, see [Templates](notification-hubs-templates-cross-platform-push-messages.md).
 
 
 

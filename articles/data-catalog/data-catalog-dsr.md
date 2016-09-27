@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="05/10/2016"
+   ms.date="09/15/2016"
    ms.author="trhabe"/>
 
 # Azure Data Catalog supported data sources
 
-Users of the Azure Data Catalog can publish metadata using a public API, a click-once registration tool, or by manually entering information directly to the Data Catalog web portal. The below grid summarizes all sources supported by the catalog today, and the publishing capabilities for each.  Also listed are the external data tools that each source can launch from our portal "open-in" experience. Further below is a second grid that has a more technical specification of each data sources connection properties.
+Users of the Azure Data Catalog can publish metadata using a public API, a click-once registration tool, or by manually entering information directly to the Data Catalog web portal. The following grid summarizes all sources supported by the catalog today, and the publishing capabilities for each.  Also listed are the external data tools that each source can launch from our portal "open-in" experience. The second grid in the article has more technical specification of each data sources connection properties.
 
 
 ## List of supported data sources
@@ -73,8 +73,8 @@ Users of the Azure Data Catalog can publish metadata using a public API, a click
     <tr>
       <td>Azure Storage Table</td>
       <td>✓</td>
-      <td></td>
-      <td></td>
+      <td>✓</td>
+      <td>✓</td>
       <td>
         <font size="2"></font>
       </td>
@@ -269,7 +269,7 @@ Users of the Azure Data Catalog can publish metadata using a public API, a click
       <td>✓</td>
       <td>✓</td>
       <td><font size=2>PowerBI</font></td>
-      <td><font size=2></font></td>
+      <td><font size=2>Calculation Views and Analytic Views only; Attribute Views are not supported.</font></td>
     </tr>
 
     <tr>
@@ -409,13 +409,13 @@ Users of the Azure Data Catalog can publish metadata using a public API, a click
 
 </table>
 
-If you need support for additional sources, please submit a feature request using the [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+If you need support for additional sources, submit a feature request using the [Azure Data Catalog forum](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 
 <br>
 <br>
 ## Data source reference specification
-> [AZURE.NOTE] "DSL Structure" column in the table below only lists connection properties for "address" property bag which are used by Azure Data Catalog (i.e. "address" property bag can contain other connection properties of the data source which Azure Data Catalog persists, but does not use.)
+> [AZURE.NOTE] "DSL Structure" column in the following table only lists connection properties for "address" property bag that are used by Azure Data Catalog (i.e. "address" property bag can contain other connection properties of the data source which Azure Data Catalog persists, but does not use.)
 <table>
     <tr>
        <td><b>Source Type</b></td>
@@ -858,6 +858,19 @@ If you need support for additional sources, please submit a feature request usin
       </td>
     </tr>
     <tr>
+      <td>Power Query</td>
+      <td>Table</td>
+      <td>Data Mashup</td>
+      <td>
+        <font size=2>
+            protocol: power-query
+            <br>authentication: {oauth}
+            <br>address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        </font>
+      </td>
+    </tr>
+    <tr>
       <td>Salesforce</td>
       <td>Table</td>
       <td>Object</td>
@@ -915,8 +928,8 @@ If you need support for additional sources, please submit a feature request usin
     </tr>
     <tr>
       <td>SQL Data Warehouse</td>
-      <td>Container</td>
-      <td>Database</td>
+      <td>Command</td>
+      <td>Stored Procedure</td>
       <td>
         <font size=2>
             protocol: tds
@@ -924,6 +937,38 @@ If you need support for additional sources, please submit a feature request usin
             <br>address:
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        </font>
+      </td>
+    </tr>
+    <tr>
+      <td>SQL Data Warehouse</td>
+      <td>TableValuedFunction</td>
+      <td>Table-valued Function</td>
+      <td>
+        <font size=2>
+            protocol: tds
+            <br>authentication: {protocol, windows}
+            <br>address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        </font>
+      </td>
+    </tr>
+    <tr>
+      <td>SQL Data Warehouse</td>
+      <td>Container</td>
+      <td>Database</td>
+      <td>
+        <font size=2>
+            protocol: tds
+          <br>authentication: {protocol, windows}
+          <br>address:
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
         </font>
       </td>
     </tr>
@@ -931,6 +976,38 @@ If you need support for additional sources, please submit a feature request usin
       <td>SQL Data Warehouse</td>
       <td>Table</td>
       <td>Table, View</td>
+      <td>
+        <font size=2>
+            protocol: tds
+            <br>authentication: {protocol, windows}
+            <br>address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        </font>
+      </td>
+    </tr>
+    <tr>
+      <td>SQL Server</td>
+      <td>Command</td>
+      <td>Stored Procedure</td>
+      <td>
+        <font size=2>
+            protocol: tds
+            <br>authentication: {protocol, windows}
+            <br>address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        </font>
+      </td>
+    </tr>
+    <tr>
+      <td>SQL Server</td>
+      <td>TableValuedFunction</td>
+      <td>Table-valued Function</td>
       <td>
         <font size=2>
             protocol: tds
@@ -960,7 +1037,7 @@ If you need support for additional sources, please submit a feature request usin
     <tr>
       <td>SQL Server</td>
       <td>Table</td>
-      <td>Table, View, Table-valued Function</td>
+      <td>Table, View</td>
       <td>
         <font size=2>
             protocol: tds
@@ -1160,6 +1237,37 @@ If you need support for additional sources, please submit a feature request usin
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        </font>
+      </td>
+    </tr>
+    <tr>
+      <td>SQL Server Master Data Services</td>
+      <td>Container</td>
+      <td>Model</td>
+      <td>
+        <font size="2">
+          protocol: mssql-mds
+          <br>authentication: {windows}
+          <br>address:
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version
+        </font>
+      </td>
+    </tr>
+    <tr>
+      <td>SQL Server Master Data Services</td>
+      <td>Table</td>
+      <td>Entity</td>
+      <td>
+        <font size="2">
+          protocol: mssql-mds
+          <br>authentication: {windows}
+          <br>address:
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; entity
         </font>
       </td>
     </tr>

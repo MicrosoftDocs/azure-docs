@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/28/2016"
+    ms.date="07/06/2016"
     ms.author="magoedte;bwren"/>
 
 # My first graphical runbook
@@ -135,7 +135,7 @@ Your runbook should look like the following at this point: <br>![Runbook authent
 We'll now add a **Start-AzureRmVM** activity to start a virtual machine.  You can pick any virtual machine in your Azure subscription, and for now we'll be hardcoding that name into the cmdlet.
 
 1. In the Library control, type **Start-AzureRm** in the search textbox.
-2. Add **Start-AzureRmVM** to the canvas and then click and drag it underneath **Connect to Azure**.
+2. Add **Start-AzureRmVM** to the canvas and then click and drag it underneath **Specify Subscription Id**.
 3. Hover over **Specify Subscription Id** until a circle appears on the bottom of the shape.  Click the circle and drag the arrow to **Start-AzureRmVM**. 
 4.	Select **Start-AzureRmVM**.  Click **Parameters** and then **Parameter Set** to view the sets for **Start-AzureRmVM**.  Select the **ResourceGroupNameParameterSetName** parameter set. Note that **ResourceGroupName** and **Name** have exclamation points next them.  This indicates that they are required parameters.  Also note both expect string values.
 5.	Select **Name**.  Select **PowerShell expression** for the **Data source** and type in the name of the virtual machine surrounded with double quotes that we will start with this runbook.  Click **OK**.<br>![Start-AzureRmVM Name Parameter Value](media/automation-first-runbook-graphical/runbook-startvm-nameparameter.png)
@@ -210,8 +210,8 @@ We will now modify the runbook so that it will only attempt to start the virtual
 29.	Save the runbook and open the Test pane.
 30.	Start the runbook with the virtual machine stopped, and it should start.
 
-## Next Steps
+## Next steps
 
 -	To learn more about Graphical Authoring, see [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md)
 -	To get started with PowerShell runbooks, see [My first PowerShell runbook](automation-first-runbook-textual-powershell.md)
--	To get started with PowerShell workflow runbooks, see  [My first PowerShell workflow runbook](automation-first-runbook-textual.md)
+-	To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md)

@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="New schema version 2016-04-01-preview | Microsoft Azure" 
+	pageTitle="New schema version 2016-06-01 | Microsoft Azure" 
 	description="Learn how to write the JSON definition for the latest version of Logic apps" 
 	authors="jeffhollan" 
 	manager="dwrede" 
 	editor="" 
-	services="app-service\logic" 
+	services="logic-apps" 
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-logic"
+	ms.service="logic-apps"
 	ms.workload="integration"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/17/2016"
+	ms.date="07/25/2016"
 	ms.author="jehollan"/>
 	
-# New schema version 2016-04-01-preview
+# New schema version 2016-06-01
 
 The new schema and API version for Logic apps has a number of improvements which improve the reliability and ease-of-use of Logic apps. There are 3 key differences:
 
@@ -24,7 +24,7 @@ The new schema and API version for Logic apps has a number of improvements which
 1. Conditions and loops are first-class actions
 1. Execution ordering more verbose via `runAfter` property (which replaces `dependsOn`)
 
-For information on upgrading your logic apps from the 2015-08-01-preview schema to the 2016-04-01-preview schema, [check out the upgrade section below.](#upgrading-to-2016-04-01-preview-schema)
+For information on upgrading your logic apps from the 2015-08-01-preview schema to the 2016-06-01 schema, [check out the upgrade section below.](#upgrading-to-2016-06-01-schema)
 
 
 ## 1. Scopes
@@ -94,9 +94,9 @@ The new `runAfter` property is replacing `dependsOn` to help allow more precisio
 }
 ```
 
-## Upgrading to 2016-04-01-preview schema
+## Upgrading to 2016-06-01 schema
 
-Upgrading to the new 2016-04-01-preview schema only takes a few steps.  Details on the changes from the schema can be found [in this article](app-service-logic-schema-2016-04-01.md).  The upgrade process includes running the upgrade script, saving as a new logic app, and potentially overwriting old logic app if needed.
+Upgrading to the new 2016-06-01 schema only takes a few steps.  Details on the changes from the schema can be found [in this article](app-service-logic-schema-2016-04-01.md).  The upgrade process includes running the upgrade script, saving as a new logic app, and potentially overwriting old logic app if needed.
 
 1. Open your current logic app.
 1. Click the **Update Schema** button in the toolbar

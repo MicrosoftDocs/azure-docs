@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="05/23/2016"
+	ms.date="09/16/2016"
 	ms.author="sethm"/>
 
-# .NET on-premises/cloud hybrid application using Azure Service Bus relay
+# .NET on-premises/cloud hybrid application using Azure Service Bus Relay
 
 ## Introduction
 
@@ -27,7 +27,7 @@ You will learn:
 
 -   How to create or adapt an existing web service for consumption by a
     web solution.
--   How to use the Azure Service Bus relay to share data between
+-   How to use the Azure Service Bus Relay service to share data between
     an Azure application and a web service hosted elsewhere.
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
@@ -80,7 +80,7 @@ The following is a screen shot of the start page of the completed web applicatio
 
 Before you can begin developing Azure applications, get the tools and set up your development environment.
 
-1.  Install the Azure SDK for .NET at [Get Tools and SDK][].
+1.  Install the Azure SDK for .NET from the [Get Tools and SDK][] page.
 
 2. 	Click **Install the SDK** for the version of Visual Studio you are using. The steps in this tutorial use Visual Studio 2015.
 
@@ -98,50 +98,7 @@ Before you can begin developing Azure applications, get the tools and set up you
 
 To begin using Service Bus features in Azure, you must first create a service namespace. A namespace provides a scoping container for addressing Service Bus resources within your application.
 
-1.  Sign in to the [Azure classic portal][].
-
-2.  In the left navigation pane of the portal, click
-    **Service Bus**.
-
-3.  In the lower pane of the portal, click **Create**.
-
-    ![][5]
-
-4.  In the **Add a new namespace** dialog box, enter a namespace name.
-    The system immediately checks to see if the name is available.
-    ![][6]
-
-5.  After making sure the namespace name is available, choose the
-    country or region in which your namespace should be hosted (make
-    sure you use the same country/region in which you are deploying your
-    compute resources).
-
-    > [AZURE.IMPORTANT] Pick the *same region* that you intend to choose for
-    deploying your application. This will give you the best performance.
-
-6.	Leave the other fields in the dialog box with their default values, then click the OK check mark. The system creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
-
-The namespace you created will appear in the portal, though it may take a moment to activate. Wait until the status is **Active** before moving on.
-
-## Obtain the default management credentials for the namespace
-
-In order to perform management operations on the new namespace, such as creating messaging entities, you must obtain credentials for the namespace.
-
-1.  In the main window, click the namespace you created in the previous step.
-
-2.  At the bottom of the page, click **Connection Information**.
-
-3.  In the **Access connection information** pane, find the connection string that contains the SAS key and key name.
-
-	![][45]
-
-4.  Copy the connection string, and paste it somewhere to use later in this tutorial.
-
-5. In the same portal page, click the **Configure** tab at the top of the page.
-
-6. Copy the primary key for the **RootManageSharedAccessKey** policy to the clipboard, or paste it into Notepad. You will use this value later in this tutorial.
-
-	![][46]
+[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Create an on-premises server
 
@@ -347,7 +304,7 @@ In this section you will build a simple ASP.NET application that displays data r
 
 8. Now you must configure Azure resources for a new web app. Follow all the steps in the section [Configure Azure resources for a new web app](../app-service-web/web-sites-dotnet-get-started.md#configure-azure-resources-for-a-new-web-app). Then, return to this tutorial and proceed to the next step.
 
-5.  In Solution Explorer, right click **Models** and then click **Add**,
+5.  In Solution Explorer, right-click **Models** and then click **Add**,
     then click **Class**. In the **Name** box, type the name
     **Product.cs**. Then click **Add**.
 
@@ -450,7 +407,7 @@ Run the application to verify that it works.
     the project name in Solution Explorer and select **Set As
     Startup Project**.
 2.  In Visual Studio, press F5.
-3.  Your application should appear running in a browser.
+3.  Your application should appear, running in a browser.
 
     ![][21]
 
@@ -458,19 +415,19 @@ Run the application to verify that it works.
 
 The next step is to hook up the on-premises products server with the ASP.NET application.
 
-1.  If it is not already open, in Visual Studio re-open the **ProductsPortal** project you created in the "Creating an ASP.NET Application" section.
+1.  If it is not already open, in Visual Studio re-open the **ProductsPortal** project you created in the [Create an ASP.NET application](#create-an-aspnet-application) section.
 
-2.  Similar to the step in the "Create an On-Premises Server" section, add the NuGet package to the project References. In Solution Explorer, right-click the **ProductsPortal** project, then click **Manage NuGet Packages**.
+2.  Similar to the step in the "Create an On-Premises Server" section, add the NuGet package to the project references. In Solution Explorer, right-click the **ProductsPortal** project, then click **Manage NuGet Packages**.
 
 3.  Search for "Service Bus" and select the **Microsoft Azure Service Bus** item. Then complete the installation and close this dialog box.
 
 4.  In Solution Explorer, right-click the **ProductsPortal** project, then click **Add**, then **Existing Item**.
 
-5.  Navigate to the **ProductsContract.cs** file from the **ProductsServer** console project. Click to highlight   ProductsContract.cs. Click the down arrow next to **Add**, then click **Add as Link**.
+5.  Navigate to the **ProductsContract.cs** file from the **ProductsServer** console project. Click to highlight ProductsContract.cs. Click the down arrow next to **Add**, then click **Add as Link**.
 
 	![][24]
 
-6.  Now open the **HomeController.cs** file in the Visual Studio  editor and replace the namespace definition with the following code. Be sure to replace *yourServiceNamespace* with the name of your service namespace, and *yourKey* with your SAS key. This will enable the client to call the on-premises service, returning the result of the call.
+6.  Now open the **HomeController.cs** file in the Visual Studio editor and replace the namespace definition with the following code. Be sure to replace *yourServiceNamespace* with the name of your service namespace, and *yourKey* with your SAS key. This will enable the client to call the on-premises service, returning the result of the call.
 
 	```
 	namespace ProductsWeb.Controllers
@@ -512,7 +469,7 @@ The next step is to hook up the on-premises products server with the ASP.NET app
 	}
 	```
 
-7.  In Solution Explorer, right-click the **ProductsPortal** solution, click **Add**, then click **Existing Project**.
+7.  In Solution Explorer, right-click the **ProductsPortal** solution (make sure to right-click the solution, not the project). Click **Add**, then click **Existing Project**.
 
 8.  Navigate to the **ProductsServer** project, then double-click the **ProductsServer.csproj** solution file to add it.
 
@@ -540,16 +497,17 @@ To test the application locally, in Visual Studio press **F5**. The on-premises 
 
 Press **Refresh** on the **ProductsPortal** page. Each time you refresh the page, you'll see the server app display a message when `GetProducts()` from **ProductsServer** is called.
 
+Close both applications before proceeding to the next step.
+
 ## Deploy the ProductsPortal project to an Azure web app
 
-The next step is to convert the **ProductsPortal** frontend to an Azure web app. First, deploy the **ProductsPortal** project, following all the steps in the section [Deploy the web project to the Azure web app](../app-service-web/web-sites-dotnet-get-started.md#deploy-the-web-project-to-the-azure-web-app). After deployment is complete, return to this tutorial and proceed to the next step. 
+The next step is to convert the **ProductsPortal** frontend to an Azure web app. First, deploy the **ProductsPortal** project, following all the steps in the section [Deploy the web project to the Azure web app](../app-service-web/web-sites-dotnet-get-started.md#deploy-the-web-project-to-the-azure-web-app). After deployment is complete, return to this tutorial and proceed to the next step.
+
+> [AZURE.NOTE] You may see an error message in the browser window when the **ProductsPortal** web project is automatically launched after the deployment. This is expected, and occurs because the **ProductsServer** application isn't running yet.
 
 Copy the URL of the deployed web app, as you will need the URL in the next step. You can also obtain this URL from the Azure App Service Activity window in Visual Studio:
 
 ![][9] 
-   
-
-> [AZURE.NOTE] You may see an error message in the browser window when the **ProductsPortal** web project is automatically launched after the deployment. This is expected, and occurs because the **ProductsServer** application isn't running yet.
 
 ### Set ProductsPortal as web app
 
@@ -594,11 +552,6 @@ To learn more about Service Bus, see the following resources:
   [Get Tools and SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
   [NuGet]: http://nuget.org
   
-  [Azure classic portal]: http://manage.windowsazure.com
-  [5]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-03.png
-  [6]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/sb-queues-04.png
-
-
   [11]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png
   [13]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-13.png
   [15]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-2.png
@@ -620,8 +573,7 @@ To learn more about Service Bus, see the following resources:
   [38]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-service2.png
   [41]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png
   [43]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
-  [45]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-45.png
-  [46]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/service-bus-policies.png
+
 
   [sbwacom]: /documentation/services/service-bus/  
   [sbwacomqhowto]: service-bus-dotnet-get-started-with-queues.md

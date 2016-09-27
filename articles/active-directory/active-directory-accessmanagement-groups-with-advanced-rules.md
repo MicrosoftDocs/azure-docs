@@ -5,7 +5,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -14,13 +14,15 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/14/2016"
+	ms.date="08/15/2016"
 	ms.author="curtand"/>
 
 
 # Using attributes to create advanced rules
 
-The Azure classic portal provides you with the ability to create advanced rules to enable more complex attribute-based dynamic memberships for Azure Active Directory (Azure AD) groups.
+The Azure classic portal provides you with the ability to create advanced rules to enable more complex attribute-based dynamic memberships for Azure Active Directory (Azure AD) groups.  
+
+When any attributes of a user change, the system evaluates all dynamic group rules in a directory to see if the attribute change of the user would trigger any group adds or removes. If a user satisfies a rule on a group, they are added as a member to that group. If they no longer satisfy the rule of a group they are a member of, they are removed as a members from that group.
 
 ## To create the advanced rule
 
@@ -198,6 +200,34 @@ You can now populate members in a group based on the manager attribute of a user
 	where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is the objectID of the manager. The object ID can be found in the Azure AD on the **Profile tab** of the user page for the user who is the manager.
 
 3. When saving this rule, all users that satisfy the rule will be joined as members of the group. It can take some minutes for the group to initially populate.
+
+
+## Using attributes to create rules for device objects
+
+You can also create a rule that selects device objects for membership in a group. The following device attributes can be used:
+
+| Properties              | Allowed values                  | Usage                                                       |
+|-------------------------|---------------------------------|-------------------------------------------------------------|
+| displayName             | any string value                | (device.displayName -eq "Rob Iphone”)                       |
+| deviceOSType            | any string value                | (device.deviceOSType -eq "IOS")                             |
+| deviceOSVersion         | any string value                | (device.OSVersion -eq "9.1")                                |
+| isDirSynced             | true false null                 | (device.isDirSynced -eq "true")                             |
+| isManaged               | true false null                 | (device.isManaged -eq "false")                              |
+| isCompliant             | true false null                 | (device.isCompliant -eq "true")                             |
+| deviceCategory          | any string value                | (device.deviceCategory -eq "")                              |
+| deviceManufacturer      | any string value                | (device.deviceManufacturer -eq "Microsoft")                 |
+| deviceModel             | any string value                | (device.deviceModel -eq "IPhone 7+")                        |
+| deviceOwnership         | any string value                | (device.deviceOwnership -eq "")                             |
+| domainName              | any string value                | (device.domainName -eq "contoso.com")                       |
+| enrollmentProfileName   | any string value                | (device.enrollmentProfileName -eq "")                       |
+| enrollmentType          | any string value                | (device.enrollmentType -eq "")                              |
+| isRooted                | true false null                 | (device.deviceOSType -eq "true")                            |
+| managementType          | any string value                | (device.managementType -eq "")                              |
+| organizationalUnit      | any string value                | (device.organizationalUnit -eq "")                          |
+| deviceId                | a valid deviceId                | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d" |
+
+> [AZURE.NOTE]
+> These device rules cannot be created using the "simple rule" dropdown in the Azure classic portal.
 
 
 ## Additional information

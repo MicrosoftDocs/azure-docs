@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-management"
-	ms.date="05/09/2016"
+	ms.date="08/08/2016"
 	ms.author="sstein"/>
 
 
@@ -25,7 +25,7 @@
 - [PowerShell](sql-database-upgrade-server-powershell.md)
 
 
-SQL Database V12 is the latest version so upgrading to SQL Database V12 is recommended.
+SQL Database V12 is the latest version so upgrading existing servers to SQL Database V12 is recommended.
 SQL Database V12 has many [advantages over the previous version](sql-database-v12-whats-new.md) including:
 
 - Increased compatibility with SQL Server.
@@ -54,10 +54,12 @@ After upgrading to V12, [service tier recommendations](sql-database-service-tier
 
 ## Start the upgrade
 
-1. In the [Azure portal](https://portal.azure.com/) browse to the server you want to upgrade by selecting **BROWSE ALL** > **SQL servers**, and selecting the desired server.
-2. Select **Latest SQL database update**, then select **Upgrade this server**.
+1. In the [Azure portal](https://portal.azure.com/) browse to the server you want to upgrade by selecting **BROWSE** > **SQL servers**, and selecting the v2.0 server you want to upgrade.
+2. Select **Latest SQL Database Update**, then select **Upgrade this server**.
 
       ![upgrade server][1]
+
+3. Upgrading a server to the latest SQL Database Update is permanent and irreversible. To confirm the upgrade, type the name of your server and click **OK**.
 
 ## Upgrade all Web and Business databases
 

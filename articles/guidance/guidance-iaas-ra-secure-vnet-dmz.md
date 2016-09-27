@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Architecture Reference - IaaS: Implementing a secure hybrid network architecture with Internet access in Azure | Microsoft Azure"
+   pageTitle="Azure Architecture Reference - IaaS: Implementing a DMZ between Azure and the Internet | Microsoft Azure"
    description="How to implement a secure hybrid network architecture with Internet access in Azure."
    services="guidance,vpn-gateway,expressroute,load-balancer,virtual-network"
    documentationCenter="na"
@@ -14,14 +14,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/28/2016"
+   ms.date="06/29/2016"
    ms.author="telmos"/>
 
-# Implementing a secure hybrid network architecture with Internet access in Azure
+# Implementing a DMZ between Azure and the Internet
 
 [AZURE.INCLUDE [pnp-RA-branding](../../includes/guidance-pnp-header-include.md)]
 
-This article describes best practices for implementing a secure hybrid network that extends your on-premises network to Azure, but that also accepts traffic from the Internet. This architecture extends that described in the article [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture].
+This article describes best practices for implementing a secure hybrid network that extends your on-premises network to Azure, but that also accepts traffic from the Internet. This architecture extends that described in the article [Implementing a DMZ between Azure and your on-premises datacenter][implementing-a-secure-hybrid-network-architecture].
 
 > [AZURE.NOTE] Azure has two different deployment models: [Resource Manager][resource-manager-overview] and classic. This reference architecture uses Resource Manager, which Microsoft recommends for new deployments. 
 
@@ -35,7 +35,7 @@ An [Azure Resource Manager template][azuredeploy] is available that you can use 
 
 ## Architecture diagram
 
-The following diagram highlights the important components in this architecture (*click to zoom in*). This document focusses on the structures required for securing the network for controlled access from the Internet. For more information about the greyed-out elements, read [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture]:
+The following diagram highlights the important components in this architecture (*click to zoom in*). This document focusses on the structures required for securing the network for controlled access from the Internet. For more information about the greyed-out elements, read [Implementing a DMZ between Azure and your on-premises datacenter][implementing-a-secure-hybrid-network-architecture]:
 
 [![0]][0]
 
@@ -61,7 +61,7 @@ This section summarizes recommendations for providing public access to the appli
 
 - Routing Internet traffic to the web tier through the NVAs in the public DMZ.
 
-For information and recommendations about the gateway, elements in the private DMZ, the management and monitoring subnet, and the application subnets, see [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture].
+For information and recommendations about the gateway, elements in the private DMZ, the management and monitoring subnet, and the application subnets, see [Implementing a DMZ between Azure and your on-premises datacenter][implementing-a-secure-hybrid-network-architecture].
 
 ### NVA separation recommendations ###
 
@@ -79,9 +79,9 @@ The web tier comprises VMs fronted by a internal load balancer. You should not e
 
 ## Solution components
 
-The solution provided for this architecture uses the same Resource Manager templates as those for the article [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture], with the following additions:
+The solution provided for this architecture uses the same Resource Manager templates as those for the article [Implementing a DMZ between Azure and your on-premises datacenter][implementing-a-secure-hybrid-network-architecture], with the following additions:
 
-- [azuredeploy.json][azuredeploy]. This is an extended version of the template used by the architecture described in [Implementing a secure hybrid network architecture in Azure][implementing-a-secure-hybrid-network-architecture]. This template creates the additional subnets for the public security perimeter (inbound and outbound).
+- [azuredeploy.json][azuredeploy]. This is an extended version of the template used by the architecture described in [Implementing a DMZ between Azure and your on-premises datacenter][implementing-a-secure-hybrid-network-architecture]. This template creates the additional subnets for the public security perimeter (inbound and outbound).
 
 - [ibb-dmz.json][ibb-dmz]. This template creates the public IP address, load balancer, and NVAs for the public security perimeter. Note that the public IP address is statically allocated, as are the IP addresses for the NVAs. 
 

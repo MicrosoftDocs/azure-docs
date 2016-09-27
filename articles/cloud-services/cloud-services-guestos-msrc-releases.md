@@ -13,12 +13,63 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="06/21/2016"
-   ms.author="yuemlu"/>
+   ms.date="08/17/2016"
+   ms.author="raiye"/>
 
 # Azure Guest OS 
 
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in. 
+
+## September Guest OS 
+
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-104 | [3183038] | Cumulative Security Update for Internet Explorer | 4.36, 3.43, 2.55 | Sept 13, 2016 |
+| MS16-106 | [3185848] | Security Update for Microsoft Graphics Component | 4.36, 3.43, 2.55 | Sept 13, 2016 |
+| MS16-110 | [3178467] | Security Update for Windows | 4.36, 3.43, 2.55 | Sept 13, 2016 |
+| MS16-111 | [3186973] | Security Update for Windows Kernel | 4.36, 3.43, 2.55 | Sept 13, 2016 |
+| MS16-112 | [3178469] | Security Update for Windows Lock Screen | 4.36 | Sept 13, 2016 |
+| MS16-114 | [3185879] | Security Update for Windows SMB Server | 4.36, 3.43, 2.55 | Sept 13, 2016 |
+| MS16-115 | [3188733] | Security Update for PDF | 4.35, 3.43 | Sept 13, 2016 |
+| MS16-116 | [3188724] | Security Update in OLE Automation for VBScript Scripting Engine | 4.36, 3.43, 2.55 | Sept 13, 2016 |
+|  | [3174644] | Updated Support for Diffie-Hellman Key Exchange | 4.36, 3.43, 2.55 | Sept 13, 2016 |
+|  | [3177723] | Timezone Update - Egypt cancels DST | 4.36, 3.43, 2.55 | Sept 13, 2016 |
+|  | [3179573] | August 2016 update rollup for Windows 7 SP1 and Windows Server 2008 R2 SP1 | 2.55 | Sept 13, 2016 |
+|  | [3179575] | August 2016 update rollup for Windows Server 2012 | 3.43 | Sept 13, 2016 |
+|  | [3179574] | August 2016 update rollup for Windows RT 8.1, Windows 8.1, and Windows Server 2012 R2 | 4.36 | Sept 13, 2016 |
+
+
+## August Guest OS 
+
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-095 | [3177356] | Cumulative Security Update for Internet Explorer | 4.35, 3.42, 2.54 | Aug 9, 2016 |
+| MS16-097 | [3177393] | Security Update for Microsoft Graphics Component | 4.35, 3.42, 2.54 | Aug 9, 2016 |
+| MS16-098 | [3178466] | Security Update for Windows Kernel-Mode Drivers | 4.35, 3.42, 2.54 | Aug 9, 2016 |
+| MS16-100 | [3179577] | Security Update for Secure Boot | 4.35, 3.42 | Aug 9, 2016 |
+| MS16-101 | [3178465] | Security Update for Windows Authentication Methods | 4.35, 3.42, 2.54 | Aug 9, 2016 |
+| MS16-102 | [3182248] | Security Update for Microsoft Windows PDF Library | 4.35, 3.42 | Aug 9, 2016 |
+| MS16-077 Re-Release | [3165191] | Security Update for Web Proxy Autodiscovery (WPAD) | 4.35, 3.42, 2.54 | Aug 9, 2016 |
+|  | [3172605] | July 2016 update rollup for Windows 7 SP1 and Windows Server 2008 R2 SP1 | 2.54 | Aug 9, 2016 |
+|  | [3172615] | July 2016 update rollup for Windows Server 2012 | 3.42 | Aug 9, 2016 |
+|  | [3172614] | July 2016 update rollup for Windows RT 8.1, Windows 8.1, and Windows Server 2012 R2 | 4.35 | Aug 9, 2016 |
+
+## July Guest OS 
+
+| Bulletin ID | Parent KB Article   | Vulnerability Description                                                   | Guest OS         | Date First Introduced |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS16-084 | [3169991] | Cumulative Security Update for Internet Explorer | 4.34, 3.41, 2.53 | July 12, 2016 |
+| MS16-087 | [3170005] | Security Update for Microsoft Print Spooler | 4.34, 3.41, 2.53 | July 12, 2016 |
+| MS16-090 | [3171481] | Security Update for Kernel Mode Drivers | 4.34, 3.41, 2.53 | July 12, 2016 |
+| MS16-091 | [3170048] | Security Update for .NET Framework | 4.34, 3.41, 2.53 | July 12, 2016 |
+| MS16-092 | [3171910] | Security Update for Windows Kernel | 4.34, 3.41 | July 12, 2016 |
+| MS16-094 | [3177404] | Security Update for Secure Boot | 4.34, 3.41 | July 12, 2016 |
+|  | [3162835] | June 2016 DST and time zone update for Windows | 4.34, 3.41, 2.53 | July 12, 2016 |
+|  | [3156417] | May 2016 update rollup for Windows 7 SP1 and Windows Server 2008 R2 SP1 | 2.53 | July 12, 2016 |
+|  | [3161608] | June 2016 update rollup for Windows 7 SP1 and Windows Server 2008 R2 SP1 | 2.53 | July 12, 2016 |
+|  | [3161609] | June 2016 update rollup for Windows Server 2012 | 3.41 | July 12, 2016 |
+|  | [3161606] | June 2016 update rollup for Windows RT 8.1, Windows 8.1, and Windows Server 2012 R2 | 4.34 | July 12, 2016 |
+|  | [3139923] | Windows installer (MSI) repair doesn't work when MSI package is installed on an HTTP share in Windows | 4.34 | July 12, 2016 |
 
 ## June Guest OS 
 
@@ -316,6 +367,45 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A         | [3007054][3007054]  | PIN-protected printing option always shows when you print a document within a Windows Store application in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
 | N/A         | [2999802][2999802]  | Solid lines instead of dotted lines are printed in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
 | N/A         | [2896881][2896881]  | Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows | 4.15, 3.22, 2.34 | Jan 13 2015 |
+
+[3183038]: http://support.microsoft.com/kb/3183038
+[3185848]: http://support.microsoft.com/kb/3185848
+[3178467]: http://support.microsoft.com/kb/3178467
+[3186973]: http://support.microsoft.com/kb/3186973
+[3178469]: http://support.microsoft.com/kb/3178469
+[3185879]: http://support.microsoft.com/kb/3185879
+[3188733]: http://support.microsoft.com/kb/3188733
+[3188724]: http://support.microsoft.com/kb/3188724
+[3174644]: http://support.microsoft.com/kb/3174644
+[3177723]: http://support.microsoft.com/kb/3177723
+[3179573]: http://support.microsoft.com/kb/3179573
+[3179575]: http://support.microsoft.com/kb/3179575
+[3179574]: http://support.microsoft.com/kb/3179574
+
+[3177356]: http://support.microsoft.com/kb/3177356
+[3177393]: http://support.microsoft.com/kb/3177393
+[3178466]: http://support.microsoft.com/kb/3178466
+[3179577]: http://support.microsoft.com/kb/3179577
+[3178465]: http://support.microsoft.com/kb/3178465
+[3182248]: http://support.microsoft.com/kb/3182248
+[3165191]: http://support.microsoft.com/kb/3165191
+[3172605]: http://support.microsoft.com/kb/3172605
+[3172614]: http://support.microsoft.com/kb/3172614
+[3172615]: http://support.microsoft.com/kb/3172615
+
+[3169991]: http://support.microsoft.com/kb/3169991
+[3170005]: http://support.microsoft.com/kb/3170005
+[3170050]: http://support.microsoft.com/kb/3170050
+[3171481]: http://support.microsoft.com/kb/3171481
+[3170048]: http://support.microsoft.com/kb/3170048
+[3171910]: http://support.microsoft.com/kb/3171910
+[3177404]: http://support.microsoft.com/kb/3177404
+[3162835]: http://support.microsoft.com/kb/3162835
+[3156417]: http://support.microsoft.com/kb/3156417
+[3161608]: http://support.microsoft.com/kb/3161608
+[3161609]: http://support.microsoft.com/kb/3161609
+[3161606]: http://support.microsoft.com/kb/3161606
+[3139923]: http://support.microsoft.com/kb/3139923
 
 
 [3141780]: http://support.microsoft.com/kb/3141780

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="06/27/2016"
+   ms.date="08/04/2016"
    ms.author="andkjell"/>
 
 # Azure AD Connect sync: Scheduler
@@ -59,6 +59,16 @@ You can change some of these settings with `Set-ADSyncScheduler`. The following 
 - MaintenanceEnabled
 
 The scheduler configuration is stored in Azure AD. If you have a staging server, any change on the primary server will also effect the staging server (with the exception of IsStagingModeEnabled).
+
+### CustomizedSyncCycleInterval
+Syntax: `Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss`  
+d - days, HH - hours, mm - minutes, ss - seconds
+
+Example: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00`  
+Will change the scheduler to run every 3 hours.
+
+Example: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 1.0:0:0`  
+Will change the scheduler to run daily.
 
 ## Start the scheduler
 The scheduler will by default run every 30 minutes. In some cases you might want to run a sync cycle in between the scheduled cycles or you need to run a different type.

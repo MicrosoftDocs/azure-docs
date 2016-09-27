@@ -1,14 +1,14 @@
 <properties 
    pageTitle="Track B2B messages in your logic apps in Azure App Service | Microsoft Azure" 
    description="This topic covers tracking of B2B processing" 
-   services="app-service\logic" 
+   services="logic-apps" 
    documentationCenter=".net,nodejs,java" 
    authors="rajram" 
    manager="erikre" 
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"

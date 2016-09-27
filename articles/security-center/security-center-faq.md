@@ -4,7 +4,7 @@
    services="security-center"
    documentationCenter="na"
    authors="TerryLanfear"
-   manager="StevenPo"
+   manager="MBaldwin"
    editor=""/>
 
 <tags
@@ -13,14 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/14/2016"
+   ms.date="09/21/2016"
    ms.author="terrylan"/>
 
 # Azure Security Center frequently asked questions (FAQ)
 
 This FAQ answers questions about Azure Security Center, a service that helps you prevent, detect and respond to threats with increased visibility into and control over the security of your Microsoft Azure resources.
-
-> [AZURE.NOTE] The information in this document applies to the preview release of Azure Security Center.
 
 ## General questions
 
@@ -33,7 +31,11 @@ Azure Security Center is enabled with your Microsoft Azure subscription and acce
 ## Billing
 
 ### How does billing work for Azure Security Center?
-See [Security Center Pricing](https://azure.microsoft.com/pricing/details/security-center/) for information.
+Security Center is offered in two tiers: Free and Standard.
+
+The Free tier enables you to set security policies and receive security alerts, incidents, and recommendations that guide you through the process of configuring needed controls. With the Free tier you can also monitor the security state of your Azure resources and partner solutions integrated with your Azure subscription.
+
+The Standard tier provides the Free tier features plus advanced detections: threat intelligence, behavioral analysis, crash analysis, and anomaly detection. A free 90-day trial of the Standard tier is available. To upgrade, select Pricing Tier in the [security policy](security-center-policies.md#setting-security-policies-for-subscriptions). See the [pricing page](https://azure.microsoft.com/pricing/details/security-center/) to learn more.
 
 ## Data collection
 
@@ -102,30 +104,57 @@ Azure Security Center automatically collects, analyzes and fuses log data from y
 ### What's the difference between threats detected and alerted on by Microsoft Security Response Center versus Azure Security Center?
 The Microsoft Security Response Center (MSRC) performs select security monitoring of the Azure network and infrastructure and receives threat intelligence and abuse complaints from third parties. When MSRC becomes aware that customer data has been accessed by an unlawful or unauthorized party or that the customer’s use of Azure does not comply with the terms for Acceptable Use, a security incident manager notifies the customer. Notification typically occurs by sending an email to the security contact(s) specified in Azure Security Center or the Azure subscription owner if a security contact is not specified.
 
-Security Center is an Azure service that continuously monitors the customer’s Azure environment and applies analytics to automatically detect a wide range of potentially malicious activity. These detections are surfaced as security alerts in the Security Center dashboard. In the future, email notification of security alerts will be sent to security contact(s) as well.
+Security Center is an Azure service that continuously monitors the customer’s Azure environment and applies analytics to automatically detect a wide range of potentially malicious activity. These detections are surfaced as security alerts in the Security Center dashboard.
 
 ### How are permissions handled in Azure Security Center?
-Azure Security Center supports role based access. To learn more about role-based access control (RBAC) in Azure, see [Azure Active Directory Role-based Access Control](../active-directory/role-based-access-control-configure.md).
+Azure Security Center supports role-based access. To learn more about role-based access control (RBAC) in Azure, see [Azure Active Directory Role-based Access Control](../active-directory/role-based-access-control-configure.md).
 
-When a user opens Azure Security Center, only recommendations and alerts that are related to resources the user has access to will be seen.  This means that users will only see items related to resources where the user is assigned the role of Owner, Contributor, or Reader to the subscription or resource group that a resource belongs to.
+When a user opens Security Center, only recommendations and alerts that are related to resources the user has access to will be seen. This means that users will only see items related to resources where the user is assigned the role of Owner, Contributor, or Reader to the subscription or resource group that a resource belongs to.
 
-To edit a security policy, you must be an Owner or Contributor of the subscription.
+If you need to:
+
+- **Edit a security policy**, you must be an Owner or Contributor of the subscription.
+- **Apply a recommendation**, you must be an Owner or Contributor of the subscription.
+- **Have visibility into the security state across all of your subscriptions**, you must be an Owner, Contributor, or Reader (IT Admin, Security Team) of each subscription.
+- **Have visibility into the security state of your resources**, you must be a resource group Owner, Contributor, or Reader (DevOps).
+
+### Which Azure resources are monitored by Azure Security Center?
+Azure Security Center monitors the following Azure resources:
+
+- Virtual machines (VMs) (including [Cloud Services](../cloud-services/cloud-services-choose-me.md))
+- Azure Virtual Networks
+- Azure SQL service
+- Partner solutions integrated with your Azure subscription such as a web application firewall on VMs and on [App Service Environment](../app-service/app-service-app-service-environments-readme.md)
 
 ## Virtual Machines
 
 ### What types of virtual machines will be supported?
-Virtual machines created using both the [classic and Resource Manager deployment models](../azure-classic-rm.md) are supported, including virtual machines that are part of Azure Service Fabric clusters.
+Security health monitoring and recommendations are available for virtual machines (VMs) created using both the [classic and Resource Manager deployment models](../azure-classic-rm.md).
 
-Supported Windows virtual machines:
+Supported Windows VMs:
 
 - Windows Server 2008 R2
 - Windows Server 2012
 - Windows Server 2012 R2
 
-Supported Linux virtual machines:
+Supported Linux VMs:
 
 - Ubuntu versions 12.04, 14.04, 15.10, 16.04
 - Debian versions 7, 8
 - CentOS versions 6.\*, 7.*
 - Red Hat Enterprise Linux (RHEL) versions 6.\*, 7.*
 - SUSE Linux Enterprise Server (SLES) versions 11.\*, 12.*
+
+VMs running in a cloud service are also supported. Only cloud services web and worker roles running in production slots are monitored. To learn more about cloud service, see [Cloud Services overview](../cloud-services/cloud-services-choose-me.md).
+
+### Why doesn't Azure Security Center recognize the antimalware solution running on my Azure VM?
+
+Azure Security Center only has visibility into antimalware installed through Azure extensions. For example, Security Center is not able to detect antimalware that was pre-installed on an image you provided or if you installed antimalware on your virtual machines using your own processes (such as configuration management systems).
+
+### Why do I get the message "Missing Scan Data" for my VM?
+
+It can take some time (generally less than an hour) for scan data to populate after Data Collection is enabled in Azure Security Center. Scans will not populate for VMs in a stopped state.
+
+### Why do I get the message "VM Agent is Missing?"
+
+The VM Agent must be installed on VMs in order to enable Data Collection. The VM Agent is installed by default for VMs that are deployed from the Azure Marketplace. For information on how to install the VM Agent on other VMs, see the blog post [VM Agent and Extensions](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).

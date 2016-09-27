@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/17/2016"
-	ms.author="carlrabeler; ronitr"/>
+	ms.date="07/10/2016"
+	ms.author="CarlRabeler; ronitr"/>
 
 # Get started with SQL database auditing
 Azure SQL Database Auditing tracks database events and writes audited events to an audit log in your Azure Storage account. Auditing is generally available for Basic, Standard, and Premium service tiers.

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Scheduling a runbook in Azure Automation"
+   pageTitle="Scheduling a runbook in Azure Automation | Microsoft Azure"
    description="Describes how to create a schedule in Azure Automation so that you can automatically start a runbook at a particular time or on a recurring schedule."
    services="automation"
    documentationCenter=""
@@ -12,17 +12,19 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/28/2016"
+   ms.date="08/05/2016"
    ms.author="bwren" />
 
 # Scheduling a runbook in Azure Automation
 
-To schedule a runbook in Azure Automation to start at a specified time, you link it to one or more schedules. A schedule can be configured to either run once or on a reoccurring hourly or daily schedule for classic runbooks, and for runbooks in the Azure portal, additionally you can schedule them for weekly, monthly, specific days of the week or days of the month, or a particular day of the month.  A runbook can be linked to multiple schedules, and a schedule can have multiple runbooks linked to it.
+To schedule a runbook in Azure Automation to start at a specified time, you link it to one or more schedules. A schedule can be configured to either run once or on a reoccurring hourly or daily schedule for runbooks in the Azure classic portal and for runbooks in the Azure portal,  you can additionally schedule them for weekly, monthly, specific days of the week or days of the month, or a particular day of the month.  A runbook can be linked to multiple schedules, and a schedule can have multiple runbooks linked to it.
 
 
 ## Creating a schedule
 
-You can either create a new schedule for runbooks in the Azure classic or Azure portal, or with Windows PowerShell. You also have the option of creating a new schedule when you link a runbook to a schedule using the Azure classic or Azure portal.
+You can create a new schedule for runbooks in the Azure portal, in the classic portal, or with Windows PowerShell. You also have the option of creating a new schedule when you link a runbook to a schedule using the Azure classic or Azure portal.
+
+>[AZURE.NOTE] When you associate a schedule with a runbook, Automation stores the current versions of the modules in your account and links them to that schedule.  This means that if you had a module with version 1.0 in your account when you created a schedule and then update the module to version 2.0, the schedule will continue to use 1.0.  In order to use the updated module version, you must create a new schedule. 
 
 ### To create a new schedule in the Azure classic portal
 
@@ -30,8 +32,7 @@ You can either create a new schedule for runbooks in the Azure classic or Azure 
 1. Select the **Assets** tab.
 1. At the bottom of the window, click **Add Setting**.
 1. Click **Add Schedule**.
-1. Type a **Name** and optionally a **Description** for the new schedule.
-1. Select whether the schedule will run **One Time**, **Hourly**, or **Daily**.
+1. Type a **Name** and optionally a **Description** for the new schedule.your schedule will run **One Time**, **Hourly**, **Daily**, **Weekly**, or **Monthly**.
 1. Specify a **Start Time** and other options depending on the type of schedule that you selected.
 
 ### To create a new schedule in the Azure portal
@@ -40,7 +41,7 @@ You can either create a new schedule for runbooks in the Azure classic or Azure 
 2. Click the **Schedules** tile to open the **Schedules** blade.
 3. Click **Add a schedule** at the top of the blade.
 4. On the **New schedule** blade, type a **Name** and optionally a **Description** for the new schedule.
-5. Select whether the schedule will run **Once** or **Recurrence**.  If you select **Once** specify a **Start time** and then click **Create**.  If you select **Recurrence**, specify a **Start time** and the frequency for how often you want the runbook to repeat - by **hour**, **day**, **week**, or by **month**.  If you select **week** or **month** from the drop-down list, the **Recurrence option** will appear in the blade and upon selection, the **Recurrence option** blade will be presented and you can select the day of week if you selected **week**.  If you selected **month**, you can choose by **week days** or specific days of the month on the calendar and finally, do you want to run it on the last day of the month or not and then click **OK**.   
+5. Select whether the schedule will run one time, or on a reoccurring schedule by selecting **Once** or **Recurrence**.  If you select **Once** specify a **Start time** and then click **Create**.  If you select **Recurrence**, specify a **Start time** and the frequency for how often you want the runbook to repeat - by **hour**, **day**, **week**, or by **month**.  If you select **week** or **month** from the drop-down list, the **Recurrence option** will appear in the blade and upon selection, the **Recurrence option** blade will be presented and you can select the day of week if you selected **week**.  If you selected **month**, you can choose by **week days** or specific days of the month on the calendar and finally, do you want to run it on the last day of the month or not and then click **OK**.   
 
 ### To create a new schedule with Windows PowerShell
 
@@ -65,6 +66,7 @@ The following sample commands shows how to create a schedule for the 15th and 30
 ## Linking a schedule to a runbook
 
 A runbook can be linked to multiple schedules, and a schedule can have multiple runbooks linked to it. If a runbook has parameters, then you can provide values for them. You must provide values for any mandatory parameters and may provide values for any optional parameters.  These values will be used each time the runbook is started by this schedule.  You can attach the same runbook to another schedule and specify different parameter values.
+
 
 ### To link a schedule to a runbook with the Azure classic portal
 
@@ -143,7 +145,8 @@ The following sample commands show how to disable a schedule for a runbook using
 	Set-AzureRmAutomationSchedule –AutomationAccountName $automationAccountName `
     –Name $scheduleName –IsEnabled $false -ResourceGroupName "ResourceGroup01"
 
+
 ## Next steps
 
-- To learn more about working with schedule, see [Schedule Assets in Azure Automation](http://msdn.microsoft.com/library/azure/dn940016.aspx)
+- To learn more about working with schedules, see [Schedule Assets in Azure Automation](http://msdn.microsoft.com/library/azure/dn940016.aspx)
 - To get started with runbooks in Azure Automation, see [Starting a Runbook in Azure Automation](automation-starting-a-runbook.md) 

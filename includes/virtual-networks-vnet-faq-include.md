@@ -100,7 +100,7 @@ No.
 
 Yes. Subnets can be added to VNets at any time as long as the subnet address is not part of another subnet in the VNet.
 
-### Can I modify the size of my VNet size after I create it?
+### Can I modify the size of my subnet after I create it?
 
 You can add, remove, expand or shrink a subnet if there are no VMs or services deployed within it by using PowerShell cmdlets or the NETCFG file. You can also add, remove, expand or shrink any prefixes as long as the subnets that contain VMs or services are not affected by the change.
 

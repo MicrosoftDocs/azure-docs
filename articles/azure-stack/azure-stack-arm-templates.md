@@ -3,7 +3,7 @@
 	description="Learn how to use Azure Resource Manager templates in Azure Stack to deploy and provision all of the resources for your application in a single, coordinated operation."
 	services="azure-stack"
 	documentationCenter=""
-	authors="ErikjeMS"
+	authors="heathl17"
 	manager="byronr"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/25/2016"
-	ms.author="erikje"/>
+	ms.date="09/26/2016"
+	ms.author="helaw"/>
 
 # Use Azure Resource Manager templates in Azure Stack
 
@@ -84,8 +84,10 @@ Deploy a simple Windows VM that includes a virtual network (with DNS), public IP
 
 To cancel a running template deployment, use the `Stop-AzureRmResourceGroupDeployment` PowerShell cmdlet.
 
+
 ## Next steps
 
 [Deploy templates with the portal](azure-stack-deploy-template-portal.md)
 
 [Azure Resource Manager overview](../resource-group-overview.md)
+

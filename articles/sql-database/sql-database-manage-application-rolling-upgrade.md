@@ -12,8 +12,8 @@
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
-   ms.workload="sqldb-bcdr"
-   ms.date="06/16/2016"
+   ms.workload="NA"
+   ms.date="07/16/2016"
    ms.author="sashan"/>
 
 # Managing rolling upgrades of cloud applications using SQL Database Active Geo-Replication
@@ -123,9 +123,9 @@ The two upgrade methods described in the article differ in complexity and the do
 
 ## Next steps
 
+- For a business continuity overview and scenarios, see [Business continuity overview](sql-database-business-continuity.md)
 - To learn about Azure SQL Database automated backups, see [SQL Database automated backups](sql-database-automated-backups.md)
-- To learn about business continuity design and recovery scenarios, see [Continuity scenarios](sql-database-business-continuity-scenarios.md)
-- To learn about using automated backups for recovery, see [restore a database from the service-initiated backups](sql-database-recovery-using-backups.md)
+- To learn about using automated backups for recovery, see [restore a database from automated backups](sql-database-recovery-using-backups.md)
 - To learn about faster recovery options, see [Active-Geo-Replication](sql-database-geo-replication-overview.md)  
 - To learn about using automated backups for archiving, see [database copy](sql-database-copy.md)
 

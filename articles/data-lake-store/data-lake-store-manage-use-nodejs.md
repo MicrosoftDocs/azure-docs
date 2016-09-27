@@ -4,7 +4,7 @@
    services="data-lake-store" 
    documentationCenter="" 
    authors="nitinme" 
-   manager="paulettm" 
+   manager="jhubbard" 
    editor="cgronlun"/>
  
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="04/21/2016"
+   ms.date="09/13/2016"
    ms.author="nitinme"/>
 
 # Manage Azure Data Lake Store using Azure SDK for Node.js
@@ -35,6 +35,12 @@ Right now it supports:
   *  **Node.js version: 0.10.0 or higher**
   *  **REST API version for Account: 2015-10-01-preview**
   *  **REST API version for FileSystem: 2015-10-01-preview**
+
+##Prerequisites
+
+Before you begin this article, you must have the following:
+
+- **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Features
 
@@ -61,8 +67,8 @@ npm install azure-arm-datalake-store
 
 ```javascript
 var adlsManagement = require("azure-arm-datalake-store");
-var acccountClient = new adlsManagement.DataLakeStoreAccountClient(credentials, 'your-subscription-id');
-var filesystemClient = new adlsManagement.DataLakeStoreFileSystemClient(credentials, 'azuredatalakestore.net');
+var acccountClient = new adlsManagement.DataLakeStoreAccountClient(credentials, "your-subscription-id");
+var filesystemClient = new adlsManagement.DataLakeStoreFileSystemClient(credentials);
 ```
 
 ## Create a Data Lake Store Account
@@ -111,7 +117,7 @@ var options = {
   streamContents: new Buffer('some string content')
 }
 
-filesystemClient.filesystem.listFileStatus(accountName, fileToCreate, options, function (err, result, request, response) {
+filesystemClient.fileSystem.listFileStatus(accountName, fileToCreate, options, function (err, result, request, response) {
   if (err) {
     console.log(err);
   } else {
@@ -127,7 +133,7 @@ filesystemClient.filesystem.listFileStatus(accountName, fileToCreate, options, f
 var util = require('util');
 var accountName = 'testadlsacct';
 var pathToEnumerate = '/myfolder';
-filesystemClient.filesystem.listFileStatus(accountName, pathToEnumerate, function (err, result, request, response) {
+filesystemClient.fileSystem.listFileStatus(accountName, pathToEnumerate, function (err, result, request, response) {
   if (err) {
     console.log(err);
   } else {
@@ -139,4 +145,4 @@ filesystemClient.filesystem.listFileStatus(accountName, pathToEnumerate, functio
 ## See also
 
 - [Microsoft Azure SDK for Node.js](https://github.com/azure/azure-sdk-for-node)
-- [Microsoft Azure SDK for Node.js - Data Lake Analytics Management](https://github.com/Azure/azure-sdk-for-node/tree/autorest/lib/services/dataLake.Store)
+- [Microsoft Azure SDK for Node.js - Data Lake Analytics Management](https://www.npmjs.com/package/azure-arm-datalake-analytics)

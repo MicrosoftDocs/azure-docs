@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/10/2016"
+   ms.date="06/30/2016"
    ms.author="cherylmc"/>
 
 
@@ -46,6 +46,10 @@ There are two types of DNS servers:
 
 - An _authoritative_ DNS server hosts DNS zones. It answers DNS queries for records in those zones only.
 - A _recursive_ DNS server does not host DNS zones. It answers all DNS queries by calling authoritative DNS servers to gather the data it needs.
+
+>[AZURE.NOTE] Azure DNS provides an authoritative DNS service.  It does not provide a recursive DNS service.
+
+> Cloud Services and VMs in Azure are automatically configured to use a recursive DNS services that is provided separately as part of Azure's infrastructure.  For information on how to change these DNS settings, please see [Name Resolution in Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
 
 DNS clients in PCs or mobile devices typically call a recursive DNS server to perform any DNS queries the client applications need.
 
@@ -116,7 +120,9 @@ You can also use the cross-platform Azure CLI to retrieve the authoritative NS r
 
 Each registrar has their own DNS management tools to change the name server records for a domain. In the registrar’s DNS management page, edit the NS records and replace the NS records with the ones Azure DNS created.
 
-When delegating a domain to Azure DNS, you must use the name server names provided by Azure DNS. You should not use 'glue records' to point to the Azure DNS name server IP addresses, since these IP addresses may change in future. Delegations using name server names in your own zone, sometimes called 'vanity name servers', are not currently supported in Azure DNS.
+When delegating a domain to Azure DNS, you must use the name server names provided by Azure DNS.  You should always use all 4 name server names, regardless of the name of your domain.  Domain delegation does not require the name server name to use the same top-level domain as your domain.
+
+You should not use 'glue records' to point to the Azure DNS name server IP addresses, since these IP addresses may change in future. Delegations using name server names in your own zone, sometimes called 'vanity name servers', are not currently supported in Azure DNS.
 
 ### To verify name resolution is working
 

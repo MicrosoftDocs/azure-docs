@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/26/2016"
+	ms.date="08/08/2016"
 	ms.author="banders"/>
 
 # Configuration Assessment solution in Log Analytics
@@ -24,7 +24,7 @@ This solution requires System Center Operations Manager. Configuration Assessmen
 
 Viewing some information in Configuration Assessment solution requires the Silverlight plugin for your browser.
 
->[AZURE.NOTE] The Configuration Assessment solution is only available for workspaces in the East US region and it will not be added to additional regions. The Configuration Assessment solution capabilities are being replaced by workload specific assessments, including Active Directory Assessment and SQL Server Assessment.
+>[AZURE.NOTE] Beginning July 5, 2016, the Configuration Assessment solution can no longer be added to Log Analytics workspaces and this solution will no longer be available to existing users after August 1, 2016. For customers using this solution for SQL Server or Active Directory, we recommend you instead use the [SQL Server Assessment](log-analytics-sql-assessment.md), [Active Directory Assessment](log-analytics-ad-assessment.md) and [Active Directory Replication Status](log-analytics-ad-replication-status.md) solutions. For customers using configuration assessment for Windows, Hyper-V, and System Center Virtual Machine Manager, we recommend you use the event collection and change tracking capabilities to gain a holistic view of any issues within your environments.
 
 ![Configuration Assessment tile](./media/log-analytics-configuration-assessment/oms-config-assess-tile.png)
 

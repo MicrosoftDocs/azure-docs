@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Traffic Manager Endpoint Types | Microsoft Azure"
    description="This article explains different types of endpoints that can be used with Azure Traffic Manager"
    services="traffic-manager"
    documentationCenter=""
-   authors="jtuliani"
+   authors="sdwheeler"
    manager="carmonm"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="traffic-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/08/2016"
-   ms.author="jtuliani" />
+   ms.author="sewhee" />
 
 # Traffic Manager endpoints
 
@@ -41,7 +41,7 @@ Azure endpoints are used to configure Azure-based services in Traffic Manager.  
 
 - ‘Classic’ IaaS VMs and PaaS cloud services.
 - Web Apps
-- PublicIPAddress resources (which can be connected to VMs either directly or via an Azure Load Balancer)
+- PublicIPAddress resources (which can be connected to VMs either directly or via an Azure Load Balancer). Note that the publicIpAddress must have a DNS name assigned to be used in Traffic Manager.
 
 PublicIPAddress resources are Azure Resource Manager resources, they do not exist in the Azure Service Management APIs.  Thus they are only supported in Traffic Manager’s Azure Resource Manager experiences.  The other endpoint types are supported via both Resource Manager and Service Management experiences in Traffic Manager.
 
@@ -98,11 +98,13 @@ If all endpoints in a profile are disabled, or if the profile itself is disabled
 ## FAQ
 
 ### Can I use Traffic Manager with endpoints from multiple subscriptions?
-Yes.  How you do this depends on whether you are using the Service Management APIs or the Resource Manager APIs for Traffic Manager.  The [Azure portal](https://portal.azure.com) uses Resource Manager, the ['classic' portal](https://manage.windowsazure.com) uses Service Management.
+For Azure Web Apps, this is not possible.  This is because Web Apps require that any custom domain name used with Web Apps is only used within a single subscriptions.   It is not possible to use Web Apps from multiple subscriptions with the same domain name, and hence they cannot be used with Traffic Manager.
+
+For other endpoint types, it is possible to use Traffic Manager with endpoints from more than one subscription.  How you do this depends on whether you are using the Service Management APIs or the Resource Manager APIs for Traffic Manager.  The [Azure portal](https://portal.azure.com) uses Resource Manager, the ['classic' portal](https://manage.windowsazure.com) uses Service Management.
 
 In Resource Manager, endpoints from any subscription can be added to Traffic Manager, so long as the person configuring the Traffic Manager profile has read access to the endpoint.  These permissions can be granted using [Azure Resource Manager role-based access control (RBAC)](../active-directory/role-based-access-control-configure.md).
 
-In Service Management, the Traffic Manager requires that any Cloud Service or Web App configured as an Azure endpoint resides in the same subscription as the Traffic Manager profile.  Cloud Service endpoints in other subscriptions can be added to Traffic Manager as ‘external’ endpoints (they will still be billed at the ‘Internal’ endpoint rate).  Web Apps from other subscriptions cannot be used.
+In Service Management, the Traffic Manager requires that any Cloud Service or Web App configured as an Azure endpoint resides in the same subscription as the Traffic Manager profile.  Cloud Service endpoints in other subscriptions can be added to Traffic Manager as ‘external’ endpoints (they will still be billed at the ‘Internal’ endpoint rate).
 
 ### Can I use Traffic Manager with Cloud Service ‘Staging’ slots?
 Yes.  Cloud Service ‘staging’ slots can be configured in Traffic Manager as External endpoints.
@@ -121,13 +123,13 @@ Once it receives a DNS query, Traffic Manager will respond with the DNS name of 
 
 Note that for the Traffic Manager health checks to function correctly, the service will also need to expose an IPv4 endpoint.  This needs to be mapped from the same endpoint DNS name, using a DNS A record.
 
-### Can I use Traffic Manager with more than one web apps in the same region?
+### Can I use Traffic Manager with more than one Web App in the same region?
 
 Typically, Traffic Manager is used to direct traffic to applications deployed in different regions.  However, it can also be used where an application has more than one deployment in the same region.
 
 In the case of Web Apps, the Traffic Manager Azure endpoints do not permit more than one Web App endpoint from the same Azure region to be added to the same Traffic Manager profile.  The following steps provide a workaround to this constraint:
 
-1.	Check that your Web Apps within the same region are in different web app 'scale units', i.e. different instances of the Web App service.  To do this, check the DNS path for the <...>.azurewebsites.net DNS entry, the scale unit will look something like ‘waws-prod-xyz-123.vip.azurewebsites.net’.  A given domain name must map to a single site in a given scale unit, and for this reason two Web Apps in the same scale unit cannot share a Traffic Manager profile. 
+1.	Check that your Web Apps within the same region are in different web app 'scale units', i.e. different instances of the Web App service.  To do this, check the DNS path for the <...>.azurewebsites.net DNS entry, the scale unit will look something like ‘waws-prod-xyz-123.vip.azurewebsites.net’.  A given domain name must map to a single site in a given scale unit, and for this reason two Web Apps in the same scale unit cannot share a Traffic Manager profile.
 2.	Assuming each Web App is in a different scale unit, add your vanity domain name as a custom hostname to each Web App.  This requires all Web Apps to belong to the same subscription.
 3.	Add one (and only one) Web App endpoint as you normally would to your Traffic Manager profile, as an Azure endpoint.
 4.	Add each additional Web App endpoint to your Traffic Manager profile as an External endpoint.  This requires you to use the Resource Manager experience for Traffic Manager, not the Service Management experience.
@@ -141,5 +143,3 @@ In the case of Web Apps, the Traffic Manager Azure endpoints do not permit more 
 - Learn about Traffic Manager [endpoint monitoring and automatic failover](traffic-manager-monitoring.md).
 
 - Learn about Traffic Manager [traffic routing methods](traffic-manager-routing-methods.md).
-
-

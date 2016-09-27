@@ -11,10 +11,10 @@
 <tags
   ms.service="iot-suite"
   ms.devlang="na"
-  ms.topic="get-started-article"
+  ms.topic="article"
   ms.tgt_pltfrm="na"
   ms.workload="na"
-  ms.date="06/27/2016"
+  ms.date="09/26/2016"
   ms.author="araguila"/>
    
 # Frequently asked questions for IoT Suite
@@ -25,9 +25,13 @@
 
 - If you delete the resource group in the [Azure portal][lnk-azure-portal], you only delete the resources in that resource group; you will also need to delete the Azure Active Directory application associated with the preconfigured solution in the [Azure classic portal][lnk-classic-portal].
 
+### How many IoT Hub instances can I provision in a subscription? 
+
+Ten. You can create an [Azure support ticket][link-azuresupportticket] to raise this limit, but by default, you can only provision ten IoT Hubs per subscription, as outlined in [Azure subscription limits][link-azuresublimits]. As a result, since every preconfigured solution provisions a new IoT Hub, you can only provision up to ten preconfigured solutions in a given subscription. 
+
 ### How many DocumentDB instances can I provision in a subscription?
 
-Fifty. You can create an [Azure support ticket][link-azuresupportticket] to raise this limit, but by default, you can only provision fifty DocumentDB instances per subscription. As a result, you can only provision up to five remote monitoring preconfigured solutions in a given subscription.
+Fifty. You can create an [Azure support ticket][link-azuresupportticket] to raise this limit, but by default, you can only provision fifty DocumentDB instances per subscription. 
 
 ### How many Free Bing Maps APIs can I provision in a subscription?
 
@@ -47,7 +51,7 @@ Two. You can create only two Internal Transactions Level 1 Bing Maps for Enterpr
 
 4. After you've run a local or cloud deployment, look in your root folder for the *.user.config file created during deployment. Open this file in a text editor. 
 
-5. Change the following line to include the value you copied fror your QueryKey: 
+5. Change the following line to include the value you copied from your QueryKey: 
    
   `<setting name="MapApiQueryKey" value="" />`
 
@@ -58,7 +62,18 @@ At this time, you cannot create a preconfigured solution with a [Microsoft Azure
 
 See Eric Golpe's blog post [Walkthrough of Deleting an Azure AD Tenant][lnk-delete-aad-tennant].
 
+## Next steps
+
+You can also explore some of the other features and capabilities of the IoT Suite preconfigured solutions:
+
+- [Predictive maintenance preconfigured solution overview][lnk-predictive-overview]
+- [IoT security from the ground up][lnk-security-groundup]
+
+[lnk-predictive-overview]: iot-suite-predictive-overview.md
+[lnk-security-groundup]: securing-iot-ground-up.md
+
 [link-azuresupportticket]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade 
+[link-azuresublimits]: https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#iot-hub-limits
 [lnk-azure-portal]: https://portal.azure.com
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/
 [lnk-classic-portal]: https://manage.windowsazure.com

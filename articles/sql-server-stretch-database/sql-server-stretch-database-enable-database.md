@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/27/2016"
+	ms.date="08/05/2016"
 	ms.author="douglasl"/>
 
 # Enable Stretch Database for a database
@@ -22,7 +22,9 @@ To configure an existing database for Stretch Database, select **Tasks | Stretch
 
 If you select **Tasks | Stretch | Enable** for an individual table, and you have not yet enabled the database for Stretch Database, the wizard configures the database for Stretch Database and lets you select tables as part of the process. Follow the steps in this topic instead of the steps in [Enable Stretch Database for a table](sql-server-stretch-database-enable-database.md).
 
-Enabling Stretch Database on  a database or a table requires db\_owner permissions. Enabling Stretch Database on a database also requires CONTROL DATABASE permissions.
+Enabling Stretch Database on a database or a table requires db\_owner permissions. Enabling Stretch Database on a database also requires CONTROL DATABASE permissions.
+
+ >   [AZURE.NOTE] Later, if you disable Stretch Database, remember that disabling Stretch Database for a table or for a database does not delete the remote object. If you want to delete the remote table or the remote database, you have to drop it by using the Azure management portal. The remote objects continue to incur Azure costs until you delete them manually.
 
 ## Before you get started
 
@@ -46,6 +48,7 @@ To enable Stretch Database on the server manually, run **sp\_configure** and tur
 ```
 EXEC sp_configure 'remote data archive' , '1';
 GO
+
 RECONFIGURE;
 GO
 ```
@@ -62,6 +65,10 @@ Enabling Stretch Database on  a database or a table requires db\_owner permissio
 1.  Before you begin, choose an existing Azure server for the data that Stretch Database migrates, or create a new Azure server.
 
 2.  On the Azure server, create a firewall rule with the IP address range of the  SQL Server that lets SQL Server communicate with the remote server.
+
+    You can easily find the values you need and create the firewall rule by attempting to connect to the Azure server from Object Explorer in SQL Server Management Studio (SSMS). SSMS helps you to create the rule by opening the following dialog box which already includes the required IP address values.
+
+	![Create a firewall rule in SSMS][FirewallRule]
 
 3.  To configure a SQL Server database for Stretch Database, the database has to have a database master key. The database master key secures the credentials that Stretch Database uses to connect to the remote database. Here's an example that creates a new database master key.
 
@@ -135,3 +142,5 @@ Enabling Stretch Database on  a database or a table requires db\_owner permissio
 [Identify databases and tables for Stretch Database](sql-server-stretch-database-identify-databases.md)
 
 [ALTER DATABASE SET Options (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
+
+[FirewallRule]: ./media/sql-server-stretch-database-enable-database/firewall.png

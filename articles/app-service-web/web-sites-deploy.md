@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/21/2016"
-	ms.author="cephalin;tdykstra;dariac"/>
+	ms.date="09/06/2016"
+	ms.author="cephalin;dariac"/>
     
 # Deploy your app to Azure App Service
 
@@ -55,7 +55,7 @@ processes you can leverage, the actual DevOps functionality at your disposal dep
 specific tools you choose. For example, if you perform Web Deploy from [Visual Studio with Azure SDK](#vspros), even though you don't get automation 
 from Kudu, you do get package restore and MSBuild automation in Visual Studio. 
 
->[AZURE.NOTE] These deployment processes don't actually [provision the Azure resources](../azure-portal/resource-group-portal.md) that your app may need. However, most of the linked how-to articles show you how to provision the app AND deploy 
+>[AZURE.NOTE] These deployment processes don't actually [provision the Azure resources](../resource-group-template-deploy-portal.md) that your app may need. However, most of the linked how-to articles show you how to provision the app AND deploy 
 your code to it end-to-end. You can also find additional options for provisioning Azure resources in the 
 [Automate deployment by using command-line tools](#automate) section.
      
@@ -129,7 +129,7 @@ Con of deploying from a cloud-based source control service is:
 ###<a name="vsts"></a>How to deploy continuously from a cloud-based source control service
 In the [Azure Portal](https://portal.azure.com), you can configure continuous deployment from GitHub, Bitbucket, and Visual Studio Team Services.
 
-* [Continous Deployment to Azure App Service](app-service-continous-deployment.md). 
+* [Continous Deployment to Azure App Service](app-service-continuous-deployment.md). 
 
 ## <a name="localgitdeployment"></a>Deploy from local Git
 If your development team uses an on-premises local source code management (SCM) service based on Git, you can configure this as a deployment source to App Service. 
@@ -233,7 +233,7 @@ For more information, see the following resources:
 * [Provision a web app with a SQL Database](app-service-web-arm-with-sql-database-provision.md)
 * [Provision and deploy microservices predictably in Azure](app-service-deploy-complex-application-predictably.md)
 * [Building Real-World Cloud Apps with Azure - Automate Everything](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything). E-book chapter that explains how the sample application shown in the e-book uses Windows PowerShell scripts to create an Azure test environment and deploy to it. See the [Resources](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything#resources) section for links to additional Azure PowerShell documentation.
-* [Using Windows PowerShell Scripts to Publish to Dev and Test Environments](http://msdn.microsoft.com/library/dn642480.aspx). How to use Windows PowerShell deployment scripts that Visual Studio generates.
+* [Using Windows PowerShell Scripts to Publish to Dev and Test Environments](../vs-azure-tools-publishing-using-powershell-scripts.md). How to use Windows PowerShell deployment scripts that Visual Studio generates.
 
 ###<a name="api"></a>Automate deployment with .NET management API
 

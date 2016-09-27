@@ -13,12 +13,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="04/18/2016"
+	ms.date="09/27/2016"
 	ms.author="marsma"/>
 
 # Automatically scale compute nodes in an Azure Batch pool
 
-With automatic scaling, the Azure Batch service can dynamically add or remove compute nodes in a pool based on parameters you define. This allows you to automatically adjust the amount of compute resources used by your application, potentially saving you time and money.
+With automatic scaling, the Azure Batch service can dynamically add or remove compute nodes in a pool based on parameters that you define. You can potentially save both time and money by automatically adjusting the amount of compute power used by your application--add nodes as your job's task demands increase, and remove them when they decrease.
 
 You enable automatic scaling on a pool of compute nodes by associating with it an *autoscale formula* that you define, such as with the [PoolOperations.EnableAutoScale][net_enableautoscale] method in the [Batch .NET](batch-dotnet-get-started.md) library. The Batch service then uses this formula to determine the number of compute nodes that are needed to execute your workload. Batch responds to service metrics data samples that are collected periodically, and adjusts the number of compute nodes in the pool at a configurable interval based on your formula.
 
@@ -28,15 +28,15 @@ You can enable automatic scaling when a pool is created, or on an existing pool.
 
 An automatic scaling formula is a string value that you define that contains one or more statements, and is assigned to a pool's [autoScaleFormula][rest_autoscaleformula] element (Batch REST) or [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] property (Batch .NET). When assigned to a pool, the Batch service uses your formula to determine the target number of compute nodes in the pool for the next interval of processing (more on intervals later). The formula string cannot exceed 8 KB in size, can include up to 100 statements that are separated by semicolons, and can include line breaks and comments.
 
-You can think of automatic scaling formulas as using a Batch autoscale "language." Formula statements are free-formed expressions that can include system-defined and user-defined variables, as well as constants. They can perform various operations on these values by using built-in types, operators, and functions. For example, a statement might take the following form:
+You can think of automatic scaling formulas as using a Batch autoscale "language." Formula statements are free-formed expressions that can include both service-defined variables (variables defined by the Batch service) and user-defined variables (variables that you define). They can perform various operations on these values by using built-in types, operators, and functions. For example, a statement might take the following form:
 
-`VAR = Expression(system-defined variables, user-defined variables);`
+`$myNewVariable = function($ServiceDefinedVariable, $myCustomVariable);`
 
-Formulas generally contain multiple statements that perform operations on values that are obtained in previous statements:
+Formulas generally contain multiple statements that perform operations on values that are obtained in previous statements. For example, first we obtain a value for  `variable1`, then pass it to a function to populate `variable2`:
 
 ```
-VAR₀ = Expression₀(system-defined variables);
-VAR₁ = Expression₁(system-defined variables, VAR₀);
+$variable1 = function1($ServiceDefinedVariable);
+$variable2 = function2($OtherServiceDefinedVariable, $variable1);
 ```
 
 With these statements in your formula, your goal is to arrive at a number of compute nodes that the pool should be scaled to--the **target** number of **dedicated nodes**. This number may be higher, lower, or the same as the current number of nodes in the pool. Batch evaluates a pool's autoscale formula at a specific interval ([automatic scaling intervals](#automatic-scaling-interval) are discussed below). Then it will adjust the target number of nodes in the pool to the number that your autoscale formula specifies at the time of evaluation.
@@ -50,109 +50,44 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 
 The next few sections of this article discuss the various entities that will make up your autoscale formulas, including variables, operators, operations, and functions. You'll find out how to obtain various compute resource and task metrics within Batch. You can use these metrics to intelligently adjust your pool's node count based on resource usage and task status. You'll then learn how to construct a formula and enable automatic scaling on a pool by using both the Batch REST and .NET APIs. We'll finish up with a few example formulas.
 
-> [AZURE.IMPORTANT] Each Azure Batch account is limited to a maximum number of compute nodes that can be used for processing. The Batch service will create nodes only up to that limit. Therefore, it may not reach the target number that is specified by a formula. See [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for information on viewing and increasing your account quotas.
+> [AZURE.IMPORTANT] Each Azure Batch account is limited to a maximum number of cores (and therefore compute nodes) that can be used for processing. The Batch service will create nodes only up to that core limit. Therefore, it may not reach the target number of compute nodes that is specified by a formula. See [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for information on viewing and increasing your account quotas.
 
-## <a name="variables"></a>Variables
+## Variables
 
-You can use both system-defined and user-defined variables in autoscale formulas. In the two-line example formula above, `$TargetDedicated` is a system-defined variable, while `$averageActiveTaskCount` is user-defined. The tables below show both read-write and read-only variables that are defined by the Batch service.
+You can use both **service-defined** and **user-defined** variables in your autoscale formulas. The service-defined variables are built in to the Batch service--some are read-write, and some are read-only. User-defined variables are variables that *you* define. In the two-line example formula above, `$TargetDedicated` is a service-defined variable, while `$averageActiveTaskCount` is a user-defined variable.
 
-*Get* and *set* the values of these **system-defined variables** to manage the number of compute nodes in a pool:
+The tables below show both read-write and read-only variables that are defined by the Batch service.
 
-<table>
-  <tr>
-    <th>Variables (read-write)</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>$TargetDedicated</td>
-    <td>The <b>target</b> number of <b>dedicated compute nodes</b> for the pool. This is the number of compute nodes that the pool should be scaled to. It is a "target" number since it's possible for a pool not to reach the target number of nodes. This can occur if the target number of nodes is modified again by a subsequent autoscale evaluation before the pool has reached the initial target. It can also happen if a Batch account node or core quota is reached before the target number of nodes is reached.</td>
-  </tr>
-  <tr>
-    <td>$NodeDeallocationOption</td>
-    <td>The action that occurs when compute nodes are removed from a pool. Possible values are:
-      <br/>
-      <ul>
-        <li><p><b>requeue</b>--Terminates tasks immediately and puts them back on the job queue so that they are rescheduled.</p></li>
-        <li><p><b>terminate</b>--Terminates tasks immediately and removes them from the job queue.</p></li>
-        <li><p><b>taskcompletion</b>--Waits for currently running tasks to finish and then removes the node from the pool.</p></li>
-        <li><p><b>retaineddata</b>--Waits for all the local task-retained data on the node to be cleaned up before removing the node from the pool.</p></li>
-      </ul></td>
-   </tr>
-</table>
+You can **get** and **set** the values of these service-defined variables to manage the number of compute nodes in a pool:
 
-*Get* the value of these **system-defined variables** to make adjustments that are based on metrics from the Batch service:
+| Read-write service-defined variables | Description |
+| --- | --- |
+| $TargetDedicated | The **target** number of **dedicated compute nodes** for the pool. This is the number of compute nodes that the pool should be scaled to. It is a "target" number since it's possible for a pool not to reach the target number of nodes. This can occur if the target number of nodes is modified again by a subsequent autoscale evaluation before the pool has reached the initial target. It can also happen if a Batch account node or core quota is reached before the target number of nodes is reached. |
+| $NodeDeallocationOption | The action that occurs when compute nodes are removed from a pool. Possible values are:<ul><li>**requeue**--Terminates tasks immediately and puts them back on the job queue so that they are rescheduled.<li>**terminate**--Terminates tasks immediately and removes them from the job queue.<li>**taskcompletion**--Waits for currently running tasks to finish and then removes the node from the pool.<li>**retaineddata**--Waits for all the local task-retained data on the node to be cleaned up before removing the node from the pool.</ul> |
 
-<table>
-  <tr>
-    <th>Variables (read-only)</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>$CPUPercent</td>
-    <td>The average percentage of CPU usage.</td>
-  </tr>
-  <tr>
-    <td>$WallClockSeconds</td>
-    <td>The number of seconds consumed.</td>
-  </tr>
-  <tr>
-    <td>$MemoryBytes</td>
-    <td>The average number of megabytes used.</td>
-  <tr>
-    <td>$DiskBytes</td>
-    <td>The average number of gigabytes used on the local disks.</td>
-  </tr>
-  <tr>
-    <td>$DiskReadBytes</td>
-    <td>The number of bytes read.</td>
-  </tr>
-  <tr>
-    <td>$DiskWriteBytes</td>
-    <td>The number of bytes written.</td>
-  </tr>
-  <tr>
-    <td>$DiskReadOps</td>
-    <td>The count of read disk operations performed.</td>
-  </tr>
-  <tr>
-    <td>$DiskWriteOps</td>
-    <td>The count of write disk operations performed.</td>
-  </tr>
-  <tr>
-    <td>$NetworkInBytes</td>
-    <td>The number of inbound bytes.</td>
-  </tr>
-  <tr>
-    <td>$NetworkOutBytes</td>
-    <td>The number of outbound bytes.</td>
-  </tr>
-  <tr>
-    <td>$SampleNodeCount</td>
-    <td>The count of compute nodes.</td>
-  </tr>
-  <tr>
-    <td>$ActiveTasks</td>
-    <td>The number of tasks in an active state.</td>
-  </tr>
-  <tr>
-    <td>$RunningTasks</td>
-    <td>The number of tasks in a running state.</td>
-  </tr>
-  <tr>
-    <td>$SucceededTasks</td>
-    <td>The number of tasks that finished successfully.</td>
-  </tr>
-  <tr>
-    <td>$FailedTasks</td>
-    <td>The number of tasks that failed.</td>
-  </tr>
-  <tr>
-    <td>$CurrentDedicated</td>
-    <td>The current number of dedicated compute nodes.</td>
-  </tr>
-</table>
+You can **get** the value of these service-defined variables to make adjustments that are based on metrics from the Batch service:
 
-> [AZURE.TIP] The read-only, system-defined variables that are shown above are *objects* that provide various methods to access data associated with each. See [Obtain sample data](#getsampledata) below for more information.
+| Read-only service-defined variables | Description |
+| --- | --- |
+| $CPUPercent | The average percentage of CPU usage. |
+| $WallClockSeconds | The number of seconds consumed. |
+| $MemoryBytes | The average number of megabytes used. |
+| $DiskBytes | The average number of gigabytes used on the local disks. |
+| $DiskReadBytes | The number of bytes read. |
+| $DiskWriteBytes | The number of bytes written. |
+| $DiskReadOps | The count of read disk operations performed. |
+| $DiskWriteOps | The count of write disk operations performed. |
+| $NetworkInBytes | The number of inbound bytes. |
+| $NetworkOutBytes | The number of outbound bytes. |
+| $SampleNodeCount | The count of compute nodes. |
+| $ActiveTasks | The number of tasks in an active state. |
+| $RunningTasks | The number of tasks in a running state. |
+| $PendingTasks | The sum of $ActiveTasks and $RunningTasks. |
+| $SucceededTasks | The number of tasks that finished successfully. |
+| $FailedTasks | The number of tasks that failed. |
+| $CurrentDedicated | The current number of dedicated compute nodes. |
+
+> [AZURE.TIP] The read-only, service-defined variables that are shown above are *objects* that provide various methods to access data associated with each. See [Obtain sample data](#getsampledata) below for more information.
 
 ## Types
 
@@ -163,6 +98,7 @@ These **types** are supported in a formula.
 - doubleVecList
 - string
 - timestamp--timestamp is a compound structure that contains the following members:
+
 	- year
 	- month (1-12)
 	- day (1-31)
@@ -171,6 +107,7 @@ These **types** are supported in a formula.
 	- minute (00-59)
 	- second (00-59)
 - timeinterval
+
 	- TimeInterval_Zero
 	- TimeInterval_100ns
 	- TimeInterval_Microsecond
@@ -241,48 +178,17 @@ The *doubleVecList* value is converted to a single *doubleVec* prior to evaluati
 
 ## <a name="getsampledata"></a>Obtain sample data
 
-Autoscale formulas act on metrics data (samples) that is provided by the Batch service. A formula grows or shrinks pool size based on the values that it obtains from the service. The system-defined variables that are described above are objects that provide various methods to access data that is associated with that object. For example, the following expression shows a request to get the last five minutes of CPU usage:
+Autoscale formulas act on metrics data (samples) that is provided by the Batch service. A formula grows or shrinks pool size based on the values that it obtains from the service. The service-defined variables that are described above are objects that provide various methods to access data that is associated with that object. For example, the following expression shows a request to get the last five minutes of CPU usage:
 
 `$CPUPercent.GetSample(TimeInterval_Minute * 5)`
 
-<table>
-  <tr>
-    <th>Method</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td>GetSample()</td>
-    <td><p>The <b>GetSample()</b> method returns a vector of data samples.
-	<p>A sample is 30 seconds worth of metrics data. In other words, samples are obtained every 30 seconds. But as noted below, there is a delay between when a sample is collected and when it is available to a formula. As such, not all samples for a given time period may be available for evaluation by a formula.
-        <ul>
-          <li><p><b>doubleVec GetSample(double count)</b>--Specifies the number of samples to obtain from the most recent samples that were collected.</p>
-				  <p>GetSample(1) returns the last available sample. For metrics like $CPUPercent, however, this should not be used because it is impossible to know <em>when</em> the sample was collected. It might be recent, or, because of system issues, it might be much older. It is better in such cases to use a time interval as shown below.</p></li>
-          <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime [, double samplePercent])</b>--Specifies a time frame for gathering sample data. Optionally, it also specifies the percentage of samples that must be available in the requested time frame.</p>
-          <p><em>$CPUPercent.GetSample(TimeInterval_Minute * 10)</em> would return 20 samples if all samples for the last ten minutes are present in the CPUPercent history. If the last minute of history was not available, however, only 18 samples would be returned. In this case:<br/>
-		  &nbsp;&nbsp;&nbsp;&nbsp;<em>$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)</em> would fail because only 90 percent of the samples are available.<br/>
-		  &nbsp;&nbsp;&nbsp;&nbsp;<em>$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)</em> would succeed.</p></li>
-          <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime, (timestamp | timeinterval) endTime [, double samplePercent])</b>--Specifies a time frame for gathering data, with both a start time and an end time.</p></li></ul>
-		  <p>As mentioned above, there is a delay between when a sample is collected and when it is available to a formula. This must be considered when you use the <em>GetSample</em> method. See <em>GetSamplePercent</em> below.</td>
-  </tr>
-  <tr>
-    <td>GetSamplePeriod()</td>
-    <td>Returns the period of samples that were taken in a historical sample data set.</td>
-  </tr>
-	<tr>
-		<td>Count()</td>
-		<td>Returns the total number of samples in the metric history.</td>
-	</tr>
-  <tr>
-    <td>HistoryBeginTime()</td>
-    <td>Returns the time stamp of the oldest available data sample for the metric.</td>
-  </tr>
-  <tr>
-    <td>GetSamplePercent()</td>
-    <td><p>Returns the percentage of samples that are available for a given time interval. For example:</p>
-    <p><b>doubleVec GetSamplePercent( (timestamp | timeinterval) startTime [, (timestamp | timeinterval) endTime] )</b>
-	<p>Because the GetSample method fails if the percentage of samples returned is less than the samplePercent specified, you can use the GetSamplePercent method to check first. Then you can perform an alternate action if insufficient samples are present, without halting the automatic scaling evaluation.</p></td>
-  </tr>
-</table>
+| Method | Description |
+| --- | --- |
+| GetSample() | The `GetSample()` method returns a vector of data samples.<br/><br/>A sample is 30 seconds worth of metrics data. In other words, samples are obtained every 30 seconds. But as noted below, there is a delay between when a sample is collected and when it is available to a formula. As such, not all samples for a given time period may be available for evaluation by a formula.<ul><li>`doubleVec GetSample(double count)`<br/>Specifies the number of samples to obtain from the most recent samples that were collected.<br/><br/>`GetSample(1)` returns the last available sample. For metrics like `$CPUPercent`, however, this should not be used because it is impossible to know *when* the sample was collected. It might be recent, or, because of system issues, it might be much older. It is better in such cases to use a time interval as shown below.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Specifies a time frame for gathering sample data. Optionally, it also specifies the percentage of samples that must be available in the requested time frame.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` would return 20 samples if all samples for the last ten minutes are present in the CPUPercent history. If the last minute of history was not available, however, only 18 samples would be returned. In this case:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` would fail because only 90 percent of the samples are available.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` would succeed.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Specifies a time frame for gathering data, with both a start time and an end time.<br/><br/>As mentioned above, there is a delay between when a sample is collected and when it is available to a formula. This must be considered when you use the `GetSample` method. See `GetSamplePercent` below.|
+| GetSamplePeriod() | Returns the period of samples that were taken in a historical sample data set. |
+| Count() | Returns the total number of samples in the metric history. |
+| HistoryBeginTime() | Returns the time stamp of the oldest available data sample for the metric. |
+| GetSamplePercent() |Returns the percentage of samples that are available for a given time interval. For example:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Because the `GetSample` method fails if the percentage of samples returned is less than the `samplePercent` specified, you can use the `GetSamplePercent` method to check first. Then you can perform an alternate action if insufficient samples are present, without halting the automatic scaling evaluation.|
 
 ### Samples, sample percentage, and the *GetSample()* method
 
@@ -332,13 +238,13 @@ You can use both **resource** and **task** metrics when you're defining a formul
   <tr>
     <td><b>Resource</b></td>
     <td><p><b>Resource metrics</b> are based on the CPU, bandwidth, and memory usage of compute nodes, as well as the number of nodes.</p>
-		<p> These system-defined variables are useful for making adjustments based on node count:</p>
+		<p> These service-defined variables are useful for making adjustments based on node count:</p>
     <p><ul>
       <li>$TargetDedicated</li>
 			<li>$CurrentDedicated</li>
 			<li>$SampleNodeCount</li>
     </ul></p>
-    <p>These system-defined variables are useful for making adjustments based on node resource usage:</p>
+    <p>These service-defined variables are useful for making adjustments based on node resource usage:</p>
     <p><ul>
       <li>$CPUPercent</li>
       <li>$WallClockSeconds</li>
@@ -353,10 +259,11 @@ You can use both **resource** and **task** metrics when you're defining a formul
   </tr>
   <tr>
     <td><b>Task</b></td>
-    <td><p><b>Task metrics</b> are based on the status of tasks, such as Active, Pending, and Completed. The following system-defined variables are useful for making pool-size adjustments based on task metrics:</p>
+    <td><p><b>Task metrics</b> are based on the status of tasks, such as Active, Pending, and Completed. The following service-defined variables are useful for making pool-size adjustments based on task metrics:</p>
     <p><ul>
       <li>$ActiveTasks</li>
       <li>$RunningTasks</li>
+      <li>$PendingTasks</li>
       <li>$SucceededTasks</li>
 			<li>$FailedTasks</li></ul></p>
 		</td>

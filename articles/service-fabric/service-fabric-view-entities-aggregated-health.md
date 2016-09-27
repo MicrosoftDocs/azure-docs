@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/25/2016"
+   ms.date="07/11/2016"
    ms.author="oanapl"/>
 
 # View Service Fabric health reports
@@ -1129,6 +1129,8 @@ Whenever there is an issue with the cluster or an application, look at the clust
 [Use system health reports to troubleshoot](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
 [Add custom Service Fabric health reports](service-fabric-report-health.md)
+
+[How to report and check service health](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
 
 [Monitor and diagnose services locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
