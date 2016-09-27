@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/11/2016"
+	ms.date="09/25/2016"
 	ms.author="glenga"/>
 
 # How to use the managed client for Azure Mobile Apps
@@ -490,7 +490,7 @@ section "[Select specific columns](#selecting)" above to select specific columns
 
 ###<a name="pagesize"></a>Change the Page size
 
-Azure Mobile Apps returns a maxium of 50 items per request by default.  You can change this by increasing the maximum page size on the server and increasing the requested page size on the lient side.  To increase the requested page size, use an overload of `PullAsync` that lets you specify `PullOptions`:
+Azure Mobile Apps returns a maxium of 50 items per request by default.  You can change this by increasing the maximum page size on the server and increasing the requested page size on the client side.  To increase the requested page size, use an overload of `PullAsync` that lets you specify `PullOptions`:
 
     PullOptions pullOptions = new PullOptions
 		{
