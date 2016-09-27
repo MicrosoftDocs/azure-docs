@@ -496,7 +496,7 @@ To find the **version** of gateway:
 
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types. 
 
-The typeProperties section is different for each type of dataset and provides information about the location, format etc., of the data in the data store. The typeProperties section for dataset of type **FileShare** dataset has the following properties.
+The typeProperties section is different for each type of dataset and provides information about the location, format etc., of the data in the data store. The typeProperties section for dataset of type **FileShare** dataset has the following properties:
 
 Property | Description | Required
 -------- | ----------- | --------
@@ -505,7 +505,7 @@ fileName | Specify the name of the file in the **folderPath** if you want the ta
 partitionedBy | partitionedBy can be used to specify a dynamic folderPath, filename for time series data. For example, folderPath parameterized for every hour of data. | No
 Format | The following format types are supported: **TextFormat**, **AvroFormat**, **JsonFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. See [Specifying TextFormat](#specifying-textformat), [Specifying AvroFormat](#specifying-avroformat), [Specifying JsonFormat](#specifying-jsonformat), [Specifying OrcFormat](#specifying-orcformat), and [Specifying ParquetFormat](#specifying-parquetformat) sections for details. If you want to copy files as-is between file-based stores (binary copy), you can skip the format section in both input and output dataset definitions. | No
 fileFilter | Specify a filter to be used to select a subset of files in the folderPath rather than all files. <br/><br/>Allowed values are: * (multiple characters) and ? (single character).<br/><br/>Examples 1: "fileFilter": "*.log"<br/>Example 2: "fileFilter": 2014-1-?.txt"<br/><br/>**Note**: fileFilter is applicable for an input FileShare dataset | No
-| compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, and **BZip2** and supported levels are: **Optimal** and **Fastest**. Currently, compression settings are not supported for data in **AvroFormat** or **OrcFormat**. See [Compression support](#compression-support) section for more details. | No |
+| compression | Specify the type and level of compression for the data. Supported types are: **GZip**, **Deflate**, and **BZip2** and supported levels are: **Optimal** and **Fastest**. Currently, compression settings are not supported for data in **AvroFormat** or **OrcFormat**. For more information, see [Compression support](#compression-support) section. | No |
 
 > [AZURE.NOTE] filename and fileFilter cannot be used simultaneously.
 
