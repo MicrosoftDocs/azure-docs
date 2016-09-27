@@ -261,7 +261,8 @@ You are now ready to run the applications.
     ```
     node ReadDeviceToCloudMessages.js 
     ```
-[7]
+
+    ![Node.js IoT Hub service client application to monitor device-to-cloud messages][7]
 
 2. At a command-prompt in the **simulateddevice** folder, run the following command to begin sending telemetry data to your IoT hub:
 
@@ -269,11 +270,11 @@ You are now ready to run the applications.
     node SimulatedDevice.js
     ```
 
-    ![][8]
+    ![Node.js IoT Hub device client application to send device-to-cloud messages][8]
 
 3. The **Usage** tile in the [Azure portal][lnk-portal] shows the number of messages sent to the hub:
 
-    ![][43]
+    ![Azure portal Usage tile showing number of messages sent to IoT Hub][43]
 
 ## Next steps
 
