@@ -19,7 +19,7 @@
 
 # Discover industry-specific solutions in the Cortana Intelligence Gallery
 
-[AZURE.INCLUDE [machine-learning-gallery-item-selector](../includes/machine-learning-gallery-item-selector.md)]
+[AZURE.INCLUDE [machine-learning-gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -33,6 +33,6 @@ section of the Gallery brings together various resources that are specific to su
 - [Banking](https://gallery.cortanaintelligence-int.com/industries/banking) - Find banking solutions such as predicting credit risk and monitoring for online fraud.
 - [Healthcare](https://gallery.cortanaintelligence-int.com/industries/healthcare) - Find healthcare solutions such as detecting disease, and predicting hospital readmissions.
   
-[AZURE.INCLUDE [machine-learning-gallery-discover-and-learn](../includes/machine-learning-gallery-discover-and-learn.md)]
+[AZURE.INCLUDE [machine-learning-gallery-discover-and-learn](../../includes/machine-learning-gallery-discover-and-learn.md)]
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**

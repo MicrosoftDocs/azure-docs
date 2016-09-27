@@ -19,7 +19,7 @@
 
 # Discover custom machine learning modules in the Cortana Intelligence Gallery
 
-[AZURE.INCLUDE [machine-learning-gallery-item-selector](../includes/machine-learning-gallery-item-selector.md)]
+[AZURE.INCLUDE [machine-learning-gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -30,7 +30,7 @@ are available in the Cortana Intelligence Gallery that expand the capabilities o
 You can download the modules and deploy them into your experiments.
   
   
-[AZURE.INCLUDE [machine-learning-gallery-discover-and-learn](../includes/machine-learning-gallery-discover-and-learn.md)]
+[AZURE.INCLUDE [machine-learning-gallery-discover-and-learn](../../includes/machine-learning-gallery-discover-and-learn.md)]
 
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**

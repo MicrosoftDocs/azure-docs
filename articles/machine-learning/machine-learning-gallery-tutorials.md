@@ -19,7 +19,7 @@
 
 # Discover and share tutorials in the Cortana Intelligence Gallery
 
-[AZURE.INCLUDE [machine-learning-gallery-item-selector](../includes/machine-learning-gallery-item-selector.md)]
+[AZURE.INCLUDE [machine-learning-gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -29,6 +29,6 @@ A number of
 are available to walk you through machine learning technologies and concepts, or to describe advanced methods for solving various machine learning problems.
   
   
-[AZURE.INCLUDE [machine-learning-gallery-discover-and-learn](../includes/machine-learning-gallery-discover-and-learn.md)]
+[AZURE.INCLUDE [machine-learning-gallery-discover-and-learn](../../includes/machine-learning-gallery-discover-and-learn.md)]
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**

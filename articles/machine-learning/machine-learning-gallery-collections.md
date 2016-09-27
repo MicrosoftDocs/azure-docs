@@ -19,7 +19,7 @@
 
 # Discover and share collections in the Cortana Intelligence Gallery
 
-[AZURE.INCLUDE [machine-learning-gallery-item-selector](../includes/machine-learning-gallery-item-selector.md)]
+[AZURE.INCLUDE [machine-learning-gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -29,7 +29,7 @@ A
 allows you to group together experiments, APIs, and other Gallery items that address a specific solution or concept.
   
   
-[AZURE.INCLUDE [machine-learning-gallery-discover-and-learn](../includes/machine-learning-gallery-discover-and-learn.md)]
+[AZURE.INCLUDE [machine-learning-gallery-discover-and-learn](../../includes/machine-learning-gallery-discover-and-learn.md)]
 
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**

@@ -19,7 +19,7 @@
 
 # Discover machine learning APIs in the Cortana Intelligence Gallery
 
-[AZURE.INCLUDE [machine-learning-gallery-item-selector](../includes/machine-learning-gallery-item-selector.md)]
+[AZURE.INCLUDE [machine-learning-gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
@@ -29,7 +29,7 @@ A solution developed in Azure Machine Learning can be launched as a web service 
 are available in the Gallery, such as a product recommendation engine or cloud-based face and speech recognition.
   
   
-[AZURE.INCLUDE [machine-learning-gallery-discover-and-learn](../includes/machine-learning-gallery-discover-and-learn.md)]
+[AZURE.INCLUDE [machine-learning-gallery-discover-and-learn](../../includes/machine-learning-gallery-discover-and-learn.md)]
 
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**

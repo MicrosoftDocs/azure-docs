@@ -19,7 +19,7 @@
 
 # Share and discover solutions in the Cortana Intelligence Gallery
 
-[AZURE.INCLUDE [gallery-item-selector](../includes/machine-learning-gallery-item-selector.md)]
+[AZURE.INCLUDE [gallery-item-selector](../../includes/machine-learning-gallery-item-selector.md)]
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
