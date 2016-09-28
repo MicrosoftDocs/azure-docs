@@ -73,7 +73,7 @@ In this section, you create a Node.js console app that responds to a direct meth
 5. Add a **connectionString** variable and use it to create a device client.  
 
     ```
-    var connectionString = 'HostName={youriothostname};DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}';
+    var connectionString = 'HostName={youriothostname};DeviceId=myDeviceId;SharedAccessKey={yourdevicekey}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
 
@@ -89,12 +89,12 @@ In this section, you create a Node.js console app that responds to a direct meth
 
       twin.properties.reported.update(patch, function(err) {
         if (err) throw err;
-        console.log('twin state reported')
+          console.log('twin state reported')
       });
     };
     ```
     
-7. Add the following functions wihch will simulate the download and apply of the firmware image.
+7. Add the following functions which will simulate the download and apply of the firmware image.
 
     ```
     var simulateDownloadImage = function(imageUrl, callback) {
@@ -213,7 +213,9 @@ In this section, you create a Node.js console app that responds to a direct meth
 
     ```
     var onFirmwareUpdate = function(request, response) {
-
+      
+      response.write(JSON.stringify('FirmwareUpdate started'));
+      
       // Respond the cloud app for the direct method
       response.end(200, function(err) {
         if (!!err) {
@@ -224,11 +226,10 @@ In this section, you create a Node.js console app that responds to a direct meth
       });
 
       // Get the parameter from the body of the method request
-      var string = String.fromCharCode.apply(null, request.body); 
-      var fwPackageUri = JSON.parse(string).fwPackageUri;
+      var fwPackageUri = JSON.parse(JSON.parse(request.body.toString())).fwPackageUri;
 
       // Obtain the device twin
-      client.getDeviceTwin(function(err, twin) {
+      client.getTwin(function(err, twin) {
         if (err) {
           console.error('Could not get device twin.');
         } else {
@@ -293,18 +294,17 @@ In this section, you create a Node.js console app that initiates a remote firmwa
 5. Add the following variable declarations and replace the placeholder values:
 
     ```
-    var connectionString = '{iothubconnectionstring}';
+    var connectionString = '{device_connectionstring}';
     var registry = Registry.fromConnectionString(connectionString);
     var client = Client.fromConnectionString(connectionString);
-    var deviceToReboot = {deviceIdOfTargetDevice};
+    var deviceToUpdate = 'myDeviceId';
     ```
     
 6. Add the following function to find and display the value of the firmwareUpdate reported property.
 
     ```
     var queryTwinFWUpdateReported = function() {
-        //registry.findTwins("SELECT * FROM devices WHERE deviceId = '"+deviceToUpdate+"'", function(err, queryResult) {
-        registry.getDeviceTwin(deviceToUpdate, function(err, twin){
+        registry.getTwin(deviceToUpdate, function(err, twin){
             if (err) {
               console.error('Could not query twins: ' + err.constructor.name + ': ' + err.message);
             } else {
@@ -318,17 +318,24 @@ In this section, you create a Node.js console app that initiates a remote firmwa
 
     ```
     var startFirmwareUpdateDevice = function() {
-        var params = {
-            fwPackageUri: 'https://secureurl'
-        };
-        var methodName = "firmwareUpdate";
-        var timeout = 3000;
-        
-        client.invokeDeviceMethod(deviceToUpdate, methodName, JSON.stringify(params), timeout, function(err, result) {
-            if (err) {
-            console.error('Could not start the firmware update on the device: ' + err.message)
-            } 
-        });
+      var params = {
+          fwPackageUri: 'https://secureurl'
+      };
+      
+      var methodName = "firmwareUpdate";
+      var payloadData =  JSON.stringify(params);
+      
+      var methodParams = {
+        methodName: methodName,
+        payload: payloadData,
+        timeoutInSeconds: 30
+      };
+      
+      client.invokeDeviceMethod(deviceToUpdate, methodParams, function(err, result) {
+        if (err) {
+          console.error('Could not start the firmware update on the device: ' + err.message)
+        } 
+      });
     };
     ```
 
