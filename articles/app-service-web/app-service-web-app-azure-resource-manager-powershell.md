@@ -199,7 +199,7 @@ To get the publishing profile for a web app, use:
 
     Get-AzureRmWebAppPublishingProfile -Name ContosoWebApp -ResourceGroupName ContosoAzureResourceGroup -OutputFile .\publishingprofile.txt
 
-This will echo the publishing profile to the command line as well output the publishing profile to a text file.
+This echoes the publishing profile to the command line as well output the publishing profile to a text file.
 
 #### Reset Publishing Profile ####
 
