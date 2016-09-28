@@ -125,7 +125,7 @@ You can create a complex MongoDB sharded cluster using the following Azure quick
 
 This template follows the [MongoDB sharded cluster best practices](https://docs.mongodb.com/manual/core/sharded-cluster-components/) to provide redundancy and high availability. The template creates two shards, with three nodes in each replica set. One config server replica set with three nodes is also created, plus two `mongos` router servers to provide consistency to applications from across the shards.
 
-.[AZURE.NOTE] Deploying this complex MongoDB sharded cluster requires more than 20 cores, which is typically the default core count per region for a subscription. Open an Azure support request to increase your core count. The Azure CLI will return you to a prompt within a few seconds of creating the deployment, but the installation and configuration can take over an hour to complete. 
+.[AZURE.NOTE] Deploying this complex MongoDB sharded cluster requires more than 20 cores, which is typically the default core count per region for a subscription. Open an Azure support request to increase your core count. The Azure CLI returns you to a prompt within a few seconds of creating the deployment, but the installation and configuration can take over an hour to complete. 
 
 The following example creates a resource group with the name `MongoDBShardedCluster` in the `WestUS` region. Enter your own values as follows:
 
