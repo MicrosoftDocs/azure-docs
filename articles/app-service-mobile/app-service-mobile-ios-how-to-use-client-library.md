@@ -258,9 +258,9 @@ It's possible to configure a page size using **MSPullSettings** as shown below. 
 
 You could configure a different page size for performance reasons. If you have a large number of small data records, a high page size reduces server round-trips. 
 
-The page size specifies the number of data records, not a size in bytes. 
+This setting controls only the page size on the client side. If the client asks for a larger page size than the Mobile Apps backend supports, the page size is capped at the maximum the backend is configured to support. 
 
-Also note that this setting only the page size on the client side. If the client asks for a larger page size than the Mobile Apps backend supports, the page size is capped at the maximum the backend is configured to support. 
+This setting is also the _number_ of data records, not the _byte size_.
 
 If you increase the client page size, [you should also increase the page size on the server](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#_how-to-adjust-the-table-paging-size).
 
