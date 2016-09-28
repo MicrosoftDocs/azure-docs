@@ -22,7 +22,7 @@
 - [Azure CLI](app-service-web-app-azure-resource-manager-xplat-cli.md)
 - [Azure PowerShell](app-service-web-app-azure-resource-manager-powershell.md)
 
-With the release of Microsoft Azure Cross-platform Command Line Tools version 0.10.5, new commands have been added. These commands will give the user the ability to use Azure Resource Manager-based PowerShell commands to manage Web Apps.
+With the release of Microsoft Azure Cross-platform Command Line Tools version 0.10.5, new commands have been added. These commands give the user the ability to use Azure Resource Manager-based PowerShell commands to manage Web Apps.
 
 To learn about managing Resource Groups, see [Use the Azure CLI to manage Azure resources and resource groups](../xplat-cli-azure-resource-manager.md). 
 
@@ -160,7 +160,7 @@ To get the publishing profile for a web app, use:
 
     azure webapp publishingprofile --name ContosoWebApp --resource-group ContosoAzureResourceGroup
 
-This echoes the publishing profile username and password to the command line.
+This will echo the publishing profile username and password to the command line.
 
 ### Manage Web App hostnames ###
 
@@ -180,7 +180,7 @@ To add hostname bindings to a web app, use:
 
 #### Delete hostname bindings ####
 
-To delete a hostname bindings, use:
+To deletehostname bindings, use:
 
     azure webapp config hostnames delete --name ContosoWebApp --resource-group ContosoAzureResourceGroup --hostname www.contoso.com
 
