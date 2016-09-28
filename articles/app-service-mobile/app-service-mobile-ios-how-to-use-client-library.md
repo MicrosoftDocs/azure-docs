@@ -262,6 +262,8 @@ The page size specifies the number of data records, not a size in bytes.
 
 Also note that this setting only the page size on the client side. If the client asks for a larger page size than the Mobile Apps backend supports, the page size is capped at the maximum the backend is configured to support. 
 
+If you increase the client page size, [you should also increase the page size on the server](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#_how-to-adjust-the-table-paging-size).
+
 **Objective-C**:
 
 ```
