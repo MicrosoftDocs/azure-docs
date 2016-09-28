@@ -16,13 +16,13 @@
 	ms.date="9/26/2016"
 	ms.author="aelnably"/>
 
-# Using Azure Resource Manager-Based XPlat Cli for Azure Web App#
+# Using Azure Resource Manager-Based XPlat CLI for Azure Web App#
 
 > [AZURE.SELECTOR]
 - [Azure CLI](app-service-web-app-azure-resource-manager-xplat-cli.md)
 - [Azure PowerShell](app-service-web-app-azure-resource-manager-powershell.md)
 
-With the release of Microsoft Azure Cross-platform Command Line Tools version 0.10.5 new commands have been added, that give the user the ability to use Azure Resource Manager-based PowerShell commands to manage Web Apps.
+With the release of Microsoft Azure Cross-platform Command Line Tools version 0.10.5, new commands have been added. These commands will give the user the ability to use Azure Resource Manager-based PowerShell commands to manage Web Apps.
 
 To learn about managing Resource Groups, see [Use the Azure CLI to manage Azure resources and resource groups](../xplat-cli-azure-resource-manager.md). 
 
@@ -30,7 +30,7 @@ To learn about managing Resource Groups, see [Use the Azure CLI to manage Azure 
 ## Managing App Service Plans ##
 
 ### Create an App Service Plan ###
-To create a new app service plan, use the **azure appserviceplan create** command.
+To create an app service plan, use the **azure appserviceplan create** command.
 
 Following are descriptions of the different parameters:
 
@@ -52,7 +52,7 @@ To list all app service plans under a specific resource group, use:
 
     azure appserviceplan list --resource-group ContosoAzureResourceGroup
 
-To get a specific app service plan, use **azure appserviceplan show** command.:
+To get a specific app service plan, use **azure appserviceplan show** command:
 
     azure appserviceplan show --name ContosoAppServicePlan --resource-group southeastasia
 
@@ -77,15 +77,15 @@ To change the sku of an existing App Service Plan, use:
 
 ### Delete an existing App Service Plan ###
 
-To delete an existing app service plan, all assigned web apps need to be moved or deleted first and then using the **azure webapp delete** command you can delete the app service plan.
+To delete an existing app service plan, all assigned web apps need to be moved or deleted first. Then using the **azure webapp delete** command you can delete the app service plan.
 
     azure appserviceplan delete --name ContosoAppServicePlan --resource-group southeastasia
 
 ## Managing App Service Web Apps ##
 
-### Create a new Web App ###
+### Create a Web App ###
 
-To create a new web app, use the **azure webapp create** command.
+To create a web app, use the **azure webapp create** command.
 
 Following are descriptions of the different parameters:
 
@@ -160,7 +160,7 @@ To get the publishing profile for a web app, use:
 
     azure webapp publishingprofile --name ContosoWebApp --resource-group ContosoAzureResourceGroup
 
-Note that this will echo the publishing profile username and password to the command line.
+This echoes the publishing profile username and password to the command line.
 
 ### Manage Web App hostnames ###
 
@@ -174,13 +174,13 @@ To get the current hostname bindings for a web app, use:
 
 #### Add hostname bindings ####
 
-To add a hostname bindings to a web app, use:
+To add hostname bindings to a web app, use:
 
     azure webapp config hostnames add --name ContosoWebApp --resource-group ContosoAzureResourceGroup --hostname www.contoso.com
 
 #### Delete hostname bindings ####
 
-To delete a hostname bindings , use:
+To delete a hostname bindings, use:
 
     azure webapp config hostnames delete --name ContosoWebApp --resource-group ContosoAzureResourceGroup --hostname www.contoso.com
 
