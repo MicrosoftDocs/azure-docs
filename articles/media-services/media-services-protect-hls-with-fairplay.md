@@ -16,7 +16,7 @@
 	ms.date="09/27/2016"
 	ms.author="juliako"/>
 
-# Protect your HLS content with Apple FairPlay and/or Michrosoft PlayReady
+# Protect your HLS content with Apple FairPlay and/or Microsoft PlayReady
 
 Azure Media Services enables you to dynamically encrypt your HTTP Live Streaming (HLS) content using the following formats:  
 
