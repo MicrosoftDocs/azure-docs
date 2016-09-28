@@ -121,7 +121,7 @@ Example to use this cmdlet:
 
 ### Create a Web App in an App Service Environment ###
 
-To create a web app in an App Service Environment (ASE), use the same **New-AzureRmWebApp** command with extra parameters to specify the ASE name and the resource group name that the ASE belongs to.
+To create a web app in an App Service Environment (ASE). Use the same **New-AzureRmWebApp** command with extra parameters to specify the ASE name and the resource group name that the ASE belongs to.
 
     New-AzureRmWebApp -Name ContosoWebApp -AppServicePlan ContosoAppServicePlan -ResourceGroupName ContosoAzureResourceGroup -Location "South Central US"  -ASEName ContosoASEName -ASEResourceGroupName ContosoASEResourceGroupName
 
