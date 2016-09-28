@@ -256,7 +256,7 @@ With Azure Mobile Apps, the page size controls the number of records that are pu
 
 It's possible to configure a page size using **MSPullSettings** as shown below. The default page size is 50, and the example below changes it to 3.
 
-You could configure a different page size for performance reasons. If you have a large number of small data records, a high page size reduces server round-trips. 
+You could configure a different page size for performance reasons. If you have a large number of small data records, a high page size reduces the number of server round-trips. 
 
 This setting controls only the page size on the client side. If the client asks for a larger page size than the Mobile Apps backend supports, the page size is capped at the maximum the backend is configured to support. 
 
