@@ -49,7 +49,7 @@ You can grant access to users, groups and applications at a specific scope by as
 
 # Data plane access control
 
-The data plane consists of operations that affects the objects inside (such as keys, secrets and certificates) a key vault. This includes key operations such as create, import, update, list, backup and restore keys; cryptographic operations such as sign, verify, encrypt, decrypt, wrap and unwrap; and also set tags and other attributes for keys. Similarly for secrets it includes, get, set, list, delete.
+The Key Vault data plane consists of operations that affects the objects inside (such as keys, secrets and certificates) a key vault. This includes key operations such as create, import, update, list, backup and restore keys; cryptographic operations such as sign, verify, encrypt, decrypt, wrap and unwrap; and also set tags and other attributes for keys. Similarly for secrets it includes, get, set, list, delete.
 
 Data plane access is granted by setting access policies for a key vault. A user, group or an application must have Contributor permissions (RBAC) for management plane for a key vault to be able to set access policies for that key vault. A user, group or application can be granted access to perform specific operations for a keys or secrets in a key vault. Key Vault support up to 16 access policy entries for a key vault. It is recommended to create an Azure Active Directory security group and add users to that group to grant data plane access to a large number of users to a key vault.
 
@@ -74,19 +74,21 @@ Principles
 
 # Example
 
-Let's say Contoso is developing a web application that uses a certificate for SSL, Azure storage for storing data, and also uses a RSA 2048 bit key for sign operations. Let's say this web application is running in a VM (or a VM Scale Set). We can use key vault to store all the application secrets, and also use key vault to store the bootstrap certificate that will be used by the application to authenticate with Azure Active Directory.
+Let's say you are developing a web application that uses a certificate for SSL, Azure storage for storing data, and also uses a RSA 2048 bit key for sign operations. Let's say this web application is running in a VM (or a VM Scale Set). You can use key vault to store all the application secrets, and also use key vault to store the bootstrap certificate that will be used by the application to authenticate with Azure Active Directory.
 
-So here's a summary of all the keys and secrets we'll be storing in a key vault.
+So here's a summary of all the keys and secrets you'll be storing in a key vault.
 - **SSL Cert** - used for SSL
 - **Storage Key** - used to get access to Storage account
 - **RSA 2048bit key** - used for sign operations
 - **Bootstrap certificate** - used to authenticate to Azure Active Directory, to get access to Key Vault to fetch the storage key and use the RSA key for signing.
 
-Now let's meet the people who will managing, deploying and auditing this application. We'll use three roles in this example.
+Now let's meet the people who will be managing, deploying and auditing this application. We'll use three roles in this example.
 
 - **Security team** - These are typically IT staff from the 'office of the CSO (Chief Security Officer)' or equivalent, responsible for the proper safekeeping of secrets such as SSL certificates, RSA keys used for signing etc.
-- **Developers/operators** - These are the folks who develop this application and then deploy it in cloud. Typically they are not part of security team, and hence they should not access to any sensitive data, such as SSL certs, RSA keys etc, but the application they deploy should have access to those.
+- **Developers/operators** - These are the folks who develop this application and then deploy it in cloud. Typically they are not part of security team, and hence they should not have access to any sensitive data, such as SSL certs, RSA keys etc, but the application they deploy should have access to those.
 - **Auditors** - This is usually a different set of people, isolated from the developers and general IT staff. Their responsibility is to review proper use and maintenance of certificates, keys, etc and also ensure compliance with data security standards. 
+
+There is one more role that is outside the scope of this application, but relevent here to be mentioned, and that would be the subscription (or resource group) administrator. Subscription administrator will set up initial access permissions for the above three roles. Here we assume that the subscription administrator has granted access to security team to a resource group in which all the resources needed for this application will reside.
 
 Now let's see what actions each role will perform in the context of this application.
 
@@ -103,21 +105,70 @@ Now let's see what actions each role will perform in the context of this applica
 - Auditors
   - Review usage logs to confirm proper key/secret use and compliance with data security standards
 
-Since the focus of this article is on authentication and authorization, we will only illustrate the relevant portions pertaining to that and skip details regarding deploying certificates, accessing keys and secrets programmatically etc. Those details are already covered elsewhere. Deploying certificates stored in key vault to VMs is covered in a [blog post](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/), and there is a [sample code](https://www.microsoft.com/download/details.aspx?id=45343) available that illustrates how to use boostrap certificate to authenticate to Azure AD to get access to key vault.
-
 Now let's see what access permissions to key vault are needed by each role (and also the application) to perform their assigned tasks. 
 
 | User Role    | Management plane permissions | Data plane permissions |
 |--------------|------------------------------|------------------------|
-|Key vault manager|Key Vault Contributor|Keys: backup, create, delete, get, import, list, restore <br> Secrets: all|
-|Developer/Operator| None | Keys: list<br>Secrets:list |
-|Auditor| None | Keys: list<br>Secrets:list|
+|Security Team|Key Vault Contributor|Keys: backup, create, delete, get, import, list, restore <br> Secrets: all|
+|Developers/Operator| Key Vault deploy permission so that the VMs they deploy can fetch secrets from the designated key vault | Keys: list<br>Secrets:list |
+|Auditors| None | Keys: list<br>Secrets:list|
 |Application| None | Keys: sign<br>Secrets: get |
 
+Besides permission to key vault, all three roles will also need access to other resources. For example, to be able to deploy VMs (or Web Apps etc) Developers/Operators will also need 'Contributor' access to those resource types. Audiotors need read access to the storage account where the key vault logs will be stored. 
+
+Since the focus of this article is on authentication and authorization for Key Vault, we will only illustrate the relevant portions pertaining to that and skip details regarding deploying certificates, accessing keys and secrets programmatically etc. Those details are already covered elsewhere. Deploying certificates stored in key vault to VMs is covered in a [blog post](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/), and there is a [sample code](https://www.microsoft.com/download/details.aspx?id=45343) available that illustrates how to use boostrap certificate to authenticate to Azure AD to get access to key vault.
+
+Most of the access permissions can be granted using Azure Portal, but when it comes to granting granular permissions you'll need to use Azure PowerShell (or Azure CLI) to achieve the desired result. 
+
+The PowerShell snippetes below assume the following:
+
+- The Azure Active Directory administrator has created following security groups that represents the three roles: Contoso Security Team, Contoso App Devops, Contoso App Auditors. 
+
+- ContosoAppRG is the resource group where all the resouces will reside, contosologstorage is where the logs are stored. 
+
+- key vault and storage account where the logs are stored must be in the same Azure location
+
+
+First the subscription administrator will assing 'Key Vault Contributor' role to the security team.
+
+```
+New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "Key Vault Contributor" -ResourceGroupName ContosoAppRG
+```
+
+The script below illustrates how the security team can create a key vault, setup logging, and set access permissions for other roles and the application. 
 
 
 
+```
+# Create Key Vault and enable logging
+$sa = Get-AzureRmStorageAccount -ResourceGroup ContosoAppRG -Name contosologstorage
+$kv = New-AzureRmKeyVault -VaultName ContosoKeyVault -ResourceGroup ContosoAppRG -SKU premium -Location 'westus' -EnabledForDeployment
+Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
 
+# Data plane permissions for Security team
+Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -PermissionToKeys backup,create,delete,get,import,list,restore -PermissionToSecrets all
+
+# Management plane permissions for Dev/ops
+# Create a new role from an existing role
+$devopsrole = Get-AzureRmRoleDefinition -Name "Virtual Machine Contributor"
+$devopsrole.Id = $null
+$devopsrole.Name = "Contoso App Devops"
+$devopsrole.Description = "Can deploy VMs that need secrets from Key Vault"
+
+# Add permission for dev/ops so they can deploy VMs that have secrets deployed from key vaults
+$devopsrole.Actions.Add("Microsoft.KeyVault/vaults/deploy/action")
+New-AzureRmRoleDefinition -Role $role
+
+# Assign this newly defined role to Dev ops security group
+New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso App Devops')[0].Id -RoleDefinitionName "Contoso App Devops" -Scope -ResourceGroupName ContosoAppRG
+
+# Data plane permissions for Dev/Ops
+Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso App Devops')[0].Id -PermissionToKeys list -PermissionToSecrets list
+
+# Data plane permissions for Auditors
+Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso App Auditors')[0].Id -PermissionToKeys list -PermissionToSecrets list
+
+```
 
 
 # Resources
