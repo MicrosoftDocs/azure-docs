@@ -69,7 +69,7 @@ Sample OEM configurations are available.
 
 ## Deployment requirements check tool
 
-After you have installed the operating system onto your hardware, you can use the [Deployment Checker for Azure Stack Technical Preview 1](https://gallery.technet.microsoft.com/Deployment-Checker-for-76d824e1) to confirm that your hardware meets all of the requirements.
+After you have installed the operating system onto your hardware, you can use the [Deployment Checker for Azure Stack Technical Preview 2](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) to confirm that your hardware meets all of the requirements.
 
 
 
