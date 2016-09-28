@@ -112,7 +112,7 @@ On the **SCEP Enrollment** page of the certificate profile, you need to choose *
 
 
 
-## Additional information
+## Next steps
 * [Windows 10 for the enterprise: Ways to use devices for work](active-directory-azureadjoin-windows10-devices-overview.md)
 * [Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join](active-directory-azureadjoin-user-upgrade.md)
 * [Authenticating identities without passwords through Microsoft Passport](active-directory-azureadjoin-passport.md)
