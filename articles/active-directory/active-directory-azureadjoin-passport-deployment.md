@@ -4,8 +4,8 @@
 	services="active-directory"
 	documentationCenter=""
 	keywords="configure Microsoft Passport, Microsoft Windows Hello for Business deployment"
-	authors="femila"
-	manager="swadhwa"
+	authors="markusvi"
+	manager="femila"
 	editor=""
 	tags="azure-classic-portal"/>
 
@@ -15,7 +15,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/27/2016"
+	ms.date="09/28/2016"
 	ms.author="femila;markvi"/>
 
 
@@ -48,6 +48,8 @@ To deploy user certificates based on Windows Hello for Business keys, you need t
 
 ## Configure Windows Hello for Business using System Center Configuration Manager
 
+You can only use the System Center Configuration Manager to deploy Windows Hello for Business policies for Windows 10 Version 1607. Please start winver on your Windows 10 computer if you need to lookup the version of your Windows 10 computer. 
+
 1. Open the **System Center Configuration Manager**, and then navigate to **Assets & Compliance > Compliance Settings > Company Resource Access > Windows Hello for Business Profiles**.
 
 	![Configure Windows Hello for Business](./media/active-directory-azureadjoin-passport-deployment/01.png)
@@ -75,9 +77,13 @@ To deploy user certificates based on Windows Hello for Business keys, you need t
 
 	![Configure Windows Hello for Business](./media/active-directory-azureadjoin-passport-deployment/05.png)
 
-	a. Anything that needs to be configured here?
-	
-	b. Click **Next**.
+	a. As **Configure Windows Hello for Business**, select **Enabled**.
+
+	b. As **Use a Trusted Platform Module (TPM)**, select **Required**. 
+
+	c. As **Authentication method", select **Certificate-based**.
+
+	d. Click **Next**.
 
 
 
@@ -93,6 +99,9 @@ To deploy user certificates based on Windows Hello for Business keys, you need t
 
 
 ## Configure the certificate profile to use the Windows Hello for Business enrollment certificate in Configuration Manager
+
+
+If you are using certificate-based authentication for on-premises authentication, you need to configure and deploy a certificate profile. This task requires you to set up an NDES server and Certificate Registration Point site role in the System Center Configuration Manager. For more details, see the [Prerequisites for Certificate Profiles in Configuration Manager](https://technet.microsoft.com/library/dn261205.aspx).
 
 1. Open the **System Center Configuration Manager**, and then navigate to **Assets & Compliance > Compliance Settings > Company Resource Access > Certificate Profiles**.
 
