@@ -64,6 +64,12 @@ When the virtual machine instance recycles, all local changes are lost. Use a [s
 
 Follow the directions in the [create a certificate tutorial](cloud-services-certs-create.md). Use the IP address as the DNS Name.
 
+## Security
+
+### Disable SSL 3.0
+
+To disable SSL 3.0 and use TLS security, create a startup task which is documented on this blog post: https://azure.microsoft.com/en-us/blog/how-to-disable-ssl-3-0-in-azure-websites-roles-and-virtual-machines/
+
 ## Troubleshooting
 
 ### I can't reserve an IP in a multi-VIP cloud service
