@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2016"
+	ms.date="09/08/2016"
 	ms.author="iainfou"/>
 
 # Example Azure infrastructure walkthrough
 
 [AZURE.INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)] 
 
-This article walks through building out an example application infrastructure. We'll detail designing an infrastructure for a simple on-line store that brings together all of the guidelines and decisions around naming conventions, availability sets, virtual networks and load balancers, and actually deploying your virtual machines (VMs).
+This article walks through building out an example application infrastructure. We detail designing an infrastructure for a simple on-line store that brings together all the guidelines and decisions around naming conventions, availability sets, virtual networks and load balancers, and actually deploying your virtual machines (VMs).
 
 
 ## Example workload
@@ -32,13 +32,13 @@ Adventure Works Cycles wants to build an on-line store application in Azure that
 - Two nginx servers processing data and orders in an application tier
 - Two MongoDB servers part of a sharded cluster for storing product data and orders in a database tier
 - Two Active Directory domain controllers for customer accounts and suppliers in an authentication tier
-- All of the servers are located in two subnets:
-	- a front end subnet for the web servers 
-	- a back end subnet for the application servers, MongoDB cluster, and domain controllers
+- All the servers are located in two subnets:
+	- a front-end subnet for the web servers 
+	- a back-end subnet for the application servers, MongoDB cluster, and domain controllers
 
 ![Diagram of different tiers for application infrastructure](./media/virtual-machines-common-infrastructure-service-guidelines/example-tiers.png)
 
-Incoming secure web traffic needs to be load-balanced among the web servers as customers browse the on-line store. Order processing traffic in the form of HTTP requests from the web servers needs to be balanced among the application servers. Additionally, the infrastructure must be designed for high availability.
+Incoming secure web traffic must be load-balanced among the web servers as customers browse the on-line store. Order processing traffic in the form of HTTP requests from the web servers must be load-balanced among the application servers. Additionally, the infrastructure must be designed for high availability.
 
 The resulting design must incorporate:
 
@@ -49,12 +49,12 @@ The resulting design must incorporate:
 - Availability sets for the VMs with a similar role
 - Virtual machines
 
-All of the above will follow these naming conventions:
+All the above follow these naming conventions:
 
 - Adventure Works Cycles uses **[IT workload]-[location]-[Azure resource]** as a prefix
 	- For this example, "**azos**" (Azure On-line Store) is the IT workload name and "**use**" (East US 2) is the location
 - Storage accounts use adventureazosusesa**[description]**
-	- Note that 'adventure' was added to the prefix to provide uniqueness, and storage account names do not support the use of hyphens.
+	- 'adventure' was added to the prefix to provide uniqueness, and storage account names do not support the use of hyphens.
 - Virtual networks use AZOS-USE-VN**[number]**
 - Availability sets use azos-use-as-**[role]**
 - Virtual machine names use azos-use-vm-**[vmname]**

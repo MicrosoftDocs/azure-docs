@@ -7,7 +7,7 @@ If the format is set to **TextFormat**, you can specify the following **optional
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------- | -------- | 
 | columnDelimiter | The character used to separate columns in a file. | Only one character is allowed. The default value is comma (','). | No |
-| rowDelimiter | The character used to separate rows in a file. | Only one character is allowed. The default value is any of the following on read: ["\r\n", "\r", "\n"] and "\r\n" on write. | No |
+| rowDelimiter | The character used to separate rows in a file. | Only one character is allowed. The default value is any of the following values on read: ["\r\n", "\r", "\n"] and "\r\n" on write. | No |
 | escapeChar | The special character used to escape a column delimiter in the content of input file. <br/><br/>You cannot specify both escapeChar and quoteChar for a table. | Only one character is allowed. No default value. <br/><br/>Example: if you have comma (',') as the column delimiter but you want to have the comma character in the text (example: "Hello, world"), you can define ‘$’ as the escape character and use string "Hello$, world" in the source. | No | 
 | quoteChar | The character used to quote a string value. The column and row delimiters inside the quote characters would be treated as part of the string value. This property is applicable to both input and output datasets.<br/><br/>You cannot specify both escapeChar and quoteChar for a table. | Only one character is allowed. No default value. <br/><br/>For example, if you have comma (',') as the column delimiter but you want to have comma character in the text (example: <Hello, world>), you can define " (double quote) as the quote character and use the string "Hello, world" in the source. | No |
 | nullValue | One or more characters used to represent a null value. | One or more characters. The default values are "\N" and "NULL" on read and "\N" on write. | No |
@@ -36,7 +36,7 @@ The following sample shows some of the format properties for TextFormat.
 	    }
 	},
 
-To use an escapeChar instead of quoteChar, replace the line with quoteChar with the following:
+To use an escapeChar instead of quoteChar, replace the line with quoteChar with the following escapeChar:
 
 	"escapeChar": "$",
 
@@ -46,7 +46,7 @@ To use an escapeChar instead of quoteChar, replace the line with quoteChar with 
 
 - You are copying from a non-file source to a text file and would like to add a header line containing the schema metadata (for example: SQL schema). Specify **firstRowAsHeader** as true in the output dataset for this scenario. 
 - You are copying from a text file containing a header line to a non-file sink and would like to drop that line. Specify **firstRowAsHeader** as true in the input dataset.
-- You are copying from a text file and want to skip a few lines at the beginning that are neither data nor header. Specify **skipLineCount** to indicate the number of lines to be skipped. If the rest of the file contains a header line, you can also specify **firstRowAsHeader**. If both **skipLineCount** and **firstRowAsHeader** are specified, the lines are skipped first and then the header information is read from the input file
+- You are copying from a text file and want to skip a few lines at the beginning that contain no data or header information. Specify **skipLineCount** to indicate the number of lines to be skipped. If the rest of the file contains a header line, you can also specify **firstRowAsHeader**. If both **skipLineCount** and **firstRowAsHeader** are specified, the lines are skipped first and then the header information is read from the input file
 
 ### Specifying AvroFormat
 If the format is set to AvroFormat, you do not need to specify any properties in the Format section within the typeProperties section. Example:
@@ -228,7 +228,7 @@ The input dataset with JsonFormat type is defined as follows: (partial definitio
 If the structure is not defined, the Copy Activity flattens the structure by default and copy every thing. 
 
 #### Supported JSON structure
-Note the following: 
+Note the following points: 
 
 - Each object with a collection of name/value pairs is mapped to one row of data in a tabular format. Objects can be nested and you can define how to flatten the structure in a dataset with the nesting separator (.) by default. See the [JsonFormat example](#jsonformat-example) preceding section for an example.  
 - If the structure is not defined in the Data Factory dataset, the Copy Activity detects the schema from the first object and flatten the whole object. 
@@ -241,12 +241,27 @@ If the format is set to OrcFormat, you do not need to specify any properties in 
 
 	"format":
 	{
-	    "type": "OrcFormat",
+	    "type": "OrcFormat"
 	}
 
 > [AZURE.IMPORTANT] If you are not copying ORC files **as-is** between on-premises and cloud data stores, you need to install the JRE 8 (Java Runtime Environment) on your gateway machine. A 64-bit gateway requires 64-bit JRE and 32-bit gateway requires 32-bit JRE. You can find both versions from [here](http://go.microsoft.com/fwlink/?LinkId=808605). Choose the appropriate one.
 
-Note the following:
+Note the following points:
 
 -	Complex data types are not supported (STRUCT, MAP, LIST, UNION)
 -	ORC file has three [compression-related options](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory supports reading data from ORC file in any of these compressed formats. It uses the compression codec is in the metadata to read the data. However, when writing to an ORC file, Data Factory chooses ZLIB, which is the default for ORC. Currently, there is no option to override this behavior. 
+
+### Specifying ParquetFormat
+If the format is set to ParquetFormat, you do not need to specify any properties in the Format section within the typeProperties section. Example:
+
+	"format":
+	{
+	    "type": "ParquetFormat"
+	}
+
+> [AZURE.IMPORTANT] If you are not copying Parquet files **as-is** between on-premises and cloud data stores, you need to install the JRE 8 (Java Runtime Environment) on your gateway machine. A 64-bit gateway requires 64-bit JRE and 32-bit gateway requires 32-bit JRE. You can find both versions from [here](http://go.microsoft.com/fwlink/?LinkId=808605). Choose the appropriate one.
+
+Note the following points:
+
+-	Complex data types are not supported (MAP, LIST)
+-	Parquet file has the following compression-related options: NONE, SNAPPY, GZIP, and LZO. Data Factory supports reading data from ORC file in any of these compressed formats. It uses the compression codec is in the metadata to read the data. However, when writing to a Parquet file, Data Factory chooses SNAPPY, which is the default for Parquet format. Currently, there is no option to override this behavior. 

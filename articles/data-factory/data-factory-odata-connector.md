@@ -3,7 +3,7 @@
 	description="Learn about how to move data from OData sources using Azure Data Factory." 
 	services="data-factory" 
 	documentationCenter="" 
-	authors="spelluru" 
+	authors="linda33wj" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/25/2016" 
-	ms.author="spelluru"/>
+	ms.date="09/26/2016" 
+	ms.author="jingwang"/>
 
 # Move data From a OData source using Azure Data Factory
-This article outlines how you can use the Copy Activity in an Azure data factory to move data from an OData source to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article which presents a general overview of data movement with copy activity and supported data store combinations.
+This article outlines how you can use the Copy Activity in an Azure data factory to move data from an OData source to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with copy activity and supported data store combinations.
 
 > [AZURE.NOTE] This OData connector support copying data from both cloud OData and on-premises OData sources. For the latter, you need to install the Data Management Gateway. See [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for details about Data Management Gateway.
 
 ## Copy data wizard
 The easiest way to create a pipeline that copies data from an OData source is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
 
-The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data from an OData source to an Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.
+The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data from an OData source to an Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.
 
 
 ## Sample: Copy data from OData source to Azure Blob
@@ -72,7 +72,7 @@ This example uses the Basic authentication. See [OData linked service](#odata-li
 
 **OData input dataset**
 
-Setting “external”: ”true” and specifying externalData policy informs the Data Factory service that the table is external to the data factory and not produced by an activity in the data factory.
+Setting “external”: ”true” informs the Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
 	
     {
     	"name": "ODataDataset",
@@ -98,7 +98,7 @@ Setting “external”: ”true” and specifying externalData policy informs th
 		}
 	}
 
-Note that specifying **path** in the dataset definition is optional. 
+Specifying **path** in the dataset definition is optional. 
 
 
 **Azure Blob output dataset**
@@ -163,7 +163,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 
 **Pipeline with Copy activity**
 
-The pipeline contains a Copy Activity that is configured to use the above input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **RelationalSource** and **sink** type is set to **BlobSink**. The SQL query specified for the **query** property selects the latest (newest) data from the OData source.
+The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **RelationalSource** and **sink** type is set to **BlobSink**. The SQL query specified for the **query** property selects the latest (newest) data from the OData source.
 	
 	{
 	    "name": "CopyODataToBlob",
@@ -210,7 +210,7 @@ The pipeline contains a Copy Activity that is configured to use the above input 
 	}
 
 
-Note that specifying **query** in the pipeline definition is optional. The **URL** that the Data Factory service uses to retrieve data is: URL specified in the linked service (required) + path specified in the dataset (optional) + query in the pipeline (optional). 
+Specifying **query** in the pipeline definition is optional. The **URL** that the Data Factory service uses to retrieve data is: URL specified in the linked service (required) + path specified in the dataset (optional) + query in the pipeline (optional). 
 
 ## OData linked Service properties
 
@@ -220,7 +220,7 @@ The following table provides description for JSON elements specific to OData lin
 | -------- | ----------- | -------- | 
 | type | The type property must be set to: **OData** | Yes |
 | url| Url of the OData service. | Yes |
-| authenticationType | Type of authentication used to connect to the OData source. <br/><br/> For cloud OData, possible values are Anonymous and Basic; for on-premises OData, possible values are Anonymous, Basic and Windows. | Yes | 
+| authenticationType | Type of authentication used to connect to the OData source. <br/><br/> For cloud OData, possible values are Anonymous and Basic. For on-premises OData, possible values are Anonymous, Basic, and Windows. | Yes | 
 | username | Specify user name if you are using Basic authentication. | Yes (only if you are using Basic authentication) | 
 | password | Specify password for the user account you specified for the username. | Yes (only if you are using Basic authentication) | 
 | gatewayName | Name of the gateway that the Data Factory service should use to connect to the on-premises OData service. Specify only if you are copying data from on-prem OData source. | No |
@@ -279,7 +279,7 @@ The following table provides description for JSON elements specific to OData lin
 
 ## OData dataset type properties
 
-For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections like structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc...).
+For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
 
 The **typeProperties** section is different for each type of dataset and provides information about the location of the data in the data store. The typeProperties section for dataset of type **ODataResource** (which includes OData dataset) has the following properties
 
@@ -289,11 +289,11 @@ The **typeProperties** section is different for each type of dataset and provide
 
 ## OData Copy Activity type properties
 
-For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties like name, description, input and output tables, various policies etc. are available for all types of activities. 
+For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities. 
 
-Properties available in the typeProperties section of the activity on the other hand vary with each activity type and in case of Copy activity they vary depending on the types of sources and sinks.
+Properties available in the typeProperties section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
 
-In case of Copy Activity when source is of type **RelationalSource** (which includes OData) the following properties are available in typeProperties section:
+When source is of type **RelationalSource** (which includes OData) the following properties are available in typeProperties section:
 
 | Property | Description | Example | Required |
 | -------- | ----------- | -------------- | -------- |
@@ -303,7 +303,7 @@ In case of Copy Activity when source is of type **RelationalSource** (which incl
 
 ### Type mapping for OData
 
-As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article, Copy activity performs automatic type conversions from source types to sink types with the following 2 step approach:
+As mentioned in the [data movement activities](data-factory-data-movement-activities.md) article, Copy activity performs automatic type conversions from source types to sink types with the following 2-step approach:
 
 1. Convert from native source types to .NET type
 2. Convert from .NET type to native sink type

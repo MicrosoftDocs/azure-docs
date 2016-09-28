@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2016"
+	ms.date="09/26/2016"
 	ms.author="markvi"/>
 
 
@@ -32,8 +32,6 @@ For more information on Windows 10 devices in the workplace and the  experiences
 Registration is supported in previous versions of Windows including: 
 
 - Windows 8.1 
-
-- Windows 8.0 
 
 - Windows 7 
 
@@ -216,9 +214,6 @@ For this you need to have an issuance transform rule that passes on the auth met
 
 The **\<RPObjectName>\** is the relying party object name for your Azure Active Directory relying party trust object. This object is typically named Microsoft Office 365 Identity Platform.`
 
-
-
-
  
 
 ## Deployment and roll-out 
@@ -227,15 +222,15 @@ Once the prerequisites are complete domain joined computers are ready to registe
 
 Windows 10 Anniversary Update and Windows Server 2016 domain joined computers will automatically register to Azure AD in the next reboot or user sign-in to Windows. New computers that are joined to the domain will register with Azure AD in the reboot following the domain join operation. 
 
-> [AZURE.NOTE] Windows 10 November 2015 Update domain joined computers will automatically register with Azure AD only if the roll-out Group Policy Object is set. For more information, please see the following section. 
+> [AZURE.NOTE] Windows 10 domain joined computers will automatically register with Azure AD only if the roll-out Group Policy Object is set. For more information, please see the following section. 
 
 To control roll-out of automatic registration of Windows 10/Windows Server 2016 domain joined computers there is a Group Policy object you can use for that purpose. Roll-out of automatic registration of non-Windows 10 domain joined computers there is a Windows Installer package that you can deploy to selected computers. 
 
-> [AZURE.NOTE] The Group Policy for roll-out control also triggers registration of Windows 8.1 domain joined computers. You may choose to use the policy for registration of Windows 8.1 domain joined computers or if you have a mix of versions of Windows including 7 or 8.0, or Windows Server versions, you may choose to enable registration of all your non-Windows 10/Windows Server 2016 computers using the Windows Installer package. 
+> [AZURE.NOTE] The Group Policy for roll-out control also triggers registration of Windows 8.1 domain-joined computers. You may choose to use the policy for registration of Windows 8.1 domain-joined computers or if you have a mix of versions of Windows including 7 or Windows Server versions, you may choose to enable registration of all your non-Windows 10/Windows Server 2016 computers using the Windows Installer package. 
 
 ### Group Policy Object to control roll-out of automatic registration 
 
-To control roll-out of automatic registration of domain joined computers with Azure AD you can deploy the Group Policy Register domain joined computers as devices to the computers you want to register e.g. you can deploy the policy based on a security group or to an organizational unit (OU). 
+To control roll-out of automatic registration of domain joined computers with Azure AD you can deploy the Group Policy Register domain joined computers as devices to the computers you want to register. For example, you can deploy the policy based on a security group or to an organizational unit (OU). 
 
 To set the policy, perform the following steps: 
 
@@ -261,7 +256,7 @@ To set the policy, perform the following steps:
 
 ## MSI package for non-Windows 10 computers  
 
-To register domain joined computers running Windows 7, Windows 8.0, Windows 8.1, Windows Server 2008 R2, Windows Server 2012 or Windows Server 2012 R2 a Windows Installer package (.msi) is available for you to download:
+To register domain joined computers running Windows 7, Windows 8.1, Windows Server 2008 R2, Windows Server 2012 or Windows Server 2012 R2 a Windows Installer package (.msi) is available for you to download:
 
 - [x64](http://download.microsoft.com/download/C/A/7/CA79FAE2-8C18-4A8C-A4C0-5854E449ADB8/Workplace_x64.msi)
 - [x86](http://download.microsoft.com/download/C/A/7/CA79FAE2-8C18-4A8C-A4C0-5854E449ADB8/Workplace_x86.msi)

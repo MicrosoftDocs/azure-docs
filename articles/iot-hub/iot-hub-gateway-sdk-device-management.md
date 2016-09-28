@@ -13,7 +13,7 @@
      ms.topic="article"
      ms.tgt_pltfrm="na"
      ms.workload="na"
-     ms.date="06/15/2016"
+     ms.date="09/12/2016"
      ms.author="dobett"/>
 
 
@@ -43,7 +43,7 @@ There are three IoT devices connected to IoT Hub in this solution:
 
 ### Gateway software
 
-The gateway software runs as a service on the Edison board. Two simulated devices generate temperature telemetry. The mapping module maps these simulated devices to devices registered with IoT Hub and the HTTP module handles communication with the IoT Hub endpoint. The [IoT Gateway SDK  – send device-to-cloud messages with a simulated device][lnk-gateway-scenario] article describes this scenario in detail.
+The gateway software runs as a service on the Edison board. Two simulated devices generate temperature telemetry. The mapping module maps these simulated devices to devices registered with IoT Hub and the IoT Hub module handles communication with the IoT Hub endpoint. The [IoT Gateway SDK  – send device-to-cloud messages with a simulated device][lnk-gateway-scenario] article describes this scenario in detail.
 
 ### Device management client
 

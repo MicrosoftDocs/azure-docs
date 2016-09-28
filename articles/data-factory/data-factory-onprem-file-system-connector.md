@@ -3,7 +3,7 @@
 	description="Learn how to move data to and from an on-premises file system by using Azure Data Factory."
 	services="data-factory"
 	documentationCenter=""
-	authors="spelluru"
+	authors="linda33wj"
 	manager="jhubbard"
 	editor="monicar"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/01/2016"
-	ms.author="spelluru"/>
+	ms.author="jingwang"/>
 
 # Move data to and from an on-premises file system by using Azure Data Factory
 
@@ -498,16 +498,17 @@ Remote shared folder: <br/><br/>Examples: \\\\myserver\\share\\\* or \\\\myserve
 
 For a full list of sections and properties that are available for defining datasets, see [Creating datasets](data-factory-create-datasets.md). Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types.
 
-The typeProperties section is different for each type of dataset. It provides information such as the location and format of the data in the data store. The typeProperties section for the dataset of type **FileShare** has the following properties.
+The typeProperties section is different for each type of dataset. It provides information such as the location and format of the data in the data store. The typeProperties section for the dataset of type **FileShare** has the following properties:
 
 Property | Description | Required
 -------- | ----------- | --------
-folderPath | Specifies the subpath to the folder. Use the escape character ‘ \ ’ for special characters in the string. See [Sample linked service and dataset definitions](#sample-linked-service-and-dataset-definitions) for examples.<br/><br/>You can combine this property with **partitionBy** to have folder paths that are based on slice start/end date-times. | Yes
-fileName | Specify the name of the file in the **folderPath** if you want the table to refer to a specific file in the folder. If you do not specify any value for this property, the table points to all files in the folder.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file is in the following format: <br/><br/>Data.<Guid>.txt (Example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) | No
+folderPath | Specifies the subpath to the folder. Use the escape character ‘ \ ’ for special characters in the string. See [Sample linked service and dataset definitions](#sample-linked-service-and-dataset-definitions) for examples.<br/><br/>You can combine this property with **partitionBy** to have folder paths based on slice start/end date-times. | Yes
+fileName | Specify the name of the file in the **folderPath** if you want the table to refer to a specific file in the folder. If you do not specify any value for this property, the table points to all files in the folder.<br/><br/>When fileName is not specified for an output dataset, the name of the generated file is in the following format: <br/><br/>`Data.<Guid>.txt` (Example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) | No
 partitionedBy | You can use partitionedBy to specify a dynamic folderPath/fileName for time-series data. An example is folderPath parameterized for every hour of data. | No
-Format | The following format types are supported: **TextFormat**, **AvroFormat**, **JsonFormat**, and **OrcFormat**. Set the **type** property under format to one of these values. See [Specifying TextFormat](#specifying-textformat), [Specifying AvroFormat](#specifying-avroformat), [Specifying JsonFormat](#specifying-jsonformat), and [Specifying OrcFormat](#specifying-orcformat) sections for details. If you want to copy files as-is between file-based stores (binary copy), you can skip the format section in both input and output dataset definitions. | No
-fileFilter | Specify a filter to be used to select a subset of files in the folderPath rather than all files. <br/><br/>Allowed values are: * (multiple characters) and ? (single character).<br/><br/>Example 1: "fileFilter": "*.log"<br/>Example 2: "fileFilter": 2014-1-?.txt"<br/><br/>Note that fileFilter is applicable for an input FileShare dataset. | No
-| compression | Specify the type and level of compression for the data. Supported types are **GZip**, **Deflate**, and **BZip2**. Supported levels are **Optimal** and **Fastest**. Currently, compression settings are not supported for data in **AvroFormat** or **OrcFormat**. See the [Compression support](#compression-support) section for more details. | No |
+Format | The following format types are supported: **TextFormat**, **AvroFormat**, **JsonFormat**, **OrcFormat**, and **ParquetFormat**. Set the **type** property under Format to one of these values. See [Specifying TextFormat](#specifying-textformat), [Specifying AvroFormat](#specifying-avroformat), [Specifying JsonFormat](#specifying-jsonformat), [Specifying OrcFormat](#specifying-orcformat), and [Specifying ParquetFormat](#specifying-parquetformat) for details. If you want to copy files as-is between file-based stores (binary copy), you can skip the format section in both input and output dataset definitions. | No
+fileFilter | Specify a filter to be used to select a subset of files in the folderPath rather than all files. <br/><br/>Allowed values are: `*` (multiple characters) and ? (single character).<br/><br/>Example 1: "fileFilter": "*.log"<br/>Example 2: "fileFilter": 2014-1-?.txt"<br/><br/>Note that fileFilter is applicable for an input FileShare dataset. | No
+| compression | Specify the type and level of compression for the data. Supported types are **GZip**, **Deflate**, and **BZip2**. Supported levels are **Optimal** and **Fastest**. Currently, compression settings are not supported for data in **AvroFormat** or **OrcFormat**. For more information, see the [Compression support](#compression-support) section. | No |
+
 
 > [AZURE.NOTE] You cannot use fileName and fileFilter simultaneously.
 
