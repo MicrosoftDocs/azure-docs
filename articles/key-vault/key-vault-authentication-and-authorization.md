@@ -73,53 +73,46 @@ Principles
 
 # Example
 
-Let's say Contoso is developing a web application that uses a certificate for SSL, uses Azure storage for storing data, and also uses a RSA 2048 bit key for sign operations. Let's say this web application is running in a VM (or a VM Scale Set). We can use key vault to store all the application secrets, and also use key vault to store the bootstrap certificate that will be used by the application to authenticate with Azure Active Directory.
+Let's say Contoso is developing a web application that uses a certificate for SSL, Azure storage for storing data, and also uses a RSA 2048 bit key for sign operations. Let's say this web application is running in a VM (or a VM Scale Set). We can use key vault to store all the application secrets, and also use key vault to store the bootstrap certificate that will be used by the application to authenticate with Azure Active Directory.
 
-So here's a summary of all the objects we'll be storing in a key vault.
+So here's a summary of all the keys and secrets we'll be storing in a key vault.
+- **SSL Cert** - used for SSL
+- **Storage Key** - used to get access to Storage account
+- **RSA 2048bit key** - used for sign operations
+- **Bootstrap certificate** - used to authenticate to Azure Active Directory, to get access to Key Vault to fetch the storage key and use the RSA key for signing.
 
-| Object (Key/Secret) | Permissions |
-|---------------------|-------------|
-| SSL Cert            | None |
-| Bootstrap Cert      | None |
-| Storage Key         | Secret: get |
-| Signing Key         | Key: sign |
+Now let's meet the people who will managing, deploying and auditing this application. We'll use three roles in this example.
 
-In addition to the permissions for this application, the key vault manager will also need to set the 'EnabledForDeployment' flag on this key vault so that Azure Compute can deploy the certificates (SSL Cert and Bootstrap Cert) into the VM(s).
+- **Security team** - These are typically IT staff from the 'office of the CSO (Chief Security Officer)' or equivalent, responsible for the proper safekeeping of secrets such as SSL certificates, RSA keys used for signing etc.
+- **Developers/operators** - These are the folks who develop this application and then deploy it in cloud. Typically they are not part of security team, and hence they should not access to any sensitive data, such as SSL certs, RSA keys etc, but the application they deploy should have access to those.
+- **Auditors** - This is usually a different set of people, isolated from the developers and general IT staff. Their responsibility is to review proper use and maintenance of certificates, keys, etc and also ensure compliance with data security standards. 
 
-There four separate roles
+Now let's see what actions each role will perform in the context of this application.
 
-3 Roles -
--   A key vault manager (usually from security team)
-  - Creates Key Vaults
-	- Adds keys/secrets
-	- sets key vault access policy grant to other users and applications to perform specific operations
+-   Security team
+	- Create Key Vaults
 	- Turns on Key Vault logging
+	- Add keys/secrets
+	- Create backup of keys for disaster recovery
+	- set key vault access policy to grant permissions users and applications to perform specific operations
 	- Periodically rolls keys/secrets
-- A developer/operator
-  - Gets URIs for keys and secrets from Key Vault manager
-  - Develops and deploys applications that access keys and secrets programmatically
-- An auditor who monitors access logs
-  - Reviews usage logs to confirm proper key/secret use and compliance with data security standards
+- Developers/operators
+  - Gets references to SSL certs (thumbprints), storage key (secret URI) and 
+  - Develops and deploy applications that access keys and secrets programmatically
+- Auditors
+  - Review usage logs to confirm proper key/secret use and compliance with data security standards
 
+Since the focus of this article is on authentication and authorization, we will only illustrate the relevant portions pertaining to that and skip details regarding deploying certificates, accessing keys and secrets programmatically etc. Those details are already covered elsewhere. Deploying certificates stored in key vault to VMs is covered in a [blog post](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/), and there is a [sample code](https://www.microsoft.com/download/details.aspx?id=45343) available that illustrates how to use boostrap certificate to authenticate to Azure AD to get access to key vault.
 
-**Key Vault Manager** – These are typically IT staff from the ‘office of the CSO’ in larger companies. They are responsible for the proper safekeeping of secrets despite how hard this has been in the past. For example, in organizations using Azure Rights Management these people are responsible for the security of the master RSA key. They also (should) manage the SSL certificates for websites. Where applicable, they are liable for any passwords and sensitive data collected from users. You get the idea.
-
-
-**Developers/Operators** – You know these people well. Here we want to emphasize that they are not (meant to be) part of the Security Operations team. The ‘meant to be’ parenthetical reminds us of just how hard it has been to exclude them from having access to sensitive tidbits thus far.
-
-
-**Auditors** – Similar to Security Operations, this is a role isolated from Developers and general IT staff. In regulated businesses, this role is even isolated from the Security Operations team.
-
-During development/pilot phase developer will use his own subscription/resource group where she will create
-
-Following table shows the management plane and data plane permissions recommended for each role.
+Now let's see what access permissions to key vault are needed by each role (and also the application) to perform their assigned tasks. 
 
 | User Role    | Management plane permissions | Data plane permissions |
 |--------------|------------------------------|------------------------|
-|Key vault manager|Key Vault Contributor|Key and secret management|
-|Developer/Operator| None | List keys, list secrets |
-|Auditor| None | List keys, list secrets|
-|Application| None | cryptographic operations for keys and list and get for secrets |
+|Key vault manager|Key Vault Contributor|Keys: backup, create, delete, get, import, list, restore <br> Secrets: all|
+|Developer/Operator| None | Keys: list<br>Secrets:list |
+|Auditor| None | Keys: list<br>Secrets:list|
+|Application| None | Keys: sign<br>Secrets: get |
+
 
 
 
