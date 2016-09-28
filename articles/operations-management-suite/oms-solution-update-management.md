@@ -86,19 +86,19 @@ Click on the **Update Management** tile to open the **Update Management** dashbo
 
 Column | Description|
 ----------|----------|
-**Computers Missing Required Updates** ||
+**Computers Missing Updates** ||
 Critical or Security Updates | Lists the top ten computers that are missing updates sorted by the number of updates they're missing. Click on a computer name to run a log search returning all update records for that computer.|
 Critical or Security Updates older than 30 days| Identifies number of computers that are missing critical or security updates grouped by the length of time since the update was published. Click on one of the entries to run a log search returning all missing and critical updates.|
 **Required Missing Updates**||
 Critical or Security Updates | Lists classifications of updates that computers are missing sorted by the number of computers missing updates in the category. Click a classification to run a log search returning all update records for that classification.|
-Update Runs||
+**Update Runs**||
 Update Runs | Number of currently scheduled update runs and the duration until the next scheduled run.  Click on the tile to view schedules, currently running, and completed updates or to schedule a new run.|  
-<br><br>  
+<br>  
+![Update Management Summary Dashboard](./media/oms-solution-update-management/update-management-dashboard-2.png)<br>  
+<br>
 ![Update Management Dashboard Computer View](./media/oms-solution-update-management/update-management-assessment-computer-view.png)<br>  
 <br>  
-![Update Management Dashboard Package View](./media/oms-solution-update-management/update-management-assessment-package-view.png)<br>
-<br>
-![Update Management Summary Dashboard](./media/oms-solution-update-management/update-management-dashboard-2.png)
+![Update Management Dashboard Package View](./media/oms-solution-update-management/update-management-assessment-package-view.png)<br>  
 
 ## Installing updates
 
