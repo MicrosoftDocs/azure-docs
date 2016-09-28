@@ -66,10 +66,7 @@ You can comment, provide feedback, or ask questions through the comments section
 You can even share a solution of interest with friends or colleagues using the share capabilities of LinkedIn or Twitter.
 You may also email links to these solutions to invite other users to view the pages.
 
-### Download
 
-The Cortana Intelligence Gallery allows you to easily copy predictive analytics experiments to your Machine Learning Studio workspace with a single click and immediately start customizing and using it for your purpose.
-If you're not already signed in while browsing, you will be prompted to sign in using your Microsoft account before the experiment is copied to your workspace.
 
 ### Contribute experiments and collections
 
@@ -77,17 +74,6 @@ When you sign in you become a member of the Gallery community. This allows you t
 
 See the section below, [Suggestions for publishing and for quality documentation](#suggestions-for-publishing-and-for-quality-documentation), for more details and tips on how to create a quality gallery contribution.
 
-#### Contribute experiments
-
-An *experiment* is a canvas in Machine Learning Studio that lets you construct a predictive analysis model by connecting together data with various analytical modules. You can try different ideas, do trial runs, and eventually publish your model as a web service in Azure. For an example of creating a simple experiment, see [Machine learning tutorial: Create your first experiment in Azure Machine Learning Studio](machine-learning-create-experiment.md). For a more complete walkthrough of creating a predictive analytics solution, see [Walkthrough: Develop a predictive analytics solution for credit risk assessment in Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md).
-
-Follow these steps to contribute an experiment to the Cortana Intelligence Gallery:
-
-- Sign in to the Machine Learning Studio using your Microsoft account
-- Create your experiment and run it
-- When you’re ready to publish your experiment to the Gallery, click **Publish to Gallery** below the experiment canvas
-
-See the section below, [Process for publishing Azure Machine Learning experiments](#process-for-publishing-azure-ml-experiments), for more details and tips on contributing an experiment.
 
 #### Contribute collections
 
@@ -124,88 +110,11 @@ While you're editing your collection, you can also change the order of the items
 - Visuals including experiment graphs or screenshots of data can be very helpful for readers to interpret and use your content the right way. See [this collection](https://gallery.cortanaintelligence.com/Collection/Publishing-Guidelines-and-Examples-1) for more information on how to include images in your documentation.
 - If your dataset is part of your experiment and not being imported through a reader module, it is part of your experiment and will get published to the Gallery. Therefore, ensure that the dataset you’re publishing has appropriate licensing terms for sharing and downloading by anyone. Gallery contributions are covered under the Azure [Terms of Use](https://azure.microsoft.com/support/legal/website-terms-of-use/).
 
-## Process for publishing Azure Machine Learning experiments
-
-When you are ready to publish to the Gallery, follow the five steps below.
-
-1. Fill out the title and tags fields. Keep them descriptive, highlighting the techniques used or the real-world problem being solved, for instance, “Binary Classification: Twitter Sentiment Analysis”.
-	![Fill out title and tag fields when publishing](media/machine-learning-gallery-how-to-use-contribute-publish/experiment-description.png)
-
-2. Write a summary of what your content covers. Briefly describe the problem being solved and how you approached it.
-
-3. Use the detailed description box to step through the different parts of your experiment. Some useful topics to include here are:
-	- Experiment graph screenshot.
-	- Data sources and explanation.
-	- Data processing.
-	- Feature engineering.
-	- Model description.
-	- Results and evaluation of model performance.
-
-	You can use Markdown to format as needed. Click the Preview icon to see how things will look when published. The examples in this collection show what to include and how you might organize the information.
-
-	> [AZURE.TIP] The box provided for Markdown editing and preview box is quite small. We recommend that you write your documentation in a Markdown editor and paste the completed document into the text box.  After you have published your experiment, you can use standard web-based tools in Markdown for editing and preview, to make necessary tweaks and corrections.
-
-4. Upload a thumbnail image for your gallery item. This will appear at the top of the item page and in the item tile when browsing the gallery. You can choose an image from your computer or select one of the stock images.
-
-5. Choose whether to publish your content publicly, or have it only accessible to people with the link.
-
-	> [AZURE.TIP] If you want to make sure your documentation looks right before releasing it publicly, you can publish it as unlisted first, and then switch it to Public from the item page.
-
-That’s it – you’re all done.
-
-You can now view your experiment in the Gallery and share the link with others. If you have published it publicly, your experiment will show up in browse and search results in the Gallery. You can also edit your documentation on the item page any time you are logged in.
-
-> [AZURE.TIP] To make changes to the experiment you have published, go back to the experiment in Azure ML Studio, make changes, and publish again. By default, it will update your existing published content and not create a new one.
-
 
 ## We want to hear from you!
 We want the Gallery to be driven by our users and for our users. Use the smiley on the right to tell us what you love or hate about the Gallery.  
 
 ![Feedback](./media/machine-learning-gallery-how-to-use-contribute-publish/feedback.png)
 
-## Frequently Asked Questions
-**I would like to make changes to the workflow of the experiment I submitted to the Gallery. How can I do that?**
-
-As of right now we do not support workflow updates to experiments you have already published to the Gallery. You may publish any such changes as a new experiment into the Gallery and delete your old one. We are actively working on enabling publishing updates to workflow for experiments already contributed to the Gallery.
-
-**Will I need to publish a new experiment even if I have to edit only the tags or description?**
-
-The following type of edits can be made to an experiment you have already contributed without having to publish it again:
-
-- Experiment Name
-- Summary Text
-- Description Text
-- Tags
-- Images
-
-In order to edit these fields, click the specific experiment you would like to edit (make sure you're signed in with your Microsoft account). This will open the experiment details page where you can see options to edit or delete. Clicking **Edit** allows you to edit any of the above fields.
-
-**I just published my experiment to the Gallery. I don’t see my profile picture showing up with my name.**
-
-It's possible that you're using an account other than @outlook, @msn, @live or @hotmail. If that's the case, you'll see a placeholder image instead of the profile picture from your Microsoft account configuration settings. Using a Microsoft account and re-submitting the experiment should help solve this issue.
-
-**I updated my profile picture in my Microsoft account configuration settings. Why are my existing experiment contributions not reflecting this new profile picture?**
-
-If you want to reflect the most recent profile change (profile picture, first name, or last name) for all your experiments, you should re-submit the older experiments to the Gallery. In doing so you'll need to delete the older copies that reflect the old profile settings.
-
-**What are the image requirements when submitting or editing an image for my experiment?**
-
-The images you submit along with your experiment will be used to create an experiment tile for your contribution. It's recommended that the images be < 500Kb in size, with an aspect ratio of 3:2. A resolution of 960x640 is recommended
-
-**What happens to the dataset I have used in the experiment? Does the data set get published to the Gallery as well?**
-
-If your dataset is part of your experiment and not being imported through a reader module, it's part of your experiment and gets published to the Gallery with your experiment. For this reason ensure that the dataset you're publishing with the experiment has the appropriate licensing terms that allow sharing and downloading by anyone.
-
-**I have an experiment that uses an Import Data module to pull data from HDInsight or SQL. It uses my credentials to retrieve the data. How can I publish such an experiment and be assured that my credentials will not be shared?**
-
-At this time we do not allow publishing of experiments that use credentials.
-
-**How do I de-limit tags?**
-
-You can use tab to de-limit tags.
-
-**I see some experiments have rich descriptions with rich rendering capabilities. However when I try to provide a description, the description is presented in plain text.**
-
-Rich description rendering is not available to all Gallery users widely. We're actively working on making this capability available by supporting markdown rendering.
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**
