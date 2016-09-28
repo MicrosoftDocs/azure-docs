@@ -26,7 +26,7 @@ With Microsoft Azure PowerShell version 1.0.0 new commands have been added, that
 
 To learn about managing Resource Groups, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md). 
 
-To learn about the full list of parameters and options for the Web App Azure Resource Manager PowerShell cmdlets, see the [full Cmdlet Reference of Web App Azure Resource Manager-based PowerShell Cmdlets](https://msdn.microsoft.com/library/mt619237.aspx)
+To learn about the full list of parameters and options for the PowerShell cmdlets, see the [full Cmdlet Reference of Web App Azure Resource Manager-based PowerShell Cmdlets](https://msdn.microsoft.com/library/mt619237.aspx)
 
 ## Managing App Service Plans ##
 
@@ -39,9 +39,7 @@ Following are descriptions of the different parameters:
 - 	**Location**: service plan location.
 - 	**ResourceGroupName**: resource group that includes the newly created app service plan.
 - 	**Tier**:  the desired pricing tier (Default is Free, other options are Shared, Basic, Standard, and Premium.)
-- 	**W
-
-kerSize**: the size of workers (Default is small if the Tier parameter was specified as Basic, Standard, or Premium. Other options are Medium, and Large.)
+- 	**WorkerSize**: the size of workers (Default is small if the Tier parameter was specified as Basic, Standard, or Premium. Other options are Medium, and Large.)
 - 	**NumberofWorkers**: the number of workers in the app service plan (Default value is 1). 
 
 Example to use this cmdlet:
@@ -49,7 +47,7 @@ Example to use this cmdlet:
     New-AzureRmAppServicePlan -Name ContosoAppServicePlan -Location "South Central US" -ResourceGroupName ContosoAzureResourceGroup -Tier Premium -WorkerSize Large -NumberofWorkers 10
 
 ### Create an App Service Plan in an App Service Environment ###
-To create an app service plan in an app service environment, the same command **New-AzureRmAppServicePlan** command can be used with extra parameters to specify the ASE name and the resource group name that the ASE belongs to.
+To create an app service plan in an app service environment, use the same command **New-AzureRmAppServicePlan** command with extra parameters to specify the ASE name and the resource group name that the ASE belongs to.
 
 Example to use this cmdlet:
 
@@ -121,9 +119,9 @@ Example to use this cmdlet:
 
     New-AzureRmWebApp -Name ContosoWebApp -AppServicePlan ContosoAppServicePlan -ResourceGroupName ContosoAzureResourceGroup -Location "South Central US"
 
-### Create a new Web App in an App Service Environment ###
+### Create a Web App in an App Service Environment ###
 
-To create a web app in an App Service Environment (ASE), the same **New-AzureRmWebApp** command can be used with extra parameters to specify the ASE name and the resource group name that the ASE belongs to.
+To create a web app in an App Service Environment (ASE), use the same **New-AzureRmWebApp** command with extra parameters to specify the ASE name and the resource group name that the ASE belongs to.
 
     New-AzureRmWebApp -Name ContosoWebApp -AppServicePlan ContosoAppServicePlan -ResourceGroupName ContosoAzureResourceGroup -Location "South Central US"  -ASEName ContosoASEName -ASEResourceGroupName ContosoASEResourceGroupName
 
@@ -201,7 +199,7 @@ To get the publishing profile for a web app, use:
 
     Get-AzureRmWebAppPublishingProfile -Name ContosoWebApp -ResourceGroupName ContosoAzureResourceGroup -OutputFile .\publishingprofile.txt
 
-This echoes the publishing profile to the command line as well output the publishing profile to a text file.
+This will echo the publishing profile to the command line as well output the publishing profile to a text file.
 
 #### Reset Publishing Profile ####
 
