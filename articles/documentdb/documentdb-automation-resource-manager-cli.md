@@ -495,4 +495,4 @@ For more templates you can use, see [Azure Quickstart templates](https://azure.m
 
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
-[scaling-globally]: https://azure.microsoft.com/en-us/documentation/articles/documentdb-distribute-data-globally/#scaling-across-the-planet
+[scaling-globally]: https://azure.microsoft.com/en-us/documentation/articles/documentdb-distribute-data-globally/#scaling-across-the-planet.md
