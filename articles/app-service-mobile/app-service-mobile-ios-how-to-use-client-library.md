@@ -250,7 +250,7 @@ query.parameters = @{
 query.parameters = ["myKey1": "value1", "myKey2": "value2"]
 ```
 
-## <a name="paging"></a>How to: Return Data in Pages
+## <a name="paging"></a>How to: Configure Page Size
 
 With Azure Mobile Apps, the page size controls the number of records that are pulled at a time from the backend tables. A call to `pull` data would then batch up data, based on this record size, until there are no more records to pull.
 
