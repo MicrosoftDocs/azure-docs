@@ -259,6 +259,7 @@ This controls the number of records that are pulled at a time from the backend D
 Paging is performed by using **MSPullSettings** as shown below. These snippets uses a paging size of 3.
 
 **Objective-C**:
+
 ```
   MSPullSettings *pullSettings = [[MSPullSettings alloc] initWithPageSize:3];
   [table  pullWithQuery:query queryId:@nil settings:pullSettings
@@ -271,6 +272,7 @@ Paging is performed by using **MSPullSettings** as shown below. These snippets u
 
 
 **Swift**:
+
 ```
 let pullSettings = MSPullSettings(pageSize: 3)
 table.pullWithQuery(query, queryId:nil, settings: pullSettings) { (error) in
