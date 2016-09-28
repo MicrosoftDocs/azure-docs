@@ -185,6 +185,10 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureR
 
     This article explains the Resource Manager deployment and classic deployment models, and explains the benefits of using the Resource Manager and resource groups
 
+-    [Manage Role-Based Access Control with Azure PowerShell](../role-based-access-control-manage-access-powershell/)
+
+     This article explains how to manage role based access control with Azure PowerShell
+
 -   [Managing Role-Based Access Control with the REST API](../active-directory/role-based-access-control-manage-access-rest.md)
 
 	This article shows how to use the REST API to manage RBAC.
