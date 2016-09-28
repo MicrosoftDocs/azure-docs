@@ -31,7 +31,7 @@ Install the following prior to running the script:
 - The latest Azure PowerShell. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 - The [SQL Server 2014 feature pack](https://www.microsoft.com/download/details.aspx?id=42295).
 
-### Script details
+## Script details
 
 You can run the script from your local machine or a VM on the cloud. When running it from your local machine, you may incur data egress charges because the script needs to download data from your target databases. The following shows data volume estimation based on number of target databases and duration of running the script. For Azure data transfer costs, refer to [Data Transfer Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/).
        
@@ -62,7 +62,6 @@ If you run into the following warnings while running the script you can ignore t
 When the script completes, it outputs the estimated number of eDTUs needed for a pool to contain all candidate databases in the target server. This estimated eDTU can be used for creating and configuring the pool. Once the pool is created and databases moved into the pool, monitor the pool closely for a few days and make adjustments to the pool eDTU configuration as necessary. See [Monitor, manage, and size an elastic database pool](sql-database-elastic-pool-manage-portal.md).
 
 
-   [AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]
     
 ```
 param (
