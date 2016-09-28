@@ -212,7 +212,7 @@ Create a local template file with the following content. Name the file azuredepl
         ]
     }
 
-The failoverPriority must be kept as 0 since this is a single region account. A failoverPriority of 0 indicates that this region be kept as the [write region for the DocumentDB account](documentdb-distribute-data-globally/#scaling-across-the-planet). 
+The failoverPriority must be kept as 0 since this is a single region account. A failoverPriority of 0 indicates that this region be kept as the [write region for the DocumentDB account][scaling-globally]. 
 You can either enter the value at the command line, or create a parameter file to specify the value.
 
 To create a parameters file, copy the following content into a new file and name the file azuredeploy.parameters.json. If you plan on specifying the database account name at the command prompt, you can continue without creating this file.
@@ -374,7 +374,7 @@ Create a local template file with the following content. Name the file azuredepl
 
 The above template file can be used to create a DocumentDB account with 2 regions. To create the account with more regions, simply add it to the "locations" array and add the corresponding parameters.
 
-One of the regions must have a failoverPriority value of 0 to indicate that this region be kept as the [write region for the DocumentDB account](documentdb-distribute-data-globally/#scaling-across-the-planet). The failover priority values must be unique amongst the locations and the highest failover priority value must be less than the total number of regions. You can either enter the value at the command line, or create a parameter file to specify the value.
+One of the regions must have a failoverPriority value of 0 to indicate that this region be kept as the [write region for the DocumentDB account][scaling-globally]. The failover priority values must be unique amongst the locations and the highest failover priority value must be less than the total number of regions. You can either enter the value at the command line, or create a parameter file to specify the value.
 
 To create a parameters file, copy the following content into a new file and name the file azuredeploy.parameters.json. If you plan on specifying the database account name at the command prompt, you can continue without creating this file.
 
@@ -492,3 +492,7 @@ To learn more about DocumentDB, explore these resources:
 -	[DocumentDB resource model and concepts](documentdb-resources.md)
 
 For more templates you can use, see [Azure Quickstart templates](https://azure.microsoft.com/documentation/templates/).
+
+
+<!--Reference style links - using these makes the source content way more readable than using inline links-->
+[scaling-globally]: https://azure.microsoft.com/en-us/documentation/articles/documentdb-distribute-data-globally/#scaling-across-the-planet
