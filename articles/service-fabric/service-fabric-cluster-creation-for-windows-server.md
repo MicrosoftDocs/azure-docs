@@ -246,7 +246,7 @@ In order to disable telemetry, add under the following to “properties” eleme
 
 None. 
 
->[AZURE.NOTE] The new [GA version of the standalone cluster for Windows Server (version 5.3.204.x)](https://azure.microsoft.com/en-us/blog/azure-service-fabric-for-windows-server-now-ga/) will allow you to upgrade your cluster to future releases, manually or automatically. However, since this feature is not available on the preview versions, you will need to create a new cluster using the GA version and migrate your data and applications from the preview cluster. Stay tuned for more details on this feature. 
+>[AZURE.NOTE] The new [GA version of the standalone cluster for Windows Server (version 5.3.204.x)](https://azure.microsoft.com/blog/azure-service-fabric-for-windows-server-now-ga/) will allow you to upgrade your cluster to future releases, manually or automatically. However, since this feature is not available on the preview versions, you will need to create a new cluster using the GA version and migrate your data and applications from the preview cluster. Stay tuned for more details on this feature. 
 
 
 ## Next steps
