@@ -73,7 +73,7 @@ Azure storage account | No | Azure storage does not include information about sy
 
 For each managed Windows computer, a scan is performed twice per day.  When an update is installed, its information is updated within 15 minutes.  
 
-For each managed Linux computer, a scan is performed every three (3) hours.  
+For each managed Linux computer, a scan is performed every 3 hours.  
 
 ## Using the solution
 
