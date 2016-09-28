@@ -143,4 +143,4 @@ Azure-consistent storage is valuable for two user roles:
 
 
 - <span id="Concepts" class="anchor"></span> [Azure-consistent storage:
-    Differences and considerations] (azure-stack-acs-differences-tp2.md)
+    differences and considerations] (azure-stack-acs-differences-tp2.md)
