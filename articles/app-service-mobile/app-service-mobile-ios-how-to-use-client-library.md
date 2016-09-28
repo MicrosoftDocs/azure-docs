@@ -3,7 +3,7 @@
 	description="How to Use iOS SDK for Azure Mobile Apps"
 	services="app-service\mobile"
 	documentationCenter="ios"
-	authors="krisragh"
+	authors="adrianhall"
 	manager="dwrede"
 	editor=""/>
 
@@ -248,6 +248,41 @@ query.parameters = @{
 
 ```
 query.parameters = ["myKey1": "value1", "myKey2": "value2"]
+```
+
+
+ +## <a name="paging"></a>How to: Return Data in Pages
+
+With Azure Mobile Apps, it's possible to configure a page size. The default page size is 50. 
+
+This controls the number of records that pulled at a time from the backend DB. A call to `pull` data would then batch up data, based on this record size, until there are no more records to pull.
+
+Paging is performed by using **MSPullSettings** object like so:
+
+**Objective-C**:
+```
+  MSPullSettings *pullSettings = [[MSPullSettings alloc] initWithPageSize:3];
+  [table  pullWithQuery:query queryId:@"allTodoItems" settings:pullSettings
+                        completion:^(NSError * _Nullable error) {
+                               [self logErrorIfNotNil:error];
+                               
+                               // Let the caller know that we have finished
+                               if (completion != nil) {
+                                   dispatch_async(dispatch_get_main_queue(), completion);
+                               }
+                           }];
+```
+
+
+**Swift**:
+```
+table.pullWithQuery(query, nil, pullSettings) { (result, error) in
+    if let err = error {
+        print("ERROR ", err)
+    } else if let item = result {
+        print("Todo Item: ", item["text"])
+    }
+}
 ```
 
 ##<a name="inserting"></a>How to: Insert Data
