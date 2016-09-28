@@ -24,7 +24,7 @@ SQL Data Warehouse offers both local and geographical backups as part of its dat
 
 A data warehouse backup is the data that you can use to restore a data warehouse to a specific time.  Since SQL Data Warehouse is a distributed system, a data warehouse backup consists of many files that are stored in Azure blobs. 
 
-Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. For more information, see [Business continuity overview](sql-database-business-continuity.md).
+Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. For more information, see [Business continuity overview](../sql-database/sql-database-business-continuity.md).
 
 ## Data redundancy
 
