@@ -264,24 +264,22 @@ Paging is performed by using **MSPullSettings** object like so:
   MSPullSettings *pullSettings = [[MSPullSettings alloc] initWithPageSize:3];
   [table  pullWithQuery:query queryId:@"allTodoItems" settings:pullSettings
                         completion:^(NSError * _Nullable error) {
-                               [self logErrorIfNotNil:error];
-                               
-                               // Let the caller know that we have finished
-                               if (completion != nil) {
-                                   dispatch_async(dispatch_get_main_queue(), completion);
-                               }
+                               if(error) {
+					NSLog(@"ERROR %@", error);
+				} 
                            }];
 ```
 
 
 **Swift**:
 ```
-table.pullWithQuery(query, nil, pullSettings) { (result, error) in
+let pullSettings = MSPullSettings(pageSize: 3)
+
+table.pullWithQuery(query, nil, pullSettings) 
+table.pullWithQuery(query, queryId: "AllRecords", settings: pullSettings) { (error) in
     if let err = error {
         print("ERROR ", err)
-    } else if let item = result {
-        print("Todo Item: ", item["text"])
-    }
+    } 
 }
 ```
 
