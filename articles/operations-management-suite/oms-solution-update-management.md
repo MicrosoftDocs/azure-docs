@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="09/27/2016"
+    ms.date="09/28/2016"
     ms.author="magoedte"/>
 
 # ![Update Management Solution in OMS](./media/oms-solution-update-management/update-management-solution-icon.png) Update Management solution in OMS
@@ -71,6 +71,10 @@ Azure storage account | No | Azure storage does not include information about sy
 
 ### Collection frequency
 
+For each managed Windows computer, a scan is performed twice per day.  When an update is installed, its information is updated within 15 minutes.  
+
+For each managed Linux computer, a scan is performed every three (3) hours.  
+
 A scan of each managed computer is performed every three hours. When an update is installed, its information is updated within 30 minutes.
 
 ## Using the solution
@@ -79,6 +83,7 @@ When you add the Update Management solution to your OMS workspace, the **Update 
 ![Update Management Summary Tile](media/oms-solution-update-management/update-management-summary-tile.png)  
 
 ## Viewing Update Assessments
+
 Click on the **Update Management** tile to open the **Update Management** dashboard. The dashboard includes the columns in the following table. Each column lists up to ten items matching that column's criteria for the specified scope and time range. You can run a log search that returns all records by clicking **See all** at the bottom of the column or by clicking the column header.
 
 Column | Description|
@@ -91,9 +96,11 @@ Critical or Security Updates | Lists classifications of updates that computers a
 Update Runs||
 Update Runs | Number of currently scheduled update runs and the duration until the next scheduled run.  Click on the tile to view schedules, currently running, and completed updates or to schedule a new run.|  
 <br><br>  
-![Update Management Dashboard Example 1](./media/oms-solution-update-management/update-management-dashboard-1.png)<br>  
+![Update Management Dashboard Computer View](./media/oms-solution-update-management/update-management-assessment-computer-view.png)<br>  
 <br>  
-![Update Management Dashboard Example 2](./media/oms-solution-update-management/update-management-dashboard-2.png)
+![Update Management Dashboard Package View](./media/oms-solution-update-management/update-management-assessment-package-view.png)<br>
+<br>
+![Update Management Summary Dashboard](./media/oms-solution-update-management/update-management-dashboard-2.png)
 
 ## Installing updates
 
@@ -142,13 +149,13 @@ Computers | Names of computers or computer groups to include in the Update Run. 
 
 ### Time range
 
-By default, the scope of the data analyzed in the System Update Management solution is from all connected management groups generated within the last 1 day. 
+By default, the scope of the data analyzed in the Update Management solution is from all connected management groups generated within the last 1 day. 
 
 To change the time range of the data, select **Data based on** at the top of the dashboard. You can select records created or updated within the last 7 days, 1 day, or 6 hours. Or you can select **Custom** and specify a custom date range.<br><br> ![Custom Time Range Option](./media/oms-solution-update-management/update-la-time-range-scope-databasedon.png)  
 
 ## Log Analytics records
 
-The System Update solution creates two types of records in the OMS repository.
+The Update Management solution creates two types of records in the OMS repository.
 
 ### Update records
 
@@ -170,6 +177,7 @@ MSRCBulletinID | ID of the Microsoft security bulletin describing the update.|
 MSRCSeverity | Severity of the Microsoft security bulletin.<br>Possible values are:<br>- Critical<br>- Important<br>- Moderate|
 Optional | Specifies whether the update is optional.|
 Product | Name of the product the update is for.  Click **View** to open the article in a browser.|
+PackageSeverity | The severity of the vulnerability fixed in this update, as reported by the  Linux distro vendors. | 
 PublishDate | Date and time that the update was installed.|
 RebootBehavior | Specifies if the update forces a reboot.<br>Possible values are:<br>- canrequestreboot<br>- neverreboots|
 RevisionNumber | Revision number of the update.|
@@ -219,7 +227,7 @@ WSUSServer | URL of WSUS server if the computer is configured to use one.|
 
 ## Sample log searches
 
-The following table provides sample log searches for alert records collected by this solution. 
+The following table provides sample log searches for update records collected by this solution. 
 
 Query | Description|
 ----------|----------|
@@ -233,8 +241,19 @@ Distinct missing updates across all computers | Type=Update UpdateState=Needed O
 WSUS computer membership | Type=UpdateSummary &#124; measure count() by WSUSServer|
 Automatic update configuration | Type=UpdateSummary &#124; measure count() by WindowsUpdateSetting|
 Computers with automatic update disabled | Type=UpdateSummary WindowsUpdateSetting=Manual|  
+List of all the Linux machines which have a package update available | Type=Update and OSType=Linux and UpdateState!="Not needed" &#124; measure count() by Computer|
+List of all the Linux machines which have a package update available which addresses Critical or Security vulnerability | Type=Update and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") &#124; measure count() by Computer|
+List of all packages that have an update available | Type=Update and OSType=Linux and UpdateState!="Not needed"|
+List of all packages that have an update available which addresses Critical or Security vulnerability | Type=Update  and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates")|
+List of all the “Ubuntu” machines with any update available | Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer|
 
+## Next steps
 
+- Use Log Searches in [Log Analytics](../log-analytics/log-analytics-log-searches.md) to view detailed update data.
+
+- [Create your own dashboards](../log-analytics/log-analytics-dashboards.md) showing update compliance for your managed computers.
+
+- [Create alerts](../log-analytics/log-analytics-alerts.md) when critical updates are detected as missing from computers or a computer has automatic updates disabled.  
 
 
 
