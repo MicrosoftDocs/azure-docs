@@ -250,14 +250,13 @@ query.parameters = @{
 query.parameters = ["myKey1": "value1", "myKey2": "value2"]
 ```
 
-
- +## <a name="paging"></a>How to: Return Data in Pages
+## <a name="paging"></a>How to: Return Data in Pages
 
 With Azure Mobile Apps, it's possible to configure a page size. The default page size is 50. 
 
 This controls the number of records that pulled at a time from the backend DB. A call to `pull` data would then batch up data, based on this record size, until there are no more records to pull.
 
-Paging is performed by using **MSPullSettings** object like shown below. This example uses a paging size of 3.
+Paging is performed by using **MSPullSettings** as shown below. These snippets uses a paging size of 3.
 
 **Objective-C**:
 ```
