@@ -68,7 +68,8 @@ An example that illustrates separation of duties, 3 roles: Key Vault owner, deve
 Principles
 1. Grant access to specific operations to perform designated tasks
 2. Use one key vault per application instance
-3.
+3. Periodically rotate your secrets
+
 
 
 # Example
