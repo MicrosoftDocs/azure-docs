@@ -13,10 +13,15 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/25/2016"
+   ms.date="09/28/2016"
    ms.author="seanmck"/>
 
-# Create your first Azure Service Fabric application on Linux with Java
+
+# Create your first Azure Service Fabric application
+
+> [AZURE.SELECTOR]
+- [C Sharp](service-fabric-create-your-first-application-in-visual-studio.md)
+- [Java](service-fabric-create-your-first-linux-application-with-java.md)
 
 Service Fabric provides SDKs for building services on Linux in both .NET Core and Java. In this tutorial, we will look at how to create an application for Linux and build a service using Java.
 
