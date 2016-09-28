@@ -97,7 +97,7 @@ You must use the [Import-AzureRmMlWebService](https://msdn.microsoft.com/library
 
 Finally, you use [Update-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767922.aspx) cmdlet to update the Predictive experiment.
 
-	Update-AzureRmMlWebService -Name 'RetrainingExampl.2016.9.26.18.40.41.777' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'  -ServiceUpdates $wsd 
+	Update-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'  -ServiceUpdates $wsd 
 
 ##Summary
 
