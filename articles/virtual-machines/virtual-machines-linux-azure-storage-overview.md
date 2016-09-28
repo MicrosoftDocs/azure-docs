@@ -13,7 +13,7 @@
   ms.topic="article"
   ms.tgt_pltfrm="vm-linux"
   ms.workload="infrastructure"
-  ms.date="09/26/2016"
+  ms.date="09/28/2016"
   ms.author="v-livech"/>
 
 # Azure and Linux VM storage
@@ -165,4 +165,4 @@ We will talk about Storage Service Encryption (SSE), and how you can enable it f
 - [Storage cost calculator](https://azure.microsoft.com/pricing/calculator/?service=storage)
 ## Storage limits
 
-- [Storage Service limits](../azure-subscription-service-limits/#storage-limits)
+- [Storage Service limits](../azure-subscription-service-limits.md#storage-limits)
