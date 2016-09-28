@@ -16,13 +16,13 @@
    ms.author="daseidma;bwren" />
 
 # Using Application Dependency Monitor solution in Operations Management Suite (OMS)
-![Alert Management icon](media/operations-management-suite-application-dependency-monitor/icon.png) Application Dependency Monitor (ADM) is an Operations Management Suite (OMS) solution that automatically discovers application components on Windows and Linux systems and maps the communication between services. It allows you to view your servers as you think of them – as interconnected systems that rely on other systems to deliver critical services.  Application Dependency Monitor shows connections between servers, processes, and ports across any TCP-connected architecture with no configuration required other than installation of an agent.
+![Alert Management icon](media/operations-management-suite-application-dependency-monitor/icon.png) Application Dependency Monitor (ADM) automatically discovers application components on Windows and Linux systems and maps the communication between services. It allows you to view your servers as you think of them – as interconnected systems that deliver critical services.  Application Dependency Monitor shows connections between servers, processes, and ports across any TCP-connected architecture with no configuration required other than installation of an agent.
 
-This article describes the details of using Applicant Dependency Monitor.  For information on configuring ADM and onboarding agents, see [Configuring Application Dependency Monitor solution in Operations Management Suite (OMS)](operations-management-suite-application-dependency-monitor-configure.md)
+This article describes the details of using Application Dependency Monitor.  For information on configuring ADM and onboarding agents, see [Configuring Application Dependency Monitor solution in Operations Management Suite (OMS)](operations-management-suite-application-dependency-monitor-configure.md)
 
->[AZURE.NOTE]Application Dependency Monitor is currently in private preview.  You can request access to the ADM private preview at [https://www.surveymonkey.com/r/MGNQRG2](https://www.surveymonkey.com/r/MGNQRG2).
+>[AZURE.NOTE]Application Dependency Monitor is currently in private preview.  You can request access to the ADM private preview at [https://aka.ms/getadm](https://aka.ms/getadm).
 >
->During private preview, all OMS accounts have unlimited access to ADM, and ADM nodes are free.  Log Analytics data for AdmComputer_CL and AdmProcess_CL types will still be metered like any other solution.
+>During private preview, all OMS accounts have unlimited access to ADM.  ADM nodes are free, but Log Analytics data for AdmComputer_CL and AdmProcess_CL types will be metered like any other solution.
 >
 >After ADM enters public preview, it will be available only to free and paid customers of Insight & Analytics in the OMS Pricing Plan.  Free tier accounts will be limited to 5 ADM nodes.  If you are participating in the private preview and are not enrolled in the OMS Pricing Plan when ADM enters public preview, ADM will be disabled at that time. 
 
@@ -61,7 +61,7 @@ Failed Connections are shown in ADM maps for processes and computers, with a das
 
 ![Failed connections](media/operations-management-suite-application-dependency-monitor/failed-connections.png)
 
-Understanding failed connections can help with troubleshooting, migration validation, security analysis, and overall architectural understanding.  Sometimes failed connections are harmless, but they often point directly to a problem, such as a failover environment suddenly becoming unreachable, or two application tiers not being able to talk after a cloud migration. 
+Understanding failed connections can help with troubleshooting, migration validation, security analysis, and overall architectural understanding.  Sometimes failed connections are harmless, but they often point directly to a problem, such as a failover environment suddenly becoming unreachable, …or two application tiers not being able to talk after a cloud migration.  In the image above, IIS and WebSphere are both running, but they can’t connect. 
 
 ## Computer and Process Properties
 When navigating an ADM map, you can select machines and processes to gain additional context about their properties.  Machines provide information about DNS name, IPv4 addresses, CPU and Memory capacity, VM Type, Operating System version, Last Reboot time, and the IDs of their OMS and ADM agents.
@@ -194,7 +194,7 @@ Type=AdmProcess_CL Name_s=curl | Distinct ProductVersion_s
 ## Diagnostic and usage data
 Microsoft automatically collects usage and performance data through your use of the Application Dependency Monitor service. Microsoft uses this Data to provide and improve the quality, security and integrity of the Application Dependency Monitor service. Data includes information about the configuration of your software like operating system and version and also includes IP address, DNS name, and Workstation name in order to provide accurate and efficient troubleshooting capabilities. We do not collect names, addresses or other contact information.
 
-For more information on data collection and usage, please see the [Microsoft Online Services Privacy Statement](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx).
+For more information on data collection and usage, please see the [Microsoft Online Services Privacy Statement](hhttps://go.microsoft.com/fwlink/?LinkId=512132).
 
 
 
