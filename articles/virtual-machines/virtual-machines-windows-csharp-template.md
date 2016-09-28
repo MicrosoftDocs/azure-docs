@@ -19,7 +19,7 @@
 
 # Deploy an Azure Virtual Machine using C# and a Resource Manager template
 
-By using resource groups and templates, you're able to manage all of the resources together that support your application. This article shows you how use Visual Studio and C# to set up authentication, create a template, and then deploy Azure resources using the template that you created.
+By using resource groups and templates, you're able to manage all the resources together that support your application. This article shows you how to use Visual Studio and C# to set up authentication, create a template, and then deploy Azure resources using the template that you created.
 
 You first need to make sure you've done these setup steps:
 
@@ -42,7 +42,7 @@ In Visual Studio, do these steps:
 
 2. In **Templates** > **Visual C#**, select **Console Application**, enter the name and location of the project, and then click **OK**.
 
-3. Right-click the project name in Solution Explorer, and then click **Add** > **New Item**.
+3. Right-click the project name in Solution Explorer, click **Add** > **New Item**.
 
 4. Click Web, select JSON File, enter *VirtualMachineTemplate.json* for the name, and then click **Add**.
 
@@ -190,9 +190,9 @@ In Visual Studio, do these steps:
 
 ### Create the parameters file
 
-To specify values for the resource parameters that were defined in the template, you create a parameters file that contains the values that is used when the template is deployed. In Visual Studio, do these steps:
+To specify values for the resource parameters that were defined in the template, you create a parameters file that contains the values that are used when the template is deployed. In Visual Studio, do these steps:
 
-1. Right-click the project name in Solution Explorer, and then click **Add**, and then  **New Item**.
+1. Right-click the project name in Solution Explorer, click **Add** >  **New Item**.
 
 2. Click Web, select JSON File, enter *Parameters.json* for the Name, and then click **Add**.
 
@@ -213,7 +213,7 @@ To specify values for the resource parameters that were defined in the template,
 
 ## Step 2: Install the libraries
 
-NuGet packages are the easiest way to install the libraries that you need to finish this tutorial. You must install the Azure Resource Management Library and the Azure Active Directory Authentication Library. To get these libraries in Visual Studio, do these steps:
+NuGet packages are the easiest way to install the libraries that you need to finish this tutorial. You need the Azure Resource Management Library and the Azure Active Directory Authentication Library to create the resources. To get these libraries in Visual Studio, do these steps:
 
 1. Right-click the project name in the Solution Explorer, click **Manage NuGet Packages**, and then click Browse.
 
@@ -252,7 +252,7 @@ The Azure Active Directory application is created and the authentication library
 
     Replace {client-id} with the identifier of the Azure Active Directory application, {client-secret} with the access key of the AD application, and {tenant-id} with the tenant identifier for your subscription. You can find the tenant id by running Get-AzureRmSubscription. You can find the access key by using the Azure portal.
 
-3. Add this code to the Main method in the Program.cs file to create the credentials:
+3. To create the credentials, add this code to the Main method in the Program.cs file:
 
         var token = GetAccessTokenAsync();
         var credential = new TokenCredentials(token.Result.AccessToken);
@@ -261,7 +261,7 @@ The Azure Active Directory application is created and the authentication library
 
 ## Step 4: Add the code to deploy the template
 
-In this step, you use the resource group that you previously created, but you could also create a new resource group using the [ResourceGroup](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.models.resourcegroup.aspx) and the [ResourceManagementClient](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.resourcemanagementclient.aspx) classes.
+In this step, you use the resource group that you previously created, but you could also create a resource group using the [ResourceGroup](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.models.resourcegroup.aspx) and the [ResourceManagementClient](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.resourcemanagementclient.aspx) classes.
 
 1. Add variables to the Main method of the Program class to specify the names of the resources that you previously created, the deployment name, and your subscription identifier:
 
@@ -295,9 +295,9 @@ In this step, you use the resource group that you previously created, but you co
             deployment);
         }
 
-    You can replace Template property with the TemplateLink property if you wanted to deploy the template from a storage account.
+    If you wanted to deploy the template from a storage account, you can replace the Template property with the TemplateLink property.
 
-3. Add this code to the Main method to call the method that you just added:
+3. To call the method that you just added, add this code to the Main method:
 
         var dpResult = CreateTemplateDeploymentAsync(
           credential,
@@ -309,9 +309,9 @@ In this step, you use the resource group that you previously created, but you co
 
 ##Step 5: Add the code to delete the resources
 
-Because you are charged for resources used in Azure, it is always a good practice to delete resources that are no longer needed. You don’t need to delete each resource separately from a resource group. Just delete the resource group and all of its resources are automatically deleted.
+Because you are charged for resources used in Azure, it is always a good practice to delete resources that are no longer needed. You don’t need to delete each resource separately from a resource group. Delete the resource group and all its resources are automatically deleted.
 
-1.	Add this method to the Program class to delete the resource group:
+1.	To delete the resource group, add this method to the Program class:
 
         public static async void DeleteResourceGroupAsync(
           TokenCredentials credential,
@@ -324,7 +324,7 @@ Because you are charged for resources used in Azure, it is always a good practic
           await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
         }
 
-2.	Add this code to the Main method to call the method that you just added:
+2.	To call the method that you just added, add this code to the Main method:
 
         DeleteResourceGroupAsync(
           credential,
@@ -338,13 +338,13 @@ Because you are charged for resources used in Azure, it is always a good practic
 
 2.	Press **Enter** after the Accepted status appears.
 
-	It should take about 5 minutes for this console application to run completely from start to finish. Before you press Enter to start deleting resources, you could take a few minutes to verify the creation of the resources in the Azure portal before you delete them.
+	It should take about five minutes for this console application to run completely from start to finish. Before you press Enter to start deleting resources, you could take a few minutes to verify the creation of the resources in the Azure portal before you delete them.
 
-3. Browse to the Audit Logs in the Azure portal to see the status of the resources:
+3. To see the status of the resources, browse to the Audit Logs in the Azure portal:
 
 	![Browse audit logs in Azure portal](./media/virtual-machines-windows-csharp-template/crpportal.png)
 
 ## Next Steps
 
 - If there were issues with the deployment, a next step would be to look at [Troubleshooting resource group deployments with Azure portal](../resource-manager-troubleshoot-deployments-portal.md).
-- Learn how to manage the virtual machine that you just created by reviewing [Manage virtual machines using Azure Resource Manager and PowerShell](virtual-machines-windows-csharp-manage.md).
+- Learn how to manage the virtual machine that you created by reviewing [Manage virtual machines using Azure Resource Manager and PowerShell](virtual-machines-windows-csharp-manage.md).

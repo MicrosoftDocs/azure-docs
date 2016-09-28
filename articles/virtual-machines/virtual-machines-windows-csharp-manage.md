@@ -253,7 +253,7 @@ Now that the application is created and the libraries are installed, you create 
 
 ## Stop a virtual machine
 
-You can stop a virtual machine in two ways. You can stop a virtual machine and keep all its settings, but continue to be charged for it, or you can stop a virtual machine and deallocate it. When a virtual machine is deallocated, all resources associated with it are also deallocated and billing ends for the it.
+You can stop a virtual machine in two ways. You can stop a virtual machine and keep all its settings, but continue to be charged for it, or you can stop a virtual machine and deallocate it. When a virtual machine is deallocated, all resources associated with it are also deallocated and billing ends for it.
 
 1. Comment out any code that you previously added to the Main method, except the code to get the credentials.
 
@@ -275,7 +275,7 @@ You can stop a virtual machine in two ways. You can stop a virtual machine and k
 
         computeManagementClient.VirtualMachines.Deallocate(groupName, vmName);
 
-3. Add this code to the Main method to call the method that you just added:
+3. To call the method that you just added, add this code to the Main method:
 
         StopVirtualMachineAsync(
           credential,
@@ -309,7 +309,7 @@ You can stop a virtual machine in two ways. You can stop a virtual machine and k
           await computeManagementClient.VirtualMachines.StartAsync(groupName, vmName);
         }
 
-3. Add this code to the Main method to call the method that you just added:
+3. To call the method that you just added, add this code to the Main method:
 
         StartVirtualMachineAsync(
           credential,
@@ -343,7 +343,7 @@ You can stop a virtual machine in two ways. You can stop a virtual machine and k
           await computeManagementClient.VirtualMachines.RestartAsync(groupName, vmName);
         }
 
-3. Add this code to the Main method to call the method that you just added:
+3. To call the method that you just added, add this code to the Main method:
 
         RestartVirtualMachineAsync(
           credential,
@@ -379,7 +379,7 @@ This example shows you how to change the size of a running virtual machine.
           await computeManagementClient.VirtualMachines.CreateOrUpdateAsync(groupName, vmName, vmResult);
         }
 
-3. Add this code to the Main method to call the method that you just added:
+3. To call the method that you just added, add this code to the Main method:
 
         UpdateVirtualMachineAsync(
           credential,
@@ -393,45 +393,7 @@ This example shows you how to change the size of a running virtual machine.
 
 5. Click **Start** in Visual Studio, and then sign in to Azure AD using the same username and password that you use with your subscription.
 
-    You should see the size of the virtual machine change to Standard_A1
-    
-## Update a virtual machine
-
-This example shows you how to change the size of a running virtual machine.
-
-1. Comment out any code that you previously added to the Main method, except the code to get the credentials.
-
-2. Add this method to the Program class:
-
-        public static async void UpdateVirtualMachineAsync(
-          TokenCredentials credential, 
-          string groupName, 
-          string vmName, 
-          string subscriptionId)
-        {
-          Console.WriteLine("Updating the virtual machine...");
-          var computeManagementClient = new ComputeManagementClient(credential)
-            { SubscriptionId = subscriptionId };
-          var vmResult = await computeManagementClient.VirtualMachines.GetAsync(groupName, vmName);
-          vmResult.HardwareProfile.VmSize = "Standard_A1";
-          await computeManagementClient.VirtualMachines.CreateOrUpdateAsync(groupName, vmName, vmResult);
-        }
-
-3. Add this code to the Main method to call the method that you just added:
-
-        UpdateVirtualMachineAsync(
-          credential,
-          groupName,
-          vmName,
-          subscriptionId);
-        Console.WriteLine("\nPress enter to continue...");
-        Console.ReadLine();
-
-4. Save the Program.cs file.
-
-5. Click **Start** in Visual Studio, and then sign in to Azure AD using the same username and password that you use with your subscription.
-
-    You should see the size of the virtual machine change to Standard_A1
+    You should see the size of the virtual machine change to Standard_A1.
 
 ## Add a data disk to a virtual machine
 
@@ -467,7 +429,7 @@ This example shows you how to add a data disk to a running virtual machine.
           await computeManagementClient.VirtualMachines.CreateOrUpdateAsync(groupName, vmName, vmResult);
         }
 
-3. Add this code to the Main method to call the method that you just added:
+3. To call the method that you just added, add this code to the Main method:
 
         AddDataDiskAsync(
           credential,
@@ -480,8 +442,6 @@ This example shows you how to add a data disk to a running virtual machine.
 4. Save the Program.cs file.
 
 5. Click **Start** in Visual Studio, and then sign in to Azure AD using the same username and password that you use with your subscription.
-
-    You should see the size of the virtual machine change to Standard_A1
 
 ## Delete a virtual machine
 
@@ -501,7 +461,7 @@ This example shows you how to add a data disk to a running virtual machine.
           await computeManagementClient.VirtualMachines.DeleteAsync(groupName, vmName);
         }
 
-3. Add this code to the Main method to call the method that you just added:
+3. To call the method that you just added, add this code to the Main method:
 
         DeleteVirtualMachineAsync(
           credential,
