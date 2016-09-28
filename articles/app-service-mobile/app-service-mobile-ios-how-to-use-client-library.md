@@ -4,7 +4,7 @@
 	services="app-service\mobile"
 	documentationCenter="ios"
 	authors="adrianhall"
-	manager="dwrede"
+	manager="yochayk"
 	editor=""/>
 
 <tags
