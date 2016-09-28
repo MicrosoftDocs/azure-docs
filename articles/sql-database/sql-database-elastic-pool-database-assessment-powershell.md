@@ -79,7 +79,7 @@ param (
 )
 
 Login-AzureRmAccount
-Set-AzureRMContext -SubscriptionName $AzureSubscriptionName
+Set-AzureRmContext -SubscriptionName $AzureSubscriptionName
 
 $server = Get-AzureRmSqlServer -ServerName $servername.Split('.')[0] -ResourceGroupName $ResourceGroupName
 
