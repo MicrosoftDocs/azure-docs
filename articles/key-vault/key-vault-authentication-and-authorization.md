@@ -71,7 +71,6 @@ Principles
 3. Periodically rotate your secrets
 
 
-
 # Example
 
 Let's say you are developing a web application that uses a certificate for SSL, Azure storage for storing data, and also uses a RSA 2048 bit key for sign operations. Let's say this web application is running in a VM (or a VM Scale Set). You can use key vault to store all the application secrets, and also use key vault to store the bootstrap certificate that will be used by the application to authenticate with Azure Active Directory.
