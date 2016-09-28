@@ -1,4 +1,4 @@
--<properties
+<properties
 	pageTitle="Introduction to Azure-consistent storage  | Microsoft Azure"
 	description="Learn about Azure-consistent storage"
 	services="azure-stack"
