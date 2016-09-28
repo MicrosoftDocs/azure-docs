@@ -25,11 +25,11 @@ Azure provides the capability to monitor resource with logging and metrics
 
 [**Metrics**](#metrics) - Application gateway currently has one metric. This metric measures the throughput of the application gateway in Bytes per second.
 
-You can use different types of logs in Azure to manage and troubleshoot Application Gateways. Some of these logs can be accessed through the portal, and all logs can be extracted from an Azure blob storage, and viewed in different tools, such as [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Excel, and PowerBI. You can learn more about the different types of logs from the following list:
+You can use different types of logs in Azure to manage and troubleshoot application gateways. Some of these logs can be accessed through the portal, and all logs can be extracted from an Azure blob storage, and viewed in different tools, such as [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Excel, and PowerBI. You can learn more about the different types of logs from the following list:
 
 - **Audit logs:** You can use [Azure Audit Logs](../azure-portal/insights-debugging-with-events.md) (formerly known as Operational Logs) to view all operations being submitted to your Azure subscription, and their status. Audit logs are enabled by default, and can be viewed in the Azure preview portal.
-- **Access logs:** You can use this log to view Application Gateway access pattern and analyze important information including caller's IP, URL requested, response latency, return code, bytes in and out. Access log is collected every 300 seconds. This log contains one record per instance of Application Gateway. The Application Gateway instance can be identified by 'instanceId' property.
-- **Performance logs:** You can use this log to view how Application Gateway instances are performing. This log captures performance information on per instance basis including total request served, throughput in bytes, total requests served, failed request count, healthy and unhealthy back-end instance count. Performance log is collected every 60 seconds.
+- **Access logs:** You can use this log to view application gateway access pattern and analyze important information including caller's IP, URL requested, response latency, return code, bytes in and out. Access log is collected every 300 seconds. This log contains one record per instance of application gateway. The application gateway instance can be identified by 'instanceId' property.
+- **Performance logs:** You can use this log to view how application gateway instances are performing. This log captures performance information on per instance basis including total request served, throughput in bytes, total requests served, failed request count, healthy and unhealthy back-end instance count. Performance log is collected every 60 seconds.
 - **Firewall logs:** You can use this log to view the requests that are logged through either detection or prevention mode of an application gateway that is configured with web application firewall.
 
 >[AZURE.WARNING] Logs are only available for resources deployed in the Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For a better understanding of the two models, reference the [Understanding Resource Manager deployment and classic deployment](../resource-manager-deployment-model.md) article.
@@ -42,7 +42,7 @@ Audit logging is automatically enabled for every Resource Manager resource. You 
 
 	![Preview portal - Application Gateway Diagnostics](./media/application-gateway-diagnostics/diagnostics1.png)
 
-2. Note your Application Gateway's Resource ID for which logging is to be enabled. This would be of the form: /subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Network/applicationGateways/\<application gateway name\>. You can use the preview portal to find this information.
+2. Note your application gateway's Resource ID for which logging is to be enabled. This would be of the form: /subscriptions/\<subscriptionId\>/resourceGroups/\<resource group name\>/providers/Microsoft.Network/applicationGateways/\<application gateway name\>. You can use the preview portal to find this information.
 
 	![Preview portal - Application Gateway Diagnostics](./media/application-gateway-diagnostics/diagnostics2.png)
 
@@ -58,7 +58,7 @@ Audit logging is automatically enabled for every Resource Manager resource. You 
 
 Navigate to your resource in the Azure portal. Click **Diagnostic logs**. If this is the first time configuring diagnostics the blade looks like the following image:
 
-For Application Gateway, 3 logs are available.
+For application gateway, 3 logs are available.
 
 - Access Log
 - Performance Log
@@ -167,7 +167,7 @@ You can view and analyze audit log data using any of the following methods:
 - **Azure tools:** Retrieve information from the audit logs through Azure PowerShell, the Azure Command Line Interface (CLI), the Azure REST API, or the Azure preview portal.  Step-by-step instructions for each method are detailed in the [Audit operations with Resource Manager](../resource-group-audit.md) article.
 - **Power BI:** If you don't already have a [Power BI](https://powerbi.microsoft.com/pricing) account, you can try it for free. Using the [Azure Audit Logs content pack for Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/) you can analyze your data with pre-configured dashboards that you can use as-is, or customize.
 
-## View and analyze the access and performance log
+## View and analyze the access, performance and firewall log
 
 Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) can collect the counter and event log files from your Blob storage account and includes visualizations and powerful search capabilities to analyze your logs.
 
