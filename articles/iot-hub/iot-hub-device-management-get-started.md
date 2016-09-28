@@ -81,7 +81,7 @@ In this section, you create a Node.js console app that responds to a direct meth
 5. Add a **connectionString** variable and use it to create a device client.  
 
     ```
-    var connectionString = 'HostName={youriothostname};DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}';
+    var connectionString = 'HostName={youriothostname};DeviceId=myDeviceId;SharedAccessKey={yourdevicekey}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
 
@@ -89,6 +89,8 @@ In this section, you create a Node.js console app that responds to a direct meth
 
     ```
     var onReboot = function(request, response) {
+        
+        response.write(JSON.stringify('Reboot started'));
         
         // Respond the cloud app for the direct method
         response.end(200, function(err) {
@@ -102,21 +104,27 @@ In this section, you create a Node.js console app that responds to a direct meth
         // Report the reboot before the physical restart
         var date = new Date();
         var patch = {
-            reported : {
-                iothubDM : {
-                    reboot : {
-                        lastReboot : date.toISOString(),
-                    }
+            iothubDM : {
+                reboot : {
+                lastReboot : date.toISOString(),
                 }
             }
         };
 
-        client.reportTwinState(patch, function(err) {
-        if (err) throw err;
-        console.log('Device reboot Twin state reported')
-        });  
+        // Get device Twin
+        client.getTwin(function(err, twin) {
+            if (err) {
+                console.error('could not get twin');
+            } else {
+                console.log('twin acquired');
+                twin.properties.reported.update(patch, function(err) {
+                    if (err) throw err;
+                        console.log('Device reboot twin state reported')
+                });  
+            }
+        });
         
-        // Add your device's reboot API for physical restart
+        // Add your device's reboot API for physical restart.
         console.log('Rebooting!');
     };
     ```
@@ -171,7 +179,7 @@ In this section, you create a Node.js console app that initiates a remote reboot
     var connectionString = '{iothubconnectionstring}';
     var registry = Registry.fromConnectionString(connectionString);
     var client = Client.fromConnectionString(connectionString);
-    var deviceToReboot = {deviceIdOfTargetDevice};
+    var deviceToReboot = myDeviceID;
     ```
     
 6. Add the following function to invoke the device method to reboot the target device:
@@ -180,9 +188,14 @@ In this section, you create a Node.js console app that initiates a remote reboot
     var startRebootDevice = function(twin) {
 
         var methodName = "reboot";
-        var timeout = 30;
         
-        client.invokeDeviceMethod(deviceToReboot, methodName, '', timeout, function(err, result) {
+        var methodParams = {
+            methodName: methodName,
+            payload: null,
+            timeoutInSeconds: 30
+        };
+        
+        client.invokeDeviceMethod(deviceToReboot, methodParams, function(err, result) {
             if (err) { 
                 console.error("Direct method error: "+err.message);
             } else {
@@ -196,13 +209,19 @@ In this section, you create a Node.js console app that initiates a remote reboot
 
     ```
     var queryTwinLastReboot = function() {
-        registry.getDeviceTwin(deviceToReboot, function(err, twin){
-            lastRebootTime = twin.properties.reported.iothubDM.reboot.lastReboot;
-            if (err) {
-                console.error('Could not query twins: ' + err.constructor.name + ' : ' + err.message);
-            } else {
-                console.log('Last reboot time: ' + JSON.stringify(lastRebootTime, null, 2));
-            }
+
+        registry.getTwin(deviceToReboot, function(err, twin){
+
+            if (twin.properties.reported.iothubDM != null)
+            {
+                if (err) {
+                    console.error('Could not query twins: ' + err.constructor.name + ': ' + err.message);
+                } else {
+                    var lastRebootTime = twin.properties.reported.iothubDM.reboot.lastReboot;
+                    console.log('Last reboot time: ' + JSON.stringify(lastRebootTime, null, 2));
+                }
+            } else 
+                console.log('Waiting for device to report last reboot time.');
         });
     };
     ```
@@ -211,7 +230,7 @@ In this section, you create a Node.js console app that initiates a remote reboot
 
     ```
     startRebootDevice();
-    queryTwinLastReboot();
+    setInterval(queryTwinLastReboot, 2000);
     ```
     
 9. Save and close the **dmpatterns_getstarted_service.js** file.
