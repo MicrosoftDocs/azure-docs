@@ -22,7 +22,7 @@
 - [Azure CLI](app-service-web-app-azure-resource-manager-xplat-cli.md)
 - [Azure PowerShell](app-service-web-app-azure-resource-manager-powershell.md)
 
-With the release of Microsoft Azure Cross-platform Command Line Tools version 0.10.5, new commands have been added. These commands give the user the ability to use Azure Resource Manager-based PowerShell commands to manage Web Apps.
+With the release of Microsoft Azure Cross-platform Command-Line Tools version 0.10.5, new commands have been added. These commands give the user the ability to use Azure Resource Manager-based PowerShell commands to manage Web Apps.
 
 To learn about managing Resource Groups, see [Use the Azure CLI to manage Azure resources and resource groups](../xplat-cli-azure-resource-manager.md). 
 
@@ -37,7 +37,7 @@ Following are descriptions of the different parameters:
 - 	**--resource-group**: resource group that includes the newly created app service plan.
 - 	**--name**: name of the app service plan.
 - 	**--location**: app service plan location.
-- 	**--tier**:  the desired pricing sku (F1 (Free), other options are D1 (Shared), B1 (Basic Small), B2 (Basic Medium), B3 (Basic Large), S1 (Standard Small), S2 (Standard Medium), S3 (Standard Large), P1 (Premium Small), P2 (Premium Medium), P3 (Premium Large).)
+- 	**--tier**:  the desired pricing sku (The optionsare are: F1 (Free), D1 (Shared), B1 (Basic Small), B2 (Basic Medium), B3 (Basic Large), S1 (Standard Small), S2 (Standard Medium), S3 (Standard Large), P1 (Premium Small), P2 (Premium Medium), and P3 (Premium Large).)
 - 	**--instances**: the number of workers in the app service plan (Default value is 1).
 
 Example to use this cmdlet:
@@ -160,7 +160,7 @@ To get the publishing profile for a web app, use:
 
     azure webapp publishingprofile --name ContosoWebApp --resource-group ContosoAzureResourceGroup
 
-This echoes the publishing profile username and password to the command line.
+This command echoes the publishing profile username and password to the command line.
 
 ### Manage Web App hostnames ###
 
