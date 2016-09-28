@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/27/2016"
+   ms.date="09/28/2016"
    ms.author="telmos"/>
 
 # Implementing Azure Active Directory
@@ -303,7 +303,7 @@ The scenarios that these steps demonstrate are:
 
 - Enabling access to the n-tier web application running in the cloud to external users, with AAD providing password authentication.
 
-- Enabling access to the n-tier web application running in the cloud to users running within the organization, with AAD providing password authentication and SSO.
+- Enabling access to the n-tier web application running in the cloud to users running within the organization, with AAD providing password authentication.
 
 ### Prerequisites
 
@@ -644,8 +644,6 @@ The configuration illustrated in these steps consists of two instances of the Az
 
 	- On-Premises Directory Synchronization Service Account (Sync_ADC2_*nnnnnnnnnnnn*@*myaadname*.onmicrosoft.com)
 
-	- Test User (TestUser@*myaadname*.onmicrosoft.com)
-
 2. In the Azure portal, navigate to the resource group holding the VMs for the AD DS domain controllers (*ra-aad-onpremise-rg* by default), and connect to the *ra-aad-onpremise-ad-vm1* VM. Log in as *testuser* with password *AweS0me@PW*.
 
 3. Using the *Active Directory Users and Computers* console, add a new domain user named John Smith, with logon name jsmith@contoso.com. Specify a password of your choice. Make the user a member of the local Administrators group (this is only so you can log locally on as this user later - the only machines in the domain are DCs).
@@ -673,7 +671,7 @@ The configuration illustrated in these steps consists of two instances of the Az
 
 	>[AZURE.NOTE] If you click *Change password*, you will not be allowed to perform this task as this operation must be enabled by an administrator first. For more information, see [Getting started with Password Management][aad-password-management].
 
-### Enable users to run the application by using SSO through AAD
+### Enable on-premises users to run the application by using authentication through AAD
 
 1. Return to the *ra-aad-onpremise-ad-vm1* domain controller VM.
 
@@ -690,11 +688,13 @@ The configuration illustrated in these steps consists of two instances of the Az
 
 6. Log in as jsmith@*myaadname*.onmicrosoft.com. The application should run and sign you in correctly.
 
-	Each time you run the web application, you will be prompted for your name and password. The following steps configure the application to support SSO, so AAD can use your domain credentials instead. Note that these changes are made to the application configuration, and not to AAD.
-
-7. **TBD**
-
 ## Next steps
+
+- [Single sign-on with Azure Active Directory][aad-sso]
+
+- [Publish applications using Azure AD Application Proxy][aad-app-proxy]
+
+- [Configuring AD FS for user sign-in with Azure AD Connect][aad-connect-adfs]
 
 <!-- links -->
 [resource-manager-overview]: ../resource-group-overview.md
@@ -753,6 +753,9 @@ The configuration illustrated in these steps consists of two instances of the Az
 [aad-connect-download]: http://www.microsoft.com/download/details.aspx?id=47594
 [aad-custom-directory]: https://azure.microsoft.com/documentation/articles/active-directory-add-domain/
 [aad-password-management]: https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-their-azure-ad-passwords
+[aad-sso]: https://azure.microsoft.com/documentation/articles/active-directory-appssoaccess-whatis/
+[aad-app-proxy]: https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-publish/
+[aad-connect-adfs]: https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Configuring-AD-FS-for-user-sign-in-with-Azure-AD-Connect
 [0]: ./media/guidance-ra-identity-aad/figure1.png "Cloud identity architecture using Azure Active Directory"
 [1]: ./media/guidance-ra-identity-aad/figure2.png "Single forest, single AAD directory topology"
 [2]: ./media/guidance-ra-identity-aad/figure3.png "Multiple forests, single AAD directory topology"
