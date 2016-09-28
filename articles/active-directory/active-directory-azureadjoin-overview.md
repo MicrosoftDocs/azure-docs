@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 
 # Extending cloud capabilities to Windows 10 devices through Azure Active Directory Join

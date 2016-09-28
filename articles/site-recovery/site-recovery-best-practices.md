@@ -115,6 +115,7 @@ iSCSI disk | Not supported | Prerequisites check will fail if unsupported
 Shared VHD | Not supported | Prerequisites check will fail if unsupported
 FC disk | Not supported | Prerequisites check will fail if unsupported
 Hard disk format| VHD <br/><br/> VHDX | Although VHDX isn't currently supported in Azure, Site Recovery automatically converts VHDX to VHD when you fail over to Azure. When you fail back to on-premises the virtual machines continue to use the VHDX format.
+Bitlocker | Not supported | Bitlocker must be disabled before protecting a virtual machine.
 Virtual machine name| Between 1 and 63 characters. Restricted to letters, numbers, and hyphens. Should start and end with a letter or number | Update the value in the virtual machine properties in Site Recovery
 Virtual machine type | <p>Generation 1</p> <p>Generation 2 - Windows</p> |  Generation 2 virtual machine with OS disk type of Basic Disk which includes 1 or 2 Data volumes with disk format as VHDX which is less than 300GB is supported. Linux Generation 2 virtual machines are not supported. [Read more information](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)
 

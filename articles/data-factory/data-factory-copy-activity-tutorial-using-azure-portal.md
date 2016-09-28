@@ -274,9 +274,9 @@ In this step, you create a pipeline with a **Copy Activity** that uses **InputDa
 
 	Note the following points:
 
-	- In the activities section, there is only one activity whose **type** is set to **CopyActivity**.
+	- In the activities section, there is only one activity whose **type** is set to **Copy**.
 	- Input for the activity is set to **InputDataset** and output for the activity is set to **OutputDataset**.
-	- In the **transformation** section, **BlobSource** is specified as the source type and **SqlSink** is specified as the sink type.
+	- In the **typeProperties** section, **BlobSource** is specified as the source type and **SqlSink** is specified as the sink type.
 
 	Replace the value of the **start** property with the current day and **end** value with the next day. You can specify only the date part and skip the time part of the date time. For example, "2016-02-03", which is equivalent to "2016-02-03T00:00:00Z"
 	

@@ -48,4 +48,3 @@ After this configuration is done, the LAD agent monitors the log files specified
 ## Next steps
 Check out [LTTng documentation](http://lttng.org/docs) and [Using LAD](../virtual-machines/virtual-machines-linux-classic-diagnostic-extension.md) to understand in more detail what events you should look into while troubleshooting issues.
 
-
