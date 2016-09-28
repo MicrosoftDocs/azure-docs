@@ -28,7 +28,7 @@ To complete the tasks in this article, you need:
 
 ## Create a Visual Studio project and install packages
 
-NuGet packages are the easiest ways to install the libraries that you need to finish the tasks in this article. You must install the Azure Active Directory Authentication Library and the Computer Resource Provider Library. To get these libraries in Visual Studio, do this:
+NuGet packages are the easiest ways to install the libraries that you need to finish the tasks in this article. The libraries that you install for this article are the Azure Active Directory Authentication Library and the Compute Resource Provider Library. Complete these steps to get the libraries in Visual Studio:
 
 1. Click **File** > **New** > **Project**.
 
@@ -44,7 +44,7 @@ Now you're ready to start using the libraries to manage your virtual machines.
 
 ## Set up the project
 
-Now that the Azure Active Directory application is created and the authentication library is installed, you format the application information into credentials that are used to authenticate requests to Azure Resource Manager.
+Now that the application is created and the libraries are installed, you create a token using the application information. This token is used to authenticate requests to Azure Resource Manager.
 
 1. Open the Program.cs file for the project that you created, and then add these using statements to the top of the file:
 
@@ -54,7 +54,7 @@ Now that the Azure Active Directory application is created and the authenticatio
         using Microsoft.Azure.Management.Compute.Models;
         using Microsoft.Rest;
         
-2. Add variables to the Main method of the Program class to specify the names of the existing resource group and the virtual machine that you want to manage, and your subscription identifier:
+2. Add variables to the Main method of the Program class to specify the name of the resource group, and the name of the virtual machine, and your subscription identifier:
 
         var groupName = "resource group name";
         var vmName = "virtual machine name";  
@@ -188,7 +188,7 @@ Now that the Azure Active Directory application is created and the authenticatio
 
 4. Click **Start** in Visual Studio, and then sign in to Azure AD using the same username and password that you use with your subscription.
 
-	When you run this method you should see something like this:
+	When you run this method, you should see something like this example:
     
         Getting information about the virtual machine...
         hardwareProfile
@@ -253,7 +253,7 @@ Now that the Azure Active Directory application is created and the authenticatio
 
 ## Stop a virtual machine
 
-You can stop a virtual machine in two ways. You can stop a virtual machine and keep all of its settings, but continue to be charged for it, or you can stop a virtual machine and deallocate it, which also deallocates all resources associated with it and ends billing for the virtual machine.
+You can stop a virtual machine in two ways. You can stop a virtual machine and keep all its settings, but continue to be charged for it, or you can stop a virtual machine and deallocate it. When a virtual machine is deallocated, all resources associated with it are also deallocated and billing ends for the it.
 
 1. Comment out any code that you previously added to the Main method, except the code to get the credentials.
 
@@ -271,7 +271,7 @@ You can stop a virtual machine in two ways. You can stop a virtual machine and k
           await computeManagementClient.VirtualMachines.PowerOffAsync(groupName, vmName);
         }
 
-	If you want to deallocate the virtual machine, change the PowerOff call to this:
+	If you want to deallocate the virtual machine, change the PowerOff call to this code:
 
         computeManagementClient.VirtualMachines.Deallocate(groupName, vmName);
 
@@ -517,4 +517,4 @@ This example shows you how to add a data disk to a running virtual machine.
 
 ## Next Steps
 
-If there were issues with a deployment, you might take a look at [Troubleshooting resource group deployments with Azure Portal](../resource-manager-troubleshoot-deployments-portal.md)
+If there were issues with a deployment, you might look at [Troubleshooting resource group deployments with Azure portal](../resource-manager-troubleshoot-deployments-portal.md)
