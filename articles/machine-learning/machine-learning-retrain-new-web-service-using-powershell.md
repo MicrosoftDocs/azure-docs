@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2016"
+	ms.date="09/27/2016"
 	ms.author="v-donglo"/>
 
 # Retrain a New Web service using the Machine Learning Management PowerShell cmdlets
@@ -47,9 +47,9 @@ You must first sign in to your Azure account from within the PowerShell environm
 
 Next, get the Web Service by calling the [Get-AzureRmMlWebService](https://msdn.microsoft.com/library/mt619267.aspx) cmdlet. The Web Service Definition is an internal representation of the trained model of the Web service and is not directly modifiable. Make sure that you are retrieving the Web Service Definition for your Predictive experiment and not your Training Experiment.
 
-	$ wsd = Get-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
+	$wsd = Get-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 
-To determine the resource group name of an existing web service, run the Get-AzureRmMlWebService cmdlet without any parameters to display the web services in your subscription. Locate the web service, and then look at its web service ID. The name of the resource group is the fourth element in the ID, just after the resourceGroups element. In the following example, the resource group name is Default-MachineLearning-SouthCentralUS.
+To determine the resource group name of an existing web service, run the Get-AzureRmMlWebService cmdlet without any parameters to display the web services in your subscription. Locate the web service, and then look at its web service ID. The name of the resource group is the fourth element in the ID, just after the *resourceGroups* element. In the following example, the resource group name is Default-MachineLearning-SouthCentralUS.
 
 	Properties : Microsoft.Azure.Management.MachineLearning.WebServices.Models.WebServicePropertiesForGraph 
 	Id : /subscriptions/<subscription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237 
@@ -58,7 +58,7 @@ To determine the resource group name of an existing web service, run the Get-Azu
 	Type : Microsoft.MachineLearning/webServices 
 	Tags : {} 
 
-Alternatively, to determine the resource group name of an existing web service, log on to the Microsoft Azure Machine Learning Web Services portal. Select the web service. The resource group name is the fifth element of the URL of the web service, just after the resourceGroups element. In the following example, the resource group name is Default-MachineLearning-SouthCentralUS.
+Alternatively, to determine the resource group name of an existing web service, log on to the Microsoft Azure Machine Learning Web Services portal. Select the web service. The resource group name is the fifth element of the URL of the web service, just after the *resourceGroups* element. In the following example, the resource group name is Default-MachineLearning-SouthCentralUS.
 
 	https://services.azureml.net/subscriptions/<subcription ID>/resourceGroups/Default-MachineLearning-SouthCentralUS/providers/Microsoft.MachineLearning/webServices/RetrainSamplePre.2016.8.17.0.3.51.237 
 
@@ -67,7 +67,7 @@ Alternatively, to determine the resource group name of an existing web service, 
 
 To modify the definition to the trained model to use the newly Trained Model, you must first use the [Export-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767935.aspx) cmdlet to export it to a JSON format file.
   
-	Export-AzureRmMlWebService -WebService $ wsd -OutputFile "C:\temp\mlservice_export.json"
+	Export-AzureRmMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
 
 ### Update the reference to the ilearner blob in the JSON.
 
@@ -90,14 +90,14 @@ In the assets, locate the [trained model], update the *uri* value in the *locati
 
 You must use the [Import-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767925.aspx) cmdlet to convert the modified JSON file back into a Web Service Definition that you can use to update the Predicative Experiment.
 
-	$wsd = Import-AzureRmMlWebService -JsonString "C:\temp\mlservice_export.json"
+	$wsd = Import-AzureRmMlWebService -InputFile "C:\temp\mlservice_export.json"
 
 
 ### Update the Web service with new Web Service Definition
 
-Finally, you use [New-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767943.aspx) cmdlet to update the Predictive experiment. New-AzureRmMlWebService is used to both create new Web Services and update existing services.
+Finally, you use [Update-AzureRmMlWebService](https://msdn.microsoft.com/library/azure/mt767922.aspx) cmdlet to update the Predictive experiment.
 
-	New-AzureRmMlWebService -Location 'South Central US'  Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -NewWebServiceDefinition $wsd -ResourceGroupName 'Default-MachineLearning-SouthCentralUS' 
+	Update-AzureRmMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'  -ServiceUpdates $wsd 
 
 ##Summary
 

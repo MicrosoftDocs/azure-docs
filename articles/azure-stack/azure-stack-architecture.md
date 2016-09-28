@@ -18,46 +18,53 @@
 
 # Microsoft Azure Stack POC architecture
 
-The Azure Stack POC is a one-node deployment of Azure Stack Technical Preview 2. All the components are installed on the host machine, and in the virtual machines of the deployment. The following diagram illustrates the logical architecture of the Azure Stack POC and its components.
+The Azure Stack POC is a one-node deployment of Azure Stack Technical Preview 2. All the components are installed on the host machine, and in the virtual machines of the deployment. 
+
+## Logical architecture diagram
+The following diagram illustrates the logical architecture of the Azure Stack POC and its components.
 
 ![](media/azure-stack-architecture/image1.png)
 
-**MAS-ACS01** Virtual machine hosting Azure Stack storage services.
 
-**MAS-ADFS01** Virtual machine hosting Active Directory Federation Services.  This virtual machine is not used in Technical Preview 2.  
+## Virtual machine roles
+The Azure Stack POC offers services using the following VMs on the POC host:
 
-**MAS-ASQL01**  Virtual machine providing an internal data store for Azure Stack infrastructure roles.  
+ - **MAS-ACS01** Virtual machine hosting Azure Stack storage services.
 
-**MAS-BGPNAT01** Virtual Machine acting as an edge router and provides NAT and VPN capabilities for Azure Stack.
+ - **MAS-ADFS01** Virtual machine hosting Active Directory Federation Services.  This virtual machine is not used in Technical Preview 2.  
 
-**MAS-CA01** Virtual machine providing certificate authority services for Azure Stack role services.
+ - **MAS-ASQL01**  Virtual machine providing an internal data store for Azure Stack infrastructure roles.  
 
-**MAS-Con01** Virtual machine available to developers for installing PowerShell, Visual Studio, and other tools.
+ - **MAS-BGPNAT01** Virtual Machine acting as an edge router and provides NAT and VPN capabilities for Azure Stack.
 
-**MAS-DC01** Virtual machine hosting Active Directory, DNS, and DHCP services for Microsoft Azure Stack.
+ - **MAS-CA01** Virtual machine providing certificate authority services for Azure Stack role services.
 
-**MAS-GWY01** Virtual machine providing edge gateway services such as VPN site-to-site connections for tenant networks.
+ - **MAS-Con01** Virtual machine available to developers for installing PowerShell, Visual Studio, and other tools.
 
-**MAS-NC01**  Virtual machine hosting Network Controller, which manages Azure Stack network services.  
+ - **MAS-DC01** Virtual machine hosting Active Directory, DNS, and DHCP services for Microsoft Azure Stack.
 
-**MAS-SLB01**  Virtual machine provides load balancing services in Azure Stack for both tenants and Azure Stack infrastructure services.  
+ - **MAS-GWY01** Virtual machine providing edge gateway services such as VPN site-to-site connections for tenant networks.
 
-**MAS-SUS01**  Virtual machine hosting Windows Server Update Services, and responsible for providing updates to other Azure Stack virtual machines.
+ - **MAS-NC01**  Virtual machine hosting Network Controller, which manages Azure Stack network services.  
 
-**MAS-WAS01**  Virtual machine hosting Azure Consistent Storage services.
+ - **MAS-SLB01**  Virtual machine provides load balancing services in Azure Stack for both tenants and Azure Stack infrastructure services.  
 
-**MAS-Xrp01** Virtual machine that hosts the core resource providers of Microsoft Azure Stack, including the Compute, Network, and Storage resource providers.
+ - **MAS-SUS01**  Virtual machine hosting Windows Server Update Services, and responsible for providing updates to other Azure Stack virtual machines.
 
+ - **MAS-WAS01**  Virtual machine hosting Azure Consistent Storage services.
 
+ - **MAS-Xrp01** Virtual machine that hosts the core resource providers of Microsoft Azure Stack, including the Compute, Network, and Storage resource providers.
+
+## Storage services
 Storage services in the operating system on the physical host include:
 
-**ACS Blob Service** Azure Consistent Storage Blob service, which provides blob and table storage services.
+ - **ACS Blob Service** Azure Consistent Storage Blob service, which provides blob and table storage services.
 
-**SoFS** Scale-out File Server.
+ - **SoFS** Scale-out File Server.
 
-**ReFS CSV** Resilient File System Cluster Shared Volume.
+ - **ReFS CSV** Resilient File System Cluster Shared Volume.
 
-**Virtual Disk**, **Storage Space**, and **Storage Spaces Direct** are the respective underlying storage technology in Windows Server to enable the Microsoft Azure Stack core storage resource provider.
+ - **Virtual Disk**, **Storage Space**, and **Storage Spaces Direct** are the respective underlying storage technology in Windows Server to enable the Microsoft Azure Stack core storage resource provider.
 
 ## Next steps
 
