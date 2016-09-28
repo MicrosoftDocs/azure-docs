@@ -70,7 +70,7 @@ Click **Turn on diagnostics** to start collecting data.
 
 ### Step 2
 
-On the **Diagnostics settings** blade, the settings for how the diagnostic logs are set. In this example, Log analytics is used to store the logs. Click **Configure** under **Log Analytics** to configure your workspace.
+On the **Diagnostics settings** blade, the settings for how the diagnostic logs are set. In this example, Log analytics is used to store the logs. Click **Configure** under **Log Analytics** to configure your workspace. Event hubs and a storage account can be used to save the diagnostics logs as well.
 
 ![diagnostics blade][2]
 
