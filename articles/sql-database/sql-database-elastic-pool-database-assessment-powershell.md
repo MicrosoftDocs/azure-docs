@@ -18,46 +18,48 @@
 
 # PowerShell script for identifying databases suitable for an elastic database pool
 
-The sample PowerShell script in this article estimates the aggregate eDTU values for user databases in a SQL Database server. The script collects data while it runs, and for a typical production workload, you should run the script for at least a day. Ideally, you want to run the script for a duration that represents your databases' typical workload--that is, long enough to capture data that represents normal and peak utilization for the databases. Running the script a week or even longer will likely give a more accurate estimate.
+The sample PowerShell script in this article estimates the aggregate eDTU values for user databases in a SQL Database server. The script collects data while it runs, and for a typical production workload, you should run the script for at least a day. Ideally, you want to run the script for a duration that represents your databases' typical workload. Run the script long enough to capture data that represents normal and peak utilization for the databases. Running the script a week or even longer will likely give a more accurate estimate.
 
-This script is particularly useful for evaluating databases on v11 servers, where pools are not supported, for migration to v12 servers, where pools are supported. On v12 servers, SQL Database has built-in intelligence that will analyze historical usage telemetry and recommend a pool when it will be more cost-effective. For information about how to use this feature, see [Monitor, manage, and size an elastic database pool](sql-database-elastic-pool-manage-portal.md)
+This script is useful for evaluating databases on v11 servers for migration to v12 servers, where pools are supported. On v12 servers, SQL Database has built-in intelligence that analyzes historical usage telemetry and recommends a pool when it will be more cost-effective. For information, see [Monitor, manage, and size an elastic database pool](sql-database-elastic-pool-manage-portal.md)
 
-> [AZURE.IMPORTANT] You must keep the PowerShell window open while running the script. Do not close the PowerShell window until you have run the script for the amount of time required. 
+> [AZURE.IMPORTANT] Keep the PowerShell window open while running the script. Do not close the PowerShell window until you have run the script for the amount of time required. 
 
 ## Prerequisites 
 
-Install the following prior to running the script.:
+Install the following prior to running the script:
 
 - The latest Azure PowerShell. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 - The [SQL Server 2014 feature pack](https://www.microsoft.com/download/details.aspx?id=42295).
 
 ### Script details
 
-You can run the script from your local machine or a VM on the cloud. When running it from your local machine, you may incur data egress charges because the script needs to download data from your target databases. Below shows data volume estimation based on number of target databases and duration of running the script. For Azure data transfer costs refer to [Data Transfer Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/).
+You can run the script from your local machine or a VM on the cloud. When running it from your local machine, you may incur data egress charges because the script needs to download data from your target databases. The following shows data volume estimation based on number of target databases and duration of running the script. For Azure data transfer costs, refer to [Data Transfer Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/).
        
- -     1 database per hour = 38KB
- -     1 database per day = 900KB
- -     1 database per week = 6MB
- -     100 databases per day = 90MB
- -     500 databases per week = 3GB
+ -     One database per hour = 38 KB
+ -     One database per day = 900 KB
+ -     One database per week = 6 MB
+ -     100 databases per day = 90 MB
+ -     500 databases per week = 3 GB
 
-The script excludes databases that aren't good candidates for the current public preview offering of the Standard tier.If you need to exclude additional databases from the target server, change the script to meet your criteria. By default, the script does not compile information for the following:
+The script does not compile information for the following databases:
 
 * Elastic databases (databases already in an elastic pool)
 * The server's master database
 
-The script needs an output database to store intermediate data for analysis. You can use a new or existing database. Although not technically required for the tool to run, the output database should be in a different server to avoid impacting the analysis outcome. The performance level of the output database should be at least S0 or higher. When collecting data for a large number of databases over a long period of time, you might consider upgrading your output database to a higher performance level.
+If you need to exclude additional databases from the target server, change the script to meet your criteria. By default.
+
+The script needs an output database to store intermediate data for analysis. You can use a new or existing database. Although not technically required for the tool to run, the output database should be in a different server to avoid impacting the analysis outcome. The performance level of the output database should be at least S0 or higher. When collecting data for many databases over a long period of time, you might consider upgrading your output database to a higher performance level.
 
 The script needs you to provide the credentials to connect to the target server (the elastic database pool candidate) with a full server name, <*dbname*>**.database.windows.net**. The script doesn’t support analyzing more than one server at a time.
 
-After submitting values for the initial set of parameters, you are prompted to log on to your azure account. This is for logging on to your target server, not the output database server.
+After submitting values for the initial set of parameters, you are prompted to log on to your Azure account. This is for logging on to your target server, not the output database server.
 	
 If you run into the following warnings while running the script you can ignore them:
 
 - WARNING: The Switch-AzureMode cmdlet is deprecated.
 - WARNING: Could not obtain SQL Server Service information. An attempt to connect to WMI on 'Microsoft.Azure.Commands.Sql.dll' failed with the following error: The RPC server is unavailable.
 
-When the script completes, it outputs the estimated number of eDTUs needed for a pool to contain all candidate databases in the target server. This estimated eDTU can be used for creating and configuring the pool. Once the pool is created and databases moved into the pool, monitor the pool closely for a few days and make any adjustments to the pool eDTU configuration as necessary. See [Monitor, manage, and size an elastic database pool](sql-database-elastic-pool-manage-portal.md).
+When the script completes, it outputs the estimated number of eDTUs needed for a pool to contain all candidate databases in the target server. This estimated eDTU can be used for creating and configuring the pool. Once the pool is created and databases moved into the pool, monitor the pool closely for a few days and make adjustments to the pool eDTU configuration as necessary. See [Monitor, manage, and size an elastic database pool](sql-database-elastic-pool-manage-portal.md).
 
 
    [AZURE.INCLUDE [learn-about-deployment-models-classic-include](../../includes/learn-about-deployment-models-classic-include.md)]
@@ -77,7 +79,7 @@ param (
 )
 
 Login-AzureRmAccount
-Select-AzureSubscription $AzureSubscriptionName
+Set-AzureRMContext -SubscriptionName $AzureSubscriptionName
 
 $server = Get-AzureRmSqlServer -ServerName $servername.Split('.')[0] -ResourceGroupName $ResourceGroupName
 
