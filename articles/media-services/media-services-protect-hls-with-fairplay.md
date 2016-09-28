@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Use Azure Media Services to Stream your HLS content Protected with Apple FairPlay" 
+	pageTitle="Protect your HLS content with Apple FairPlay and/or Microsoft PlayReady | Microsoft Azure" 
 	description="This topic gives an overview and shows how to use Azure Media Services to dynamically encrypt your HTTP Live Streaming (HLS) content with  Apple FairPlay. It also shows how to use the Media Services license delivery service to deliver FairPlay licenses to clients." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,22 +13,29 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/15/2016"
+	ms.date="09/27/2016"
 	ms.author="juliako"/>
 
-#Use Azure Media Services to Stream your HLS content Protected with Apple FairPlay 
+# Protect your HLS content with Apple FairPlay and/or Microsoft PlayReady
 
 Azure Media Services enables you to dynamically encrypt your HTTP Live Streaming (HLS) content using the following formats:  
 
-- **AES-128 envelope clear key** - The entire chunk is encrypted using the **AES-128 CBC** mode. The decryption of the stream is supported by iOS and OSX player natively. For more information, see [this article](media-services-protect-with-aes128.md).
+- **AES-128 envelope clear key** 
 
-- **Apple FairPlay** - The individual video and audio samples are encrypted using the **AES-128 CBC** mode. **FairPlay Streaming** (FPS) is integrated into the device operating systems, with native support on iOS and Apple TV. Safari on OS X enables FPS using Encrypted Media Extensions (EME) interface support.
+	The entire chunk is encrypted using the **AES-128 CBC** mode. The decryption of the stream is supported by iOS and OSX player natively. For more information, see [this article](media-services-protect-with-aes128.md).
 
-The following image shows the "FairPlay dynamic encryption" workflow.
+- **Apple FairPlay** 
+
+	The individual video and audio samples are encrypted using the **AES-128 CBC** mode. **FairPlay Streaming** (FPS) is integrated into the device operating systems, with native support on iOS and Apple TV. Safari on OS X enables FPS using Encrypted Media Extensions (EME) interface support.
+- **Microsoft PlayReady**
+
+The following image shows the **HLS + FairPlay and/or PlayReady dynamic encryption** workflow.
 
 ![Protect with FairPlay](./media/media-services-content-protection-overview/media-services-content-protection-with-fairplay.png)
 
 This topic demonstrates how to use Azure Media Services to dynamically encrypt your HLS content with Apple FairPlay. It also shows how to use the Media Services license delivery service to deliver FairPlay licenses to clients.
+
+>[AZURE.NOTE] If you also want to encrypt your HLS content with PlayReady, you need to create a common key and associate it with your asset. You also need to configure the content key’s authorization policy, as described in [Using PlayReady dynamic common encryption](media-services-protect-with-drm.md) topic.
 
 	
 ## Requirements and considerations
@@ -109,12 +116,26 @@ The following are general steps that you would need to perform when protecting y
 
 ##Using FairPlay key delivery by player/client apps
 
-Customers could develop player apps using iOS SDK. In order to be able to play FairPlay content customers have to implement license exchange protocol. The license exchange protocol is not specified by Apple. It is up to each app how to send key delivery requests. The AMS FairPlay key delivery servces expects the SPC to come as www-form-url encoded post message in the following form: 
+Customers could develop player apps using iOS SDK. In order to be able to play FairPlay content customers have to implement license exchange protocol. The license exchange protocol is not specified by Apple. It is up to each app how to send key delivery requests. The AMS FairPlay key delivery services expects the SPC to come as www-form-url encoded post message in the following form: 
 
 	spc=<Base64 encoded SPC>
 
 >[AZURE.NOTE] Azure Media Player doesn’t support FairPlay playback out of the box. Customers need to obtain the sample player from Apple developer account to get FairPlay playback on MAC OSX. 
  
+##Streaming URLs
+
+If your asset was encrypted with more than one DRM, you should use an encryption tag in the streaming URL: (format='m3u8-aapl', encryption='xxx').
+
+The following considerations apply:
+
+- Only zero or one encryption type can be specified.
+- Encryption type doesn't have to be specified in the url if only one encryption was applied to the asset.
+- Encryption type is case insensitive.
+- The following encryption types can be specified:  
+	- **cenc**:  Common encryption (Playready or Widevine)
+	- **cbcs-aapl**: Fairplay
+	- **cbc**: AES envelope encryption.
+
 
 ##.NET example
 
