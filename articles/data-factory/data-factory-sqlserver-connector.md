@@ -463,7 +463,7 @@ In the samples, you have used a dataset of type **SqlServerTable** to represent 
 
 For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (SQL Server, Azure blob, Azure table, etc.).
 
-The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The **typeProperties** section for the dataset of type **SqlServerTable** has the following properties.
+The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The **typeProperties** section for the dataset of type **SqlServerTable** has the following properties:
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
@@ -505,8 +505,8 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
 | -------- | ----------- | -------------- | -------- |
 | writeBatchTimeout | Wait time for the batch insert operation to complete before it times out. | timespan<br/><br/> Example: “00:30:00” (30 minutes). | No |
 | writeBatchSize | Inserts data into the SQL table when the buffer size reaches writeBatchSize. | Integer (number of rows) | No (default: 10000)
-| sqlWriterCleanupScript | Specify query for Copy Activity to execute such that data of a specific slice is cleaned up. See repeatability section for more details. | A query statement.  | No |
-| sliceIdentifierColumnName | Specify column name for Copy Activity to fill with auto generated slice identifier, which is used to clean up data of a specific slice when rerun. See repeatability section for more details. | Column name of a column with data type of binary(32). | No |
+| sqlWriterCleanupScript | Specify query for Copy Activity to execute such that data of a specific slice is cleaned up. For more information, see [repeatability](#repeatability-during-copy) section. | A query statement.  | No |
+| sliceIdentifierColumnName | Specify column name for Copy Activity to fill with auto generated slice identifier, which is used to clean up data of a specific slice when rerun. For more information, see [repeatability](#repeatability-during-copy) section. | Column name of a column with data type of binary(32). | No |
 | sqlWriterStoredProcedureName | Name of the stored procedure that upserts (updates/inserts) data into the target table. | Name of the stored procedure. | No |
 | storedProcedureParameters | Parameters for the stored procedure. | Name/value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No |
 | sqlWriterTableType | Specify table type name to be used in the stored procedure. Copy activity makes the data being moved available in a temp table with this table type. Stored procedure code can then merge the data being copied with existing data. | A table type name. | No |
@@ -602,6 +602,8 @@ Notice that the target table has an identity column.
 
 
 Notice that as your source and target table have different schema (target has an additional column with identity). In this scenario, you need to specify **structure** property in the target dataset definition, which doesn’t include the identity column.
+
+Then, you map columns from source dataset to columns in the destination dataset. See [Column mapping samples](#column-mapping-samples) section for an example. 
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
