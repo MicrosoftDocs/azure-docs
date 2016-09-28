@@ -254,7 +254,7 @@ query.parameters = ["myKey1": "value1", "myKey2": "value2"]
 
 With Azure Mobile Apps, it's possible to configure a page size. The default page size is 50. 
 
-This controls the number of records that pulled at a time from the backend DB. A call to `pull` data would then batch up data, based on this record size, until there are no more records to pull.
+This controls the number of records that are pulled at a time from the backend DB. A call to `pull` data would then batch up data, based on this record size, until there are no more records to pull.
 
 Paging is performed by using **MSPullSettings** as shown below. These snippets uses a paging size of 3.
 
@@ -273,8 +273,6 @@ Paging is performed by using **MSPullSettings** as shown below. These snippets u
 **Swift**:
 ```
 let pullSettings = MSPullSettings(pageSize: 3)
-
-table.pullWithQuery(query, nil, pullSettings) 
 table.pullWithQuery(query, queryId:nil, settings: pullSettings) { (error) in
     if let err = error {
         print("ERROR ", err)
