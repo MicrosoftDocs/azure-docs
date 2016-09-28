@@ -73,9 +73,7 @@ You can also download the same custom modules while you're working in Machine Le
 
 2. Select **Module** - a list of modules is displayed that you can choose from, or you can find a specific module using the search box
 
-3. Point your mouse at a module (to see information about the module, select **View in Gallery** which takes you to the details page for the module in the Gallery)
-
-4. Select **Import Module**
+3. Point your mouse at a module and select **Import Module** (to see information about the module, select **View in Gallery** which takes you to the details page for the module in the Gallery)
 
 	The module is copied to your workspace and placed in your module palette alongside all the other built-in or custom Studio modules. 
 
