@@ -13,8 +13,12 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/26/2016"
+   ms.date="09/28/2016"
    ms.author="ryanwi"/>
+
+> [AZURE.SELECTOR]
+- [C Sharp](service-fabric-create-your-first-application-in-visual-studio.md)
+- [Java](service-fabric-create-your-first-linux-application-with-java.md)
 
 # Create your first Azure Service Fabric application in Visual Studio
 
