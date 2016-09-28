@@ -23,7 +23,7 @@ Azure provides the capability to monitor resource with logging and metrics
 
 [**Logging**](#enable-logging-with-powershell) - Logging allows for performance, access and other logs to be saved or consumed from a resource for monitoring purposes.
 
-[**Metrics**](#metrics) - Application currently one metric. This metric measures the throughput of the application gateway in Bytes per second.
+[**Metrics**](#metrics) - Application gateway currently has one metric. This metric measures the throughput of the application gateway in Bytes per second.
 
 You can use different types of logs in Azure to manage and troubleshoot Application Gateways. Some of these logs can be accessed through the portal, and all logs can be extracted from an Azure blob storage, and viewed in different tools, such as [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Excel, and PowerBI. You can learn more about the different types of logs from the following list:
 
@@ -64,25 +64,23 @@ For Application Gateway, 3 logs are available.
 - Performance Log
 - Firewall Log
 
-### Step 2
-
 Click **Turn on diagnostics** to start collecting data.
 
 ![diagnostics setting blade][1]
 
-### Step 3
+### Step 2
 
 On the **Diagnostics settings** blade, the settings for how the diagnostic logs are set. In this example, Log analytics is used to store the logs. Click **Configure** under **Log Analytics** to configure your workspace.
 
 ![diagnostics blade][2]
 
-### Step 4
+### Step 3
 
 Choose an existing OMS Workspace or create a new one. For this example an existing one is used.
 
 ![oms workspaces][3]
 
-### Step 5
+### Step 4
 
 When complete, confirm the settings and click **Save** to save the settings.
 
