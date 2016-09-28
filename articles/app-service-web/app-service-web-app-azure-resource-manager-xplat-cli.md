@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/26/2016"
+	ms.date="09/29/2016"
 	ms.author="aelnably"/>
 
 # Using Azure Resource Manager-Based XPlat CLI for Azure Web App#
