@@ -160,7 +160,7 @@ To get the publishing profile for a web app, use:
 
     azure webapp publishingprofile --name ContosoWebApp --resource-group ContosoAzureResourceGroup
 
-This will echo the publishing profile username and password to the command line.
+This echoes the publishing profile username and password to the command line.
 
 ### Manage Web App hostnames ###
 
