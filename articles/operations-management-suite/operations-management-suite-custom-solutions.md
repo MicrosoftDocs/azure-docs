@@ -43,6 +43,14 @@ The basic structure of a Resource Manager Template is as follows.  Each of the f
        "outputs": {  }
     }
 
+### OMS workspace and Automation account
+Most solutions will include resources in Log Analytics and Azure Automation.  As such, they will require an [OMS workspace]() and an [Automation account]().  These must be available before the resources in the solution are created and should not be included in the solution itself.
+
+If your solution will be made available in the Azure Marketplace, then users will be prompted to either select an existing workspace and account or create a new one.  The name of each is provided to the solution by populating the parameters that are described in the next section.
+
+If your solution will be made available through Azure QuickStart templates, then the user will be prompted to type in values for each parameter so they will not have the option to have the workspace and account created for them.  In this case, the account and workspace must be created before the solution is deployed, and the user must provide the name for each as values for the appropriate parameters.
+
+
 ### Parameters
 
 The **parameters** element defines values that you require from the user when they install the solution.  
@@ -88,7 +96,7 @@ You can add other parameters as required for your particular solution.
 		},
 	}
 
-- The Log Analytics workspace and Automation accounts must exist before the solution is deployed.  If your solution is deployed from the Azure Marketplace, the user will either select an existing workspace and account or a new one will be created for them.  In either case, you can be guaranteed that they will be created and the 
+- The Log Analytics workspace and Automation accounts must exist before the solution is deployed.  If your solution is deployed from the Azure Marketplace, the user will either select an existing workspace and account or specify new ones to be created.  
 - The region
 
 
