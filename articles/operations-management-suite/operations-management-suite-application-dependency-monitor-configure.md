@@ -12,13 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/27/2016"
+   ms.date="09/28/2016"
    ms.author="daseidma;bwren" />
 
 # Configuring Application Dependency Monitor solution in Operations Management Suite (OMS)
 ![Alert Management icon](media/operations-management-suite-application-dependency-monitor/icon.png) Application Dependency Monitor (ADM) automatically discovers application components on Windows and Linux systems and maps the communication between services. It allows you to view your servers as you think of them – as interconnected systems that deliver critical services.  Application Dependency Monitor shows connections between servers, processes, and ports across any TCP-connected architecture with no configuration required other than installation of an agent.
 
-This article describes the details of configuring Applicant Dependency Monitor and onboarding agents.  For information on using ADM, see [Using Application Dependency Monitor solution in Operations Management Suite (OMS)](operations-management-suite-application-dependency-monitor.md)
+This article describes the details of configuring Application Dependency Monitor and onboarding agents.  For information on using ADM, see [Using Application Dependency Monitor solution in Operations Management Suite (OMS)](operations-management-suite-application-dependency-monitor.md)
 
 >[AZURE.NOTE]Application Dependency Monitor is currently in private preview.  You can request access to the ADM private preview at [https://aka.ms/getadm](https://aka.ms/getadm).
 >
@@ -34,7 +34,7 @@ The following table describes the connected sources that are supported by the AD
 | Connected Source | Supported | Description |
 |:--|:--|:--|
 | [Windows agents](../log-analytics/log-analytics-windows-agents.md) | Yes | ADM analyzes and collects data from Windows agent computers.  <br><br>Note that in addition to the OMS agent, Windows agents require the Microsoft Dependency Agent.  Please see the [Supported Operating Systems](#supported-operating-systems) for a complete list of operating system versions. |
-| [Linux agents](../log-analytics/log-analytics-linux-agents.md) | Yes | ADM analyzes and collects data from Windows agent computers.  <br><br>Note that in addition to the OMS agent, Linux agents require the Microsoft Dependency Agent.  Please see the [Supported Operating Systems](#supported-operating-systems) for a complete list of operating system versions. |
+| [Linux agents](../log-analytics/log-analytics-linux-agents.md) | Yes | ADM analyzes and collects data from Linux agent computers.  <br><br>Note that in addition to the OMS agent, Linux agents require the Microsoft Dependency Agent.  Please see the [Supported Operating Systems](#supported-operating-systems) for a complete list of operating system versions. |
 | [SCOM management group](../log-analytics/log-analytics-om-agents.md) | Yes | ADM analyzes and collects data from Windows and Linux agents in a connected SCOM management group. <br><br>A direct connection from the SCOM agent computer to OMS is required. Data is sent directly from forwarded from the management group to the OMS repository.|
 | [Azure storage account](../log-analytics/log-analytics-azure-storage.md) | No | ADM collects data from agent computers, so there is no data from it to collect from Azure storage. |
 
@@ -51,7 +51,7 @@ If you are a SCOM customer with a Management Group connected to OMS:
 - If your SCOM agents can access the internet to connect to OMS, no additional configuration is required.  
 - If your SCOM agents cannot access OMS over the internet, you will need to configure the OMS Gateway to work with SCOM.
   
-If you are using the OMS Direct Agent, you need to configure the OMS Agent itself to connect to OMS or to your OMS Gateway.  The OMS Gateway can be downloaded from https://www.microsoft.com/en-us/download/details.aspx?id=52666
+If you are using the OMS Direct Agent, you need to configure the OMS Agent itself to connect to OMS or to your OMS Gateway.  The OMS Gateway can be downloaded from [https://www.microsoft.com/en-us/download/details.aspx?id=52666](https://www.microsoft.com/en-us/download/details.aspx?id=52666)
 
 
 ### Avoiding duplicate data
@@ -77,8 +77,6 @@ The MP is named Microsoft.IntelligencePacks.ApplicationDependencyMonitor*.  It i
 
 
 ## Configuration
-Add the Application Dependency Monitor solution to your OMS workspace using the process described in [Add solutions](../log-analytics/log-analytics-add-solutions.md). 
-
 In addition to Windows and Linux computers have an agent installed and connected to OMS, the Dependency Agent installer must be downloaded from the ADM solution and then installed as root or Admin on each managed server.  Once the ADM agent is installed on a server reporting to OMS, ADM dependency maps will appear within 10 minutes.  If you have any issues, please email [oms-adm-support@microsoft.com](mailto:oms-adm-support@microsoft.com).
 
 

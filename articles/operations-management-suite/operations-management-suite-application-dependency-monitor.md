@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/27/2016"
+   ms.date="09/28/2016"
    ms.author="daseidma;bwren" />
 
 # Using Application Dependency Monitor solution in Operations Management Suite (OMS)
