@@ -2,7 +2,7 @@
 	pageTitle="Enable offline sync for your Azure Mobile App (Android)"
 	description="Learn how to use App Service Mobile Apps to cache and sync offline data in your Android application"
 	documentationCenter="android"
-	authors="lindydonna"
+	authors="RickSaling"
 	manager="erikre"
 	services="app-service\mobile"/>
 
@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="07/18/2016"
-	ms.author="donnam;ricksal"/>
+	ms.date="07/21/2016"
+	ms.author="ricksal"/>
 
 # Enable offline sync for your Android mobile app
 

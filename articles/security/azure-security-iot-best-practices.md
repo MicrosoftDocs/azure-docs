@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2016"
+   ms.date="08/09/2016"
    ms.author="yurid"/>
 
 # Internet of Things Security Best Practices

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Manage Azure Blob Storage resources with Storage Explorer (Preview) | Microsoft Azure"
 	description="Manage Azure Blob Containers and Blobs with Storage Explorer (Preview)"
-	services="visual-studio-online"
+	services="storage"
 	documentationCenter="na"
 	authors="TomArcher"
 	manager="douge"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="na"
-	ms.date="07/14/2016"
+	ms.date="08/17/2016"
 	ms.author="tarcher" />
 
 # Manage Azure Blob Storage resources with Storage Explorer (Preview)

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/07/2016" 
+	ms.date="08/09/2016" 
 	ms.author="awills"/>
 
 # Reference for Analytics
@@ -22,6 +22,7 @@
 [Application Insights](app-insights-overview.md). These pages describe the
  Analytics query lanquage.
 
+> [AZURE.NOTE] [Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo) if your app isn't sending data to Application Insights yet.
 
 ## Index
 
@@ -29,13 +30,13 @@
 **Let and set** [let](#let-clause) | [set](#set-clause)
 
 
-**Queries and operators** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator)
+**Queries and operators** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) | [where-in](#where-in-operator)
 
 **Aggregations** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
 **Scalars** [Boolean Literals](#boolean-literals) | [Boolean operators](#boolean-operators) | [Casts](#casts) | [Scalar comparisons](#scalar-comparisons) | [gettype](#gettype) | [hash](#hash) | [iff](#iff) | [isnotnull](#isnotnull) | [isnull](#isnull) | [notnull](#notnull) | [toscalar](#toscalar)
 
-**Numbers** [Arithmetic operators](#arithmetic-operators) | [Numeric literals](#numeric-literals) | [abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [log](#log) | [rand](#rand) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
+**Numbers** [Arithmetic operators](#arithmetic-operators) | [Numeric literals](#numeric-literals) | [abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [gamma](#gamma) | [log](#log) | [rand](#rand) | [sqrt](#sqrt) | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 **Date and time** [Date and time expressions](#date-and-time-expressions) | [Date and time literals](#date-and-time-literals) | [ago](#ago) | [datepart](#datepart) | [dayofmonth](#dayofmonth) | [dayofweek](#dayofweek) | [dayofyear](#dayofyear) | [endofday](#endofday) | [endofmonth](#endofmonth) | [endofweek](#endofweek) | [endofyear](#endofyear) | [getmonth](#getmonth) | [getyear](#getyear) | [now](#now) | [startofday](#startofday) | [startofmonth](#startofmonth) | [startofweek](#startofweek) | [startofyear](#startofyear) | [todatetime](#todatetime) | [totimespan](#totimespan) | [weekofyear](#weekofyear)
 
@@ -65,7 +66,7 @@
        (interval:timespan) { requests | where timestamp > ago(interval) };
     Recent(3h) | count
 
-    let us_date = (t:datetime){strcat(getmonth(t),'/',dayofmonth(t),'/',getyear(t)) }; 
+    let us_date = (t:datetime) { strcat(getmonth(t),'/',dayofmonth(t),'/',getyear(t)) }; 
     requests | summarize count() by bin(timestamp, 1d) | project count_, day=us_date(timestamp)
 
 A let clause binds a [name](#names) to a tabular result, scalar value or function. The clause is a prefix to a query, and the scope of the binding is that query. (Let doesn't provide a way to name things that you use later in your session.)
@@ -85,7 +86,7 @@ A let clause binds a [name](#names) to a tabular result, scalar value or functio
 
 **Examples**
 
-    let rows(n:long) = range steps from 1 to n step 1;
+    let rows = (n:long) { range steps from 1 to n step 1 };
     rows(10) | ...
 
 
@@ -1068,7 +1069,7 @@ This more efficient version produces the same result. It filters each table befo
 
 ### where operator
 
-     T | where fruit=="apple"
+     requests | where resultCode==200
 
 Filters a table to the subset of rows that satisfy a predicate.
 
@@ -1101,7 +1102,7 @@ To get the fastest performance:
 **Example**
 
 ```AIQL
-Traces
+traces
 | where Timestamp > ago(1h)
     and Source == "Kuskus"
     and ActivityId == SubActivityIt 
@@ -1112,6 +1113,26 @@ and come from the Source called "Kuskus", and have two columns of the same value
 
 Notice that we put the comparison between two columns last, as it can't utilize the index and forces a scan.
 
+
+### where-in operator
+
+    requests | where resultCode !in (200, 201)
+
+    requests | where resultCode in (403, 404)
+
+**Syntax**
+
+    T | where col in (expr1, expr2, ...)
+    T | where col !in (expr1, expr2, ...)
+
+**Arguments**
+
+* `col`: A column in the table.
+* `expr1`...: A list of scalar expressions.
+
+Use `in` is used to include only rows in which `col` is equal to one of the expressions `expr1...`.
+
+Use `!in` to include only rows in which `col` is not equal to any of the expressions `expr1...`.  
 
 
 ## Aggregations
@@ -1697,7 +1718,7 @@ The evaluated argument. If the argument is a table, returns the first column of 
 
 ## Numbers
 
-[abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) |[log](#log) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) 
+[abs](#abs) | [bin](#bin) | [exp](#exp) | [floor](#floor) | [gamma](#gamma) |[log](#log) | [rand](#rand) | [range](#range) | [sqrt](#sqrt) 
 | [todouble](#todouble) | [toint](#toint) | [tolong](#tolong)
 
 ### Numeric literals
@@ -1786,10 +1807,25 @@ with a bucket size of 1 second:
     exp10(v) // 10 raised to the power v
 
 
-
 ### floor
 
 An alias for [`bin()`](#bin).
+
+### gamma
+
+The [gamma function](https://en.wikipedia.org/wiki/Gamma_function)
+
+**Syntax**
+
+    gamma(x)
+
+**Arguments**
+
+* *x:* A real number
+
+For positive integers, `gamma(x) == (x-1)!` For example, `gamma(5) == 4 * 3 * 2 * 1`.
+
+See also [loggamma](#loggamma).
 
 
 ### log
@@ -1800,6 +1836,20 @@ An alias for [`bin()`](#bin).
 
 
 `v` should be a real number > 0. Otherwise, null is returned.
+
+### loggamma
+
+
+The natural logarithm of the absolute value of the [gamma function](#gamma).
+
+**Syntax**
+
+    loggamma(x)
+
+**Arguments**
+
+* *x:* A real number
+
 
 ### rand
 
@@ -2157,16 +2207,18 @@ Operator|Description|Case-Sensitive|True example
 `!~`|Not equals |No| `"aBc" !~ "xyz"`
 `has`|Right-hand-side (RHS) is a whole term in left-hand-side (LHS)|No| `"North America" has "america"`
 `!has`|RHS is not a full term in LHS|No|`"North America" !has "amer"` 
-`hasprefix`|RHS is a term prefix in LHS|No|`"North America" hasprefix "ame"`
-`!hasprefix`|RHS is not a term prefix in LHS|No|`"North America" !hasprefix "mer"`
-`contains` | RHS occurs as a subsequence of LHS|No| `"FabriKam" contains "BRik"`
+`hasprefix`|RHS is a prefix of a term in LHS|No|`"North America" hasprefix "ame"`
+`!hasprefix`|RHS is not a prefix of any term in LHS|No|`"North America" !hasprefix "mer"`
+`hassuffix`|RHS is a suffix of a term in LHS|No|`"North America" hassuffix "rth"`
+`!hassuffix`|RHS is not a suffix of any term in LHS|No|`"North America" !hassuffix "mer"`
+`contains` | RHS occurs as a substring of LHS|No| `"FabriKam" contains "BRik"`
 `!contains`| RHS does not occur in LHS|No| `"Fabrikam" !contains "xyz"`
-`containscs` | RHS occurs as a subsequence of LHS|Yes| `"FabriKam" contains "Kam"`
+`containscs` | RHS occurs as a substring of LHS|Yes| `"FabriKam" contains "Kam"`
 `!containscs`| RHS does not occur in LHS|Yes| `"Fabrikam" !contains "Kam"`
-`startswith`|RHS is an initial subsequence of LHS.|No|`"Fabrikam" startswith "fab"`
-`!startswith`|RHS is not an initial subsequence of LHS.|No|`"Fabrikam" !startswith "abr"`
-`endswith`|RHS is a terminal subsequence of LHS.|No|`"Fabrikam" endswith "kam"`
-`!endswith`|RHS is not a terminal subsequence of LHS.|No|`"Fabrikam" !endswith "ka"`
+`startswith`|RHS is an initial substring of LHS.|No|`"Fabrikam" startswith "fab"`
+`!startswith`|RHS is not an initial substring of LHS.|No|`"Fabrikam" !startswith "abr"`
+`endswith`|RHS is a terminal substring of LHS.|No|`"Fabrikam" endswith "kam"`
+`!endswith`|RHS is not a terminal substring of LHS.|No|`"Fabrikam" !endswith "ka"`
 `matches regex`|LHS contains a match for RHS|Yes| `"Fabrikam" matches regex "b.*k"`
 `in`|Equal to any of the elements|Yes|`"abc" in ("123", "345", "abc")`
 `!in`|Not equal to any of the elements|Yes|`"bc" !in ("123", "345", "abc")`
@@ -2435,7 +2487,7 @@ Converts a string to upper case.
 
 [literals](#dynamic-literals) | [casting](#casting-dynamic-objects) | [operators](#operators) | [let clauses](#dynamic-objects-in-let-clauses)
 <br/>
-[arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic)
+[arraylength](#arraylength) | [extractjson](#extractjson) | [parsejson](#parsejson) | [range](#range) | [treepath](#treepath) | [todynamic](#todynamic) | [zip](#zip)
 
 
 Here's the result of a query on an Application Insights exception. The value in `details` is an array.
@@ -2744,6 +2796,24 @@ An array of path expressions.
     =>       ["['listProperty']","['listProperty'][0]","['listProperty'][0]['x']"]
 
 Note that "[0]" indicates the presence of an array, but does not specify the index used by a specific path.
+
+### zip
+
+    zip(list1, list2, ...)
+
+Combines a set of lists into one list of tuples.
+
+* `list1...`: A list of values
+
+**Examples**
+
+    zip(parsejson('[1,3,5]'), parsejson('[2,4,6]'))
+    => [ [1,2], [3,4], [5,6] ]
+
+    
+    zip(parsejson('[1,3,5]'), parsejson('[2,4]'))
+    => [ [1,2], [3,4], [5,null] ]
+
 
 ### Names
 

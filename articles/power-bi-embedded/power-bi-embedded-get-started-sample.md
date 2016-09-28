@@ -3,7 +3,7 @@
    description="Power BI Embedded, use SDK to add interactive Power BI reports into your business intelligence application"
    services="power-bi-embedded"
    documentationCenter=""
-   authors="minewiskan"
+   authors="mgblythe"
    manager="NA"
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="powerbi"
    ms.date="07/14/2016"
-   ms.author="owend"/>
+   ms.author="mblythe"/>
 
 # Get started with Power BI Embedded sample
 
@@ -36,7 +36,7 @@ Let's walk through setting up your Visual Studio development environment to acce
 
 1. Download and unzip the [Power BI Embedded - Integrate a report into a web app](http://go.microsoft.com/fwlink/?LinkId=761493) sample on GitHub.
 
-2. Open **PowerBI-embedded.sln** in Visual Studio.
+2. Open **PowerBI-embedded.sln** in Visual Studio. You may need to execute the **Update-Package** command in the NuGET Package Manager Console in order to update the packages used in this solution.
 
 3. Build the solution.
 
@@ -100,7 +100,7 @@ The **Microsoft Power BI Embedded** sample is an example dashboard web app that 
 
 The **Microsoft Power BI Embedded** sample code is separated as follows. Each section includes the file name in the PowerBI-embedded.sln solution so that you can easily find the code in the sample.
 
-> [AZURE.NOTE] This section is a summary of the sample code that shows how the code was written. We will expand the description of the sample as we move towards General Availability (GA). To view the complete sample, please load the PowerBI-embedded.sln solution in Visual Studio.
+> [AZURE.NOTE] This section is a summary of the sample code that shows how the code was written. To view the complete sample, please load the PowerBI-embedded.sln solution in Visual Studio.
 
 ### Model
 The sample has a **ReportsViewModel** and **ReportViewModel**.
@@ -120,6 +120,15 @@ The sample has a **ReportsViewModel** and **ReportViewModel**.
 
         public string AccessToken { get; set; }
     }
+
+### Connection string
+The connection string must be in the following format:
+
+```
+Data Source=tcp:MyServer.database.windows.net,1433;Initial Catalog=MyDatabase
+```
+
+Using common server and database attributes will fail. For example: Server=tcp:MyServer.database.windows.net,1433;Database=MyDatabase,
 
 ### View
 The **View** manages the display of Power BI **Reports** and a Power BI **Report**.

@@ -3,7 +3,7 @@
 	description="Learn how to connect to a DocumentDB account with protocol support for MongoDB, now available for preview. Connect by using your MongoDB connection string." 
 	keywords="mongodb connection string"
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="" 
 	documentationCenter=""/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
-	ms.author="stbaro"/>
+	ms.date="08/23/2016" 
+	ms.author="mimig"/>
 
 # How to connect to a DocumentDB account with protocol support for MongoDB
 
@@ -24,7 +24,7 @@ Learn how to connect to an Azure DocumentDB account with protocol support for Mo
 ## Get the account's connection string information
 
 1. In a new window, sign in to the [Azure Portal](https://portal.azure.com).
-2. In the **All Settings** blade, click **Connection String**. To navigate to the **All Settings**, on the Jumpbar click **Browse**, click **DocumentDB** accounts, and then select the DocumentDB account with protocol support for MongoDB.
+2. In the **Left Navigation** bar of the Account Blade, click **Connection String**. To navigate to the **Account Blade**, on the Jumpbar click **More Services**, click **DocumentDB (NoSQL)** , and then select the DocumentDB account with protocol support for MongoDB.
 
 	![Screen shot of the All Settings blade](./media/documentdb-connect-mongodb-account/SettingsBlade.png)
 

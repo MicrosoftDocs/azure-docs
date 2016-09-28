@@ -38,7 +38,7 @@ The Service Fabric application model has a number of advantages:
 
  - Fast deployment times. Creating VM instances can be time consuming. In Service Fabric, VMs are only deployed once to form a cluster that hosts the Service Fabric application platform. From that point on, application packages can be deployed to the cluster very quickly.
  - High-density hosting. In Cloud Services, a Worker Role VM hosts one workload. In Service Fabric, applications are separate from the VMs that run them, meaning you can deploy a large number of applications to a small number of VMs, which can lower overall cost for larger deployments.
- - The Service Fabric platform can run anywhere that has Windows Server or Linux machines, whether it's Azure or on-prem. The platform provides an abstraction layer over the underlying infrastructure so your application can run on different environments. 
+ - The Service Fabric platform can run anywhere that has Windows Server or Linux machines, whether it's Azure or on-premises. The platform provides an abstraction layer over the underlying infrastructure so your application can run on different environments. 
  - Distributed application management. Service Fabric is a platform that not only hosts distributed applications, but also helps manage their lifecycle independently of the hosting VM or machine lifecycle.
 
 ## Application architecture

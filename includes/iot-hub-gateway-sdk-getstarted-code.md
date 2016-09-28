@@ -36,7 +36,7 @@ This section discusses some key parts of the code in the Hello World sample.
 
 ### Gateway creation
 
-The developer must write the *gateway process*. This program creates the internal infrastructure (the message bus), loads the modules, and sets everything up to function correctly. The SDK provides the **Gateway_Create_From_JSON** function to enable you to bootstrap a gateway from a JSON file. To use the **Gateway_Create_From_JSON** function you must pass it the path to a JSON file that specifies the modules to load. 
+The developer must write the *gateway process*. This program creates the internal infrastructure (the broker), loads the modules, and sets everything up to function correctly. The SDK provides the **Gateway_Create_From_JSON** function to enable you to bootstrap a gateway from a JSON file. To use the **Gateway_Create_From_JSON** function you must pass it the path to a JSON file that specifies the modules to load. 
 
 You can find the code for the gateway process in the Hello World sample in the [main.c][lnk-main-c] file. For legibility, the snippet below shows an abbreviated version of the gateway process code. This program creates a gateway and then waits for the user to press the **ENTER** key before it tears down the gateway. 
 
@@ -65,21 +65,34 @@ The JSON settings file contains a list of modules to load. Each module must spec
 - **module_path**: the path to the library containing the module. For Linux this is a .so file, on Windows this is a .dll file.
 - **args**: any configuration information the module needs.
 
-The following sample shows the JSON settings file used to configure the Hello World sample on Linux. Whether a module requires an argument depends on the design of the module. In this example, the logger module takes an argument which is the path to the output file and the Hello World module does not take any arguments:
+The JSON file also contains the links between the modules that will be passed to the broker. A link has two properties:
+- **source**: a module name from the `modules` section, or "\*".
+- **sink**: a module name from the `modules` section
+
+Each link defines a message route and direction. Messages from module `source` are to be delivered to the module `sink`. The `source` may be set to "\*", indicating that messages from any module will be received by `sink`.
+
+The following sample shows the JSON settings file used to configure the Hello World sample on Linux. Every message produced by module `hello_world` will be consumed by module `logger`. Whether a module requires an argument depends on the design of the module. In this example, the logger module takes an argument which is the path to the output file and the Hello World module does not take any arguments:
 
 ```
 {
     "modules" :
     [ 
         {
-            "module name" : "logger_hl",
+            "module name" : "logger",
             "module path" : "./modules/logger/liblogger_hl.so",
             "args" : {"filename":"log.txt"}
         },
         {
-            "module name" : "helloworld",
+            "module name" : "hello_world",
             "module path" : "./modules/hello_world/libhello_world_hl.so",
 			"args" : null
+        }
+    ],
+    "links" :
+    [
+        {
+            "source" : "hello_world",
+            "sink" : "logger"
         }
     ]
 }
@@ -92,24 +105,24 @@ You can find the code used by the "hello world" module to publish messages in th
 ```
 int helloWorldThread(void *param)
 {
-    // Create data structures used in function.
+    // create data structures used in function.
     HELLOWORLD_HANDLE_DATA* handleData = param;
     MESSAGE_CONFIG msgConfig;
     MAP_HANDLE propertiesMap = Map_Create(NULL);
     
-    // Add a property named "helloWorld" with a value of "from Azure IoT
+    // add a property named "helloWorld" with a value of "from Azure IoT
     // Gateway SDK simple sample!" to a set of message properties that
     // will be appended to the message before publishing it. 
     Map_AddOrUpdate(propertiesMap, "helloWorld", "from Azure IoT Gateway SDK simple sample!")
 
-    // Set the content for the message
+    // set the content for the message
     msgConfig.size = strlen(HELLOWORLD_MESSAGE);
     msgConfig.source = HELLOWORLD_MESSAGE;
 
-    // Set the properties for the message
+    // set the properties for the message
     msgConfig.sourceProperties = propertiesMap;
     
-    // Create a message based on the msgConfig structure
+    // create a message based on the msgConfig structure
     MESSAGE_HANDLE helloWorldMessage = Message_Create(&msgConfig);
 
     while (1)
@@ -121,8 +134,8 @@ int helloWorldThread(void *param)
         }
         else
         {
-            // Publish the message to the bus
-            (void)MessageBus_Publish(handleData->busHandle, helloWorldMessage);
+            // publish the message to the broker
+            (void)Broker_Publish(handleData->brokerHandle, helloWorldMessage);
             (void)Unlock(handleData->lockHandle);
         }
 
@@ -137,7 +150,7 @@ int helloWorldThread(void *param)
 
 ### Hello World module message processing
 
-The Hello World module never needs to process any messages that other modules publish to the message bus. This makes implementation of the message callback in the Hello World module a no-op function.
+The Hello World module never needs to process any messages that other modules publish to the broker. This makes implementation of the message callback in the Hello World module a no-op function.
 
 ```
 static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
@@ -148,9 +161,9 @@ static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messag
 
 ### Logger module message publishing and processing
 
-The Logger module receives messages from the message bus and writes them to a file. It never publishes messages to the message bus. Therefore, the code of the logger module never calls the **MessageBus_Publish** function.
+The Logger module receives messages from the broker and writes them to a file. It never publishes any messages. Therefore, the code of the logger module never calls the **Broker_Publish** function.
 
-The **Logger_Recieve** function in the [logger.c][lnk-logger-c] file is the callback the message bus invokes to deliver messages to the logger module. The snippet below shows an amended version with additional comments and some error handling code removed for legibility:
+The **Logger_Recieve** function in the [logger.c][lnk-logger-c] file is the callback the broker invokes to deliver messages to the logger module. The snippet below shows an amended version with additional comments and some error handling code removed for legibility:
 
 ```
 static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)

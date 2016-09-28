@@ -3,8 +3,8 @@
   description="Make sure your environment is properly prepared to back up workloads using Azure Backup Server"
   services="backup"
   documentationCenter=""
-  authors="trinadhk"
-  manager="shreeshd"
+  authors="PVRK"
+  manager="shivamg"
   editor=""
   keywords="azure backup server; backup vault"/>
 
@@ -14,8 +14,8 @@
   ms.tgt_pltfrm="na"
   ms.devlang="na"
   ms.topic="article"
-  ms.date="05/10/2016"
-  ms.author="jimpark;trinadhk;pullabhk"/>
+  ms.date="07/20/2016"
+  ms.author="jimpark;trinadhk;pullabhk;markgal"/>
 
 # Preparing to back up workloads using Azure Backup Server
 
@@ -25,24 +25,37 @@
 - [Azure Backup Server (Classic)](backup-azure-microsoft-azure-backup-classic.md)
 - [SCDPM (Classic)](backup-azure-dpm-introduction-classic.md)
 
-This article is about preparing your environment to back up workloads using Azure Backup Server. 
+This article explains how to prepare your environment to back up workloads using Azure Backup Server. With Azure Backup Server, you can protect application workloads such as Hyper-V VMs, Microsoft SQL Server, SharePoint Server, Microsoft Exchange and Windows clients from a single console. You can also protect information as a server (IaaS) workloads such as VMs in Azure.
 
 > [AZURE.NOTE] Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md). This article provides the information and procedures for restoring VMs deployed using the Resource Manager model.
 
-With Azure Backup Server, you can protect application workloads such as Hyper-V VMs, Microsoft SQL Server, SharePoint Server, Microsoft Exchange and Windows clients from a single console.
+Azure Backup Server inherits much of the workload backup functionality from Data Protection Manager (DPM). This article links to DPM documentation to explain some of the shared functionality. Though Azure Backup Server shares much of the same functionality as DPM. Azure Backup Server does not back up to tape, nor does it integrate with System Center.
 
->[AZURE.WARNING] Azure Backup Server inherits the functionality of Data Protection Manager (DPM) for workload backup. You will find pointers to DPM documentation for some of these capabilities. However Azure Backup Server does not provide protection on tape or integrate with System Center.
+## 1. Choose an installation platform
 
-## 1. Windows Server machine
+The first step towards getting the Azure Backup Server up and running is to set up a Windows Server. Your server can be in Azure or on-premises.
 
-The first step towards getting the Azure Backup Server up and running is to have a Windows Server machine.
+### Using a server in Azure
 
-| Location | Minimum requirements | Additional instructions |
-| -------- | -------------------- | ----------------------- |
-| Azure | Azure IaaS virtual machine<br><br>A2 Standard: 2 cores, 3.5GB RAM | You can start with a simple gallery image of Windows Server 2012 R2 Datacenter. [Protecting IaaS workloads using Azure Backup Server (DPM)](https://technet.microsoft.com/library/jj852163.aspx) has many nuances. Ensure that you read the article completely before deploying the machine. |
-| On-premises | Hyper-V VM,<br> VMWare VM,<br> or a physical host<br><br>2 cores and 4GB RAM | You can deduplicate the DPM storage using Windows Server Deduplication. Learn more about how [DPM and deduplication](https://technet.microsoft.com/library/dn891438.aspx) work together when deployed in Hyper-V VMs. |
+When choosing a server for running Azure Backup Server, it is recommended you start with a gallery image of Windows Server 2012 R2 Datacenter. The article, [Create your first Windows virtual machine in the Azure portal](..\virtual-machines\virtual-machines-windows-hero-tutorial.md), provides a tutorial for getting started with the recommended virtual machine in Azure, even if you've never used Azure before. The recommended minimum requirements for the server virtual machine (VM) should be: A2 Standard with 2 cores and 3.5 GB RAM.
 
-> [AZURE.NOTE] It is recommended that Azure Backup Server be installed on a machine with Windows Server 2012 R2 Datacenter. A lot of the prerequisites are automatically covered with the latest version of the Windows operating system.
+Protecting workloads with Azure Backup Server has many nuances. The article, [Install DPM as an Azure virtual machine](https://technet.microsoft.com/library/jj852163.aspx), helps explain these nuances. Please read this article completely before deploying the machine.
+
+### Using an on-premises server
+
+If you do not want to run the base server in Azure, you can run the server on a Hyper-V VM, a VMware VM, or a physical host. The recommended minimum requirements for the server hardware are 2 cores and 4 GB RAM. The supported operating systems are listed in the following table.
+
+| Operating System        | Platform           | SKU  |
+| :------------- |-------------| :-----|
+|Windows Server 2012 R2 and latest SPs|	64 bit|	Standard, Datacenter, Foundation|
+|Windows Server 2012 and latest SPs|	64 bit|	Datacenter, Foundation, Standard|
+|Windows Storage Server 2012 R2 and latest SPs	|64 bit|	Standard, Workgroup|
+|Windows Storage Server 2012 and latest SPs	|64 bit	|Standard, Workgroup|
+
+
+You can deduplicate the DPM storage using Windows Server Deduplication. Learn more about how [DPM and deduplication](https://technet.microsoft.com/library/dn891438.aspx) work together when deployed in Hyper-V VMs.
+
+> [AZURE.NOTE]  You cannot install Azure Backup Server on a machine running as a domain controller.
 
 If you plan to join this server to a domain at some point, it is recommended that the domain-joining activity be done before the Azure Backup Server installation. Moving an existing Azure Backup Server machine to a new domain after deployment is *not supported*.
 
@@ -104,10 +117,10 @@ on the Hub menu, click **Browse**.
     - In the list of resources, type **Recovery Services**.
     - As you begin typing, the list will filter based on your input. When you see **Recovery Services vaults**, click it.
 
-    ![Create Recovery Services Vault step 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png) 
+    ![Create Recovery Services Vault step 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
 
     The list of Recovery Services vaults appears.
-    
+
     - From the list of Recovery Services vaults, select a vault.
 
     The selected vault dashboard opens.
@@ -136,8 +149,8 @@ on the Hub menu, click **Browse**.
     This will change the Getting Started wizard to prepare infrastructure for protecting workloads from on-premises to Azure.
 
     ![Getting Started wizard change](./media/backup-azure-microsoft-azure-backup/getting-started-prep-infra.png)
-  
-7. In the **Prepare infrastructure** blade that opens, click on **Download Azure Backup Server** and Vault credentials which you use during registration of Azure Backup Server to recovery services vault. This will take you to the Download Center page from where the software package can be downloaded.
+
+7. In the **Prepare infrastructure** blade that opens, click the **Download** links for Install Azure Backup Server and Download vault credentials. You use the vault credentials during registration of Azure Backup Server to the recovery services vault. The links take you to the Download Center where the software package can be downloaded.
 
     ![Prepare infrastructure for Azure Backup Server](./media/backup-azure-microsoft-azure-backup/azure-backup-server-prep-infra.png)
 

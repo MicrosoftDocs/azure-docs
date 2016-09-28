@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="05/13/2016"
+   ms.date="08/02/2016"
    ms.author="rickbyh"/>
 
 # Azure SQL Database security guidelines and limitations

@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/24/2016" 
-	ms.author="robmcm"/>
+	ms.date="08/26/2016" 
+	ms.author="robmcm;asirveda;martinsawicki"/>
 
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694270.aspx -->
 
@@ -26,6 +26,18 @@ This article contains information on the various releases and latest updates to 
 
 > [AZURE.NOTE] There is also an Azure Toolkit for the IntelliJ IDE. For more information, see [Azure Toolkit for IntelliJ].
 
+### August 26, 2016
+
+The Azure Toolkit for Eclipse - August 2016 release includes the following enhancements:
+
+* **Custom JDK Distributions**. The Azure Toolkit for Eclipse now supports specifying and deploying an arbitrary JDK version to your Azure WebApp container:
+  - In addition to the JDKs provided by Azure, you can also choose from a wide selection of Zulu OpenJDK versions made available on Azure by Azul Systems.
+  - You can also specify your own JDK distribution if you upload it as a ZIP file to your storage account.
+* **Enhancements to the Azure Explorer view**:
+  - Support for Virtual Machine management using Azure's new Resource Manager model: you can list, create and delete resource manager-based virtual machines without leaving the IDE.
+  - Support for Storage Account blob management using Azure's Resource Manager, which complements the existing functionality for managing "classic" storage accounts.
+* **Microsoft JDBC Driver 6.0 for SQL Server**. This update includes the latest JDBC driver for Microsoft SQL Server (v6.0), which is now included as a library that you can easily add to your Java projects, thereby replacing the older version.
+
 ### June 29, 2016
 
 The Azure Toolkit for Eclipse - June 2016 release includes the following enhancements:
@@ -34,7 +46,7 @@ The Azure Toolkit for Eclipse - June 2016 release includes the following enhance
 * **Support for the latest Java JDKs**. The latest versions of the Java JDKs are now supported by the Azure Toolkit for Eclipse.
 * **Support for Azure SDK v2.9.1**. The latest version of the Azure SDK is now the minimum pre-requisite for the Azure Toolkit for Eclipse.
 * **Integrated Samples**. The Azure Toolkit for Eclipse now features several sample applications to help developers get started.
-* **HDInsight Tool Integration**. Azure's HDInsight Tools are now bundled with the Azure Toolkit for Eclipse.
+* **HDInsight Tool Integration**. Azure's HDInsight Tools are now bundled with the Azure Toolkit for Eclipse. For more information, see [HDInsight Tools Plugin for Eclipse].
 * **Remote Debugging of Java Web Apps**. The Azure Toolkit for Eclipse now supports remote debugging of Java web apps on Azure App Service.
 * **Support for the Eclipse Luna release.** The new minimum required Eclipse IDE version is Luna.
 
@@ -346,6 +358,7 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 [Deploying Large Deployments]: http://go.microsoft.com/fwlink/?LinkID=699536
 [Endpoints properties]: http://go.microsoft.com/fwlink/?LinkID=699525#endpoints_properties
 [Environment variables properties]: http://go.microsoft.com/fwlink/?LinkID=699525#environment_variables_properties
+[HDInsight Tools Plugin for Eclipse]: ./hdinsight/hdinsight-apache-spark-eclipse-tool-plugin.md
 [How to Authenticate Web Users with Azure Access Control Service Using Eclipse]: http://go.microsoft.com/fwlink/?LinkID=264703
 [How to Use SSL Offloading]: http://go.microsoft.com/fwlink/?LinkID=699545
 [Installing the Azure Toolkit for Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546

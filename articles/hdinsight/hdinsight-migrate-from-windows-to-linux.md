@@ -4,7 +4,7 @@ description="Learn how to migrate from a Windows-based HDInsight cluster to a Li
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags
@@ -13,7 +13,7 @@ ms.devlang="na"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="07/19/2016"
+ms.date="07/25/2016"
 ms.author="larryfr"/>
 
 #Migrate from a Windows-based HDInsight cluster to a Linux-based cluster
@@ -81,7 +81,7 @@ You can use the Hadoop HDFS command to directly copy data from the storage for y
 
 6. From the SSH session, use the following command to copy files from the linked storage account to the new default storage account. Replace CONTAINER and ACCOUNT with the container and account information returned by the PowerShell script in step 1. Replace the path to data with the path to a data file.
 
-        hdfs dfs -cp wasb://CONTAINER@ACCOUNT.blob.core.windows.net/path/to/old/data /path/to/new/location
+        hdfs dfs -cp wasbs://CONTAINER@ACCOUNT.blob.core.windows.net/path/to/old/data /path/to/new/location
 
     [AZURE.NOTE] If the directory structure that contains the data does not exist on the test environment, you can create it using the following command.
 
@@ -137,7 +137,7 @@ Bootstrap for Linux-based clusters does not provide this functionality. Instead,
 
 ### Virtual Networks
 
-Windows-based HDInsight clusters only work with Classic Virtual Networks, while Linux-based HDInsight clusters require Resource Manager Virtual Networks. If you have resources in a Classic Virtual Network that the Linux-HDInsight cluster must connect to, see [Connecting a Classic Virtual Network to a Resource Manager Virtual Network](../virtual-network/virtual-networks-arm-asm-s2s.md).
+Windows-based HDInsight clusters only work with Classic Virtual Networks, while Linux-based HDInsight clusters require Resource Manager Virtual Networks. If you have resources in a Classic Virtual Network that the Linux-HDInsight cluster must connect to, see [Connecting a Classic Virtual Network to a Resource Manager Virtual Network](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
 For more information on configuration requirements for using Azure Virtual Networks with HDInsight, see [Extend HDInsight capabilities by using a Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
 
@@ -243,9 +243,9 @@ If you know that the scripts do not contain strings with embedded CR characters,
 
 -   **If you have scripts that are already in the storage used by the cluster**, you can use the following command from an SSH session to the Linux-based cluster to modify the script.
 
-        hdfs dfs -get wasb:///path/to/script.py oldscript.py
+        hdfs dfs -get wasbs:///path/to/script.py oldscript.py
         tr -d '\r' < oldscript.py > script.py
-        hdfs dfs -put -f script.py wasb:///path/to/script.py
+        hdfs dfs -put -f script.py wasbs:///path/to/script.py
 
 ##Next Steps
 

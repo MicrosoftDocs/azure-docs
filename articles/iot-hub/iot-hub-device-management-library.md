@@ -3,7 +3,7 @@
  description="Azure IoT Hub device management (DM) client library"
  services="iot-hub"
  documentationCenter=""
- authors="CarlosAlayo"
+ authors="juanjperez"
  manager="timlt"
  editor=""/>
 
@@ -14,7 +14,7 @@
  ms.tgt_pltfrm="na"
  ms.workload="na"
  ms.date="04/29/2016"
- ms.author="carlosa"/>
+ ms.author="juanpere"/>
 
 # Introducing the Azure IoT Hub device management (DM) client library
 

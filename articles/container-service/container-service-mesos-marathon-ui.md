@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="02/16/2016"
+   ms.date="09/19/2016"
    ms.author="nepeters"/>
 
 # Container management through the web UI
@@ -60,7 +60,7 @@ Protocol        | TCP
 If you want to statically map the container port to a port on the agent, you need to use JSON Mode. To do so, switch the New Application wizard to **JSON Mode** by using the toggle. Then enter the following under the `portMappings` section of the application definition. This example binds port 80 of the container to port 80 of the DC/OS agent. You can switch this wizard out of JSON Mode after you make this change.
 
 ```none
-“hostPort”: 80,
+"hostPort": 80,
 ```
 
 ![New Application UI--port 80 example](media/dcos/dcos13.png)
@@ -96,3 +96,7 @@ After the scale operation finishes, you will see multiple instances of the same 
 ## Next steps
 
 - [Work with DC/OS and the Marathon API](container-service-mesos-marathon-rest.md)
+
+Deep dive on the Azure Container Service with Mesos
+
+> [AZURE.VIDEO] azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]

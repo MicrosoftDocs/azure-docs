@@ -87,9 +87,9 @@ Download and extract the appropriate appender, then add the appropriate library 
 
 Logger | Download | Library
 ----|----|----
-Logback|[SDK with Logback appender](https://azuredownloads.blob.core.windows.net/applicationinsights/logbackAppender.zip)|applicationinsights-logging-logback
-Log4J v2.0|[SDK with Log4J v2 appender](https://azuredownloads.blob.core.windows.net/applicationinsights/log4j2Appender.zip )|applicationinsights-logging-log4j2 
-Log4j v1.2|[SDK with Log4J v1.2 appender](https://azuredownloads.blob.core.windows.net/applicationinsights/log4j1_2Appender.zip )|applicationinsights-logging-log4j1_2 
+Logback|[SDK with Logback appender](https://aka.ms/xt62a4)|applicationinsights-logging-logback
+Log4J v2.0|[SDK with Log4J v2 appender](https://aka.ms/qypznq)|applicationinsights-logging-log4j2 
+Log4j v1.2|[SDK with Log4J v1.2 appender](https://aka.ms/ky9cbo)|applicationinsights-logging-log4j1_2 
 
 
 

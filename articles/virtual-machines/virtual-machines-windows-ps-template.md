@@ -27,7 +27,7 @@ It should take about 20 minutes to do the steps in this article.
 
 ## Step 1: Create the template file
 
-You can create your own template using the information found in [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md). You can also deploy templates that have been created for you from [Azure Quiskstarts Templates](https://azure.microsoft.com/documentation/templates/).
+You can create your own template using the information found in [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md). You can also deploy templates that have been created for you from [Azure Quickstarts Templates](https://azure.microsoft.com/documentation/templates/).
 
 1. Open your favorite text editor and copy this JSON information to a new file called *VirtualMachineTemplate.json*:
 
@@ -215,6 +215,8 @@ To specify values for the resource parameters that were defined in the template,
             "dnsNameForPublicIP": { "value": "mytestdns1" }
           }
         }
+
+    >[AZURE.NOTE] See more about [username and password requirements](virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).
 
 2. Save the parameters file.
 

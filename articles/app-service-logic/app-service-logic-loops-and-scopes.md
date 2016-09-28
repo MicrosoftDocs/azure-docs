@@ -1,14 +1,14 @@
 <properties
    pageTitle="Logic Apps Loops, Scopes, and Debatching | Microsoft Azure"
    description="Logic App loop, scope, and debatching concepts"
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="dwrede"
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"

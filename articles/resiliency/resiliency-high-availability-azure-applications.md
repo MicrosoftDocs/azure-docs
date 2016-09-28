@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/18/2016"
-   ms.author="hanuk;jroth;aglick"/>
+   ms.date="08/18/2016"
+   ms.author="aglick"/>
 
 #High availability for applications built on Microsoft Azure
 
@@ -28,7 +28,7 @@ Azure has many built-in platform features that support highly available applicat
 
 The Azure fabric controller provisions and monitors the condition of the Azure compute instances. The fabric controller checks the status of the hardware and software of the host and guest machine instances. When it detects a failure, it enforces SLAs by automatically relocating the VM instances. The concept of fault and upgrade domains further supports the compute SLA.
 
-When multiple role instances are deployed, Azure deploys these instances to different fault domains. A fault domain boundary is basically a different hardware rack in the same region. Fault domains reduce the probability that a localized hardware failure will interrupt the service of an application. You cannot manage the number of fault domains that are allocated to your worker or web roles. The fabric controller uses dedicated resources that are separate from Azure-hosted applications. It has 100 percent uptime because it serves as the nucleus of the Azure system. It monitors and manages role instances across fault domains.
+When multiple Cloud Service role instances are deployed, Azure deploys these instances to different fault domains. A fault domain boundary is basically a different hardware rack in the same region. Fault domains reduce the probability that a localized hardware failure will interrupt the service of an application. You cannot manage the number of fault domains that are allocated to your worker or web roles. The fabric controller uses dedicated resources that are separate from Azure-hosted applications. It has 100 percent uptime because it serves as the nucleus of the Azure system. It monitors and manages role instances across fault domains.
 
 The following diagram shows Azure shared resources that the fabric controller deploys and manages across different fault domains.
 
@@ -70,7 +70,7 @@ Consider asynchronous communication between loosely coupled services to increase
 
 A variation of this uses Azure Storage (blobs, tables, queues) or Service Bus queues as a failover location for failed database calls. For example, a synchronous call within an application to another service (such as Azure SQL Database) fails repeatedly. You might be able to serialize that data into durable storage. At some later point when the service or database is back online, the application can re-submit the request from storage. The difference in this model is that the intermediate location is not a constant part of the application workflow. It is used only in failure scenarios.
 
-In both scenarios, asynchronous communication and intermediate storage prevent a downed back-end service from bringing down the entire application. Queues serve as a logical intermediary. For more guidance on choosing the correct queuing service, see [Azure queues and Azure Service Bus queues--compared and contrasted](../service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md).
+In both scenarios, asynchronous communication and intermediate storage prevent a downed back-end service from bringing down the entire application. Queues serve as a logical intermediary. For more guidance on choosing the correct queuing service, see [Azure queues and Azure Service Bus queues--compared and contrasted](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md).
 
 ###Fault detection and retry logic
 

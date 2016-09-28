@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/28/2016"
+	ms.date="08/30/2016"
 	ms.author="anhoh"/>
 
 # View, edit, create, and upload JSON documents using DocumentDB Document Explorer
@@ -25,17 +25,13 @@ Note that Document Explorer is not enabled on DocumentDB accounts with protocol 
 
 ## Launch Document Explorer
 
-1. In the Azure portal, in the Jumpbar, click **DocumentDB Accounts**. If **DocumentDB Accounts** is not visible, click **Browse** and then click **DocumentDB Accounts**.
+1. In the Azure portal, in the Jumpbar, click **DocumentDB (NoSQL)**. If **DocumentDB (NoSQL)** is not visible, click **More Services** and then click **DocumentDB (NoSQL)**.
 
-2. At the top of the **DocumentDB account** blade, click **Document Explorer**. 
+2. In the resource menu, click **Document Explorer**. 
  
 	![Screenshot of the Document Explorer command](./media/documentdb-view-JSON-document-explorer/documentexplorercommand.png)
 
- 	>[AZURE.NOTE] Query Explorer also appears on the database and collection blades.
-
     In the **Document Explorer** blade, the **Databases** and **Collections** drop-down lists are pre-populated depending on the context in which you launched Document Explorer. 
-
-	![Screenshot of the Document Explorer blade](./media/documentdb-view-JSON-document-explorer/documentexplorerinitial.png)
 
 ## Create a document
 
@@ -153,6 +149,14 @@ Document Explorer supports bulk ingestion of one or more existing JSON documents
 The Document Explorer in the Azure portal is just one way to work with documents in DocumentDB. You can also work with documents using the [REST API](https://msdn.microsoft.com/library/azure/mt489082.aspx) or the [client SDKs](documentdb-sdk-dotnet.md). For example code, see the [.NET SDK document examples](documentdb-dotnet-samples.md#document-examples) and the [Node.js SDK document examples](documentdb-nodejs-samples.md#document-examples).
 
 If you need to import or migrate files from another source (JSON files, MongoDB, SQL Server, CSV files, Azure Table storage, Amazon DynamoDB, or HBase), you can use the DocumentDB [data migration tool](documentdb-import-data.md) to quickly import your data to DocumentDB.
+
+## Troubleshoot
+
+**Symptom**: Document Explorer returns **No documents found**.
+
+**Solution**: Ensure that you have selected the correct subscription, database and collection in which the documents were inserted. Also, check to ensure that you are operating within your throughput quotas. If you are operating at your maximum throughput level and getting throttled, lower application usage to operate under the maximum throughput quota for the collection.
+
+**Explanation**: The portal is an application like any other, making calls to your DocumentDB database and collection. If your requests are currently being throttled due to calls being made from a separate application, the portal may also be throttled, causing resources not to appear in the portal. To resolve the issue, address the cause of the high throughput usage, and then refresh the portal blade. Information on how to measure and lower throughput usage can be found in the [Throughput](documentdb-performance-tips.md#throughput) section of the [Performance tips](documentdb-performance-tips.md) article.
 
 ## Next steps
 

@@ -6,7 +6,7 @@
 	authors="cephalin"
 	manager="wpickett"
 	editor=""
-	tags="top-support-issue
+	tags="top-support-issue"
 	keywords="web app performance, slow app, app slow"/>
 
 <tags

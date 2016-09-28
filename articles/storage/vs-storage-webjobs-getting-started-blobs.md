@@ -18,7 +18,7 @@
 
 # Get started with Azure Blob storage and Visual Studio connected services (WebJob projects)
 
-[AZURE.INCLUDE [storage-try-azure-tools](../../includes/storage-try-azure-tools.md)]
+[AZURE.INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## Overview
 

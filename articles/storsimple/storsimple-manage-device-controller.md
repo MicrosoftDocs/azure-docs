@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/25/2016"
+   ms.date="08/17/2016"
    ms.author="alkohli" />
 
 # Manage your StorSimple device controllers
@@ -37,7 +37,7 @@ After reading this tutorial, you will be able to:
 
 ## Restart or shut down a single controller
 
-A controller restart or shut down is not required as a part of normal system operation. Shutdown operations for a single device controller are common only in cases in which a failed device hardware component requires replacement. A controller restart may also be required in a situation in which performance is affected by excessive memory usage or a malfunctioning controller. You may also need to restart a controller after a successful controller replacement, if you wish to enable and test the replaced controller.
+A controller restart or shutdown is not required as a part of normal system operation. Shutdown operations for a single device controller are common only in cases in which a failed device hardware component requires replacement. A controller restart may also be required in a situation in which performance is affected by excessive memory usage or a malfunctioning controller. You may also need to restart a controller after a successful controller replacement, if you wish to enable and test the replaced controller.
 
 Restarting a device is not disruptive to connected initiators, assuming the passive controller is available. If a passive controller is not available or turned off, then restarting the active controller may result in the disruption of service and downtime.
 
@@ -109,7 +109,7 @@ Perform the following steps to shut down or restart a single controller on your 
 
 ## Shut down a StorSimple device
 
-This section explains how to shut down a running or a failed StorSimple device from a remote computer. A device is turned off after shutting down both the device controllers. A device shut down is done when the device is being physically moved, or is taken out of service.
+This section explains how to shut down a running or a failed StorSimple device from a remote computer. A device is turned off after shutting down both the device controllers. A device shutdown is done when the device is being physically moved, or is taken out of service.
 
 > [AZURE.IMPORTANT] Before you shut down the device, check the health of the device components. Navigate to **Devices > Maintenance > Hardware Status** and verify that the LED status of all the components is green. Only a healthy device will have a green status. If your device is being shut down to replace a malfunctioning component, you will see a failed (red) or a degraded (yellow) status for the respective component(s).
 
@@ -139,6 +139,8 @@ This section explains how to shut down a running or a failed StorSimple device f
 1. After both the controllers are completely shut down, the status LEDs on both should be blinking red. If you need to turn off the device completely at this time, flip the power switches on both Power and Cooling Modules (PCMs) to the OFF position.-->
 
 ## Reset the device to factory default settings
+
+> [AZURE.IMPORTANT] If you need to reset your device to factory default settings, contact Microsoft Support. The procedure described below should be used only in conjunction with Microsoft Support.
 
 This procedure describes how to reset your Microsoft Azure StorSimple device to factory default settings using Windows PowerShell for StorSimple.
 Resetting a device removes all data and settings from the entire cluster by default.
@@ -174,7 +176,7 @@ In this section, we have summarized some of the frequently asked questions regar
 
 **A.** If both the controllers on your device are healthy and turned on, you will be prompted for confirmation. You may choose to:
 
-- **Restart the active controller** – You will be notified that restarting an active controller will cause the device to failover to the passive controller. The controller will restart.
+- **Restart the active controller** – You will be notified that restarting an active controller will cause the device to fail over to the passive controller. The controller will restart.
 
 - **Shut down an active controller** – You will be notified that shutting down an active controller will result in downtime. You will also need to push the power button on the device to turn on the controller.
 
@@ -186,7 +188,7 @@ In this section, we have summarized some of the frequently asked questions regar
 
 - **Shut down an active controller** – You will be notified that continuing the operation will result in downtime, and that you will need to push the power button on one or both controllers to turn on the device. You will be prompted for confirmation.
 
-**Q.** When would the controller restart or shutdown fail to progress?
+**Q.** When does the controller restart or shutdown fails to progress?
 
 **A.** Restarting or shutting down a controller may fail if:
 
@@ -202,7 +204,7 @@ In this section, we have summarized some of the frequently asked questions regar
 
 **Q.** Is there any impact to the I/Os as a result of controller failover?
 
-**A.** The TCP connections between initiators and active controller will be reset as a result of controller failover, but will be reestablished when the passive controller assumes operation. There may be a temporary (less than 30 second) pause in I/O activity between initiators and the device during the course of this operation.
+**A.** The TCP connections between initiators and active controller will be reset as a result of controller failover, but will be reestablished when the passive controller assumes operation. There may be a temporary (less than 30 seconds) pause in I/O activity between initiators and the device during the course of this operation.
 
 **Q.** How do I return my controller to service after it has been shut down and removed?
 

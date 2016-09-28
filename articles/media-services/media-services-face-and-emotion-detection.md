@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Detect Face and Emotion with Azure Media Analytics"
+	pageTitle="Detect Face and Emotion with Azure Media Analytics | Microsoft Azure"
 	description="This topic demonstrates how to detect faces and emotions with Azure Media Analytics."
 	services="media-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/22/2016"   
+	ms.date="09/26/2016"   
 	ms.author="milanga;juliako;"/>
  
 #Detect Face and Emotion with Azure Media Analytics

@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/19/2016"
-   ms.author="ganesr"/>
+   ms.date="09/14/2016"
+   ms.author="ganesr;cherylmc"/>
 
 # Create and modify an ExpressRoute circuit
 
@@ -32,15 +32,34 @@ This article walks you through the steps to create an Azure ExpressRoute circuit
 
 ## Before you begin
 
-- You need the latest version of the Azure PowerShell modules. You can download the latest PowerShell modules from the PowerShell section of the [Azure Downloads page](https://azure.microsoft.com/downloads/). Follow the instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules.
+### 1. Review the prerequisites and workflow articles
 
-- Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
+Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.  
+
+
+### 2. Install the latest versions of the Azure PowerShell modules 
+
+Follow the instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules.
+
+### 3. Log in to your Azure account and select a subscription
+
+1. Run the following cmdlet using an elevated Windows PowerShell prompt:
+
+		Add-AzureAccount
+2. In the sign-in screen that appears, sign in to your account.
+
+3. Get a list of your subscriptions.
+
+		Get-AzureSubscription
+4. Select the subscription that you want to use.
+	
+		Select-AzureSubscription -SubscriptionName "mysubscriptionname"
 
 ## Create and provision an ExpressRoute circuit
 
 ### 1. Import the PowerShell modules for ExpressRoute
 
- You must import the Azure and ExpressRoute modules into the PowerShell session in order to start using the ExpressRoute cmdlets. To do this, run the following commands:  
+ If you have not already done so, you must import the Azure and ExpressRoute modules into the PowerShell session in order to start using the ExpressRoute cmdlets. You import the modules from the location that they were installed to on your local computer. Depending on the method you used to install the modules, the location may be different than the following example shows. Modify the example if necessary.  
 
 	Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
 	Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
@@ -290,15 +309,15 @@ After you decide what size you need, you can use the following command to resize
 
 Your circuit will have been sized up on the Microsoft side. You must contact your connectivity provider to update configurations on their side to match this change. Note that we will start billing you for the updated bandwidth option from this point on.
 
-## Deleting and deprovisioning an ExpressRoute circuit
+## Deprovisioning and deleting an ExpressRoute circuit
 
 Note the following:
 
 - You must unlink all virtual networks from the ExpressRoute circuit for this operation to succeed. Check to see if you have any virtual networks that are linked to the circuit if this operation fails.
 
-- If the ExpressRoute circuit service provider provisioning state is enabled, the status will move to *Disabling* from the enabled state. You must work with your service provider to deprovision the circuit on their side. We will continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and sends us a notification.
+- If the ExpressRoute circuit service provider provisioning state is **Provisioning** or **Provisioned** you must work with your service provider to deprovision the circuit on their side. We will continue to reserve resources and bill you until the service provider completes deprovisioning the circuit and notifies us.
 
-- If the service provider has deprovisioned the circuit (the service provider provisioning state is set to *Not provisioned*) before you run the above cmdlet, we will deprovision the circuit and stop billing you.
+- If the service provider has deprovisioned the circuit (the service provider provisioning state is set to **Not provisioned**) you can then delete the circuit. This will stop billing for the circuit.
 
 You can delete your ExpressRoute circuit by running the following command:
 

@@ -4,7 +4,7 @@
    services="data-lake-store"
    documentationCenter=""
    authors="nitinme"
-   manager="paulettm"
+   manager="jhubbard"
    editor="cgronlun"/>
 
 <tags
@@ -17,6 +17,10 @@
    ms.author="nitinme"/>
 
 # Copy data from Azure Storage Blobs to Data Lake Store
+
+> [AZURE.SELECTOR]
+- [Using DistCp](data-lake-store-copy-data-wasb-distcp.md)
+- [Using AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 
 Azure Data Lake Store provides a command line tool, [AdlCopy](http://aka.ms/downloadadlcopy), to copy data from the following sources:
 

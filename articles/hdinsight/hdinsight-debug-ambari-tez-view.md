@@ -4,7 +4,7 @@ description="Learn how to use the Ambari Tez view to debug Tez jobs on HDInsight
 services="hdinsight"
 documentationCenter=""
 authors="Blackmist"
-manager="paulettm"
+manager="jhubbard"
 editor="cgronlun"/>
 
 <tags

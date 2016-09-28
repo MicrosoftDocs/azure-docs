@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Using castLabs to deliver Widevine licenses to Azure Media Services" 
+	pageTitle="Using castLabs to deliver Widevine licenses to Azure Media Services | Microsoft Azure" 
 	description="This article describes how you can use Azure Media Services (AMS) to deliver a stream that is dynamically encrypted by AMS with both PlayReady and Widevine DRMs. The PlayReady license comes from Media Services PlayReady license server and Widevine license is delivered by castLabs license server." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016"  
+	ms.date="09/26/2016"  
 	ms.author="Mingfeiy;willzhan;Juliako"/>
 
 

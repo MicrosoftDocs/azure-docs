@@ -1,14 +1,14 @@
 <properties
    pageTitle="Logic Apps on-premises data gateway connection | Microsoft Azure"
    description="Information on how to create a connection to the on-premises data gateway from a logic app."
-   services="app-service\logic"
+   services="logic-apps"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="erikre"
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
@@ -24,6 +24,9 @@ Supported logic apps connectors allow you to configure your connection to access
 
 * Must be using a work or school email address in Azure to associate the on-premises data gateway with your account (Azure Active Directory based account)
     * If you are using a Microsoft Account (e.g. @outlook.com, @live.com) you can use your Azure account to create a work or school email address by [following the steps here](../virtual-machines/virtual-machines-windows-create-aad-work-id.md#locate-your-default-directory-in-the-azure-classic-portal)
+
+> [AZURE.WARNING] There is a limitation currently that on-premises gateway install will only complete when using an account that has been registered with Power BI.  In the meantime please register any account with "Power BI Free" to complete the installation successfully.
+
 * Must have the on-premises data gateway [installed on a local machine](app-service-logic-gateway-install.md).
 * Gateway must not have been claimed by another Azure on-premises data gateway ([claim happens with creation of step 2 below](#2-create-an-azure-on-premises-data-gateway-resource)) - an installation can only be associated to one gateway resource.
 

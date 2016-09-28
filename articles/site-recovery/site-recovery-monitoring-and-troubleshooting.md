@@ -206,7 +206,7 @@ Below are the common errors that you may hit and their resolutions. Each of the 
 -   [Out of band operation happened on a virtual machine and commit failover failed](http://social.technet.microsoft.com/wiki/contents/articles/25507.the-virtual-machine-isn-t-ready-for-planned-failover.aspx)
 -   Test Failover
     -   [Failover could not be initiated since test failover is in progress](http://social.technet.microsoft.com/wiki/contents/articles/31111.failover-could-not-be-initiated-since-test-failover-is-in-progress.aspx)
--   <span style="color:green;">NEW</span>  Failover times out with 'PreFailoverWorkflow task WaitForScriptExecutionTask timed out' due to the configuration settings on the Network Security Group associated with the Virtual Machine or the subnet to which the machine belongs to. Refer to ['PreFailoverWorkflow task WaitForScriptExecutionTask timed out'](https://aka.ms/troubleshoot-nsg-issue-azure-site-recovery) for details.
+-   <span style="color:green;">NEW</span>  Failover times out with 'PreFailoverWorkflow task WaitForScriptExecutionTaskTimeout' due to the configuration settings on the Network Security Group associated with the Virtual Machine or the subnet to which the machine belongs to. Refer to ['PreFailoverWorkflow task WaitForScriptExecutionTaskTimeout'](https://aka.ms/troubleshoot-nsg-issue-azure-site-recovery) for details.
 
 
 ### Configuration Server, Process Server, Master Target

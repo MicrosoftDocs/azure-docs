@@ -11,7 +11,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-    ms.date="07/13/2016" 
+    ms.date="07/22/2016" 
     ms.author="markvi" />
 
 
@@ -44,7 +44,7 @@ For all scenarios in this topic, the following tasks are required:
 
 - Access to certificate authority(s) to issue client certificates.  
 
-- The certificates authority(s) must be configured in Azure Active Directory. You can find detailed steps on how to complete the configuration in the Getting Started section.  
+- The certificates authority(s) must be configured in Azure Active Directory. You can find detailed steps on how to complete the configuration in the [Getting Started](#getting-started) section.  
 
 - The root certificate authority and any intermediate certificate authorities must be configured in Azure Active Directory.  
 
@@ -61,17 +61,19 @@ For all scenarios in this topic, the following tasks are required:
 
 | Apps                      | Support      |
 | ---                       | ---          |
-| OneDrive                  | Yes          |
-| Outlook                   | Yes          |
-| Word / Excel / PowerPoint | Yes          |
-| Skype for Business        | Yes          |
+| Word / Excel / PowerPoint | ![Check][1]  |
+| OneNote                   | Coming soon  |
+| OneDrive                  | ![Check][1]  |
+| Outlook                   | ![Check][1]  |
+| Yammer                    | ![Check][1]  |
+| Skype for Business        | ![Check][1]  |
 
 
 ### Requirements  
 
-The device OS version must be Android 5.0 (Lollipop) and above 
+The device OS version must be Android 5.0 (Lollipop) and above. 
 
-A federation server must be configured to perform CBA on Office mobile applications.  
+A federation server must be configured.  
 
 
 For Azure Active Directory to revoke a client certificate, the ADFS token must have the following claims:  
@@ -143,7 +145,7 @@ Below are examples for adding, removing or modifying a certificate authority.
 
 2. Install the Azure AD module. You need to install Version [1.1.143.0](http://www.powershellgallery.com/packages/AzureADPreview/1.1.143.0) or higher.  
 
-        Install-Module -Name AzureAD –RequiredVersion 1.1.143.0 
+        Install-Module -Name AzureADPreview –RequiredVersion 1.1.143.0 
 
 3. Connect to your target tenant: 
 
@@ -271,3 +273,5 @@ The following steps outline the process for updating and invalidating the author
 The date you set must be in the future. If the date is not in the future, the **StsRefreshTokensValidFrom** property is not set. If the date is in the future, **StsRefreshTokensValidFrom** is set to the current time (not the date indicated by Set-MsolUser command). 
 
 
+<!--Image references-->
+[1]: ./media/active-directory-certificate-based-authentication-android/ic195031.png

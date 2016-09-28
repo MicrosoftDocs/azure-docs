@@ -72,7 +72,6 @@ In articles that specify both a services value and a documentationCenter value, 
 - backup
 - batch
 - best-practice
-- billing
 - biztalk-services
 - cache
 - cdn

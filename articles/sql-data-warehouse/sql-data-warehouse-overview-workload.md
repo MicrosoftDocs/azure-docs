@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="07/01/2016"
+   ms.date="07/25/2016"
    ms.author="barbkess;mausher;jrj;sonyama"/>
 
 
@@ -38,7 +38,7 @@ Data loading is a big part of the data warehouse workload. Businesses usually ha
 
 - Traditionally, the process of loading is called ETL for Extract, Transform, and Load. Data usually needs to be transformed so it is consistent with other data in the data warehouse. Previously, businesses used dedicated ETL servers to perform the transformations. Now, with such fast massively parallel processing you can load data into SQL Data Warehouse first, and then perform the transformations. This process is called Extract, Load, and Transform (ELT), and is becoming a new standard for the data warehouse workload.
 
-> [AZURE.NOTE] With SQL Server CTP2, you can now perform analytics in real-time on an OLTP table. This does not replace the need for a data warehouse to store and analyze data, but it does provide a way to perform analysis in real-time.
+> [AZURE.NOTE] With SQL Server 2016, you can now perform analytics in real-time on an OLTP table. This does not replace the need for a data warehouse to store and analyze data, but it does provide a way to perform analysis in real-time.
 
 ### Reporting and analysis queries
 Reporting and analysis queries are often categorized into small, medium and large based on a number of criteria, but usually it is based on time. In most data warehouses, there is a mixed workload of fast-running versus long-running queries. In each case, it is important to determine this mix and to determine its frequency (hourly, daily, month-end, quarter-end, and so on). It is important to understand that the mixed query workload, coupled with concurrency, lead to proper capacity planning for a data warehouse.

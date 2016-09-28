@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2016" 
+	ms.date="08/04/2016" 
 	ms.author="raynew"/>
 
 
@@ -105,24 +105,23 @@ The instructions in this document presume that a domain controller is available 
 
 ## Integrate protection with SQL Server Always-On (on-premises to Azure)
 
-### Protecting Hyper-V VMs in VMM clouds
 
 Site Recovery natively supports SQL AlwaysOn. If you've created a SQL Availability Group with an Azure virtual machine set up as ‘Secondary’ then you can use Site Recovery to manage the failover of the Availability Groups. 
 
->[AZURE.NOTE] This capability is currently in preview and available when Hyper-V host servers in the primary datacenter are managed in VMM clouds.
+>[AZURE.NOTE] This capability is currently in preview and available when Hyper-V host servers in the primary datacenter are managed in VMM clouds and when VMware setup is managed by a [Configuration Server](site-recovery-vmware-to-azure.md#configuration-server-prerequisites). Right now this capability is not available in the new Azure portal.
 
 #### Prerequisites
 
-Here's what you need to integrate SQL AlwaysOn with Site Recovery when you're replicating from VMM:
+Here's what you need to integrate SQL AlwaysOn with Site Recovery:
 
 - An on-premises SQL Server (standalone server or a failover cluster).
 - One or more Azure virtual machines with SQL Server installed
 - A SQL Availability Group set up between an on-premises SQL Server and SQL Server running in Azure
-- PowerShell remoting should be enabled on the on-premises SQL Server machine. The VMM server should be able to make remote PowerShell calls to the SQL Server.
+- PowerShell remoting should be enabled on the on-premises SQL Server machine. The VMM server or the Configuration Server should be able to make remote PowerShell calls to the SQL Server.
 - A user account should be added on the on-premises SQL Server, in these SQL user groups with at least these permissions:
 	- ALTER AVAILABILITY GROUP: permissions [here](https://msdn.microsoft.com/library/hh231018.aspx), and [here](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
 	- ALTER DATABASE - permissions[here](https://msdn.microsoft.com/library/ff877956.aspx#Security)
-- A RunAs account should be created on VMM Server for the account in the previous step
+- A RunAs account should be created on VMM Server or an account should be created on the Configuration Server using the CSPSConfigtool.exe for the user mentioned in the previous step 
 - The SQL PS module should be installed on SQL Servers running on-premises,and on Azure virtual machines
 - The VM Agent should be installed virtual machines running on Azure
 - NTAUTHORITY\System should have following permissions on SQL Server running on virtual machines in Azure:
@@ -139,8 +138,8 @@ Here's what you need to integrate SQL AlwaysOn with Site Recovery when you're re
 2. In **Configure SQL Settings** > **Name** provide a friendly name to refer to the SQL Server.
 3. **In SQL Server (FQDN)** specify the FQDN of the source SQL Server that you want to add. In case the SQL Server is installed on a Failover Cluster, then provide FQDN of the cluster and not of any of the cluster nodes.  
 4. In **SQL Server Instance** choose the default instance or provide the name of the custom instance.
-5. In **VMM Server** select a VMM server registered in the Site Recovery vault. Site Recovery uses this VMM server to communicate with the SQL Server.
-6. In **Run as Account** provide the name of a RunAs account that was created on the specified VMm server. This account is used to access the SQL Server and should have Read and Failover permissions on availability groups on the SQL Server machine.
+5. In **Management Server** select a VMM server or Configuration Server registered in the Site Recovery vault. Site Recovery uses this Management server to communicate with the SQL Server.
+6. In **Run as Account** provide the name of a RunAs account that was created on the specified VMM server or the Account that was created on the Configuraaaon Server. This account is used to access the SQL Server and should have Read and Failover permissions on availability groups on the SQL Server machine.
 
 	![Add SQL Dialog](./media/site-recovery-sql/add-sql-dialog.png)
 
@@ -166,7 +165,7 @@ After you add the SQL Server it will appear in the **SQL Servers** tab.
 #### Step 3: Create a Recovery Plan
 
 The next step is to create a recovery plan using both virtual machines and the availability groups. 
-Select the same VMM Server that you used in Step-1 as source and Microsoft Azure as target.
+Select the same VMM Server or Configuration Server that you used in Step-1 as source and Microsoft Azure as target.
 
 ![Create Recovery Plan](./media/site-recovery-sql/create-rp1.png)
 
@@ -204,9 +203,9 @@ If you want to make the Availability Group again Primary on the on-premises SQL 
 
 
 
-### Protect machines without VMM
+### Protect machines without a VMM Server or a Configuration Server
 
-For the environments that are not managed by a VMM Server, Azure Automation Runbooks can be used to configure a scripted failover of SQL Availability Groups. Below are the steps to configure that:
+For the environments that are not managed by a VMM Server or a Configuration Server, Azure Automation Runbooks can be used to configure a scripted failover of SQL Availability Groups. Below are the steps to configure that:
 
 1.	Create a local file for the script to fail over an availability group. This sample script specifies a path to the availability group on the Azure replica and fails it over to that replica instance. This script will be run on the SQL Server replica virtual machine by passing is with the custom script extension.
 

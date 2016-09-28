@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/24/2016" 
-	ms.author="robmcm"/>
+	ms.date="08/26/2016" 
+	ms.author="robmcm;asirveda;martinsawicki"/>
 
 # What's New in the Azure Toolkit for IntelliJ
 
@@ -24,6 +24,18 @@ This article contains information on the various releases and latest updates to 
 
 > [AZURE.NOTE] There is also an Azure Toolkit for the Eclipse IDE. For more information, see [Azure Toolkit for Eclipse].
 
+### August 26, 2016
+
+The Azure Toolkit for IntelliJ - August 2016 release includes the following enhancements:
+
+* **Custom JDK Distributions**. The Azure Toolkit for IntelliJ now supports specifying and deploying an arbitrary JDK version to your Azure WebApp container:
+  - In addition to the JDKs provided by Azure, you can also choose from a wide selection of Zulu OpenJDK versions made available on Azure by Azul Systems.
+  - You can also specify your own JDK distribution if you upload it as a ZIP file to your storage account.
+* **Enhancements to the Azure Explorer view**:
+  - Support for Virtual Machine management using Azure's new Resource Manager model: you can list, create and delete resource manager-based virtual machines without leaving the IDE.
+  - Support for Storage Account blob management using Azure's Resource Manager, which complements the existing functionality for managing "classic" storage accounts.
+* **Microsoft JDBC Driver 6.0 for SQL Server**. This update includes the latest JDBC driver for Microsoft SQL Server (v6.0), which is now included as a library that you can easily add to your Java projects, thereby replacing the older version.
+
 ### June 29, 2016
 
 The Azure Toolkit for IntelliJ - June 2016 release includes the following enhancements:
@@ -32,7 +44,7 @@ The Azure Toolkit for IntelliJ - June 2016 release includes the following enhanc
 * **Support for the latest Java JDKs**. The latest versions of the Java JDKs are now supported by the Azure Toolkit for IntelliJ.
 * **Support for Azure SDK v2.9.1**. The latest version of the Azure SDK is now the minimum pre-requisite for the Azure Toolkit for IntelliJ.
 * **Integrated Samples**. The Azure Toolkit for IntelliJ now features several sample applications to help developers get started.
-* **HDInsight Tool Integration**. Azure's HDInsight Tools are now bundled with the Azure Toolkit for IntelliJ.
+* **HDInsight Tool Integration**. Azure's HDInsight Tools are now bundled with the Azure Toolkit for IntelliJ. For more information, see [HDInsight Tools Plugin for IntelliJ].
 * **Remote Debugging of Java Web Apps**. The Azure Toolkit for IntelliJ now supports remote debugging of Java web apps on Azure App Service.
 
 ### April 12, 2016
@@ -70,3 +82,5 @@ For more information about using Azure with Java, see the [Azure Java Developer 
 [What's New in the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
 [Azure Java Developer Center]: http://go.microsoft.com/fwlink/?LinkID=699547
+
+[HDInsight Tools Plugin for IntelliJ]: ./hdinsight/hdinsight-apache-spark-intellij-tool-plugin.md

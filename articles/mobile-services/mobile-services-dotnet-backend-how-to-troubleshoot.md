@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/13/2016" 
+	ms.date="07/21/2016" 
 	ms.author="wesmc;ricksal"/>
 
 # Troubleshoot the Mobile Services .NET Backend
