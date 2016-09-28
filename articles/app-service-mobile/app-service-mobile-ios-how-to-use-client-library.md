@@ -257,12 +257,12 @@ With Azure Mobile Apps, it's possible to configure a page size. The default page
 
 This controls the number of records that pulled at a time from the backend DB. A call to `pull` data would then batch up data, based on this record size, until there are no more records to pull.
 
-Paging is performed by using **MSPullSettings** object like so:
+Paging is performed by using **MSPullSettings** object like shown below. This example uses a paging size of 3.
 
 **Objective-C**:
 ```
   MSPullSettings *pullSettings = [[MSPullSettings alloc] initWithPageSize:3];
-  [table  pullWithQuery:query queryId:@"allTodoItems" settings:pullSettings
+  [table  pullWithQuery:query queryId:@nil settings:pullSettings
                         completion:^(NSError * _Nullable error) {
                                if(error) {
 					NSLog(@"ERROR %@", error);
@@ -276,7 +276,7 @@ Paging is performed by using **MSPullSettings** object like so:
 let pullSettings = MSPullSettings(pageSize: 3)
 
 table.pullWithQuery(query, nil, pullSettings) 
-table.pullWithQuery(query, queryId: "AllRecords", settings: pullSettings) { (error) in
+table.pullWithQuery(query, queryId:nil, settings: pullSettings) { (error) in
     if let err = error {
         print("ERROR ", err)
     } 
