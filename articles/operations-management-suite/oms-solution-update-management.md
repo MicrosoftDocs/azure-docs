@@ -75,8 +75,6 @@ For each managed Windows computer, a scan is performed twice per day.  When an u
 
 For each managed Linux computer, a scan is performed every three (3) hours.  
 
-A scan of each managed computer is performed every three hours. When an update is installed, its information is updated within 30 minutes.
-
 ## Using the solution
 
 When you add the Update Management solution to your OMS workspace, the **Update Management** tile will be added to your OMS dashboard. This tile displays a count and graphical representation of the number of computers in your environment currently requiring system updates.<br><br>
