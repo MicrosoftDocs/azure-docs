@@ -21,8 +21,8 @@
 
 > [AZURE.SELECTOR]
 - [Windows 7 +](iot-hub-raspberry-pi-node-lesson1-get-the-tools-win32.md)
-- [OS X 10.10](iot-hub-raspberry-pi-node-lesson1-get-the-tools-mac.md)
 - [Ubuntu 16.04](iot-hub-raspberry-pi-node-lesson1-get-the-tools-ubuntu.md)
+- [OS X 10.10](iot-hub-raspberry-pi-node-lesson1-get-the-tools-mac.md)
 
 ## 1.2.1 What you will do
 Download the tools and software to build and deploy your first application for the Raspberry Pi 3.

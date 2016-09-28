@@ -21,8 +21,8 @@
 
 > [AZURE.SELECTOR]
 - [Windows 7 +](iot-hub-raspberry-pi-node-lesson2-get-azure-tools-win32.md)
-- [OS X 10.10](iot-hub-raspberry-pi-node-lesson2-get-azure-tools-mac.md)
 - [Ubuntu 16.04](iot-hub-raspberry-pi-node-lesson2-get-azure-tools-ubuntu.md)
+- [OS X 10.10](iot-hub-raspberry-pi-node-lesson2-get-azure-tools-mac.md)
 
 ## 2.1.1 What you will do
 Install Azure Command-Line Interface (Azure CLI). You might need 10 minutes to complete this section.
@@ -47,8 +47,8 @@ sudo apt-get install -y libssl-dev libffi-dev
 sudo apt-get install -y python-dev
 sudo apt-get install -y build-essential
 sudo apt-get install -y python-pip
-sudo pip install azure-cli
-sudo pip install azure-cli-iot
+sudo pip install --upgrade azure-cli
+sudo pip install --upgrade azure-cli-iot
 ```
 
 Try below command to verify installation is successful.

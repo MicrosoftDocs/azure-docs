@@ -31,7 +31,7 @@ Use an Azure Resource Manager (ARM) template to create an Azure function app and
 - You must have successfully completed the previous lessons: [Get started with your Raspberry Pi 3 device](iot-hub-raspberry-pi-node-lesson1.md) and [Create your Azure IoT Hub](iot-hub-raspberry-pi-node-lesson2.md)
 
 ## 3.1.4 Clone the sample code
-To get started, clone the `azure-blink` sample application from Github from your workspace directory (az-iot-samples).
+To get started, clone the `azure-blink` sample application from Github to your workspace directory (az-iot-samples).
 
 ```bash
 git clone https://github.com/Azure-Samples/iot-hub-node-raspberrypi-azure-blink

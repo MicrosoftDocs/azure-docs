@@ -21,8 +21,8 @@
 
 > [AZURE.SELECTOR]
 - [Windows 7 +](iot-hub-raspberry-pi-node-lesson2-get-azure-tools-win32.md)
-- [OS X 10.10](iot-hub-raspberry-pi-node-lesson2-get-azure-tools-mac.md)
 - [Ubuntu 16.04](iot-hub-raspberry-pi-node-lesson2-get-azure-tools-ubuntu.md)
+- [OS X 10.10](iot-hub-raspberry-pi-node-lesson2-get-azure-tools-mac.md)
 
 ## 2.1.1 What you will do
 Install Python and Azure Command-Line Interface (Azure CLI). You might need 10 minutes to complete this section.
@@ -41,7 +41,7 @@ Install Python on your Windows PC. You can choose Python 2.7, 3.4 or 3.5. Here w
 
 [Get Python for Windows](https://www.python.org/downloads/)
 
-You also need to add your Python folder (where python.exe is installed) to the system `PATH` environment variable. 
+You also need to add your Python and pip folder (where python.exe and pip.exe are installed; `C:\Python27` and `C:\Python27\Scripts` are the default installation path) to the system `PATH` environment variable. 
 
 ## 2.1.5 Install the Azure Command-Line Interface (CLI)
 The Azure CLI provides a multiplatform command line experience for Azure, enabling you to work directly from your command line to provision and manage resources.
@@ -49,8 +49,8 @@ The Azure CLI provides a multiplatform command line experience for Azure, enabli
 Run the following from a command prompt, it might take 5 minutes to install Azure CLI.
 
 ```bash
-pip install azure-cli
-pip install azure-cli-iot
+pip install --upgrade azure-cli
+pip install --upgrade azure-cli-iot
 ```
 
 Try below command to verify installation is successful.
