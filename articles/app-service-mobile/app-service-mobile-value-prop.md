@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="hero-article"
 	ms.date="05/03/2016"
-	ms.author="adrianhall"/>
+	ms.author="adrianha"/>
 
 # <a name="getting-started"> </a>What are Mobile Apps?
 
