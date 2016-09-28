@@ -38,7 +38,7 @@ To learn more about:
 
 ## Azure Storage Blob snapshots
 
-As a benefit of using Azure Premium Storage, SQL Data Warehouse uses Azure Storage Blob snapshots to backup the data warehouse locally. You can restore a data warehouse to a snapshot restore time. Snapshots start a minimum of every eight hours and are available for seven days.  
+As a benefit of using Azure Premium Storage, SQL Data Warehouse uses Azure Storage Blob snapshots to backup the data warehouse locally. You can restore a data warehouse to a snapshot restore point. Snapshots start a minimum of every eight hours and are available for seven days.  
 
 To learn more about:
 
