@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/26/2016"
+	ms.date="09/28/2016"
 	ms.author="jeedes"/>
 
 
@@ -161,9 +161,9 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 	
 	d. In the SAM SSO URL textbox, replace `<your subdomain>` with your subdomain.
 
-	d. In the SAM SSO URL textbox, replace `<saml sso url>` with the SAML SSO URL you have copied from the Azure classic portal.
+	e. In the SAM SSO URL textbox, replace `<saml sso url>` with the SAML SSO URL you have copied from the Azure classic portal.
 
-	e. Click **Save Settings**.
+	f. Click **Save Settings**.
 
 9. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
     
