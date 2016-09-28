@@ -37,17 +37,17 @@ The cluster health entity is created automatically in the health store. If every
 ### Neighborhood loss
 **System.Federation** reports an error when it detects a neighborhood loss. The report is from individual nodes, and the node ID is included in the property name. If one neighborhood is lost in the entire Service Fabric ring, you can typically expect two events (both sides of the gap report). If more neighborhoods are lost, there are more events.
 
-The report specifies the global lease timeout as the time to live. The report is resent every half of the TTL duration for as long as the condition remains active. The event is automatically removed when it expires, so if the reporting node is down, it is still cleaned up from the health store correctly.
+The report specifies the global lease timeout as the time to live. The report is resent every half of the TTL duration for as long as the condition remains active. The event is automatically removed when it expires. Remove when expired behavior ensures that the report is cleaned up from the health store correctly, even if the reporting node is down.
 
 - **SourceId**: System.Federation
 - **Property**: Starts with **Neighborhood** and includes node information
 - **Next steps**: Investigate why the neighborhood is lost (for example, check the communication between cluster nodes).
 
 ## Node system health reports
-**System.FM**, which represents the Failover Manager service, is the authority that manages information about cluster nodes. Each node should have one report from System.FM showing its state. The node entities are removed when the node state is removed (i.e. see [RemoveNodeStateAsync](https://msdn.microsoft.com/library/azure/mt161348.aspx)).
+**System.FM**, which represents the Failover Manager service, is the authority that manages information about cluster nodes. Each node should have one report from System.FM showing its state. The node entities are removed when the node state is removed (see [RemoveNodeStateAsync](https://msdn.microsoft.com/library/azure/mt161348.aspx)).
 
 ### Node up/down
-System.FM reports as OK when the node joins the ring (it's up and running). It reports an error when the node departs the ring (it's down, either for upgrading or simply because it has failed). The health hierarchy built by the health store takes action on deployed entities in correlation with System.FM node reports. It considers the node a virtual parent of all deployed entities. The deployed entities on that node are not exposed through queries if the node is down or not reported, or if the node has a different instance than the instance associated with the entities. When System.FM reports that the node is down or restarted (a new instance), the health store automatically cleans up the deployed entities that can exist only on the down node or on the previous instance of the node.
+System.FM reports as OK when the node joins the ring (it's up and running). It reports an error when the node departs the ring (it's down, either for upgrading or simply because it has failed). The health hierarchy built by the health store takes action on deployed entities in correlation with System.FM node reports. It considers the node a virtual parent of all deployed entities. The deployed entities on that node are exposed through queries if the node is reported as up by System.FM, with the same instance as the instance associated with the entities. When System.FM reports that the node is down or restarted (a new instance), the health store automatically cleans up the deployed entities that can exist only on the down node or on the previous instance of the node.
 
 - **SourceId**: System.FM
 - **Property**: State
@@ -241,7 +241,7 @@ System.FM reports as OK when the partition has been created and is healthy. It d
 
 If the partition is below the minimum replica count, it reports an error. If the partition is not below the minimum replica count, but it is below the target replica count, it reports a warning. If the partition is in quorum loss, System.FM reports an error.
 
-Other important events include a warning when the reconfiguration takes longer than expected and when the build takes longer than expected. The expected times for the build and reconfiguration are configurable based on service scenarios. For example, if a service has a terabyte of state, such as SQL Database, the build will take longer than it would for a service with a small amount of state.
+Other important events include a warning when the reconfiguration takes longer than expected and when the build takes longer than expected. The expected times for the build and reconfiguration are configurable based on service scenarios. For example, if a service has a terabyte of state, such as SQL Database, the build takes longer than for a service with a small amount of state.
 
 - **SourceId**: System.FM
 - **Property**: State
@@ -350,7 +350,7 @@ HealthEvents          :
 ### Replica open status
 The description of this health report contains the start time (Coordinated Universal Time) when the API call was invoked.
 
-**System.RA** reports a warning if the replica open takes longer than the configured period (default: 30 minutes). If the API impacts service availability, the report is issued much faster (a configurable interval, with a default of 30 seconds). This includes the time taken for the replicator open and the service open. The property changes to OK if the open completes.
+**System.RA** reports a warning if the replica open takes longer than the configured period (default: 30 minutes). If the API impacts service availability, the report is issued much faster (a configurable interval, with a default of 30 seconds). The time measured includes the time taken for the replicator open and the service open. The property changes to OK if the open completes.
 
 - **SourceId**: System.RA
 - **Property**: **ReplicaOpenStatus**
@@ -363,7 +363,7 @@ The description of this health report contains the start time (Coordinated Unive
 - **Property**: The name of the slow API. The description provides more details about the time the API has been pending.
 - **Next steps**: Investigate why the call takes longer than expected.
 
-The following example shows a partition in quorum loss, and the investigation steps done to figure out why. One of the replicas has a warning health state, so you get its health. It shows that the service operation takes longer than expected, an event reported by System.RAP. After this information is received, the next step is to look at the service code and investigate there. For this case, the **RunAsync** implementation of the stateful service throws an unhandled exception. The replicas are recycling, so you may not see any replicas in the warning state. You can retry getting the health state and look for any differences in the replica ID. In certain cases, this can give you clues.
+The following example shows a partition in quorum loss, and the investigation steps done to figure out why. One of the replicas has a warning health state, so you get its health. It shows that the service operation takes longer than expected, an event reported by System.RAP. After this information is received, the next step is to look at the service code and investigate there. For this case, the **RunAsync** implementation of the stateful service throws an unhandled exception. The replicas are recycling, so you may not see any replicas in the warning state. You can retry getting the health state and look for any differences in the replica ID. In certain cases, the retries can give you clues.
 
 ```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/HelloWorldStatefulApplication/HelloWorldStateful | Get-ServiceFabricPartitionHealth
@@ -586,7 +586,7 @@ System.Hosting reports as OK if the service package activation on the node is su
 - **Next steps**: Investigate why the activation failed.
 
 ### Code package activation
-**System.Hosting** reports as OK for each code package if the activation is successful. If the activation fails, it reports a warning as configured. If **CodePackage** fails to activate or terminates with an error greater than the configured **CodePackageHealthErrorThreshold**, hosting reports an error. If a service package contains multiple code packages, an activation report will be generated for each one.
+**System.Hosting** reports as OK for each code package if the activation is successful. If the activation fails, it reports a warning as configured. If **CodePackage** fails to activate or terminates with an error greater than the configured **CodePackageHealthErrorThreshold**, hosting reports an error. If a service package contains multiple code packages, an activation report is generated for each one.
 
 - **SourceId**: System.Hosting
 - **Property**: Uses the prefix **CodePackageActivation** and contains the name of the code package and the entry point as **CodePackageActivation:*CodePackageName*:*SetupEntryPoint/EntryPoint*** (for example, **CodePackageActivation:Code:SetupEntryPoint**)
