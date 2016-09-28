@@ -32,7 +32,7 @@ SQL Data Warehouse protects your data by storing your data in locally redundant 
 
 To learn more about:
 
-- Azure Premium storage, see [Introduction to Azure Premium Storage](../storage-premium-storage.md).
+- Azure Premium storage, see [Introduction to Azure Premium Storage](../storage/storage-premium-storage.md).
 - Locally Redundant storage, see [Azure Storage replication](../storage/storage-redundancy.md#locally-redundant-storage).
 
 
@@ -106,7 +106,7 @@ The primary use for SQL data warehouse backups is to restore the data warehouse 
 
 ### Scenarios
 
-- For a business continuity overview, see [Business continuity overview](sql-database-business-continuity.md)
+- For a business continuity overview, see [Business continuity overview](../sql-database/sql-database-business-continuity.md)
 
 
 <!-- ### Tasks -->
