@@ -68,7 +68,7 @@ You may also email links to these solutions to invite other users to view the pa
 
 
 
-### Contribute experiments and collections
+### Contribute
 
 When you sign in you become a member of the Gallery community. This allows you to contribute your own experiments and collections so that others can benefit from the solutions you've discovered.
 
