@@ -3,7 +3,7 @@
 	description="Microsoft Azure Media Services enables you to deliver MPEG-DASH, Smooth Streaming, and Http-Live-Streaming (HLS) streams protected with Microsoft PlayReady DRM. It also enables you to delivery DASH encrypted with Widevine DRM. This topic shows how to dynamically encrypt with PlayReady and Widevine DRM."
 	services="media-services"
 	documentationCenter=""
-	authors="Mingfeiy"
+	authors="juliako"
 	manager="erikre"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="09/19/2016"
-	ms.author="juliako;mingfeiy"/>
+	ms.date="09/27/2016"
+	ms.author="juliako"/>
 
 
 #Using PlayReady and/or Widevine dynamic common encryption
@@ -329,7 +329,7 @@ The following sample demonstrates functionality that was introduced in Azure Med
 		
 		        static public IContentKey CreateCommonTypeContentKey(IAsset asset)
 		        {
-		            // Create envelope encryption content key
+		            
 		            Guid keyId = Guid.NewGuid();
 		            byte[] contentKey = GetRandomBuffer(16);
 		
@@ -544,6 +544,8 @@ The following sample demonstrates functionality that was introduced in Azure Med
 		
 		                };
 		
+					// In this case we only specify Dash streaming protocol in the delivery policy,
+					// All other protocols will be blocked from streaming.
 		            var assetDeliveryPolicy = _context.AssetDeliveryPolicies.Create(
 		                    "AssetDeliveryPolicy",
 		                AssetDeliveryPolicyType.DynamicCommonEncryption,
