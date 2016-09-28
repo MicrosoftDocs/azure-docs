@@ -62,7 +62,7 @@ Now that the application is created and the libraries are installed, you create 
 
     You can find the subscription identifier by running Get-AzureRmSubscription.
     
-3. Add this method to the Program class to get the token that is needed to create the credentials.
+3. To get the token that is needed to create the credentials, add this method to the Program class:
 
 	    private static async Task<AuthenticationResult> GetAccessTokenAsync()
 	    {
@@ -78,7 +78,7 @@ Now that the application is created and the libraries are installed, you create 
 	
     Replace {client-id} with the identifier of the Azure Active Directory application, {client-secret} with the access key of the AD application, and {tenant-id} with the tenant identifier for your subscription. You can find the tenant id by running Get-AzureRmSubscription. You can find the access key by using the Azure portal.
     
-4. Add this code to the Main method in Program.cs to create the credentials:
+4. To create the credentials, add this code to the Main method in Program.cs:
 
         var token = GetAccessTokenAsync();
         var credential = new TokenCredentials(token.Result.AccessToken);
@@ -174,7 +174,7 @@ Now that the application is created and the libraries are installed, you create 
           
         }
 
-2. Add this code to the Main method to call the method that you just added:
+2. To call the method that you just added, add this code to the Main method:
 
         GetVirtualMachineAsync(
           credential,

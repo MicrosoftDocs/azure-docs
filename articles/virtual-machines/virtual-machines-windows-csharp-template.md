@@ -192,7 +192,7 @@ In Visual Studio, do these steps:
 
 To specify values for the resource parameters that were defined in the template, you create a parameters file that contains the values that are used when the template is deployed. In Visual Studio, do these steps:
 
-1. Right-click the project name in Solution Explorer, click **Add** >  **New Item**.
+1. Right-click the project name in Solution Explorer, click **Add** > **New Item**.
 
 2. Click Web, select JSON File, enter *Parameters.json* for the Name, and then click **Add**.
 
@@ -223,7 +223,7 @@ NuGet packages are the easiest way to install the libraries that you need to fin
 
 Now you're ready to start using the libraries to create your application.
 
-##Step 3: Create the credentials that are used to authenticate requests
+## Step 3: Create the credentials that are used to authenticate requests
 
 The Azure Active Directory application is created and the authentication library is installed. Now you format the application information into credentials that are used to authenticate requests to the Azure Resource Manager.
 
@@ -259,7 +259,7 @@ The Azure Active Directory application is created and the authentication library
 
 4. Save the Program.cs file.
 
-## Step 4: Add the code to deploy the template
+## Step 4: Deploy the template
 
 In this step, you use the resource group that you previously created, but you could also create a resource group using the [ResourceGroup](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.models.resourcegroup.aspx) and the [ResourceManagementClient](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.resourcemanagementclient.aspx) classes.
 
@@ -307,7 +307,7 @@ In this step, you use the resource group that you previously created, but you co
         Console.WriteLine(dpResult.Result.Properties.ProvisioningState);
         Console.ReadLine();
 
-##Step 5: Add the code to delete the resources
+## Step 5: Delete the resources
 
 Because you are charged for resources used in Azure, it is always a good practice to delete resources that are no longer needed. You don’t need to delete each resource separately from a resource group. Delete the resource group and all its resources are automatically deleted.
 
