@@ -39,7 +39,7 @@ From this page you can browse all the custom modules in the Gallery, or you can 
 
 You can comment, provide feedback, or ask questions through the comments section on the custom module details page.
 You can even share it with friends or colleagues using the share capabilities of LinkedIn or Twitter.
-You may also email a links to the module to invite other users to view the page.
+You may also email a link to the module to invite other users to view the page.
 
 ![Comment on and share custom modules](media\machine-learning-gallery-custom-modules\custom-module-details-page-in-gallery.png)
 
