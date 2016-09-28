@@ -45,7 +45,7 @@ In this section, you verify PowerShell cmdlets are running against Azure Stack b
 
 Run the following command to retrieve a list of Azure Stack subscriptions associated with your account:
 
-    Get-AzureRMSubsciptions
+    Get-AzureRmSubscription
 
 
 ## Next steps
