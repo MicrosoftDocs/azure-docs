@@ -47,7 +47,7 @@ Example to use this cmdlet:
     New-AzureRmAppServicePlan -Name ContosoAppServicePlan -Location "South Central US" -ResourceGroupName ContosoAzureResourceGroup -Tier Premium -WorkerSize Large -NumberofWorkers 10
 
 ### Create an App Service Plan in an App Service Environment ###
-To create an app service plan in an app service environment, use the same command **New-AzureRmAppServicePlan** command with extra parameters to specify the ASE name and the resource group name that the ASE belongs to.
+To create an app service plan in an app service environment, use the same command **New-AzureRmAppServicePlan** command with extra parameters to specify the ASE's name and ASE's resource group name.
 
 Example to use this cmdlet:
 
@@ -199,7 +199,7 @@ To get the publishing profile for a web app, use:
 
     Get-AzureRmWebAppPublishingProfile -Name ContosoWebApp -ResourceGroupName ContosoAzureResourceGroup -OutputFile .\publishingprofile.txt
 
-This echoes the publishing profile to the command line as well output the publishing profile to a text file.
+This command echoes the publishing profile to the command line as well output the publishing profile to a text file.
 
 #### Reset Publishing Profile ####
 
