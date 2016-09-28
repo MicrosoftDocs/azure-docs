@@ -13,7 +13,7 @@ ms.devlang="java"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="07/07/2016"
+ms.date="09/27/2016"
 ms.author="larryfr"/>
 
 #Use a Java UDF with Hive in HDInsight
@@ -67,7 +67,61 @@ Hive is great for working with data in HDInsight, but sometimes you need a more 
 
     These entries specify the version of Hadoop and Hive included with HDInsight 3.3 and 3.4 clusters. You can find information on the versions of Hadoop and Hive provided with HDInsight from the [HDInsight component versioning](hdinsight-component-versioning.md) document.
 
-    Save the file after making this change.
+    Add a `<build>` section before the `</project>` line at the end of the file. This section should contain the following:
+
+        <build>
+            <plugins>
+                <!-- build for Java 1.7, even if you're on a later version -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.3</version>
+                    <configuration>
+                        <source>1.7</source>
+                        <target>1.7</target>
+                    </configuration>
+                </plugin>
+                <!-- build an uber jar -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-shade-plugin</artifactId>
+                    <version>2.3</version>
+                    <configuration>
+                        <!-- Keep us from getting a can't overwrite file error -->
+                        <transformers>
+                            <transformer
+                                    implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer">
+                            </transformer>
+                            <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer">
+                            </transformer>
+                        </transformers>
+                        <!-- Keep us from getting a bad signature error -->
+                        <filters>
+                            <filter>
+                                <artifact>*:*</artifact>
+                                <excludes>
+                                    <exclude>META-INF/*.SF</exclude>
+                                    <exclude>META-INF/*.DSA</exclude>
+                                    <exclude>META-INF/*.RSA</exclude>
+                                </excludes>
+                            </filter>
+                        </filters>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>shade</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </build>
+    
+    These entries define how to build the project. Specifically, the version of Java that the project uses and how to build an uberjar for deployment to the cluster.
+
+    Save the file once the changes have been made.
 
 4. Rename __exampleudf/src/main/java/com/microsoft/examples/App.java__ to __ExampleUDF.java__, and then open the file in your editor.
 
@@ -136,7 +190,7 @@ Hive is great for working with data in HDInsight, but sometimes you need a more 
 
 2. Once you arrive at the `jdbc:hive2://localhost:10001/>` prompt, enter the following to add the UDF to Hive and expose it as a function.
 
-        ADD JAR wasbs:///example/jar/ExampleUDF-1.0-SNAPSHOT.jar;
+        ADD JAR wasbs:///example/jars/ExampleUDF-1.0-SNAPSHOT.jar;
         CREATE TEMPORARY FUNCTION tolower as 'com.microsoft.examples.ExampleUDF';
 
 3. Use the UDF to convert values retrieved from a table to lower case strings.

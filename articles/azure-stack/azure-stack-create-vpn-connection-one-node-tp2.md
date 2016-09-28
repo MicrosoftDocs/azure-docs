@@ -97,7 +97,7 @@ environment so that it is different from the other.
     CloudDeployment package. If you downloaded the package to your C:
     drive, the path to this file looks like this.
 
-     > C:\\CloudDeployment\\CustomerConfig.xml
+     > C:\\CloudDeployment\\Configuration\\OneNodeCustomerConfigTemplate.xml
 
 2.  Open the file with your preferred text editor.
 
