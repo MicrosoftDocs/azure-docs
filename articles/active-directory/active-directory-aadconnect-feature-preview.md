@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="andkjell"
-   manager="stevenpo"
+   manager="femila"
    editor=""/>
 
 <tags

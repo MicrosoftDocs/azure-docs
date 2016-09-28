@@ -84,6 +84,34 @@ Actor projects do not do anything on their own. They require another service or 
 
 3. Click the node you found in the previous step, then select **Deactivate (restart)** from the Actions menu. This will restart one of the five nodes in your local cluster and force a failover to one of the secondary replicas running on another node. As you do this, pay attention to the output from the test client and note that the counter continues to increment despite the failover.
 
+## Build and deploy an application with the Eclipse Neon plugin
+
+If you installed the Service Plugin for Eclipse Neon, you can use it to create, build, and deploy Service Fabric applications built with Java.
+
+### Create the application
+
+The Service Fabric plugin is available through Eclipse extensibility.
+
+1. In Eclipse, choose **File > Other > Service Fabric**. You see a set of options, including Actors and Containers.
+
+    ![Service Fabric templates in Eclipse][sf-eclipse-templates]
+
+2. In this case, choose Stateless Service.
+
+3. You are asked to confirm the use of the Service Fabric perspective, which optimizes Eclipse for use with Service Fabric projects. Choose 'Yes'.
+
+### Deploy the application
+
+The Service Fabric templates include a set of Gradle tasks for building and deploying applications, which you can trigger through Eclipse.
+
+1. Choose **Run > Run Configurations**.
+
+2. Expand **Gradle Project** and choose **ServiceFabricDeployer**.
+
+3. Click **Run**.
+
+Your app will build and deploy within a few moments. You can monitor its status from Service Fabric Explorer.
+
 ## Next steps
 
 - [Learn more about Reliable Actors](service-fabric-reliable-actors-introduction.md)
@@ -91,3 +119,4 @@ Actor projects do not do anything on their own. They require another service or 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-yeoman.png
 [sfx-primary]: ./media/service-fabric-create-your-first-linux-application-with-java/sfx-primary.png
+[sf-eclipse-templates]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-eclipse-templates.png

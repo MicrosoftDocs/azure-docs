@@ -21,23 +21,23 @@ ms.service="virtual-machines-windows"
 
 
 This article shows you how to add Azure "burst" nodes (worker role instances
-running in a cloud service) on-demand as compute resources to an
-existing HPC Pack head node in Azure. This lets you scale up the compute capacity of the HPC cluster in Azure on-demand, without maintaining a set of preconfigured compute node VMs.
+running in a cloud service) as compute resources to an
+existing HPC Pack head node in Azure. With burst node, you scale up or scale down the compute capacity of the HPC cluster in Azure on-demand, without maintaining a set of preconfigured compute node VMs.
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ![Burst nodes][burst]
 
-The steps in this article will help you add Azure nodes quickly to a
-cloud-based HPC Pack head node VM for a test or proof of concept deployment. The procedure is essentially the
+The steps in this article help you add Azure nodes quickly to a
+cloud-based HPC Pack head node VM for a test or proof-ofconcept deployment. The procedure is essentially the
 same as the one to “burst to Azure” to add cloud compute capacity to an
 on-premises HPC Pack cluster. For a tutorial, see [Set up a hybrid compute cluster with Microsoft HPC Pack](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). For
 detailed guidance and considerations for production deployments, see
 [Burst to Azure with Microsoft HPC
 Pack](https://technet.microsoft.com/library/gg481749.aspx).
 
-For considerations to use the A8 or A9 compute intensive instance size for the burst nodes, see
-[About the A8, A9, A10, and A11 compute-intensive instances](virtual-machines-windows-a8-a9-a10-a11-specs.md).
+For considerations to use a compute-intensive instance size for the burst nodes, see
+[About H-series and compute-intensive A-series VMs](virtual-machines-windows-a8-a9-a10-a11-specs.md).
 
 ## Prerequisites
 
@@ -54,9 +54,9 @@ subscription (or subscriptions).
 
 * **Cores quota** - You might need to increase the quota of cores, especially if you choose to deploy several Azure nodes with multicore sizes. To increase a quota, [open an online customer support request](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) at no charge.
 
-## Step 1: Create a cloud service and a storage account to add Azure nodes
+## Step 1: Create a cloud service and a storage account for the Azure nodes
 
-Use the Azure classic portal or equivalent tools to configure the following, which are needed to deploy
+Use the Azure classic portal or equivalent tools to configure the following resources that are needed to deploy
 your Azure nodes:
 
 * A new Azure cloud service
@@ -68,23 +68,23 @@ your Azure nodes:
 
 * Configure a separate cloud service for each Azure node template that you plan to create. However, you can use the same storage account for multiple node templates.
 
-* You should generally locate the cloud service and the storage account for the deployment in the same Azure region.
+* We recommend that you locate the cloud service and the storage account for the deployment in the same Azure region.
 
 
 
 
 ## Step 2: Configure an Azure management certificate
 
-To add Azure nodes as compute resources, you'll need to have a management
+To add Azure nodes as compute resources, you need a management
 certificate on the head node and upload a corresponding certificate
  to the Azure subscription used for the deployment.
 
 For this scenario, you can choose the **Default HPC Azure Management
 Certificate** that HPC Pack installs and configures automatically on the
 head node. This certificate is useful for testing purposes and
-proof-of-concept deployments. To use this certificate, simply upload the
+proof-of-concept deployments. To use this certificate, upload the
 file C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer from the head node VM to the
-subscription. You can do this in the [Azure classic portal](https://manage.windowsazure.com). Click **Settings** > **Management Certificates**.
+subscription. To upload the certificate in the [Azure classic portal](https://manage.windowsazure.com), click **Settings** > **Management Certificates**.
 
 For additional options to configure the management certificate, see
 [Scenarios to Configure the Azure Management Certificate for Azure Burst
@@ -95,7 +95,7 @@ Deployments](http://technet.microsoft.com/library/gg481759.aspx).
 
 
 The steps to add and start
-Azure nodes in this scenario are generally the same as those used with
+Azure nodes in this scenario are generally the same as the steps with
 an on-premises head node. For more information, see the following
 sections in [Steps to Deploy Azure Nodes with Microsoft HPC Pack](https://technet.microsoft.com/library/gg481758.aspx):
 
@@ -115,7 +115,7 @@ Pack](http://technet.microsoft.com/library/jj159097.aspx).
 
 * If you want to
 automatically grow or shrink the Azure computing resources according to
-the current workload of jobs and tasks on the cluster, see [Automatically grow and shrink Azure compute resources in an HPC Pack cluster](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md).
+the cluster workload, see [Automatically grow and shrink Azure compute resources in an HPC Pack cluster](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md).
 
 <!--Image references-->
 [burst]: ./media/virtual-machines-windows-classic-hpcpack-cluster-node-burst/burst.png

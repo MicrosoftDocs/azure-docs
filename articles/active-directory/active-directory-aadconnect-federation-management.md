@@ -5,7 +5,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="anandyadavmsft"
-	manager="stevenpo"
+	manager="femila"
 	editor=""/>
 
 <tags

@@ -78,7 +78,7 @@ $RestoredDatabase.status
 
 ```
 
->[AZURE.NOTE] After the restore has completed, you can configure your recovered database by following the [Finalize a recovered database][] guide.
+>[AZURE.NOTE] After the restore has completed, you can configure your recovered database by following [Configure your database after recovery][].
 
 
 ## Restore a deleted database
@@ -113,7 +113,7 @@ $RestoredDatabase = Restore-AzureRmSqlDatabase –FromDeletedDatabaseBackup –D
 $RestoredDatabase.status
 ```
 
->[AZURE.NOTE] After the restore has completed, you can configure your recovered database by following the [Finalize a recovered database][] guide.
+>[AZURE.NOTE] After the restore has completed, you can configure your recovered database by following [Configure your database after recovery][].
 
 
 ## Restore from an Azure geographical region
@@ -162,7 +162,7 @@ To learn about the business continuity features of Azure SQL Database editions, 
 [Portal]: ./sql-data-warehouse-restore-database-portal.md
 [PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
 [REST]: ./sql-data-warehouse-restore-database-rest-api.md
-[Finalize a recovered database]: ./sql-database-recovered-finalize.md
+[Configure your database after recovery]: ./sql-database-disaster-recovery.md#configure-your-database-after-recovery
 
 <!--MSDN references-->
 [Restore-AzureRmSqlDatabase]: https://msdn.microsoft.com/library/mt693390.aspx

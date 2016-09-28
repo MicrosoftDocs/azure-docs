@@ -558,7 +558,10 @@ The installers are available on the process server in **C:\Program Files (x86)\M
 Source operating system | Mobility service installation file
 --- | ---
 Windows Server (64 bit only) | Microsoft-ASR_UA_9.*.0.0_Windows_* release.exe
-CentOS 6.4, 6.5, 6.6 (64 bit only) | Microsoft-ASR_UA_9.*.0.0_RHEL6-64_*release.tar.gz
+CentOS 6.5, 6.6, 6.7 (64 bit only) | Microsoft-ASR_UA_9.*.0.0_RHEL6-64_*release.tar.gz
+CentOS 7.0, 7.1, 7.2 (64 bit only) | Microsoft-ASR_UA_9.*.0.0_RHEL7-64_*release.tar.gz
+Red Had Enterprise Linux 6.7 (64 bit only) | Microsoft-ASR_UA_9.*.0.0_RHEL6-64_*release.tar.gz
+Red Had Enterprise Linux 7.1, 7.2 (64 bit only) | Microsoft-ASR_UA_9.*.0.0_RHEL7-64_*release.tar.gz
 SUSE Linux Enterprise Server 11 SP3 (64 bit only) | Microsoft-ASR_UA_9.*.0.0_SLES11-SP3-64_*release.tar.gz
 Oracle Enterprise Linux 6.4, 6.5 (64 bit only) | Microsoft-ASR_UA_9.*.0.0_OL6-64_*release.tar.gz
 

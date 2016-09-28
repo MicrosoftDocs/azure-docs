@@ -770,9 +770,9 @@ You are now ready to configure an availability group. Below is an outline of wha
 
 ## Configure internal load balancer
 
-In order to connect to the availability group directly, you need to configure a load balancer. The load balancer directs client traffic to the VM that is bound to the listener IP address and on the probe port. For this tutorial uses an internal load balancer, or ILB. The ILB allows traffic from within the same virtual network to connect to SQL Server. Applications that need to connect to SQL Server over the internet require an internet facing - or external - load balancer. For more information, see [Azure Load Balancer overview](../load-balancer/load-balancer-overview.md).
+In order to connect to the availability group directly, you need to configure a load balancer. The load balancer directs client traffic to the VM that is bound to the listener IP address and on the probe port. This tutorial use an internal load balancer, or ILB. The ILB allows traffic from within the same virtual network to connect to SQL Server. Applications that need to connect to SQL Server over the internet require an internet facing - or external - load balancer. For more information, see [Azure Load Balancer overview](../load-balancer/load-balancer-overview.md).
 
->[AZURE.NOTE] You can create a load balancer with a single IP address in the Azure portal. If you have more than one availability group on a virtual machine, you need an IP address for each availability group. If you need multiple IP addresses use PowerShell. For instructions see [Create availability group listener and load balancer | Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md). 
+>[AZURE.NOTE] Currently the Azure Portal only allows you to use a specific frontend port once on a load balancer. To use the same port for all listeners, use PowerShell to attach the listener IP addresses to the load balancer. For instructions, see [Create availability group listener and load balancer | Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md). 
 
 ### Create the load balancer in Azure
 

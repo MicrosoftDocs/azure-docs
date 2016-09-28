@@ -189,7 +189,7 @@ For different types of build environments, you can explicitly obtain the latest 
 > [AZURE.NOTE] This tutorial uses a single instance of EventProcessorHost. To increase throughput, it is recommended that you run multiple instances of EventProcessorHost. In those cases, the various instances automatically coordinate with each other in order to load balance the received events. If you want multiple receivers to each process *all* the events, you must use the **ConsumerGroup** concept. When receiving events from different machines, it might be useful to specify names for EventProcessorHost instances based on the machines (or roles) in which they are deployed.
 
 <!-- Links -->
-[Event Hubs Overview]: event-hubs-overview.md
+[Event Hubs overview]: event-hubs-overview.md
 [Azure Storage account]: ../storage/storage-create-storage-account.md
 [Azure classic portal]: http://manage.windowsazure.com
 [Maven Package]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22

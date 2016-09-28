@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/26/2016"
+	ms.date="09/27/2016"
 	ms.author="erikje"/>
 
 # Azure Stack deployment prerequisites
@@ -65,8 +65,7 @@ Sample OEM configurations are available.
 
 | | **Requirements**  |
 |---|---|
-| **OS Version** | Windows Server 2016. The operating system version isn’t critical before the deployment starts, as you'll boot the host computer into the VHD that's included in Azure Stack installation zip. The OS and all required patches are already integrated into the image.|
-| **Domain joined?** | No. |
+| **OS Version** | Windows Server 2012 R2 or later. The operating system version isn’t critical before the deployment starts, as you'll boot the host computer into the VHD that's included in Azure Stack installation zip. The OS and all required patches are already integrated into the image. Don’t use any keys to activate any Windows Server instances used in the POC.|
 
 ## Deployment requirements check tool
 
