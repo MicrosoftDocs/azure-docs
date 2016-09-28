@@ -14,7 +14,7 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="08/01/2016"
-	ms.author="adrianhall"/>
+	ms.author="adrianha"/>
 
 # Enable offline sync for your iOS mobile app
 
