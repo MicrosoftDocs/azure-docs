@@ -59,7 +59,7 @@ az iot -h
 
 You should see the following output if installation is successful.
 
-![az iot -h](media/iot-hub-raspberry-pi-lessons/lesson2/az_iot_help_osx.png)
+![az iot -h](media/iot-hub-raspberry-pi-lessons/lesson2/az_iot_help_ubuntu.png)
 
 ## 2.1.5 Summary
 You have now installed Azure CLI. Continue to the next section to create your Azure IoT Hub and device identity using the Azure CLI. 

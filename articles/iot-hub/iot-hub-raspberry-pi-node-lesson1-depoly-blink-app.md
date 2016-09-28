@@ -42,7 +42,7 @@ devdisco list --eth
 
 You should see output similar to the following:
 
-![device discovery](media/iot-hub-raspberry-pi-lessons/lesson1/device_discovery.jpg)
+![device discovery](media/iot-hub-raspberry-pi-lessons/lesson1/device_discovery.png)
 
 Take a note of the `IP Address` of your Raspberry Pi 3 device. You need this information later in this section.
 
