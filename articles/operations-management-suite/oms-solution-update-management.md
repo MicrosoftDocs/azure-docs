@@ -97,7 +97,7 @@ Update Runs | Number of currently scheduled update runs and the duration until t
 ![Update Management Summary Dashboard](./media/oms-solution-update-management/update-management-dashboard-2.png)<br>  
 <br>
 ![Update Management Dashboard Computer View](./media/oms-solution-update-management/update-management-assessment-computer-view.png)<br>  
-<br>  
+<br>
 ![Update Management Dashboard Package View](./media/oms-solution-update-management/update-management-assessment-package-view.png)<br>  
 
 ## Installing updates
