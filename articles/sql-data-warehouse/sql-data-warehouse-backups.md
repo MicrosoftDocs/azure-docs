@@ -28,7 +28,7 @@ Database backups are an essential part of any business continuity and disaster r
 
 ## Data redundancy
 
-SQL Data Warehouse protects your data by storing your data in locally redundant (LRS) Azure Premium Storage. This Azure Storage feature stores multiple synchronous copies of the data in the local data center to guarantee transparent data protection in case of localized failures. Data redundancy ensures that your data can survive infrastructure issues such as disk failures etc. Data redundancy ensures business continuity with a fault tolerant and highly available infrastructure.
+SQL Data Warehouse protects your data by storing your data in locally redundant (LRS) Azure Premium Storage. This Azure Storage feature stores multiple synchronous copies of the data in the local data center to guarantee transparent data protection if there are localized failures. Data redundancy ensures that your data can survive infrastructure issues such as disk failures. Data redundancy ensures business continuity with a fault tolerant and highly available infrastructure.
 
 To learn more about:
 
@@ -49,7 +49,7 @@ To learn more about:
 
 Every 24 hours, SQL Data Warehouse stores the full data warehouse in Standard storage. The full data warehouse is created to match the time of the last snapshot. The standard storage belongs to a geo-redundant storage account with read access (RA-GRS). The Azure Storage RA-GRS feature replicates the backup files to a [paired data center](../best-practices-availability-paired-regions.md). This geo-replication ensures you can restore data warehouse in case you cannot access the snapshots in your primary region. 
 
-This feature is on by default. If you don't want to use geo-redundant backups you can opt out. 
+This feature is on by default. If you don't want to use geo-redundant backups, you can opt out. 
 
 >[AZURE.NOTE] In Azure storage, the term *replication* refers to copying files from one location to another. SQL's *database replication* refers to keeping to multiple secondary databases synchronized with a primary database. 
 
@@ -59,9 +59,9 @@ To learn more about:
 
 ## Data warehouse backup schedule and retention period
 
-SQL Data Warehouse creates snapshots on your online data warehouses every 4 to 8 hours and keeps each snapshot for 7 days. This allows you to restore your online database to one of several restore points in the past 7 days. 
+SQL Data Warehouse creates snapshots on your online data warehouses every four to eight hours and keeps each snapshot for seven days. You can restore your online database to one of the restore points in the past seven days. 
 
-Run this query on your online SQL Data Warehouse to see when the last snapshot started:
+To see when the last snapshot started, run this query on your online SQL Data Warehouse. 
 
 ```sql
 select top 1 *
@@ -69,16 +69,16 @@ from sys.pdw_loader_backup_runs
 order by run_id desc;
 ```
 
-If you need to retain a snapshot for longer than 7 days, you can simply restore one of the snapshot restore points to a new data warehouse. SQL Data Warehouse will start creating snapshots on the new data warehouse. If you aren't making changes to the new data warehouse, the snapshots won't grow in size and incur extra storage costs. You could also pause the database to keep SQL Data Warehouse from creating snapshots.
+If you need to retain a snapshot for longer than 7 days, you can restore a restore point to a new data warehouse. After the restore is finished, SQL Data Warehouse starts creating snapshots on the new data warehouse. If you don't make changes to the new data warehouse, the snapshots will stay empty and therefore the snapshot cost will be minimal. You could also pause the database to keep SQL Data Warehouse from creating snapshots.
 
 
 ### What happens to my backup retention while my data warehouse is paused?
 
 SQL Data Warehouse does not create snapshots and does not expire snapshots while a data warehouse is paused. The snapshot age does not change while the data warehouse is paused. Snapshot retention is based on the number of days the data warehouse is online, not calendar days.
 
-For example, if a snapshot starts October 1 at 4 pm and the data warehouse is paused October 3 at 4 pm, the snapshot will be exactly 2 days old. Whenever the data warehouse comes back online the snapshot will be 2 days old. If the data warehouse comes online October 5 at 4 pm, the snapshot is 2 days old and will remain for 5 more days.
+For example, if a snapshot starts October 1 at 4 pm and the data warehouse is paused October 3 at 4 pm, the snapshot is two days old. Whenever the data warehouse comes back online the snapshot will be two days old. If the data warehouse comes online October 5 at 4 pm, the snapshot is two days old and will remain for five more days.
 
-When the data warehouse comes back online, SQL Data Warehouse will resume new snapshots and expire snapshots that have more than 7 days of data.
+When the data warehouse comes back online, SQL Data Warehouse resumes new snapshots and will expire snapshots when they have more than seven days of data.
 
 ### How long is the retention period for a dropped data warehouse?
 When a data warehouse is dropped, the data warehouse and the snapshots are saved for 7 days and then removed. You can restore the data warehouse to any of the saved restore points.
@@ -87,11 +87,11 @@ When a data warehouse is dropped, the data warehouse and the snapshots are saved
 
 ## Data warehouse backup costs
 
-The total cost for your primary data warehouse, plus 7 days of Azure Blob snapshots is rounded to the nearest TB. For example, if your data warehouse is 1.5 TB and the snapshots use 100 GB, you will be billed for 2 TB of data at Azure Premium Storage rates. 
+The total cost for your primary data warehouse and seven days of Azure Blob snapshots is rounded to the nearest TB. For example, if your data warehouse is 1.5 TB and the snapshots use 100 GB, you are billed for 2 TB of data at Azure Premium Storage rates. 
 
->[AZURE.NOTE] Each snapshot is empty initially and grows as you make changes to the primary data warehouse. All snapshots increase in size as the data warehouse changes. Therefore, the storage costs for snapshots will grow according to the rate of change.
+>[AZURE.NOTE] Each snapshot is empty initially and grows as you make changes to the primary data warehouse. All snapshots increase in size as the data warehouse changes. Therefore, the storage costs for snapshots grow according to the rate of change.
 
-You will receive a separate storage charge for the geo-redundant storage if you are using that. The storage will be billed at the standard Read-Access Geographically Redundant Storage (RA-GRS) rate.
+You receive a separate storage charge for the geo-redundant storage if you are using that. The storage is billed at the standard Read-Access Geographically Redundant Storage (RA-GRS) rate.
 
 For more information about SQL Data Warehouse pricing, see [SQL Data Warehouse Pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
