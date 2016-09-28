@@ -20,10 +20,22 @@
 # Move data to and from Azure Blob using Azure Data Factory
 This article explains how to use the Copy Activity in Azure Data Factory to move data to and from Azure Blob by sourcing blob data from another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity and the supported data store combinations.
 
-> [AZURE.NOTE]
-> The Copy Activity supports copying data from/to both general-purpose Azure Storage accounts and Hot/Cool Blob storage. 
-> 
-> The activity supports reading from block, append, or page blobs, but supports writing to only block blobs. 
+## Supported sources and sinks
+See [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table for a list of data stores supported as sources or sinks by the copy activity. You can move data from any supported source data store to Azure Blob Storage or from Azure Blob Storage to any supported sink data store.
+
+The Copy Activity supports copying data from/to both general-purpose Azure Storage accounts and Hot/Cool Blob storage. The activity supports reading from block, append, or page blobs, but supports writing to only block blobs. 
+
+## Create pipeline
+You can create a pipeline with a copy activity that moves data to/from an Azure Blob Storage by using different tools/APIs.  
+
+- Copy Wizard
+- Azure portal
+- Visual Studio
+- Azure PowerShell
+- .NET API
+- REST API
+
+See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity in different ways.
 
 ## Copy data wizard
 The easiest way to create a pipeline that copies data to/from Azure Blob Storage is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
@@ -382,11 +394,14 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
 	}
 
 ## Linked Services
+In the samples, you have used a linked service of type **AzureStorage** to link an Azure Storage Account to a data factory. The following table provides description for JSON elements specific to Azure Storage linked service.
+
 There are two types of linked services you can use to link an Azure blob storage to an Azure data factory. They are: **AzureStorage** linked service and **AzureStorageSas** linked service. The Azure Storage linked service provides the data factory with global access to the Azure Storage. Whereas, The Azure Storage SAS (Shared Access Signature) linked service provides the data factory with restricted/time-bound access to the Azure Storage. There are no other differences between these two linked services. Choose the linked service that suits your needs. The following sections provide more details on these two linked services.
 
 [AZURE.INCLUDE [data-factory-azure-storage-linked-services](../../includes/data-factory-azure-storage-linked-services.md)]
 
 ## Azure Blob Dataset type properties
+In the samples, you have used a dataset of type **AzureBlob** to represent a blob container and folder in an Azure blob storage. 
 
 For a full list of JSON sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
 
@@ -439,6 +454,8 @@ In this example, year, month, day, and time of SliceStart are extracted into sep
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output datasets, and policies are available for all types of activities.
 
 Properties available in the typeProperties section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks
+
+If you are moving data from an Azure Blob Storage, you set the source type in the copy activity to **BlobSource**. Similarly, if you are moving data to an Azure Blob Storage, you set the sink type in the copy activity to **BlobSink**. This section provides a list of properties supported by BlobSource and BlobSink. 
 
 **BlobSource** supports the following properties in the **typeProperties** section:
 
