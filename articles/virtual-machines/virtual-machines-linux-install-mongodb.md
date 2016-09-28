@@ -17,7 +17,7 @@
    ms.author="iainfou"/>
 
 # Install and Configure MongoDB on a Linux VM in Azure
-[MongoDB](http://www,mongodb.org) is a popular open-source, high-performance NoSQL database. This article guides you through creating a Linux virtual machine (VM) using the Resource Manager deployment model. Examples are shown to:
+[MongoDB](http://www.mongodb.org) is a popular open-source, high-performance NoSQL database. This article guides you through creating a Linux virtual machine (VM) using the Resource Manager deployment model. Examples are shown to:
 
 - [Manually install and configure a basic MongoDB instance](#manually-install-and-configure-mongodb-on-a-vm) - uses a single VM to understand the steps involved.
 - [Create a basic MongoDB instance using a template](#create-basic-mongodb-instance-on-centos-using-a-template) - uses a single VM, suitable for development and testing.
