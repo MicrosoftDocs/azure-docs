@@ -37,7 +37,7 @@ Following are descriptions of the different parameters:
 - 	**--resource-group**: resource group that includes the newly created app service plan.
 - 	**--name**: name of the app service plan.
 - 	**--location**: app service plan location.
-- 	**--tier**:  the desired pricing sku (The optionsare are: F1 (Free), D1 (Shared), B1 (Basic Small), B2 (Basic Medium), B3 (Basic Large), S1 (Standard Small), S2 (Standard Medium), S3 (Standard Large), P1 (Premium Small), P2 (Premium Medium), and P3 (Premium Large).)
+- 	**--tier**:  the desired pricing sku (The optionsare are: F1 (Free). D1 (Shared). B1 (Basic Small), B2 (Basic Medium), and B3 (Basic Large). S1 (Standard Small), S2 (Standard Medium), and S3 (Standard Large). P1 (Premium Small), P2 (Premium Medium), and P3 (Premium Large).)
 - 	**--instances**: the number of workers in the app service plan (Default value is 1).
 
 Example to use this cmdlet:
@@ -180,7 +180,7 @@ To add hostname bindings to a web app, use:
 
 #### Delete hostname bindings ####
 
-To deletehostname bindings, use:
+To delete hostname bindings, use:
 
     azure webapp config hostnames delete --name ContosoWebApp --resource-group ContosoAzureResourceGroup --hostname www.contoso.com
 
