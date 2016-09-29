@@ -28,7 +28,7 @@ Use an Azure Resource Manager (ARM) template to create an Azure function app and
  - [Azure Functions](../../articles/azure-functions/functions-overview.md) is a solution for easily running small piece of code, or “functions”, in the cloud. An Azure function app hosts the execution of your functions in Azure.
 
 ## 3.1.3 What you need
-- You must have successfully completed the previous lessons: [Get started with your Raspberry Pi 3 device](iot-hub-raspberry-pi-node-lesson1.md) and [Create your Azure IoT Hub](iot-hub-raspberry-pi-node-lesson2.md)
+- You must have successfully completed the previous lessons: [Get started with your Raspberry Pi 3 device](iot-hub-raspberry-pi-lessons.md) and [Create your Azure IoT Hub](iot-hub-raspberry-pi-lessons.md)
 
 ## 3.1.4 Clone the sample code
 To get started, clone the `azure-blink` sample application from Github to your workspace directory (az-iot-samples).
