@@ -329,7 +329,7 @@ This section lists articles which were updated recently, where the update was bi
 
 | &nbsp; | Title | Description |
 | --: | :-- | :-- |
-| 166 | [Manage Azure SQL Database with PowerShell](sql-database-command-line-tools.md) | Azure SQL Database management with PowerShell. |
+| 166 | [Manage Azure SQL Database with PowerShell](sql-database-manage-powershell.md) | Azure SQL Database management with PowerShell. |
 | 167 | [SQL Database tutorial: Connect Excel to an Azure SQL database and create a report](sql-database-connect-excel.md) | Learn how to connect Microsoft Excel to Azure SQL database in the cloud. Import data into Excel for reporting and data exploration. |
 | 168 | [Create a SQL database and perform common database setup tasks with PowerShell cmdlets](sql-database-get-started-powershell.md) | Learn now to create a SQL database with PowerShell. Common database setup tasks can be managed through PowerShell cmdlets. |
 | 169 | [Getting Started with Azure SQL Data Sync (Preview)](sql-database-get-started-sql-data-sync.md) | This tutorial helps you get started with the Azure SQL Data Sync (Preview). |

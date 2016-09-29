@@ -23,7 +23,7 @@
 > [AZURE.SELECTOR]
 - [Azure portal](sql-database-manage-portal.md)
 - [SSMS](sql-database-manage-azure-ssms.md)
-- [PowerShell](sql-database-command-line-tools.md)
+- [PowerShell](sql-database-manage-powershell.md)
 
 You can use SQL Server Management Studio (SSMS) to administer Azure SQL Database servers and databases. This topic walks you through common tasks with SSMS. You should already have a server and database created in Azure SQL Database before you begin. See [Create your first Azure SQL Database](sql-database-get-started.md) and [Connect and Query using SSMS](sql-database-connect-query-ssms.md) for more information.
 

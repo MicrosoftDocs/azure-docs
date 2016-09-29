@@ -24,7 +24,7 @@ This topic explores and compares tools and options for managing Azure SQL databa
 
 The [Azure portal](https://portal.azure.com) is a web-based application where you can create, update, and delete databases and logical servers and monitor database activity. This tool is great if you're just getting started with Azure, managing a small number of databases, or need to do something quickly.
 
-For more in-depth information about using the portal see [Manage SQL Databases using the Azure Classic Portal](sql-database-manage-portal.md).
+For more in-depth information about using the portal see [Manage SQL Databases using the Azure portal](sql-database-manage-portal.md).
 
 ## SQL Server Management Studio and SQL Server Data Tools in Visual Studio
 
@@ -36,7 +36,7 @@ SQL Server Management Studio (SSMS) and SQL Server Data Tools (SSDT) in Visual S
 
 You can use command line tools such as PowerShell to manage databases and elastic database pools, and to automate Azure resource deployments. Microsoft recommends this tool for managing a large number of databases and automating deployment and resource changes in a production environment.
 
-For more information on managing your Azure SQL Databases with command line tools, [Manage SQL Database with PowerShell](sql-database-command-line-tools.md)
+For more information on managing your Azure SQL Databases with command line tools, [Manage SQL Database with PowerShell](sql-database-manage-powershell.md)
 
 ## Elastic Database tools
 Use the elastic database tools to perform actions such as 
