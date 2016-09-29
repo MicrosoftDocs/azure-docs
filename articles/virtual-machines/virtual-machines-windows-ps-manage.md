@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/07/2016"
+	ms.date="09/27/2016"
 	ms.author="davidmu"/>
 
 # Manage Azure Virtual Machines using Resource Manager and PowerShell
@@ -104,21 +104,9 @@ It returns something like this:
     NetworkInterfaceIDs      : {/subscriptions/{subscription-id}/resourceGroups/
                                 rg1/providers/Microsoft.Network/networkInterfaces/nc1}
 
-## Start a virtual machine
-
-Start the virtual machine.
-
-    Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
-
-After a few minutes, it returns something like this:
-
-    RequestId  IsSuccessStatusCode  StatusCode  ReasonPhrase
-    ---------  -------------------  ----------  ------------
-                              True          OK  OK
-
 ## Stop a virtual machine
 
-Stop the virtual machine.
+Stop the running virtual machine.
 
     Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 
@@ -132,21 +120,35 @@ Enter **Y** to stop the virtual machine.
 
 After a few minutes, it returns something like this:
 
-    RequestId  IsSuccessStatusCode  StatusCode  ReasonPhrase
-    ---------  -------------------  ----------  ------------
-                              True          OK  OK
+    StatusCode : Succeeded
+    StartTime  : 9/13/2016 12:11:57 PM
+    EndTime    : 9/13/2016 12:14:40 PM
+
+## Start a virtual machine
+
+Start the virtual machine if it's stopped.
+
+    Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
+
+After a few minutes, it returns something like this:
+
+    StatusCode : Succeeded
+    StartTime  : 9/13/2016 12:32:55 PM
+    EndTime    : 9/13/2016 12:35:09 PM
+
+If you want to restart a virtual machine that is already running, use **Restart-AzureRmVM** described next.
 
 ## Restart a virtual machine
 
-Restart the virtual machine.
+Restart the running virtual machine.
 
     Restart-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 
 It returns something like this:
 
-    RequestId  IsSuccessStatusCode  StatusCode  ReasonPhrase
-    ---------  -------------------  ----------  ------------
-                              True          OK  OK
+    StatusCode : Succeeded
+    StartTime  : 9/13/2016 12:54:40 PM
+    EndTime    : 9/13/2016 12:55:54 PM
 
 ## Delete a virtual machine
 
@@ -168,7 +170,7 @@ It returns something like this:
     ---------  -------------------  ----------  ------------
                               True          OK  OK
 
-## Resize a virtual machine
+## Update a virtual machine
 
 This example shows how to update the size of the virtual machine.
         
