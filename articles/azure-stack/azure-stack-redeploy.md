@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/26/2016"
+	ms.date="09/29/2016"
 	ms.author="erikje"/>
 
 # Redeploy Azure Stack
@@ -41,3 +41,7 @@ To redeploy Azure Stack, you must start over from scratch as described below.
 
 7. You do not need to delete the existing Storage Pool from the previous TP2 deployment. The deployment script detects and cleans up the existing, then creates new.
 8. Redeploy from copying a new copy of the CloudBuilder.vhdx, boot to it, etc.
+
+## Next steps
+
+[Connect to Azure Stack](azure-stack-connect-azure-stack.md)
