@@ -42,7 +42,7 @@ The following high-level workflow is typical of nearly all applications and serv
 
 The following sections discuss these and the other resources of Batch that enable your distributed computational scenario.
 
-> [AZURE.NOTE] You'll need a [Batch account](batch-account-create-portal.md) to use the Batch service. Also, nearly all solutions use an [Azure Storage][azure_storage] account for file storage and retrieval. Batch currently supports only the **General purpose** storage account type, as described in step 5 of [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/storage-create-storage-account.md).
+> [AZURE.NOTE] You need a [Batch account](batch-account-create-portal.md) to use the Batch service. Also, nearly all solutions use an [Azure Storage][azure_storage] account for file storage and retrieval. Batch currently supports only the **General purpose** storage account type, as described in step 5 of [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](../storage/storage-create-storage-account.md).
 
 ## Batch service resources
 
@@ -283,7 +283,7 @@ Check out [Task dependencies in Azure Batch](batch-task-dependencies.md) and the
 
 ## Environment settings for tasks
 
-Each task executed the Batch service has access to environment variables that it sets on compute nodes. This includes environment variables defined by the Batch service ([service-defined][msdn_env_vars]) and custom environment variables that you can define for your tasks. The applications and scripts your tasks execute have access to these environment variables during execution.
+Each task executed by the Batch service has access to environment variables that it sets on compute nodes. This includes environment variables defined by the Batch service ([service-defined][msdn_env_vars]) and custom environment variables that you can define for your tasks. The applications and scripts your tasks execute have access to these environment variables during execution.
 
 You can set custom environment variables at the task or job level by populating the *environment settings* property for these entities. For example, see the [Add a task to a job][rest_add_task] operation (Batch REST API), or the [CloudTask.EnvironmentSettings][net_cloudtask_env] and [CloudJob.CommonEnvironmentSettings][net_job_env] properties in Batch .NET.
 
