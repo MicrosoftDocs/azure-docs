@@ -17,7 +17,7 @@
    ms.author="iainfou"/>
 
 # Install and Configure MongoDB on a Linux VM in Azure
-[MongoDB](http://www.mongodb.org) is a popular open-source, high-performance NoSQL database. This article guides you through creating a Linux virtual machine (VM) using the Resource Manager deployment model. Examples are shown to:
+[MongoDB](http://www.mongodb.org) is a popular open-source, high-performance NoSQL database. This article guides you through creating a Linux virtual machine (VM) using the Resource Manager deployment model. Examples are shown that detail how to:
 
 - [Manually install and configure a basic MongoDB instance](#manually-install-and-configure-mongodb-on-a-vm) - uses a single VM to understand the steps involved.
 - [Create a basic MongoDB instance using a template](#create-basic-mongodb-instance-on-centos-using-a-template) - uses a single VM, suitable for development and testing.
@@ -113,7 +113,7 @@ This template uses the Custom Script extension for Linux to add a `yum` reposito
 The following example creates a resource group with the name `BasicMongoDBCentOS` in the `WestUS` region. Enter your own values as follows:
 
 ```bash
-azure group create --name <BasicMongoDBCentOS> --location <WestUS> \
+azure group create --name BasicMongoDBCentOS --location WestUS \
     --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 ```
 
@@ -125,12 +125,12 @@ You can create a complex MongoDB sharded cluster using the following Azure quick
 
 This template follows the [MongoDB sharded cluster best practices](https://docs.mongodb.com/manual/core/sharded-cluster-components/) to provide redundancy and high availability. The template creates two shards, with three nodes in each replica set. One config server replica set with three nodes is also created, plus two `mongos` router servers to provide consistency to applications from across the shards.
 
-.[AZURE.NOTE] Deploying this complex MongoDB sharded cluster requires more than 20 cores, which is typically the default core count per region for a subscription. Open an Azure support request to increase your core count. The Azure CLI returns you to a prompt within a few seconds of creating the deployment, but the installation and configuration can take over an hour to complete. 
+> [AZURE.NOTE] Deploying this complex MongoDB sharded cluster requires more than 20 cores, which is typically the default core count per region for a subscription. Open an Azure support request to increase your core count. The Azure CLI returns you to a prompt within a few seconds of creating the deployment, but the installation and configuration can take over an hour to complete.
 
 The following example creates a resource group with the name `MongoDBShardedCluster` in the `WestUS` region. Enter your own values as follows:
 
 ```bash
-azure group create --name <MongoDBShardedCluster> --location <WestUS> \
+azure group create --name MongoDBShardedCluster --location WestUS \
     --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
 ```
 
