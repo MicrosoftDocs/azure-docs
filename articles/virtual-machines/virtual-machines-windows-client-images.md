@@ -1,7 +1,7 @@
 <properties
    pageTitle="Using Windows client images for dev/test scenarios | Microsoft Azure"
    description="How to use Visual Studio subscription benefits to deploy Windows 7/8/10 in Azure for dev/test scenarios"
-   services="virtual-machines-windowse"
+   services="virtual-machines-windows"
    documentationCenter=""
    authors="iainfoulds"
    manager="timlt"

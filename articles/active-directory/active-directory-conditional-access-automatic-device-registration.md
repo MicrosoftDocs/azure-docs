@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/21/2016"
+	ms.date="09/27/2016"
 	ms.author="femila"/>
 
 # Automatic device registration with Azure Active Directory for Windows domain-joined devices

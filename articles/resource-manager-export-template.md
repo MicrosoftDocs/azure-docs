@@ -145,6 +145,8 @@ It is generally a best practice to work with a template that deploys all the inf
 
 Although each deployment shows only the changes that you have made to your resource group, at any time you can export a template to show the attributes of your entire resource group.  
 
+> [AZURE.NOTE] You cannot export a template for a resource group that has more than 200 resources.
+
 1. To view the template for a resource group, select **Automation script**.
 
       ![export resource group](./media/resource-manager-export-template/export-resource-group.png)

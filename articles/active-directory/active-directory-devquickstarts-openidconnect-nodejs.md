@@ -16,7 +16,7 @@
 	ms.date="08/15/2016"
 	ms.author="brandwe"/>
 
-# Web App Sign In & Sign Out with Azure AD
+# NodeJS Web App Sign In & Sign Out with Azure AD
 
 
 Here we'll use Passport to:

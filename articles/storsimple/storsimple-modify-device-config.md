@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="05/16/2016"
+   ms.date="09/29/2016"
    ms.author="v-sharos"/>
 
 # Use the StorSimple Manager service to modify your StorSimple device configuration
@@ -63,7 +63,7 @@ A DNS server is used when your device attempts to communicate with your cloud st
 
 To modify the secondary DNS server, you can use the Azure classic portal.
 
-<!-- If a secondary DNS server is not configured, you will not be able to create volume containers or provision volumes on the device.-->
+
 
 ## Modify network interfaces
 

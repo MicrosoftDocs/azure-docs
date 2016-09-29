@@ -165,7 +165,7 @@ To change the retention period –
  This value will be immediately effective and reflect across your
  entire region.
 
-    ![](media/azure-stack-manage-storage-accounts/image10.png)
+![](media/azure-stack-manage-storage-accounts/image10.png)
 
 ## Reclaim capacity
 
