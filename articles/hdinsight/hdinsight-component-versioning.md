@@ -61,7 +61,7 @@ Hortonworks Data Platform|2.5|2.4|2.3|2.2|2.1.7|2.0|
 Apache Hadoop & YARN|2.7.3|2.7.1|2.7.1|2.6.0|2.4.0|2.2.0|
 Apache Tez|0.7.0|0.7.0|0.7.0 | 0.5.2|0.4.0||
 Apache Pig|0.16.0|0.15.0|0.15.0|0.14.0|0.12.1|0.12.0|
-Apache Hive & HCatalog|1.2.1 + 2.1|1.2.1|1.2.1|0.14.0|0.13.1|0.12.0|
+Apache Hive & HCatalog|1.2.1.2.5|1.2.1|1.2.1|0.14.0|0.13.1|0.12.0|
 Apache HBase |1.1.2|1.1.2|1.1.1|0.98.4|0.98.0||
 Apache Sqoop|1.4.6|1.4.6|1.4.6|1.4.5|1.4.4|1.4.4|1.4.3
 Apache Oozie|4.2.0|4.2.0|4.2.0|4.1.0|4.0.0|4.0.0|
@@ -69,7 +69,7 @@ Apache Zookeeper|3.4.6|3.4.6|3.4.6|3.4.6|3.4.5|3.4.5|
 Apache Storm|1.0.1|0.10.0|0.10.0|0.9.3|0.9.1||
 Apache Mahout|0.9.0+|0.9.0+|0.9.0+|0.9.0|0.9.0||
 Apache Phoenix|4.7.0|4.4.0|4.4.0|4.2.0|4.0.0.2.1.7.0-2162||
-Apache Spark|1.6.2 + 2.0|1.6.0 (Linux only)|1.5.2 (Linux only/Experimental build)|1.3.1 (Windows-only)|||
+Apache Spark|1.6.2 + 2.0 (Linux only)|1.6.0 (Linux only)|1.5.2 (Linux only/Experimental build)|1.3.1 (Windows-only)|||
 
 **Get current component version information**
 
