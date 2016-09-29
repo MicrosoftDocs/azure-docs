@@ -20,6 +20,8 @@
 
 To redeploy Azure Stack, you must start over from scratch as described below.
 
+## Steps to redeploy Azure Stack
+
 1. Reboot the host into the original operating system (installed to bare metal). This is not the default setting in the boot menu, so you must use KVM or local console to select it during the reboot (during setup, you named the “Boot from VHD” OS to “AzureStack TP2”, this will help identify which OS is which).
 
     You don't need to remove the existing boot entry (the new support script “PrepareBootFromVHD.ps1” takes care of that for you.)
