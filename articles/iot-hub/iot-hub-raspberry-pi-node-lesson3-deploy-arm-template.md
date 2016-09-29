@@ -63,7 +63,7 @@ After you finished updating the `arm-template-param.json` file, change directory
 
 ```bash
 cd iot-hub-node-raspberrypi-azure-blink
-az resource group deployment create --template-file-path azuredeploy.json --parameters-file-path arm-template-param.json -g iot-sample -n mydeployment
+az resource group deployment create --template-file-path arm-template.json --parameters-file-path arm-template-param.json -g iot-sample -n mydeployment
 ```
 
 It will take about 5 minutes to create these resources. While the resource creation is in progress, you can move to the next section to prepare the sample application which will be deployed to your Raspberry Pi 3.
