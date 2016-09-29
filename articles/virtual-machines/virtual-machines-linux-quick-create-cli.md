@@ -56,7 +56,7 @@ The following sections use the `UbuntuLTS` alias for the **ImageURN** option (`-
 
 ## Detailed walkthrough
 
-The previous `quick-create` example only called out the `-M` flag to identify the SSH public key to upload while disabling SSH passwords, so you are prompted for the following:
+The previous `quick-create` example only called out the `-M` flag to identify the SSH public key to upload while disabling SSH passwords, so you are prompted for the following arguments:
 
 - resource group name (any string is typically fine for your first Azure resource group)
 - VM name
