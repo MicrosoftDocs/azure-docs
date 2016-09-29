@@ -58,6 +58,7 @@ experiment
  to invite other users to view the page.
 
 ![Share this item with friends](media\machine-learning-gallery-how-to-use-contribute-publish\share-links.png)
+
 ![Add your own comments](media\machine-learning-gallery-how-to-use-contribute-publish\comments.png)
 
 ## Download
@@ -114,12 +115,12 @@ Follow these steps to contribute an experiment to the Cortana Intelligence Galle
 2. Write a summary of what your content covers. Briefly describe the problem being solved and how you approached it.
 
 3. Use the detailed description box to step through the different parts of your experiment. Some useful topics to include here are:
-	- Experiment graph screenshot.
-	- Data sources and explanation.
-	- Data processing.
-	- Feature engineering.
-	- Model description.
-	- Results and evaluation of model performance.
+	- Experiment graph screenshot
+	- Data sources and explanation
+	- Data processing
+	- Feature engineering
+	- Model description
+	- Results and evaluation of model performance
 
 	You can use Markdown to format as needed. Click the **Preview** icon to see how things will look when published.
 

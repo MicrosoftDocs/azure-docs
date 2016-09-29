@@ -56,6 +56,7 @@ template
  to invite other users to view the page.
 
 ![Share this item with friends](media\machine-learning-gallery-how-to-use-contribute-publish\share-links.png)
+
 ![Add your own comments](media\machine-learning-gallery-how-to-use-contribute-publish\comments.png)
 
 ## Deploy

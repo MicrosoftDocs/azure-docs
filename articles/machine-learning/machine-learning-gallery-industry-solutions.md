@@ -32,7 +32,7 @@ section of the Gallery brings together various resources that are specific to su
 - [Banking](https://gallery.cortanaintelligence-int.com/industries/banking) - Find banking solutions such as predicting credit risk and monitoring for online fraud.
 - [Healthcare](https://gallery.cortanaintelligence-int.com/industries/healthcare) - Find healthcare solutions such as detecting disease, and predicting hospital readmissions.
   
-These resources include experiments, custom modules, APIs, collections, and any other Gallery items that provide solutions specific to the industry you're interested in.
+These resources include experiments, custom modules, APIs, collections, and any other Gallery items that can help you develop solutions specific to the industry you're working in.
 
 ## Discover
 
@@ -46,6 +46,7 @@ These resources include experiments, custom modules, APIs, collections, and any 
  in the Gallery, or you can search by selecting filter criteria on the left of the page and entering search terms at the top. 
  
 ![Share this item with friends](media\machine-learning-gallery-how-to-use-contribute-publish\share-links.png)
+
 ![Add your own comments](media\machine-learning-gallery-how-to-use-contribute-publish\comments.png)
 
  Click any Gallery item to open the item's details page for more information. 

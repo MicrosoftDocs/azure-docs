@@ -54,11 +54,12 @@ notebook
  to invite other users to view the page.
 
 ![Share this item with friends](media\machine-learning-gallery-how-to-use-contribute-publish\share-links.png)
+
 ![Add your own comments](media\machine-learning-gallery-how-to-use-contribute-publish\comments.png)
 
 ## Download
 
-You can download any notebook and open it in Machine Learning Studio. Just click 
+You can download any notebook and open it in Machine Learning Studio:
 
 1. Open the notebook's details page
 2. Click **Open in Studio**

@@ -67,6 +67,7 @@ You can even share a solution of interest with friends or colleagues using the s
 You may also email links to these solutions to invite other users to view the pages.
 
 ![Share this item with friends](media\machine-learning-gallery-how-to-use-contribute-publish\share-links.png)
+
 ![Add your own comments](media\machine-learning-gallery-how-to-use-contribute-publish\comments.png)
 
 
