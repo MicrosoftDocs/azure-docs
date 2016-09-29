@@ -34,7 +34,7 @@
 <tr><td>**SDK installation instructions**</td><td>[Python SDK installation instructions](http://azure.github.io/azure-documentdb-python/)</td></tr>
 <tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr>
 <tr><td>**Get started**</td><td>[Get started with the Python SDK](documentdb-python-application.md)</td></tr>
-<tr><td>**Current supported platform**</td><td>[Python 2.7](https://www.python.org/download/releases/2.7/)</td></tr>
+<tr><td>**Current supported platform**</td><td>[Python 2.7](https://www.python.org/download/releases/2.7/) and [Python 3.4](https://www.python.org/download/releases/3.4/)</td></tr>
 </table></br>
 
 ## Release notes
