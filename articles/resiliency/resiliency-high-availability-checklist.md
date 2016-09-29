@@ -4,7 +4,7 @@
    services=""
    documentationCenter="na"
    authors="adamglick"
-   manager="hongfeig"
+   manager="saladki"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/15/2016"
+   ms.date="08/18/2016"
    ms.author="aglick"/>
 
 #High availability checklist
@@ -47,12 +47,12 @@ A good scalable and resilient design uses VMSS to make sure that you can grow/sh
 __What happens if you don't us a Virtual Machine Scale Set with my stateless application of web server?__ Without a VMSS, you limit your ability to scale without limits and to optimize your use of resources. A design that lacks VMSS has an upper scaling limit that will have to be handled with additional code (or manually). This lack of a VMSS also means that your application can not easily add and remove machines (regardless of scale) to help you handle large spikes of traffic (such as during a promotion or if your site/app/product goes viral).
 
 ###Are you using premium storage and separate storage accounts for each of your virtual machines?
-It is a best practice to use premium storage for your production virtual machines. In addition, you should make sure that you use a separate storage account for each virtual machine (this is true for small-scale deployments. For larger deployments you can re-use storage accounts for multiple machines but there is a balancing that needs to be done to insure you are balanced across update domains and across tiers of your application). If you would like to find out more information on Azure Storage performance and scalability, read [Microsoft Azure Storage Performance and Scalability Checklist](../storage/storage-performance-checklist.md).
+It is a best practice to use premium storage for your production virtual machines. In addition, you should make sure that you use a separate storage account for each virtual machine (this is true for small-scale deployments. For larger deployments you can re-use storage accounts for multiple machines but there is a balancing that needs to be done to ensure you are balanced across update domains and across tiers of your application). If you would like to find out more information on Azure Storage performance and scalability, read [Microsoft Azure Storage Performance and Scalability Checklist](../storage/storage-performance-checklist.md).
 
 __What happens if you don't use separate storage accounts for each virtual machine?__ A storage account, like many other resources is a single point of failure. Although there are many protections and resiliency features of Azure Storage, a single point of failure is never a good design. For instance, if access rights get corrupted to that account, a storage limit is hit, or an [IOPS limit](../azure-subscription-service-limits.md#virtual-machine-disk-limits) is reached, all virtual machines using that storage account are impacted. Additionally, if there is a service disruption that impacts a storage stamp that includes that particular storage account you could have multiple virtual machines impacted.
 
 ###Are you using a load balancer or a queue between each tier of your application?
-Using load balancers or queues between each tier of your application enables you to easily scale each tier of your application easily and independently. You should choose between these technologies based on your latency, complexity, and distribution (i.e. how widely you are distributing your app) needs. In general, queues tend to have higher latency and add complexity but benefit you at being more resilient and allowing you to distribute your application over larger areas (such as across regions). If you would like to find out more information on how to use internal load balancers or queues, please read [Internal Load balancer Overview](../load-balancer/load-balancer-internal-overview.md) and [Azure Queues and Service Bus queues - compared and contrasted](../service-bus/service-bus-azure-and-service-bus-queues-compared-contrasted.md).
+Using load balancers or queues between each tier of your application enables you to easily scale each tier of your application easily and independently. You should choose between these technologies based on your latency, complexity, and distribution (i.e. how widely you are distributing your app) needs. In general, queues tend to have higher latency and add complexity but benefit you at being more resilient and allowing you to distribute your application over larger areas (such as across regions). If you would like to find out more information on how to use internal load balancers or queues, please read [Internal Load balancer Overview](../load-balancer/load-balancer-internal-overview.md) and [Azure Queues and Service Bus queues - compared and contrasted](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md).
 
 __What happens if you don't use a load balancer or queue between each tier of your application?__ Without a load balancer, or queue, between each tier of your application it is difficult to scale your application up or down and distribute its load across multiple machines. Not doing this can lead to over, or under provisioning your resources and a risk of downtime, or poor user experience, if you have unexpected changes in traffic or system failures.
  

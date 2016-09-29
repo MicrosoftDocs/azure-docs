@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Active Directory Federation Services in Azure | Microsoft Azure"
 	description="In this document you will learn how to deploy AD FS in Azure for high availablity."
-    keywords="introduction to AD FS, Azure, Azure AD Connect overview, AD FS in Azure, iaas, ADFS"
+    keywords="deploy AD FS in azure, deploy azure adfs, azure adfs, azure ad fs,deploy adfs, deploy ad fs, adfs in azure, deploy adfs in azure, deploy AD FS in azure, adfs azure, introduction to AD FS, Azure, AD FS in Azure, iaas, ADFS, move adfs to azure"
 	services="active-directory"
 	documentationCenter=""
 	authors="anandyadavmsft"
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/26/2016"
+	ms.date="07/13/2016"
 	ms.author="anandy;billmath"/>
 
-# AD FS in Azure 
+# AD FS deployment in Azure 
 
 AD FS provides simplified, secured identity federation and Web single sign-on (SSO) capabilities. Federation with Azure AD or O365 enables users to authenticate using on-premises credentials and access all resources in cloud. As a result, it becomes important to have a highly available AD FS infrastructure to ensure access to resources both on-premises and in the cloud. Deploying AD FS in Azure can help achieve the high availability required with minimal efforts.
 There are several advantages of deploying AD FS in Azure, a few of them are listed below:
@@ -36,7 +36,7 @@ The diagram above shows the recommended basic topology to start deploying your A
 * **DC / ADFS Servers**: If you have fewer than 1,000 users you can simply install AD FS role on your domain controllers. If you do not want any performance impact on the domain controllers or if you have more than 1,000 users, then deploy AD FS on separate servers.
 * **WAP Server** – it is necessary to deploy Web Application Proxy servers, so that users can reach the AD FS when they are not on the company network also.
 * **DMZ**: The Web Application Proxy servers will be placed in the DMZ and ONLY TCP/443 access is allowed between the DMZ and the internal subnet.
-* **Load Balancers**: To ensure high availability of AD FS and Web Application Proxy servers, we recommend using an internal load balancer for AD FS servers and Azure Load Balancer for Web Application Proxy  servers.
+* **Load Balancers**: To ensure high availability of AD FS and Web Application Proxy servers, we recommend using an internal load balancer for AD FS servers and Azure Load Balancer for Web Application Proxy servers.
 * **Availability Sets**: To provide redundancy to your AD FS deployment, it is recommended that you group two or more virtual machines in an Availability Set for similar workloads. This configuration ensures that during either a planned or unplanned maintenance event, at least one virtual machine will be available
 * **Storage Accounts**: It is recommended to have two storage accounts. Having a single storage account can lead to creation of a single point of failure and can cause the deployment to become unavailable in an unlikely scenario where the storage account goes down. Two storage accounts will help associate one storage account for each fault line.
 * **Network segregation**:  Web Application Proxy servers should be deployed in a separate DMZ network. You can divide one virtual network into two subnets and then deploy the Web Application Proxy server(s) in an isolated subnet. You can simply configure the network security group settings for each subnet and allow only required communication between the two subnets. More details are given per deployment scenario below
@@ -278,14 +278,12 @@ Overall, you need the following rules to efficiently secure your internal subnet
 
 |Rule|Description|Flow|
 |:----|:----|:------:|
-|AllowHTTPSFromDMZ|	Allow the HTTPS communication to DMZ | Inbound |
+|AllowHTTPSFromDMZ| Allow the HTTPS communication from DMZ | Inbound |
 |DenyAllFromDMZ| This rule will block all traffic from DMZ to internal subnet. The rule AllowHTTPSFromDMZ already takes care of ensuring that HTTPS communication goes through and anything else is blocked by this rule | Inbound |
-|AllowHTTPSToDMZ| This rule will allow HTTPS communication to DMZ to be allowed | Outbound |
-|DenyDMZAll| All other traffic to DMZ, except HTTPS, will be blocked by this rule | Outbound |
 |DenyInternetOutbound| No access to internet | Outbound |
 
-![INT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png)
-![INT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png)
+[comment]: <> (![INT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgintinbound.png))
+[comment]: <> (![INT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgintoutbound.png))
  
 **9.2.	Securing the DMZ subnet**
 
@@ -293,14 +291,13 @@ Overall, you need the following rules to efficiently secure your internal subnet
 |:----|:----|:------:|
 |AllowHttpsFromVirtualNetwork| Allow HTTPS from virtual network | Inbound |
 |AllowHTTPSInternet| Allow HTTPS from internet to the DMZ | Inbound|
-|DenyingressexceptHTTPS|	Block anything other than HTTPS from internet | Inbound |
-|AllowOutToADFS| Allow HTTPS to internal subnet | Outbound |
-|AllowHTTPSToInternet| Allow HTTPS to internet | Outbound |
+|DenyingressexceptHTTPS| Block anything other than HTTPS from internet | Inbound |
 |DenyOutToInternet|	Anything except HTTPS to internet is blocked | Outbound |
 
-![EXT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png)
-![EXT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png)
+[comment]: <> (![EXT access rules (inbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzinbound.png))
+[comment]: <> (![EXT access rules (outbound)](./media/active-directory-aadconnect-azure-adfs/nsgdmzoutbound.png))
 
+>[AZURE.NOTE] If client user certificate authentication (clientTLS authentication using X509 user certificates) is required, then AD FS requires TCP port 49443 be enabled for inbound access.
 
 ###10.	Test the AD FS sign-in
 
@@ -329,7 +326,7 @@ On successful sign-in, it will provide you with a success message as shown below
 
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
 * [Configuring and managing your AD FS using Azure AD Connect](active-directory-aadconnectfed-whatis.md)
-
+* [High availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 
 
 

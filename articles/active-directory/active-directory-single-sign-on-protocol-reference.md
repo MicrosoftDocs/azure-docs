@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/23/2016"
+	ms.date="09/28/2016"
 	ms.author="priyamo"/>
 
 # Single Sign-On SAML protocol
 
-In this article, we will learn the SAML 2.0 authentication requests and responses that Azure Active Directory (Azure AD) supports for Single Sign-On.
+This article covers the SAML 2.0 authentication requests and responses that Azure Active Directory (Azure AD) supports for Single Sign-On.
 
 The protocol diagram below describes the single sign-on sequence. The cloud service (the service provider) uses an HTTP Redirect binding to pass an `AuthnRequest` (authentication request) element to Azure AD (the identity provider). Azure AD then uses an HTTP post binding to post a `Response` element to the cloud service.
 
@@ -160,22 +160,6 @@ For example, a sample response with Issuer element could look like this:
 
 ```
 <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
-```
-
-### Signature
-
-Azure AD signs the `Response` element upon successful sign-on. The `Signature` element contains a digital signature that the application can use to authenticate the source and verify the integrity of the response.
-
-Azure AD uses the signing key specificied in the `IDPSSODescriptor` element of its metadata document. For more information, see [Federation Metadata Document](active-directory-federation-metadata.md).
-
-Azure AD also signs the `Assertion` element, but the two Signature elements are independent.
-
-A sample `Signature` element in the response could look like this:
-
-```
-<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-    ...
-  </ds:Signature>
 ```
 
 ### Status

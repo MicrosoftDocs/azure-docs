@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/28/2016"
+   ms.date="07/25/2016"
    ms.author="bwren" />
 
 # Custom fields in Log Analytics
@@ -136,3 +136,4 @@ We can now use the custom field like any other record property.  To illustrate t
 ## Next steps
 
 - Learn about [log searches](log-analytics-log-searches.md) to build queries using custom fields for criteria.
+- Monitor [custom log files](log-analytics-data-sources-custom-logs.md) that you parse using custom fields.

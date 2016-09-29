@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/27/2016"
+   ms.date="07/29/2016"
    ms.author="terrylan"/>
 
 # Enable auditing on SQL databases in Azure Security Center
@@ -24,23 +24,22 @@ Once you’ve turned on auditing you can configure Threat Detection settings and
 
 This recommendation applies to the Azure SQL service only; doesn't include SQL running on your virtual machines.
 
-> [AZURE.NOTE] The information in this document applies to the preview release of Azure Security Center. This document introduces the service by using an example deployment.  This is not a step-by-step guide.
+> [AZURE.NOTE] This document introduces the service by using an example deployment.  This is not a step-by-step guide.
 
 ## Implement the recommendation
 
 1. In the **Recommendations** blade, select **Enable Auditing on SQL databases**.  This opens the **Enable Auditing on SQL databases** blade.
-![][1]
+![Enable auditing on SQL databases][1]
 
 2. Select a SQL database to enable auditing on. This opens the **Auditing & Threat detection** blade.
-![][2]
+![Auditing and threat detection][2]
 3. On the **Auditing & Threat detection** blade, select **ON** under **Auditing**.
-![][3]
+![Turn on auditing and threat detection][3]
 
-4. Follow the steps in [Get started with SQL database auditing](../sql-database/sql-database-auditing-get-started.md) to configure storage where your audit logs will be stored. The subscription's storage account for data collection is the default storage account.
 
 5. Follow the steps in [Get started with SQL Database Threat Detection](../sql-database/sql-database-threat-detection-get-started.md) to turn on and configure Threat Detection and to configure the list of emails that will receive security alerts upon detection of anomalous activities.
 
-## Next steps
+## See also
 
 This article showed you how to implement the Security Center recommendation "Enable auditing on SQL databases." To learn more about securing your SQL database, see the following:
 

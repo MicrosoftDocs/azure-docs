@@ -168,6 +168,8 @@ You can test receiving notifications in your app by sending push notifications i
 
 ## (Optional) Send push notifications from the app
 
+>[AZURE.IMPORTANT] This example of sending notifications from the client app is provided for learning purposes only. Since this will require the `DefaultFullSharedAccessSignature` to be present on the client app, it exposes your notification hub to the risk that a user may gain access to send unauthorized notifications to your clients.
+
 If you want to send push notifications from within an app, this section provides an example of how to do this using the REST interface.
 
 1. In Xcode, open `Main.storyboard` and add the following UI components from the object library to allow the user to send push notifications in the app:

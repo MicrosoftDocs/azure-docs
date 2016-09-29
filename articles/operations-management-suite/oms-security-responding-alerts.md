@@ -13,7 +13,7 @@
    ms.devlang="na"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/24/2016"
+   ms.date="08/02/2016"
    ms.author="yurid"/>
 
 # Monitoring and responding to security alerts in Operations Management Suite Security and Audit Solution
@@ -57,7 +57,7 @@ You can leverage **Threat Intelligence** information in OMS Security and Audit s
 
 2. In the **Security and Audit** dashboard, you will see the **Threat Intelligence** options in the right, as shown below:
 
-	![Threat intel](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig2.png)
+	![Threat intel](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig2-ga.png)
 
 These three tiles will give you an overview of the current threats. In the **Server with outbound malicious traffic** you will be able to identify if there is any computer that you are monitoring (inside or outside of your network) that is sending malicious traffic to the Internet. 
 
@@ -75,7 +75,7 @@ The **threat intelligence map** will help you to identify the current locations 
 
 ![threat intel map](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig5.png)
 
-## Next steps
+## See also
 
 In this document, you learned how to use the **Threat Intelligence** option in OMS Security and Audit solution to respond to security alerts. To learn more about OMS Security, see the following articles:
 

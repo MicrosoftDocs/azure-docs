@@ -3,8 +3,8 @@
 	description="Overview and content map of Hybrid Identity design considerations guide"
 	documentationCenter=""
 	services="active-directory"
-	authors="yuridio"
-	manager="stevenpo"
+	authors="billmath"
+	manager="femila"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.topic="article"
     ms.tgt_pltfrm="na"
     ms.workload="identity" 
-	ms.date="04/25/2016"
-	ms.author="yuridio"/>
+	ms.date="08/08/2016"
+	ms.author="billmath"/>
 
 # Azure Active Directory Hybrid Identity Design Considerations
 

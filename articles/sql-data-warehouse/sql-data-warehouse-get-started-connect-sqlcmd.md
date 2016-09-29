@@ -13,8 +13,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/16/2016"
-   ms.author="mausher;barbkess;sonyama"/>
+   ms.date="09/06/2016"
+   ms.author="barbkess;sonyama"/>
 
 # Query Azure SQL Data Warehouse (sqlcmd)
 
@@ -24,23 +24,20 @@
 - [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 - [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 
-This walkthrough uses the sqlcmd Command-line Utility to query an Azure SQL Data Warehouse .  
-
-## Prerequisites
-
-To step through this tutorial, you need:
-
--  [sqlcmd.exe][]. To download this, see [Microsoft Command Line Utilities 11 for SQL Server][].
+This walkthrough uses the [sqlcmd][] command-line utility to query an Azure SQL Data Warehouse.  
 
 ## 1. Connect
 
-To get started with sqlcmd, open the command prompt and enter **sqlcmd** followed by the connection string for your SQL Data Warehouse database. The connection string will need following required parameters:
+To get started with [sqlcmd][], open the command prompt and enter **sqlcmd** followed by the connection string for your SQL Data Warehouse database. The connection string requires the following parameters:
 
 + **Server (-S):** Server in the form `<`Server Name`>`.database.windows.net
 + **Database (-d):** Database name.
++ **Enable Quoted Identifiers (-I):** Quoted identifiers must be enabled to connect to a SQL Data Warehouse instance.
+
+To use SQL Server Authentication, you need to add the username/password parameters:
+
 + **User (-U):** Server user in the form `<`User`>`
 + **Password (-P):** Password associated with the user.
-+ **Enable Quoted Identifiers (-I):** Quoted identifiers must be enabled in order to connect to a SQL Data Warehouse instance.
 
 For example, your connection string might look like the following:
 
@@ -48,7 +45,17 @@ For example, your connection string might look like the following:
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
 ```
 
-> [AZURE.NOTE] The -I option which enables quoted identfiers, is currently required to connect to SQL Data Warehouse.
+To use Azure Active Directory Integrated authentication, you need to add the Azure Active Directory parameters:
+
++ **Azure Active Directory Authentication (-G):** use Azure Active Directory for authentication
+
+For example, your connection string might look like the following:
+
+```sql
+C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
+```
+
+> [AZURE.NOTE] You need to [enable Azure Active Directory Authentication](sql-data-warehouse-authentication.md) to authenticate using Active Directory.
 
 ## 2. Query
 
@@ -64,25 +71,23 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@s
 These next examples show how you can run your queries in batch mode using the -Q option or piping your SQL to sqlcmd.
 
 ```sql
-C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I -Q "SELECT name FROM sys.tables;"
+sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I -Q "SELECT name FROM sys.tables;"
 ```
 
 ```sql
-C:\>"SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
+"SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
 ```
 
 ## Next steps
 
-To learn about all of the sqlcmd options, see the [sqlcmd documentation][sqlcmd.exe].
-
-<!--Articles-->
-[connecting with PowerBI]: sql-data-warehouse-integrate-power-bi.md
-
-
-<!--Other-->
-[sqlcmd.exe]: https://msdn.microsoft.com/library/ms162773.aspx
-[Microsoft Command Line Utilities 11 for SQL Server]: http://go.microsoft.com/fwlink/?LinkId=321501
-[Azure portal]: https://portal.azure.com
+See [sqlcmd documentation][sqlcmd] for more about details about the options available in sqlcmd.
 
 <!--Image references-->
 
+<!--Article references-->
+
+<!--MSDN references--> 
+[sqlcmd]: https://msdn.microsoft.com/library/ms162773.aspx
+[Azure portal]: https://portal.azure.com
+
+<!--Other Web references-->

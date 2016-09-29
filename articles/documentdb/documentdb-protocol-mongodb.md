@@ -3,7 +3,7 @@
 	description="Learn about DocumentDB protocol support for MongoDB, now available in public preview." 
 	keywords="mongodb"
 	services="documentdb" 
-	authors="stephbaron" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor="" 
 	documentationCenter=""/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/31/2016" 
-	ms.author="stbaro"/>
+	ms.date="08/23/2016" 
+	ms.author="mimig"/>
 
 # DocumentDB protocol support for MongoDB
 

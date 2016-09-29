@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Integrate a cloud service with Azure CDN"
+	pageTitle="Integrate a cloud service with Azure CDN | Microsoft Azure"
 	description="A tutorial that teaches you how to deploy a cloud service that serves content from an integrated Azure CDN endpoint"
 	services="cdn, cloud-services"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/11/2016"
+	ms.date="07/28/2016"
 	ms.author="casoper"/>
 
 

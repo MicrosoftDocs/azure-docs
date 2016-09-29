@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/09/2016" 
+	ms.date="07/29/2016" 
 	ms.author="mimig"/>
 
 # Understanding NoSQL on Microsoft Azure
@@ -30,7 +30,7 @@ If so, we have two resources available to you:
  - A quick review of relational technology.
  - An introduction to each of the Azure NoSQL technologies: DocumentDB, Table storage, HBase, and HDInsight.
  - A comparison of the NoSQL technologies and Azure SQL Database. 
- - When to use DocumentDB vs. Table storage vs. HBase vs. HDInsight vs. SQL Database.
+ - When to use Azure DocumentDB vs. Table storage vs. HBase vs. HDInsight vs. SQL Database.
 
 
  

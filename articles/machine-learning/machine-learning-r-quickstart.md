@@ -4,8 +4,8 @@
 	keywords="quickstart,r language,r programming language,r programming tutorial"
 	services="machine-learning"
 	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
+	authors="garyericson"
+	manager="jhubbard"
 	editor="cgronlun"/>
 
 <tags
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/12/2016"
-	ms.author="larryfr"/>
+	ms.author="garye"/>
 
 # Quickstart tutorial for the R programming language for Azure Machine Learning
 

@@ -1,14 +1,14 @@
 <properties
    pageTitle="Logic app scenario: Create an Azure Functions Service Bus trigger | Microsoft Azure"
    description="Use Azure Functions to create a Service Bus trigger for a logic app"
-   services="app-service\logic,functions"
+   services="logic-apps,functions"
    documentationCenter=".net,nodejs,java"
    authors="jeffhollan"
    manager="dwrede"
    editor=""/>
 
 <tags
-   ms.service="app-service-logic"
+   ms.service="logic-apps"
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"

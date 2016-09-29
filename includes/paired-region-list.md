@@ -19,3 +19,4 @@
 |Australia Southeast|Australia East     |
 |Canada East        |Canada Central     |
 |Canada Central     |Canada East        |
+|West US 2          |West Central US    |

@@ -8,7 +8,7 @@ There are two possible configurations for VMs running on Azure. VMs are either c
 Planned maintenance updates to single-instance and multi-instance VMs happen separately. By reconfiguring your VMs to be single-instance (if they are multi-instance) or to be multi-instance (if they are single-instance), you can control when their VMs receive the planned maintenance. Please see either [Planned maintenance for Azure Linux virtual machines](../articles/virtual-machines/virtual-machines-linux-planned-maintenance.md) or [Planned maintenance for Azure Windows virtual machines](../articles/virtual-machines/virtual-machines-windows-planned-maintenance.md) for details on planned maintenance for Azure VMs.
 
 ## For Multi-instance Configuration
-You can select the time planned maintenance impacts you VMs that are deployed in an Availability Set configuration by removing these VMs from availability sets.
+You can select the time planned maintenance impacts your VMs that are deployed in an Availability Set configuration by removing these VMs from availability sets.
 
 1.	An email will be sent to you 7 calendar days before the planned maintenance to your VMs in a Multi-instance configuration. The subscription IDs and names of the affected Multi-instance VMs will be included in the body of the email.
 
@@ -30,7 +30,7 @@ You can select the time planned maintenance impacts you VMs that are deployed in
 
 4.	These VMs will be moved to Single-Instance hosts and will not be updated during the planned maintenance to Availability Set Configurations.
 
-5.	Once the update to Availability Set VMs is complete (according to schedule outlined in the original email), you should  add the VMs back into their availability sets, and they will be re-configured as multi-instance VMs. Moving the VMs from Single-instance back to Multi-instance will result in a reboot. Typically, once all multi-instance updates are completed across the entire Azure environment, single-instance maintenance follows.
+5.	Once the update to Availability Set VMs is complete (according to schedule outlined in the original email), you should add the VMs back into their availability sets, and they will be re-configured as multi-instance VMs. Moving the VMs from Single-instance back to Multi-instance will result in a reboot. Typically, once all multi-instance updates are completed across the entire Azure environment, single-instance maintenance follows.
 
 This can also be achieved using Azure PowerShell:
 

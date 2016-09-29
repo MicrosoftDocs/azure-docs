@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Overview and Comparison of Azure On Demand Media Encoders" 
-	description="This topic gives an overview and gives a comparison of Azire On Demand Media encoders." 
+	pageTitle="Overview and comparison of Azure on demand media encoders | Microsoft Azure" 
+	description="This topic gives an overview and comparison of Azure on demand media encoders." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2016" 
+	ms.date="09/19/2016" 
 	ms.author="juliako"/>
 
-#Overview and Comparison of Azure On Demand Media Encoders
+#Overview and comparison of Azure on demand media encoders
 
 ##Encoding overview
 
@@ -30,7 +30,7 @@ Media Services provides dynamic packaging which allows you to deliver your adapt
 To take advantage of [dynamic packaging](media-services-dynamic-packaging-overview.md), you need to do the following:
 
 - Encode your mezzanine (source) file into a set of adaptive bitrate MP4 files or adaptive bitrate Smooth Streaming files (the encoding steps are demonstrated later in this tutorial).
-- Get at least one On-Demand streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see [How to Scale On-Demand Streaming Reserved Units](media-services-manage-origins.md#scale_streaming_endpoints/).
+- Get at least one On-Demand streaming unit for the streaming endpoint from which you plan to delivery your content. For more information, see [How to Scale On-Demand Streaming Reserved Units](media-services-portal-manage-streaming-endpoints.md).
 
 Media Services supports the following on demand encoders that are described in this article:
 
@@ -39,7 +39,7 @@ Media Services supports the following on demand encoders that are described in t
 
 This article gives a brief overview of on demand media encoders and provides links to articles that give more detailed information. The topic also provides comparison of the encoders.
 
-Note that by default each Media Services account can have one active encoding task at a time. You can reserve encoding units that allow you to have multiple encoding tasks running concurrently, one for each encoding reserved unit you purchase. For information, see [Scaling encoding units](media-services-portal-encoding-units.md).
+Note that by default each Media Services account can have one active encoding task at a time. You can reserve encoding units that allow you to have multiple encoding tasks running concurrently, one for each encoding reserved unit you purchase. For information, see [Scaling encoding units](media-services-scale-media-processing-overview.md).
 
 ##Media Encoder Standard
 

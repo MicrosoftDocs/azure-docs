@@ -12,16 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/07/2016" 
+	ms.date="09/11/2016" 
 	ms.author="awills"/>
 
 # Application Insights API for custom events and metrics 
 
 *Application Insights is in preview.*
 
-Insert a few lines of code in your application to find out what users are doing with it, or to help diagnose issues. You can send telemetry from device and desktop apps, web clients, and web servers. 
-
-The Application Insights data collectors use this API to send standard telemetry such as page views and exception reports, but you can also use it to send your own custom telemetry.
+Insert a few lines of code in your application to find out what users are doing with it, or to help diagnose issues. You can send telemetry from device and desktop apps, web clients, and web servers. The [Visual Studio Application Insights](app-insights-overview.md) core telemetry API lets you send custom events and metrics, and your own versions of standard telemetry. This API is the same API that is used by the standard Application Insights data collectors.
 
 ## API summary
 
@@ -46,7 +44,6 @@ If you haven't done these yet:
 
 * Add the Application Insights SDK to your project:
  * [ASP.NET project][greenbrown]
- * [Windows project][windows]
  * [Java project][java] 
  * [JavaScript in each web page][client]   
 
@@ -104,7 +101,8 @@ For example, in a game app, send an event whenever a user wins the game:
 
     telemetry.trackEvent("WinGame");
 
-Here, "WinGame" is the name that appears in the Application Insights portal. 
+
+### View your events in the Azure portal
 
 To see a count of your events, open a [Metric Explorer](app-insights-metrics-explorer.md) blade, add a new chart, and select Events.  
 
@@ -240,10 +238,40 @@ You can also call it yourself if you want to simulate requests in a context wher
     // ... process the request ...
 
     stopwatch.Stop();
-    telemetryClient.TrackRequest(requestName, DateTime.Now,
+    telemetry.TrackRequest(requestName, DateTime.Now,
        stopwatch.Elapsed, 
        "200", true);  // Response code, success
 
+
+
+## Operation context
+
+Telemetry items can be associated together by attaching to them a common Operation ID. The standard request tracking module does this for exceptions and other events sent while processing an HTTP request. In [Search](app-insights-diagnostic-search.md) and [Analytics](app-insights-analytics.md), you can use the ID to easily find any events associated with the request. 
+
+The easiest way to set the ID is to set an operation context by using this pattern:
+
+    // Establish an operation context and associated telemetry item:
+    using (var operation = telemetry.StartOperation<RequestTelemetry>("operationName"))
+    {
+        // Telemetry sent in here will use the same operation ID.
+        ...
+        telemetry.TrackEvent(...); // or other Track* calls
+        ...
+        // Set properties of containing telemetry item - for example:
+        operation.Telemetry.ResponseCode = "200";
+        
+        // Optional: explicitly send telemetry item:
+        telemetry.StopOperation(operation);
+
+    } // When operation is disposed, telemetry item is sent.
+
+As well as setting an operation context, `StartOperation` creates a telemetry item of the type you specify, and sends it when you dispose the operation, or if you explicitly call `StopOperation`. If you use `RequestTelemetry` as the telemetry type, then its Duration is set to the timed interval between start and stop.
+
+Operation contexts can't be nested. If there is already an operation context, then its ID is associated with all the contained items, including the item created with StartOperation.
+
+In Search, the operation context is used to create the Related Items list:
+
+![Related items](./media/app-insights-api-custom-events-metrics/21.png)
 
 
 ## Track Exception
@@ -276,7 +304,6 @@ The SDKs catch many exceptions automatically, so you don't always have to call T
 
 * ASP.NET: [Write code to catch exceptions](app-insights-asp-net-exceptions.md)
 * J2EE: [Exceptions are caught automatically](app-insights-java-get-started.md#exceptions-and-request-failures)
-* Windows apps: [Crashes are caught automatically](app-insights-windows-crashes.md)
 * JavaScript: Caught automatically. If you want to disable automatic collection, add a line into the code snippet that you insert in your web pages:
 
     ```
@@ -300,7 +327,22 @@ Use this to help diagnose problems by sending a 'breadcrumb trail' to Applicatio
 
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
 
-The size limit on `message` is much higher than limit on  properties. You can search on message content, but (unlike property values) you can't filter on it.
+
+You can search on message content, but (unlike property values) you can't filter on it.
+
+The size limit on `message` is much higher than limit on properties.
+An advantage of TrackTrace is that you can put relatively long data in the message. For example, you could encode POST data there.  
+
+
+In addition, you can add a severity level to your message. And, like other telemetry, you can add property values that you can use to help filter or search for different sets of traces. For example:
+
+
+    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+    telemetry.TrackTrace("Slow database response",
+                   SeverityLevel.Warning,
+                   new Dictionary<string,string> { {"database", db.ID} });
+
+This would enable you, in [Search][diagnostic], to easily filter out all the messages of a particular severity level relating to a particular database.
 
 ## Track Dependency
 
@@ -339,7 +381,7 @@ Normally the SDK sends data at times chosen to minimize impact on the user. Howe
     // Allow some time for flushing before shutdown.
     System.Threading.Thread.Sleep(1000);
 
-Note that the function is asynchronous for in-memory channels, but synchronous if you choose to use the [persistent channel](app-insights-windows-services.md#persistence-channel).
+Note that the function is asynchronous for in-memory channels, but synchronous if you choose to use the [persistent channel](app-insights-api-filtering-sampling.md#persistence-channel).
 
 
 ## Authenticated users
@@ -505,7 +547,9 @@ If it's more convenient, you can collect the parameters of an event in a separat
 
 > [AZURE.WARNING] Don't reuse the same telemetry item instance (`event` in this example) to call Track*() multiple times. This may cause telemetry to be sent with incorrect configuration.
 
-#### <a name="timed"></a> Timing events
+
+
+## <a name="timed"></a> Timing events
 
 Sometimes you'd like to chart how long it takes to perform some action. For example, you might like to know how long users take to consider choices in a game. This is a useful example of uses of the measurement parameter.
 
@@ -617,7 +661,7 @@ During debugging, it's useful to have your telemetry expedited through the pipel
 *C#*
     
     var telemetry = new TelemetryClient();
-    telemetry.Context.InstrumentationKey = "---my key---";
+    telemetry.InstrumentationKey = "---my key---";
     // ...
 
 
@@ -662,7 +706,7 @@ In web pages, you might want to set it from the web server's state, rather than 
 
 TelemetryClient has a Context property, which contains a number of values that are sent along with all telemetry data. They are normally set by the standard telemetry modules, but you can also set them yourself. For example:
 
-    telemetryClient.Context.Operation.Name = "MyOperationName";
+    telemetry.Context.Operation.Name = "MyOperationName";
 
 If you set any of these values yourself, consider removing the relevant line from [ApplicationInsights.config][config], so that your values and the standard values don't get confused.
 
@@ -705,10 +749,9 @@ If you set any of these values yourself, consider removing the relevant line fro
 
 * [ASP.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5)
-* [Android SDK](https://github.com/Microsoft/ApplicationInsights-Android)
+* [Windows Server packages](https://github.com/Microsoft/applicationInsights-dotnet-server)
 * [Java SDK](https://github.com/Microsoft/ApplicationInsights-Java)
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
-* [iOS SDK](https://github.com/Microsoft/ApplicationInsights-iOS)
 * [All platforms](https://github.com/Microsoft?utf8=%E2%9C%93&query=applicationInsights)
 
 ## Questions
@@ -746,6 +789,5 @@ If you set any of these values yourself, consider removing the relevant line fro
 [metrics]: app-insights-metrics-explorer.md
 [qna]: app-insights-troubleshoot-faq.md
 [trace]: app-insights-search-diagnostic-logs.md
-[windows]: app-insights-windows-get-started.md
 
  

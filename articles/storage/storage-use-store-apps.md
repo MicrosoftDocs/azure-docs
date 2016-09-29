@@ -4,15 +4,17 @@
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
-	manager="carmonm" />
+	manager="carmonm"
+	editor="tysonn"/>
+
 <tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/23/2016"
-	ms.author="tamram"/>
+	ms.date="09/07/2016"
+	ms.author="micurd;tamram"/>
 	
 # How to use Azure Storage in Windows Store apps
 

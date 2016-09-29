@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/20/2016"
+	ms.date="07/17/2016"
 	ms.author="wesmc"/>
 
 # Add push notifications to your Xamarin.Forms app
@@ -142,7 +142,7 @@ With the backend configured to use Google Cloud Messaging (GCM), we can add the 
 
 		[assembly: Permission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
 		[assembly: UsesPermission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
-		[assembly: UsesPermission(Name = "com.google.android.c2dm.permission.RECEIVE")
+		[assembly: UsesPermission(Name = "com.google.android.c2dm.permission.RECEIVE")]
 		[assembly: UsesPermission(Name = "android.permission.INTERNET")]
 		[assembly: UsesPermission(Name = "android.permission.WAKE_LOCK")]
 		//GET_ACCOUNTS is only needed for android versions 4.0.3 and below

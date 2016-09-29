@@ -3,7 +3,7 @@
    description="Learn about the Microsoft Azure Certified partner program and how to get to sell your virtual machine image, solution template, developer service, or data service on the Azure Marketplace"
    services="marketplace-publishing"
    documentationCenter="na"
-   authors="anishkannan "
+   authors="HannibalSII"
    manager=" "
    editor=""
    tags=""/>
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="10/05/2015"
+   ms.date="07/21/2016"
    ms.author="anishk;hascipio"/>
 
 # Get pre-approved via the Microsoft Azure Certified program

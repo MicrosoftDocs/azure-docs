@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/12/2016"
+	ms.date="08/03/2016"
 	ms.author="asteen"/>
 
 # Customizing Password Management to fit your organization's needs
@@ -37,7 +37,7 @@ In order to give your users the best possible experience, we recommend that you 
 | How can I allow users to unlock AD accounts without resetting a password? | [Setting: enable users to unlock their AD accounts without resetting a password](#allow-users-to-unlock-accounts-without-resetting-their-password) |
 | How can I enable password reset notifications for users? | [Setting: notify users when their passwords have been reset](#notify-users-and-admins-when-their-own-password-has-been-reset) |
 | How can I enable password reset notifications for admins? | [Setting: notify other admins when an admin reset their own password](#notify-admins-when-other-admins-reset-their-own-passwords) |
-| How can I customize password reset look and feel? | [Setting: company name, branding, and logo ](#password-managment-look-and-feel) |
+| How can I customize password reset look and feel? | [Setting: company name, branding, and logo ](#password-management-look-and-feel) |
 
 
 ## Password management look and feel
@@ -72,7 +72,7 @@ The following table describes how each control affects the experience for users 
               </td>
               <td>
                 <p>
-                  <strong>”Contact your administrator” emails:</strong>
+                  <strong>"Contact your administrator" emails:</strong>
                 </p>
                 <ul>
                   <li class="unordered">
@@ -202,9 +202,8 @@ The following table describes how each control affects the experience for users 
                 </p>
                 <ul>
                   <li class="unordered">
-												If set to no, then all end users in your directory can register for password reset at <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a><br><br></li>
-                  <li class="unordered">
-												If set to yes, then only end users specified in the <strong>group that can perform password reset</strong> control can register for password reset at  <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a><br><br></li>
+                    This setting does not affect users' access to the password reset registration portal. If <strong>Users enabled for password reset</strong> is set to <strong>yes</strong>, all end users in your directory can register for password reset at <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a>.
+                  </li>
                 </ul>
                 <p>
                   <strong>Password reset portal:</strong>
@@ -245,7 +244,8 @@ The following table describes how each control affects the experience for users 
                 </p>
                 <ul>
                   <li class="unordered">
-												If <strong>restrict access to password reset</strong> is set to <strong>yes</strong>, then only end users in this group will be able to register for password reset. <br><br></li>
+                    This setting does not affect users' access to the password reset registration portal. If <strong>Users enabled for password reset</strong> is set to <strong>yes</strong>, all end users in your directory can register for password reset at <a href="http://aka.ms/ssprsetup">http://aka.ms/ssprsetup</a>.
+                  </li>
                 </ul>
                 <p>
                   <strong>Password reset portal:</strong>
@@ -270,12 +270,6 @@ The following table describes how each control affects the experience for users 
                 <p>(Only visible if <strong>users enabled for password reset</strong> is set to <strong>yes</strong>).</p>
               </td>
               <td>
-                <p>
-
-                </p>
-                <p>
-
-                </p>
                 <p>
                   <strong>Note:</strong>
                 </p>
@@ -851,7 +845,7 @@ The following table describes how each control affects the experience for users 
                   <li class="unordered">
 												If set to yes, then whenever a user or admin resets his own password, he or she will receive a notification indicating his or her password has been reset.<br><br></li>
                   <li class="unordered">
-												This notification is sent via an email to the primary, and alternate (or authentication) email address of the user who reset his or her password.<br><br></li>
+												This notification is sent via an email to the user’s User Principal Name, and alternate (or authentication) email address of the user who reset his or her password.<br><br></li>
                 </ul>
               </td>
             </tr>

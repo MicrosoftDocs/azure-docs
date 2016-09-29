@@ -12,8 +12,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/09/2016"
-	ms.author="robinsh"/>
+	ms.date="08/03/2016"
+	ms.author="jahogg;robinsh"/>
 
 
 # End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer
