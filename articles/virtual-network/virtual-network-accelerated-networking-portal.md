@@ -23,7 +23,7 @@
 - [Azure Portal](virtual-network-accelerated-networking-portal.md)
 - [PowerShell](virtual-network-accelerated-networking-powershell.md)
 
-Accelerated Networking enables Single Root I/O Virtualization (SR-IOV) to a virtual machine (VM), greatly improving its networking performance. This high-performance path bypasses the host from the datapath reducing latency, jitter, and CPU utilization for use with the most demanding network workloads on supported VM types. This article explains how to use PowerShell to configure Accelerated Networking in the Azure Resource Manager deployment model. You can also create a new VM with Accelerated Networking using the Azure Portal. To learn now, click the Azure Portal box at the top of this article.
+Accelerated Networking enables Single Root I/O Virtualization (SR-IOV) to a virtual machine (VM), greatly improving its networking performance. This high-performance path bypasses the host from the datapath reducing latency, jitter, and CPU utilization for use with the most demanding network workloads on supported VM types. This article explains how to use the Azure Portal to configure Accelerated Networking in the Azure Resource Manager deployment model. You can also create a VM with Accelerated Networking using Azure PowerShell. To learn now, click the PowerShell box at the top of this article.
 
 The following picture shows communication between two virtual machines (VM) with and without Accelerated Networking:
 
@@ -57,11 +57,11 @@ Changes to these limitations will be announced through the [Azure Virtual Networ
 
 ## Create a Windows VM with Accelerated Networking
 
-1. Register for the preview by sending an email to [Accelerated Networking Subscriptions](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) with your subscription ID and intended use. Do not complete the remaining steps until after you receive an e-email notifying you that you've been accepted into the preview.
+1. Register for the preview by sending an email to [Accelerated Networking Subscriptions](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) with your subscription ID and intended use. Do not complete the remaining steps until after you receive an e-mail notifying you that you've been accepted into the preview.
 2. Login to the Azure Portal at http://portal.azure.com.
 3. Create a VM by completing the steps in the [Create a Windows VM](../virtual-machines/virtual-machines-windows-hero-tutorial.md) article selecting the following options:
 	- Select an operating system listed in the Limitations section of this article.
-	- Select a location (region) listed  in the Limitations section of this article.
+	- Select a location (region) listed in the Limitations section of this article.
 	- Select a VM size listed in the Limitations section of this article. If one of the supported sizes isn't listed, click **View all** in the **Choose a size** blade to select a size from an expanded list.
 	- In the **Settings** blade, click *Enabled* for **Accelerated networking**, as shown in the following picture:
 
