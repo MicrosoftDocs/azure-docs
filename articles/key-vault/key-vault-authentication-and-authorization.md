@@ -97,11 +97,11 @@ Now let's see what actions each role performs in the context of this application
 	- Turns on Key Vault logging
 	- Add keys/secrets
 	- Create backup of keys for disaster recovery
-	- set key vault access policy to grant permissions users and applications to perform specific operations
-	- Periodically rolls keys/secrets
+	- Set key vault access policy to grant permissions to users and applications to perform specific operations
+	- Periodically roll keys/secrets
 - Developers/operators
-  - Gets references to SSL certs (thumbprints), storage key (secret URI) and 
-  - Develops and deploy applications that access keys and secrets programmatically
+  - Get references to bootstrap and SSL certs (thumbprints), storage key (secret URI) and signing key (Key URI) from security team
+  - Develop and deploy application that accesses keys and secrets programmatically
 - Auditors
   - Review usage logs to confirm proper key/secret use and compliance with data security standards
 
@@ -110,23 +110,26 @@ Now let's see what access permissions to key vault are needed by each role (and 
 | User Role    | Management plane permissions | Data plane permissions |
 |--------------|------------------------------|------------------------|
 |Security Team|Key Vault Contributor|Keys: backup, create, delete, get, import, list, restore <br> Secrets: all|
-|Developers/Operator| Key Vault deploy permission so that the VMs they deploy can fetch secrets from the designated key vault | Keys: list<br>Secrets: list |
+|Developers/Operator| Key Vault deploy permission so that the VMs they deploy can fetch secrets from the designated key vault | None |
 |Auditors| None | Keys: list<br>Secrets: list|
 |Application| None | Keys: sign<br>Secrets: get |
 
-Besides permission to key vault, all three roles also need access to other resources. For example, to be able to deploy VMs (or Web Apps etc.) Developers/Operators also need 'Contributor' access to those resource types. Auditors need read access to the storage account where the key vault logs are be stored. 
+> Auditors need list permsion for keys and secrets so they can inspect attributes for keys and secrets that are not emitted in the logs.
 
-Since the focus of this article is on authentication and authorization for Key Vault, we only illustrate the relevant portions pertaining to that and skip details regarding deploying certificates, accessing keys and secrets programmatically etc. Those details are already covered elsewhere. Deploying certificates stored in key vault to VMs is covered in a [blog post](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/), and there is a [sample code](https://www.microsoft.com/download/details.aspx?id=45343) available that illustrates how to use bootstrap certificate to authenticate to Azure AD to get access to key vault.
+
+Besides permission to key vault, all three roles also need access to other resources. For example, to be able to deploy VMs (or Web Apps etc.) Developers/Operators also need 'Contributor' access to those resource types. Auditors need read access to the storage account where the key vault logs are be stored.
+
+Since the focus of this article is on authentication and authorization for Key Vault, we only illustrate the relevant portions pertaining to this topic and skip details regarding deploying certificates, accessing keys and secrets programmatically etc. Those details are already covered elsewhere. Deploying certificates stored in key vault to VMs is covered in a [blog post](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/), and there is [sample code](https://www.microsoft.com/download/details.aspx?id=45343) available that illustrates how to use bootstrap certificate to authenticate to Azure AD to get access to key vault.
 
 Most of the access permissions can be granted using Azure portal, but to grant granular permissions you need to use Azure PowerShell (or Azure CLI) to achieve the desired result. 
 
-The following PowerShell snippets assume the following:
+The following PowerShell snippets assume:
 
 - The Azure Active Directory administrator has created following security groups that represent the three roles: Contoso Security Team, Contoso App Devops, Contoso App Auditors. 
 
 - ContosoAppRG is the resource group where all the resources reside, contosologstorage is where the logs are stored. 
 
-- key vault and storage account where the logs are stored must be in the same Azure location
+- Key vault and storage account where the logs are stored must be in the same Azure location
 
 
 First the subscription administrator assigns 'Key Vault Contributor' role to the security team.
@@ -161,9 +164,6 @@ New-AzureRmRoleDefinition -Role $role
 
 # Assign this newly defined role to Dev ops security group
 New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso App Devops')[0].Id -RoleDefinitionName "Contoso App Devops" -Scope -ResourceGroupName ContosoAppRG
-
-# Data plane permissions for Dev/Ops
-Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso App Devops')[0].Id -PermissionToKeys list -PermissionToSecrets list
 
 # Data plane permissions for Auditors
 Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso App Auditors')[0].Id -PermissionToKeys list -PermissionToSecrets list
