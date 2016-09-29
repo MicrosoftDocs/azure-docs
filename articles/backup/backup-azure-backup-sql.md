@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/27/2016"
-	ms.author="giridham; jimpark;markgal;trinadhk"/>
+	ms.author="adigan;giridham; jimpark;markgal;trinadhk"/>
 
 
 # Azure Backup for SQL Server workloads using DPM
