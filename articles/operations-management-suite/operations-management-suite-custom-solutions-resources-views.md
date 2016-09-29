@@ -19,13 +19,13 @@
 
 >[AZURE.NOTE]This is preliminary documentation for custom solutions in OMS which are currently in preview. The schema described below is subject to change.    
 
-Many [custom solutions in OMS](operations-management-suite-custom-solutions.md) will include one or more views to visualize data.  This article describes how to export a view created by the [View Designer](../log-analytics/log-analytics-view-designer.md) and include it in a custom view.
+[Custom solutions in OMS](operations-management-suite-custom-solutions.md) will typically include one or more views to visualize data.  This article describes how to export a view created by the [View Designer](../log-analytics/log-analytics-view-designer.md) and include it in a custom view.
 
 >[AZURE.NOTE]The samples in this article use parameters and variables that are either required or common to solutions  and described in [Custom solutions in Operations Management Suite (OMS)](operations-management-suite-custom-solutions.md) 
 
-To include a view in a solution, you create a **resource** for it in the solution file.  The JSON that describes the view's detailed configuration is typically complex and not something that a typical solution author would be able to create manually.  The most common method is to create the view using the [View Designer](../log-analytics/log-analytics-view-designer.md) and, export it, and incorporate it into the solution. 
+To include a view in a solution, you create a **resource** for it in the [solution file](operations-management-suite-custom-solutions.md#solution-file).  The JSON that describes the view's detailed configuration is typically complex and not something that a typical solution author would be able to create manually.  The most common method is to create the view using the [View Designer](../log-analytics/log-analytics-view-designer.md) and, export it, and incorporate it into the solution. 
 
-The basic steps to export a view and include it in a solution are as follows.  Each step is described in further detail in the sections below.
+The basic steps to add a view to a solution are as follows.  Each step is described in further detail in the sections below.
 
 1. Export the view to a file.
 2. Modify the parameters of the exported file according to the guidance below.
@@ -40,9 +40,9 @@ The **resources** element of the view file will have a resource with a type of *
 
 
 ## Modify the view file
-The exported view file requires similar parameters as the solution file but uses different names for them.  You could add these parameter names to the solution, but they would require duplicate values when the solution was deployed.  For example, solutions have a parameter called **workspaceName** that requires the name of the OMS workspace.  Views have an equivalent parameter called **workspace**.  You could define both parameters, but then both would require the same value when then solution is deployed.  
+The exported view file requires similar parameters as the solution file but uses different names for them.  For example, solutions have a parameter called **workspaceName** that requires the name of the OMS workspace.  Views have an equivalent parameter called **workspace**.  
 
-As a best practice, you should perform a search and replace for the text values in the following table. Replace the text in the **resources** element of the view file with the parameter or function from the solution file. 
+You need to modify the view resource to use the parameter names in the solution.  You can do this by performing a search and replace for the text values in the following table. Replace the text in the **resources** element of the view file with the parameter or function from the solution file. 
 
 | View parameter | Solution |
 |:--|:--|
@@ -53,7 +53,7 @@ As a best practice, you should perform a search and replace for the text values 
 | parameters('workspaceapiversion') | variables('LogAnalyticsApiVersion') |
 
 
-For example, following is a view exported from View Designer.  An ellipse is used in place of the details of the view for space reasons.  And you'll typically just copy and paste these details without modifying them anyway.
+For example, following is a view exported from View Designer.  An ellipse is used in place of the details of the view for space reasons.  
 
 
 	{
@@ -144,7 +144,7 @@ After performing the search and replace described above, the **resources** eleme
 
 
 ## Add the view to the solution
-If you make the changes to the view file recommended in the previous section, then you can just copy the contents of the **resources** element in your view file to the **resources** element of your solution file.  It will use parameters and variables already defined in your solution.  If you have multiple views in your solution, then you should only have one **Microsoft.OperationalInsights/workspaces** resource.  Include the **views** resource for each view in the **resources** element of the workspace.
+One you've modified the view file, you can copy the contents of the **resources** element to the **resources** element of your solution file.  It will use parameters and variables already defined in your solution.  If you have multiple views in your solution, then you should only have one **Microsoft.OperationalInsights/workspaces** resource.  Include the **views** resource for each view in the **resources** element of the workspace.
 
 For example, the following sample shows the view above copied into a solution file.  This includes the required **solution** resource.
 

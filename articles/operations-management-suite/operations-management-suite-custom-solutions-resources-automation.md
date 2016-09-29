@@ -19,7 +19,7 @@
 
 >[AZURE.NOTE]This is preliminary documentation for custom solutions in OMS which are currently in preview. The schema described below is subject to change.     
 
-Many [custom solutions in OMS](operations-management-suite-custom-solutions.md) will include runbooks in Azure Automation to automate processes such as collecting and processing monitoring data.  In addition to runbooks, Automation accounts includes assets such as variables and schedules that support the runbooks used in the solution.  This article describes how to include runbooks and their related resources in a custom solution.
+[Custom solutions in OMS](operations-management-suite-custom-solutions.md) will typically include runbooks in Azure Automation to automate processes such as collecting and processing monitoring data.  In addition to runbooks, Automation accounts includes assets such as variables and schedules that support the runbooks used in the solution.  This article describes how to include runbooks and their related resources in a custom solution.
 
 >[AZURE.NOTE]The samples in this article use parameters and variables that are either required or common to solutions  and described in [Custom solutions in Operations Management Suite (OMS)](operations-management-suite-custom-solutions.md) 
 
@@ -79,6 +79,9 @@ An example of a runbook resource is below.  In this case, it retrieves the runbo
 			"version": "1.0.0.0"
 		}
 	}
+
+
+## Jobs
 
 
 
